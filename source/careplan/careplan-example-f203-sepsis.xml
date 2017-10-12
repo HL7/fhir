@@ -67,7 +67,7 @@
   </goal>
   <activity>
     <detail>
-      <kind value="ProcedureRequest"/>
+      <kind value="ServiceRequest"/>
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>

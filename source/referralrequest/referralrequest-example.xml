@@ -13,7 +13,7 @@
 	<display value="Protocol for insertion of tympanic ventilation tube"/>
   </definition>
   <basedOn>
-	<display value ="ProcedureRequest for Myringotomy and insertion of tympanic ventilation tube"/>
+	<display value ="ServiceRequest for Myringotomy and insertion of tympanic ventilation tube"/>
   </basedOn>
   <replaces>
 	<display value="prior ReferralRequest"/>

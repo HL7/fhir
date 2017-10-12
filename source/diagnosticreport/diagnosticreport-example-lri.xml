@@ -45,7 +45,7 @@
 					<value value="RFP 123456"/>
 				</identifier>
 				<basedOn>
-					<reference value="ProcedureRequest/example"/>
+					<reference value="ServiceRequest/example"/>
 				</basedOn>
 				<status value="final"/>
 				<category>

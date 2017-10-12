@@ -955,11 +955,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">procedurerequest-extensions</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">servicerequest-extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">name</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Procedure Request HL7 Extensions</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Service Request HL7 Extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">author.name</Data></Cell>
@@ -975,7 +975,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
     <Cell ss:StyleID="s74"><Data ss:Type="String">description</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">Defines common extensions used with or related to the Procedure Request resource</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Defines common extensions used with or related to the Service Request resource</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">status</Data></Cell>
@@ -995,8 +995,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/StructureDefinition/procedurerequest-"><Data
-      ss:Type="String">http://hl7.org/fhir/StructureDefinition/procedurerequest-</Data></Cell>
+    <Cell ss:StyleID="s81" ss:HRef="http://hl7.org/fhir/StructureDefinition/servicerequest-"><Data
+      ss:Type="String">http://hl7.org/fhir/StructureDefinition/servicerequest-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">introduction</Data></Cell>
@@ -3953,7 +3953,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">method</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3987,7 +3987,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s126"><Data ss:Type="String">ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">originationMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4004,7 +4004,7 @@
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">How the request originated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">The mode that proposal for the procedure request was received (by telephone, electronic, verbal, written)</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">The mode that proposal for the service request was received (by telephone, electronic, verbal, written)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4020,7 +4020,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">reasonRefused</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4053,7 +4053,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">approachBodyStructure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4086,7 +4086,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">targetBodyStructure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4119,7 +4119,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">reasonRejected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4152,7 +4152,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">precondition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4185,7 +4185,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s97"><Data ss:Type="String">ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">Questionnaire Requested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

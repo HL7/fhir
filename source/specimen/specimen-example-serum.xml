@@ -16,7 +16,7 @@
 		<reference value="Patient/pat2"/>
 	</subject>
 	<request>
-		<reference value="ProcedureRequest/ft4"/>
+		<reference value="ServiceRequest/ft4"/>
 	</request>
 	<collection>
 		<collector>

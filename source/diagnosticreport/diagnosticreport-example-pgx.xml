@@ -2,7 +2,7 @@
 <DiagnosticReport mlns="http://hl7.org/fhir">
 	<id value="example-pgx"/>
 	<basedOn>
-		<reference value="ProcedureRequest/example-pgx"/>
+		<reference value="ServiceRequest/example-pgx"/>
 	</basedOn>
 	<status value="final"/>
 	<code>

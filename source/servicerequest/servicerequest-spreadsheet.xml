@@ -1403,9 +1403,9 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Change column name to one from mappingSpaces.xml.  Add more if needed</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Sept2016ProcedureRequest Mapping</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Sept2016ServiceRequest Mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">OldProcedureRequest Mapping</Data><NamedCell
+    <Cell ss:StyleID="s75"><Data ss:Type="String">OldServiceRequest Mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Notes on R3-ReferalRequest-Mapping</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1433,8 +1433,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s82"><Data ss:Type="String">Request</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">xxx.request</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">ProcedureRequest</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">ServiceRequest</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><Data ss:Type="String">diagnostic request, referral, referral request, transfer of care request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1451,9 +1451,9 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A request for a procedure or diagnostic to be performed</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A request for a service to be performed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A record of a request for diagnostic investigations, treatments, or operations to be performed.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1467,16 +1467,16 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String"></Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;DomainResource&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;clinical.general&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;A request for a procedure to be performed&quot;,&quot;A request for a procedure to be performed. May be a proposal or an order.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ServiceRequest,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;DomainResource&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;clinical.general&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;A request for a procedure to be performed&quot;,&quot;A request for a procedure to be performed. May be a proposal or an order.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">ProcedureRequest,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;DomainResource&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;clinical.diagnostics&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;A request for a diagnostic service&quot;,&quot;A record of a request for a procedure service to be performed. &quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Observation[classCode=OBS, moodCode=RQO, code&lt;&quot;diagnostic order&quot;]&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">ServiceRequest,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;DomainResource&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;clinical.diagnostics&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;A request for a diagnostic service&quot;,&quot;A record of a request for a procedure service to be performed. &quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Observation[classCode=OBS, moodCode=RQO, code&lt;&quot;diagnostic order&quot;]&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">5/24/2017 EH: for RR  change name to ProcedureRequest,  for PR added aliases</Data><NamedCell
+    <Cell ss:StyleID="Default"><Data ss:Type="String">5/24/2017 EH: for RR  change name to ServiceRequest,  for PR added aliases</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default" ss:Formula="=RC[-1]&amp;&quot; (&quot;&amp;RC[-2]&amp;&quot;)&quot;"><Data
-      ss:Type="String">ReferralRequest (5/24/2017 EH: for RR  change name to ProcedureRequest,  for PR added aliases)</Data><NamedCell
+      ss:Type="String">ReferralRequest (5/24/2017 EH: for RR  change name to ServiceRequest,  for PR added aliases)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1488,8 +1488,8 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.identifier</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.identifier</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">ProcedureRequest.identifier</Data><NamedCell
+      ss:Type="String">ServiceRequest.identifier</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">ServiceRequest.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1524,9 +1524,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">ClinicalStatement.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.identifier,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Identifier&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;id&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Unique identifier for the request&quot;,&quot;Identifiers assigned to this order by the order or by the receiver.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.identifier&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ServiceRequest.identifier,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Identifier&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;id&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Unique identifier for the request&quot;,&quot;Identifiers assigned to this order by the order or by the receiver.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.identifier&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">ProcedureRequest.identifier,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Identifier&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;id&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Identifiers assigned to this order&quot;,&quot;Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.&quot;,&quot;&quot;,&quot;The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2). For further discussion and examples see the [notes section](procedurerequest.html#notes) below.&quot;,&quot;&quot;,&quot;.id&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">ServiceRequest.identifier,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Identifier&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;id&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Identifiers assigned to this order&quot;,&quot;Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.&quot;,&quot;&quot;,&quot;The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2). For further discussion and examples see the [notes section](servicerequest.html#notes) below.&quot;,&quot;&quot;,&quot;.id&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.identifier</Data><NamedCell
@@ -1544,8 +1544,8 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.definition</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">definition</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.definition</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">ProcedureRequest.definition</Data><NamedCell
+      ss:Type="String">ServiceRequest.definition</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">ServiceRequest.definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">protocol</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1579,7 +1579,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">ProcedureRequest.definition,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Any)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Protocol or definition&quot;,&quot;Protocol or definition followed by this request&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s111"><Data ss:Type="String">ServiceRequest.definition,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Any)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Protocol or definition&quot;,&quot;Protocol or definition followed by this request&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.definition</Data><NamedCell
@@ -1597,16 +1597,16 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.basedOn</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">basedOn</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.basedOn</Data></Cell>
+      ss:Type="String">ServiceRequest.basedOn</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.basedOn</Data><NamedCell
+      ss:Type="String">ServiceRequest.basedOn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">fulfills</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Reference(CarePlan|ProcedureRequest|MedicationRequest)</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Reference(CarePlan|ServiceRequest|MedicationRequest)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
@@ -1633,7 +1633,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">ProcedureRequest.basedOn,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Any)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What request fulfills &quot;,&quot;Plan/proposal/order fulfilled by this request&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s114"><Data ss:Type="String">ServiceRequest.basedOn,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Any)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What request fulfills &quot;,&quot;Plan/proposal/order fulfilled by this request&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">for PR Updated reference types</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1652,16 +1652,16 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.replaces</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">replaces</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.replaces</Data></Cell>
+      ss:Type="String">ServiceRequest.replaces</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.replaces</Data><NamedCell
+      ss:Type="String">ServiceRequest.replaces</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">supersedes, prior, renewed order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Reference(ProcedureRequest)</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Reference(ServiceRequest)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
@@ -1688,7 +1688,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.replaces,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Any)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What request replaces&quot;,&quot;The request takes the place of the referenced completed or terminated request(s)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.replaces,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Any)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What request replaces&quot;,&quot;The request takes the place of the referenced completed or terminated request(s)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">for PR  added aliases, Updated reference types</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1707,9 +1707,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.groupIdentifier</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">requisition</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.requisition</Data></Cell>
+      ss:Type="String">ServiceRequest.requisition</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.requisition</Data><NamedCell
+      ss:Type="String">ServiceRequest.requisition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">grouperId;  groupIdentifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1729,7 +1729,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Composite Request ID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Some business processes need to know if multiple items were ordered as part of the same &quot;requisition&quot; for billing or other purposes.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1744,7 +1744,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="28" ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.requisition,&quot;grouperId;  groupIdentifier&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Identifier&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Composite Request ID&quot;,&quot;A shared identifier common to all diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.&quot;,&quot;Some business processes need to know if multiple items were ordered as part of the same &quot;requisition&quot; for billing or other purposes.&quot;,&quot;Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:Index="28" ss:StyleID="s92"><Data ss:Type="String">ServiceRequest.requisition,&quot;grouperId;  groupIdentifier&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Identifier&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Composite Request ID&quot;,&quot;A shared identifier common to all diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.&quot;,&quot;Some business processes need to know if multiple items were ordered as part of the same &quot;requisition&quot; for billing or other purposes.&quot;,&quot;Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.groupIdentifier</Data><NamedCell
@@ -1762,8 +1762,8 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.status</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">status</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.status</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">ProcedureRequest.status</Data><NamedCell
+      ss:Type="String">ServiceRequest.status</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">ServiceRequest.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1775,7 +1775,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">ProcedureRequestStatus</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">ServiceRequestStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1800,9 +1800,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Action.currentStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.status,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;Y&quot;,&quot;&quot;,&quot;ProcedureRequestStatus&quot;,&quot;status&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted&quot;,&quot;The status of the order.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.currentStatus&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ServiceRequest.status,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;Y&quot;,&quot;&quot;,&quot;ServiceRequestStatus&quot;,&quot;status&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted&quot;,&quot;The status of the order.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.currentStatus&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.status,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;Y&quot;,&quot;Y&quot;,&quot;ProcedureRequestStatus&quot;,&quot;status&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;draft | active | suspended | completed | entered-in-error | cancelled&quot;,&quot;The status of the order&quot;,&quot;&quot;,&quot;The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource&quot;,&quot;&quot;,&quot;.statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ServiceRequest.status,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;Y&quot;,&quot;Y&quot;,&quot;ServiceRequestStatus&quot;,&quot;status&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;draft | active | suspended | completed | entered-in-error | cancelled&quot;,&quot;The status of the order&quot;,&quot;&quot;,&quot;The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource&quot;,&quot;&quot;,&quot;.statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.status</Data><NamedCell
@@ -1820,9 +1820,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.intent</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">intent</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.intent</Data></Cell>
+      ss:Type="String">ServiceRequest.intent</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.intent</Data><NamedCell
+      ss:Type="String">ServiceRequest.intent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">1..1</Data><NamedCell
@@ -1834,7 +1834,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">ProcedureRequestIntent</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">ServiceRequestIntent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">class</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1858,7 +1858,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="28" ss:StyleID="s117"><Data ss:Type="String">ProcedureRequest.intent,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;Y&quot;,&quot;Y&quot;,&quot;ProcedureRequestIntent&quot;,&quot;class&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;proposal | plan | original-order | reflex-order&quot;,&quot;Whether the request is a proposal, plan, an original order or a reflex order.  &quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:Index="28" ss:StyleID="s117"><Data ss:Type="String">ServiceRequest.intent,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;Y&quot;,&quot;Y&quot;,&quot;ServiceRequestIntent&quot;,&quot;class&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;proposal | plan | original-order | reflex-order&quot;,&quot;Whether the request is a proposal, plan, an original order or a reflex order.  &quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.intent</Data><NamedCell
@@ -1876,9 +1876,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.priority</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">priority</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.priority</Data></Cell>
+      ss:Type="String">ServiceRequest.priority</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.priority</Data><NamedCell
+      ss:Type="String">ServiceRequest.priority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1889,7 +1889,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">ProcedureRequestPriority</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">ServiceRequestPriority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">class</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1900,7 +1900,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">routine | urgent | asap | stat</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Indicates how quickly the ServiceRequest should be addressed with respect to other requests.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1913,9 +1913,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.priority,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureRequestPriority&quot;,&quot;grade&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;routine | urgent | stat | asap&quot;,&quot;The clinical priority associated with this order.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Proposal.urgency&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ServiceRequest.priority,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;&quot;,&quot;&quot;,&quot;ServiceRequestPriority&quot;,&quot;grade&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;routine | urgent | stat | asap&quot;,&quot;The clinical priority associated with this order.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Proposal.urgency&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">ProcedureRequest.priority,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequestSPriority&quot;,&quot;class&quot;,&quot;&quot;,&quot;&quot;,&quot;If missing, this task should be performed with normal priority&quot;,&quot;&quot;,&quot;routine | urgent | asap | stat&quot;,&quot;Indicates how quickly the {{title}} should be addressed with respect to other requests.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ServiceRequest.priority,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;code&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ServiceRequestSPriority&quot;,&quot;class&quot;,&quot;&quot;,&quot;&quot;,&quot;If missing, this task should be performed with normal priority&quot;,&quot;&quot;,&quot;routine | urgent | asap | stat&quot;,&quot;Indicates how quickly the {{title}} should be addressed with respect to other requests.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.priority</Data><NamedCell
@@ -1932,9 +1932,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">doNotPerform</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">ProcedureRequest.doNotPerform</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">ServiceRequest.doNotPerform</Data></Cell>
     <Cell ss:StyleID="s120" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.doNotPerform</Data><NamedCell
+      ss:Type="String">ServiceRequest.doNotPerform</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1953,13 +1953,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">True if procedure should not be performed</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">True if service/procedure should not be performed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Set this to true if the record is saying that the procedure should NOT be performed.</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Set this to true if the record is saying that the service/procedure should NOT be performed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String"> This element is labeled as a [modifier](conformance-rules.html#isModifier.html) because it indicates that a procedure shouldn't happen, instead of a request for it to happen.  In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ProcedureRequest.code and ProcedureRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String"> This element is labeled as a [modifier](conformance-rules.html#isModifier.html) because it indicates that a procedure shouldn't happen, instead of a request for it to happen.  In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ServiceRequest.code and ServiceRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String"> .actionNegationInd</Data><NamedCell
@@ -1988,9 +1988,9 @@
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">category</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.category</Data></Cell>
+      ss:Type="String">ServiceRequest.category</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.category</Data><NamedCell
+      ss:Type="String">ServiceRequest.category</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2008,11 +2008,11 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Classification of procedure</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Classification of service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">A code that classifies the procedure for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;).</Data><NamedCell
+    <Cell ss:StyleID="s121"><Data ss:Type="String">A code that classifies the service for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Used for filtering what procedure request are retrieved and displayed.</Data><NamedCell
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Used for filtering what service request are retrieved and displayed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String"> There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set. &#13;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2041,9 +2041,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.code</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.code</Data></Cell>
+      ss:Type="String">ServiceRequest.code</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.code</Data><NamedCell
+      ss:Type="String">ServiceRequest.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">service requested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2055,7 +2055,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">ProcedureRequestCode</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">ServiceRequestCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">what</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2065,7 +2065,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">What is being requested/ordered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">Many laboratory and radiology procedure codes embed the specimen/organ system in the test ordeer name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.</Data><NamedCell
@@ -2080,9 +2080,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Procedure.procedureCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s123"><Data ss:Type="String">ProcedureRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureCode&quot;,&quot;class&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What procedure to perform&quot;,&quot;The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Procedure.procedureCode&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s123"><Data ss:Type="String">ServiceRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureCode&quot;,&quot;class&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What procedure to perform&quot;,&quot;The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Procedure.procedureCode&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">ProcedureRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequests&quot;,&quot;what&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What’s being requested/ordered&quot;,&quot;A code that identifies a particular procedure, or panel of investigations, that have been requested&quot;,&quot;&quot;,&quot;Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.&quot;,&quot;&quot;,&quot;.code&quot;,&quot;OBX-4&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ServiceRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ServiceRequests&quot;,&quot;what&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What’s being requested/ordered&quot;,&quot;A code that identifies a particular procedure, or panel of investigations, that have been requested&quot;,&quot;&quot;,&quot;Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.&quot;,&quot;&quot;,&quot;.code&quot;,&quot;OBX-4&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">for RR changed element name to code, reduced cardinality to single line item ( combine items with Task)  udpated value set to to procedure codes, for PR added alias 'service request'</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2101,8 +2101,8 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.subject</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.subject</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">ProcedureRequest.subject</Data><NamedCell
+      ss:Type="String">ServiceRequest.subject</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">ServiceRequest.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2122,7 +2122,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Individual the service is ordered for</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2136,9 +2136,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">ClinicalStatement.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s123"><Data ss:Type="String">ProcedureRequest.subject,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;Reference(Patient|Group)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;who.focus&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Who the procedure should be done to&quot;,&quot;The person, animal or group that should receive the procedure.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.subject&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s123"><Data ss:Type="String">ServiceRequest.subject,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;Reference(Patient|Group)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;who.focus&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Who the procedure should be done to&quot;,&quot;The person, animal or group that should receive the procedure.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.subject&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">ProcedureRequest.subject,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;Reference(Patient|Group|Location|Device)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;who.focus&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Individual the test is ordered for&quot;,&quot;On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.participation[typeCode=SBJ].role&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ServiceRequest.subject,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;Reference(Patient|Group|Location|Device)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;who.focus&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Individual the test is ordered for&quot;,&quot;On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.participation[typeCode=SBJ].role&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">for RR add Location, Device</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2157,9 +2157,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.context</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">context</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.context</Data></Cell>
+      ss:Type="String">ServiceRequest.context</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.context</Data><NamedCell
+      ss:Type="String">ServiceRequest.context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2194,9 +2194,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">ClinicalStatement.encounter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.encounter,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Encounter)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;context&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Encounter request created during&quot;,&quot;The encounter within which the procedure proposal or request was created.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.encounter&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ServiceRequest.encounter,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Encounter)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;context&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Encounter request created during&quot;,&quot;The encounter within which the procedure proposal or request was created.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.encounter&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">ProcedureRequest.context,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Encounter|EpisodeOfCare)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;context&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Encounter or Episode during which request was created&quot;,&quot;An encounter or episode of care that provides additional information about the healthcare context in which this request is made&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ServiceRequest.context,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Encounter|EpisodeOfCare)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;context&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Encounter or Episode during which request was created&quot;,&quot;An encounter or episode of care that provides additional information about the healthcare context in which this request is made&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.context</Data><NamedCell
@@ -2214,9 +2214,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.occurrence[x]</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">occurrence[x]</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.occurrence[x]</Data></Cell>
+      ss:Type="String">ServiceRequest.occurrence[x]</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.occurrence[x]</Data><NamedCell
+      ss:Type="String">ServiceRequest.occurrence[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">schedule</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2235,9 +2235,9 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">When procedure should occur</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">When service should occur</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">The date/time at which the requested procedure should occur.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">The date/time at which the requested service should occur.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2251,9 +2251,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Procedure.procedureSchedule</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">ProcedureRequest.scheduled[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime|Period|Timing&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;when.planned&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;When procedure should occur&quot;,&quot;The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. &quot;Every 8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;; &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Procedure.procedureSchedule&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s124"><Data ss:Type="String">ServiceRequest.scheduled[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime|Period|Timing&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;when.planned&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;When procedure should occur&quot;,&quot;The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. &quot;Every 8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;; &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Procedure.procedureSchedule&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">ProcedureRequest.occurrence[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime| Period| Timing&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;when.planned&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;When testing should occur&quot;,&quot;The date/time at which the requested procedure should occur.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.effectiveTime&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ServiceRequest.occurrence[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime| Period| Timing&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;when.planned&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;When testing should occur&quot;,&quot;The date/time at which the requested procedure should occur.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.effectiveTime&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String"> for RR added Timing to choice of types</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2272,9 +2272,9 @@
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s125"><Data ss:Type="String">asNeeded[x]</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.asNeeded[x]</Data></Cell>
+      ss:Type="String">ServiceRequest.asNeeded[x]</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.asNeeded[x]</Data><NamedCell
+      ss:Type="String">ServiceRequest.asNeeded[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2292,9 +2292,9 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Preconditions for procedure or diagnostic</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Preconditions for service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc.</Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2306,7 +2306,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Proposal.prnReason.reason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">ProcedureRequest.asNeeded[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;boolean|CodeableConcept&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureAsNeededReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Preconditions for procedure&quot;,&quot;If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Proposal.prnReason.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">ServiceRequest.asNeeded[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;boolean|CodeableConcept&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureAsNeededReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Preconditions for procedure&quot;,&quot;If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Proposal.prnReason.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">For RR add asNeeded</Data><NamedCell
@@ -2325,9 +2325,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.authoredOn</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">authoredOn</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.authoredOn</Data></Cell>
+      ss:Type="String">ServiceRequest.authoredOn</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.authoredOn</Data><NamedCell
+      ss:Type="String">ServiceRequest.authoredOn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">orderedOn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2362,9 +2362,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Proposal.proposedAtTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">ProcedureRequest.orderedOn,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;when.recorded&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;When request was created&quot;,&quot;The time when the request was made.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Proposal.proposedAtTime&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">ServiceRequest.orderedOn,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;when.recorded&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;When request was created&quot;,&quot;The time when the request was made.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Proposal.proposedAtTime&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">ProcedureRequest.authoredOn,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;when.recorded</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ServiceRequest.authoredOn,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;dateTime&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;when.recorded</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.authoredOn</Data><NamedCell
@@ -2382,9 +2382,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.requester</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">requester</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.requester</Data></Cell>
+      ss:Type="String">ServiceRequest.requester</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.requester</Data><NamedCell
+      ss:Type="String">ServiceRequest.requester</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">author, orderer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2400,7 +2400,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Who/what is requesting procedure or diagnostic</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Who/what is requesting service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">The individual who initiated the request and has responsibility for its activation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2417,9 +2417,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">ClinicalStatement.statementAuthor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.orderer,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Practitioner|Patient|RelatedPerson|Device)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;who.author&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Who made request&quot;,&quot;The healthcare professional responsible for proposing or ordering the procedure.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.statementAuthor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ServiceRequest.orderer,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Practitioner|Patient|RelatedPerson|Device)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;who.author&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Who made request&quot;,&quot;The healthcare professional responsible for proposing or ordering the procedure.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.statementAuthor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">ProcedureRequest.requester,&quot;author&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Who/what is requesting diagnostics&quot;,&quot;The individual who initiated the request and has responsibility for its activation&quot;,&quot;&quot;,&quot;This not the dispatcher, but rather who is authorizing&quot;,&quot;&quot;,&quot;.participation[typeCode=AUT].role&quot;,&quot;ORC.12&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ServiceRequest.requester,&quot;author&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Who/what is requesting diagnostics&quot;,&quot;The individual who initiated the request and has responsibility for its activation&quot;,&quot;&quot;,&quot;This not the dispatcher, but rather who is authorizing&quot;,&quot;&quot;,&quot;.participation[typeCode=AUT].role&quot;,&quot;ORC.12&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.requester</Data><NamedCell
@@ -2436,9 +2436,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.requester.agent</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">requester.agent</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.requester.agent</Data></Cell>
+      ss:Type="String">ServiceRequest.requester.agent</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.requester.agent</Data><NamedCell
+      ss:Type="String">ServiceRequest.requester.agent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">1..1</Data><NamedCell
@@ -2472,7 +2472,7 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">ClinicalStatement.statementAuthor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="28"><Data ss:Type="String">ProcedureRequest.requester.agent,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;Reference(Device|Practitioner|Organization)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;who.author&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Individual making the request&quot;,&quot;The device, practitioner or organization. who initiated the request&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.player&quot;,&quot;ORC.12&quot;,&quot;</Data><NamedCell
+    <Cell ss:Index="28"><Data ss:Type="String">ServiceRequest.requester.agent,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;Reference(Device|Practitioner|Organization)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;who.author&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Individual making the request&quot;,&quot;The device, practitioner or organization. who initiated the request&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.player&quot;,&quot;ORC.12&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">for PR Patient and RelatedPerson to  added reference types</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2491,9 +2491,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.requester.onBehalfOf</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">requester.onBehalfOf</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.requester.onBehalfOf</Data></Cell>
+      ss:Type="String">ServiceRequest.requester.onBehalfOf</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.requester.onBehalfOf</Data><NamedCell
+      ss:Type="String">ServiceRequest.requester.onBehalfOf</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2527,7 +2527,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.requester.onBehalfOf,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Organization)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Organization agent is acting for&quot;,&quot;The organization the device or practitioner was acting on behalf of.&quot;,&quot;Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request&quot;,&quot;&quot;,&quot;&quot;,&quot;.scoper&quot;,&quot;N/A&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.requester.onBehalfOf,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Organization)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Organization agent is acting for&quot;,&quot;The organization the device or practitioner was acting on behalf of.&quot;,&quot;Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request&quot;,&quot;&quot;,&quot;&quot;,&quot;.scoper&quot;,&quot;N/A&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">for PR added invariant 1 from RR</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2546,9 +2546,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.performerType</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">performerType</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.performerType</Data></Cell>
+      ss:Type="String">ServiceRequest.performerType</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.performerType</Data><NamedCell
+      ss:Type="String">ServiceRequest.performerType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">specialty</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2560,7 +2560,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">ProcedureRequestParticipantRole</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">ServiceRequestParticipantRole</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">who.actor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2570,7 +2570,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Performer role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Desired type of performer for doing the requested procedure. </Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Desired type of performer for doing the requested service. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">this is a  role, not  a participation type.  I.e. does not describe the task, but describes the capacity.  For example, “compounding pharmacy” or “psychiatrist” or “internal referral”.</Data><NamedCell
@@ -2585,7 +2585,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.performerType,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequestParticipantRole&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Performer role&quot;,&quot;Desired type of performer for doing the requested procedure. (&quot;,&quot;&quot;,&quot;this is a  role, not  aparticipation type.  I.e. doesn’t describe the task, describes the capacity.  Examples “compounding pharmacy” or “psychiatrist” or “internal referral”&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.performerType,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ServiceRequestParticipantRole&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Performer role&quot;,&quot;Desired type of performer for doing the requested procedure. (&quot;,&quot;&quot;,&quot;this is a  role, not  aparticipation type.  I.e. doesn’t describe the task, describes the capacity.  Examples “compounding pharmacy” or “psychiatrist” or “internal referral”&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">for PR added alias For RR changed element name to performerType binding to participant-role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2604,9 +2604,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.performer</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">performer</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.performer</Data></Cell>
+      ss:Type="String">ServiceRequest.performer</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.performer</Data><NamedCell
+      ss:Type="String">ServiceRequest.performer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">request recipient</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2627,7 +2627,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Requested perfomer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">If needed, use an [extension](extensibility.html) for listing alternative performers and/or roles and/or preference.</Data><NamedCell
@@ -2641,9 +2641,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.performer,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Practitioner|Organization|Patient|RelatedPerson)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Who should perform the procedure&quot;,&quot;For example, the surgeon, anaethetist, endoscopist, etc.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ServiceRequest.performer,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Practitioner|Organization|Patient|RelatedPerson)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Who should perform the procedure&quot;,&quot;For example, the surgeon, anaethetist, endoscopist, etc.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.performer,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Practitioner | Organization | Patient | Device | RelatedPerson)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Requested perfomer&quot;,&quot;The desired perfomer for doing the requested procedure.&quot;,&quot;&quot;,&quot;Use an [extension] (extensibility.html) or listing alternative alternative performers and/or roles and/or preference.&quot;,&quot;&quot;,&quot;.participation[AUT or PFM]&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.performer,&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;Reference(Practitioner | Organization | Patient | Device | RelatedPerson)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;who.actor&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Requested perfomer&quot;,&quot;The desired perfomer for doing the requested procedure.&quot;,&quot;&quot;,&quot;Use an [extension] (extensibility.html) or listing alternative alternative performers and/or roles and/or preference.&quot;,&quot;&quot;,&quot;.participation[AUT or PFM]&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">for RR changed element name to performer, added Patient and  Related Person to reference types, for PR added alias</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2662,9 +2662,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.reasonCode</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">reasonCode</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.reasonCode</Data></Cell>
+      ss:Type="String">ServiceRequest.reasonCode</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.reasonCode</Data><NamedCell
+      ss:Type="String">ServiceRequest.reasonCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2675,7 +2675,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">ProcedureRequestReason</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">ServiceRequestReason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">why</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2685,10 +2685,10 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Explanation/Justification for procedure or service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">This element represents why the referral is being made and may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use `CodeableConcept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.   Use `CodeableConcept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.reasonCode</Data><NamedCell
@@ -2699,9 +2699,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.reason[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept|Reference(Condition)&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Why procedure should occur&quot;,&quot;The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.indication.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.reason[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept|Reference(Condition)&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Why procedure should occur&quot;,&quot;The reason why the procedure is being proposed or ordered. This service request may be motivated by a Condition for instance.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.indication.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.reasonCode,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequestReason&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.reasonCode,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ServiceRequestReason&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">for RR used broader Procedure Reason Codes VS</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2720,9 +2720,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.reasonReference</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">reasonReference</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.reasonReference</Data></Cell>
+      ss:Type="String">ServiceRequest.reasonReference</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.reasonReference</Data><NamedCell
+      ss:Type="String">ServiceRequest.reasonReference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2740,12 +2740,12 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Explanation/Justification for procedure or service</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">Explanation/Justification for service or service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in supportingInformation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">This element represents why the referral is being made and may be used to decide how the procedure will be performed, or even if it will be performed at all.    To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise when referencing  *DiagnosticReport*  it should contain a finding  in `DiagnosticReport.conclusion` and/or `DiagnosticReport.codedDiagnosis`.   When using a  reference to *DocumentReference*, the target document should contain clear findings language providing the relevant reason for this procedure request .  Use  the CodeableConcept text element in `ProcedureRequest.reasonCode` if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.    To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise when referencing  *DiagnosticReport*  it should contain a finding  in `DiagnosticReport.conclusion` and/or `DiagnosticReport.codedDiagnosis`.   When using a  reference to *DocumentReference*, the target document should contain clear findings language providing the relevant reason for this service request .  Use  the CodeableConcept text element in `ServiceRequest.reasonCode` if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.outboundRelationship[typeCode=RSON].target</Data><NamedCell
@@ -2756,9 +2756,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.reason[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept|Reference(Condition)&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Why procedure should occur&quot;,&quot;The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.indication.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.reason[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept|Reference(Condition)&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Why procedure should occur&quot;,&quot;The reason why the procedure is being proposed or ordered. This service request may be motivated by a Condition for instance.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.indication.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.reasonReference,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Condition | Observation)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.reasonReference,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Condition | Observation)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Should add DocRef and DiagnosticReport to reference types  - check Gforge</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2777,9 +2777,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.supportingInfo</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">supportingInfo</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.supportingInfo</Data></Cell>
+      ss:Type="String">ServiceRequest.supportingInfo</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.supportingInfo</Data><NamedCell
+      ss:Type="String">ServiceRequest.supportingInfo</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Ask at order entry question, AOE</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2798,7 +2798,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Additional clinical information</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;.  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;.  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2811,9 +2811,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">ProcedureRequest.supportingInfo,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference (Any)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Extra information to use in performing request&quot;,&quot;Information that may be needed by/relevant to the performer in their execution of this request&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;GF#11181</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">ServiceRequest.supportingInfo,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference (Any)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Extra information to use in performing request&quot;,&quot;Information that may be needed by/relevant to the performer in their execution of this request&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;GF#11181</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.supportingInfo,&quot;Ask at order entry question, AOE&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Any)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Additional clinical information&quot;,&quot;Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.&quot;,&quot;&quot;,&quot; This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;. Examples include reporting the amount of inspired oxygen for blood gasses, the point in the menstrual cycle for cervical pap tests, and other conditions that influence test interpretations.&quot;,&quot;&quot;,&quot;outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]&quot;,&quot;OBR-13&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.supportingInfo,&quot;Ask at order entry question, AOE&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Any)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Additional clinical information&quot;,&quot;Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.&quot;,&quot;&quot;,&quot; This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;. Examples include reporting the amount of inspired oxygen for blood gasses, the point in the menstrual cycle for cervical pap tests, and other conditions that influence test interpretations.&quot;,&quot;&quot;,&quot;outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]&quot;,&quot;OBR-13&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.supportingInfo</Data><NamedCell
@@ -2831,9 +2831,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">NA</Data></Cell>
     <Cell><Data ss:Type="String">specimen</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.specimen</Data></Cell>
+      ss:Type="String">ServiceRequest.specimen</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.specimen</Data><NamedCell
+      ss:Type="String">ServiceRequest.specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2855,7 +2855,7 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">One or more specimens that the laboratory procedure will use. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource references to the ProcedureRequest.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource references to the ServiceRequest.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">.participation[typeCode=SPC].role</Data><NamedCell
@@ -2866,7 +2866,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.specimen,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Specimen)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Specimens for the requested test&quot;,&quot;One or more specimens that the procedure is about.&quot;,&quot;&quot;,&quot;Many investigation requests will create a need for specimens, but the request itself is not actually about the specimen. This element is for when the procedure is requested on already existing specimens and  the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource points to the ProcedureRequest.&quot;,&quot;&quot;,&quot;.participation[typeCode=SPC].role&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.specimen,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Specimen)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Specimens for the requested test&quot;,&quot;One or more specimens that the procedure is about.&quot;,&quot;&quot;,&quot;Many investigation requests will create a need for specimens, but the request itself is not actually about the specimen. This element is for when the procedure is requested on already existing specimens and  the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource points to the ServiceRequest.&quot;,&quot;&quot;,&quot;.participation[typeCode=SPC].role&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">For RR add specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2884,9 +2884,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">NA</Data></Cell>
     <Cell><Data ss:Type="String">bodySite</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.bodySite</Data></Cell>
+      ss:Type="String">ServiceRequest.bodySite</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.bodySite</Data><NamedCell
+      ss:Type="String">ServiceRequest.bodySite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">location</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2911,7 +2911,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Knowing where the procedure is performed is important for tracking if multiple sites are possible.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Only used if not implicit in the code found in ProcedureRequest.type.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodyStructure](extension-procedure-targetbodystructure.html)</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Only used if not implicit in the code found in ServiceRequest.type.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodyStructure](extension-procedure-targetbodystructure.html)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">targetSiteCode</Data><NamedCell
@@ -2922,9 +2922,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Procedure.targetBodySite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.bodySite,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;&quot;,&quot;BodySite&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What part of body to perform on&quot;,&quot;Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).&quot;,&quot;Knowing where the procedure is made is important for tracking if multiple sites are possible.&quot;,&quot;Only used if not implicit in the code found in ProcedureRequest.type&quot;,&quot;&quot;,&quot;targetSiteCode&quot;,&quot;&quot;,&quot;Procedure.targetBodySite&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ServiceRequest.bodySite,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;&quot;,&quot;BodySite&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What part of body to perform on&quot;,&quot;Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).&quot;,&quot;Knowing where the procedure is made is important for tracking if multiple sites are possible.&quot;,&quot;Only used if not implicit in the code found in ServiceRequest.type&quot;,&quot;&quot;,&quot;targetSiteCode&quot;,&quot;&quot;,&quot;Procedure.targetBodySite&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.bodySIte,&quot;location&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;BodySite&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Location of requested test (if applicable)&quot;,&quot;Anatomical location where the requested test should be performed.  This is the target site.&quot;,&quot;&quot;,&quot; If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodySite](extension-procedure-targetbodysite.html)&quot;,&quot;&quot;,&quot;targetSiteCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.bodySIte,&quot;location&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;BodySite&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Location of requested test (if applicable)&quot;,&quot;Anatomical location where the requested test should be performed.  This is the target site.&quot;,&quot;&quot;,&quot; If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodySite](extension-procedure-targetbodysite.html)&quot;,&quot;&quot;,&quot;targetSiteCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">For RR add bodysite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2942,8 +2942,8 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.note</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">note</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.note</Data></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">ProcedureRequest.note</Data><NamedCell
+      ss:Type="String">ServiceRequest.note</Data></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">ServiceRequest.note</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">0..*</Data><NamedCell
@@ -2975,9 +2975,9 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">ClinicalStatement.additionalText</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">ProcedureRequest.note,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Annotation&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Additional information about desired procedure&quot;,&quot;Any other notes associated with this proposal or order - e.g. provider instructions.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.additionalText&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">ServiceRequest.note,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Annotation&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Additional information about desired procedure&quot;,&quot;Any other notes associated with this proposal or order - e.g. provider instructions.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.additionalText&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.note,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Annotation&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Comments&quot;,&quot;Any other notes and comments made about the service request. (e.g. &quot;patient hates needles&quot;)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ServiceRequest.note,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Annotation&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Comments&quot;,&quot;Any other notes and comments made about the service request. (e.g. &quot;patient hates needles&quot;)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;.inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.note</Data><NamedCell
@@ -2995,7 +2995,7 @@
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s131"><Data ss:Type="String">description</Data></Cell>
     <Cell ss:StyleID="s96" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.description</Data></Cell>
+      ss:Type="String">ServiceRequest.description</Data></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">0..1</Data><NamedCell
@@ -3046,9 +3046,9 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Request.relevantHistory</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">relevantHistory</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C3&amp;&quot;.&quot;&amp;RC[-1]"><Data
-      ss:Type="String">ProcedureRequest.relevantHistory</Data></Cell>
+      ss:Type="String">ServiceRequest.relevantHistory</Data></Cell>
     <Cell ss:StyleID="s106" ss:Formula="=R2C4&amp;&quot;.&quot;&amp;RC[-2]"><Data
-      ss:Type="String">ProcedureRequest.relevantHistory</Data><NamedCell
+      ss:Type="String">ServiceRequest.relevantHistory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3080,7 +3080,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="28"><Data ss:Type="String">ProcedureRequest.relevantHistory,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Provenance)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Request provenance&quot;,&quot;Key events in the history of the request.&quot;,&quot;&quot;,&quot;&quot;This may not include provenances for all versions of the request – only those deemed “relevant” or important.</Data><NamedCell
+    <Cell ss:Index="28"><Data ss:Type="String">ServiceRequest.relevantHistory,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Provenance)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Request provenance&quot;,&quot;Key events in the history of the request.&quot;,&quot;&quot;,&quot;&quot;This may not include provenances for all versions of the request – only those deemed “relevant” or important.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.relevantHistory</Data><NamedCell
@@ -5936,7 +5936,7 @@
       ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">onBehalfOf for Practitioner or Device</Data></Cell>
     <Cell ss:StyleID="s103"/>
-    <Cell ss:StyleID="s146"><Data ss:Type="String">ProcedureRequest.requester</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">ServiceRequest.requester</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">onBehalfOf can only be specified if agent is practitioner or device</Data></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">(agent.resolve().empty()) or (agent.resolve() is Device) or (agent.resolve() is Practitioner) or onBehalfOf.exists().not()</Data></Cell>
     <Cell ss:StyleID="s147"><Data ss:Type="String">contains(f:agent/f:reference/@value, '/Practitioner/') or contains(f:agent/f:reference/@value, '/Device/') or not(exists(f:onBehalfOf))</Data></Cell>
@@ -6502,7 +6502,7 @@
     <Cell ss:StyleID="s155"><Data ss:Type="String">authored</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">ProcedureRequest.authoredOn</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">ServiceRequest.authoredOn</Data></Cell>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s158"/>
     <Cell ss:StyleID="s87"/>
@@ -6521,7 +6521,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">based-on</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.basedOn</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.basedOn</Data></Cell>
     <Cell ss:StyleID="s161"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6540,7 +6540,7 @@
     <Cell ss:StyleID="s162"><Data ss:Type="String">body-site</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.bodySite</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.bodySite</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Where procedure is going to be done</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6559,7 +6559,7 @@
     <Cell ss:StyleID="s162"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.code</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.code</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6578,7 +6578,7 @@
     <Cell ss:StyleID="s162"><Data ss:Type="String">category</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.category</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.category</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6597,7 +6597,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">context</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.context</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.context</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6616,7 +6616,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">definition</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.definition</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.definition</Data></Cell>
     <Cell ss:StyleID="s164"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6635,7 +6635,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Encounter</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.context</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.context</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">An encounter in which this request is made</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6654,7 +6654,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">identifier</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.identifier</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.identifier</Data></Cell>
     <Cell ss:StyleID="s164"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6673,7 +6673,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">intent</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.intent</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.intent</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6692,7 +6692,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">occurrence</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.occurrence[x]</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.occurrence[x]</Data></Cell>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6711,7 +6711,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Patient</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.subject</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.subject</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Search by subject - a patient</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6730,7 +6730,7 @@
     <Cell ss:StyleID="s162"><Data ss:Type="String">performer</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.performer</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.performer</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6749,7 +6749,7 @@
     <Cell ss:StyleID="s162"><Data ss:Type="String">performer-type</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.performerType</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.performerType</Data></Cell>
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6768,7 +6768,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">priority</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.priority</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.priority</Data></Cell>
     <Cell ss:StyleID="s165"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6787,7 +6787,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">replaces</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.replaces</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.replaces</Data></Cell>
     <Cell ss:StyleID="s165"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6806,7 +6806,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">requester</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.requester.agent</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.requester.agent</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6825,7 +6825,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">requisition</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.requisition</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.requisition</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6843,7 +6843,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s162"><Data ss:Type="String">specimen</Data></Cell>
     <Cell><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">ProcedureRequest.specimen</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">ServiceRequest.specimen</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Specimen to be tested</Data></Cell>
     <Cell ss:StyleID="s162"/>
     <Cell ss:Index="10" ss:StyleID="Default"/>
@@ -6859,7 +6859,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">status</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.status</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.status</Data></Cell>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s98"/>
@@ -6878,7 +6878,7 @@
     <Cell ss:StyleID="s159"><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s98"/>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">ProcedureRequest.subject</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">ServiceRequest.subject</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">Search by subject</Data></Cell>
     <Cell ss:Index="10" ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -8095,23 +8095,23 @@
     <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s162"><Data ss:Type="String">!procedurerequest-extensions</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">procedurerequest-extensions.xml</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">procedurerequest-extensions-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">!servicerequest-extensions</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">servicerequest-extensions.xml</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">servicerequest-extensions-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s185"><Data ss:Type="String">Procedure Request-Genetics</Data></Cell>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">procedurerequest-genetics-profile.xml</Data></Cell>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">procedurerequest-genetics-profile-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s185"><Data ss:Type="String">Service Request-Genetics</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">servicerequest-genetics-profile.xml</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">servicerequest-genetics-profile-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s162"><Data ss:Type="String">procedurerequest-extensions</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">procedurerequest-extensions.xml</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">procedurerequest-extensions-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String">servicerequest-extensions</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">servicerequest-extensions.xml</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">servicerequest-extensions-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s163"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
@@ -8415,7 +8415,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">lipid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">procedurerequest-example-lipid.xml</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">servicerequest-example-lipid.xml</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s175"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s189"><Data ss:Type="String">y</Data><NamedCell
@@ -8426,7 +8426,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">CT Scan order</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">di</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-di.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-di.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -8435,7 +8435,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Free T4 Add on Order</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">ft4</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-ft4.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-ft4.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -8444,8 +8444,8 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">PGx Phenotype example</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">example-pgx</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-pgx.xml</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Procedure Request-Genetics</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-pgx.xml</Data></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">Service Request-Genetics</Data></Cell>
     <Cell ss:StyleID="s191"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -8453,8 +8453,8 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Order for ABCB4 gene mutation analysis</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">og-example1</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-genetics-example-1.xml</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Procedure Request-Genetics</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-genetics-example-1.xml</Data></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">Service Request-Genetics</Data></Cell>
     <Cell ss:StyleID="s191"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -8462,8 +8462,8 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Order for a specific variant</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">og-example2</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-genetics-example-2.xml</Data></Cell>
-    <Cell ss:StyleID="s192"><Data ss:Type="String">Procedure Request-Genetics</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-genetics-example-2.xml</Data></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">Service Request-Genetics</Data></Cell>
     <Cell ss:StyleID="s191"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -8471,7 +8471,7 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">An example of a Head CT procedure</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">procedurerequest-example.xml</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">servicerequest-example.xml</Data></Cell>
     <Cell ss:StyleID="s175"/>
     <Cell ss:StyleID="s189"/>
    </Row>
@@ -8480,7 +8480,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Example with sub-requests derived from the request</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">subrequest</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-subrequest.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-subrequest.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8489,7 +8489,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">An example of an order for home physiotherapy</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">physiotherapy</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example2.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example2.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -8498,7 +8498,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">An example of an order to not turn a patient</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">do-not-turn</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example3.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example3.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -8507,7 +8507,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Part of an exercise plan</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">benchpress</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example4.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example4.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8516,7 +8516,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Example of an order for an implant</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">example-implant</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-implant.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-implant.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8525,7 +8525,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Example of an order for anambulation procedure</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">ambulation</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-ambulation.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-ambulation.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8534,7 +8534,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Example of an order for a biopsy procedure that was part of a colonoscopy</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">colon-biopsy</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-colonoscopy-bx.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-colonoscopy-bx.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8543,7 +8543,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Example of an order for a colonoscopy procedure with complication</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">colonoscopy</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-colonoscopy.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-colonoscopy.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8552,7 +8552,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Example of an order for an appendectomy procedure that is primarily narrative</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">appendectomy-narrative</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-appendectomy.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-appendectomy.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8561,7 +8561,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Example of an order for an obstetric procedure</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="String">ob</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-ob.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-ob.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8570,7 +8570,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Example of an order for an physical therapy evaluation procedure</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="String">physical-therapy</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-pt.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-pt.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8579,7 +8579,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Example of an order for patient education</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="String">education</Data></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">procedurerequest-example-edu.xml</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">servicerequest-example-edu.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8588,7 +8588,7 @@
     <Cell ss:StyleID="s98"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">An example of a Myringotomy referral request</Data></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">myringotomy</Data></Cell>
-    <Cell><Data ss:Type="String">procedurerequest-example-myringotomy.xml</Data></Cell>
+    <Cell><Data ss:Type="String">servicerequest-example-myringotomy.xml</Data></Cell>
     <Cell ss:StyleID="s178"/>
     <Cell ss:StyleID="s191"/>
    </Row>
@@ -8876,9 +8876,9 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s196"><Data ss:Type="String">ProcedureRequestStatus</Data><NamedCell
+    <Cell ss:StyleID="s196"><Data ss:Type="String">ServiceRequestStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The status of a procedure or diagnostic order.</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The status of a service order.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8896,9 +8896,9 @@
     <Cell ss:StyleID="s184"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="18">
-    <Cell ss:StyleID="s197"><Data ss:Type="String">ProcedureRequestCode</Data><NamedCell
+    <Cell ss:StyleID="s197"><Data ss:Type="String">ServiceRequestCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Codes for tests/services that can be performed by procedure or diagnostic services.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available [here](valueset-diagnostic-requests.html).</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available [here](valueset-diagnostic-requests.html).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8916,9 +8916,9 @@
     <Cell ss:StyleID="s163"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s196"><Data ss:Type="String">ProcedureRequestReason</Data><NamedCell
+    <Cell ss:StyleID="s196"><Data ss:Type="String">ServiceRequestReason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Diagnosis or problem codes justifying the reason for requesting the procedure or diagnostic investigation.</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Diagnosis or problem codes justifying the reason for requesting the service investigation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8937,9 +8937,9 @@
     <Cell ss:StyleID="s163"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s98"><Data ss:Type="String">ProcedureRequestIntent</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">ServiceRequestIntent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">The kind of procedure or diagnostic request </Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">The kind of service request </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">value set</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8957,7 +8957,7 @@
     <Cell ss:StyleID="s163"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s98"><Data ss:Type="String">ProcedureRequestParticipantRole</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">ServiceRequestParticipantRole</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -8977,7 +8977,7 @@
     <Cell ss:StyleID="s163"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s98"><Data ss:Type="String">ProcedureRequestPriority</Data><NamedCell
+    <Cell ss:StyleID="s98"><Data ss:Type="String">ServiceRequestPriority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Identifies the level of importance to be assigned to actioning the request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -9018,7 +9018,7 @@
     <Cell ss:StyleID="s163"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s197"><Data ss:Type="String">ProcedureRequestCategory</Data><NamedCell
+    <Cell ss:StyleID="s197"><Data ss:Type="String">ServiceRequestCategory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s198"><Data ss:Type="String">Classification of the procedure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

@@ -1,5 +1,5 @@
 <Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
-	<!--This is an example to demonstrate using task for actioning a filler generated procedurerequest and to illustrate how to populate many of the task elements - this is the child task from task example1 to grab the specimen 
+	<!--This is an example to demonstrate using task for actioning a filler generated servicerequest and to illustrate how to populate many of the task elements - this is the child task from task example1 to grab the specimen 
 example1 action lipid panel -in progress =>. example2 specimen collection subtask -accepted => example4  specimen collection subtask - completed  with output Specimen=>example 5 action lipid panel -in progress specimen collected with output Specimen => example 6 action lipid panel - completed with output Specimen and DiagnosticReport -->
 	<id value="example2"/>
 	<identifier>
@@ -29,9 +29,9 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	<code>
 		<text value="Specimen Collection"/>
 	</code>
-	<!--	Filler generated order using a fictive  procedurerequest to complete the loop-->
+	<!--	Filler generated order using a fictive  servicerequest to complete the loop-->
 	<focus>
-		<display value="BloodDraw ProcedureRequest"/>
+		<display value="BloodDraw ServiceRequest"/>
 	</focus>
 	<!--	who the task is for 
 -->

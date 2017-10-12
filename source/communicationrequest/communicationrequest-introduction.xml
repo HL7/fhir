@@ -27,7 +27,7 @@ This resource is a record of a request for a communication to be performed. A co
 This resource is a record of a request. It does not represent the actual flow of communication.
 </p>
 <p>
-The use of <b>CommunicationRequest</b> excludes requests for referrals and requests for therapy or counseling which would be handled by the <a href="procedurerequest.html">ProcedureRequest</a> resource.
+The use of <b>CommunicationRequest</b> excludes requests for referrals and requests for therapy or counseling which would be handled by the <a href="servicerequest.html">ServiceRequest</a> resource.
 The performance of a <b>CommunicationRequest</b> may result in a <a href="communication.html">Communication</a> resource.
 </p>
 

@@ -34,7 +34,7 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
 <ul>
 <li><a href="observation.html">Observation</a></li>
 <li><a href="diagnosticreport.html">DiagnosticReport</a></li>
-<li><a href="procedurerequest.html">ProcedureRequest</a></li>
+<li><a href="servicerequest.html">ServiceRequest</a></li>
   </ul>
 </td>
  <td width="33%">
@@ -53,7 +53,7 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
 </tr>
 </table>
 
-   <p>The diagnostic resources and their relationships are shown below.  The arrows represent the direction of the references between resources (for example, DiagnosticReport references ProcedureRequest). See the <a href="workflow-module.html">Workflow Module</a> for information about the coordination of activities such as ordering and fulfilling of diagnostics.</p>
+   <p>The diagnostic resources and their relationships are shown below.  The arrows represent the direction of the references between resources (for example, DiagnosticReport references ServiceRequest). See the <a href="workflow-module.html">Workflow Module</a> for information about the coordination of activities such as ordering and fulfilling of diagnostics.</p>
     <img src="diagnostic-module-resources.png" alt="Image showing the diagnostic resources" width="800px"/>
 
 <p>
@@ -66,7 +66,7 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
         <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
         [%res-item Observation%]
         [%res-item DiagnosticReport%]
-        [%res-item ProcedureRequest%]
+        [%res-item ServiceRequest%]
         [%res-item ImagingStudy%]
         [%res-item ImagingManifest%]
         [%res-item Sequence%]
@@ -88,11 +88,11 @@ Diagnostic resources are commonly used to plan, recommend, order and report clin
 <ul>
 <li>Planning a diagnostic test such as in this <a href="careplan-example-f203-sepsis.html">Careplan-example</a></li>
 <li>Recommending diagnostics such as is done by Clinical Decision Support tools. See the <a href="clinicalreasoning-module.html">Clinical Reasoning module</a> for more information.</li>
-<li>Ordering a Laboratory Test such as a <a href="procedurerequest-example-lipid.html">lipid panel</a></li>
+<li>Ordering a Laboratory Test such as a <a href="servicerequest-example-lipid.html">lipid panel</a></li>
 <li>Reporting a Laboratory Test such as a <a href="diagnosticreport-example-lipids.html">lipid panel</a></li>
-<li>Ordering an imaging study such as a <a href="procedurerequest-example-di.html">CT study</a></li>
+<li>Ordering an imaging study such as a <a href="servicerequest-example-di.html">CT study</a></li>
 <li>Reporting an imaging study such as a <a href="imagingstudy-example.html">CT study</a></li>
-<li>Ordering a genetic test such as a <a href="procedurerequest-genetics-example-1.html">gene mutation analysis </a></li>
+<li>Ordering a genetic test such as a <a href="servicerequest-genetics-example-1.html">gene mutation analysis </a></li>
 <li>Reporting a genetic test such as <a href="diagnosticreport-hla-genetics-results-example.html">HLA genotyping</a></li>
 </ul>
 <p>
@@ -119,7 +119,7 @@ There are many ways to use these resources independently as well.  The Observati
 <li>The <em>Observation</em> and <em>Diagnostic Report</em> resources have been tested and used in production tooling and as such have reached a <a href="versions.html#maturity">maturity level FMM=4</a> where changes become less likely and require implementer community approval.  Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.  We anticipate <em>Observation</em> and <em>Diagnostic Report</em> reaching normative status by the end of this cycle.</li>
 <li>The <em>ImagingStudy</em> resource has had some limited testing and use.  Further use of this resource in production tooling in order for it to reach a more stable FMM level.</li>
 <li><em>ImagingManifest</em>: We expect to see more widespread use of this resource and future updates to its FMM level</li>
-<li>The <em>ProcedureRequest</em> resources has undergone substantial changes since DSTU2. Foremost of which is the merging of DSTU2 <em>DiagnosticOrder</em> and <em>ProcedureRequest</em>into a single resources. In addition, as a result of the addition of <a href="workflow.html">FHIR workflow</a> for STU3, its structure and content have been updated to align with the general FHIR workflow "request" pattern.  Because of these, it remains a relatively immature resource.  No more sweeping changes to its structure are expected.  However, its scope and boundaries vis a vis other resources will be the topic of future workgroup efforts. We anticipate its broad use by implementers and that it will mature as a resource throught the upcoming cycle.</li>
+<li>The <em>ServiceRequest</em> resources has undergone substantial changes since DSTU2. Foremost of which is the merging of DSTU2 <em>DiagnosticOrder</em> and <em>ServiceRequest</em>into a single resources. In addition, as a result of the addition of <a href="workflow.html">FHIR workflow</a> for STU3, its structure and content have been updated to align with the general FHIR workflow "request" pattern.  Because of these, it remains a relatively immature resource.  No more sweeping changes to its structure are expected.  However, its scope and boundaries vis a vis other resources will be the topic of future workgroup efforts. We anticipate its broad use by implementers and that it will mature as a resource throught the upcoming cycle.</li>
 <li>The <em>Specimen</em> resource will be the focus of work group efforts for the upcoming cycle. A new <em>SpecimenDefinition</em> resource is planned for describing specimen types vs specimen instances and will take over some of the Specimen resourc'e's current scope.  We expect to see more widespread use of this resource and future updates to its FMM level</li>
 <li>The <em>Sequence</em> resource remains draft and we expect to see more widespread use of this resource and future updates to its FMM level</li>
 <li>The <em>BodyStructure</em> resource is an immature resource with a FMM level of 1.  To date there has been little implementation feedback.</li>

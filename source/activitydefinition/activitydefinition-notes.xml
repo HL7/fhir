@@ -10,7 +10,7 @@
 
 <p>More dynamic scenarios can be achieved in one of two ways, either by providing <code>dynamicValue</code> expressions, or by specifying a <a href="structuremap.html">StructureMap</a> that transforms the definition into the appropriate request resource.</p>
 
-<p>Note that systems will likely vary widely in the degree of support they provide for the <code>$apply</code> operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated support for MedicationRequest activities, but no support at all for the ProcedureRequest activities.</p>
+<p>Note that systems will likely vary widely in the degree of support they provide for the <code>$apply</code> operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated support for MedicationRequest activities, but no support at all for the ServiceRequest activities.</p>
 
 <p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical realization to CarePlan, RequestGroup, and Request resources:</p>
 

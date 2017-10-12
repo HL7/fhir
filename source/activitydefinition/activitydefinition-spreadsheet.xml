@@ -1781,7 +1781,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Kind of resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s89"><Data ss:Type="String">May determine what types of extensions are permitted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2119,7 +2119,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Knowing where the procedure is made is important for tracking if multiple sites are possible.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Only used if not implicit in the code found in ProcedureRequest.type</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Only used if not implicit in the code found in ServiceRequest.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.targetSiteCode {for classCode=PROC, SBADM}</Data><NamedCell
@@ -6879,9 +6879,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"><Data ss:Type="String">Heart Valve Replacement</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Definition for heart valve replacement procedure request</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Definition for heart valve replacement service request</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">heart-valve-replacement</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">activitydefinition-procedurerequest-example.xml</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">activitydefinition-servicerequest-example.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s142"><Data ss:Type="String">Y</Data></Cell>
    </Row>

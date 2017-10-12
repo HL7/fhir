@@ -15,7 +15,7 @@ which was to generate this report bundle:
 Patient/119 (potential donor)
 Specimen/120 (buccal swab)
 Organization/68  (typing lab)
-ProcedureRequest/123  (report is based on this request)
+ServiceRequest/123  (report is based on this request)
 
 -->
 <Bundle xmlns="http://hl7.org/fhir">
@@ -57,7 +57,7 @@ ProcedureRequest/123  (report is based on this request)
   Patient/119 (potential donor)
   Specimen/120 (buccal swab)
   Organization/68  (typing lab)
-  ProcedureRequest/123  (report is based on this request)
+  ServiceRequest/123  (report is based on this request)
                 </pre>
 					</div>
 				</text>
@@ -89,14 +89,14 @@ ProcedureRequest/123  (report is based on this request)
 				</extension>
 				<!--
           Latest specification no longer contains DiagnosticRequest resources
-          The SPEC uses ProcedureRequest instead to provide a record of a request
+          The SPEC uses ServiceRequest instead to provide a record of a request
           for a diagnostic investigation.
 
           Although I only change the link here, there are lots of things that need to
           change in the original example of the original DiagnosticRequest (TODO)
         -->
 				<basedOn>
-					<reference value="ProcedureRequest/123"/>
+					<reference value="ServiceRequest/123"/>
 				</basedOn>
 				<status value="final"/>
 				<category>

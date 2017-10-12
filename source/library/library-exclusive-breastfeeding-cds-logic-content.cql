@@ -19,22 +19,22 @@ valueset "Discharge To Acute Care Facility": 'urn:oid:2.16.840.1.113883.3.117.1.
 /*
 If the mother qualifies for breast feeding
       a:  if the mother's intention regarding breast feeding has not been documented
-             if there is a pending and uncancelled procedure request for education of the mother
+             if there is a pending and uncancelled service request for education of the mother
                   create a communication request to the bedside nurse to perform the procedure
-             elseif there is an unsigned procedure request for education of the mother
+             elseif there is an unsigned service request for education of the mother
                   create a communication request to the primary provider to sign the order
-             elseif there is no procedure request for education of the mother
-                   create a procedure request for an education for the mother regarding exclusive breastfeeding
+             elseif there is no service request for education of the mother
+                   create a service request for an education for the mother regarding exclusive breastfeeding
                    create a communication request to the provider to sign the order
              endif
        b: elseif the mother's intention regarding breast feeding has been documented
               if the mother has refused to breastfeed but no education of the mother has been documented
-                   if there is a pending and uncancelled procedure request for education of the mother
+                   if there is a pending and uncancelled service request for education of the mother
                             create a communication request to the bedside nurse to perform the procedure
-                   elseif there is an unsigned procedure request for education of the mother
+                   elseif there is an unsigned service request for education of the mother
                           create a communication request to the primary provider to sign the order
-                   elseif there is no procedure request for education of the mother
-                           create a procedure request for an education for the mother regarding exclusive breastfeeding
+                   elseif there is no service request for education of the mother
+                           create a service request for an education for the mother regarding exclusive breastfeeding
                            create a communication request to the primary provider to sign the order
                 elseif the mother has refused to breastfeed and education of the mother has been documented
                            create a referral request for a lactation consult for the mother
@@ -91,7 +91,7 @@ define "Breastfeeding Intention":
 // NOTE: Assumption here is that the only statuses that will result in a
 // Procedure being created are the 'completed' and 'in-progress' statuses...
 define "Breastfeeding Readiness Assessment Order":
-  [ProcedureRequest: "Breastfeeding Readiness Assessment"] P
+  [ServiceRequest: "Breastfeeding Readiness Assessment"] P
     where P.orderedOn after "Infant Birth Date"
 
 define "Unsigned Breastfeeding Readiness Assessment Order":
@@ -112,13 +112,13 @@ define "Completed Breastfeeding Readiness Assessment":
       and P.status in { 'completed' }
 
 define "Lactation Consult Request":
-  [ProcedureRequest: "Lactation Consult"] R
+  [ServiceRequest: "Lactation Consult"] R
     where R.date after "Infant Birth Date"
 
 // This is a request to administer a "Breastfeeding Readiness Assessment" as a Questionnaire
 // Use Data Elements to coordinate the responses?
 define "Create Breastfeeding Risk Assessment":
-  ProcedureRequest {
+  ServiceRequest {
     subject: Patient,
     code: Concept {
       Code 'breastfeeding-readiness-assessment' from "http://example.org/documentation-templates"
@@ -186,13 +186,13 @@ CommunicationRequest {
 }
 
 define "Create Lactation Consult Request":
-  ProcedureRequest {
+  ServiceRequest {
     status: 'requested',
     date: Now(),
     type: Code 'lactation-consult' from "http://example.org/consultations" display 'Lactation Consult',
     priority: Code 'routine' from "http://hl7.org/fhir/diagnostic-order-priority" display 'Routine',
     patient: Patient,
-    requester: "Primary Provider", // TODO: This should actually be the device, but the ProcedureRequest doesn't support that
+    requester: "Primary Provider", // TODO: This should actually be the device, but the ServiceRequest doesn't support that
     encounter: "Live Birth Encounter",
     reason: Code 'negative' from "http://example.org/breastfeeding-intention" display 'Intention not to breast feed',
     description: 'Mother has declared an intention not to breastfeed, despite being given appropriate education regarding the benefits of exclusive breastmilk feeding.',

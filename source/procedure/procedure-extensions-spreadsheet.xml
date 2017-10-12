@@ -1015,7 +1015,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Procedure;ProcedureRequest</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Procedure;ServiceRequest</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">targetBodyStructure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

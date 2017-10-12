@@ -78,7 +78,7 @@ define function ToString(value FHIR.MedicationRequestStatus): value.value
 define function ToString(value FHIR.MedicationAdministrationStatus): value.value
 define function ToString(value FHIR.NamingSystemIdentifierType): value.value
 define function ToString(value FHIR.AccountStatus): value.value
-define function ToString(value FHIR.ProcedureRequestPriority): value.value
+define function ToString(value FHIR.ServiceRequestPriority): value.value
 define function ToString(value FHIR.MedicationDispenseStatus): value.value
 define function ToString(value FHIR.IdentifierUse): value.value
 define function ToString(value FHIR.DigitalMediaType): value.value
@@ -121,7 +121,7 @@ define function ToString(value FHIR.StructureMapModelMode): value.value
 define function ToString(value FHIR.TaskStatus): value.value
 define function ToString(value FHIR.MeasurePopulationType): value.value
 define function ToString(value FHIR.SubscriptionChannelType): value.value
-define function ToString(value FHIR.ProcedureRequestStatus): value.value
+define function ToString(value FHIR.ServiceRequestStatus): value.value
 define function ToString(value FHIR.ReferralStatus): value.value
 define function ToString(value FHIR.AssertionDirectionType): value.value
 define function ToString(value FHIR.SlicingRules): value.value

@@ -635,7 +635,7 @@
  -- Row 33 -----------------------------------
   Element = Claim.referral
   Card. = 0..1
-  Type = Reference(ProcedureRequest)
+  Type = Reference(ServiceRequest)
   Short Name = Treatment Referral
   Definition = The referral resource which lists the date, practitioner, reason and other supporting information.
   w5 = who.cause
@@ -1726,7 +1726,7 @@
  -- Row 3 -----------------------------------
   Name = submit.return
   Use = out
-  Documentation = A Claim resource or Bundle of claim responses, either as individual ClaimResponse resources or as Bundles each containing a single ClaimResponse plus referenced resources.
+  Documentation = A ClaimResponse resource or Bundle of claim responses, either as individual ClaimResponse resources or as Bundles each containing a single ClaimResponse plus referenced resources.
   Type = Resource
   Title = The adjudicated responses to the Claim(s)
   Min = 1

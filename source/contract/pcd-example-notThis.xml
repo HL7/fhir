@@ -76,7 +76,7 @@
     </type>
     <offer>
       <topic>
-        <reference value="ProcedureRequest/lipid"/>
+        <reference value="ServiceRequest/lipid"/>
       </topic>
       <!-- by not specifying term.actor I assume this means everyone? -->
       <text value="Withhold this order and any results or related objects from any provider."/>

@@ -85,7 +85,7 @@
         <ns4:element name="description" type="System.String"/>
         <ns4:element name="during" type="interval&lt;System.DateTime&gt;"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ProcedureRequest.BodySite" baseType="QUICK.BackboneElement">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ServiceRequest.BodySite" baseType="QUICK.BackboneElement">
         <ns4:element name="siteCodeableConcept" type="System.Concept"/>
         <ns4:element name="siteReference" type="System.Any"/>
     </ns4:typeInfo>
@@ -965,7 +965,7 @@
         <ns4:element name="Person" type="QUICK.Person"/>
         <ns4:element name="Practitioner" type="QUICK.Practitioner"/>
         <ns4:element name="Procedure" type="QUICK.Procedure"/>
-        <ns4:element name="ProcedureRequest" type="QUICK.ProcedureRequest"/>
+        <ns4:element name="ServiceRequest" type="QUICK.ServiceRequest"/>
         <ns4:element name="ProcessRequest" type="QUICK.ProcessRequest"/>
         <ns4:element name="ProcessResponse" type="QUICK.ProcessResponse"/>
         <ns4:element name="Provenance" type="QUICK.Provenance"/>
@@ -1463,7 +1463,7 @@
         <ns4:element name="device" type="list&lt;QUICK.Procedure.Device&gt;"/>
         <ns4:element name="used" type="list&lt;System.Any&gt;"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ProcedureRequestPriority" baseType="QUICK.Element">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ServiceRequestPriority" baseType="QUICK.Element">
         <ns4:element name="value" type="System.String"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ImagingStudy" baseType="QUICK.DomainResource"
@@ -2927,12 +2927,12 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ParticipantStatus" baseType="QUICK.Element">
         <ns4:element name="value" type="System.String"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ProcedureRequest" baseType="QUICK.DomainResource"
-                  retrievable="true" identifier="procedurerequest-qicore-qicore-procedurerequest" primaryCodePath="type">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ServiceRequest" baseType="QUICK.DomainResource"
+                  retrievable="true" identifier="servicerequest-qicore-qicore-servicerequest" primaryCodePath="type">
         <ns4:element name="identifier" type="list&lt;QUICK.Identifier&gt;"/>
         <ns4:element name="subject" type="System.Any"/>
         <ns4:element name="type" type="System.Concept"/>
-        <ns4:element name="bodySite" type="list&lt;QUICK.ProcedureRequest.BodySite&gt;"/>
+        <ns4:element name="bodySite" type="list&lt;QUICK.ServiceRequest.BodySite&gt;"/>
         <ns4:element name="indication" type="list&lt;System.Concept&gt;"/>
         <ns4:element name="timingDateTime" type="System.DateTime"/>
         <ns4:element name="timingPeriod" type="interval&lt;System.DateTime&gt;"/>
@@ -2945,7 +2945,7 @@
         <ns4:element name="asNeededCodeableConcept" type="System.Concept"/>
         <ns4:element name="orderedOn" type="System.DateTime"/>
         <ns4:element name="orderer" type="System.Any"/>
-        <ns4:element name="priority" type="QUICK.ProcedureRequestPriority"/>
+        <ns4:element name="priority" type="QUICK.ServiceRequestPriority"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DataType" baseType="QUICK.Element">
         <ns4:element name="value" type="System.String"/>

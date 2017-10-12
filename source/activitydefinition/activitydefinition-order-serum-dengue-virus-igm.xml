@@ -105,7 +105,7 @@
 	<type value="documentation"/>
 	<display value="Explanation of diagnostic tests for Dengue virus and which to use based on the patient’s clinical and exposure history."/>
   </relatedArtifact>
-  <kind value="ProcedureRequest"/>
+  <kind value="ServiceRequest"/>
   <code>
     <text value="Serum Dengue Virus IgM"/>
   </code>

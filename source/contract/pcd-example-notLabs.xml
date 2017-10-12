@@ -68,7 +68,7 @@
       <subType>
         <coding>
           <system value="http://hl7.org/fhir/resource-types"/>
-          <code value="ProcedureRequest"/>
+          <code value="ServiceRequest"/>
         </coding>
       </subType>
       <!-- by not specifying term.actor I assume this means everyone? -->

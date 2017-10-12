@@ -2,43 +2,43 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = ProcedureRequestStatus
+  Binding Name = ServiceRequestStatus
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/request-status
-  Definition = The status of a procedure or diagnostic order.
+  Definition = The status of a service order.
   Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = ProcedureRequestCode
+  Binding Name = ServiceRequestCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/procedure-code
-  Definition = Codes for tests/services that can be performed by procedure or diagnostic services.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available [here](valueset-diagnostic-requests.html).
+  Definition = Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available [here](valueset-diagnostic-requests.html).
   Conformance = example
 
  -- Row 3 -----------------------------------
-  Binding Name = ProcedureRequestReason
+  Binding Name = ServiceRequestReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/procedure-reason
-  Definition = Diagnosis or problem codes justifying the reason for requesting the procedure or diagnostic investigation.
+  Definition = Diagnosis or problem codes justifying the reason for requesting the service investigation.
   Description = SNOMED CT Condition/Problem/Diagnosis Codes
   Conformance = example
 
  -- Row 4 -----------------------------------
-  Binding Name = ProcedureRequestIntent
+  Binding Name = ServiceRequestIntent
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/request-intent
-  Definition = The kind of procedure or diagnostic request
+  Definition = The kind of service request
   Conformance = required
 
  -- Row 5 -----------------------------------
-  Binding Name = ProcedureRequestParticipantRole
+  Binding Name = ServiceRequestParticipantRole
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/participant-role
   Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
   Conformance = example
 
  -- Row 6 -----------------------------------
-  Binding Name = ProcedureRequestPriority
+  Binding Name = ServiceRequestPriority
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/request-priority
   Definition = Identifies the level of importance to be assigned to actioning the request
@@ -53,7 +53,7 @@
   Conformance = example
 
  -- Row 8 -----------------------------------
-  Binding Name = ProcedureRequestCategory
+  Binding Name = ServiceRequestCategory
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/procedure-category
   Definition = Classification of the procedure
@@ -70,7 +70,7 @@
 
  -- Row 1 -----------------------------------
   Id = !1
-  Context = ProcedureRequest.requester
+  Context = ServiceRequest.requester
   English = onBehalfOf can only be specified if agent is practitioner or device
   XPath = contains(f:agent/f:reference/@value, \'/Practitioner/\') or contains(f:agent/f:reference/@value, \'/Device/\') or not(exists(f:onBehalfOf))
   Expression = (agent.resolve().empty()) or (agent.resolve() is Device) or (agent.resolve() is Practitioner) or onBehalfOf.exists().not()
@@ -78,20 +78,20 @@
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
-  Element = ProcedureRequest
+  Element = ServiceRequest
   Aliases = diagnostic request, referral, referral request, transfer of care request
   Type = DomainResource
-  Short Name = A request for a procedure or diagnostic to be performed
-  Definition = A record of a request for diagnostic investigations, treatments, or operations to be performed.
+  Short Name = A request for a service to be performed
+  Definition = A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
   Workflow Mapping = Request
-  R3-RR-Mapping = ReferralRequest (5/24/2017 EH: for RR  change name to ProcedureRequest,  for PR added aliases)
+  R3-RR-Mapping = ReferralRequest (5/24/2017 EH: for RR  change name to ServiceRequest,  for PR added aliases)
   v2 Mapping = ORC
   RIM Mapping = Act[moodCode<=INT]
   Committee Notes = [#5279][#11119]#13196]
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = ProcedureRequest.identifier
+  Element = ServiceRequest.identifier
   Card. = 0..*
   Summary = Y
   Type = Identifier
@@ -107,7 +107,7 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = ProcedureRequest.definition
+  Element = ServiceRequest.definition
   Card. = 0..*
   Aliases = protocol
   Summary = Y
@@ -121,11 +121,11 @@
   Committee Notes = [#10296][#11119]#13196]
 
  -- Row 4 -----------------------------------
-  Element = ProcedureRequest.basedOn
+  Element = ServiceRequest.basedOn
   Card. = 0..*
   Aliases = fulfills
   Summary = Y
-  Type = Reference(CarePlan|ProcedureRequest|MedicationRequest)
+  Type = Reference(CarePlan|ServiceRequest|MedicationRequest)
   Short Name = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
   Workflow Mapping = Request.basedOn
@@ -135,11 +135,11 @@
   Committee Notes = [#10296][#11119]#13196]
 
  -- Row 5 -----------------------------------
-  Element = ProcedureRequest.replaces
+  Element = ServiceRequest.replaces
   Card. = 0..*
   Aliases = supersedes, prior, renewed order
   Summary = Y
-  Type = Reference(ProcedureRequest)
+  Type = Reference(ServiceRequest)
   Short Name = What request replaces
   Definition = The request takes the place of the referenced completed or terminated request(s)
   Workflow Mapping = Request.replaces
@@ -149,13 +149,13 @@
   Committee Notes = [#10296][#11119]#13196]
 
  -- Row 6 -----------------------------------
-  Element = ProcedureRequest.requisition
+  Element = ServiceRequest.requisition
   Card. = 0..1
   Aliases = grouperId;  groupIdentifier
   Summary = Y
   Type = Identifier
   Short Name = Composite Request ID
-  Definition = A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.
+  Definition = A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.
   Requirements = Some business processes need to know if multiple items were ordered as part of the same \"requisition\" for billing or other purposes.
   Comments = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
   Workflow Mapping = Request.groupIdentifier
@@ -165,12 +165,12 @@
   Committee Notes = [#10296][#11119]#13196]
 
  -- Row 7 -----------------------------------
-  Element = ProcedureRequest.status
+  Element = ServiceRequest.status
   Card. = 1..1
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = ProcedureRequestStatus
+  Binding = ServiceRequestStatus
   Short Name = draft | active | suspended | completed | entered-in-error | cancelled
   Definition = The status of the order
   Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource.\r\rThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
@@ -183,12 +183,12 @@
   w5 = status
 
  -- Row 8 -----------------------------------
-  Element = ProcedureRequest.intent
+  Element = ServiceRequest.intent
   Card. = 1..1
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = ProcedureRequestIntent
+  Binding = ServiceRequestIntent
   Short Name = proposal | plan | order +
   Definition = Whether the request is a proposal, plan, an original order or a reflex order.
   Comments = This element is labeled as a modifier because the intent alters when and how the resource is actually applicable
@@ -200,13 +200,13 @@
   w5 = class
 
  -- Row 9 -----------------------------------
-  Element = ProcedureRequest.priority
+  Element = ServiceRequest.priority
   Card. = 0..1
   Summary = Y
   Type = code
-  Binding = ProcedureRequestPriority
+  Binding = ServiceRequestPriority
   Short Name = routine | urgent | asap | stat
-  Definition = Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
+  Definition = Indicates how quickly the ServiceRequest should be addressed with respect to other requests.
   Workflow Mapping = Request.priority
   R3-RR-Mapping = ReferralRequest.priority ()
   v2 Mapping = TQ1.9
@@ -216,28 +216,28 @@
   w5 = class
 
  -- Row 10 -----------------------------------
-  Element = ProcedureRequest.doNotPerform
+  Element = ServiceRequest.doNotPerform
   Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = boolean
-  Short Name = True if procedure should not be performed
-  Definition = Set this to true if the record is saying that the procedure should NOT be performed.
+  Short Name = True if service/procedure should not be performed
+  Definition = Set this to true if the record is saying that the service/procedure should NOT be performed.
   Requirements = Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc.
-  Comments = This element is labeled as a [modifier](conformance-rules.html#isModifier.html) because it indicates that a procedure shouldn\'t happen, instead of a request for it to happen.  In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ProcedureRequest.code and ProcedureRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.
+  Comments = This element is labeled as a [modifier](conformance-rules.html#isModifier.html) because it indicates that a procedure shouldn\'t happen, instead of a request for it to happen.  In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ServiceRequest.code and ServiceRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.
   R3-RR-Mapping = (For RR add doNotPerform)
   RIM Mapping = .actionNegationInd
   Committee Notes = #13196]
   Default Value = False
 
  -- Row 11 -----------------------------------
-  Element = ProcedureRequest.category
+  Element = ServiceRequest.category
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
-  Short Name = Classification of procedure
-  Definition = A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").
-  Requirements = Used for filtering what procedure request are retrieved and displayed.
+  Short Name = Classification of service
+  Definition = A code that classifies the service for searching, sorting and display purposes (e.g. \"Surgical Procedure\").
+  Requirements = Used for filtering what service request are retrieved and displayed.
   Comments = There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.
   R3-RR-Mapping = ReferralRequest.type (for RR changed element name to category, target mapping is broader)
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"INT\"].code
@@ -245,14 +245,14 @@
   w5 = class
 
  -- Row 12 -----------------------------------
-  Element = ProcedureRequest.code
+  Element = ServiceRequest.code
   Card. = 0..1
   Aliases = service requested
   Summary = Y
   Type = CodeableConcept
-  Binding = ProcedureRequestCode
+  Binding = ServiceRequestCode
   Short Name = What is being requested/ordered
-  Definition = A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested
+  Definition = A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested
   Comments = Many laboratory and radiology procedure codes embed the specimen/organ system in the test ordeer name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.
   Workflow Mapping = Request.code
   R3-RR-Mapping = ReferralRequest.serviceRequested (for RR changed element name to code, reduced cardinality to single line item ( combine items with Task)  udpated value set to to procedure codes, for PR added alias \'service request\')
@@ -263,12 +263,12 @@
   w5 = what
 
  -- Row 13 -----------------------------------
-  Element = ProcedureRequest.subject
+  Element = ServiceRequest.subject
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient|Group|Location|Device)
   Short Name = Individual the service is ordered for
-  Definition = On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
+  Definition = On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
   Workflow Mapping = Request.subject
   R3-RR-Mapping = ReferralRequest.subject (for RR add Location, Device)
   v2 Mapping = Accompanying PID segment
@@ -278,7 +278,7 @@
   w5 = who.focus
 
  -- Row 14 -----------------------------------
-  Element = ProcedureRequest.context
+  Element = ServiceRequest.context
   Card. = 0..1
   Aliases = encounter
   Summary = Y
@@ -294,13 +294,13 @@
   w5 = context
 
  -- Row 15 -----------------------------------
-  Element = ProcedureRequest.occurrence[x]
+  Element = ServiceRequest.occurrence[x]
   Card. = 0..1
   Aliases = schedule
   Summary = Y
   Type = dateTime| Period| Timing
-  Short Name = When procedure should occur
-  Definition = The date/time at which the requested procedure should occur.
+  Short Name = When service should occur
+  Definition = The date/time at which the requested service should occur.
   Workflow Mapping = Request.occurrence[x]
   R3-RR-Mapping = ReferralRequest.occurrence[x] ( for RR added Timing to choice of types)
   v2 Mapping = Accompanying TQ1/TQ2 segments
@@ -310,20 +310,20 @@
   w5 = when.planned
 
  -- Row 16 -----------------------------------
-  Element = ProcedureRequest.asNeeded[x]
+  Element = ServiceRequest.asNeeded[x]
   Card. = 0..1
   Summary = Y
   Type = boolean|CodeableConcept
   Binding = ProcedureAsNeededReason
-  Short Name = Preconditions for procedure or diagnostic
-  Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.
+  Short Name = Preconditions for service
+  Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example \"pain\", \"on flare-up\", etc.
   R3-RR-Mapping = (For RR add asNeeded)
   RIM Mapping = boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=\"Assertion\"].value
   QUICK mapping = Proposal.prnReason.reason
   Committee Notes = #13196]
 
  -- Row 17 -----------------------------------
-  Element = ProcedureRequest.authoredOn
+  Element = ServiceRequest.authoredOn
   Card. = 0..1
   Aliases = orderedOn
   Summary = Y
@@ -339,11 +339,11 @@
   w5 = when.recorded
 
  -- Row 18 -----------------------------------
-  Element = ProcedureRequest.requester
+  Element = ServiceRequest.requester
   Card. = 0..1
   Aliases = author, orderer
   Summary = Y
-  Short Name = Who/what is requesting procedure or diagnostic
+  Short Name = Who/what is requesting service
   Definition = The individual who initiated the request and has responsibility for its activation
   Comments = This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource.
   Workflow Mapping = Request.requester
@@ -354,7 +354,7 @@
   Committee Notes = #13196]
 
  -- Row 19 -----------------------------------
-  Element = ProcedureRequest.requester.agent
+  Element = ServiceRequest.requester.agent
   Card. = 1..1
   Summary = Y
   Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
@@ -369,7 +369,7 @@
   w5 = who.author
 
  -- Row 20 -----------------------------------
-  Element = ProcedureRequest.requester.onBehalfOf
+  Element = ServiceRequest.requester.onBehalfOf
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
@@ -383,14 +383,14 @@
   Committee Notes = [#10296][#11119]#13196]
 
  -- Row 21 -----------------------------------
-  Element = ProcedureRequest.performerType
+  Element = ServiceRequest.performerType
   Card. = 0..1
   Aliases = specialty
   Summary = Y
   Type = CodeableConcept
-  Binding = ProcedureRequestParticipantRole
+  Binding = ServiceRequestParticipantRole
   Short Name = Performer role
-  Definition = Desired type of performer for doing the requested procedure.
+  Definition = Desired type of performer for doing the requested service.
   Comments = this is a  role, not  a participation type.  I.e. does not describe the task, but describes the capacity.  For example, “compounding pharmacy” or “psychiatrist” or “internal referral”.
   Workflow Mapping = Request.performerType
   R3-RR-Mapping = ReferralRequest.specialty (for PR added alias For RR changed element name to performerType binding to participant-role)
@@ -400,13 +400,13 @@
   w5 = who.actor
 
  -- Row 22 -----------------------------------
-  Element = ProcedureRequest.performer
+  Element = ServiceRequest.performer
   Card. = 0..1
   Aliases = request recipient
   Summary = Y
   Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)
   Short Name = Requested perfomer
-  Definition = The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.
+  Definition = The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.
   Comments = If needed, use an [extension](extensibility.html) for listing alternative performers and/or roles and/or preference.
   Workflow Mapping = Request.Performer
   R3-RR-Mapping = ReferralRequest.recipient (for RR changed element name to performer, added Patient and  Related Person to reference types, for PR added alias)
@@ -416,14 +416,14 @@
   w5 = who.actor
 
  -- Row 23 -----------------------------------
-  Element = ProcedureRequest.reasonCode
+  Element = ServiceRequest.reasonCode
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
-  Binding = ProcedureRequestReason
+  Binding = ServiceRequestReason
   Short Name = Explanation/Justification for procedure or service
-  Definition = An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
-  Comments = This element represents why the referral is being made and may be used to decide how the procedure will be performed, or even if it will be performed at all.   Use `CodeableConcept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
+  Definition = An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+  Comments = This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.   Use `CodeableConcept.text` element if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).
   Workflow Mapping = Request.reasonCod
   R3-RR-Mapping = ReferralRequest.reasonCode (for RR used broader Procedure Reason Codes VS)
   v2 Mapping = ORC.16
@@ -432,13 +432,13 @@
   w5 = why
 
  -- Row 24 -----------------------------------
-  Element = ProcedureRequest.reasonReference
+  Element = ServiceRequest.reasonReference
   Card. = 0..*
   Summary = Y
   Type = Reference(Condition | Observation | DiagnosticReport | DocumentReference)
-  Short Name = Explanation/Justification for procedure or service
-  Definition = Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.
-  Comments = This element represents why the referral is being made and may be used to decide how the procedure will be performed, or even if it will be performed at all.    To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise when referencing  *DiagnosticReport*  it should contain a finding  in `DiagnosticReport.conclusion` and/or `DiagnosticReport.codedDiagnosis`.   When using a  reference to *DocumentReference*, the target document should contain clear findings language providing the relevant reason for this procedure request .  Use  the CodeableConcept text element in `ProcedureRequest.reasonCode` if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
+  Short Name = Explanation/Justification for service or service
+  Definition = Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in supportingInformation.
+  Comments = This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.    To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise when referencing  *DiagnosticReport*  it should contain a finding  in `DiagnosticReport.conclusion` and/or `DiagnosticReport.codedDiagnosis`.   When using a  reference to *DocumentReference*, the target document should contain clear findings language providing the relevant reason for this service request .  Use  the CodeableConcept text element in `ServiceRequest.reasonCode` if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).
   Workflow Mapping = Request.reasonReference
   R3-RR-Mapping = ReferralRequest.reasonReference (Should add DocRef and DiagnosticReport to reference types  - check Gforge)
   v2 Mapping = ORC.16
@@ -447,12 +447,12 @@
   w5 = why
 
  -- Row 25 -----------------------------------
-  Element = ProcedureRequest.supportingInfo
+  Element = ServiceRequest.supportingInfo
   Card. = 0..*
   Aliases = Ask at order entry question, AOE
   Type = Reference(Any)
   Short Name = Additional clinical information
-  Definition = Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.
+  Definition = Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.
   Workflow Mapping = Request.supportingInformation
   R3-RR-Mapping = ReferralRequest.supportingInfo ()
   v2 Mapping = Accompanying segments
@@ -460,20 +460,20 @@
   Committee Notes = [#3113][#3739][#10296][#11119]#13196]
 
  -- Row 26 -----------------------------------
-  Element = ProcedureRequest.specimen
+  Element = ServiceRequest.specimen
   Card. = 0..*
   Summary = Y
   Type = Reference(Specimen)
   Short Name = Procedure Samples
   Definition = One or more specimens that the laboratory procedure will use.
-  Comments = Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource references to the ProcedureRequest.
+  Comments = Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource references to the ServiceRequest.
   R3-RR-Mapping = (For RR add specimen)
   v2 Mapping = SPM
   RIM Mapping = .participation[typeCode=SPC].role
   Committee Notes = [#10589][#11119]#13196]
 
  -- Row 27 -----------------------------------
-  Element = ProcedureRequest.bodySite
+  Element = ServiceRequest.bodySite
   Card. = 0..*
   Aliases = location
   Summary = Y
@@ -482,7 +482,7 @@
   Short Name = Location on Body
   Definition = Anatomic location where the procedure should be performed. This is the target site.
   Requirements = Knowing where the procedure is performed is important for tracking if multiple sites are possible.
-  Comments = Only used if not implicit in the code found in ProcedureRequest.type.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodyStructure](extension-procedure-targetbodystructure.html)
+  Comments = Only used if not implicit in the code found in ServiceRequest.type.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodyStructure](extension-procedure-targetbodystructure.html)
   R3-RR-Mapping = (For RR add bodysite)
   v2 Mapping = SPM
   RIM Mapping = targetSiteCode
@@ -490,7 +490,7 @@
   Committee Notes = [#12505], [#12517][#11119]#13196]
 
  -- Row 28 -----------------------------------
-  Element = ProcedureRequest.note
+  Element = ServiceRequest.note
   Card. = 0..*
   Type = Annotation
   Short Name = Comments
@@ -503,7 +503,7 @@
   Committee Notes = 7134,8147,[#10296][#11119]#13196]
 
  -- Row 29 -----------------------------------
-  Element = ProcedureRequest.description
+  Element = ServiceRequest.description
   Card. = 0..1
   Summary = N
   Type = string
@@ -516,7 +516,7 @@
   Committee Notes = #13196]
 
  -- Row 30 -----------------------------------
-  Element = ProcedureRequest.relevantHistory
+  Element = ServiceRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
   Short Name = Request provenance
@@ -533,133 +533,133 @@
  -- Row 1 -----------------------------------
   Name = authored
   Type = date
-  Path = ProcedureRequest.authoredOn
+  Path = ServiceRequest.authoredOn
 
  -- Row 2 -----------------------------------
   Name = based-on
   Type = reference
-  Path = ProcedureRequest.basedOn
+  Path = ServiceRequest.basedOn
 
  -- Row 3 -----------------------------------
   Name = body-site
   Type = token
   Description = Where procedure is going to be done
-  Path = ProcedureRequest.bodySite
+  Path = ServiceRequest.bodySite
 
  -- Row 4 -----------------------------------
   Name = code
   Type = token
-  Path = ProcedureRequest.code
+  Path = ServiceRequest.code
 
  -- Row 5 -----------------------------------
   Name = category
   Type = token
-  Path = ProcedureRequest.category
+  Path = ServiceRequest.category
 
  -- Row 6 -----------------------------------
   Name = context
   Type = reference
-  Path = ProcedureRequest.context
+  Path = ServiceRequest.context
 
  -- Row 7 -----------------------------------
   Name = definition
   Type = reference
-  Path = ProcedureRequest.definition
+  Path = ServiceRequest.definition
 
  -- Row 8 -----------------------------------
   Name = encounter
   Type = reference
   Description = An encounter in which this request is made
-  Path = ProcedureRequest.context
+  Path = ServiceRequest.context
   Target Types = Encounter
 
  -- Row 9 -----------------------------------
   Name = identifier
   Type = token
-  Path = ProcedureRequest.identifier
+  Path = ServiceRequest.identifier
 
  -- Row 10 -----------------------------------
   Name = intent
   Type = token
-  Path = ProcedureRequest.intent
+  Path = ServiceRequest.intent
 
  -- Row 11 -----------------------------------
   Name = occurrence
   Type = date
-  Path = ProcedureRequest.occurrence[x]
+  Path = ServiceRequest.occurrence[x]
 
  -- Row 12 -----------------------------------
   Name = patient
   Type = reference
   Description = Search by subject - a patient
-  Path = ProcedureRequest.subject
+  Path = ServiceRequest.subject
   Target Types = Patient
 
  -- Row 13 -----------------------------------
   Name = performer
   Type = reference
-  Path = ProcedureRequest.performer
+  Path = ServiceRequest.performer
 
  -- Row 14 -----------------------------------
   Name = performer-type
   Type = token
-  Path = ProcedureRequest.performerType
+  Path = ServiceRequest.performerType
 
  -- Row 15 -----------------------------------
   Name = priority
   Type = token
-  Path = ProcedureRequest.priority
+  Path = ServiceRequest.priority
 
  -- Row 16 -----------------------------------
   Name = replaces
   Type = reference
-  Path = ProcedureRequest.replaces
+  Path = ServiceRequest.replaces
 
  -- Row 17 -----------------------------------
   Name = requester
   Type = reference
-  Path = ProcedureRequest.requester.agent
+  Path = ServiceRequest.requester.agent
 
  -- Row 18 -----------------------------------
   Name = requisition
   Type = token
-  Path = ProcedureRequest.requisition
+  Path = ServiceRequest.requisition
 
  -- Row 19 -----------------------------------
   Name = specimen
   Type = reference
   Description = Specimen to be tested
-  Path = ProcedureRequest.specimen
+  Path = ServiceRequest.specimen
 
  -- Row 20 -----------------------------------
   Name = status
   Type = token
-  Path = ProcedureRequest.status
+  Path = ServiceRequest.status
 
  -- Row 21 -----------------------------------
   Name = subject
   Type = reference
   Description = Search by subject
-  Path = ProcedureRequest.subject
+  Path = ServiceRequest.subject
 
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
-  Name = !procedurerequest-extensions
+  Name = !servicerequest-extensions
   IG Name = core
-  Filename = procedurerequest-extensions.xml
+  Filename = servicerequest-extensions.xml
   Type = spreadsheet
 
  -- Row 2 -----------------------------------
-  Name = Procedure Request-Genetics
+  Name = Service Request-Genetics
   IG Name = core
-  Filename = procedurerequest-genetics-profile.xml
+  Filename = servicerequest-genetics-profile.xml
   Type = spreadsheet
 
  -- Row 3 -----------------------------------
-  Name = procedurerequest-extensions
+  Name = servicerequest-extensions
   IG Name = core
-  Filename = procedurerequest-extensions.xml
+  Filename = servicerequest-extensions.xml
   Type = spreadsheet
 
 === Sheet Examples =====================================
@@ -668,123 +668,123 @@
   Name = Lipids
   Identity = lipid
   Description = Lipid Panel Order
-  Filename = procedurerequest-example-lipid.xml
+  Filename = servicerequest-example-lipid.xml
 
  -- Row 2 -----------------------------------
   Name = DI Order
   Identity = di
   Description = CT Scan order
-  Filename = procedurerequest-example-di.xml
+  Filename = servicerequest-example-di.xml
 
  -- Row 3 -----------------------------------
   Name = Free T4
   Identity = ft4
   Description = Free T4 Add on Order
-  Filename = procedurerequest-example-ft4.xml
+  Filename = servicerequest-example-ft4.xml
 
  -- Row 4 -----------------------------------
   Name = PGx
   Identity = example-pgx
   Description = PGx Phenotype example
-  Filename = procedurerequest-example-pgx.xml
-  Profile = Procedure Request-Genetics
+  Filename = servicerequest-example-pgx.xml
+  Profile = Service Request-Genetics
 
  -- Row 5 -----------------------------------
   Name = Order-genetics-1
   Identity = og-example1
   Description = Order for ABCB4 gene mutation analysis
-  Filename = procedurerequest-genetics-example-1.xml
-  Profile = Procedure Request-Genetics
+  Filename = servicerequest-genetics-example-1.xml
+  Profile = Service Request-Genetics
 
  -- Row 6 -----------------------------------
   Name = !!Order-genetics-2
   Identity = og-example2
   Description = Order for a specific variant
-  Filename = procedurerequest-genetics-example-2.xml
-  Profile = Procedure Request-Genetics
+  Filename = servicerequest-genetics-example-2.xml
+  Profile = Service Request-Genetics
 
  -- Row 7 -----------------------------------
   Name = Head CT
   Identity = example
   Description = An example of a Head CT procedure
-  Filename = procedurerequest-example.xml
+  Filename = servicerequest-example.xml
 
  -- Row 8 -----------------------------------
   Name = Sub Request
   Identity = subrequest
   Description = Example with sub-requests derived from the request
-  Filename = procedurerequest-example-subrequest.xml
+  Filename = servicerequest-example-subrequest.xml
 
  -- Row 9 -----------------------------------
   Name = Physiotherapy
   Identity = physiotherapy
   Description = An example of an order for home physiotherapy
-  Filename = procedurerequest-example2.xml
+  Filename = servicerequest-example2.xml
 
  -- Row 10 -----------------------------------
   Name = Do Not Turn
   Identity = do-not-turn
   Description = An example of an order to not turn a patient
-  Filename = procedurerequest-example3.xml
+  Filename = servicerequest-example3.xml
 
  -- Row 11 -----------------------------------
   Name = Bench Press
   Identity = benchpress
   Description = Part of an exercise plan
-  Filename = procedurerequest-example4.xml
+  Filename = servicerequest-example4.xml
 
  -- Row 12 -----------------------------------
   Name = Device Example
   Identity = example-implant
   Description = Example of an order for an implant
-  Filename = procedurerequest-example-implant.xml
+  Filename = servicerequest-example-implant.xml
 
  -- Row 13 -----------------------------------
   Name = Ambulation
   Identity = ambulation
   Description = Example of an order for anambulation procedure
-  Filename = procedurerequest-example-ambulation.xml
+  Filename = servicerequest-example-ambulation.xml
 
  -- Row 14 -----------------------------------
   Name = Colon Biopsy
   Identity = colon-biopsy
   Description = Example of an order for a biopsy procedure that was part of a colonoscopy
-  Filename = procedurerequest-example-colonoscopy-bx.xml
+  Filename = servicerequest-example-colonoscopy-bx.xml
 
  -- Row 15 -----------------------------------
   Name = Colonoscopy
   Identity = colonoscopy
   Description = Example of an order for a colonoscopy procedure with complication
-  Filename = procedurerequest-example-colonoscopy.xml
+  Filename = servicerequest-example-colonoscopy.xml
 
  -- Row 16 -----------------------------------
   Name = Appendectomy
   Identity = appendectomy-narrative
   Description = Example of an order for an appendectomy procedure that is primarily narrative
-  Filename = procedurerequest-example-appendectomy.xml
+  Filename = servicerequest-example-appendectomy.xml
 
  -- Row 17 -----------------------------------
   Name = OB
   Identity = ob
   Description = Example of an order for an obstetric procedure
-  Filename = procedurerequest-example-ob.xml
+  Filename = servicerequest-example-ob.xml
 
  -- Row 18 -----------------------------------
   Name = Physical Therapy
   Identity = physical-therapy
   Description = Example of an order for an physical therapy evaluation procedure
-  Filename = procedurerequest-example-pt.xml
+  Filename = servicerequest-example-pt.xml
 
  -- Row 19 -----------------------------------
   Name = Patient Education
   Identity = education
   Description = Example of an order for patient education
-  Filename = procedurerequest-example-edu.xml
+  Filename = servicerequest-example-edu.xml
 
  -- Row 20 -----------------------------------
   Name = Myringotomy
   Identity = myringotomy
   Description = An example of a Myringotomy referral request
-  Filename = procedurerequest-example-myringotomy.xml
+  Filename = servicerequest-example-myringotomy.xml
 
 === Sheet Examples =====================================

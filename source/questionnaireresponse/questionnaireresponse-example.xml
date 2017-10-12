@@ -38,7 +38,7 @@
     </Patient>
   </contained>
   <contained>
-    <ProcedureRequest>
+    <ServiceRequest>
       <id value="order"/>
       <status value="unknown"/>
       <intent value="order"/>
@@ -50,7 +50,7 @@
           <reference value="Practitioner/example"/>
         </agent>
       </requester>
-    </ProcedureRequest>
+    </ServiceRequest>
   </contained>
   <contained>
     <Practitioner>

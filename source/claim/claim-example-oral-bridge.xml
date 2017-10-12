@@ -16,7 +16,7 @@
 	</contained>
 
 	<contained>
-		<ProcedureRequest>
+		<ServiceRequest>
 			<id value="referral"/>
 			<status value="active"/>
 			<intent value="order"/>
@@ -24,7 +24,7 @@
 				<reference value="Patient/1"/>
 			</subject>
 			<!-- rest of the resource ommitted for brevity -->
-		</ProcedureRequest>
+		</ServiceRequest>
 	</contained>
 
 	<identifier>

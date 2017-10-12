@@ -56,7 +56,7 @@
   </goal>
   <activity>
     <detail>
-      <kind value="ProcedureRequest"/>
+      <kind value="ServiceRequest"/>
       <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
       <code>
         <coding>

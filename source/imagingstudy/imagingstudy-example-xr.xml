@@ -38,7 +38,7 @@
 	</context>
 	<started value="2017-01-01T11:01:20+03:00"/>
 	<basedOn>
-		<reference value="ProcedureRequest/example"/>
+		<reference value="ServiceRequest/example"/>
 	</basedOn>
 	<referrer>
 		<reference value="Practitioner/example"/>

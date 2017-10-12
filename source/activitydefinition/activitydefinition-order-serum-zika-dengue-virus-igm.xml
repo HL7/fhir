@@ -119,7 +119,7 @@
   <library>
     <reference value="Library/zika-virus-intervention-logic"/>
   </library>
-  <kind value="ProcedureRequest"/>
+  <kind value="ServiceRequest"/>
   <code>
     <text value="Serum Zika and Dengue Virus IgM"/>
   </code>

@@ -7,7 +7,7 @@
       <p>Similar test was performed within the past 14 days</p>
       <ul>
         <li>
-          <a href="ProcedureRequest/id">Chest CT - ordered May 8, 2013 by Dr. Adam Careful</a>
+          <a href="ServiceRequest/id">Chest CT - ordered May 8, 2013 by Dr. Adam Careful</a>
         </li>
         <li>
           <a href="ImagingStudy/example">Image 1 from Series 3: CT Images on Patient MINT (MINT1234) taken at 1-Jan 2011 01:20 AM</a>
@@ -37,7 +37,7 @@
   </author>
   <!-- test 1 -->
   <implicated>
-    <reference value="ProcedureRequest/di"/>
+    <reference value="ServiceRequest/di"/>
     <display value="Chest CT - ordered May 8, 2013 by Dr. Adam Careful"/>
   </implicated>
   <!-- test 2 -->

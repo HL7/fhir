@@ -1083,7 +1083,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(CarePlan | ImmunizationRecommendation| MedicationRequest |NutritionOrder| ProcedureRequest)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(CarePlan | ImmunizationRecommendation| MedicationRequest |NutritionOrder| ServiceRequest)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1095,7 +1095,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">What was requested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Details concerning a test or procedure requested.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Details concerning a service requested.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">This allows tracing of authorization for the report and tracking whether proposals/recommendations were acted upon</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4877,7 +4877,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">DiagnosticReport.basedOn</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Reference to the procedure request.</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Reference to the service request.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">patient</Data></Cell>

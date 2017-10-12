@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir"><!-- No identifier was available --><id value="f202"/>
 	<contained>
-		<ProcedureRequest>
+		<ServiceRequest>
 			<id value="req"/>
 			<status value="active"/>
 			<intent value="original-order"/>
@@ -26,7 +26,7 @@
 					<display value="Dokter Bronsig"/>
 				</agent>
 			</requester>
-		</ProcedureRequest>
+		</ServiceRequest>
 	</contained>
 	<basedOn>
 		<reference value="#req"/>

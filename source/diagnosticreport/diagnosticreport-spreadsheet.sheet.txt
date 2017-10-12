@@ -149,9 +149,9 @@
   Element = DiagnosticReport.basedOn
   Card. = 0..*
   Aliases = Request
-  Type = Reference(CarePlan | ImmunizationRecommendation| MedicationRequest |NutritionOrder| ProcedureRequest)
+  Type = Reference(CarePlan | ImmunizationRecommendation| MedicationRequest |NutritionOrder| ServiceRequest)
   Short Name = What was requested
-  Definition = Details concerning a test or procedure requested.
+  Definition = Details concerning a service requested.
   Requirements = This allows tracing of authorization for the report and tracking whether proposals/recommendations were acted upon
   Comments = Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.
   Workflow Mapping = Event.basedOn
@@ -498,7 +498,7 @@
  -- Row 14 -----------------------------------
   Name = based-on
   Type = reference
-  Description = Reference to the procedure request.
+  Description = Reference to the service request.
   Path = DiagnosticReport.basedOn
 
  -- Row 15 -----------------------------------

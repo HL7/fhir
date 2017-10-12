@@ -33,7 +33,7 @@
         <code value="Task"/>
       </concept>
 	  <concept>
-        <code value="ProcedureRequest"/>
+        <code value="ServiceRequest"/>
       </concept>
 	  <concept>
         <code value="VisionPrescription"/>

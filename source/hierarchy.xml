@@ -319,7 +319,7 @@ signatures.html
       <page type="resource" resource="AppointmentResponse"/>
       <page type="resource" resource="Schedule"/>
       <page type="resource" resource="Slot"/>
-      <page type="resource" resource="ProcedureRequest"/>
+      <page type="resource" resource="ServiceRequest"/>
       <page type="resource" resource="NutritionOrder"/>
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ActivityDefinition"/>

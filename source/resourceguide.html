@@ -68,8 +68,8 @@ Where to find common concepts in this specification:
  <tr><td>Signs &amp; Symptoms</td><td>from a review of systems- Pain, Fever</td><td><a href="condition.html">Condition</a> </td></tr>
 
  <tr><td colspan="3"><b>Suggested Physician Orders </b></td></tr>
- <tr><td>Proposal for a laboratory test</td><td>A blood panel, a stool analysis</td><td><a href="procedurerequest.html">ProcedureRequest</a> </td></tr>
- <tr><td>Proposal for an imaging procedure</td><td>CT Scan, MRI, X-Rays</td><td><a href="procedurerequest.html">ProcedureRequest</a> </td></tr>
+ <tr><td>Proposal for a laboratory test</td><td>A blood panel, a stool analysis</td><td><a href="servicerequest.html">ServiceRequest</a> </td></tr>
+ <tr><td>Proposal for an imaging procedure</td><td>CT Scan, MRI, X-Rays</td><td><a href="servicerequest.html">ServiceRequest</a> </td></tr>
  <tr><td>Proposed Diet Order</td><td>An oral diet order</td><td><a href="nutritionorder.html">NutritionOrder</a> </td></tr>
  <tr><td>Proposed respiratory order</td><td>Oxygen delivery</td><td>Not done yet</td></tr>
  <tr><td>Proposed Medications</td><td>Aspirin, Lisinopril</td><td><a href="medicationrequest.html">MedicationRequest</a> </td></tr>
@@ -77,7 +77,7 @@ Where to find common concepts in this specification:
 
  <tr><td colspan="3"><b>Interdisciplinary Care Planning</b></td></tr>
  <tr><td>Patient Goal</td><td>Reduce risk of falls, lose weight</td><td><a href="goal.html">Goal</a> (as part of a <a href="careplan.html">CarePlan</a>)</td></tr>
- <tr><td>Intervention</td><td>Patient assessments</td><td><a href="procedurerequest.html">ProcedureRequest</a> </td></tr>
+ <tr><td>Intervention</td><td>Patient assessments</td><td><a href="servicerequest.html">ServiceRequest</a> </td></tr>
 </table>
 
 <p>
@@ -174,7 +174,7 @@ is based. These are used to define care and treatment planned for a patient in t
 updated and adjusted as ongoing care is provided.
 </p>
 <p>
-A <code>ProcedureRequest</code> records a request for a procedure to be carried out.
+A <code>ServiceRequest</code> records a request for a procedure to be carried out.
 </p>
 <p>
 <code>NutritionOrder</code> is a request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient
@@ -185,7 +185,7 @@ and <code>VisionPrescription</code> contains the details of visual aids requeste
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="careplan.html">CarePlan</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="goal.html">Goal</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
-<tr><td><a href="procedurerequest.html">ProcedureRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical"><a href="lifecycle.html#clinical">Clinical Workflow</a></a></td></tr>
+<tr><td><a href="servicerequest.html">ServiceRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#clinical"><a href="lifecycle.html#clinical">Clinical Workflow</a></a></td></tr>
 <tr><td><a href="nutritionorder.html">NutritionOrder</a></td><td><a href="#future">Future</a>/<a href="#ongoing">Ongoing</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="visionprescription.html">VisionPrescription</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
 </table>
@@ -231,9 +231,9 @@ and many more things beside. Note that 'everything is an observation', but imple
 use Observation where <a href="condition.html">Condition</a> is more appropriate.
 </p>
 <p>
-<code>ProcedureRequest</code> and <code>DiagnosticReport</code> support the overall diagnostic process.
+<code>ServiceRequest</code> and <code>DiagnosticReport</code> support the overall diagnostic process.
 A DiagnosticReport connects the process of 'reporting', linking process identifiers, visual
-presentations of a report, and conclusions/interpretations with the Observations. ProcedureRequests capture the request from an authorized clinician to initiate the diagnostic process.
+presentations of a report, and conclusions/interpretations with the Observations. ServiceRequests capture the request from an authorized clinician to initiate the diagnostic process.
 <code>Specimen</code> and <code>BodyStructure</code> are used to record the details of specimen collection
 although BodyStructure can also be used with other resources (e.g. Operation location details on a Procedure).
 </p>
@@ -250,7 +250,7 @@ diagnostic images).
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="observation.html">Observation</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="diagnosticreport.html">DiagnosticReport</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
-<tr><td><a href="procedurerequest.html">ProcedureRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
+<tr><td><a href="servicerequest.html">ServiceRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
 <tr><td><a href="specimen.html">Specimen</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
 <tr><td><a href="specimendefinition.html">SpecimenDefinition</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
 <tr><td><a href="bodystructure.html">BodyStructure</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td></td></tr>

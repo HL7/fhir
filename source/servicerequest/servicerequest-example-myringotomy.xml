@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedurerequest.xsd">
+<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/servicerequest.xsd">
 	<id value="myringotomy"/>
 	<text>
 		<status value="generated"/>
@@ -13,10 +13,10 @@
 		<display value="Protocol for insertion of tympanic ventilation tube"/>
 	</definition>
 	<basedOn>
-		<display value="ProcedureRequest for Myringotomy and insertion of tympanic ventilation tube"/>
+		<display value="ServiceRequest for Myringotomy and insertion of tympanic ventilation tube"/>
 	</basedOn>
 	<replaces>
-		<display value="prior ProcedureRequest"/>
+		<display value="prior ServiceRequest"/>
 	</replaces>
 	<requisition>
 		<value value="1234"/>
@@ -73,4 +73,4 @@
 	</reasonCode>
 	<description value="In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is
     falling behind her peers at school, and displaying some learning difficulties."/>
-</ProcedureRequest>
+</ServiceRequest>

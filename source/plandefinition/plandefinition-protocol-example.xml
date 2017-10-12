@@ -30,7 +30,7 @@
       <status value="draft"/>
       <!--Extra information on activity-->
       <description value="Extra information on activity "/>
-      <kind value="ProcedureRequest"/>
+      <kind value="ServiceRequest"/>
       <code>
         <coding>
           <system value="http://loinc.org"/>

@@ -123,7 +123,7 @@
   Card. = 0..*
   Aliases = fulfills
   Summary = Y
-  Type = Reference(ProcedureRequest)
+  Type = Reference(ServiceRequest)
   Short Name = Procedure that caused this media to be created
   Definition = A procedure that is fulfilled in whole or in part by the creation of this media
   Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon

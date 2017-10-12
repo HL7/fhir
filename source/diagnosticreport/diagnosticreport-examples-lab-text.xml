@@ -39,7 +39,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -49,7 +49,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -181,7 +181,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -191,7 +191,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -552,7 +552,7 @@ C-React Prot      152     mg/L   ( &lt;5       )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -562,7 +562,7 @@ C-React Prot      152     mg/L   ( &lt;5       )
 						<reasonCode>
 							<text value="Infected Tendon Sheath"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -626,7 +626,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -636,7 +636,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Infected Tendon Sheath"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -688,7 +688,7 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -698,7 +698,7 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="Post Tx"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -788,7 +788,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -798,7 +798,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
 						<reasonCode>
 							<text value="Post Tx"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1035,7 +1035,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1045,7 +1045,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1203,7 +1203,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1213,7 +1213,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1277,7 +1277,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1287,7 +1287,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1345,7 +1345,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1355,7 +1355,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="PR Bleed Hep C +ve"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1415,7 +1415,7 @@ Troponin I        0.03    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1425,7 +1425,7 @@ Troponin I        0.03    ug/L   (See Below )
 						<reasonCode>
 							<text value="PR Bleed Hep C +ve"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1485,7 +1485,7 @@ Troponin I        0.03    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1495,7 +1495,7 @@ Troponin I        0.03    ug/L   (See Below )
 						<reasonCode>
 							<text value="PR Bleed Hep C +ve"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1578,7 +1578,7 @@ Comment: Please note moderate thrombocytopenia persists. Please
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1588,7 +1588,7 @@ Comment: Please note moderate thrombocytopenia persists. Please
 						<reasonCode>
 							<text value="PR Bleed Hep C +ve"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1647,7 +1647,7 @@ Protein Total      65     g/L    ( 65-85    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1657,7 +1657,7 @@ Protein Total      65     g/L    ( 65-85    )
 						<reasonCode>
 							<text value="Vomiting Diarrhoea"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1744,7 +1744,7 @@ Conclusion: Suggestive of infection.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1754,7 +1754,7 @@ Conclusion: Suggestive of infection.
 						<reasonCode>
 							<text value="Vomiting Diarrhoea"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1809,7 +1809,7 @@ Hrs Since Dose No Info  No Info                            HH:MM
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1819,7 +1819,7 @@ Hrs Since Dose No Info  No Info                            HH:MM
 						<reasonCode>
 							<text value="Intoxicated Agitated ? Penetrating Head Injury"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1879,7 +1879,7 @@ Lipase             87     IU/L   ( &lt;60      )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1889,7 +1889,7 @@ Lipase             87     IU/L   ( &lt;60      )
 						<reasonCode>
 							<text value="Intoxicated Agitated ? Penetrating Head Injury"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -1967,7 +1967,7 @@ Comment: Instrument differential and parameters reported.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -1977,7 +1977,7 @@ Comment: Instrument differential and parameters reported.
 						<reasonCode>
 							<text value="Intoxicated Agitated ? Penetrating Head Injury"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2139,7 +2139,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2149,7 +2149,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2199,7 +2199,7 @@ INR               3.0H                                           0.8-1.3
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2209,7 +2209,7 @@ INR               3.0H                                           0.8-1.3
 						<reasonCode>
 							<text value="Fall From Standing Height Headstrike LOC"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2261,7 +2261,7 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2271,7 +2271,7 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="Fall From Standing Height Headstrike LOC"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2335,7 +2335,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2345,7 +2345,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Fall From Standing Height Headstrike LOC"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2421,7 +2421,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2431,7 +2431,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2486,7 +2486,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2496,7 +2496,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2556,7 +2556,7 @@ Protein Total      77     g/L    ( 65-85    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2566,7 +2566,7 @@ Protein Total      77     g/L    ( 65-85    )
 						<reasonCode>
 							<text value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2630,7 +2630,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2640,7 +2640,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="TIA Slurred Speech Facial Droop Cardiac Hx"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2702,7 +2702,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2712,7 +2712,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
 						<reasonCode>
 							<text value="Collapse"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2774,7 +2774,7 @@ Protein Total      70     g/L    ( 65-85    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2784,7 +2784,7 @@ Protein Total      70     g/L    ( 65-85    )
 						<reasonCode>
 							<text value="Collapse"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2863,7 +2863,7 @@ Comment: Mild neutropenia.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2873,7 +2873,7 @@ Comment: Mild neutropenia.
 						<reasonCode>
 							<text value="Collapse"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -2949,7 +2949,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -2959,7 +2959,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3035,7 +3035,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3045,7 +3045,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3121,7 +3121,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3131,7 +3131,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3207,7 +3207,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3217,7 +3217,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3285,7 +3285,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3295,7 +3295,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3367,7 +3367,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3377,7 +3377,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3453,7 +3453,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3463,7 +3463,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3542,7 +3542,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3552,7 +3552,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3596,7 +3596,7 @@ Specimen Type:  Serum
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3606,7 +3606,7 @@ Specimen Type:  Serum
 						<reasonCode>
 							<text value="Needlestick Recipient"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3662,7 +3662,7 @@ HBsAB Titre                                            :      44 IU/L
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3672,7 +3672,7 @@ HBsAB Titre                                            :      44 IU/L
 						<reasonCode>
 							<text value="Needlestick Recipient"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3748,7 +3748,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3758,7 +3758,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3808,7 +3808,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3818,7 +3818,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -3894,7 +3894,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -3904,7 +3904,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4003,7 +4003,7 @@ Anaerobic bottle             4   days                 Negative
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4013,7 +4013,7 @@ Anaerobic bottle             4   days                 Negative
 						<reasonCode>
 							<text value="Febrile &gt;38"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4089,7 +4089,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4099,7 +4099,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4189,7 +4189,7 @@ perinatal or neonatal infection.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4199,7 +4199,7 @@ perinatal or neonatal infection.
 						<reasonCode>
 							<text value="Appendiceal Abscess"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4275,7 +4275,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4285,7 +4285,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4586,7 +4586,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4596,7 +4596,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4648,7 +4648,7 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4658,7 +4658,7 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="Fall"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4731,7 +4731,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4741,7 +4741,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
 						<reasonCode>
 							<text value="Fall"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4796,7 +4796,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4806,7 +4806,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Appendiceal Abscess"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4866,7 +4866,7 @@ C-React Prot        4     mg/L   ( &lt;5       )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4876,7 +4876,7 @@ C-React Prot        4     mg/L   ( &lt;5       )
 						<reasonCode>
 							<text value="Appendiceal Abscess"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -4940,7 +4940,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -4950,7 +4950,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Appendiceal Abscess"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -5026,7 +5026,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -5036,7 +5036,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -5261,7 +5261,7 @@ Troponin I        0.02    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -5271,7 +5271,7 @@ Troponin I        0.02    ug/L   (See Below )
 						<reasonCode>
 							<text value="Chest Pain FI"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -5316,7 +5316,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -5326,7 +5326,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 						<reasonCode>
 							<text value="Serial Troponins"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -5371,7 +5371,7 @@ NTRC
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -5381,7 +5381,7 @@ NTRC
 						<reasonCode>
 							<text value="R/Central Chest Pain Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -5433,7 +5433,7 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -5443,7 +5443,7 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="R/Central Chest Pain Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -5507,7 +5507,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -5517,7 +5517,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="R/Central Chest Pain Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -5706,7 +5706,7 @@ culture.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -5716,7 +5716,7 @@ culture.
 						<reasonCode>
 							<text value="Collapsed Low BP"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -5792,7 +5792,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -5802,7 +5802,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -5900,7 +5900,7 @@ GROIN SWAB                    VRE not detected
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -5910,7 +5910,7 @@ GROIN SWAB                    VRE not detected
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -6149,7 +6149,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -6159,7 +6159,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Heparin Infusion"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -6233,7 +6233,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -6243,7 +6243,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -6414,7 +6414,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -6424,7 +6424,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="PR Bleeding"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -6476,7 +6476,7 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -6486,7 +6486,7 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="PR Bleeding"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -6550,7 +6550,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -6560,7 +6560,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="PR Bleeding"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -6919,7 +6919,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -6929,7 +6929,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -6997,7 +6997,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7007,7 +7007,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7068,7 +7068,7 @@ C-React Prot        5     mg/L   ( &lt;5       )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7078,7 +7078,7 @@ C-React Prot        5     mg/L   ( &lt;5       )
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7142,7 +7142,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7152,7 +7152,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7199,7 +7199,7 @@ LIPIDS
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7209,7 +7209,7 @@ LIPIDS
 						<reasonCode>
 							<text value="Trial See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7269,7 +7269,7 @@ investigation, please contact the Microbiology Registrar.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7279,7 +7279,7 @@ investigation, please contact the Microbiology Registrar.
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7497,7 +7497,7 @@ Comment: The requested tests were not completed as no
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7507,7 +7507,7 @@ Comment: The requested tests were not completed as no
 						<reasonCode>
 							<text value="S\H/A Anneurism"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7574,7 +7574,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7584,7 +7584,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
 						<reasonCode>
 							<text value="S\H/A Anneurism"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7650,7 +7650,7 @@ culture or special media are required.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7660,7 +7660,7 @@ culture or special media are required.
 						<reasonCode>
 							<text value="S\H/A Anneurism"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7718,7 +7718,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7728,7 +7728,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7781,7 +7781,7 @@ Troponin I        0.02    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7791,7 +7791,7 @@ Troponin I        0.02    ug/L   (See Below )
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7858,7 +7858,7 @@ Comment: * Please note: no specimen received.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7868,7 +7868,7 @@ Comment: * Please note: no specimen received.
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -7926,7 +7926,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -7936,7 +7936,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
 						<reasonCode>
 							<text value="Chest Pain Worse On Exercise"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -8012,7 +8012,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -8022,7 +8022,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -8098,7 +8098,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -8108,7 +8108,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -8555,7 +8555,7 @@ Presumptive  negative for pneumococcal pneumonia.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -8565,7 +8565,7 @@ Presumptive  negative for pneumococcal pneumonia.
 						<reasonCode>
 							<text value="Chest Pain Worse On Exercise"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -8744,7 +8744,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -8754,7 +8754,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -8802,7 +8802,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -8812,7 +8812,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
 						<reasonCode>
 							<text value="Chest Pain Fi"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -8950,7 +8950,7 @@ No Growth -Detection limit 10^7 CFU/L
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -8960,7 +8960,7 @@ No Growth -Detection limit 10^7 CFU/L
 						<reasonCode>
 							<text value="Collapsed Low BP"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -9279,7 +9279,7 @@ No Growth -Detection limit 10^7 CFU/L
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -9289,7 +9289,7 @@ No Growth -Detection limit 10^7 CFU/L
 						<reasonCode>
 							<text value="Febrile FI"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -9502,7 +9502,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -9512,7 +9512,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -9664,7 +9664,7 @@ Protein Total      73     g/L    ( 65-85    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -9674,7 +9674,7 @@ Protein Total      73     g/L    ( 65-85    )
 						<reasonCode>
 							<text value="Gastro"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -9748,7 +9748,7 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -9758,7 +9758,7 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
 						<reasonCode>
 							<text value="Gastro"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -9938,7 +9938,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -9948,7 +9948,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10024,7 +10024,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10034,7 +10034,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10142,7 +10142,7 @@ Anaerobic bottle             4   days                 Negative
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10152,7 +10152,7 @@ Anaerobic bottle             4   days                 Negative
 						<reasonCode>
 							<text value="Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10220,7 +10220,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10230,7 +10230,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10275,7 +10275,7 @@ Troponin I        0.02    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10285,7 +10285,7 @@ Troponin I        0.02    ug/L   (See Below )
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10330,7 +10330,7 @@ C-React Prot      149     mg/L   ( &lt;5       )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10340,7 +10340,7 @@ C-React Prot      149     mg/L   ( &lt;5       )
 						<reasonCode>
 							<text value="Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10390,7 +10390,7 @@ Anaerobic bottle             4   days                 Negative
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10400,7 +10400,7 @@ Anaerobic bottle             4   days                 Negative
 						<reasonCode>
 							<text value="Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10447,7 +10447,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10457,7 +10457,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10521,7 +10521,7 @@ Old Ref Ranges prior to 27th April 2004
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10531,7 +10531,7 @@ Old Ref Ranges prior to 27th April 2004
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10597,7 +10597,7 @@ LIPIDS
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10607,7 +10607,7 @@ LIPIDS
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10671,7 +10671,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10681,7 +10681,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10733,7 +10733,7 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10743,7 +10743,7 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10816,7 +10816,7 @@ Comment: Instrument differential and parameters reported.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10826,7 +10826,7 @@ Comment: Instrument differential and parameters reported.
 						<reasonCode>
 							<text value="Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10876,7 +10876,7 @@ Anaerobic bottle             4   days                 Negative
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10886,7 +10886,7 @@ Anaerobic bottle             4   days                 Negative
 						<reasonCode>
 							<text value="Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -10967,7 +10967,7 @@ Timentin         S
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -10977,7 +10977,7 @@ Timentin         S
 						<reasonCode>
 							<text value="Febrile &gt;38"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -11114,7 +11114,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -11124,7 +11124,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -11177,7 +11177,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -11187,7 +11187,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
 						<reasonCode>
 							<text value="Nausea And Vomiting FI"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -11437,7 +11437,7 @@ CULTURE
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -11447,7 +11447,7 @@ CULTURE
 						<reasonCode>
 							<text value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -11523,7 +11523,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -11533,7 +11533,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -11585,7 +11585,7 @@ RECTAL SWAB                   VRE not detected
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -11595,7 +11595,7 @@ RECTAL SWAB                   VRE not detected
 						<reasonCode>
 							<text value="On Admission"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -11640,7 +11640,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -11650,7 +11650,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -11812,7 +11812,7 @@ Old Ref Ranges prior to 27th April 2004
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -11822,7 +11822,7 @@ Old Ref Ranges prior to 27th April 2004
 						<reasonCode>
 							<text value="Acute Alcohol Withdrawal"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -11877,7 +11877,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -11887,7 +11887,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Acute Alcohol Withdrawal"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -11934,7 +11934,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -11944,7 +11944,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 						<reasonCode>
 							<text value="Acute Alcohol Withdrawal"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12008,7 +12008,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12018,7 +12018,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Acute Alcohol Withdrawal"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12078,7 +12078,7 @@ C-React Prot       12     mg/L   ( &lt;5       )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12088,7 +12088,7 @@ C-React Prot       12     mg/L   ( &lt;5       )
 						<reasonCode>
 							<text value="Acute Alcohol Withdrawal"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12138,7 +12138,7 @@ Anaerobic bottle             4   days                 Negative
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12148,7 +12148,7 @@ Anaerobic bottle             4   days                 Negative
 						<reasonCode>
 							<text value="T+ 38.7C"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12408,7 +12408,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12418,7 +12418,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12494,7 +12494,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12504,7 +12504,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12552,7 +12552,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12562,7 +12562,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
 						<reasonCode>
 							<text value="Palpitation"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12626,7 +12626,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12636,7 +12636,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Palpitation"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12693,7 +12693,7 @@ Troponin I        0.03    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12703,7 +12703,7 @@ Troponin I        0.03    ug/L   (See Below )
 						<reasonCode>
 							<text value="Palpitation"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12846,7 +12846,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12856,7 +12856,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -12907,7 +12907,7 @@ G1691A Substitution Result:
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -12917,7 +12917,7 @@ G1691A Substitution Result:
 						<reasonCode>
 							<text value="Thrombophilic Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13042,7 +13042,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13052,7 +13052,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13239,7 +13239,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13249,7 +13249,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13308,7 +13308,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13318,7 +13318,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Post Angio + Stent"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13380,7 +13380,7 @@ Protein Total      65     g/L    ( 65-85    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13390,7 +13390,7 @@ Protein Total      65     g/L    ( 65-85    )
 						<reasonCode>
 							<text value="Post Angio + Stent"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13457,7 +13457,7 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13467,7 +13467,7 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
 						<reasonCode>
 							<text value="Post Angio + Stent"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13716,7 +13716,7 @@ Comment: The requested tests were not completed as no sample was
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13726,7 +13726,7 @@ Comment: The requested tests were not completed as no sample was
 						<reasonCode>
 							<text value="Urinary Symptoms 2/52 With Loin Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13778,7 +13778,7 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13788,7 +13788,7 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="Urinary Symptoms 2/52 With Loin Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13852,7 +13852,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13862,7 +13862,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Urinary Symptoms 2/52 With Loin Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13907,7 +13907,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13917,7 +13917,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Sah"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -13971,7 +13971,7 @@ Comment: The requested tests were not completed as no
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -13981,7 +13981,7 @@ Comment: The requested tests were not completed as no
 						<reasonCode>
 							<text value="Sah"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14036,7 +14036,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14046,7 +14046,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Sah"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14109,7 +14109,7 @@ Comment: Haemolysed. Some tests (*) unavailable.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14119,7 +14119,7 @@ Comment: Haemolysed. Some tests (*) unavailable.
 						<reasonCode>
 							<text value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14190,7 +14190,7 @@ Comment: * Specimen clotted. ED informed.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14200,7 +14200,7 @@ Comment: * Specimen clotted. ED informed.
 						<reasonCode>
 							<text value="Increasing Sob On Exerion Post Surgery 3/52 Ago ? Pe"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14276,7 +14276,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14286,7 +14286,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14349,7 +14349,7 @@ No Growth After 2 Days.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14359,7 +14359,7 @@ No Growth After 2 Days.
 						<reasonCode>
 							<text value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14414,7 +14414,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14424,7 +14424,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Trauma"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14476,7 +14476,7 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14486,7 +14486,7 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="Trauma"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14553,7 +14553,7 @@ Comment: Please note mild neutrophilia
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14563,7 +14563,7 @@ Comment: Please note mild neutrophilia
 						<reasonCode>
 							<text value="Trauma"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14733,7 +14733,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14743,7 +14743,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="89/M Collapsed, Low Bp"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14803,7 +14803,7 @@ C-React Prot      109     mg/L   ( &lt;5       )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14813,7 +14813,7 @@ C-React Prot      109     mg/L   ( &lt;5       )
 						<reasonCode>
 							<text value="89/M Collapsed, Low Bp"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14887,7 +14887,7 @@ Comment: Please note mild neutrophilia and mild monocytosis
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14897,7 +14897,7 @@ Comment: Please note mild neutrophilia and mild monocytosis
 						<reasonCode>
 							<text value="89/M Collapsed, Low Bp"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -14949,7 +14949,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -14959,7 +14959,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
 						<reasonCode>
 							<text value="Pre Organ "/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15023,7 +15023,7 @@ Pathologist: To Follow
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15033,7 +15033,7 @@ Pathologist: To Follow
 						<reasonCode>
 							<text value="Known Endocarditis, Vasculitic Rash Past, ?septic Embol"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15099,7 +15099,7 @@ the Blood Bank.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15109,7 +15109,7 @@ the Blood Bank.
 						<reasonCode>
 							<text value="Ivig-Intragram 39G"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15177,7 +15177,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15187,7 +15187,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15302,7 +15302,7 @@ and diphtheroid bacilli.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15312,7 +15312,7 @@ and diphtheroid bacilli.
 						<reasonCode>
 							<text value="Recurrent Falls"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15435,7 +15435,7 @@ the Blood Bank.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15445,7 +15445,7 @@ the Blood Bank.
 						<reasonCode>
 							<text value="Kovig Ivig- 30G"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15513,7 +15513,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15523,7 +15523,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15586,7 +15586,7 @@ Comment: The CKMB was not measured on this sample. It has
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15596,7 +15596,7 @@ Comment: The CKMB was not measured on this sample. It has
 						<reasonCode>
 							<text value="Cags X3 24/24 Post"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15664,7 +15664,7 @@ Comment: Please note fall in haemoglobin and platelet count since
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15674,7 +15674,7 @@ Comment: Please note fall in haemoglobin and platelet count since
 						<reasonCode>
 							<text value="Cags X3 24/24 Post"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15737,7 +15737,7 @@ Comment
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15747,7 +15747,7 @@ Comment
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15823,7 +15823,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15833,7 +15833,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15883,7 +15883,7 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15893,7 +15893,7 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
 						<reasonCode>
 							<text value="Chest Pain Worse On Exercise"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -15943,7 +15943,7 @@ Comment: A troponin has been measured for this patient in
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -15953,7 +15953,7 @@ Comment: A troponin has been measured for this patient in
 						<reasonCode>
 							<text value="Chest Pain Worse On Exercise"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16020,7 +16020,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16030,7 +16030,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
 						<reasonCode>
 							<text value="2Hrs Post Dose"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16085,7 +16085,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16095,7 +16095,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Post Op MVR"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16157,7 +16157,7 @@ Protein Total      47     g/L    ( 65-85    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16167,7 +16167,7 @@ Protein Total      47     g/L    ( 65-85    )
 						<reasonCode>
 							<text value="Post Op MVR"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16235,7 +16235,7 @@ Comment: Please note fall in haemoglobin and platelet count since
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16245,7 +16245,7 @@ Comment: Please note fall in haemoglobin and platelet count since
 						<reasonCode>
 							<text value="Post Op MVR"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16290,7 +16290,7 @@ NTRC
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16300,7 +16300,7 @@ NTRC
 						<reasonCode>
 							<text value="Recurrent Falls"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16356,7 +16356,7 @@ Albumin            34     g/L    ( 35-50    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16366,7 +16366,7 @@ Albumin            34     g/L    ( 35-50    )
 						<reasonCode>
 							<text value="Recurrent Falls"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16430,7 +16430,7 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16440,7 +16440,7 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Recurrent Falls"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16490,7 +16490,7 @@ Anaerobic bottle             4   days                 Negative
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16500,7 +16500,7 @@ Anaerobic bottle             4   days                 Negative
 						<reasonCode>
 							<text value="Febrile"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16556,7 +16556,7 @@ General Comments:
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16566,7 +16566,7 @@ General Comments:
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16718,7 +16718,7 @@ Comment: Post platelet increment
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16728,7 +16728,7 @@ Comment: Post platelet increment
 						<reasonCode>
 							<text value="Post Platelet Increment"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16824,7 +16824,7 @@ Albumin            27     g/L    ( 35-50    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16834,7 +16834,7 @@ Albumin            27     g/L    ( 35-50    )
 						<reasonCode>
 							<text value="Post Angiogram Anaemia"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -16906,7 +16906,7 @@ Comment: Instrument differential and parameters reported.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -16916,7 +16916,7 @@ Comment: Instrument differential and parameters reported.
 						<reasonCode>
 							<text value="Post Angiogram Anaemia"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -17058,7 +17058,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -17068,7 +17068,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -17113,7 +17113,7 @@ NTRS
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -17123,7 +17123,7 @@ NTRS
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -17180,7 +17180,7 @@ Post Dose (Peak) level : Not recommended
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -17190,7 +17190,7 @@ Post Dose (Peak) level : Not recommended
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -17250,7 +17250,7 @@ C-React Prot       19     mg/L   ( &lt;5       )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -17260,7 +17260,7 @@ C-React Prot       19     mg/L   ( &lt;5       )
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -17328,7 +17328,7 @@ Comment: Note: mild neutrophilia. Instrument differential and
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -17338,7 +17338,7 @@ Comment: Note: mild neutrophilia. Instrument differential and
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -17410,7 +17410,7 @@ No Growth -Detection limit 10^7 CFU/L
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -17420,7 +17420,7 @@ No Growth -Detection limit 10^7 CFU/L
 						<reasonCode>
 							<text value="Urinary Symptoms 2/52 With Loin Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -17922,7 +17922,7 @@ NTRESR
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -17932,7 +17932,7 @@ NTRESR
 						<reasonCode>
 							<text value="Chronic Idiopathic Urticaria"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -17977,7 +17977,7 @@ NTRESR
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -17987,7 +17987,7 @@ NTRESR
 						<reasonCode>
 							<text value="On Clozapine"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -18190,7 +18190,7 @@ Anaerobic bottle             4   days                 Negative
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -18200,7 +18200,7 @@ Anaerobic bottle             4   days                 Negative
 						<reasonCode>
 							<text value="Febrile FI"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -18513,7 +18513,7 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -18523,7 +18523,7 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="Atheroma With Complete Occlusions R/L Legs"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -18599,7 +18599,7 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -18609,7 +18609,7 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
 						<reasonCode>
 							<text value="Atheroma With Complete Occlusions R/L Legs"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -18669,7 +18669,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -18679,7 +18679,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -18743,7 +18743,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -18753,7 +18753,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -18965,7 +18965,7 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -18975,7 +18975,7 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
 						<reasonCode>
 							<text value="See Slip"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19034,7 +19034,7 @@ Protein Total      80     g/L    ( 65-85    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19044,7 +19044,7 @@ Protein Total      80     g/L    ( 65-85    )
 						<reasonCode>
 							<text value="Headache"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19108,7 +19108,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19118,7 +19118,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Headache"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19182,7 +19182,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19192,7 +19192,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Headache"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19333,7 +19333,7 @@ INR               1.0                                            0.8-1.3
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19343,7 +19343,7 @@ INR               1.0                                            0.8-1.3
 						<reasonCode>
 							<text value="Trauma MVA"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19391,7 +19391,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19401,7 +19401,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
 						<reasonCode>
 							<text value="Trauma MVA"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19468,7 +19468,7 @@ Comment: Please note mild neutrophilia
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19478,7 +19478,7 @@ Comment: Please note mild neutrophilia
 						<reasonCode>
 							<text value="Trauma MVA"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19537,7 +19537,7 @@ Protein Total      67     g/L    ( 65-85    )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19547,7 +19547,7 @@ Protein Total      67     g/L    ( 65-85    )
 						<reasonCode>
 							<text value="Trauma MVA"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19601,7 +19601,7 @@ Comments / Steps Taken
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19611,7 +19611,7 @@ Comments / Steps Taken
 						<reasonCode>
 							<text value="Thrombophilic Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19679,7 +19679,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19689,7 +19689,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19810,7 +19810,7 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19820,7 +19820,7 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
 						<reasonCode>
 							<text value="Pleuritic Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19887,7 +19887,7 @@ Comment: Please note mild monocytosis
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19897,7 +19897,7 @@ Comment: Please note mild monocytosis
 						<reasonCode>
 							<text value="Pleuritic Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -19949,7 +19949,7 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -19959,7 +19959,7 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
 						<reasonCode>
 							<text value="Pleuritic Chest Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -20272,7 +20272,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -20282,7 +20282,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
 						<reasonCode>
 							<text value="Febrile . Neutripaenic"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -20358,7 +20358,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -20368,7 +20368,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -20415,7 +20415,7 @@ Amylase           390 IU/L
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -20425,7 +20425,7 @@ Amylase           390 IU/L
 						<reasonCode>
 							<text value="Drain Fluid. Prev Vre And Kleb Pneumo Rx Teicoplan/Tazo"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -20548,7 +20548,7 @@ No Beta haemolytic streptococci isolated.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -20558,7 +20558,7 @@ No Beta haemolytic streptococci isolated.
 						<reasonCode>
 							<text value="ga Streps"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -20618,7 +20618,7 @@ be processed.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -20628,7 +20628,7 @@ be processed.
 						<reasonCode>
 							<text value="ga Streps"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -20894,7 +20894,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -20904,7 +20904,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 						<reasonCode>
 							<text value="Sob On Exertion"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -20968,7 +20968,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -20978,7 +20978,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Sob On Exertion"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21054,7 +21054,7 @@ Note: Reference Ranges shown are for arterial blood only.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21064,7 +21064,7 @@ Note: Reference Ranges shown are for arterial blood only.
 						<reasonCode>
 							<text value="Automatic Request Registration"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21115,7 +21115,7 @@ G1691A Substitution Result:
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21125,7 +21125,7 @@ G1691A Substitution Result:
 						<reasonCode>
 							<text value="Thrombophilic Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21178,7 +21178,7 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21188,7 +21188,7 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
 						<reasonCode>
 							<text value="Thrombophilic Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21248,7 +21248,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21258,7 +21258,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Thrombophilic Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21331,7 +21331,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21341,7 +21341,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
 						<reasonCode>
 							<text value="Thrombophilic Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21400,7 +21400,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21410,7 +21410,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
 						<reasonCode>
 							<text value="Thrombophilic Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21470,7 +21470,7 @@ Lupus Inhibitor Comment:
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21480,7 +21480,7 @@ Lupus Inhibitor Comment:
 						<reasonCode>
 							<text value="Thrombophilic Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21642,7 +21642,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21652,7 +21652,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
 						<reasonCode>
 							<text value="Anaemia"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21716,7 +21716,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21726,7 +21726,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
 						<reasonCode>
 							<text value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21781,7 +21781,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21791,7 +21791,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 						<reasonCode>
 							<text value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21854,7 +21854,7 @@ EtOH              0.02    gm%
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21864,7 +21864,7 @@ EtOH              0.02    gm%
 						<reasonCode>
 							<text value="Mba 80Km With Headstrike, Loc And R Neck Pain"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21928,7 +21928,7 @@ Old Ref Ranges prior to 27th April 2004
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21938,7 +21938,7 @@ Old Ref Ranges prior to 27th April 2004
 						<reasonCode>
 							<text value="Delerium Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -21986,7 +21986,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -21996,7 +21996,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
 						<reasonCode>
 							<text value="Delerium Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>
@@ -22062,7 +22062,7 @@ LIPIDS
 					</div>
 				</text>
 				<contained>
-					<ProcedureRequest>
+					<ServiceRequest>
 						<id value="req"/>
 						<status value="active"/>
 						<intent value="order"/>
@@ -22072,7 +22072,7 @@ LIPIDS
 						<reasonCode>
 							<text value="Delerium Screen"/>
 						</reasonCode>
-					</ProcedureRequest>
+					</ServiceRequest>
 				</contained>
 				<identifier>
 					<system value="http://acme.com/lab/reports"/>

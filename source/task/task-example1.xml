@@ -1,5 +1,5 @@
 <Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
-	<!--This is an example to demonstrate using task for actioning a procedurerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen 
+	<!--This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen 
 example1 action lipid panel -in progress =>. example2 specimen collection subtask -accepted => example4  specimen collection subtask - completed  with output Specimen=>example 5 action lipid panel -in progress specimen collected => example 6 action lipid panel - completed with output DiagnosticReport -->
 	<id value="example1"/>
 	<contained>
@@ -7,7 +7,7 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 		<Provenance>
 			<id value="signature"/>
 			<target>
-				<reference value="ProcedureRequest/physiotherapy/_history/1"/>
+				<reference value="ServiceRequest/physiotherapy/_history/1"/>
 			</target>
 			<recorded value="2016-10-31T08:25:05+10:00"/>
 			<agent>
@@ -63,9 +63,9 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 		<text value="Lipid Panel"/>
 	</code>
 	<description value="Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen"/>
-	<!--	Use the lipid procedurerequest example -->
+	<!--	Use the lipid servicerequest example -->
 	<focus>
-		<reference value="ProcedureRequest/lipid"/>
+		<reference value="ServiceRequest/lipid"/>
 		<display value="Lipid Panel Request"/>
 	</focus>
 	<!--	who the task is for
@@ -112,7 +112,7 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 		<text value="The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus"/>
 	</reasonCode>
 	<note>
-		<text value="This is an example to demonstrate using task for actioning a procedurerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test "/>
+		<text value="This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test "/>
 	</note>
 	<!--	add the link to the signature on the task to show how this element is usedemonstrating in this example the relevant history element using a contained resource for the purpose of this example only typically would reference an external resource
 

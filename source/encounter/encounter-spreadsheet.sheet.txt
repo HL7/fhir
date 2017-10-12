@@ -323,8 +323,8 @@
  -- Row 15 -----------------------------------
   Element = Encounter.incomingReferral
   Card. = 0..*
-  Type = Reference(ProcedureRequest)
-  Short Name = The ProcedureRequest that initiated this encounter
+  Type = Reference(ServiceRequest)
+  Short Name = The ServiceRequest that initiated this encounter
   Definition = The referral request this encounter satisfies (incoming referral)
   RIM Mapping = .reason.ClinicalDocument
 
@@ -766,7 +766,7 @@
   Name = incomingreferral
   Type = reference
   Path = Encounter.incomingReferral
-  Target Types = ProcedureRequest
+  Target Types = ServiceRequest
 
  -- Row 21 -----------------------------------
   Name = practitioner

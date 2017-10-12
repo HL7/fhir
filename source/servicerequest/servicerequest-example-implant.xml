@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedurerequest.xsd">
+<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/servicerequest.xsd">
 	<id value="example-implant"/>
-	<!-- Example of a device manipulation procedure request-->
+	<!-- Example of a device manipulation service request-->
 	<status value="completed"/>
 	<intent value="order"/>
 	<code>
@@ -29,4 +29,4 @@
 	<reasonCode>
 		<text value="Bradycardia"/>
 	</reasonCode>
-</ProcedureRequest>
+</ServiceRequest>
