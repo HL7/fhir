@@ -101,6 +101,7 @@
   Type = DomainResource
   Short Name = A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference
   Definition = A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference
+  Workflow Mapping = Event
   RIM Mapping = Act[classCode=\"DGIMG\", moodCode=\"EVN\"]
   w5 = infrastructure.structure
 
@@ -112,6 +113,7 @@
   Short Name = Identifier(s) for the image
   Definition = Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers
   Comments = The identifier label and use can be used to determine what kind of identifier it is
+  Workflow Mapping = Event.instantiates
   RIM Mapping = .id
   DICOM Mapping = 0008,0018 | ~0008,0050 | 0020,000D | 0020,000E
   w5 = id
@@ -125,6 +127,7 @@
   Short Name = Procedure that caused this media to be created
   Definition = A procedure that is fulfilled in whole or in part by the creation of this media
   Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon
+  Workflow Mapping = Event.basedOn
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target
 
  -- Row 4 -----------------------------------
@@ -137,6 +140,7 @@
   Definition = A larger event of which this particular event is a component or step
   Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.
   Comments = Not to be used to link an event to an Encounter - use Event.context for that.\n\n[The allowed reference resources may be adjusted as appropriate for the event resource]
+  Workflow Mapping = Event.partOf
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
 
  -- Row 5 -----------------------------------
@@ -147,6 +151,7 @@
   Binding = DigitalMediaType
   Short Name = photo | video | audio
   Definition = Whether the media is a photo (still image), an audio recording, or a video recording
+  Workflow Mapping = Event.code
   RIM Mapping = .code
   w5 = class
 
@@ -158,6 +163,7 @@
   Binding = DigitalMediaSubtype
   Short Name = The type of acquisition equipment/process
   Definition = Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality
+  Workflow Mapping = Event.code
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   DICOM Mapping = 0008,0060 | 0008,1032
   w5 = class
@@ -180,6 +186,7 @@
   Type = Reference(Patient|Practitioner|Group|Device|Specimen)
   Short Name = Who/What this Media is a record of
   Definition = Who/What this Media is a record of
+  Workflow Mapping = Event.subject
   RIM Mapping = .participation[typeCode=\"SUBJ\"]???
   DICOM Mapping = ~0010,0020
   w5 = who.focus
@@ -194,6 +201,7 @@
   Definition = The encounter or episode of care that establishes the context for this media
   Requirements = Links the media to the Encounter context
   Comments = This will typically be the encounter the media occurred within
+  Workflow Mapping = Event.context
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   w5 = context
 
@@ -205,6 +213,7 @@
   Type = dateTime|Period
   Short Name = When Media was collected
   Definition = The date and time(s) at which the media was collected
+  Workflow Mapping = Event.occurrence[x]
   RIM Mapping = .effectiveTime
   w5 = when.done
 
@@ -215,6 +224,7 @@
   Type = Reference(Practitioner)
   Short Name = The person who generated the image
   Definition = The person who administered the collection of the image
+  Workflow Mapping = Event.performer.actor
   RIM Mapping = .participation[typeCode=\"PERF\"]???
   DICOM Mapping = 0008,1060?
   w5 = who.actor
@@ -228,6 +238,7 @@
   Short Name = Why was event performed?
   Definition = Describes why the event occurred in coded or textual form.
   Comments = Textual reasons can be caprued using reasonCode.text
+  Workflow Mapping = Event.reasonCode
   RIM Mapping = .reasonCode
   w5 = why
 
@@ -326,6 +337,7 @@
   Type = Annotation
   Short Name = Comments made about the media
   Definition = Comments made about the media by the performer, subject or other participants.
+  Workflow Mapping = Event.note
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
 
