@@ -398,7 +398,7 @@ public class TurtleTests {
   public void test_localName_with_assigned_nfc_PN_CHARS_BASE_character_boundaries() throws Exception {
     doTest(Utilities.path(TestingUtilities.home(), "tests", "turtle", "localName_with_assigned_nfc_PN_CHARS_BASE_character_boundaries.ttl"), false);
   }
-// don't need to support property names with ':'  
+// don't need to support property names with ':'
 //  @Test
 //  public void test_localname_with_COLONNT() throws Exception {
 //    doTest(Utilities.path(TestingUtilities.home(), "tests", "turtle", "localname_with_COLON.nt"), true);
@@ -1527,7 +1527,7 @@ public class TurtleTests {
 //  public void test_blankNodePropertyList_as_subject() throws Exception {
 //    doTest(Utilities.path(TestingUtilities.home(), "tests", "turtle", "blankNodePropertyList_as_subject.ttl"), true);
 //  }
-  
+
   @Test
   public void test_blankNodePropertyList_containing_collectionNT() throws Exception {
     doTest(Utilities.path(TestingUtilities.home(), "tests", "turtle", "blankNodePropertyList_containing_collection.nt"), true);
@@ -1983,8 +1983,8 @@ public class TurtleTests {
   @Test
   public void test_procedurerequest_example() throws FileNotFoundException, IOException, Exception {
     if (!TestingUtilities.silent)
-      System.out.println("procedurerequest-example.ttl");
-    new Turtle().parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), "publish", "procedurerequest-example.ttl")));
+      System.out.println("servicerequest-example.ttl");
+    new Turtle().parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), "publish", "servicerequest-example.ttl")));
   }
   @Test
   public void test_procedure_example() throws FileNotFoundException, IOException, Exception {
@@ -3060,7 +3060,7 @@ public class TurtleTests {
       System.out.println("diagnosticreport-hla-genetics-results-example.ttl");
     new Turtle().parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), "publish", "diagnosticreport-hla-genetics-results-example.ttl")));
   }
-  
+
   @Test
   public void test_diagnosticreport_genetics_comprehensive_bone_marrow_report() throws FileNotFoundException, IOException, Exception {
     if (!TestingUtilities.silent)
@@ -3547,6 +3547,6 @@ public class TurtleTests {
       System.out.println("audit-event-example-search.ttl");
     new Turtle().parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), "publish", "audit-event-example-search.ttl")));
   }
-  
+
 
 }
