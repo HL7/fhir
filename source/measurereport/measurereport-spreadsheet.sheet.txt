@@ -119,7 +119,7 @@
   Type = Reference(Measure)
   Short Name = What measure was evaluated
   Definition = A reference to the Measure that was evaluated to produce this report
-  Workflow Mapping = Event.definition
+  Workflow Mapping = Event.instantiates
   w5 = what
 
  -- Row 6 -----------------------------------
@@ -139,7 +139,7 @@
   Type = dateTime
   Short Name = When the report was generated
   Definition = The date this measure report was generated
-  Workflow Mapping = Event.occurrenceDateTime
+  Workflow Mapping = Event.occurrence[x]
   w5 = when.recorded
 
  -- Row 8 -----------------------------------

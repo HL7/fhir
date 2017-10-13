@@ -208,7 +208,7 @@
   Type = Identifier
   Short Name = External identifier
   Definition = External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
-  Workflow Mapping = Event.identifer
+  Workflow Mapping = Event.identifier
   RIM Mapping = .id
   w5 = id
 
@@ -231,7 +231,7 @@
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step.
   Requirements = This should not be used when indicating which resource a MedicationStatement has been derived from.  If that is the use case, then MedicationStatement.derivedFrom should be used.
-  Workflow Mapping = Event.part of
+  Workflow Mapping = Event.parent
   RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=SPLY or SBADM or PROC or OBS,moodCode=EVN]
 
  -- Row 5 -----------------------------------
@@ -365,7 +365,7 @@
   Short Name = Reason for why the medication is being/was taken
   Definition = A reason for why the medication is being/was taken.
   Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonForUseReference.
-  Workflow Mapping = Event.reasonCodeableConcept
+  Workflow Mapping = Event.reasonCode
   RIM Mapping = .reasonCode
   w5 = why
 

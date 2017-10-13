@@ -83,7 +83,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
-  Workflow Mapping = Event.occurrence
+  Workflow Mapping = Event.occurrence[x]
   w5 = when.recorded
 
  -- Row 8 -----------------------------------
@@ -92,7 +92,7 @@
   Type = Reference(Organization)
   Short Name = Authoring Organization
   Definition = The organization who produced this adjudicated response.
-  Workflow Mapping = Event.performer.onBehalfOf
+  Workflow Mapping = Event.performer
   w5 = who.source
 
  -- Row 9 -----------------------------------

@@ -241,7 +241,7 @@
   Type = Reference(PlanDefinition|Questionnaire)
   Short Name = Protocol or definition
   Definition = Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.
-  Workflow Mapping = Request.definition
+  Workflow Mapping = Request.instantiates
   Committee Notes = GF#11343
 
  -- Row 4 -----------------------------------
@@ -375,7 +375,7 @@
   Definition = Indicates when the plan did (or is intended to) come into effect and end.
   Requirements = Allows tracking what plan(s) are in effect at a particular time.
   Comments = Any activities scheduled as part of the plan should be constrained to the specified period regardless of whether the activities are planned within a single encounter/episode or across multiple encounters/episodes (e.g. the longitudinal management of a chronic condition).
-  Workflow Mapping = Request.occurrencePeriod
+  Workflow Mapping = Request.occurrence[x]
   v2 Mapping = GOL-7 / GOL-8
   RIM Mapping = .effectiveTime
   w5 = when.init
@@ -388,7 +388,7 @@
   Short Name = Who is responsible for contents of the plan
   Definition = Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
   Comments = Collaborative care plans may have multiple authors.
-  Workflow Mapping = Request.requester.agent {if only one author}
+  Workflow Mapping = Request.requester
   w5 = who.source
 
  -- Row 16 -----------------------------------
@@ -520,7 +520,7 @@
   Short Name = Protocol or definition
   Definition = Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.
   Requirements = Allows Questionnaires that the patient (or practitioner) should fill in to fulfill the care plan activity.
-  Workflow Mapping = Request.definition
+  Workflow Mapping = Request.instantiates
   Committee Notes = GF#11051
 
  -- Row 28 -----------------------------------
@@ -562,7 +562,6 @@
   Short Name = Goals this activity relates to
   Definition = Internal reference that identifies the goals that this activity is intended to contribute towards meeting
   Requirements = So that participants know the link explicitly
-  Workflow Mapping = Request.goal
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
 
  -- Row 32 -----------------------------------
@@ -607,7 +606,7 @@
   Short Name = When activity is to occur
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
-  Workflow Mapping = Request.occurrence
+  Workflow Mapping = Request.occurrence[x]
   v2 Mapping = TQ1
   RIM Mapping = .effectiveTime
 

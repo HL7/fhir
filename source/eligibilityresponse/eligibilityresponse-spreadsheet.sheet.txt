@@ -135,7 +135,7 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
-  Workflow Mapping = Event.performer.onBehalfOf
+  Workflow Mapping = Event.performer
   w5 = who.source
 
  -- Row 10 -----------------------------------

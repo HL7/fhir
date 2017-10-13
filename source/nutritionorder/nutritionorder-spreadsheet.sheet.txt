@@ -401,7 +401,7 @@
   Short Name = Instructions or additional information about the oral diet
   Definition = Free text or additional instructions or information pertaining to the oral diet.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
-  Workflow Mapping = Request.note|Request.supportingInfo
+  Workflow Mapping = Request.note, Request.supportingInfo
   RIM Mapping = .text
 
  -- Row 25 -----------------------------------
@@ -462,7 +462,7 @@
   Short Name = Instructions or additional information about the oral supplement
   Definition = Free text or additional instructions or information pertaining to the oral supplement.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
-  Workflow Mapping = Request.note|Request.supportingInfo
+  Workflow Mapping = Request.note, Request.supportingInfo
   RIM Mapping = .text
   Committee Notes = 2/28/2015:  pre-applied #5675
 
@@ -600,7 +600,7 @@
   Short Name = Formula feeding instructions expressed as text
   Definition = Free text formula administration, feeding instructions or additional instructions or information.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
-  Workflow Mapping = Request.note|Request.supportingInfo
+  Workflow Mapping = Request.note, Request.supportingInfo
   RIM Mapping = N/A
   Committee Notes = 8177, 6102
 

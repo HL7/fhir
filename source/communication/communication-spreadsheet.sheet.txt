@@ -149,7 +149,7 @@
   Type = Reference(PlanDefinition|ActivityDefinition)
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, or other definition that was adhered to in whole or in part by this communication event
-  Workflow Mapping = Event.definition
+  Workflow Mapping = Event.instantiates
 
  -- Row 4 -----------------------------------
   Element = Communication.basedOn
@@ -303,7 +303,7 @@
   Type = dateTime
   Short Name = When sent
   Definition = The time when this communication was sent.
-  Workflow Mapping = Event.occurrenceDateTime {Invariant: maps to either sent OR received}
+  Workflow Mapping = Event.occurrence[x] {Invariant: maps to period.start}
   w5 = when.init
 
  -- Row 19 -----------------------------------
@@ -312,7 +312,7 @@
   Type = dateTime
   Short Name = When received
   Definition = The time when this communication arrived at the destination.
-  Workflow Mapping = Event.occurrenceDateTime {Invariant: maps to either sent OR received}
+  Workflow Mapping = Event.occurrence[x] {Invariant: maps to period.end}
   w5 = when.done
 
  -- Row 20 -----------------------------------
@@ -333,7 +333,7 @@
   Short Name = Indication for message
   Definition = The reason or justification for the communication.
   Comments = Textual reasons can be caprued using reasonCode.text
-  Workflow Mapping = Event.reasonCodableConcept
+  Workflow Mapping = Event.reasonCode
   RIM Mapping = .reasonCode
   w5 = why
 

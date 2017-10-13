@@ -161,7 +161,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when the enclosed suite of services were performed or completed
-  Workflow Mapping = Event.occurrence
+  Workflow Mapping = Event.occurrence[x]
   w5 = when.recorded
 
  -- Row 9 -----------------------------------
@@ -170,7 +170,7 @@
   Type = Reference(Organization)
   Short Name = Insurance issuing organization
   Definition = The Insurer who produced this adjudicated response.
-  Workflow Mapping = Event.performer.onBehalfOf
+  Workflow Mapping = Event.performer
 
  -- Row 10 -----------------------------------
   Element = ClaimResponse.requestProvider

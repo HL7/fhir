@@ -134,7 +134,7 @@
   Type = Reference(PlanDefinition|ActivityDefinition|HealthcareService)
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this procedure
-  Workflow Mapping = Event.defintion
+  Workflow Mapping = Event.instantiates
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 4 -----------------------------------

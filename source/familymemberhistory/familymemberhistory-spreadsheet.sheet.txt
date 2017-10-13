@@ -151,7 +151,7 @@
   Type = Reference(PlanDefinition|Questionnaire)
   Short Name = Instantiates protocol or definition
   Definition = A protocol or questionnaire that was adhered to in whole or in part by this event
-  Workflow Mapping = Event.definition
+  Workflow Mapping = Event.instantiates
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 4 -----------------------------------
@@ -200,7 +200,7 @@
   Definition = The date (and possibly time) when the family member history was taken
   Requirements = Allows determination of how current the summary is
   Comments = This should be captured even if the same as the date on the List aggregating the full family history
-  Workflow Mapping = Event.occurrenceDateTime
+  Workflow Mapping = Event.occurrence[x]
   RIM Mapping = participation[typeCode=AUT].time
   w5 = when.recorded
 

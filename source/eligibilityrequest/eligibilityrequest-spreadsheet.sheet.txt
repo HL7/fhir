@@ -147,7 +147,7 @@
   Type = Reference(Practitioner)
   Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
-  Workflow Mapping = Request.requester.agent
+  Workflow Mapping = Request.requester
   CDAnet v4 Mapping = B01
   w5 = who.source
 
@@ -157,7 +157,7 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
-  Workflow Mapping = Request.requester.onBehalfOf
+  Workflow Mapping = Request.requester
   w5 = who.source
 
  -- Row 15 -----------------------------------

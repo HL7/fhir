@@ -274,7 +274,7 @@
   Short Name = Resource that can be subject of QuestionnaireResponse
   Definition = The types of subjects that can be the subject of responses created for the questionnaire.
   Comments = If none are specified, then the subject is unlimited
-  Workflow Mapping = Definition.subjectCodeableConcept
+  Workflow Mapping = Definition.subject[x]
   RIM Mapping = .outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode
 
  -- Row 11 -----------------------------------

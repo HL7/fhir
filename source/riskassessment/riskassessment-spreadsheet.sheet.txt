@@ -146,7 +146,7 @@
   Short Name = When was assessment made?
   Definition = The date (and possibly time) the risk assessment was performed
   Requirements = The assessment results lose validity the more time elapses from when they are first made
-  Workflow Mapping = Event.occurrence
+  Workflow Mapping = Event.occurrence[x]
   RIM Mapping = .effectiveTime
   w5 = when.done
 
@@ -177,7 +177,7 @@
   Type = CodeableConcept | Reference(Any)
   Short Name = Why the assessment was necessary?
   Definition = The reason the risk assessment was performed
-  Workflow Mapping = Event.reason
+  Workflow Mapping = Event.reasonReference, Event.reasonCode
   w5 = why
 
  -- Row 14 -----------------------------------
@@ -353,17 +353,16 @@
   Description = Public health population risk assessment
   Filename = riskassessment-example-population.xml
 
- -- Row 5 -----------------------------------				
-  Name = breastcancer-risk				
-  Identity = breastcancer-risk	
-  Description = Breast cancer risk assessment			
-  Filename = riskassessment-example-breastcancer.xml				
-				
- -- Row 7 -----------------------------------	
-  Name = risk example				
-  Identity = riskexample				
-  Description = Example risk assessment				
-  Filename = riskassessment-riskexample.xml				
+ -- Row 5 -----------------------------------
+  Name = breastcancer-risk
+  Identity = breastcancer-risk
+  Description = Breast cancer risk assessment
+  Filename = riskassessment-example-breastcancer.xml
 
+ -- Row 6 -----------------------------------
+  Name = risk example
+  Identity = riskexample
+  Description = Example risk assessment
+  Filename = riskassessment-riskexample.xml
 
 === Sheet Examples =====================================

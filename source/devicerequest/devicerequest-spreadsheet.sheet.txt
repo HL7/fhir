@@ -52,6 +52,7 @@
   Type = DomainResource
   Short Name = Medical device request
   Definition = Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
+  Workflow Mapping = Request
   v2 Mapping = ORC
   RIM Mapping = Act[moodCode<=INT]
   Committee Notes = no map to dstu element: orderedON,priority

@@ -183,7 +183,7 @@
   Type = Reference (PlanDefinition | ActivityDefinition)
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.
-  Workflow Mapping = Event.definition
+  Workflow Mapping = Event.instantiates
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=unspecified]
 
  -- Row 4 -----------------------------------
@@ -343,7 +343,7 @@
   Binding = MedicationAdministrationReason
   Short Name = Reason administration performed
   Definition = A code indicating why the medication was given.
-  Workflow Mapping = Event.reasonGivenCodeableConcept
+  Workflow Mapping = Event.reasonCode
   v2 Mapping = RXE-27 Give Indication
   RIM Mapping = .reasonCode
 

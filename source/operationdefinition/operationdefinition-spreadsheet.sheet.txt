@@ -165,7 +165,7 @@
   Short Name = Marks this as a profile of the base
   Definition = Indicates that this operation definition is a constraining profile on the base
   Comments = A constrained profile can make optional parameters required or not used and clarify documentation
-  Workflow Mapping = Definition.definition
+  Workflow Mapping = Definition.derivedFrom
 
  -- Row 19 -----------------------------------
   Element = OperationDefinition.resource
@@ -176,7 +176,7 @@
   Short Name = Types this operation applies to
   Definition = The types on which this operation can be executed
   Comments = If the type is an abstract resource (\"Resource\" or \"DomainResource\") then the operation can be invoked on any concrete specialization
-  Workflow Mapping = Definition.subjectCodableConcept
+  Workflow Mapping = Definition.subjectCodeableConcept
 
  -- Row 20 -----------------------------------
   Element = OperationDefinition.system

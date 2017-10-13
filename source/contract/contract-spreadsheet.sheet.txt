@@ -184,7 +184,7 @@
   Short Name = When this Contract was issued
   Definition = When this  Contract was issued.
   Requirements = The Contract issuance dateTime often precedes the Contract effective dateTime.
-  Workflow Mapping = Event.occurrence
+  Workflow Mapping = Event.occurrenceDateTime
   RIM Mapping = Act.availabilityTime.  Definition: A time expression specifying when an Observation, Procedure, or other Act occurs, or, depending on the mood, is supposed to occur, scheduled to occur, etc. The activityTime includes the times of component actions (such as preparation and clean-up). For Procedures and SubstanceAdministrations, the activityTime can provide a needed administrative function by providing a more inclusive time to be anticipated in scheduling. UsageNotes:The activityTime is primarily of administrative rather than clinical use. The clinically relevant time is the effectiveTime. When an observation of a prior symptom is made, the activityTime describes the time the observation is made, as opposed to effectiveTime which is the time the symptom is reported to have occurred. Thus the activityTime may be entirely different from the effectiveTime of the same Act. However, even apart from clinical use cases, designers should first consider effectiveTime as the primary relevant time for an Act. ActivityTime indicates when an Act occurs, not when it is recorded.
 
  -- Row 6 -----------------------------------

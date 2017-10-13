@@ -270,7 +270,7 @@
   Definition = The composition editing time, when the composition was last logically changed by the author
   Requirements = dateTime is used for tracking, organizing versions and searching.
   Comments = The Last Modified Date on the composition may be after the date of the document was attested without being changed
-  Workflow Mapping = Event.occurrenceDateTime
+  Workflow Mapping = Event.occurrence[x]
   RIM Mapping = .effectiveTime[type=\"TS\"]
   CDA Mapping = .effectiveTime
   w5 = when.done

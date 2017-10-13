@@ -34,6 +34,7 @@ urn:ietf:bcp:47
 http://www.radlex.org
 http://hl7.org/fhir/sid/icd-10
 http://fdi.org/fhir/oraltoothcodes
+http://hl7.org/fhir/immunization-recommendation-date-criterion
 http://hl7.org/fhir/sid/cvx
 urn:ietf:rfc:3986
 https://system/PGxReport

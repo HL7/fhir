@@ -260,7 +260,7 @@
   Type = Identifier
   Short Name = External ids for this request
   Definition = This records identifiers associated with this medication request that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. For example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records must be tracked through an entire system.
-  Workflow Mapping = Request.identifer
+  Workflow Mapping = Request.identifier
   SCRIPT 10.6 Mapping = Message/Header/PrescriberOrderNumber
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = .id
@@ -283,7 +283,7 @@
   Type = Reference(CarePlan |MedicationRequest |ServiceRequest)
   Short Name = What request fulfills
   Definition = A plan or request that is fulfilled in whole or in part by this medication request.
-  Workflow Mapping = Request.basedOn
+  Workflow Mapping = Request.derivedFrom
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]
 
  -- Row 5 -----------------------------------

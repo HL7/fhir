@@ -267,7 +267,7 @@
   Definition = Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.
   Requirements = Allows matching performed to planned as well as validation against protocols
   Comments = Tends to be less relevant for activities involving particular products.
-  Workflow Mapping = Definition.subjectCodeableConcept
+  Workflow Mapping = Definition.subject[x]
   RIM Mapping = .code
 
  -- Row 27 -----------------------------------

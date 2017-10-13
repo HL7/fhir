@@ -221,7 +221,7 @@
   Type = Period
   Short Name = Coverage start and end dates
   Definition = Time period during which the coverage is in force. A missing start date indicates the start date isn\'t known, a missing end date means the coverage is continuing to be in force.
-  Workflow Mapping = Event.occurrence
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = IN1-12 / IN1-13
   RIM Mapping = Act.effectiveTime
   w5 = when.done

@@ -159,7 +159,7 @@
   Type = Reference(Practitioner)
   Short Name = Who authorizes the vision product
   Definition = The healthcare professional responsible for authorizing the prescription
-  Workflow Mapping = Request.requester.onBehalfOf
+  Workflow Mapping = Request.requester
   v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
   RIM Mapping = author.role
   w5 = who.author

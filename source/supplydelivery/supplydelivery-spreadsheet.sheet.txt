@@ -116,7 +116,7 @@
   Type = Reference(Patient)
   Short Name = Patient for whom the item is supplied
   Definition = A link to a resource representing the person whom the delivered item is for
-  Workflow Mapping = Event.subject.reference(Patient)
+  Workflow Mapping = Event.subject
   RIM Mapping = .participation[typeCode=SBJ].role
 
  -- Row 7 -----------------------------------

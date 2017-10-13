@@ -419,7 +419,7 @@
   Binding = ManifestationOrSymptom
   Short Name = Manifestation/symptom
   Definition = A manifestation or symptom that led to the recording of this condition
-  Workflow Mapping = Event.reasonCodeableConcept
+  Workflow Mapping = Event.reasonCode
   SNOMED CT Concept Domain = < 404684003 |Clinical finding|
   RIM Mapping = [code=\"diagnosis\"].value
   w5 = why

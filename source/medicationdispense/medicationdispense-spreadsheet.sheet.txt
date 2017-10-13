@@ -349,7 +349,7 @@
   Type = dateTime
   Short Name = When product was given out
   Definition = The time the dispensed product was provided to the patient or their representative.
-  Workflow Mapping = Event.occurrenceDateTime
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = RXD-3-Date/Time Dispensed
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].high
   Committee Notes = The time of supply to the patient (pickup/handover in community or supply in inpatient).

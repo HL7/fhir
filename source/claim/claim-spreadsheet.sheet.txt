@@ -511,7 +511,7 @@
   Type = Reference(Practitioner)
   Short Name = Responsible provider
   Definition = The provider which is responsible for the bill, claim pre-determination, pre-authorization.
-  Workflow Mapping = Request.requester.agent
+  Workflow Mapping = Request.requester
   w5 = who.source
 
  -- Row 17 -----------------------------------
@@ -520,7 +520,7 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the bill, claim pre-determination, pre-authorization.
-  Workflow Mapping = Request.requester.onBehalfOf
+  Workflow Mapping = Request.requester
   w5 = who.source
 
  -- Row 18 -----------------------------------

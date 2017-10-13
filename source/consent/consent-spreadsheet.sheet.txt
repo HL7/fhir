@@ -263,7 +263,7 @@
   Short Name = When this Consent was created or indexed
   Definition = When this  Consent was issued / created / indexed
   Comments = This is not the time of the original consent, but the time that this statement was made or derived
-  Workflow Mapping = Event.occurrence
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = Field 13/ Consent Decision Date
   RIM Mapping = FinancialConsent effectiveTime
   w5 = when.recorded
@@ -325,7 +325,7 @@
   Type = Reference(Organization)
   Short Name = Custodian of the consent
   Definition = The organization that manages the consent, and the framework within which it is executed
-  Workflow Mapping = Event.performer.onBehalfOf
+  Workflow Mapping = Event.performer
   w5 = who.witness
 
  -- Row 15 -----------------------------------
@@ -676,6 +676,11 @@
   Name = purpose
   Type = token
   Path = Consent.provision.purpose
+
+ -- Row 15 -----------------------------------
+  Name = scope
+  Type = token
+  Path = Consent.scope
 
 === Sheet Profiles =====================================
 

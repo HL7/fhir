@@ -143,7 +143,7 @@
   Short Name = When identified
   Definition = The date or date-time when the detected issue was initially identified.
   Requirements = No-one can be responsible for mitigation prior to the issue being identified
-  Workflow Mapping = Event.occurrence
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = ALI-6 / IAM-11
   RIM Mapping = .effectiveTime
   w5 = when.recorded

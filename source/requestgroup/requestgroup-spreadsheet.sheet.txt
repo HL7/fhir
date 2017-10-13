@@ -239,7 +239,7 @@
   Type = Reference(Device | Practitioner)
   Short Name = Device or practitioner that authored the request group
   Definition = Provides a reference to the author of the request group
-  Workflow Mapping = Request.author
+  Workflow Mapping = Request.requester
   w5 = who.author
 
  -- Row 15 -----------------------------------
@@ -395,7 +395,7 @@
   Type = dateTime|Period|Duration|Range|Timing
   Short Name = When the action should take place
   Definition = An optional value describing when the action should be performed
-  Workflow Mapping = Request.occurrence
+  Workflow Mapping = Request.occurrence[x]
 
  -- Row 35 -----------------------------------
   Element = RequestGroup.action.participant

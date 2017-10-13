@@ -419,7 +419,7 @@
   Binding = PerformerType
   Short Name = Desired kind of service performer
   Definition = The type of individual that is desired to act upon the {{request}}
-  Comments = If performer is also specified, this indicates what type of performer is desired in the event the requested performer is not available.\n\nIf specified without indicating a performer, this indicates that the performer must be of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.
+  Comments = If specified without indicating a performer, this indicates that the performer must be of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
   To Do = Need to define who.performer

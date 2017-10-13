@@ -359,7 +359,7 @@
   Binding = MeasureType
   Short Name = process | outcome | structure | patient-reported-outcome | composite
   Definition = Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization
-  Workflow Mapping = Definition.subjectCode
+  Workflow Mapping = Definition.subjectCodeableConcept
 
  -- Row 29 -----------------------------------
   Element = Measure.riskAdjustment

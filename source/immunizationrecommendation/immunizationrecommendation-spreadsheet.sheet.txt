@@ -148,7 +148,7 @@
   UML = 350;0
   Short Name = Dates governing proposed immunization
   Definition = Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc.
-  Workflow Mapping = Request.effective[x]
+  Workflow Mapping = Request.occurrence[x]
   v2 Mapping = OBX-3: 30980-7 = Next dose recommended, 59777-3 = Latest next dose should be given, 59778-1 = Dose is overdue
   RIM Mapping = .outboundRelationship[typeCode=\'LIMIT\'].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]
 
@@ -231,7 +231,7 @@
   Type = Reference(Observation | AllergyIntolerance)
   Short Name = Patient observations supporting recommendation
   Definition = Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.
-  Workflow Mapping = Request.supportingInformation
+  Workflow Mapping = Request.supportingInfo
   v2 Mapping = OBX If OBX is associated with ( RXA : RXA-5-administered code = \'998^No vaccine administered^CVX\'), could contain the reason the vaccine was not administered
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]
 
