@@ -1,37 +1,38 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
 	<h3>Laboratory Results</h3>
 	<p>The following examples of Observation resources show examples of laboratory observations:
     </p>
 	<ul>
 		<li>
-			<a href="observation-example-f001-glucose.xml">Real-world patient - glucose</a>
+			<a href="observation-example-f001-glucose.html">Real-world patient - glucose</a>
 		</li>
 		<li>
-			<a href="observation-example-f004-erythrocyte.xml">Real-world patient - erythrocyte</a>
+			<a href="observation-example-f004-erythrocyte.html">Real-world patient - erythrocyte</a>
 		</li>
 		<li>
-			<a href="observation-example-f005-hemoglobin.xml">Real-world patient - hemoglobin</a>
+			<a href="observation-example-f005-hemoglobin.html">Real-world patient - hemoglobin</a>
 		</li>
 		<li>
-			<a href="observation-example-f002-excess.xml">Real-world patient -base excess</a>
+			<a href="observation-example-f002-excess.html">Real-world patient -base excess</a>
 		</li>
 		<li>
-			<a href="observation-example-f003-co2.xml">Real-world patient - CO2</a>
+			<a href="observation-example-f003-co2.html">Real-world patient - CO2</a>
 		</li>
 		<li>
-			<a href="observation-example-f204-creatinine.xml">Real-world patient - creatinine</a>
+			<a href="observation-example-f204-creatinine.html">Real-world patient - creatinine</a>
 		</li>
 		<li>
-			<a href="observation-example-f205-egfr.xml">Real-world patient - estimated gfr</a>
+			<a href="observation-example-f205-egfr.html">Real-world patient - estimated gfr</a>
 		</li>
 		<li>
-			<a href="observation-example-f206-staphylococcus.xml">Real-world patient - staphylococcus</a>
+			<a href="observation-example-f206-staphylococcus.html">Real-world patient - staphylococcus</a>
 		</li>
 		<li>
-			<a href="observation-example-unsat.xml">Specimen Reject Example</a>
+			<a href="observation-example-unsat.html">Specimen Reject Example</a>
 		</li>
 		<li>
-			<a href="observation-example-date-lastmp.xml">An "ask at order" response using the datetime datetype for the result value</a>
+			<a href="observation-example-date-lastmp.html">An "ask at order" response using the datetime datetype for the result value</a>
 		</li>
 	</ul>
 	<h3>Imaging Studies</h3>
@@ -39,7 +40,7 @@
     </p>
 	<ul>
 		<li>
-			<a href="observation-example-bmd.xml">Example of an encoded BMD measurements of left femur</a>
+			<a href="observation-example-bmd.html">Example of an encoded BMD measurements of left femur</a>
 		</li>
 	</ul>
 	<h3>Genomics</h3>
@@ -47,40 +48,40 @@
     </p>
 	<ul>
 		<li>
-			<a href="observation-example-genetics-1.xml">Genetics example 1</a>
+			<a href="observation-example-genetics-1.html">Genetics example 1</a>
 		</li>
 		<li>
-			<a href="observation-example-genetics-2.xml">Genetics example 2</a>
+			<a href="observation-example-genetics-2.html">Genetics example 2</a>
 		</li>
 		<li>
-			<a href="observation-example-genetics-3.xml">Genetics example 3</a>
+			<a href="observation-example-genetics-3.html">Genetics example 3</a>
 		</li>
 		<li>
-			<a href="observation-example-genetics-4.xml">Genetics example 4</a>
+			<a href="observation-example-genetics-4.html">Genetics example 4</a>
 		</li>
 		<li>
-			<a href="observation-example-genetics-5.xml">Genetics example 5</a>
+			<a href="observation-example-genetics-5.html">Genetics example 5</a>
 		</li>
 		<li>
-			<a href="observation-example-diplotype1.xml">Example of diplotype data (with haplotypes observation as reference)</a>
+			<a href="observation-example-diplotype1.html">Example of diplotype data (with haplotypes observation as reference)</a>
 		</li>
 		<li>
-			<a href="observation-example-haplotype1.xml">Example of haplotype data that is basis of a diplotype data</a>
+			<a href="observation-example-haplotype1.html">Example of haplotype data that is basis of a diplotype data</a>
 		</li>
 		<li>
-			<a href="observation-example-haplotype2.xml">Example of another haplotype data that is basis of a diplotype data</a>
+			<a href="observation-example-haplotype2.html">Example of another haplotype data that is basis of a diplotype data</a>
 		</li>
 		<li>
-			<a href="observation-example-phenotype.xml">Example of phenotype data</a>
+			<a href="observation-example-phenotype.html">Example of phenotype data</a>
 		</li>
 		<li>
-			<a href="observation-example-TPMT-diplotype.xml">Example of a TPMT diplotype that link to two TPMT haplotype observations</a>
+			<a href="observation-example-TPMT-diplotype.html">Example of a TPMT diplotype that link to two TPMT haplotype observations</a>
 		</li>
 		<li>
-			<a href="observation-example-TPMT-haplotype-one.xml">Example of a TPMT haplotype observation </a>
+			<a href="observation-example-TPMT-haplotype-one.html">Example of a TPMT haplotype observation </a>
 		</li>
 		<li>
-			<a href="observation-example-TPMT-haplotype-two.xml">Example of another TPMT haplotype observation </a>
+			<a href="observation-example-TPMT-haplotype-two.html">Example of another TPMT haplotype observation </a>
 		</li>
 	</ul>
 	<h3>Personal Characteristics</h3>
@@ -88,7 +89,7 @@
     </p>
 	<ul>
 		<li>
-			<a href="observation-example-eye-color.xml">Example of a very simple personal characteristic observation</a>
+			<a href="observation-example-eye-color.html">Example of a very simple personal characteristic observation</a>
 		</li>
 	</ul>
 	<h3>Assessment Tools Scores</h3>
@@ -96,25 +97,27 @@
     </p>
 	<ul>
 		<li>
-			<a href="observation-example-glasgow.xml">Clinical assessment tool example - GCS using related Observations</a>
+			<a href="observation-example-glasgow.html">Clinical assessment tool example - GCS with individual score as components
+</a>
 		</li>
 		<li>
-			<a href="observation-example-glasgow-qa.xml">Clinical assessment tool example - GCS using related QuestionnaireAnswer</a>
+			<a href="observation-example-glasgow-qa.html">Clinical assessment tool example - GCS with individual scores as related QuestionnaireAnswer
+</a>
 		</li>
 		<li>
-			<a href="observation-example-1minute-apgar-score.xml">Example of a 1 minute Apgar score including the individual score components</a>
+			<a href="observation-example-1minute-apgar-score.html">Example of a 1 minute Apgar score with individual score as components</a>
 		</li>
 		<li>
-			<a href="observation-example-2minute-apgar-score.xml">Example of a 2 minute Apgar score including the individual score components</a>
+			<a href="observation-example-2minute-apgar-score.html">Example of a 2 minute Apgar score with individual score as components</a>
 		</li>
 		<li>
-			<a href="observation-example-5minute-apgar-score.xml">Example of a 5 minute Apgar score including the individual score components</a>
+			<a href="observation-example-5minute-apgar-score.html">Example of a 5 minute Apgar score with individual score as components</a>
 		</li>
 		<li>
-			<a href="observation-example-10minute-apgar-score.xml">Example of a 10 minute Apgar score including the individual score components</a>
+			<a href="observation-example-10minute-apgar-score.html">Example of a 10 minute Apgar score with individual score as components</a>
 		</li>
 		<li>
-			<a href="observation-example-20minute-apgar-score.xml">Example of a 20 minute Apgar score including the individual score components</a>
+			<a href="observation-example-20minute-apgar-score.html">Example of a 20 minute Apgar score with individual score as components</a>
 		</li>
 	</ul>
 	<h3>Device Generated Data</h3>
@@ -122,10 +125,10 @@
     </p>
 	<ul>
 		<li>
-			<a href="observation-example-sample-data.xml">EKG Example using SampledData data type</a>
+			<a href="observation-example-sample-data.html">EKG Example using SampledData data type</a>
 		</li>
 		<li>
-			<a href="observation-example-satO2.xml">Oxygen Saturation by Pulse Oximetry Example (DeviceMetricObservation profile)</a>
+			<a href="observation-example-satO2.html">Oxygen Saturation by Pulse Oximetry Example (DeviceMetricObservation profile)</a>
 		</li>
 	</ul>
 	<h4>PHD Generated Data</h4>
@@ -133,7 +136,7 @@
     </p>
 	<ul>
 		<li>
-			<a href="observation-example-spirometry.xml">Spirometry Example referencing DeviceComponent</a>
+			<a href="observation-example-spirometry.html">Spirometry Example referencing DeviceComponent</a>
 		</li>
 	</ul>
 	<h4>Vital Signs</h4>
@@ -141,49 +144,52 @@
     </p>
 	<ul>
 		<li>
-			<a href="observation-example-f202-temperature.xml">Real-world patient - temperature</a>
+			<a href="observation-example-f202-temperature.html">Real-world patient - temperature</a>
 		</li>
 		<li>
-			<a href="observation-example.xml">Simple Weight Example</a>
+			<a href="observation-example.html">Simple Weight Example</a>
 		</li>
 		<li>
-			<a href="observation-example-respiratory-rate.xml">Simple Respiratory Rate Example</a>
+			<a href="observation-example-respiratory-rate.html">Simple Respiratory Rate Example</a>
 		</li>
 		<li>
-			<a href="observation-example-heart-rate.xml">Simple Heart Rate Example</a>
+			<a href="observation-example-heart-rate.html">Simple Heart Rate Example</a>
 		</li>
 		<li>
-			<a href="observation-example-body-temperature.xml">Simple Body Temperature Example</a>
+			<a href="observation-example-body-temperature.html">Simple Body Temperature Example</a>
 		</li>
 		<li>
-			<a href="observation-example-body-height.xml">Simple Body Height Example</a>
+			<a href="observation-example-body-height.html">Simple Body Height Example</a>
 		</li>
 		<li>
-			<a href="observation-example-body-length.xml">Simple Body Length Example</a>
+			<a href="observation-example-body-length.html">Simple Body Length Example</a>
 		</li>
 		<li>
-			<a href="observation-example-head-circumference.xml">Simple Head Circumference Example</a>
+			<a href="observation-example-head-circumference.html">Simple Head Circumference Example</a>
 		</li>
 		<li>
-			<a href="observation-example-bmi.xml">Simple BMI Example</a>
+			<a href="observation-example-bmi.html">Simple BMI Example</a>
 		</li>
 		<li>
-			<a href="observation-example-satO2.xml">Oxygen Saturation by Pulse Oximetry Example (DeviceMetricObservation profile)</a>
+			<a href="observation-example-bmi-using-related.html">BMI with links to Height and Weight</a>
 		</li>
 		<li>
-			<a href="observation-example-bloodpressure.xml">Blood Pressure Measurement</a>
+			<a href="observation-example-satO2.html">Oxygen Saturation by Pulse Oximetry Example (DeviceMetricObservation profile)</a>
 		</li>
 		<li>
-			<a href="observation-example-bloodpressure-dar.xml">Blood Pressure Measurement with an absent Diastolic measurement</a>
+			<a href="observation-example-bloodpressure.html">Blood Pressure Measurement</a>
 		</li>
 		<li>
-			<a href="observation-example-mbp.xml">Simple Mean Arterial Blood Pressure Example</a>
+			<a href="observation-example-bloodpressure-dar.html">Blood Pressure Measurement with an absent Diastolic measurement</a>
 		</li>
 		<li>
-			<a href="observation-example-vitals-panel.xml">Simple Panel of Heart Rate, Repiratory Rate. Blood Pressure and Body Temperature</a>
+			<a href="observation-example-mbp.html">Simple Mean Arterial Blood Pressure Example</a>
 		</li>
 		<li>
-			<a href="observation-example-bloodpressure-cancel.xml">Blood Pressure Measurement cancelled</a>
+			<a href="observation-example-vitals-panel.html">Simple Panel of Heart Rate, Repiratory Rate. Blood Pressure and Body Temperature</a>
+		</li>
+		<li>
+			<a href="observation-example-bloodpressure-cancel.html">Blood Pressure Measurement cancelled</a>
 		</li>
 	</ul>
 	<br/>

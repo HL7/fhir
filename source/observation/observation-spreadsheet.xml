@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -5269,7 +5269,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <TopRowVisible>3</TopRowVisible>
    <LeftColumnVisible>5</LeftColumnVisible>
    <Panes>
@@ -7579,7 +7578,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="53" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="54" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s182" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s182" ss:AutoFitWidth="0" ss:Width="143.25"/>
@@ -7694,6 +7693,13 @@
     <Cell><Data ss:Type="String">observation-example-bmi.xml</Data></Cell>
     <Cell ss:StyleID="s189"/>
     <Cell><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s199"><Data ss:Type="String">BMI Height and Weight</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s88"><Data ss:Type="String">BMI with links to Height and Weight</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">bmi-using-related</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">observation-example-bmi-using-related.xml</Data></Cell>
+    <Cell ss:StyleID="s189"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="Default"><Data ss:Type="String">Oxygen Saturation (SpO2)</Data></Cell>
@@ -7887,7 +7893,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">Glasgow Score 1</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Clinical assessment tool example - GCS using related Observations</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Clinical assessment tool example - GCS with individual score as components</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">glasgow</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-example-glasgow.xml</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -7896,7 +7902,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">Glasgow Score 2</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Clinical assessment tool example - GCS using related QuestionnaireAnswer</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Clinical assessment tool example - GCS with individual scores as related QuestionnaireAnswer</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">gcs-qa</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-example-glasgow-qa.xml</Data></Cell>
     <Cell ss:StyleID="Default"/>
@@ -7944,35 +7950,35 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">1 minute Apgar Score</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Example of a 1 minute Apgar score including the individual score components</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s199"><Data ss:Type="String">Example of a 1 minute Apgar score with individual score as components</Data></Cell>
     <Cell><Data ss:Type="String">1minute-apgar-score</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-1minute-apgar-score.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">2 minute Apgar Score</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Example of a 2 minute Apgar score including the individual score components</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s199"><Data ss:Type="String">Example of a 2 minute Apgar score with individual score as components</Data></Cell>
     <Cell><Data ss:Type="String">2minute-apgar-score</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-2minute-apgar-score.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">5 minute Apgar Score</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Example of a 5 minute Apgar score including the individual score components</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a 5 minute Apgar score with individual score as components</Data></Cell>
     <Cell><Data ss:Type="String">5minute-apgar-score</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-5minute-apgar-score.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">10 minute Apgar Score</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Example of a 10 minute Apgar score including the individual score components</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a 10 minute Apgar score with individual score as components</Data></Cell>
     <Cell><Data ss:Type="String">10minute-apgar-score</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-10minute-apgar-score.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">20 minute Apgar Score</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">Example of a 20 minute Apgar score including the individual score components</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Example of a 20 minute Apgar score with individual score as components</Data></Cell>
     <Cell><Data ss:Type="String">20minute-apgar-score</Data></Cell>
     <Cell><Data ss:Type="String">observation-example-20minute-apgar-score.xml</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">n</Data></Cell>
@@ -8074,12 +8080,13 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -8087,15 +8094,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>49</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
