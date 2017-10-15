@@ -1529,6 +1529,18 @@
   Filename = observation-example-genetics-brcapat.xml
   Profile = Observation-Genetics
 
+ -- Row 54 -----------------------------------
+  Name = Type of alcohol consumed
+  Identity = alcohol-type
+  Description = Example of a multi-select values/answers Observation with individual answers/values as components
+  Filename = observation-example-alcohol-type.xml
+
+ -- Row 55 -----------------------------------
+  Name = Oyster Testing
+  Identity = vp-oyster
+  Description = Example of an Observations made about a location - an oyster farm
+  Filename = observation-example-vp-oyster.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

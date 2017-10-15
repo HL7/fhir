@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ This is an example of a multi-select values/answers as a single observatio using components to group  the multiple answers 
+ -->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/valueset.xsd">
+	<id value="alcohol-type"/>
+	<!--  the mandatory quality flags:  -->
+	<status value="final"/>
+	<!-- 
+    Observations are often coded in multiple code systems.
+      - LOINC
+		- or SNOMED
+      -and/or the source system may provides its own "local" code, which may be less or more granular than LOINC.
+	In this example there is only local codes
+   -->
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="social-history"/>
+			<display value="Social History"/>
+		</coding>
+		<text value="Social History"/>
+	</category>
+	<code>
+		<!--  Local - unable to identify a proper LOINC code  -->
+		<coding>
+			<system value="http://acme-rehab.org"/>
+			<code value="alcohol-type"/>
+			<display value="Type of alcohol consumed"/>
+		</coding>
+		<text value="Type of alcohol consumed"/>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"/>
+	</subject>
+	<effectiveDateTime value="2014-12-11T04:44:16Z"/>
+	<!--  When the code is the same as component.code the the value element must be empty per invariant obs-7
+    -->
+	<!-- Using components since multi-select values/answers share the same attributes (such as id, performer, effective date, status, comment.. -->
+	<!-- answer 1 -->
+	<component>
+		<!-- component.code is same as code -->
+		<code>
+			<!--  Local - unable to identify a proper LOINC code  -->
+			<coding>
+				<system value="http://acme-rehab.org"/>
+				<code value="alcohol-type"/>
+			</coding>
+		</code>
+		<!-- coded value using SNONED-CT, could also use a local code here or only text -->
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="35748005"/>
+				<display value="Wine (substance)"/>
+			</coding>
+			<text value="Wine"/>
+		</valueCodeableConcept>
+	</component>
+	<!-- answer 2 -->
+	<component>
+		<!-- component.code is same as code -->
+		<code>
+			<!--  Local - unable to identify a proper LOINC code  -->
+			<coding>
+				<system value="http://acme-rehab.org"/>
+				<code value="alcohol-type"/>
+			</coding>
+		</code>
+		<!-- coded value using SNONED-CT, could also use a local code here or only text -->
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="53410008"/>
+				<display value="Beer (substance)"/>
+			</coding>
+			<text value="Beer"/>
+		</valueCodeableConcept>
+	</component>
+	<!-- answer 3 -->
+	<component>
+		<!-- component.code is same as code -->
+		<code>
+			<!--  Local - unable to identify a proper LOINC code  -->
+			<coding>
+				<system value="http://acme-rehab.org"/>
+				<code value="alcohol-type"/>
+			</coding>
+		</code>
+		<!-- coded value using SNONED-CT, could also use a local code here or only text -->
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="6524003"/>
+				<display value=" Distilled spirits (substance)"/>
+			</coding>
+			<text value="Liquor"/>
+		</valueCodeableConcept>
+	</component>
+</Observation>
