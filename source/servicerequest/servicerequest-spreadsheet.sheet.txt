@@ -503,7 +503,7 @@
   Committee Notes = 7134,8147,[#10296][#11119]#13196]
 
  -- Row 29 -----------------------------------
-  Element = ServiceRequest.description
+  Element = !ServiceRequest.description
   Card. = 0..1
   Summary = N
   Type = string
@@ -513,7 +513,7 @@
   R3-RR-Mapping = ReferralRequest.description (for PR added description element)
   v2 Mapping = Varies by domain
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
-  Committee Notes = #13196]
+  Committee Notes = #13196],[#13754]
 
  -- Row 30 -----------------------------------
   Element = ServiceRequest.relevantHistory

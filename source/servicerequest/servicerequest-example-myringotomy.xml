@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/servicerequest.xsd">
 	<id value="myringotomy"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>
-	</text>
 	<identifier>
 		<system value="http://orionhealth.com/fhir/apps/referralids"/>
 		<value value="ret4421"/>
@@ -31,7 +27,6 @@
 			<display value="Patient referral to specialist"/>
 		</coding>
 	</category>
-
 	<code>
 		<coding>
 			<system value="http://snomed.info/sct"/>
@@ -40,7 +35,7 @@
 		</coding>
 		<text value="Insertion of grommets"/>
 	</code>
-		<subject>
+	<subject>
 		<reference value="https://fhir.orionhealth.com/blaze/fhir/Patient/77662"/>
 		<display value="Beverly Weaver"/>
 	</subject>
@@ -71,6 +66,10 @@
 	<reasonCode>
 		<text value="For consideration of Grommets"/>
 	</reasonCode>
-	<description value="In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is
+	<note>
+		<authorString value="Serena Shrink"/>
+		<time value="2014-02-14"/>
+		<text value="In the past 2 years Beverly has had 6 instances of rt-sided Otitis media. She is
     falling behind her peers at school, and displaying some learning difficulties."/>
+	</note>
 </ServiceRequest>
