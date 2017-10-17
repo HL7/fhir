@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5362,8 +5362,8 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If code is the same as a component code then the value element associated with the code SHALL NOT be present</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">value.empty() or code!=component.code</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'value')])) or not(count(for $coding in f:code/f:coding return parent::*/f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value])=0)</Data></Cell>
-    <Cell><Data ss:Type="String">[#9375]</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'value')]) and exists(for $coding in f:code/f:coding return f:component/f:code/f:coding[f:code/@value=$coding/f:code/@value and f:system/@value=$coding/f:system/@value]))</Data></Cell>
+    <Cell><Data ss:Type="String">[#9375],[#14038]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s110"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -5766,6 +5766,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8094,7 +8095,6 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
