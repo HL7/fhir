@@ -871,9 +871,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   try {
                     Coding c = ObjectConverter.readAsCoding(element);
                     long t = System.nanoTime();
-                    ValidationResult vr = context.validateCode(c, valueset);
+                    ValidationResult vr = null;
+                    if (binding.getStrength() != BindingStrength.EXAMPLE) {
+                      vr = context.validateCode(c, valueset);
+						  }
                     txTime = txTime + (System.nanoTime() - t);
-                    if (!vr.isOk()) {
+                    if (vr != null && !vr.isOk()) {
                       if (vr.IsNoService())
                         hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided could not be validated in the absence of a terminology server");
                       else if (vr.getErrorClass() != null && !vr.getErrorClass().isInfrastructure()) {
@@ -1382,7 +1385,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       ValueSet vs = resolveBindingReference(profile, binding.getValueSet(), profile.getUrl());
       if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "ValueSet {0} not found", describeReference(binding.getValueSet()))) {
         long t = System.nanoTime();
-        ValidationResult vr = context.validateCode(null, value, null, vs);
+        ValidationResult vr = null;
+		  if (binding.getStrength() != BindingStrength.EXAMPLE) {
+          vr = context.validateCode(null, value, null, vs);
+		  }
         txTime = txTime + (System.nanoTime() - t);
         if (vr != null && !vr.isOk()) {
           if (vr.IsNoService())
@@ -2012,6 +2018,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private String resolve(String uri, String ref) {
+    if (isBlank(uri)) {
+      return ref;
+    }
     String[] up = uri.split("\\/");
     String[] rp = ref.split("\\/");
     if (context.getResourceNames().contains(up[up.length-2]) && context.getResourceNames().contains(rp[0])) {
