@@ -55,6 +55,7 @@
   Type = DomainResource
   Short Name = The formal response to a guidance request
   Definition = A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken
+  Workflow Mapping = Event
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
@@ -64,6 +65,7 @@
   Type = id
   Short Name = The id of the request associated with this response, if any
   Definition = The id of the request associated with this response. If an id was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario
+  Workflow Mapping = Event.basedOn
 
  -- Row 3 -----------------------------------
   Element = GuidanceResponse.identifier
@@ -72,6 +74,7 @@
   Type = Identifier
   Short Name = Business identifier
   Definition = Allows a service to provide a unique, business identifier for the response
+  Workflow Mapping = Event.identifier
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -92,6 +95,7 @@
   Short Name = success | data-requested | data-required | in-progress | failure | entered-in-error
   Definition = The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 6 -----------------------------------
@@ -100,6 +104,7 @@
   Type = Reference(Patient | Group)
   Short Name = Patient the request was performed for
   Definition = The patient for which the request was processed
+  Workflow Mapping = Event.subject
   w5 = who.focus
 
  -- Row 7 -----------------------------------
@@ -108,6 +113,7 @@
   Type = Reference(Encounter | EpisodeOfCare)
   Short Name = Encounter or Episode during which the response was returned
   Definition = Allows the context of the guidance response to be provided if available. In a service context, this would likely be unavailable
+  Workflow Mapping = Event.context
   w5 = context
 
  -- Row 8 -----------------------------------
@@ -116,6 +122,7 @@
   Type = dateTime
   Short Name = When the guidance response was processed
   Definition = Indicates when the guidance response was processed
+  Workflow Mapping = Event.occurrence[x]
   w5 = when.done
 
  -- Row 9 -----------------------------------
@@ -124,6 +131,7 @@
   Type = Reference(Device)
   Short Name = Device returning the guidance
   Definition = Provides a reference to the device that performed the guidance
+  Workflow Mapping = Event.performer.actor
   w5 = who.actor
 
  -- Row 10 -----------------------------------
@@ -132,6 +140,7 @@
   Type = CodeableConcept | Reference(Any)
   Short Name = Reason for the response
   Definition = Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response
+  Workflow Mapping = Event.reasonCode|Event.reasonReference
   w5 = why
 
  -- Row 11 -----------------------------------
@@ -140,6 +149,7 @@
   Type = Annotation
   Short Name = Additional notes about the response
   Definition = Provides a mechanism to communicate additional information about the response
+  Workflow Mapping = Event.note
 
  -- Row 12 -----------------------------------
   Element = GuidanceResponse.evaluationMessage
@@ -161,6 +171,7 @@
   Type = Reference(CarePlan|RequestGroup)
   Short Name = Proposed actions, if any
   Definition = The actions, if any, produced by the evaluation of the artifact
+  Workflow Mapping = Event.result
 
  -- Row 15 -----------------------------------
   Element = GuidanceResponse.dataRequirement

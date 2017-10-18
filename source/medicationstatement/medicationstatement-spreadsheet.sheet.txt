@@ -231,7 +231,7 @@
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step.
   Requirements = This should not be used when indicating which resource a MedicationStatement has been derived from.  If that is the use case, then MedicationStatement.derivedFrom should be used.
-  Workflow Mapping = Event.parent
+  Workflow Mapping = Event.partOf
   RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=SPLY or SBADM or PROC or OBS,moodCode=EVN]
 
  -- Row 5 -----------------------------------

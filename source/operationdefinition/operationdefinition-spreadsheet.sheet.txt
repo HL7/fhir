@@ -176,7 +176,7 @@
   Short Name = Types this operation applies to
   Definition = The types on which this operation can be executed
   Comments = If the type is an abstract resource (\"Resource\" or \"DomainResource\") then the operation can be invoked on any concrete specialization
-  Workflow Mapping = Definition.subjectCodeableConcept
+  Workflow Mapping = Definition.subject[x]
 
  -- Row 20 -----------------------------------
   Element = OperationDefinition.system

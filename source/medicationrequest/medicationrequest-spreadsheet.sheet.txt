@@ -273,7 +273,7 @@
   Type = Reference(ActivityDefinition | PlanDefinition)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
-  Workflow Mapping = Request.definition
+  Workflow Mapping = Request.instantiates
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=unspecified]
 
  -- Row 4 -----------------------------------
@@ -283,7 +283,7 @@
   Type = Reference(CarePlan |MedicationRequest |ServiceRequest)
   Short Name = What request fulfills
   Definition = A plan or request that is fulfilled in whole or in part by this medication request.
-  Workflow Mapping = Request.derivedFrom
+  Workflow Mapping = Request.basedOn
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]
 
  -- Row 5 -----------------------------------

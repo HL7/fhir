@@ -218,7 +218,7 @@
   Type = dateTime|Period|Timing
   Short Name = When the request should be fulfilled
   Definition = When the request should be fulfilled
-  Workflow Mapping = Request.occurrenceTiming
+  Workflow Mapping = Request.occurrence[x]
   v2 Mapping = Accompanying TQ1/TQ2 segments
   RIM Mapping = .effectiveTime
   w5 = when.planned

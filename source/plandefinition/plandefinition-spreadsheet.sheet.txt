@@ -479,7 +479,7 @@
   Short Name = E.g. Education, Treatment, Assessment, etc
   Definition = Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching
   Requirements = Repositories must be able to determine how to categorize the asset so that it can be found by topical searches
-  Workflow Mapping = Definition.subjectCodeableConcept
+  Workflow Mapping = Definition.subject[x]
 
  -- Row 21 -----------------------------------
   Element = PlanDefinition.contributor

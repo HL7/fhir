@@ -78,6 +78,7 @@
   Type = DomainResource
   Short Name = An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility
   Definition = An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
+  Workflow Mapping = Event
   RIM Mapping = n/a
   w5 = workflow.encounter
 
@@ -87,6 +88,7 @@
   Type = Identifier
   Short Name = Business Identifier(s) relevant for this EpisodeOfCare
   Definition = The EpisodeOfCare may be known by different identifiers for different contexts of use, such as when an external agency is tracking the Episode for funding purposes.
+  Workflow Mapping = Event.identifier
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -99,6 +101,7 @@
   Short Name = planned | waitlist | active | onhold | finished | cancelled | entered-in-error
   Definition = planned | waitlist | active | onhold | finished | cancelled
   Comments = This element is labeled as a modifier because the status contains codes that mark the episode as not currently valid
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -132,6 +135,7 @@
   Short Name = Type/class  - e.g. specialist referral, disease management
   Definition = A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care
   Comments = The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications
+  Workflow Mapping = Event.code
   w5 = class
 
  -- Row 8 -----------------------------------
@@ -148,6 +152,7 @@
   Type = Reference(Condition)
   Short Name = Conditions/problems/diagnoses this episode of care is for
   Definition = A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for
+  Workflow Mapping = Event.reasonReference
   w5 = what
 
  -- Row 10 -----------------------------------
@@ -171,6 +176,7 @@
   Summary = Y
   Type = Reference(Patient)
   Short Name = The patient who is the focus of this episode of care
+  Workflow Mapping = Event.subject
   w5 = who.focus
 
  -- Row 13 -----------------------------------
@@ -180,6 +186,7 @@
   Type = Reference(Organization)
   Short Name = Organization that assumes care
   Definition = The organization that has assumed the specific responsibilities for the specified duration
+  Workflow Mapping = Event.performer.agent
   Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
 
  -- Row 14 -----------------------------------
@@ -189,6 +196,7 @@
   Type = Period
   Short Name = Interval during responsibility is assumed
   Definition = The interval during which the managing organization assumes the defined responsibility
+  Workflow Mapping = Event.occurrence[x]
   w5 = when.init
 
  -- Row 15 -----------------------------------
@@ -197,6 +205,7 @@
   Type = Reference(ServiceRequest)
   Short Name = Originating Referral Request(s)
   Definition = Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals
+  Workflow Mapping = Event.basedOn
 
  -- Row 16 -----------------------------------
   Element = EpisodeOfCare.careManager
@@ -204,6 +213,7 @@
   Type = Reference(Practitioner)
   Short Name = Care manager/care co-ordinator for the patient
   Definition = The practitioner that is the care manager/care co-ordinator for this patient
+  Workflow Mapping = Event.performer.agent
 
  -- Row 17 -----------------------------------
   Element = EpisodeOfCare.team
@@ -213,6 +223,7 @@
   Type = Reference(CareTeam)
   Short Name = Other practitioners facilitating this episode of care
   Definition = The list of practitioners that may be facilitating this episode of care for specific purposes
+  Workflow Mapping = Event.performer.agent
 
  -- Row 18 -----------------------------------
   Element = !EpisodeOfCare.careTeam.role

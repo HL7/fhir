@@ -188,6 +188,7 @@
   Type = DomainResource
   Short Name = An interaction during which services are provided to the patient
   Definition = An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
+  Workflow Mapping = Event
   RIM Mapping = Encounter[@moodCode=\'EVN\']
   w5 = workflow.encounter
 
@@ -197,6 +198,7 @@
   Summary = y
   Type = Identifier
   Short Name = Identifier(s) by which this encounter is known
+  Workflow Mapping = Event.identifier
   v2 Mapping = PV1-19
   RIM Mapping = .id
   w5 = id
@@ -210,6 +212,7 @@
   Binding = EncounterStatus
   Short Name = planned | arrived | triaged | in-progress | onleave | finished | cancelled +
   Comments = Note that internal business rules will detemine the appropraite transitions that may occur between statuses (and also classes).\n\nThis element is labeled as a modifier because the status contains codes that mark the encounter as not currently valid
+  Workflow Mapping = Event.status
   v2 Mapping = No clear equivalent in HL7 v2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16
   RIM Mapping = .statusCode
   w5 = status
@@ -283,6 +286,7 @@
   Short Name = Specific type of encounter
   Definition = Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)
   Comments = Since there are many ways to further classify encounters, this element is 0..*
+  Workflow Mapping = Event.code
   v2 Mapping = PV1-4 / PV1-18
   RIM Mapping = .code
   w5 = class
@@ -305,6 +309,7 @@
   Type = Reference(Patient|Group)
   Short Name = The patient ro group present at the encounter
   Comments = While the encounter is always about the patient, the patient may not actually be known in all contexts of use, and there may be a group of patients that could be anonymous (such as in a group therapy for Alcoholics Anonymous - where the recording of the encounter could be used for billing on the number of people/staff and not important to the context of the specific patients) or alternately in veterinary care a herd of sheep receiving treatment (where the animals are not individually tracked)
+  Workflow Mapping = Event.subject
   v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=SBJ]/role[classCode=PAT]
   w5 = who.focus
@@ -316,6 +321,7 @@
   Type = Reference(EpisodeOfCare)
   Short Name = Episode(s) of care that this encounter should be recorded against
   Definition = Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years)
+  Workflow Mapping = Event.context
   v2 Mapping = PV1-54, PV1-53
   RIM Mapping = n/a
   w5 = context
@@ -326,6 +332,7 @@
   Type = Reference(ServiceRequest)
   Short Name = The ServiceRequest that initiated this encounter
   Definition = The referral request this encounter satisfies (incoming referral)
+  Workflow Mapping = Event.basedOn
   RIM Mapping = .reason.ClinicalDocument
 
  -- Row 16 -----------------------------------
@@ -335,6 +342,7 @@
   UML = 370;0
   Short Name = List of participants involved in the encounter
   Definition = The list of people responsible for providing the service
+  Workflow Mapping = Event.performer
   v2 Mapping = ROL
   RIM Mapping = .participation[typeCode=PFM]
 
@@ -347,6 +355,7 @@
   Short Name = Role of participant in encounter
   Definition = Role of participant in encounter
   Comments = The participant type indicates how an individual partitipates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc.
+  Workflow Mapping = Event.performer.function
   v2 Mapping = ROL-3 (or maybe PRT-4)
   RIM Mapping = .functionCode
 
@@ -365,6 +374,7 @@
   Summary = y
   Type = Reference(Practitioner|RelatedPerson)
   Short Name = Persons involved in the encounter other than the patient
+  Workflow Mapping = Event.performer.actor
   v2 Mapping = ROL-4
   RIM Mapping = .role
   w5 = who
@@ -375,6 +385,7 @@
   Summary = y
   Type = Reference(Appointment)
   Short Name = The appointment that scheduled this encounter
+  Workflow Mapping = Event.basedOn
   v2 Mapping = SCH-1 / SCH-2
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=ENC, moodCode=APT]
 
@@ -385,6 +396,7 @@
   Short Name = The start and end time of the encounter
   Definition = The start and end time of the encounter
   Comments = If not (yet) known, the end of the Period may be omitted
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = PV1-44, PV1-45
   RIM Mapping = .effectiveTime (low & high)
   w5 = when.done
@@ -396,6 +408,7 @@
   Short Name = Quantity of time the encounter lasted (less time absent)
   Definition = Quantity of time the encounter lasted. This excludes the time during leaves of absence.
   Comments = May differ from the time the Encounter.period lasted because of leave of absence.
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = (PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes
   RIM Mapping = .lengthOfStayQuantity
 
@@ -409,6 +422,7 @@
   Short Name = Reason the encounter takes place (code)
   Definition = Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis
   Comments = For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)
+  Workflow Mapping = Event.reasonCode
   v2 Mapping = EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 v2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )
   RIM Mapping = .reasonCode
   w5 = why
@@ -420,6 +434,7 @@
   UML = -300;100
   Type = =Diagnosis
   Short Name = The list of diagnosis relevant to this encounter
+  Workflow Mapping = Event.reasonReference
   RIM Mapping = .outboundRelationship[typeCode=RSON]
 
  -- Row 25 -----------------------------------
@@ -430,6 +445,7 @@
   Short Name = Reason the encounter takes place (resource)
   Definition = Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure
   Comments = For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis)
+  Workflow Mapping = Event.reasonReference
   v2 Mapping = Resources that would commonly referenced at Encounter.indication would be Condition and/or Procedure. These most closely align with DG1/PRB and PR1 respectively.
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
@@ -504,6 +520,7 @@
   Type = Reference(Condition)
   Short Name = The admitting diagnosis as reported by admitting practitioner
   Definition = The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter
+  Workflow Mapping = Event.reasonReference
   RIM Mapping = .reason.A_ObservationDx
 
  -- Row 35 -----------------------------------
@@ -617,6 +634,7 @@
   Type = Reference(Location)
   Short Name = Location the encounter takes place
   Definition = The location where the encounter takes place
+  Workflow Mapping = Event.location
   v2 Mapping = PV1-3 / PV1-6 / PV1-11 / PV1-42 / PV1-43
   RIM Mapping = .role
   w5 = where
@@ -644,6 +662,7 @@
   Type = Reference(Organization)
   Short Name = The custodian organization of this Encounter record
   Definition = An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location\'s Organization.
+  Workflow Mapping = Event.performer.actor
   v2 Mapping = PV1-10 / PL.6  & PL.1  (note: HL7 v2 definition is \"the treatment or type of surgery that the patient is scheduled to receive\"; seems slightly out of alignment with the concept name \'hospital service\'. Would not trust that implementations apply this semantic by default)
   RIM Mapping = .particiaption[typeCode=PFM].role
 
@@ -654,6 +673,7 @@
   Short Name = Another Encounter this encounter is part of
   Definition = Another Encounter of which this encounter is a part of (administratively or in time).
   Comments = This is also used for associating a child\'s encounter back to the mother\'s encounter.\r\rRefer to the Notes section in the Patient resource for further details.
+  Workflow Mapping = Event.partOf
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=COMP, moodCode=EVN]
 
 === Sheet Search =====================================

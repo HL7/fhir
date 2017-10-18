@@ -12586,6 +12586,10 @@
     <display value="Closed fracture of trapezoidal bone of wrist (disorder)"/>
     <display value="Closed fracture trapezoid"/>
   </concept>
+  <concept id="35748005" display="Wine">
+    <display value="Wine"/>
+    <display value="Wine (substance)"/>
+  </concept>
   <concept id="35839008" display="Leghorn chicken">
     <display value="Leghorn chicken"/>
     <display value="Leghorn chicken (organism)"/>
@@ -14944,6 +14948,10 @@
     <display value="Oxford Down sheep"/>
     <display value="Oxford Down sheep (organism)"/>
   </concept>
+  <concept id="53410008" display="Beer">
+    <display value="Beer"/>
+    <display value="Beer (substance)"/>
+  </concept>
   <concept id="53431006" display="Boar power pig 59">
     <display value="Boar power pig 59"/>
     <display value="Boar power pig 59 (organism)"/>
@@ -15278,6 +15286,12 @@
     <display value="Black faced Highland sheep (organism)"/>
     <display value="Scottish blackface sheep"/>
     <display value="Scotch blackface sheep"/>
+  </concept>
+  <concept id="6524003" display="Distilled spirits">
+    <display value="Distilled spirits"/>
+    <display value="Distilled spirits (substance)"/>
+    <display value="Spirits"/>
+    <display value="Alcoholic spirits"/>
   </concept>
   <concept id="65344003" display="Marchigiana cattle">
     <display value="Marchigiana cattle breed (organism)"/>

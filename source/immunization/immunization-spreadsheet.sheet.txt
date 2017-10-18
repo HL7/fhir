@@ -191,7 +191,7 @@
   Short Name = Vaccination administration date
   Definition = Date vaccine administered or was to be administered
   Comments = When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given
-  Workflow Mapping = Event.occurrence.occurrenceDateTime
+  Workflow Mapping = Event.occurrence.occurrence[]
   v2 Mapping = RXA-3
   RIM Mapping = .effectiveTime
   CDA Mapping = ClinicalDocument/component/StructuredBody/component/section/entry/substanceAdministration/effectiveTime/value
@@ -350,7 +350,7 @@
   Binding = ImmunizationReason
   Short Name = Why immunization occurred
   Definition = Reasons why a vaccine was administered
-  Workflow Mapping = Event.reasonCodeableConcept
+  Workflow Mapping = Event.reasonCode
   RIM Mapping = [actionNegationInd=false].reasonCode
 
  -- Row 24 -----------------------------------

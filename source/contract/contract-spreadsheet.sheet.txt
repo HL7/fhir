@@ -135,7 +135,7 @@
   Type = DomainResource
   Short Name = Legal Agreement
   Definition = A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
-  Workflow Mapping = Event
+  Workflow Mapping = Request
   RIM Mapping = FinancialContract
   w5 = financial.other
 
@@ -147,7 +147,7 @@
   Short Name = Contract number
   Definition = Unique identifier for this Contract or a derivative that references a Source Contract.
   Requirements = This is the business identifier of the contract content conveyed.  It may be a derivative of the legally binding contract, in which case, the identifier of the basal contract is  contained in the Contract.binding referenced Contract.
-  Workflow Mapping = Event.identifier
+  Workflow Mapping = Request.identifier
   RIM Mapping = FinancialContract id
 
  -- Row 3 -----------------------------------
@@ -161,7 +161,7 @@
   Definition = The status of the resource instance.
   Requirements = This is the Contract Business Workflow Status.
   Comments = This element is labeled as a modifier because the status contains codes that mark the contract as not currently valid or active
-  Workflow Mapping = Event.status
+  Workflow Mapping = Request.status
   RIM Mapping = Act.status
   w5 = status
 
@@ -184,7 +184,7 @@
   Short Name = When this Contract was issued
   Definition = When this  Contract was issued.
   Requirements = The Contract issuance dateTime often precedes the Contract effective dateTime.
-  Workflow Mapping = Event.occurrenceDateTime
+  Workflow Mapping = Request.authoredOn
   RIM Mapping = Act.availabilityTime.  Definition: A time expression specifying when an Observation, Procedure, or other Act occurs, or, depending on the mood, is supposed to occur, scheduled to occur, etc. The activityTime includes the times of component actions (such as preparation and clean-up). For Procedures and SubstanceAdministrations, the activityTime can provide a needed administrative function by providing a more inclusive time to be anticipated in scheduling. UsageNotes:The activityTime is primarily of administrative rather than clinical use. The clinically relevant time is the effectiveTime. When an observation of a prior symptom is made, the activityTime describes the time the observation is made, as opposed to effectiveTime which is the time the symptom is reported to have occurred. Thus the activityTime may be entirely different from the effectiveTime of the same Act. However, even apart from clinical use cases, designers should first consider effectiveTime as the primary relevant time for an Act. ActivityTime indicates when an Act occurs, not when it is recorded.
 
  -- Row 6 -----------------------------------
@@ -195,6 +195,7 @@
   Short Name = Effective time
   Definition = Relevant time or time-period when this Contract is applicable
   Requirements = The dateTime upon which the Contract is binding.
+  Workflow Mapping = Request.occurrence[x]
   RIM Mapping = Act.effectiveTime Definition: The clinically or operationally relevant time of an act, exclusive of administrative activity.
 
  -- Row 7 -----------------------------------
@@ -207,7 +208,7 @@
   Definition = The target entity impacted by or of interest to parties to the agreement.
   Requirements = The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason.  In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
   Comments = The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason. \rIn many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
-  Workflow Mapping = Event.subject
+  Workflow Mapping = Request.subject
   RIM Mapping = RoleClass, RoleCode
 
  -- Row 8 -----------------------------------
@@ -237,6 +238,7 @@
   Binding = ContractType
   Short Name = Type or form
   Definition = Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.
+  Workflow Mapping = Request.code
   RIM Mapping = Maps to multiple ActClass and ActCode Concept Domains and Code Systems such as the following:   In the ActClass Concept Domain: ActClassPolicy. In the ActCode Concept Domain:   ActContractType, which generalizes ActFinancialContractType, ActCoverageType, ActBillingArrangementType.  ActConsentType, which generalizes ActDataConsentType; ActFinancialParticipationConsentType; ActInformationAccessCode; AdvanceBeneficiaryNoticeType.  ActPolicyType, which generalizes: ActPrivacyPolicyType, ActSensitivityPrivacyPolicyType, ActSecurityPolicyType.  In the ActClass Code System:  CNTRCT (contract) Description: An agreement of obligation between two or more parties that is subject to contractual law and enforcement, lwhich generalizes FCNTRCT (financial contract) and COV (coverage).  POLICY (policy) - Description: A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by one party on: The activity of another party; the behavior of another party; or the manner in which an act is executed. LEAF CONCEPTS: JURISPOL (jurisdictional policy) Description:A mandate, regulation, obligation, requirement, rule, or expectation unilaterally imposed by a jurisdiction on: The activity of another party; the behavior of another party; or the manner in which an act is executed.Examples:A jurisdictional mandate regarding the prescribing and dispensing of a particular medication. A jurisdictional privacy or security regulation dictating the manner in which personal health information is disclosed. A jurisdictional requirement that certain services or health conditions are reported to a monitoring program, e.g., immunizations, methadone treatment, or cancer registries.ORGPOL (organizational policy)Examples:A clinical or research protocols imposed by a payer, a malpractice insurer, or an institution to which a provider must adhere. A mandate imposed by a denominational institution for a provider to provide or withhold certain information from the patient about treatment options.SCOPOL (scope of practice policy)Description:An ethical or clinical obligation, requirement, rule, or expectation imposed or strongly encouraged by organizations that oversee particular clinical domains or provider certification which define the boundaries within which a provider may practice and which may have legal basis or ramifications.Examples:An ethical obligation for a provider to fully inform a patient about all treatment options. An ethical obligation for a provider not to disclose personal health information that meets certain criteria, e.g., where disclosure might result in harm to the patient or another person. The set of health care services which a provider is credentialed or privileged to provide. STDPOL (standard of practice policy) Examples:A payer may require a prescribing provider to adhere to formulary guidelines. An institution may adopt clinical guidelines and protocols and implement these within its electronic health record and decision support systems.  CONS (consent)Description: The Consent class represents informed consents and all similar medico-legal transactions between the patient (or his legal guardian) and the provider. Examples are informed consent for surgical procedures, informed consent for clinical trials, advanced beneficiary notice, against medical advice decline from service, release of information agreement, etc.  The details of consents vary. Often an institution has a number of different consent forms for various purposes, including reminding the physician about the topics to mention. Such forms also include patient education material. In electronic medical record communication, consents thus are information-generating acts on their own and need to be managed similar to medical activities. Thus, Consent is modeled as a special class of Act. The \"signatures\" to the consent document are represented electronically through Participation instances to the consent object. Typically an informed consent has Participation.typeCode of \"performer\", the healthcare provider informing the patient, and \"consenter\", the patient or legal guardian. Some consent may associate a witness or a notary public (e.g., living wills, advanced directives). In consents where a healthcare provider is not required (e.g. living will), the performer may be the patient himself or a notary public.
   w5 = what
 
@@ -268,6 +270,7 @@
   Type = Identifier
   Short Name = Contract Term Number
   Definition = Unique identifier for this particular Contract Provision.
+  Workflow Mapping = Request.identifier
   RIM Mapping = Act or Observation identifier.
 
  -- Row 14 -----------------------------------
@@ -277,6 +280,7 @@
   Type = dateTime
   Short Name = Contract Term Issue Date Time
   Definition = When this Contract Provision was issued.
+  Workflow Mapping = Request.authoredOn
   RIM Mapping = Act availabilityTime
   w5 = when.recorded
 
@@ -287,6 +291,7 @@
   Type = Period
   Short Name = Contract Term Effective Time
   Definition = Relevant time or time-period when this Contract Provision is applicable.
+  Workflow Mapping = Request.occurrence[x]
   RIM Mapping = Act effectiveTime
   w5 = when.done
 
@@ -297,6 +302,7 @@
   Binding = ContractTermType
   Short Name = Contract Term Type or Form
   Definition = Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
+  Workflow Mapping = Request.code
   RIM Mapping = See Contract.term mapping.
   w5 = what
 
@@ -537,7 +543,7 @@
   Type = Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
   Short Name = Contract Agent Type
   Definition = Who or what parties are assigned roles in this Contract.
-  Workflow Mapping = Event.performer.actor
+  Workflow Mapping = Request.performer
   RIM Mapping = RIM Role, Participation Type classes
   w5 = who.actor
 
@@ -568,6 +574,7 @@
   Binding = ContractActionReason
   Short Name = Purpose for the Contract Term Action
   Definition = Reason or purpose for the action stipulated by this Contract Provision.
+  Workflow Mapping = Request.reasonCode
   RIM Mapping = Examples from ActReason Concept Domains: ActCoverageReason Description:Codes used to specify reasons or criteria relating to coverage provided under a policy or program. May be used to convey reasons pertaining to coverage contractual provisions, including criteria for eligibility, coverage limitations, coverage maximums, or financial participation required of covered parties. ActInformationPrivacyReason Description: The rationale or purpose for an act relating to the management of personal information, such as disclosing personal tax information for the purpose of complying with a court order. ClinicalResearchObservationReason Definition: Specifies the reason that a test was performed or observation collected in a clinical research study. SafetyInvestigationReportReasonType Description: Possible reasons generating a report providing information developed during the investigation of an adverse event or a product problem. ControlActReason Description: Indicates the motivation, cause or rationale of an Act which results in a trigger event.  NonPerformanceReasonCode Description: The reason the action was not performed, e.g. why the medication was not taken. If an action was not performed, it is often clinically important to know why the action was not taken. RefusalReasonCode Description: Identifies why a request to add (or activate) a record is being refused. Examples include the receiving system not able to match the identifier and find that record in the receiving system, having no permission, or a detected issue exists which precludes the requested action.\r\r\r\r\r\r\r\rExamples from HL7 ActReason Code System: QUALIMP (quality improvement) Description:Operational activities conducted for the purposes of improving the quality of an activity, product, or service. _PatientProfileQueryReasonCode Description: A collection of concepts identifying why the patient\'s profile is being queried. _ActInformationManagementReason Description:The rationale or purpose for an act relating to information management, such as archiving information for the purpose of complying with an enterprise data retention policy. _ActInvalidReason (ActInvalidReason) Description: Types of reasons why a substance is invalid for use. _NonPerformanceReasonCode Description: The reason the action wasn\'t performed, e.g. why the medication was not taken. If an action wasn\"t performed, it is often clinically important to know why the action wasn\"t taken.
   w5 = why
 
@@ -607,6 +614,7 @@
   Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
   Short Name = Contract Signatory Party
   Definition = Party which is a signator to this Contract.
+  Workflow Mapping = Request.requester
   RIM Mapping = Role Class
   w5 = who.author
 

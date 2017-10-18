@@ -79,7 +79,7 @@
   Type = Reference(ActivityDefinition|PlanDefinition)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
-  Workflow Mapping = Request.definition
+  Workflow Mapping = Request.instantiates
   v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 

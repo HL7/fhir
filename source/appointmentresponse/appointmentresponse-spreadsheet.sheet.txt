@@ -31,6 +31,7 @@
   Type = DomainResource
   Short Name = A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection
   Definition = A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
+  Workflow Mapping = Request
   RIM Mapping = Appointment[@moodCode &lt;= \'PRMS\']
   iCal Mapping = VEVENT
   w5 = workflow.scheduling
@@ -42,6 +43,7 @@
   Type = Identifier
   Short Name = External Ids for this item
   Definition = This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate
+  Workflow Mapping = Request.identifier
   RIM Mapping = .id
   iCal Mapping = UID
   w5 = id
@@ -53,6 +55,7 @@
   Type = Reference(Appointment)
   Short Name = Appointment this response relates to
   Definition = Appointment that this response is replying to
+  Workflow Mapping = Request.basedOn
   RIM Mapping = scheduleRequest.ActAppointmentRequest[@moodCode &lt;= \'ARQ\']
 
  -- Row 4 -----------------------------------
@@ -62,6 +65,7 @@
   Short Name = Time from appointment, or requested new start time
   Definition = Date/Time that the appointment is to take place, or requested new start time
   Comments = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the start time.
+  Workflow Mapping = Request.occurrence[x]
   RIM Mapping = .effectiveTime.low
   Committee Notes = Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.
   w5 = when.init
@@ -72,6 +76,7 @@
   Type = instant
   Short Name = Time from appointment, or requested new end time
   Definition = This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.
+  Workflow Mapping = Request.occurrence[x]
   RIM Mapping = .effectiveTime.high
   Committee Notes = Should we include the existing times, or rely on resource histories. Decision to wait for implementer feedback to see if these are used.
   w5 = when.done
@@ -85,6 +90,7 @@
   Short Name = Role of participant in the appointment
   Definition = Role of participant in the appointment
   Comments = The role of the participant can be used to declare what the actor will be doing in the scope of the referenced appointment.\r\rIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\r\rThis value SHALL be the same as specified on the referenced Appointment so that they can be matched, and subsequently updated.
+  Workflow Mapping = Request.performerType
   RIM Mapping = (performer | reusableDevice | subject | location).@typeCode
   iCal Mapping = n/a
 
@@ -95,6 +101,7 @@
   Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
   Short Name = Person, Location/HealthcareService or Device
   Definition = A Person, Location/HealthcareService or Device that is participating in the appointment
+  Workflow Mapping = Request.performer
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = performer.person | reusableDevice.manufacturedDevice | subject.patient | location.serviceDeliveryLocation
   iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource)
@@ -110,6 +117,7 @@
   Short Name = accepted | declined | tentative | in-process | completed | needs-action | entered-in-error
   Definition = Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
   Comments = This element is labeled as a modifier because the status contains the code entered-in-error that marks the participant as not currently valid
+  Workflow Mapping = Request.status
   RIM Mapping = (performer | reusableDevice | subject | location).statusCode
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
@@ -120,6 +128,7 @@
   Short Name = Additional comments
   Definition = Additional comments about the appointment
   Comments = This comment is particularly important when the responder is declining, tentatively accepting or requesting another time to indicate the reasons why.
+  Workflow Mapping = Request.note
   RIM Mapping = .subjectOf.observation[@moodCode = \'EVN\'][code = \'annotation\'].value
   iCal Mapping = COMMENT
 
