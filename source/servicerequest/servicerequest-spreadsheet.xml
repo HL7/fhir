@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-10-17T17:26:20Z</LastSaved>
+  <LastSaved>2017-10-18T19:09:02Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1298,7 +1298,8 @@
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="135"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="276"/>
-   <Column ss:Index="24" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="101.25"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="132"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="101.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="104.25" ss:Span="1"/>
    <Column ss:Index="27" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="185.25"
     ss:Span="1"/>
@@ -1517,7 +1518,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ORC.2, ORC.3</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">ORC.2, ORC.3, RF1-6 / RF1-11,</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1793,7 +1794,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ORC.5</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">ORC.5,RF1-1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1907,7 +1908,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.priorityCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">TQ1.9</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">TQ1.9, RF1-2</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.priority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2019,7 +2020,8 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">.outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;INT&quot;].code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">RF1-5</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2073,7 +2075,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Varies by domain</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">PR1-3 / OBR-4  (varies by domain)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2129,7 +2131,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.participation[typeCode=SBJ].role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Accompanying PID segment</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">PID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2187,7 +2189,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.inboundRelationship(typeCode=COMP].source[classCode&lt;=PCPR, moodCode=EVN]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Accompanying PV1</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">PV1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.context</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2244,7 +2246,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.effectiveTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Accompanying TQ1/TQ2 segments</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">TQ1/TQ2, OBR-7/OBR-8</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.occurrence[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2355,7 +2357,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.participation[typeCode=AUT].time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ORC.9</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">ORC.9,  RF1-7 / RF1-9</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.authoredOn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2410,7 +2412,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.participation[typeCode=AUT].role</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ORC.12</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">ORC.12, PRT</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.requester</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2465,7 +2467,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.player</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ORC.12</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">ORC.12</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.requester.agent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2578,7 +2580,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.participation[typeCode=PRF].role[scoper.determinerCode=KIND].code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">PRT</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">PRT, RF!-3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.performerType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2635,7 +2637,7 @@
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">PRT</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">PRT, Practitioner: PRD-2/PRD-7 where PRD-3 = RT; Organization: PRD-10 where PRD-3 = RT</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.Performer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2693,7 +2695,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.reasonCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ORC.16</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">ORC.16, RF1-10</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.reasonCod</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5813,9 +5815,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>18</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5827,12 +5829,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>32</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>22</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6416,39 +6417,39 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C3,R2C5:R2C7</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048569]C1=&quot;&quot;,Invariants!R[1048569]C&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048568]C1=&quot;&quot;,Invariants!R[1048568]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C2,R2C7,R2C5</Range>
    <Condition>
-    <Value1>(Invariants!R[1048569]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048569]C[16377]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>(Invariants!R[1048568]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048568]C[16376]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C7</Range>
    <Condition>
-    <Value1>LEFT(Invariants!R[1048569]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT(Invariants!R[1048568]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4</Range>
    <Condition>
-    <Value1>Invariants!R[1048569]C3=&quot;0..0&quot;</Value1>
+    <Value1>Invariants!R[1048568]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND(Invariants!R[1048569]C[16363]&lt;&gt;&quot;&quot;,Invariants!R[1048569]C1=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048568]C[16360]&lt;&gt;&quot;&quot;,Invariants!R[1048568]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1,R2C4</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048569]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048568]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
