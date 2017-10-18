@@ -448,6 +448,15 @@
   w5 = why
 
  -- Row 25 -----------------------------------
+  Element = ServiceRequest.insurance
+  Card. = 0..*
+  Type = Reference(Coverage|ClaimResponse)
+  Short Name = Associated insurance coverage
+  Definition = Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be needed for delivering the requested service.
+  v2 Mapping = IN1/IN2
+  RIM Mapping = .outboundRelationship[typeCode=COVBY].target
+
+ -- Row 26 -----------------------------------
   Element = ServiceRequest.supportingInfo
   Card. = 0..*
   Aliases = Ask at order entry question, AOE
@@ -460,7 +469,7 @@
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
   Committee Notes = [#3113][#3739][#10296][#11119]#13196]
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ServiceRequest.specimen
   Card. = 0..*
   Summary = Y
@@ -471,9 +480,9 @@
   R3-RR-Mapping = (For RR add specimen)
   v2 Mapping = SPM
   RIM Mapping = .participation[typeCode=SPC].role
-  Committee Notes = [#10589][#11119]#13196]
+  Committee Notes = [#10589][#11119]#13196][#13821]
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ServiceRequest.bodySite
   Card. = 0..*
   Aliases = location
@@ -490,7 +499,7 @@
   QUICK mapping = Procedure.targetBodySite
   Committee Notes = [#12505], [#12517][#11119]#13196]
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ServiceRequest.note
   Card. = 0..*
   Type = Annotation
@@ -503,7 +512,7 @@
   QUICK mapping = ClinicalStatement.additionalText
   Committee Notes = 7134,8147,[#10296][#11119]#13196]
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = !ServiceRequest.description
   Card. = 0..1
   Summary = N
@@ -516,7 +525,7 @@
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
   Committee Notes = #13196],[#13754]
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ServiceRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
