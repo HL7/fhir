@@ -71,6 +71,7 @@
   Short Name = Kind of Structure
   Definition = The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies.
   Comments = The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology.
+  v2 Mapping = SPM-4/SPM-5
   Committee Notes = #13394
   w5 = what
 
@@ -82,7 +83,7 @@
   Binding = BodySite
   Short Name = Body site
   Definition = The anatomical location or region of the specimen, lesion, or body structure.
-  v2 Mapping = OBX-20
+  v2 Mapping = OBX-20/SPM-8/SPM-10
   RIM Mapping = .targetSiteCode
   OpenEHR mapping = Name of location
   w5 = what
@@ -94,7 +95,7 @@
   Binding = BodyStructureQualifier
   Short Name = Body site modifier
   Definition = Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.
-  v2 Mapping = No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies.
+  v2 Mapping = No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies./SPM-9
   RIM Mapping = .targetSiteCode
   OpenEHR mapping = Combines Side, Numerical identifier, Anatomical plane,and Aspect
   w5 = what
@@ -107,6 +108,7 @@
   Short Name = Text description
   Definition = A summary, charactarization or explanation of the body structure.
   Comments = This description could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings.
+  v2 Mapping = NTE
   RIM Mapping = .text
   OpenEHR mapping = Description of anatomical location/Visual markings/orientation
   w5 = what
@@ -117,6 +119,7 @@
   Type = Attachment
   Short Name = Attached images
   Definition = Image or images used to identify a location.
+  v2 Mapping = OBX
   RIM Mapping = outboundRelationship[typeCode=COMP].target
   OpenEHR mapping = Image
   w5 = what
@@ -128,6 +131,7 @@
   Type = Reference(Patient)
   Short Name = Who this is about
   Definition = The person to which the body site belongs
+  v2 Mapping = PID-3
   RIM Mapping = .scoper or .scoper.playsRole
   w5 = who.focus
 
