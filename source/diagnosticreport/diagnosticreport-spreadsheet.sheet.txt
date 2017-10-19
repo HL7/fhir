@@ -141,7 +141,7 @@
   Requirements = Need to know what identifier to use when making queries about this report from the source laboratory, and for linking to the report outside FHIR context
   Comments = Usually assigned by the Information System of the diagnostic service provider (filler id)
   Workflow Mapping = Event.identifier
-  v2 Mapping = OBR-51
+  v2 Mapping = OBR-51/ for globally unique filler ID  - OBR-3 , For non-globally unique filler-id the flller/placer number must be combined with the universal service Id -  OBR-2(if present)+OBR-3+OBR-4
   RIM Mapping = id
   w5 = id
 
@@ -282,31 +282,6 @@
   w5 = who.actor
 
  -- Row 12 -----------------------------------
-  Element = !DiagnosticReport.performer.role
-  Card. = 0..1
-  Summary = y
-  Type = CodeableConcept
-  Binding = Role
-  Short Name = Type of performer
-  Definition = Describes the type of participation (e.g.  a responsible party, author, or verifier).
-  Workflow Mapping = Event.performer.role
-  v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
-  RIM Mapping = .functionCode
-
- -- Row 13 -----------------------------------
-  Element = !DiagnosticReport.performer.actor
-  Card. = 1..1
-  Summary = y
-  Type = Reference(Practitioner|Organization)
-  Short Name = Practitioner or Organization  participant
-  Definition = The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report
-  Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
-  Comments = This is not necessarily the source of the atomic data items. It is the entity that takes responsibility for the clinical report.
-  Workflow Mapping = Event.performer.actor
-  v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
-  RIM Mapping = .role
-
- -- Row 14 -----------------------------------
   Element = DiagnosticReport.resultsInterpreter
   Card. = 0..*
   Aliases = Analyzed by, Reported by
@@ -322,7 +297,7 @@
   Committee Notes = 13169
   w5 = who.actor
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = DiagnosticReport.specimen
   Card. = 0..*
   Type = Reference(Specimen)
@@ -333,7 +308,7 @@
   v2 Mapping = SPM
   RIM Mapping = participation[typeCode=SBJ]
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = DiagnosticReport.result
   Card. = 0..*
   Aliases = Data, Atomic Value, Result, Atomic result, Data, Test, Analyte,Battery, Organizer
@@ -344,7 +319,7 @@
   v2 Mapping = OBXs
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = DiagnosticReport.imagingStudy
   Card. = 0..*
   Type = Reference(ImagingStudy|ImagingManifest)
@@ -354,7 +329,7 @@
   RIM Mapping = outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]
   Committee Notes = 6246
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = DiagnosticReport.image
   Card. = 0..*
   Aliases = DICOM, Slides, Scans
@@ -366,7 +341,7 @@
   v2 Mapping = OBX?
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = DiagnosticReport.image.comment
   Card. = 0..1
   Type = string
@@ -376,7 +351,7 @@
   Comments = The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion.
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = DiagnosticReport.image.link
   Card. = 1..1
   Summary = Y
@@ -384,7 +359,7 @@
   Short Name = Reference to the image source
   RIM Mapping = .value.reference
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DiagnosticReport.conclusion
   Card. = 0..1
   Aliases = Report
@@ -395,7 +370,7 @@
   v2 Mapping = OBX
   RIM Mapping = inboundRelationship[typeCode=\"SPRT\"].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = DiagnosticReport.codedDiagnosis
   Card. = 0..*
   Type = CodeableConcept
@@ -404,7 +379,7 @@
   v2 Mapping = OBX
   RIM Mapping = inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)
 
- -- Row 23 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = DiagnosticReport.presentedForm
   Card. = 0..*
   Type = Attachment
