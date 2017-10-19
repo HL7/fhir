@@ -261,7 +261,7 @@
   Type = CodeableConcept
   Binding = FoodType
   Short Name = Order-specific modifier about the type of food that should not be given
-  Definition = This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
+  Definition = This modifier is used to convey Order-specific modifier about the type of oral food or oral fluids that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
   Comments = Information on a patient\'s food allergies, intolerances and preferences to inform healthcare personnel about the type  of foods that the patient shouldn\'t receive or consume.
   RIM Mapping = N/A
   Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
@@ -604,6 +604,16 @@
   RIM Mapping = N/A
   Committee Notes = 8177, 6102
 
+ -- Row 45 -----------------------------------
+  Element = NutritionOrder.note
+  Card. = 0..*
+  Type = Annotation
+  Short Name = Comments
+  Definition = Comments made about the {{title}} by the requester, performer, subject or other participants.
+  Comments = This element SHALL NOT be used to supply free text instructions for the diet which are represented in the `.oralDiet.instruction`, `supplement.instruction`, or `enteralFormula.administrationInstruction` elements.
+  Workflow Mapping = Request.note
+  Committee Notes = 13495
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
@@ -667,6 +677,12 @@
   Path = NutritionOrder.enteralFormula.additiveType
 
 === Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = nutritionorder-core
+  IG Name = core
+  Filename = nutritionorder-core.xml
+  Type = spreadsheet
 
 === Sheet Examples =====================================
 

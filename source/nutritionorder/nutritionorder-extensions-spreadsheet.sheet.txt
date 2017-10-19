@@ -1,0 +1,11 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = FeedingDevice
+  Binding = value set
+  Reference = valueset-feeding-device
+  Definition = Materials used or needed to feed the patient.
+  Conformance = example
+
+=== Sheet Search =====================================
