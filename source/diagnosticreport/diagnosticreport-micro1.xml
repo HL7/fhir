@@ -1,999 +1,1004 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticReport xmlns="http://hl7.org/fhir"><!--   start of the main resource   --><id value="micro"/>
-	<contained>
-		<!--
-
-This diagnostic report shows how to do a microbiology isolate and sensitivity. This is a particular complex case, with two different susceptibilities.
-
-The basic structure of the report is
-
-DiagnosticReport - metadata
-  group  - base group, code that says, ICS
-    group - organism = Staphylococcus aureus. You'd repeat at this level if you had more than one organism
-      group - automated broth dilution
-        results = sensitivities
-      group - Disk diffusion
-        results = sensitivities
-
-Note, then, that the organism appears in the group code, not a result code.
-
-This diagnostic report was developed from this example HL7 v2 message:
-
-OBR|1|255337816|290741144^HNAM_ORDERID-MRSACULT-^HNAM_ORDERID|MRSACULT^Culture, MRSA^^632-0^Culture, MRSA|||20090807190000|||101022^Unit|||Y|2009080800|Wound^^Right hand wound^Hand R|00013442^ASHBY^TODD^R^^^PA||||000002009219104402^HNA_ACCN~21619128^HNA_ACCNID||20090810082544||MB|F||1^^^20090808040954^^R~^^^^^R|||||||||20090807195000||||||||||||||||
-OBX|4|CE|ORGANISM|1|Staaur^Staphylococcus aureus^Staaur|||||A~S|F|||||^10304|
-OBX|5|CE|CULTPOSNEG||POS|||POS|||F||||||
-OBR|2|xxxxx|xxxxxxx|60790^Susceptibility - Automated broth dilution (Billed)|||20120911072700||2002557|xxx||||2012091100||xxxxx||||000002012255101033^xxxxx||20120914165737||MB|F|^1^Staaur&Staphylococcus aureus&310783|1^^^20120911142558^^R~^^^^^R||60108|||||||||||||||||||||||
-OBX|1|ST|60504^Ampicillin&AST Interp|1|Resistant|||RESIST||A~S|F||N|||^9315|
-OBX|2|ST|60512^Cefazolin&AST Dilutn|1|<=2|||SUSCEPT||A~S|F||N|||^9315|
-OBX|3|ST|60512^Cefazolin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
-OBX|4|ST|60516^Cefoxitin&AST Dilutn|1|<=4|||SUSCEPT||A~S|F||N|||^9315|
-OBX|5|ST|60516^Cefoxitin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
-OBX|6|ST|60527^Clindamycin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|7|ST|60527^Clindamycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|8|ST|61203^Daptomycin&AST Dilutn|1|<=1|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|9|ST|61203^Daptomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|10|ST|60532^Doxycycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||N|||^9315|
-OBX|11|ST|60532^Doxycycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
-OBX|12|ST|60533^Erythromycin&AST Dilutn|1|>=8|||RESIST||A~S|F||Y|||^9315|
-OBX|13|ST|60533^Erythromycin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^9315|
-OBX|14|ST|60536^Gentamicin&AST Dilutn|1|<=2|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|15|ST|60536^Gentamicin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|16|ST|61007^Levofloxacin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|17|ST|61007^Levofloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|18|NM|60699^Linezolid&AST Dilutn|1|4|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|19|ST|60699^Linezolid&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|20|ST|61204^Moxifloxacin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||N|||^9315|
-OBX|21|ST|61204^Moxifloxacin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||N|||^9315|
-OBX|22|NM|60551^Oxacillin&AST Dilutn|1|0.5|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|23|ST|60551^Oxacillin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|24|ST|60552^Penicillin&AST Dilutn|1|>=2|||RESIST||A~S|F||Y|||^9315|
-OBX|25|ST|60552^Penicillin&AST Interp|1|Resistant|||RESIST||A~S|F||Y|||^9315|
-OBX|26|ST|60697^Quinupristin/Dalfopristin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|27|ST|60697^Quinupristin/Dalfopristin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|28|ST|60555^Rifampin&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|29|ST|60555^Rifampin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|30|ST|60558^Tetracycline&AST Dilutn|1|<=0.5|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|31|ST|60558^Tetracycline&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|32|ST|60561^Trimethoprim/Sulfamethoxazole&AST Dilutn|1|<=1/19|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|33|ST|60561^Trimethoprim/Sulfamethoxazole&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|34|NM|60563^Vancomycin&AST Dilutn|1|1|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|35|ST|60563^Vancomycin&AST Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-OBX|36|ST|60500^Susceptibilities Performed&AST Dilutn|1|Performed|||||A~S|F||N|||^9315|
-OBX|37|ST|60500^Susceptibilities Performed&AST Interp|1|Completed|||||A~S|F||N|||^9315|
-OBX|38|ST|2099930^D-Test&AST Interp|1|See Note|||||A~S|F||Y|||^9315|
-OBX|39|ST|2099935^Interpretative Information&AST Interp|1|See Note|||||A~S|F||Y|||^9315|
-NTE|1|L|D-Test:  Negative - This isolate does not demonstrate|
-NTE|2|L|inducible clindamycin resistance in vitro.|
-OBR|3|xxxx|xxxxxxx|60418^Susceptibility - Disk diffusion (Billed)|||20120911072700|||xxxxx||||2012091100||xxxxx||||000002012255101033^xxxxxx||20120914165737||MB|F|^1^Staaur&Staphylococcus aureus&310783|1^^^20120911142558^^R~^^^^^R||60108|||||||||||||||||||||||
-OBX|1|ST|60036^Oxacillin Screen&KB Zone|1|60416|||SUSCEPT||A~S|F||N|||^9315|
-OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9315|
-
-  -->
-		<!--   first, a series of atomic results matching the atomice result OBXs   -->
-		<Observation>
-			<id value="obx1-4"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="ORGANISM"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueCodeableConcept>
-				<!--   CE   -->
-				<coding>
-					<system value="http://acme.org/lab/codes/organisms"/>
-					<code value="Staaur"/>
-				</coding>
-				<text value="Staphylococcus aureus"/>
-			</valueCodeableConcept>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx1-5"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="CULTPOSNEG"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueCodeableConcept>
-				<coding>
-					<system value="http://acme.org/lab/codes/flags"/>
-					<code value="POS"/>
-				</coding>
-			</valueCodeableConcept>
-		</Observation>
-	</contained>
-	<contained>
-		<!--   this is an interpretation without a value, as in the source message. Quite Strange   -->
-		<Observation>
-			<id value="obx2-1"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60504"/>
-					<display value="Ampicillin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="R"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-2"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60512"/>
-					<display value="Cefazolin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="2"/>
-				<comparator value="&lt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-4"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60516"/>
-					<display value="Cefoxitin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="4"/>
-				<comparator value="&lt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-6"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60527"/>
-					<display value="Clindamycin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="0.5"/>
-				<comparator value="&gt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-8"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="61203"/>
-					<display value="Daptomycin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="1"/>
-				<comparator value="&gt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-10"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60532"/>
-					<display value="Doxycycline"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="0.5"/>
-				<comparator value="&lt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-12"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60533"/>
-					<display value="Erythromycin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="8"/>
-				<comparator value="&gt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="R"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-14"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60536"/>
-					<display value="Gentamicin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="2"/>
-				<comparator value="&lt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-16"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="61007"/>
-					<display value="Levofloxacin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="0.5"/>
-				<comparator value="&lt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-18"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60699"/>
-					<display value="Linezolid"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="4"/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-20"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="61204"/>
-					<display value="Moxifloxacin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="0.5"/>
-				<comparator value="&lt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-22"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60551"/>
-					<display value="Oxacillin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="0.5"/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-24"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60552"/>
-					<display value="Penicillin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="2"/>
-				<comparator value="&gt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="R"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-26"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60697"/>
-					<display value="Quinupristin/Dalfopristin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="0.5"/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-28"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60555"/>
-					<display value="Rifampin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="0.5"/>
-				<comparator value="&lt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-30"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60558"/>
-					<display value="Tetracycline"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="0.5"/>
-				<comparator value="&lt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-32"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60561"/>
-					<display value="Trimethoprim/Sulfamethoxazole"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="0.0526"/>
-				<!--   not sure what to do with <=1/19   -->
-				<comparator value="&lt;="/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx2-34"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60563"/>
-					<display value="Vancomycin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueQuantity>
-				<value value="1"/>
-			</valueQuantity>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="nte-1"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="2099930"/>
-					<display value="D-Test"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<valueString value="D-Test:  Negative - This isolate does not demonstrate inducible clindamycin resistance in vitro."/>
-		</Observation>
-	</contained>
-	<contained>
-		<Observation>
-			<id value="obx3-1"/>
-			<status value="final"/>
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/tests"/>
-					<code value="60036"/>
-					<display value="Oxacillin"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<interpretation>
-				<coding>
-					<system value="http://hl7.org/fhir/v2/0078"/>
-					<code value="S"/>
-				</coding>
-			</interpretation>
-		</Observation>
-	</contained>
-	<contained>
-		<!--
-    now, nested observations for the groups/panels
-
-    we're working bottom to top, so first we encounter an
-    inner group: susceptibility measured by broth dilution
-
-    Note that we don't have to work bottom to top - the contained
-    resources can appear in any order, but since the root does have
-    to appear last, we weill work up to it
-    -->
-		<Observation>
-			<id value="obr-2"/>
-			<status value="final"/>
-			<!--   OBR 2   -->
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/panels"/>
-					<code value="60790"/>
-					<display value="Susceptibility - Automated broth dilution (Billed)"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<performer>
-				<display value="Todd Ashby"/>
-				<!--   of course, in practive, this would be a real reference   -->
-			</performer>
-			<!--   now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed   -->
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-1"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-2"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-4"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-6"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-8"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-10"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-12"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-14"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-16"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-18"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-20"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-22"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-24"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-26"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-28"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-30"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-32"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx2-34"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#nte-1"/>
-				</target>
-			</related>
-		</Observation>
-	</contained>
-	<contained>
-		<!--   now we encounter another inner group: susceptibility measured by disk diffusion   -->
-		<Observation>
-			<id value="obr-3"/>
-			<status value="final"/>
-			<!--   OBR 3   -->
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/panels"/>
-					<code value="60418"/>
-					<display value="Susceptibility - Disk diffusion (Billed)"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx3-1"/>
-				</target>
-			</related>
-		</Observation>
-	</contained>
-	<contained>
-		<!--   organism group: Staphylococcus aureus. You'd repeat at this level if you had more than one organism   -->
-		<Observation>
-			<id value="org1"/>
-			<status value="final"/>
-			<!--   OBR 1   -->
-			<code>
-				<coding>
-					<system value="http://acme.org/lab/codes/organisms"/>
-					<code value="Staaur"/>
-				</coding>
-				<text value="Staphylococcus aureus Panel"/>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-				<!--   patient chosen at random   -->
-			</subject>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx1-4"/>
-				</target>
-			</related>
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obx1-5"/>
-				</target>
-			</related>
-			<!--   group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped   -->
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obr-2"/>
-				</target>
-			</related>
-			<!--   group - Disk diffusion   -->
-			<related>
-				<type value="has-member"/>
-				<target>
-					<reference value="#obr-3"/>
-				</target>
-			</related>
-		</Observation>
-	</contained>
-	<contained>
-		<!--   ORC information   -->
-		<ServiceRequest>
-			<id value="req"/>
-			<identifier>
-				<value value="255337816"/>
-			</identifier>
-			<status value="active"/>
-			<intent value="original-order"/>
-			<code>
-				<coding>
-					<system value="http://loinc.org"/>
-					<code value="632-0"/>
-				</coding>
-				<text value="Culture, MRSA"/>
-			</code>
-			<subject>
-				<reference value="Patient/example"/>
-			</subject>
-		</ServiceRequest>
-	</contained>
-	<identifier>
-		<system value="http://hnam.org/identifiers/orders"/>
-		<!--   seems like a likely choice   -->
-		<value value="290741144"/>
-	</identifier>
-	<basedOn>
-		<reference value="#req"/>
-	</basedOn>
-	<status value="final"/>
-	<category>
-		<coding>
-			<system value="http://hl7.org/fhir/v2/0074"/>
-			<code value="MB"/>
-		</coding>
-	</category>
-	<code>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="632-0"/>
-		</coding>
-		<text value="Culture, MRSA"/>
-	</code>
-	<subject>
-		<reference value="Patient/example"/>
-		<!--   patient chosen at random   -->
-	</subject><issued value="2009-08-10T08:25:44+10:00"/>
-	<performer>
-		
-			<display value="Todd Ashby"/>
-		
-	</performer>
-	<result>
-		<reference value="#org1"/>
-	</result>
-</DiagnosticReport>
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/working%20build/schema/account.xsd">
+<id value="micro"/>
+	<type value="collection"/>
+	<entry>
+		<fullUrl value="https://example.com/base/DiagnosticReport/micro"/>
+		<resource>
+			<DiagnosticReport>
+				<!--   start of the main resource   -->
+				<id value="micro"/>
+				<identifier>
+					<system value="http://hnam.org/identifiers/orders"/>
+					<!--   seems like a likely choice   -->
+					<value value="290741144"/>
+				</identifier>
+				<basedOn>
+					<reference value="ServiceRequest/req"/>
+				</basedOn>
+				<status value="final"/>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="MB"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="632-0"/>
+					</coding>
+					<text value="Culture, MRSA"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<issued value="2009-08-10T08:25:44+10:00"/>
+				<performer>
+					<display value="Todd Ashby"/>
+				</performer>
+				<result>
+					<reference value="Observation/org1"/>
+				</result>
+			</DiagnosticReport>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx1-4"/>
+		<resource>
+			<Observation>
+				<id value="obx1-4"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="ORGANISM"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueCodeableConcept>
+					<!--   CE   -->
+					<coding>
+						<system value="http://acme.org/lab/codes/organisms"/>
+						<code value="Staaur"/>
+					</coding>
+					<text value="Staphylococcus aureus"/>
+				</valueCodeableConcept>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx1-5"/>
+		<resource>
+			<Observation>
+				<id value="obx1-5"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="CULTPOSNEG"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueCodeableConcept>
+					<coding>
+						<system value="http://acme.org/lab/codes/flags"/>
+						<code value="POS"/>
+					</coding>
+				</valueCodeableConcept>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-1"/>
+		<resource>
+			<Observation>
+				<id value="obx2-1"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60504"/>
+						<display value="Ampicillin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="R"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-2"/>
+		<resource>
+			<Observation>
+				<id value="obx2-2"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60512"/>
+						<display value="Cefazolin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="2"/>
+					<comparator value="&lt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-4"/>
+		<resource>
+			<Observation>
+				<id value="obx2-4"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60516"/>
+						<display value="Cefoxitin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="4"/>
+					<comparator value="&lt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-6"/>
+		<resource>
+			<Observation>
+				<id value="obx2-6"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60527"/>
+						<display value="Clindamycin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="0.5"/>
+					<comparator value="&gt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-8"/>
+		<resource>
+			<Observation>
+				<id value="obx2-8"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="61203"/>
+						<display value="Daptomycin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="1"/>
+					<comparator value="&gt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-10"/>
+		<resource>
+			<Observation>
+				<id value="obx2-10"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60532"/>
+						<display value="Doxycycline"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="0.5"/>
+					<comparator value="&lt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-12"/>
+		<resource>
+			<Observation>
+				<id value="obx2-12"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60533"/>
+						<display value="Erythromycin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="8"/>
+					<comparator value="&gt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="R"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-14"/>
+		<resource>
+			<Observation>
+				<id value="obx2-14"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60536"/>
+						<display value="Gentamicin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="2"/>
+					<comparator value="&lt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-16"/>
+		<resource>
+			<Observation>
+				<id value="obx2-16"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="61007"/>
+						<display value="Levofloxacin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="0.5"/>
+					<comparator value="&lt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-18"/>
+		<resource>
+			<Observation>
+				<id value="obx2-18"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60699"/>
+						<display value="Linezolid"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="4"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-20"/>
+		<resource>
+			<Observation>
+				<id value="obx2-20"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="61204"/>
+						<display value="Moxifloxacin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="0.5"/>
+					<comparator value="&lt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-22"/>
+		<resource>
+			<Observation>
+				<id value="obx2-22"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60551"/>
+						<display value="Oxacillin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="0.5"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-24"/>
+		<resource>
+			<Observation>
+				<id value="obx2-24"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60552"/>
+						<display value="Penicillin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="2"/>
+					<comparator value="&gt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="R"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-26"/>
+		<resource>
+			<Observation>
+				<id value="obx2-26"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60697"/>
+						<display value="Quinupristin/Dalfopristin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="0.5"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-28"/>
+		<resource>
+			<Observation>
+				<id value="obx2-28"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60555"/>
+						<display value="Rifampin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="0.5"/>
+					<comparator value="&lt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-30"/>
+		<resource>
+			<Observation>
+				<id value="obx2-30"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60558"/>
+						<display value="Tetracycline"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="0.5"/>
+					<comparator value="&lt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-32"/>
+		<resource>
+			<Observation>
+				<id value="obx2-32"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60561"/>
+						<display value="Trimethoprim/Sulfamethoxazole"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="0.0526"/>
+					<!--   not sure what to do with <=1/19   -->
+					<comparator value="&lt;="/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx2-34"/>
+		<resource>
+			<Observation>
+				<id value="obx2-34"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60563"/>
+						<display value="Vancomycin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueQuantity>
+					<value value="1"/>
+				</valueQuantity>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/nte-1"/>
+		<resource>
+			<Observation>
+				<id value="nte-1"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="2099930"/>
+						<display value="D-Test"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<valueString value="D-Test:  Negative - This isolate does not demonstrate inducible clindamycin resistance in vitro."/>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obx3-1"/>
+		<resource>
+			<Observation>
+				<id value="obx3-1"/>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/tests"/>
+						<code value="60036"/>
+						<display value="Oxacillin"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<interpretation>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0078"/>
+						<code value="S"/>
+					</coding>
+				</interpretation>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obr-2"/>
+		<resource>
+			<Observation>
+				<id value="obr-2"/>
+				<status value="final"/>
+				<!--   OBR 2   -->
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/panels"/>
+						<code value="60790"/>
+						<display value="Susceptibility - Automated broth dilution (Billed)"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<performer>
+					<display value="Todd Ashby"/>
+					<!--   of course, in practive, this would be a real reference   -->
+				</performer>
+				<!--   now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed   -->
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-1"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-2"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-4"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-6"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-8"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-10"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-12"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-14"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-16"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-18"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-20"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-22"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-24"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-26"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-28"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-30"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-32"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx2-34"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/nte-1"/>
+					</target>
+				</related>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/obr-3"/>
+		<resource>
+			<Observation>
+				<id value="obr-3"/>
+				<status value="final"/>
+				<!--   OBR 3   -->
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/panels"/>
+						<code value="60418"/>
+						<display value="Susceptibility - Disk diffusion (Billed)"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx3-1"/>
+					</target>
+				</related>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Observation/org1"/>
+		<resource>
+			<Observation>
+				<id value="org1"/>
+				<status value="final"/>
+				<!--   OBR 1   -->
+				<code>
+					<coding>
+						<system value="http://acme.org/lab/codes/organisms"/>
+						<code value="Staaur"/>
+					</coding>
+					<text value="Staphylococcus aureus Panel"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+					<!--   patient chosen at random   -->
+				</subject>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx1-4"/>
+					</target>
+				</related>
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obx1-5"/>
+					</target>
+				</related>
+				<!--   group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped   -->
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obr-2"/>
+					</target>
+				</related>
+				<!--   group - Disk diffusion   -->
+				<related>
+					<type value="has-member"/>
+					<target>
+						<reference value="Observation/obr-3"/>
+					</target>
+				</related>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/ServiceRequest/req"/>
+		<resource>
+			<ServiceRequest>
+				<id value="req"/>
+				<identifier>
+					<value value="255337816"/>
+				</identifier>
+				<status value="active"/>
+				<intent value="original-order"/>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="632-0"/>
+					</coding>
+					<text value="Culture, MRSA"/>
+				</code>
+				<subject>
+					<reference value="Patient/example"/>
+				</subject>
+			</ServiceRequest>
+		</resource>
+	</entry>
+</Bundle>

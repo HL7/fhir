@@ -1,77 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticReport xmlns="http://hl7.org/fhir"><!-- No identifier was available --><id value="f202"/>
-	<contained>
-		<ServiceRequest>
-			<id value="req"/>
-			<status value="active"/>
-			<intent value="original-order"/>
-			<code>
-				<coding>
-					<system value="http://snomed.info/sct"/>
-					<code value="104177005"/>
-					<display value="Blood culture for bacteria, including anaerobic screen"/>
-				</coding>
-			</code>
-			<subject>
-				<reference value="Patient/f201"/>
-				<display value="Roel"/>
-			</subject>
-			<context>
-				<reference value="Encounter/f203"/>
-				<display value="Roel's encounter on March eleventh 2013"/>
-			</context>
-			<requester>
-				<agent>
-					<reference value="Practitioner/f201"/>
-					<display value="Dokter Bronsig"/>
-				</agent>
-			</requester>
-		</ServiceRequest>
-	</contained>
-	<basedOn>
-		<reference value="#req"/>
-	</basedOn>
-	<status value="final"/>
-	<category>
-		<!-- Lab test -->
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="15220000"/>
-			<display value="Laboratory test"/>
-		</coding>
-		<coding>
-			<system value="http://hl7.org/fhir/v2/0074"/>
-			<code value="LAB"/>
-		</coding>
-	</category>
-	<code>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="104177005"/>
-			<display value="Blood culture for bacteria, including anaerobic screen"/>
-		</coding>
-	</code>
-	<subject>
-		<reference value="Patient/f201"/>
-		<display value="Roel"/>
-	</subject>
-	<issued value="2013-03-11T10:28:00+01:00"/>
-	<performer>
-		
-			<reference value="Organization/f201"/>
-			<display value="AUMC"/>
-		
-	</performer>
-	<result>
-		<reference value="Observation/f206"/>
-		<display value="Results for staphylococcus analysis on Roel's blood culture"/>
-	</result>
-	<conclusion value="Blood culture tested positive on staphylococcus aureus"/>
-	<codedDiagnosis>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="428763004"/>
-			<display value="Bacteremia due to staphylococcus"/>
-		</coding>
-	</codedDiagnosis>
-</DiagnosticReport>
+<Bundle xmlns="http://hl7.org/fhir">
+	<id value="f202"/>
+	<type value="collection"/>
+	<entry>
+		<fullUrl value="https://example.com/base/DiagnosticReport/f202"/>
+		<resource>
+			<DiagnosticReport><!-- No identifier was available --><id value="f202"/>
+				<basedOn>
+					<reference value="ServiceRequest/req"/>
+				</basedOn>
+				<status value="final"/>
+				<category><!-- Lab test --><coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="15220000"/>
+						<display value="Laboratory test"/>
+					</coding>
+					<coding>
+						<system value="http://hl7.org/fhir/v2/0074"/>
+						<code value="LAB"/>
+					</coding>
+				</category>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="104177005"/>
+						<display value="Blood culture for bacteria, including anaerobic screen"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/f201"/>
+					<display value="Roel"/>
+				</subject>
+				<issued value="2013-03-11T10:28:00+01:00"/>
+				<performer>
+					<reference value="Organization/f201"/>
+					<display value="AUMC"/>
+				</performer>
+				<result>
+					<reference value="Observation/f206"/>
+					<display value="Results for staphylococcus analysis on Roel's blood culture"/>
+				</result>
+				<conclusion value="Blood culture tested positive on staphylococcus aureus"/>
+				<codedDiagnosis>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="428763004"/>
+						<display value="Bacteremia due to staphylococcus"/>
+					</coding>
+				</codedDiagnosis>
+			</DiagnosticReport>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/ServiceRequest/req"/>
+		<resource>
+			<ServiceRequest>
+				<id value="req"/>
+				<status value="active"/>
+				<intent value="original-order"/>
+				<code>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="104177005"/>
+						<display value="Blood culture for bacteria, including anaerobic screen"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Patient/f201"/>
+					<display value="Roel"/>
+				</subject>
+				<context>
+					<reference value="Encounter/f203"/>
+					<display value="Roel's encounter on March eleventh 2013"/>
+				</context>
+				<requester>
+					<agent>
+						<reference value="Practitioner/f201"/>
+						<display value="Dokter Bronsig"/>
+					</agent>
+				</requester>
+			</ServiceRequest>
+		</resource>
+	</entry>
+</Bundle>

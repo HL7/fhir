@@ -6,7 +6,7 @@
 	</meta>
 	<type value="collection"/>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/103"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/103"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="103"/>
@@ -74,7 +74,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/104"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/104"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="104"/>
@@ -141,7 +141,7 @@ Comment: *PLEASE NOTE AMENDED REPORT*
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/105"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/105"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="105"/>
@@ -219,7 +219,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/106"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/106"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="106"/>
@@ -271,7 +271,7 @@ Anti-Factor Xa Comment:
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/107"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/107"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="107"/>
@@ -320,7 +320,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/108"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/108"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="108"/>
@@ -373,7 +373,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/109"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/109"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="109"/>
@@ -425,7 +425,7 @@ CK                828     IU/L   ( &lt;175     )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/110"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/110"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="110"/>
@@ -469,7 +469,7 @@ TSH                       0.01    L  mIU/L   ( 0.1-4.0  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/111"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/111"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="111"/>
@@ -527,7 +527,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/112"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/112"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="112"/>
@@ -590,7 +590,7 @@ C-React Prot      152     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/113"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/113"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="113"/>
@@ -664,7 +664,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/114"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/114"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="114"/>
@@ -726,7 +726,7 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/115"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/115"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="115"/>
@@ -826,7 +826,7 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/116"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/116"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="116"/>
@@ -881,7 +881,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/117"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/117"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="117"/>
@@ -929,7 +929,7 @@ Comment: The Potassium result has been checked.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/118"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/118"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="118"/>
@@ -987,7 +987,7 @@ Baso         0.1      0.0      0.1      0.1      0.1   x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/119"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/119"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="119"/>
@@ -1073,7 +1073,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/120"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/120"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="120"/>
@@ -1120,7 +1120,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/121"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/121"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="121"/>
@@ -1178,7 +1178,7 @@ Baso                  0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/122"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/122"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="122"/>
@@ -1241,7 +1241,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/123"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/123"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="123"/>
@@ -1315,7 +1315,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/124"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/124"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="124"/>
@@ -1383,7 +1383,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/125"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/125"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="125"/>
@@ -1453,7 +1453,7 @@ Troponin I        0.03    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/126"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/126"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="126"/>
@@ -1523,7 +1523,7 @@ Troponin I        0.03    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/127"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/127"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="127"/>
@@ -1616,7 +1616,7 @@ Comment: Please note moderate thrombocytopenia persists. Please
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/128"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/128"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="128"/>
@@ -1685,7 +1685,7 @@ Protein Total      65     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/129"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/129"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="129"/>
@@ -1782,7 +1782,7 @@ Conclusion: Suggestive of infection.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/130"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/130"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="130"/>
@@ -1847,7 +1847,7 @@ Hrs Since Dose No Info  No Info                            HH:MM
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/131"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/131"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="131"/>
@@ -1917,7 +1917,7 @@ Lipase             87     IU/L   ( &lt;60      )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/132"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/132"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="132"/>
@@ -2005,7 +2005,7 @@ Comment: Instrument differential and parameters reported.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/133"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/133"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="133"/>
@@ -2049,7 +2049,7 @@ INR               1.2                                            0.8-1.3
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/134"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/134"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="134"/>
@@ -2099,7 +2099,7 @@ Albumin            26     g/L    ( 35-50    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/135"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/135"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="135"/>
@@ -2177,7 +2177,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/135a"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/135a"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="135a"/>
@@ -2237,7 +2237,7 @@ INR               3.0H                                           0.8-1.3
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/136"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/136"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="136"/>
@@ -2299,7 +2299,7 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/137"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/137"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="137"/>
@@ -2373,7 +2373,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/138"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/138"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="138"/>
@@ -2459,7 +2459,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/139"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/139"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="139"/>
@@ -2524,7 +2524,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/140"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/140"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="140"/>
@@ -2594,7 +2594,7 @@ Protein Total      77     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/141"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/141"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="141"/>
@@ -2668,7 +2668,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/142"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/142"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="142"/>
@@ -2740,7 +2740,7 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/143"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/143"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="143"/>
@@ -2812,7 +2812,7 @@ Protein Total      70     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/144"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/144"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="144"/>
@@ -2901,7 +2901,7 @@ Comment: Mild neutropenia.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/145"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/145"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="145"/>
@@ -2987,7 +2987,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/146"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/146"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="146"/>
@@ -3073,7 +3073,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/147"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/147"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="147"/>
@@ -3159,7 +3159,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/148"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/148"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="148"/>
@@ -3245,7 +3245,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/149"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/149"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="149"/>
@@ -3323,7 +3323,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/150"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/150"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="150"/>
@@ -3405,7 +3405,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/151"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/151"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="151"/>
@@ -3491,7 +3491,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/152"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/152"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="152"/>
@@ -3580,7 +3580,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/153"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/153"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="153"/>
@@ -3634,7 +3634,7 @@ Specimen Type:  Serum
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/154"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/154"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="154"/>
@@ -3700,7 +3700,7 @@ HBsAB Titre                                            :      44 IU/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/155"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/155"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="155"/>
@@ -3786,7 +3786,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/156"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/156"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="156"/>
@@ -3846,7 +3846,7 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/157"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/157"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="157"/>
@@ -3932,7 +3932,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/158"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/158"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="158"/>
@@ -3981,7 +3981,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/159"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/159"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="159"/>
@@ -4041,7 +4041,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/160"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/160"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="160"/>
@@ -4127,7 +4127,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/161"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/161"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="161"/>
@@ -4227,7 +4227,7 @@ perinatal or neonatal infection.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/162"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/162"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="162"/>
@@ -4313,7 +4313,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/163"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/163"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="163"/>
@@ -4367,7 +4367,7 @@ Comment: sample not protected from light ward notified for
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/164"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/164"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="164"/>
@@ -4419,7 +4419,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/165"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/165"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="165"/>
@@ -4470,7 +4470,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/166"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/166"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="166"/>
@@ -4540,7 +4540,7 @@ Conclusion: No clinical information provided.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/167"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/167"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="167"/>
@@ -4624,7 +4624,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/168"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/168"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="168"/>
@@ -4686,7 +4686,7 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/169"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/169"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="169"/>
@@ -4769,7 +4769,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/170"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/170"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="170"/>
@@ -4834,7 +4834,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/171"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/171"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="171"/>
@@ -4904,7 +4904,7 @@ C-React Prot        4     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/172"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/172"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="172"/>
@@ -4978,7 +4978,7 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/173"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/173"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="173"/>
@@ -5064,7 +5064,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/174"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/174"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="174"/>
@@ -5117,7 +5117,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/175"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/175"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="175"/>
@@ -5173,7 +5173,7 @@ Protein Total      69     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/176"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/176"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="176"/>
@@ -5244,7 +5244,7 @@ Comment: Note neutrophilia.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/177"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/177"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="177"/>
@@ -5299,7 +5299,7 @@ Troponin I        0.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/178"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/178"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="178"/>
@@ -5354,7 +5354,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/179"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/179"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="179"/>
@@ -5409,7 +5409,7 @@ NTRC
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/180"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/180"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="180"/>
@@ -5471,7 +5471,7 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/181"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/181"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="181"/>
@@ -5545,7 +5545,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/182"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/182"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="182"/>
@@ -5591,7 +5591,7 @@ Urea              6.1     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/183"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/183"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="183"/>
@@ -5649,7 +5649,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/184"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/184"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="184"/>
@@ -5744,7 +5744,7 @@ culture.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/185"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/185"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="185"/>
@@ -5830,7 +5830,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/186"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/186"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="186"/>
@@ -5876,7 +5876,7 @@ Protein/Creat Ratio              30   mg/mmol Creat   ( 15-35    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/187"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/187"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="187"/>
@@ -5938,7 +5938,7 @@ GROIN SWAB                    VRE not detected
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/188"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/188"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="188"/>
@@ -5987,7 +5987,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/189"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/189"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="189"/>
@@ -6045,7 +6045,7 @@ CK                 43     IU/L   ( &lt;175     )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/190"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/190"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="190"/>
@@ -6122,7 +6122,7 @@ Conclusion: Known beta thalassaemia minor. Suggest repeat FBE for an
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/191"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/191"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="191"/>
@@ -6187,7 +6187,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/192"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/192"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="192"/>
@@ -6271,7 +6271,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/193"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/193"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="193"/>
@@ -6317,7 +6317,7 @@ Protein/Creat Ratio             232 H mg/mmol Creat   ( 15-35    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/194"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/194"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="194"/>
@@ -6383,7 +6383,7 @@ No Growth -Detection limit 10^7 CFU/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/195"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/195"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="195"/>
@@ -6452,7 +6452,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/196"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/196"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="196"/>
@@ -6514,7 +6514,7 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/197"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/197"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="197"/>
@@ -6588,7 +6588,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/198"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/198"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="198"/>
@@ -6635,7 +6635,7 @@ Troponin I        0.04    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/199"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/199"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="199"/>
@@ -6703,7 +6703,7 @@ Conclusion: Note persistent anaemia.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1100"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1100"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1100"/>
@@ -6753,7 +6753,7 @@ Albumin            28     g/L    ( 35-50    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1101"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1101"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1101"/>
@@ -6814,7 +6814,7 @@ Comment: Intra-op
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1102"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1102"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1102"/>
@@ -6871,7 +6871,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1103"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1103"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1103"/>
@@ -6957,7 +6957,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1104"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1104"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1104"/>
@@ -7035,7 +7035,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1105"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1105"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1105"/>
@@ -7106,7 +7106,7 @@ C-React Prot        5     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1106"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1106"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1106"/>
@@ -7180,7 +7180,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1107"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1107"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1107"/>
@@ -7237,7 +7237,7 @@ LIPIDS
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1108"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1108"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1108"/>
@@ -7307,7 +7307,7 @@ investigation, please contact the Microbiology Registrar.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1109"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1109"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1109"/>
@@ -7366,7 +7366,7 @@ Standard culture:   ++ Mixed upper respiratory tract flora
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1110"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1110"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1110"/>
@@ -7432,7 +7432,7 @@ No Growth -Detection limit 10^7 CFU/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1111"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1111"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1111"/>
@@ -7476,7 +7476,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1112"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1112"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1112"/>
@@ -7535,7 +7535,7 @@ Comment: The requested tests were not completed as no
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1113"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1113"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1113"/>
@@ -7612,7 +7612,7 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1114"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1114"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1114"/>
@@ -7688,7 +7688,7 @@ culture or special media are required.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1115"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1115"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1115"/>
@@ -7756,7 +7756,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1116"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1116"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1116"/>
@@ -7819,7 +7819,7 @@ Troponin I        0.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1117"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1117"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1117"/>
@@ -7896,7 +7896,7 @@ Comment: * Please note: no specimen received.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1118"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1118"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1118"/>
@@ -7964,7 +7964,7 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1119"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1119"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1119"/>
@@ -8050,7 +8050,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1120"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1120"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1120"/>
@@ -8136,7 +8136,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1121"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1121"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1121"/>
@@ -8182,7 +8182,7 @@ Urea              7.0     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1122"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1122"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1122"/>
@@ -8256,7 +8256,7 @@ Comment: Please note fall in haemoglobin and platelet count since
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1123"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1123"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1123"/>
@@ -8302,7 +8302,7 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1124"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1124"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1124"/>
@@ -8348,7 +8348,7 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1125"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1125"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1125"/>
@@ -8418,7 +8418,7 @@ Conclusion: Please note fall in haemoglobin since the previous
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1126"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1126"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1126"/>
@@ -8472,7 +8472,7 @@ Antithrombin (Functional)         88     %      (80-120)
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1127"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1127"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1127"/>
@@ -8521,7 +8521,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1128"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1128"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1128"/>
@@ -8593,7 +8593,7 @@ Presumptive  negative for pneumococcal pneumonia.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1129"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1129"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1129"/>
@@ -8639,7 +8639,7 @@ Urea             16.4     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1130"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1130"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1130"/>
@@ -8696,7 +8696,7 @@ yeasts                                    Occasional
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1131"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1131"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1131"/>
@@ -8782,7 +8782,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1132"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1132"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1132"/>
@@ -8840,7 +8840,7 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1133"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1133"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1133"/>
@@ -8906,7 +8906,7 @@ No Growth -Detection limit 10^7 CFU/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1134"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1134"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1134"/>
@@ -8988,7 +8988,7 @@ No Growth -Detection limit 10^7 CFU/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1135"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1135"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1135"/>
@@ -9054,7 +9054,7 @@ No Growth -Detection limit 10^7 CFU/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1136"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1136"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1136"/>
@@ -9103,7 +9103,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1137"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1137"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1137"/>
@@ -9159,7 +9159,7 @@ Protein Total      55     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1138"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1138"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1138"/>
@@ -9235,7 +9235,7 @@ Conclusion: Increase in leucocyte count since the last examination.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1139"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1139"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1139"/>
@@ -9317,7 +9317,7 @@ No Growth -Detection limit 10^7 CFU/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1140"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1140"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1140"/>
@@ -9361,7 +9361,7 @@ Cortisol Diurnal Variation:AM (0800 - 0900): 150 - 650 nmol/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1141"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1141"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1141"/>
@@ -9408,7 +9408,7 @@ Osmolality        290     mosm/kg( 280-300  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1142"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1142"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1142"/>
@@ -9454,7 +9454,7 @@ Urine Osmolality                618   mmol/L          ( 50-1200  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1143"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1143"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1143"/>
@@ -9540,7 +9540,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1144"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1144"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1144"/>
@@ -9586,7 +9586,7 @@ Urine Osmolality                612   mmol/L          ( 50-1200  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1145"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1145"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1145"/>
@@ -9633,7 +9633,7 @@ Osmolality        295     mosm/kg( 280-300  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1146"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1146"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1146"/>
@@ -9702,7 +9702,7 @@ Protein Total      73     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1147"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1147"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1147"/>
@@ -9786,7 +9786,7 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1148"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1148"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1148"/>
@@ -9832,7 +9832,7 @@ Urea              4.1     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1149"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1149"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1149"/>
@@ -9890,7 +9890,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1150"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1150"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1150"/>
@@ -9976,7 +9976,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1151"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1151"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1151"/>
@@ -10062,7 +10062,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1153"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1153"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1153"/>
@@ -10120,7 +10120,7 @@ call 1-800-555-2123 to contact the State Department of Health.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1152"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1152"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1152"/>
@@ -10180,7 +10180,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1154"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1154"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1154"/>
@@ -10258,7 +10258,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1155"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1155"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1155"/>
@@ -10313,7 +10313,7 @@ Troponin I        0.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1162"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1162"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1162"/>
@@ -10368,7 +10368,7 @@ C-React Prot      149     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1163"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1163"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1163"/>
@@ -10428,7 +10428,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1170"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1170"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1170"/>
@@ -10485,7 +10485,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1171"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1171"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1171"/>
@@ -10559,7 +10559,7 @@ Old Ref Ranges prior to 27th April 2004
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1172"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1172"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1172"/>
@@ -10635,7 +10635,7 @@ LIPIDS
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1173"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1173"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1173"/>
@@ -10709,7 +10709,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1180"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1180"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1180"/>
@@ -10771,7 +10771,7 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1181"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1181"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1181"/>
@@ -10854,7 +10854,7 @@ Comment: Instrument differential and parameters reported.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1182"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1182"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1182"/>
@@ -10914,7 +10914,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1183"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1183"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1183"/>
@@ -11005,7 +11005,7 @@ Timentin         S
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1187"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1187"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1187"/>
@@ -11066,7 +11066,7 @@ Standard culture:   +++  Mixed upper respiratory tract flora
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1188"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1188"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1188"/>
@@ -11152,7 +11152,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1189"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1189"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1189"/>
@@ -11215,7 +11215,7 @@ C-React Prot        2     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1190"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1190"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1190"/>
@@ -11259,7 +11259,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1191"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1191"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1191"/>
@@ -11315,7 +11315,7 @@ Protein Total      56     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1192"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1192"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1192"/>
@@ -11398,7 +11398,7 @@ Film Comment : Red cells show some microcytes, elongated cells and mildly
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1193"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1193"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1193"/>
@@ -11475,7 +11475,7 @@ CULTURE
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1194"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1194"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1194"/>
@@ -11561,7 +11561,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1195"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1195"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1195"/>
@@ -11623,7 +11623,7 @@ RECTAL SWAB                   VRE not detected
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1196"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1196"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1196"/>
@@ -11678,7 +11678,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1199"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1199"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1199"/>
@@ -11727,7 +11727,7 @@ Comment: The requested tests were not completed as the
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1200"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1200"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1200"/>
@@ -11776,7 +11776,7 @@ Comment: The specimen received was mislabeled. The ward has  been
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1201"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1201"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1201"/>
@@ -11850,7 +11850,7 @@ Old Ref Ranges prior to 27th April 2004
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1202"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1202"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1202"/>
@@ -11915,7 +11915,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1203"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1203"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1203"/>
@@ -11972,7 +11972,7 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1204"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1204"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1204"/>
@@ -12046,7 +12046,7 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1205"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1205"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1205"/>
@@ -12116,7 +12116,7 @@ C-React Prot       12     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1206"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1206"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1206"/>
@@ -12176,7 +12176,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1207"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1207"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1207"/>
@@ -12234,7 +12234,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1208"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1208"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1208"/>
@@ -12290,7 +12290,7 @@ Protein Total      51     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1209"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1209"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1209"/>
@@ -12360,7 +12360,7 @@ Conclusion: Please note fall in haemoglobin since the previous
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1211"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1211"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1211"/>
@@ -12446,7 +12446,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1212"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1212"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1212"/>
@@ -12532,7 +12532,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1213"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1213"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1213"/>
@@ -12590,7 +12590,7 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1214"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1214"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1214"/>
@@ -12664,7 +12664,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1215"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1215"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1215"/>
@@ -12731,7 +12731,7 @@ Troponin I        0.03    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1216"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1216"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1216"/>
@@ -12798,7 +12798,7 @@ streptococci and diphtheroid bacilli.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1217"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1217"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1217"/>
@@ -12884,7 +12884,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1218"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1218"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1218"/>
@@ -12945,7 +12945,7 @@ G1691A Substitution Result:
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1219"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1219"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1219"/>
@@ -12994,7 +12994,7 @@ MicroAlb/Creat Ratio           5.66 H mg/mmol creat   ( &lt;2.5     )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1220"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1220"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1220"/>
@@ -13080,7 +13080,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1221"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1221"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1221"/>
@@ -13133,7 +13133,7 @@ Protein Total      64     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1222"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1222"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1222"/>
@@ -13191,7 +13191,7 @@ Baso         0.0      0.1      0.0      0.0      0.0   x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1223"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1223"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1223"/>
@@ -13277,7 +13277,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1224"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1224"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1224"/>
@@ -13346,7 +13346,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1225"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1225"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1225"/>
@@ -13418,7 +13418,7 @@ Protein Total      65     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1226"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1226"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1226"/>
@@ -13495,7 +13495,7 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1227"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1227"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1227"/>
@@ -13577,7 +13577,7 @@ emergence of resistance  and clinical failure.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1228"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1228"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1228"/>
@@ -13624,7 +13624,7 @@ C-React Prot       24     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1229"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1229"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1229"/>
@@ -13695,7 +13695,7 @@ Comment: FBE with BMAT. Report to follow.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1231"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1231"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1231"/>
@@ -13754,7 +13754,7 @@ Comment: The requested tests were not completed as no sample was
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1232"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1232"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1232"/>
@@ -13816,7 +13816,7 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1233"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1233"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1233"/>
@@ -13890,7 +13890,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1234"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1234"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1234"/>
@@ -13945,7 +13945,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1235"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1235"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1235"/>
@@ -14009,7 +14009,7 @@ Comment: The requested tests were not completed as no
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1236"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1236"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1236"/>
@@ -14074,7 +14074,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1237"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1237"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1237"/>
@@ -14147,7 +14147,7 @@ Comment: Haemolysed. Some tests (*) unavailable.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1238"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1238"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1238"/>
@@ -14228,7 +14228,7 @@ Comment: * Specimen clotted. ED informed.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1239"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1239"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1239"/>
@@ -14314,7 +14314,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1240"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1240"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1240"/>
@@ -14387,7 +14387,7 @@ No Growth After 2 Days.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1240a"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1240a"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1240a"/>
@@ -14452,7 +14452,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1241"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1241"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1241"/>
@@ -14514,7 +14514,7 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1242"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1242"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1242"/>
@@ -14591,7 +14591,7 @@ Comment: Please note mild neutrophilia
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1243"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1243"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1243"/>
@@ -14648,7 +14648,7 @@ Pathologist: To Follow
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1244"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1244"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1244"/>
@@ -14706,7 +14706,7 @@ Pathologist: To Follow
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1245"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1245"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1245"/>
@@ -14771,7 +14771,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1246"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1246"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1246"/>
@@ -14841,7 +14841,7 @@ C-React Prot      109     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1247"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1247"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1247"/>
@@ -14925,7 +14925,7 @@ Comment: Please note mild neutrophilia and mild monocytosis
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1248"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1248"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1248"/>
@@ -14987,7 +14987,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1249"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1249"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1249"/>
@@ -15061,7 +15061,7 @@ Pathologist: To Follow
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1250"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1250"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1250"/>
@@ -15137,7 +15137,7 @@ the Blood Bank.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1251"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1251"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1251"/>
@@ -15215,7 +15215,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1252"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1252"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1252"/>
@@ -15257,7 +15257,7 @@ Albumin            22     g/L    ( 35-50    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1253"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1253"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1253"/>
@@ -15340,7 +15340,7 @@ and diphtheroid bacilli.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1254"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1254"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1254"/>
@@ -15397,7 +15397,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1255"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1255"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1255"/>
@@ -15473,7 +15473,7 @@ the Blood Bank.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1256"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1256"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1256"/>
@@ -15551,7 +15551,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1257"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1257"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1257"/>
@@ -15624,7 +15624,7 @@ Comment: The CKMB was not measured on this sample. It has
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1268"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1268"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1268"/>
@@ -15702,7 +15702,7 @@ Comment: Please note fall in haemoglobin and platelet count since
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1258"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1258"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1258"/>
@@ -15775,7 +15775,7 @@ Comment
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1259"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1259"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1259"/>
@@ -15861,7 +15861,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1260"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1260"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1260"/>
@@ -15921,7 +15921,7 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1261"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1261"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1261"/>
@@ -15981,7 +15981,7 @@ Comment: A troponin has been measured for this patient in
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1262"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1262"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1262"/>
@@ -16058,7 +16058,7 @@ Hrs Since Dose          No Info    02:00                   HH:MM
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1263"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1263"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1263"/>
@@ -16123,7 +16123,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1264"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1264"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1264"/>
@@ -16195,7 +16195,7 @@ Protein Total      47     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1265"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1265"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1265"/>
@@ -16273,7 +16273,7 @@ Comment: Please note fall in haemoglobin and platelet count since
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1266"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1266"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1266"/>
@@ -16328,7 +16328,7 @@ NTRC
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1267"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1267"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1267"/>
@@ -16394,7 +16394,7 @@ Albumin            34     g/L    ( 35-50    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1269"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1269"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1269"/>
@@ -16468,7 +16468,7 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1270"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1270"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1270"/>
@@ -16528,7 +16528,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1271"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1271"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1271"/>
@@ -16594,7 +16594,7 @@ General Comments:
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1272"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1272"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1272"/>
@@ -16656,7 +16656,7 @@ Standard culture:   +++  Mixed upper respiratory tract flora
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1273"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1273"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1273"/>
@@ -16756,7 +16756,7 @@ Comment: Post platelet increment
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1274"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1274"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1274"/>
@@ -16796,7 +16796,7 @@ Lipase            741     IU/L   ( &lt;60      )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1277"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1277"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1277"/>
@@ -16862,7 +16862,7 @@ Albumin            27     g/L    ( 35-50    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1278"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1278"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1278"/>
@@ -16944,7 +16944,7 @@ Comment: Instrument differential and parameters reported.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1279"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1279"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1279"/>
@@ -17010,7 +17010,7 @@ Conclusion: ? Post-op.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1280"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1280"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1280"/>
@@ -17096,7 +17096,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1281"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1281"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1281"/>
@@ -17151,7 +17151,7 @@ NTRS
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1282"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1282"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1282"/>
@@ -17218,7 +17218,7 @@ Post Dose (Peak) level : Not recommended
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1283"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1283"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1283"/>
@@ -17288,7 +17288,7 @@ C-React Prot       19     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1284"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1284"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1284"/>
@@ -17366,7 +17366,7 @@ Comment: Note: mild neutrophilia. Instrument differential and
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1285"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1285"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1285"/>
@@ -17448,7 +17448,7 @@ No Growth -Detection limit 10^7 CFU/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1286"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1286"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1286"/>
@@ -17497,7 +17497,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1287"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1287"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1287"/>
@@ -17552,7 +17552,7 @@ Comment: The CKMB was not measured on this sample. It has
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1288"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1288"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1288"/>
@@ -17614,7 +17614,7 @@ Comment: Please note fall in haemoglobin and platelet count since
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1289"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1289"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1289"/>
@@ -17652,7 +17652,7 @@ Blank Report?
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1290"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1290"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1290"/>
@@ -17707,7 +17707,7 @@ sera. This serum sample has been stored for 3 months.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1291"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1291"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1291"/>
@@ -17748,7 +17748,7 @@ HIV-1/2 Ag/Ab Combo by Architect:
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1292"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1292"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1292"/>
@@ -17794,7 +17794,7 @@ Antinuclear abs     TF
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1293"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1293"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1293"/>
@@ -17846,7 +17846,7 @@ Old Ref Ranges prior to 27th April 2004
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1294"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1294"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1294"/>
@@ -17905,7 +17905,7 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1295"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1295"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1295"/>
@@ -17960,7 +17960,7 @@ NTRESR
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1296"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1296"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1296"/>
@@ -18015,7 +18015,7 @@ NTRESR
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1297"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1297"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1297"/>
@@ -18064,7 +18064,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1298"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1298"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1298"/>
@@ -18110,7 +18110,7 @@ Urea              6.8     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1299"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1299"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1299"/>
@@ -18168,7 +18168,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1300"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1300"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1300"/>
@@ -18228,7 +18228,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1301"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1301"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1301"/>
@@ -18268,7 +18268,7 @@ NTRF
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1302"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1302"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1302"/>
@@ -18312,7 +18312,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1303"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1303"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1303"/>
@@ -18361,7 +18361,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1304"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1304"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1304"/>
@@ -18420,7 +18420,7 @@ C-React Prot      184     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1305"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1305"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1305"/>
@@ -18489,7 +18489,7 @@ Conclusion: Please note fall in haemoglobin since the previous
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1306"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1306"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1306"/>
@@ -18551,7 +18551,7 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1307"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1307"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1307"/>
@@ -18637,7 +18637,7 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1308"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1308"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1308"/>
@@ -18707,7 +18707,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1309"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1309"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1309"/>
@@ -18781,7 +18781,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1310"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1310"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1310"/>
@@ -18825,7 +18825,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1311"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1311"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1311"/>
@@ -18879,7 +18879,7 @@ C-React Prot       54     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1312"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1312"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1312"/>
@@ -18943,7 +18943,7 @@ Conclusion: ? Cause of persistent mild thrombocytopenia.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1313"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1313"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1313"/>
@@ -19003,7 +19003,7 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1314"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1314"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1314"/>
@@ -19072,7 +19072,7 @@ Protein Total      80     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1315"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1315"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1315"/>
@@ -19146,7 +19146,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1316"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1316"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1316"/>
@@ -19220,7 +19220,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1317"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1317"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1317"/>
@@ -19267,7 +19267,7 @@ Troponin I        1.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1318"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1318"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1318"/>
@@ -19311,7 +19311,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1319"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1319"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1319"/>
@@ -19371,7 +19371,7 @@ INR               1.0                                            0.8-1.3
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1320"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1320"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1320"/>
@@ -19429,7 +19429,7 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1321"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1321"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1321"/>
@@ -19506,7 +19506,7 @@ Comment: Please note mild neutrophilia
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1322"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1322"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1322"/>
@@ -19575,7 +19575,7 @@ Protein Total      67     g/L    ( 65-85    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1323"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1323"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1323"/>
@@ -19639,7 +19639,7 @@ Comments / Steps Taken
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1324"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1324"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1324"/>
@@ -19717,7 +19717,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1325"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1325"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1325"/>
@@ -19786,7 +19786,7 @@ Conclusion: * Film shows fibrin strands suggestive of a partially
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1326"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1326"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1326"/>
@@ -19848,7 +19848,7 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1327"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1327"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1327"/>
@@ -19925,7 +19925,7 @@ Comment: Please note mild monocytosis
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1328"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1328"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1328"/>
@@ -19987,7 +19987,7 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1329"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1329"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1329"/>
@@ -20033,7 +20033,7 @@ HbA1c(HPLC)               %      (See Below)
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1330"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1330"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1330"/>
@@ -20120,7 +20120,7 @@ Conclusion: Recent tissue damage/trauma.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1331"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1331"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1331"/>
@@ -20175,7 +20175,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1332"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1332"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1332"/>
@@ -20231,7 +20231,7 @@ Amylase            51     IU/L   ( 22-100   )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1333"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1333"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1333"/>
@@ -20310,7 +20310,7 @@ Standard culture:   +  Mixed upper respiratory tract flora
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1334"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1334"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1334"/>
@@ -20396,7 +20396,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1335"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1335"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1335"/>
@@ -20453,7 +20453,7 @@ Amylase           390 IU/L
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1336"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1336"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1336"/>
@@ -20520,7 +20520,7 @@ streptococci, diphtheroid bacilli \T\ gram negative bacilli.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1337"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1337"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1337"/>
@@ -20586,7 +20586,7 @@ No Beta haemolytic streptococci isolated.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1338"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1338"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1338"/>
@@ -20656,7 +20656,7 @@ be processed.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1339"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1339"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1339"/>
@@ -20708,7 +20708,7 @@ sera. This serum sample has been stored for 3 months.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1340"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1340"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1340"/>
@@ -20752,7 +20752,7 @@ Anaerobic bottle             4   days                 Negative
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1341"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1341"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1341"/>
@@ -20806,7 +20806,7 @@ C-React Prot       44     mg/L   ( &lt;5       )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1342"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1342"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1342"/>
@@ -20869,7 +20869,7 @@ Conclusion: Suggest repeat FBE to confirm platelet count.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1343"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1343"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1343"/>
@@ -20932,7 +20932,7 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1344"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1344"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1344"/>
@@ -21006,7 +21006,7 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1346"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1346"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1346"/>
@@ -21092,7 +21092,7 @@ Note: Reference Ranges shown are for arterial blood only.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1347"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1347"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1347"/>
@@ -21153,7 +21153,7 @@ G1691A Substitution Result:
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1348"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1348"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1348"/>
@@ -21216,7 +21216,7 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1349"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1349"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1349"/>
@@ -21286,7 +21286,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1350"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1350"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1350"/>
@@ -21369,7 +21369,7 @@ Conclusion: Common causes of macrocytosis include liver disease,
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1351"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1351"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1351"/>
@@ -21438,7 +21438,7 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1352"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1352"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1352"/>
@@ -21508,7 +21508,7 @@ Lupus Inhibitor Comment:
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1353"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1353"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1353"/>
@@ -21546,7 +21546,7 @@ Blank Report?
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1354"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1354"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1354"/>
@@ -21596,7 +21596,7 @@ Albumin            23     g/L    ( 35-50    )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1355"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1355"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1355"/>
@@ -21680,7 +21680,7 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1356"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1356"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1356"/>
@@ -21754,7 +21754,7 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1357"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1357"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1357"/>
@@ -21819,7 +21819,7 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1358"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1358"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1358"/>
@@ -21892,7 +21892,7 @@ EtOH              0.02    gm%
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1364"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1364"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1364"/>
@@ -21966,7 +21966,7 @@ Old Ref Ranges prior to 27th April 2004
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1365"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1365"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1365"/>
@@ -22024,7 +22024,7 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
 		</resource>
 	</entry>
 	<entry>
-		<fullUrl value="http://hl7.org/fhir/DiagnosticReport/1366"/>
+		<fullUrl value="https://example.com/base/DiagnosticReport/1366"/>
 		<resource>
 			<DiagnosticReport>
 				<id value="1366"/>

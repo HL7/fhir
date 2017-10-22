@@ -38,7 +38,7 @@
 	
 	<!-- now the atomic results -->
   <resultGroup>
-    <!-- null group, so no name or speciment -->
+    <!-- null group, so no name or Specimen -->
     <result>
       <code>
         <coding>
