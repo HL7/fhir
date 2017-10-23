@@ -5,7 +5,7 @@
 -->
 <Parameters xmlns="http://hl7.org/fhir">
   <parameter>
-    <name value="return"/>
+    <name value="statistic"/>
     <resource>
       <Observation>
         <status value="final"/>
@@ -91,7 +91,7 @@
     </resource>
   </parameter>
   <parameter>
-    <name value="return"/>
+    <name value="statistic"/>
     <resource>
       <Observation>
         <status value="final"/>
