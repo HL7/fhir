@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  The outcome for this particular operation is 2 Observation resources - one for the diastolic 
-  and one for the systolic components, because the requested LOINC code is a panel code 
+  The outcome for this particular operation is 2 Observation resources - one for the diastolic (8462-4)
+  and one for the systolic components (8480-6), because the requested LOINC code is a panel code
 -->
 <Parameters xmlns="http://hl7.org/fhir">
   <parameter>
@@ -12,8 +12,8 @@
         <code>
           <coding>
             <system value="http://loinc.org"/>
-            <code value="8462-4"/>
-            <display value="Diastolic blood pressure"/>
+            <code value="8480-6"/>
+            <display value="Systolic blood pressure"/>
           </coding>
         </code>
         <subject>
@@ -34,7 +34,7 @@
               </coding>
            </code>
            <valueQuantity>
-              <value value="79.7"/>
+              <value value="121.8"/>
               <unit value="mmHg"/>
               <system value="http://unitsofmeasure.org"/>
               <code value="mm[Hg]"/>
@@ -50,7 +50,7 @@
               </coding>
            </code>
            <valueQuantity>
-              <value value="110"/>
+              <value value="136"/>
               <unit value="mmHg"/>
               <system value="http://unitsofmeasure.org"/>
               <code value="mm[Hg]"/>
@@ -66,7 +66,7 @@
               </coding>
            </code>
            <valueQuantity>
-              <value value="56"/>
+              <value value="110"/>
               <unit value="mmHg"/>
               <system value="http://unitsofmeasure.org"/>
               <code value="mm[Hg]"/>
@@ -76,9 +76,9 @@
            <!--  the count parameter code -->
            <code>
               <coding>
-                 <system value="http://hl7.org/fhir/observation-paramcode"/>
-                 <code value="min"/>
-                 <display value="Minimum"/>
+                <system value="http://hl7.org/fhir/observation-paramcode"/>
+                  <code value="count"/>
+                <display value="Count"/>
               </coding>
            </code>
            <valueQuantity>
@@ -175,5 +175,5 @@
         </component>
       </Observation>
     </resource>
-  </parameter>  
+  </parameter>
 </Parameters>
