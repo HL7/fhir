@@ -2,10 +2,10 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = EventPerformerRole
+  Binding Name = PerformerFunction
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/performer-role
-  Conformance = example
+  Reference = http://hl7.org/fhir/ValueSet/performer-function
+  Conformance = extensible
 
  -- Row 2 -----------------------------------
   Binding Name = EventReason
