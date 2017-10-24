@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/valueset.xsd">
+  <id value="perfomer-function"/>
+	<url value="http://hl7.org/fhir/ValueSet/performer-function"/>
+  <name value="Performer Function Codes"/>
+  <status value="draft"/>
+  <publisher value="HL7 International - Orders and Observations WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The types of involvement of the performer in the Event."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+      <concept>
+        <code value="TRANS">
+        </code>
+      </concept>
+      <concept>
+        <code value="PART">
+        </code>
+      </concept>
+      <concept>
+        <code value="ATND">
+        </code>
+      </concept>
+      <concept>
+        <code value="CON">
+        </code>
+      </concept>
+      <concept>
+        <code value="AUT">
+        </code>
+      </concept>
+      <concept>
+        <code value="INF">
+        </code>
+      </concept>
+      <concept>
+        <code value="ENT">
+        </code>
+      </concept>
+      <concept>
+        <code value="WIT">
+        </code>
+      </concept>
+      <concept>
+        <code value="PPRF">
+        </code>
+      </concept>
+      <concept>
+        <code value="SPRF">
+        </code>
+      </concept>
+      <concept>
+        <code value="RESP">
+        </code>
+      </concept>
+      <concept>
+        <code value="VRF">
+        </code>
+      </concept>
+      <concept>
+        <code value="AUTHEN">
+        </code>
+      </concept>
+      <concept>
+        <code value="LA">
+        </code>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
