@@ -15477,6 +15477,10 @@
     <display value="Icelandic horse"/>
     <display value="Icelandic horse (organism)"/>
   </concept>
+  <concept id="705383004" display="Eating/Drinking assistive device">
+    <display value="Eating/Drinking assistive device"/>
+    <display value="Eating/Drinking assistive device (physical object)"/>
+  </concept>
   <concept id="70881005" display="Anser anser anser">
     <display value="Anser anser anser"/>
     <display value="Greylag goose"/>

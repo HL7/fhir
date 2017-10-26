@@ -1345,7 +1345,7 @@ public class VersionConvertor_14_40 {
               notExistsSlicePresent = true;
           }
         }
-        isExists = slices==2 && existsSlicePresent && notExistsSlicePresent;
+        isExists = (slices==2 && existsSlicePresent && notExistsSlicePresent) || (slices==1 && existsSlicePresent!=notExistsSlicePresent);
       }
       tgt.addDiscriminator(ProfileUtilities.interpretR2Discriminator(t.getValue(), isExists));
     }
