@@ -66,7 +66,7 @@ Servers that conform to FHIR/GraphQL specification:
 </p>
 <ul>
  <li>SHALL use types, queries and mutations that conform to those provided in the GraphQL definitions in the specification</li>
- <li>SHOULD support the @skip and @include directives</li>
+ <li>SHOULD support the @skip and @include directives. The data re-organization directives defined at the end of this page SHOULD be considered too</li>
  <li>SHALL indicate in their conformance statement that they support graphQL queries (todo: how)</li>
  <li>SHOULD provide the same functionality as that defined in their conformance statement for read/search/create/update/delete/patch operations</li>
  <li>SHALL provide introspection services that correctly describe the services they offer</li>
@@ -485,6 +485,234 @@ Example: <a href="http://test.fhir.org/r3/ValueSet/doc-typecodes/$validate-code?
 <p>
 The graphQL is executed on the output of the operation. If the operation fails, and returns an operation outcome, then the graphQL is not executed.
 </p>
+
+<a name="flattening"> </a>
+<h3>Data Flattening Directives</h3>
+
+<p>
+GraphQL is a very effective language for navigating a graph and selecting subset of information from it. However 
+for some uses, the physical structure of the result set is important. This is most relevant when extracting data 
+for statistical analysis in languages such as <a href="https://www.r-project.org/">R</a>. In order to facilitate 
+these kind of uses, FHIR servers should consider supporting the following directives that allow implementers to 
+flatten the return graph for easier analysis
+</p>
+
+<h4>Flattening a node</h4>
+<pre>
+@flatten
+</pre>
+<p>
+This directive indicates that the field to which it is attached is not actually produced in the output graph. 
+Instead, it's children will be processed and added to the output graph as specified in it's place.
+</p>
+<p>
+Notes:
+</p>
+<ul>
+ <li>If @flatten is used on an element with repeating cardinality, then by default, all the children will become lists</li>
+ <li>When using @flatten, all the collated children must have the same FHIR type. The server SHALL return an error if they don't</li>
+</ul>
+<p>
+For an example, take this graphQL, and apply it to the patient example:
+</p>
+<pre>
+{
+  identifier { system value }
+  active 
+  name { text given family } 
+}
+</pre>
+<p>
+This will give the output:
+</p>
+<pre>
+{
+  "identifier": [{
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "12345"
+  }],
+  "active": true,
+  "name": [{
+    "given": ["Peter","James"],
+    "family": "Chalmers"
+  },{
+    "given": ["Jim"]
+  },{
+    "given": ["Peter","James"],
+    "family": "Windsor"
+  }]
+}
+</pre>
+<p>
+Adding the <code>@flatten</code> directive changes the output:
+</p>
+<pre>
+{
+  identifier @flatten { system value }
+  active 
+  name @flatten { text given family } 
+}
+</pre>
+<p>
+This has the output:
+</p>
+<pre>
+{
+  "system":["urn:oid:1.2.36.146.595.217.0.1"],
+  "value":["12345"],
+  "active":true,
+  "given":["Peter","James","Jim","Peter","James"],
+  "family":["Chalmers","Windsor"]
+}</pre>
+
+<h4>Short cut for selecting only the first element</h4>
+<pre>
+@first
+</pre>
+<p>
+This is a shortcut for a FHIR path filter [$index = 0] and indicates to only take the first match of 
+the elements. Note that the selection of the first element only applies to the immediate context of 
+the field in the source graph, not to the output graph
+</p>
+<p>
+Example:
+</p>
+<pre>
+{
+  identifier @flatten { system value }
+  active 
+  name @flatten { text given @first family } 
+}
+</pre>
+<p>
+Gives the output:
+</p>
+<pre>
+{
+  "system":["urn:oid:1.2.36.146.595.217.0.1"],
+  "value":["12345"],
+  "active":true,
+  "given":["Peter","Jim","Peter"],
+  "family":["Chalmers","Windsor"]
+}
+</pre>
+
+
+<h4>Managing output cardinality</h4>
+<pre>
+@singleton
+</pre>
+<p>
+This directive indicates that an field collates to a single node, not a list. It is only used in association 
+with fields on which a parent has <code>@flatten</code>, and overrides the impact of flattening the parent in 
+making it a list. The server SHALL return an error if there is more than on value when flattening
+</p>
+<p>
+Extending the previous example, adding <code>@singleton</code>:
+</p>
+<pre>
+{
+  identifier @flatten { system @singleton value @singleton }
+  active 
+  name @flatten @first { text given family @singleton } 
+}
+</pre>
+<p>
+Gives the output:
+</p>
+<pre>
+{
+  "system":"urn:oid:1.2.36.146.595.217.0.1",
+  "value":"12345",
+  "active":true,
+  "given":["Peter","James"],
+  "family":"Chalmers"
+}
+</pre>
+
+<pre>
+@slice(fhirpath)
+</pre>
+<p>
+This indicates that in the output graph, each element in the source will have "." and the result of 
+the FHIRPath as a string appended to the specified name. This slices a list up into multiple single 
+values. For example
+</p>
+<pre>
+name @slice(path: "$index") @flatten {given @first @singleton family}
+</pre>
+<p>
+For a resource that has 2 names will result in the output
+</p>
+<pre>
+
+{
+"Given.1" : "first name, first given",
+"Family.1" : ["first name family name"],
+"Given.2" : "second name, first given",
+"Family.2" : ["second name family name"]
+}
+</pre>
+<p>
+Other uses might be e.g. Telecom @slice(use) to generate telecom.home for instance.
+</p>
+<p>
+Notes:
+</p>
+<ul>
+ <li>In general, the intent of @slice is to break a list into multiple singletons. However 
+  servers SHALL not treat the outputs as singletons unless this is explicitly specified using <code>@singleton</code></li>
+ <li>The suffixes added by this method are cumulative when nesting e.g. .suffix1.suffix2</li>
+ <li>The same general outcome can be achieved by a set of fields, each with an alias 
+   and a filter, if the possible values are known in advance</li>
+</ul>
+<p>
+Examples:
+</p>
+
+<pre>
+{
+  identifier @flatten { system value }
+  active 
+  name @flatten @slice(path: "use") { given family @singleton } 
+}
+</pre>
+<p> produces </p>
+<pre>
+{
+  "system":["urn:oid:1.2.36.146.595.217.0.1"],
+  "value":["12345"],
+  "active":true,
+  "given.official":["Peter","James"],
+  "family.official":"Chalmers",
+  "given.usual":["Jim"],
+  "given.maiden":["Peter","James"],
+  "family.maiden":"Windsor"
+}
+</pre>
+
+<p>and</p>
+<pre>
+{
+  identifier @flatten { system value }
+  active 
+  name @flatten @slice(path: "$index") { given family @singleton } 
+}
+</pre>
+<p> produces </p>
+<pre>
+{
+  "system":["urn:oid:1.2.36.146.595.217.0.1"],
+  "value":["12345"],
+  "active":true,
+  "given.0":["Peter","James"],
+  "family.0":"Chalmers",
+  "given.1":["Jim"],
+  "given.2":["Peter","James"],
+  "family.2":"Windsor"
+}
+</pre>
+
 
 <a name="mutations"> </a>
 <h3>Mutations</h3>
