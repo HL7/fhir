@@ -1,0 +1,5 @@
+{
+  identifier @flatten { system @singleton value @singleton }
+  active 
+  name @flatten { text given family @singleton } 
+}

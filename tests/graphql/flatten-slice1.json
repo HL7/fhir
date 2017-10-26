@@ -1,0 +1,10 @@
+{
+  "system":["urn:oid:1.2.36.146.595.217.0.1"],
+  "value":["12345"],
+  "active":true,
+  "given.official":["Peter","James"],
+  "family.official":"Chalmers",
+  "given.usual":["Jim"],
+  "given.maiden":["Peter","James"],
+  "family.maiden":"Windsor"
+}

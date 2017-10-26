@@ -1,0 +1,5 @@
+{
+  identifier @flatten { system value }
+  active 
+  name @flatten @slice(path: "$index") { given family @singleton } 
+}
