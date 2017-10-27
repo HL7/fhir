@@ -237,7 +237,7 @@
 
  -- Row 7 -----------------------------------
   Element = Composition.subject
-  Card. = 1..1
+  Card. = 0..1
   Summary = y
   Type = Reference(Any)
   Short Name = Who and/or what the composition is about
@@ -279,7 +279,7 @@
   Element = Composition.author
   Card. = 1..*
   Summary = y
-  Type = Reference(Practitioner|PractitionerRole|Device|Patient|RelatedPerson)
+  Type = Reference(Practitioner|PractitionerRole|Device|Patient|RelatedPerson|Organization)
   Short Name = Who and/or what authored the composition
   Definition = Identifies who is responsible for the information in the composition, not necessarily who typed it in.
   Requirements = Identifies who is responsible for the content.
