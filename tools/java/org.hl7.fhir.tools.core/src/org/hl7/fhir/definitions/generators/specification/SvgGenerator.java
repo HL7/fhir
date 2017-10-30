@@ -723,9 +723,9 @@ public class SvgGenerator extends BaseGenerator {
     if (link) {
       xml.enter("text");
       if (tn.equals("Extension") || tn.equals("Reference") || tn.equals("Narrative"))
-        xml.attribute("xlink:href", prefix+definitions.getSrcFile(tn) + ".html#"+tn.toLowerCase());
+        xml.attribute("xlink:href", prefix+definitions.getSrcFile(tn) + ".html#"+tn);
       else
-        xml.attribute("xlink:href", "#"+tn.toLowerCase());
+        xml.attribute("xlink:href", "#"+tn);
       xml.enter("a");
       xml.text(tn);
       xml.exit("a");
