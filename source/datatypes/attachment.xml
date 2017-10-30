@@ -3729,7 +3729,7 @@
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Attachment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">It the Attachment has data, it SHALL have a contentType</Data><NamedCell
+    <Cell ss:StyleID="s84"><Data ss:Type="String">If the Attachment has data, it SHALL have a contentType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">data.size = 0 or contentType.oclIsDefined</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
