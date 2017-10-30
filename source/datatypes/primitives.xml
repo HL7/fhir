@@ -10,14 +10,14 @@
   <LastAuthor>Grahame</LastAuthor>
   <Created>2012-03-21T19:16:26Z</Created>
   <LastSaved>2015-03-30T11:54:36Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16440</WindowHeight>
-  <WindowWidth>10005</WindowWidth>
+  <WindowHeight>14140</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -65,6 +65,10 @@
   <Style ss:ID="s69">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Imports">
   <Names>
@@ -72,12 +76,12 @@
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="66.75"/>
+   <Column ss:AutoFitWidth="0" ss:Width="67"/>
    <Column ss:AutoFitWidth="0" ss:Width="177"/>
-   <Column ss:AutoFitWidth="0" ss:Width="362.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="362.5"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="117" ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="181.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="183.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="184"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Span="1"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Data Type</Data></Cell>
@@ -221,12 +225,12 @@
    <NamedRange ss:Name="uuid" ss:RefersTo="=Patterns!R4C1"/>
   </Names>
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="8" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="74.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="233.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="142.5" ss:Span="3"/>
-   <Column ss:Index="7" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="199.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="108"/>
+   x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="74.5"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="233.5"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="142.5" ss:Span="3"/>
+   <Column ss:Index="7" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="199.5"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="108"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Data Type</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
@@ -243,7 +247,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">xs:token</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">[^\s]+([\s]?[^\s]+)*</Data></Cell>
+    <Cell><Data ss:Type="String">[^\s]+(\s[^\s]+)*</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14.25">
     <Cell><Data ss:Type="String">oid</Data><NamedCell ss:Name="oid"/></Cell>
@@ -314,8 +318,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
