@@ -59,7 +59,7 @@
   Is Modifier = Y
   Type = code
   Binding = IdentifierUse
-  Short Name = usual | official | temp | secondary (If known)
+  Short Name = usual | official | temp | secondary | old (If known)
   Definition = The purpose of this identifier
   Requirements = Allows the appropriate identifier for a particular context of use to be selected from among a set of identifiers
   Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary
