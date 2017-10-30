@@ -33,6 +33,12 @@
   Display = Secondary
   Definition = An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
 
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = old
+  Display = Old
+  Definition = The identifier id no longer considered valid, but may be relevant for search purposes.  E.g. Changes to identifier schemes, account merges, etc.
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================

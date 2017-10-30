@@ -89,8 +89,8 @@
   Type = base64Binary
   Short Name = Hash of the data (sha-1, base64ed)
   Definition = The calculated hash of the data using SHA-1. Represented using base64.
-  Requirements = Included so that applications can verify that the contents of a location have not changed and so that a signature of the content can implicitly sign the content of an image without having to include the data in the instance or reference the url in the signature
-  Comments = The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded
+  Requirements = Included so that applications can verify that the contents of a location have not changed duse to technical failures (e.g., storage rot, transport glitch, incorrect version)
+  Comments = The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures
   RIM Mapping = .integrityCheck[parent::ED/integrityCheckAlgorithm=\"SHA-1\"]
 
  -- Row 8 -----------------------------------
