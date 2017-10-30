@@ -68,6 +68,10 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td>xs:boolean, except that <b>0 and 1 are not valid values</b></td>
    <td>JSON boolean (true or false)</td>
  </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: true|false</td>
+ </tr>
  <!-- leading 0s -->
  <tr>
    <td>integer<a name="integer"> </a></td>
@@ -94,16 +98,28 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">This data type can be <a href="terminologies.html#string">bound to a value set</a></td>
  </tr>
  <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: \s*(\S|\s)*  (can't put size limit in the regex - too large)</td>
+ </tr>
+ <tr>
    <td>decimal<a name="decimal"> </a></td>
    <td>Rational numbers that have a decimal representation. See below about the precision of the number</td>
    <td>xs:decimal, except that <b>decimals may not use exponents, and leading 0 digits are not allowed</b></td>
    <td>A JSON number, except that <b>exponents are not allowed</b></td>
  </tr>
  <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: -?([0]|([1-9][0-9]*))(\.[0-9]+)?</td>
+ </tr>
+ <tr>
    <td>uri<a name="uri"> </a></td>
    <td>A Uniform Resource Identifier Reference (<a href="http://tools.ietf.org/html/rfc3986">RFC 3986</a>). Note: URIs are case sensitive. For UUID (urn:uuid:53fefa32-fcbb-4ff8-8a92-55ee120877b7) use all lowercase</td>
     <td>xs:anyURI</td>
    <td>A JSON string - a URI</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: \S*</td>
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
@@ -118,6 +134,10 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: (\s*([0-9a-zA-Z\+\=]){4}\s*)+</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
    <td colspan="3" style="border-top: 0px silver solid"><i>Todo: is it possible to impose an upper absolute limit on a base64Binary (for denial of service reasons, like on string)?</i></td>
  </tr>
  <tr>
@@ -129,6 +149,10 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  <tr>
    <td style="border-top: 0px silver solid"></td>
    <td colspan="3" style="border-top: 0px silver solid">Note: This type is for system times, not human times (see date and dateTime below).</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</td>
  </tr>
  <tr>
    <td>date<a name="date"> </a></td>
@@ -198,6 +222,10 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td>A string that may contain markdown syntax for optional processing by a markdown presentation engine</td>
    <td>xs:string</td>
    <td>JSON string</td>
+ </tr>
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: \s*(\S|\s)*  (can't put size limit in the regex - too large)</td>
  </tr>
  <tr>
    <td>unsignedInt<a name="unsignedInt"> </a></td>

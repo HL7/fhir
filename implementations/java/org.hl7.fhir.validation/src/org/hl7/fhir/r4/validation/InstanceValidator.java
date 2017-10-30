@@ -5,7 +5,10 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.*;
+
+import javax.rmi.CORBA.Util;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.r4.model.Reference;
@@ -1254,16 +1257,34 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (type.equals("boolean")) { 
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, "true".equals(e.primitiveValue()) || "false".equals(e.primitiveValue()), "boolean values must be 'true' or 'false'");
     }
-    if (type.equals("uri")) {
+    if (type.equals("uri") || type.equals("oid") || type.equals("uuid") ) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.primitiveValue().startsWith("oid:"), "URI values cannot start with oid:");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.primitiveValue().startsWith("uuid:"), "URI values cannot start with uuid:");
-      rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().equals(e.primitiveValue().trim()), "URI values cannot have leading or trailing whitespace");
+      rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().equals(e.primitiveValue().trim().replace(" ", "")), "URI values cannot have whitespace");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
+      
+      
+      if (type.equals("oid")) {
+        if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().startsWith("urn:oid:"), "OIDs must start with urn:oid:")) 
+          rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.isOid(e.primitiveValue().substring(8)), "OIDs must be valid");        
+      }
+      if (type.equals("uuid")) { 
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().startsWith("urn:uuid:"), "UUIDs must start with urn:uuid:");
+        try {
+          UUID.fromString(e.primitiveValue().substring(8));
+        } catch (Exception ex) {
+          rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "UUIDs must be valid ("+ex.getMessage()+")");
+        }
+      }
       
       // now, do we check the URI target? 
       if (fetcher != null) {
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, fetcher.resolveURL(appContext, path, e.primitiveValue()), "URL value '"+e.primitiveValue()+"' does not resolve");
       }
+    }
+    if (type.equals("id")) {
+      rule(errors, IssueType.INVALID, e.line(), e.col(), path, FormatUtilities.isValidId(e.primitiveValue()), "id value '"+e.primitiveValue()+"' is not valid");
+     
     }
     if (type.equalsIgnoreCase("string") && e.hasPrimitiveValue()) {
       if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue() == null || e.primitiveValue().length() > 0, "@value cannot be empty")) {
@@ -1279,22 +1300,80 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           "Not a valid date time");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !hasTime(e.primitiveValue()) || hasTimeZone(e.primitiveValue()), "if a date has a time, it must have a timezone");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
+      try {
+        DateTimeType dt = new DateTimeType(e.primitiveValue());
+      } catch (Exception ex) {
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "Not a valid date/time ("+ex.getMessage()+")");
+      }
+    }
+    if (type.equals("time")) {
+      rule(errors, IssueType.INVALID, e.line(), e.col(), path,
+          e.primitiveValue()
+          .matches("([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)"),
+          "Not a valid time");
+      try {
+        TimeType dt = new TimeType(e.primitiveValue());
+      } catch (Exception ex) {
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "Not a valid time ("+ex.getMessage()+")");
+      }
     }
     if (type.equals("date")) {
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, yearIsValid(e.primitiveValue()), "The value '" + e.primitiveValue() + "' does not have a valid year");
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().matches("([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?"),
             "Not a valid date");
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum value of " + context.getMaxLength());
+        try {
+          DateType dt = new DateType(e.primitiveValue());
+        } catch (Exception ex) {
+          rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "Not a valid date ("+ex.getMessage()+")");
+        }
     }
-    if (type.equals("integer")) {
-      rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxValueIntegerType() || !context.getMaxValueIntegerType().hasValue() || (context.getMaxValueIntegerType().getValue() >= new Integer(e.getValue()).intValue()), "value is greater than permitted maximum value of " + (context.hasMaxValueIntegerType() ? context.getMaxValueIntegerType() : ""));
-      rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMinValueIntegerType() || !context.getMinValueIntegerType().hasValue() || (context.getMinValueIntegerType().getValue() <= new Integer(e.getValue()).intValue()), "value is less than permitted minimum value of " + (context.hasMinValueIntegerType() ? context.getMinValueIntegerType() : ""));
+    if (type.equals("base64Binary")) {
+      try {
+        byte[] b = Base64.getDecoder().decode(StringUtils.deleteWhitespace(e.primitiveValue()));
+      } catch (IllegalArgumentException ex) {
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "The value (snip) is not a valid Base64 value: "+ex.getMessage());
+      }
+      
+    }
+    if (type.equals("integer") || type.equals("unsignedInt") || type.equals("positiveInt")) {
+      if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.isInteger(e.primitiveValue()), "The value '" + e.primitiveValue() + "' is not a valid integer")) {
+        Integer v = new Integer(e.getValue()).intValue();
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxValueIntegerType() || !context.getMaxValueIntegerType().hasValue() || (context.getMaxValueIntegerType().getValue() >= v), "value is greater than permitted maximum value of " + (context.hasMaxValueIntegerType() ? context.getMaxValueIntegerType() : ""));
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMinValueIntegerType() || !context.getMinValueIntegerType().hasValue() || (context.getMinValueIntegerType().getValue() <= v), "value is less than permitted minimum value of " + (context.hasMinValueIntegerType() ? context.getMinValueIntegerType() : ""));
+        if (type.equals("unsignedInt")) 
+          rule(errors, IssueType.INVALID, e.line(), e.col(), path, v >= 0, "value is less than permitted minimum value of 0");
+        if (type.equals("positiveInt"))
+          rule(errors, IssueType.INVALID, e.line(), e.col(), path, v > 0, "value is less than permitted minimum value of 1");
+      }
+    }
+    if (type.equals("decimal")) {
+      if (e.primitiveValue() != null) {
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.isDecimal(e.primitiveValue()), "The value '" + e.primitiveValue() + "' is not a valid decimal");
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.primitiveValue().toLowerCase().contains("e") , "The value '" + e.primitiveValue() + "' is not a valid decimal (no exponents)");
+        if (e.primitiveValue().contains(".")) {
+          String head = e.primitiveValue().substring(0, e.primitiveValue().indexOf("."));
+          if (head.startsWith("-"))
+            head = head.substring(1);
+          int i = 0;
+          while (head.startsWith("0")) {
+            i++;
+            head = head.substring(1);
+          }
+          rule(errors, IssueType.INVALID, e.line(), e.col(), path, i <= 1, "The value '" + e.primitiveValue() + "' is not a valid decimal (leading 0s)");
+        }        
+      }
     }
     if (type.equals("instant")) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path,
           e.primitiveValue().matches("-?[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))"),
           "The instant '" + e.primitiveValue() + "' is not valid (by regex)");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, yearIsValid(e.primitiveValue()), "The value '" + e.primitiveValue() + "' does not have a valid year");
+      try {
+        InstantType dt = new InstantType(e.primitiveValue());
+      } catch (Exception ex) {
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "Not a valid instant ("+ex.getMessage()+")");
+      }
     }
 
     if (type.equals("code") && e.primitiveValue() != null) {

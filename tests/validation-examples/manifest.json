@@ -112,6 +112,12 @@
 			"bundle-good.xml": {
 				"errorCount": 0
 			},
+      "primitive-good.xml" : {
+				"errorCount": 0
+      },
+      "primitive-bad.xml" : {
+				"errorCount": 49
+      },
 			"group-choice-bad1.xml": {
 				"errorCount": 2,
 				"errors": ["Undefined element \'value\"",

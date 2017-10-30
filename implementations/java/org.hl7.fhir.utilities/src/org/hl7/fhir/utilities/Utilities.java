@@ -39,6 +39,7 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.nio.channels.FileChannel;
 import java.util.*;
@@ -119,17 +120,28 @@ public class Utilities {
       }
     }
     
-  	public static boolean isDecimal(String string) {
-  		if (Utilities.noString(string))
-  			return false;
-  		try {
-  			float r = Float.parseFloat(string);
-  			return r != r + 1; // just to suppress the hint
-  		} catch (Exception e) {
-  			return false;
-  		}
-  	}
-  	
+    public static boolean isFloat(String string) {
+      if (Utilities.noString(string))
+        return false;
+      try {
+        float r = Float.parseFloat(string);
+        return r != r + 1; // just to suppress the hint
+      } catch (Exception e) {
+        return false;
+      }
+    }
+    
+    public static boolean isDecimal(String string) {
+      if (Utilities.noString(string))
+        return false;
+      try {
+        BigDecimal bd = new BigDecimal(string);
+        return bd != null;
+      } catch (Exception e) {
+        return false;
+      }
+    }
+    
 	public static String camelCase(String value) {
 	  return new Inflector().camelCase(value.trim().replace(" ", "_"), false);
 	}
@@ -902,7 +914,7 @@ public class Utilities {
 
 
   public static boolean isOid(String cc) {
-    return cc.matches(OID_REGEX) && cc.lastIndexOf('.') > 5;
+    return cc.matches(OID_REGEX) && cc.lastIndexOf('.') >= 5;
   }
 
 

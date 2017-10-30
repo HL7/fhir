@@ -120,7 +120,7 @@
  -- Row 3 -----------------------------------
   Element = TriggerDefinition.name
   Card. = 0..1
-  Type = uri
+  Type = string
   Short Name = Name or URI that identifies the event
   Definition = A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context
   Comments = An event name can be provided for all event types, but is required for named events. If a name is provided for a type other than named events, it is considered to be a shorthand for the semantics described by the formal description of the event

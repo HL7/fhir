@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-21T19:16:26Z</Created>
-  <LastSaved>2015-03-30T11:54:36Z</LastSaved>
+  <LastSaved>2017-10-30T09:45:41Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,6 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -98,6 +97,7 @@
     <Cell><Data ss:Type="String">Value of &quot;true&quot; or &quot;false&quot;</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">boolean</Data></Cell>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
+    <Cell><Data ss:Type="String"> true|false</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">BL</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
@@ -127,6 +127,7 @@
     <Cell><Data ss:Type="String">A stream of bytes, base64 encoded</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">(\s*([0-9a-zA-Z\+\=]){4}\s*)+</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">BIN</Data></Cell>
     <Cell><Data ss:Type="String">~ED</Data></Cell>
    </Row>
@@ -136,6 +137,7 @@
     <Cell><Data ss:Type="String">Note: This is intended for precisely observed times, typically system logs etc., and not human-reported times - for them, see date and dateTime below. Time zone is always required</Data></Cell>
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">TS</Data></Cell>
     <Cell><Data ss:Type="String">DTM</Data></Cell>
    </Row>
@@ -145,6 +147,7 @@
     <Cell><Data ss:Type="String">Note that FHIR strings may not exceed 1MB in size</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">\s*(\S|\s)*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">ST</Data></Cell>
     <Cell><Data ss:Type="String">ST</Data></Cell>
    </Row>
@@ -154,6 +157,7 @@
     <Cell><Data ss:Type="String">see http://en.wikipedia.org/wiki/Uniform_resource_identifier</Data></Cell>
     <Cell><Data ss:Type="String">anyURI</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String">\S*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">URL</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
@@ -204,11 +208,12 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -299,6 +304,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">xs:string</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">\s*(\S|\s)*</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -314,12 +320,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
