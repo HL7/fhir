@@ -207,6 +207,36 @@ to some organization to further sub-allocate):</p>
 </pre>
 </div>
 
+<a name="ii"> </a>
+<h4>V3 Mapping Examples for Identifier</h4>
+
+<div class="example">
+<p>A root only:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;v3:id root="0.1.2.3.4.5"/&gt;
+</pre>
+<p>becomes:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;system value="urn:ietf:rfc:3986" /&gt;
+    &lt;value value="urn:oid:0.1.2.3.4.5" /&gt;
+  &lt;/identifier&gt;
+</pre>
+<p>A root with an extension:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;v3:id root="0.1.2.3.4.5" extension="13412"/&gt;
+</pre>
+<p>becomes:</p>
+<pre class="xml" fragment="Identifier">
+  &lt;identifier&gt;
+    &lt;system value="urn:oid:0.1.2.3.4.5" /&gt;
+    &lt;value value="13412" /&gt;
+  &lt;/identifier&gt;
+</pre>
+<p>
+See <a href="datatypes-mappings.html#ii">v3 Mapping Notes</a>
+</p>
+</div>
 
 <a name="Coding"> </a>
 <a name="coding"> </a>

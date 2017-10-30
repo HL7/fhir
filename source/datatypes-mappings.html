@@ -71,6 +71,18 @@ See also <a href="datatypes.html#identifier">Base Definition</a>, <a href="datat
 
 <%dtmappings Identifier%>
 
+<a name="ii"> </a>
+<h4>V3 Mapping Issues for Identifier</h4>
+<p>
+When mapping an HL7 v3 II data type to a FHIR Identifier, there are two possibilities:
+</p>
+<ul>
+ <li>If the II has only a root and no extension, the FHIR Identifier will have a system of 'urn:ietf:rfc:3986' and the II.root will appear in Identifier.value</li>
+ <li>If the II has both a root and an extension, the II.root will be mapped to a URI - either a human-friendly URL or URN or (less preferred) an OID expressed as a urn, and the II.extension will be sent in Identifier.value</li>
+</ul>
+<p>
+See <a href="datatypes-examples.html#ii">v3 Mapping examples</a>
+</p>
 <a name="Coding"> </a>
 <a name="coding"> </a>
 <h3 style="margin-bottom: 1px">Coding</h3>
