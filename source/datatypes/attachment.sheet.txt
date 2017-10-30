@@ -6,7 +6,7 @@
  -- Row 1 -----------------------------------
   Id = 1
   Context = Attachment
-  English = It the Attachment has data, it SHALL have a contentType
+  English = If the Attachment has data, it SHALL have a contentType
   XPath = not(exists(f:data)) or exists(f:contentType)
   Expression = data.empty() or contentType.exists()
 
@@ -116,7 +116,6 @@
   Requirements = Applications need a label to display to a human user in place of the actual data if the data cannot be rendered or perceived by the viewer.
   RIM Mapping = ./title/data
   Example = \"Official Corporate Logo\"
-  Translatable = y
 
  -- Row 10 -----------------------------------
   Element = Attachment.creation

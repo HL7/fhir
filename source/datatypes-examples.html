@@ -560,7 +560,6 @@ these cases. Composite names separated by "-" should be treated as a single name
   &lt;given value="Jim" /&gt;
 &lt;/name&gt;
 </pre>
-
 <p>
 This same pattern is often encountered with immigrants, who retain their real name for official use, but adopt a localized name for everyday use:
 </p>
@@ -577,6 +576,26 @@ This same pattern is often encountered with immigrants, who retain their real na
   &lt;given value="Jim" /&gt;
 &lt;/name&gt;
 </pre>
+<p>
+Some people may also have a nickname that needs to be recorded:
+</p>
+<pre class="xml" fragment="HumanName">
+&lt;name&gt;
+  &lt;use value="official" /&gt;
+  &lt;family value="Brown" /&gt;
+  &lt;given value="Steven" /&gt;
+&lt;/name&gt;
+&lt;name&gt;
+  &lt;use value="nickname" /&gt;
+  &lt;given value="Junior" /&gt;
+&lt;/name&gt;
+</pre>
+<p>
+Note that there is some ambiguity in real life as to whether a non-official name is the patient's <code>usual</code> name, or whether it's their
+<code>nickname</code>. In principle, nick names are used occasionally and informally, whereas the usual name is used consistently, and in 
+formal contexts. However there is no formal criteria for the differentiating these usages, and even within a culture, people may vary in 
+their cases. 
+</p>
 </div>
 
 <div class="example">
