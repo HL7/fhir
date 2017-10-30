@@ -91,7 +91,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid"><i>Todo: is there any reason not to make this a SHALL?</i></td>
+   <td colspan="3" style="border-top: 0px silver solid">This data type can be <a href="terminologies.html#string">bound to a value set</a></td>
  </tr>
  <tr>
    <td>decimal<a name="decimal"> </a></td>
@@ -107,7 +107,8 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">URIs can be absolute or relative, and may have an optional fragment identifier</td>
+   <td colspan="3" style="border-top: 0px silver solid">URIs can be absolute or relative, and may have an optional fragment identifier<br/>
+       This data type can be <a href="terminologies.html#uri">bound to a value set</a></td>
  </tr>
  <tr>
    <td>base64Binary<a name="base64Binary"> </a><a name="base64binary"> </a></td>
@@ -161,13 +162,16 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>code<a name="code"> </a></td>
-   <td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a> for further discussion). Technically, a code is restricted to a string which has at least one character and no leading or trailing whitespace, and where there is no whitespace other than single spaces in the contents</td>
+   <td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a> 
+       for further discussion). Technically, a code is restricted to a string which has at least one character and no leading or trailing 
+       whitespace, and where there is no whitespace other than single spaces in the contents</td>
    <td>xs:token</td>
    <td>JSON string</td>
   </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: [^\s]+([\s]?[^\s]+)*</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: [^\s]+([\s]?[^\s]+)*<br/>
+       This data type can be <a href="terminologies.html#code">bound to a value set</a>.</td>
  </tr>
  <tr>
    <td>oid<a name="oid"> </a></td>
@@ -224,8 +228,7 @@ Notes:
  <li>For all the types, the XML, JSON and Turtle representations of the primitive values are the same except for different escaping in XML and JSON</li>
  <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use</li>
  <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is needed</li>
- <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
- <li>The data types code, string, and uri can be <a href="terminologies.html#strings">bound to a value set</a></li>
+ <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li> 
  <li>The precision of the decimal value has significance:<a name="precision"> </a>
     <ul>
       <li>e.g. 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>
@@ -454,6 +457,9 @@ See also <a href="datatypes-examples.html#Coding">Examples</a>, <a href="datatyp
 A Coding is a representation of a defined concept using a symbol from a defined "code system"
 - see <a href="terminologies.html">Using Codes in resources</a> for more details.
 </p>
+<p>
+This data type can be <a href="terminologies.html#Coding">bound to a value set</a>.
+</p>
 
 [%dt Coding 2%]
 
@@ -574,6 +580,9 @@ See also <a href="datatypes-examples.html#CodeableConcept">Examples</a>, <a href
 A CodeableConcept represents a value that is usually supplied by providing a reference to one or more terminologies or ontologies, but may also be defined by the
 provision of text. This is a common pattern in healthcare data.
 </p>
+<p>
+This data type can be <a href="terminologies.html#CodeableConcept">bound to a value set</a>.
+</p>
 [%dt CodeableConcept 3%]
 <p>
 Each <code>coding</code> is a representation of the concept as described above. The concept may be coded multiple times in different code systems (or even
@@ -619,6 +628,10 @@ and <a href="datatypes-version-maps.html#Quantity">R2 Conversions</a>.
 <p>
 A measured amount (or an amount that can potentially be measured).
 </p>
+<p>
+This data type can be <a href="terminologies.html#Quantity">bound to a value set</a>.
+</p>
+
 [%dt Quantity 4%]
 
 <p>

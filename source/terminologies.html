@@ -49,15 +49,16 @@ The FHIR framework for using coded values is based on the fundamental framework 
 <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a> document,
 including the separation between code systems and value sets.
 </p>
-<p>
-When codes are carried in resources, one of 4 different data types is used:
-</p>
 
 <table class="grid">
- <tr><td><a href="datatypes.html#code">code</a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
- <tr><td><a href="datatypes.html#Coding">Coding</a></td><td>A data type that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
- <tr><td><a href="datatypes.html#CodeableConcept">CodeableConcept</a></td><td>A type that represents a concept by plain text and/or one or more <i>Coding</i> elements</td></tr>
- <tr><td><a href="datatypes.html#Quantity">Quantity</a></td><td>Special case: has <i>system</i> and <i>code</i> elements for carrying a code for the type of unit</td></tr>
+ <tr><td colspan="2">When codes are carried in resources, one of 4 different data types is used:</td></tr>
+ <tr><td><a href="datatypes.html#code">code</a><a name="code"> </a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
+ <tr><td><a href="datatypes.html#Coding">Coding</a><a name="Coding"> </a></td><td>A data type that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
+ <tr><td><a href="datatypes.html#CodeableConcept"><a name="CodeableConcept"> </a>CodeableConcept</a></td><td>A type that represents a concept by plain text and/or one or more <i>Coding</i> elements</td></tr>
+ <tr><td colspan="2">In addition, the following data types also carry coded values, or content that can be treated as a code and bound to a valueset:</td></tr>
+ <tr><td><a href="datatypes.html#Quantity">Quantity</a><a name="Quantity"> </a></td><td>The instance has <i>system</i> and <i>code</i> elements for carrying a code for the type of unit, and these can be bound to a value set</td></tr>
+ <tr><td><a href="datatypes.html#string">string</a><a name="string"> </a></td><td>The instance carries a string. In some cases applications may wish to control the set of valid strings for a particular element, so the string value can be treated as a coded element (like <code>code</code>)</td></tr>
+ <tr><td><a href="datatypes.html#uri">uri</a><a name="uri"> </a></td><td>Like <code>string</code>, URIs can be treated as a coded element</td></tr>
 </table>
 <p>
 Notes:
@@ -65,7 +66,7 @@ Notes:
 <ul>
  <li>Generally, the choice of data type is dictated by the resource itself. When choosing a data type for an <a href="extensibility.html">extension</a>,
 see the FHIR wiki for <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to_Designing_Resources#Choice_of_coding_data_type">advice about data type choice</a>.</li>
- <li>The types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> can also be bound - <a href="#strings">see below</a></li>
+ <li><a href="#strings">see below</a> for more information about binding the types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> to a value set.</li>
 </ul>
 
 <a name="valuesets"> </a>
