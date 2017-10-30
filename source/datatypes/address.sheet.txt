@@ -138,7 +138,6 @@
   Type = string
   Short Name = Street name, number, direction & P.O. Box etc.
   Definition = This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information
-  Requirements = home | work | temp | old - purpose of this address
   v2 Mapping = XAD.1 + XAD.2 (note: XAD.1 and XAD.2 have different meanings for a company address than for a person address)
   RIM Mapping = AD.part[parttype = AL]
   vCard Mapping = street
