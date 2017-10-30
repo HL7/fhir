@@ -515,7 +515,7 @@ Notes:
 <p>
 For an example, take this graphQL, and apply it to the patient example:
 </p>
-<pre>
+<pre class="graphql">
 {
   identifier { system value }
   active 
@@ -525,7 +525,7 @@ For an example, take this graphQL, and apply it to the patient example:
 <p>
 This will give the output:
 </p>
-<pre>
+<pre class="json">
 {
   "identifier": [{
       "system": "urn:oid:1.2.36.146.595.217.0.1",
@@ -546,7 +546,7 @@ This will give the output:
 <p>
 Adding the <code>@flatten</code> directive changes the output:
 </p>
-<pre>
+<pre class="graphql">
 {
   identifier @flatten { system value }
   active 
@@ -556,7 +556,7 @@ Adding the <code>@flatten</code> directive changes the output:
 <p>
 This has the output:
 </p>
-<pre>
+<pre class="json">
 {
   "system":["urn:oid:1.2.36.146.595.217.0.1"],
   "value":["12345"],
@@ -577,7 +577,7 @@ the field in the source graph, not to the output graph
 <p>
 Example:
 </p>
-<pre>
+<pre class="graphql">
 {
   identifier @flatten { system value }
   active 
@@ -587,7 +587,7 @@ Example:
 <p>
 Gives the output:
 </p>
-<pre>
+<pre class="json">
 {
   "system":["urn:oid:1.2.36.146.595.217.0.1"],
   "value":["12345"],
@@ -596,7 +596,6 @@ Gives the output:
   "family":["Chalmers","Windsor"]
 }
 </pre>
-
 
 <h4>Managing output cardinality</h4>
 <pre>
@@ -610,7 +609,7 @@ making it a list. The server SHALL return an error if there is more than on valu
 <p>
 Extending the previous example, adding <code>@singleton</code>:
 </p>
-<pre>
+<pre class="graphql">
 {
   identifier @flatten { system @singleton value @singleton }
   active 
@@ -620,7 +619,7 @@ Extending the previous example, adding <code>@singleton</code>:
 <p>
 Gives the output:
 </p>
-<pre>
+<pre class="json">
 {
   "system":"urn:oid:1.2.36.146.595.217.0.1",
   "value":"12345",
@@ -630,6 +629,8 @@ Gives the output:
 }
 </pre>
 
+<h4>Converting Lists to singletons</h4>
+
 <pre>
 @slice(fhirpath)
 </pre>
@@ -638,19 +639,18 @@ This indicates that in the output graph, each element in the source will have ".
 the FHIRPath as a string appended to the specified name. This slices a list up into multiple single 
 values. For example
 </p>
-<pre>
-name @slice(path: "$index") @flatten {given @first @singleton family}
+<pre class="graphql">
+{ name @slice(path: "$index") @flatten {given @first @singleton family}}
 </pre>
 <p>
 For a resource that has 2 names will result in the output
 </p>
-<pre>
-
+<pre class="json">
 {
-"Given.1" : "first name, first given",
-"Family.1" : ["first name family name"],
-"Given.2" : "second name, first given",
-"Family.2" : ["second name family name"]
+"Given.0" : "first name, first given",
+"Family.0" : ["first name family name"],
+"Given.1" : "second name, first given",
+"Family.1" : ["second name family name"]
 }
 </pre>
 <p>
@@ -670,7 +670,7 @@ Notes:
 Examples:
 </p>
 
-<pre>
+<pre class="graphql">
 {
   identifier @flatten { system value }
   active 
@@ -678,7 +678,7 @@ Examples:
 }
 </pre>
 <p> produces </p>
-<pre>
+<pre class="json">
 {
   "system":["urn:oid:1.2.36.146.595.217.0.1"],
   "value":["12345"],
@@ -692,7 +692,7 @@ Examples:
 </pre>
 
 <p>and</p>
-<pre>
+<pre class="graphql">
 {
   identifier @flatten { system value }
   active 
@@ -700,7 +700,7 @@ Examples:
 }
 </pre>
 <p> produces </p>
-<pre>
+<pre class="json">
 {
   "system":["urn:oid:1.2.36.146.595.217.0.1"],
   "value":["12345"],
