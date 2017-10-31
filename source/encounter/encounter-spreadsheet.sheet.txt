@@ -434,7 +434,6 @@
   UML = -300;100
   Type = =Diagnosis
   Short Name = The list of diagnosis relevant to this encounter
-  Workflow Mapping = Event.reasonReference
   RIM Mapping = .outboundRelationship[typeCode=RSON]
 
  -- Row 25 -----------------------------------

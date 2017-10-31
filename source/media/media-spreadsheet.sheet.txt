@@ -113,7 +113,7 @@
   Short Name = Identifier(s) for the image
   Definition = Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers
   Comments = The identifier label and use can be used to determine what kind of identifier it is
-  Workflow Mapping = Event.instantiates
+  Workflow Mapping = Event.identifier
   RIM Mapping = .id
   DICOM Mapping = 0008,0018 | ~0008,0050 | 0020,000D | 0020,000E
   w5 = id

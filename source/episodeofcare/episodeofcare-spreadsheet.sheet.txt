@@ -186,7 +186,7 @@
   Type = Reference(Organization)
   Short Name = Organization that assumes care
   Definition = The organization that has assumed the specific responsibilities for the specified duration
-  Workflow Mapping = Event.performer.agent
+  Workflow Mapping = Event.performer.actor
   Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
 
  -- Row 14 -----------------------------------
@@ -213,7 +213,7 @@
   Type = Reference(Practitioner)
   Short Name = Care manager/care co-ordinator for the patient
   Definition = The practitioner that is the care manager/care co-ordinator for this patient
-  Workflow Mapping = Event.performer.agent
+  Workflow Mapping = Event.performer.actor
 
  -- Row 17 -----------------------------------
   Element = EpisodeOfCare.team
@@ -223,7 +223,7 @@
   Type = Reference(CareTeam)
   Short Name = Other practitioners facilitating this episode of care
   Definition = The list of practitioners that may be facilitating this episode of care for specific purposes
-  Workflow Mapping = Event.performer.agent
+  Workflow Mapping = Event.performer.actor
 
  -- Row 18 -----------------------------------
   Element = !EpisodeOfCare.careTeam.role

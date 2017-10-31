@@ -344,7 +344,7 @@
   Card. = 0..1
   Type = integer
   Short Name = Number of times to repeat
-  Definition = A total count of the desired number of repetitions
+  Definition = A total count of the desired number of repetitions across the duration of the entire timing specification
   Requirements = Repetitions may be limited by end time or total occurrences
   Comments = If you have both bounds and count, then this should be understood as within the bounds period, until count times happens
   RIM Mapping = PIVL.count
