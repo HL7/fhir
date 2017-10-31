@@ -833,14 +833,22 @@ See also <a href="datatypes-examples.html#Ratio">Examples</a>, <a href="datatype
 <p>
 A relationship between two Quantity values expressed as a numerator and a denominator.
 </p>
+<p>
+The Ratio datatype should only be used to express a relationship of two numbers if the 
+relationship cannot be suitably expressed using a Quantity and a common unit.  Where 
+the denominator value is known to be fixed to "1", Quantity should be used instead 
+of Ratio.
+</p>
 [%dt Ratio 6%]
 <p>
-Common factors in the numerator and denominator are not automatically cancelled out. The Ratio
-data type is used for titers (e.g. "1:128") and other quantities produced by laboratories that
-truly represent ratios. Ratios are not simply "structured numbers" - for example blood pressure measurements
-(e.g. "120/60") are not ratios. In addition, ratios are used where common factors in the numerator
-and denominator do not cancel out. The most common example of this is where the ratio represents a
-unit cost, and the numerator is a currency (e.g. 50/$10).
+Examples where a Quantity is typically used are rates, densities, concentrations.  
+Examples where a Ratio is used are: titres (e.g. 1:128); concentration ratios where 
+the denominator is significant (e.g. 5mg/10mL); observed frequencies (e.g. 2 repetitions/8 hr),
+and where the numerator or denominator is an amount of a currency (no UCUM code for $ etc).
+</p>
+<p>
+Common factors in the numerator and denominator are not automatically cancelled out. Ratios are not 
+simply "structured numbers" - for example blood pressure measurements (e.g. "120/60") are not ratios. 
 </p>
 <p>
 A proper ratio has both a numerator and a denominator; however these are not mandatory in order
