@@ -1182,10 +1182,17 @@ Timing
 See also <a href="datatypes-examples.html#Timing">Examples</a>, <a href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Timing">Mappings</a>, <a href="datatypes-extras.html#Timing">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Timing">R2 Conversions</a>.
 </p>
 <p>
-Specifies an event that may occur multiple times. Timing schedules are used for specifying when events are expected or requested to occur, and may
-also be used to represent a schedule that was followed for past events. A Timing schedule can be a list of events and/or criteria for when the event happens,
-which can be expressed in a structured form and/or as a code. When both event and a repeating specification are provided, the list of events should be
-understood as an interpretation of the information in the repeat structure.
+Describes the occurrence of an event that may occur multiple times. Timing schedules are used for 
+specifying when events are expected or requested to occur, and may also be used to represent the 
+summary of a past or ongoing event.  For simplicity, the definitions of Timing components are 
+expressed as 'future' events, but such components can also be used to describe historic or 
+ongoing events.
+</p>
+<p>
+A Timing schedule can be a list of events and/or criteria for when the event happens, which 
+can be expressed in a structured form and/or as a code. When both event and a repeating 
+specification are provided, the list of events should be understood as an interpretation 
+of the information in the repeat structure.
 </p>
 [%dt Timing 13%]
 <p>
