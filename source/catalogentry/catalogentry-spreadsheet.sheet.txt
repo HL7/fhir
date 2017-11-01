@@ -28,7 +28,7 @@
  -- Row 4 -----------------------------------
   Element = CatalogEntry.referencedItem
   Card. = 1..1
-  Type = Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition)
+  Type = Reference(Medication|Device|Organization|Practitioner|HealthcareService|ActivityDefinition|PlanDefinition|SpecimenDefinition|Binary)
   Short Name = The item itself
   Definition = Content of the catalog
 
@@ -95,29 +95,29 @@
   Definition = User for example for ATC classification, or
 
  -- Row 14 -----------------------------------
-  Element = CatalogEntry.relatedItem
+  Element = CatalogEntry.relatedEntry
   Card. = 0..*
   Short Name = An item that this catalog entry is related to
   Definition = Used for example, to point to a substance, or to a device used to administer a medication
 
  -- Row 15 -----------------------------------
-  Element = CatalogEntry.relatedItem.relationtype
+  Element = CatalogEntry.relatedEntry.relationtype
   Card. = 1..1
   Type = CodeableConcept
   Short Name = The type of relation to the related item
   Definition = The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc
 
  -- Row 16 -----------------------------------
-  Element = CatalogEntry.relatedItem.type
+  Element = !CatalogEntry.relatedEntry.type
   Card. = 0..1
   Type = CodeableConcept
   Short Name = The type of related item - medication, devices
   Definition = The type of related item
 
  -- Row 17 -----------------------------------
-  Element = CatalogEntry.relatedItem.item
+  Element = CatalogEntry.relatedEntry.item
   Card. = 1..1
-  Type = Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition | CatalogEntry)
+  Type = Reference(CatalogEntry)
   Short Name = The reference to the related item
   Definition = The reference to the related item
 

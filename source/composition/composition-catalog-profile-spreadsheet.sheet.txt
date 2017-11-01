@@ -51,7 +51,7 @@
 
  -- Row 7 -----------------------------------
   Element = Composition.subject
-  Card. = 1..1
+  Card. = 0..0
   Type = Reference(Any)
   Short Name = Who and/or what the composition is about
   Definition = Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)
