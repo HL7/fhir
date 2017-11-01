@@ -15,6 +15,12 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
   </text>
   <status value="active"/>
   <scope value="privacy"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="INFAO"/>
+    </coding>
+  </category>
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
@@ -31,13 +37,12 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
   <!-- this is opt-out - e.g. nothing approved unless otherwise stated -->
-<policyRule>
-<coding>
+  <policyRule>
+    <coding>
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="OPTOUT"/>
     </coding>
-</policyRule>
-  
+  </policyRule>
   <provision>
     <actor>
       <role>

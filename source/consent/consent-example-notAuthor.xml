@@ -17,6 +17,12 @@
   </text>
   <status value="active"/>
   <scope value="privacy"/>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="59284-0"/>
+    </coding>
+  </category>
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
@@ -37,8 +43,7 @@
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="OPTIN"/>
     </coding>
-</policyRule>
-
+  </policyRule>
   <provision>
     <actor>
       <role>

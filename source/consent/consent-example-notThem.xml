@@ -19,6 +19,12 @@
   </text>
   <status value="active"/>
   <scope value="privacy"/>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="59284-0"/>
+    </coding>
+  </category>
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
@@ -35,13 +41,12 @@
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
   <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
-<policyRule>
+  <policyRule>
     <coding>
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="OPTIN"/>
     </coding>
-</policyRule>
-
+  </policyRule>
   <provision>
     <!-- no read or write access for this individual -->
     <actor>

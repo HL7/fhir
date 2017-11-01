@@ -170,8 +170,8 @@
  -- Row 1 -----------------------------------
   Element = Consent
   Type = DomainResource
-  Short Name = A healthcare consumer\'s policy choices to permits or denies recipients or roles to perform actions for specific purposes and periods of time
-  Definition = A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time
+  Short Name = A healthcare consumer\'s  choices to permit or deny recipients or roles to perform actions for specific purposes and periods of time
+  Definition = A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time
   Comments = Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment, and general advance care directives
   Workflow Mapping = Event
   v2 Mapping = CON
@@ -219,7 +219,7 @@
 
  -- Row 5 -----------------------------------
   Element = Consent.category
-  Card. = 0..*
+  Card. = 1..*
   Summary = Y
   Type = CodeableConcept
   Binding = ConsentCategory
@@ -243,19 +243,6 @@
   w5 = who.focus
 
  -- Row 7 -----------------------------------
-  Element = !Consent.period
-  Card. = 0..1
-  Summary = Y
-  Type = Period
-  Short Name = Period that this consent applies
-  Definition = Relevant time or time-period when this Consent is applicable
-  Comments = This can be a subset of the period of the original statement
-  v2 Mapping = Field 14/15 Consent Effective/End Date
-  RIM Mapping = FinancialConsent activityTime
-  Missing Meaning = all date ranges included
-  w5 = when.done
-
- -- Row 8 -----------------------------------
   Element = Consent.dateTime
   Card. = 0..1
   Summary = Y
@@ -268,7 +255,7 @@
   RIM Mapping = FinancialConsent effectiveTime
   w5 = when.recorded
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Consent.consentingParty
   Card. = 0..*
   Aliases = consentor
@@ -281,7 +268,7 @@
   v2 Mapping = Field 24/ ConsenterID
   w5 = who.actor
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = !Consent.actor
   Card. = 0..*
   Summary = Y
@@ -291,33 +278,7 @@
   Missing Meaning = There is no specific actor associated with the consent
   w5 = who.actor
 
- -- Row 11 -----------------------------------
-  Element = !Consent.actor.role
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = ConsentActorRole
-  Short Name = How the actor is involved
-  Definition = How the individual is involved in the resources content that is described in the consent
-
- -- Row 12 -----------------------------------
-  Element = !Consent.actor.reference
-  Card. = 1..1
-  Type = Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson)
-  Short Name = Resource for the actor (or group, by role)
-  Definition = The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
-
- -- Row 13 -----------------------------------
-  Element = !Consent.action
-  Card. = 0..*
-  Summary = Y
-  Type = CodeableConcept
-  Binding = ConsentAction
-  Short Name = Actions controlled by this consent
-  Definition = Actions controlled by this consent
-  Comments = Note that this is the direct action (not the grounds for the action covered in the purpose element). At present, the only action in the understood and tested scope of this resource is \'read\'
-  Missing Meaning = all actions
-
- -- Row 14 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Consent.organization
   Card. = 0..*
   Aliases = custodian
@@ -328,7 +289,7 @@
   Workflow Mapping = Event.performer
   w5 = who.witness
 
- -- Row 15 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Consent.source[x]
   Card. = 0..1
   Summary = Y
@@ -338,14 +299,14 @@
   Comments = The source can be contained inline (Attachment), referenced directly (Consent), referenced in a consent repository (DocumentReference), or simply by an identifier (Identifier), e.g. a CDA document id
   v2 Mapping = Field 19 Informational Material Supplied Indicator
 
- -- Row 16 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Consent.policy
   Card. = 0..*
   UML = 400;0
   Short Name = Policies covered by this consent
   Definition = The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law
 
- -- Row 17 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Consent.policy.authority
   Card. = 0..1
   Inv. = 1
@@ -353,7 +314,7 @@
   Short Name = Enforcement source for policy
   Definition = Entity or Organization having regulatory jurisdiction or accountability for  enforcing policies pertaining to Consent Directives.
 
- -- Row 18 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Consent.policy.uri
   Card. = 0..1
   Inv. = 1
@@ -362,7 +323,7 @@
   Definition = The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law
   Comments = This element is for discoverability / documentation, and does not modify or qualify the policy rules.
 
- -- Row 19 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Consent.policyRule
   Card. = 0..1
   Summary = Y
@@ -374,70 +335,14 @@
   Requirements = Might be a unique identifier of a policy set in XACML, or other rules engine
   Comments = If the policyRule is absent, computable consent would need to be constructed from the elements of the Consent resource
 
- -- Row 20 -----------------------------------
-  Element = !Consent.securityLabel
-  Card. = 0..*
-  Summary = Y
-  Type = Coding
-  Binding = SecurityLabels
-  Short Name = Security Labels that define affected resources
-  Definition = A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels
-  Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labeled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. Not all of the security labels make sense for use in this element (may define a narrower value set?)
-
- -- Row 21 -----------------------------------
-  Element = !Consent.purpose
-  Card. = 0..*
-  Summary = Y
-  Type = Coding
-  Binding = PurposeOfUse
-  Short Name = Context of activities for which the agreement is made
-  Definition = The context of the activities a user is taking - why the user is accessing the data - that are controlled by this consent.
-  Comments = This element is for discoverability / documentation, and does not modify or qualify the policy (e.g. the policy itself describes the purposes for which it applies)
-
- -- Row 22 -----------------------------------
-  Element = !Consent.dataPeriod
-  Card. = 0..1
-  Summary = Y
-  Type = Period
-  Short Name = Timeframe for data controlled by this consent
-  Definition = Clinical or Operational Relevant period of time that bounds the data controlled by this consent
-  Comments = This has a different sense to the Consent.period - that is when the consent agreement holds. This is the time period of the data that is controlled by the agreement
-
- -- Row 23 -----------------------------------
-  Element = !Consent.data
-  Card. = 0..*
-  Summary = Y
-  UML = down
-  Short Name = Data controlled by this consent
-  Definition = The resources controlled by this consent, if specific resources are referenced
-  RIM Mapping = Role
-  Missing Meaning = all data
-
- -- Row 24 -----------------------------------
-  Element = !Consent.data.meaning
-  Card. = 1..1
-  Summary = Y
-  Type = code
-  Binding = ConsentDataMeaning
-  Short Name = instance | related | dependents | authoredby
-  Definition = How the resource reference is interpreted when testing consent restrictions
-
- -- Row 25 -----------------------------------
-  Element = !Consent.data.reference
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Any)
-  Short Name = The actual data reference
-  Definition = A reference to a specific resource that defines which resources are covered by this consent
-
- -- Row 26 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Consent.verification
   Card. = 0..*
   Summary = Y
   Short Name = Consent Verified by patient or family
   Definition = Whether a treatment instruction (e.g. artifical respiration yes or no) was verified with the patient, his/her family or another authorized person.
 
- -- Row 27 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Consent.verification.verified
   Card. = 1..1
   Summary = Y
@@ -445,21 +350,21 @@
   Short Name = Has been verified
   Definition = Has the instruction been verified
 
- -- Row 28 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Consent.verification.verifiedWith
   Card. = 0..1
   Type = Reference(Patient|RelatedPerson)
   Short Name = Person who verified
   Definition = Who verified the instruction (Patient, Relative or other Authorized Person)
 
- -- Row 29 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Consent.verification.verificationDate
   Card. = 0..1
   Type = dateTime
   Short Name = When consent verified
   Definition = Date verification was collected
 
- -- Row 30 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Consent.provision
   Card. = 1..1
   Summary = Y
@@ -468,7 +373,7 @@
   Short Name = Constraints to the base Consent.policyRule
   Definition = An exception to the base policy of this consent. An exception can be an addition or removal of access permissions.
 
- -- Row 31 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Consent.provision.type
   Card. = 0..1
   Summary = Y
@@ -477,7 +382,7 @@
   Short Name = deny | permit
   Definition = Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules.
 
- -- Row 32 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Consent.provision.period
   Card. = 0..1
   Summary = Y
@@ -485,7 +390,7 @@
   Short Name = Timeframe for this rule
   Definition = The timeframe in this rule is valid
 
- -- Row 33 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Consent.provision.actor
   Card. = 0..*
   Summary = Y
@@ -495,7 +400,7 @@
   Definition = Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
   Missing Meaning = There is no specific actor associated with the exception
 
- -- Row 34 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Consent.provision.actor.role
   Card. = 1..1
   Type = CodeableConcept
@@ -503,14 +408,14 @@
   Short Name = How the actor is involved
   Definition = How the individual is involved in the resources content that is described in the exception
 
- -- Row 35 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Consent.provision.actor.reference
   Card. = 1..1
   Type = Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson)
   Short Name = Resource for the actor (or group, by role)
   Definition = The resource that identifies the actor. To identify a actors by type, use group to identify a set of actors by some property they share (e.g. \'admitting officers\')
 
- -- Row 36 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Consent.provision.action
   Card. = 0..*
   Summary = Y
@@ -521,7 +426,7 @@
   Comments = Note that this is the direct action (not the grounds for the action covered in the purpose element). At present, the only action in the understood and tested scope of this resource is \'read\'
   Missing Meaning = all actions
 
- -- Row 37 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Consent.provision.securityLabel
   Card. = 0..*
   Summary = Y
@@ -531,7 +436,7 @@
   Definition = A security label, comprised of 0..* security label fields (Privacy tags), which define which resources are controlled by this exception.
   Comments = If the consent specifies a security label of \"R\" then it applies to all resources that are labeled \"R\" or lower. E.g. for Confidentiality, it\'s a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict.
 
- -- Row 38 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Consent.provision.purpose
   Card. = 0..*
   Summary = Y
@@ -541,7 +446,7 @@
   Definition = The context of the activities a user is taking - why the user is accessing the data - that are controlled by this rule
   Comments = When the purpose of use tag is on the data, access request purpose of use shall not conflict.
 
- -- Row 39 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Consent.provision.class
   Card. = 0..*
   Summary = Y
@@ -551,17 +456,17 @@
   Definition = The class of information covered by this rule. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to
   Comments = Multiple types are or\'ed together. The intention of the contentType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere
 
- -- Row 40 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Consent.provision.code
   Card. = 0..*
   Summary = Y
-  Type = Coding
+  Type = CodeableConcept
   Binding = ConsentContentCode
   Short Name = e.g. LOINC or SNOMED CT code, etc in the content
   Definition = If this code is found in an instance, then the rule applies.
   Comments = Typical use of this is a Document code with class = CDA
 
- -- Row 41 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Consent.provision.dataPeriod
   Card. = 0..1
   Summary = Y
@@ -570,7 +475,7 @@
   Definition = Clinical or Operational Relevant period of time that bounds the data controlled by this rule
   Comments = This has a different sense to the Consent.period - that is when the consent agreement holds. This is the time period of the data that is controlled by the agreement
 
- -- Row 42 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Consent.provision.data
   Card. = 0..*
   Summary = Y
@@ -581,7 +486,7 @@
   RIM Mapping = Role
   Missing Meaning = all data
 
- -- Row 43 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Consent.provision.data.meaning
   Card. = 1..1
   Summary = Y
@@ -590,7 +495,7 @@
   Short Name = instance | related | dependents | authoredby
   Definition = How the resource reference is interpreted when testing consent restrictions
 
- -- Row 44 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Consent.provision.data.reference
   Card. = 1..1
   Summary = Y
@@ -598,7 +503,7 @@
   Short Name = The actual data reference
   Definition = A reference to a specific resource that defines which resources are covered by this consent
 
- -- Row 45 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Consent.provision.provision
   Card. = 0..*
   Type = @Consent.provision

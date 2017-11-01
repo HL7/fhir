@@ -3,7 +3,6 @@
   <id value="consent-example-Emergency"/>
   <text>
     <status value="generated"/>
-  
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>
 	Withhold Authorization for Treatment rule for Emegency Treatment
@@ -18,6 +17,12 @@
   </text>
   <status value="active"/>
   <scope value="privacy"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ActCode"/>
+      <code value="EMRGONLY"/>
+    </coding>
+  </category>
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
@@ -36,12 +41,12 @@
   <!-- 
     this is opt-out - e.g. nothing approved unless otherwise stated.
   -->
-<policyRule>
-<coding>
+  <policyRule>
+    <coding>
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="OPTOUT"/>
     </coding>
-</policyRule>
+  </policyRule>
   <provision>
     <actor>
       <role>

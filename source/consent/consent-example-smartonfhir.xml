@@ -29,6 +29,12 @@
   <id value="consent-example-smartonfhir"/>
   <status value="active"/>
   <scope value="privacy"/>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="59284-0"/>
+    </coding>
+  </category>
   <!-- 
    In this SMART on FHIR login, the user consents for data sharing 
    for their elderly parent's record
@@ -50,12 +56,12 @@
   <!-- there's no source record for a Smart on FHIR consent -->
   <!-- now the consent details itself start -->
   <!-- smart on fhir is always the base opt-in policy -->
-<policyRule>
+  <policyRule>
     <coding>
       <system value="http://hl7.org/fhir/v3/ActCode"/>
       <code value="OPTIN"/>
     </coding>
-</policyRule>
+  </policyRule>
   <!-- each scope that relates to FHIR resource access is represented as an exception -->
   <provision>
     <period>
