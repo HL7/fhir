@@ -186,6 +186,8 @@ signatures.html
       <page type="resource" resource="CompartmentDefinition"/>
       <page type="resource" resource="DataElement"/>
       <page type="resource" resource="ImplementationGuide"/>
+      <page type="resource" resource="ImplementationGuideInput"/>
+      <page type="resource" resource="ImplementationGuideOutput"/>
       <page type="resource" resource="GraphDefinition"/>
     </page>
 

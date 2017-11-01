@@ -329,6 +329,12 @@
 <item id="ImplementationGuide">
   <translation lang="en">ImplementationGuide</translation>
 </item>
+<item id="ImplementationGuideInput">
+  <translation lang="en">ImplementationGuideInput</translation>
+</item>
+<item id="ImplementationGuideOutput">
+  <translation lang="en">ImplementationGuideOutput</translation>
+</item>
 <item id="InstitutionalClaim">
   <translation lang="en">InstitutionalClaim</translation>
   <translation lang="fr">RéclamationInstitutionelle</translation>

@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>14140</WindowHeight>
+  <WindowHeight>12795</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -75,12 +75,12 @@
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="11" x:FullColumns="1"
    x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="67"/>
+   <Column ss:AutoFitWidth="0" ss:Width="66.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="177"/>
-   <Column ss:AutoFitWidth="0" ss:Width="362.5"/>
+   <Column ss:AutoFitWidth="0" ss:Width="362.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="117" ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="181.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="184"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="183.75"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Span="1"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Data Type</Data></Cell>
@@ -127,7 +127,7 @@
     <Cell><Data ss:Type="String">A stream of bytes, base64 encoded</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">base64Binary</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String">(\s*([0-9a-zA-Z\+\=]){4}\s*)+</Data></Cell>
+    <Cell><Data ss:Type="String">(\s*([0-9a-zA-Z\+=]){4}\s*)+</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">BIN</Data></Cell>
     <Cell><Data ss:Type="String">~ED</Data></Cell>
    </Row>
@@ -231,8 +231,8 @@
   </Names>
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="74.5"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="233.5"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="233.25"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="142.5" ss:Span="3"/>
    <Column ss:Index="7" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="199.5"/>
    <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="108"/>
