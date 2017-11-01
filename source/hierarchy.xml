@@ -112,6 +112,7 @@ signatures.html
       </page>
 
       <page title="Resource Guide" filename="resourceguide.html"/>
+      <page title="5Ws Pattern" filename="fivews.html"/>
 
       <!-- infrastructure resources -->
       <page type="resource" resource="Basic"/>

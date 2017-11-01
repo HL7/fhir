@@ -613,7 +613,7 @@
   Filename = valueset-ucum-common.xml
 
  -- Row 6 -----------------------------------
-  Name = Canonical Resource Status
+  Name = !Canonical Resource Status
   Identity = resource-status
   Description = All Canonical Resource Status
   Filename = valueset-resource-status.xml

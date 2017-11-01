@@ -1,0 +1,165 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = CanonicalStatus
+  Binding = value set
+  Reference = valueset-resource-status
+  Definition = Status Field
+  Conformance = required
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = FiveWs
+  Type = Logical
+  Short Name = Who What When Where Why - Comon pattern for all resources that deals with attribution
+
+ -- Row 2 -----------------------------------
+  Element = FiveWs.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Name = Business Identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = FiveWs.version
+  Card. = 0..1
+  Type = string
+  Short Name = Identifier for this version
+  w5 = id.version
+
+ -- Row 4 -----------------------------------
+  Element = FiveWs.status
+  Card. = 0..1
+  Aliases = fulfills
+  Is Modifier = Y
+  Type = code
+  Binding = CanonicalStatus
+  Short Name = Status Field
+  w5 = status
+
+ -- Row 5 -----------------------------------
+  Element = FiveWs.class
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Classifier Field
+  w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = FiveWs.grade
+  Card. = 0..1
+  Aliases = container
+  Type = CodeableConcept
+  Short Name = A field that indicates the potential impact of the content of the resource
+
+ -- Row 7 -----------------------------------
+  Element = FiveWs.what[x]
+  Card. = 0..1
+  Aliases = Suspended Reason, Cancelled Reason
+  Type = CodeableConcept|Reference(Any)
+  Short Name = what this resource is about
+  w5 = what
+
+ -- Row 8 -----------------------------------
+  Element = FiveWs.subject[x]
+  Card. = 0..*
+  Aliases = type
+  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
+  Short Name = Who this resource is about
+  w5 = who.focus
+
+ -- Row 9 -----------------------------------
+  Element = FiveWs.context
+  Card. = 0..1
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Name = a resource that gives context for the work described in this resource (usually Encounter or EpisodeOfCare)
+
+ -- Row 10 -----------------------------------
+  Element = FiveWs.init
+  Card. = 0..1
+  Aliases = patient
+  Type = dateTime
+  Short Name = when the work described in this resource was started (or will be)
+  w5 = when.init
+
+ -- Row 11 -----------------------------------
+  Element = FiveWs.planned
+  Card. = 0..*
+  Aliases = encounter
+  Type = Timing
+  Short Name = when this resource is planned to occur
+  w5 = when.planned
+
+ -- Row 12 -----------------------------------
+  Element = FiveWs.done
+  Card. = 0..1
+  Aliases = timing
+  Type = dateTime | Period
+  Short Name = when the work described in this resource was completed (or will be)
+  w5 = when.done
+
+ -- Row 13 -----------------------------------
+  Element = FiveWs.recorded
+  Card. = 0..1
+  Type = instant
+  Short Name = when this resource itself was created
+  w5 = when.recorded
+
+ -- Row 14 -----------------------------------
+  Element = FiveWs.author
+  Card. = 0..*
+  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
+  Short Name = who authored the content of the resource
+  w5 = who.author
+
+ -- Row 15 -----------------------------------
+  Element = FiveWs.source
+  Card. = 0..*
+  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
+  Short Name = Who provided the information in this resource
+  w5 = who.source
+
+ -- Row 16 -----------------------------------
+  Element = FiveWs.actor
+  Card. = 0..*
+  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
+  Short Name = who did the work described the resource (or will do)
+  w5 = who.actor
+
+ -- Row 17 -----------------------------------
+  Element = FiveWs.cause
+  Card. = 0..*
+  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
+  Short Name = who prompted the work described in the resource
+  w5 = who.cause
+
+ -- Row 18 -----------------------------------
+  Element = FiveWs.witness
+  Card. = 0..*
+  Type = Reference(Patient|Practitioner|RelatedPerson)
+  Short Name = who attests to the content of the resource (individual or org)
+  w5 = who.witness
+
+ -- Row 19 -----------------------------------
+  Element = FiveWs.who
+  Card. = 0..*
+  Type = Reference(Patient|Practitioner|RelatedPerson|Organization)
+  Short Name = An actor involved in the work described by this resource
+  w5 = who
+
+ -- Row 20 -----------------------------------
+  Element = FiveWs.where[x]
+  Card. = 0..*
+  Type = CodeableConcept | Reference(Location)
+  Short Name = The location of the work described
+  w5 = where
+
+ -- Row 21 -----------------------------------
+  Element = FiveWs.why
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Why this work was done
+  w5 = why

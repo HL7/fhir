@@ -1,0 +1,36 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This is <b>NOT</b> a resource.  It is not part of the FHIR schema and cannot appear directly in FHIR instances.  It is a logical model that defines a pattern adhered to by
+other resources.  This pattern serves two purposes:
+</p>
+<ul>
+  <li>It offers guidance to work groups designing resources and helps ensure consistency of content created by different work groups</li>
+  <li>It provides a standard "view" that might be useful for implementers in processing and manipulating all resources that adhere to the same pattern.  (Tooling that supports
+  this may become available in a future release.)</li>
+</ul>
+<p>
+An "event" is any description of an activity that has already taken place or that is currently ongoing.  It includes resources that primarily describe the "result" of an activity 
+or what was found (e.g. a condition or observation).  Examples include encounters, procedures, completed questionnaires, representations of state transitions, etc.  It does not 
+include resources that describe objects or roles (e.g. patient, device, location).
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+To do
+</p>
+
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+To do
+</p>
+</div>
+
+</div>
