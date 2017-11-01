@@ -1444,7 +1444,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">n/a</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Event.performer</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Event.performer.actor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">B02</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3523,7 +3523,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>14</ActiveRow>
      <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>

@@ -688,6 +688,12 @@
   Filename = composition-clinicaldocument-spreadsheet.xml
   Type = spreadsheet
 
+ -- Row 3 -----------------------------------
+  Name = Catalog
+  IG Name = core
+  Filename = composition-catalog-profile-spreadsheet.xml
+  Type = spreadsheet
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

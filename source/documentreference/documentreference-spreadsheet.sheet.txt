@@ -104,6 +104,7 @@
   Short Name = A reference to a document
   Definition = A reference to a document.
   Comments = Usually, this is used for documents other than those defined by FHIR
+  Workflow Mapping = Event
   RIM Mapping = Document[classCode=\"DOC\" and moodCode=\"EVN\"]
   w5 = infrastructure.documents
 
@@ -116,6 +117,7 @@
   Definition = Document identifier as assigned by the source of the document. This identifier is specific to this version of the document. This unique identifier may be used elsewhere to identify this version of the document
   Requirements = The structure and format of this Id shall be consistent with the specification corresponding to the formatCode attribute. (e.g. for a DICOM standard document a 64-character numeric UID, for an HL7 CDA format a serialization of the CDA Document Id extension and root in the form \"oid^extension\", where OID is a 64 digits max, and the Id is a 16 UTF-8 char max. If the OID is coded without the extension then the \'^\' character shall not be included.)
   Comments = CDA Document Id extension and root.
+  Workflow Mapping = Event.identifier
   v2 Mapping = TXA-12
   RIM Mapping = .id
   XDS Mapping = DocumentEntry.uniqueId
@@ -128,6 +130,7 @@
   Type = Identifier
   Short Name = Other identifiers for the document
   Definition = Other identifiers associated with the document, including version independent identifiers
+  Workflow Mapping = Event.identifier
   v2 Mapping = TXA-16?
   RIM Mapping = .id / .setId
   XDS Mapping = DocumentEntry.entryUUID
@@ -143,6 +146,7 @@
   Short Name = current | superseded | entered-in-error
   Definition = The status of this document reference
   Comments = This is the status of the DocumentReference object, which might be independent from the docStatus element.\n\nThis element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid
+  Workflow Mapping = Event.status
   v2 Mapping = TXA-19
   RIM Mapping = interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseDocument\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseDocument\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\"
   XDS Mapping = DocumentEntry.availabilityStatus
@@ -170,6 +174,7 @@
   Short Name = Kind of document (LOINC if possible)
   Definition = Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced.
   Comments = Key metadata element describing the document, used in searching/filtering.
+  Workflow Mapping = Event.code
   v2 Mapping = TXA-2
   RIM Mapping = ./code
   XDS Mapping = DocumentEntry.type
@@ -197,6 +202,7 @@
   Type = Reference(Patient|Practitioner|Group|Device)
   Short Name = Who/what is the subject of the document
   Definition = Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)
+  Workflow Mapping = Event.subject
   v2 Mapping = PID-3 (No standard way to define a Practitioner or Group subject in HL7 v2 MDM message)
   RIM Mapping = .participation[typeCode=\"SBJ\"].role[typeCode=\"PAT\"]
   XDS Mapping = DocumentEntry.patientId
@@ -210,6 +216,7 @@
   Short Name = Document creation time
   Definition = When the document was created
   Comments = Creation time is used for tracking, organizing versions and searching. This is the creation time of the document, not the source material on which it is based
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = TXA-6
   RIM Mapping = .effectiveTime[type=\"TS\"]
   w5 = when.done
@@ -245,6 +252,7 @@
   Short Name = Agent involved
   Definition = An actor taking an active role in the document
   Comments = Several agents may be associated with the document
+  Workflow Mapping = Event.performer
   RIM Mapping = .participation
   XDS Mapping = DocumentEntry.author
   w5 = who.author
@@ -257,6 +265,7 @@
   Binding = AgentType
   Short Name = How agent participated
   Definition = Specification of the participation type the agent played.
+  Workflow Mapping = Event.performer.function
   RIM Mapping = .participation.typeCode
 
  -- Row 14 -----------------------------------
@@ -267,6 +276,7 @@
   Short Name = Who and/or what authored the document
   Definition = Identifies who is responsible for adding the information to the document
   Comments = Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant)
+  Workflow Mapping = Event.performer.actor
   v2 Mapping = TXA-9 (No standard way to indicate a Device in HL7 v2 MDM message)
   RIM Mapping = .participation[typeCode=\"AUT\"].role[classCode=\"ASSIGNED\"]
 
@@ -277,6 +287,7 @@
   Short Name = Who/what authenticated the document
   Definition = Which person or organization authenticates that this document is valid
   Comments = Represents a participant within the author institution who has legally authenticated or attested the document. Legal authentication implies that a document has been signed manually or electronically by the legal Authenticator.
+  Workflow Mapping = Event.performer.actor
   v2 Mapping = TXA-10
   RIM Mapping = .participation[typeCode=\"AUTHEN\"].role[classCode=\"ASSIGNED\"]
   XDS Mapping = DocumentEntry.legalAuthenticator
@@ -289,6 +300,7 @@
   Short Name = Organization which maintains the document
   Definition = Identifies the organization or group who is responsible for ongoing maintenance of and access to the document
   Comments = Identifies the logical organization (software system, vendor, or department) to go to find the current version, where to report issues, etc. This is different from the physical location (URL, disk drive, or server) of the document, which is the technical location of the document, which host may be delegated to the management of some other organization
+  Workflow Mapping = Event.performer.actor
   RIM Mapping = .participation[typeCode=\"RCV\"].role[classCode=\"CUST\"].scoper[classCode=\"ORG\" and determinerCode=\"INST\"]
 
  -- Row 17 -----------------------------------
@@ -297,6 +309,7 @@
   Type = uri
   Short Name = Manages access policies for the document
   Definition = A reference to a domain or server that manages policies under which the document is accessed and/or made available
+  Workflow Mapping = Event.performer.actor
   RIM Mapping = N/A - New participation type required
   To Do = Harmonization proposal to define participation type.  (And evaluate whether this is in the 80%)
 
@@ -408,6 +421,7 @@
   Type = Reference(Encounter)
   Short Name = Context of the document  content
   Definition = Describes the clinical encounter or type of care that the document content is associated with
+  Workflow Mapping = Event.context
   RIM Mapping = unique(highest(./outboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()], priorityNumber)/target[moodCode=\"EVN\" and classCode=(\"ENC\", \"PCPR\") and isNormalAct])
   w5 = context
 

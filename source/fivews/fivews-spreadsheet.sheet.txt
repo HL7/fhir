@@ -94,7 +94,7 @@
   w5 = when.planned
 
  -- Row 12 -----------------------------------
-  Element = FiveWs.done
+  Element = FiveWs.done[x]
   Card. = 0..1
   Aliases = timing
   Type = dateTime | Period
@@ -158,8 +158,8 @@
   w5 = where
 
  -- Row 21 -----------------------------------
-  Element = FiveWs.why
+  Element = FiveWs.why[x]
   Card. = 0..*
-  Type = CodeableConcept
+  Type = CodeableConcept | Reference(Any)
   Short Name = Why this work was done
   w5 = why

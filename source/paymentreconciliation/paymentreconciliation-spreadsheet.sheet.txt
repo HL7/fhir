@@ -101,7 +101,7 @@
   Type = Reference(Organization)
   Short Name = Insurer
   Definition = The Insurer who produced this adjudicated response.
-  Workflow Mapping = Event.performer
+  Workflow Mapping = Event.performer.actor
   w5 = who.source
 
  -- Row 10 -----------------------------------

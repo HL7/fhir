@@ -404,6 +404,7 @@
   Type = DomainResource
   Short Name = Explanation of Benefit resource
   Definition = This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
+  Workflow Mapping = Event
   w5 = financial.other
 
  -- Row 2 -----------------------------------
@@ -415,6 +416,7 @@
   Type = Identifier
   Short Name = Business Identifier
   Definition = The EOB Business Identifier.
+  Workflow Mapping = Event.identifier
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -445,6 +447,7 @@
   Binding = ExplanationOfBenefitStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
+  Workflow Mapping = Event.status
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -455,6 +458,7 @@
   Short Name = Type or discipline
   Definition = The category of claim, eg, oral, pharmacy, vision, insitutional, professional.
   Comments = Affects which fields and value sets are used
+  Workflow Mapping = Event.code
   w5 = class
 
  -- Row 8 -----------------------------------
@@ -476,6 +480,7 @@
   Type = Reference(Patient)
   Short Name = The subject of the Products and Services
   Definition = Patient Resource.
+  Workflow Mapping = Event.subject
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
   w5 = who.focus
 
@@ -493,6 +498,7 @@
   Type = dateTime
   Short Name = Creation date
   Definition = The date when the EOB was created
+  Workflow Mapping = Event.occurrence[x]
   w5 = when.recorded
 
  -- Row 13 -----------------------------------
@@ -501,6 +507,7 @@
   Type = Reference(Practitioner)
   Short Name = Author
   Definition = The person who created the explanation of benefit.
+  Workflow Mapping = Event.performer.agent
   w5 = who.author
 
  -- Row 14 -----------------------------------
@@ -509,6 +516,7 @@
   Type = Reference(Organization)
   Short Name = Insurer responsible for the EOB
   Definition = The insurer which is responsible for the explanation of benefit.
+  Workflow Mapping = Event.performer.agent
   CDAnet v4 Mapping = B02
   w5 = who.author
 
@@ -548,6 +556,7 @@
   Type = Reference(Location)
   Short Name = Servicing Facility
   Definition = Facility where the services were provided.
+  Workflow Mapping = Event.performer.location
   w5 = where
 
  -- Row 20 -----------------------------------

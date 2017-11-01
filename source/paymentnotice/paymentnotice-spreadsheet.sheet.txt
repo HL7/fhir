@@ -146,7 +146,7 @@
   Type = Reference(Organization)
   Short Name = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
-  Workflow Mapping = Event.performer
+  Workflow Mapping = Event.performer.actor
   CDAnet v4 Mapping = B02
   v2 Mapping = B02
   RIM Mapping = n/a
