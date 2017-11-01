@@ -12,6 +12,9 @@ other resources.  This pattern serves two purposes:
   this may become available in a future release.)</li>
 </ul>
 <p>
+Note that the guidance here is around the types of information that might be captured, not around element names.  For example "why" would more typically be labeled as something like "reason" and "where" would be more typically labeled "location"
+</p>
+<p>
 An "event" is any description of an activity that has already taken place or that is currently ongoing.  It includes resources that primarily describe the "result" of an activity 
 or what was found (e.g. a condition or observation).  Examples include encounters, procedures, completed questionnaires, representations of state transitions, etc.  It does not 
 include resources that describe objects or roles (e.g. patient, device, location).
