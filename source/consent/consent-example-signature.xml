@@ -92,8 +92,10 @@
         <code value="34133-9"/>
       </code>
       <code>
-        <system value="http://loinc.org"/>
-        <code value="18842-5"/>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="18842-5"/>
+        </coding>
       </code>
     </provision>
   </provision>
