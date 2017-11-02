@@ -1,56 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<Patient xmlns="http://hl7.org/fhir">
-  <id value="pat2"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>Patient Donald D DUCK @ Acme Healthcare, Inc. MR = 123456</p>
-    
-    </div>
-  </text>
-  <identifier>
-    <use value="usual"/>
-    <type>
-      <coding>
-        <system value="http://hl7.org/fhir/v2/0203"/>
-        <code value="MR"/>
-      </coding>
-    </type>
-    <system value="urn:oid:0.1.2.3.4.5.6.7"/>
-    <value value="123456"/>
-  </identifier>
-  <active value="true"/>
-  <name>
-    <use value="official"/>
-    <family value="Donald"/>
-    <given value="Duck"/>
-    <given value="D"/>
-  </name>
-  <gender value="other">
-    <extension url="http://example.org/Profile/administrative-status">
-      <valueCodeableConcept>
-        <coding>
-          <system value="http://hl7.org/fhir/v2/0001"/>
-          <code value="A"/>
-          <display value="Ambiguous"/>
-        </coding>
-      </valueCodeableConcept>
-    </extension>
-  </gender>
-  <photo>
-    <contentType value="image/gif"/>
-    <data value="R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//             va//vjP/3c//3lP/3nP//tf//vf////////////////////////////////////////////////////////////////////////////////////////////////             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////             /////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyE             GECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/X             DxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7"/>
-  </photo>
-  <managingOrganization>
-    <reference value="Organization/1"/>
-    <display value="ACME Healthcare, Inc"/>
-  </managingOrganization>
-  <link>
-    <other>
-      <reference value="Patient/pat1"/>
-    </other>
-    <type value="seealso"/>
-  </link>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="pat2"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>Patient Donald D DUCK @ Acme Healthcare, Inc. MR = 123456</p>
+		</div>
+	</text>
+	<identifier>
+		<use value="usual"/>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0203"/>
+				<code value="MR"/>
+			</coding>
+		</type>
+		<system value="urn:oid:0.1.2.3.4.5.6.7"/>
+		<value value="123456"/>
+	</identifier>
+	<active value="true"/>
+	<name>
+		<use value="official"/>
+		<family value="Donald"/>
+		<given value="Duck"/>
+		<given value="D"/>
+	</name>
+	<gender value="other">
+		<extension url="http://example.org/Profile/administrative-status">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0001"/>
+					<code value="A"/>
+					<display value="Ambiguous"/>
+				</coding>
+			</valueCodeableConcept>
+		</extension>
+	</gender>
+	<photo>
+		<contentType value="image/gif"/>
+		<data value="R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7"/>
+	</photo>
+	<managingOrganization>
+		<reference value="Organization/1"/>
+		<display value="ACME Healthcare, Inc"/>
+	</managingOrganization>
+	<link>
+		<other>
+			<reference value="Patient/pat1"/>
+		</other>
+		<type value="seealso"/>
+	</link>
 </Patient>
