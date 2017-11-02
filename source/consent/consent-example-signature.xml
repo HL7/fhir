@@ -88,8 +88,10 @@
       </class>
       <!-- code rules -->
       <code>
-        <system value="http://loinc.org"/>
-        <code value="34133-9"/>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="34133-9"/>
+        </coding>
       </code>
       <code>
         <coding>
