@@ -55,18 +55,18 @@ public class ObservationStatsBuilder {
     when.add(Calendar.MINUTE, minutes);
     
     baseVitals(b, when, minutes, "sat", "59408-5", "O2 Saturation").setValue(makeQty(sat, "%", "%"));
-    baseVitals(b, when, minutes, "temp", "8310-5", "Body temperature").setValue(makeQty(sat, "\u00b0C", "Cel"));
+    baseVitals(b, when, minutes, "temp", "8310-5", "Body temperature").setValue(makeQty(temp, "\u00b0C", "Cel"));
     Observation obs = baseVitals(b, when, minutes, "bp", "85354-9", "Blood pressure");
     component(obs, "8480-6", "Systolic").setValue(makeQty(systolic, "mmhg", "mm[Hg]"));
     component(obs, "8462-4", "Diastolic").setValue(makeQty(diastolic, "mmhg", "mm[Hg]"));
 
   }
 
-  private static ObservationComponentComponent component(Observation obs, String lCode, String text) {
-    ObservationComponentComponent comp = obs.addComponent();
-    comp.getCode().setText(text).addCoding().setCode(lCode).setSystem("http://loinc.org");
-    return comp;
-  }
+    private static ObservationComponentComponent component(Observation obs, String lCode, String text) {
+      ObservationComponentComponent comp = obs.addComponent();
+      comp.getCode().setText(text).addCoding().setCode(lCode).setSystem("http://loinc.org");
+      return comp;
+    }
 
   private static Type makeQty(int sat, String human, String ucum) {
     Quantity q = new Quantity();
@@ -77,6 +77,16 @@ public class ObservationStatsBuilder {
     return q;
   }
 
+
+  private static Type makeQty(double val, String human, String ucum) {
+    Quantity q = new Quantity();
+    q.setCode(ucum);
+    q.setSystem("http://unitsofmeasure.org");
+    q.setUnit(human);
+    q.setValue(new BigDecimal(val));
+    return q;
+  }
+  
   private static Observation baseVitals(Bundle b, Calendar when, int min, String name, String lCode, String text) {
     Observation obs = new Observation();
     obs.setId("obs-vitals-"+name+"-"+Integer.toString(min));
