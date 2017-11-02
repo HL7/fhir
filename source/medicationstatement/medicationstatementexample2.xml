@@ -14,7 +14,6 @@
           <display value="Tylenol PM"/>
         </coding>
       </code>
-      <isBrand value="true"/>
         <form>
           <coding>
             <system value="http://snomed.info/sct"/>
@@ -22,6 +21,7 @@
             <display value="Film-coated tablet (qualifier value)"/>
           </coding>
         </form>
+
         <ingredient>
           <itemCodeableConcept>
             <coding>
@@ -44,6 +44,7 @@
           </amount>
         </ingredient>
         <ingredient>
+          
           <itemCodeableConcept>
             <coding>
               <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
@@ -64,13 +65,10 @@
             </denominator>
           </amount>
         </ingredient>
-        <package>
-          
-        <batch>
-          <lotNumber value="9494788"/>
-          <expirationDate value="2017-05-22"/>
-        </batch> 
-        </package>
+      <batch>
+        <lotNumber value="9494788"/>
+        <expirationDate value="2017-05-22"/>
+      </batch>
     </Medication>
   </contained>
   <status value="active" />

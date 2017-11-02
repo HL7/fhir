@@ -12,7 +12,6 @@
 				<display value="Capecitabine 500mg oral tablet (Xeloda)"/>
 			</coding>
 		</code>
-		<isBrand value="true"/>
 		</Medication>
 	</contained>
 	<status value="completed"/>

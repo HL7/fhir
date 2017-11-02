@@ -14,7 +14,6 @@
           <display value="Mometasone Furoate 0.05mg/Actuat"/>
         </coding>
       </code>
-      <isBrand value="false"/>
         <form>
           <coding>
             <system value="http://snomed.info/sct"/>

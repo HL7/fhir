@@ -14,7 +14,6 @@
       <display value="Zosyn (piperacillin/tazobactam) 4.5gm injection"/>
     </coding>
   </code>
-  <isBrand value="true"/>
   <manufacturer>
     <reference value="#org7"/>
   </manufacturer>

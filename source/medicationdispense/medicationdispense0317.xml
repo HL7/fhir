@@ -13,7 +13,6 @@
                     <display value="Adcetris (Brentuximab Vedotin 50mg/10.5ml)"/>
                 </coding>
             </code>
-            <isBrand value="true"/>
             <manufacturer>
                 <reference value="Organization/mmanu" />
             </manufacturer>
@@ -23,14 +22,7 @@
                         <code value="421637006"/>
                         <display value="Lyophilized powder for injectable solution (qualifier value) "/>
                     </coding>
-                </form>
-               <package>
-                   <batch>
-                       <lotNumber value="12345"/>
-                       <expirationDate value="2019-10-31"/>
-                   </batch>
-               </package> 
-            
+                </form>            
         </Medication>
     </contained>
     <status value="stopped"/>

@@ -14,9 +14,6 @@
       <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
     </coding>
   </code>
-  <status value="active"></status>
-  <isBrand value="true"/>
-  <isOverTheCounter value="false"></isOverTheCounter>
   <manufacturer>
     <reference value="#org4" />
   </manufacturer>
@@ -49,37 +46,10 @@
         </denominator>
       </amount>
     </ingredient>
-
-  <package>
-    <container>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="415818006"/>
-        <display value="Vial"/>
-      </coding>
-    </container>
-    <content>
-      <itemCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="324337001"/>
-          <display value="Vancomycin 500mg powder for infusion solution vial (product)"/>
-        </coding>
-      </itemCodeableConcept>
-      <amount>
-        <value value="10"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mL"/>
-      </amount>
-    </content>
-    <batch>
-      <lotNumber value="9494788"/>
-      <expirationDate value="2017-05-22"/>
-    </batch>
-  </package>
-  <image>
-    <contentType value="application/pdf"></contentType>
-    <url value="https://www.drugs.com/images/pills/fio/AKN07410.JPG"></url>
-    <title value="Vancomycin Image"></title>
-  </image>
+  <batch>
+    <lotNumber value="9494788"/>
+    <expirationDate value="2017-05-22"/>
+  </batch>
+  
+  
 </Medication>

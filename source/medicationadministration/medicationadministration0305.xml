@@ -13,7 +13,6 @@
             <display value="Adcetris"/>
           </coding>
         </code>
-        <isBrand value="true"/>
         <manufacturer>
           <reference value="Organization/mmanu" />
         </manufacturer>
@@ -24,11 +23,11 @@
               <display value="Lyophilized powder for injectable solution (qualifier value) "/>
             </coding>
           </form>
-      <package><batch>
+<batch>
         <lotNumber value="12345"/>
         <expirationDate value="2019-10-31"/>
       </batch>
-      </package> 
+       
         
       
     </Medication>

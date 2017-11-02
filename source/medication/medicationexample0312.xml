@@ -20,7 +20,7 @@
       <display value="Nystatin 100,000 units/ml oral suspension (product)"/>
     </coding>
   </code>
-  <isBrand value="false"/>
+  
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>

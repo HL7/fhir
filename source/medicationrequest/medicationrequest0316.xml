@@ -13,7 +13,6 @@
                     <display value="Adcetris"/>
                 </coding>
             </code>
-            <isBrand value="true"/>
                 <form>
                     <coding>
                         <system value="http://snomed.info/sct"/>
@@ -21,13 +20,10 @@
                         <display value="Lyophilized powder for injectable solution (qualifier value) "/>
                     </coding>
                 </form>
-                <package>
-                    <batch>
-                        <lotNumber value="12345"/>
-                        <expirationDate value="2019-10-31"/>
-                    </batch>
-                </package>
-            
+            <batch>
+                <lotNumber value="12345"/>
+                <expirationDate value="2019-10-31"/>
+            </batch>
         </Medication>
     </contained>
     <identifier>

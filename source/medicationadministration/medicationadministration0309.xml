@@ -5,7 +5,6 @@
   <id value="medadmin0309"/>
   <contained><Medication>
     <id value="med0318"/>
-    <isBrand value="false"/>
       <form>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -40,21 +39,10 @@
           </coding>
         </itemCodeableConcept>
       </ingredient>
-      
-    
-    <package>
-      <container>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="470037004"/>
-          <display value="Intravenous Fluid container, single-use"/>
-        </coding>
-      </container>
-      <batch>
-        <lotNumber value="123455"/>
-        <expirationDate value="2016-07-09"/>
-      </batch>
-    </package>
+    <batch>
+      <lotNumber value="123455"/>
+      <expirationDate value="2016-07-09"/>
+    </batch>    
   </Medication>
   </contained>
   <status value="completed" />

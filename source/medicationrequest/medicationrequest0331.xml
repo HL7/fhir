@@ -13,7 +13,6 @@
                     <display value="Warfarin Sodium"/>
                 </coding>
             </code>
-            <isBrand value="true"/>
                 <form>
                     <coding>
                         <system value="http://snomed.info/sct"/>

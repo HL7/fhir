@@ -14,7 +14,6 @@
       <display value="Timoptic 5mg/ml solution"/>
     </coding>
   </code>
-  <isBrand value="true"/>
   <manufacturer>
     <reference value="#org5" />
   </manufacturer>
@@ -46,33 +45,10 @@
         </denominator>
       </amount>
     </ingredient>
- 
+  <batch>
+    <lotNumber value="9494788"/>
+    <expirationDate value="2017-05-22"/>
+  </batch>
   
-  <package>
-    <container>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="419672006"/>
-        <display value="Bottle - unit of product usage (qualifier value)"/>
-      </coding>
-    </container>
-    <content>
-      <itemCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="376877002"/>
-          <display value="Timolol maleate 0.5% opthalmic solution (product)"/>
-        </coding>
-      </itemCodeableConcept>
-      <amount>
-        <value value="10"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mL"/>
-      </amount>
-    </content>
-    <batch>
-      <lotNumber value="9494788"/>
-      <expirationDate value="2017-05-22"/>
-    </batch>
-  </package>
+  
 </Medication>

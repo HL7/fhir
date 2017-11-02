@@ -11,7 +11,6 @@
           <display value="Novolog 100u/ml"/>
         </coding>
       </code>
-      <isBrand value="true"/>
       <form>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -40,33 +39,10 @@
           </denominator>
         </amount>
       </ingredient>
-      <package>
-        <container>
-          <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="415818006"/>
-            <display value="Vial"/>
-          </coding>
-        </container>
-        <content>
-          <itemCodeableConcept>
-            <coding>
-              <system value="http://snomed.info/sct"/>
-              <code value="325072002"/>
-              <display value="Insulin Aspart (substance)"/>
-            </coding>
-          </itemCodeableConcept>
-          <amount>
-            <value value="10"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="mL"/>
-          </amount>
-        </content>
-        <batch>
-          <lotNumber value="12345"/>
-          <expirationDate value="2019-10-31"/>
-        </batch>
-      </package>
+      <batch>
+        <lotNumber value="12345"/>
+        <expirationDate value="2019-10-31"/>
+      </batch>
     </Medication>
   </contained>
   <identifier>

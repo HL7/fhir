@@ -13,7 +13,7 @@
                     <display value="Lorazepam 2mg/ml injection solution 1ml vial (product)"/>
                 </coding>
             </code>
-            <isBrand value="false"/>
+
                 <form>
                     <coding>
                         <system value="http://snomed.info/sct"/>

@@ -34,9 +34,6 @@
       <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <prescription>
-    <reference value="MedicationRequest/example"/>
-  </prescription>
   <dosage>
     <text value="one tablet four times daily"/>
     <dose>

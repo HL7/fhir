@@ -20,7 +20,7 @@
       <display value="Chlorthalidone 50mg tablet (product)"/>
     </coding>
   </code>
-  <isBrand value="false"/>
+  
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>

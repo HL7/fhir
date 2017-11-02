@@ -20,7 +20,6 @@
       <display value="Oral Form Oxycodone (product)"/>
     </coding>
   </code>
-  <isBrand value="false"/>
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>

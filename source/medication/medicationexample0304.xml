@@ -14,7 +14,7 @@
       <display value="Myleran 2mg tablet, film coated"/>
     </coding>
   </code>
-  <isBrand value="true"/>
+  
   <manufacturer>
     <reference value="#org6"/>
   </manufacturer>
@@ -46,33 +46,10 @@
         </denominator>
       </amount>
     </ingredient>
- 
+  <batch>
+    <lotNumber value="9494788"/>
+    <expirationDate value="2017-05-22"/>
+  </batch>
   
-  <package>
-    <container>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="419672006"/>
-        <display value="Bottle - unit of product usage (qualifier value)"/>
-      </coding>
-    </container>
-    <content>
-      <itemCodeableConcept>
-        <coding>
-          <system value="http://hl7.org/fhir/sid/ndc"/>
-          <code value="76388-713-25"/>
-          <display value="Myleran 2mg tablet, film coated"/>
-        </coding>
-      </itemCodeableConcept>
-      <amount>
-        <value value="25"/>
-        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-        <code value="Tab"/>
-      </amount>
-    </content>
-    <batch>
-      <lotNumber value="9494788"/>
-      <expirationDate value="2017-05-22"/>
-    </batch>
-  </package>
+  
 </Medication>

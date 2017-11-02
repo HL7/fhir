@@ -26,7 +26,6 @@
       <display value="Capecitabine 500mg oral tablet (Xeloda)"/>
     </coding>
   </code>
-  <isBrand value="true"/>
   <manufacturer>
       <reference value="#org2"/>
   </manufacturer>
@@ -54,29 +53,8 @@
         </denominator>
       </amount>
     </ingredient>
-
-  
-  <package>
-    <container>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="419672006"/>
-        <display value="Bottle - unit of produce usage (qualifier value)"/>
-      </coding>
-    </container>
-    <content>
-      <itemCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <!-- need to include code for capecitabine 500mg capsule -->
-          <code value="134622004"/>
-          <display value="Capecitabine 500mg tablets (product)"/>
-        </coding>
-      </itemCodeableConcept>
-    </content>
-    <batch>
-      <lotNumber value="9494788"/>
-      <expirationDate value="2017-05-22"/>
-    </batch>
-  </package>
+  <batch>
+    <lotNumber value="9494788"/>
+    <expirationDate value="2017-05-22"/>
+  </batch>
 </Medication>

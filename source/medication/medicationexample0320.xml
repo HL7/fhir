@@ -20,7 +20,7 @@
       <display value="Azithromycin 250mg capsule (product)"/>
     </coding>
   </code>
-  <isBrand value="false"/>
+  
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>

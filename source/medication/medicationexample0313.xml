@@ -8,7 +8,6 @@
       <display value="Lorazepam 2mg/ml injection solution 1ml vial (product)"/>
     </coding>
   </code>
-  <isBrand value="false"/>
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -16,6 +15,12 @@
         <display value="Injection solution (qualifier value)"/>
       </coding>
     </form>
+  <amount>
+    <value value="1"></value>
+    <unit value="mL"></unit>
+    <system value="https://unitsofmeasure.org"></system>
+    <code value="mL"></code>
+  </amount>
     <ingredient>
       <itemCodeableConcept>
         <coding>

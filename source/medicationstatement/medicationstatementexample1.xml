@@ -14,7 +14,6 @@
         <display value="Tylenol PM"/>
       </coding>
     </code>
-    <isBrand value="true"/>
       <form>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -64,13 +63,11 @@
           </denominator>
         </amount>
       </ingredient>
-      <package>
-        
       <batch>
         <lotNumber value="9494788"/>
         <expirationDate value="2017-05-22"/>
       </batch> 
-      </package>
+
     </Medication>
   </contained>
   <identifier>

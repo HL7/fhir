@@ -20,7 +20,7 @@
       <display value="Prednisone 5mg tablet (Product)"/>
     </coding>
   </code>
-  <isBrand value="false"/>
+  
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>

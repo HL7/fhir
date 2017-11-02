@@ -2,22 +2,6 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
   <id value="med0308"/>
   <contained>
-    <Medication>
-      <id value="med500"></id>
-      <isBrand value="false"></isBrand>
-      <ingredient>
-        <itemCodeableConcept>
-          <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-            <code value="1049221"/>
-            <display value="Acetaminophen 325mg/Oxycodone Hydrochloride 5mg Oral Tablet"/>
-          </coding>
-        </itemCodeableConcept>
-      </ingredient>
-      
-    </Medication>
-  </contained>
-  <contained>
     <Organization>
       <id value="org1"/>
       <name value="Stat Rx USA LLC" />
@@ -30,7 +14,7 @@
       <display value="Percocet tablet"/>
     </coding>
   </code>
-  <isBrand value="true"/>
+  
   <manufacturer>
     <reference value="#org1"/>
   </manufacturer>
@@ -83,29 +67,8 @@
         </denominator>
       </amount>
     </ingredient>
-
-  
-  <package>
-    <container>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="419672006"/>
-        <display value="Bottle - unit of product usage (qualifier value)"/>
-      </coding>
-    </container>
-    <content>
-      <itemReference>
-        <reference value="#med500"></reference>
-      </itemReference>
-      <amount>
-        <value value="100"/>
-        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-        <code value="TAB"/>
-      </amount>
-    </content>
-    <batch>
-      <lotNumber value="658484"/>
-      <expirationDate value="2020-07-31"/>
-    </batch>
-  </package>
+  <batch>
+    <lotNumber value="658484"/>
+    <expirationDate value="2020-07-31"/>
+  </batch>
 </Medication>
