@@ -703,20 +703,6 @@
   <translation lang="en">VisionPrescription</translation>
   <translation lang="fr">PrescriptionVision</translation>
 </item>
-<item id="VCFMeta">
-  <translation lang="en">VCFMeta</translation>
-  <translation lang="nl">VCFMeta</translation>
-  <translation lang="zh">VCF元</translation>
-  <translation lang="es">VCFMeta</translation>
-  <translation lang="fr">VCFMeta</translation>
-</item>
-<item id="VCFVariant">
-  <translation lang="en">VCFVariant</translation>
-  <translation lang="nl">VCFMeta</translation>
-  <translation lang="zh">VCF变体</translation>
-  <translation lang="es">VCFVariante</translation>
-  <translation lang="fr">VCFVariante</translation>
-</item>
 <item id="StructureMap">
   <translation lang="en">StructureMap</translation>
 </item>
@@ -727,6 +713,9 @@
 <item id="TestScript">
   <translation lang="en">TestScript</translation>
   <translation lang="fr">ScriptTest</translation>
+</item>
+<item id="TerminologyCapabilities">
+  <translation lang="en">TerminologyCapabilities</translation>
 </item>
 <item id="TestReport">
   <translation lang="en">TestReport</translation>

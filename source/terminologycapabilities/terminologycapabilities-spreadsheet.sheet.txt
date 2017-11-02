@@ -1,0 +1,698 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = RestfulCapabilityMode
+  Binding = code list
+  Reference = #restful-capability-mode
+  Definition = The mode of a RESTful capability statement.
+
+ -- Row 2 -----------------------------------
+  Binding Name = RestfulSecurityService
+  Binding = code list
+  Reference = #restful-security-service
+  Definition = Types of security services used with FHIR.
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = TypeRestfulInteraction
+  Binding = code list
+  Reference = #type-restful-interaction
+  Definition = Operations supported by REST at the type or instance level.
+
+ -- Row 4 -----------------------------------
+  Binding Name = SystemRestfulInteraction
+  Binding = code list
+  Reference = #system-restful-interaction
+  Definition = Operations supported by REST at the system level.
+
+ -- Row 5 -----------------------------------
+  Binding Name = EventCapabilityMode
+  Binding = code list
+  Reference = #event-capability-mode
+  Definition = The mode of a message capability statement.
+
+ -- Row 6 -----------------------------------
+  Binding Name = MessageTransport
+  Binding = code list
+  Reference = #message-transport
+  Definition = The protocol used for message transport.
+  Conformance = extensible
+
+ -- Row 7 -----------------------------------
+  Binding Name = DocumentMode
+  Binding = code list
+  Reference = #document-mode
+  Definition = Whether the application produces or consumes documents.
+
+ -- Row 8 -----------------------------------
+  Binding Name = MessageSignificanceCategory
+  Binding = code list
+  Reference = #message-significance-category
+  Definition = The impact of the content of a message.
+
+ -- Row 9 -----------------------------------
+  Binding Name = ResourceVersionPolicy
+  Binding = code list
+  Reference = #versioning-policy
+  Definition = How the system supports versioning for a resource.
+
+ -- Row 10 -----------------------------------
+  Binding Name = TransactionMode
+  Binding = code list
+  Reference = #transaction-mode
+  Definition = A code that indicates how transactions are supported.
+
+ -- Row 11 -----------------------------------
+  Binding Name = ConditionalDeleteStatus
+  Binding = code list
+  Reference = #conditional-delete-status
+  Definition = A code that indicates how the server supports conditional delete.
+
+ -- Row 12 -----------------------------------
+  Binding Name = UnknownContentCode
+  Binding = code list
+  Reference = #unknown-content-code
+  Definition = A code that indicates whether an application accepts unknown elements or extensions when reading resources.
+
+ -- Row 13 -----------------------------------
+  Binding Name = TerminologyCapabilitiesKind
+  Binding = code list
+  Reference = #capability-statement-kind
+  Definition = How a capability statement is intended to be used.
+
+ -- Row 14 -----------------------------------
+  Binding Name = ConditionalReadStatus
+  Binding = code list
+  Reference = #conditional-read-status
+  Definition = A code that indicates how the server supports conditional read.
+
+ -- Row 15 -----------------------------------
+  Binding Name = ReferenceHandlingPolicy
+  Binding = code list
+  Reference = #reference-handling-policy
+  Definition = A set of flags that defines how references are supported.
+
+=== Sheet restful-capability-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = client
+  Display = Client
+  Definition = The application acts as a client for this resource.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = server
+  Display = Server
+  Definition = The application acts as a server for this resource.
+
+=== Sheet restful-security-service =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = OAuth
+  Display = OAuth
+  Definition = Oauth (unspecified version see oauth.net).
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = SMART-on-FHIR
+  Display = SMART-on-FHIR
+  Definition = OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org/).
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = NTLM
+  Display = NTLM
+  Definition = Microsoft NTLM Authentication.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = Basic
+  Display = Basic
+  Definition = Basic authentication defined in HTTP specification.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = Kerberos
+  Display = Kerberos
+  Definition = see http://www.ietf.org/rfc/rfc4120.txt.
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = Certificates
+  Display = Certificates
+  Definition = SSL where client must have a certificate registered with the server.
+
+=== Sheet type-restful-interaction =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = read
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = vread
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = update
+
+ -- Row 4 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = patch
+
+ -- Row 5 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = delete
+
+ -- Row 6 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = history-instance
+
+ -- Row 7 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = history-type
+
+ -- Row 8 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = create
+
+ -- Row 9 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = search-type
+
+=== Sheet system-restful-interaction =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = transaction
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = batch
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = search-system
+
+ -- Row 4 -----------------------------------
+  System = http://hl7.org/fhir/restful-interaction
+  Code = history-system
+
+=== Sheet event-capability-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = sender
+  Display = Sender
+  Definition = The application sends requests and receives responses.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = receiver
+  Display = Receiver
+  Definition = The application receives requests and sends responses.
+
+=== Sheet message-transport =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = http
+  Display = HTTP
+  Definition = The application sends or receives messages using HTTP POST (may be over http: or https:).
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = ftp
+  Display = FTP
+  Definition = The application sends or receives messages using File Transfer Protocol.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = mllp
+  Display = MLLP
+  Definition = The application sends or receives messages using HL7\'s Minimal Lower Level Protocol.
+
+=== Sheet document-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = producer
+  Display = Producer
+  Definition = The application produces documents of the specified type.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = consumer
+  Display = Consumer
+  Definition = The application consumes documents of the specified type.
+
+=== Sheet message-significance-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = Consequence
+  Display = Consequence
+  Definition = The message represents/requests a change that should not be processed more than once; e.g., making a booking for an appointment.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = Currency
+  Display = Currency
+  Definition = The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = Notification
+  Display = Notification
+  Definition = The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.
+
+=== Sheet versioning-policy =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = no-version
+  Display = No VersionId Support
+  Definition = VersionId meta-property is not supported (server) or used (client).
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = versioned
+  Display = Versioned
+  Definition = VersionId meta-property is supported (server) or used (client).
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = versioned-update
+  Display = VersionId tracked fully
+  Definition = VersionId must be correct for updates (server) or will be specified (If-match header) for updates (client).
+
+=== Sheet transaction-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = not-supported
+  Display = None
+  Definition = Neither batch or transaction is supported.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = batch
+  Display = Batches supported
+  Definition = Batches are  supported.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = transaction
+  Display = Transactions Supported
+  Definition = Transactions are supported.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = both
+  Display = Batches & Transactions
+  Definition = Both batches and transactions are supported.
+
+=== Sheet conditional-delete-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = not-supported
+  Display = Not Supported
+  Definition = No support for conditional deletes.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = single
+  Display = Single Deletes Supported
+  Definition = Conditional deletes are supported, but only single resources at a time.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = multiple
+  Display = Multiple Deletes Supported
+  Definition = Conditional deletes are supported, and multiple resources can be deleted in a single interaction.
+
+=== Sheet unknown-content-code =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = no
+  Display = Neither Elements or Extensions
+  Definition = The application does not accept either unknown elements or extensions.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = extensions
+  Display = Unknown Extensions
+  Definition = The application accepts unknown extensions, but not unknown elements.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = elements
+  Display = Unknown Elements
+  Definition = The application accepts unknown elements, but not unknown extensions.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = both
+  Display = Unknown Elements and Extensions
+  Definition = The application accepts unknown elements and extensions.
+
+=== Sheet capability-statement-kind =====================================
+
+ -- Row 1 -----------------------------------
+  Code = instance
+  Display = Instance
+  Definition = The TerminologyCapabilities instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
+
+ -- Row 2 -----------------------------------
+  Code = capability
+  Display = Capability
+  Definition = The TerminologyCapabilities instance represents the capabilities of a system or piece of software, independent of a particular installation.
+  Comment = Elements marked as \'optional\' represent configurable capabilities
+
+ -- Row 3 -----------------------------------
+  Code = requirements
+  Display = Requirements
+  Definition = The TerminologyCapabilities instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or \'request for proposal\'.
+
+=== Sheet conditional-read-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = not-supported
+  Display = Not Supported
+  Definition = No support for conditional deletes.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = modified-since
+  Display = If-Modified-Since
+  Definition = Conditional reads are supported, but only with the If-Modified-Since HTTP Header.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = not-match
+  Display = If-None-Match
+  Definition = Conditional reads are supported, but only with the If-None-Match HTTP Header.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = full-support
+  Display = Full Support
+  Definition = Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers.
+
+=== Sheet reference-handling-policy =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = literal
+  Display = Literal References
+  Definition = The server supports and populates Literal references where they are known (this code does not guarantee that all references are literal; see \'enforced\')
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = logical
+  Display = Logical References
+  Definition = The server allows logical references
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = resolves
+  Display = Resolves References
+  Definition = The server will attempt to resolve logical references to literal references (if resolution fails, the server may still accept resources; see logical)
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = enforced
+  Display = Reference Integrity Enforced
+  Definition = The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = local
+  Display = Local References Only
+  Definition = The server does not support references that point to other servers
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = TerminologyCapabilities
+  Card. = 1..1
+  UML = 230;120
+  Type = MetadataResource
+  Short Name = A statement of system capabilities
+  Definition = A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+  RIM Mapping = n/a
+  w5 = conformance.behavior
+
+ -- Row 2 -----------------------------------
+  Element = TerminologyCapabilities.url
+  Summary = Y
+
+ -- Row 3 -----------------------------------
+  Element = TerminologyCapabilities.version
+  Summary = Y
+
+ -- Row 4 -----------------------------------
+  Element = TerminologyCapabilities.name
+  Summary = Y
+
+ -- Row 5 -----------------------------------
+  Element = TerminologyCapabilities.title
+  Summary = Y
+
+ -- Row 6 -----------------------------------
+  Element = TerminologyCapabilities.status
+  Summary = Y
+  Comments = & This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems
+
+ -- Row 7 -----------------------------------
+  Element = TerminologyCapabilities.experimental
+  Summary = Y
+
+ -- Row 8 -----------------------------------
+  Element = TerminologyCapabilities.date
+  Card. = 1..1
+  Summary = Y
+
+ -- Row 9 -----------------------------------
+  Element = TerminologyCapabilities.publisher
+  Summary = Y
+
+ -- Row 10 -----------------------------------
+  Element = TerminologyCapabilities.contact
+  UML = 70;0
+
+ -- Row 11 -----------------------------------
+  Element = TerminologyCapabilities.description
+  Definition = & Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP
+  Comments = & This does not need to be populated if the description is adequately implied by the software or implementation details
+
+ -- Row 12 -----------------------------------
+  Element = TerminologyCapabilities.useContext
+  Summary = Y
+
+ -- Row 13 -----------------------------------
+  Element = TerminologyCapabilities.jurisdiction
+  Summary = Y
+
+ -- Row 14 -----------------------------------
+  Element = TerminologyCapabilities.purpose
+
+ -- Row 15 -----------------------------------
+  Element = TerminologyCapabilities.copyright
+  Summary = Y
+
+ -- Row 16 -----------------------------------
+  Element = TerminologyCapabilities.lockedDate
+  Card. = 0..1
+  Summary = Y
+  Type = boolean
+  Short Name = Whether lockedDate is supported
+  Definition = Whether the server supports lockedDate
+
+ -- Row 17 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem
+  Card. = 0..*
+  Aliases = 1
+  Short Name = A code system supported by the server
+  Definition = Identifies a code system that is supported by the server. If there is a no code system URL, then this declares the general assumptions a client can make about support for any CodeSystem resource
+  Comments = The code system - identified by it\'s system URL - may also be declared explicitly as a Code System Resource at /CodeSystem, but it may not be
+
+ -- Row 18 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.uri
+  Card. = 0..1
+  Type = uri
+  Short Name = URI for the Code System
+
+ -- Row 19 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.version
+  Card. = 0..1
+  Type = string
+  Short Name = Version of Code System supported
+  Definition = A list of languages for which displays are available. \"*\" means all IEtF language codes are supported
+  Comments = Language translations may not be available for all codes
+
+ -- Row 20 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.compositional
+  Card. = 0..1
+  Type = boolean
+  Short Name = If compositional grammar is supported
+  Definition = If the compositional grammar defined by the code system is supported
+
+ -- Row 21 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.language
+  Card. = 0..*
+  Type = code
+  Binding = !
+  Short Name = Language Displays supported
+
+ -- Row 22 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.filter
+  Card. = 0..*
+  Short Name = Filter Properties supported
+
+ -- Row 23 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.filter.code
+  Card. = 1..1
+  Type = code
+  Binding = !
+  Short Name = Code of the property supported
+
+ -- Row 24 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.filter.op
+  Card. = 1..*
+  Type = code
+  Binding = !
+  Short Name = Operations supported for the property
+
+ -- Row 25 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.property
+  Card. = 0..*
+  Type = code
+  Binding = !
+  Short Name = Properties supported for $lookup
+
+ -- Row 26 -----------------------------------
+  Element = TerminologyCapabilities.expansion
+  Card. = 0..1
+  Short Name = Information about the $expansion operation
+
+ -- Row 27 -----------------------------------
+  Element = TerminologyCapabilities.expansion.supported
+  Card. = 1..1
+  Type = boolean
+  Short Name = Whether operation is supported
+
+ -- Row 28 -----------------------------------
+  Element = TerminologyCapabilities.expansion.heirarchical
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether the server can return nested value sets
+
+ -- Row 29 -----------------------------------
+  Element = TerminologyCapabilities.expansion.paging
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether the server supports paging on expansion
+
+ -- Row 30 -----------------------------------
+  Element = TerminologyCapabilities.expansion.incomplete
+  Card. = 0..1
+  Type = boolean
+  Short Name = Allow request for incomplete expansions?
+
+ -- Row 31 -----------------------------------
+  Element = TerminologyCapabilities.expansion.profile
+  Card. = 0..1
+  Type = Reference(StructureDefinition)
+  Short Name = Supported fields on ExpansionProfile
+
+ -- Row 32 -----------------------------------
+  Element = TerminologyCapabilities.expansion.textFilter
+  Card. = 0..1
+  Type = markdown
+  Short Name = Documentation about text searching works
+
+ -- Row 33 -----------------------------------
+  Element = TerminologyCapabilities.lookup
+  Card. = 0..1
+  Short Name = Information about the $lookup operation
+
+ -- Row 34 -----------------------------------
+  Element = TerminologyCapabilities.lookup.supported
+  Card. = 1..1
+  Type = boolean
+  Short Name = Whether $lookup is supported
+
+ -- Row 35 -----------------------------------
+  Element = TerminologyCapabilities.validation
+  Card. = 0..1
+  Short Name = Information about the $validation operation
+
+ -- Row 36 -----------------------------------
+  Element = TerminologyCapabilities.validation.supported
+  Card. = 1..1
+  Type = boolean
+  Short Name = Whether $validation is supported
+
+ -- Row 37 -----------------------------------
+  Element = TerminologyCapabilities.validation.translations
+  Card. = 1..1
+  Type = boolean
+  Short Name = Whether translations are validated
+
+ -- Row 38 -----------------------------------
+  Element = TerminologyCapabilities.translation
+  Card. = 0..1
+  Short Name = Information about the $translation operation
+
+ -- Row 39 -----------------------------------
+  Element = TerminologyCapabilities.translation.supported
+  Card. = 1..1
+  Type = boolean
+  Short Name = Whether $translation is supported
+
+ -- Row 40 -----------------------------------
+  Element = TerminologyCapabilities.translation.needsMap
+  Card. = 1..1
+  Type = boolean
+  Short Name = Whether the client must identify the map
+
+ -- Row 41 -----------------------------------
+  Element = TerminologyCapabilities.closure
+  Card. = 0..1
+  Short Name = Information about the $closure operation
+  Definition = Whether the $closure operation is supported
+
+ -- Row 42 -----------------------------------
+  Element = TerminologyCapabilities.closure.supported
+  Card. = 1..1
+  Type = boolean
+  Short Name = Whether the closure operation is supported
+
+ -- Row 43 -----------------------------------
+  Element = TerminologyCapabilities.closure.translation
+  Card. = 0..1
+  Type = boolean
+  Short Name = If cross-system closure is supported
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Condition Example
+  Filename = terminologycapabilities-example.xml
+
+=== Sheet Examples =====================================
