@@ -60,11 +60,11 @@
 	<!-- standard FHIR stylesheet. This doesn't need to be an absolute HTTP reference, 
     but the publishing tool gets confused if it isn't  -->
 	<page>
-		<source value="patient-example.html"/>
+		<sourceUri value="patient-example.html"/>
 		<title value="Example Patient Page"/>
 		<kind value="page"/>
 		<page>
-			<source value="list.html"/>
+			<sourceUri value="list.html"/>
 			<title value="Value Set Page"/>
 			<kind value="list"/>
 			<type value="ValueSet"/>
