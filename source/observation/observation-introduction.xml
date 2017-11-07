@@ -1,60 +1,80 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
+  <div>
+    <a name="scope">
+    </a>
+    <a name="dstu">
+    </a>
+    <blockquote class="stu-note">
+      <p>
+        <b>STU Note:</b> The Orders and Observations work-group wants to draw the attention of reviewers and implementers to the following significant changes to this resource for feedback prior to the Normative ballot:</p>
+        <p> We are seeking input on:</p>
+        <ol>
+          <li> The <a href="#usingcodepairs">guidance</a> on using code value pairs to represent observations in FHIR</li>
+          <li> <em>Breaking Change</em> The replacement of the <code>.related</code> complex element with direct inline elements based on the types listed in 	<a href="valueset-observation-relationshiptypes.html">ObservationRelationshipType</a>:<ul>
+            <li>
+              <code>.derivedFrom</code>and            </li>
+              <li>
+                <code>.memberOf</code>
+              </li>
+              </ul>
+              This change allows for more flexibility in adding additional reference targets as well as a simplifying the structure. The other relationship types were considered to be outside the 80% and only 'sequel-to' and 'replaced-by' were made into standard extensions referencing a target Observation.</li>
+              <li><em>Breaking Change</em>  The removal of the <code>Attachment</code> data type as a choice for <code>.value[x]</code>.   As a result of 2, direct links to <a href="media.html">Media</a> were added.  Observations that require the attachment data types are represented by the Media resource.  This change eliminates the ambiguity and duplication on how to represent multimedia observations.</li>
+              <li><em>Substantive Change</em> The promotion of the extension <a href="extension-event-partof.html">partOf</a> to an inline element. This allows a direct reference to an event  in which the observation was made (for example a procedure).
+              </li>
+              <li>Review of the <a href="observation-profiles.html#extensions">standard event extensions</a> which are the result of alignment with the workflow <a href="event.html">Event</a> pattern</li>
+            </ol>
+          </blockquote>
+          <h2>Scope and Usage</h2>
+          <p>This resource is an <a href="workflow.html#event">
+            <em>event resource</em>
+            </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
+            <p>Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns and even capture demographic characteristics.  Most observations are simple name/value pair assertions with some metadata,but some observations group other observations together logically, or even are multi-component observations.Note that the  <a href="diagnosticreport.html">DiagnosticReport</a>resource providess a clinical or workflow context for a set of observations and the Observation resource is referenced by DiagnosticReport to represent lab, imaging, and other clinical and diagnostic data to form a complete report. </p>
+            <p>Uses for the Observation resource include:</p>
+            <ul>
+              <li>Vital signs such as <a href="observation-example.html">body weight</a>,  <a href="observation-example-bloodpressure.html">blood pressure</a>, and <a href="observation-example-f202-temperature.html">temperature</a>
+            </li>
+            <li>Laboratory Data like <a href="observation-example-f001-glucose.html">blood glucose</a>, or an <a href="observation-example-f205-egfr.html">estimated GFR</a>
+          </li>
+          <li>Imaging results like  <a href="observation-example-bmd.html">bone density</a> or fetal measurements</li>
+          <li>Devices Measurements such as  <a href="observation-example-sample-data.html">EKG data</a> or  <a href="observation-example-satO2.html">Pulse Oximetry data</a>
+        </li>
+        <li>Clinical assessment tools such as <a href="observation-example-5minute-apgar-score.html">APGAR</a> or a <a href="observation-example-glasgow.html">Glasgow Coma Score</a>
+      </li>
+      <li>Personal characteristics: such as  <a href="observation-example-eye-color.html">eye-color</a>
+    </li>
+    <li>Social history like tobacco use,  family support, or cognitive status</li>
+    <li>Core characteristics like pregnancy status, or a death assertion</li>
+  </ul>
+  <h3>Core Profiles for Observation</h3>
+  <p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. If implementations use this Resource when expressing the profile-specific concepts as structured data, they <strong>SHALL</strong> conform to the following profiles:</p>
+  <table class="grid">
+    <thead>
+      <tr>
+        <th style="text-align:center;">Profile</th>
+        <th style="text-align:center;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="width:15%;text-align:center;">
+          <a href="observation-vitalsigns.html">Vital signs</a>
+        </td>
+        <td>The FHIR Vital Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc) associated with a patient </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div>
-<a name="scope"> </a>
-<h2>Scope and Usage</h2>
-<p>This resource is an <a href="workflow.html#event"><em>event resource</em></a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.
-</p>
+  <a name="bnr">
+  </a>
+  <h2>Boundaries and Relationships</h2>
+    <p>
+  The <a href="media.html">Media</a> resource captures a specific type of observation whose value is audio, video or image data. This resource is used instead of Observation to represent such forms of information as it exposes the metadata relevant for interpreting the information.   See Media's <a href="media.html#bnr">boundaries section</a> to see how Media (and Observation) differs from <a href="imagingstudy.html">ImagingStudy</a> and <a href="documentreference.html">DocumentReference</a>.
+  </p>
+  <p>
+  In contrast to the Observation resource, the <a href="diagnosticreport.html">DiagnosticReport</a> resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations.  Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.  "Laboratories routinely have a variable that is summative across a series of discrete variables - these are usually called 'impressions' or 'interpretations'. Sometimes they are algorithmically specified and sometimes they have the imprimatur of pathologists and they are conveyed in Observation or DiagnosticReport instead of the <a href="clinicalimpression.html">Clinical Impression</a> resource. However, the Observation resources should not be used to record clinical diagnosis about a patient or subject that are typically captured in the <a href="condition.html">Condition</a> resource or the ClinicalImpression resource.  The Observation resource is often referenced by the Condition resource to provide specific subjective and objective data to support its assertions.
+  </p> 
 <p>
-Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns
-and even capture demographic characteristics.  Most observations are simple name/value pair assertions with some metadata,
-but some observations group other observations together logically, or even are multi-component observations.
-Note that the  <a href="diagnosticreport.html">DiagnosticReport</a> resource
-provides a clinical or workflow context for a set of observations and the Observation resource is referenced by DiagnosticReport to represent lab, imaging, and other clinical and diagnostic data to form a complete report. </p>
-<p>Uses for the Observation resource include:
-</p>
-<ul>
-  <li>Vital signs such as <a href="observation-example.html">body weight</a>,  <a href="observation-example-bloodpressure.html">blood pressure</a>, and <a href="observation-example-f202-temperature.html">temperature</a></li>
-	<li>Laboratory Data like <a href="observation-example-f001-glucose.html">blood glucose</a>, or an <a href="observation-example-f205-egfr.html">estimated GFR</a></li>
-	<li>Imaging results like  <a href="observation-example-bmd.html">bone density</a> or fetal measurements</li>
-	<li>Devices Measurements such as  <a href="observation-example-sample-data.html">EKG data</a> or  <a href="observation-example-satO2.html">Pulse Oximetry data</a></li>
-  <li>Clinical assessment tools such as <a href="observation-example-5minute-apgar-score.html">APGAR</a> or a <a href="observation-example-glasgow.html">Glasgow Coma Score</a> </li>
-  <li>Personal characteristics: such as  <a href="observation-example-eye-color.html">eye-color</a></li>
-  <li>Social history like tobacco use,  family support, or cognitive status</li>
-  <li>Core characteristics like pregnancy status, or a death assertion</li>
-</ul>
-<h3>Core Profiles for Observation</h3>
-<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. If implementations use this Resource when expressing the profile-specific concepts as structured data, they <strong>SHALL</strong> conform to the following profiles:
-</p>
-<table class="grid">
-<thead>
-<tr>
-<th style="text-align:center;">Profile</th>
-<th style="text-align:center;">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="width:15%;text-align:center;"><a href="observation-vitalsigns.html">Vital signs</a></td>
-<td>The FHIR Vital Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc) associated with a patient </td>
-</tr>
-</tbody>
-</table></div>
-
-
-<div>
-<a name="bnr"> </a>
-<h2>Boundaries and Relationships</h2>
-<p>In contrast to the Observation resource, the <a href="diagnosticreport.html">DiagnosticReport</a> resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations.  Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.</p>
-<p>
-"Laboratories routinely have a variable that is summative across a series of discrete variables - these are usually called 'impressions' or 'interpretations'. Sometimes they are algorithmically specified and sometimes they have the imprimatur of pathologists and they are conveyed in Observation or DiagnosticReport instead of the <a href=
-"clinicalimpression.html">Clinical Impression</a> resource. However, the Observation resources should not be used to record clinical diagnosis about a patient or subject that are typically captured in the <a href="condition.html">Condition</a> resource or the ClinicalImpression resource.</p>
-<p>
-The Observation resource is often referenced by the Condition resource to provide specific subjective and objective data to support its assertions.  There are other resources that can be considered "specializations" of the Observation resource and should be used for those specific contexts and use cases.  They include <a href="allergyintolerance.html">AllergyIntolerance</a> resource, <a href="familymemberhistory.html"> FamilyMemberHistory</a> resource, <a href="procedure.html">Procedure</a> resource, and <a href="questionnaire.html">Questionnaire</a> resource.
- In some cases, such as when source data is coming from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> feed, a system may not have information that allows it to distinguish diagnosis, allergy and other "specialized" types of observations from lab, vital sign and other observation types intended to be conveyed with this resource.  In those circumstances, such specialized observations may also appear using this resource.</p>
-
- <p>
-  The <a href="media.html">Media</a> resource captures a specific type of observation whose value is audio, video or image data. This resource is the preferred representation of such forms of information as it exposes the metadata relevant for interpreting the information. However, in some implementations, media information may appear in Observation susing the <code>valueAttachment</code> element and systems should be aware of this possibility.
- </p>
+  Many other resources can be considered "specializations" of the Observation resource and should be used for those specific contexts and use cases.   For example, the <a href="allergyintolerance.html">AllergyIntolerance</a> resource represents a patient allergies, <a href="medicationstatement.html">MedicationStatement</a> resource: medications taken by a patient, <a href="familymemberhistory.html"> FamilyMemberHistory</a> resource: a patient's family history, <a href="procedure.html">Procedure</a> resource: information about a procedure, and <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource: a set of answers to a set of questions.  In some cases, such as when source data is coming from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> feed, a system may not have information that allows it to distinguish diagnosis, allergy and other "specialized" types of observations from lab, vital sign and other observation types intended to be conveyed with this resource.  In those circumstances, such specialized observations may also appear using this resource.</p>
 </div>
 </div>
