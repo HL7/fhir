@@ -2127,9 +2127,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     XhtmlNode p = x.para();
     p.tx("Mapping from ");
-    AddVsRef(rcontext, cm.getSource() instanceof Reference ? ((Reference) cm.getSource()).getReference() : ((UriType) cm.getSource()).asStringValue(), p);
+    if (cm.hasSource())
+      AddVsRef(rcontext, cm.getSource() instanceof Reference ? ((Reference) cm.getSource()).getReference() : ((UriType) cm.getSource()).asStringValue(), p);
+    else
+      p.tx("??");
     p.tx(" to ");
-    AddVsRef(rcontext, cm.getTarget() instanceof Reference ? ((Reference) cm.getTarget()).getReference() : ((UriType) cm.getTarget()).asStringValue(), p);
+    if (cm.hasTarget())
+      AddVsRef(rcontext, cm.getTarget() instanceof Reference ? ((Reference) cm.getTarget()).getReference() : ((UriType) cm.getTarget()).asStringValue(), p);
+    else 
+      p.tx("??");
 
     p = x.para();
     if (cm.getExperimental())
