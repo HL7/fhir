@@ -10,18 +10,18 @@
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2016-12-05T00:48:03Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13410</WindowHeight>
+  <WindowHeight>12135</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1335,7 +1335,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42.9375">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ResearchStudy.jurisdiction</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">ResearchStudy.participatingLocation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -4225,13 +4225,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4239,16 +4238,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4826,10 +4823,10 @@
     <Cell ss:StyleID="s115"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">jurisdiction</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">participatingLocation</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ResearchStudy.jurisdiction</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ResearchStudy.participatingLocation</Data></Cell>
     <Cell ss:StyleID="s115"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4945,6 +4942,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4964,8 +4962,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
