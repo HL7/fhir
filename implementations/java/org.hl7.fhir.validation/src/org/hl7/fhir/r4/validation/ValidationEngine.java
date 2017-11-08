@@ -68,7 +68,9 @@ import org.hl7.fhir.r4.model.OperationOutcome;
 import org.hl7.fhir.r4.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.r4.model.Questionnaire;
 import org.hl7.fhir.r4.model.Resource;
+import org.hl7.fhir.r4.model.ResourceFactory;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureMap;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.OperationOutcomeUtilities;
@@ -617,15 +619,14 @@ public class ValidationEngine {
   public Resource transform(byte[] source, FhirFormat cntType, String mapUri) throws Exception {
     StructureMapUtilities scu = new StructureMapUtilities(context);
 
-//    org.hl7.fhir.r4.elementmodel.Element src = Manager.parse(context, new ByteArrayInputStream(source), cntType); 
-//    StructureMap map = scu.getLibrary().get(mapUri);
-//    if (map == null)
-//      throw new Error("Unable to find map "+mapUri);
-//    
-//    Resource dst = ResourceFactory.createResource("Bundle");
-//    scu.transform(null, src, map, dst);
-//    return dst;
-    return null;
+    org.hl7.fhir.r4.elementmodel.Element src = Manager.parse(context, new ByteArrayInputStream(source), cntType); 
+    StructureMap map = scu.getLibrary().get(mapUri);
+    if (map == null)
+      throw new Error("Unable to find map "+mapUri);
+    
+    Resource dst = ResourceFactory.createResource("Bundle");
+    scu.transform(null, src, map, dst);
+    return dst;
   }
 
   public DomainResource generate(String source) throws Exception {

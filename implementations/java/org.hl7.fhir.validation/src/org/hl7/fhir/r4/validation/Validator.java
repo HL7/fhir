@@ -257,7 +257,7 @@ public class Validator {
 
       if (mode == EngineMode.TRANSFORM) {
         if  (sources.size() > 1)
-          throw new Exception("Can only have one source when doing a transform");
+          throw new Exception("Can only have one source when doing a transform (found "+sources+")");
         if  (txServer == null)
           throw new Exception("Must provide a terminology server when doing a transform");
         if  (map == null)

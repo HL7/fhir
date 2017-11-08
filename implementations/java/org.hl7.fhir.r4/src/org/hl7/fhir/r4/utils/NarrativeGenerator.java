@@ -2130,12 +2130,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (cm.hasSource())
       AddVsRef(rcontext, cm.getSource() instanceof Reference ? ((Reference) cm.getSource()).getReference() : ((UriType) cm.getSource()).asStringValue(), p);
     else
-      p.tx("??");
+      p.tx("(not specified)");
     p.tx(" to ");
     if (cm.hasTarget())
       AddVsRef(rcontext, cm.getTarget() instanceof Reference ? ((Reference) cm.getTarget()).getReference() : ((UriType) cm.getTarget()).asStringValue(), p);
     else 
-      p.tx("??");
+      p.tx("(not specified)");
 
     p = x.para();
     if (cm.getExperimental())
