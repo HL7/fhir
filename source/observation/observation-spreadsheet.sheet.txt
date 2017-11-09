@@ -793,7 +793,7 @@
   Short Name = Actual component result
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations
-  Comments = Used when observation has a set of component observations. A few observations may have both a value (e.g. an  Apgar score)  and component observations (the observations from which the Apgar score was derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below.
+  Comments = Used when observation has a set of component observations. An observations may have both a value (e.g. an  Apgar score)  and component observations (the observations from which the Apgar score was derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below.
   SNOMED CT Concept Domain = 363714003 |Interprets| < 441742003 |Evaluation finding|
   v2 Mapping = OBX.2, OBX.5, OBX.6
   RIM Mapping = value
