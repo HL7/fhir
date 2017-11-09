@@ -5,6 +5,8 @@
 	<p>   At its simplest, a resource instances can consist of only a code and a value, and status flag.    The relevance of other properties will vary based on the type of observation.</p>
 	<p>
 		<a href="observation-profiles.html">Profiles</a> will be created to provide guidance on capturing certain types    of simple observations.  This resource focuses on the level of detail    captured by most systems.  However, any "simple" observation can easily	be broken into numerous components and sub-components to provide additional    information relevant in certain circumstances.  As with other resources, <a href="extensibility.html">extensions</a> can be used to introduce this additional complexity. </p>
+			<a name="obsgrouping">
+	</a>
 	<h3>Observation Grouping</h3>
 	<p>Many observations have important relationships to other observations and need to be grouped together.  Three structures have been defined to do this: DiagnosticReport and <code>DiagnosticReport.result</code>, Observation and <code>Observation.component</code>, and Observation and <code>Observation.related</code>. The sections below provides guidance around which structure to use.  Because the idea of what to group together is often highly contextual and based upon the end user's point of view, the choice of which structure to use will be driven by jurisdiction, organizational practice and context.  Profiling will normally be necessary for implementation.</p>
 	<h4>DiagnosticReport.result
@@ -44,115 +46,159 @@
 	<a name="usingcodes">
 	</a>
 	<h3> Using codes in Observation </h3>
-
 	<p>When a result value is a represented as a predefined concept using a code, <code>valueCodeableConcept</code> is used.  This element is <a href="terminologies.html">bound</a> to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values.</p>
 	<h4>Code Translations </h4>
 	<p>Results may be coded in multiple value sets based on different code systems and these may be mapped using the <a href="conceptmap.html">ConceptMap</a> resource and/or given as translations directly in the element as shown in the example below.</p>
 	<p>For example the LOINC 43304-5 <em>Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method</em> is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, <code>valueCodeableConcept</code> would be:</p>
-	<pre class="json">	"valueCodeableConcept": {	"coding": [	  {		"system": "http://snomed.info/sct",		"code": "260385009",		"display": "Negative"	  },	  {		"https://acme.lab/resultcodes",		"code": "NEG",		"display": "Negative"	  }	],	"text": "Negative for Chlamydia Trachomatis rRNA"	  }			</pre>
+	<pre class="json">
+
+	"valueCodeableConcept": {
+		"coding": [
+			{
+				"system": "http://snomed.info/sct",
+				"code": "260385009",
+				"display": "Negative"
+			}, {
+				"system": "https://acme.lab/resultcodes",
+				"code": "NEG",
+				"display": "Negative"
+			}
+		],
+		"text": "Negative for Chlamydia Trachomatis rRNA"
+	}
+
+	</pre>
 	<h4>Text values for coded results:</h4>
 	<p>When the data element is usually coded or the type associated with the <code>code</code> element defines a coded value, use <code>valueCodeableConcept</code>
 		<em>even if</em> there is no appropriate code and only un-coded text is available. For example using text only, the <code>valueCodeableConcept</code> element would be:</p>
-	<pre class="json">	"valueCodeableConcept": {	"text": "uncoded free text result"	  }			</pre>
+	<pre class="json">
+
+	"valueCodeableConcept": {
+		"text": "uncoded free text result"
+	}
+
+			</pre>
 	<p>When a coded answer list includes a concept code for &quot;other&quot; and there is a free text description of the concept, the <code>valueCodeableConcept.text</code> element should be used to capture the full meaning of the source.  In the example below, the answer code &quot;Other&quot; is provided in the <code>valueCodeableConcept</code> element and the text value supplied value in the <code>CodeableConcept.text</code> element.</p>
 	<a name="usingcodepairs">
 	</a>
-
-				<pre class="json">    {      "resourceType": "Observation",      "code": {        "coding": [{          "system": "http://loinc.org",          "code": "74076-1",          "display": "Medication or substance involved"        }]      },      "valueCodeableConcept": {        "coding": [{          "system": "http://loinc.org",          "code": " LA20343-2",          "display": "Other substance: PLEASE SPECIFY"        }],        "text": "Other: Blue pills I found under my couch"      }    }</pre>
-<h4>Interoperability Issues using code value pairs in FHIR</h4>
+	<pre class="json">
+{
+	"resourceType": "Observation",
+	... snip ...
+	"code": {
+		"coding": [
+			{
+				"system": "http://loinc.org",
+				"code": "74076-1",
+				"display": "Medication or substance involved"
+			}
+		]
+	},
+	.. snip ...
+	"valueCodeableConcept": {
+		"coding": [
+			{
+				"system": "http://loinc.org",
+				"code": " LA20343-2",
+				"display": "Other substance: PLEASE SPECIFY"
+			}
+		],
+		"text": "Other: Blue pills I found under my couch"
+	}
+	.. snip ...
+}
+	   </pre>
+	   		<a name="interop">
+	</a>
+	<h4>Interoperability Issues using code value pairs in FHIR</h4>
 	<p>A recurring issue for many observation events, regardless of the particular pattern, is determining how to populate observation.code and observation.value. While this is typically straight-forward for laboratory observations, it can get blurry for other types of observations, such as findings and disorders, family history observations, etc. This discussion focuses on the way in which the coded representation of such statements is expressed using the <code>Observation.code</code> and <code>Observation.value</code> elements. </p>
-
-		<p>There are two distinct facets that are central to a FHIR Observations:</p>
+	<p>There are two distinct facets that are central to a FHIR Observations:</p>
 	<ul>
-	  <li>The action taken to make the finding and/or the property about which the property was observed.  For example: measurement of blood hemoglobin.
+		<li>The action taken to make the finding and/or the property about which the property was observed.  For example: measurement of blood hemoglobin.
 	  </li>
-	  <li>The result of the observation.  For example: 14 g/dl.
+		<li>The result of the observation.  For example: 14 g/dl.
 	  </li>
 	</ul>
 	<p>Several different ways of representing the same information exist using different combinations of the <code>Observation.code</code> and <code>Observation.value</code>. Unconstrained use of the alternatives presents a major challenge for computation of semantic equivalence and for safe interpretation of observations originating from different applications and users. The following four patterns could reasonably represent the same case:</p>
 	<ol>
-	  <li>
-	    <code>Observation.code</code> represents the nature of the observation and the <code>Observation.value</code> a code represents the non-numeric result value. These are two distinct facets that are central to a FHIR Observations.  For example:
+		<li>
+			<code>Observation.code</code> represents the nature of the observation and the <code>Observation.value</code> a code represents the non-numeric result value. These are two distinct facets that are central to a FHIR Observations.  For example:
 			<ul>
 				<li> code=[Examination] </li>
 				<li>value=[Abdomen tender]</li>
 			</ul>
-	  </li>
-	  <li>
-	    <code>Observation.code</code> is nearly identical to 1) above, but the level of granularity is shifted from the value to code. For example:
+		</li>
+		<li>
+			<code>Observation.code</code> is nearly identical to 1) above, but the level of granularity is shifted from the value to code. For example:
 			<ul>
 				<li>code=[Abdominal examination] </li>
 				<li>value=[Tenderness]</li>
 			</ul>
-	  </li>
-	  <li>
+		</li>
+		<li>
 	    The <code>Observation.code</code> is also expressed in a way that does not specify the observation action, but indicates a statement about findings reduced to a single name (or term), as in the above item. In this example, the <code>Observation.value</code> is present and "qualifies" the finding typically confirming or refuting it. For example::
 			<ul>
 				<li>code=[Abdominal tenderness] </li>
 				<li>value=[found/true]</li>
 			</ul>
-	  </li>
-	  <li>
+		</li>
+		<li>
 	    in this example the <code>Observation.code</code> is expressed in a way that does not specify the observation action, but indicates a statement about findings reduced to a single name (or term). In this particular example in that context, the <code>Observation.value</code> is omitted.  For example:
 			<ul>
 				<li> code=[Abdominal tenderness]</li>
-			<li>value element is omitted</li>
-		</ul>
-	  </li>
+				<li>value element is omitted</li>
+			</ul>
+		</li>
 	</ol>
 	<h4>Guidance:</h4>
 	<ol>
-	  <li>Recommended rules for case 1 and 2 patterns:
+		<li>Recommended rules for case 1 and 2 patterns:
 	    <ul>
-	      <li>The Observation.code is preferably a <a href="https://loinc.org/">LOINC</a> concept code.
+				<li>The Observation.code is preferably a <a href="https://loinc.org/">LOINC</a> concept code.
 	        <ul>
-	          <li>If a <a href="http://snomed.info/sct">SNOMED CT</a> concept code is used, the expression SHOULD represent a 363787002 (Observable entity(Observable entity)) or 386053000 (Evaluation procedure(evaluation procedure))
+						<li>If a <a href="http://snomed.info/sct">SNOMED CT</a> concept code is used, the expression SHOULD represent a 363787002 (Observable entity(Observable entity)) or 386053000 (Evaluation procedure(evaluation procedure))
 	          </li>
-	        </ul>
+					</ul>
+				</li>
+				<li>For non-numeric values, the Observation.value is preferably a SNOMED CT concept code.
 	      </li>
-	      <li>For non-numeric values, the Observation.value is preferably a SNOMED CT concept code.
-	      </li>
-	    </ul>
-	  </li>
-	  <li>Recommended rules for case 3 pattern:
+			</ul>
+		</li>
+		<li>Recommended rules for case 3 pattern:
 	    <ul>
-	      <li>The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
+				<li>The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
 	      </li>
-	      <li>The Observation.value is represented by either
+				<li>The Observation.value is represented by either
 	        <ul>
-	          <li>valueBoolean</li>
-	          <li>valueCodeableConcept preferably using:
+						<li>valueBoolean</li>
+						<li>valueCodeableConcept preferably using:
 	            <ul>
-	              <li>
+								<li>
 	                SNOMED CT where concept is-a 362981000 (Qualifier value (qualifier value))
 	              </li>
-	              <li>
-	                <a href="v2/0136/index.html">v2 Yes/no Indicator</a>
+								<li>
+									<a href="v2/0136/index.html">v2 Yes/no Indicator</a>
+								</li>
+								<li>
+									<a href="v2/0136/index.html">v2 Expanded Yes/no Indicator</a> (unfortunately is missing 'not given')
 	              </li>
-	              <li>
-	                <a href="v2/0136/index.html">v2 Expanded Yes/no Indicator</a> (unfortunately is missing 'not given')
-	              </li>
-	            </ul>
-	          </li>
-	        </ul>
-	      </li>
-	    </ul>
-	  </li>
-	  <li>Recommended rules for case 4 pattern:
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Recommended rules for case 4 pattern:
 	    <ul>
-	      <li>The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
+				<li>The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
 	      </li>
-	      <li>The Observation.value is omitted. The default interpretation is the the concept (single code or expression) represented in Observation.code is present in the patient. A Observation.dataAbsentReason value of 'clinical-finding' SHOULD be used to indicate why the expected value is missing.</li>
-	    </ul>
-	  </li>
-	  <li>SHOULD NOT use the <em>Assertion</em> pattern as described in <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=418">HL7 Version 3 Implementation Guide: TermInfo - Using SNOMED CT in CDA R2 Models, Release 1</a>. ( The code is 'ASSERTION' and the value is a SNOMED CT concept or expression )
+				<li>The Observation.value is omitted. The default interpretation is the the concept (single code or expression) represented in Observation.code is present in the patient. A Observation.dataAbsentReason value of 'clinical-finding' SHOULD be used to indicate why the expected value is missing.</li>
+			</ul>
+		</li>
+		<li>SHOULD NOT use the <em>Assertion</em> pattern as described in <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=418">HL7 Version 3 Implementation Guide: TermInfo - Using SNOMED CT in CDA R2 Models, Release 1</a>. ( The code is 'ASSERTION' and the value is a SNOMED CT concept or expression )
 	  </li>
 	</ol>
-
-
-
 	<a name="valuex">
-
 	</a>
 	<h3>Value[x] and Datatypes</h3>
 	<ul>
@@ -165,7 +211,6 @@
 				<li>valueRange</li>
 				<li>valueRatio</li>
 				<li>valueSampledData</li>
-				<li>valueAttachment</li>
 				<li>valueTime</li>
 				<li>valueDateTime</li>
 				<li>valuePeriod</li>
@@ -173,12 +218,11 @@
 			<br/>
 		</li>
 		<li>See above section on <a href="#usingcodes">Using codes for result values</a>
-
 		</li>
-		<li>		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead.		  </li>
+		<li>		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead and select codes from <a href="http://hl7.org/fhir/ValueSet/v2-0136">http://hl7.org/fhir/ValueSet/v2-0136</a> (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed")	  </li>
 		<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ('error' or 'NaN').		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the <code>valueQuantity</code> would be:			<pre class="json">		"valueQuantity": {    "value": 2.0,     "comparator" : "&lt;",    "unit": "mmol/l",    "system": "http://unitsofmeasure.org",    "code": "mmol/L"     }			</pre>If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> element would be absent and <code>dataAbsentReason</code> element would be:<pre class="json">"dataAbsentReason": {    "coding": [      {        "system": "http://hl7.org/fhir/data-absent-reason",        "code": "NaN",        "display": "Not a Number"      }      </pre>
 		</li>
-		<li>   Because there are multiple types allowed for the <i>value</i> element, multiple value search parameters are defined. There is no standard parameter for searching values of type Attachment, or Ratio </li>
+		<li>   Because there are multiple types allowed for the <i>value</i> element, multiple value search parameters are defined. There is no standard parameter for searching values of type Ratio </li>
 	</ul>
 	<h3>Physiologically Relevant Time of the Observation</h3>
 	<p> The effectiveDateTime or effectivePeriod is the time that the observation is most    relevant as an observation of the subject. For a biological subject (e.g. a human patient),    this is the physiologically relevant time of the observation.	In the case of an observation using a specimen, this represents the start and    end of the specimen collection (e.g. 24 hour Urine Sodium), but if the collection time is    sufficiently short, this is reported as a point in time value (e.g. normal venipuncture).    In the case of an observation obtained directly from a subject (e.g. BP,    Chest X-ray), this is the start and end time of the observation process, which again, is    often reported as a single point in time.</p>

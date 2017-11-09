@@ -366,10 +366,24 @@
   Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon
   Workflow Mapping = Event.basedOn
   v2 Mapping = ORC
-  RIM Mapping = .outboundRelationship[typeCode=FLFS].target
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
   Committee Notes = 1/31/2017 EH:#9664
 
  -- Row 4 -----------------------------------
+  Element = Observation.partOf
+  Card. = 0..*
+  Aliases = Container
+  Summary = Y
+  Type = Reference(MedicationAdministration | MedicationDispense | MedicationStatement | Procedure |Immunization|ImagingStudy )
+  Short Name = Part of referenced event
+  Definition = A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure.
+  Comments = To link an Observation to an Encounter use `context`.  See the  [Notes](observation.html#obsgrouping) below for guidance on referencing another Observation.
+  Workflow Mapping = Event.partOF
+  v2 Mapping = Varies by domain
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target
+  Committee Notes = 11/8/2017 EH #14095
+
+ -- Row 5 -----------------------------------
   Element = Observation.status
   Card. = 1..1
   Is Modifier = y
@@ -387,7 +401,7 @@
   Display Hint = default: final
   w5 = status
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Observation.category
   Card. = 0..*
   Type = CodeableConcept
@@ -400,7 +414,7 @@
   Committee Notes = #7879
   w5 = class
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Observation.code
   Card. = 1..1
   Aliases = Name
@@ -417,7 +431,7 @@
   SNOMED CT Attribute = 116680003 |Is a|
   w5 = what
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Observation.subject
   Card. = 0..1
   Summary = Y
@@ -432,7 +446,7 @@
   Committee Notes = [#3447] ,[#5704],7156
   w5 = who.focus
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Observation.context
   Card. = 0..1
   Aliases = Encounter
@@ -447,7 +461,7 @@
   Committee Notes = [#3379]
   w5 = context
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Observation.effective[x]
   Card. = 0..1
   Aliases = Occurrence
@@ -462,7 +476,7 @@
   RIM Mapping = effectiveTime
   w5 = when.done
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Observation.issued
   Card. = 0..1
   Summary = Y
@@ -474,7 +488,7 @@
   RIM Mapping = participation[typeCode=AUT].time
   w5 = when.recorded
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.performer
   Card. = 0..*
   Summary = Y
@@ -488,16 +502,16 @@
   Committee Notes = [#3688]{#3689]
   w5 = who.actor
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.value[x]
   Card. = 0..1
   Summary = Y
   Inv. = 7
-  Type = Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|Attachment|time|dateTime|Period
+  Type = Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period
   Short Name = Actual result
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations
-  Comments = Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueBoolean, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).\r\r\rIf the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.    For further discussion and examples see the  [notes section](observation.html#notes) below.
+  Comments = An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below.
   Workflow Mapping = Event.notDone, Event.notDoneReason  {maps to value[x] or dataAbsentReason}
   SNOMED CT Concept Domain = < 441742003 |Evaluation finding|
   v2 Mapping = OBX.2, OBX.5, OBX.6
@@ -505,7 +519,7 @@
   SNOMED CT Attribute = 363714003 |Interprets|
   Committee Notes = [#3125],[#3505],[#5853],8479,{#9375]
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Observation.dataAbsentReason
   Card. = 0..1
   Inv. = 6
@@ -520,7 +534,7 @@
   RIM Mapping = value.nullFlavor
   Committee Notes = [#3434],  [#5629],
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Observation.interpretation
   Card. = 0..1
   Aliases = Abnormal Flag
@@ -534,7 +548,7 @@
   RIM Mapping = interpretationCode
   SNOMED CT Attribute = 363713009 |Has interpretation|
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Observation.comment
   Card. = 0..1
   Type = string
@@ -545,7 +559,7 @@
   v2 Mapping = NTE.3 (partner NTE to OBX, or sometimes another (child?) OBX)
   RIM Mapping = subjectOf.observationEvent[code=\"annotation\"].value
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = !Observation.reliability
   Card. = 0..1
   Is Modifier = y
@@ -560,7 +574,7 @@
   Committee Notes = [#3002],7154
   Display Hint = default: ok
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Observation.bodySite
   Card. = 0..1
   Type = CodeableConcept
@@ -574,7 +588,7 @@
   SNOMED CT Attribute = 718497002 |Inherent location|
   Committee Notes = Is this in the 80%?
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Observation.method
   Card. = 0..1
   Type = CodeableConcept
@@ -587,7 +601,7 @@
   RIM Mapping = methodCode
   Committee Notes = Is this in the 80%?
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Observation.specimen
   Card. = 0..1
   Type = Reference(Specimen)
@@ -600,7 +614,7 @@
   SNOMED CT Attribute = 704319004 |Inherent in|
   Committee Notes = 7158
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Observation.device
   Card. = 0..1
   Type = Reference(Device|DeviceComponent|DeviceMetric)
@@ -613,7 +627,7 @@
   SNOMED CT Attribute = 424226004 |Using device|
   Committee Notes = [#3689]
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = !Observation.normalValue[x]
   Card. = 0..1
   Type = Range|string
@@ -622,7 +636,7 @@
   v2 Mapping = OBX.7
   RIM Mapping = outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN,  interpretationCode=ObservationInterpretationNormality:N].value
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Observation.referenceRange
   Card. = 0..*
   UML = 400;320
@@ -633,7 +647,7 @@
   v2 Mapping = OBX.7
   RIM Mapping = outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Observation.referenceRange.low
   Card. = 0..1
   Inv. = 3
@@ -644,7 +658,7 @@
   RIM Mapping = value:IVL_PQ.low
   Committee Notes = [#3882]
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Observation.referenceRange.high
   Card. = 0..1
   Inv. = 3
@@ -654,7 +668,7 @@
   v2 Mapping = OBX-7
   RIM Mapping = value:IVL_PQ.high
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Observation.referenceRange.type
   Card. = 0..1
   Type = CodeableConcept
@@ -668,7 +682,7 @@
   RIM Mapping = interpretationCode
   Committee Notes = [$8941][1115]
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Observation.referenceRange.appliesTo
   Card. = 0..*
   Type = CodeableConcept
@@ -682,7 +696,7 @@
   RIM Mapping = interpretationCode
   Committee Notes = [$8941][11115]
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..1
   Type = Range
@@ -691,7 +705,7 @@
   Requirements = Some analytes vary greatly over age
   RIM Mapping = outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=\"age\"].value
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Observation.referenceRange.text
   Card. = 0..1
   Type = string
@@ -700,7 +714,7 @@
   v2 Mapping = OBX-7
   RIM Mapping = value:ST
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = !Observation.derivedFrom
   Card. = 0..*
   Summary = Y
@@ -710,7 +724,7 @@
   Comments = Observations that are a group of observations should be separate resources referenced using the related element with type \"has-member\" or as component observation(s).
   RIM Mapping = .targetObservation
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Observation.related
   Card. = 0..*
   Summary = Y
@@ -722,7 +736,7 @@
   v2 Mapping = Relationships established by OBX-4 usage
   RIM Mapping = outBoundRelationship
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Observation.related.type
   Card. = 0..1
   Type = code
@@ -735,7 +749,7 @@
   RIM Mapping = .typeCode
   Committee Notes = [#7639]
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Observation.related.target
   Card. = 1..1
   Type = Reference(Observation|QuestionnaireResponse|Sequence)
@@ -744,7 +758,7 @@
   RIM Mapping = .targetObservation
   Committee Notes = can an invariant be made to limit code when referencing a resource type? [#10117]
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Observation.component
   Card. = 0..*
   Summary = Y
@@ -757,7 +771,7 @@
   RIM Mapping = outBoundRelationship[typeCode=COMP]
   Committee Notes = 5/15/2015:#7517
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Observation.component.code
   Card. = 1..1
   Summary = Y
@@ -771,22 +785,22 @@
   RIM Mapping = code
   w5 = what
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Observation.component.value[x]
   Card. = 0..1
   Summary = Y
-  Type = Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|Attachment|time|dateTime|Period
+  Type = Quantity|CodeableConcept|string|boolean|integer|Range|Ratio|SampledData|time|dateTime|Period
   Short Name = Actual component result
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or if it represents a group of observations
-  Comments = Normally, an observation will have either a single value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (these \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed\").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (the name format is \"\'value\' + the type name\" with a capital on the first letter of the type).
+  Comments = Used when observation has a set of component observations. A few observations may have both a value (e.g. an  Apgar score)  and component observations (the observations from which the Apgar score was derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](observation.html#notes) below.
   SNOMED CT Concept Domain = 363714003 |Interprets| < 441742003 |Evaluation finding|
   v2 Mapping = OBX.2, OBX.5, OBX.6
   RIM Mapping = value
   SNOMED CT Attribute = 363714003 |Interprets|
   Committee Notes = [#3125],[#3505],[#5853]
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Observation.component.dataAbsentReason
   Card. = 0..1
   Inv. = 6
@@ -800,7 +814,7 @@
   RIM Mapping = value.nullFlavor
   Committee Notes = [#3434], preapply [#5629]
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = Observation.component.interpretation
   Card. = 0..1
   Aliases = Abnormal Flag
@@ -816,7 +830,7 @@
   SNOMED CT Attribute = 363713009 |Has interpretation|
   Committee Notes = #9676
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = Observation.component.referenceRange
   Card. = 0..*
   Type = @Observation.referenceRange

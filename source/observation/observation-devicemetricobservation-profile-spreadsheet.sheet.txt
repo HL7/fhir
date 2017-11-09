@@ -18,7 +18,7 @@
   Element = Observation.value[x]
   Card. = 0..1
   Must Support = Y
-  Type = Quantity|CodeableConcept|string|Range|Ratio|SampledData|Attachment|time|dateTime|Period
+  Type = Quantity|CodeableConcept|string|Range|Ratio|SampledData|time|dateTime|Period
 
  -- Row 4 -----------------------------------
   Element = Observation.dataAbsentReason
