@@ -7,23 +7,22 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>lloyd</LastAuthor>
+  <LastAuthor>jevans</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-11-09T02:56:41Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2017-11-10T21:19:04Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13410</WindowHeight>
+  <WindowHeight>12435</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
   <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -764,6 +763,10 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s152">
+   <Borders/>
+   <Interior/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R44C1"/>
@@ -988,9 +991,9 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">Investigation to increase healthcare-related patient-independent knowledge</Data><NamedCell
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Physical entity which is the primary unit of interest in the study</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">A physical entity which is the primary unit of operational and/or administrative interest in a study. &#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Need to make sure we encompass public health studies</Data><NamedCell
@@ -1075,7 +1078,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s87"><Data ss:Type="String">candidate | enrolled | active | suspended | withdrawn | completed</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s87"><Data ss:Type="String">candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The current state of the subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3807,7 +3810,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3821,10 +3824,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
@@ -5681,8 +5684,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6064,7 +6067,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="research-subject-status">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s135" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="14.4375">
    <Column ss:StyleID="s135" ss:Width="80.25"/>
@@ -6104,234 +6107,124 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s137"><Data ss:Type="String">candidate</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">Candidate</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">The subject has been identified as a potential participant in the study but has not yet agreed to participate</Data></Cell>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">candidate</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Candidate</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">An identified person that can be considered for inclusion in a study.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s138"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s139"/>
+    <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">enrolled</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">eligible</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">Enrolled</Data></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">The subject has agreed to participate in the study but has not yet begun performing any action within the study</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Eligible</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">A person that has met the eligibility criteria for inclusion in a study.</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">follow-up</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">Active</Data></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">The subject is currently being monitored and/or subject to treatment as part of the study</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Follow-up</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">A person is no longer receiving study intervention and/or being evaluated with tests and procedures according to the protocol, but they are being monitored on a protocol-prescribed schedule.</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">ineligible</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">Suspended</Data></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">The subject has temporarily discontinued monitoring/treatment as part of the study</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Ineligible</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">A person who did not meet one or more criteria required for participation in a study is considered to have failed screening or&#10;is ineligible for the study.</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">suspended</Data></Cell>
+    <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">withdrawn</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">not-registered</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">Withdrawn</Data></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">The subject has permanently ended participation in the study prior to completion of the intended monitoring/treatment</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Not Registered</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">A person for whom registration was not completed</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">aborted</Data></Cell>
+    <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">off-study</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">Completed</Data></Cell>
-    <Cell ss:StyleID="s145"><Data ss:Type="String">All intended monitoring/treatment of the subject has been completed and their engagement with the study is now ended</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Off-study</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">A person that has ended their participation on a study either because their treatment/observation is complete or through not&#10;responding, withdrawal, non-compliance and/or adverse event.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">on-study</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">On-study</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">A person that is enrolled or registered on a study.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s146"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:StyleID="s144"><Data ss:Type="String">pending-on-study</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Pending on-study</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">A person is pre-registered for a study.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">potential-candidate</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Potential Candidate</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">A person that is potentially eligible for participation in the study.</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s146"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15">
+    <Cell ss:StyleID="s144"><Data ss:Type="String">screening</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Screening</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">A person who is being evaluated for eligibility for a study.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">withdrawn</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="Number">11</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Withdrawn</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">The person has withdrawn their participation in the study before registration.</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s146"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">aborted</Data></Cell>
     <Cell ss:StyleID="s146"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15">
@@ -6659,7 +6552,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>1</ActiveRow>
+     <RangeSelection>R2C1:R12C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
