@@ -3453,7 +3453,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String"> </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">completed, administrativly-completed</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">completed, administratively-completed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">withdrawn</Data><NamedCell
@@ -4116,7 +4116,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>82</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4129,10 +4129,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>4</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
+     <ActiveRow>1</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
