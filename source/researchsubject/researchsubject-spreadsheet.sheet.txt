@@ -14,43 +14,72 @@
   Id = 1
   Code = candidate
   Display = Candidate
-  Definition = The subject has been identified as a potential participant in the study but has not yet agreed to participate
+  Definition = An identified person that can be considered for inclusion in a study.
   v3 = draft
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = enrolled
-  Display = Enrolled
-  Definition = The subject has agreed to participate in the study but has not yet begun performing any action within the study
-  v3 = active
+  Code = eligible
+  Display = Eligible
+  Definition = A person that has met the eligibility criteria for inclusion in a study.
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = active
-  Display = Active
-  Definition = The subject is currently being monitored and/or subject to treatment as part of the study
-  v3 = active
+  Code = follow-up
+  Display = Follow-up
+  Definition = A person is no longer receiving study intervention and/or being evaluated with tests and procedures according to the protocol, but they are being monitored on a protocol-prescribed schedule.
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = suspended
-  Display = Suspended
-  Definition = The subject has temporarily discontinued monitoring/treatment as part of the study
-  v3 = suspended
+  Code = ineligible
+  Display = Ineligible
+  Definition = A person who did not meet one or more criteria required for participation in a study is considered to have failed screening or\nis ineligible for the study.
 
  -- Row 5 -----------------------------------
   Id = 5
-  Code = withdrawn
-  Display = Withdrawn
-  Definition = The subject has permanently ended participation in the study prior to completion of the intended monitoring/treatment
-  v3 = aborted
+  Code = not-registered
+  Display = Not Registered
+  Definition = A person for whom registration was not completed
 
  -- Row 6 -----------------------------------
   Id = 6
-  Code = completed
-  Display = Completed
-  Definition = All intended monitoring/treatment of the subject has been completed and their engagement with the study is now ended
+  Code = off-study
+  Display = Off-study
+  Definition = A person that has ended their participation on a study either because their treatment/observation is complete or through not\nresponding, withdrawal, non-compliance and/or adverse event.
   v3 = completed
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = on-study
+  Display = On-study
+  Definition = A person that is enrolled or registered on a study.
+  v3 = active
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = pending-on-study
+  Display = Pending on-study
+  Definition = A person is pre-registered for a study.
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = potential-candidate
+  Display = Potential Candidate
+  Definition = A person that is potentially eligible for participation in the study.
+  v3 = draft
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = screening
+  Display = Screening
+  Definition = A person who is being evaluated for eligibility for a study.
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Code = withdrawn
+  Display = Withdrawn
+  Definition = The person has withdrawn their participation in the study before registration.
+  v3 = aborted
 
 === Sheet Invariants =====================================
 
@@ -60,8 +89,8 @@
   Element = ResearchSubject
   Aliases = Study Subject
   Type = DomainResource
-  Short Name = Investigation to increase healthcare-related patient-independent knowledge
-  Definition = A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
+  Short Name = Physical entity which is the primary unit of interest in the study
+  Definition = A physical entity which is the primary unit of operational and/or administrative interest in a study.
   Comments = Need to make sure we encompass public health studies
   v2 Mapping = OBX
   RIM Mapping = Observation[classCode=CLNTRL, moodCode=EVN]
@@ -69,7 +98,7 @@
 
  -- Row 2 -----------------------------------
   Element = ResearchSubject.identifier
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = Identifier
   Short Name = Business Identifier for research subject
@@ -85,7 +114,7 @@
   Summary = Y
   Type = code
   Binding = ResearchSubjectStatus
-  Short Name = candidate | enrolled | active | suspended | withdrawn | completed
+  Short Name = candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn
   Definition = The current state of the subject
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   RIM Mapping = .status

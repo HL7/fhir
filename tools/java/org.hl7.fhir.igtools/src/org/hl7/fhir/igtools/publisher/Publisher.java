@@ -44,6 +44,7 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.R2ToR3Loader;
@@ -2402,6 +2403,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (generateExampleZip(FhirFormat.TURTLE))
       generateDefinitions(FhirFormat.TURTLE, df.getCanonicalPath());
     generateValidationPack(df.getCanonicalPath());
+    // Create an IG-specific named igpack to make is easy to grab the igpacks for multiple igs without the names colliding (Talk to Lloyd before removing this)
+    FileUtils.copyFile(new File(Utilities.path(outputDir, "validator.pack")),new File(Utilities.path(outputDir, sourceIg.getId() + "_validator.pack")));
+    generateCsvZip();
+    generateExcelZip();
     generateRegistryUploadZip(df.getCanonicalPath());
   }
 
@@ -2434,6 +2439,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       zip.addFileName("spec.internals", specFile, false);
       zip.close();
     }
+  }
+
+  private void generateExcelZip()  throws Exception {
+    generateZipByExtension(Utilities.path(outputDir, "excels.zip"), ".xlsx");
+  }
+
+  private void generateCsvZip()  throws Exception {
+    generateZipByExtension(Utilities.path(outputDir, "csvs.zip"), ".csv");
   }
 
   private void generateRegistryUploadZip(String specFile)  throws Exception {
@@ -2487,22 +2500,29 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private String makeTempZip(String ext) throws IOException {
+    File tmp = File.createTempFile("fhir", "zip");
+    tmp.deleteOnExit();
+    if (generateZipByExtension(tmp.getCanonicalPath(), ext))
+      return tmp.getCanonicalPath();
+    else
+      return null;
+  }
+
+  private boolean generateZipByExtension(String path, String ext) throws IOException {
     Set<String> files = new HashSet<String>();
     for (String s : new File(outputDir).list()) {
       if (s.endsWith(ext))
         files.add(s);
     }
     if (files.size() == 0)
-      return null;
-    File tmp = File.createTempFile("fhir", "zip");
-    tmp.deleteOnExit();
-    ZipGenerator zip = new ZipGenerator(tmp.getCanonicalPath());
+      return false;
+    ZipGenerator zip = new ZipGenerator(path);
     for (String fn : files)
       zip.addFileName(fn, Utilities.path(outputDir, fn), false);
     zip.close();
-    return tmp.getCanonicalPath();
+    return true;
   }
-
+  
   private boolean generateExampleZip(FhirFormat fmt) throws Exception {
     Set<String> files = new HashSet<String>();
     for (FetchedFile f : fileList) {
@@ -3562,6 +3582,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       String path = Utilities.path(tempDir, r.getId()+".csv");
       f.getOutputNames().add(path);
       new ProfileUtilities(context, errors, igpkp).generateCsvs(new FileOutputStream(path), sd, true);
+    }
+
+    if (igpkp.wantGen(r, "xlsx")) {
+      String path = Utilities.path(tempDir, r.getId()+".xlsx");
+      f.getOutputNames().add(path);
+      new ProfileUtilities(context, errors, igpkp).generateXlsx(new FileOutputStream(path), sd, true);
     }
 
     if (!regen && sd.getKind() != StructureDefinitionKind.LOGICAL &&  igpkp.wantGen(r, ".sch")) {

@@ -271,10 +271,10 @@
   Comments = Pages automatically become sections if they have sub-pages. By convention, the home page is called index.html
 
  -- Row 30 -----------------------------------
-  Element = ImplementationGuideInput.page.source
+  Element = ImplementationGuideInput.page.source[x]
   Card. = 1..1
   Summary = Y
-  Type = uri
+  Type = uri|Reference(Binary)
   Short Name = Where to find that page
   Definition = The source address for the page
   Comments = The publishing tool will autogenerate source for list (source = n/a), and inject included implementations for include (source = uri of guide to include)

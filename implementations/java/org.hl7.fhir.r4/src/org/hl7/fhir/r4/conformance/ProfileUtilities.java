@@ -65,6 +65,7 @@ import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.TranslatingUtilities;
 import org.hl7.fhir.r4.utils.formats.CSVWriter;
+import org.hl7.fhir.r4.utils.formats.XLSXWriter;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -3059,6 +3060,19 @@ public class ProfileUtilities extends TranslatingUtilities {
       csv.processElement(child);
     }
     csv.dump();
+  }
+  
+  // generate an Excel representation of the structure definition
+  public void generateXlsx(OutputStream dest, StructureDefinition structure, boolean asXml) throws IOException, DefinitionException, Exception {
+    if (!structure.hasSnapshot())
+      throw new DefinitionException("needs a snapshot");
+
+    XLSXWriter xlsx = new XLSXWriter(dest, structure, asXml);
+
+    for (ElementDefinition child : structure.getSnapshot().getElement()) {
+      xlsx.processElement(child);
+    }
+    xlsx.dump();
   }
   
   private class Slicer extends ElementDefinitionSlicingComponent {

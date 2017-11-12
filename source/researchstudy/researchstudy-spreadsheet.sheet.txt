@@ -27,45 +27,73 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = draft
-  Display = Draft
-  Definition = The study is undergoing design but the process of selecting study subjects and capturing data has not yet begun.
-  v3 = new
+  Code = active
+  Display = Active
+  Definition = Study is opened for accrual.
+  v3 = active
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = in-progress
-  Display = In-progress
-  Definition = The study is currently being executed
-  v3 = active
+  Code = administratively-completed
+  Display = Administratively Completed
+  Definition = Study is completed prematurely and will not resume; patients are no longer examined nor treated.\nTagged
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = suspended
-  Display = Suspended
-  Definition = Execution of the study has been temporarily paused
-  v3 = suspended
+  Code = approved
+  Display = Approved
+  Definition = Protocol is approved by the review board.
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = stopped
-  Display = Stopped
-  Definition = The study was terminated prior to the final determination of results
-  v3 = aborted
+  Code = closed-to-accrual
+  Display = Closed to Accrual
+  Definition = Study is closed for accrual; patients can be examined and treated.
 
  -- Row 5 -----------------------------------
   Id = 5
-  Code = completed
-  Display = Completed
-  Definition = The information sought by the study has been gathered and compiled and no further work is being performed
-  v3 = completed
+  Code = closed-to-accrual-and-intervention
+  Display = Closed to Accrual and Intervention
+  Definition = Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment or intervention but are still being followed according to the primary objective of the study.
 
  -- Row 6 -----------------------------------
   Id = 6
-  Code = entered-in-error
-  Display = Entered in error
-  Definition = This study never actually existed.  The record is retained for tracking purposes in the event decisions may have been made based on this erroneous information.
-  v3 = nullified
+  Code = completed
+  Display = Completed
+  Definition = Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment\nor intervention but are still being followed according to the primary objective of the study.
+  v3 = completed
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = disapproved
+  Display = Disapproved
+  Definition = Protocol was disapproved by the review board.
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = in-review
+  Display = In Review
+  Definition = Protocol is submitted to the review board for approval.
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = temporarily-closed-to-accrual
+  Display = Temporarily Closed to Accrual
+  Definition = Study is temporarily closed for accrual; can be potentially resumed in the future; patients can be examined and treated.
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = temporarily-closed-to-accrual-and-intervention
+  Display = Temporarily Closed to Accrual and Intervention
+  Definition = Study is temporarily closed for accrual and intervention and potentially can be resumed in the future.
+  v3 = suspended
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Code = withdrawn
+  Display = Withdrawn
+  Definition = Protocol was withdrawn by the lead organization.
+  v3 = aborted
 
 === Sheet Invariants =====================================
 
@@ -131,7 +159,7 @@
   Summary = Y
   Type = code
   Binding = ResearchStudyStatus
-  Short Name = draft | in-progress | suspended | stopped | completed | entered-in-error
+  Short Name = active | administratively-completed | approved | closed-to-accrual | closed-to-accrual-and-intervention | completed | disapproved | in-review | temporarily-closed-to-accrual | temporarily-closed-to-accrual-and-intervention | withdrawn
   Definition = The current state of the study
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   RIM Mapping = .status
@@ -187,7 +215,7 @@
   clinicaltrials.gov Mapping = Keywords
 
  -- Row 12 -----------------------------------
-  Element = ResearchStudy.jurisdiction
+  Element = ResearchStudy.participatingLocation
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
@@ -352,9 +380,9 @@
   Path = ResearchStudy.keyword
 
  -- Row 9 -----------------------------------
-  Name = jurisdiction
+  Name = participatinglocation
   Type = token
-  Path = ResearchStudy.jurisdiction
+  Path = ResearchStudy.participatingLocation
 
  -- Row 10 -----------------------------------
   Name = date

@@ -13,8 +13,11 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.r4.model.ElementDefinition;
@@ -28,7 +31,7 @@ public class ReviewSpreadsheetGenerator {
     HSSFWorkbook workbook = new HSSFWorkbook();
         
     HSSFPalette palette = workbook.getCustomPalette();
-    palette.setColorAtIndex(HSSFColor.LAVENDER.index, (byte) 0xF0, (byte) 0xF0, (byte) 0xF0);
+    palette.setColorAtIndex(IndexedColors.LAVENDER.getIndex(), (byte) 0xF0, (byte) 0xF0, (byte) 0xF0);
     
     generateReviewHeader(workbook);
     generateReviewSheet(workbook, profile);
@@ -43,14 +46,14 @@ public class ReviewSpreadsheetGenerator {
     sheet.setColumnWidth(3, 100);
     
     HSSFFont font = workbook.createFont();
-    font.setBoldweight(Font.BOLDWEIGHT_BOLD);
+    font.setBold(true);
     font.setFontName("Calibri");
     HSSFCellStyle style = workbook.createCellStyle();
     style.setFont(font);
-    style.setBorderBottom(CellStyle.BORDER_THIN);
-    style.setFillBackgroundColor(new HSSFColor.LAVENDER().getIndex());
-    style.setFillForegroundColor(new HSSFColor.LAVENDER().getIndex());
-    style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+    style.setBorderBottom(BorderStyle.THIN);
+    style.setFillBackgroundColor(IndexedColors.LAVENDER.getIndex());
+    style.setFillForegroundColor(IndexedColors.LAVENDER.getIndex());
+    style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
     
     addRow(sheet, style, "Path", "StructureDefinition", "Value Set", "Definition", "Your Comments").setRowStyle(style);
 
@@ -91,7 +94,7 @@ public class ReviewSpreadsheetGenerator {
         richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" : "+ed.getType().get(0).getCode()+" ["+describeCardinality(ed)+"]");
         HSSFFont fontBlue = workbook.createFont();
         fontBlue.setFontName("Calibri");
-        fontBlue.setColor(new HSSFColor.DARK_BLUE().getIndex());
+        fontBlue.setColor(IndexedColors.DARK_BLUE.getIndex());
         richString.applyFont(indent.length()+ed.getPath().length() - (path.length()+1), richString.length()- describeCardinality(ed).length()-3, fontBlue);
       } else { 
         richString = new HSSFRichTextString(indent+ed.getPath().substring(path.length()+1)+" : * ["+describeCardinality(ed)+"]");
@@ -164,7 +167,7 @@ public class ReviewSpreadsheetGenerator {
   private void generateReviewHeader(HSSFWorkbook workbook) {
     HSSFSheet sheet = workbook.createSheet("Review Details");
     HSSFFont font = workbook.createFont();
-    font.setBoldweight(Font.BOLDWEIGHT_BOLD);
+    font.setBold(true);
     HSSFCellStyle style = workbook.createCellStyle();
     style.setFont(font);
     
