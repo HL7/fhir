@@ -699,9 +699,11 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     names.add("META-INF/MANIFEST.MF");
 
     String importsDir = Utilities.path(folders.rootDir, "tools", "java", "imports");
+    AddJarToJar(jar, Utilities.path(importsDir, "xmlbeans-2.6.0.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "xpp3-1.1.4c.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "gson-2.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-codec-1.9.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "commons-collections4-4.1.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-io-1.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-lang3-3.3.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "commons-logging-1.1.1.jar"), names);
@@ -710,6 +712,11 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     AddJarToJar(jar, Utilities.path(importsDir, "httpclient-4.2.3.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "httpcore-4.2.2.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "hapi-fhir-base-1.6.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "poi-3.17.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "poi-ooxml-3.17.jar"), names);
+    AddJarToJar(jar, Utilities.path(importsDir, "ooxml-schemas-1.3.jar"), names);
+
+    
     AddJarToJar(jar, Utilities.path(importsDir, "Saxon-HE-9.5.1-5.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "xpp3_xpath-1.1.4c.jar"), names);
     AddJarToJar(jar, Utilities.path(importsDir, "ST4-4.0.7.jar"), names);
