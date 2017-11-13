@@ -96,7 +96,7 @@
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
+  Id = !1
   Context = Procedure
   English = Reason not done is only permitted if notDone indicator is true
   XPath = not(exists(f:notDoneReason)) or f:notDone/@value=true()
@@ -128,10 +128,10 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Procedure.definition
+  Element = Procedure.instantiates
   Card. = 0..*
   Summary = Y
-  Type = Reference(PlanDefinition|ActivityDefinition|HealthcareService)
+  Type = uri
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this procedure
   Workflow Mapping = Event.instantiates
@@ -167,7 +167,7 @@
   Summary = Y
   Type = code
   Binding = ProcedureStatus
-  Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error | unknown
+  Short Name = preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown
   Definition = A code specifying the state of the procedure. Generally this will be in-progress or completed state.
   Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the procedure.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Event.status
@@ -176,7 +176,7 @@
   w5 = status
 
  -- Row 7 -----------------------------------
-  Element = Procedure.notDone
+  Element = !Procedure.notDone
   Card. = 0..1
   Is Modifier = Y
   Summary = y
@@ -190,14 +190,15 @@
   Default Value = false
 
  -- Row 8 -----------------------------------
-  Element = Procedure.notDoneReason
+  Element = Procedure.statusReason
   Card. = 0..1
+  Aliases = Suspended Reason, Cancelled Reason
   Summary = Y
-  Inv. = 1
   Type = CodeableConcept
   Binding = ProcedureNegationReason
-  Short Name = Reason procedure was not performed
-  Definition = A code indicating why the procedure was not performed.
+  Short Name = Reason for current status
+  Definition = Captures the reason for the current state of the procedure
+  Comments = This is generally only used for \"exception\" statuses such as \"not-done\", \"suspended\" or \"aborted\". The reason for performing the event at all is captured in reasonCode, not here.
   Workflow Mapping = Event.notDoneReason
   RIM Mapping = .reason.Observation.value
 
@@ -294,7 +295,7 @@
   Element = Procedure.performer.actor
   Card. = 1..1
   Summary = y
-  Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
+  Type = Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)
   Short Name = The reference to the practitioner
   Definition = The practitioner who was involved in the procedure
   Requirements = A reference to Device supports use cases, such as pacemakers
@@ -332,6 +333,7 @@
   Binding = ProcedureReason
   Short Name = Coded reason procedure performed
   Definition = The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text
+  Comments = It is possible for a procedure to be a reason (such as C-Section) for another procedure (such as epidural).
   Workflow Mapping = Event.reasonCode
   RIM Mapping = .reasonCode
   w5 = why
@@ -340,9 +342,9 @@
   Element = Procedure.reasonReference
   Card. = 0..*
   Summary = y
-  Type = Reference(Condition|Observation)
-  Short Name = Condition that is the reason the procedure performed
-  Definition = The condition that is the reason why the procedure was performed.
+  Type = Reference(Condition|Observation|Procedure|DiagnosticReport|DocumentReference)
+  Short Name = The justification that the procedure was performed
+  Definition = The justification of why the procedure was performed.
   Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapeutic
   Workflow Mapping = Event.reasonReference
   RIM Mapping = .reasonCode
@@ -454,7 +456,7 @@
   Element = Procedure.focalDevice
   Card. = 0..*
   UML = 420;180
-  Short Name = Device changed in procedure
+  Short Name = Manipulated, implanted, or removed device
   Definition = A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
   RIM Mapping = .participation[typeCode=DEV].role[classCode=MANU]
 
@@ -550,9 +552,9 @@
   Path = Procedure.category
 
  -- Row 10 -----------------------------------
-  Name = definition
-  Type = reference
-  Path = Procedure.definition
+  Name = instantiates
+  Type = uri
+  Path = Procedure.instantiates
 
  -- Row 11 -----------------------------------
   Name = based-on

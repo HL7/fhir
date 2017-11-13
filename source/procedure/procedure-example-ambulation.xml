@@ -8,25 +8,23 @@
   <identifier>
        <value value="12345"/>
   </identifier>
-  <definition>
-    <display value="Protocol for hypertension during pregnancy"/>
-  </definition>
-
+  <instantiates value="http://example.org/fhir/PlanDefinition/protocol-for-hypertension-during-pregnancy"/>
+  
   <basedOn>
     <reference value="CarePlan/preg"/>
     <display value="Maternity care plan"/>
   </basedOn>
 
-  <status value="suspended"/>
-  <notDone value="true"/>
-  <notDoneReason>
+  <status value="not-done"/>
+ 
+  <statusReason>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="398254007"/>
       <display value="  Pre-eclampsia (disorder)"/>
     </coding>
     <text value="Pre-eclampsia"/>
-  </notDoneReason>
+  </statusReason>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>

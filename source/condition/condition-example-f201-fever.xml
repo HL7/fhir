@@ -53,6 +53,9 @@
   <onsetDateTime value="2013-04-02"/>
   <abatementString value="around April 9, 2013"/>
   <assertedDate value="2013-04-04"/>
+  <recorder>
+    <reference value="Practitioner/f201"/>
+  </recorder>
   <asserter>
     <reference value="Practitioner/f201"/>
   </asserter>
