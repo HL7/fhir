@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-11-09T04:01:35Z</LastSaved>
+  <LastSaved>2017-11-14T01:20:07Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,8 +21,7 @@
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>5625</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -5304,7 +5303,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <TopRowVisible>35</TopRowVisible>
    <LeftColumnVisible>8</LeftColumnVisible>
    <Panes>
@@ -7613,7 +7611,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="56" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="58" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s180" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s180" ss:AutoFitWidth="0" ss:Width="143.25"/>
@@ -8116,6 +8114,17 @@
     <Cell ss:Index="3" ss:StyleID="s188"><Data ss:Type="String">Example of an Observations made about a location - an oyster farm</Data></Cell>
     <Cell ss:StyleID="s188"><Data ss:Type="String">vp-oyster</Data></Cell>
     <Cell ss:StyleID="s188"><Data ss:Type="String">observation-example-vp-oyster.xml</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s188"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s188"><Data ss:Type="String">Herd test for Mycoplasmal Pneumonia</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s188"><Data ss:Type="String"> An example of a herd screening ELISA assay for Mycoplasmal Pneumonia in Pigs</Data></Cell>
+    <Cell ss:StyleID="s188"><Data ss:Type="String">herd1</Data></Cell>
+    <Cell ss:StyleID="s188"><Data ss:Type="String">observation-example-herd1.xml</Data></Cell>
+    <Cell ss:Index="7" ss:StyleID="s188"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="3"><Data ss:Type="String">(Enzootic pneumonia).</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -8130,12 +8139,13 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>37</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -8143,7 +8153,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -8151,8 +8160,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>61</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

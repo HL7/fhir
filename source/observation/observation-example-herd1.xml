@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ An example of a herd screening observation for Mycoplasmal Pneumonia in Pigs
+(Enzootic pneumonia).  Many thanks to Veterinary Diagnostic Laboratory Iowa State University for the data.
+This uses the Group resource as the subject-->
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/observation.xsd">
+	<id value="herd1"/>
+	<!--  the mandatory status  -->
+	<status value="final"/>
+	<!-- category code is A code that classifies the general type of observation being made. This is used for searching, sorting and display purposes.-->
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+		<text value="Laboratory"/>
+	</category>
+	<!-- 
+    Observations are often coded in multiple code systems.
+      - LOINC provides codes of varying granularity (though not usefully more specific in this particular case) and more generic LOINCs  can be mapped to more specific codes as shown here
+      - snomed provides a clinically relevant code that is usually less granular than LOINC
+      - the source system provides its own code, which may be less or more granular than LOINC
+   -->
+	<code>
+		<!--  LOINC - always recommended to have a LOINC code  -->
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="80219-9"/>
+			<!--more generic methodless LOINC-->
+			<display value="Mycoplasma hyopneumoniae Ab sample/Positive control in Serum by Immunoassay"/>
+		</coding>
+		<!--  Also, a local code specific to the source system  -->
+		<coding>
+			<system value="http://acme.org/devices/clinical-codes"/>
+			<code value="Mycoplasma"/>
+			<display value="Mycoplasma"/>
+		</coding>
+		<text value="Mycoplasma hyopneumoniae - MHP"/>
+	</code>
+	<!--   subject is a herd of 2500 breding sows -->
+	<subject>
+		<reference value="Group/herd1"/>
+	</subject>
+	<context>
+		<display value="part of a health assurance program"/>
+	</context>
+	<effectiveDateTime value="2017-11-20"/>
+	<!--  In FHIR, units may be represented twice. Once in the
+    agreed human representation, and once in a coded form.
+    Both is best, since it's not always possible to infer
+    one from the other in code.
+
+    When a computable unit is provided, UCUM (http://unitsofmeasure.org)
+    is always preferred, but it doesn't provide notional units (such as
+    "tablet"), etc. For these, something else is required (e.g. SNOMED CT)
+    -->
+	<valueQuantity>
+		<value value="0.2"/>
+		<unit value="% (sample/positive control)"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="%"/>
+	</valueQuantity>
+	<interpretation>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0078"/>
+			<code value="NEG"/>
+			<display value="Negative"/>
+		</coding>
+		<text value="Negative"/>
+	</interpretation>
+	<!-- Specimen is a pooled serology sample of 30 animals.-->
+	<specimen>
+		<reference value="Specimen/pooled-serum"/>
+		<display value="30 serum"/>
+	</specimen>
+	<referenceRange>
+		<text value="&gt;0.4 Positive; 0.3 to 0.4 Suspect &lt; 0.3 Negative"/>
+	</referenceRange>
+</Observation>

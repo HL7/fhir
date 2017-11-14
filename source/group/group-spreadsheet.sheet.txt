@@ -314,4 +314,10 @@
   Description = General Group Example, Member Based
   Filename = group-example-member.xml
 
+ -- Row 3 -----------------------------------
+  Name = Porcine herd
+  Identity = herd1
+  Description = Herd of 2500 breeding sows
+  Filename = group-example-herd1.xml
+
 === Sheet Examples =====================================

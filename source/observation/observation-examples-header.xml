@@ -1,5 +1,4 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
 	<h3>Laboratory Results</h3>
 	<p>The following Observations show examples of laboratory observations:
     </p>
@@ -85,11 +84,20 @@
 		</li>
 	</ul>
 	<h3>Observations where subject is a Location</h3>
-		<p>The following Observations show examples of observations about a location:
+	<p>The following Observations show examples of observations about a location:
     </p>
 	<ul>
 		<li>
 			<a href="observation-example-vp-oyster.html">Example of an Observations made about a location - an oyster farm</a>
+		</li>
+	</ul>
+	<h3>Observations where subject is a Group</h3>
+	<p>The following Observations show examples of observations about a group:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-herd1.html"> An example of a herd screening ELISA assay for Mycoplasmal Pneumonia in Pigs
+</a>
 		</li>
 	</ul>
 	<h3>Personal Characteristics</h3>
@@ -151,7 +159,9 @@
 	<p>The following Observations show examples of social history observations:
     </p>
 	<ul>
-		<li><a href="observation-example-alcohol-type.html">Type of alcohol consumed</a></li>
+		<li>
+			<a href="observation-example-alcohol-type.html">Type of alcohol consumed</a>
+		</li>
 	</ul>
 	<h3>Vital Signs</h3>
 	<p>The following Observations show examples of vital signs measurements:

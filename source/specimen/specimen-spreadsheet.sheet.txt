@@ -486,15 +486,21 @@
   Filename = specimen-example-isolate.xml
 
  -- Row 3 -----------------------------------
-  Name = urine
+  Name = Urine
   Identity = vma-urine
   Description = VMA, Random Urine Sample
   Filename = specimen-example-urine.xml
 
  -- Row 4 -----------------------------------
-  Name = serum
+  Name = Serum
   Identity = sst
   Description = Serum Sample
   Filename = specimen-example-serum.xml
+
+ -- Row 5 -----------------------------------
+  Name = Pooled serum
+  Identity = pooled-serum
+  Description = Pooled serum sample
+  Filename = specimen-example-pooled-serum.xml
 
 === Sheet Examples =====================================

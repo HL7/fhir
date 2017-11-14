@@ -1555,6 +1555,15 @@
   Description = Example of an Observations made about a location - an oyster farm
   Filename = observation-example-vp-oyster.xml
 
+ -- Row 56 -----------------------------------
+  Name = Herd test for Mycoplasmal Pneumonia
+  Identity = herd1
+  Description = An example of a herd screening ELISA assay for Mycoplasmal Pneumonia in Pigs
+  Filename = observation-example-herd1.xml
+
+ -- Row 57 -----------------------------------
+  Description = (Enzootic pneumonia).
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

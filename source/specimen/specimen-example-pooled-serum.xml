@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ An example of a pooled serum sample used in the screening observation for Mycoplasmal Pneumonia in Pigs
+(Enzootic pneumonia).  Many thanks to Veterinary Diagnostic Laboratory Iowa State University for the data.-->
+<Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Downloads/fhir-all-xsd/structuredefinition.xsd">
+	<id value="pooled-serum"/>
+	<!--  the accessionId assigned by the lab-->
+	<accessionIdentifier>
+		<system value="https://vetmed.iastate.edu/vdl"/>
+		<value value="20171120-1234"/>
+	</accessionIdentifier>
+	<!-- Pooled serum sample from 30 individuals in the herd- no Snomed Code for this - used a made up local code-->
+	<type>
+		<coding>
+			<system value="https://vetmed.iastate.edu/vdl"/>
+			<code value="Serum sample, pooled"/>
+			<display value="Serum sample, pooled"/>
+		</coding>
+		<text  value="Pooled serum sample"></text>
+	</type>
+	<!-- subject is a herd of breeding sows -->
+	<subject>
+		<reference value="Group/herd1"/>
+	</subject>
+
+	<collection>
+		<collector>
+			<display value="James Herriot, FRCVS"></display>
+		</collector>
+		<collectedDateTime value="2017-11-14"/>
+	</collection>
+	<container>
+		<type>
+			<coding>
+				<system value="https://vetmed.iastate.edu/vdl"/>
+				<code value="RTT"/>
+				<display value="Red Top Tube"/>
+			</coding>
+			<text value="Red Top Blood Collection Tube"></text>
+		</type>
+	</container>
+	<note>
+		<text value="Pooled serum sample from 30 individuals"></text>
+	</note>
+</Specimen>

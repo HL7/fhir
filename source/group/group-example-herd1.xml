@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ An example of a herd used in the subject screening observation for Mycoplasmal Pneumonia in Pigs
+(Enzootic pneumonia).  Many thanks to Veterinary Diagnostic Laboratory Iowa State University for the data.-->
+<Group xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Group.xsd">
+	<id value="herd1"/>
+	<!-- added this extension to reference the owner (client) of the herd -->
+	<extension url="http://example.org/fhir/StructureDefinition/owner">
+	<valueReference>
+		<reference value="RelatedPerson/peter"/>
+		<display value="Peter Chalmers"/>
+	</valueReference>
+	</extension>
+	<!-- diagnostic lab's identifier -->
+	<identifier>
+		<system value="https://vetmed.iastate.edu/vdl"/>
+		<value value="20171120-1234"/>
+	</identifier>
+	<active value="true"/>
+	<type value="animal"/>
+	<actual value="true"/>
+	<!-- describes a bunch of female breeding sows  added a translation from US APHIS codes to SNOMED CT-->
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="388393002"/>
+			<display value="Genus Sus (organism)"/>
+		</coding>
+		<coding>
+			<system value="https://www.aphis.usda.gov"/>
+			<code value="POR"/>
+			<display value="porcine"/>
+		</coding>
+		<text value="Porcine"/>
+	</code>
+	<name value="Breeding herd"/>
+	<quantity value="2500"/>
+	<!-- the share the common charasteristic of being sows -->
+	<characteristic>
+		<code>
+			<text value="gender"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="female"/>
+		</valueCodeableConcept>
+		<!-- required element - false means they are all sows -->
+		<exclude value="false"/>
+	</characteristic>
+
+</Group>
