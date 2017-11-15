@@ -1,0 +1,8 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+  <a name="usage"> </a>
+  <h2>Usage</h2>
+  <p> The UserSession resource is used to represent the information involved in a user's session. In particular,
+    the resource supports context synchronization use cases between systems.
+  </p>
+</div>

@@ -689,6 +689,9 @@
   <translation lang="es">Usuario</translation>
   <translation lang="fr">Utilisateur</translation>
 </item>
+<item id="UserSession">
+  <translation lang="en">UserSession</translation>
+</item>
 <item id="ValueSet">
   <translation lang="en">ValueSet</translation>
   <translation lang="zh">取值集合</translation>

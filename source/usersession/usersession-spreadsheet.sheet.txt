@@ -1,0 +1,221 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = UserSessionStatus
+  Binding = code list
+  Reference = #usersession-status
+  Definition = The status of the user session
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = UserSessionStatusSource
+  Binding = code list
+  Reference = #usersession-status-source
+  Definition = The source of the status of the user session
+  Conformance = required
+
+=== Sheet usersession-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = activating
+  Display = Activating
+  Definition = The user session is activating
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = active
+  Display = Active
+  Definition = The user session is active
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = suspended
+  Display = Suspending
+  Definition = The user session is suspended
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = closing
+  Display = Closing
+  Definition = The user session is closing
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = closed
+  Display = Closed
+  Definition = The user session is closed
+
+=== Sheet usersession-status-source =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = user
+  Display = User
+  Definition = The status was reported by the user
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = system
+  Display = System
+  Definition = The status was reported by the system
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = UserSession
+  UML = 0;0
+  Type = DomainResource
+  Short Name = Information about a user\'s current session
+  Definition = Information about a user\'s current session
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = UserSession.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Name = Business identifier
+  Definition = Allows a service to provide a unique, business identifier for the session
+  Requirements = Allows identification of the session as it is known by various participating systems
+  To Do = Why allow multiple identifiers?
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = UserSession.user
+  Card. = 0..*
+  Type = Reference(Device|Practitioner|Patient|RelatedPerson)
+  Short Name = User engaged in the session
+  Definition = A practitioner, patient, device, or related person engaged in the session
+
+ -- Row 4 -----------------------------------
+  Element = UserSession.status
+  Card. = 0..1
+  Short Name = Status of the session
+
+ -- Row 5 -----------------------------------
+  Element = UserSession.status.code
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = UserSessionStatus
+  Short Name = activating | active | suspended | closing | closed
+  Definition = The current status of the user session
+  To Do = Why is this a backbone element? Why not just have a status and source?
+  w5 = status
+
+ -- Row 6 -----------------------------------
+  Element = UserSession.status.source
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = UserSessionStatusSource
+  Short Name = user | system
+  Definition = The source of the status code
+  Comments = This element is intended to be used to prevent infinite loops in bi-directional context synchronization scenarios
+
+ -- Row 7 -----------------------------------
+  Element = UserSession.workstation
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Where is the session
+  Definition = Location that identifies the physical place at which the user\'s session is occurring. For the purposes of context synchronization, this is intended to represent the user\'s workstation
+  To Do = Why is this a CodeableConcept rather than an identifier? Also, the name workstation seems somewhat specific, could this be generalized, is it device? is it location?
+  w5 = where
+
+ -- Row 8 -----------------------------------
+  Element = UserSession.focus
+  Card. = 1..*
+  Type = Reference(Any)
+  Short Name = What is the user\'s current focus
+  Definition = The current focus of the user\'s session. Common values are a reference to a Patient, Encounter, ImagingStudy, etc
+  w5 = what
+
+ -- Row 9 -----------------------------------
+  Element = UserSession.created
+  Card. = 0..1
+  Type = instant
+  Short Name = When was the session created
+  Definition = Indicates the timestamp when the user session was first created
+  w5 = when.recorded
+
+ -- Row 10 -----------------------------------
+  Element = UserSession.expires
+  Card. = 0..1
+  Summary = Y
+  Type = instant
+  Short Name = When does the session expire
+  Definition = Indicates the timestamp when the user session will expire (i.e. no longer be valid)
+  Missing Meaning = If missing, the user session does not expire
+
+ -- Row 11 -----------------------------------
+  Element = UserSession.context
+  Card. = 0..*
+  Summary = Y
+  Short Name = Additional information about the session
+  Definition = Provides additional information associated with the context
+  w5 = context
+
+ -- Row 12 -----------------------------------
+  Element = UserSession.context.type
+  Card. = 1..1
+  Type = string
+  Short Name = What type of context value
+  Definition = Indicates which type of context is being provided
+  To Do = Why isn\'t this a CodeableConcept?
+
+ -- Row 13 -----------------------------------
+  Element = UserSession.context.value
+  Card. = 0..1
+  Type = string
+  Short Name = Value of the context
+  Definition = Provides the context value
+  To Do = Why isn\'t this a Choice of values? Say String, CodeableConcept, Quantity?
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of a patient to search for user sessions
+  Path = UserSession.focus
+  Target Types = Patient
+
+ -- Row 2 -----------------------------------
+  Name = focus
+  Type = reference
+  Description = The focus of the user session
+  Path = UserSession.focus
+
+ -- Row 3 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = External identifiers for the user session
+  Path = UserSession.identifier
+
+ -- Row 4 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the user session
+  Path = UserSession.status
+
+ -- Row 5 -----------------------------------
+  Name = user
+  Type = reference
+  Description = The user of the session
+  Path = UserSession.user
+
+ -- Row 6 -----------------------------------
+  Name = workstation
+  Type = token
+  Description = The workstation of the session
+  Path = UserSession.workstation
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
