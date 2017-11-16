@@ -259,8 +259,8 @@ If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> e
 	<h3>Genetic Observations</h3>
 	<p>Genetic reporting makes heavy use of the Observation resource.  A set of profiles have been defined for representing genetic results that can be found <a href="observation-genetic.html">here</a>.  The Clinical Genomics workgroup is currently exploring a couple of alternatives that are less dependent on extensions</p>
 	<ul>
-    <li>The <a href="http://harvardone.shareted.com/observation-genetic.html">Harvard proposal</a> is published as a customized version of the HL7 FHIR specification and provides a set of interrelated composable profiles</li>
-    <li>The <a href="http://build.fhir.org/ig/HL7/genomics2/index.html">NLM proposal</a> is published as a FHIR implementation guide an approach that aligns with HL7's v2 clinical genomics implementation guide</li>
+    <li>The <a href="http://harvardone.shareted.com/observation-genetic.html">Harvard (Tangram) proposal</a> is published as a customized version of the HL7 FHIR specification and provides a set of interrelated composable profiles</li>
+    <li>The <a href="http://build.fhir.org/ig/HL7/genomics2/index.html">NLM (genomics2) proposal</a> is published as a FHIR implementation guide an approach that aligns with HL7's v2 clinical genomics implementation guide</li>
   </ul>
   <p>These proposals are under active discussion within the <a href="http://www.hl7.org/Special/committees/clingenomics/index.cfm">Clinical Genomics WorkGroup</a>.  Feedback on these proposals can be provided to the workgroup by joining and posting to their list server, participating in a conference call or emailing the co-chairs.</p>
 	<h2>Operations defined for Observation</h2>
