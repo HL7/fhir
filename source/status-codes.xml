@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
@@ -11,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2017-05-31T06:39:26Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>15.0</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -20,10 +19,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7845</WindowHeight>
-  <WindowWidth>23355</WindowWidth>
+  <WindowHeight>16620</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopY>460</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -32,7 +31,7 @@
   <Style ss:ID="Default" ss:Name="Normal">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
-   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
+   <Font x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -75,7 +74,7 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous"/>
    </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#DD0806"/>
    <Interior/>
   </Style>
   <Style ss:ID="s68">
@@ -199,7 +198,7 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous"/>
    </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#DD0806"/>
    <Interior/>
   </Style>
   <Style ss:ID="s79">
@@ -317,14 +316,14 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="105" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
-   ss:DefaultRowHeight="26.0625">
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65"
+   ss:DefaultRowHeight="26">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="237"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="69.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="70"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74"/>
    <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
+   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="58"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92"/>
    <Column ss:Index="36" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -360,6 +359,7 @@
     <Cell><Data ss:Type="String">c29</Data></Cell>
     <Cell><Data ss:Type="String">c30</Data></Cell>
     <Cell><Data ss:Type="String">c31</Data></Cell>
+    <Cell><Data ss:Type="String">c32</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
@@ -395,6 +395,7 @@
     <Cell><Data ss:Type="String">not-ready</Data></Cell>
     <Cell><Data ss:Type="String">transduc-disconnected</Data></Cell>
     <Cell><Data ss:Type="String">hardware-disconnected</Data></Cell>
+    <Cell><Data ss:Type="String">not-done</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data><NamedCell
@@ -458,6 +459,7 @@
     <Cell><Data ss:Type="String">not-ready</Data></Cell>
     <Cell><Data ss:Type="String">transduc-discon</Data></Cell>
     <Cell><Data ss:Type="String">hw-discon</Data></Cell>
+    <Cell><Data ss:Type="String">not-done</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data><NamedCell
@@ -2794,6 +2796,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">not-done</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationDispense.status</Data><NamedCell
@@ -2832,6 +2835,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">not-done</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationRequest.status</Data><NamedCell
@@ -4148,13 +4152,14 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>97</TopRowBottomPane>
+   <TopRowBottomPane>57</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>21</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4162,6 +4167,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4169,13 +4175,12 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>101</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>67</ActiveRow>
+     <ActiveCol>33</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
   <AutoFilter x:Range="R3C1:R103C30"
    xmlns="urn:schemas-microsoft-com:office:excel">

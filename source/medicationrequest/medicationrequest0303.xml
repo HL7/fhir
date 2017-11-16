@@ -20,9 +20,6 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
-    <definition>
-        <reference value="ActivityDefinition/heart-valve-replacement"></reference>
-    </definition>
     <basedOn>
         <reference value="CarePlan/gpvisit"></reference>
     </basedOn>
@@ -47,13 +44,8 @@
     </context>
     <authoredOn value="2015-01-15"/>
     <requester>
-        <agent>
-            <reference value="Practitioner/f007"/>
-            <display value="Patrick Pump"/>
-        </agent>
-        <onBehalfOf>
-            <reference value="Organization/f002"/>
-        </onBehalfOf>
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
     </requester>
     <note>
         <text value="Patient told to take with food"/>

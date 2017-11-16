@@ -25,9 +25,8 @@
     <reference value="Patient/example"/>
   </subject>
   <requester>
-    <agent>
-      <reference value="Practitioner/example"/>
-    </agent>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
 
   </requester>
 

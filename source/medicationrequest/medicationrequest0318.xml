@@ -36,13 +36,8 @@
     </context>
     <authoredOn value="2015-01-15"/>
     <requester>
-        <agent>
-            <reference value="Practitioner/f007"/>
-            <display value="Patrick Pump"/>
-        </agent>
-        <onBehalfOf>
-            <reference value="Organization/f002"/>
-        </onBehalfOf>
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
     </requester>
     <reasonCode>
         <coding>
