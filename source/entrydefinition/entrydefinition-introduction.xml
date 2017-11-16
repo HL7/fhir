@@ -1,0 +1,38 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- content goes here -->
+
+<div>
+<a name="scope"> </a>
+<h2>Scope and Usage</h2>
+<p>
+This resource is an administrative resource for using definitional resources in the scope of a catalog.
+This resource contains additional information about each catalog entry, in the scope of a specific catalog, such as attributes and relations to other entries.
+
+
+
+
+</p>
+
+</div>
+
+<div>
+<a name="bnr"> </a>
+<h2>Boundaries and Relationships</h2>
+ This resource is used in a Catalog which is a profile on Composition (link) and contains reference to a definitional resource, such as 
+<ul>
+<li><a href="medication.html">Medication</a></li>
+<li><a href="device.html">Device</a></li>
+<li><a href="activitydefinition.html">Activity Definition</a></li>
+<li><a href="specimendefinition.html">Specimen Definition</a></li>
+<li>...</li>
+</ul>
+
+<p>
+The catalog....
+</p>
+
+</div>
+
+
+</div>

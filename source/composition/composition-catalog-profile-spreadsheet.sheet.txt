@@ -1,6 +1,30 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = CatalogType
+  Binding = code list
+  Reference = #catalogType
+  Definition = The type of catalog
+  Conformance = example
+
+=== Sheet catalogType =====================================
+
+ -- Row 1 -----------------------------------
+  Code = medication
+  Display = Medication Catalog
+  Definition = Medication Catalog
+
+ -- Row 2 -----------------------------------
+  Code = device
+  Display = Device Catalog
+  Definition = Device Catalog
+
+ -- Row 3 -----------------------------------
+  Code = protocol
+  Display = Protocol List
+  Definition = Protocol List
+
 === Sheet Catalog-Inv =====================================
 
 === Sheet Catalog =====================================
@@ -35,9 +59,10 @@
   Value = <valueCodeableConcept><text value=\"Catalog\"/></valueCodeableConcept>
 
  -- Row 5 -----------------------------------
-  Element = !Composition.section.entry
+  Element = Composition.class
   Card. = 1..1
-  Type = Reference(CatalogEntry)
+  Type = CodeableConcept
+  Binding = CatalogType
   Short Name = The Content of the section
   Definition = The content (narrative and data) associated with the section
 
@@ -73,7 +98,7 @@
  -- Row 10 -----------------------------------
   Element = Composition.section.entry
   Card. = 1..*
-  Type = Reference(CatalogEntry)
+  Type = Reference(EntryDefinition)
   Short Name = The Content of the section
   Definition = The content (narrative and data) associated with the section
 

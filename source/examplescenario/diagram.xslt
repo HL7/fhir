@@ -53,12 +53,14 @@ title <xsl:value-of select="./@value"/>
 
 <xsl:template match="step/process">
 group <xsl:value-of select="title/@value"/><xsl:text>&#13;&#10;</xsl:text>
-<xsl:apply-templates select="./step"/>end</xsl:template>
+<xsl:apply-templates select="./step"/>end
+</xsl:template>
 
 
 <xsl:template match="option/process">
 group#A9CCEF #A9CCEF <xsl:value-of select="title/@value"/><xsl:text>&#13;&#10;</xsl:text>
-<xsl:apply-templates select="./step"/>end</xsl:template>
+<xsl:apply-templates select="./step"/>end
+</xsl:template>
 
 
 <xsl:template match="step/alternative">
@@ -113,20 +115,24 @@ participant</xsl:if>
 
 <xsl:template match="step/pause">
 ...
+
 </xsl:template>
 
 
-
+<xsl:template  match="versionId">
+<xsl:variable name="iid" select="../resourceId/@value"/>
+<xsl:variable name="vid" select="../versionId/@value"/> (<xsl:value-of select="/ExampleScenario/instance[resourceId/@value=$iid]/version[versionId/@value=$vid]/description/@value"/>)</xsl:template>
 
 
 <xsl:template  match="request">
 <xsl:variable name="iid" select="./resourceId/@value"/>
-<xsl:text> [[example-instances.html#</xsl:text><xsl:value-of select="./resourceId/@value"/>  <xsl:text>  </xsl:text><xsl:value-of select="/ExampleScenario/instance[resourceId/@value=$iid]/name/@value"/> ]]<xsl:text>\n</xsl:text></xsl:template>
+<xsl:variable name="vid" select="./versionId/@value"/>
+<xsl:text> [[example-instances.html#</xsl:text><xsl:value-of select="./resourceId/@value"/> <xsl:text> </xsl:text><xsl:value-of select="/ExampleScenario/instance[resourceId/@value=$iid]/name/@value"/> <xsl:apply-templates select="./versionId"/>]]<xsl:text>\n</xsl:text></xsl:template>
 
 <xsl:template  match="response">
 <xsl:variable name="iid" select="./resourceId/@value"/>
-<xsl:text> [[example-instances.html#</xsl:text><xsl:value-of select="./resourceId/@value"/> <xsl:text>  </xsl:text><xsl:value-of select="/ExampleScenario/instance[resourceId/@value=$iid]/name/@value"/> ]]<xsl:text>\n</xsl:text></xsl:template>
-
+<xsl:variable name="vid" select="./versionId/@value"/>
+<xsl:text> [[example-instances.html#</xsl:text><xsl:value-of select="./resourceId/@value"/> <xsl:text> </xsl:text><xsl:value-of select="/ExampleScenario/instance[resourceId/@value=$iid]/name/@value"/> <xsl:apply-templates select="./versionId"/>]]<xsl:text>\n</xsl:text></xsl:template>
 
 
 

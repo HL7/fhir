@@ -1833,8 +1833,8 @@
 <item id="ExampleScenario">
   <translation lang="en">ExampleScenario</translation>
 </item>
-<item id="CatalogEntry">
-  <translation lang="en">CatalogEntry</translation>
+<item id="EntryDefinition">
+  <translation lang="en">EntryDefinition</translation>
 </item>
 <item id="SpecimenDefinition">
   <translation lang="en">SpecimenDefinition</translation>
