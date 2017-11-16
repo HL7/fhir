@@ -111,6 +111,13 @@
   Definition = Identifies the reasons for a given status
   Conformance = example
 
+ -- Row 17 -----------------------------------
+  Binding Name = MedicationRequestPerformerType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/performer-role
+  Definition = Identifies the type of performer for the administration of the medication
+  Conformance = example
+
 === Sheet medication-request-status =====================================
 
  -- Row 1 -----------------------------------
