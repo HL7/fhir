@@ -3,7 +3,7 @@
   <id value="example"/>
   <text>
     <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">Example RequestGroup illustrating related actions to administer medications in sequence with time delay.</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">Example UserSession.</div>
   </text>
   <identifier>
     <value value="usersession-1"/>
@@ -16,9 +16,7 @@
     <source value="system"/>
   </status>
   <workstation>
-    <coding>
-      <code value="computer-name"/>
-    </coding>
+    <value value="computer-name"/>
   </workstation>
   <focus>
     <reference value="Patient/example"/>
@@ -26,6 +24,6 @@
   <created value="2017-11-15T17:31:00Z"/>
   <context>
     <type value="task"/>
-    <value value="task-1"/>
+    <valueString value="task-1"/>
   </context>
 </UserSession>

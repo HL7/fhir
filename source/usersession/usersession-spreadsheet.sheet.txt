@@ -75,18 +75,18 @@
 
  -- Row 2 -----------------------------------
   Element = UserSession.identifier
-  Card. = 0..*
+  Card. = 0..1
   Summary = Y
   Type = Identifier
   Short Name = Business identifier
   Definition = Allows a service to provide a unique, business identifier for the session
   Requirements = Allows identification of the session as it is known by various participating systems
-  To Do = Why allow multiple identifiers?
+  Committee Notes = Was initially defined as 0..*, but couldn\'t see why it would need multiple. Switched to 0..1
   w5 = id
 
  -- Row 3 -----------------------------------
   Element = UserSession.user
-  Card. = 0..*
+  Card. = 1..1
   Type = Reference(Device|Practitioner|Patient|RelatedPerson)
   Short Name = User engaged in the session
   Definition = A practitioner, patient, device, or related person engaged in the session
@@ -120,10 +120,10 @@
  -- Row 7 -----------------------------------
   Element = UserSession.workstation
   Card. = 0..1
-  Type = CodeableConcept
+  Type = Identifier
   Short Name = Where is the session
   Definition = Location that identifies the physical place at which the user\'s session is occurring. For the purposes of context synchronization, this is intended to represent the user\'s workstation
-  To Do = Why is this a CodeableConcept rather than an identifier? Also, the name workstation seems somewhat specific, could this be generalized, is it device? is it location?
+  To Do = The name workstation seems somewhat specific, could this be generalized, is it device? is it location?
   w5 = where
 
  -- Row 8 -----------------------------------
@@ -168,12 +168,11 @@
   To Do = Why isn\'t this a CodeableConcept?
 
  -- Row 13 -----------------------------------
-  Element = UserSession.context.value
+  Element = UserSession.context.value[x]
   Card. = 0..1
-  Type = string
+  Type = string | CodeableConcept | Quantity
   Short Name = Value of the context
   Definition = Provides the context value
-  To Do = Why isn\'t this a Choice of values? Say String, CodeableConcept, Quantity?
 
 === Sheet Search =====================================
 
