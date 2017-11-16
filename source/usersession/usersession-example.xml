@@ -24,6 +24,8 @@
   <created value="2017-11-15T17:31:00Z"/>
   <context>
     <type value="task"/>
-    <valueString value="task-1"/>
+    <valueCodeableConcept>
+      <text value="context-value"/>
+    </valueCodeableConcept>
   </context>
 </UserSession>

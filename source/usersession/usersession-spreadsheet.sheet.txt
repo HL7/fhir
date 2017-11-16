@@ -170,7 +170,7 @@
  -- Row 13 -----------------------------------
   Element = UserSession.context.value[x]
   Card. = 0..1
-  Type = string | CodeableConcept | Quantity
+  Type = CodeableConcept | Quantity
   Short Name = Value of the context
   Definition = Provides the context value
 
