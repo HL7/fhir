@@ -93,6 +93,20 @@
   Definition = A code describing where the dispensed medication is expected to be consumed or administered
   Conformance = preferred
 
+ -- Row 14 -----------------------------------
+  Binding Name = MedicationDispenseStatusReason
+  Binding = code list
+  Reference = #med-dispense-status-reason
+  Definition = A code describing why a dispense was not performed
+  Conformance = example
+
+ -- Row 15 -----------------------------------
+  Binding Name = MedicationDispensePerformerFunction
+  Binding = code list
+  Reference = #med-dispense-perform-function
+  Definition = A code describing the role an individual played in dispensing a medication
+  Conformance = example
+
 === Sheet medication-dispense-status =====================================
 
  -- Row 1 -----------------------------------
@@ -110,27 +124,33 @@
 
  -- Row 3 -----------------------------------
   Id = 3
+  Code = not-done
+  Display = Not Done
+  Definition = The dispense was terminated prior to any impact on the subject (though prepartory actions may have been taken
+
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = on-hold
   Display = On Hold
   Definition = Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called \"suspended\"
   v3 = ActStatus.suspended
 
- -- Row 4 -----------------------------------
-  Id = 4
+ -- Row 5 -----------------------------------
+  Id = 5
   Code = completed
   Display = Completed
   Definition = All actions that are implied by the dispense have occurred.
   v3 = ActStatus.completed
 
- -- Row 5 -----------------------------------
-  Id = 5
+ -- Row 6 -----------------------------------
+  Id = 6
   Code = entered-in-error
   Display = Entered in-Error
   Definition = The dispense was entered in error and therefore nullified.
   v3 = ActStatus.nullified
 
- -- Row 6 -----------------------------------
-  Id = 6
+ -- Row 7 -----------------------------------
+  Id = 7
   Code = stopped
   Display = Stopped
   Definition = Actions implied by the dispense have been permanently halted, before all of them occurred.
@@ -155,6 +175,148 @@
   Code = community
   Display = Community
   Definition = Includes dispenses for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)
+
+=== Sheet med-dispense-status-reason =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = frr01
+  Display = Order Stopped
+  Definition = The order has been stopped by the prescriber but this fact has not necessarily captured electronically. Example:A verbal stop, a fax, etc.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = frr02
+  Display = Stale-dated order
+  Definition = Order has not been fulfilled within a reasonable amount of time, and may not be current.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = frr03
+  Display = Incomplete data
+  Definition = Data needed to safely act on the order which was expected to become available independent of the order is not yet available. Example:Lab results, diagnostic imaging, etc.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = frr04
+  Display = Product unavailable
+  Definition = Product not available or manufactured. Cannot supply.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = frr05
+  Display = Ethical/religious
+  Definition = The dispenser has ethical, religious or moral objections to fulfilling the order/dispensing the product.
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = frr06
+  Display = Unable to provide care
+  Definition = Fulfiller not able to provide appropriate care associated with fulfilling the order.\rExample:Therapy requires ongoing monitoring by fulfiller and fulfiller will be ending practice, leaving town, unable to schedule necessary time, etc.
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = altchoice
+  Display = Try another treatment first
+  Definition = This therapy has been ordered as a backup to a preferred therapy. This order will be released when and if the preferred therapy is unsuccessful.
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = clarif
+  Display = Prescription requires clarification
+  Definition = Clarification is required before the order can be acted upon.
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = drughigh
+  Display = Drug level too high
+  Definition = The current level of the medication in the patient\'s system is too high. The medication is suspended to allow the level to subside to a safer level.
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = hospadm
+  Display = Admission to hospital
+  Definition = The patient has been admitted to a care facility and their community medications are suspended until hospital discharge.
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Code = labint
+  Display = Lab interference issues
+  Definition = The therapy would interfere with a planned lab test and the therapy is being withdrawn until the test is completed.
+
+ -- Row 12 -----------------------------------
+  Id = 12
+  Code = non-avail
+  Display = Patient not-available
+  Definition = Patient not available for a period of time due to a scheduled therapy, leave of absence or other reason.
+
+ -- Row 13 -----------------------------------
+  Id = 13
+  Code = preg
+  Display = Parent is pregnant/breast feeding
+  Definition = The patient is pregnant or breast feeding. The therapy will be resumed when the pregnancy is complete and the patient is no longer breastfeeding.
+
+ -- Row 14 -----------------------------------
+  Id = 14
+  Code = salg
+  Display = Allergy
+  Definition = The patient is believed to be allergic to a substance that is part of the therapy and the therapy is being temporarily withdrawn to confirm.
+
+ -- Row 15 -----------------------------------
+  Id = 15
+  Code = sddi
+  Display = Drug interacts with another drug
+  Definition = The drug interacts with a short-term treatment that is more urgently required. This order will be resumed when the short-term treatment is complete.
+
+ -- Row 16 -----------------------------------
+  Id = 16
+  Code = sdupther
+  Display = Duplicate therapy
+  Definition = Another short-term co-occurring therapy fulfills the same purpose as this therapy. This therapy will be resumed when the co-occuring therapy is complete.
+
+ -- Row 17 -----------------------------------
+  Id = 17
+  Code = sintol
+  Display = Suspected intolerance
+  Definition = The patient is believed to have an intolerance to a substance that is part of the therapy and the therapy is being temporarily withdrawn to confirm.
+
+ -- Row 18 -----------------------------------
+  Id = 18
+  Code = surg
+  Display = Patient scheduled for surgery
+  Definition = The drug is contraindicated for patients receiving surgery and the patient is scheduled to be admitted for surgery in the near future. The drug will be resumed when the patient has sufficiently recovered from the surgery.
+
+ -- Row 19 -----------------------------------
+  Id = 19
+  Code = washout
+  Display = Waiting for old drug to wash out
+  Definition = The patient was previously receiving a medication contraindicated with the current medication. The current medication will remain on hold until the prior medication has been cleansed from their system.
+
+=== Sheet med-dispense-perform-function =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = dataenterer
+  Display = Data Enterer
+  Definition = Recorded the details of the request
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = packager
+  Display = Packager
+  Definition = Prepared the medication
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = checker
+  Display = Checker
+  Definition = Performed initial quality assurance on the prepared medication
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = finalchecker
+  Display = Final Checker
+  Definition = Performed the final quality assurance on the prepared medication against the request. Typically this is a pharmacist function.
 
 === Sheet Invariants =====================================
 
@@ -204,7 +366,7 @@
   Summary = y
   Type = code
   Binding = MedicationDispenseStatus
-  Short Name = preparation | in-progress | on-hold | completed | entered-in-error | stopped
+  Short Name = preparation | in-progress | not-done | on-hold | completed | entered-in-error | stopped
   Definition = A code specifying the state of the set of dispense events.
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Event.status
@@ -270,30 +432,38 @@
   Element = MedicationDispense.performer
   Card. = 0..*
   Short Name = Who performed event
-  Definition = Indicates who or what performed the event.  It should be assumed that the performer is the dispenser of the medication
-  Comments = The performer will be reviewed as part of STU4
+  Definition = Indicates who or what performed the event.
   Workflow Mapping = Event.performer
   RIM Mapping = .participation[typeCode=PRF]
 
  -- Row 11 -----------------------------------
+  Element = MedicationDispense.performer.function
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationDispensePerformerFunction
+  Short Name = Who performed the dispense and what they did
+  Definition = Distinguishes the type of performer in the dispense.  For example, date enterer, packager, final checker.
+  Requirements = Allows disambiguation of the types of involvement of different performers.
+  RIM Mapping = participation[typeCode=PRF].functionCode
+
+ -- Row 12 -----------------------------------
   Element = MedicationDispense.performer.actor
   Card. = 1..1
-  Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
+  Type = Reference(Practitioner |PractitionerRole | Organization | Patient | Device | RelatedPerson)
   Short Name = Individual who was performing
   Definition = The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication.
   Workflow Mapping = Event.actor
   RIM Mapping = .role
 
- -- Row 12 -----------------------------------
-  Element = MedicationDispense.performer.onBehalfOf
-  Card. = 0..1
-  Type = Reference(Organization)
-  Short Name = Organization was acting for
-  Definition = The organization the device or practitioner was acting on behalf of.
-  Workflow Mapping = Event.onBehalfOf
-  RIM Mapping = .role.scopingOrganization
-
  -- Row 13 -----------------------------------
+  Element = MedicationDispense.location
+  Card. = 0..1
+  Type = Reference (Location)
+  Short Name = Where the dispense occurred
+  Definition = The principal physical locaiton where the dispense was performed
+  RIM Mapping = .participation[typeCode=LOC].role
+
+ -- Row 14 -----------------------------------
   Element = MedicationDispense.authorizingPrescription
   Card. = 0..*
   Type = Reference(MedicationRequest)
@@ -304,7 +474,7 @@
   v2 Mapping = ORC-2 Placer Order Number
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=RQO]
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationDispense.type
   Card. = 0..1
   Type = CodeableConcept
@@ -314,7 +484,7 @@
   v2 Mapping = RXD-33-Dispense Type
   RIM Mapping = .code
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationDispense.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -323,7 +493,7 @@
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = .quantity
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationDispense.daysSupply
   Card. = 0..1
   Type = SimpleQuantity
@@ -332,7 +502,7 @@
   v2 Mapping = TQ1.6 Timing/Quantity Segment Service Duration.\rPrior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”\rFrom v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type (<Quantity (NM)> ^ <Units (CWE)>), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^\rFor backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6
   RIM Mapping = effectiveUseTime
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationDispense.whenPrepared
   Card. = 0..1
   Summary = y
@@ -343,7 +513,7 @@
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].low
   Committee Notes = This is time of dispense (preparation).  The time of supply to the patient is a separate attribute.
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationDispense.whenHandedOver
   Card. = 0..1
   Type = dateTime
@@ -354,7 +524,7 @@
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].high
   Committee Notes = The time of supply to the patient (pickup/handover in community or supply in inpatient).
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationDispense.destination
   Card. = 0..1
   Type = Reference(Location)
@@ -364,7 +534,7 @@
   RIM Mapping = .participation[typeCode=DST].role
   Committee Notes = for inpatient setting this is core, but this may not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationDispense.receiver
   Card. = 0..*
   Type = Reference(Patient|Practitioner)
@@ -373,7 +543,7 @@
   RIM Mapping = .participation[typeCode=RCV].role
   Committee Notes = This is in the core because Controlled Drugs must be signed for and the recievers identiy must be recorded.
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationDispense.note
   Card. = 0..*
   Type = Annotation
@@ -383,7 +553,7 @@
   v2 Mapping = RXD-9 Dispense Notes
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ACT,moodCode=EVN]
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationDispense.dosageInstruction
   Card. = 0..*
   UML = right
@@ -394,7 +564,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationDispense.substitution
   Card. = 0..1
   UML = right
@@ -403,7 +573,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]
   Committee Notes = Significant discssion around this topic.  May not have it right yet. What about the attribution?
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MedicationDispense.substitution.wasSubstituted
   Card. = 1..1
   Type = boolean
@@ -411,7 +581,7 @@
   Definition = True if the dispenser dispensed a different drug or product from what was prescribed.
   RIM Mapping = .actionNegationInd
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MedicationDispense.substitution.type
   Card. = 0..1
   Type = CodeableConcept
@@ -422,7 +592,7 @@
   RIM Mapping = .code
   Committee Notes = No substitution made or expected Subtitution made but not expected Substitution expected but not made Substitution made and expected
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationDispense.substitution.reason
   Card. = 0..*
   Type = CodeableConcept
@@ -431,7 +601,7 @@
   Definition = Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
   RIM Mapping = .reasonCode
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = MedicationDispense.substitution.responsibleParty
   Card. = 0..*
   Type = Reference(Practitioner)
@@ -439,7 +609,7 @@
   Definition = The person or organization that has primary responsibility for the substitution
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = MedicationDispense.detectedIssue
   Card. = 0..*
   Aliases = Contraindication; Drug Utilization Review (DUR); Alert
@@ -449,19 +619,11 @@
   Comments = This element can include a detected issue that has been identified either by a decision support system or by a clinician and may include information on the steps that were taken to address the issue.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ALRT,moodCode=EVN].value
 
- -- Row 29 -----------------------------------
-  Element = MedicationDispense.notDone
-  Card. = 0..1
-  Type = boolean
-  Short Name = Whether the dispense was or was not performed
-  Definition = True if the dispense was not performed for some reason
-  Workflow Mapping = Event.notDone
-  RIM Mapping = .actionNegationInd
-
  -- Row 30 -----------------------------------
-  Element = MedicationDispense.notDoneReason[x]
+  Element = MedicationDispense.statusReason[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(DetectedIssue)
+  Binding = MedicationDispenseStatusReason
   Short Name = Why a dispense was not performed
   Definition = Indicates the reason why a dispense was not performed
   Workflow Mapping = Event.notDoneReason

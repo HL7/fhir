@@ -653,7 +653,7 @@
   Type = Duration
   Short Name = Number of days supply per dispense
   Definition = Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.
-  Comments = In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage) When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
+  Comments = In some situations, this attribute may be used instead of quantity to identify the amount supplied by how long it is expected to last, rather than the physical quantity issued, e.g. 90 days supply of medication (based on an ordered dosage). When possible, it is always better to specify quantity, as this tends to be more precise. expectedSupplyDuration will always be an estimate that can be influenced by external factors.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Substitutions
   RIM Mapping = expectedUseTime
 

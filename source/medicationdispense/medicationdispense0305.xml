@@ -29,9 +29,6 @@
         <actor>
             <reference value="Practitioner/f006"/>
         </actor>
-        <onBehalfOf>
-            <reference value="Organization/2.16.840.1.113883.19.5"></reference>
-        </onBehalfOf>
     </performer>
     <authorizingPrescription>
         <reference value="MedicationRequest/medrx0303"/>

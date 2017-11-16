@@ -33,14 +33,13 @@
   <start value="2015-01-15T14:30:00+01:00"/>
   <end value="2015-01-15T14:30:00+01:00"/>
 </effectivePeriod>
-  <notGiven value="true"></notGiven>
-  <reasonNotGiven>
+  <statusReason>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="373147003"/>
       <display value="Administration of medication not done due to a contraindication (situation)"/>
     </coding>
-  </reasonNotGiven>
+  </statusReason>
   <request>
     <reference value="MedicationRequest/medrx0317"/>
   </request>

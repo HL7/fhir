@@ -58,6 +58,7 @@
    <end value="2015-01-16T02:03:00+01:00"/>
 </effectivePeriod>
   <performer>
+    <function></function>
     <actor>
       <reference value="Practitioner/f007"/>
       <display value="Patrick Pump"/>

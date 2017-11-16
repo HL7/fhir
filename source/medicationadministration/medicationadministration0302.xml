@@ -58,9 +58,6 @@
         </ingredient>   
     </Medication>
   </contained>
-  <definition>
-    <reference value="PlanDefinition/KDN5"></reference>
-  </definition>
   <partOf>
     <reference value="Procedure/biopsy"></reference>
   </partOf>
@@ -92,9 +89,6 @@
     <reference value="Practitioner/f007"/>
     <display value="Patrick Pump"/>
     </actor>
-    <onBehalfOf>
-      <reference value="Organization/f002"></reference>
-    </onBehalfOf>
   </performer>
   <reasonCode>
     <coding>
