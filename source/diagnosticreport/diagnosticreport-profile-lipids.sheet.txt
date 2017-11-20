@@ -201,6 +201,14 @@
   Element = !Observation.related
   Card. = 0..0
 
+ -- Row 18 -----------------------------------
+  Element = Observation.hasMember
+  Card. = 0..0
+
+ -- Row 19 -----------------------------------
+  Element = Observation.derivedFrom
+  Card. = 0..0
+
 === Sheet Triglyceride =====================================
 
  -- Row 1 -----------------------------------
@@ -276,6 +284,14 @@
 
  -- Row 12 -----------------------------------
   Element = !Observation.related
+  Card. = 0..0
+
+ -- Row 13 -----------------------------------
+  Element = Observation.hasMember
+  Card. = 0..0
+
+ -- Row 14 -----------------------------------
+  Element = Observation.derivedFrom
   Card. = 0..0
 
 === Sheet HDLCholesterol =====================================
@@ -354,6 +370,14 @@
 
  -- Row 12 -----------------------------------
   Element = !Observation.related
+  Card. = 0..0
+
+ -- Row 13 -----------------------------------
+  Element = Observation.hasMember
+  Card. = 0..0
+
+ -- Row 14 -----------------------------------
+  Element = Observation.derivedFrom
   Card. = 0..0
 
 === Sheet LDLCholesterol =====================================
@@ -442,6 +466,14 @@
 
  -- Row 13 -----------------------------------
   Element = !Observation.related
+  Card. = 0..0
+
+ -- Row 14 -----------------------------------
+  Element = Observation.hasMember
+  Card. = 0..0
+
+ -- Row 15 -----------------------------------
+  Element = Observation.derivedFrom
   Card. = 0..0
 
 === Sheet Search =====================================
