@@ -10,14 +10,14 @@
         <p> We are seeking input on:</p>
         <ol>
           <li> The <a href="#usingcodepairs">guidance</a> on using code value pairs to represent observations in FHIR</li>
-          <li> <em>Breaking Change</em> The replacement of the <code>.related</code> complex element with direct inline elements based on the types listed in 	<a href="valueset-observation-relationshiptypes.html">ObservationRelationshipType</a>:<ul>
+          <li> <em>Breaking Change</em> The replacement of the <code>.related</code> complex element with direct inline elements based on the types listed in 	<a href="http://hl7.org/fhir/STU3/valueset-observation-relationshiptypes.html">ObservationRelationshipType</a>:<ul>
             <li>
-              <code>.derivedFrom</code>and            </li>
+              <a href="observation-definitions.html#Observation.derivedFrom">.derivedFrom</a>and            </li>
               <li>
-                <code>.memberOf</code>
+                <a href="observation-definitions.html#Observation.hasMember">.hasMember</a>
               </li>
               </ul>
-              This change allows for more flexibility in adding additional reference targets as well as a simplifying the structure. The other relationship types were considered to be outside the 80% and only 'sequel-to' and 'replaces' were made into standard extensions referencing a target Observation.</li>
+              This change allows for more flexibility in adding additional reference targets as well as a simplifying the structure. The other relationship types were considered to be outside the 80% and only<a href="ttp://hl7.org/fhir/StructureDefinition/extension-observation-sequel-to">sequel-to</a> and <a href="ttp://hl7.org/fhir/StructureDefinition/extension-observation-replaces">replaces</a> were made into standard extensions referencing a target Observation.</li>
               <li><em>Breaking Change</em>  The removal of the <code>Attachment</code> data type as a choice for <code>.value[x]</code>.   As a result of 2, direct links to <a href="media.html">Media</a> were added.  Observations that require the attachment data types are represented by the Media resource.  This change eliminates the ambiguity and duplication on how to represent multimedia observations.</li>
               <li><em>Substantive Change</em> The promotion of the extension 'partOf' extension to an <a href="observation-definitions.html#Observation.partOf">inline element</a>. This allows a direct reference to an event  in which the observation was made (for example a procedure).
               </li>
@@ -73,7 +73,7 @@
   </p>
   <p>
   In contrast to the Observation resource, the <a href="diagnosticreport.html">DiagnosticReport</a> resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations.  Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.  "Laboratories routinely have a variable that is summative across a series of discrete variables - these are usually called 'impressions' or 'interpretations'. Sometimes they are algorithmically specified and sometimes they have the imprimatur of pathologists and they are conveyed in Observation or DiagnosticReport instead of the <a href="clinicalimpression.html">Clinical Impression</a> resource. However, the Observation resources should not be used to record clinical diagnosis about a patient or subject that are typically captured in the <a href="condition.html">Condition</a> resource or the ClinicalImpression resource.  The Observation resource is often referenced by the Condition resource to provide specific subjective and objective data to support its assertions.
-  </p> 
+  </p>
 <p>
   Many other resources can be considered "specializations" of the Observation resource and should be used for those specific contexts and use cases.   For example, the <a href="allergyintolerance.html">AllergyIntolerance</a> resource represents a patient allergies, <a href="medicationstatement.html">MedicationStatement</a> resource: medications taken by a patient, <a href="familymemberhistory.html"> FamilyMemberHistory</a> resource: a patient's family history, <a href="procedure.html">Procedure</a> resource: information about a procedure, and <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource: a set of answers to a set of questions.  In some cases, such as when source data is coming from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> feed, a system may not have information that allows it to distinguish diagnosis, allergy and other "specialized" types of observations from lab, vital sign and other observation types intended to be conveyed with this resource.  In those circumstances, such specialized observations may also appear using this resource.</p>
 </div>

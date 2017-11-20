@@ -192,108 +192,57 @@
 					<reference value="Specimen/ltt"/>
 					<display value="Lavender Top Tube"/>
 				</specimen>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r1"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r2"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r3"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r4"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r5"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r6"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r7"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r8"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r9"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r10"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r11"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r12"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r13"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r14"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r15"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r16"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/r17"/>
-					</target>
-				</related>
+				<hasMember>
+					<reference value="Observation/r1"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r2"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r3"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r4"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r5"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r6"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r7"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r8"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r9"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r10"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r11"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r12"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r13"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r14"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r15"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r16"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/r17"/>
+				</hasMember>
 			</Observation>
 		</resource>
 	</entry>
@@ -1022,138 +971,72 @@
 					<reference value="Specimen/rtt"/>
 					<display value="Red Top Tube"/>
 				</specimen>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o1"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o2"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o3"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o4"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o5"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o6"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o7"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o8"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o9"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o10"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o11"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o12"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o13"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o14"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o15"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o16"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o17"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o18"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o19"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o20"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o21"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/o22"/>
-					</target>
-				</related>
+				<hasMember>
+					<reference value="Observation/o1"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o2"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o3"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o4"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o5"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o6"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o7"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o8"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o9"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o10"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o11"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o12"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o13"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o14"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o15"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o16"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o17"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o18"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o19"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o20"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o21"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/o22"/>
+				</hasMember>
 			</Observation>
 		</resource>
 	</entry>
@@ -2094,60 +1977,33 @@
 					<reference value="Specimen/urine"/>
 					<display value="Urine Sample"/>
 				</specimen>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/u1"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/u2"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/u3"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/u4"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/u5"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/u6"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/u7"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/u8"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/u9"/>
-					</target>
-				</related>
+				<hasMember>
+					<reference value="Observation/u1"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/u2"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/u3"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/u4"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/u5"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/u6"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/u7"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/u8"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/u9"/>
+				</hasMember>
 			</Observation>
 		</resource>
 	</entry>

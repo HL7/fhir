@@ -20,11 +20,8 @@
 	<effectiveDateTime value="2016-10-15T12:34:56+11:00"/>
 	<issued value="2016-10-20T14:00:05+11:00"/>
 	<performer>
-		
-			<reference value="Organization/4829"/>
-		
+		<reference value="Organization/4829"/>
 	</performer>
-
 	<result>
 		<reference value="Observation/example-phenotype"/>
 	</result>

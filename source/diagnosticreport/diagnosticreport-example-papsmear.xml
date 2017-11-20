@@ -10,8 +10,7 @@
 			<p/>
 		</div>
 	</text>
-	<status value="final"/><!--    all this report is final    -->
-	<code>
+	<status value="final"/><!--    all this report is final    --><code>
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="47527-7"/>
@@ -23,8 +22,6 @@
 	<effectiveDateTime value="2013-02-11T10:33:33+11:00"/>
 	<issued value="2013-02-13T11:45:33+11:00"/>
 	<performer>
-		
-			<reference value="Practitioner/example"/>
-		
+		<reference value="Practitioner/example"/>
 	</performer>
 </DiagnosticReport>

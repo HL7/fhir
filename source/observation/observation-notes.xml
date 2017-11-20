@@ -8,7 +8,7 @@
 			<a name="obsgrouping">
 	</a>
 	<h3>Observation Grouping</h3>
-	<p>Many observations have important relationships to other observations and need to be grouped together.  Three structures have been defined to do this: DiagnosticReport and <code>DiagnosticReport.result</code>, Observation and <code>Observation.component</code>, and Observation and <code>Observation.related</code>. The sections below provides guidance around which structure to use.  Because the idea of what to group together is often highly contextual and based upon the end user's point of view, the choice of which structure to use will be driven by jurisdiction, organizational practice and context.  Profiling will normally be necessary for implementation.</p>
+	<p>Many observations have important relationships to other observations and need to be grouped together.  These structures have been defined to do this: DiagnosticReport and <code>DiagnosticReport.result</code>, Observation and the elements: <code>Observation.component</code>,  <code>Observation.hasMember</code> and <code>Observation.derivedFrom</code>. The sections below provides guidance around which structure to use.  Because the idea of what to group together is often highly contextual and based upon the end user's point of view, the choice of which structure to use will be driven by jurisdiction, organizational practice and context.  Profiling will normally be necessary for implementation.</p>
 	<h4>DiagnosticReport.result
 	</h4>
 	<p>
@@ -31,16 +31,16 @@
       Note that the <code>component.code</code> may in some cases only be able to be understood in relation to the <code>Observation.code</code> (for example, see the <a href="observation-operations.html#10.1.20.1">
 			<code>$stats</code> operation</a>).
         </p>
-	<h4>Observation.related
+	<h4>Observation.member of and Observation.derivedFrom
 	</h4>
 	<p>
-		<code>Observation.related</code> is used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. Two common use cases for using this structure are:
+		<code>Observation.hasMember</code> and <code>Observation.derivedFrom</code> and the core extensions: <a href="http://hl7.org/fhir/StructureDefinition/observation-sequel-to">Observation-sequel-to</a> and <a href="http://hl7.org/fhir/StructureDefinition/observation-replaces">Observation-replaces</a> are used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. Two common use cases for using this structure are:
 		</p>
 	<ol>
-		<li>For grouping related observations as a "panel"or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in the <code>Observation.related.target</code> element with the <code>Observation.related.type</code> as 'has-member'.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>).
+		<li>For grouping related observations as a "panel"or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>).
         </li>
 		<li>
-          When linking to other Observations from which an Observation is derived.  In this case both <code>Observation.code</code> and <code>Observation.value[x]</code> are present,  and the linked observations are listed in the <code>Observation.related.target</code> element with the <code>Observation.related.type</code> set to 'derived-from'.  An example of this would be a <a href="observation-example-bmi-using-related.html">Body Mass Index (BMI)</a> Observation where the height and weight measurements are referenced.
+          When linking to other Observations from which an Observation is derived.  In this case both <code>Observation.code</code> and <code>Observation.value[x]</code> are present,  and the linked observations are listed in <code>Observation.derivedFrom</code>.  An example of this would be a <a href="observation-example-bmi-using-related.html">Body Mass Index (BMI)</a> Observation where the height and weight measurements are referenced.
            </li>
 	</ol>
 	<a name="usingcodes">
@@ -221,8 +221,8 @@
 		</li>
 		<li>		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead and select codes from <a href="http://hl7.org/fhir/ValueSet/v2-0136">http://hl7.org/fhir/ValueSet/v2-0136</a> (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed")	  </li>
 		<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ('error' or 'NaN').		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the <code>valueQuantity</code> would be:
-		
-<pre class="json">	
+
+<pre class="json">
 	"valueQuantity": {
 		"value": 2.0,
 		"comparator": "&lt;",

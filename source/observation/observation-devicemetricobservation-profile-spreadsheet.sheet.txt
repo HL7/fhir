@@ -110,19 +110,31 @@
   Must Support = Y
 
  -- Row 19 -----------------------------------
-  Element = Observation.related
+  Element = !Observation.related
   Card. = 0..1
   Must Support = Y
 
  -- Row 20 -----------------------------------
-  Element = Observation.related.type
+  Element = !Observation.related.type
   Card. = 0..1
   Must Support = Y
   Type = code
 
  -- Row 21 -----------------------------------
-  Element = Observation.related.target
+  Element = !Observation.related.target
   Card. = 1..1
+  Must Support = Y
+  Type = Reference(Observation)
+
+ -- Row 22 -----------------------------------
+  Element = Observation.hasMember
+  Card. = 0..*
+  Must Support = Y
+  Type = Reference(Observation)
+
+ -- Row 23 -----------------------------------
+  Element = Observation.derivedFrom
+  Card. = 0..*
   Must Support = Y
   Type = Reference(Observation)
 

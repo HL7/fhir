@@ -1111,13 +1111,10 @@
 					</coding>
 					<text value="Normal flora"/>
 				</valueCodeableConcept>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/growth1"/>
-						<display value="Moderate growth"/>
-					</target>
-				</related>
+				<hasMember>
+					<reference value="Observation/growth1"/>
+					<display value="Moderate growth"/>
+				</hasMember>
 			</Observation>
 		</resource>
 	</entry>
@@ -1180,34 +1177,22 @@
 					</coding>
 					<text value="Klebsiella pneumonia"/>
 				</valueCodeableConcept>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/growth2"/>
-						<display value="Heavy growth"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/org2-amp"/>
-						<display value="Ampicillin MIC - Susceptible"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/org2-cip"/>
-						<display value="Ciprofloxacin MIC - Susceptible"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/org2-gent"/>
-						<display value="Gentamicin MIC  - Susceptible"/>
-					</target>
-				</related>
+				<hasMember>
+					<reference value="Observation/growth2"/>
+					<display value="Heavy growth"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/org2-amp"/>
+					<display value="Ampicillin MIC - Susceptible"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/org2-cip"/>
+					<display value="Ciprofloxacin MIC - Susceptible"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/org2-gent"/>
+					<display value="Gentamicin MIC  - Susceptible"/>
+				</hasMember>
 			</Observation>
 		</resource>
 	</entry>
@@ -1270,34 +1255,22 @@
 					</coding>
 					<text value="Staphlyococcuc aureus"/>
 				</valueCodeableConcept>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/growth3"/>
-						<display value="Heavy growth"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/org3-amp"/>
-						<display value="Ampicillin MIC - Susceptible"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/org3-cip"/>
-						<display value="Ciprofloxacin MIC - Susceptible"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/org3-gent"/>
-						<display value="Gentamicin MIC  - Susceptible"/>
-					</target>
-				</related>
+				<hasMember>
+					<reference value="Observation/growth3"/>
+					<display value="Heavy growth"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/org3-amp"/>
+					<display value="Ampicillin MIC - Susceptible"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/org3-cip"/>
+					<display value="Ciprofloxacin MIC - Susceptible"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/org3-gent"/>
+					<display value="Gentamicin MIC  - Susceptible"/>
+				</hasMember>
 			</Observation>
 		</resource>
 	</entry>

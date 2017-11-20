@@ -37,7 +37,7 @@
   Conformance = required
 
  -- Row 6 -----------------------------------
-  Binding Name = ObservationRelationshipType
+  Binding Name = !ObservationRelationshipType
   Binding = code list
   Reference = #observation-relationshiptypes
   Definition = Codes specifying how two observations are related.
@@ -130,50 +130,6 @@
   Code = unknown
   Display = Unknown
   Definition = The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, but the authoring system does not know which.
-
-=== Sheet observation-relationshiptypes =====================================
-
- -- Row 1 -----------------------------------
-  Id = 2
-  Code = has-member
-  Display = Has Member
-  Definition = This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group.
-  v3 = =ActRelationshipType.MBR
-
- -- Row 2 -----------------------------------
-  Id = 3
-  Code = derived-from
-  Display = Derived From
-  Definition = The target resource (Observation or QuestionnaireResponse) is part of the information from which this observation value is derived. (e.g. calculated anion gap, Apgar score)  NOTE:  \"derived-from\" is the only logical choice when referencing QuestionnaireResponse.
-  v3 = =ActRelationshipType.DRIV
-
- -- Row 3 -----------------------------------
-  Id = 4
-  Code = sequel-to
-  Display = Sequel To
-  Definition = This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test).
-  v3 = =ActRelationshipType.SEQL
-
- -- Row 4 -----------------------------------
-  Id = 5
-  Code = replaces
-  Display = Replaces
-  Definition = This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete.
-  v3 = =ActRelationshipType.RPLC
-
- -- Row 5 -----------------------------------
-  Id = 6
-  Code = qualified-by
-  Display = Qualified By
-  Definition = The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipemia measure target from a plasma measure).
-  v3 = =ActRelationshipType.QUALF
-
- -- Row 6 -----------------------------------
-  Id = 7
-  Code = interfered-by
-  Display = Interfered By
-  Definition = The value of the target observation interferes (degrades quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure, which has no value).
-  v3 = =ActRelationshipType.INTF
 
 === Sheet observation-statistics =====================================
 
@@ -715,29 +671,32 @@
   RIM Mapping = value:ST
 
  -- Row 30 -----------------------------------
-  Element = !Observation.derivedFrom
-  Card. = 0..*
-  Summary = Y
-  Type = Reference(AllergyIntolerance|Condition|FamilyMemberHistory|ImagingStudy|Immunization|MedicationStatement|Procedure|QuestionnaireResponse|Observation)
-  Short Name = The resource from which an observation is derived
-  Definition = A reference to a resource from which this observation value is derived. For example an Observation resource for a calculated anion gap or Apgar score Observation or a QuestionnaireAnswer resource for an Assessment Tool Observation.( 5/18/2015 EH: TODO need to get a specific example /use cases for example using something other than Observation)
-  Comments = Observations that are a group of observations should be separate resources referenced using the related element with type \"has-member\" or as component observation(s).
-  RIM Mapping = .targetObservation
-
- -- Row 31 -----------------------------------
-  Element = Observation.related
+  Element = Observation.hasMember
   Card. = 0..*
   Summary = Y
   UML = 400;0
-  Short Name = Resource related to this observation
-  Definition = A  reference to another resource (usually another Observation) whose relationship is defined by the relationship type code.
-  Requirements = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes a QuestionnaireResponse from which the measure is derived.
-  Comments = For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).
+  Type = Reference(Observation|QuestionnaireResponse|Sequence)
+  Short Name = Related resource that belongs to the Observation group
+  Definition = This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group
+  Comments = When using this element, an observation will typically have either a value or a set of related resources, although both may be present in some cases.  For a discussion on the ways Observations can assembled in groups together, see [Notes](#obsgrouping) below.
   v2 Mapping = Relationships established by OBX-4 usage
   RIM Mapping = outBoundRelationship
+  Committee Notes = [#10118]
+
+ -- Row 31 -----------------------------------
+  Element = Observation.derivedFrom
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(DocumentReference|ImagingStudy|Media|QuestionnaireResponse|Observation|Sequence)
+  Short Name = Related resource the observation is made from
+  Definition = The target resource that is part of the information from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image.
+  Comments = For a discussion on the ways Observations can assembled in groups together, see [Notes](#obsgrouping) below.
+  v2 Mapping = Relationships established by OBX-4 usage
+  RIM Mapping = .targetObservation
+  Committee Notes = [#10118]
 
  -- Row 32 -----------------------------------
-  Element = Observation.related.type
+  Element = !Observation.related.type
   Card. = 0..1
   Type = code
   Binding = ObservationRelationshipType
@@ -750,7 +709,7 @@
   Committee Notes = [#7639]
 
  -- Row 33 -----------------------------------
-  Element = Observation.related.target
+  Element = !Observation.related.target
   Card. = 1..1
   Type = Reference(Observation|QuestionnaireResponse|Sequence)
   Short Name = Resource that is related to this one
@@ -1053,17 +1012,17 @@
   Path = Observation.specimen
 
  -- Row 34 -----------------------------------
-  Name = related-type
+  Name = !related-type
   Type = token
   Path = Observation.related.type
 
  -- Row 35 -----------------------------------
-  Name = related-target
+  Name = !related-target
   Type = reference
   Path = Observation.related.target
 
  -- Row 36 -----------------------------------
-  Name = related
+  Name = !related
   Type = composite
   Description = Related Observations - search on related-type and related-target together
   Path = related-target & related-type
@@ -1137,74 +1096,42 @@
   Description = Reference to the service request.
   Path = Observation.basedOn
 
+ -- Row 48 -----------------------------------
+  Name = part-of
+  Type = reference
+  Path = Observation.partOf
+
+ -- Row 49 -----------------------------------
+  Name = derived-from
+  Type = reference
+  Path = Observation.derivedFrom
+
+ -- Row 50 -----------------------------------
+  Name = has-member
+  Type = reference
+  Path = Observation.hasMember
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
-  Name = !C-CDA Smoking Status Observation
-  IG Name = ccda
-  Filename = observation-ccda-smokingstatus.xml
-  Type = spreadsheet
-
- -- Row 2 -----------------------------------
-  Name = !C-CDA Age Observation
-  IG Name = ccda
-  Filename = observation-ccda-age.xml
-  Type = spreadsheet
-
- -- Row 3 -----------------------------------
-  Name = !C-CDA Assessment Scale Observation
-  IG Name = ccda
-  Filename = observation-ccda-assessmentscale.xml
-  Type = spreadsheet
-
- -- Row 4 -----------------------------------
-  Name = !C-CDA Caregiver Characteristics Observation
-  IG Name = ccda
-  Filename = observation-ccda-caregiverchar.xml
-  Type = spreadsheet
-
- -- Row 5 -----------------------------------
-  Name = !C-CDA Cognitive Status Result Observation
-  IG Name = ccda
-  Filename = observation-ccda-cognitivestatusresult.xml
-  Type = spreadsheet
-
- -- Row 6 -----------------------------------
-  Name = !C-CDA Comment Activity
-  IG Name = ccda
-  Filename = observation-ccda-commentactivity.xml
-  Type = spreadsheet
-
- -- Row 7 -----------------------------------
-  Name = !C-CDA Deceased Observation
-  IG Name = ccda
-  Filename = observation-ccda-deceasedobservation.xml
-  Type = spreadsheet
-
- -- Row 8 -----------------------------------
-  Name = !Test2
-  Filename = observation-test2.xml
-  Type = spreadsheet
-
- -- Row 9 -----------------------------------
   Name = Device Metric Observation
   IG Name = core
   Filename = observation-devicemetricobservation.xml
   Type = spreadsheet
 
- -- Row 10 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = observation-core
   IG Name = core
   Filename = observation-core.xml
   Type = spreadsheet
 
- -- Row 11 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = Observation-Genetics
   IG Name = core
   Filename = observation-genetics.xml
   Type = spreadsheet
 
- -- Row 12 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = Vital Signs Profile
   IG Name = core
   Filename = observation-vitalsigns.xml
@@ -1558,11 +1485,8 @@
  -- Row 56 -----------------------------------
   Name = Herd test for Mycoplasmal Pneumonia
   Identity = herd1
-  Description = An example of a herd screening ELISA assay for Mycoplasmal Pneumonia in Pigs
+  Description = An example of a herd screening ELISA assay for Mycoplasmal Pneumonia in Pigs.
   Filename = observation-example-herd1.xml
-
- -- Row 57 -----------------------------------
-  Description = (Enzootic pneumonia).
 
 === Sheet Examples =====================================
 

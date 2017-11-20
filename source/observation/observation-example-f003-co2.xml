@@ -1,60 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <Observation xmlns="http://hl7.org/fhir">
-  <id value="f003"/>
-<!--   urn:oid:2.16.840.1.113883.4.642.1.7   -->
-<!--   2.16.840.1.113883.4.642.1.118   -->
-  <identifier>
-    <use value="official"/>
-    <system value="http://www.bmc.nl/zorgportal/identifiers/observations"/>
-    <value value="6325"/>
-  </identifier>
-  <status value="final"/>
-  <code>
-    <coding>
-      <system value="http://loinc.org"/>
-      <code value="11557-6"/>
-      <display value="Carbon dioxide in blood"/>
-    </coding>
-  </code>
-  <subject>
-    <reference value="Patient/f001"/>
-    <display value="P. van de Heuvel"/>
-  </subject>
-  <effectivePeriod>
-    <start value="2013-04-02T10:30:10+01:00"/>
-    <end value="2013-04-05T10:30:10+01:00"/>
-  </effectivePeriod>
-  <issued value="2013-04-03T15:30:10+01:00"/>
-  <performer>
-    <reference value="Practitioner/f005"/>
-    <display value="A. Langeveld"/>
-  </performer>
-  <valueQuantity>
-    <value value="6.2"/>
-    <unit value="kPa"/>
-    <system value="http://unitsofmeasure.org"/>
-    <code value="kPa"/>
-  </valueQuantity>
-  <interpretation>
-    <coding>
-      <system value="http://hl7.org/fhir/v2/0078"/>
-      <code value="H"/>
-      <display value="High"/>
-    </coding>
-  </interpretation>
-  <referenceRange>
-    <low>
-      <value value="4.8"/>
-      <unit value="kPa"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="kPa"/>
-    </low>
-    <high>
-      <value value="6.0"/>
-      <unit value="kPa"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="kPa"/>
-    </high>
-  </referenceRange>
+	<id value="f003"/><!--   urn:oid:2.16.840.1.113883.4.642.1.7   --><!--   2.16.840.1.113883.4.642.1.118   --><identifier>
+		<use value="official"/>
+		<system value="http://www.bmc.nl/zorgportal/identifiers/observations"/>
+		<value value="6325"/>
+	</identifier>
+	<status value="final"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="11557-6"/>
+			<display value="Carbon dioxide in blood"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/f001"/>
+		<display value="P. van de Heuvel"/>
+	</subject>
+	<effectivePeriod>
+		<start value="2013-04-02T10:30:10+01:00"/>
+		<end value="2013-04-05T10:30:10+01:00"/>
+	</effectivePeriod>
+	<issued value="2013-04-03T15:30:10+01:00"/>
+	<performer>
+		<reference value="Practitioner/f005"/>
+		<display value="A. Langeveld"/>
+	</performer>
+	<valueQuantity>
+		<value value="6.2"/>
+		<unit value="kPa"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="kPa"/>
+	</valueQuantity>
+	<interpretation>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0078"/>
+			<code value="H"/>
+			<display value="High"/>
+		</coding>
+	</interpretation>
+	<referenceRange>
+		<low>
+			<value value="4.8"/>
+			<unit value="kPa"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="kPa"/>
+		</low>
+		<high>
+			<value value="6.0"/>
+			<unit value="kPa"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="kPa"/>
+		</high>
+	</referenceRange>
 </Observation>

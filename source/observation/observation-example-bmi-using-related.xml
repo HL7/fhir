@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/valueset.xsd">
-	<id value="bmi-using-related"/>
-	<!-- ======== need to fix vitals to removed fixed value 'has-member' ==========
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/valueset.xsd">
+	<id value="bmi-using-related"/><!-- ======== need to fix vitals to removed fixed value 'has-member' ==========
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
 	</meta>
-    -->
-	<status value="final"/>
+    --><status value="final"/>
 	<category>
 		<coding>
 			<system value="http://hl7.org/fhir/observation-category"/>
@@ -33,18 +31,12 @@
 		<system value="http://unitsofmeasure.org"/>
 		<code value="kg/m2"/>
 	</valueQuantity>
-	<related>
-		<type value="derived-from"/>
-		<target>
-			<reference value="Observation/body-height"/>
-			<display value="Body-height"/>
-		</target>
-	</related>
-	<related>
-		<type value="derived-from"/>
-		<target>
-			<reference value="Observation/example"/>
-			<display value="Body-weight"/>
-		</target>
-	</related>
+	<derivedFrom>
+		<reference value="Observation/body-height"/>
+		<display value="Body-height"/>
+	</derivedFrom>
+	<derivedFrom>
+		<reference value="Observation/example"/>
+		<display value="Body-weight"/>
+	</derivedFrom>
 </Observation>

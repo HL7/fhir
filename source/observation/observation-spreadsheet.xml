@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-11-14T01:20:07Z</LastSaved>
+  <LastSaved>2017-11-19T20:13:55Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,7 @@
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>5625</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>6</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -2719,52 +2719,15 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="48">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">!Observation.derivedFrom</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(AllergyIntolerance|Condition|FamilyMemberHistory|ImagingStudy|Immunization|MedicationStatement|Procedure|QuestionnaireResponse|Observation)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The resource from which an observation is derived</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A reference to a resource from which this observation value is derived. For example an Observation resource for a calculated anion gap or Apgar score Observation or a QuestionnaireAnswer resource for an Assessment Tool Observation.( 5/18/2015 EH: TODO need to get a specific example /use cases for example using something other than Observation)  </Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Observations that are a group of observations should be separate resources referenced using the related element with type &quot;has-member&quot; or as component observation(s).</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">.targetObservation</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.related</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.hasMember</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Observation|QuestionnaireResponse|Sequence)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2773,14 +2736,12 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Resource related to this observation</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s87"><Data ss:Type="String">Related resource that belongs to the Observation group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A  reference to another resource (usually another Observation) whose relationship is defined by the relationship type code.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and a set of related observations or sometimes a QuestionnaireResponse from which the measure is derived.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">For a discussion on the ways Observations can assembled in groups together see [Notes below](observation.html#4.20.4).</Data><NamedCell
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">When using this element, an observation will typically have either a value or a set of related resources, although both may be present in some cases.  For a discussion on the ways Observations can assembled in groups together, see [Notes](#obsgrouping) below.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">outBoundRelationship</Data><NamedCell
@@ -2795,10 +2756,51 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">400;0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">[#10118]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="48">
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.derivedFrom</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(DocumentReference|ImagingStudy|Media|QuestionnaireResponse|Observation|Sequence)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Related resource the observation is made from</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String"> The target resource that is part of the information from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">For a discussion on the ways Observations can assembled in groups together, see [Notes](#obsgrouping) below.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">.targetObservation</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Relationships established by OBX-4 usage</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">[#10118]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.related.type</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">!Observation.related.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -2839,7 +2841,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Observation.related.target</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">!Observation.related.target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
@@ -5303,13 +5305,30 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <TopRowVisible>35</TopRowVisible>
-   <LeftColumnVisible>8</LeftColumnVisible>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>22</TopRowBottomPane>
+   <SplitVertical>1</SplitVertical>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>37</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R27C1:R28C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6147,7 +6166,7 @@
     <Cell ss:StyleID="s153"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">related-type</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">!related-type</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Observation.related.type</Data></Cell>
@@ -6155,14 +6174,14 @@
     <Cell><Data ss:Type="String">[#3556]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">related-target</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">!related-target</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Observation.related.target</Data></Cell>
     <Cell ss:StyleID="s153"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">related</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">!related</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">related-target &amp; related-type</Data></Cell>
@@ -6252,27 +6271,31 @@
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Observation.basedOn</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Reference to the service request.</Data></Cell>
+    <Cell><Data ss:Type="String">[#14095]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s154"><Data ss:Type="String">part-of</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Observation.partOf</Data></Cell>
     <Cell ss:StyleID="s153"/>
+    <Cell><Data ss:Type="String">{#14095]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s154"><Data ss:Type="String">derived-from</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Observation.derivedFrom</Data></Cell>
     <Cell ss:StyleID="s153"/>
+    <Cell><Data ss:Type="String">{#10118]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s155"/>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">has-member</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Observation.hasMember</Data></Cell>
     <Cell ss:StyleID="s153"/>
+    <Cell><Data ss:Type="String">{#10118]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s155"/>
@@ -6330,8 +6353,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>43</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>49</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7080,7 +7103,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -7088,7 +7111,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -7409,9 +7431,9 @@
  </Worksheet>
  <Worksheet ss:Name="Profiles">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R1C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="20" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="12" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="17.25">
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="320.25"/>
@@ -7436,65 +7458,6 @@
         x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">IG Name</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.0625">
-    <Cell ss:StyleID="s165"><Data ss:Type="String">!C-CDA Smoking Status Observation</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">observation-ccda-smokingstatus.xml</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">observation-ccda-smokingstatus-profile-spreadsheet.xml</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s178"><Data ss:Type="String">spreadsheet</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ccda</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.0625">
-    <Cell ss:StyleID="s155"><Data ss:Type="String">!C-CDA Age Observation</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">observation-ccda-age.xml</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">observation-ccda-age-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">ccda</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.0625">
-    <Cell ss:StyleID="s155"><Data ss:Type="String">!C-CDA Assessment Scale Observation</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">observation-ccda-assessmentscale.xml</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">observation-ccda-assessmentscale-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">ccda</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.0625">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Caregiver Characteristics Observation</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-caregiverchar.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-caregiverchar-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">ccda</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.0625">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Cognitive Status Result Observation</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-cognitivestatusresult.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-cognitivestatusresult-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">ccda</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.0625">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Comment Activity</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-commentactivity.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-commentactivity-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">ccda</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.0625">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">!C-CDA Deceased Observation</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-deceasedobservation.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-ccda-deceasedobservation-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
-    <Cell><Data ss:Type="String">ccda</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.0625">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">!Test2</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-test2.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">observation-test2-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">spreadsheet</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="17.0625">
     <Cell ss:StyleID="Default"><Data ss:Type="String">Device Metric Observation</Data></Cell>
@@ -7575,10 +7538,11 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7591,11 +7555,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -7603,7 +7566,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R2C4" xmlns="urn:schemas-microsoft-com:office:excel">
+  <AutoFilter x:Range="R1C1:R1C4" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Examples">
@@ -8118,13 +8081,13 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s188"><Data ss:Type="String">Herd test for Mycoplasmal Pneumonia</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s188"><Data ss:Type="String"> An example of a herd screening ELISA assay for Mycoplasmal Pneumonia in Pigs</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s188"><Data ss:Type="String"> An example of a herd screening ELISA assay for Mycoplasmal Pneumonia in Pigs.</Data></Cell>
     <Cell ss:StyleID="s188"><Data ss:Type="String">herd1</Data></Cell>
     <Cell ss:StyleID="s188"><Data ss:Type="String">observation-example-herd1.xml</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s188"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3"><Data ss:Type="String">(Enzootic pneumonia).</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s188"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -8139,11 +8102,10 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>37</TopRowBottomPane>
+   <TopRowBottomPane>46</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8160,7 +8122,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>61</ActiveRow>
+     <ActiveRow>78</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
@@ -8319,7 +8281,7 @@
     <Cell ss:StyleID="s153"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ObservationRelationshipType</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">!ObservationRelationshipType</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Codes specifying how two observations are related.</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">required</Data></Cell>
@@ -8665,7 +8627,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8678,11 +8640,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>21</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-       <id value="example-diplotype1"/>
-       <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+	<id value="example-diplotype1"/>
+	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
 		<valueCodeableConcept>
 			<coding>
 				<system value="http://www.genenames.org"/>
@@ -27,16 +28,10 @@
 		<reference value="Specimen/genetics-example1-somatic"/>
 		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
 	</specimen>
-	<related>
-		<type value="derived-from"/>
-		<target>
-			<reference value="Observation/example-haplotype1"/>
-		</target>
-	</related>
-	<related>
-		<type value="derived-from"/>
-		<target>
-			<reference value="Observation/example-haplotype2"/>
-		</target>
-	</related>
+	<derivedFrom>
+		<reference value="Observation/example-haplotype1"/>
+	</derivedFrom>
+	<derivedFrom>
+		<reference value="Observation/example-haplotype2"/>
+	</derivedFrom>
 </Observation>

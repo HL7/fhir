@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
 	<id value="example-phenotype"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
@@ -33,10 +34,7 @@
 		<reference value="Specimen/genetics-example1-somatic"/>
 		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
 	</specimen>
-	<related>
-		<type value="derived-from"/>
-		<target>
-			<reference value="Observation/example-diplotype1"/>
-		</target>
-	</related>
+	<derivedFrom>
+		<reference value="Observation/example-diplotype1"/>
+	</derivedFrom>
 </Observation>

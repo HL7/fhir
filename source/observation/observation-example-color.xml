@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="color"/>
 	<status value="final"/>
-		<category>
+	<category>
 		<coding>
 			<system value="http://hl7.org/fhir/observation-category"/>
 			<code value="survey"/>

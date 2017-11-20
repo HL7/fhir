@@ -198,7 +198,7 @@
   Type = Range
 
  -- Row 17 -----------------------------------
-  Element = Observation.related
+  Element = !Observation.related
   Card. = 0..0
 
 === Sheet Triglyceride =====================================
@@ -275,7 +275,7 @@
   Type = Range
 
  -- Row 12 -----------------------------------
-  Element = Observation.related
+  Element = !Observation.related
   Card. = 0..0
 
 === Sheet HDLCholesterol =====================================
@@ -353,7 +353,7 @@
   Type = Range
 
  -- Row 12 -----------------------------------
-  Element = Observation.related
+  Element = !Observation.related
   Card. = 0..0
 
 === Sheet LDLCholesterol =====================================
@@ -441,7 +441,7 @@
   Type = Range
 
  -- Row 13 -----------------------------------
-  Element = Observation.related
+  Element = !Observation.related
   Card. = 0..0
 
 === Sheet Search =====================================

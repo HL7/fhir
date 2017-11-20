@@ -1,5 +1,4 @@
-<!-->The method to register an extension, you can see the extension-11179-de-administrative-status.xml.html<-->
-<Observation xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><!-->The method to register an extension, you can see the extension-11179-de-administrative-status.xml.html<--><Observation xmlns="http://hl7.org/fhir">
 	<id value="example-haplotype1"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
 		<valueCodeableConcept>
@@ -9,8 +8,7 @@
 				<display value="CYP2D6"/>
 			</coding>
 		</valueCodeableConcept>
-	</extension>
-	<!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+	</extension><!--extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
 		<valueReference>
 			<reference value="Sequence/example-sequence1"/>
 		</valueReference>
@@ -19,15 +17,14 @@
 		<valueReference>
 			<reference value="Sequence/example-sequence2"/>
 		</valueReference>
-	</extension-->
-	<status value="unknown"/>
-  <code>
-    <coding>
-      <system value="http://loinc.org"/>
-      <code value="55233-1"/>
-      <display value="Genetic analysis master panel-- This is the parent OBR for the panel holding all of the associated observations that can be reported with a molecular genetics analysis result."/>
-    </coding>
-  </code>  
+	</extension--><status value="unknown"/>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="55233-1"/>
+			<display value="Genetic analysis master panel-- This is the parent OBR for the panel holding all of the associated observations that can be reported with a molecular genetics analysis result."/>
+		</coding>
+	</code>
 	<subject>
 		<reference value="Patient/727127"/>
 		<display value="J*********** C***********"/>
@@ -43,18 +40,10 @@
 	<specimen>
 		<reference value="Specimen/genetics-example1-somatic"/>
 		<display value="Molecular Specimen ID: MLD45-Z4-1234"/>
-	</specimen>
-	<!-->If you do not like "related", you can delete this block<-->
-	<related>
-		<type value="derived-from"/>
-		<target>
-			<reference value="Sequence/example-pgx-1"/>
-		</target>
-	</related>
-	<related>
-		<type value="derived-from"/>
-		<target>
-			<reference value="Sequence/example-pgx-2"/>
-		</target>
-	</related>
+	</specimen><!-->If you do not like "related", you can delete this block<--><derivedFrom>
+		<reference value="Sequence/example-pgx-1"/>
+	</derivedFrom>
+	<derivedFrom>
+		<reference value="Sequence/example-pgx-2"/>
+	</derivedFrom>
 </Observation>

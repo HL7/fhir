@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
-	<id value="1minute-apgar-score"/>
-	<!--	Using a contained patient for the purposes of this example Observation.  Typically the reference would be to an external resource  --><contained><Patient><id value="newborn"/><!--   MRN assigned by ACME healthcare on   --><identifier><system value="http://acmehealthcare/org/mrns"/><value value="12345"/></identifier><active value="true"/><!--   Peter James Chalmers   --><name><family value="Chalmers"/><given value="Peter"/><given value="James"/></name><!--   use FHIR code system for male / female   --><gender value="male"/><birthDate value="2016-05-18"><extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime"><valueDateTime value="2016-05-18T10:28:45Z"/></extension></birthDate></Patient></contained><status value="final"/>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="1minute-apgar-score"/><!--	Using a contained patient for the purposes of this example Observation.  Typically the reference would be to an external resource  --><contained>
+		<Patient>
+			<id value="newborn"/><!--   MRN assigned by ACME healthcare on   --><identifier>
+				<system value="http://acmehealthcare/org/mrns"/>
+				<value value="12345"/>
+			</identifier>
+			<active value="true"/><!--   Peter James Chalmers   --><name>
+				<family value="Chalmers"/>
+				<given value="Peter"/>
+				<given value="James"/>
+			</name><!--   use FHIR code system for male / female   --><gender value="male"/>
+			<birthDate value="2016-05-18">
+				<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+					<valueDateTime value="2016-05-18T10:28:45Z"/>
+				</extension>
+			</birthDate>
+		</Patient>
+	</contained>
+	<status value="final"/>
 	<category>
 		<coding>
 			<system value="http://hl7.org/fhir/observation-category"/>
@@ -50,20 +67,18 @@
 			<text value="Apgar color score"/>
 		</code>
 		<valueCodeableConcept>
-			<coding>
-				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
-				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
 				<system value="http://loinc.org"/>
 				<code value="LA6722-8"/>
-				<display value="The baby&apos;s whole body is completely bluish-gray or pale"/>
+				<display value="The baby's whole body is completely bluish-gray or pale"/>
 			</coding>
 			<coding>
 				<system value="http:/acme.ped/apgarcolor"/>
 				<code value="0"/>
 			</coding>
-			<text value="0. The baby&apos;s whole body is completely bluish-gray or pale"/>
+			<text value="0. The baby's whole body is completely bluish-gray or pale"/>
 		</valueCodeableConcept>
 	</component>
 	<component>
@@ -81,9 +96,7 @@
 			<text value="Apgar respiratory effort score"/>
 		</code>
 		<valueCodeableConcept>
-			<coding>
-				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
-				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
 				<system value="http://loinc.org"/>
@@ -112,9 +125,7 @@
 			<text value="Apgar response to stimulus score"/>
 		</code>
 		<valueCodeableConcept>
-			<coding>
-				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
-				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
 				<system value="http://loinc.org"/>
@@ -143,9 +154,7 @@
 			<text value="Apgar muscle tone score"/>
 		</code>
 		<valueCodeableConcept>
-			<coding>
-				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
-				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
 				<system value="http://loinc.org"/>
@@ -174,9 +183,7 @@
 			<text value="Apgar respiratory effort score"/>
 		</code>
 		<valueCodeableConcept>
-			<coding>
-				<!--this  extension  maps a numeric score to the code this may already be known and unecessary-->
-				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
+			<coding><!--this  extension  maps a numeric score to the code this may already be known and unecessary--><extension url="http://hl7.org/fhir/StructureDefinition/iso21090-CO-value">
 					<valueDecimal value="0"/>
 				</extension>
 				<system value="http://loinc.org"/>

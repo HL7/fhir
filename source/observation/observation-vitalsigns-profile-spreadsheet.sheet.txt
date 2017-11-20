@@ -67,16 +67,16 @@
  -- Row 2 -----------------------------------
   Id = vs-2
   Context = Observation
-  English = If there is no component or related element then either a value[x] or a data absent reason must be present
-  XPath = exists(f:component) or exists(f:related) or exists(f:*[starts-with(local-name(.), \'value\')]) or exists(f:dataAbsentReason)
-  Expression = (component.empty() and related.empty()) implies (dataAbsentReason or value)
+  English = If there is no component or hasMember element then either a value[x] or a data absent reason must be present.
+  XPath = f:component or f:memberOF or f:*[starts-with(local-name(.), \'value\')] or f:dataAbsentReason
+  Expression = (component.empty() and hasMember.empty()) implies (dataAbsentReason or value)
   Severity = error
 
  -- Row 3 -----------------------------------
   Id = vs-3
   Context = Observation.component
   English = If there is no a value a data absent reason must be present
-  XPath = exists(f:*[starts-with(local-name(.), \'value\')]) or exists(f:dataAbsentReason)
+  XPath = f:*[starts-with(local-name(.), \'value\')] or f:dataAbsentReason
   Expression = value.exists() or dataAbsentReason.exists()
   Severity = error
 
@@ -84,7 +84,7 @@
   Id = vs-4
   Context = Observation.category
   English = Must have a category of \'vital-signs\' and a code system \'http://hl7.org/fhir/observation-category\'
-  XPath = exists(f:coding/code[@value=\'vital-signs\']) and exists(f:coding/system[@value=\'http://hl7.org/fhir/observation-category\'])
+  XPath = f:coding/code[@value=\'vital-signs\'] and f:coding/system[@value=\'http://hl7.org/fhir/observation-category\']
   Expression = where(coding.system=\'http://hl7.org/fhir/observation-category\' and coding.code=\'vital-signs\').exists()
   Severity = error
 
@@ -180,36 +180,42 @@
   Binding = DAR
 
  -- Row 13 -----------------------------------
-  Element = Observation.related
+  Element = Observation.hasMember
   Must Support = Y
+  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/vitalsigns}
   Short Name = Used when reporting vital signs panel components
 
  -- Row 14 -----------------------------------
-  Element = Observation.related.type
+  Element = !Observation.related
+  Must Support = Y
+  Short Name = Used when reporting vital signs panel components
+
+ -- Row 15 -----------------------------------
+  Element = !Observation.related.type
   Card. = 1..1
   Must Support = Y
   Type = code
   Value = has-member
 
- -- Row 15 -----------------------------------
-  Element = Observation.related.target
+ -- Row 16 -----------------------------------
+  Element = !Observation.related.target
   Card. = 1..1
   Must Support = Y
   Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/vitalsigns}
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Observation.component
   Must Support = Y
   Short Name = Used when reporting systolic and diastolic blood pressure.
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Observation.component.code
   Card. = 1..1
   Must Support = Y
   Type = CodeableConcept
   Binding = VitalSigns
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Observation.component.valueQuantity
   Card. = 0..1
   Must Support = Y
@@ -219,33 +225,33 @@
   Short Name = Vital Sign Value recorded with UCUM
   Requirements = 9. SHALL contain exactly one [1..1] value with @xsi:type=\"PQ\" (CONF:7305).
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Observation.component.valueQuantity.value
   Card. = 1..1
   Must Support = Y
   Type = decimal
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Observation.component.valueQuantity.unit
   Card. = 1..1
   Must Support = Y
   Type = string
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Observation.component.valueQuantity.system
   Card. = 1..1
   Must Support = Y
   Type = uri
   Value = http://unitsofmeasure.org
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Observation.component.valueQuantity.code
   Card. = 1..1
   Must Support = Y
   Type = code
   Short Name = Coded responses from the common UCUM units for vital signs value set.
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Observation.component.dataAbsentReason
   Card. = 0..1
   Must Support = Y
@@ -728,7 +734,7 @@
   Card. = 0..0
 
  -- Row 7 -----------------------------------
-  Element = Observation.related
+  Element = Observation.hasMember
   Card. = 1..*
 
 === Sheet Search =====================================

@@ -1,21 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<?xml version="1.0" encoding="UTF-8"?><!-- 
  This is an example of a Glasgow Coma Score using the .related to bundle the  measurements  will use contained elements for this example only but coudl just as easily use external or bundled elements..  source http://www.choa.org/~/media/CHOA/Documents/Services/Concussion/Concussion-glasgow-coma-scale.pdf
- -->
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
-	<id value="gcs-qa"/>
-	<!--  the mandatory quality flags:  -->
-	<status value="final"/>
-	<!-- 
+ --><Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
+	<id value="gcs-qa"/><!--  the mandatory quality flags:  --><status value="final"/><!-- 
     Observations are often coded in multiple code systems.
       - LOINC
 		- or SNOMED
       -and/or the source system may provides its own "local" code, which may be less or more granular than LOINC.
 	In this example there is only LOINC
-   -->
-	<code>
-		<!--  LOINC - always recommended to have a LOINC code  -->
-		<coding>
+   --><code><!--  LOINC - always recommended to have a LOINC code  --><coding>
 			<system value="http://loinc.org"/>
 			<code value="9269-2"/>
 			<display value="Glasgow coma score total"/>
@@ -26,12 +18,10 @@
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
 	</subject>
-	<effectiveDateTime value="2014-12-11T04:44:16Z"/>
-	<!--  In FHIR, units may be represented twice. Once in the
+	<effectiveDateTime value="2014-12-11T04:44:16Z"/><!--  In FHIR, units may be represented twice. Once in the
     agreed human representation, and once in a coded form.
     In this example the UCUM unit is provided but no human representation since this is often not displayed
-    -->
-	<valueQuantity>
+    --><valueQuantity>
 		<value value="13"/>
 		<system value="http://unitsofmeasure.org"/>
 		<code value="{score}"/>
@@ -41,9 +31,7 @@
 			<value value="8"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="{score}"/>
-		</high>
-		<!--  meaning as text  -->
-		<type>
+		</high><!--  meaning as text  --><type>
 			<text value="Severe TBI"/>
 		</type>
 	</referenceRange>
@@ -57,9 +45,7 @@
 			<value value="12"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="{score}"/>
-		</high>
-		<!--  meaning as text  -->
-		<type>
+		</high><!--  meaning as text  --><type>
 			<text value="Moderate TBI"/>
 		</type>
 	</referenceRange>
@@ -68,18 +54,11 @@
 			<value value="13"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="{score}"/>
-		</low>
-		<!--  meaning as text  -->
-		<type>
+		</low><!--  meaning as text  --><type>
 			<text value="Mild TBI"/>
 		</type>
-	</referenceRange>
-	<!--  put the references to the QuestionnairAnswer example here using the derived-From type   -->
-	<related>
-		<type value="derived-from"/>
-		<target>
-			<reference value="QuestionnaireResponse/gcs"/>
-			<display value="GCS form results"/>
-		</target>
-	</related>
+	</referenceRange><!--  put the references to the QuestionnairAnswer example here using the derived-From type   --><derivedFrom>
+		<reference value="QuestionnaireResponse/gcs"/>
+		<display value="GCS form results"/>
+	</derivedFrom>
 </Observation>

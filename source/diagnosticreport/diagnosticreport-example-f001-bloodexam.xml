@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/working%20build/schema/account.xsd">
-<id value="f001"/>
+	<id value="f001"/>
 	<type value="collection"/>
 	<entry>
 		<fullUrl value="https://example.com/base/DiagnosticReport/f001"/>
 		<resource>
-			<DiagnosticReport>
-				<!--  ISO 8601  -->
-				<!--  OID: 2.16.840.1.113883.4.642.1.7  -->
-				<id value="f001"/>
+			<DiagnosticReport><!--  ISO 8601  --><!--  OID: 2.16.840.1.113883.4.642.1.7  --><id value="f001"/>
 				<identifier>
 					<use value="official"/>
 					<system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>

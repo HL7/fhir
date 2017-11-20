@@ -7,9 +7,7 @@
 	<identifier>
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281"/>
-	</identifier>
-	<!--  demonstrating the use of the baseOn element with a fictive identifier-->
-	<basedOn>
+	</identifier><!--  demonstrating the use of the baseOn element with a fictive identifier--><basedOn>
 		<identifier>
 			<system value="https://acme.org/identifiers"/>
 			<value value="1234"/>
@@ -23,20 +21,18 @@
 			<display value="Vital Signs"/>
 		</coding>
 	</category>
-	<code>
-		<!-- replaced by 85354-9
+	<code><!-- replaced by 85354-9
 				<coding>
 					<system value="http://loinc.org"/>
 					<code value="55284-4"/>
 					<display value="Blood pressure systolic &amp; diastolic"/>
 				</coding>
-		-->
-				<coding>
-					<system value="http://loinc.org"/>
-					<code value="85354-9"/>
-					<display value="Bood pressure panel with all children optional"/>
-				</coding>
-				<text value="Blood pressure systolic &amp; diastolic"/>
+		--><coding>
+			<system value="http://loinc.org"/>
+			<code value="85354-9"/>
+			<display value="Bood pressure panel with all children optional"/>
+		</coding>
+		<text value="Blood pressure systolic &amp; diastolic"/>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>
@@ -44,51 +40,39 @@
 	<effectiveDateTime value="2012-09-17"/>
 	<performer>
 		<reference value="Practitioner/example"/>
-	</performer>
-	<!--   an interpretation offered to the combination observation
+	</performer><!--   an interpretation offered to the combination observation
         generally, it would only be appropriate to offer an interpretation
         of an observation that has no value if it has "COMP" (component)
-        observations   -->
-	<interpretation>
+        observations   --><interpretation>
 		<coding>
 			<system value="http://hl7.org/fhir/v2/0078"/>
 			<code value="L"/>
 			<display value="low"/>
 		</coding>
 		<text value="Below low normal"/>
-	</interpretation>
-	<!--The BodySite can be captured in a LOINC code but am showing it here to demonstrate populating the element -->
-	<bodySite>
+	</interpretation><!--The BodySite can be captured in a LOINC code but am showing it here to demonstrate populating the element --><bodySite>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="368209003"/>
 			<display value="Right arm"/>
 		</coding>
 	</bodySite>
-	<component>
-		<!--
+	<component><!--
            Observations are often coded in multiple code systems.
            - LOINC provides a very specific code (though not more specific in this particular case)
            - snomed provides a clinically relevant code that is usually less granular than LOINC
            - the source system provides its own code, which may be less or more granular than LOINC
 
 this is shown here to demonstrate  the concept of translations within the codeableConcept datatype. The diastolic code below only has a LOINC code
-           -->
-		<code>
-			<!--   LOINC -code   -->
-			<coding>
+           --><code><!--   LOINC -code   --><coding>
 				<system value="http://loinc.org"/>
 				<code value="8480-6"/>
 				<display value="Systolic blood pressure"/>
-			</coding>
-			<!--   SNOMED CT Codes   -->
-			<coding>
+			</coding><!--   SNOMED CT Codes   --><coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="271649006"/>
 				<display value="Systolic blood pressure"/>
-			</coding>
-			<!--   Also, a local code specific to the source system   -->
-			<coding>
+			</coding><!--   Also, a local code specific to the source system   --><coding>
 				<system value="http://acme.org/devices/clinical-codes"/>
 				<code value="bp-s"/>
 				<display value="Systolic Blood pressure"/>
@@ -99,21 +83,14 @@ this is shown here to demonstrate  the concept of translations within the codeab
 			<unit value="mmHg"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mm[Hg]"/>
-		</valueQuantity>
-		<!--   an interpretation for the individual composite observation -->
-		<interpretation>
+		</valueQuantity><!--   an interpretation for the individual composite observation --><interpretation>
 			<coding>
 				<system value="http://hl7.org/fhir/v2/0078"/>
 				<code value="N"/>
 				<display value="normal"/>
 			</coding>
 			<text value="Normal"/>
-		</interpretation>
-		<!--  	Should have a refrange as well  -->
-	</component>
-	<component>
-		<!--   this codes only has a LOINC code   -->
-		<code>
+		</interpretation><!--  	Should have a refrange as well  --></component><component><!--   this codes only has a LOINC code   --><code>
 			<coding>
 				<system value="http://loinc.org"/>
 				<code value="8462-4"/>
@@ -125,16 +102,11 @@ this is shown here to demonstrate  the concept of translations within the codeab
 			<unit value="mmHg"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mm[Hg]"/>
-		</valueQuantity>
-		<!--   an interpretation for the individual composite observation -->
-		<interpretation>
+		</valueQuantity><!--   an interpretation for the individual composite observation --><interpretation>
 			<coding>
 				<system value="http://hl7.org/fhir/v2/0078"/>
 				<code value="L"/>
 				<display value="low"/>
 			</coding>
 			<text value="Below low normal"/>
-		</interpretation>
-		<!--  	Should have a refrange as well  -->
-	</component>
-</Observation>
+		</interpretation><!--  	Should have a refrange as well  --></component></Observation>

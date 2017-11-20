@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/working%20build/schema/account.xsd">
-<id value="micro"/>
+	<id value="micro"/>
 	<type value="collection"/>
 	<entry>
 		<fullUrl value="https://example.com/base/DiagnosticReport/micro"/>
 		<resource>
-			<DiagnosticReport>
-				<!--   start of the main resource   -->
-				<id value="micro"/>
+			<DiagnosticReport><!--   start of the main resource   --><id value="micro"/>
 				<identifier>
-					<system value="http://hnam.org/identifiers/orders"/>
-					<!--   seems like a likely choice   -->
-					<value value="290741144"/>
+					<system value="http://hnam.org/identifiers/orders"/><!--   seems like a likely choice   --><value value="290741144"/>
 				</identifier>
 				<basedOn>
 					<reference value="ServiceRequest/req"/>
@@ -31,10 +27,7 @@
 					<text value="Culture, MRSA"/>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<issued value="2009-08-10T08:25:44+10:00"/>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><issued value="2009-08-10T08:25:44+10:00"/>
 				<performer>
 					<display value="Todd Ashby"/>
 				</performer>
@@ -57,16 +50,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueCodeableConcept>
-					<!--   CE   -->
-					<coding>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueCodeableConcept><!--   CE   --><coding>
 						<system value="http://acme.org/lab/codes/organisms"/>
 						<code value="Staaur"/>
 					</coding>
@@ -88,14 +73,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueCodeableConcept>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueCodeableConcept>
 					<coding>
 						<system value="http://acme.org/lab/codes/flags"/>
 						<code value="POS"/>
@@ -118,14 +97,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<interpretation>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><interpretation>
 					<coding>
 						<system value="http://hl7.org/fhir/v2/0078"/>
 						<code value="R"/>
@@ -148,14 +121,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="2"/>
 					<comparator value="&lt;="/>
 				</valueQuantity>
@@ -182,14 +149,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="4"/>
 					<comparator value="&lt;="/>
 				</valueQuantity>
@@ -216,14 +177,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="0.5"/>
 					<comparator value="&gt;="/>
 				</valueQuantity>
@@ -250,14 +205,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="1"/>
 					<comparator value="&gt;="/>
 				</valueQuantity>
@@ -284,14 +233,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="0.5"/>
 					<comparator value="&lt;="/>
 				</valueQuantity>
@@ -318,14 +261,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="8"/>
 					<comparator value="&gt;="/>
 				</valueQuantity>
@@ -352,14 +289,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="2"/>
 					<comparator value="&lt;="/>
 				</valueQuantity>
@@ -386,14 +317,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="0.5"/>
 					<comparator value="&lt;="/>
 				</valueQuantity>
@@ -420,14 +345,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="4"/>
 				</valueQuantity>
 				<interpretation>
@@ -453,14 +372,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="0.5"/>
 					<comparator value="&lt;="/>
 				</valueQuantity>
@@ -487,14 +400,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="0.5"/>
 				</valueQuantity>
 				<interpretation>
@@ -520,14 +427,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="2"/>
 					<comparator value="&gt;="/>
 				</valueQuantity>
@@ -554,14 +455,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="0.5"/>
 				</valueQuantity>
 				<interpretation>
@@ -587,14 +482,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="0.5"/>
 					<comparator value="&lt;="/>
 				</valueQuantity>
@@ -621,14 +510,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="0.5"/>
 					<comparator value="&lt;="/>
 				</valueQuantity>
@@ -655,17 +538,9 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
-					<value value="0.0526"/>
-					<!--   not sure what to do with <=1/19   -->
-					<comparator value="&lt;="/>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
+					<value value="0.0526"/><!--   not sure what to do with <=1/19   --><comparator value="&lt;="/>
 				</valueQuantity>
 				<interpretation>
 					<coding>
@@ -690,14 +565,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueQuantity>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueQuantity>
 					<value value="1"/>
 				</valueQuantity>
 				<interpretation>
@@ -723,14 +592,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<valueString value="D-Test:  Negative - This isolate does not demonstrate inducible clindamycin resistance in vitro."/>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueString value="D-Test:  Negative - This isolate does not demonstrate inducible clindamycin resistance in vitro."/>
 			</Observation>
 		</resource>
 	</entry>
@@ -748,14 +611,8 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<interpretation>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><interpretation>
 					<coding>
 						<system value="http://hl7.org/fhir/v2/0078"/>
 						<code value="S"/>
@@ -769,9 +626,7 @@
 		<resource>
 			<Observation>
 				<id value="obr-2"/>
-				<status value="final"/>
-				<!--   OBR 2   -->
-				<code>
+				<status value="final"/><!--   OBR 2   --><code>
 					<coding>
 						<system value="http://acme.org/lab/codes/panels"/>
 						<code value="60790"/>
@@ -779,128 +634,64 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<performer>
-					<display value="Todd Ashby"/>
-					<!--   of course, in practive, this would be a real reference   -->
-				</performer>
-				<!--   now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed   -->
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-1"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-2"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-4"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-6"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-8"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-10"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-12"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-14"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-16"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-18"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-20"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-22"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-24"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-26"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-28"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-30"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-32"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx2-34"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/nte-1"/>
-					</target>
-				</related>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><!--   now, references to the OBXs. for reader convenience, we take keep the OBX identification, though this is not required in practice. Note that many of the oBX segments are pairs that get collapsed   --><hasMember>
+					<reference value="Observation/obx2-1"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-2"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-4"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-6"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-8"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-10"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-12"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-14"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-16"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-18"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-20"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-22"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-24"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-26"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-28"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-30"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-32"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx2-34"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/nte-1"/>
+				</hasMember>
 			</Observation>
 		</resource>
 	</entry>
@@ -909,9 +700,7 @@
 		<resource>
 			<Observation>
 				<id value="obr-3"/>
-				<status value="final"/>
-				<!--   OBR 3   -->
-				<code>
+				<status value="final"/><!--   OBR 3   --><code>
 					<coding>
 						<system value="http://acme.org/lab/codes/panels"/>
 						<code value="60418"/>
@@ -919,15 +708,9 @@
 					</coding>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx3-1"/>
-					</target>
-				</related>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><hasMember>
+					<reference value="Observation/obx3-1"/>
+				</hasMember>
 			</Observation>
 		</resource>
 	</entry>
@@ -936,9 +719,7 @@
 		<resource>
 			<Observation>
 				<id value="org1"/>
-				<status value="final"/>
-				<!--   OBR 1   -->
-				<code>
+				<status value="final"/><!--   OBR 1   --><code>
 					<coding>
 						<system value="http://acme.org/lab/codes/organisms"/>
 						<code value="Staaur"/>
@@ -946,35 +727,16 @@
 					<text value="Staphylococcus aureus Panel"/>
 				</code>
 				<subject>
-					<reference value="Patient/example"/>
-					<!--   patient chosen at random   -->
-				</subject>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx1-4"/>
-					</target>
-				</related>
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obx1-5"/>
-					</target>
-				</related>
-				<!--   group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped   -->
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obr-2"/>
-					</target>
-				</related>
-				<!--   group - Disk diffusion   -->
-				<related>
-					<type value="has-member"/>
-					<target>
-						<reference value="Observation/obr-3"/>
-					</target>
-				</related>
+					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><hasMember>
+					<reference value="Observation/obx1-4"/>
+				</hasMember>
+				<hasMember>
+					<reference value="Observation/obx1-5"/>
+				</hasMember><!--   group - automated broth dilution. This is unusual - usually, there's just one level of group, and this group would be skipped   --><hasMember>
+					<reference value="Observation/obr-2"/>
+				</hasMember><!--   group - Disk diffusion   --><hasMember>
+					<reference value="Observation/obr-3"/>
+				</hasMember>
 			</Observation>
 		</resource>
 	</entry>

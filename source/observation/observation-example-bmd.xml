@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR/ehaas/Documents/FHIR/build/schema/observation.xsd">
-	<!--      BMD measurements of left femur encoded as an observation for example purposes.      -->
-	<id value="bmd"/>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR/ehaas/Documents/FHIR/build/schema/observation.xsd"><!--      BMD measurements of left femur encoded as an observation for example purposes.      --><id value="bmd"/>
 	<status value="final"/>
 	<code>
 		<coding>
@@ -13,9 +11,7 @@
 	</code>
 	<subject>
 		<reference value="Patient/pat2"/>
-	</subject>
-	<!--      well, actually. this isn't the patient, but it'll do for now      -->
-	<performer>
+	</subject><!--      well, actually. this isn't the patient, but it'll do for now      --><performer>
 		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 		<display value="Acme Imaging Diagnostics"/>
 	</performer>
@@ -28,9 +24,6 @@
 	<bodySite>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<code value="71341001:272741003=7771000"/>
-			<!--example of a post coordinated term-->
-		</coding>
-		<text value="Left Femur"/>
+			<code value="71341001:272741003=7771000"/><!--example of a post coordinated term--></coding><text value="Left Femur"/>
 	</bodySite>
 </Observation>

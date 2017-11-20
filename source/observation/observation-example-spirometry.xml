@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir">
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Downloads/fhir-all-xsd/structuredefinition.xsd">
 	<id value="656"/>
 	<identifier>
 		<value value="patientId-urn:oid:1.2.4~0000000000000000~152584~20170503155426~820"/>
@@ -28,6 +28,10 @@
 	<device>
 		<reference value="DeviceComponent/DeviceComponent-SysId-E239000000000001"/>
 	</device>
+
+	<!---
+Removed the .related type qualified-by  - if needed would be an extension 
+
 	<related>
 		<type value="qualified-by"/>
 		<target>
@@ -36,4 +40,5 @@
 			</identifier>
 		</target>
 	</related>
+-->
 </Observation>
