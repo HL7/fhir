@@ -55,8 +55,8 @@
  -- Row 8 -----------------------------------
   Binding Name = ServiceRequestCategory
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/procedure-category
-  Definition = Classification of the procedure
+  Reference = valueset-servicerequest-category
+  Definition = Classification of the requested service.
   Conformance = example
 
  -- Row 9 -----------------------------------
@@ -235,6 +235,7 @@
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
+  Binding = ServiceRequestCategory
   Short Name = Classification of service
   Definition = A code that classifies the service for searching, sorting and display purposes (e.g. \"Surgical Procedure\").
   Requirements = Used for filtering what service request are retrieved and displayed.
@@ -242,7 +243,7 @@
   R3-RR-Mapping = ReferralRequest.type (for RR changed element name to category, target mapping is broader)
   v2 Mapping = RF1-5
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"INT\"].code
-  Committee Notes = [#11119]#13196]
+  Committee Notes = [#11119]#13196]{#13868}
   w5 = class
 
  -- Row 12 -----------------------------------
@@ -405,7 +406,7 @@
   Card. = 0..1
   Aliases = request recipient
   Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)
+  Type = Reference(Practitioner|PractitionerRole|Organization|Patient|Device|RelatedPerson|HealthcareService|CareTeam)
   Short Name = Requested perfomer
   Definition = The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.
   Comments = If needed, use an [extension](extensibility.html) for listing alternative performers and/or roles and/or preference.
