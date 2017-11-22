@@ -44,11 +44,13 @@ public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
       b.setType(BundleType.COLLECTION);
       b.addEntry().setResource(r4).setFullUrl(r4 instanceof MetadataResource ? ((MetadataResource) r4).getUrl() : null);
     }
+    // Add any code systems defined as part of processing value sets to the end of the converted Bundle
     for (CodeSystem cs : cslist) {
       BundleEntryComponent be = b.addEntry();
       be.setFullUrl(cs.getUrl());
       be.setResource(cs);
     }
+    cslist.clear();
     if (killPrimitives) {
       List<BundleEntryComponent> remove = new ArrayList<BundleEntryComponent>();
       for (BundleEntryComponent be : b.getEntry()) {

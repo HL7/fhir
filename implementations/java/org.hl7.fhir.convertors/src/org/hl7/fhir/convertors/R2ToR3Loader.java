@@ -50,6 +50,7 @@ public class R2ToR3Loader implements IContextResourceLoader, VersionConvertorAdv
       be.setFullUrl(cs.getUrl());
       be.setResource(cs);
     }
+	cslist.clear();
     if (killPrimitives) {
       List<BundleEntryComponent> remove = new ArrayList<BundleEntryComponent>();
       for (BundleEntryComponent be : b.getEntry()) {
