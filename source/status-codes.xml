@@ -19,11 +19,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16620</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>15400</WindowHeight>
+  <WindowWidth>27760</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -2915,6 +2914,7 @@
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="34"><Data ss:Type="String">not-taken</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MessageDefinition.status</Data><NamedCell
@@ -4175,7 +4175,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>67</ActiveRow>
+     <ActiveRow>70</ActiveRow>
      <ActiveCol>33</ActiveCol>
     </Pane>
    </Panes>

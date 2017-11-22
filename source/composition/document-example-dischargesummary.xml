@@ -437,19 +437,21 @@
 		<status value="completed"/>
 	<!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
+        <statusReason>
+          <text value="Management of Asthma"/>
+        </statusReason>
         <medicationCodeableConcept>
           <text value="Ventolin Inhaler"/>
         </medicationCodeableConcept>
-        <dateAsserted value="2013-05-05T16:13:03Z"/>
-	<subject>
+        <subject>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Peter Patient"/>
         </subject>
+        <dateAsserted value="2013-05-05T16:13:03Z"/>
+
         
-        <taken value="n"/>
-        <reasonNotTaken>
-          <text value="Management of Asthma"/>
-        </reasonNotTaken>
+        
+
        </MedicationStatement>
     </resource>
   </entry>

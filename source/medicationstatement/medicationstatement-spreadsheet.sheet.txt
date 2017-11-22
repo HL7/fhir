@@ -38,10 +38,10 @@
   Conformance = example
 
  -- Row 6 -----------------------------------
-  Binding Name = MedicationStatementNotTakenReason
+  Binding Name = MedicationStatementStatusReason
   Binding = value set
-  Reference = valueset-reason-medication-not-taken-codes
-  Definition = A coded concept indicating the reason why the medication was not taken
+  Reference = valueset-reason-medication-status-codes
+  Definition = A coded concept indicating the reason for the status of the statement
   Conformance = example
 
  -- Row 7 -----------------------------------
@@ -128,6 +128,12 @@
   Display = Unknown
   Definition = The state of the medication use is not currently known.
 
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = not-taken
+  Display = Not Taken
+  Definition = The medication was not consumed by the patient
+
 === Sheet medication-statement-category =====================================
 
  -- Row 1 -----------------------------------
@@ -182,13 +188,6 @@
 
 === Sheet Invariants =====================================
 
- -- Row 1 -----------------------------------
-  Id = 1
-  Context = MedicationStatement
-  English = Reason not taken is only permitted if Taken is No
-  XPath = not(exists(f:reasonNotTaken)) or f:taken/@value=\'n\'
-  Expression = reasonNotTaken.exists().not() or (taken = \'n\')
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -235,28 +234,28 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=SPLY or SBADM or PROC or OBS,moodCode=EVN]
 
  -- Row 5 -----------------------------------
-  Element = MedicationStatement.context
-  Card. = 0..1
-  Summary = y
-  Type = Reference (Encounter | EpisodeOfCare)
-  Short Name = Encounter / Episode associated with MedicationStatement
-  Definition = The encounter or episode of care that establishes the context for this MedicationStatement.
-  Workflow Mapping = Event.context
-  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
-
- -- Row 6 -----------------------------------
   Element = MedicationStatement.status
   Card. = 1..1
   Is Modifier = Y
   Summary = y
   Type = code
   Binding = MedicationStatementStatus
-  Short Name = active | completed | entered-in-error | intended | stopped | on-hold | unknown
+  Short Name = active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken
   Definition = A code representing the patient or other source\'s judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
   Comments = MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).\r\rThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Event.status
   RIM Mapping = .statusCode
   w5 = status
+
+ -- Row 6 -----------------------------------
+  Element = MedicationStatement.statusReason
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = MedicationStatementStatusReason
+  Short Name = True if asserting medication was not given
+  Definition = A code indicating why the medication was not taken.
+  Workflow Mapping = Event.statusReason
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde
 
  -- Row 7 -----------------------------------
   Element = MedicationStatement.category
@@ -283,6 +282,28 @@
   w5 = what
 
  -- Row 9 -----------------------------------
+  Element = MedicationStatement.subject
+  Card. = 1..1
+  Summary = y
+  Type = Reference(Patient | Group)
+  Short Name = Who is/was taking  the medication
+  Definition = The person, animal or group who is/was taking the medication.
+  Workflow Mapping = Event.subject
+  v2 Mapping = PID-3-Patient ID List
+  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
+  w5 = who.focus
+
+ -- Row 10 -----------------------------------
+  Element = MedicationStatement.context
+  Card. = 0..1
+  Summary = y
+  Type = Reference (Encounter | EpisodeOfCare)
+  Short Name = Encounter / Episode associated with MedicationStatement
+  Definition = The encounter or episode of care that establishes the context for this MedicationStatement.
+  Workflow Mapping = Event.context
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
+
+ -- Row 11 -----------------------------------
   Element = MedicationStatement.effective[x]
   Card. = 0..1
   Summary = y
@@ -294,7 +315,7 @@
   RIM Mapping = .effectiveTime
   w5 = when.done
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationStatement.dateAsserted
   Card. = 0..1
   Summary = y
@@ -304,7 +325,7 @@
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationStatement.informationSource
   Card. = 0..1
   Type = Reference(Patient | Practitioner | RelatedPerson |Organization)
@@ -313,19 +334,7 @@
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT, or codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)
   w5 = who.source
 
- -- Row 12 -----------------------------------
-  Element = MedicationStatement.subject
-  Card. = 1..1
-  Summary = y
-  Type = Reference(Patient | Group)
-  Short Name = Who is/was taking  the medication
-  Definition = The person, animal or group who is/was taking the medication.
-  Workflow Mapping = Event.subject
-  v2 Mapping = PID-3-Patient ID List
-  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
-  w5 = who
-
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationStatement.derivedFrom
   Card. = 0..*
   Type = Reference(Any)
@@ -334,30 +343,7 @@
   Comments = Likely references would be to MedicationRequest, MedicationDispense, Claim, Observation or QuestionnaireAnswers.  The most common use cases for deriving a MedicationStatement comes from creating a MedicationStatement from a MedicationRequest or from a lab observation or a claim.  it should be noted that the amount of information that is available varies from the type resource that you derive the MedicationStatement from.
   RIM Mapping = .outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]
 
- -- Row 14 -----------------------------------
-  Element = MedicationStatement.taken
-  Card. = 1..1
-  Is Modifier = y
-  Summary = y
-  Type = code
-  Binding = MedicationStatementTaken
-  Short Name = y | n | unk | na
-  Definition = Indicator of the certainty of whether the medication was taken by the patient
-  Comments = This element is labeled as a modifier because it indicates that the medication was not taken
-  Workflow Mapping = Event.notDone
-  RIM Mapping = .actionNegationInd
-
  -- Row 15 -----------------------------------
-  Element = MedicationStatement.reasonNotTaken
-  Card. = 0..*
-  Inv. = 1
-  Type = CodeableConcept
-  Binding = MedicationStatementNotTakenReason
-  Short Name = True if asserting medication was not given
-  Definition = A code indicating why the medication was not taken.
-  RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason not taken\"].value
-
- -- Row 16 -----------------------------------
   Element = MedicationStatement.reasonCode
   Card. = 0..*
   Type = CodeableConcept
@@ -369,10 +355,10 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationStatement.reasonReference
   Card. = 0..*
-  Type = Reference(Condition | Observation)
+  Type = Reference(Condition | Observation |DiagnosticReport)
   Short Name = Condition or observation that supports why the medication is being/was taken
   Definition = Condition or observation that supports why the medication is being/was taken.
   Comments = This is a reference to a condition that is the reason why the medication is being/was taken.  If only a code exists, use reasonForUseCode.
@@ -380,7 +366,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason for use\"].value
   w5 = why
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationStatement.note
   Card. = 0..*
   Type = Annotation
@@ -389,7 +375,7 @@
   Workflow Mapping = Event.note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationStatement.dosage
   Card. = 0..*
   UML = right

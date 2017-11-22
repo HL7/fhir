@@ -7,17 +7,17 @@
   <medicationCodeableConcept>
       <text value="Little Pink Pill for water retention"></text>
   </medicationCodeableConcept>  
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </subject>
   <effectiveDateTime value="2014-02-01"></effectiveDateTime>
   <dateAsserted value="2014-02-22"/>
   <informationSource>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </informationSource>
-  <subject>
-    <reference value="Patient/pat1"/>
-    <display value="Donald Duck"/> 
-  </subject>
-  <taken value="y"/>
+
   <reasonReference>
     <reference value="Observation/blood-pressure"></reference>
   </reasonReference>

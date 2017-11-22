@@ -72,27 +72,28 @@
     </Medication>
   </contained>
   <status value="active" />
+  <statusReason>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="166643006"/>
+      <display value="Liver enzymes abnormal"/>
+    </coding>
+  </statusReason>
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="#med0309"/>
   </medicationReference>
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </subject>
   <effectiveDateTime value="2015-01-23"></effectiveDateTime>
   <dateAsserted value="2015-02-22"/>
   <informationSource>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </informationSource>
-  <subject>
-    <reference value="Patient/pat1"/>
-    <display value="Donald Duck"/> 
-  </subject>
-  <taken value="n"/>
-  <reasonNotTaken>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-    <code value="166643006"/>
-    <display value="Liver enzymes abnormal"/>
-    </coding>
-  </reasonNotTaken>
+
+
   <note>
     <text value="Patient can not take acetaminophen as per Dr instructions" />
   </note>  

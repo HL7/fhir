@@ -13,9 +13,10 @@
   <medicationReference>
     <reference value="Medication/example"/> 
   </medicationReference>
-  <dateAsserted value="2015-02-22"/>
   <subject>
     <reference value="Patient/example"/>
   </subject>
-  <taken value='na'></taken>
+  <dateAsserted value="2015-02-22"/>
+
+
 </MedicationStatement>
