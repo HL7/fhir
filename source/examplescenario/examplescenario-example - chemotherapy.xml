@@ -2,36 +2,30 @@
 <ExampleScenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/examplescenario.xsd">
 	<id value="example"/>
 
-	<title value="Mobile Medication Administration"/> 
+	<title value="KDN5 Chemotherapy protocol lookup, instanciation and execution"/> 
 	<status value="draft"/>
 
-	<description value="This scenario demonstrates the process of getting the relevant medication instructions for a patient visit and reporting the results of administration. The scenario is as follows: After the prescription is issued, the institution schedules each individual administration event in the Medication Administration Record (MAR). When preparing for a visit, the nurse queries the MAR for the scheduled administrations, obtaining a bundle of records. The nurse then performs the care activities and registers the results in the device. Upon synchronization of the device and the institution, the results of administration are uploaded to the EHR, thus updating the MAR." />
-	<purpose value="Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."/>
+	<description value="This scenario demonstrates the chemotherapy......." />
+	<purpose value="Blah blah"/>
 
 	<!-- First define actors--> 
 	<actor>
-		<actorId value="Nurse"/>
+		<actorId value="MD"/>
 		<type value="person"/>
-		<name value="Nurse"/>
-		<description value="The Nurse" />
+		<name value="Physician"/>
+		<description value="The Physician" />
 	</actor>
 	<actor>
-		<actorId value="MAP"/>
+		<actorId value="CAT"/>
 		<type value="entity"/>
-		<name value="Nurse's Tablet" />
-		<description value="The entity that receives the Administration Requests to show the nurse to perform them" />
-	</actor>	
-	<actor>
-		<actorId value="OP"/>
-		<type value="entity"/>
-		<name value="MAR / Scheduler" />
-		<description value="The Medication Administration Order Placer" />
+		<name value="Catalog system" />
+		<description value="The entity that holds the catalogs" />
 	</actor>
 	<actor>
-		<actorId value="MAC"/>
+		<actorId value="CPOE"/>
 		<type value="entity"/>
-		<name value="MAR / EHR" />
-		<description value="The entity that receives the Medication Administration reports" />
+		<name value="CPOE" />
+		<description value="The system where the order entry takes place" />
 	</actor>
 
 

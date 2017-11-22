@@ -1,0 +1,9 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+	<div>
+		<a name="scope"> </a>
+		<h2>Scope and Usage</h2>
+		<p>
+			A Definition of an observation. To be written.
+		</p>
+	</div>
+</div>
