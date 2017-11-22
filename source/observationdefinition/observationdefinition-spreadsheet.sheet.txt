@@ -140,16 +140,16 @@
  -- Row 4 -----------------------------------
   Element = ObservationDefinition.permittedDataType
   Card. = 0..*
-  Type = code
-  Short Name = permitted data type for observation value
-  Definition = data type allowed for the result of the observation
+  Type = Coding
+  Short Name = Permitted data type for observation value
+  Definition = Data type allowed for the result of the observation
   v2 Mapping = OM1-3
 
  -- Row 5 -----------------------------------
   Element = ObservationDefinition.multipleResultsAllowed
   Card. = 0..1
   Type = boolean
-  Short Name = multiple results allowed
+  Short Name = Multiple results allowed
   Definition = Multiple results allowed for this kind of observation
 
  -- Row 6 -----------------------------------
@@ -189,7 +189,7 @@
   v2 Mapping = OM2-2
 
  -- Row 10 -----------------------------------
-  Element = ObservationDefinition.quantitativeDetails.SIUnit
+  Element = ObservationDefinition.quantitativeDetails.unit
   Card. = 0..1
   Type = Coding
   Binding = ObservationUnit
@@ -198,10 +198,10 @@
   v2 Mapping = OM2-4
 
  -- Row 11 -----------------------------------
-  Element = ObservationDefinition.quantitativeDetails.SItoCustomary
+  Element = ObservationDefinition.quantitativeDetails.conversionFactor
   Card. = 0..1
   Type = decimal
-  Short Name = SI ti Customary unit conversion factor
+  Short Name = SI to Customary unit conversion factor
   Definition = Factor for converting value expressed with SI unit to value expressed with customary unit
   v2 Mapping = OM2-5
 
@@ -211,13 +211,13 @@
   UML = 500;0
   Type = integer
   Short Name = Decimal precision of observation quantitative results
-  Definition = number of digits after decimal separator when the results of this observation are of type Quantity
+  Definition = Number of digits after decimal separator when the results of this observation are of type Quantity
   v2 Mapping = OM2-3
 
  -- Row 13 -----------------------------------
   Element = ObservationDefinition.qualifiedInterval
   Card. = 0..*
-  Short Name = reference range for observation result
+  Short Name = Reference range for observation result
   Definition = Reference range for ordinal and continuous observations
   Requirements = multiple reference ranges, for different patient contexts
   v2 Mapping = OM2-6
@@ -282,7 +282,7 @@
   Element = ObservationDefinition.qualifiedInterval.condition
   Card. = 0..1
   Type = string
-  Short Name = condition associated with the reference range
+  Short Name = Condition associated with the reference range
   Definition = Text based condition for which the reference range is valid.
   v2 Mapping = OM2-6.7
 

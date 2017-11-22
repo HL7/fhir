@@ -881,7 +881,7 @@
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">code</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -891,9 +891,9 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">permitted data type for observation value</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Permitted data type for observation value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">data type allowed for the result of the observation</Data><NamedCell
+    <Cell><Data ss:Type="String">Data type allowed for the result of the observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="20"><Data ss:Type="String">OM1-3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -915,7 +915,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">multiple results allowed</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Multiple results allowed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Multiple results allowed for this kind of observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1023,7 +1023,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.524999999999999">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">ObservationDefinition.quantitativeDetails.SIUnit</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">ObservationDefinition.quantitativeDetails.unit</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1048,7 +1048,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.524999999999999">
-    <Cell ss:StyleID="s70"><Data ss:Type="String">ObservationDefinition.quantitativeDetails.SItoCustomary</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">ObservationDefinition.quantitativeDetails.conversionFactor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1064,7 +1064,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">SI ti Customary unit conversion factor</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SI to Customary unit conversion factor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Factor for converting value expressed with SI unit to value expressed with customary unit</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1090,7 +1090,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String">Decimal precision of observation quantitative results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">number of digits after decimal separator when the results of this observation are of type Quantity</Data><NamedCell
+    <Cell><Data ss:Type="String">Number of digits after decimal separator when the results of this observation are of type Quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="20"><Data ss:Type="String">OM2-3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1113,7 +1113,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">reference range for observation result</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Reference range for observation result</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Reference range for ordinal and continuous observations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1296,7 +1296,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">condition associated with the reference range</Data><NamedCell
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Condition associated with the reference range</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Text based condition for which the reference range is valid.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2058,14 +2058,14 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>55</Zoom>
+   <Zoom>70</Zoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>9</TopRowBottomPane>
+   <TopRowBottomPane>24</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2073,6 +2073,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -2080,8 +2081,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4918,7 +4919,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
