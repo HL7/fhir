@@ -112,6 +112,11 @@
   Type = token
   Description = A custom search profile that describes a specific defined query operation
 
+ -- Row 8 -----------------------------------
+  Name = _source
+  Type = uri
+  Path = Resource.meta.source
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
