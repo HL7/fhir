@@ -44,6 +44,14 @@
   Comments = It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over time.  The list of profile URLs is a set
 
  -- Row 5 -----------------------------------
+  Element = Meta.source
+  Card. = 0..1
+  Type = uri
+  Short Name = Identifies where the resource comes from
+  Definition = Identifies the system that is the source of the information in this resource
+  Comments = Many resources will have multiple systems that contribute to it\'s source over multiple versions. The choice of source in such cases is left to the discretion of the implementing systems
+
+ -- Row 6 -----------------------------------
   Element = Meta.security
   Card. = 0..*
   Type = Coding
@@ -52,7 +60,7 @@
   Definition = Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure
   Comments = The security labels can be updated without changing the stated version of the resource  The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Meta.tag
   Card. = 0..*
   Type = Coding
