@@ -1,4 +1,6 @@
-NDJSON-ASYNC  ND-json is only supported for asynchronous calls
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+DJSON-ASYNC  ND-json is only supported for asynchronous calls
 VERSION_MISSING 'No specific version specified in the Accept: header
 VERSION_UNSUPPORTED The version %s is not supported
 CANNOT_FIND Unable to fetch %s/%s
@@ -16,14 +18,13 @@ UNKNOWN_FILTER_OPERATOR    raise EFHIRException.createLang('Unhandled filter ope
         raise EFHIRException.createLang(COMPARTMENT_ERROR, lang,  'Compartment error: no access to compartment for '+a.ToString);
           raise EFHIRException.createLang(JWT_NO_SOURCE, request.lang, 'No Source System specified');
             raise EFHIRException.createLang('OP_NO_RESOURCE', request.lang, 'Unable to find value set to expand (not provided by id, identifier, or directly)');
-
+ 
 
     raise EFHIRException.createLang('TRANSACTION_RESOURCE_MISSING', 'A resource must be provided unless the entry has a transaction with method = delete and a url (entry '+inttostr(index+1)+')')
 
 
 MSG_UNKNOWN_COMPARTMENT    
-
-<?xml version="1.0" encoding="UTF-8"?>
+-->
 <translations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="translations.xsd">
 <!--     
   This file is for the convenience of implementers, to enable sharing of language translations.     
