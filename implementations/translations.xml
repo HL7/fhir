@@ -303,7 +303,6 @@
     <translation lang="es">SolicitudDeEnrolamiento</translation>
     <translation lang="fr">DemandeInscription</translation>
     <translation lang="it">RichiestaIscrizione</translation>
-    <translation lang="es">RespuestaDeEnrolamiento</translation>
   </item>
   <item id="EnrollmentResponse">
     <translation lang="en">EnrollmentResponse</translation>
