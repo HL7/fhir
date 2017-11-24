@@ -1150,7 +1150,7 @@ public class SpreadsheetParser {
       tabfmt.cell(sheet.getColumn(row, "v3"));
     }
 
-		ValueSetGenerator vsGen = new ValueSetGenerator(definitions, version, genDate);
+		ValueSetGenerator vsGen = new ValueSetGenerator(definitions, version, genDate, folder);
 
 		for (int row = 0; row < sheet.rows.size(); row++) {
 		  String bindingName = sheet.getColumn(row, "Binding Name");
@@ -1202,7 +1202,7 @@ public class SpreadsheetParser {
           cd.setValueSet(loadValueSet(ref));
       } else if (cd.getBinding() == BindingMethod.Special) {
         if ("#operation-outcome".equals(sheet.getColumn(row, "Reference")))
-          new ValueSetGenerator(definitions, version, genDate).loadOperationOutcomeValueSet(cd, folder);
+          new ValueSetGenerator(definitions, version, genDate, folder).loadOperationOutcomeValueSet(cd);
         else
           throw new Exception("Special bindings are only allowed in bindings.xml");
       } else if (cd.getBinding() == BindingMethod.Reference) {

@@ -3019,7 +3019,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     for (ConceptDefinitionDesignationComponent designation : c.getDesignation()) {
       if (designation.hasLanguage()) {
         String lang = designation.getLanguage();
-        if (langs != null && !langs.contains(lang))
+        if (langs != null && !langs.contains(lang) && !c.getDisplay().equalsIgnoreCase(designation.getValue()))
           langs.add(lang);
       }
     }
