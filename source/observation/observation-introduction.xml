@@ -17,9 +17,9 @@
                 <a href="observation-definitions.html#Observation.hasMember">.hasMember</a>
               </li>
               </ul>
-              This change allows for more flexibility in adding additional reference targets as well as a simplifying the structure. The other relationship types were considered to be outside the 80% and only <a href="http://hl7.org/fhir/StructureDefinition/extension-observation-sequel-to">sequel-to</a> and <a href="http://hl7.org/fhir/StructureDefinition/extension-observation-replaces">replaces</a> were made into standard extensions referencing a target Observation.</li>
+              This change allows for more flexibility in adding additional reference targets as well as a simplifying the structure. The other relationship types were considered to be outside the 80% and only <a href="http://hl7.org/fhir/StructureDefinition/observation-sequel-to">sequel-to</a> and <a href="http://hl7.org/fhir/StructureDefinition/observation-replaces">replaces</a> were made into standard extensions referencing a target Observation.</li>
               <li><em>Breaking Change</em>  The removal of the <code>Attachment</code> data type as a choice for <code>.value[x]</code>.   As a result of 2, direct links to <a href="media.html">Media</a> were added.  Observations that require the attachment data types are represented by the Media resource.  This change eliminates the ambiguity and duplication on how to represent multimedia observations.</li>
-              <li><em>Substantive Change</em> The promotion of the extension 'partOf' extension to an <a href="observation-definitions.html#Observation.partOf">inline element</a>. This allows a direct reference to an event  in which the observation was made (for example a procedure).
+              <li><em>Substantive Change</em> The promotion of the <a href="http://hl7.org/fhir/StructureDefinition/event-partOf">event-partOf extension</a>  to an <a href="observation-definitions.html#Observation.partOf">inline element</a>. This allows a direct reference to an event  in which the observation was made (for example a procedure).
               </li>
               <li>Review of the <a href="observation-profiles.html#extensions">standard event extensions</a> which are the result of alignment with the workflow <a href="event.html">Event</a> pattern</li>
             </ol>
