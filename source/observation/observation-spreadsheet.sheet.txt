@@ -448,7 +448,7 @@
   Element = Observation.performer
   Card. = 0..*
   Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
+  Type = Reference(Practitioner|PractitionerRole|Organization|CareTeam|Patient|RelatedPerson)
   Short Name = Who is responsible for the observation
   Definition = Who was responsible for asserting the observed value as \"true\"
   Requirements = May give a degree of confidence in the observation and also indicates where follow-up questions should be directed.

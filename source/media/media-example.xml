@@ -6,6 +6,8 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Diagram for Patient Henry Levin (MRN 12345):<br/><img alt="diagram" src="#11"/></div>
   </text>
+  
+  <status value="completed"/>
 
   <type value="photo"/>
   

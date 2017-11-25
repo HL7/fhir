@@ -270,7 +270,7 @@
   Card. = 0..*
   Aliases = Laboratory, Service, Practitioner, Department, Company, Authorized by, Director
   Summary = y
-  Type = Reference(Practitioner|Organization)
+  Type = Reference(Practitioner|PractitionerRole|Organization|CareTeam)
   Short Name = Responsible Diagnostic Service
   Definition = The diagnostic service that is responsible for issuing the report
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
@@ -286,7 +286,7 @@
   Card. = 0..*
   Aliases = Analyzed by, Reported by
   Summary = y
-  Type = Reference(Practitioner|Organization)
+  Type = Reference(Practitioner|PractitionerRole|Organization|CareTeam)
   Short Name = Primary result interpreter
   Definition = The practitioner or organization that is responsible for the report\'s conclusions and interpretations
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis

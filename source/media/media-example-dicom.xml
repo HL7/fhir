@@ -52,6 +52,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
   </identifier>  
+  
+<status value="completed"/>  
 
   <type value="photo"/>
 

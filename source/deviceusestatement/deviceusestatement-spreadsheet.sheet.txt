@@ -248,23 +248,23 @@
   Element = DeviceUseStatement.reasonReference
   Card. = 0..*
   Summary = y
-  Type = Reference(Condition|Observation|DiagnosticReport|DocumentReference)
+  Type = Reference(Condition|Observation|DiagnosticReport|DocumentReference|Media)
   Short Name = Why was DeviceUseStatement performed?
   Definition = Indicates another resource whose existence justifies this DeviceUseStatement
   Workflow Mapping = Event.reasonReference
   v2 Mapping = EVN.4 or by domain
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
-  Committee Notes = GF#12799
+  Committee Notes = GF#12799, [#10299]
   w5 = why
 
  -- Row 22 -----------------------------------
-  Element = DeviceUseStatement.bodysite
+  Element = DeviceUseStatement.bodySite
   Card. = 0..1
   Summary = y
   Type = CodeableConcept
   Binding = BodySite
   Short Name = Target body site
-  Definition = Indicates the site on the subject\'s body where the device was used ( i.e. the target site).
+  Definition = Indicates the anotomic location on the subject\'s body where the device was used ( i.e. the target).
   Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/body-structure]]]
   Workflow Mapping = Event.note
   RIM Mapping = targetSiteCode

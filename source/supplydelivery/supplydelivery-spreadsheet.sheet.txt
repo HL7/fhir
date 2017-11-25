@@ -170,7 +170,7 @@
  -- Row 12 -----------------------------------
   Element = SupplyDelivery.supplier
   Card. = 0..1
-  Type = Reference(Practitioner|Organization)
+  Type = Reference(Practitioner|PractitionerRole|Organization)
   Short Name = Dispenser
   Definition = The individual responsible for dispensing the medication, supplier or device.
   Workflow Mapping = Event.performer
