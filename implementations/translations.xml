@@ -36,11 +36,13 @@
   <item id="Account">
     <translation lang="en">Account</translation>
     <translation lang="es">Cuenta</translation>
+    <translation lang="zh">账户</translation>
   </item>
   <item id="ActivityDefinition">
     <translation lang="en">ActivityDefinition</translation>
     <translation lang="es">DefinicionDeActividad</translation>
     <translation lang="it">DefinizioneAttivita</translation>
+    <translation lang="zh">活动定义</translation>
   </item>
   <item id="ActivityGroup">
     <translation lang="en">ActivityGroup</translation>
@@ -50,6 +52,7 @@
     <translation lang="en">AdverseEvent</translation>
     <translation lang="es">EventoAdverso</translation>
     <translation lang="it">EventoAvverso</translation>
+    <translation lang="zh">不良事件</translation>
   </item>
   <item id="AdverseReaction">
     <translation lang="en">AdverseReaction</translation>
@@ -67,65 +70,70 @@
     <translation lang="es">AllergiaIntolerancia</translation>
     <translation lang="fr">IntoléranceAllergique</translation>
     <translation lang="it">AllergiaIntolleranza</translation>
+    <translation lang="zh">变态反应与不耐性</translation>
   </item>
   <item id="Appointment">
     <translation lang="en">Appointment</translation>
     <translation lang="es">Cita</translation>
-    <translation lang="zh">过敏反应</translation>
     <translation lang="fr">RendezVous</translation>
     <translation lang="it">Appuntamento</translation>
+    <translation lang="zh">预约</translation>
   </item>
   <item id="AppointmentResponse">
     <translation lang="en">AppointmentResponse</translation>
     <translation lang="es">CitaRespuesta</translation>
-    <translation lang="zh">预约响应</translation>
     <translation lang="fr">RéponseRendezVous</translation>
     <translation lang="it">RispostaAppuntamento</translation>
+    <translation lang="zh">预约响应</translation>
   </item>
   <item id="AuditEvent">
     <translation lang="en">AuditEvent</translation>
     <translation lang="es">EventoSeguridad</translation>
-    <translation lang="zh">安全事件</translation>
+    <translation lang="zh">审计事件</translation>
     <translation lang="fr">ÉvènementSécurité</translation>
   </item>
   <item id="Basic">
     <translation lang="en">Basic</translation>
     <translation lang="es">Basico</translation>
     <translation lang="fr">Basique</translation>
+    <translation lang="zh">初级资源</translation>
   </item>
   <item id="Binary">
     <translation lang="en">Binary</translation>
-    <translation lang="zh">二进制</translation>
     <translation lang="fr">Binaire</translation>
     <translation lang="it">Binario</translation>
     <translation lang="es">Binario</translation>
+    <translation lang="zh">二进制资源</translation>
   </item>
   <item id="BodyStructure">
     <translation lang="en">BodyStructure</translation>
     <translation lang="es">EstructuraDelCuerpo</translation>
-    <translation lang="zh">身体结构</translation>
     <translation lang="fr">MorphologieDeCorps</translation>
     <translation lang="it">StrutturaDelCorpo</translation>
+    <translation lang="zh">身体结构</translation>
   </item>
   <item id="Bundle">
     <translation lang="en">Bundle</translation>
     <translation lang="es">Paquete</translation>
     <translation lang="fr">Paquet</translation>
+    <translation lang="zh">捆束</translation>
   </item>
   <item id="CapabilityStatement">
     <translation lang="en">CapabilityStatement</translation>
     <translation lang="es">DeclaracionDeCapacidad</translation>
+    <translation lang="zh">能力声明</translation>
   </item>
   <item id="CarePlan">
     <translation lang="en">CarePlan</translation>
     <translation lang="es">PlanDeCuidado</translation>
-    <translation lang="zh">护理计划</translation>
     <translation lang="fr">PlanDeSoins</translation>
     <translation lang="it">PianoDiCura</translation>
+    <translation lang="zh">照护计划</translation>
   </item>
   <item id="CareTeam">
     <translation lang="en">CareTeam</translation>
     <translation lang="es">EquipoDeCuidado</translation>
+    <translation lang="zh">照护团队</translation>
   </item>
   <item id="Catalog">
     <translation lang="en">Catalog</translation>
@@ -134,62 +142,69 @@
   <item id="ChargeItem">
     <translation lang="en">ChargeItem</translation>
     <translation lang="es">CargoDeItem</translation>
+    <translation lang="zh">收费项目</translation>
   </item>
   <item id="Claim">
     <translation lang="en">Claim</translation>
     <translation lang="es">Reclamación / Factura</translation>
-    <translation lang="zh">声称</translation>
+    <translation lang="zh">赔单</translation>
     <translation lang="fr">Réclamation</translation>
   </item>
   <item id="ClaimResponse">
     <translation lang="en">ClaimResponse</translation>
     <translation lang="fr">RéponseARéclamation</translation>
+    <translation lang="zh">赔单请求</translation>
   </item>
   <item id="ClinicalImpression">
     <translation lang="en">ClinicalImpression</translation>
     <translation lang="es">HallazgoClinico</translation>
     <translation lang="fr">ImpressionClinique</translation>
     <translation lang="it">ImpressioneClinica</translation>
+    <translation lang="zh">临床印象</translation>
   </item>
   <item id="CodeSystem">
     <translation lang="en">CodeSystem</translation>
     <translation lang="es">SistemaDeCodigos</translation>
     <translation lang="it">SistemaDiCodifica</translation>
+    <translation lang="zh">代码系统</translation>
   </item>
   <item id="Communication">
     <translation lang="en">Communication</translation>
     <translation lang="es">Comunicación</translation>
     <translation lang="fr">Communication</translation>
     <translation lang="it">Comunicazione</translation>
+    <translation lang="zh">通讯</translation>
   </item>
   <item id="CommunicationRequest">
     <translation lang="en">CommunicationRequest</translation>
     <translation lang="fr">DemandeDeCommunication</translation>
     <translation lang="es">ComunicaciónRequerimiento</translation>
     <translation lang="it">RichiestaDiComunicazione</translation>
+    <translation lang="zh">通讯请求</translation>
   </item>
   <item id="CompartmentDefinition">
     <translation lang="en">CompartmentDefinition</translation>
     <translation lang="es">DefinicionDeCompartimento</translation>
+    <translation lang="zh">逻辑区块定义</translation>
   </item>
   <item id="Composition">
     <translation lang="en">Composition</translation>
     <translation lang="es">Composición</translation>
-    <translation lang="zh">组合</translation>
+    <translation lang="zh">组合式文书</translation>
     <translation lang="fr">Composition</translation>
     <translation lang="it">Composizione</translation>
   </item>
   <item id="ConceptMap">
     <translation lang="en">ConceptMap</translation>
     <translation lang="es">MapaDeConceptos</translation>
-    <translation lang="zh">概念地图</translation>
+    <translation lang="zh">概念映射</translation>
     <translation lang="fr">CarteDeConcepts</translation>
     <translation lang="it">MappaDiConcetti</translation>
   </item>
   <item id="Condition">
     <translation lang="en">Condition</translation>
     <translation lang="es">Condición</translation>
-    <translation lang="zh">条件</translation>
+    <translation lang="zh">情况</translation>
     <translation lang="fr">Condition</translation>
     <translation lang="it">Condizione</translation>
   </item>
@@ -197,17 +212,19 @@
     <translation lang="en">Consent</translation>
     <translation lang="es">Consentimiento</translation>
     <translation lang="it">Consenso</translation>
+    <translation lang="zh">同意书</translation>
   </item>
   <item id="Contract">
     <translation lang="en">Contract</translation>
     <translation lang="es">Contato</translation>
     <translation lang="fr">Contrat</translation>
     <translation lang="it">Contratto</translation>
+    <translation lang="zh">合同</translation>
   </item>
   <item id="Coverage">
     <translation lang="en">Coverage</translation>
     <translation lang="es">Cobertura</translation>
-    <translation lang="zh">覆盖范围</translation>
+    <translation lang="zh">保险责任</translation>
     <translation lang="fr">Couverture</translation>
     <translation lang="it">Copertura</translation>
   </item>
@@ -226,33 +243,38 @@
     <translation lang="fr">Problème Détecté</translation>
     <translation lang="it">ProblemaRilevato</translation>
     <translation lang="es">Problema-Detectado /ProblemaDetectado</translation>
+    <translation lang="zh">已发现问题</translation>
   </item>
   <item id="Device">
     <translation lang="en">Device</translation>
-    <translation lang="zh">设备</translation>
     <translation lang="fr">Dispositif</translation>
     <translation lang="it">Dispositivo</translation>
     <translation lang="es">Dispositivo</translation>
+    <translation lang="zh">装置</translation>
   </item>
   <item id="DeviceComponent">
     <translation lang="en">DeviceComponent</translation>
     <translation lang="fr">ComposantDeDispositif</translation>
     <translation lang="it">ComponenteDispositivo</translation>
     <translation lang="es">ComponenteDeDispositivo</translation>
+    <translation lang="zh">装置组件</translation>
   </item>
   <item id="DeviceMetric">
     <translation lang="en">DeviceMetric</translation>
     <translation lang="fr">MétriqueDispositif</translation>
     <translation lang="es">MetricaDeDispositivo</translation>
+    <translation lang="zh">装置指标</translation>
   </item>
   <item id="DeviceRequest">
     <translation lang="en">DeviceRequest</translation>
     <translation lang="fr">DemandeUtilisationDispositif</translation>
     <translation lang="it">RichiestaDispositivo</translation>
     <translation lang="es">SolicitudDeDispositivo</translation>
+    <translation lang="zh">装置请求</translation>
   </item>
   <item id="DeviceUseStatement">
     <translation lang="en">DeviceUseStatement</translation>
+    <translation lang="zh">装置使用声明</translation>
   </item>
   <item id="DiagnosticReport">
     <translation lang="en">DiagnosticReport</translation>
@@ -277,67 +299,79 @@
    <item id="DomainResource">
     <translation lang="en">DomainResource</translation>
     <translation lang="es">RecursoDeDominio</translation>
+    <translation lang="zh">领域资源</translation>
  </item>
   <item id="EligibilityRequest">
     <translation lang="en">EligibilityRequest</translation>
     <translation lang="fr">DemandeEligibilité</translation>
     <translation lang="it">RichiestaEleggibilita</translation>
+    <translation lang="zh">资格请求</translation>
   </item>
   <item id="EligibilityResponse">
     <translation lang="en">EligibilityResponse</translation>
     <translation lang="fr">RéponseEligibilité</translation>
     <translation lang="it">RispostaEleggibilita</translation>
+    <translation lang="zh">资格响应</translation>
   </item>
   <item id="Encounter">
     <translation lang="en">Encounter</translation>
-    <translation lang="zh">就诊</translation>
+    <translation lang="zh">就医过程</translation>
     <translation lang="fr">Venue</translation>
     <translation lang="es">Encuentro</translation>
   </item>
   <item id="Endpoint">
     <translation lang="en">Endpoint</translation>
     <translation lang="es">Endpoint</translation>
+    <translation lang="zh">端点</translation>
   </item>
   <item id="EnrollmentRequest">
     <translation lang="en">EnrollmentRequest</translation>
     <translation lang="es">SolicitudDeEnrolamiento</translation>
     <translation lang="fr">DemandeInscription</translation>
     <translation lang="it">RichiestaIscrizione</translation>
+    <translation lang="zh">保险注册请求</translation>
   </item>
   <item id="EnrollmentResponse">
     <translation lang="en">EnrollmentResponse</translation>
     <translation lang="fr">RéponseInscription</translation>
     <translation lang="it">RispostaIscrizione</translation>
     <translation lang="es">RespuestaDeEnrolamiento</translation>
+    <translation lang="zh">保险注册响应</translation>
   </item>
   <item id="EntryDefinition">
     <translation lang="en">EntryDefinition</translation>
     <translation lang="es">DefinicionDeEntrada</translation>
+    <translation lang="zh">条目定义</translation>
   </item>
   <item id="EpisodeOfCare">
     <translation lang="en">EpisodeOfCare</translation>
     <translation lang="fr">ÉpisodeDeSoins</translation>
     <translation lang="it">EpisodioDiCura</translation>
     <translation lang="es">EpisodioDeCuidado</translation>
+    <translation lang="zh">照护服务节段</translation>
   </item>
   <item id="EventDefinition">
     <translation lang="en">EventDefinition</translation>
     <translation lang="it">DefinizioneEvento</translation>
     <translation lang="es">DefinitionDeEvento</translation>
+    <translation lang="zh">事件定义</translation>
   </item>
    <item id="ExampleScenario">
     <translation lang="en">ExampleScenario</translation>
     <translation lang="es">EjemploDeEscenario</translation>
     <translation lang="it">ScenarioDiEsempio</translation>
+    <translation lang="zh">示例场景</translation>
   </item>
- <item id="ExpansionProfile">
+  <item id="ExpansionProfile">
     <translation lang="en">ExpansionProfile</translation>
     <translation lang="es">PerfilDeExpansion</translation>
     <translation lang="it">ProfiloDiEspansione</translation>
+    <translation lang="zh">展开形式补充规范</translation>
   </item>
   <item id="ExplanationOfBenefit">
     <translation lang="en">ExplanationOfBenefit</translation>
     <translation lang="fr">ExplicationDuBénéfice</translation>
+    <translation lang="zh">赔付说明</translation>
   </item>
   <item id="ExtensionDefinition">
     <translation lang="en">ExtensionDefinition</translation>
@@ -347,11 +381,13 @@
     <translation lang="en">FamilyMemberHistory</translation>
     <translation lang="fr">HistoireMembreFamille</translation>
     <translation lang="es">HistorialMiembroFamiliar</translation>
+    <translation lang="zh">家族史</translation>
   </item>
   <item id="Flag">
     <translation lang="en">Flag</translation>
     <translation lang="es">Bandera</translation>
     <translation lang="fr">Drapeau</translation>
+    <translation lang="zh">标记</translation>
   </item>
   <item id="GeneExpression">
     <translation lang="en">GeneExpression</translation>
@@ -368,71 +404,81 @@
     <translation lang="en">Goal</translation>
     <translation lang="fr">But</translation>
     <translation lang="es">Objetivo</translation>
+    <translation lang="zh">目标</translation>
   </item>
   <item id="GraphDefinition">
     <translation lang="en">GraphDefinition</translation>
     <translation lang="es">DefinitionGrafico</translation>
+    <translation lang="zh">图形定义</translation>
   </item>
   <item id="Group">
     <translation lang="en">Group</translation>
     <translation lang="es">Grupo</translation>
-    <translation lang="zh">组</translation>
+    <translation lang="zh">群组</translation>
     <translation lang="fr">Groupe</translation>
     <translation lang="it">Gruppo</translation>
   </item>
   <item id="GuidanceResponse">
     <translation lang="en">GuidanceResponse</translation>
     <translation lang="es">RespuestaDeOrientacion</translation>
+    <translation lang="zh">指导意见响应</translation>
   </item>
   <item id="HealthcareService">
     <translation lang="en">HealthcareService</translation>
     <translation lang="es">ServicioDeCuidado</translation>
     <translation lang="fr">ServiceDeSanté</translation>
     <translation lang="it">ServizioSanitario</translation>
+    <translation lang="zh">医疗保健服务项目</translation>
   </item>
   <item id="ImagingManifest">
     <translation lang="en">ImagingManifest</translation>
     <translation lang="es">ManifiestoDeImagen</translation>
     <translation lang="fr">ImagingManifest</translation>
+    <translation lang="zh">成像清单</translation>
   </item>
   <item id="ImagingStudy">
     <translation lang="en">ImagingStudy</translation>
     <translation lang="es">EstudioImagen  / EstudioImagen</translation>
-    <translation lang="zh">影像检查</translation>
     <translation lang="fr">EtudeImagerie</translation>
+    <translation lang="zh">成像检查</translation>
   </item>
   <item id="Immunization">
     <translation lang="en">Immunization</translation>
-    <translation lang="zh">免疫</translation>
+    <translation lang="zh">免疫接种</translation>
     <translation lang="fr">Immunisation</translation>
     <translation lang="it">Immunizzazione</translation>
     <translation lang="es">Inmunización</translation>
   </item>
   <item id="ImmunizationRecommendation">
     <translation lang="en">ImmunizationRecommendation</translation>
-    <translation lang="zh">免疫推荐</translation>
+    <translation lang="zh">免疫接种建议</translation>
     <translation lang="fr">RecommendationImmunisation</translation>
     <translation lang="es">RecomendaciónInmunización /</translation>
   </item>
   <item id="ImplementationGuide">
     <translation lang="en">ImplementationGuide</translation>
     <translation lang="es">GuiaDeImplementacion</translation>
+    <translation lang="zh">实施指南</translation>
   </item>
   <item id="ImplementationGuideInput">
     <translation lang="en">ImplementationGuideInput</translation>
     <translation lang="es">GuiaDeImplementacionEntrada</translation>
+    <translation lang="zh">实施指南输入</translation>
   </item>
   <item id="ImplementationGuideOutput">
     <translation lang="en">ImplementationGuideOutput</translation>
     <translation lang="es">GuiaDeImplementacionSalida</translation>
+    <translation lang="zh">实施指南输出</translation>
   </item>
   <item id="Library">
     <translation lang="en">Library</translation>
     <translation lang="es">Librería</translation>
+    <translation lang="zh">库</translation>
   </item>
   <item id="Linkage">
     <translation lang="en">Linkage</translation>
     <translation lang="es">Enlace / Conexión / Vinculo / Acoplamiento </translation>
+    <translation lang="zh">链接关系</translation>
   </item>
   <item id="List">
     <translation lang="en">List</translation>
@@ -451,10 +497,12 @@
     <translation lang="en">Measure</translation>
     <translation lang="it">Misura</translation>
     <translation lang="es">Medida</translation>
+    <translation lang="zh">指标</translation>
   </item>
   <item id="MeasureReport">
     <translation lang="en">MeasureReport</translation>
     <translation lang="es">ReporteMedida</translation>
+    <translation lang="zh">指标报告</translation>
   </item>
   <item id="Media">
     <translation lang="en">Media</translation>
@@ -465,31 +513,31 @@
   </item>
   <item id="Medication">
     <translation lang="en">Medication</translation>
-    <translation lang="zh">用药</translation>
+    <translation lang="zh">药物</translation>
     <translation lang="fr">Médication</translation>
     <translation lang="es">Medicación /Medicamento</translation>
   </item>
   <item id="MedicationAdministration">
     <translation lang="en">MedicationAdministration</translation>
-    <translation lang="zh">用药管理</translation>
+    <translation lang="zh">药物施用</translation>
     <translation lang="fr">AdministrationMédicaments</translation>
     <translation lang="es">AdministraciónMedicación / AdministracionMedicamento</translation>
   </item>
   <item id="MedicationDispense">
     <translation lang="en">MedicationDispense</translation>
-    <translation lang="zh">发药</translation>
+    <translation lang="zh">药物配发</translation>
     <translation lang="fr">DispensationMédicaments</translation>
     <translation lang="es">DispensaciónMedicación /DispensacionMedicamento</translation>
   </item>
   <item id="MedicationRequest">
     <translation lang="en">MedicationRequest</translation>
-    <translation lang="zh">药方TODO</translation>
+    <translation lang="zh">药物请求</translation>
     <translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
     <translation lang="es">PrescripciónMedicaciónTODO  /PrescripcionMedicamento</translation>
   </item>
   <item id="MedicationStatement">
     <translation lang="en">MedicationStatement</translation>
-    <translation lang="zh">用药声明</translation>
+    <translation lang="zh">药物声明</translation>
     <translation lang="fr">ÉtatMédication</translation>
     <translation lang="es">ResumenMedicación /ResumenMedicamento</translation>
   </item>
@@ -517,11 +565,12 @@
   <item id="MessageDefinition">
     <translation lang="en">MessageDefinition</translation>
     <translation lang="it">DefinizioneMessaggio</translation>
-     <translation lang="es">DefinicionMensaje</translation>
- </item>
+    <translation lang="es">DefinicionMensaje</translation>
+    <translation lang="zh">消息定义</translation>
+  </item>
   <item id="MessageHeader">
     <translation lang="en">MessageHeader</translation>
-    <translation lang="zh">消息头</translation>
+    <translation lang="zh">消息标头</translation>
     <translation lang="fr">EntêteMessage</translation>
     <translation lang="es">CabeceraMensaje</translation>
   </item>
@@ -534,6 +583,7 @@
     <translation lang="en">NamingSystem</translation>
     <translation lang="fr">SystèmeDeNommage</translation>
     <translation lang="es">SistemaDeNombres</translation>
+    <translation lang="zh">命名系统</translation>
   </item>
   <item id="NewBundle">
     <translation lang="en">NewBundle</translation>
@@ -541,31 +591,33 @@
   </item>
   <item id="NutritionOrder">
     <translation lang="en">NutritionOrder</translation>
-    <translation lang="zh">为了营养</translation>
     <translation lang="fr">OrdreNutrition</translation>
     <translation lang="es">OrdenNutrición</translation>
+    <translation lang="zh">营养医嘱</translation>
   </item>
   <item id="Observation">
     <translation lang="en">Observation</translation>
-    <translation lang="zh">观测</translation>
+    <translation lang="zh">观察</translation>
     <translation lang="fr">Observation</translation>
     <translation lang="it">Osservazione</translation>
     <translation lang="es">Observación</translation>
   </item>
   <item id="ObservationDefinition">
     <translation lang="en">ObservationDefinition</translation>
-      <translation lang="it">DefinizioneOsservazione</translation>
-  <translation lang="es">DefinicionDeEspecimen</translation>
+    <translation lang="it">DefinizioneOsservazione</translation>
+    <translation lang="es">DefinicionDeEspecimen</translation>
+    <translation lang="zh">观察定义</translation>
   </item>
   <item id="OperationDefinition">
     <translation lang="en">OperationDefinition</translation>
     <translation lang="fr">DéfinitionOpération</translation>
     <translation lang="it">DefinizioneOperazione</translation>
     <translation lang="es">DefinicionDeOperacion</translation>
+    <translation lang="zh">操作定义</translation>
   </item>
   <item id="OperationOutcome">
     <translation lang="en">OperationOutcome</translation>
-    <translation lang="zh">手术成果</translation>
+    <translation lang="zh">操作结局</translation>
     <translation lang="fr">RésultatOpération</translation>
     <translation lang="it">RisultatoOperazione</translation>
     <translation lang="es">ResultadoOperación</translation>
@@ -588,7 +640,7 @@
   </item>
   <item id="Organization">
     <translation lang="en">Organization</translation>
-    <translation lang="zh">机构</translation>
+    <translation lang="zh">组织机构</translation>
     <translation lang="fr">Organisation</translation>
     <translation lang="it">Organizzazione</translation>
     <translation lang="es">Organización</translation>
@@ -596,10 +648,11 @@
   <item id="Parameters">
     <translation lang="en">Parameters</translation>
     <translation lang="es">Parametros</translation>
+    <translation lang="zh">参数</translation>
   </item>
   <item id="Patient">
     <translation lang="en">Patient</translation>
-    <translation lang="zh">病人</translation>
+    <translation lang="zh">患者</translation>
     <translation lang="fr">Patient</translation>
     <translation lang="it">Paziente</translation>
     <translation lang="es">Paciente</translation>
@@ -609,19 +662,22 @@
     <translation lang="fr">AvisPaiement</translation>
     <translation lang="it">AvvisoDiPagamento</translation>
     <translation lang="es">AvisoDePago</translation>
+    <translation lang="zh">付款通知</translation>
   </item>
   <item id="PaymentReconciliation">
     <translation lang="en">PaymentReconciliation</translation>
     <translation lang="fr">RéconciliationPaiement</translation>
     <translation lang="it">RiconciliazionePagamento</translation>
-     <translation lang="es">ConciliacionDePago</translation>
- </item>
+    <translation lang="es">ConciliacionDePago</translation> 
+    <translation lang="zh">付款对账</translation>
+  </item>
   <item id="Person">
     <translation lang="en">Person</translation>
     <translation lang="fr">Personne</translation>
     <translation lang="it">Persona</translation>
-     <translation lang="es">Persona</translation>
- </item>
+    <translation lang="es">Persona</translation>
+    <translation lang="zh">人员</translation>
+  </item>
   <item id="PharmacyClaim">
     <translation lang="en">PharmacyClaim</translation>
     <translation lang="fr">DemandePharmaceutique</translation>
@@ -635,20 +691,22 @@
   <item id="PlanDefinition">
     <translation lang="en">PlanDefinition</translation>
     <translation lang="es">DefinicionDePlan</translation>
+    <translation lang="zh">计划定义</translation>
   </item>
   <item id="Practitioner">
     <translation lang="en">Practitioner</translation>
-    <translation lang="zh">从业者</translation>
+    <translation lang="zh">执业人员</translation>
     <translation lang="fr">Praticien</translation>
     <translation lang="es">Practicante / Profesional</translation>
   </item>
   <item id="PractitionerRole">
     <translation lang="en">PractitionerRole</translation>
     <translation lang="es">RolProfesional</translation>
+    <translation lang="zh">执业人员角色</translation>
   </item>
   <item id="Procedure">
     <translation lang="en">Procedure</translation>
-    <translation lang="zh">步骤</translation>
+    <translation lang="zh">操作项目</translation>
     <translation lang="fr">Procédure</translation>
     <translation lang="it">Procedura</translation>
     <translation lang="es">Procedimiento</translation>
@@ -658,12 +716,14 @@
     <translation lang="fr">DemandeProcessus</translation>
     <translation lang="it">RichiestaProcesso</translation>
     <translation lang="es">SolicitudDeProceso</translation>
+    <translation lang="zh">处理请求</translation>
   </item>
   <item id="ProcessResponse">
     <translation lang="en">ProcessResponse</translation>
     <translation lang="fr">RéponseProcessus</translation>
     <translation lang="it">RispostaProcesso</translation>
     <translation lang="es">RespuestaDeProceso</translation>
+    <translation lang="zh">处理响应</translation>
   </item>
   <item id="ProfessionalClaim">
     <translation lang="en">ProfessionalClaim</translation>
@@ -677,7 +737,7 @@
   </item>
   <item id="Provenance">
     <translation lang="en">Provenance</translation>
-    <translation lang="zh">起源</translation>
+    <translation lang="zh">出处</translation>
     <translation lang="fr">Provenance</translation>
     <translation lang="it">Provenienza</translation>
     <translation lang="es">Procedencia</translation>
@@ -689,7 +749,7 @@
   </item>
   <item id="Questionnaire">
     <translation lang="en">Questionnaire</translation>
-    <translation lang="zh">问卷</translation>
+    <translation lang="zh">调查问卷</translation>
     <translation lang="fr">Questionnaire</translation>
     <translation lang="it">Questionario</translation>
     <translation lang="es">Cuestionario</translation>
@@ -699,6 +759,7 @@
     <translation lang="fr">RéponseQuestionnaire</translation>
     <translation lang="it">RispostaQuestionario</translation>
     <translation lang="es">RespuestaAlCuestionario</translation>
+    <translation lang="zh">调查问卷答复</translation>
   </item>
   <item id="ReferralRequest">
     <translation lang="en">ReferralRequest</translation>
@@ -720,46 +781,55 @@
     <translation lang="en">RequestGroup</translation>
     <translation lang="it">GruppoDiRichieste</translation>
     <translation lang="es">GrupoDeSolicitudes</translation>
+    <translation lang="zh">请求分组</translation>
   </item>
   <item id="ResearchStudy">
     <translation lang="en">ResearchStudy</translation>
     <translation lang="es">EstudioDeInvestigacion</translation>
+    <translation lang="zh">调查研究</translation>
   </item>
   <item id="ResearchSubject">
     <translation lang="en">ResearchSubject</translation>
     <translation lang="es">SujetoDeInvestigacion</translation>
+    <translation lang="zh">研究主题</translation>
   </item>
- <item id="Resource">
+  <item id="Resource">
     <translation lang="en">Resource</translation>
     <translation lang="es">Recurso</translation>
+    <translation lang="zh">资源</translation>
   </item>
   <item id="RiskAssessment">
     <translation lang="en">RiskAssessment</translation>
     <translation lang="fr">ÉvaluationRisques</translation>
     <translation lang="es">EvaluacionDeRiesgo</translation>
+    <translation lang="zh">风险评估</translation>
   </item>
   <item id="Schedule">
     <translation lang="en">Schedule</translation>
     <translation lang="es">Agenda</translation>
+    <translation lang="zh">日程安排</translation>
   </item>
   <item id="SearchParameter">
     <translation lang="en">SearchParameter</translation>
     <translation lang="es">ParametroDeBusqueda</translation>
     <translation lang="fr">ParamètreRecherche</translation>
     <translation lang="it">ParametroDiRicerca</translation>
+    <translation lang="zh">搜索参数</translation>
   </item>
   <item id="Sequence">
     <translation lang="en">Sequence</translation>
     <translation lang="es">Secuencia</translation>
+    <translation lang="zh">序列</translation>
   </item>
   <item id="ServiceDefinition">
     <translation lang="en">ServiceDefinition</translation>
     <translation lang="es">DefinicionDeServicio</translation>
+    <translation lang="zh">服务项目定义</translation>
   </item>
   <item id="ServiceRequest">
     <translation lang="en">ServiceRequest</translation>
     <translation lang="es">PeticiónServicio</translation>
-    <translation lang="zh">服务请求</translation>
+    <translation lang="zh">服务项目请求</translation>
     <translation lang="fr">DemandeService</translation>
     <translation lang="it">RichiestaDiServizio</translation>
   </item>
@@ -771,7 +841,7 @@
   </item>
   <item id="Specimen">
     <translation lang="en">Specimen</translation>
-    <translation lang="zh">样本</translation>
+    <translation lang="zh">槽位</translation>
     <translation lang="fr">Spécimen</translation>
     <translation lang="it">Campione</translation>
     <translation lang="es">Especimen</translation>
@@ -780,16 +850,19 @@
     <translation lang="en">SpecimenDefinition</translation>
     <translation lang="it">DefinizioneCampione</translation>
     <translation lang="es">DefinicionDeEspecimen</translation>
+    <translation lang="zh">标本定义</translation>
   </item>
   <item id="StructureDefinition">
     <translation lang="en">StructureDefinition</translation>
     <translation lang="fr">DéfinitionStructure</translation>
     <translation lang="it">DefinizioneStruttura</translation>
     <translation lang="es">DefinicionDeEstructura</translation>
+    <translation lang="zh">结构定义</translation>
   </item>
   <item id="StructureMap">
     <translation lang="en">StructureMap</translation>
     <translation lang="es">MapaDeEstructura</translation>
+    <translation lang="zh">结构映射</translation>
   </item>
   <item id="Study">
     <translation lang="en">Study</translation>
@@ -816,7 +889,7 @@
   </item>
   <item id="SupplyDelivery">
     <translation lang="en">SupplyDelivery</translation>
-    <translation lang="zh">供应交货</translation>
+    <translation lang="zh">供应交付</translation>
     <translation lang="fr">Supply Livraison</translation>
     <translation lang="es">Entrega de Suministro</translation>
   </item>
@@ -829,20 +902,24 @@
   <item id="Task">
     <translation lang="en">Task</translation>
     <translation lang="es">Tarea</translation>
+    <translation lang="zh">任务</translation>
   </item>
   <item id="TerminologyCapabilities">
     <translation lang="en">TerminologyCapabilities</translation>
     <translation lang="es">CapacidadTerminologica</translation>
+    <translation lang="zh">术语服务能力</translation>
   </item>
   <item id="TestReport">
     <translation lang="en">TestReport</translation>
     <translation lang="es">ReporteDePrueba</translation>
     <translation lang="fr">RapportTest</translation>
+    <translation lang="zh">测试报告</translation>
   </item>
   <item id="TestScript">
     <translation lang="en">TestScript</translation>
     <translation lang="es">ScriptDePrueba</translation>
     <translation lang="fr">ScriptTest</translation>
+    <translation lang="zh">测试脚本</translation>
   </item>
   <item id="User">
     <translation lang="en">User</translation>
@@ -854,6 +931,7 @@
     <translation lang="en">UserSession</translation>
     <translation lang="it">SessioneUtente</translation>
     <translation lang="es">SesionDeUsuario</translation>
+    <translation lang="zh">用户会话</translation>
   </item>
   <item id="ValueSet">
     <translation lang="en">ValueSet</translation>
@@ -869,7 +947,9 @@
     <translation lang="en">VisionPrescription</translation>
     <translation lang="fr">PrescriptionVision</translation>
     <translation lang="es">PrescripcionDeVision</translation>
+    <translation lang="zh">视力处方</translation>
   </item>
+  
   <!-- Messages -->
   <item id="MSG_AUTH_REQUIRED" ecode="true">
     <translation lang="en">You must authenticate before you can use this service</translation>
