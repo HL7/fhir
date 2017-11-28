@@ -260,7 +260,7 @@ public class MappingsGenerator {
 
 	private void genElement(StringBuilder s, int indent, ElementDefn elem, String m, int children, boolean isRoot, boolean sparse) {
 	  if ((children == ROOT_ONLY || children == ALL)) {
-	    if (isRoot || sparse || hasMapping(elem, m)) {
+	    if (isRoot || !sparse || hasMapping(elem, m)) {
 	      s.append(" <tr><td>");
 	      if (indent == 0) {
 	        s.append("<a name=\""+elem.getName()+"\"> </a>");
