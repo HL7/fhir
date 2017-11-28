@@ -30,13 +30,12 @@
     <pattern>true</pattern>
 	</space>
 	<space>
-		<url>http://hl7.org/v3</url>
-		<columnName>RIM Mapping</columnName>
-		<title>RIM Mapping</title>
-		<id>rim</id>
+		<url>http://hl7.org/v2</url>
+		<columnName>v2 Mapping</columnName>
+		<title>HL7 v2 Mapping</title>
+		<id>v2</id>
 		<sort>1</sort>
     <publish>true</publish>
-    <sparse>true</sparse>
 	</space>
 	<space>
 		<url>http://loinc.org</url>
@@ -91,12 +90,13 @@
     <publish>true</publish>
 	</space>
 	<space>
-		<url>http://hl7.org/v2</url>
-		<columnName>v2 Mapping</columnName>
-		<title>HL7 v2 Mapping</title>
-		<id>v2</id>
+		<url>http://hl7.org/v3</url>
+		<columnName>RIM Mapping</columnName>
+		<title>RIM Mapping</title>
+		<id>rim</id>
 		<sort>6</sort>
     <publish>true</publish>
+    <sparse>true</sparse>
 	</space>
 	<space>
 		<url>http://nema.org/dicom</url>
