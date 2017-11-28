@@ -200,9 +200,9 @@ public class MappingsGenerator {
 			if (pre != null)
 			  s.append(new XhtmlComposer().compose(pre));
 			s.append("<table class=\"grid\">\r\n");
-      genElement(s, 0, resource.getRoot(), m, ROOT_ONLY, true);
+      genElement(s, 0, resource.getRoot(), m, ROOT_ONLY, true, definitions.getMapTypes().get(m).isSparse());
 			genInherited(s, resource, m);
-			genElement(s, 0, resource.getRoot(), m, CHILDREN_ONLY, true);
+			genElement(s, 0, resource.getRoot(), m, CHILDREN_ONLY, true, definitions.getMapTypes().get(m).isSparse());
 			s.append("</table>\r\n");
 		}
 	  mappings = s.toString();
@@ -235,7 +235,7 @@ public class MappingsGenerator {
 			s.append("<table class=\"grid\">\r\n");
 			for (ElementDefn e : elements) 
 				if (elementHasMapping(e, m)) {
-				  genElement(s, 0, e, m, ALL, true);
+				  genElement(s, 0, e, m, ALL, true, definitions.getMapTypes().get(m).isSparse());
 				}
 			s.append("</table>\r\n");
 		}
@@ -258,35 +258,42 @@ public class MappingsGenerator {
 		return false;
 	}
 
-	private void genElement(StringBuilder s, int indent, ElementDefn elem, String m, int children, boolean isRoot) {
-	  if (children == ROOT_ONLY || children == ALL) {
-		s.append(" <tr><td>");
-		if (indent == 0) {
-      s.append("<a name=\""+elem.getName()+"\"> </a>");
-      s.append("<a name=\""+elem.getName().toLowerCase()+"\"> </a>");
-		}
-		for (int i = 0; i < indent; i++) {
-			s.append("&nbsp;");
-			s.append("&nbsp;");
-			s.append("&nbsp;");
-			s.append("&nbsp;");
-		}
-		if (indent == 0) 
-  		   s.append("<b>"+elem.getName()+"</b>");
-		else
-		  s.append(elem.getName());
-		s.append("</td><td>"+Utilities.escapeXml(elem.getMappings().get(m)).replace("\n", "<br/>\n")+"</td></tr>\r\n");
+	private void genElement(StringBuilder s, int indent, ElementDefn elem, String m, int children, boolean isRoot, boolean sparse) {
+	  if ((children == ROOT_ONLY || children == ALL)) {
+	    if (isRoot || sparse || hasMapping(elem, m)) {
+	      s.append(" <tr><td>");
+	      if (indent == 0) {
+	        s.append("<a name=\""+elem.getName()+"\"> </a>");
+	        s.append("<a name=\""+elem.getName().toLowerCase()+"\"> </a>");
+	      }
+	      for (int i = 0; i < indent; i++) {
+	        s.append("&nbsp;");
+	        s.append("&nbsp;");
+	        s.append("&nbsp;");
+	        s.append("&nbsp;");
+	      }
+	      if (indent == 0) 
+	        s.append("<b>"+elem.getName()+"</b>");
+	      else
+	        s.append(elem.getName());
+	      s.append("</td><td>"+Utilities.escapeXml(elem.getMappings().get(m)).replace("\n", "<br/>\n")+"</td></tr>\r\n");
+	    }
 	  }
 	  if (!isRoot || !"N/A".equalsIgnoreCase(elem.getMappings().get(m))) {	    
 	    if (children == CHILDREN_ONLY || children == ALL) {
-	      for (ElementDefn child :elem.getElements()) {
-	        genElement(s, indent+1, child, m, ALL, false);
+	      for (ElementDefn child : elem.getElements()) {
+	        genElement(s, indent+1, child, m, ALL, false, sparse);
 	      }
 	    }
 	  }
 	}
 
-	private void listKnownMappings(ElementDefn e, List<String> maps) {
+	private boolean hasMapping(ElementDefn elem, String m) {
+    return !Utilities.noString(elem.getMappings().get(m));
+  }
+
+
+  private void listKnownMappings(ElementDefn e, List<String> maps) {
 		for (String s : e.getMappings().keySet())
 			if (!maps.contains(s) && definitions.getMapTypes().get(s).isPublish())
 				maps.add(s);

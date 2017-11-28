@@ -10,12 +10,33 @@
   </space>
   -->
 	<space>
+		<url>http://hl7.org/fhir/fivews</url>
+		<columnName>[w5]</columnName>
+		<title>FiveWs Pattern</title>
+		<id>w5</id>
+		<sort>-1</sort>
+		<publish>true</publish>
+    <sparse>true</sparse>
+    <pattern>true</pattern>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/workflow</url>
+		<columnName>Workflow Mapping</columnName>
+		<title>Workflow Pattern</title>
+		<id>workflow</id>
+		<sort>0</sort>
+		<publish>true</publish>
+    <sparse>true</sparse>
+    <pattern>true</pattern>
+	</space>
+	<space>
 		<url>http://hl7.org/v3</url>
 		<columnName>RIM Mapping</columnName>
 		<title>RIM Mapping</title>
 		<id>rim</id>
 		<sort>1</sort>
     <publish>true</publish>
+    <sparse>true</sparse>
 	</space>
 	<space>
 		<url>http://loinc.org</url>
@@ -318,14 +339,6 @@
 		<publish>true</publish>
 	</space>
 	<space>
-		<url>http://hl7.org/fhir/workflow</url>
-		<columnName>Workflow Mapping</columnName>
-		<title>Workflow Mapping</title>
-		<id>workflow</id>
-		<sort>34</sort>
-		<publish>true</publish>
-	</space>
-	<space>
 		<url>http://clinicaltrials.gov</url>
 		<columnName>clinicaltrials.gov Mapping</columnName>
 		<title>ClinicalTrials.gov Mapping</title>
@@ -341,5 +354,4 @@
 		<sort>36</sort>
 		<publish>true</publish>
 	</space>
-
 </mappingSpaces>

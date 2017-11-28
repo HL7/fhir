@@ -44,11 +44,13 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.Operation;
 import org.hl7.fhir.definitions.model.Operation.OperationExample;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
@@ -58,6 +60,7 @@ import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.Translations;
 import org.hl7.fhir.r4.validation.BaseValidator;
+import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -167,7 +170,7 @@ public class ResourceValidator extends BaseValidator {
     return super.rule(errors, type, path, b, msg, "<a href=\""+(rn.toLowerCase())+".html\">"+rn+"</a>: "+Utilities.escapeXml(msg));
   }
 
-  public void check(List<ValidationMessage> errors, String name, ResourceDefn rd) throws Exception {    
+  public void check(List<ValidationMessage> errors, String name, ResourceDefn rd) throws Exception {
     rule(errors, IssueType.STRUCTURE, rd.getName(), !name.equals("Metadata"), "The name 'Metadata' is not a legal name for a resource");
     rule(errors, IssueType.STRUCTURE, rd.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
     rule(errors, IssueType.STRUCTURE, rd.getName(), !name.equals("Tag"), "The name 'Tag' is not a legal name for a resource");
@@ -182,9 +185,12 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.REQUIRED,  rd.getName(), rd.getWg() != null, "A resource must have a designated owner"); // too many downstream issues in the parsers, and it would only happen as a transient thing when designing the resources
     rule(errors, IssueType.REQUIRED,  rd.getName(), !Utilities.noString(rd.getRoot().getW5()), "A resource must have a W5 category"); 
     
+    // pattern related rules
+    buildW5Mappings(rd.getRoot(), true);    
     if ((isWorkflowPattern(rd, "Event") || isWorkflowPattern(rd, "Request")) && hasPatient(rd)) {
-      rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("patient"), "An 'event' or 'request' resource must have a search parameter 'encounter'");
+      rule(errors, IssueType.STRUCTURE, rd.getName(), rd.getSearchParams().containsKey("patient"), "An 'event' or 'request' resource must have a search parameter 'patient'");
     }
+    
     if (suppressedwarning(errors, IssueType.REQUIRED, rd.getName(), hasW5Mappings(rd) || rd.getName().equals("Binary") || rd.getName().equals("OperationOutcome") || rd.getName().equals("Parameters"), "A resource must have w5 mappings")) {
       String w5Order = listW5Elements(rd);
       String w5CorrectOrder = listW5Correct(rd);
@@ -358,6 +364,41 @@ public class ResourceValidator extends BaseValidator {
     ok = hints == 0 || Integer.parseInt(rd.getFmmLevel()) < 3;
     rule(errors, IssueType.STRUCTURE, rd.getName(), ok, "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have an FMM level >2 ("+rd.getFmmLevel()+") if it has informational hints");
 	}
+
+  private void buildW5Mappings(ElementDefn ed, boolean root) {
+    if (!root && !Utilities.noString(ed.getW5())) {
+      ed.getMappings().put("http://hl7.org/fhir/fivews", translateW5(ed.getW5()));
+    }
+    for (ElementDefn child : ed.getElements()) {
+      buildW5Mappings(child, false);
+    }
+    
+  }
+
+  private String translateW5(String w5) {
+    if ("id".equals(w5)) return "FiveWs.identifier";
+    if ("id.version".equals(w5)) return "FiveWs.version";
+    if ("status".equals(w5)) return "FiveWs.status";
+    if ("class".equals(w5)) return "FiveWs.class";
+    if ("grade".equals(w5)) return "FiveWs.grade";
+    if ("what".equals(w5)) return "FiveWs.what[x]";
+    if ("who.focus".equals(w5)) return "FiveWs.subject[x]";
+    if ("context".equals(w5)) return "FiveWs.context";
+    if ("when.init".equals(w5)) return "FiveWs.init";
+    if ("when.planned".equals(w5)) return "FiveWs.planned";
+    if ("when.done".equals(w5)) return "FiveWs.done[x]";
+    if ("when.recorded".equals(w5)) return "FiveWs.recorded";
+    if ("who.author".equals(w5)) return "FiveWs.author";
+    if ("who.source".equals(w5)) return "FiveWs.source";
+    if ("who.actor".equals(w5)) return "FiveWs.actor";
+    if ("who.cause".equals(w5)) return "FiveWs.cause";
+    if ("who.witness".equals(w5)) return "FiveWs.witness";
+    if ("who".equals(w5)) return "FiveWs.who";
+    if ("where".equals(w5)) return "FiveWs.where[x]";
+    if ("why".equals(w5)) return "FiveWs.why[x]";
+
+    return null;
+  }
 
   private boolean isSuppressedMessage(String message) {
     for (String s : suppressedMessages)
@@ -673,6 +714,17 @@ public class ResourceValidator extends BaseValidator {
 
     needsRimMapping = needsRimMapping && !"n/a".equalsIgnoreCase(s) && !Utilities.noString(s);
     
+    for (String uri : definitions.getMapTypes().keySet()) {
+      MappingSpace m = definitions.getMapTypes().get(uri);
+      if (m.isPattern()) {
+        String map = e.getMapping(uri);
+        if (!Utilities.noString(map)) {
+          String err = checkPatternMap(e, map);
+          rule(errors, IssueType.STRUCTURE, path, err == null, "Pattern "+m.getTitle()+" is invalid at "+path+": "+err);
+        }
+      }
+    }
+    
     // check name uniqueness
     for (ElementDefn c : e.getElements()) {
       String name = c.getName();
@@ -691,7 +743,58 @@ public class ResourceValidator extends BaseValidator {
 		return vsWarnings;
 	}
 
-	// MnM controls this list
+	private String checkPatternMap(ElementDefn ed, String map) {
+	  return null;
+//	  String[] parts = map.split("\\.");
+//    LogicalModel lm = definitions.getLogicalModel(parts[0].toLowerCase());
+//    if (lm == null) 
+//      return "Unable to find pattern \""+parts[0]+"\"";
+//    else {
+//      ElementDefn pd = lm.getResource().getRoot().getElementByName(definitions, map, true, true);
+//      if (pd == null) 
+//        return "Unable to find pattern \""+parts[0]+"\"";
+//      else {
+//        if (ed.getMinCardinality() < pd.getMinCardinality())
+//          return "Cardinality mismatch: element ("+ed.getPath()+") min is "+ed.getMinCardinality()+" but pattern ("+map+") min is "+pd.getMinCardinality();
+//        if (ed.getMaxCardinality() > pd.getMaxCardinality())
+//          return "Cardinality mismatch: element ("+ed.getPath()+") min is "+ed.getMinCardinality()+" but pattern ("+map+") min is "+pd.getMinCardinality();
+//        if (!patternTypeIsCompatible(ed, pd))
+//          return "Type mismatch: element  ("+ed.getPath()+")  is "+ed.typeCode()+" but pattern ("+map+")  is "+pd.typeCode();
+//      }
+//    }
+//    
+//    return null;
+  }
+
+//  private boolean patternTypeIsCompatible(ElementDefn ed, ElementDefn pd) {
+//    for (TypeRef et : ed.getTypes())
+//      for (TypeRef pt : pd.getTypes())
+//        if (patternTypeIsCompatible(et, pt))
+//          return true;
+//    return false;
+//  }
+//
+//  private boolean patternTypeIsCompatible(TypeRef et, TypeRef pt) {
+//    if (et.getName().equals(pt.getName()))
+//      return true;
+//    if (typesAre(et, pt, "string", "CodeableConcept"))
+//      return true;
+//    if (typesAre(et, pt, "code", "CodeableConcept"))
+//      return true;
+//    if (typesAre(et, pt, "boolean", "CodeableConcept"))
+//      return true;
+//    if (typesAre(et, pt, "string", "Annotation"))
+//      return true;
+//    if (typesAre(et, pt, "instant", "dateTime"))
+//      return true;
+//    return false;
+//  }
+//
+//  private boolean typesAre(TypeRef et, TypeRef pt, String t1, String t2) {
+//    return et.getName().equals(t1) && pt.getName().equals(t2);
+//  }
+//
+  // MnM controls this list
   private boolean isOkComment(String path) {
     return Utilities.existsInList(path, "Appointment.comment", "AppointmentResponse.comment", "HealthcareService.comment", "Schedule.comment", "Slot.comment");
   }

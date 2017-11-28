@@ -10,8 +10,10 @@ public class MappingSpace {
   private String id; // internal page reference
   private int sortOrder; 
   private boolean publish;
+  private boolean sparse;
+  private boolean pattern;
   
-  public MappingSpace(String columnName, String title, String id, int sortOrder, boolean publish) {
+  public MappingSpace(String columnName, String title, String id, int sortOrder, boolean publish, boolean sparse, boolean pattern) {
     super();
     this.columnName = columnName;
     this.title = title;
@@ -19,6 +21,8 @@ public class MappingSpace {
     this.sortOrder = sortOrder;
     this.preamble = null;
     this.publish = publish;
+    this.sparse = sparse;
+    this.pattern = pattern;
   }
 
   public String getColumnName() {
@@ -67,6 +71,14 @@ public class MappingSpace {
 
   public void setPublish(boolean publish) {
     this.publish = publish;
-  } 
+  }
+
+  public boolean isSparse() {
+    return sparse;
+  }
+
+  public boolean isPattern() {
+    return pattern;
+  }   
   
 }
