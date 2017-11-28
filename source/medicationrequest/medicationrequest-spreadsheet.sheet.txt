@@ -100,7 +100,7 @@
  -- Row 15 -----------------------------------
   Binding Name = MedicationRequestPerformerType
   Binding = value set
-  Reference = valueset-medication-request-performer-type
+  Reference = http://hl7.org/fhir/ValueSet/performer-role
   Definition = Identifies the type of individual that is desired to administer the medication
   Conformance = example
 
@@ -109,13 +109,6 @@
   Binding = code list
   Reference = #med-request-status-reason
   Definition = Identifies the reasons for a given status
-  Conformance = example
-
- -- Row 17 -----------------------------------
-  Binding Name = MedicationRequestPerformerType
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/performer-role
-  Definition = Identifies the type of performer for the administration of the medication
   Conformance = example
 
 === Sheet medication-request-status =====================================
@@ -138,7 +131,7 @@
   Id = 3
   Code = cancelled
   Display = Cancelled
-  Definition = The prescription has been withdrawn.
+  Definition = The prescription has been withdrawn before any administrations have occurred
   v3 = ActStatus.cancelled
 
  -- Row 4 -----------------------------------
@@ -159,7 +152,7 @@
   Id = 6
   Code = stopped
   Display = Stopped
-  Definition = Actions implied by the prescription are to be permanently halted, before all of them occurred.
+  Definition = Actions implied by the prescription are to be permanently halted, before all of the administrations occurred.
   v3 = ActStatus.aborted
 
  -- Row 7 -----------------------------------
@@ -200,6 +193,7 @@
   Code = instance-order
   Display = Instance Order
   Definition = The request represents an instance for the particular order, for example a medication administration record.
+  Parent = order
 
  -- Row 5 -----------------------------------
   Id = 5
@@ -226,6 +220,12 @@
   Code = community
   Display = Community
   Definition = Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = discharge
+  Display = Discharge
+  Definition = Includes orders for medications created when the patient is being released from a facility
 
 === Sheet medication-request-priority =====================================
 
@@ -361,37 +361,6 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = MedicationRequest.instantiates
-  Card. = 0..*
-  Summary = y
-  Type = uri
-  Short Name = Instantiates protocol or definition
-  Definition = The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.
-  Workflow Mapping = Request.instantiates
-  RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=unspecified]
-
- -- Row 4 -----------------------------------
-  Element = MedicationRequest.basedOn
-  Card. = 0..*
-  Summary = y
-  Type = Reference(CarePlan |MedicationRequest |ServiceRequest)
-  Short Name = What request fulfills
-  Definition = A plan or request that is fulfilled in whole or in part by this medication request.
-  Workflow Mapping = Request.basedOn
-  RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]
-
- -- Row 5 -----------------------------------
-  Element = MedicationRequest.groupIdentifier
-  Card. = 0..1
-  Summary = y
-  Type = Identifier
-  Short Name = Composite request this is part of
-  Definition = A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.
-  Requirements = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
-  Workflow Mapping = Request.groupIdentifier
-  RIM Mapping = .outboundRelationship(typeCode=COMP].target[classCode=SBADM, moodCode=INT].id
-
- -- Row 6 -----------------------------------
   Element = MedicationRequest.status
   Card. = 0..1
   Is Modifier = Y
@@ -406,17 +375,7 @@
   RIM Mapping = .statusCode
   w5 = status
 
- -- Row 7 -----------------------------------
-  Element = MedicationRequest.statusReason
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = MedicationRequestStatusReason
-  Short Name = Reason for current status
-  Definition = Captures the reason for the current state of the MedicationRequest
-  Comments = This is generally only used for \"exception\" statuses such as \"suspended\" or \"cancelled\". The reason why the MedicationRequest was created at all is captured in reasonCode, not here.
-  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde
-
- -- Row 8 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = MedicationRequest.intent
   Card. = 1..1
   Is Modifier = y
@@ -430,7 +389,7 @@
   RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
   w5 = class
 
- -- Row 9 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = MedicationRequest.category
   Card. = 0..*
   Type = CodeableConcept
@@ -442,7 +401,7 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value
   w5 = class
 
- -- Row 10 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = MedicationRequest.priority
   Card. = 0..1
   Summary = y
@@ -454,7 +413,7 @@
   RIM Mapping = .priorityCode
   w5 = grade
 
- -- Row 11 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = MedicationRequest.medication[x]
   Card. = 1..1
   Summary = y
@@ -469,7 +428,7 @@
   RIM Mapping = consumable.administrableMedication
   w5 = what
 
- -- Row 12 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = MedicationRequest.subject
   Card. = 1..1
   Summary = y
@@ -483,7 +442,7 @@
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.focus
 
- -- Row 13 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationRequest.context
   Card. = 0..1
   Type = Reference(Encounter|EpisodeOfCare)
@@ -496,16 +455,17 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
   w5 = context
 
- -- Row 14 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationRequest.supportingInformation
   Card. = 0..*
   Type = Reference(Any)
   Short Name = Information to support ordering of the medication
   Definition = Include additional information (for example, patient height and weight) that supports the ordering of the medication
+  Workflow Mapping = Request.supportingInfo
   RIM Mapping = .outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]
   w5 = context
 
- -- Row 15 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationRequest.authoredOn
   Card. = 0..1
   Summary = y
@@ -518,7 +478,7 @@
   RIM Mapping = author.time
   w5 = when.recorded
 
- -- Row 16 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationRequest.requester
   Card. = 0..1
   Summary = y
@@ -529,7 +489,17 @@
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
- -- Row 17 -----------------------------------
+ -- Row 13 -----------------------------------
+  Element = MedicationRequest.performer
+  Card. = 0..1
+  Type = Reference (Practitioner | PractitionerRole | Organization | Patient | Device |RelatedPerson |CareTeam)
+  Short Name = Intended performer of administration
+  Definition = The specified desired performer of the medication treatment (e.g. the performer of the medication administration).
+  Workflow Mapping = Request.performer
+  RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
+  w5 = who.actor
+
+ -- Row 14 -----------------------------------
   Element = MedicationRequest.performerType
   Card. = 0..1
   Summary = y
@@ -538,9 +508,10 @@
   Short Name = Desired kind of performer of the medication administration
   Definition = Indicates the type of performer of the administration of the medication
   Comments = If specified without indicating a performer, this indicates that the performer must be of the specified type. If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.
+  Workflow Mapping = Request.performerType
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
 
- -- Row 18 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationRequest.recorder
   Card. = 0..1
   Type = Reference(Practitioner)
@@ -549,17 +520,7 @@
   RIM Mapping = .participation[typeCode=TRANS].role[classCode=ASSIGNED].code (HealthcareProviderType)
   w5 = who
 
- -- Row 19 -----------------------------------
-  Element = MedicationRequest.performer
-  Card. = 0..1
-  Type = Reference (Practitioner | PractitionerRole | Organization | Patient | Device |RelatedPerson |CareTeam)
-  Short Name = Intended performer of administration
-  Definition = The specified desired performer of the medication treatment (e.g. the performer of the medication administration).
-  Workflow Mapping = Request.performer
-  RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
-  w5 = who
-
- -- Row 20 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationRequest.reasonCode
   Card. = 0..*
   Type = CodeableConcept
@@ -573,7 +534,7 @@
   RIM Mapping = reason.observation.reasonCode
   w5 = why
 
- -- Row 21 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationRequest.reasonReference
   Card. = 0..*
   Type = Reference(Condition |Observation)
@@ -585,12 +546,55 @@
   RIM Mapping = reason.observation[code=ASSERTION].value
   w5 = why
 
+ -- Row 18 -----------------------------------
+  Element = MedicationRequest.instantiates
+  Card. = 0..*
+  Summary = y
+  Type = uri
+  Short Name = Instantiates protocol or definition
+  Definition = The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationRequest.
+  Workflow Mapping = Request.instantiates
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=unspecified]
+
+ -- Row 19 -----------------------------------
+  Element = MedicationRequest.basedOn
+  Card. = 0..*
+  Summary = y
+  Type = Reference(CarePlan |MedicationRequest |ServiceRequest)
+  Short Name = What request fulfills
+  Definition = A plan or request that is fulfilled in whole or in part by this medication request.
+  Workflow Mapping = Request.basedOn
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]
+
+ -- Row 20 -----------------------------------
+  Element = MedicationRequest.groupIdentifier
+  Card. = 0..1
+  Summary = y
+  Type = Identifier
+  Short Name = Composite request this is part of
+  Definition = A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription.
+  Requirements = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
+  Workflow Mapping = Request.groupIdentifier
+  RIM Mapping = .outboundRelationship(typeCode=COMP].target[classCode=SBADM, moodCode=INT].id
+
+ -- Row 21 -----------------------------------
+  Element = MedicationRequest.statusReason
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationRequestStatusReason
+  Short Name = Reason for current status
+  Definition = Captures the reason for the current state of the MedicationRequest
+  Comments = This is generally only used for \"exception\" statuses such as \"suspended\" or \"cancelled\". The reason why the MedicationRequest was created at all is captured in reasonCode, not here.
+  Workflow Mapping = Request.statusReason
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde
+
  -- Row 22 -----------------------------------
   Element = MedicationRequest.insurance
   Card. = 0..*
   Type = Reference (Coverage | ClaimResponse)
   Short Name = Associated insurance coverage
   Definition = Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be in delivering the requested service.
+  Workflow Mapping = Request.insurance
   RIM Mapping = .outboundRelationship[typeCode=COVBY].target
 
  -- Row 23 -----------------------------------

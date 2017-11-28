@@ -78,7 +78,7 @@
   Binding = MedicationStatus
   Short Name = active | inactive | entered-in-error
   Definition = A code to indicate if the medication is in active use
-  Comments = This status is not intended to specify if a medication is part of a formulary.
+  Comments = This status is intended to identify if the medication in a local system is in active use within a drug database or inventory.  For example, a pharmacy system may create a new drug file record for a compounded product \"ABC Hospital Special Cream\" with an active status.  At some point in the future, it may be determined that the drug record was created with an error and the status is changed to \"entered in error\".   This status is not intended to specify if a medication is part of a particular formulary.  It is possible that the drug record may be referenced by multiple formularies or catalogues and each of those entries would have a separate status.
   RIM Mapping = .statusCode
 
  -- Row 4 -----------------------------------

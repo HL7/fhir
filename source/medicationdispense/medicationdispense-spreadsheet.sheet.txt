@@ -452,7 +452,7 @@
   Type = Reference(Practitioner |PractitionerRole | Organization | Patient | Device | RelatedPerson)
   Short Name = Individual who was performing
   Definition = The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication.
-  Workflow Mapping = Event.actor
+  Workflow Mapping = Event.performer.actor
   RIM Mapping = .role
 
  -- Row 13 -----------------------------------
@@ -626,7 +626,7 @@
   Binding = MedicationDispenseStatusReason
   Short Name = Why a dispense was not performed
   Definition = Indicates the reason why a dispense was not performed
-  Workflow Mapping = Event.notDoneReason
+  Workflow Mapping = Event.statusReason
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"not done reason\"].value
 
  -- Row 31 -----------------------------------

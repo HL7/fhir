@@ -326,7 +326,7 @@
   Type = Reference(Practitioner | PractitionerRole | Patient | RelatedPerson | Device)
   Short Name = Individual who was performing
   Definition = The device, practitioner, etc. who performed the action.
-  Workflow Mapping = Event.actor
+  Workflow Mapping = Event.performer.actor
   RIM Mapping = .role
 
  -- Row 15 -----------------------------------
@@ -336,7 +336,7 @@
   Binding = MedicationAdministrationNegationReason
   Short Name = Reason administration not performed
   Definition = A code indicating why the administration was not performed.
-  Workflow Mapping = Event.notDoneReason
+  Workflow Mapping = Event.statusReason[x]
   v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason not given\"].value
 
