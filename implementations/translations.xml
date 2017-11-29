@@ -835,13 +835,13 @@
   </item>
   <item id="Slot">
     <translation lang="en">Slot</translation>
-    <translation lang="zh">狭孔</translation>
+    <translation lang="zh">槽位</translation>
     <translation lang="fr">Slot</translation>
     <translation lang="es">Hueco / Zocalo / Espacio</translation>
   </item>
   <item id="Specimen">
     <translation lang="en">Specimen</translation>
-    <translation lang="zh">槽位</translation>
+    <translation lang="zh">标本</translation>
     <translation lang="fr">Spécimen</translation>
     <translation lang="it">Campione</translation>
     <translation lang="es">Especimen</translation>
