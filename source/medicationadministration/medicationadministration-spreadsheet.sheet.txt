@@ -336,7 +336,7 @@
   Binding = MedicationAdministrationNegationReason
   Short Name = Reason administration not performed
   Definition = A code indicating why the administration was not performed.
-  Workflow Mapping = Event.statusReason[x]
+  Workflow Mapping = Event.statusReason
   v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason not given\"].value
 
