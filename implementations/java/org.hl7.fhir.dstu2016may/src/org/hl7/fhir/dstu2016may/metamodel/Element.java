@@ -1,7 +1,9 @@
 package org.hl7.fhir.dstu2016may.metamodel;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.dstu2016may.model.Base;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -300,5 +302,53 @@ public class Element extends Base {
 		return this;
  	}
 
+  @Override
+  public boolean equalsDeep(Base other) {
+    if (!super.equalsDeep(other))
+      return false;
+    if (isPrimitive() && other.isPrimitive())
+      return primitiveValue().equals(other.primitiveValue());
+    if (isPrimitive() || other.isPrimitive())
+      return false;
+    Set<String> processed  = new HashSet<String>();
+    for (org.hl7.fhir.dstu2016may.model.Property p : children()) {
+      String name = p.getName();
+      processed.add(name);
+      org.hl7.fhir.dstu2016may.model.Property o = other.getChildByName(name);
+      if (!equalsDeep(p, o))
+        return false;
+    }
+    for (org.hl7.fhir.dstu2016may.model.Property p : children()) {
+      String name = p.getName();
+      if (!processed.contains(name)) {
+        org.hl7.fhir.dstu2016may.model.Property o = other.getChildByName(name);
+        if (!equalsDeep(p, o))
+          return false;
+      }
+    }
+    return true;
+  }
+
+  private boolean equalsDeep(org.hl7.fhir.dstu2016may.model.Property p, org.hl7.fhir.dstu2016may.model.Property o) {
+    if (o == null || p == null)
+      return false;
+    if (p.getValues().size() != o.getValues().size())
+      return false;
+    for (int i = 0; i < p.getValues().size(); i++)
+      if (!Base.compareDeep(p.getValues().get(i), o.getValues().get(i), true))
+        return false;
+    return true;
+  }
+
+  @Override
+  public boolean equalsShallow(Base other) {
+    if (!super.equalsShallow(other))
+      return false;
+    if (isPrimitive() && other.isPrimitive())
+      return primitiveValue().equals(other.primitiveValue());
+    if (isPrimitive() || other.isPrimitive())
+      return false;
+    return true; //?
+  }
 
 }
