@@ -66,6 +66,13 @@
   Definition = A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example \"pain\", \"on flare-up\", etc.
   Conformance = example
 
+ -- Row 10 -----------------------------------
+  Binding Name = OrderDetail
+  Binding = value set
+  Reference = valueset-servicerequest-orderdetail
+  Definition = Codified order entry details which are based on order context.
+  Conformance = example
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -265,6 +272,22 @@
   w5 = what
 
  -- Row 13 -----------------------------------
+  Element = ServiceRequest.orderDetail
+  Card. = 0..*
+  Aliases = detailed instructions
+  Summary = Y
+  Type = CodeableConcept
+  Binding = OrderDetail
+  Short Name = Additional order information
+  Definition = Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.
+  Comments = For information from the medical record intended to support the delivery of the requested services, use the `supportingInformation` element.
+  Workflow Mapping = Request.code
+  v2 Mapping = NTE
+  RIM Mapping = .code
+  QUICK mapping = Procedure.procedureCode
+  Committee Notes = [#14002][#12966]
+
+ -- Row 14 -----------------------------------
   Element = ServiceRequest.subject
   Card. = 1..1
   Summary = Y
@@ -279,7 +302,7 @@
   Committee Notes = [#10296][#11119]#13196]
   w5 = who.focus
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ServiceRequest.context
   Card. = 0..1
   Aliases = encounter
@@ -295,7 +318,7 @@
   Committee Notes = [#10296][#11119]#13196]
   w5 = context
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ServiceRequest.occurrence[x]
   Card. = 0..1
   Aliases = schedule
@@ -311,7 +334,7 @@
   Committee Notes = [#10296][#11119]#13196]
   w5 = when.planned
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ServiceRequest.asNeeded[x]
   Card. = 0..1
   Summary = Y
@@ -324,7 +347,7 @@
   QUICK mapping = Proposal.prnReason.reason
   Committee Notes = #13196]
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ServiceRequest.authoredOn
   Card. = 0..1
   Aliases = orderedOn
@@ -340,7 +363,7 @@
   Committee Notes = [#10296][#11119]#13196]
   w5 = when.recorded
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ServiceRequest.requester
   Card. = 0..1
   Aliases = author, orderer
@@ -355,7 +378,7 @@
   QUICK mapping = ClinicalStatement.statementAuthor
   Committee Notes = #13196]
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ServiceRequest.requester.agent
   Card. = 1..1
   Summary = Y
@@ -370,7 +393,7 @@
   Committee Notes = [#10296][#11119]#13196]
   w5 = who.author
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ServiceRequest.requester.onBehalfOf
   Card. = 0..1
   Summary = Y
@@ -384,7 +407,7 @@
   RIM Mapping = .scoper
   Committee Notes = [#10296][#11119]#13196]
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ServiceRequest.performerType
   Card. = 0..1
   Aliases = specialty
@@ -401,7 +424,7 @@
   Committee Notes = [#10296][#11119]#13196]
   w5 = who.actor
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ServiceRequest.performer
   Card. = 0..1
   Aliases = request recipient
@@ -417,7 +440,7 @@
   Committee Notes = [#10296][#11119]#13196]
   w5 = who.actor
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ServiceRequest.reasonCode
   Card. = 0..*
   Summary = Y
@@ -433,7 +456,7 @@
   Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]#13196]
   w5 = why
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ServiceRequest.reasonReference
   Card. = 0..*
   Summary = Y
@@ -448,7 +471,7 @@
   Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]#13196]
   w5 = why
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ServiceRequest.insurance
   Card. = 0..*
   Type = Reference(Coverage|ClaimResponse)
@@ -457,20 +480,21 @@
   v2 Mapping = IN1/IN2
   RIM Mapping = .outboundRelationship[typeCode=COVBY].target
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ServiceRequest.supportingInfo
   Card. = 0..*
   Aliases = Ask at order entry question, AOE
   Type = Reference(Any)
   Short Name = Additional clinical information
   Definition = Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.
+  Comments = For information how the services are to be delivered. use the `instructions` element.
   Workflow Mapping = Request.supportingInformation
   R3-RR-Mapping = ReferralRequest.supportingInfo ()
   v2 Mapping = Accompanying segments
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
   Committee Notes = [#3113][#3739][#10296][#11119]#13196]
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ServiceRequest.specimen
   Card. = 0..*
   Summary = Y
@@ -483,7 +507,7 @@
   RIM Mapping = .participation[typeCode=SPC].role
   Committee Notes = [#10589][#11119]#13196][#13821]
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ServiceRequest.bodySite
   Card. = 0..*
   Aliases = location
@@ -500,12 +524,12 @@
   QUICK mapping = Procedure.targetBodySite
   Committee Notes = [#12505], [#12517][#11119]#13196]
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ServiceRequest.note
   Card. = 0..*
   Type = Annotation
   Short Name = Comments
-  Definition = Any other notes and comments made about the service request. For example, letting provider know that \"patient hates needles\" or other provider instructions.
+  Definition = Any other notes and comments made about the service request. For example, internal billing notes.
   Workflow Mapping = Request.note
   R3-RR-Mapping = ReferralRequest.note ()
   v2 Mapping = NTE
@@ -513,7 +537,17 @@
   QUICK mapping = ClinicalStatement.additionalText
   Committee Notes = 7134,8147,[#10296][#11119]#13196]
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
+  Element = ServiceRequest.patientInstruction
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Name = Patient or consumer oriented instructions
+  Definition = Instructions in terms that are understood by the patient or consumer.
+  v2 Mapping = NTE
+  RIM Mapping = .text
+
+ -- Row 32 -----------------------------------
   Element = !ServiceRequest.description
   Card. = 0..1
   Summary = N
@@ -526,7 +560,7 @@
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
   Committee Notes = #13196],[#13754]
 
- -- Row 31 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ServiceRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
