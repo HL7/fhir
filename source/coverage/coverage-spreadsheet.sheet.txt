@@ -531,36 +531,42 @@
   Path = Coverage.beneficiary
 
  -- Row 18 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Retrieve coverages for a patient
+  Path = Coverage.beneficiary
+
+ -- Row 19 -----------------------------------
   Name = !beneficiary-identifier
   Type = token
   Description = Covered party
   Path = Coverage.beneficiaryIdentifier
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = !beneficiary-reference
   Type = reference
   Description = Covered party
   Path = Coverage.beneficiaryReference
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = policy-holder
   Type = reference
   Description = Reference to the policyholder
   Path = Coverage.policyHolder
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Name = !planholder-identifier
   Type = token
   Description = Reference to the planholder
   Path = Coverage.planholderIdentifier
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Name = !planholder-reference
   Type = reference
   Description = Reference to the planholder
   Path = Coverage.planholderReference
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Name = status
   Type = token
   Description = The status of the Coverage
