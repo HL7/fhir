@@ -51,7 +51,7 @@
 	</claimResponse> 
 
 	<outcome value="complete" />
-	
+
 	<disposition value="Claim settled as per contract."/>
 
 	<payee>
@@ -85,7 +85,7 @@
 
 	<item>
 		<sequence value="1"/>
-		<careTeamLinkId value="1"/>
+		<careTeamSequence value="1"/>
 		<service>
 			<coding>
 				<system value="http://hl7.org/fhir/service-uscls"/>
