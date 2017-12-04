@@ -92,8 +92,8 @@
 
  -- Row 14 -----------------------------------
   Binding Name = MedicationRequestPriority
-  Binding = code list
-  Reference = #medication-request-priority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-priority
   Definition = Identifies the level of importance to be assigned to actioning the request
   Conformance = required
 
@@ -226,32 +226,6 @@
   Code = discharge
   Display = Discharge
   Definition = Includes orders for medications created when the patient is being released from a facility
-
-=== Sheet medication-request-priority =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = routine
-  Display = Routine
-  Definition = The order has a normal priority .
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = urgent
-  Display = Urgent
-  Definition = The order should be urgently.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = stat
-  Display = Stat
-  Definition = The order is time-critical.
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = asap
-  Display = ASAP
-  Definition = The order should be acted on as soon as possible.
 
 === Sheet med-request-status-reason =====================================
 
@@ -407,7 +381,7 @@
   Summary = y
   Type = code
   Binding = MedicationRequestPriority
-  Short Name = routine | urgent | stat | asap
+  Short Name = routine | urgent | asap | stat
   Definition = Indicates how quickly the Medication Request should be addressed with respect to other requests.
   Workflow Mapping = Request.priority
   RIM Mapping = .priorityCode
