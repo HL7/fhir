@@ -64,6 +64,7 @@ http://orionhealth.com/fhir/apps/specialties
 http://org.mdhhs.fhir.consent-actor-type
 https://hive.biochemistry.gwu.edu
 http://cancer.questionnaire.org/system/code/yesno
+https://vetmed.iastate.edu/vdl
 http://goodhealthhospital.org/diet-type-codes
 urn:iso:std:iso:11073:10101
 http://hl7.org/fhir/sid/icd-9
@@ -83,6 +84,7 @@ http://hl7.org/fhir/animal-breed
 http:/acme.ped/apgarcolor
 https://www.ncbi.nlm.nih.gov/nuccore
 http://hl7.org/fhir/patient-contact-relationship
+https://www.aphis.usda.gov
 https://acme.org/codes
 http://unstats.un.org/unsd/methods/m49/m49.htm
 http:/acme.ped/apgarrespiratoryeffort

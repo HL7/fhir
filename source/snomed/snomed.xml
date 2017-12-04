@@ -86,6 +86,11 @@
     <display value="Araucana chicken (organism)"/>
     <display value="Araucana chicken"/>
   </concept>
+  <concept id="108252007" display="Laboratory procedure">
+    <display value="Laboratory procedure"/>
+    <display value="Laboratory procedure (procedure)"/>
+    <display value="Laboratory procedures"/>
+  </concept>
   <concept id="10828004" display="Positive">
     <display value="Positive"/>
     <display value="Positive for"/>
@@ -11374,6 +11379,20 @@
     <display value="Drug not available for administration"/>
     <display value="Drug not available for administration (event)"/>
   </concept>
+  <concept id="243144002" display="Patient triggered inspiratory assistance">
+    <display value="Patient triggered inspiratory assistance"/>
+    <display value="IPPB - Intermittent positive pressure breathing"/>
+    <display value="Inspiratory assist"/>
+    <display value="Pressure support"/>
+    <display value="Intermittent positive pressure breathing"/>
+    <display value="Patient triggered inspiratory assistance (procedure)"/>
+  </concept>
+  <concept id="243150007" display="Assisted controlled mandatory ventilation">
+    <display value="Assisted controlled mandatory ventilation"/>
+    <display value="Triggered ventilation"/>
+    <display value="Assist control"/>
+    <display value="Assisted controlled mandatory ventilation (procedure)"/>
+  </concept>
   <concept id="24319000" display="Boar power pig 414">
     <display value="Boar power pig 414"/>
     <display value="Boar power pig 414 (organism)"/>
@@ -12041,6 +12060,11 @@
   <concept id="28647000" display="Meat">
     <display value="Meat"/>
     <display value="Meat (substance)"/>
+  </concept>
+  <concept id="286812008" display="PCV - Pressure controlled ventilation">
+    <display value="PCV - Pressure controlled ventilation"/>
+    <display value="Pressure controlled ventilation"/>
+    <display value="Pressure controlled ventilation (procedure)"/>
   </concept>
   <concept id="28744004" display="Black Welsh cattle">
     <display value="Black Welsh cattle breed (organism)"/>
@@ -12982,6 +13006,12 @@
     <display value="Animal"/>
     <display value="Animals"/>
   </concept>
+  <concept id="388393002" display="Genus Sus">
+    <display value="Genus Sus (organism)"/>
+    <display value="Genus Sus"/>
+    <display value="Pig"/>
+    <display value="Swine genus"/>
+  </concept>
   <concept id="388445009" display="Genus Equus">
     <display value="Genus Equus (organism)"/>
     <display value="Genus Equus"/>
@@ -13757,6 +13787,10 @@
     <display value="Physical therapy assessment"/>
     <display value="Assess physical therapist service"/>
     <display value="Physical therapy assessment (procedure)"/>
+  </concept>
+  <concept id="410684002" display="Drug therapy status">
+    <display value="Drug therapy status"/>
+    <display value="Drug therapy status (situation)"/>
   </concept>
   <concept id="41092008" display="Cleveland bay horse">
     <display value="Cleveland bay horse"/>
@@ -14770,6 +14804,14 @@
     <display value="Post-traumatic stress disorder"/>
     <display value="Posttraumatic stress disorder (disorder)"/>
   </concept>
+  <concept id="47545007" display="Continuous positive airway pressure ventilation treatment">
+    <display value="Continuous positive airway pressure ventilation treatment"/>
+    <display value="CPAP treatment"/>
+    <display value="CPAP - Continuous positive airways pressure"/>
+    <display value="CPAP - Continuous positive airways pressure therapy"/>
+    <display value="Continuous positive airways pressure therapy"/>
+    <display value="Continuous positive airway pressure ventilation treatment (regime/therapy)"/>
+  </concept>
   <concept id="47625008" display="Intravenous route">
     <display value="Intravenous route"/>
     <display value="Intravenous route (qualifier value)"/>
@@ -15147,6 +15189,14 @@
   <concept id="59374000" display="Traveler&#39;s aid clinic">
     <display value="Traveler&#39;s aid clinic"/>
     <display value="Traveler&#39;s aid clinic (environment)"/>
+  </concept>
+  <concept id="59427005" display="Synchronized intermittent mandatory ventilation">
+    <display value="Synchronized intermittent mandatory ventilation"/>
+    <display value="SIMV therapy"/>
+    <display value="Synchronised intermittent mandatory ventilation"/>
+    <display value="Synchronized intermittent mandatory ventilation (procedure)"/>
+    <display value="SIMV - Synchronised intermittent mandatory ventilation"/>
+    <display value="SIMV - Synchronized intermittent mandatory ventilation"/>
   </concept>
   <concept id="59573005" display="Potassium measurement">
     <display value="Potassium measurement"/>

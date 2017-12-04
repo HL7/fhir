@@ -57,7 +57,7 @@
 
 	<item> <!-- Pays for a claim package code with two actual codes with adjudication details -->
 
-		<sequenceLinkId value="1"/> 
+		<itemSequence value="1"/> 
 
 		<adjudication>
 			<category>
@@ -87,7 +87,7 @@
 	</item>
 
 	<item>
-		<sequenceLinkId value="2"/> 
+		<itemSequence value="2"/> 
 
 		<adjudication>
 			<category>
@@ -127,7 +127,7 @@
 	</item>
 
 	<item>
-		<sequenceLinkId value="3"/> 
+		<itemSequence value="3"/> 
 
 		<adjudication>
 			<category>
@@ -165,7 +165,7 @@
 		</adjudication>
 
 		<detail>
-			<sequenceLinkId value="1"/> 
+			<detailSequence value="1"/> 
 
 			<adjudication>
 				<category>
@@ -204,7 +204,7 @@
 
 		</detail>
 		<detail>  <!-- See the addItem.detail below -->
-			<sequenceLinkId value="2"/> 
+			<detailSequence value="2"/> 
 
 			<adjudication>
 				<category>
@@ -238,7 +238,7 @@
 
 	<!-- Pays for a claim package code (1200) with two actual codes (1101, 2141) with adjudication details -->
 	<addItem>
-		<sequenceLinkId value="1"/> 
+		<itemSequence value="1"/> 
 		<service>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
@@ -315,7 +315,7 @@
 
 	</addItem>
 	<addItem>
-		<sequenceLinkId value="1"/> 
+		<itemSequence value="1"/> 
 		<service>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
@@ -365,8 +365,8 @@
 
 	<!-- Pays for a claim package code (1200) with two actual codes (1101, 2141) with adjudication details -->
 	<addItem>
-		<sequenceLinkId value="3"/> 
-		<detailSequenceLinkId value="2"/>
+		<itemSequence value="3"/> 
+		<detailSequence value="2"/>
 		<service>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>

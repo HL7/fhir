@@ -54,7 +54,7 @@
 
 	<item>
 
-		<sequenceLinkId value="1"/> 
+		<itemSequence value="1"/> 
 
 		<adjudication>
 			<category>

@@ -45,34 +45,34 @@
 	<disposition value="Claim could not be processed"/>
 	
 	<item>
-		<sequenceLinkId value="1"/>
+		<itemSequence value="1"/>
 		<noteNumber value="1"/>
 	</item>
 
 	<item>
-		<sequenceLinkId value="2"/>
+		<itemSequence value="2"/>
 		<noteNumber value="1"/>
 	</item>
 	
 	<item>
-		<sequenceLinkId value="3"/>
+		<itemSequence value="3"/>
 		<noteNumber value="1"/>
 		
 		<detail>
-			<sequenceLinkId value="1"/>
+			<detailSequence value="1"/>
 			<noteNumber value="1"/>
 		</detail>
 		
 		<detail>
-			<sequenceLinkId value="2"/>
+			<detailSequence value="2"/>
 			<noteNumber value="1"/>
 		</detail>
 	</item>
 	
 	<!-- Detailed error description -->
 	<error>
-		<sequenceLinkId value="3"/>
-		<detailSequenceLinkId value="2"/>
+		<itemSequence value="3"/>
+		<detailSequence value="2"/>
 		<code>
 			<coding>
 				<system value="http://hl7.org/fhir/adjudication-error"/>

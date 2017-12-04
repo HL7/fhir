@@ -50,7 +50,7 @@
 
 	<item>
 
-		<sequenceLinkId value="1"/> 
+		<itemSequence value="1"/> 
 
 		<adjudication>
 			<category>
@@ -101,7 +101,7 @@
 		</adjudication>
 
 		<detail>
-			<sequenceLinkId value="1"/> 
+			<detailSequence value="1"/> 
 			<noteNumber value="1"/>
 
 			<adjudication>
@@ -153,7 +153,7 @@
 			</adjudication>
 		</detail>
 		<detail>
-			<sequenceLinkId value="2"/> 
+			<detailSequence value="2"/> 
 			<noteNumber value="1"/>
 
 			<adjudication>
@@ -192,7 +192,7 @@
 			</adjudication>
 
 			<subDetail>
-				<sequenceLinkId value="1"/> 
+				<subDetailSequence value="1"/> 
 				<noteNumber value="1"/>
 
 				<adjudication>
@@ -232,7 +232,7 @@
 
 			</subDetail>
 			<subDetail>
-				<sequenceLinkId value="2"/> 
+				<subDetailSequence value="2"/> 
 
 				<adjudication>
 					<category>
@@ -271,7 +271,7 @@
 
 			</subDetail>
 			<subDetail>
-				<sequenceLinkId value="3"/> 
+				<subDetailSequence value="3"/> 
 				<noteNumber value="1"/>
 
 				<adjudication>
@@ -312,7 +312,7 @@
 			</subDetail>
 		</detail>
 		<detail>
-			<sequenceLinkId value="3"/> 
+			<detailSequence value="3"/> 
 			<noteNumber value="1"/>
 
 			<adjudication>
