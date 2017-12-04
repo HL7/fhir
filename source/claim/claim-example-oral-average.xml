@@ -117,7 +117,7 @@
 
 	<item>
 		<sequence value="1"/>
-		<careTeamLinkId value="1"/>
+		<careTeamSequence value="1"/>
 		<service>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
@@ -139,7 +139,7 @@
 
 	<item>
 		<sequence value="2"/>
-		<careTeamLinkId value="1"/>
+		<careTeamSequence value="1"/>
 		<service>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
@@ -173,7 +173,7 @@
 
 	<item>
 		<sequence value="3"/>
-		<careTeamLinkId value="1"/>
+		<careTeamSequence value="1"/>
 		<service>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>

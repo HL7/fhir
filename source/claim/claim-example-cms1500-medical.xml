@@ -227,10 +227,10 @@
 
 	<item>
 		<sequence value="1"/>
-		<careTeamLinkId value="1"/>
-		<diagnosisLinkId value="2"/>
-		<diagnosisLinkId value="4"/>
-		<informationLinkId value="1"/>
+		<careTeamSequence value="1"/>
+		<diagnosisSequence value="2"/>
+		<diagnosisSequence value="4"/>
+		<informationSequence value="1"/>
 		<service>
 			<coding>
 				<system value="http://www.ama-assn.org/go/cpt"/>

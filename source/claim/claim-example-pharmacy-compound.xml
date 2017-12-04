@@ -143,11 +143,11 @@
 
 	<item>
 		<sequence value="1"/>
-		<careTeamLinkId value="1"/>
-		<informationLinkId value="1"/>
-		<informationLinkId value="2"/>
-		<informationLinkId value="3"/>
-		<informationLinkId value="4"/>
+		<careTeamSequence value="1"/>
+		<informationSequence value="1"/>
+		<informationSequence value="2"/>
+		<informationSequence value="3"/>
+		<informationSequence value="4"/>
 		<!-- type=compoundmedication -->
 		<service>
 			<coding>
