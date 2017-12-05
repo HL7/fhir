@@ -15,8 +15,10 @@ import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -30,6 +32,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -140,6 +143,8 @@ import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
 import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
 import org.hl7.fhir.igtools.ui.GraphicalPublisher;
+import org.hl7.fhir.instance.model.api.IBaseResource;
+import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.MarkDownProcessor;
@@ -306,6 +311,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String configFileRootPath;
 
   private MarkDownProcessor markdownEngine;
+  private List<ValueSet> expansions = new ArrayList<>();
+  
 
   private class PreProcessInfo {
     private String xsltName;
@@ -2402,6 +2409,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       generateDefinitions(FhirFormat.JSON, df.getCanonicalPath());
     if (generateExampleZip(FhirFormat.TURTLE))
       generateDefinitions(FhirFormat.TURTLE, df.getCanonicalPath());
+    generateExpansions();
     generateValidationPack(df.getCanonicalPath());
     // Create an IG-specific named igpack to make is easy to grab the igpacks for multiple igs without the names colliding (Talk to Lloyd before removing this)
     FileUtils.copyFile(new File(Utilities.path(outputDir, "validator.pack")),new File(Utilities.path(outputDir, sourceIg.getId() + "_validator.pack")));
@@ -2409,6 +2417,26 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generateExcelZip();
     generateRegistryUploadZip(df.getCanonicalPath());
   }
+
+  private void generateExpansions() throws FileNotFoundException, IOException {
+    Bundle exp = new Bundle();
+    exp.setType(BundleType.COLLECTION);
+    exp.setId(UUID.randomUUID().toString());
+    exp.getMeta().setLastUpdated(execTime.getTime());
+    for (ValueSet vs : expansions) {
+      exp.addEntry().setResource(vs).setFullUrl(vs.getUrl());
+    }
+    
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(outputDir, "expansions.json")), exp);
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(outputDir, "expansions.xml")), exp);
+    ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "expansions.json.zip"));
+    zip.addFileName("expansions.json", Utilities.path(outputDir, "expansions.json"), false);
+    zip.close();
+    zip = new ZipGenerator(Utilities.path(outputDir, "expansions.xml.zip"));
+    zip.addFileName("expansions.xml", Utilities.path(outputDir, "expansions.xml"), false);
+    zip.close();
+  }
+
 
   private boolean isListedURLExemption(String uc) {
     return listedURLExemptions.contains(uc);
@@ -2537,8 +2565,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       for (String fn : files)
         zip.addFileName(fn.substring(fn.lastIndexOf(File.separator)+1), fn, false);
       zip.close();
-
     }
+       
     return !files.isEmpty();
   }
 
@@ -3477,6 +3505,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "expansion")) {
       ValueSetExpansionOutcome exp = context.expandVS(vs, true, true);
       if (exp.getValueset() != null) {
+        expansions.add(exp.getValueset());
+                
         NarrativeGenerator gen = new NarrativeGenerator("", null, context);
         gen.setTooCostlyNoteNotEmpty("This value set has >1000 codes in it. In order to keep the publication size manageable, only a selection (1000 codes) of the whole set of codes is shown");
         gen.setTooCostlyNoteEmpty("This value set cannot be expanded because of the way it is defined - it has an infinite number of members");
@@ -3485,6 +3515,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         gen.generate(null, exp.getValueset(), false);
         String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
         fragment("ValueSet-"+vs.getId()+"-expansion", html, f.getOutputNames(), r, vars, null);
+        
       } else if (exp.getError() != null)
         fragmentError("ValueSet-"+vs.getId()+"-expansion", exp.getError(), f.getOutputNames());
       else
