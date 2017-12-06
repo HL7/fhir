@@ -538,3 +538,264 @@
   v2 Mapping = N/A
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
   Committee Notes = [#10296][#11119]
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = authored
+  Type = date
+  Path = ServiceRequest.authoredOn
+
+ -- Row 2 -----------------------------------
+  Name = based-on
+  Type = reference
+  Path = ServiceRequest.basedOn
+
+ -- Row 3 -----------------------------------
+  Name = body-site
+  Type = token
+  Description = Where procedure is going to be done
+  Path = ServiceRequest.bodySite
+
+ -- Row 4 -----------------------------------
+  Name = code
+  Type = token
+  Path = ServiceRequest.code
+
+ -- Row 5 -----------------------------------
+  Name = category
+  Type = token
+  Path = ServiceRequest.category
+
+ -- Row 6 -----------------------------------
+  Name = context
+  Type = reference
+  Path = ServiceRequest.context
+
+ -- Row 7 -----------------------------------
+  Name = instantiates
+  Type = reference
+  Path = ServiceRequest.instantiates
+
+ -- Row 8 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = An encounter in which this request is made
+  Path = ServiceRequest.context
+  Target Types = Encounter
+
+ -- Row 9 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = ServiceRequest.identifier
+
+ -- Row 10 -----------------------------------
+  Name = intent
+  Type = token
+  Path = ServiceRequest.intent
+
+ -- Row 11 -----------------------------------
+  Name = occurrence
+  Type = date
+  Path = ServiceRequest.occurrence[x]
+
+ -- Row 12 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Search by subject - a patient
+  Path = ServiceRequest.subject
+  Target Types = Patient
+
+ -- Row 13 -----------------------------------
+  Name = performer
+  Type = reference
+  Path = ServiceRequest.performer
+
+ -- Row 14 -----------------------------------
+  Name = performer-type
+  Type = token
+  Path = ServiceRequest.performerType
+
+ -- Row 15 -----------------------------------
+  Name = priority
+  Type = token
+  Path = ServiceRequest.priority
+
+ -- Row 16 -----------------------------------
+  Name = replaces
+  Type = reference
+  Path = ServiceRequest.replaces
+
+ -- Row 17 -----------------------------------
+  Name = requester
+  Type = reference
+  Path = ServiceRequest.requester
+
+ -- Row 18 -----------------------------------
+  Name = requisition
+  Type = token
+  Path = ServiceRequest.requisition
+
+ -- Row 19 -----------------------------------
+  Name = specimen
+  Type = reference
+  Description = Specimen to be tested
+  Path = ServiceRequest.specimen
+
+ -- Row 20 -----------------------------------
+  Name = status
+  Type = token
+  Path = ServiceRequest.status
+
+ -- Row 21 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = Search by subject
+  Path = ServiceRequest.subject
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !servicerequest-extensions
+  IG Name = core
+  Filename = servicerequest-extensions.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = Service Request-Genetics
+  IG Name = core
+  Filename = servicerequest-genetics-profile.xml
+  Type = spreadsheet
+
+ -- Row 3 -----------------------------------
+  Name = servicerequest-extensions
+  IG Name = core
+  Filename = servicerequest-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Lipids
+  Identity = lipid
+  Description = Lipid Panel Order
+  Filename = servicerequest-example-lipid.xml
+
+ -- Row 2 -----------------------------------
+  Name = DI Order
+  Identity = di
+  Description = CT Scan order
+  Filename = servicerequest-example-di.xml
+
+ -- Row 3 -----------------------------------
+  Name = Free T4
+  Identity = ft4
+  Description = Free T4 Add on Order
+  Filename = servicerequest-example-ft4.xml
+
+ -- Row 4 -----------------------------------
+  Name = PGx
+  Identity = example-pgx
+  Description = PGx Phenotype example
+  Filename = servicerequest-example-pgx.xml
+  Profile = Service Request-Genetics
+
+ -- Row 5 -----------------------------------
+  Name = Order-genetics-1
+  Identity = og-example1
+  Description = Order for ABCB4 gene mutation analysis
+  Filename = servicerequest-genetics-example-1.xml
+  Profile = Service Request-Genetics
+
+ -- Row 6 -----------------------------------
+  Name = !!Order-genetics-2
+  Identity = og-example2
+  Description = Order for a specific variant
+  Filename = servicerequest-genetics-example-2.xml
+  Profile = Service Request-Genetics
+
+ -- Row 7 -----------------------------------
+  Name = Head CT
+  Identity = example
+  Description = An example of a Head CT procedure
+  Filename = servicerequest-example.xml
+
+ -- Row 8 -----------------------------------
+  Name = Sub Request
+  Identity = subrequest
+  Description = Example with sub-requests derived from the request
+  Filename = servicerequest-example-subrequest.xml
+
+ -- Row 9 -----------------------------------
+  Name = Physiotherapy
+  Identity = physiotherapy
+  Description = An example of an order for home physiotherapy
+  Filename = servicerequest-example2.xml
+
+ -- Row 10 -----------------------------------
+  Name = Do Not Turn
+  Identity = do-not-turn
+  Description = An example of an order to not turn a patient
+  Filename = servicerequest-example3.xml
+
+ -- Row 11 -----------------------------------
+  Name = Bench Press
+  Identity = benchpress
+  Description = Part of an exercise plan
+  Filename = servicerequest-example4.xml
+
+ -- Row 12 -----------------------------------
+  Name = Device Example
+  Identity = example-implant
+  Description = Example of an order for an implant
+  Filename = servicerequest-example-implant.xml
+
+ -- Row 13 -----------------------------------
+  Name = Ambulation
+  Identity = ambulation
+  Description = Example of an order for anambulation procedure
+  Filename = servicerequest-example-ambulation.xml
+
+ -- Row 14 -----------------------------------
+  Name = Colon Biopsy
+  Identity = colon-biopsy
+  Description = Example of an order for a biopsy procedure that was part of a colonoscopy
+  Filename = servicerequest-example-colonoscopy-bx.xml
+
+ -- Row 15 -----------------------------------
+  Name = Colonoscopy
+  Identity = colonoscopy
+  Description = Example of an order for a colonoscopy procedure with complication
+  Filename = servicerequest-example-colonoscopy.xml
+
+ -- Row 16 -----------------------------------
+  Name = Appendectomy
+  Identity = appendectomy-narrative
+  Description = Example of an order for an appendectomy procedure that is primarily narrative
+  Filename = servicerequest-example-appendectomy.xml
+
+ -- Row 17 -----------------------------------
+  Name = OB
+  Identity = ob
+  Description = Example of an order for an obstetric procedure
+  Filename = servicerequest-example-ob.xml
+
+ -- Row 18 -----------------------------------
+  Name = Physical Therapy
+  Identity = physical-therapy
+  Description = Example of an order for an physical therapy evaluation procedure
+  Filename = servicerequest-example-pt.xml
+
+ -- Row 19 -----------------------------------
+  Name = Patient Education
+  Identity = education
+  Description = Example of an order for patient education
+  Filename = servicerequest-example-edu.xml
+
+ -- Row 20 -----------------------------------
+  Name = Myringotomy
+  Identity = myringotomy
+  Description = An example of a Myringotomy referral request
+  Filename = servicerequest-example-myringotomy.xml
+
+=== Sheet Examples =====================================

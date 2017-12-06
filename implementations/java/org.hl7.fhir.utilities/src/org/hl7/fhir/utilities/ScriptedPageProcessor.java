@@ -70,6 +70,14 @@ public abstract class ScriptedPageProcessor {
       return Utilities.escapeXml(title);
     else if (com[0].equals("level"))
       return genlevel();  
+    else if (com[0].equals("fmm-style"))
+      return "colsd";
+    else if (com[0].equals("fmm"))
+      return "??";
+    else if (com[0].equals("wg"))
+      return "http://hl7.org";
+    else if (com[0].equals("wgt"))
+      return "n/a";
     else if (com[0].equals("settitle")) {
       title = command.substring(9).replace("{", "<%").replace("}", "%>");
       return "";
