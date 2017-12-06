@@ -43,7 +43,7 @@
 			<reference value="Practitioner/xcda-author"/>
 		</whoReference>
 		<!-- reference to other agent defined within -->
-		<onBehalfOfUri value="#a1"/>
+		<!--   removed as unclear how to do this now     <onBehalfOf value="#a1"/>    -->
 
 	</agent>
 	<!-- device = software Harold used -->

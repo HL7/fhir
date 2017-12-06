@@ -297,6 +297,46 @@ A variation of this happens in Messaging, Documents, and other interaction model
 For details, see 
 <a href="updates.html">Ramifications of storage/retrieval variations</a>
 </p>
+
+
+<a name="deId"> </a>
+<h4>De-Identification, pseudonymization, anonymization</h4>
+<p>
+De-Identifiction is inclusive of pseudonymization and anonymization; which are the Process of reducing privacy risk by eliminating 
+and modifying data elements to meet a targeted use-case.
+</p><p>
+Use-Case: "Requesting Client should have access to De-Identifed data only."
+</p><p>
+<em>Trigger:</em> Based on an Access Control decision that results in a PERMIT with an Obligation to De-Identify, the Results delivered 
+to the Requesting Client would be de-identified.
+</p><p>
+<em>Consideration:</em> This assumes the system knows the type and intencity of the de-identificaiton algorithm. 
+Where de-identification is best viewed as a Process, not an algorithm. 
+A Process that reduces Privacy risk while enabling a targeted and authorized use-case.
+</p><p>
+<em>Discussion:</em> With the Observation Resource, one would remove the subject element as it is a Direct Identifier. 
+However there are many other Reference elements that can easily be used to navigate back to the Subject; 
+e.g., Observation.context value of Encounter or EpisodeOfCare; or Observation.performer.   
+</p><p>
+Some identifiers in Observation Resource:
+<ul>
+<li>Direct Identifiers: .identifier, .subject, . performer, .text, .specimen, .device, .related, .text, .comment</li>
+<li>Indirect Identifiers: ..issued, .component</li>
+</ul>
+</p><p>
+<em>Emphasis:</em> The .specimen is a direct identifier of a particular specimen; and would be an indirect identifier of a particular person. 
+There is a ramification of having the specimen identifier. 
+One solution is to create pseudo specimen resources that will standin for the original specimen resource. 
+This psudo specimen management is supplied by a trusted-third-party that maintains a database of pseudo-identifiers with authorized reversability.
+</p><p>
+Further Standards: 
+<a href="http://www.iso.org/iso/catalogue_detail?csnumber=42807">Health: ISO Pseudonymization</a>, 
+<a href="http://nvlpubs.nist.gov/nistpubs/ir/2015/NIST.IR.8053.pdf">NIST IR 8053 - De-Identification of Personal Information</a>, 
+<a href="http://wiki.ihe.net/index.php/Healthcare_De-Identification_Handbook">IHE De-Identificaiton Handbook</a>, 
+<a href="http://dicom.nema.org/medical/dicom/current/output/html/part15.html#chapter_E">DICOM (Part 15, Chapter E)</a>
+</p>
+
+
 <a name="roadmap"> </a>
 <h3>Developmental Roadmap</h3>
 

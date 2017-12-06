@@ -33,7 +33,8 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 					<reference value="Practitioner/example"/>
 					<display value="Dr Adam Careful"/>
 				</whoReference>
-				<contentType value="application/signature+xml"/>
+				<targetFormat value="application/fhir+xml"/>
+				<sigFormat value="application/signature+xml"/>
 				<blob value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
 			</signature>
 		</Provenance>

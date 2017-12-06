@@ -41,7 +41,10 @@
     <!-- very often, the user won't have a known system - these aren't available 
       for security system log ons. But where you can define it, you should.
       Most of the time the userId is fully qualfied such as an email address	  -->
-    <whoUri value="mailto://hhd@ssa.gov"/>
+    <whoIdentifier>
+	    <system value="urn:ietf:rfc:3986"/>
+	    <value value="mailto://hhd@ssa.gov"/>
+	</whoIdentifier>
   </agent>
    <signature>
   <!-- verification signature -->
@@ -54,7 +57,8 @@
     <whoReference>
       <reference value="Practitioner/xcda-author"/>
     </whoReference>	
-	<contentType value="application/signature+xml"/>
+	<targetFormat value="application/fhir+xml"/>
+	<sigFormat value="application/signature+xml"/>
 	<blob value="Li4u"/>
   </signature>
 </Provenance>

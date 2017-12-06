@@ -33,7 +33,8 @@
     <whoReference>
       <reference value="Patient/72"/>
     </whoReference>
-    <contentType value="application/signature+xml"/>
+	<targetFormat value="application/fhir+xml"/>
+	<sigFormat value="application/signature+xml"/>
     <blob value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
   </signature>
 </Provenance>

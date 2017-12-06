@@ -218,18 +218,20 @@
   Element = Provenance.agent.who[x]
   Card. = 1..1
   Summary = y
-  Type = uri|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)
+  Type = Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)
   Short Name = Who participated
   Definition = The individual, device or organization that participated in the event
+  Comments = whoIdentity should be used when the agent is not a Resource type
   RIM Mapping = .id
   w5 = who.actor
 
  -- Row 13 -----------------------------------
   Element = Provenance.agent.onBehalfOf[x]
   Card. = 0..1
-  Type = uri|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)
+  Type = Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)
   Short Name = Who the agent is representing
   Definition = The individual, device, or organization for whom the change was made
+  Comments = onBehalfOfIdentity should be used when the agent is not a Resource type
   RIM Mapping = Person, Practitioner, Organization, Device :* .role [classCode = RoleClassMutualRelationship; role.code and * .scopes[Role](classCode=IDENT) and *.plays [Role.Code]
 
  -- Row 14 -----------------------------------
@@ -248,7 +250,6 @@
   UML = 440;30
   Short Name = An entity used in this activity
   Definition = An entity used in this activity
-  Comments = Multiple userIds may be associated with the same Practitioner or other individual across various appearances, each with distinct privileges
   RIM Mapping = ./subjectOf
   Auditevent Mapping = AuditEvent.entity
   Prov Mapping = Entity
@@ -270,10 +271,10 @@
   Element = Provenance.entity.what[x]
   Card. = 1..1
   Summary = y
-  Type = uri|Reference(Any)|Identifier
+  Type = Identifier|Reference(Any)
   Short Name = Identity of entity
   Definition = Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative
-  Comments = Identity may be a reference to a resource or to something else, depending on the type.
+  Comments = whatIdentity should be used for entities that are not a Resource type
   RIM Mapping = ./text/reference
   Auditevent Mapping = AuditEvent.entity.reference
   Prov Mapping = Entity.Identity

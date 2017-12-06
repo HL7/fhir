@@ -61,15 +61,23 @@
   Comments = The party that can\'t sign. For example a child.
 
  -- Row 6 -----------------------------------
-  Element = Signature.contentType
+  Element = Signature.targetFormat
   Card. = 0..1
-  Summary = y
+  Type = code
+  Binding = MimeType
+  Short Name = The technical format of the signed resources
+  Definition = A mime type that indicates the technical format of the target resources signed by the signature.
+  Comments = \"xml\", \"json\" and \"ttl\" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here.
+
+ -- Row 7 -----------------------------------
+  Element = Signature.sigFormat
+  Card. = 0..1
   Type = code
   Binding = MimeType
   Short Name = The technical format of the signature
   Definition = A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Signature.blob
   Card. = 0..1
   Type = base64Binary
