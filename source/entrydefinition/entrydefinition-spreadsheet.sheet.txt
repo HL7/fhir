@@ -28,7 +28,7 @@
  -- Row 4 -----------------------------------
   Element = EntryDefinition.referencedItem
   Card. = 1..1
-  Type = Reference(Medication|Device|Organization|Practitioner|HealthcareService|ActivityDefinition|PlanDefinition|Binary)
+  Type = Reference(Medication|Device|Organization|Practitioner|HealthcareService|ActivityDefinition|PlanDefinition|SpecimenDefinition|ObservationDefinition|Binary)
   Short Name = The item itself
   Definition = Content of the catalog
 
