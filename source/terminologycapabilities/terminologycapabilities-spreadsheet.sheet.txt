@@ -439,12 +439,19 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = TerminologyCapabilities.codeSystem
+  English = If there is more than one version, a version code must be defined
+  XPath = (count(f:version) <= 1) or not exists(f:version[not(f:code)])
+  Expression = version.count() > 1 implies version.all(code.exists())
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
   Element = TerminologyCapabilities
   Card. = 1..1
-  UML = 230;120
   Type = MetadataResource
   Short Name = A statement of system capabilities
   Definition = A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
@@ -487,7 +494,6 @@
 
  -- Row 10 -----------------------------------
   Element = TerminologyCapabilities.contact
-  UML = 70;0
 
  -- Row 11 -----------------------------------
   Element = TerminologyCapabilities.description
@@ -521,6 +527,7 @@
   Element = TerminologyCapabilities.codeSystem
   Card. = 0..*
   Aliases = 1
+  UML = down
   Short Name = A code system supported by the server
   Definition = Identifies a code system that is supported by the server. If there is a no code system URL, then this declares the general assumptions a client can make about support for any CodeSystem resource
   Comments = The code system - identified by it\'s system URL - may also be declared explicitly as a Code System Resource at /CodeSystem, but it may not be
@@ -533,151 +540,138 @@
 
  -- Row 19 -----------------------------------
   Element = TerminologyCapabilities.codeSystem.version
-  Card. = 0..1
-  Type = string
+  Card. = 0..*
   Short Name = Version of Code System supported
-  Definition = A list of languages for which displays are available. \"*\" means all IEtF language codes are supported
+  Definition = For the code system, a list of versions that are supported by the server
   Comments = Language translations may not be available for all codes
 
  -- Row 20 -----------------------------------
-  Element = TerminologyCapabilities.codeSystem.compositional
+  Element = TerminologyCapabilities.codeSystem.version.code
+  Card. = 0..1
+  Summary = Y
+  Inv. = 1
+  Type = string
+  Short Name = Version identifier for this version
+  Definition = For version-less code systems, there should be a single version with no identifier
+
+ -- Row 21 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.version.isDefault
+  Card. = 0..1
+  Summary = Y
+  Type = boolean
+  Short Name = If this is the default version for this code system
+
+ -- Row 22 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.version.compositional
   Card. = 0..1
   Type = boolean
   Short Name = If compositional grammar is supported
   Definition = If the compositional grammar defined by the code system is supported
 
- -- Row 21 -----------------------------------
-  Element = TerminologyCapabilities.codeSystem.language
+ -- Row 23 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.version.language
   Card. = 0..*
   Type = code
   Binding = !
   Short Name = Language Displays supported
 
- -- Row 22 -----------------------------------
-  Element = TerminologyCapabilities.codeSystem.filter
+ -- Row 24 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.version.filter
   Card. = 0..*
   Short Name = Filter Properties supported
 
- -- Row 23 -----------------------------------
-  Element = TerminologyCapabilities.codeSystem.filter.code
+ -- Row 25 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.version.filter.code
   Card. = 1..1
   Type = code
   Binding = !
   Short Name = Code of the property supported
 
- -- Row 24 -----------------------------------
-  Element = TerminologyCapabilities.codeSystem.filter.op
+ -- Row 26 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.version.filter.op
   Card. = 1..*
   Type = code
   Binding = !
   Short Name = Operations supported for the property
 
- -- Row 25 -----------------------------------
-  Element = TerminologyCapabilities.codeSystem.property
+ -- Row 27 -----------------------------------
+  Element = TerminologyCapabilities.codeSystem.version.property
   Card. = 0..*
   Type = code
   Binding = !
   Short Name = Properties supported for $lookup
 
- -- Row 26 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = TerminologyCapabilities.expansion
   Card. = 0..1
   Short Name = Information about the $expansion operation
 
- -- Row 27 -----------------------------------
-  Element = TerminologyCapabilities.expansion.supported
-  Card. = 1..1
-  Type = boolean
-  Short Name = Whether operation is supported
-
- -- Row 28 -----------------------------------
-  Element = TerminologyCapabilities.expansion.heirarchical
+ -- Row 29 -----------------------------------
+  Element = TerminologyCapabilities.expansion.hierarchical
   Card. = 0..1
   Type = boolean
   Short Name = Whether the server can return nested value sets
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = TerminologyCapabilities.expansion.paging
   Card. = 0..1
   Type = boolean
   Short Name = Whether the server supports paging on expansion
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = TerminologyCapabilities.expansion.incomplete
   Card. = 0..1
   Type = boolean
   Short Name = Allow request for incomplete expansions?
 
- -- Row 31 -----------------------------------
-  Element = TerminologyCapabilities.expansion.profile
+ -- Row 32 -----------------------------------
+  Element = TerminologyCapabilities.expansion.definition
   Card. = 0..1
   Type = Reference(StructureDefinition)
   Short Name = Supported fields on ExpansionProfile
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
+  Element = TerminologyCapabilities.expansion.profile
+  Card. = 0..*
+  Type = Reference(ExpansionProfile)
+  Short Name = Supported expansion profiles
+
+ -- Row 34 -----------------------------------
   Element = TerminologyCapabilities.expansion.textFilter
   Card. = 0..1
   Type = markdown
   Short Name = Documentation about text searching works
-
- -- Row 33 -----------------------------------
-  Element = TerminologyCapabilities.lookup
-  Card. = 0..1
-  Short Name = Information about the $lookup operation
-
- -- Row 34 -----------------------------------
-  Element = TerminologyCapabilities.lookup.supported
-  Card. = 1..1
-  Type = boolean
-  Short Name = Whether $lookup is supported
+  Comments = This documentation should cover things like case sensitivity,  use of punctuation if not ignored, what wild cards are supported (if any), whether text is starts with or contains, and whether word order matters
 
  -- Row 35 -----------------------------------
-  Element = TerminologyCapabilities.validation
+  Element = TerminologyCapabilities.validateCode
   Card. = 0..1
   Short Name = Information about the $validation operation
 
  -- Row 36 -----------------------------------
-  Element = TerminologyCapabilities.validation.supported
-  Card. = 1..1
-  Type = boolean
-  Short Name = Whether $validation is supported
-
- -- Row 37 -----------------------------------
-  Element = TerminologyCapabilities.validation.translations
+  Element = TerminologyCapabilities.validateCode.translations
   Card. = 1..1
   Type = boolean
   Short Name = Whether translations are validated
 
- -- Row 38 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = TerminologyCapabilities.translation
   Card. = 0..1
   Short Name = Information about the $translation operation
 
- -- Row 39 -----------------------------------
-  Element = TerminologyCapabilities.translation.supported
-  Card. = 1..1
-  Type = boolean
-  Short Name = Whether $translation is supported
-
- -- Row 40 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = TerminologyCapabilities.translation.needsMap
   Card. = 1..1
   Type = boolean
   Short Name = Whether the client must identify the map
 
- -- Row 41 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = TerminologyCapabilities.closure
   Card. = 0..1
   Short Name = Information about the $closure operation
   Definition = Whether the $closure operation is supported
 
- -- Row 42 -----------------------------------
-  Element = TerminologyCapabilities.closure.supported
-  Card. = 1..1
-  Type = boolean
-  Short Name = Whether the closure operation is supported
-
- -- Row 43 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = TerminologyCapabilities.closure.translation
   Card. = 0..1
   Type = boolean
