@@ -14,7 +14,7 @@
   Conformance = example
 
  -- Row 3 -----------------------------------
-  Binding Name = EventStatusReason
+  Binding Name = StatusReason
   Binding = unbound
   Definition = Codes identifying the reason for the current state of an event
 
