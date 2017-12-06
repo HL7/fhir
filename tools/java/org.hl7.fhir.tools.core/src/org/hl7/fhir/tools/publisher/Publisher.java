@@ -2886,7 +2886,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (page.getDefinitions().hasResource(name) || (page.getDefinitions().getBaseResources().containsKey(name) && !name.equals("Parameters"))) {
       String src = TextFile.fileToString(page.getFolders().srcDir + "template-version-maps.html");
       TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, page.getDefinitions().getResourceByName(name), null, null, null, null, null, src, null, null, "res-Detailed Descriptions", n + "-version-maps.html", null, values, res.getWg()), st, n
+          insertSectionNumbers(page.processResourceIncludes(n, page.getDefinitions().getResourceByName(name), null, null, null, null, null, src, null, null, "res-Detailed Descriptions", n + "-version-maps.html", null, values, res.getWg(), null), st, n
               + "-version-maps.html", 0, null), page.getFolders().dstDir + n + "-version-maps.html");
       page.getHTMLChecker().registerFile(n + "-version-maps.html", "Version Maps for " + name, HTMLLinkChecker.XHTML_TYPE, true);
     }    
@@ -3934,7 +3934,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       String template = isAbstract ? "template-abstract" : "template";
       String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
-      src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "resource", n + ".html", null, values, resource.getWg()), st, n + ".html", 0, null);
+      src = insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "resource", n + ".html", null, values, resource.getWg(), null), st, n + ".html", 0, null);
       TextFile.stringToFile(src, page.getFolders().dstDir + n + ".html");
       scanForFragments(n + ".html", new XhtmlParser().parseFragment(src));
       page.getHTMLChecker().registerFile(n + ".html", "Base Page for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
@@ -3957,7 +3957,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (!isAbstract || !resource.getExamples().isEmpty()) {
         src = TextFile.fileToString(page.getFolders().srcDir + template+"-examples.html");
         TextFile.stringToFile(
-            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html", null, values, resource.getWg()), st, n + "-examples.html", 0, null),
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Examples", n + "-examples.html", null, values, resource.getWg(), null), st, n + "-examples.html", 0, null),
             page.getFolders().dstDir + n + "-examples.html");
         page.getHTMLChecker().registerFile(n + "-examples.html", "Examples for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
         for (Example e : resource.getExamples()) {
@@ -3971,24 +3971,24 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       src = TextFile.fileToString(page.getFolders().srcDir + template+"-definitions.html");
       TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", null, values, resource.getWg()), st, n
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", null, values, resource.getWg(), null), st, n
               + "-definitions.html", 0, null), page.getFolders().dstDir + n + "-definitions.html");
       page.getHTMLChecker().registerFile(n + "-definitions.html", "Detailed Descriptions for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
 
       if (!isAbstract) {
         src = TextFile.fileToString(page.getFolders().srcDir + "template-mappings.html");
         TextFile.stringToFile(
-            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html", null, values, resource.getWg()), st, n + "-mappings.html", 0, null),
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html", null, values, resource.getWg(), null), st, n + "-mappings.html", 0, null),
             page.getFolders().dstDir + n + "-mappings.html");
         page.getHTMLChecker().registerFile(n + "-mappings.html", "Formal Mappings for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
         src = TextFile.fileToString(page.getFolders().srcDir + "template-explanations.html");
         TextFile.stringToFile(
-            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Design Notes", n + "-explanations.html", null, values, resource.getWg()), st, n
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Design Notes", n + "-explanations.html", null, values, resource.getWg(), null), st, n
                 + "-explanations.html", 0, null), page.getFolders().dstDir + n + "-explanations.html");
         page.getHTMLChecker().registerFile(n + "-explanations.html", "Design Notes for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
         src = TextFile.fileToString(page.getFolders().srcDir + "template-profiles.html");
         TextFile.stringToFile(
-            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html", null, values, resource.getWg()), st, n + "-profiles.html", 0, null),
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Profiles", n + "-profiles.html", null, values, resource.getWg(), null), st, n + "-profiles.html", 0, null),
             page.getFolders().dstDir + n + "-profiles.html");
         page.getHTMLChecker().registerFile(n + "-profiles.html", "Profiles for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
       }
@@ -3998,7 +3998,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (!resource.getOperations().isEmpty()) {
         src = TextFile.fileToString(page.getFolders().srcDir + "template-operations.html");
         TextFile.stringToFile(
-            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Operations", n + "-operations.html", null, values, resource.getWg()), st, n
+            insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Operations", n + "-operations.html", null, values, resource.getWg(), null), st, n
                 + "-operations.html", 0, null), page.getFolders().dstDir + n + "-operations.html");
         page.getHTMLChecker().registerFile(n + "-operations.html", "Operations for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
 
@@ -5156,37 +5156,42 @@ public class Publisher implements URIResolver, SectionNumberer {
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, ig.getPrefix(), n+".json")), lm.getDefinition());
       jsonToXhtml(ig.getPrefix()+n, "Logical Model "+lm.getDefinition().getName(), new JsonParser().setOutputStyle(OutputStyle.PRETTY).composeString(lm.getDefinition()), "logical-model", lm.getDefinition().getName(), null, lm.getWg());
     }
+    if (lm.getWg() != null && lm.getResource().getWg() == null)
+      lm.getResource().setWg(lm.getWg());
     String template = "template-logical";
     String src = TextFile.fileToString(page.getFolders().srcDir + template+".html");
     Map<String, String> values = new HashMap<String, String>();
     if (lm.hasResource())
-      src = insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "resource", n + ".html", ig, values, lm.getWg()), st, n + ".html", 1, null);
+      src = insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "resource", n + ".html", ig, values, lm.getWg(), examples), st, n + ".html", 1, null);
     else
-      src = insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels()).process(src), st, n + ".html", 1, null);
+      src = insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n + ".html", 1, null);
     TextFile.stringToFile(src, page.getFolders().dstDir + fn+".html");
     page.getHTMLChecker().registerFile(fn+".html", "Base Page for " + n, HTMLLinkChecker.XHTML_TYPE, true);
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-definitions.html");
     if (lm.hasResource())
-      TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", ig, values, lm.getWg()), st, n
+      TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", ig, values, lm.getWg(), examples), st, n
             + "-definitions.html", 0, null), page.getFolders().dstDir + fn+"-definitions.html");
     else
-      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels()).process(src), st, n
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n
           + "-definitions.html", 0, null), page.getFolders().dstDir + fn+"-definitions.html");
     page.getHTMLChecker().registerFile(fn+"-definitions.html", "Detailed Descriptions for " + (lm.hasResource() ? lm.getResource().getName() : lm.getDefinition().getName()), HTMLLinkChecker.XHTML_TYPE, true);
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-examples.html");
-    TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels()).process(src), st, n
+    if (lm.hasResource())
+      TextFile.stringToFile(insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "resource", n + ".html", ig, values, lm.getWg(), examples), st, n + ".html", 1, null), page.getFolders().dstDir + fn+"-examples.html");
+    else
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n
           + "-examples.html", 0, null), page.getFolders().dstDir + fn+"-examples.html");
     page.getHTMLChecker().registerFile(fn+"-examples.html", "Examples for " + (lm.hasResource() ? lm.getResource().getName() : lm.getDefinition().getName()), HTMLLinkChecker.XHTML_TYPE, true);
 
     src = TextFile.fileToString(page.getFolders().srcDir + "template-logical-mappings.html");
     if (lm.hasResource())
       TextFile.stringToFile(
-          insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html", ig, values, lm.getWg()), st, n + "-mappings.html", 0, null),
+          insertSectionNumbers(page.processResourceIncludes(n, lm.getResource(), "", "", "", tx, dict, src, mappings, mappingsList, "res-Mappings", n + "-mappings.html", ig, values, lm.getWg(), examples), st, n + "-mappings.html", 0, null),
           page.getFolders().dstDir + fn + "-mappings.html");
     else
-      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels()).process(src), st, n + "-mappings.html", 0, null),
+      TextFile.stringToFile(insertSectionNumbers(new LogicalModelProcessor(n, page, ig, lm.getDefinition().getId(), "logical-model", n+".html", lm.getDefinition(), tx, dict, examples, ig.getLogicalModels(), page.getDefinitions()).process(src), st, n + "-mappings.html", 0, null),
         page.getFolders().dstDir + fn + "-mappings.html");
     page.getHTMLChecker().registerFile(fn+"-mappings.html", "Formal Mappings for " + n, HTMLLinkChecker.XHTML_TYPE, true);
 

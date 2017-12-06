@@ -377,7 +377,7 @@ public class ElementDefn {
 
 	public Integer getMaxCardinality() {
 		return maxCardinality;
-	}
+	}  
 
 	public void setMaxCardinality(Integer maxCardinality) {
 		this.maxCardinality = maxCardinality;

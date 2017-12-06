@@ -375,6 +375,9 @@ public class SourceParser {
     lm.setId(n);
     lm.setSource(spreadsheet.getAbsolutePath());
     lm.getResource().setName(lm.getId());
+    lm.getResource().setFmmLevel(ini.getStringProperty("fmm", n.toLowerCase()));
+    if (lm.getResource().getFmmLevel() == null)
+      lm.getResource().setFmmLevel("1");
     return lm;
   }
 

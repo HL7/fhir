@@ -5253,7 +5253,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return false;
   }
 
-  String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String ttl, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath, ImplementationGuideDefn ig, Map<String, String> otherValues, WorkGroup wg) throws Exception {
+  String processResourceIncludes(String name, ResourceDefn resource, String xml, String json, String ttl, String tx, String dict, String src, String mappings, String mappingsList, String type, String pagePath, ImplementationGuideDefn ig, Map<String, String> otherValues, WorkGroup wg, Map<String, String> examples) throws Exception {
     String workingTitle = Utilities.escapeXml(resource.getName());
     List<String> tabs = new ArrayList<String>();
     int level = (ig == null || ig.isCore()) ? 0 : 1;
@@ -5427,7 +5427,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+fmmBarColorStyle(resource)+s3;
       else if (otherValues.containsKey(com[0]))
         src = s1+otherValues.get(com[0])+s3;
-
+      else if (com[0].equals("lmexamples"))
+        src = s1+genExampleList(examples)+s3;      
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -5439,6 +5440,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     return src;
   }
+
+  private String genExampleList(Map<String, String> examples) {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"list\">\r\n");
+    for (String n : examples.keySet()) {
+      b.append("<tr><td>"+examples.get(n)+"</td><td><a href=\""+n+".xml.html\">XML</a></td><td><a href=\""+n+".json.html\">JSON</a></td></tr>\r\n");
+    }
+    b.append("</table>\r\n");
+    return b.toString();
+  }
+
 
   private String fmmBarColorStyle(ResourceDefn resource) {
     switch (resource.getStatus()) {
