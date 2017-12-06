@@ -46,9 +46,7 @@
         <reference value="#patsub"/>
       </subject>
       <requester>
-        <agent>
           <reference value="Practitioner/example"/>
-        </agent>
       </requester>
     </ServiceRequest>
   </contained>
