@@ -239,37 +239,15 @@
   Element = DeviceRequest.requester
   Card. = 0..1
   Summary = Y
+  Type = Reference(Device|Practitioner|PractitionerRole|Organization)
   Short Name = Who/what is requesting diagnostics
   Definition = The individual who initiated the request and has responsibility for its activation
   Workflow Mapping = Request.requester
   v2 Mapping = ORC.12
   RIM Mapping = .participation[typeCode=AUT].role
-
- -- Row 16 -----------------------------------
-  Element = DeviceRequest.requester.agent
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Device|Practitioner|Organization)
-  Short Name = Individual making the request
-  Definition = The device, practitioner, etc. who initiated the request
-  Workflow Mapping = Request.requester.agent
-  v2 Mapping = ORC.12
-  RIM Mapping = .player
   w5 = who.author
 
- -- Row 17 -----------------------------------
-  Element = DeviceRequest.requester.onBehalfOf
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Organization)
-  Short Name = Organization agent is acting for
-  Definition = The organization the device or practitioner was acting on behalf of
-  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
-  Workflow Mapping = Request.requester.onBehalfOf
-  v2 Mapping = N/A
-  RIM Mapping = .scoper
-
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = DeviceRequest.performerType
   Card. = 0..1
   Summary = Y
@@ -282,7 +260,7 @@
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
   w5 = who.actor
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = DeviceRequest.performer
   Card. = 0..1
   Summary = Y
@@ -294,7 +272,7 @@
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = DeviceRequest.reasonCode
   Card. = 0..*
   Summary = Y
@@ -309,11 +287,11 @@
   Committee Notes = DeviceRequest.indication
   w5 = why
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DeviceRequest.reasonReference
   Card. = 0..*
   Summary = Y
-  Type = Reference(Any)
+  Type = Reference(Condition|Observation|DiagnosticReport|DocumentReference)
   Short Name = Linked Reason for request
   Definition = Reason or justification for the use of this device.
   Workflow Mapping = Request.reasonReference
@@ -321,7 +299,17 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
+  Element = DeviceRequest.insurance
+  Card. = 0..*
+  Type = Reference(Coverage|ClaimResponse)
+  Short Name = Associated insurance coverage
+  Definition = Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.
+  Workflow Mapping = Request.insurance
+  v2 Mapping = IN1/IN2
+  RIM Mapping = .outboundRelationship[typeCode=COVBY].target
+
+ -- Row 21 -----------------------------------
   Element = DeviceRequest.supportingInfo
   Card. = 0..*
   Type = Reference(Any)
@@ -332,7 +320,7 @@
   v2 Mapping = Accompanying segments
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = DeviceRequest.note
   Card. = 0..*
   Type = Annotation
@@ -344,7 +332,7 @@
   QUICK mapping = ClinicalStatement.additionalText
   Committee Notes = DeviceRequest.notes
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = DeviceRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
@@ -428,7 +416,7 @@
   Name = requester
   Type = reference
   Description = Who/what is requesting service 
-  Path = DeviceRequest.requester.agent
+  Path = DeviceRequest.requester
 
  -- Row 13 -----------------------------------
   Name = group-identifier
@@ -453,6 +441,11 @@
   Type = reference
   Description = Reference to resource that is being requested/ordered
   Path = DeviceRequest.codeReference
+
+ -- Row 17 -----------------------------------
+  Name = insurance
+  Type = reference
+  Path = DeviceRequest.insurance
 
 === Sheet Profiles =====================================
 

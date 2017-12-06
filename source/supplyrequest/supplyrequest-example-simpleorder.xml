@@ -26,23 +26,17 @@
 	<occurrenceDateTime value="2016-12-31"/>
 	<authoredOn value="2016-12-31"/>
 	<requester>
-		<agent>
-			<display value="Henry Seven"/>
-		</agent>
-		<onBehalfOf>
-			<display value="Purchasing Dept"/>
-	 </onBehalfOf>
-
+		<display value="Henry Seven"/>
 	</requester>
 	<supplier>
 		<display value="Vendor1"/>
 	</supplier>
-	<reasonCodeableConcept>
+	<reasonCode>
 		<coding>
 			<code value="stock_low"/>
 			<display value="Refill due to low stock"/>
 		</coding>
-	</reasonCodeableConcept>
+	</reasonCode>
 	<deliverFrom>
 		<display value="Location 1"/>
 	</deliverFrom>

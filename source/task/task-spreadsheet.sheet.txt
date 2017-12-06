@@ -410,35 +410,15 @@
   Card. = 0..1
   Summary = Y
   UML = 400;0
+  Type = Reference(Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson )
   Short Name = Who is asking for task to be done
   Definition = The creator of the task.
   Requirements = Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task).
   Workflow Mapping = Request.requester
   RIM Mapping = .participation[typeCode=AUT].role
-
- -- Row 21 -----------------------------------
-  Element = Task.requester.agent
-  Card. = 1..1
-  Aliases = Initiator; Author
-  Summary = Y
-  Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
-  Short Name = Individual asking for task
-  Definition = The device, practitioner, etc. who initiated the task
-  Workflow Mapping = Request.requester.agent
-  RIM Mapping = .player
   w5 = who.author
 
- -- Row 22 -----------------------------------
-  Element = Task.requester.onBehalfOf
-  Card. = 0..1
-  Type = Reference(Organization)
-  Short Name = Organization individual is acting for
-  Definition = The organization the device or practitioner was acting on behalf of when they initiated the task
-  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
-  Workflow Mapping = Request.requester.onBehalfOf
-  RIM Mapping = .scoper
-
- -- Row 23 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Task.performerType
   Card. = 0..*
   Type = CodeableConcept
@@ -450,7 +430,7 @@
   RIM Mapping = .participation[typeCode=PRF].role.code
   w5 = who.actor
 
- -- Row 24 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Task.owner
   Card. = 0..1
   Aliases = Performer; Executer
@@ -464,7 +444,7 @@
   RIM Mapping = .participation[typeCode=PRF].role
   w5 = who.actor
 
- -- Row 25 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Task.reasonCode
   Card. = 0..1
   Type = CodeableConcept
@@ -476,7 +456,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 26 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Task.reasonReference
   Card. = 0..1
   Type = Reference(Any)
@@ -487,7 +467,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 27 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Task.note
   Card. = 0..*
   Type = Annotation
@@ -496,7 +476,7 @@
   Workflow Mapping = Request.note, Event.note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value(string)
 
- -- Row 28 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Task.relevantHistory
   Card. = 0..*
   Aliases = Status History
@@ -507,7 +487,7 @@
   Workflow Mapping = Request.relevantHistory
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 
- -- Row 29 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Task.restriction
   Card. = 0..1
   UML = 400;100
@@ -516,7 +496,7 @@
   Requirements = Sometimes when fulfillment is sought, you don\'t want full fulfillment
   RIM Mapping = Instead of pointing to request, would point to component of request, having these characteristics
 
- -- Row 30 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Task.restriction.repetitions
   Card. = 0..1
   Type = positiveInt
@@ -525,7 +505,7 @@
   Requirements = E.g. order that requests monthly lab tests, fulfillment is sought for 1
   RIM Mapping = .repeatNumber
 
- -- Row 31 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Task.restriction.period
   Card. = 0..1
   Type = Period
@@ -535,7 +515,7 @@
   Comments = Note that period.high is the due date representing the time by which the task should be completed.
   RIM Mapping = .effectiveTime(IVL<TS>)
 
- -- Row 32 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Task.restriction.recipient
   Card. = 0..*
   Type = Reference(Patient|Practitioner|RelatedPerson|Group|Organization)
@@ -543,7 +523,7 @@
   Definition = For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?
   RIM Mapping = .participation[typeCode=SBJ].role
 
- -- Row 33 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Task.input
   Card. = 0..*
   Aliases = Supporting Information
@@ -554,7 +534,7 @@
   Requirements = Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
 
- -- Row 34 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Task.input.type
   Card. = 1..1
   Aliases = Name
@@ -566,7 +546,7 @@
   Comments = If referencing a BPMN workflow or Protocol, the \"system\" is the URL for the workflow definition and the code is the \"name\" of the required input.
   RIM Mapping = ???
 
- -- Row 35 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Task.input.value[x]
   Card. = 1..1
   Type = *
@@ -574,7 +554,7 @@
   Definition = The value of the input parameter as a basic type.
   RIM Mapping = ???
 
- -- Row 36 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Task.output
   Card. = 0..*
   UML = 400;300
@@ -584,7 +564,7 @@
   Requirements = Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows.
   RIM Mapping = ???
 
- -- Row 37 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Task.output.type
   Card. = 1..1
   Aliases = Name
@@ -595,7 +575,7 @@
   Requirements = Outputs are named to enable task automation to bind data and pass it from one task to the next.
   RIM Mapping = ???
 
- -- Row 38 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Task.output.value[x]
   Card. = 1..1
   Type = *
@@ -731,13 +711,7 @@
   Name = requester
   Type = reference
   Description = Search by task requester
-  Path = Task.requester.agent
-
- -- Row 22 -----------------------------------
-  Name = organization
-  Type = reference
-  Description = Search by responsible organization
-  Path = Task.requester.onBehalfOf
+  Path = Task.requester
 
 === Sheet Profiles =====================================
 

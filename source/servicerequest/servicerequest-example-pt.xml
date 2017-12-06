@@ -26,25 +26,20 @@
 	<occurrenceDateTime value="2016-09-27"/>
 	<authoredOn value="2016-09-20"/>
 	<requester>
-		<agent>
 			<display value="Ollie Ortho, MD"/>
-		</agent>
-		<onBehalfOf>
-			<display value="Sawbones Orthopedic Clinic"/>
-		</onBehalfOf>
 	</requester>
 	<performer>
 		<display value="Paul Therapist, PT"/>
 	</performer>
-	 <reasonCode> 
-      <text value="assessment of mobility limitations due to osteoarthritis"/> 
-  </reasonCode>   
-  <bodySite> 
-    <coding> 
-      <system value="http://snomed.info/sct"/> 
-      <code value="36701003"/> 
-      <display value="Both knees (body structure)"/> 
-    </coding> 
-    <text value="Both knees"/> 
-  </bodySite> 
+	 <reasonCode>
+      <text value="assessment of mobility limitations due to osteoarthritis"/>
+  </reasonCode>
+  <bodySite>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="36701003"/>
+      <display value="Both knees (body structure)"/>
+    </coding>
+    <text value="Both knees"/>
+  </bodySite>
 </ServiceRequest>

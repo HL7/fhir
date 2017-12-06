@@ -25,9 +25,7 @@
 	</subject>
 	<occurrenceDateTime value="2012-06-02"/>
 	<requester>
-		<agent>
 			<display value="Women’s Hospital"/>
-		</agent>
 	</requester>
 	<performer>
 		<display value="Martha Midwife, RNP"/>

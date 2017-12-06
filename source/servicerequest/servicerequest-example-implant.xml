@@ -17,10 +17,8 @@
 	</subject>
 	<authoredOn value="2015-03-30"/>
 	<requester>
-		<agent>
 			<reference value="Practitioner/3ad0687e-f477-468c-afd5-fcc2bf897809"/>
 			<display value="Dr. Beverly Crusher"/>
-		</agent>
 	</requester>
 	<performer>
 		<reference value="Practitioner/example"/>

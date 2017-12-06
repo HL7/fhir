@@ -51,14 +51,8 @@
 	<!--	updated last modified date to track task activity-->
 	<lastModified value="2016-10-31T18:45:05+10:00"/>
 	<requester>
-		<agent>
 			<reference value="Practitioner/example"/>
 			<display value="Dr Adam Careful"/>
-		</agent>
-		<onBehalfOf>
-			<reference value="Organization/2.16.840.1.113883.19.5"/>
-			<display value="Good Health Clinic"/>
-		</onBehalfOf>
 	</requester>
 	<performerType>
 		<coding>

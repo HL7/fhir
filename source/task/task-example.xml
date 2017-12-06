@@ -16,9 +16,7 @@
   <authoredOn value="2016-03-10T22:39:32-04:00"/>
   <lastModified value="2016-03-10T22:39:32-04:00"/>
   <requester>
-    <agent>
       <reference value="Patient/example"/>
-    </agent>
   </requester>
   <owner>
     <reference value="Practitioner/example"/>

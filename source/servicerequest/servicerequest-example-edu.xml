@@ -26,9 +26,7 @@
 	<occurrenceDateTime value="2014-08-16"/>
 	<authoredOn value="2016-08-16"/>
 	<requester>
-		<agent>
 			<display value="Angela Care, MD"/>
-		</agent>
 	</requester>
 	<performer>
 		<display value="Pamela Educator, RN"/>

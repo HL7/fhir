@@ -47,10 +47,8 @@
 	</occurrencePeriod>
 	<authoredOn value="2014-02-14"/>
 	<requester>
-		<agent>
 			<reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272"/>
 			<display value="Serena Shrink"/>
-		</agent>
 	</requester>
 	<performerType>
 		<coding>

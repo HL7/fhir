@@ -25,10 +25,8 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 	</subject>
 	<occurrenceDateTime value="2013-05-08T09:33:27+07:00"/>
 	<requester>
-		<agent>
 			<reference value="Practitioner/example"/>
 			<display value="Dr. Adam Careful"/>
-		</agent>
 	</requester>
 	<reasonCode>
 		<text value="Check for metastatic disease"/>

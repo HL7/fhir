@@ -16,8 +16,6 @@
 	</subject>
 	<occurrenceDateTime value="2015-08-27T09:33:27+07:00"/>
 	<requester>
-		<agent>
 			<reference value="Practitioner/example"/>
-		</agent>
 	</requester>
 </ServiceRequest>

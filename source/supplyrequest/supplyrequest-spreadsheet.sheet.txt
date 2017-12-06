@@ -241,37 +241,15 @@
   Card. = 0..1
   Aliases = author,source
   Summary = Y
-  UML = 400;230
-  Short Name = Who/what is requesting service
-  Definition = The individual who initiated the request and has responsibility for its activation
+  Type = Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)
+  Short Name = Individual making the request
+  Definition = The device, practitioner, etc. who initiated the request
   Workflow Mapping = Request.requester
   v2 Mapping = ORC.12
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
  -- Row 12 -----------------------------------
-  Element = SupplyRequest.requester.agent
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
-  Short Name = Individual making the request
-  Definition = The device, practitioner, etc. who initiated the request
-  Workflow Mapping = Request.requester.agent
-  v2 Mapping = ORC.12
-  RIM Mapping = .player
-
- -- Row 13 -----------------------------------
-  Element = SupplyRequest.requester.onBehalfOf
-  Card. = 0..1
-  Type = Reference(Organization)
-  Short Name = Organization agent is acting for
-  Definition = The organization the device or practitioner was acting on behalf of
-  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
-  Workflow Mapping = Request.requester.onBehalfOf
-  v2 Mapping = N/A
-  RIM Mapping = .scoper
-
- -- Row 14 -----------------------------------
   Element = SupplyRequest.supplier
   Card. = 0..*
   Aliases = performer
@@ -284,19 +262,30 @@
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
 
- -- Row 15 -----------------------------------
-  Element = SupplyRequest.reason[x]
-  Card. = 0..1
-  Type = CodeableConcept|Reference(Any)
+ -- Row 13 -----------------------------------
+  Element = SupplyRequest.reasonCode
+  Card. = 0..*
+  Type = CodeableConcept
   Binding = SupplyRequestReason
   Short Name = Why the supply item was requested
   Definition = Why the supply item was requested
-  Workflow Mapping = Request.reasonCode, Request.reasonReference
+  Workflow Mapping = Request.reasonCode
   v2 Mapping = ORC.16
-  RIM Mapping = .reasonCode, .outboundRelationship[typeCode=RSON].target
+  RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
+  Element = SupplyRequest.reasonReference
+  Card. = 0..*
+  Type = Reference(Condition|Observation|DiagnosticReport|DocumentReference)
+  Short Name = Why the supply item was requested
+  Definition = Why the supply item was requested
+  Workflow Mapping = Request.reasonReference
+  v2 Mapping = ORC.16
+  RIM Mapping = .outboundRelationship[typeCode=RSON].target
+  w5 = why
+
+ -- Row 15 -----------------------------------
   Element = SupplyRequest.deliverFrom
   Card. = 0..1
   Type = Reference(Organization|Location)
@@ -305,7 +294,7 @@
   v2 Mapping = PRT
   RIM Mapping = .participation
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = SupplyRequest.deliverTo
   Card. = 0..1
   Type = Reference(Organization|Location|Patient)
@@ -334,7 +323,7 @@
  -- Row 4 -----------------------------------
   Name = requester
   Type = reference
-  Path = SupplyRequest.requester.agent
+  Path = SupplyRequest.requester
 
  -- Row 5 -----------------------------------
   Name = date

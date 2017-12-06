@@ -75,13 +75,6 @@
 
 === Sheet Invariants =====================================
 
- -- Row 1 -----------------------------------
-  Id = !1
-  Context = ServiceRequest.requester
-  English = onBehalfOf can only be specified if agent is practitioner or device
-  XPath = contains(f:agent/f:reference/@value, \'/Practitioner/\') or contains(f:agent/f:reference/@value, \'/Device/\') or not(exists(f:onBehalfOf))
-  Expression = (agent.resolve().empty()) or (agent.resolve() is Device) or (agent.resolve() is Practitioner) or onBehalfOf.exists().not()
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -368,6 +361,7 @@
   Card. = 0..1
   Aliases = author, orderer
   Summary = Y
+  Type = Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)
   Short Name = Who/what is requesting service
   Definition = The individual who initiated the request and has responsibility for its activation
   Comments = This not the dispatcher, but rather who is the authorizer.  This element is not intended to handle delegation which would generally be managed through the Provenance resource.
@@ -377,37 +371,9 @@
   RIM Mapping = .participation[typeCode=AUT].role
   QUICK mapping = ClinicalStatement.statementAuthor
   Committee Notes = #13196]
-
- -- Row 20 -----------------------------------
-  Element = ServiceRequest.requester.agent
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
-  Short Name = Individual making the request
-  Definition = The device, practitioner or organization who initiated the request
-  Workflow Mapping = Request.requester.agent
-  R3-RR-Mapping = ReferralRequest.requester.agent (for PR Patient and RelatedPerson to  added reference types)
-  v2 Mapping = ORC.12
-  RIM Mapping = .player
-  QUICK mapping = ClinicalStatement.statementAuthor
-  Committee Notes = [#10296][#11119]#13196]
   w5 = who.author
 
- -- Row 21 -----------------------------------
-  Element = ServiceRequest.requester.onBehalfOf
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Organization)
-  Short Name = Organization agent is acting for
-  Definition = The organization the device or practitioner was acting on behalf of.
-  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
-  Workflow Mapping = Request.requester.onBehalfOf
-  R3-RR-Mapping = ReferralRequest.requester.onBehalfOf (for PR added invariant 1 from RR)
-  v2 Mapping = N/A
-  RIM Mapping = .scoper
-  Committee Notes = [#10296][#11119]#13196]
-
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ServiceRequest.performerType
   Card. = 0..1
   Aliases = specialty
@@ -424,7 +390,7 @@
   Committee Notes = [#10296][#11119]#13196]
   w5 = who.actor
 
- -- Row 23 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ServiceRequest.performer
   Card. = 0..1
   Aliases = request recipient
@@ -440,7 +406,7 @@
   Committee Notes = [#10296][#11119]#13196]
   w5 = who.actor
 
- -- Row 24 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ServiceRequest.reasonCode
   Card. = 0..*
   Summary = Y
@@ -456,7 +422,7 @@
   Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]#13196]
   w5 = why
 
- -- Row 25 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ServiceRequest.reasonReference
   Card. = 0..*
   Summary = Y
@@ -471,7 +437,7 @@
   Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]#13196]
   w5 = why
 
- -- Row 26 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ServiceRequest.insurance
   Card. = 0..*
   Type = Reference(Coverage|ClaimResponse)
@@ -480,7 +446,7 @@
   v2 Mapping = IN1/IN2
   RIM Mapping = .outboundRelationship[typeCode=COVBY].target
 
- -- Row 27 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ServiceRequest.supportingInfo
   Card. = 0..*
   Aliases = Ask at order entry question, AOE
@@ -494,7 +460,7 @@
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
   Committee Notes = [#3113][#3739][#10296][#11119]#13196]
 
- -- Row 28 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ServiceRequest.specimen
   Card. = 0..*
   Summary = Y
@@ -507,7 +473,7 @@
   RIM Mapping = .participation[typeCode=SPC].role
   Committee Notes = [#10589][#11119]#13196][#13821]
 
- -- Row 29 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ServiceRequest.bodySite
   Card. = 0..*
   Aliases = location
@@ -524,7 +490,7 @@
   QUICK mapping = Procedure.targetBodySite
   Committee Notes = [#12505], [#12517][#11119]#13196]
 
- -- Row 30 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ServiceRequest.note
   Card. = 0..*
   Type = Annotation
@@ -537,7 +503,7 @@
   QUICK mapping = ClinicalStatement.additionalText
   Committee Notes = 7134,8147,[#10296][#11119]#13196]
 
- -- Row 31 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ServiceRequest.patientInstruction
   Card. = 0..1
   Summary = y
@@ -547,7 +513,7 @@
   v2 Mapping = NTE
   RIM Mapping = .text
 
- -- Row 32 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = !ServiceRequest.description
   Card. = 0..1
   Summary = N
@@ -560,7 +526,7 @@
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
   Committee Notes = #13196],[#13754]
 
- -- Row 33 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ServiceRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
@@ -572,264 +538,3 @@
   v2 Mapping = N/A
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
   Committee Notes = [#10296][#11119]
-
-=== Sheet Search =====================================
-
- -- Row 1 -----------------------------------
-  Name = authored
-  Type = date
-  Path = ServiceRequest.authoredOn
-
- -- Row 2 -----------------------------------
-  Name = based-on
-  Type = reference
-  Path = ServiceRequest.basedOn
-
- -- Row 3 -----------------------------------
-  Name = body-site
-  Type = token
-  Description = Where procedure is going to be done
-  Path = ServiceRequest.bodySite
-
- -- Row 4 -----------------------------------
-  Name = code
-  Type = token
-  Path = ServiceRequest.code
-
- -- Row 5 -----------------------------------
-  Name = category
-  Type = token
-  Path = ServiceRequest.category
-
- -- Row 6 -----------------------------------
-  Name = context
-  Type = reference
-  Path = ServiceRequest.context
-
- -- Row 7 -----------------------------------
-  Name = instantiates
-  Type = reference
-  Path = ServiceRequest.instantiates
-
- -- Row 8 -----------------------------------
-  Name = encounter
-  Type = reference
-  Description = An encounter in which this request is made
-  Path = ServiceRequest.context
-  Target Types = Encounter
-
- -- Row 9 -----------------------------------
-  Name = identifier
-  Type = token
-  Path = ServiceRequest.identifier
-
- -- Row 10 -----------------------------------
-  Name = intent
-  Type = token
-  Path = ServiceRequest.intent
-
- -- Row 11 -----------------------------------
-  Name = occurrence
-  Type = date
-  Path = ServiceRequest.occurrence[x]
-
- -- Row 12 -----------------------------------
-  Name = patient
-  Type = reference
-  Description = Search by subject - a patient
-  Path = ServiceRequest.subject
-  Target Types = Patient
-
- -- Row 13 -----------------------------------
-  Name = performer
-  Type = reference
-  Path = ServiceRequest.performer
-
- -- Row 14 -----------------------------------
-  Name = performer-type
-  Type = token
-  Path = ServiceRequest.performerType
-
- -- Row 15 -----------------------------------
-  Name = priority
-  Type = token
-  Path = ServiceRequest.priority
-
- -- Row 16 -----------------------------------
-  Name = replaces
-  Type = reference
-  Path = ServiceRequest.replaces
-
- -- Row 17 -----------------------------------
-  Name = requester
-  Type = reference
-  Path = ServiceRequest.requester.agent
-
- -- Row 18 -----------------------------------
-  Name = requisition
-  Type = token
-  Path = ServiceRequest.requisition
-
- -- Row 19 -----------------------------------
-  Name = specimen
-  Type = reference
-  Description = Specimen to be tested
-  Path = ServiceRequest.specimen
-
- -- Row 20 -----------------------------------
-  Name = status
-  Type = token
-  Path = ServiceRequest.status
-
- -- Row 21 -----------------------------------
-  Name = subject
-  Type = reference
-  Description = Search by subject
-  Path = ServiceRequest.subject
-
-=== Sheet Profiles =====================================
-
- -- Row 1 -----------------------------------
-  Name = !servicerequest-extensions
-  IG Name = core
-  Filename = servicerequest-extensions.xml
-  Type = spreadsheet
-
- -- Row 2 -----------------------------------
-  Name = Service Request-Genetics
-  IG Name = core
-  Filename = servicerequest-genetics-profile.xml
-  Type = spreadsheet
-
- -- Row 3 -----------------------------------
-  Name = servicerequest-extensions
-  IG Name = core
-  Filename = servicerequest-extensions.xml
-  Type = spreadsheet
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = Lipids
-  Identity = lipid
-  Description = Lipid Panel Order
-  Filename = servicerequest-example-lipid.xml
-
- -- Row 2 -----------------------------------
-  Name = DI Order
-  Identity = di
-  Description = CT Scan order
-  Filename = servicerequest-example-di.xml
-
- -- Row 3 -----------------------------------
-  Name = Free T4
-  Identity = ft4
-  Description = Free T4 Add on Order
-  Filename = servicerequest-example-ft4.xml
-
- -- Row 4 -----------------------------------
-  Name = PGx
-  Identity = example-pgx
-  Description = PGx Phenotype example
-  Filename = servicerequest-example-pgx.xml
-  Profile = Service Request-Genetics
-
- -- Row 5 -----------------------------------
-  Name = Order-genetics-1
-  Identity = og-example1
-  Description = Order for ABCB4 gene mutation analysis
-  Filename = servicerequest-genetics-example-1.xml
-  Profile = Service Request-Genetics
-
- -- Row 6 -----------------------------------
-  Name = !!Order-genetics-2
-  Identity = og-example2
-  Description = Order for a specific variant
-  Filename = servicerequest-genetics-example-2.xml
-  Profile = Service Request-Genetics
-
- -- Row 7 -----------------------------------
-  Name = Head CT
-  Identity = example
-  Description = An example of a Head CT procedure
-  Filename = servicerequest-example.xml
-
- -- Row 8 -----------------------------------
-  Name = Sub Request
-  Identity = subrequest
-  Description = Example with sub-requests derived from the request
-  Filename = servicerequest-example-subrequest.xml
-
- -- Row 9 -----------------------------------
-  Name = Physiotherapy
-  Identity = physiotherapy
-  Description = An example of an order for home physiotherapy
-  Filename = servicerequest-example2.xml
-
- -- Row 10 -----------------------------------
-  Name = Do Not Turn
-  Identity = do-not-turn
-  Description = An example of an order to not turn a patient
-  Filename = servicerequest-example3.xml
-
- -- Row 11 -----------------------------------
-  Name = Bench Press
-  Identity = benchpress
-  Description = Part of an exercise plan
-  Filename = servicerequest-example4.xml
-
- -- Row 12 -----------------------------------
-  Name = Device Example
-  Identity = example-implant
-  Description = Example of an order for an implant
-  Filename = servicerequest-example-implant.xml
-
- -- Row 13 -----------------------------------
-  Name = Ambulation
-  Identity = ambulation
-  Description = Example of an order for anambulation procedure
-  Filename = servicerequest-example-ambulation.xml
-
- -- Row 14 -----------------------------------
-  Name = Colon Biopsy
-  Identity = colon-biopsy
-  Description = Example of an order for a biopsy procedure that was part of a colonoscopy
-  Filename = servicerequest-example-colonoscopy-bx.xml
-
- -- Row 15 -----------------------------------
-  Name = Colonoscopy
-  Identity = colonoscopy
-  Description = Example of an order for a colonoscopy procedure with complication
-  Filename = servicerequest-example-colonoscopy.xml
-
- -- Row 16 -----------------------------------
-  Name = Appendectomy
-  Identity = appendectomy-narrative
-  Description = Example of an order for an appendectomy procedure that is primarily narrative
-  Filename = servicerequest-example-appendectomy.xml
-
- -- Row 17 -----------------------------------
-  Name = OB
-  Identity = ob
-  Description = Example of an order for an obstetric procedure
-  Filename = servicerequest-example-ob.xml
-
- -- Row 18 -----------------------------------
-  Name = Physical Therapy
-  Identity = physical-therapy
-  Description = Example of an order for an physical therapy evaluation procedure
-  Filename = servicerequest-example-pt.xml
-
- -- Row 19 -----------------------------------
-  Name = Patient Education
-  Identity = education
-  Description = Example of an order for patient education
-  Filename = servicerequest-example-edu.xml
-
- -- Row 20 -----------------------------------
-  Name = Myringotomy
-  Identity = myringotomy
-  Description = An example of a Myringotomy referral request
-  Filename = servicerequest-example-myringotomy.xml
-
-=== Sheet Examples =====================================

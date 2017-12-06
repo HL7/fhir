@@ -227,7 +227,7 @@
   Element = NutritionOrder.orderer
   Card. = 0..1
   Summary = Y
-  Type = Reference(Practitioner)
+  Type = Reference(Practitioner|PractitionerRole)
   Short Name = Who ordered the diet, formula or nutritional supplement
   Definition = The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
   Workflow Mapping = Request.requester

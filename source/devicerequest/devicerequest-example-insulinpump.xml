@@ -53,13 +53,8 @@ Insulin pump request
 
 
 	<requester>
-		<agent>
 			<reference value="Practitioner/example"/>
 			<display value="Dr. Adam Careful"/>
-		</agent>
-		<onBehalfOf>
-       <reference value="Organization/2.16.840.1.113883.19.5"/>
-   </onBehalfOf>
  	</requester>
 	<performerType>
 	    <coding>
