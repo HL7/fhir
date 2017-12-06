@@ -74,10 +74,8 @@
 					<display value="Roel's encounter on March eleventh 2013"/>
 				</context>
 				<requester>
-					<agent>
 						<reference value="Practitioner/f201"/>
 						<display value="Dokter Bronsig"/>
-					</agent>
 				</requester>
 			</ServiceRequest>
 		</resource>

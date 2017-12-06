@@ -96,10 +96,8 @@
 					<reference value="Encounter/f001"/>
 				</context>
 				<requester>
-					<agent>
 						<reference value="Practitioner/f001"/>
 						<display value="E.van den Broek"/>
-					</agent>
 				</requester>
 				<note>
 					<text value="patient almost fainted during procedure"/>
