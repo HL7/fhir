@@ -276,7 +276,7 @@
   Card. = 0..*
   Aliases = performer
   Summary = Y
-  Type = Reference(Organization)
+  Type = Reference(Organization|HealthcareService)
   Short Name = Who is intended to fulfill the request
   Definition = Who is intended to fulfill the request
   Workflow Mapping = Request.performer

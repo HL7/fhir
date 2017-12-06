@@ -73,7 +73,7 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = DeviceRequest.definition
+  Element = DeviceRequest.instantiates
   Card. = 0..*
   Summary = Y
   Type = Reference(ActivityDefinition|PlanDefinition)
@@ -82,6 +82,7 @@
   Workflow Mapping = Request.instantiates
   v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
+  Committee Notes = #10296
 
  -- Row 4 -----------------------------------
   Element = DeviceRequest.basedOn
@@ -285,7 +286,7 @@
   Element = DeviceRequest.performer
   Card. = 0..1
   Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)
+  Type = Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)
   Short Name = Requested Filler
   Definition = The desired perfomer for doing the diagnostic testing.
   Workflow Mapping = Request.performer
@@ -381,10 +382,10 @@
   Path = DeviceRequest.codeCodeableConcept
 
  -- Row 5 -----------------------------------
-  Name = definition
+  Name = instantiates
   Type = reference
   Description = Protocol or definition followed by this request
-  Path = DeviceRequest.definition
+  Path = DeviceRequest.instantiates
 
  -- Row 6 -----------------------------------
   Name = encounter

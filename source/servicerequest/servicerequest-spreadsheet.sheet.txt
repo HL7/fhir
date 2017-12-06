@@ -114,15 +114,15 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = ServiceRequest.definition
+  Element = ServiceRequest.instantiates
   Card. = 0..*
   Aliases = protocol
   Summary = Y
   Type = Reference(ActivityDefinition|PlanDefinition)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
-  Workflow Mapping = Request.definition
-  R3-RR-Mapping = ReferralRequest.definition ()
+  Workflow Mapping = Request.instantiates
+  R3-RR-Mapping = ReferralRequest.instantiates ()
   v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
   Committee Notes = [#10296][#11119]#13196]
@@ -607,9 +607,9 @@
   Path = ServiceRequest.context
 
  -- Row 7 -----------------------------------
-  Name = definition
+  Name = instantiates
   Type = reference
-  Path = ServiceRequest.definition
+  Path = ServiceRequest.instantiates
 
  -- Row 8 -----------------------------------
   Name = encounter

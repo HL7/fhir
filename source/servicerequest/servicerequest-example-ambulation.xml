@@ -5,9 +5,9 @@
 	<identifier>
 		<value value="45678"/>
 	</identifier>
-	<definition>
+	<instantiates>
 		<display value="Protocol for hypertension during pregnancy"/>
-	</definition>
+	</instantiates>
 	<basedOn>
 		<reference value="CarePlan/preg"/>
 		<display value="Maternity care plan"/>

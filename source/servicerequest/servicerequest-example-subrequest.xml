@@ -12,9 +12,9 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 		</valueCodeableConcept>
 </extension>
 	-->
-	<definition>
+	<instantiates>
 		<display value="Protocol for alergies"/>
-	</definition>
+	</instantiates>
 	<basedOn>
 		<display value="Original Request"/>
 	</basedOn>

@@ -15,9 +15,9 @@ Insulin pump request
 	<identifier>
 		<value value="ip_request1.1"/>
 	</identifier>
-	<definition>
+	<instantiates>
 		<display value="DM ambulatory protocol II"/>
-	</definition>
+	</instantiates>
 	<basedOn>
 		<display value="Homecare - DM follow-up"/>
 	</basedOn>

@@ -206,7 +206,7 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Task.definition[x]
+  Element = Task.instantiates[x]
   Card. = 0..1
   Summary = Y
   Type = uri | Reference(ActivityDefinition)
@@ -455,7 +455,7 @@
   Card. = 0..1
   Aliases = Performer; Executer
   Summary = Y
-  Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
+  Type = Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)
   Short Name = Responsible individual
   Definition = Individual organization or Device currently responsible for task execution.
   Requirements = Identifies who is expected to perform this task.
@@ -616,7 +616,7 @@
   Name = !definition-ref
   Type = reference
   Description = Search by task definition as a Reference
-  Path = Task.definitionReference
+  Path = Task.instantiatesReference
 
  -- Row 3 -----------------------------------
   Name = based-on
