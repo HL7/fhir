@@ -417,7 +417,7 @@
   Type = CodeableConcept
   Binding = PlanDefinitionType
   Short Name = order-set | protocol | eca-rule
-  Definition = The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule
+  Definition = The type of artifact the plan definition represents, e.g. an order set, protocol, or event-condition-action rule
 
  -- Row 8 -----------------------------------
   Element = PlanDefinition.status
@@ -448,8 +448,8 @@
   Element = PlanDefinition.usage
   Card. = 0..1
   Type = string
-  Short Name = Describes the clinical usage of the asset
-  Definition = A detailed description of how the asset is used from a clinical perspective
+  Short Name = Describes the clinical usage of the plan
+  Definition = A detailed description of how the plan definition is used from a clinical perspective
 
  -- Row 15 -----------------------------------
   Element = PlanDefinition.approvalDate
@@ -478,7 +478,7 @@
   Binding = DefinitionTopic
   Short Name = E.g. Education, Treatment, Assessment, etc
   Definition = Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching
-  Requirements = Repositories must be able to determine how to categorize the asset so that it can be found by topical searches
+  Requirements = Repositories must be able to determine how to categorize the plan definition so that it can be found by topical searches
   Workflow Mapping = Definition.subject[x]
 
  -- Row 21 -----------------------------------
@@ -486,8 +486,8 @@
   Card. = 0..*
   Type = Contributor
   Short Name = A content contributor
-  Definition = A contributor to the content of the asset, including authors, editors, reviewers, and endorsers
-  Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the asset
+  Definition = A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers
+  Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the plan definition
 
  -- Row 22 -----------------------------------
   Element = PlanDefinition.contact
@@ -501,9 +501,9 @@
   Element = PlanDefinition.relatedArtifact
   Card. = 0..*
   Type = RelatedArtifact
-  Short Name = Related artifacts for the asset
+  Short Name = Related artifacts for the plan
   Definition = Related artifacts such as additional documentation, justification, or bibliographic references
-  Requirements = Assets must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
+  Requirements = Plan definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related artifact is either an attachment, or a reference to another resource, but not both
 
  -- Row 25 -----------------------------------

@@ -172,8 +172,8 @@
   Element = ActivityDefinition.usage
   Card. = 0..1
   Type = string
-  Short Name = Describes the clinical usage of the asset
-  Definition = A detailed description of how the asset is used from a clinical perspective
+  Short Name = Describes the clinical usage of the activity definition
+  Definition = A detailed description of how the activity definition is used from a clinical perspective
   RIM Mapping = N/A (to add?)
 
  -- Row 14 -----------------------------------
@@ -208,7 +208,7 @@
   Binding = DefinitionTopic
   Short Name = E.g. Education, Treatment, Assessment, etc
   Definition = Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching
-  Requirements = Repositories must be able to determine how to categorize the asset  so that it can be found by topical searches
+  Requirements = Repositories must be able to determine how to categorize the activity definition so that it can be found by topical searches
   RIM Mapping = N/A (to add?)
 
  -- Row 20 -----------------------------------
@@ -216,7 +216,7 @@
   Card. = 0..*
   Type = Contributor
   Short Name = A content contributor
-  Definition = A contributor to the content of the asset, including authors, editors, reviewers, and endorsers
+  Definition = A contributor to the content of the activity definition, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge asset
   RIM Mapping = .participation[typeCode=AUT,VRF] {No support yet for editor nor clear whether VRF best corresponds to reviewer or endorser}
 
@@ -236,7 +236,7 @@
   Type = RelatedArtifact
   Short Name = Additional documentation, citations, etc
   Definition = Related artifacts such as additional documentation, justification, or bibliographic references
-  Requirements = Assets must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
+  Requirements = Activity definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related artifact is either an attachment, or a reference to another resource, but not both
   RIM Mapping = .outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}
 
@@ -244,8 +244,8 @@
   Element = ActivityDefinition.library
   Card. = 0..*
   Type = Reference(Library)
-  Short Name = Logic used by the asset
-  Definition = A reference to a Library resource containing any formal logic used by the asset
+  Short Name = Logic used by the activity definition
+  Definition = A reference to a Library resource containing any formal logic used by the activity definition
   RIM Mapping = .outboundRelationship[typeCode=USE].target[classCode=GROUPER,moodCode=EVN]
 
  -- Row 25 -----------------------------------
