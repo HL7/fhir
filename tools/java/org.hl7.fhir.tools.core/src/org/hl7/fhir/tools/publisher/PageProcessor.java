@@ -199,6 +199,7 @@ import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
+import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Cell;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -796,7 +797,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getNormativeNote(genlevel(level), com.length < 2 ? null : com[1], workingTitle, file)+s3;
       } else if (com[0].equals("fmmshort")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
-        src = s1+getFmmShortFromlevel(genlevel(level), fmm)+s3;
+        String npr = resource == null || !(resource instanceof MetadataResource) ? getNormativePackageRef(com[1]) : "";
+        src = s1+getFmmShortFromlevel(genlevel(level), fmm)+npr+s3;
       } else if (com[0].equals("normative-pages")) {
         src = s1+getNormativeList(genlevel(level), com[1])+s3;
       } else if (com[0].equals("diff-analysis")) {
@@ -1162,7 +1164,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String getNormativeNote(String genlevel, String pack, String title, String filename) {
-    normativePackages.get(pack).put(filename, title);
+    if (!filename.contains("-definitions"))
+      normativePackages.get(pack).put(filename, title);
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: This page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
         "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
@@ -1170,7 +1173,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         "";
   }
 
-  private String buildResListByMaturity() {
+  private String buildResListByMaturity() throws FHIRException {
     List<String> res = new ArrayList<String>();
     for (ResourceDefn rd : definitions.getBaseResources().values())
       res.add(rd.getFmmLevel()+":" +rd.getName());
@@ -1186,6 +1189,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       for (String rn : res) {
         if (rn.startsWith(Integer.toString(i))) {
           String r = rn.substring(2);
+          ResourceDefn rd = definitions.getResourceByName(r);
+          if (rd.getNormativePackage() != null)
+            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"><img src=\"assets/images/normative.png\"/></a></li>\r\n");
+          ;
           b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
         }
       }
@@ -1217,7 +1224,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           }
 
           String r = rn.substring(rn.indexOf(":")+1);
-          b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
+          b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+" [%fmmshort "+r+"%]</a></li>\r\n");
         }
       }
       if (!first)
@@ -2787,8 +2794,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String generateToc() throws Exception {
     // return breadCrumbManager.makeToc();
-    StringBuilder b = new StringBuilder();
-    b.append("<ul>\r\n");
     List<String> entries = new ArrayList<String>();
     entries.addAll(toc.keySet());
     Collections.sort(entries, new SectionSorter());
@@ -2806,16 +2811,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           nd = nd.substring(0, nd.length()-2);
         int d = Utilities.charCount(nd, '.');
         if (d < 4 && !pages.contains(t.getLink())) {
-          b.append(" <li>");
-          for (int i = 0; i < d; i++)
-            b.append("&nbsp;");
-          b.append(" <a href=\"");
-          b.append(t.getLink());
-          b.append("\">");
-          b.append(nd);
-          b.append(" ");
-          b.append(Utilities.escapeXml(t.getText()));
-          b.append("</a></li>\r\n");
+          String np = getNormativePackageForPage(t.getLink());
           pages.add(t.getLink());
           while (!stack.isEmpty() && stack.getFirst().depth >= d)
             stack.pop();
@@ -2828,7 +2824,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             else if (td.startsWith(stack.getFirst().entry.getText()))
               td = td.substring(stack.getFirst().entry.getText().length());
           }
-          row.getCells().add(gen.new Cell(null, t.getLink(), nd+" "+td, t.getText(), null));
+          Cell cell = gen.new Cell(null, t.getLink(), nd+" "+td, t.getText()+" ", null);
+          row.getCells().add(cell);
+          if (np != null) {
+            cell.addPiece(gen.new Piece(null, ". ", null));
+            cell.addPiece(gen.new Piece("ballot-intro.html#"+np, "(Normative - "+Utilities.capitalize(np)+")", null));
+            row.setIcon("icon_page_n.gif", null);
+          }
           if (stack.isEmpty())
             model.getRows().add(row);
           else
@@ -2837,9 +2839,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }
       }
     }
-    b.append("</ul>\r\n");
+    return new XhtmlComposer().compose(gen.generate(model, "", 0));
+  }
 
-    return /*b.toString()+*/new XhtmlComposer().compose(gen.generate(model, "", 0));
+  private String getNormativePackageForPage(String page) {
+    for (String pn : normativePackages.keySet()) {
+      Map<String, String> m = normativePackages.get(pn);
+      for (String s : m.keySet()) {
+        if (s.equals(page) || s.replace(".", "-definitions.").equals(page))
+          return pn;
+      }
+    }
+    return null;
   }
 
   private int rootInd(String s) {
@@ -8437,11 +8448,24 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       throw new Exception("unable to find resource '"+resourceName+"'");
     return "&nbsp;<a href=\"versions.html#maturity\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
+  private String getNormativePackageRef(String resourceName) throws Exception {
+    ResourceDefn rd = definitions.getResourceByName(resourceName);
+    if (rd == null)
+      throw new Exception("unable to find resource '"+resourceName+"'");
+    if (rd.getNormativePackage() == null)
+      return "";
+    else
+      return " <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"><img src=\"assets/images/normative.png\"/></a>";
+  }
   private String getFmmShort(String resourceName) throws Exception {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new Exception("unable to find resource '"+resourceName+"'");
-    return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
+    if (rd.getNormativePackage() != null)
+      return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>"+
+       "<a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"><img src=\"assets/images/normative.png\"/></a>";
+    else
+      return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }
   private String getFmmFromlevel(String prefix, String level) throws Exception {
     return "&nbsp;<a href=\""+prefix+"versions.html#maturity\" title=\"Maturity Level\">Maturity Level</a>: "+(Utilities.noString(level) ? "0" : level);
