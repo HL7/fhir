@@ -1192,8 +1192,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           ResourceDefn rd = definitions.getResourceByName(r);
           if (rd.getNormativePackage() != null)
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"><img src=\"assets/images/normative.png\"/></a></li>\r\n");
-          ;
-          b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
+          else
+            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
         }
       }
       b.append("</ul>\r\n");
