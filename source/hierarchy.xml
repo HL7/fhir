@@ -264,6 +264,7 @@ signatures.html
   	  <page type="resource" resource="ObservationDefinition"/> 
   	  <page type="resource" resource="SpecimenDefinition"/>
   	  <page type="resource" resource="EntryDefinition"/>
+	  <page type="resource" resource="Invoice"/>
     </page>
 
     <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">

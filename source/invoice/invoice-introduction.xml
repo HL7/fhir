@@ -1,0 +1,34 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+	<div>
+		<a name="scope"> </a>
+		<h2>Scope and Usage</h2>
+		<p>
+Tracking Financial information is vital in Patient Administration and Finance systems in most Healthcare Organizations.
+
+An invoice is a financial document issued by a Healthcare provider to a patient or a payer indicating the goods and services (ChargeItems) performed with their quantities and prices. The invoice is the hospital’s view, whereas the Claim is the payer’s view on the performed services.
+ </p>
+
+	</div>
+
+
+	<div>
+		<h2>Boundaries and Relationships</h2>
+		<p>
+The existing Claim resource is constricted to use cases where Claims are sent to insurances for reimbursement, in a message-like style. It neither references ChargeItems nor Accounts
+
+This resource is used where existing ChargeItems in an Account are collected to create an Invoice to be sent out to Individuals or Organizations in a structured way.
+
+Unlike the Claim resource, Invoice reflects the perspective of the (healthcare) service providing organization.</p>
+	
+</div>
+	<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>

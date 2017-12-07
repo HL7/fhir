@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../publish/invoice.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Invoice xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/invoice.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Example of Invoice</div>
+	</text>
+	<identifier>
+		<system value="http://myHospital.org/Invoices"/>
+		<value value="654321"/>
+	</identifier>
+	
+	<status value = "issued"/>
+
+	
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	
+		<date value ="2017-01-25T08:00:00+01:00"/>
+		
+	<participant>
+		<role>
+			<coding>
+				<system value= "http://snomed.info/sct"/>
+				<code value= "17561000"/>
+				<display value="Cardiologist"/>	
+			</coding>
+		</role>
+		<actor>
+			<reference value="Practitioner/example"/>
+		</actor>
+	</participant>
+	
+	<issuer>
+		<identifier>
+			<system value= "http://myhospital/NamingSystem/departments"/>
+			<value value= "CARD_INTERMEDIATE_CARE"/>
+		</identifier>
+	</issuer>
+	<account>
+		<reference value="Account/example"/>
+	</account>
+	
+	<totalNet>
+	    <value value="40"/>
+        <unit value="EUR"/>
+        <system value="urn:iso:std:iso:4217"/>
+        <code value="EUR"/>
+	</totalNet>
+		<totalGross>
+	    <value value="48"/>
+        <unit value="EUR"/>
+        <system value="urn:iso:std:iso:4217"/>
+        <code value="EUR"/>
+	</totalGross>
+	
+	
+
+
+</Invoice> 
