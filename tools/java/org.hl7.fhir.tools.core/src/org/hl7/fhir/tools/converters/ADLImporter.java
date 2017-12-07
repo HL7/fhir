@@ -119,42 +119,27 @@ public class ADLImporter {
 		check("root", XMLUtil.getNamedChild(adl, "adl_version").getTextContent(), "1.4", "unsupported ADL version");
 		
 		String id = XMLUtil.getFirstChild(XMLUtil.getNamedChild(adl, "archetype_id")).getTextContent().split("\\.")[1];
+		String baseType = XMLUtil.getNamedChild(XMLUtil.getNamedChild(adl, "definition"), "rm_type_name").getTextContent();
+		if (!baseType.equals("OBSERVATION"))
+		  return;
+
+    // load texts from ontology
+    List<Element> set = new ArrayList<Element>();
+    Element ontology = XMLUtil.getNamedChild(adl, "ontology");
+    Element term_definitions = XMLUtil.getNamedChild(ontology, "term_definitions");
+    set.clear();
+    XMLUtil.getNamedChildren(term_definitions, "items", set);
+    for (Element item : set) {
+      processTextItem(item);
+    }
+		
 		// create structure definition
 		StructureDefinition sd = new StructureDefinition();
 		sd.setId("netha-"+id);
 		sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+sd.getId());
-//		sd.setVersion(version);
-//		sd.setPublisher("NEHTA");
-//		sd.setDate(date);
-//		sd.addUseContext(au);
 		
 		sd.setKind(StructureDefinitionKind.LOGICAL);
-		
-		
-		// populate metadata
-		Element description = XMLUtil.getNamedChild(adl, "description");
-		Element details = XMLUtil.getNamedChild(description, "details");
-		sd.setDescription(XMLUtil.getNamedChild(details, "purpose").getTextContent());
-		sd.setCopyright(XMLUtil.getNamedChild(details, "copyright").getTextContent());
-		sd.setPurpose("Use:\r\n"+XMLUtil.getNamedChild(details, "use").getTextContent()+"\r\n\r\nMisuse:\r\n"+XMLUtil.getNamedChild(details, "misuse").getTextContent());
-		List<Element> set = new ArrayList<Element>();
-		XMLUtil.getNamedChildren(details, "keywords", set);
-		for (Element e : set) 
-			sd.addKeyword().setDisplay(e.getTextContent());
-		String status = XMLUtil.getNamedChild(description, "lifecycle_state").getTextContent();
-		if ("CommitteeDraft".equals(status) || "AuthorDraft".equals(status))
-			sd.setStatus(PublicationStatus.DRAFT);
-		else
-			throw new Exception("Unknown life cycle state "+XMLUtil.getNamedChild(description, "lifecycle_state").getTextContent());
-
-		// load texts from ontology
-		Element ontology = XMLUtil.getNamedChild(adl, "ontology");
-		Element term_definitions = XMLUtil.getNamedChild(ontology, "term_definitions");
-		set.clear();
-  	XMLUtil.getNamedChildren(term_definitions, "items", set);
-		for (Element item : set) {
-			processTextItem(item);
-		}
+		populateMetadata(set, sd);
 
 		// load data and protocol
 		Element definition = XMLUtil.getNamedChild(adl, "definition");
@@ -178,6 +163,28 @@ public class ADLImporter {
 		new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(dest), sd);
 		System.out.println("done. saved as "+dest);
 	}
+
+  public void populateMetadata(List<Element> set, StructureDefinition sd) throws Exception {
+    // populate metadata
+		Element description = XMLUtil.getNamedChild(adl, "description");
+		Element details = XMLUtil.getNamedChild(description, "details");
+		sd.setDescription(XMLUtil.getNamedChild(details, "purpose").getTextContent());
+		sd.setCopyright(XMLUtil.getNamedChild(details, "copyright").getTextContent());
+		sd.setPurpose("Use:\r\n"+XMLUtil.getNamedChild(details, "use").getTextContent()+"\r\n\r\nMisuse:\r\n"+XMLUtil.getNamedChild(details, "misuse").getTextContent());
+		XMLUtil.getNamedChildren(details, "keywords", set);
+		for (Element e : set) 
+			sd.addKeyword().setDisplay(e.getTextContent());
+		String status = XMLUtil.getNamedChild(description, "lifecycle_state").getTextContent();
+		if ("CommitteeDraft".equals(status) || "AuthorDraft".equals(status))
+			sd.setStatus(PublicationStatus.DRAFT);
+		else
+			throw new Exception("Unknown life cycle state "+XMLUtil.getNamedChild(description, "lifecycle_state").getTextContent());
+//  sd.setVersion(version);
+//  sd.setPublisher("NEHTA");
+//  sd.setDate(date);
+//  sd.addUseContext(au);
+
+  }
 
 	private void genElements(StructureDefinition sd, String path, NodeTreeEntry item) throws Exception {
 	  ElementDefinition ed = sd.getSnapshot().addElement();

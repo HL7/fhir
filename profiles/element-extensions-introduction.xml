@@ -10,8 +10,7 @@ Data elements can be defined in several places.  The extensions defined within t
 to most or all of these:
 </p>
 <ul>
-  <li><a href="profile.html">Profile</a>.structure.element.definition - defining the characteristics of the data element when used according to the profile</li>
-  <li><a href="profile.html">Profile</a>.extensionDefn.definition - defining the characteristics of the extension, regardless of where it is used</li>
+  <li><a href="structuredefinition.html">StructureDefinition</a>.*.element - defining the characteristics of the data elements and extensions when used according to the profile</li>
   <li><a href="questionnaire.html">Questionnaire</a>.group.question - defining the characteristics of permitted answers</li>
 </ul>
 <p>

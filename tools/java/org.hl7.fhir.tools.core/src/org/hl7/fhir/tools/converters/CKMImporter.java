@@ -59,9 +59,9 @@ public class CKMImporter {
 			ids.add(e.getTextContent());
 			e = XMLUtil.getNextSibling(e);
 		}
-		for (String id : ids) {
-			downloadArchetype(id);
-		}
+//		for (String id : ids) {
+//			downloadArchetype(id);
+//		}
 		for (String id : ids) {
 			processArchetype(id);
 		}

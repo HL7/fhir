@@ -27,6 +27,7 @@ import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.Factory;
+import org.hl7.fhir.r4.model.IntegerType;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.TemporalPrecisionEnum;
 import org.hl7.fhir.r4.model.UriType;
@@ -75,6 +76,7 @@ public class V2SourceGenerator extends BaseGenerator {
     private String first;
     private String last;
     public String status;
+    public boolean backwardsCompatible;
 
     public boolean hasLang(String code) {
       return langs.containsKey(code);
@@ -253,7 +255,7 @@ public class V2SourceGenerator extends BaseGenerator {
 
 
     
-    public void item(String version, String code, String display, String german, String table_name, String comments, int sno, String status) {
+    public void item(String version, String code, String display, String german, String table_name, String comments, int sno, String status, boolean backwardsCompatible) {
       if (!versions.containsKey(version))
         versions.put(version, new TableVersion(version, table_name));
       TableEntry entry = new TableEntry();
@@ -264,6 +266,7 @@ public class V2SourceGenerator extends BaseGenerator {
       entry.comments = comments;
       entry.sortNo = sno;
       entry.status = status;
+      entry.backwardsCompatible = backwardsCompatible;
       versions.get(version).entries.add(entry);
     }
     public boolean hasLangName(String code) {
@@ -295,7 +298,6 @@ public class V2SourceGenerator extends BaseGenerator {
                 System.out.println("additional code for "+lang+" for table "+id+": "+tel.code);
               if (tem != null && !tel.display.equals(tem.display))
                 tem.langs.put(lang, tel.display); 
-
             }
           } else
             System.out.println("no table for "+n+" for "+id);
@@ -332,6 +334,7 @@ public class V2SourceGenerator extends BaseGenerator {
                 tem.langs.put(c, te.langs.get(c));
               tem.sortNo = te.sortNo;
               tem.status = te.status;
+              tem.backwardsCompatible = te.backwardsCompatible;
               tem.setLast(null);
             }
           }
@@ -451,7 +454,7 @@ public class V2SourceGenerator extends BaseGenerator {
     }
 
     Map<String, String> nameCache = new HashMap<String, String>();
-    query = stmt.executeQuery("SELECT table_id, version_id, display_name, oid_table, cs_oid, cs_version, vs_oid, vs_expansion, vocab_domain, interpretation, description_as_pub, table_type, generate, section, anchor, case_insensitive, steward  from HL7Tables order by version_id");
+    query = stmt.executeQuery("SELECT table_id, version_id, display_name, oid_table, cs_oid, cs_version, vs_oid, vs_expansion, vocab_domain, interpretation, description_as_pub, table_type, generate, section, anchor, case_insensitive, steward  from HL7Tables where version_id < 100 order by version_id");
         
     while (query.next()) {
       String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
@@ -486,7 +489,7 @@ public class V2SourceGenerator extends BaseGenerator {
       tv.setSteward(query.getString("steward"));
     }
     int i = 0;
-    query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues");
+    query = stmt.executeQuery("SELECT table_id, version_id, sort_no, table_value, display_name, interpretation, comment_as_pub, active, modification  from HL7TableValues where version_id < 100");
     while (query.next()) {
       String tid = Utilities.padLeft(Integer.toString(query.getInt("table_id")), '0', 4);
       VersionInfo vid = vers.get(Integer.toString(query.getInt("version_id")));
@@ -499,8 +502,9 @@ public class V2SourceGenerator extends BaseGenerator {
       String german = query.getString("interpretation");
       String comment = query.getString("comment_as_pub");
       String status = readStatusColumns(query.getString("active"), query.getString("modification"));
+      boolean backwardsCompatible = "4".equals(query.getString("active"));
       
-      tables.get(tid).item(vid.getVersion(), code, display, german, nameCache.get(tid+"/"+vid), comment, sno == null ? 0 : sno, status);
+      tables.get(tid).item(vid.getVersion(), code, display, german, nameCache.get(tid+"/"+vid), comment, sno == null ? 0 : sno, status, backwardsCompatible);
       i++;
     }
     System.out.println(Integer.toString(i)+" entries loaded");
@@ -521,9 +525,9 @@ public class V2SourceGenerator extends BaseGenerator {
     if ("2".equals(active))
       return "Retired";
     if ("3".equals(active))
-      return "New";
+      return "Active";
     if ("4".equals(active))
-      return "Backwards-compatible only";
+      return "Active";
     return null;
   }
 
@@ -645,6 +649,9 @@ public class V2SourceGenerator extends BaseGenerator {
       cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
 
     cs.addProperty().setCode("status").setUri("http://healthintersections.com.au/csprop/status").setType(PropertyType.CODE).setDescription("Status of the concept");
+    cs.addProperty().setCode("intro").setUri("http://healthintersections.com.au/csprop/intro").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was first defined");
+    cs.addProperty().setCode("deprecated").setUri("http://healthintersections.com.au/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
+    cs.addProperty().setCode("backwardsCompatible").setUri("http://healthintersections.com.au/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
 
     for (TableEntry te : tv.entries) {
       ConceptDefinitionComponent c = cs.addConcept();
@@ -655,12 +662,14 @@ public class V2SourceGenerator extends BaseGenerator {
       c.setId(Integer.toString(te.sortNo));
       if (!Utilities.noString(te.comments))
         ToolingExtensions.addCSComment(c, te.comments);
-      if (te.getFirst() != null && !"2.1".equals(te.getFirst()))
-        c.addExtension(csext("versionIntroduced"), Factory.newString_(te.getFirst()));
+      if (te.getFirst() != null)
+        c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
       if (!Utilities.noString(te.getLast()))
-        c.addExtension(csext("versionDeprecated"), Factory.newString_(te.getLast()));   
+        c.addProperty().setCode("deprecated").setValue(new CodeType(te.getLast()));
       if (!Utilities.noString(te.status))
         c.addProperty().setCode("status").setValue(new CodeType(te.status));
+      if (te.backwardsCompatible)
+        c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
     }    
 
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "cs-"+cs.getId())+".xml"), cs);
@@ -710,6 +719,11 @@ public class V2SourceGenerator extends BaseGenerator {
     if (tv.isGenerate())
       cs.getExtension().add(new Extension().setUrl("http://healthintersections.com.au/fhir/StructureDefinition/valueset-generate").setValue(new BooleanType(true)));
 
+    cs.addProperty().setCode("status").setUri("http://healthintersections.com.au/csprop/status").setType(PropertyType.CODE).setDescription("Status of the concept");
+    cs.addProperty().setCode("intro").setUri("http://healthintersections.com.au/csprop/intro").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was first defined");
+    cs.addProperty().setCode("deprecated").setUri("http://healthintersections.com.au/csprop/deprecated").setType(PropertyType.CODE).setDescription("Version of HL7 in which the code was deprecated");
+    cs.addProperty().setCode("backwardsCompatible").setUri("http://healthintersections.com.au/csprop/backwardsCompatible").setType(PropertyType.BOOLEAN).setDescription("Whether code is considered 'backwards compatible' (whatever that means)");
+
     for (TableEntry te : tv.entries) {
       ConceptDefinitionComponent c = cs.addConcept();
       c.setCode(te.code);
@@ -719,12 +733,14 @@ public class V2SourceGenerator extends BaseGenerator {
       c.setId(Integer.toString(te.sortNo));
       if (!Utilities.noString(te.comments))
         ToolingExtensions.addCSComment(c, te.comments);
-      if (te.getFirst() != null && !"2.1".equals(te.getFirst()))
-        c.addExtension("http://hl7.org/fhir/StructureDefinition/v2-version-defined", Factory.newString_(te.getFirst()));
+      if (te.getFirst() != null)
+        c.addProperty().setCode("intro").setValue(new CodeType(te.getFirst()));
       if (!Utilities.noString(te.getLast()))
-        c.addExtension("http://hl7.org/fhir/StructureDefinition/v2-version-deprecated", Factory.newString_(te.getLast()));   
+        c.addProperty().setCode("deprecated").setValue(new CodeType(te.getLast()));
       if (!Utilities.noString(te.status))
         c.addProperty().setCode("status").setValue(new CodeType(te.status));
+      if (te.backwardsCompatible)
+        c.addProperty().setCode("backwardsCompatible").setValue(new BooleanType(te.backwardsCompatible));
     }    
 
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(dest, "v2", "v"+tv.version, "cs-"+cs.getId())+".xml"), cs);
@@ -796,10 +812,11 @@ public class V2SourceGenerator extends BaseGenerator {
     cs.addProperty().setCode("oid").setUri("http://healthintersections.com.au/csprop/oid").setType(PropertyType.STRING).setDescription("OID For Table");
     cs.addProperty().setCode("csoid").setUri("http://healthintersections.com.au/csprop/csoid").setType(PropertyType.STRING).setDescription("OID For Code System");
     cs.addProperty().setCode("vsoid").setUri("http://healthintersections.com.au/csprop/vsoid").setType(PropertyType.STRING).setDescription("OID For Value Set");
-    cs.addProperty().setCode("stdref").setUri("http://healthintersections.com.au/csprop/stdref").setType(PropertyType.STRING).setDescription("Reference in standard");
-    cs.addProperty().setCode("stdsection").setUri("http://healthintersections.com.au/csprop/stdsection").setType(PropertyType.STRING).setDescription("Anchor reference for table");
+    cs.addProperty().setCode("stdref").setUri("http://healthintersections.com.au/csprop/stdref").setType(PropertyType.STRING).setDescription("Reference in standard (generated by v2 tooling - cannot be changed)");
+    cs.addProperty().setCode("stdsection").setUri("http://healthintersections.com.au/csprop/stdsection").setType(PropertyType.STRING).setDescription("Anchor reference for table (generated by v2 tooling - cannot be changed)");
     cs.addProperty().setCode("v2type").setUri("http://healthintersections.com.au/csprop/v2type").setType(PropertyType.CODE).setDescription("Type of table");
     cs.addProperty().setCode("generate").setUri("http://healthintersections.com.au/csprop/generate").setType(PropertyType.BOOLEAN).setDescription("whether to generate table");
+    cs.addProperty().setCode("version").setUri("http://healthintersections.com.au/csprop/version").setType(PropertyType.BOOLEAN).setDescription("Business version of table metadata");
     
     Map<String, String> codes = new HashMap<String, String>();
     int count = 0;
@@ -827,6 +844,7 @@ public class V2SourceGenerator extends BaseGenerator {
             c.addProperty().setCode("v2type").setValue(new CodeType(codeForType(tv.getType())));
           if (tv.isGenerate())
             c.addProperty().setCode("generate").setValue(new BooleanType(true));
+          c.addProperty().setCode("version").setValue(new IntegerType(1));
         }
       }
     }        

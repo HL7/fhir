@@ -51,7 +51,6 @@ signatures.html
         <page title="JSON" filename="json.html"/>
       </page>
       <page title="Change Management and Versioning" filename="versions.html">
-        <page title="Inter-version Compatibility" filename="compatibility.html"/>
         <page title="Timelines" filename="timelines.html"/>
       </page>
       <page title="Version History" filename="history.html"/>

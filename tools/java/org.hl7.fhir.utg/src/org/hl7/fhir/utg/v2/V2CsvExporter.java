@@ -28,7 +28,7 @@ public class V2CsvExporter extends BaseExporter {
     tables = new CSVWriter(new FileOutputStream(Utilities.path(folder, "tables.csv")));
     tables.line("table_id", "version_id", "display_name", "description_as_pub", "table_table", "generate", "oid_table", "section", "anchor", "case_insensitive", "steward", "cs_oid", "cs_version", "vs_oid");
     tableCodes = new CSVWriter(new FileOutputStream(Utilities.path(folder, "tableCodes.csv")));
-    tableCodes.line("table", "sort-no", "level", "code", "print name", "status");
+    tableCodes.line("table", "sort-no", "level", "code", "print name", "status", "backwardsCompatible", "version-introduced");
   }  
 
   public void generate(Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets) throws IOException {
@@ -75,7 +75,9 @@ public class V2CsvExporter extends BaseExporter {
 
   private void writeConcept(String table_id, int i, ConceptDefinitionComponent cd) throws IOException {
     String status = readString(CodeSystemUtilities.readProperty(cd, "status"));
-    tableCodes.line(table_id, cd.getId(), Integer.toString(i), cd.getCode(), cd.getDisplay(), status);
+    String bc = readString(CodeSystemUtilities.readProperty(cd, "backwardsCompatible"));
+    String ver = readString(CodeSystemUtilities.readProperty(cd, "intro"));
+    tableCodes.line(table_id, cd.getId(), Integer.toString(i), cd.getCode(), cd.getDisplay(), status, bc, ver);
     for (ConceptDefinitionComponent child : cd.getConcept()) {
       writeConcept(table_id, i+1, child);
     }

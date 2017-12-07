@@ -4,15 +4,18 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.utilities.FileNotifier;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueType;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
+import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlDocument;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -37,6 +40,7 @@ public class HTMLLinkChecker implements FileNotifier {
   public static final String BIN_TYPE = "application/octet-stream";
   public static final String SVG_TYPE = "application/avg";
   public static final boolean WANT_CHECK = true;
+  private static final Object NORMATIVE_MARKER_TEXT = "!ns!";
 
   private class Entry {
     private String filename;
@@ -124,6 +128,7 @@ public class HTMLLinkChecker implements FileNotifier {
   private void check(Entry e) throws Exception {
     if (new File(Utilities.path(page.getFolders().dstDir, e.filename)).exists()) { 
       e.checked = true;
+      checkNormativeStatus(e.filename);
       XhtmlDocument doc;
       try {
         doc = new XhtmlParser().parse(new FileInputStream(Utilities.path(page.getFolders().dstDir, e.filename)), "html");
@@ -140,6 +145,17 @@ public class HTMLLinkChecker implements FileNotifier {
       }
     } else {
       reportError(e.filename, "Unable to find file "+e.filename);
+    }
+  }
+
+  private void checkNormativeStatus(String filename) {
+    String src;
+    try {
+      src = TextFile.fileToString(Utilities.path(page.getFolders().dstDir, filename));
+      if (!src.contains("<!--!ns!-->") && !src.contains("<!-- !ns! -->"))
+        reportError(filename, "File "+filename+" has no normative marker");
+    } catch (Exception e) {
+      reportError(filename, "File "+filename+" has no normative marker (Exception = "+e.getMessage()+")");
     }
   }
 

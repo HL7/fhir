@@ -59,8 +59,10 @@ import ca.uhn.fhir.util.ObjectUtil;
  */
 /* 
  * todo:
- * check urn's don't start oid: or uuid: 
+ * check urn's don't start oid: or uuid:
+ * check MetadataResource.url is absolute 
  */
+
 public class InstanceValidator extends BaseValidator implements IResourceValidator {
 
 

@@ -599,7 +599,7 @@ public class V3SourceGenerator extends BaseGenerator {
   }
 
   private void processPrintName(Element item, ConceptDefinitionComponent cd, CodeSystem cs) throws Exception {
-    if (!"false".equals(item.getAttribute("preferredForLanguage")))
+    if (!"true".equals(item.getAttribute("preferredForLanguage")))
       cd.addDesignation().setUse(new Coding().setSystem("http://something...?").setCode("deprecated alias")).setValue(item.getAttribute("text"));
     else if (Utilities.noString(item.getAttribute("language")) || item.getAttribute("language").equals(cs.getLanguage()))
       cd.setDisplay(item.getAttribute("text"));
@@ -618,6 +618,7 @@ public class V3SourceGenerator extends BaseGenerator {
       cd.addDesignation().setUse(new Coding().setSystem("http://something...?").setCode("synonym")).setValue(item.getAttribute("code"));
     else
       cd.setCode(item.getAttribute("code"));
+    cd.addProperty().setCode("status").setValue(new CodeType(item.getAttribute("status")));
     Element child = XMLUtil.getFirstChild(item);
     if (child != null) {
       throw new Exception("Unprocessed element "+child.getNodeName());
@@ -657,8 +658,6 @@ public class V3SourceGenerator extends BaseGenerator {
           throw new Exception("Unprocessed element "+child.getNodeName());
         child = XMLUtil.getNextSibling(child);
       }    
-      
-
     } else
       throw new Exception("Unexpected value for attribute relationshipName "+item.getAttribute("relationshipName"));
   }
@@ -711,6 +710,8 @@ public class V3SourceGenerator extends BaseGenerator {
     vs.addIdentifier().setSystem("urn:ietf:rfc:3986").setValue("urn:oid:"+item.getAttribute("id"));
     vs.setUserData("oid", item.getAttribute("id"));
     vs.setStatus(PublicationStatus.ACTIVE);
+    if ("true".equals(item.getAttribute("isImmutable")))
+      vs.setImmutable(true);
     Element child = XMLUtil.getFirstChild(item);
     while (child != null) {
       if (child.getNodeName().equals("header"))

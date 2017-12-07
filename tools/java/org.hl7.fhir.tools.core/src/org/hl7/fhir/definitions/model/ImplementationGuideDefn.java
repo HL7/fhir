@@ -291,7 +291,7 @@ public class ImplementationGuideDefn {
       return true;
     if (findModified(n, "-questionnaire.html", "Questionnaire", res, page))
       return true;
-    if (findModified(n, ".profile.html", "SturctureDefinition", res, page))
+    if (findModified(n, ".profile.html", "StructureDefinition", res, page))
       return true;
     return false;
   }
