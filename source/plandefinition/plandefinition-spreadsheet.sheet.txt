@@ -943,6 +943,12 @@
   Expression = PlanDefinition.relatedArtifact.where(type=\'composed-of\').resource
   XPath = f:PlanDefinition/f:relatedArtifact[f:type/@value=\'composed-of\']/f:resource
 
+ -- Row 8 -----------------------------------
+  Name = definition
+  Type = reference
+  Description = Activity or plan definitions used by plan definition
+  Path = PlanDefinition.action.definition
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
