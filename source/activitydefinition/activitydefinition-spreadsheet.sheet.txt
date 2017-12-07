@@ -354,6 +354,14 @@
   RIM Mapping = .targetSiteCode {for classCode=PROC, SBADM}
 
  -- Row 36 -----------------------------------
+  Element = ActivityDefinition.specimenRequirement
+  Card. = 0..*
+  Type = Reference(SpecimenDefinition)
+  Short Name = What specimens are required to perform this action
+  Definition = Defines specimen requirements for the action to be performed, such as required specimens for a lab test
+  Requirements = Needed to represent lab order definitions
+
+ -- Row 37 -----------------------------------
   Element = !ActivityDefinition.description
   Card. = 0..1
   Type = string
@@ -361,7 +369,7 @@
   Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
   RIM Mapping = .text
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ActivityDefinition.transform
   Card. = 0..1
   Type = Reference(StructureMap)
@@ -369,14 +377,14 @@
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
   RIM Mapping = N/A
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ActivityDefinition.dynamicValue
   Card. = 0..*
   Short Name = Dynamic aspects of the definition
   Definition = Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result
   RIM Mapping = N/A
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = ActivityDefinition.dynamicValue.description
   Card. = 0..1
   Type = string
@@ -384,7 +392,7 @@
   Definition = A brief, natural language description of the intended semantics of the dynamic value
   RIM Mapping = N/A
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = ActivityDefinition.dynamicValue.path
   Card. = 0..1
   Type = string
@@ -392,7 +400,7 @@
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
   RIM Mapping = N/A
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = ActivityDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
@@ -400,7 +408,7 @@
   Definition = The media type of the language for the expression
   RIM Mapping = N/A
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = ActivityDefinition.dynamicValue.expression
   Card. = 0..1
   Type = string
