@@ -1286,7 +1286,7 @@
     <Cell ss:Index="10" ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">participant in creation of this Invoice</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Participant in creation of this Invoice</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Indicates who or what performed or participated in the charged service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1319,7 +1319,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">type of involevent in creation of this Invoice</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Type of involevent in creation of this Invoice</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1524,7 +1524,7 @@
     <Cell ss:Index="10" ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">components of total line item price</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Components of total line item price</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Indicates who or what performed or participated in the charged service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1592,7 +1592,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">a code identifying the specific component</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Code identifying the specific component</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">A code that identifies the charge, like a billing code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1626,7 +1626,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">monetary amount associated with this component</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Monetary amount associated with this component</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Total price of the charge overriding the list price associated with the code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1656,7 +1656,7 @@
     <Cell ss:Index="10" ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">components of Invoice total</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Components of Invoice total</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Indicates who or what performed or participated in the charged service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1724,7 +1724,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">a code identifying the specific component</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Code identifying the specific component</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">A code that identifies the charge, like a billing code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1758,7 +1758,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">monetary amount associated with this component</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Monetary amount associated with this component</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Total price of the charge overriding the list price associated with the code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1791,7 +1791,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">net total of this Invoice</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Net total of this Invoice</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Invoice total , taxes excluded</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1824,7 +1824,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">gross toal of this Invoice</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Gross toal of this Invoice</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Invoice total, tax included</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1857,7 +1857,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">payment details</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Payment details</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Payment details such as banking details, period of payment, deductables, methods of payment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2020,12 +2020,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>24</TopRowVisible>
+   <TopRowVisible>25</TopRowVisible>
    <LeftColumnVisible>4</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>28</ActiveRow>
+     <ActiveRow>32</ActiveRow>
      <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>

@@ -176,7 +176,7 @@
   Element = Invoice.participant
   Card. = 0..*
   Summary = N
-  Short Name = participant in creation of this Invoice
+  Short Name = Participant in creation of this Invoice
   Definition = Indicates who or what performed or participated in the charged service
   v2 Mapping = EVN.5 or by domain
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
@@ -186,7 +186,7 @@
   Card. = 0..1
   Summary = N
   Type = CodeableConcept
-  Short Name = type of involevent in creation of this Invoice
+  Short Name = Type of involevent in creation of this Invoice
   Definition = Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.)
   v2 Mapping = Varies by domain
   RIM Mapping = .participation.functionCode
@@ -252,7 +252,7 @@
   Element = Invoice.lineItem.priceComponent
   Card. = 0..*
   Summary = N
-  Short Name = components of total line item price
+  Short Name = Components of total line item price
   Definition = Indicates who or what performed or participated in the charged service
   v2 Mapping = EVN.5 or by domain
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
@@ -274,7 +274,7 @@
   Card. = 0..1
   Summary = N
   Type = CodeableConcept
-  Short Name = a code identifying the specific component
+  Short Name = Code identifying the specific component
   Definition = A code that identifies the charge, like a billing code
   Workflow Mapping = Event.code
   v2 Mapping = FT1.7
@@ -285,7 +285,7 @@
   Card. = 1..1
   Summary = N
   Type = Money
-  Short Name = monetary amount associated with this component
+  Short Name = Monetary amount associated with this component
   Definition = Total price of the charge overriding the list price associated with the code
   Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.22
@@ -294,7 +294,7 @@
   Element = Invoice.totalPriceComponent
   Card. = 0..*
   Summary = N
-  Short Name = components of Invoice total
+  Short Name = Components of Invoice total
   Definition = Indicates who or what performed or participated in the charged service
   v2 Mapping = EVN.5 or by domain
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
@@ -316,7 +316,7 @@
   Card. = 0..1
   Summary = N
   Type = CodeableConcept
-  Short Name = a code identifying the specific component
+  Short Name = Code identifying the specific component
   Definition = A code that identifies the charge, like a billing code
   Workflow Mapping = Event.code
   v2 Mapping = FT1.7
@@ -327,7 +327,7 @@
   Card. = 1..1
   Summary = N
   Type = Money
-  Short Name = monetary amount associated with this component
+  Short Name = Monetary amount associated with this component
   Definition = Total price of the charge overriding the list price associated with the code
   Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.22
@@ -337,7 +337,7 @@
   Card. = 0..1
   Summary = Y
   Type = Money
-  Short Name = net total of this Invoice
+  Short Name = Net total of this Invoice
   Definition = Invoice total , taxes excluded
   Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.22
@@ -347,7 +347,7 @@
   Card. = 0..1
   Summary = Y
   Type = Money
-  Short Name = gross toal of this Invoice
+  Short Name = Gross toal of this Invoice
   Definition = Invoice total, tax included
   Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.22
@@ -357,7 +357,7 @@
   Card. = 0..1
   Summary = N
   Type = markdown
-  Short Name = payment details
+  Short Name = Payment details
   Definition = Payment details such as banking details, period of payment, deductables, methods of payment
   Comments = Derived Profiles may chose to add invariants requiring this field to be populated if either priceOverride or factorOverride have been filled
 
