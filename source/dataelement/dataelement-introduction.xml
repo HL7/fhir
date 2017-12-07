@@ -13,7 +13,7 @@ This resource covers two major use-cases:
 </p>
 <ol>
   <li>Definitions of types of measurements or observations that may be requested or performed.  In HL7, these are sometimes referred to as service, test or observation "master files"</li>
-  <li>Definitions of "data elements" (DEs) that may be used in <a href="questionnaire.html">questionnaires</a> (survey instruments and data collection forms) and <a href="profile.html">profiles</a> and potentially mapped to elements in other resources and profiles</li>
+  <li>Definitions of "data elements" (DEs) that may be used in <a href="questionnaire.html">questionnaires</a> (survey instruments and data collection forms) and <a href="profiling.html">profiles</a> and potentially mapped to elements in other resources and profiles</li>
 </ol>
 <p>
 The purpose of the first use-case is to allow systems to identify what types of lab orders, diagnostic studies and other types of observations may be requested or
@@ -60,7 +60,7 @@ might either be implicit or may be explicit through an extension.  (For implemen
 <a href="questionnaire.html">Questionnaire</a> rather than being included "by reference" to the <b>DataElement</b>.)
 </p>
 <p>
-<b>Note</b>: Extensions on <b>DataElement</b> that define the characteristics of a data element will typically also be applicable to <a href="profile.html">Profile</a>'s
+<b>Note</b>: Extensions on <b>DataElement</b> that define the characteristics of a data element will typically also be applicable to <a href="profiling.html">Profile</a>'s
 ElementDefinition and <a href="questionnaire.html">Questionnaire</a>'s Question data element as both are also used to define the characteristics of a data element.
 </p>
 <p>
