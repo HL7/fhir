@@ -10,42 +10,132 @@
 
 <div class="col-9">
 
-<h2>STU 3 Ballot Welcome</h2>
+<h2>R4 Ballot Roadmap</h2>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-Hello and welcome to the third FHIR STU ballot!
+Welcome to the first round of the FHIR Release 4 (R4) ballot, which is the first FHIR Ballot that includes content on a normative track. 
+Note that the R4 version of FHIR will have content with different ballot status: 
+</p>
+<ul>
+ <li><b>Normative</b>: Content that is subject to normative ballot rules. Once passed, breaking changes are no longer possible</li>
+ <li><b>Trial Use</b>: Content that is undergoing <a href="versions.html#maturity">FHIR maturity Model</a> based testing. Once sufficiently mature, it will be balloted as normative</li>
+ <li><b>Informative</b>: Content that is advisory (e.g. implementers are not required to conform to the content), or navigational content - tables of contents, generated lists, etc </li>
+ <li><b>Draft</b>: Content added late in the balloting process that has no formal standing, but is published for visibility</li>
+ <li><b>External</b>: Content that is replicated from external standards (e.g. HL7 v2, DICOM) and is not subject to ballot comment</li>
+</ul>
+<p>
+Mostly, each page has a single status, show clearly at the top of the page. However, in a very few cases, 
+some content on a page that is marked as normative is specifically marked as 'trial use'. 
+</p>
+<h3>The FHIR R4 Ballot Process</h3>
+
+<p>
+The FHIR R4 ballot process is significantly more complex than previous ballots because of the introduction of 
+content on the normative track. 3 Ballots are anticipated:
+</p>
+<table class="grid">
+ <tr>
+   <td>Draft Ballot</td>
+   <td>Dec 2017 - Jan 2018</td>
+   <td>This first ballot is mainly a development ballot for the FHIR teeam. It allows for :
+     <ul>
+       <li>the community to review the packaging and publication of the normative content</li>
+       <li>The FHIR Management Group to hone ballot procedures</li>
+       <li>Ongoing review of the FHIR content - particularly that marked normative</li>
+     </ul>  
+   </td>
+  </tr>
+ <tr>
+   <td>Full FHIR Ballot</td>
+   <td>Apr 2018 - May 2018</td>
+   <td>The full R4 ballot. It will include:
+     <ul>
+       <li>Multiple packages of normative content (see below)</li>
+       <li>The rest of the content balloted for "Trial Use"</li>
+     </ul>  
+   </td>
+  </tr>
+ <tr>
+   <td>Follow up Ballot</td>
+   <td>Aug 2018 - Sep 2018</td>
+   <td>A follow up ballot
+     <ul>
+       <li>Rballoting of normative content where substantitive changes are required</li>
+       <li>Additional signficant new content (added post the full FHIR ballot) balloted for "Trial Use"</li>
+     </ul>  
+   </td>
+  </tr>
+</table>
+
+<p>
+The key driver of this complexity is the introduction of normative content. HL7's 
+ballot rules for normative content require that if any substantiative changes are
+made as a result of ballot reconciliation, the content must be reballoted by the 
+same ballot pool. (Note that 'substantiative changes' means any change that will
+affect implementers - a very low bar). 
 </p>
 <p>
-This specification represents a series of significant changes and enhancements from the second FHIR Draft Standard for Trial Use
-specification HL7 published in October, 2015.  It also includes changes resulting from committee meetings, connectathons, 1000's of  
-change proposals, and collaborations with other standards organizations.  A <a href="history.html#v1.6.0">summary of changes</a>  
+In the past, normative ballots have undergone may cycles of balloting, a process
+that can take years. The FHIR ballot will be different, in that there are 2 ballot
+cycles allowed; any normative content that cannot pass ballot with 2 cycles will
+fall back to Trial Use for R4, and HL7 will try again for FHIR R5. Note that 
+the content on the normative track has already undergone extensive testing,
+production implementation, and previous ballots.
+</p>
+<p>
+To facilitate this process, the ballot is broken up into multiple normative 
+packages:
+</p>
+<table class="rows">
+ <tr>
+   <td>Infrastructure</td>
+   <td>Abstract base types, data types, formats, the RESTful API, and content and typing rules</td>
+  </tr>
+ <tr>
+   <td>Terminology and Conformance</td>
+   <td>The terminology infrastructure, and the base resources that specify content</td>
+  </tr>
+ <tr>
+   <td>Patient</td>
+   <td>The Patient resource, and related content</td>
+  </tr>
+ <tr>
+   <td>Observation</td>
+   <td>The Observation resource, and related content</td>
+  </tr>
+</table>
+<p>
+A full list of the pages that are in each normative package can be found below.
+Any content that is not in these packages is considered to be 
+part of the Trial Use Ballot.
+</p>
+
+<h3>R4 Ballot Background</h3>
+
+<p>
+Release 4 of the FHIR specification provides many 1000s of significant changes and enhancements 
+from the third FHIR Draft Standard for Trial Use specification HL7 published in May, 2017.  
+These changes result from committee meetings, connectathons, 1000's of change proposals, and 
+collaborations with other standards organizations.  A <a href="history.html#v1.6.0">summary of changes</a>  
 and a <a href="diff.html">complete list of changes to resources and data types</a> are available, along with 
-<a href="r2maps.html">transforms</a> between R2 and R3 for many resources.
-</p>
-<p>
-FHIR is presently a "Specification for Trial Use" (STU) ballot. FHIR is no longer a "Draft" specification.
-Indeed, there are many implementations in production all across the world, or in preparation for production 
-adoption. There are still some parts of the specification in an early stage of development, while other parts 
-are quite mature and stable. In fact, as of this version, most DSTU 2 patient resources are still valid STU 3 
-Patient resources, though this is not a requirement - yet. We anticipate that some content will become 
-normative on the next ballot after this one. For full details concerning the maturity process in the FHIR 
-specification, see the <a href="versions.html#maturity">FHIR maturity Model</a>.
+<a href="r2maps.html">transforms</a> between R3 and R4 for many resources.
 </p>
 <p>
 The FHIR specification is presented as a series of interlinked HTML pages.  They can either be reviewed online or can be
 <a href="fhir-spec.zip">downloaded</a> for exploration on your own device.  (175MB zip, ~1GB unzipped). The scope of
-the FHIR Ballot is any page where the URL starts with http://hl7.org/fhir/2016Sep. 
+this FHIR Ballot is any page where the URL starts with http://hl7.org/fhir/2018Jan, though balloters must pay careful
+attention to which ballot package content is in (see below, or the <a href="toc.html">Table of Contents</a>).
 </p>
 <p>
-A few notes to consider:
+A few notes to consider when balloting:
 </p>
 <ul>
-  <li>Pay close attention to the FMM level of the artifacts (as described above)</li>
-  <li>Not all of the existing outstanding issues will be resolved prior to the STU ballot passing.  Some may be left open to allow feedback 
+  <li>Pay close attention to the ballot status and FMM level of the artifacts </li>
+  <li>Not all of the existing outstanding issues will be resolved prior to the ballot passing.  Some may be left open to allow feedback 
   from the early adopter community.</li>
-  <li>This specification is complete enough to be implementable in a variety of healthcare scenarios, including supporting the "Common 
-  Meaningful Use Data Set" and other content from the Consolidated CDA implementation guide.  However, the set 
-  of resources is not complete.  Resources may evolve and new ones will be introduced over time.  Refer to <a href="versions.html">FHIR 
+  <li>While many applications have used the FHIR specification is production, the functionality it covers is not yet complete.  
+  Resources may evolve and new ones will be introduced over time.  Refer to <a href="versions.html">FHIR 
   Timelines</a> for additional guidance on expectations around the evolution of the FHIR specification, or the road maps on the module pages.</li>
 </ul>
 
@@ -87,58 +177,27 @@ the co-chairs of the FHIR Management Group: <a href="mailto:lloyd@lmckenzie.com"
 Thanks for taking the time to review the FHIR specification.  We appreciate any feedback you can provide.
 </p>
 
-<h3>Balloting Roadmap</h3>
+<h3>Ballot Packages</h3>
 
-<p>
-You can review which ever parts of the specification that are of interest in any order you wish.  However, if you are 
-not familiar with the FHIR specification, you may wish to follow this roadmap, by clicking on the <a href="documentation.html">Documentation</a> 
-link and read through at least the following:
-</p>
-<p>
-For context:
-</p>
-<ul>
-  <li><a href="summary.html">1 page Summary (Glossy)</a></li>
-  <li><a href="overview-dev.html">Developer's Introduction</a></li>
-  <li><a href="overview-clinical.html">Clinical Introduction</a></li>
-  <li><a href="overview-arch.html">Architect's Introduction</a></li>
-  <li><a href="overview.html">Overview &amp; Roadmap</a></li>
-  <li><a href="versions.html">FHIR Timelines</a></li>
-</ul>
-<p>
-To see scope:
-</p>
-<ul>
-  <li>Click on the <a href="resourcelist.html">Resources</a> link at the top to get a sense of what resources exist and maybe drill into a couple of them to see what 
-  they look like before coming back to the Documentation tab for more context</li>
-</ul>
-<p>
-To understand base approach:
-</p>
-<ul>
-  <li><a href="resource.html">Base Resource</a></li>
-  <li><a href="domainresource.html">DomainResource</a></li>
-  <li><a href="narrative.html">Narrative</a></li>
-  <li><a href="formats.html">Formats: XML, JSON</a></li>
-  <li><a href="extensibility.html">Extensibility</a></li>
-</ul>
-<p>
-To understand key infrastructure:
-</p>
-<ul>
-  <li><a href="datatypes.html">Data Types</a></li>
-  <li><a href="terminologies.html">Using Codes in Resources</a></li>
-</ul>
-<p>
-For context for this ballot:
-</p>
-<ul>
-  <li><a href="todo.html">Outstanding Issues</a></li>
-</ul>
-<p>
-Feel free to drill down into any other sections of interest.  If you want to ensure a complete review of the whole spec, the 
-<a href="toc.html">Table of Contents</a> may be a useful guide.
-</p>
+<h4>Infrastructure</h4>
+<p>Abstract base types, data types, formats, the RESTful API, and content and typing rules</p>
+
+[%normative-pages infrastructure%]
+
+<h4>Terminology and Conformance</h4>
+<p>The terminology infrastructure, and the base resources that specify content</p>
+
+[%normative-pages conformance%]
+
+<h4>Patient</h4>
+<p>The Patient resource, and related content</p>
+
+[%normative-pages patient%]
+
+<h4>Observation</h4>
+<p>The Observation resource, and related content</p>
+
+[%normative-pages observation%]
 
 </div>
 

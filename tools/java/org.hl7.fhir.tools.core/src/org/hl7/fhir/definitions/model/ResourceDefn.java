@@ -144,6 +144,7 @@ public class ResourceDefn  {
   private boolean forFutureUse = false;
   private String requirements;
   private boolean publishedInProfile;
+  private String normativePackage;
 
   public boolean isForFutureUse()
   {
@@ -320,6 +321,15 @@ public class ResourceDefn  {
 
   public void setTemplate(ElementDefn template) {
     this.template = template;
+  }
+
+  
+  public String getNormativePackage() {
+    return normativePackage;
+  }
+
+  public void setNormativePackage(String value) {
+    this.normativePackage = value; 
   }
   
   

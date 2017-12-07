@@ -161,7 +161,6 @@ public class SourceParser {
     srcDir = root + sl + "source" + sl;
     dstDir = root + sl + "publish" + sl;
     ini = new IniFile(srcDir + "fhir.ini");
-
     termDir = srcDir + "terminologies" + sl;
     dtDir = srcDir + "datatypes" + sl;
     imgDir = root + sl + "images" + sl;
@@ -175,6 +174,7 @@ public class SourceParser {
   public void parse(Calendar genDate, List<ValidationMessage> issues) throws Exception {
     logger.log("Loading", LogMessageType.Process);
 
+    loadNormativePackages();
     loadWorkGroups();
     loadW5s();
     loadMappingSpaces();
@@ -301,12 +301,15 @@ public class SourceParser {
     closeTemplates();
   }
 
+  private void loadNormativePackages() {
+    for (String s : ini.getPropertyNames("normative-packages")) {
+      page.getNormativePackages().put(s, new HashMap<String, String>());
+    }
+  }
+
   private WorkGroup wg(String committee) {
     return definitions.getWorkgroups().get(committee);
   }
-
-
-
 
   private void loadCommonSearchParameters() throws FHIRFormatError, FileNotFoundException, IOException {
     Bundle bnd = (Bundle) new XmlParser().parse(new CSFileInputStream(Utilities.path(srcDir, "searchparameter", "common-search-parameters.xml")));
@@ -972,6 +975,7 @@ public class SourceParser {
       definitions.getKnownResources().put(root.getName(), new DefinedCode(root.getName(), root.getRoot().getDefinition(), n));
       context.getResourceNames().add(root.getName());
     }
+    root.setNormativePackage(ini.getStringProperty("normative", root.getName()));
     return root;
   }
 

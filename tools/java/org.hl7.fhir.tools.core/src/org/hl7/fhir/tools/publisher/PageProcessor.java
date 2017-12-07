@@ -334,6 +334,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Bundle typeBundle;
   private Bundle resourceBundle;
   private JsonObject r2r3Outcomes;
+  private Map<String, Map<String, String>> normativePackages = new HashMap<String, Map<String, String>>();
 
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
     super();
@@ -791,9 +792,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("fmmna")) {
         String fmm = "N/A";
         src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
+      } else if (com[0].equals("normative")) {
+        src = s1+getNormativeNote(genlevel(level), com.length < 2 ? null : com[1], workingTitle, file)+s3;
       } else if (com[0].equals("fmmshort")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         src = s1+getFmmShortFromlevel(genlevel(level), fmm)+s3;
+      } else if (com[0].equals("normative-pages")) {
+        src = s1+getNormativeList(genlevel(level), com[1])+s3;
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1139,6 +1144,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String getNormativeList(String genlevel, String name) {
+    Map<String, String> map = normativePackages.get(name);
+    if (map.size() == 0) {
+      return "<p>No Content Yet</p>";
+    } else {
+      StringBuilder b = new StringBuilder();
+      b.append("<div style=\"border: 1px grey solid; padding: 5px\"><ul style=\"column-count: 3\">\r\n");
+      for (String s : sorted(map.keySet())) {
+        b.append("  <li><a href=\""+s+"\">"+map.get(s)+"</a></li>\r\n");
+      }    
+      b.append("</ul></div>\r\n");
+      return b.toString();
+    }
+  }
+
+  private String getNormativeNote(String genlevel, String pack, String title, String filename) {
+    normativePackages.get(pack).put(filename, title);
+    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
+        "Normative Candidate Note: This page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+        "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
+        "</p>\r\n" + 
+        "";
   }
 
   private String buildResListByMaturity() {
@@ -4735,6 +4764,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+s3;
       } else if (com[0].equals("r2r3transform")) {
         src = s1+dtR2R3Transform(com[1])+s3;
+      } else if (com[0].equals("normative-pages")) {
+        src = s1+getNormativeList(genlevel(level), com[1])+s3;
+      } else if (com[0].equals("normative")) {
+        src = s1+s3;
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -5289,7 +5322,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com[0].equals("svg"))
         src = s1+new SvgGenerator(this, genlevel(level)).generate(resource, com[1])+s3;
-      else if (com.length != 1)
+      else if (com[0].equals("normative")) {
+        String np = (com.length > 1 && !com[1].equals("%check") ? com[1] : resource.getNormativePackage());
+        if (np == null)
+          src = s1+s3;
+        else
+          src = s1+getNormativeNote(genlevel(level), np, workingTitle, name+".html")+s3;
+      } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
       else if (com[0].equals("pageheader"))
         src = s1+pageHeader(resource.getName())+s3;
@@ -5453,12 +5492,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
 
   private String fmmBarColorStyle(ResourceDefn resource) {
+    if (resource.getNormativePackage() != null)
+      return "colsn";
+    else {
     switch (resource.getStatus()) {
     case DRAFT: return "colsd";
     case TRIAL_USE: return "0".equals(resource.getFmmLevel()) ? "colsd" : "cols"; 
     case NORMATIVE: return "colsn";
     default:
       return "colsd";
+    }
     }
   }
 
@@ -8383,7 +8426,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     ResourceDefn rd = definitions.getResourceByName(resourceName);
     if (rd == null)
       throw new FHIRException("unable to find resource '"+resourceName+"'");
-    return "&nbsp;<a href=\"versions.html#std-process\" title=\"Maturity Level\">"+rd.getStatus().toDisplay()+"</a>";
+    if (rd.getNormativePackage() != null)
+      return "&nbsp;<a href=\"versions.html#std-process\" title=\"Maturity Level\">Normative</a>";
+    else
+      return "&nbsp;<a href=\"versions.html#std-process\" title=\"Maturity Level\">"+rd.getStatus().toDisplay()+"</a>";
   }
   private String getFmm(String resourceName) throws Exception {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
@@ -8980,4 +9026,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
+  public Map<String, Map<String, String>> getNormativePackages() {
+    return normativePackages;
+  }
+
+  
 }
