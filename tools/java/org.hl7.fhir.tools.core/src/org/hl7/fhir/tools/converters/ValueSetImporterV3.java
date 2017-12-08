@@ -155,11 +155,11 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         for (int i = 1; i < lvl; i++)
           s.append("&nbsp;&nbsp;");
         if (select) {
-          s.append(Utilities.escapeXml(code) + "<a name=\"" + Utilities.escapeXml(Utilities.nmtokenize(code)) + "\"> </a>" + d + "</td><td>"
+          s.append(Utilities.escapeXml(code) + "<a name=\"" + cs.getId()+"-"+ Utilities.escapeXml(Utilities.nmtokenize(code)) + "\"> </a>" + d + "</td><td>"
               + Utilities.escapeXml(display) + "</td><td>");
         } else
           s.append("<span style=\"color: grey\"><i>(" + Utilities.escapeXml(code) + ")</i></span>" + d + "</td><td><a name=\""
-              + Utilities.escapeXml(Utilities.nmtokenize(code)) + "\">&nbsp;</a></td><td>");
+              + cs.getId()+"-"+ Utilities.escapeXml(Utilities.nmtokenize(code)) + "\">&nbsp;</a></td><td>");
         if (definition != null)
           s.append(definition);
         if (doPart) {
