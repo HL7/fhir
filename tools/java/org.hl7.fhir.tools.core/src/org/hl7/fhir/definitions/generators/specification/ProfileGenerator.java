@@ -695,7 +695,7 @@ public class ProfileGenerator {
     ElementDefinition e = new ElementDefinition();
     String idroot = e.getId();
     e.setPath(pt.getBaseType());
-    e.setSliceName(pt.getName());
+//    e.setSliceName(pt.getName());
     e.setShort(pt.getDefinition());
     e.setDefinition(preProcessMarkdown(pt.getDescription(), "??"));
     e.setMin(0);
