@@ -38,13 +38,6 @@
 
 === Sheet Invariants =====================================
 
- -- Row 1 -----------------------------------
-  Id = 1
-  Context = CommunicationRequest.requester
-  English = onBehalfOf can only be specified if agent is practitioner or device
-  XPath = contains(f:agent/f:reference/@value, \'/Practitioner/\') or contains(f:agent/f:reference/@value, \'/Device/\') or not(exists(f:onBehalfOf))
-  Expression = (agent.resolve() is Practitioner) or (agent.resolve() is Device) or onBehalfOf.exists().not()
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -227,49 +220,31 @@
   w5 = when.recorded
 
  -- Row 18 -----------------------------------
-  Element = CommunicationRequest.sender
-  Card. = 0..1
-  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
-  Short Name = Message sender
-  Definition = The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication
-  Workflow Mapping = Request.performer
-  w5 = who.actor
-
- -- Row 19 -----------------------------------
   Element = CommunicationRequest.requester
   Card. = 0..1
   Aliases = author
   Summary = Y
   UML = 380;240
+  Type = Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)
   Short Name = Who/what is requesting service
-  Definition = The individual who initiated the request and has responsibility for its activation
+  Definition = The device, individual, or organization who initiated the request and has responsibility for its activation
   Workflow Mapping = Request.requester
   RIM Mapping = .participation[typeCode=AUT].role
-
- -- Row 20 -----------------------------------
-  Element = CommunicationRequest.requester.agent
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|RelatedPerson|Device)
-  Short Name = Individual making the request
-  Definition = The device, practitioner, etc. who initiated the request
-  Workflow Mapping = Request.requester.agent
-  RIM Mapping = .player
+  Committee Notes = GF#14064
   w5 = who.author
 
- -- Row 21 -----------------------------------
-  Element = CommunicationRequest.requester.onBehalfOf
+ -- Row 19 -----------------------------------
+  Element = CommunicationRequest.sender
   Card. = 0..1
   Summary = Y
-  Inv. = 1
-  Type = Reference(Organization)
-  Short Name = Organization agent is acting for
-  Definition = The organization the device or practitioner was acting on behalf of
-  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
-  Workflow Mapping = Request.requester.onBehalfOf
-  RIM Mapping = .scoper
+  Type = Reference(Device|Organization|Patient|Practitioner|PractitionerRole|RelatedPerson|HealthcareService)
+  Short Name = Message sender
+  Definition = The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication
+  Workflow Mapping = Request.performer
+  Committee Notes = GF#14064
+  w5 = who.actor
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = CommunicationRequest.reasonCode
   Card. = 0..*
   Summary = Y
@@ -282,18 +257,19 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 23 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = CommunicationRequest.reasonReference
   Card. = 0..*
   Summary = Y
-  Type = Reference(Condition|Observation)
+  Type = Reference(Condition|Observation|DiagnosticReport|DocumentReference)
   Short Name = Why is communication needed?
   Definition = Indicates another resource whose existence justifies this request
   Workflow Mapping = Request.reasonReference
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
+  Committee Notes = GF#14064
   w5 = why
 
- -- Row 24 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = CommunicationRequest.note
   Card. = 0..*
   Type = Annotation
@@ -332,7 +308,7 @@
  -- Row 6 -----------------------------------
   Name = requester
   Type = reference
-  Path = CommunicationRequest.requester.agent
+  Path = CommunicationRequest.requester
 
  -- Row 7 -----------------------------------
   Name = status

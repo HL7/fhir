@@ -24,9 +24,7 @@
 	<identifier>
 		<value value="12345" />
 	</identifier>
-	<definition>
-		<display value="A PlanDefinition protocol for obesity" />
-	</definition>
+	<instantiates value="http://example.org/fhir/PlanDefinition/protocol-for-obesity"/> 
 	<basedOn>
 		<display value="Management of Type 2 Diabetes" />
 	</basedOn>

@@ -235,14 +235,14 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = CarePlan.definition
+  Element = CarePlan.instantiates
   Card. = 0..*
   Summary = Y
-  Type = Reference(PlanDefinition|Questionnaire)
+  Type = uri
   Short Name = Protocol or definition
   Definition = Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.
   Workflow Mapping = Request.instantiates
-  Committee Notes = GF#11343
+  Committee Notes = GF#11343, GF#14064
 
  -- Row 4 -----------------------------------
   Element = CarePlan.basedOn
@@ -384,11 +384,12 @@
   Element = CarePlan.author
   Card. = 0..*
   Summary = Y
-  Type = Reference(Patient|Practitioner|RelatedPerson|Organization|CareTeam)
+  Type = Reference(Patient|Practitioner|PractitionerRole|Device|RelatedPerson|Organization|CareTeam)
   Short Name = Who is responsible for contents of the plan
   Definition = Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
   Comments = Collaborative care plans may have multiple authors.
   Workflow Mapping = Request.requester
+  Committee Notes = GF#14064
   w5 = who.source
 
  -- Row 16 -----------------------------------
@@ -514,14 +515,14 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=LIST].code
 
  -- Row 27 -----------------------------------
-  Element = CarePlan.activity.detail.definition
+  Element = CarePlan.activity.detail.instantiates
   Card. = 0..1
-  Type = Reference(PlanDefinition|ActivityDefinition|Questionnaire)
+  Type = uri
   Short Name = Protocol or definition
   Definition = Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.
   Requirements = Allows Questionnaires that the patient (or practitioner) should fill in to fulfill the care plan activity.
   Workflow Mapping = Request.instantiates
-  Committee Notes = GF#11051
+  Committee Notes = GF#11051, GF#14064
 
  -- Row 28 -----------------------------------
   Element = CarePlan.activity.detail.code
@@ -549,11 +550,12 @@
  -- Row 30 -----------------------------------
   Element = CarePlan.activity.detail.reasonReference
   Card. = 0..*
-  Type = Reference(Condition)
-  Short Name = Condition triggering need for activity
-  Definition = Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.
+  Type = Reference(Condition|Observation|DiagnosticReport|DocumentReference)
+  Short Name = Why activity is needed
+  Definition = Indicates another resource, such as the health condition(s), whose existence justifies this request and drove the inclusion of this particular activity as part of the plan.
   Comments = Conditions can be identified at the activity level that are not identified as reasons for the overall plan
   Workflow Mapping = Request.reasonReference
+  Committee Notes = GF#14064
 
  -- Row 31 -----------------------------------
   Element = CarePlan.activity.detail.goal
@@ -624,7 +626,7 @@
  -- Row 37 -----------------------------------
   Element = CarePlan.activity.detail.performer
   Card. = 0..*
-  Type = Reference(Practitioner|Organization|RelatedPerson|Patient|CareTeam)
+  Type = Reference(Practitioner|PractitionerRole|Organization|RelatedPerson|Patient|CareTeam|HealthcareService|Device)
   Short Name = Who will be responsible?
   Definition = Identifies who\'s expected to be involved in the activity.
   Requirements = Helps in planning of activity
@@ -632,6 +634,7 @@
   Workflow Mapping = Request.performer
   v2 Mapping = PRT-5 : ( PRV-4 = (provider participations)); PRT-5 : ( PRV-4 = (non-provider person participations )) ; PRT-5 : ( PRV-4 = (patient non-subject of care) ) ; PRT-8
   RIM Mapping = .participation[typeCode=PFM]
+  Committee Notes = GF#14064
 
  -- Row 38 -----------------------------------
   Element = CarePlan.activity.detail.product[x]
@@ -755,9 +758,9 @@
   Path = CarePlan.status
 
  -- Row 14 -----------------------------------
-  Name = definition
-  Type = reference
-  Path = CarePlan.definition
+  Name = instantiates
+  Type = uri
+  Path = CarePlan.instantiates
 
  -- Row 15 -----------------------------------
   Name = based-on

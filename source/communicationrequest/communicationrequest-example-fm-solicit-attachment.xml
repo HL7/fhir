@@ -79,13 +79,12 @@
   </payload>
   <occurrenceDateTime value="2016-06-10T11:01:10-08:00"/>
   <authoredOn value="2016-06-10T11:01:10-08:00"/>
-  <sender>
+  <requester>
+		<reference value="#requester"/>
+   </requester>
+   <sender>
      <reference value="#payor"/>
    </sender>
-   <requester>
-	   <agent>
-		 <reference value="#requester"/>
-	   </agent>
-   </requester>
+   
 
 </CommunicationRequest>
