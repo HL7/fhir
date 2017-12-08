@@ -171,7 +171,7 @@ public class SimpleFetcher implements IFetchFile {
           throw new Exception("Unable to find the source file for "+type+"/"+id+": not specified, so tried "+type.toLowerCase()+"-"+id+".xml, "+type.toLowerCase()+"-"+id+".json, "+type.toLowerCase()+"/"+id+".xml, "+type.toLowerCase()+"/"+id+".json, "+id+".xml, and "+id+".json in dirs "+dirs.toString());
       } else {
         fn = findFile(dirs, fn);
-        if (!exists(fn))
+        if (fn == null || !exists(fn))
           throw new Exception("Unable to find the source file for "+type+"/"+id+" at "+fn);
       }
       return fetch(fn); 
