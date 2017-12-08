@@ -501,7 +501,7 @@
   Element = PlanDefinition.relatedArtifact
   Card. = 0..*
   Type = RelatedArtifact
-  Short Name = Related artifacts for the plan
+  Short Name = Additional documentation, citations, etc
   Definition = Related artifacts such as additional documentation, justification, or bibliographic references
   Requirements = Plan definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related artifact is either an attachment, or a reference to another resource, but not both
