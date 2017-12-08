@@ -801,7 +801,7 @@ public class ResourceValidator extends BaseValidator {
 //
   // MnM controls this list
   private boolean isOkComment(String path) {
-    return Utilities.existsInList(path, "Appointment.comment", "AppointmentResponse.comment", "HealthcareService.comment", "Schedule.comment", "Slot.comment");
+    return Utilities.existsInList(path, "Appointment.comment", "AppointmentResponse.comment", "HealthcareService.comment", "Schedule.comment", "Slot.comment", "DiagnosticReport.image.comment");
   }
 
   private boolean isValidToken(String name, boolean root) {
