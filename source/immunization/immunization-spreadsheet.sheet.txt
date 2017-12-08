@@ -44,41 +44,20 @@
   Conformance = example
 
  -- Row 7 -----------------------------------
-  Binding Name = VaccinationProtocoltargetDisease
-  Binding = value set
-  Reference = valueset-vaccination-protocol-dose-target
-  Definition = The disease target of the vaccination protocol
-  Conformance = example
-
- -- Row 8 -----------------------------------
-  Binding Name = VaccinationProtocolDoseStatus
-  Binding = value set
-  Reference = valueset-vaccination-protocol-dose-status
-  Definition = The status of the vaccination protocol (i.e. should this count)
-  Conformance = example
-
- -- Row 9 -----------------------------------
-  Binding Name = VaccinationProtocolDoseStatusReason
-  Binding = value set
-  Reference = valueset-vaccination-protocol-dose-status-reason
-  Definition = The reason for the determining if a vaccination should count or why vaccination should not count.
-  Conformance = example
-
- -- Row 10 -----------------------------------
   Binding Name = ImmunizationStatus
   Binding = value set
   Reference = valueset-immunization-status
   Definition = A set of codes indicating the current status of an Immunization
   Conformance = required
 
- -- Row 11 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = ImmunizationReportOrigin
   Binding = value set
   Reference = valueset-immunization-origin
   Definition = The source of the data for a record which is not from a primary source.
   Conformance = example
 
- -- Row 12 -----------------------------------
+ -- Row 9 -----------------------------------
   Binding Name = ImmunizationRole
   Binding = value set
   Reference = valueset-immunization-role
@@ -394,83 +373,6 @@
   RIM Mapping = N/A
   Committee Notes = #5758
 
- -- Row 29 -----------------------------------
-  Element = Immunization.vaccinationProtocol
-  Card. = 0..*
-  UML = 410;90
-  Short Name = What protocol was followed
-  Definition = Contains information about the protocol(s) under which the vaccine was administered
-  v2 Mapping = (HL7 v2 doesn\'t seem to provide for this)
-  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM]
-
- -- Row 30 -----------------------------------
-  Element = Immunization.vaccinationProtocol.doseNumber
-  Card. = 0..1
-  Type = positiveInt
-  Short Name = Dose number within series
-  Definition = Nominal position in a series
-  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].sequenceNumber
-
- -- Row 31 -----------------------------------
-  Element = Immunization.vaccinationProtocol.description
-  Card. = 0..1
-  Type = string
-  Short Name = Details of vaccine protocol
-  Definition = Contains the description about the protocol under which the vaccine was administered
-  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].text
-
- -- Row 32 -----------------------------------
-  Element = Immunization.vaccinationProtocol.authority
-  Card. = 0..1
-  Type = Reference(Organization)
-  Short Name = Who is responsible for protocol
-  Definition = Indicates the authority who published the protocol.  E.g. ACIP
-  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].participation[typeCode=AUT].COCT_MT090200UV
-
- -- Row 33 -----------------------------------
-  Element = Immunization.vaccinationProtocol.series
-  Card. = 0..1
-  Type = string
-  Short Name = Name of vaccine series
-  Definition = One possible path to achieve presumed immunity against a disease - within the context of an authority
-  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM]
-
- -- Row 34 -----------------------------------
-  Element = Immunization.vaccinationProtocol.seriesDoses
-  Card. = 0..1
-  Type = positiveInt
-  Short Name = Recommended number of doses for immunity
-  Definition = The recommended number of doses to achieve immunity.
-  RIM Mapping = outboundRelationship[typeCode=INST].target[classCode=SBADM].inboundRelationship[typeCode=COMP].source[classCode=SBADM].text
-
- -- Row 35 -----------------------------------
-  Element = Immunization.vaccinationProtocol.targetDisease
-  Card. = 1..*
-  Type = CodeableConcept
-  Binding = VaccinationProtocoltargetDisease
-  Short Name = Disease immunized against
-  Definition = The targeted disease
-  RIM Mapping = outboundRelationship.target[classCode=OBS].code
-
- -- Row 36 -----------------------------------
-  Element = Immunization.vaccinationProtocol.doseStatus
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = VaccinationProtocolDoseStatus
-  Short Name = Indicates if dose counts towards immunity
-  Definition = Indicates if the immunization event should \"count\" against  the protocol.
-  Comments = May need to differentiate between status declarations by a provider vs. a CDS engine
-  RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].playedRole[classCode=INGR].scopedRole.scoper[classCode=MMAT].playedRole[classCode=HLTHCHRT].participation[typeCode=SBJ].observation[classCode=OBS].value
-
- -- Row 37 -----------------------------------
-  Element = Immunization.vaccinationProtocol.doseStatusReason
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = VaccinationProtocolDoseStatusReason
-  Short Name = Why dose does (not) count
-  Definition = Provides an explanation as to why an immunization event should or should not count against the protocol.
-  RIM Mapping = .participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].playedRole[classCode=INGR].scopedRole.scoper[classCode=MMAT].playedRole[classCode=HLTHCHRT].participation[typeCode=SBJ].observation[classCode=OBS].reasonCode
-
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
@@ -480,57 +382,52 @@
   Path = Immunization.date
 
  -- Row 2 -----------------------------------
-  Name = dose-number
-  Type = number
-  Path = Immunization.vaccinationProtocol.doseNumber
-
- -- Row 3 -----------------------------------
   Name = identifier
   Type = token
   Path = Immunization.identifier
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = location
   Type = reference
   Description = The service delivery location or facility in which the vaccine was / was to be administered
   Path = Immunization.location
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = lot-number
   Type = string
   Description = Vaccine Lot Number
   Path = Immunization.lotNumber
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = manufacturer
   Type = reference
   Description = Vaccine Manufacturer
   Path = Immunization.manufacturer
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = reason
   Type = token
   Path = Immunization.reason
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = practitioner
   Type = reference
   Description = The practitioner who played a role in the vaccination
   Path = Immunization.practitioner.actor
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = patient
   Type = reference
   Description = The patient for the vaccination record
   Path = Immunization.patient
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = vaccine-code
   Type = token
   Description = Vaccine Product Administered
   Path = Immunization.vaccineCode
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = status
   Type = token
   Description = Immunization event status

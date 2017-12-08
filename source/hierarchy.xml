@@ -302,7 +302,8 @@ signatures.html
       <page type="resource" resource="MedicationStatement"/>
       <page type="resource" resource="Medication"/>
       <page type="resource" resource="Immunization"/>
-      <page type="resource" resource="ImmunizationRecommendation"/>
+      <page type="resource" resource="ImmunizationEvaluation"/>
+     <page type="resource" resource="ImmunizationRecommendation"/>
       <page title="Dosage" filename="dosage.html">
         <page title="Examples" filename="dosage-examples.html"/>
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>

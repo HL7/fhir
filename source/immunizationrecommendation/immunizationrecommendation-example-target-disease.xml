@@ -23,7 +23,6 @@
 				<code value="40468003"/>
 			</coding>
 		</targetDisease>
-		<doseNumber value="1"/>
 		<forecastStatus>
 			<text value="Not Complete"/>
 		</forecastStatus>
@@ -57,9 +56,10 @@
 			</code>
 			<value value="2016-12-28T00:00:00-05:00"/>
 		</dateCriterion>
-		<seriesDoses value="1"/>
 		<description value="First sequence in protocol"/>
 		<series value="Vaccination Series 1"/>
+		<doseNumber value="1"/>
+		<seriesDoses value="3"/>
 		<supportingImmunization>
 			<reference value="Immunization/example"/>
 		</supportingImmunization>

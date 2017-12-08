@@ -97,33 +97,4 @@
 			<code value="private"/>
 		</coding>
 	</fundingSource>
-	<vaccinationProtocol>
-		<doseNumber value="1"/>
-		<description value="Vaccination Protocol Sequence 1"/>
-		<authority>
-			<reference value="Organization/hl7"/>
-		</authority>
-		<series value="Vaccination Series 1"/>
-		<seriesDoses value="2"/>
-		<targetDisease>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="1857005"/>
-			</coding>
-		</targetDisease>
-		<doseStatus>
-			<coding>
-				<system value="http://hl7.org/fhir/vaccination-protocol-dose-status"/>
-				<code value="valid"/>
-				<display value="Valid"/>
-			</coding>
-		</doseStatus>
-		<doseStatusReason>
-			<coding>
-				<system value="http://hl7.org/fhir/vaccination-protocol-dose-status-reason"/>
-				<code value="coldchbrk"/>
-				<display value="Cold chain break"/>
-			</coding>
-		</doseStatusReason>
-	</vaccinationProtocol>
 </Immunization>

@@ -146,17 +146,6 @@
   Definition = Vaccine(s) which should not be used to fulfill the recommendation
 
  -- Row 10 -----------------------------------
-  Element = ImmunizationRecommendation.recommendation.doseNumber
-  Card. = 0..1
-  Summary = Y
-  Type = positiveInt
-  Short Name = Recommended dose number within series
-  Definition = Nominal position of the recommended dose in a series (e.g. dose 2 is the next recommended dose).
-  Comments = May need other dose concepts such as administered vs. valid
-  v2 Mapping = OBX-5 : OBX-3 = 30973-2
-  RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=INT]].sequenceNumber
-
- -- Row 11 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.forecastStatus
   Card. = 1..1
   Summary = Y
@@ -167,7 +156,7 @@
   v2 Mapping = OBX-5 : OBX-3 = 59783-1
   RIM Mapping = .inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=\"Immunization Forecast Status\"].value
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.forecastReason
   Card. = 0..*
   Summary = Y
@@ -177,7 +166,7 @@
   Definition = The reason why for the vaccine administration status
   v2 Mapping = OBX-5 : OBX-3 = 30982-3
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.dateCriterion
   Card. = 0..*
   UML = 350;0
@@ -187,7 +176,7 @@
   v2 Mapping = OBX-3: 30980-7 = Next dose recommended, 59777-3 = Latest next dose should be given, 59778-1 = Dose is overdue
   RIM Mapping = .outboundRelationship[typeCode=\'LIMIT\'].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.dateCriterion.code
   Card. = 1..1
   Type = CodeableConcept
@@ -197,7 +186,7 @@
   v2 Mapping = OBX-3
   RIM Mapping = .code
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.dateCriterion.value
   Card. = 1..1
   Type = dateTime
@@ -206,16 +195,7 @@
   v2 Mapping = OBX-5
   RIM Mapping = .value
 
- -- Row 16 -----------------------------------
-  Element = ImmunizationRecommendation.recommendation.seriesDoses
-  Card. = 0..1
-  Type = positiveInt
-  Short Name = Recommended number of doses for immunity
-  Definition = The recommended number of doses to achieve immunity.
-  v2 Mapping = OBX-5 : OBX-3 = 59782-3
-  RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=DEF]].sequenceNumber
-
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.description
   Card. = 0..1
   Type = string
@@ -224,7 +204,7 @@
   v2 Mapping = OBX-5 : OBX-3 = 30956-7
   RIM Mapping = .text
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.series
   Card. = 0..1
   Type = string
@@ -232,6 +212,26 @@
   Definition = One possible path to achieve presumed immunity against a disease - within the context of an authority
   v2 Mapping = RXA-5-administered code
   RIM Mapping = .title
+
+ -- Row 17 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.doseNumber
+  Card. = 0..1
+  Summary = Y
+  Type = positiveInt
+  Short Name = Recommended dose number within series
+  Definition = Nominal position of the recommended dose in a series (e.g. dose 2 is the next recommended dose).
+  Comments = May need other dose concepts such as administered vs. valid
+  v2 Mapping = OBX-5 : OBX-3 = 30973-2
+  RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=INT]].sequenceNumber
+
+ -- Row 18 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.seriesDoses
+  Card. = 0..1
+  Type = positiveInt
+  Short Name = Recommended number of doses for immunity
+  Definition = The recommended number of doses to achieve immunity.
+  v2 Mapping = OBX-5 : OBX-3 = 59782-3
+  RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=DEF]].sequenceNumber
 
  -- Row 19 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.supportingImmunization
