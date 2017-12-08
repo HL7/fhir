@@ -38,6 +38,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
@@ -278,6 +279,7 @@ public class SpreadsheetParser {
 		for (int row = 0; row < sheet.rows.size(); row++) {
 		  processLine(resource, sheet, row, invariants, false, null, row == 0);
 		}
+		resource.addHints(checkIgnoredColumns(sheet));
 		if (template != null) {
 		  resource.setTemplate(template.getRoot());
 		  copySearchParameters(resource);
@@ -322,7 +324,21 @@ public class SpreadsheetParser {
 	}
 
 
-	private void copySearchParameters(ResourceDefn resource) {
+	private List<String> checkIgnoredColumns(Sheet sheet) {
+	  List<String> res = new ArrayList<String>();
+    for (String col : sheet.columns) {
+      if (!tabfmt.hasColumn(col) && sheet.hasColumnContent(col)) {
+        // its a column we ignored...
+        if (col.toLowerCase().contains("mapping") && !Utilities.existsInList(col, "??? Mapping", "OpenEHR Mapping", "RIM Mapping (old)", "Notes on mapping")) {
+//          System.out.println("Ignored Column "+col+" in sheet "+sheet.title+" in "+name);  
+          res.add("Ignored Column "+col+" in sheet "+sheet.title+" in "+name);
+        }
+      }
+    }
+    return res;
+  }
+
+  private void copySearchParameters(ResourceDefn resource) {
 	  for (SearchParameterDefn sps : template.getSearchParams().values()) {
 	    if (hasPath(resource, sps.getPaths().get(0))) {
 	      SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle);

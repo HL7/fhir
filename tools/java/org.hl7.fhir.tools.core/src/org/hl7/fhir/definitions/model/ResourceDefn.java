@@ -85,6 +85,7 @@ public class ResourceDefn  {
   private String proposedOrder;
   private String display;
   private ElementDefn template;
+  private List<String> hints = new ArrayList<String>();
   
   private List<InheritedMapping> inheritedMappings = new ArrayList<InheritedMapping>();
 
@@ -330,6 +331,15 @@ public class ResourceDefn  {
 
   public void setNormativePackage(String value) {
     this.normativePackage = value; 
+  }
+
+  public void addHints(List<String> hints) {
+    this.hints.addAll(hints);
+    
+  }
+
+  public List<String> getHints() {
+    return hints;
   }
   
   

@@ -171,6 +171,9 @@ public class ResourceValidator extends BaseValidator {
   }
 
   public void check(List<ValidationMessage> errors, String name, ResourceDefn rd) throws Exception {
+    for (String s : rd.getHints())
+      hint(errors, IssueType.INFORMATIONAL, rd.getName(), false, s);
+
     rule(errors, IssueType.STRUCTURE, rd.getName(), !name.equals("Metadata"), "The name 'Metadata' is not a legal name for a resource");
     rule(errors, IssueType.STRUCTURE, rd.getName(), !name.equals("History"), "The name 'History' is not a legal name for a resource");
     rule(errors, IssueType.STRUCTURE, rd.getName(), !name.equals("Tag"), "The name 'Tag' is not a legal name for a resource");

@@ -139,7 +139,6 @@
  -- Row 3 -----------------------------------
   Element = ValueSet.identifier
   Card. = 0..*
-  CDISC Define.xml 2.0 Mapping = Identifier part
 
  -- Row 4 -----------------------------------
   Element = ValueSet.version
@@ -253,7 +252,6 @@
   Short Name = The system the codes come from
   Definition = An absolute URI which is the code system from which the selected codes come from
   Comments = If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See \'\'Coding.system\'\' for further documentation about the correct value for the system element
-  CDISC Define.xml 2.0 Mapping = ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Href
   RIM Mapping = N/A
 
  -- Row 24 -----------------------------------
@@ -264,7 +262,6 @@
   Short Name = Specific version of the code system referred to
   Definition = The version of the code system that the codes are selected from
   Comments = This is used when selecting the descendants of a concept - they may change between versions. If no version is specified, then the exact contents of the value set may not be known until a context of use binds it to a particular version
-  CDISC Define.xml 2.0 Mapping = ODM/Study/MetaDataVersion/CodeList/ExternalCodeList/Version
   RIM Mapping = N/A
 
  -- Row 25 -----------------------------------

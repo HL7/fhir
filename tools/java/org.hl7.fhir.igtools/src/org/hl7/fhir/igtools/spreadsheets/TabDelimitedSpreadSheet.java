@@ -53,4 +53,8 @@ public class TabDelimitedSpreadSheet {
     col++;
   }
 
+  public boolean hasColumn(String colName) {
+    return columns.contains(colName);
+  }
+
 }
