@@ -449,6 +449,9 @@
 		<translation lang="it">Immunizzazione</translation>
 		<translation lang="es">Inmunización</translation>
 	</item>
+	<item id="ImmunizationEvaluation">
+		<translation lang="en">ImmunizationEvaluation</translation>
+	</item>
 	<item id="ImmunizationRecommendation">
 		<translation lang="en">ImmunizationRecommendation</translation>
 		<translation lang="zh">免疫接种建议</translation>
