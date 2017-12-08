@@ -4185,6 +4185,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Invoice.status</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:Index="12"><Data ss:Type="String">issued</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
@@ -4209,7 +4210,7 @@
    <SplitHorizontal>4</SplitHorizontal>
    <TopRowBottomPane>96</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4217,7 +4218,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4226,7 +4226,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>106</ActiveRow>
-     <ActiveCol>15</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

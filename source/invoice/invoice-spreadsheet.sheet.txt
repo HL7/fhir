@@ -43,6 +43,13 @@
   Definition = the invoice was cancelled
   v3 = =ActStatus.aborted
 
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = entered-in-error
+  Display = entered in error
+  Definition = the invoice was determined as entered in error before it was issued
+  v3 = =ActStatus.nullified
+
 === Sheet invoice-priceComponentType =====================================
 
  -- Row 1 -----------------------------------
@@ -90,7 +97,7 @@
 
  -- Row 2 -----------------------------------
   Element = Invoice.identifier
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = Identifier
   Short Name = Business Identifier for item
@@ -107,7 +114,7 @@
   Summary = Y
   Type = code
   Binding = InvoiceStatus
-  Short Name = draft | issued | balanced | cancelled
+  Short Name = draft | issued | balanced | cancelled | entered-in-error
   Definition = The current state of the Invoice
   v2 Mapping = Varies by domain
   RIM Mapping = .status
