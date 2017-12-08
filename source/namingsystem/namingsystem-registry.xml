@@ -48,7 +48,7 @@
     <fullUrl value="http://hl7.org/fhir/NamingSystem/us-medicare"/>
     <resource>
       <NamingSystem>
-        <id value="us-ssn"/>
+        <id value="us-medicare"/>
         <name value="United States Medicare Number"/>
         <status value="active"/>
         <kind value="identifier"/>
