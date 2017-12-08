@@ -340,7 +340,7 @@ public class SpreadsheetParser {
 
   private void copySearchParameters(ResourceDefn resource) {
 	  for (SearchParameterDefn sps : template.getSearchParams().values()) {
-	    if (hasPath(resource, sps.getPaths().get(0))) {
+	    if (sps.getPaths().size() > 0 &&  hasPath(resource, sps.getPaths().get(0))) {
 	      SearchParameterDefn spt = new SearchParameterDefn(sps, template.getName(), resource.getName(), templateTitle);
 	      resource.getSearchParams().put(spt.getCode(), spt);
 	    }
