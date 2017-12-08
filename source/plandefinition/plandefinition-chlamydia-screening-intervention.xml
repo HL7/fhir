@@ -72,7 +72,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">
                   <span>
                      <b>text: </b>
-                     <span>Chlamydia Screeening</span>
+                     <span>Chlamydia Screening</span>
                   </span>
                </td>
             </tr>
@@ -129,7 +129,7 @@
   <date value="2015-07-22"/>
   <description value="Chlamydia Screening CDS Example Using Common"/>
   <topic>
-    <text value="Chlamydia Screeening"/>
+    <text value="Chlamydia Screening"/>
   </topic>
   <library>
     <reference value="Library/example"/>
