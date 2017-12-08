@@ -330,16 +330,6 @@
   w5 = why
 
  -- Row 22 -----------------------------------
-  Element = DeviceRequest.insurance
-  Card. = 0..*
-  Type = Reference(Coverage|ClaimResponse)
-  Short Name = Associated insurance coverage
-  Definition = Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.
-  Workflow Mapping = Request.insurance
-  v2 Mapping = IN1/IN2
-  RIM Mapping = .outboundRelationship[typeCode=COVBY].target
-
- -- Row 23 -----------------------------------
   Element = DeviceRequest.reasonReference
   Card. = 0..*
   Summary = Y
@@ -350,6 +340,16 @@
   v2 Mapping = ORC.16
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
+
+ -- Row 23 -----------------------------------
+  Element = DeviceRequest.insurance
+  Card. = 0..*
+  Type = Reference(Coverage|ClaimResponse)
+  Short Name = Associated insurance coverage
+  Definition = Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.
+  Workflow Mapping = Request.insurance
+  v2 Mapping = IN1/IN2
+  RIM Mapping = .outboundRelationship[typeCode=COVBY].target
 
  -- Row 24 -----------------------------------
   Element = DeviceRequest.supportingInfo

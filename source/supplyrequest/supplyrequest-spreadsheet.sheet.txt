@@ -186,7 +186,7 @@
 
  -- Row 6 -----------------------------------
   Element = SupplyRequest.item[x]
-  Card. = 0..1
+  Card. = 1..1
   Summary = Y
   Type = CodeableConcept|Reference(Medication|Substance|Device)
   Binding = SupplyRequestItem
