@@ -15759,6 +15759,11 @@
     <display value="Cholesterol measurement"/>
     <display value="Cholesterol measurement (procedure)"/>
   </concept>
+  <concept id="77176002" display="Smoker">
+    <display value="Smoker"/>
+    <display value="Current smoker"/>
+    <display value="Smoker (finding)"/>
+  </concept>
   <concept id="77236002" display="Large white pig">
     <display value="Large white pig"/>
     <display value="Large white pig (organism)"/>

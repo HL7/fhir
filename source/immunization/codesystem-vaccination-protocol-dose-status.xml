@@ -9,13 +9,13 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="count"/>
-    <display value="Counts"/>
+    <code value="valid"/>
+    <display value="Valid"/>
     <definition value="The dose counts toward fulfilling a path to immunity for a patient, providing protection against the target disease."/>
   </concept>
   <concept>
-    <code value="nocount"/>
-    <display value="Does not Count"/>
+    <code value="notvalid"/>
+    <display value="Not Valid"/>
     <definition value="The dose does not count toward fulfilling a path to immunity for a patient."/>
   </concept>
 </CodeSystem>

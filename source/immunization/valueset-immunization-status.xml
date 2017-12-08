@@ -13,12 +13,15 @@
   <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the current status of the administered dose of vaccine."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/medication-admin-status"/>
+      <system value="http://hl7.org/fhir/event-status"/>
 	  <concept>
         <code value="completed"/>
       </concept>
       <concept>
         <code value="entered-in-error"/>
+      </concept>
+      <concept>
+        <code value="not-done"/>
       </concept>
     </include>
   </compose>

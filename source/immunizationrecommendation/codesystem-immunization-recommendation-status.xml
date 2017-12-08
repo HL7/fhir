@@ -18,4 +18,19 @@
     <display value="Overdue"/>
     <definition value="The patient is considered overdue for their next vaccination."/>
   </concept>
+  <concept>
+    <code value="immune"/>
+    <display value="Immune"/>
+    <definition value="The patient is immune to the target disease and further immunization against the disease is not likely to provide benefit."/>
+  </concept>
+  <concept>
+    <code value="contraindicated"/>
+    <display value="Contraindicated"/>
+    <definition value="The patient is contraindicated for futher doses."/>
+  </concept>
+  <concept>
+    <code value="complete"/>
+    <display value="Complete"/>
+    <definition value="The patient is fully protected and no further doses are recommended."/>
+  </concept>
 </CodeSystem>

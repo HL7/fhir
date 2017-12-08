@@ -9,20 +9,27 @@
   Conformance = example
 
  -- Row 2 -----------------------------------
+  Binding Name = ImmunizationRecommendationReason
+  Binding = value set
+  Reference = valueset-immunization-recommendation-reason
+  Definition = The reason for the patient\'s status with respect to a vaccination protocol
+  Conformance = example
+
+ -- Row 3 -----------------------------------
   Binding Name = ImmunizationRecommendationDateCriterion
   Binding = value set
   Reference = valueset-immunization-recommendation-date-criterion
   Definition = Classifies date criterion with respect to conveying information about a patient\'s vaccination status (e.g. due date, latest to give date, etc.)
   Conformance = example
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = VaccineCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/vaccine-code
   Definition = The type of vaccine administered
   Conformance = example
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = TargetDisease
   Binding = value set
   Reference = valueset-immunization-recommendation-target-disease
@@ -76,6 +83,26 @@
   w5 = who.focus
 
  -- Row 4 -----------------------------------
+  Element = ImmunizationRecommendation.date
+  Card. = 1..1
+  Summary = Y
+  Type = dateTime
+  Short Name = Date recommendation(s) created
+  Definition = The date the immunization recommendation(s) were created.
+  Workflow Mapping = Request.authoredOn
+  v2 Mapping = OBX-15
+  RIM Mapping = .partipication[typeCode=AUTH].time
+
+ -- Row 5 -----------------------------------
+  Element = ImmunizationRecommendation.authority
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Name = Who is responsible for protocol
+  Definition = Indicates the authority who published the protocol.  For example, ACIP
+  v2 Mapping = OBX-5 : OBX-3 = 59779-9
+  RIM Mapping = .participation[typeCode=AUT]
+
+ -- Row 6 -----------------------------------
   Element = ImmunizationRecommendation.recommendation
   Card. = 1..*
   Summary = Y
@@ -84,31 +111,20 @@
   Definition = Vaccine administration recommendations
   RIM Mapping = .outboundRelationship[typeCode=\'COMP\'].target[classCode=SBADM, moodCode=RMD]
 
- -- Row 5 -----------------------------------
-  Element = ImmunizationRecommendation.recommendation.date
-  Card. = 1..1
-  Summary = Y
-  Type = dateTime
-  Short Name = Date recommendation created
-  Definition = The date the immunization recommendation was created.
-  Workflow Mapping = Request.authoredOn
-  v2 Mapping = OBX-15
-  RIM Mapping = .partipication[typeCode=AUTH].time
-
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.vaccineCode
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = VaccineCode
-  Short Name = Vaccine recommendation applies to
-  Definition = Vaccine that pertains to the recommendation
+  Short Name = Vaccine  or vaccine group recommendation applies to
+  Definition = Vaccine(s) or vaccine group that pertains to the recommendation
   Workflow Mapping = Request.code
   v2 Mapping = OBX-5 : OBX-3 = ( 30956-7 | 38890-0 )
   RIM Mapping = .partipication[typeCode=CSM].role[classCode=ADMM].code
   Committee Notes = #12484
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.targetDisease
   Card. = 0..1
   Summary = Y
@@ -120,18 +136,27 @@
   RIM Mapping = .partipication[typeCode=CSM].role[classCode=ADMM].code
   Committee Notes = #12484
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.contraindicatedVaccineCode
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = VaccineCode
+  Short Name = Vaccine which is contraindicated to fulfill the recommendation
+  Definition = Vaccine(s) which should not be used to fulfill the recommendation
+
+ -- Row 10 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.doseNumber
   Card. = 0..1
   Summary = Y
   Type = positiveInt
-  Short Name = Recommended dose number
-  Definition = The next recommended dose number (e.g. dose 2 is the next recommended dose).
+  Short Name = Recommended dose number within series
+  Definition = Nominal position of the recommended dose in a series (e.g. dose 2 is the next recommended dose).
   Comments = May need other dose concepts such as administered vs. valid
   v2 Mapping = OBX-5 : OBX-3 = 30973-2
   RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=INT]].sequenceNumber
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.forecastStatus
   Card. = 1..1
   Summary = Y
@@ -142,7 +167,17 @@
   v2 Mapping = OBX-5 : OBX-3 = 59783-1
   RIM Mapping = .inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=\"Immunization Forecast Status\"].value
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.forecastReason
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ImmunizationRecommendationReason
+  Short Name = Vaccine administration status reason
+  Definition = The reason why for the vaccine administration status
+  v2 Mapping = OBX-5 : OBX-3 = 30982-3
+
+ -- Row 13 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.dateCriterion
   Card. = 0..*
   UML = 350;0
@@ -152,7 +187,7 @@
   v2 Mapping = OBX-3: 30980-7 = Next dose recommended, 59777-3 = Latest next dose should be given, 59778-1 = Dose is overdue
   RIM Mapping = .outboundRelationship[typeCode=\'LIMIT\'].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]
 
- -- Row 11 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.dateCriterion.code
   Card. = 1..1
   Type = CodeableConcept
@@ -162,7 +197,7 @@
   v2 Mapping = OBX-3
   RIM Mapping = .code
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.dateCriterion.value
   Card. = 1..1
   Type = dateTime
@@ -171,26 +206,17 @@
   v2 Mapping = OBX-5
   RIM Mapping = .value
 
- -- Row 13 -----------------------------------
-  Element = ImmunizationRecommendation.recommendation.protocol
-  Card. = 0..1
-  UML = 0;150
-  Short Name = Protocol used by recommendation
-  Definition = Contains information about the protocol under which the vaccine was administered
-  Workflow Mapping = Request.instantiates
-  RIM Mapping = .inboundRelationship[typeCode=INST].source[classCode=SBADM, moodCode=DEF]
-
- -- Row 14 -----------------------------------
-  Element = ImmunizationRecommendation.recommendation.protocol.doseSequence
+ -- Row 16 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.seriesDoses
   Card. = 0..1
   Type = positiveInt
-  Short Name = Dose number within sequence
-  Definition = Indicates the nominal position in a series of the next dose.  This is the recommended dose number as per a specified protocol.
-  v2 Mapping = OBX-5 : OBX-3 = 30973-2
+  Short Name = Recommended number of doses for immunity
+  Definition = The recommended number of doses to achieve immunity.
+  v2 Mapping = OBX-5 : OBX-3 = 59782-3
   RIM Mapping = .inboundRelationship[typeCode=COMP, .source[classCode=SBADM, moodCode=DEF]].sequenceNumber
 
- -- Row 15 -----------------------------------
-  Element = ImmunizationRecommendation.recommendation.protocol.description
+ -- Row 17 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.description
   Card. = 0..1
   Type = string
   Short Name = Protocol details
@@ -198,17 +224,8 @@
   v2 Mapping = OBX-5 : OBX-3 = 30956-7
   RIM Mapping = .text
 
- -- Row 16 -----------------------------------
-  Element = ImmunizationRecommendation.recommendation.protocol.authority
-  Card. = 0..1
-  Type = Reference(Organization)
-  Short Name = Who is responsible for protocol
-  Definition = Indicates the authority who published the protocol.  For example, ACIP
-  v2 Mapping = OBX-5 : OBX-3 = 59779-9
-  RIM Mapping = .participation[typeCode=AUT]
-
- -- Row 17 -----------------------------------
-  Element = ImmunizationRecommendation.recommendation.protocol.series
+ -- Row 18 -----------------------------------
+  Element = ImmunizationRecommendation.recommendation.series
   Card. = 0..1
   Type = string
   Short Name = Name of vaccination series
@@ -216,7 +233,7 @@
   v2 Mapping = RXA-5-administered code
   RIM Mapping = .title
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.supportingImmunization
   Card. = 0..*
   Type = Reference(Immunization)
@@ -225,10 +242,10 @@
   v2 Mapping = ? No clear way to associate in HL7 v2 or IG
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=\"immunization\"]
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.supportingPatientInformation
   Card. = 0..*
-  Type = Reference(Observation | AllergyIntolerance)
+  Type = Reference(Any)
   Short Name = Patient observations supporting recommendation
   Definition = Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.
   Workflow Mapping = Request.supportingInfo
@@ -255,7 +272,7 @@
  -- Row 4 -----------------------------------
   Name = date
   Type = date
-  Path = ImmunizationRecommendation.recommendation.date
+  Path = ImmunizationRecommendation.date
 
  -- Row 5 -----------------------------------
   Name = dose-number
@@ -270,7 +287,7 @@
  -- Row 7 -----------------------------------
   Name = dose-sequence
   Type = number
-  Path = ImmunizationRecommendation.recommendation.protocol.doseSequence
+  Path = ImmunizationRecommendation.recommendation.seriesDoses
 
  -- Row 8 -----------------------------------
   Name = support
@@ -307,6 +324,6 @@
   Name = General
   Identity = example
   Description = Example of immunizationrecommendation using a target disease
-  Filename = immunizationrecommendation-target-disease-example.xml
+  Filename = immunizationrecommendation-example-target-disease.xml
 
 === Sheet Examples =====================================
