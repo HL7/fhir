@@ -23,6 +23,8 @@ public class CodeSystemUtilities {
     for (ConceptPropertyComponent p : def.getProperty()) {
       if (p.getCode().equals("deprecated") && p.hasValue() && p.getValue() instanceof BooleanType) 
         return ((BooleanType) p.getValue()).getValue();
+      if (p.getCode().equals("deprecationDate") && p.hasValue() && p.getValue() instanceof DateTimeType) 
+        return ((DateTimeType) p.getValue()).before(new DateTimeType());
     }
     return false;
   }
@@ -47,7 +49,7 @@ public class CodeSystemUtilities {
 
   public static void setDeprecated(CodeSystem cs, ConceptDefinitionComponent concept, DateTimeType date) {
     defineDeprecatedProperty(cs);
-    concept.addProperty().setCode("deprecated").setValue(date);    
+    concept.addProperty().setCode("deprecationDate").setValue(date);    
   }
 
   public static void defineNotSelectableProperty(CodeSystem cs) {
@@ -59,7 +61,7 @@ public class CodeSystemUtilities {
   }
 
   public static void defineDeprecatedProperty(CodeSystem cs) {
-    defineCodeSystemProperty(cs, "deprecated", "The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged", PropertyType.DATETIME);
+    defineCodeSystemProperty(cs, "deprecationDate", "The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged", PropertyType.DATETIME);
   }
 
   public static void defineCodeSystemProperty(CodeSystem cs, String code, String description, PropertyType type) {
