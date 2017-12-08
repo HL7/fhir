@@ -2981,7 +2981,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           }
         }
       } else {
-        String ext = f.getName().substring(f.getName().lastIndexOf("."));
+        String ext = f.getName().contains(".") ? f.getName().substring(f.getName().lastIndexOf(".")) : "";
         if (Utilities.existsInList(ext, ".html", ".zip", ".jar"))
           spm.target(f.getAbsolutePath().substring(base.length()).replace(File.separator, "/"));
       }
@@ -2994,7 +2994,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (f.isDirectory()) {
         scanForImages(spm, base, f.getAbsolutePath());
       } else {
-        String ext = f.getName().substring(f.getName().lastIndexOf("."));
+        String ext = f.getName().contains(".") ? f.getName().substring(f.getName().lastIndexOf(".")) : "";
         if (Utilities.existsInList(ext, ".png", ".jpg"))
           spm.image(f.getAbsolutePath().substring(base.length()).replace(File.separator, "/"));
       }
