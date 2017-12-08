@@ -621,6 +621,7 @@
  -- Row 18 -----------------------------------
   Element = AuditEvent.agent.requestor
   Card. = 1..1
+  Summary = Y
   Type = boolean
   Short Name = Whether user is initiator
   Definition = Indicator that the user is or is not the requestor, or initiator, for the event being audited.

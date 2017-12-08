@@ -87,6 +87,7 @@
  -- Row 3 -----------------------------------
   Element = UserSession.user
   Card. = 1..1
+  Summary = Y
   Type = Reference(Device|Practitioner|Patient|RelatedPerson)
   Short Name = User engaged in the session
   Definition = A practitioner, patient, device, or related person engaged in the session
@@ -128,7 +129,7 @@
 
  -- Row 8 -----------------------------------
   Element = UserSession.focus
-  Card. = 1..*
+  Card. = 0..*
   Type = Reference(Any)
   Short Name = What is the user\'s current focus
   Definition = The current focus of the user\'s session. Common values are a reference to a Patient, Encounter, ImagingStudy, etc
@@ -154,7 +155,6 @@
  -- Row 11 -----------------------------------
   Element = UserSession.context
   Card. = 0..*
-  Summary = Y
   Short Name = Additional information about the session
   Definition = Provides additional information associated with the context
   w5 = context

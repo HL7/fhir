@@ -197,6 +197,7 @@
  -- Row 16 -----------------------------------
   Element = DocumentManifest.content
   Card. = 1..*
+  Summary = Y
   Type = Reference(Any)
   Short Name = Items in manifest
   Definition = The list of Resources that consist of the parts of this manifest.

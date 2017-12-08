@@ -440,6 +440,7 @@
   Element = Encounter.diagnosis.condition
   Card. = 1..1
   Aliases = Admission diagnosis, discharge diagnosis, indication
+  Summary = Y
   Type = Reference(Condition|Procedure)
   Short Name = Reason the encounter takes place (resource)
   Definition = Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure

@@ -393,7 +393,6 @@
  -- Row 23 -----------------------------------
   Element = Consent.provision.actor
   Card. = 0..*
-  Summary = Y
   UML = up
   Type = =provisionActor
   Short Name = Who|what controlled by this rule (or group, by role)

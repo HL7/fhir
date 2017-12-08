@@ -117,6 +117,7 @@
  -- Row 4 -----------------------------------
   Element = NamingSystem.kind
   Card. = 1..1
+  Summary = Y
   Type = code
   Binding = NamingSystemType
   Short Name = codesystem | identifier | root
@@ -172,6 +173,7 @@
  -- Row 14 -----------------------------------
   Element = NamingSystem.uniqueId
   Card. = 1..*
+  Summary = Y
   UML = 400;120
   Short Name = Unique identifiers used for system
   Definition = Indicates how the system may be identified when referenced in electronic exchange
@@ -180,6 +182,7 @@
  -- Row 15 -----------------------------------
   Element = NamingSystem.uniqueId.type
   Card. = 1..1
+  Summary = Y
   Type = code
   Binding = NamingSystemIdentifierType
   Short Name = oid | uuid | uri | other
@@ -189,6 +192,7 @@
  -- Row 16 -----------------------------------
   Element = NamingSystem.uniqueId.value
   Card. = 1..1
+  Summary = Y
   Type = string
   Short Name = The unique identifier
   Definition = The string that should be sent over the wire to identify the code system or identifier system

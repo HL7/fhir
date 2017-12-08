@@ -407,6 +407,7 @@
  -- Row 21 -----------------------------------
   Element = Media.content
   Card. = 1..1
+  Summary = Y
   Type = Attachment
   Short Name = Actual Media - reference or data
   Definition = The actual content of the media - inline or by direct reference to the media source file

@@ -476,6 +476,7 @@
  -- Row 28 -----------------------------------
   Element = Appointment.participant.status
   Card. = 1..1
+  Summary = Y
   Type = code
   Binding = ParticipationStatus
   Short Name = accepted | declined | tentative | needs-action

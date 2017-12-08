@@ -149,6 +149,7 @@
  -- Row 5 -----------------------------------
   Element = Immunization.vaccineCode
   Card. = 1..1
+  Summary = Y
   Type = CodeableConcept
   Binding = VaccineCode
   Short Name = Vaccine product administered
@@ -163,6 +164,7 @@
  -- Row 6 -----------------------------------
   Element = Immunization.patient
   Card. = 1..1
+  Summary = Y
   Type = Reference(Patient)
   Short Name = Who was immunized
   Definition = The patient who either received or did not receive the immunization.
@@ -201,6 +203,7 @@
  -- Row 9 -----------------------------------
   Element = Immunization.primarySource
   Card. = 1..1
+  Summary = Y
   Type = boolean
   Short Name = Indicates context the data was recorded in
   Definition = An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.

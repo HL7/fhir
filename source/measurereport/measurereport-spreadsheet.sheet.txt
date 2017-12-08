@@ -164,7 +164,6 @@
  -- Row 10 -----------------------------------
   Element = MeasureReport.group
   Card. = 0..*
-  Summary = N
   UML = 360;0
   Short Name = Measure results for each group
   Definition = The results of the calculation, one for each population group in the measure
@@ -172,7 +171,7 @@
  -- Row 11 -----------------------------------
   Element = MeasureReport.group.identifier
   Card. = 1..1
-  Summary = N
+  Summary = Y
   Type = Identifier
   Short Name = What group of the measure
   Definition = The identifier of the population group as defined in the measure definition
@@ -180,7 +179,6 @@
  -- Row 12 -----------------------------------
   Element = MeasureReport.group.population
   Card. = 0..*
-  Summary = N
   UML = 0;240
   Short Name = The populations in the group
   Definition = The populations that make up the population group, one for each type of population appropriate for the measure
@@ -205,7 +203,6 @@
  -- Row 15 -----------------------------------
   Element = MeasureReport.group.population.count
   Card. = 0..1
-  Summary = N
   Type = integer
   Short Name = Size of the population
   Definition = The number of members of the population
@@ -213,7 +210,6 @@
  -- Row 16 -----------------------------------
   Element = MeasureReport.group.population.patients
   Card. = 0..1
-  Summary = N
   Type = Reference(List)
   Short Name = For patient-list reports, the patients in this population
   Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population
@@ -229,7 +225,6 @@
  -- Row 18 -----------------------------------
   Element = MeasureReport.group.stratifier
   Card. = 0..*
-  Summary = N
   UML = 550;0
   Short Name = Stratification results
   Definition = When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure
@@ -237,7 +232,6 @@
  -- Row 19 -----------------------------------
   Element = MeasureReport.group.stratifier.identifier
   Card. = 0..1
-  Summary = N
   Type = Identifier
   Short Name = What stratifier of the group
   Definition = The identifier of this stratifier, as defined in the measure definition
@@ -245,7 +239,6 @@
  -- Row 20 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum
   Card. = 0..*
-  Summary = N
   UML = 450;120
   Type = =StratifierGroup
   Short Name = Stratum results, one for each unique value in the stratifier
@@ -254,7 +247,6 @@
  -- Row 21 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.value
   Card. = 1..1
-  Summary = N
   Type = string
   Short Name = The stratum value, e.g. male
   Definition = The value for this stratum, expressed as a string. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique
@@ -262,7 +254,6 @@
  -- Row 22 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population
   Card. = 0..*
-  Summary = N
   UML = 300;240
   Type = =StratifierGroupPopulation
   Short Name = Population results in this stratum
@@ -271,7 +262,6 @@
  -- Row 23 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.identifier
   Card. = 0..1
-  Summary = Y
   Type = Identifier
   Short Name = Population identifier as defined in the measure
   Definition = The identifier of the population being reported, as defined by the population element of the measure
@@ -279,7 +269,6 @@
  -- Row 24 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.code
   Card. = 0..1
-  Summary = Y
   Type = CodeableConcept
   Binding = MeasurePopulation
   Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
@@ -288,7 +277,6 @@
  -- Row 25 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.count
   Card. = 0..1
-  Summary = N
   Type = integer
   Short Name = Size of the population
   Definition = The number of members of the population in this stratum
@@ -296,7 +284,6 @@
  -- Row 26 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.patients
   Card. = 0..1
-  Summary = N
   Type = Reference(List)
   Short Name = For patient-list reports, the patients in this population
   Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum
@@ -304,7 +291,6 @@
  -- Row 27 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.measureScore
   Card. = 0..1
-  Summary = Y
   Type = decimal
   Short Name = What score this stratum achieved
   Definition = The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum
@@ -312,7 +298,6 @@
  -- Row 28 -----------------------------------
   Element = MeasureReport.evaluatedResources
   Card. = 0..1
-  Summary = N
   Type = Reference(Bundle)
   Short Name = What data was evaluated to produce the measure score
   Definition = A reference to a Bundle containing the Resources that were used in the evaluation of this report.

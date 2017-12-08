@@ -827,11 +827,12 @@
 
  -- Row 45 -----------------------------------
   Element = CapabilityStatement.rest.resource.interaction
-  Card. = 1..*
+  Card. = 0..*
   UML = -20;560
   Type = =ResourceInteraction
   Short Name = What operations are supported?
   Definition = Identifies a restful operation supported by the solution
+  Comments = In general, a Resource will only appear in a CapabilityStatement if the server actually has some capabilities - e.g. there is at least one interaction supported. However interactions can be omitted to support summarization (_summary = true)
 
  -- Row 46 -----------------------------------
   Element = CapabilityStatement.rest.resource.interaction.code
@@ -1023,6 +1024,7 @@
  -- Row 69 -----------------------------------
   Element = CapabilityStatement.rest.operation.name
   Card. = 1..1
+  Summary = Y
   Type = string
   Short Name = Name by which the operation/query is invoked
   Definition = The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.
@@ -1148,6 +1150,7 @@
  -- Row 84 -----------------------------------
   Element = CapabilityStatement.messaging.event.mode
   Card. = 1..1
+  Summary = Y
   Type = code
   Binding = EventCapabilityMode
   Short Name = sender | receiver
@@ -1156,6 +1159,7 @@
  -- Row 85 -----------------------------------
   Element = CapabilityStatement.messaging.event.focus
   Card. = 1..1
+  Summary = Y
   Type = code
   Binding = ResourceType
   Short Name = Resource that\'s focus of message
@@ -1197,6 +1201,7 @@
  -- Row 90 -----------------------------------
   Element = CapabilityStatement.document.mode
   Card. = 1..1
+  Summary = Y
   Type = code
   Binding = DocumentMode
   Short Name = producer | consumer

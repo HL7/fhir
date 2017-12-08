@@ -18,7 +18,6 @@
  -- Row 2 -----------------------------------
   Element = Binary.contentType
   Card. = 1..1
-  Summary = y
   Type = code
   Binding = MimeType
   Short Name = MimeType of the binary content
@@ -27,7 +26,6 @@
  -- Row 3 -----------------------------------
   Element = Binary.securityContext
   Card. = 0..1
-  Summary = y
   Type = Reference(Any)
   Short Name = Access Control Management
   Definition = Treat this binary as if it was this other resource for access control purposes

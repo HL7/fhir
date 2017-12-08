@@ -376,7 +376,6 @@
  -- Row 26 -----------------------------------
   Element = Questionnaire.item.code
   Card. = 0..*
-  Summary = Y
   Inv. = 3
   Type = Coding
   Binding = QuestionnaireConcept
@@ -400,7 +399,6 @@
  -- Row 28 -----------------------------------
   Element = Questionnaire.item.text
   Card. = 0..1
-  Summary = Y
   Type = string
   Short Name = Primary text for the item
   Definition = The name of a section, the text of a question or text content for a display item
@@ -421,7 +419,6 @@
   Element = Questionnaire.item.enableWhen
   Card. = 0..*
   Is Modifier = Y
-  Summary = Y
   UML = down
   Short Name = Only allow data when
   Definition = A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true

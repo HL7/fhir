@@ -590,8 +590,10 @@ public class ResourceValidator extends BaseValidator {
 		
     if (!hasSummary)
       e.setSummaryItem(true);
-    else if (parentInSummary)
+    else if (parentInSummary) {
       rule(errors, IssueType.STRUCTURE, path, hasSummary(e) || !e.isModifier(),  "A modifier element must be in the summary ("+path+")");
+      rule(errors, IssueType.STRUCTURE, path, hasSummary(e) || e.getMinCardinality() == 0,  "A required element (min > 0) must be in the summary ("+path+")");
+    }
       
     rule(errors, IssueType.STRUCTURE, path, optionalParent || e.isSummary() || !path.contains(".") || e.getMinCardinality() == 0,  "An element with a minimum cardinality = 1 must be in the summary ("+path+")");
     optionalParent = optionalParent || e.getMinCardinality() == 0;

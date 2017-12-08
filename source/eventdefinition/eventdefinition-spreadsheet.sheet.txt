@@ -22,34 +22,42 @@
 
  -- Row 2 -----------------------------------
   Element = EventDefinition.url
+  Summary = Y
   Workflow Mapping = Definition.url
 
  -- Row 3 -----------------------------------
   Element = EventDefinition.identifier
   Card. = 0..*
+  Summary = Y
   Workflow Mapping = Definition.identifier
 
  -- Row 4 -----------------------------------
   Element = EventDefinition.version
+  Summary = Y
   Workflow Mapping = Definition.version
 
  -- Row 5 -----------------------------------
   Element = EventDefinition.name
+  Summary = Y
 
  -- Row 6 -----------------------------------
   Element = EventDefinition.title
+  Summary = Y
   Workflow Mapping = Definition.title
 
  -- Row 7 -----------------------------------
   Element = EventDefinition.status
+  Summary = Y
   Workflow Mapping = Definition.status
 
  -- Row 8 -----------------------------------
   Element = EventDefinition.experimental
+  Summary = Y
   Workflow Mapping = Definition.experimental
 
  -- Row 9 -----------------------------------
   Element = EventDefinition.date
+  Summary = Y
   Workflow Mapping = Definition.date
 
  -- Row 10 -----------------------------------
@@ -74,22 +82,27 @@
 
  -- Row 14 -----------------------------------
   Element = EventDefinition.approvalDate
+  Summary = Y
   Workflow Mapping = Definition.approvalDate
 
  -- Row 15 -----------------------------------
   Element = EventDefinition.lastReviewDate
+  Summary = Y
   Workflow Mapping = Definition.lastReviewDate
 
  -- Row 16 -----------------------------------
   Element = EventDefinition.effectivePeriod
+  Summary = Y
   Workflow Mapping = Definition.effectivePeriod
 
  -- Row 17 -----------------------------------
   Element = EventDefinition.useContext
+  Summary = Y
   Workflow Mapping = Definition.useContext
 
  -- Row 18 -----------------------------------
   Element = EventDefinition.jurisdiction
+  Summary = Y
   Workflow Mapping = Definition.jurisdiction
 
  -- Row 19 -----------------------------------
@@ -132,6 +145,7 @@
  -- Row 24 -----------------------------------
   Element = EventDefinition.trigger
   Card. = 1..1
+  Summary = Y
   Type = TriggerDefinition
   Short Name = \"when\" the event occurs
   Definition = The trigger element defines when the event occurs

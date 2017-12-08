@@ -37,6 +37,7 @@
  -- Row 4 -----------------------------------
   Element = Annotation.text
   Card. = 1..1
+  Summary = Y
   Type = string
   Short Name = The annotation  - text content
   Definition = The text of the annotation

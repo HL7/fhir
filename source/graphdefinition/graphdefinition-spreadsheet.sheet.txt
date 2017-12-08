@@ -77,22 +77,28 @@
 
  -- Row 2 -----------------------------------
   Element = GraphDefinition.url
+  Summary = Y
 
  -- Row 3 -----------------------------------
   Element = GraphDefinition.version
+  Summary = Y
 
  -- Row 4 -----------------------------------
   Element = GraphDefinition.name
   Card. = 1..1
+  Summary = Y
 
  -- Row 5 -----------------------------------
   Element = GraphDefinition.status
+  Summary = Y
 
  -- Row 6 -----------------------------------
   Element = GraphDefinition.experimental
+  Summary = Y
 
  -- Row 7 -----------------------------------
   Element = GraphDefinition.date
+  Summary = Y
 
  -- Row 8 -----------------------------------
   Element = GraphDefinition.publisher
@@ -105,9 +111,11 @@
 
  -- Row 11 -----------------------------------
   Element = GraphDefinition.useContext
+  Summary = Y
 
  -- Row 12 -----------------------------------
   Element = GraphDefinition.jurisdiction
+  Summary = Y
 
  -- Row 13 -----------------------------------
   Element = GraphDefinition.purpose
@@ -115,6 +123,7 @@
  -- Row 14 -----------------------------------
   Element = GraphDefinition.start
   Card. = 1..1
+  Summary = Y
   Type = code
   Binding = ResourceType
   Short Name = Type of resource at which the graph starts

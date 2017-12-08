@@ -254,7 +254,6 @@
  -- Row 8 -----------------------------------
   Element = SpecimenDefinition.specimenToLab.isDerived
   Card. = 1..1
-  Summary = Y
   Type = boolean
   Short Name = Primary or secondary specimen
   Definition = Primary of secondary specimen
@@ -264,7 +263,6 @@
  -- Row 9 -----------------------------------
   Element = SpecimenDefinition.specimenToLab.type
   Card. = 0..1
-  Summary = Y
   Type = CodeableConcept
   Binding = IntendedSpecimenType
   Short Name = Type of intended specimen

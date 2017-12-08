@@ -86,6 +86,7 @@
  -- Row 5 -----------------------------------
   Element = RiskAssessment.status
   Card. = 1..1
+  Summary = Y
   Type = code
   Binding = RiskAssessmentStatus
   Short Name = registered | preliminary | final | amended +
