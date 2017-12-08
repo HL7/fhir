@@ -43,6 +43,11 @@
   Definition = Identifies the level of importance to be assigned to actioning the request
   Conformance = required
 
+ -- Row 7 -----------------------------------
+  Binding Name = ParameterCode
+  Binding = unbound
+  Definition = A code that identifies the device detail.
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -76,7 +81,7 @@
   Element = DeviceRequest.instantiates
   Card. = 0..*
   Summary = Y
-  Type = Reference(ActivityDefinition|PlanDefinition)
+  Type = uri
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
   Workflow Mapping = Request.instantiates
@@ -176,10 +181,48 @@
   v2 Mapping = Varies by domain
   RIM Mapping = .code
   QUICK mapping = DeviceUse.device
-  Committee Notes = DeviceRequest.device
+  Committee Notes = [#14271]
   w5 = what
 
  -- Row 11 -----------------------------------
+  Element = DeviceRequest.parameter
+  Card. = 0..*
+  Type = BackboneElement
+  Short Name = Device details
+  Definition = Specific parameters for the ordered item.  For example, the prism value for lenses.
+  v2 Mapping = Varies by domain
+  RIM Mapping = .code
+  QUICK mapping = DeviceUse.device
+  Committee Notes = [#14271]
+  w5 = what
+
+ -- Row 12 -----------------------------------
+  Element = DeviceRequest.parameter.code
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ParameterCode
+  Short Name = Device detail
+  Definition = A code or string that identifies the device detail being asserted.
+  v2 Mapping = Varies by domain
+  RIM Mapping = .code
+  QUICK mapping = DeviceUse.device
+  Committee Notes = [#14271]
+  w5 = what
+
+ -- Row 13 -----------------------------------
+  Element = DeviceRequest.parameter.value[x]
+  Card. = 0..1
+  Type = CodeableConcept|Quantity|Range|boolean
+  Short Name = Value of detail
+  Definition = The value of the device detail.
+  Comments = Range means device should have a value that falls somewhere within the specified range.
+  v2 Mapping = Varies by domain
+  RIM Mapping = .code
+  QUICK mapping = DeviceUse.device
+  Committee Notes = [#14271]
+  w5 = what
+
+ -- Row 14 -----------------------------------
   Element = DeviceRequest.subject
   Card. = 1..1
   Summary = Y
@@ -190,10 +233,9 @@
   v2 Mapping = Accompanying PID segment
   RIM Mapping = .participation[typeCode=SBJ].role
   QUICK mapping = ClinicalStatement.subject
-  Committee Notes = DeviceRequest.subject
   w5 = who.focus
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = DeviceRequest.context
   Card. = 0..1
   Summary = Y
@@ -207,7 +249,7 @@
   Committee Notes = DeviceRequest.encounter
   w5 = context
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = DeviceRequest.occurrence[x]
   Card. = 0..1
   Summary = Y
@@ -221,7 +263,7 @@
   Committee Notes = DeviceRequest.timing[x]
   w5 = when.planned
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = DeviceRequest.authoredOn
   Card. = 0..1
   Summary = Y
@@ -235,7 +277,7 @@
   Committee Notes = DeviceRequest.recordedOn
   w5 = when.recorded
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = DeviceRequest.requester
   Card. = 0..1
   Summary = Y
@@ -247,7 +289,7 @@
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DeviceRequest.performerType
   Card. = 0..1
   Summary = Y
@@ -260,7 +302,7 @@
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
   w5 = who.actor
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = DeviceRequest.performer
   Card. = 0..1
   Summary = Y
@@ -272,7 +314,7 @@
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
 
- -- Row 18 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = DeviceRequest.reasonCode
   Card. = 0..*
   Summary = Y
@@ -287,7 +329,7 @@
   Committee Notes = DeviceRequest.indication
   w5 = why
 
- -- Row 19 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = DeviceRequest.insurance
   Card. = 0..*
   Type = Reference(Coverage|ClaimResponse)
@@ -297,7 +339,7 @@
   v2 Mapping = IN1/IN2
   RIM Mapping = .outboundRelationship[typeCode=COVBY].target
 
- -- Row 20 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = DeviceRequest.reasonReference
   Card. = 0..*
   Summary = Y
@@ -309,7 +351,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 21 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = DeviceRequest.supportingInfo
   Card. = 0..*
   Type = Reference(Any)
@@ -320,7 +362,7 @@
   v2 Mapping = Accompanying segments
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
 
- -- Row 22 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = DeviceRequest.note
   Card. = 0..*
   Type = Annotation
@@ -332,7 +374,7 @@
   QUICK mapping = ClinicalStatement.additionalText
   Committee Notes = DeviceRequest.notes
 
- -- Row 23 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = DeviceRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
@@ -371,7 +413,7 @@
 
  -- Row 5 -----------------------------------
   Name = instantiates
-  Type = reference
+  Type = uri
   Description = Protocol or definition followed by this request
   Path = DeviceRequest.instantiates
 

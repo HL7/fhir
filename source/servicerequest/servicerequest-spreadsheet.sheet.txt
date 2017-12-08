@@ -111,7 +111,7 @@
   Card. = 0..*
   Aliases = protocol
   Summary = Y
-  Type = Reference(ActivityDefinition|PlanDefinition)
+  Type = uri
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
   Workflow Mapping = Request.instantiates
@@ -574,7 +574,7 @@
 
  -- Row 7 -----------------------------------
   Name = instantiates
-  Type = reference
+  Type = uri
   Path = ServiceRequest.instantiates
 
  -- Row 8 -----------------------------------

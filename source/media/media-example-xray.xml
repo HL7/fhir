@@ -15,19 +15,17 @@
       </assigner>
     </identifier>
   </basedOn>
-  
-<status value="completed"/>  
-  
-  
-  <type value="photo"/>
-  
-  <subtype>
+
+<status value="completed"/>
+
+
+  <modality>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="39714003"/>
       <display value="Skeletal X-ray of wrist and hand"/>
     </coding>
-  </subtype>
+  </modality>
 
   <subject>
     <reference value="Patient/example"/>
@@ -35,7 +33,7 @@
   <context>
     <reference value="Encounter/example"/>
   </context>
-  <occurrenceDateTime value="2016-03-15"/>
+  <createdDateTime value="2016-03-15"/>
   <bodySite>
     <coding>
       <system value="http://snomed.info.sct"/>
@@ -43,10 +41,10 @@
       <display value="Structure of left hand (body structure)"/>
     </coding>
   </bodySite>
-  
+
   <height value="432"/>
   <width value="640"/>
-  
+
   <content id="a1">
     <contentType value="image/jpeg"/>
     <url value="http://someimagingcenter.org/fhir/Binary/A12345"/>

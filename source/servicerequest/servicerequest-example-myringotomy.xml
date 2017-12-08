@@ -5,9 +5,6 @@
 		<system value="http://orionhealth.com/fhir/apps/referralids"/>
 		<value value="ret4421"/>
 	</identifier>
-	<instantiates>
-		<display value="Protocol for insertion of tympanic ventilation tube"/>
-	</instantiates>
 	<basedOn>
 		<display value="ServiceRequest for Myringotomy and insertion of tympanic ventilation tube"/>
 	</basedOn>

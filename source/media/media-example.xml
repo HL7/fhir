@@ -6,17 +6,17 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Diagram for Patient Henry Levin (MRN 12345):<br/><img alt="diagram" src="#11"/></div>
   </text>
-  
+
   <status value="completed"/>
 
-  <type value="photo"/>
-  
-  <subtype>
+
+
+  <modality>
     <coding>
       <system value="http://hl7.org/fhir/media-subtype"/>
       <code value="diagram"/>
     </coding>
-  </subtype>
+  </modality>
 
   <subject>
     <reference value="Patient/xcda"/>
@@ -24,7 +24,7 @@
   <operator>
     <reference value="Practitioner/xcda-author"/>
   </operator>
-  
+
   <device>
     <display value="Acme Camera"/>
   </device>
@@ -32,7 +32,7 @@
   <width value="126"/>
   <!-- frames - 1 is the default value, but it can still be specified -->
   <frames value="1"/>
-  
+
   <content id="a1">
     <contentType value="image/gif"/>
     <data value="R0lGODlhfgCRAPcAAAAAAIAAAACAAICAAAAAgIAA

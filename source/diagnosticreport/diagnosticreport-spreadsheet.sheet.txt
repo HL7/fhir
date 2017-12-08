@@ -330,7 +330,7 @@
   Committee Notes = 6246
 
  -- Row 16 -----------------------------------
-  Element = DiagnosticReport.image
+  Element = DiagnosticReport.media
   Card. = 0..*
   Aliases = DICOM, Slides, Scans
   Summary = Y
@@ -342,7 +342,7 @@
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
  -- Row 17 -----------------------------------
-  Element = DiagnosticReport.image.comment
+  Element = DiagnosticReport.media.comment
   Card. = 0..1
   Type = string
   Short Name = Comment about the image (e.g. explanation)
@@ -352,7 +352,7 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
  -- Row 18 -----------------------------------
-  Element = DiagnosticReport.image.link
+  Element = DiagnosticReport.media.link
   Card. = 1..1
   Summary = Y
   Type = Reference(Media)
@@ -465,10 +465,10 @@
   Path = DiagnosticReport.codedDiagnosis
 
  -- Row 13 -----------------------------------
-  Name = image
+  Name = media
   Type = reference
   Description = A reference to the image source.
-  Path = DiagnosticReport.image.link
+  Path = DiagnosticReport.media.link
 
  -- Row 14 -----------------------------------
   Name = based-on

@@ -15,10 +15,8 @@ Insulin pump request
 	<identifier>
 		<value value="ip_request1.1"/>
 	</identifier>
-	<instantiates>
-		<display value="DM ambulatory protocol II"/>
-	</instantiates>
-	<basedOn>
+	<instantiates value="PlanDefinition/example"/>
+<basedOn>
 		<display value="Homecare - DM follow-up"/>
 	</basedOn>
 	<priorRequest>

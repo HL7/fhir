@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Media xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/media.xsd">
   <id value="1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
-  
+
   <!--
-    This example demonstrates how to represent an image 
+    This example demonstrates how to represent an image
     originally sourced by a DICOM acquisition device
     as a Media resource. Whether this is appropriate depends
     on the complexity of the image - the media resource only
     contains crude metadata, and plain png/jpg (typically)
     pixels. This is suitable for the bulk of simple images
-    shared as summaries with consumers, but not at all suitable 
-    for other kinds of images, or for internal radiology 
-    reporting usage    
+    shared as summaries with consumers, but not at all suitable
+    for other kinds of images, or for internal radiology
+    reporting usage
   -->
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       Ultrasound Image on patient "James Chalmers":<br/>
       <img src="http://imaging.acme.com/wado/server?requestType=WADO&amp;contentType=application%2Fdicom&amp;studyUid=1.2.840.113619.2.21.848.34082.0.538976288.3&amp;seriesUid=1.2.840.113619.2.21.3408.700.0.757923840.3.0&amp;objectUid=1.2.840.11361907579238403408700.3.1.04.19970327150033" alt="WADO reference to image"/>
-        
+
     </div>
   </text>
 
-  <!-- 
+  <!--
     this is added to demonstrate the use of DICOM extensions.
     0002,0010 is the DICOM transfer syntax of the referenced image
    -->
   <extension url="http://nema.org/fhir/extensions#0002-0010">
     <valueUri value="urn:oid:1.2.840.10008.1.2.1"/>
-  </extension>  
+  </extension>
 
   <identifier>
     <use value="official"/>
     <type><text value="InstanceUID"/></type>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:1.2.840.11361907579238403408700.3.1.04.19970327150033"/>
-  </identifier> 
+  </identifier>
   <identifier>
     <type><text value="accessionNo"/></type>
-    <!-- the imaging department accession number. (they recycle numbers each year) -->    
+    <!-- the imaging department accession number. (they recycle numbers each year) -->
     <system value="http://acme-imaging.com/accession/2012"/>
     <value value="1234567"/>
  </identifier>
@@ -51,18 +51,17 @@
     <type><text value="seriesId"/></type>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
-  </identifier>  
-  
-<status value="completed"/>  
+  </identifier>
 
-  <type value="photo"/>
+<status value="completed"/>
 
-  <subtype>
+
+  <modality>
     <coding>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <code value="US"/>
     </coding>
-  </subtype>
+  </modality>
 
   <view>
     <coding>
@@ -71,18 +70,18 @@
       <display value="Lateral projection"/>
     </coding>
   </view>
-  
+
   <subject>
     <reference value="Patient/example"/>
   </subject>
- 
-  
-  <device> 
+
+
+  <device>
     <display value="G.E. Medical Systems"/>
   </device>
   <height value="480"/>
   <width value="640"/>
-  
+
   <!-- and a reference to the image data -->
   <content>
     <contentType value="application/dicom"/>

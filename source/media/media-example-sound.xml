@@ -9,17 +9,17 @@
 
 <status value="completed"/>
 
-  <type value="video"/>
-  
+
+
   <subject>
     <reference value="Patient/xcda"/>
   </subject>
   <operator>
     <reference value="Practitioner/xcda-author"/>
   </operator>
-  
+
   <duration value="65"/>
-  
+
   <content id="a1">
     <contentType value="audio/mpeg"/>
     <!-- too big too include the whole -->

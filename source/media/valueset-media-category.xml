@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="media-category"/>
+  <url value="http://hl7.org/fhir/ValueSet/media-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.325"/>
+  </identifier>
+  <version value="3.1.0"/>
+  <name value="Media Category"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2017-12-08T02:32:59+00:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes for high level media categories."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/media-category"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -3,13 +3,13 @@
 
  -- Row 1 -----------------------------------
   Binding Name = DigitalMediaType
-  Binding = Code List
-  Reference = #digital-media-type
-  Definition = Whether the media is a photo, video, or audio
-  Conformance = required
+  Binding = Value Set
+  Reference = valueset-media-category
+  Definition = Codes for high level media categories.
+  Conformance = example
 
  -- Row 2 -----------------------------------
-  Binding Name = DigitalMediaSubtype
+  Binding Name = DigitalMediaModality
   Binding = Value Set
   Reference = valueset-digital-media-subtype
   Definition = Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it
@@ -50,26 +50,6 @@
   Reference = #media-status
   Definition = Codes identifying the stage lifecycle stage of a event
   Conformance = required
-
-=== Sheet digital-media-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = photo
-  Display = Photo
-  Definition = The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = video
-  Display = Video
-  Definition = The media consists of a series of frames that capture a moving image
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = audio
-  Display = Audio
-  Definition = The media consists of a sound recording
 
 === Sheet media-status =====================================
 
@@ -132,28 +112,28 @@
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
+  Id = !1
   Context = Media
-  English = Height can only be used for a photo or video
+  English = Height can only be used for a image or video
   XPath = not(f:type/@value=\'audio\') or not(f:height)
   Expression = height.empty() or type != \'audio\'
 
  -- Row 2 -----------------------------------
-  Id = 2
+  Id = !2
   Context = Media
-  English = Width can only be used for a photo or video
+  English = Width can only be used for a image or video
   XPath = not(f:type/@value=\'audio\') or not(f:width)
   Expression = width.empty() or type != \'audio\'
 
  -- Row 3 -----------------------------------
-  Id = 3
+  Id = !3
   Context = Media
-  English = Frames can only be used for a photo
+  English = Frames can only be used for a image
   XPath = (f:type/@value=\'photo\') or not(f:frames)
   Expression = frames.empty() or type = \'photo\'
 
  -- Row 4 -----------------------------------
-  Id = 4
+  Id = !4
   Context = Media
   English = Duration can only be used for an audio or a video
   XPath = not(f:type/@value=\'photo\') or not(f:duration)
@@ -188,12 +168,13 @@
   Card. = 0..*
   Aliases = fulfills
   Summary = Y
-  Type = Reference(ServiceRequest)
+  Type = Reference(ServiceRequest,CarePlan)
   Short Name = Procedure that caused this media to be created
   Definition = A procedure that is fulfilled in whole or in part by the creation of this media
   Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon
   Workflow Mapping = Event.basedOn
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target
+  Committee Notes = 14144
 
  -- Row 4 -----------------------------------
   Element = Media.partOf
@@ -204,7 +185,7 @@
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step
   Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.
-  Comments = Not to be used to link an event to an Encounter - use Event.context for that.\n\n[The allowed reference resources may be adjusted as appropriate for the event resource]
+  Comments = Not to be used to link an event to an Encounter - use Event.context for that.\r\r[The allowed reference resources may be adjusted as appropriate for the event resource]
   Workflow Mapping = Event.partOf
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
   Committee Notes = #10299
@@ -218,7 +199,7 @@
   Binding = MediaStatus
   Short Name = preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown
   Definition = The current state of the {{title}}
-  Comments = A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
+  Comments = A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation\r\rUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
   Workflow Mapping = Event.status
   v2 Mapping = Varies by domain
   RIM Mapping = .status
@@ -226,23 +207,24 @@
   w5 = status
 
  -- Row 6 -----------------------------------
-  Element = Media.type
-  Card. = 1..1
+  Element = Media.category
+  Card. = 0..*
   Summary = y
-  Type = code
+  Type = CodeableConcept
   Binding = DigitalMediaType
-  Short Name = photo | video | audio
-  Definition = Whether the media is a photo (still image), an audio recording, or a video recording
-  Workflow Mapping = Event.code
+  Short Name = Classification of  type of media
+  Definition = A code that classifies the general type of observation being made. For example, whether the media is an image, video or audio recording.
+  Requirements = Used for filtering what observations are retrieved and displayed.
+  Comments = This element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.
   RIM Mapping = .code
   w5 = class
 
  -- Row 7 -----------------------------------
-  Element = Media.subtype
+  Element = Media.modality
   Card. = 0..1
   Summary = y
   Type = CodeableConcept
-  Binding = DigitalMediaSubtype
+  Binding = DigitalMediaModality
   Short Name = The type of acquisition equipment/process
   Definition = Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality
   Workflow Mapping = Event.code
@@ -265,12 +247,13 @@
   Element = Media.subject
   Card. = 0..1
   Summary = y
-  Type = Reference(Patient|Practitioner|Group|Device|Specimen)
+  Type = Reference(Patient|Practitioner|Group|Device|Specimen|Location)
   Short Name = Who/What this Media is a record of
   Definition = Who/What this Media is a record of
   Workflow Mapping = Event.subject
   RIM Mapping = .participation[typeCode=\"SUBJ\"]???
   DICOM Mapping = ~0010,0020
+  Committee Notes = 14144
   w5 = who.focus
 
  -- Row 10 -----------------------------------
@@ -288,7 +271,7 @@
   w5 = context
 
  -- Row 11 -----------------------------------
-  Element = Media.occurrence[x]
+  Element = Media.created[x]
   Card. = 0..1
   Aliases = timing
   Summary = Y
@@ -300,6 +283,19 @@
   w5 = when.done
 
  -- Row 12 -----------------------------------
+  Element = Media.issued
+  Card. = 0..1
+  Summary = Y
+  Type = instant
+  Short Name = Date/Time this version was made available
+  Definition = The date and time this version of the media was made available to providers, typically after having been reviewed.
+  Comments = It may be the same as the [`lastUpdated` ](resource-definitions.html#Meta.lastUpdated) time of the resource itself.  For Observations that do require review and verification for certain updates, it may not be the same as the `lastUpdated` time of the resource itself due to a non-clinically significant update that doesn’t require the new version to be reviewed and verified again.
+  v2 Mapping = OBR.22 (or MSH.7), or perhaps OBX-19 (depends on who observation made)
+  RIM Mapping = participation[typeCode=AUT].time
+  Committee Notes = 14144
+  w5 = when.recorded
+
+ -- Row 13 -----------------------------------
   Element = Media.operator
   Card. = 0..1
   Summary = y
@@ -311,7 +307,7 @@
   DICOM Mapping = 0008,1060?
   w5 = who.actor
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Media.reasonCode
   Card. = 0..*
   Summary = Y
@@ -324,20 +320,21 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Media.bodySite
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
   Binding = BodySite
-  Short Name = Body part in media
-  Definition = Indicates the site on the subject\'s body where the media was collected (i.e. the target site).
-  Comments = If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use The standard extension[ body-structure](extension-body-structure.html).
+  Short Name = Observed body part
+  Definition = Indicates the site on the subject\'s body where the observation was made (i.e. the target site).
+  Comments = Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use the standard extension[ body-structure](extension-body-structure.html).
   SNOMED CT Concept Domain = < 123037004 |Body structure|
   RIM Mapping = targetSiteCode
   SNOMED CT Attribute = 718497002 |Inherent location|
+  Committee Notes = 14144
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Media.deviceName
   Card. = 0..1
   Summary = y
@@ -347,94 +344,94 @@
   RIM Mapping = .participation[typeCode=\"DEV\"].role.player.Entity[classCode=\"DEV\"].name
   DICOM Mapping = 0008,0070
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Media.device
   Card. = 0..1
   Summary = y
-  Type = Reference(Device|DeviceMetric)
+  Type = Reference(Device|DeviceMetric|DeviceComponent)
   Short Name = Observing Device
   Definition = The device used to collect the media.
   Comments = An extension should be used if further typing of the device is needed.  Scondary devices used to support collecting a media can be represented using either extension or through the Observation.related element.
   SNOMED CT Concept Domain = < 49062001 |Device|
   RIM Mapping = participation[typeCode=DEV]
   SNOMED CT Attribute = 424226004 |Using device|
+  Committee Notes = 14144
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Media.height
   Card. = 0..1
   Summary = y
-  Inv. = 1
   Type = positiveInt
   Short Name = Height of the image in pixels (photo/video)
   Definition = Height of the image in pixels (photo/video)
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = 0028,0010
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Media.width
   Card. = 0..1
   Summary = y
-  Inv. = 2
   Type = positiveInt
   Short Name = Width of the image in pixels (photo/video)
   Definition = Width of the image in pixels (photo/video)
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = 0028,0011
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Media.frames
   Card. = 0..1
   Summary = y
-  Inv. = 3
   Type = positiveInt
   Short Name = Number of frames if > 1 (photo)
   Definition = The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   Default Value = 1
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Media.duration
   Card. = 0..1
   Summary = y
-  Inv. = 4
-  Type = unsignedInt
+  Type = decimal
   Short Name = Length in seconds (audio / video)
   Definition = The duration of the recording in seconds - for audio and video
   Comments = The duration might differ from occurrencePeriod if recording was paused
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = ~0028,0002
+  Committee Notes = 14144
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Media.content
   Card. = 1..1
-  Summary = Y
+  Summary = y
   Type = Attachment
   Short Name = Actual Media - reference or data
   Definition = The actual content of the media - inline or by direct reference to the media source file
   Comments = Recommended content types: image/jpeg, image/png, image/tiff, video/mpeg, audio/mp4, application/dicom. Application/dicom can contain the transfer syntax as a parameter.  For an media that covers a period of time (video/sound), the content.creationTime is the end time. Creation time is used for tracking, organizing versions and searching
   RIM Mapping = .text
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Media.note
   Card. = 0..*
   Type = Annotation
   Short Name = Comments made about the media
   Definition = Comments made about the media by the performer, subject or other participants.
+  Comments = Not to be used for observations, conclusions, etc. Instead use an [Observation](observation.html) based on the Media/ImagingStudy resource
   Workflow Mapping = Event.note
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
+  Committee Notes = #14149
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = type
+  Name = category
   Type = token
-  Path = Media.type
+  Path = Media.category
 
  -- Row 2 -----------------------------------
-  Name = subtype
+  Name = modality
   Type = token
-  Path = Media.subtype
+  Path = Media.modality
 
  -- Row 3 -----------------------------------
   Name = identifier
@@ -442,57 +439,52 @@
   Path = Media.identifier
 
  -- Row 4 -----------------------------------
-  Name = created
-  Type = date
-  Path = Media.content.creation
-
- -- Row 5 -----------------------------------
   Name = subject
   Type = reference
   Path = Media.subject
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = operator
   Type = reference
   Path = Media.operator
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = view
   Type = token
   Path = Media.view
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = patient
   Type = reference
   Path = Media.subject
   Target Types = Patient
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = based-on
   Type = reference
   Path = Media.basedOn
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = context
   Type = reference
   Path = Media.context
 
- -- Row 11 -----------------------------------
-  Name = date
+ -- Row 10 -----------------------------------
+  Name = created
   Type = date
-  Path = Media.occurrence[x]
+  Path = Media.created[x]
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = site
   Type = token
   Path = Media.bodySite
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = device
   Type = reference
   Path = Media.device
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = status
   Type = token
   Path = Media.status
