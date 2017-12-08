@@ -250,6 +250,12 @@
   Expression = Library.relatedArtifact.where(type=\'composed-of\').resource
   XPath = f:Library/f:relatedArtifact[f:type/@value=\'composed-of\']/f:resource
 
+ -- Row 8 -----------------------------------
+  Name = type
+  Type = token
+  Description = The type of the library (e.g. logic-library, model-definition, asset-collection, module-definition)
+  Path = Library.type
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

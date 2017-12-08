@@ -949,6 +949,12 @@
   Description = Activity or plan definitions used by plan definition
   Path = PlanDefinition.action.definition
 
+ -- Row 9 -----------------------------------
+  Name = type
+  Type = token
+  Description = The type of artifact the plan (e.g. order-set, eca-rule, protocol)
+  Path = PlanDefinition.type
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
