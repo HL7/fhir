@@ -2577,8 +2577,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       CodeSystem cs = map.get(n);
       String id = tail(cs.getUrl());
       String oid = CodeSystemUtilities.getOID(cs);
-      if (oid != null)
-        oid = oid.substring(8);
       s.append(" <tr><td><a href=\"v3/").append(id).append("/cs.html\">").append(Utilities.escapeXml(id))
               .append("</a></td><td>").append(Utilities.escapeXml(cs.getDescription())).append("</td><td>").append(oid == null ? "--" : oid).append("</td></tr>\r\n");
     }
