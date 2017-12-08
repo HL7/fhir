@@ -759,7 +759,7 @@
  -- Row 58 -----------------------------------
   Element = PlanDefinition.action.timing[x]
   Card. = 0..1
-  Type = dateTime|Period|Duration|Range|Timing
+  Type = dateTime|Age|Period|Duration|Range|Timing
   Short Name = When the action should take place
   Definition = An optional value describing when the action should be performed
 

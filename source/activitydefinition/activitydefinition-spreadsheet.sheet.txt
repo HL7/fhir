@@ -273,7 +273,7 @@
  -- Row 27 -----------------------------------
   Element = ActivityDefinition.timing[x]
   Card. = 0..1
-  Type = Timing | dateTime | Period |Range
+  Type = Timing|dateTime|Age|Period|Range|Duration
   Short Name = When activity is to occur
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
