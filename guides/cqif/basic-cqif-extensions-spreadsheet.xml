@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9720</WindowHeight>
-  <WindowWidth>21465</WindowWidth>
+  <WindowHeight>13410</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
@@ -6659,7 +6659,7 @@
     <Cell><Data ss:Type="String">Need to be able to determine the semantics of each potential response in order to interpret the meaning when processing the questionnaire response.  For example, the response option &quot;Severe migraines within the past year&quot; to the question &quot;Select all that apply&quot; needs detailed coding (such as via CodeableConcept) at the option level, as well as a way to represent that an affirmation/negative response should result in (perhaps) an Observation in the QuestionnaireResponse tied to a clinical model (such as CIMI). This is key to support sophisticated CDS based on the semantics of the QuestionnaireResponse &#45;- not just the codes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">sourceValueSet</Data></Cell>
+    <Cell><Data ss:Type="String">!sourceValueSet</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
     <Cell><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">sourceValueSet</Data></Cell>
@@ -6668,6 +6668,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">Source value set for the coding</Data></Cell>
     <Cell><Data ss:Type="String">A URI that refers to the value set from which this coding was chosen. The URI may be a URN specifying an OID, or it may be the canoncical URL for a ValueSet resource</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to determine the source value set for a coding when reporting data results for quality measurement. In addition, this extension can be used to indicate that a Coding should come from a particular value set as part of an activity definition or an action returned as part of a CDS Guidance response</Data></Cell>
+    <Cell ss:Index="23"><Data ss:Type="String">This was a duplicate, the valueset-reference extension already exists to define this information for a Coding</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">measureInfo</Data></Cell>
@@ -6733,7 +6734,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>88</ActiveRow>
+     <ActiveRow>92</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
