@@ -10,8 +10,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-03-16T03:09:32Z</LastSaved>
-  <Version>12.00</Version>
+  <LastSaved>2017-12-08T04:44:16Z</LastSaved>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">f87ac042-0e64-4c19-a6a6-276be0b8a436</WorkbookGuid>
@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9450</WindowHeight>
-  <WindowWidth>21465</WindowWidth>
+  <WindowHeight>7845</WindowHeight>
+  <WindowWidth>18750</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>9</ActiveSheet>
@@ -6343,7 +6343,7 @@
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"><Data ss:Type="String">Gender</Data></Cell>
-    <Cell ss:StyleID="s148"><Data ss:Type="String">The gender of the patient. For this context type, the value should be a code taken from the http://hl7.org/fhir/ValueSet/administrative-gender value set</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">The gender of the patient. For this context type, appropriate values can be found in the http://hl7.org/fhir/ValueSet/administrative-gender value set</Data></Cell>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s138"/>
@@ -6354,7 +6354,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Age Range</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The age of the patient. For this context type, the value should be a range the specifies the applicable ages or a code from the MeSH value set http://hl7.org/fhir/ValueSet/v3-AgeGroupObservationValue</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The age of the patient. For this context type, the value could be a range that specifies the applicable ages or a code from an appropriate value set such as the MeSH value set http://hl7.org/fhir/ValueSet/v3-AgeGroupObservationValue</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6365,7 +6365,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Clinical Focus</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The clinical concept(s) addressed by the artifact. For example, disease, diagnostic test interpretation, medication ordering as in http://hl7.org/fhir/ValueSet/condition-code.</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The clinical concept(s) addressed by the artifact. For example, disease, diagnostic test interpretation, medication ordering as in http://hl7.org/fhir/ValueSet/condition-code</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6376,7 +6376,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">User Type</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The clinical specialty of the context in which the patient is being treated - For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomy value set http://hl7.org/fhir/ValueSet/provider-taxonomy.</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The clinical specialty of the context in which the patient is being treated - For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from a specialty value set such as the NUCC Health Care provider taxonomy value set http://hl7.org/fhir/ValueSet/provider-taxonomy</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6398,7 +6398,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Workflow Task</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The context for the clinical task(s) represented by this artifact. Can be any task context represented by the HL7 ActTaskCode value set http://hl7.org/fhir/ValueSet/v3-ActTaskCode. General categories include: order entry, patient documentation and patient information review.</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The context for the clinical task(s) represented by this artifact. For example, this could be any task context represented by the HL7 ActTaskCode value set http://hl7.org/fhir/ValueSet/v3-ActTaskCode. General categories include: order entry, patient documentation and patient information review</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6409,7 +6409,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Clinical Venue</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The venue in which an artifact could be used. For example, Outpatient, Inpatient, Home, Nursing home. The code value may originate from either the HL7 ActEncounterCode http://hl7.org/fhir/ValueSet/v3-ActEncounterCode or NUCC non-individual provider codes http://hl7.org/fhir/ValueSet/provider-taxonomy</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The venue in which an artifact could be used. For example, Outpatient, Inpatient, Home, Nursing home. The code value may originate from the HL7 ServiceDeliveryLocationRoleType value set (http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType)</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6420,7 +6420,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Species</Data></Cell>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">The species to which an artifact applies. For example, SNOMED - 387961004 | Kingdom Animalia (organism).</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">The species to which an artifact applies. For example, SNOMED - 387961004 | Kingdom Animalia (organism)</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>
@@ -6900,8 +6900,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
