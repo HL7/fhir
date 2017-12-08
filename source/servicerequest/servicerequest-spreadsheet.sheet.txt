@@ -75,6 +75,13 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = ServiceRequest
+  English = orderDetail SHALL only be present if code is present
+  XPath = exists(f:code) or not(exists(f:orderDetail))
+  Expression = orderDetail.empty() or code.exists()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -269,10 +276,11 @@
   Card. = 0..*
   Aliases = detailed instructions
   Summary = Y
+  Inv. = 1
   Type = CodeableConcept
   Binding = OrderDetail
   Short Name = Additional order information
-  Definition = Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.
+  Definition = Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied.
   Comments = For information from the medical record intended to support the delivery of the requested services, use the `supportingInformation` element.
   Workflow Mapping = Request.code
   v2 Mapping = NTE
