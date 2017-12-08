@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1303,7 +1303,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).
      */
-    @Child(name = "verificationStatus", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "verificationStatus", type = {CodeType.class}, order=2, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="unconfirmed | confirmed | refuted | entered-in-error", formalDefinition="Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/allergy-verification-status")
     protected Enumeration<AllergyIntoleranceVerificationStatus> verificationStatus;
@@ -1369,7 +1369,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * Individual who recorded the record and takes responsibility for its content.
      */
-    @Child(name = "recorder", type = {Practitioner.class, Patient.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "recorder", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Who recorded the sensitivity", formalDefinition="Individual who recorded the record and takes responsibility for its content." )
     protected Reference recorder;
 
@@ -1423,9 +1423,8 @@ public class AllergyIntolerance extends DomainResource {
   /**
    * Constructor
    */
-    public AllergyIntolerance(Enumeration<AllergyIntoleranceVerificationStatus> verificationStatus, Reference patient) {
+    public AllergyIntolerance(Reference patient) {
       super();
-      this.verificationStatus = verificationStatus;
       this.patient = patient;
     }
 
@@ -1570,9 +1569,13 @@ public class AllergyIntolerance extends DomainResource {
      * @param value Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).
      */
     public AllergyIntolerance setVerificationStatus(AllergyIntoleranceVerificationStatus value) { 
+      if (value == null)
+        this.verificationStatus = null;
+      else {
         if (this.verificationStatus == null)
           this.verificationStatus = new Enumeration<AllergyIntoleranceVerificationStatus>(new AllergyIntoleranceVerificationStatusEnumFactory());
         this.verificationStatus.setValue(value);
+      }
       return this;
     }
 
@@ -2181,7 +2184,7 @@ public class AllergyIntolerance extends DomainResource {
         children.add(new Property("patient", "Reference(Patient)", "The patient who has the allergy or intolerance.", 0, 1, patient));
         children.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date,  date-time, or age when allergy or intolerance was identified.", 0, 1, onset));
         children.add(new Property("assertedDate", "dateTime", "The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.", 0, 1, assertedDate));
-        children.add(new Property("recorder", "Reference(Practitioner|Patient)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder));
+        children.add(new Property("recorder", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder));
         children.add(new Property("asserter", "Reference(Patient|RelatedPerson|Practitioner)", "The source of the information about the allergy that is recorded.", 0, 1, asserter));
         children.add(new Property("lastOccurrence", "dateTime", "Represents the date and/or time of the last known occurrence of a reaction event.", 0, 1, lastOccurrence));
         children.add(new Property("note", "Annotation", "Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -2207,7 +2210,7 @@ public class AllergyIntolerance extends DomainResource {
         case -186664742: /*onsetRange*/  return new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date,  date-time, or age when allergy or intolerance was identified.", 0, 1, onset);
         case -1445342188: /*onsetString*/  return new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date,  date-time, or age when allergy or intolerance was identified.", 0, 1, onset);
         case -174231629: /*assertedDate*/  return new Property("assertedDate", "dateTime", "The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.", 0, 1, assertedDate);
-        case -799233858: /*recorder*/  return new Property("recorder", "Reference(Practitioner|Patient)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder);
+        case -799233858: /*recorder*/  return new Property("recorder", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who recorded the record and takes responsibility for its content.", 0, 1, recorder);
         case -373242253: /*asserter*/  return new Property("asserter", "Reference(Patient|RelatedPerson|Practitioner)", "The source of the information about the allergy that is recorded.", 0, 1, asserter);
         case 1896977671: /*lastOccurrence*/  return new Property("lastOccurrence", "dateTime", "Represents the date and/or time of the last known occurrence of a reaction event.", 0, 1, lastOccurrence);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.", 0, java.lang.Integer.MAX_VALUE, note);
@@ -2632,7 +2635,7 @@ public class AllergyIntolerance extends DomainResource {
    * Path: <b>AllergyIntolerance.recorder</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="recorder", path="AllergyIntolerance.recorder", description="Who recorded the sensitivity", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Patient.class, Practitioner.class } )
+  @SearchParamDefinition(name="recorder", path="AllergyIntolerance.recorder", description="Who recorded the sensitivity", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_RECORDER = "recorder";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>recorder</b>

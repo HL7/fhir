@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -52,15 +52,15 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
     public enum CapabilityStatementKind {
         /**
-         * The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
+         * The TerminologyCapabilities instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
          */
         INSTANCE, 
         /**
-         * The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.
+         * The TerminologyCapabilities instance represents the capabilities of a system or piece of software, independent of a particular installation.
          */
         CAPABILITY, 
         /**
-         * The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.
+         * The TerminologyCapabilities instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.
          */
         REQUIREMENTS, 
         /**
@@ -99,9 +99,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         public String getDefinition() {
           switch (this) {
-            case INSTANCE: return "The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.";
-            case CAPABILITY: return "The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.";
-            case REQUIREMENTS: return "The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.";
+            case INSTANCE: return "The TerminologyCapabilities instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.";
+            case CAPABILITY: return "The TerminologyCapabilities instance represents the capabilities of a system or piece of software, independent of a particular installation.";
+            case REQUIREMENTS: return "The TerminologyCapabilities instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.";
             default: return "?";
           }
         }

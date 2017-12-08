@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -530,13 +530,13 @@ public class DiagnosticReport extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * Details concerning a test or procedure requested.
+     * Details concerning a service requested.
      */
-    @Child(name = "basedOn", type = {CarePlan.class, ImmunizationRecommendation.class, MedicationRequest.class, NutritionOrder.class, ProcedureRequest.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="What was requested", formalDefinition="Details concerning a test or procedure requested." )
+    @Child(name = "basedOn", type = {CarePlan.class, ImmunizationRecommendation.class, MedicationRequest.class, NutritionOrder.class, ServiceRequest.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="What was requested", formalDefinition="Details concerning a service requested." )
     protected List<Reference> basedOn;
     /**
-     * The actual objects that are the target of the reference (Details concerning a test or procedure requested.)
+     * The actual objects that are the target of the reference (Details concerning a service requested.)
      */
     protected List<Resource> basedOnTarget;
 
@@ -606,7 +606,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * The diagnostic service that is responsible for issuing the report.
      */
-    @Child(name = "performer", type = {Practitioner.class, Organization.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "performer", type = {Practitioner.class, PractitionerRole.class, Organization.class, CareTeam.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Responsible Diagnostic Service", formalDefinition="The diagnostic service that is responsible for issuing the report." )
     protected List<Reference> performer;
     /**
@@ -618,7 +618,7 @@ public class DiagnosticReport extends DomainResource {
     /**
      * The practitioner or organization that is responsible for the report's conclusions and interpretations.
      */
-    @Child(name = "resultsInterpreter", type = {Practitioner.class, Organization.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "resultsInterpreter", type = {Practitioner.class, PractitionerRole.class, Organization.class, CareTeam.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Primary result interpreter", formalDefinition="The practitioner or organization that is responsible for the report's conclusions and interpretations." )
     protected List<Reference> resultsInterpreter;
     /**
@@ -764,7 +764,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #basedOn} (Details concerning a test or procedure requested.)
+     * @return {@link #basedOn} (Details concerning a service requested.)
      */
     public List<Reference> getBasedOn() { 
       if (this.basedOn == null)
@@ -1641,7 +1641,7 @@ public class DiagnosticReport extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Identifiers assigned to this report by the performer or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("basedOn", "Reference(CarePlan|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ProcedureRequest)", "Details concerning a test or procedure requested.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        children.add(new Property("basedOn", "Reference(CarePlan|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ServiceRequest)", "Details concerning a service requested.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("status", "code", "The status of the diagnostic report as a whole.", 0, 1, status));
         children.add(new Property("category", "CodeableConcept", "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.", 0, 1, category));
         children.add(new Property("code", "CodeableConcept", "A code or name that describes this diagnostic report.", 0, 1, code));
@@ -1649,8 +1649,8 @@ public class DiagnosticReport extends DomainResource {
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport per is about.", 0, 1, context));
         children.add(new Property("effective[x]", "dateTime|Period", "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective));
         children.add(new Property("issued", "instant", "The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.", 0, 1, issued));
-        children.add(new Property("performer", "Reference(Practitioner|Organization)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer));
-        children.add(new Property("resultsInterpreter", "Reference(Practitioner|Organization)", "The practitioner or organization that is responsible for the report's conclusions and interpretations.", 0, java.lang.Integer.MAX_VALUE, resultsInterpreter));
+        children.add(new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|CareTeam)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer));
+        children.add(new Property("resultsInterpreter", "Reference(Practitioner|PractitionerRole|Organization|CareTeam)", "The practitioner or organization that is responsible for the report's conclusions and interpretations.", 0, java.lang.Integer.MAX_VALUE, resultsInterpreter));
         children.add(new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this diagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen));
         children.add(new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").", 0, java.lang.Integer.MAX_VALUE, result));
         children.add(new Property("imagingStudy", "Reference(ImagingStudy|ImagingManifest)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
@@ -1664,7 +1664,7 @@ public class DiagnosticReport extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this report by the performer or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ProcedureRequest)", "Details concerning a test or procedure requested.", 0, java.lang.Integer.MAX_VALUE, basedOn);
+        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ImmunizationRecommendation|MedicationRequest|NutritionOrder|ServiceRequest)", "Details concerning a service requested.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case -892481550: /*status*/  return new Property("status", "code", "The status of the diagnostic report as a whole.", 0, 1, status);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.", 0, 1, category);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code or name that describes this diagnostic report.", 0, 1, code);
@@ -1675,8 +1675,8 @@ public class DiagnosticReport extends DomainResource {
         case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
         case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, 1, effective);
         case -1179159893: /*issued*/  return new Property("issued", "instant", "The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.", 0, 1, issued);
-        case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|Organization)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer);
-        case 2134944932: /*resultsInterpreter*/  return new Property("resultsInterpreter", "Reference(Practitioner|Organization)", "The practitioner or organization that is responsible for the report's conclusions and interpretations.", 0, java.lang.Integer.MAX_VALUE, resultsInterpreter);
+        case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|CareTeam)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer);
+        case 2134944932: /*resultsInterpreter*/  return new Property("resultsInterpreter", "Reference(Practitioner|PractitionerRole|Organization|CareTeam)", "The practitioner or organization that is responsible for the report's conclusions and interpretations.", 0, java.lang.Integer.MAX_VALUE, resultsInterpreter);
         case -2132868344: /*specimen*/  return new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this diagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen);
         case -934426595: /*result*/  return new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").", 0, java.lang.Integer.MAX_VALUE, result);
         case -814900911: /*imagingStudy*/  return new Property("imagingStudy", "Reference(ImagingStudy|ImagingManifest)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy);
@@ -2130,7 +2130,7 @@ public class DiagnosticReport extends DomainResource {
    * Path: <b>DiagnosticReport.performer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performer", path="DiagnosticReport.performer", description="Who is responsible for the report", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
+  @SearchParamDefinition(name="performer", path="DiagnosticReport.performer", description="Who is responsible for the report", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={CareTeam.class, Organization.class, Practitioner.class, PractitionerRole.class } )
   public static final String SP_PERFORMER = "performer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performer</b>
@@ -2269,17 +2269,17 @@ public class DiagnosticReport extends DomainResource {
  /**
    * Search parameter: <b>based-on</b>
    * <p>
-   * Description: <b>Reference to the procedure request.</b><br>
+   * Description: <b>Reference to the service request.</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>DiagnosticReport.basedOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="based-on", path="DiagnosticReport.basedOn", description="Reference to the procedure request.", type="reference", target={CarePlan.class, ImmunizationRecommendation.class, MedicationRequest.class, NutritionOrder.class, ProcedureRequest.class } )
+  @SearchParamDefinition(name="based-on", path="DiagnosticReport.basedOn", description="Reference to the service request.", type="reference", target={CarePlan.class, ImmunizationRecommendation.class, MedicationRequest.class, NutritionOrder.class, ServiceRequest.class } )
   public static final String SP_BASED_ON = "based-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>based-on</b>
    * <p>
-   * Description: <b>Reference to the procedure request.</b><br>
+   * Description: <b>Reference to the service request.</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>DiagnosticReport.basedOn</b><br>
    * </p>
@@ -2418,7 +2418,7 @@ public class DiagnosticReport extends DomainResource {
    * Path: <b>DiagnosticReport.resultsInterpreter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="results-interpreter", path="DiagnosticReport.resultsInterpreter", description="Who was the source of the report", type="reference", target={Organization.class, Practitioner.class } )
+  @SearchParamDefinition(name="results-interpreter", path="DiagnosticReport.resultsInterpreter", description="Who was the source of the report", type="reference", target={CareTeam.class, Organization.class, Practitioner.class, PractitionerRole.class } )
   public static final String SP_RESULTS_INTERPRETER = "results-interpreter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>results-interpreter</b>

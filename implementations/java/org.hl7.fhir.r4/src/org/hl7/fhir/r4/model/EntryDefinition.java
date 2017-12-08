@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -44,11 +44,11 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Catalog entries are wrappers that contextualize items included in a catalog.
  */
-@ResourceDef(name="CatalogEntry", profile="http://hl7.org/fhir/Profile/CatalogEntry")
-public class CatalogEntry extends DomainResource {
+@ResourceDef(name="EntryDefinition", profile="http://hl7.org/fhir/Profile/EntryDefinition")
+public class EntryDefinition extends DomainResource {
 
     @Block()
-    public static class CatalogEntryRelatedItemComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class EntryDefinitionRelatedEntryComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc.
          */
@@ -57,37 +57,30 @@ public class CatalogEntry extends DomainResource {
         protected CodeableConcept relationtype;
 
         /**
-         * The type of related item.
-         */
-        @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The type of related item - medication, devices", formalDefinition="The type of related item." )
-        protected CodeableConcept type;
-
-        /**
          * The reference to the related item.
          */
-        @Child(name = "item", type = {Medication.class, Device.class, Procedure.class, CarePlan.class, Organization.class, Practitioner.class, HealthcareService.class, ServiceDefinition.class, CatalogEntry.class}, order=3, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "item", type = {EntryDefinition.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The reference to the related item", formalDefinition="The reference to the related item." )
         protected Reference item;
 
         /**
          * The actual object that is the target of the reference (The reference to the related item.)
          */
-        protected Resource itemTarget;
+        protected EntryDefinition itemTarget;
 
-        private static final long serialVersionUID = -921406858L;
+        private static final long serialVersionUID = -1871051942L;
 
     /**
      * Constructor
      */
-      public CatalogEntryRelatedItemComponent() {
+      public EntryDefinitionRelatedEntryComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public CatalogEntryRelatedItemComponent(CodeableConcept relationtype, Reference item) {
+      public EntryDefinitionRelatedEntryComponent(CodeableConcept relationtype, Reference item) {
         super();
         this.relationtype = relationtype;
         this.item = item;
@@ -99,7 +92,7 @@ public class CatalogEntry extends DomainResource {
         public CodeableConcept getRelationtype() { 
           if (this.relationtype == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogEntryRelatedItemComponent.relationtype");
+              throw new Error("Attempt to auto-create EntryDefinitionRelatedEntryComponent.relationtype");
             else if (Configuration.doAutoCreate())
               this.relationtype = new CodeableConcept(); // cc
           return this.relationtype;
@@ -112,32 +105,8 @@ public class CatalogEntry extends DomainResource {
         /**
          * @param value {@link #relationtype} (The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc.)
          */
-        public CatalogEntryRelatedItemComponent setRelationtype(CodeableConcept value) { 
+        public EntryDefinitionRelatedEntryComponent setRelationtype(CodeableConcept value) { 
           this.relationtype = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #type} (The type of related item.)
-         */
-        public CodeableConcept getType() { 
-          if (this.type == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogEntryRelatedItemComponent.type");
-            else if (Configuration.doAutoCreate())
-              this.type = new CodeableConcept(); // cc
-          return this.type;
-        }
-
-        public boolean hasType() { 
-          return this.type != null && !this.type.isEmpty();
-        }
-
-        /**
-         * @param value {@link #type} (The type of related item.)
-         */
-        public CatalogEntryRelatedItemComponent setType(CodeableConcept value) { 
-          this.type = value;
           return this;
         }
 
@@ -147,7 +116,7 @@ public class CatalogEntry extends DomainResource {
         public Reference getItem() { 
           if (this.item == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogEntryRelatedItemComponent.item");
+              throw new Error("Attempt to auto-create EntryDefinitionRelatedEntryComponent.item");
             else if (Configuration.doAutoCreate())
               this.item = new Reference(); // cc
           return this.item;
@@ -160,7 +129,7 @@ public class CatalogEntry extends DomainResource {
         /**
          * @param value {@link #item} (The reference to the related item.)
          */
-        public CatalogEntryRelatedItemComponent setItem(Reference value) { 
+        public EntryDefinitionRelatedEntryComponent setItem(Reference value) { 
           this.item = value;
           return this;
         }
@@ -168,14 +137,19 @@ public class CatalogEntry extends DomainResource {
         /**
          * @return {@link #item} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The reference to the related item.)
          */
-        public Resource getItemTarget() { 
+        public EntryDefinition getItemTarget() { 
+          if (this.itemTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create EntryDefinitionRelatedEntryComponent.item");
+            else if (Configuration.doAutoCreate())
+              this.itemTarget = new EntryDefinition(); // aa
           return this.itemTarget;
         }
 
         /**
          * @param value {@link #item} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The reference to the related item.)
          */
-        public CatalogEntryRelatedItemComponent setItemTarget(Resource value) { 
+        public EntryDefinitionRelatedEntryComponent setItemTarget(EntryDefinition value) { 
           this.itemTarget = value;
           return this;
         }
@@ -183,16 +157,14 @@ public class CatalogEntry extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("relationtype", "CodeableConcept", "The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc.", 0, 1, relationtype));
-          children.add(new Property("type", "CodeableConcept", "The type of related item.", 0, 1, type));
-          children.add(new Property("item", "Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition|CatalogEntry)", "The reference to the related item.", 0, 1, item));
+          children.add(new Property("item", "Reference(EntryDefinition)", "The reference to the related item.", 0, 1, item));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case -261805258: /*relationtype*/  return new Property("relationtype", "CodeableConcept", "The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc.", 0, 1, relationtype);
-          case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The type of related item.", 0, 1, type);
-          case 3242771: /*item*/  return new Property("item", "Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition|CatalogEntry)", "The reference to the related item.", 0, 1, item);
+          case 3242771: /*item*/  return new Property("item", "Reference(EntryDefinition)", "The reference to the related item.", 0, 1, item);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -202,7 +174,6 @@ public class CatalogEntry extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -261805258: /*relationtype*/ return this.relationtype == null ? new Base[0] : new Base[] {this.relationtype}; // CodeableConcept
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case 3242771: /*item*/ return this.item == null ? new Base[0] : new Base[] {this.item}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -214,9 +185,6 @@ public class CatalogEntry extends DomainResource {
         switch (hash) {
         case -261805258: // relationtype
           this.relationtype = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case 3575610: // type
-          this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 3242771: // item
           this.item = castToReference(value); // Reference
@@ -230,8 +198,6 @@ public class CatalogEntry extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("relationtype")) {
           this.relationtype = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("type")) {
-          this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("item")) {
           this.item = castToReference(value); // Reference
         } else
@@ -243,7 +209,6 @@ public class CatalogEntry extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -261805258:  return getRelationtype(); 
-        case 3575610:  return getType(); 
         case 3242771:  return getItem(); 
         default: return super.makeProperty(hash, name);
         }
@@ -254,7 +219,6 @@ public class CatalogEntry extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -261805258: /*relationtype*/ return new String[] {"CodeableConcept"};
-        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case 3242771: /*item*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -267,10 +231,6 @@ public class CatalogEntry extends DomainResource {
           this.relationtype = new CodeableConcept();
           return this.relationtype;
         }
-        else if (name.equals("type")) {
-          this.type = new CodeableConcept();
-          return this.type;
-        }
         else if (name.equals("item")) {
           this.item = new Reference();
           return this.item;
@@ -279,11 +239,10 @@ public class CatalogEntry extends DomainResource {
           return super.addChild(name);
       }
 
-      public CatalogEntryRelatedItemComponent copy() {
-        CatalogEntryRelatedItemComponent dst = new CatalogEntryRelatedItemComponent();
+      public EntryDefinitionRelatedEntryComponent copy() {
+        EntryDefinitionRelatedEntryComponent dst = new EntryDefinitionRelatedEntryComponent();
         copyValues(dst);
         dst.relationtype = relationtype == null ? null : relationtype.copy();
-        dst.type = type == null ? null : type.copy();
         dst.item = item == null ? null : item.copy();
         return dst;
       }
@@ -292,30 +251,28 @@ public class CatalogEntry extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof CatalogEntryRelatedItemComponent))
+        if (!(other instanceof EntryDefinitionRelatedEntryComponent))
           return false;
-        CatalogEntryRelatedItemComponent o = (CatalogEntryRelatedItemComponent) other;
-        return compareDeep(relationtype, o.relationtype, true) && compareDeep(type, o.type, true) && compareDeep(item, o.item, true)
-          ;
+        EntryDefinitionRelatedEntryComponent o = (EntryDefinitionRelatedEntryComponent) other;
+        return compareDeep(relationtype, o.relationtype, true) && compareDeep(item, o.item, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof CatalogEntryRelatedItemComponent))
+        if (!(other instanceof EntryDefinitionRelatedEntryComponent))
           return false;
-        CatalogEntryRelatedItemComponent o = (CatalogEntryRelatedItemComponent) other;
+        EntryDefinitionRelatedEntryComponent o = (EntryDefinitionRelatedEntryComponent) other;
         return true;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(relationtype, type, item
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(relationtype, item);
       }
 
   public String fhirType() {
-    return "CatalogEntry.relatedItem";
+    return "EntryDefinition.relatedEntry";
 
   }
 
@@ -338,7 +295,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * Content of the catalog.
      */
-    @Child(name = "referencedItem", type = {Medication.class, Device.class, Procedure.class, CarePlan.class, Organization.class, Practitioner.class, HealthcareService.class, ServiceDefinition.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "referencedItem", type = {Medication.class, Device.class, Organization.class, Practitioner.class, HealthcareService.class, ActivityDefinition.class, PlanDefinition.class, SpecimenDefinition.class, ObservationDefinition.class, Binary.class}, order=2, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The item itself", formalDefinition="Content of the catalog." )
     protected Reference referencedItem;
 
@@ -406,23 +363,23 @@ public class CatalogEntry extends DomainResource {
     /**
      * Used for example, to point to a substance, or to a device used to administer a medication.
      */
-    @Child(name = "relatedItem", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "relatedEntry", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="An item that this catalog entry is related to", formalDefinition="Used for example, to point to a substance, or to a device used to administer a medication." )
-    protected List<CatalogEntryRelatedItemComponent> relatedItem;
+    protected List<EntryDefinitionRelatedEntryComponent> relatedEntry;
 
-    private static final long serialVersionUID = 359754478L;
+    private static final long serialVersionUID = -63454268L;
 
   /**
    * Constructor
    */
-    public CatalogEntry() {
+    public EntryDefinition() {
       super();
     }
 
   /**
    * Constructor
    */
-    public CatalogEntry(CodeableConcept purpose, Reference referencedItem) {
+    public EntryDefinition(CodeableConcept purpose, Reference referencedItem) {
       super();
       this.purpose = purpose;
       this.referencedItem = referencedItem;
@@ -434,7 +391,7 @@ public class CatalogEntry extends DomainResource {
     public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CatalogEntry.type");
+          throw new Error("Attempt to auto-create EntryDefinition.type");
         else if (Configuration.doAutoCreate())
           this.type = new CodeableConcept(); // cc
       return this.type;
@@ -447,7 +404,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @param value {@link #type} (The type of item - medication, device, service, protocol or other.)
      */
-    public CatalogEntry setType(CodeableConcept value) { 
+    public EntryDefinition setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -458,7 +415,7 @@ public class CatalogEntry extends DomainResource {
     public CodeableConcept getPurpose() { 
       if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CatalogEntry.purpose");
+          throw new Error("Attempt to auto-create EntryDefinition.purpose");
         else if (Configuration.doAutoCreate())
           this.purpose = new CodeableConcept(); // cc
       return this.purpose;
@@ -471,7 +428,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @param value {@link #purpose} (Whether the entry represents an orderable item, or other.)
      */
-    public CatalogEntry setPurpose(CodeableConcept value) { 
+    public EntryDefinition setPurpose(CodeableConcept value) { 
       this.purpose = value;
       return this;
     }
@@ -482,7 +439,7 @@ public class CatalogEntry extends DomainResource {
     public Reference getReferencedItem() { 
       if (this.referencedItem == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CatalogEntry.referencedItem");
+          throw new Error("Attempt to auto-create EntryDefinition.referencedItem");
         else if (Configuration.doAutoCreate())
           this.referencedItem = new Reference(); // cc
       return this.referencedItem;
@@ -495,7 +452,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @param value {@link #referencedItem} (Content of the catalog.)
      */
-    public CatalogEntry setReferencedItem(Reference value) { 
+    public EntryDefinition setReferencedItem(Reference value) { 
       this.referencedItem = value;
       return this;
     }
@@ -510,7 +467,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @param value {@link #referencedItem} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Content of the catalog.)
      */
-    public CatalogEntry setReferencedItemTarget(Resource value) { 
+    public EntryDefinition setReferencedItemTarget(Resource value) { 
       this.referencedItemTarget = value;
       return this;
     }
@@ -521,7 +478,7 @@ public class CatalogEntry extends DomainResource {
     public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CatalogEntry.identifier");
+          throw new Error("Attempt to auto-create EntryDefinition.identifier");
         else if (Configuration.doAutoCreate())
           this.identifier = new Identifier(); // cc
       return this.identifier;
@@ -534,7 +491,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @param value {@link #identifier} (Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code.)
      */
-    public CatalogEntry setIdentifier(Identifier value) { 
+    public EntryDefinition setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
@@ -551,7 +508,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public CatalogEntry setAdditionalIdentifier(List<Identifier> theAdditionalIdentifier) { 
+    public EntryDefinition setAdditionalIdentifier(List<Identifier> theAdditionalIdentifier) { 
       this.additionalIdentifier = theAdditionalIdentifier;
       return this;
     }
@@ -573,7 +530,7 @@ public class CatalogEntry extends DomainResource {
       return t;
     }
 
-    public CatalogEntry addAdditionalIdentifier(Identifier t) { //3
+    public EntryDefinition addAdditionalIdentifier(Identifier t) { //3
       if (t == null)
         return this;
       if (this.additionalIdentifier == null)
@@ -604,7 +561,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public CatalogEntry setClassification(List<Identifier> theClassification) { 
+    public EntryDefinition setClassification(List<Identifier> theClassification) { 
       this.classification = theClassification;
       return this;
     }
@@ -626,7 +583,7 @@ public class CatalogEntry extends DomainResource {
       return t;
     }
 
-    public CatalogEntry addClassification(Identifier t) { //3
+    public EntryDefinition addClassification(Identifier t) { //3
       if (t == null)
         return this;
       if (this.classification == null)
@@ -651,7 +608,7 @@ public class CatalogEntry extends DomainResource {
     public CodeableConcept getStatus() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CatalogEntry.status");
+          throw new Error("Attempt to auto-create EntryDefinition.status");
         else if (Configuration.doAutoCreate())
           this.status = new CodeableConcept(); // cc
       return this.status;
@@ -664,7 +621,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @param value {@link #status} (Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.)
      */
-    public CatalogEntry setStatus(CodeableConcept value) { 
+    public EntryDefinition setStatus(CodeableConcept value) { 
       this.status = value;
       return this;
     }
@@ -675,7 +632,7 @@ public class CatalogEntry extends DomainResource {
     public Period getValidityPeriod() { 
       if (this.validityPeriod == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CatalogEntry.validityPeriod");
+          throw new Error("Attempt to auto-create EntryDefinition.validityPeriod");
         else if (Configuration.doAutoCreate())
           this.validityPeriod = new Period(); // cc
       return this.validityPeriod;
@@ -688,7 +645,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @param value {@link #validityPeriod} (The time period in which this catalog entry is expected to be active.)
      */
-    public CatalogEntry setValidityPeriod(Period value) { 
+    public EntryDefinition setValidityPeriod(Period value) { 
       this.validityPeriod = value;
       return this;
     }
@@ -699,7 +656,7 @@ public class CatalogEntry extends DomainResource {
     public DateTimeType getLastUpdatedElement() { 
       if (this.lastUpdated == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CatalogEntry.lastUpdated");
+          throw new Error("Attempt to auto-create EntryDefinition.lastUpdated");
         else if (Configuration.doAutoCreate())
           this.lastUpdated = new DateTimeType(); // bb
       return this.lastUpdated;
@@ -716,7 +673,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @param value {@link #lastUpdated} (Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated.). This is the underlying object with id, value and extensions. The accessor "getLastUpdated" gives direct access to the value
      */
-    public CatalogEntry setLastUpdatedElement(DateTimeType value) { 
+    public EntryDefinition setLastUpdatedElement(DateTimeType value) { 
       this.lastUpdated = value;
       return this;
     }
@@ -731,7 +688,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @param value Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated.
      */
-    public CatalogEntry setLastUpdated(Date value) { 
+    public EntryDefinition setLastUpdated(Date value) { 
       if (value == null)
         this.lastUpdated = null;
       else {
@@ -754,7 +711,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public CatalogEntry setAdditionalCharacteristic(List<CodeableConcept> theAdditionalCharacteristic) { 
+    public EntryDefinition setAdditionalCharacteristic(List<CodeableConcept> theAdditionalCharacteristic) { 
       this.additionalCharacteristic = theAdditionalCharacteristic;
       return this;
     }
@@ -776,7 +733,7 @@ public class CatalogEntry extends DomainResource {
       return t;
     }
 
-    public CatalogEntry addAdditionalCharacteristic(CodeableConcept t) { //3
+    public EntryDefinition addAdditionalCharacteristic(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.additionalCharacteristic == null)
@@ -807,7 +764,7 @@ public class CatalogEntry extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public CatalogEntry setAdditionalClassification(List<CodeableConcept> theAdditionalClassification) { 
+    public EntryDefinition setAdditionalClassification(List<CodeableConcept> theAdditionalClassification) { 
       this.additionalClassification = theAdditionalClassification;
       return this;
     }
@@ -829,7 +786,7 @@ public class CatalogEntry extends DomainResource {
       return t;
     }
 
-    public CatalogEntry addAdditionalClassification(CodeableConcept t) { //3
+    public EntryDefinition addAdditionalClassification(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.additionalClassification == null)
@@ -849,63 +806,63 @@ public class CatalogEntry extends DomainResource {
     }
 
     /**
-     * @return {@link #relatedItem} (Used for example, to point to a substance, or to a device used to administer a medication.)
+     * @return {@link #relatedEntry} (Used for example, to point to a substance, or to a device used to administer a medication.)
      */
-    public List<CatalogEntryRelatedItemComponent> getRelatedItem() { 
-      if (this.relatedItem == null)
-        this.relatedItem = new ArrayList<CatalogEntryRelatedItemComponent>();
-      return this.relatedItem;
+    public List<EntryDefinitionRelatedEntryComponent> getRelatedEntry() { 
+      if (this.relatedEntry == null)
+        this.relatedEntry = new ArrayList<EntryDefinitionRelatedEntryComponent>();
+      return this.relatedEntry;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public CatalogEntry setRelatedItem(List<CatalogEntryRelatedItemComponent> theRelatedItem) { 
-      this.relatedItem = theRelatedItem;
+    public EntryDefinition setRelatedEntry(List<EntryDefinitionRelatedEntryComponent> theRelatedEntry) { 
+      this.relatedEntry = theRelatedEntry;
       return this;
     }
 
-    public boolean hasRelatedItem() { 
-      if (this.relatedItem == null)
+    public boolean hasRelatedEntry() { 
+      if (this.relatedEntry == null)
         return false;
-      for (CatalogEntryRelatedItemComponent item : this.relatedItem)
+      for (EntryDefinitionRelatedEntryComponent item : this.relatedEntry)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CatalogEntryRelatedItemComponent addRelatedItem() { //3
-      CatalogEntryRelatedItemComponent t = new CatalogEntryRelatedItemComponent();
-      if (this.relatedItem == null)
-        this.relatedItem = new ArrayList<CatalogEntryRelatedItemComponent>();
-      this.relatedItem.add(t);
+    public EntryDefinitionRelatedEntryComponent addRelatedEntry() { //3
+      EntryDefinitionRelatedEntryComponent t = new EntryDefinitionRelatedEntryComponent();
+      if (this.relatedEntry == null)
+        this.relatedEntry = new ArrayList<EntryDefinitionRelatedEntryComponent>();
+      this.relatedEntry.add(t);
       return t;
     }
 
-    public CatalogEntry addRelatedItem(CatalogEntryRelatedItemComponent t) { //3
+    public EntryDefinition addRelatedEntry(EntryDefinitionRelatedEntryComponent t) { //3
       if (t == null)
         return this;
-      if (this.relatedItem == null)
-        this.relatedItem = new ArrayList<CatalogEntryRelatedItemComponent>();
-      this.relatedItem.add(t);
+      if (this.relatedEntry == null)
+        this.relatedEntry = new ArrayList<EntryDefinitionRelatedEntryComponent>();
+      this.relatedEntry.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #relatedItem}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #relatedEntry}, creating it if it does not already exist
      */
-    public CatalogEntryRelatedItemComponent getRelatedItemFirstRep() { 
-      if (getRelatedItem().isEmpty()) {
-        addRelatedItem();
+    public EntryDefinitionRelatedEntryComponent getRelatedEntryFirstRep() { 
+      if (getRelatedEntry().isEmpty()) {
+        addRelatedEntry();
       }
-      return getRelatedItem().get(0);
+      return getRelatedEntry().get(0);
     }
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("type", "CodeableConcept", "The type of item - medication, device, service, protocol or other.", 0, 1, type));
         children.add(new Property("purpose", "CodeableConcept", "Whether the entry represents an orderable item, or other.", 0, 1, purpose));
-        children.add(new Property("referencedItem", "Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition)", "Content of the catalog.", 0, 1, referencedItem));
+        children.add(new Property("referencedItem", "Reference(Medication|Device|Organization|Practitioner|HealthcareService|ActivityDefinition|PlanDefinition|SpecimenDefinition|ObservationDefinition|Binary)", "Content of the catalog.", 0, 1, referencedItem));
         children.add(new Property("identifier", "Identifier", "Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code.", 0, 1, identifier));
         children.add(new Property("additionalIdentifier", "Identifier", "Used in supporting related concepts, e.g. NDC to RxNorm.", 0, java.lang.Integer.MAX_VALUE, additionalIdentifier));
         children.add(new Property("classification", "Identifier", "Classes of devices, or ATC for medication.", 0, java.lang.Integer.MAX_VALUE, classification));
@@ -914,7 +871,7 @@ public class CatalogEntry extends DomainResource {
         children.add(new Property("lastUpdated", "dateTime", "Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated.", 0, 1, lastUpdated));
         children.add(new Property("additionalCharacteristic", "CodeableConcept", "Used for examplefor Out of Formulary, or any specifics.", 0, java.lang.Integer.MAX_VALUE, additionalCharacteristic));
         children.add(new Property("additionalClassification", "CodeableConcept", "User for example for ATC classification, or.", 0, java.lang.Integer.MAX_VALUE, additionalClassification));
-        children.add(new Property("relatedItem", "", "Used for example, to point to a substance, or to a device used to administer a medication.", 0, java.lang.Integer.MAX_VALUE, relatedItem));
+        children.add(new Property("relatedEntry", "", "Used for example, to point to a substance, or to a device used to administer a medication.", 0, java.lang.Integer.MAX_VALUE, relatedEntry));
       }
 
       @Override
@@ -922,7 +879,7 @@ public class CatalogEntry extends DomainResource {
         switch (_hash) {
         case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The type of item - medication, device, service, protocol or other.", 0, 1, type);
         case -220463842: /*purpose*/  return new Property("purpose", "CodeableConcept", "Whether the entry represents an orderable item, or other.", 0, 1, purpose);
-        case -1896630996: /*referencedItem*/  return new Property("referencedItem", "Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition)", "Content of the catalog.", 0, 1, referencedItem);
+        case -1896630996: /*referencedItem*/  return new Property("referencedItem", "Reference(Medication|Device|Organization|Practitioner|HealthcareService|ActivityDefinition|PlanDefinition|SpecimenDefinition|ObservationDefinition|Binary)", "Content of the catalog.", 0, 1, referencedItem);
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code.", 0, 1, identifier);
         case 1195162672: /*additionalIdentifier*/  return new Property("additionalIdentifier", "Identifier", "Used in supporting related concepts, e.g. NDC to RxNorm.", 0, java.lang.Integer.MAX_VALUE, additionalIdentifier);
         case 382350310: /*classification*/  return new Property("classification", "Identifier", "Classes of devices, or ATC for medication.", 0, java.lang.Integer.MAX_VALUE, classification);
@@ -931,7 +888,7 @@ public class CatalogEntry extends DomainResource {
         case 1649733957: /*lastUpdated*/  return new Property("lastUpdated", "dateTime", "Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated.", 0, 1, lastUpdated);
         case -1638369886: /*additionalCharacteristic*/  return new Property("additionalCharacteristic", "CodeableConcept", "Used for examplefor Out of Formulary, or any specifics.", 0, java.lang.Integer.MAX_VALUE, additionalCharacteristic);
         case -1622333459: /*additionalClassification*/  return new Property("additionalClassification", "CodeableConcept", "User for example for ATC classification, or.", 0, java.lang.Integer.MAX_VALUE, additionalClassification);
-        case 1112702430: /*relatedItem*/  return new Property("relatedItem", "", "Used for example, to point to a substance, or to a device used to administer a medication.", 0, java.lang.Integer.MAX_VALUE, relatedItem);
+        case 130178823: /*relatedEntry*/  return new Property("relatedEntry", "", "Used for example, to point to a substance, or to a device used to administer a medication.", 0, java.lang.Integer.MAX_VALUE, relatedEntry);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -951,7 +908,7 @@ public class CatalogEntry extends DomainResource {
         case 1649733957: /*lastUpdated*/ return this.lastUpdated == null ? new Base[0] : new Base[] {this.lastUpdated}; // DateTimeType
         case -1638369886: /*additionalCharacteristic*/ return this.additionalCharacteristic == null ? new Base[0] : this.additionalCharacteristic.toArray(new Base[this.additionalCharacteristic.size()]); // CodeableConcept
         case -1622333459: /*additionalClassification*/ return this.additionalClassification == null ? new Base[0] : this.additionalClassification.toArray(new Base[this.additionalClassification.size()]); // CodeableConcept
-        case 1112702430: /*relatedItem*/ return this.relatedItem == null ? new Base[0] : this.relatedItem.toArray(new Base[this.relatedItem.size()]); // CatalogEntryRelatedItemComponent
+        case 130178823: /*relatedEntry*/ return this.relatedEntry == null ? new Base[0] : this.relatedEntry.toArray(new Base[this.relatedEntry.size()]); // EntryDefinitionRelatedEntryComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -993,8 +950,8 @@ public class CatalogEntry extends DomainResource {
         case -1622333459: // additionalClassification
           this.getAdditionalClassification().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case 1112702430: // relatedItem
-          this.getRelatedItem().add((CatalogEntryRelatedItemComponent) value); // CatalogEntryRelatedItemComponent
+        case 130178823: // relatedEntry
+          this.getRelatedEntry().add((EntryDefinitionRelatedEntryComponent) value); // EntryDefinitionRelatedEntryComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1025,8 +982,8 @@ public class CatalogEntry extends DomainResource {
           this.getAdditionalCharacteristic().add(castToCodeableConcept(value));
         } else if (name.equals("additionalClassification")) {
           this.getAdditionalClassification().add(castToCodeableConcept(value));
-        } else if (name.equals("relatedItem")) {
-          this.getRelatedItem().add((CatalogEntryRelatedItemComponent) value);
+        } else if (name.equals("relatedEntry")) {
+          this.getRelatedEntry().add((EntryDefinitionRelatedEntryComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -1046,7 +1003,7 @@ public class CatalogEntry extends DomainResource {
         case 1649733957:  return getLastUpdatedElement();
         case -1638369886:  return addAdditionalCharacteristic(); 
         case -1622333459:  return addAdditionalClassification(); 
-        case 1112702430:  return addRelatedItem(); 
+        case 130178823:  return addRelatedEntry(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1066,7 +1023,7 @@ public class CatalogEntry extends DomainResource {
         case 1649733957: /*lastUpdated*/ return new String[] {"dateTime"};
         case -1638369886: /*additionalCharacteristic*/ return new String[] {"CodeableConcept"};
         case -1622333459: /*additionalClassification*/ return new String[] {"CodeableConcept"};
-        case 1112702430: /*relatedItem*/ return new String[] {};
+        case 130178823: /*relatedEntry*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1105,7 +1062,7 @@ public class CatalogEntry extends DomainResource {
           return this.validityPeriod;
         }
         else if (name.equals("lastUpdated")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CatalogEntry.lastUpdated");
+          throw new FHIRException("Cannot call addChild on a primitive type EntryDefinition.lastUpdated");
         }
         else if (name.equals("additionalCharacteristic")) {
           return addAdditionalCharacteristic();
@@ -1113,20 +1070,20 @@ public class CatalogEntry extends DomainResource {
         else if (name.equals("additionalClassification")) {
           return addAdditionalClassification();
         }
-        else if (name.equals("relatedItem")) {
-          return addRelatedItem();
+        else if (name.equals("relatedEntry")) {
+          return addRelatedEntry();
         }
         else
           return super.addChild(name);
       }
 
   public String fhirType() {
-    return "CatalogEntry";
+    return "EntryDefinition";
 
   }
 
-      public CatalogEntry copy() {
-        CatalogEntry dst = new CatalogEntry();
+      public EntryDefinition copy() {
+        EntryDefinition dst = new EntryDefinition();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
@@ -1155,15 +1112,15 @@ public class CatalogEntry extends DomainResource {
           for (CodeableConcept i : additionalClassification)
             dst.additionalClassification.add(i.copy());
         };
-        if (relatedItem != null) {
-          dst.relatedItem = new ArrayList<CatalogEntryRelatedItemComponent>();
-          for (CatalogEntryRelatedItemComponent i : relatedItem)
-            dst.relatedItem.add(i.copy());
+        if (relatedEntry != null) {
+          dst.relatedEntry = new ArrayList<EntryDefinitionRelatedEntryComponent>();
+          for (EntryDefinitionRelatedEntryComponent i : relatedEntry)
+            dst.relatedEntry.add(i.copy());
         };
         return dst;
       }
 
-      protected CatalogEntry typedCopy() {
+      protected EntryDefinition typedCopy() {
         return copy();
       }
 
@@ -1171,14 +1128,14 @@ public class CatalogEntry extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof CatalogEntry))
+        if (!(other instanceof EntryDefinition))
           return false;
-        CatalogEntry o = (CatalogEntry) other;
+        EntryDefinition o = (EntryDefinition) other;
         return compareDeep(type, o.type, true) && compareDeep(purpose, o.purpose, true) && compareDeep(referencedItem, o.referencedItem, true)
            && compareDeep(identifier, o.identifier, true) && compareDeep(additionalIdentifier, o.additionalIdentifier, true)
            && compareDeep(classification, o.classification, true) && compareDeep(status, o.status, true) && compareDeep(validityPeriod, o.validityPeriod, true)
            && compareDeep(lastUpdated, o.lastUpdated, true) && compareDeep(additionalCharacteristic, o.additionalCharacteristic, true)
-           && compareDeep(additionalClassification, o.additionalClassification, true) && compareDeep(relatedItem, o.relatedItem, true)
+           && compareDeep(additionalClassification, o.additionalClassification, true) && compareDeep(relatedEntry, o.relatedEntry, true)
           ;
       }
 
@@ -1186,21 +1143,21 @@ public class CatalogEntry extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof CatalogEntry))
+        if (!(other instanceof EntryDefinition))
           return false;
-        CatalogEntry o = (CatalogEntry) other;
+        EntryDefinition o = (EntryDefinition) other;
         return compareValues(lastUpdated, o.lastUpdated, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, purpose, referencedItem
           , identifier, additionalIdentifier, classification, status, validityPeriod, lastUpdated
-          , additionalCharacteristic, additionalClassification, relatedItem);
+          , additionalCharacteristic, additionalClassification, relatedEntry);
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.CatalogEntry;
+    return ResourceType.EntryDefinition;
    }
 
 

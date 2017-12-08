@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -46,11 +46,11 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Example of workflow instance.
  */
-@ResourceDef(name="WorkflowExample", profile="http://hl7.org/fhir/Profile/WorkflowExample")
+@ResourceDef(name="ExampleScenario", profile="http://hl7.org/fhir/Profile/ExampleScenario")
 @ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "useContext", "jurisdiction", "copyright", "description", "purpose", "actor", "instance", "process", "workflow"})
-public class WorkflowExample extends MetadataResource {
+public class ExampleScenario extends MetadataResource {
 
-    public enum WorkflowExampleActorType {
+    public enum ExampleScenarioActorType {
         /**
          * A person
          */
@@ -63,7 +63,7 @@ public class WorkflowExample extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static WorkflowExampleActorType fromCode(String codeString) throws FHIRException {
+        public static ExampleScenarioActorType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("person".equals(codeString))
@@ -73,7 +73,7 @@ public class WorkflowExample extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown WorkflowExampleActorType code '"+codeString+"'");
+          throw new FHIRException("Unknown ExampleScenarioActorType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -84,8 +84,8 @@ public class WorkflowExample extends MetadataResource {
         }
         public String getSystem() {
           switch (this) {
-            case PERSON: return "http://hl7.org/fhir/workflowexample-actor-type";
-            case ENTITY: return "http://hl7.org/fhir/workflowexample-actor-type";
+            case PERSON: return "http://hl7.org/fhir/examplescenario-actor-type";
+            case ENTITY: return "http://hl7.org/fhir/examplescenario-actor-type";
             default: return "?";
           }
         }
@@ -105,39 +105,39 @@ public class WorkflowExample extends MetadataResource {
         }
     }
 
-  public static class WorkflowExampleActorTypeEnumFactory implements EnumFactory<WorkflowExampleActorType> {
-    public WorkflowExampleActorType fromCode(String codeString) throws IllegalArgumentException {
+  public static class ExampleScenarioActorTypeEnumFactory implements EnumFactory<ExampleScenarioActorType> {
+    public ExampleScenarioActorType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("person".equals(codeString))
-          return WorkflowExampleActorType.PERSON;
+          return ExampleScenarioActorType.PERSON;
         if ("entity".equals(codeString))
-          return WorkflowExampleActorType.ENTITY;
-        throw new IllegalArgumentException("Unknown WorkflowExampleActorType code '"+codeString+"'");
+          return ExampleScenarioActorType.ENTITY;
+        throw new IllegalArgumentException("Unknown ExampleScenarioActorType code '"+codeString+"'");
         }
-        public Enumeration<WorkflowExampleActorType> fromType(Base code) throws FHIRException {
+        public Enumeration<ExampleScenarioActorType> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<WorkflowExampleActorType>(this);
+            return new Enumeration<ExampleScenarioActorType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("person".equals(codeString))
-          return new Enumeration<WorkflowExampleActorType>(this, WorkflowExampleActorType.PERSON);
+          return new Enumeration<ExampleScenarioActorType>(this, ExampleScenarioActorType.PERSON);
         if ("entity".equals(codeString))
-          return new Enumeration<WorkflowExampleActorType>(this, WorkflowExampleActorType.ENTITY);
-        throw new FHIRException("Unknown WorkflowExampleActorType code '"+codeString+"'");
+          return new Enumeration<ExampleScenarioActorType>(this, ExampleScenarioActorType.ENTITY);
+        throw new FHIRException("Unknown ExampleScenarioActorType code '"+codeString+"'");
         }
-    public String toCode(WorkflowExampleActorType code) {
-      if (code == WorkflowExampleActorType.PERSON)
+    public String toCode(ExampleScenarioActorType code) {
+      if (code == ExampleScenarioActorType.PERSON)
         return "person";
-      if (code == WorkflowExampleActorType.ENTITY)
+      if (code == ExampleScenarioActorType.ENTITY)
         return "entity";
       return "?";
       }
-    public String toSystem(WorkflowExampleActorType code) {
+    public String toSystem(ExampleScenarioActorType code) {
       return code.getSystem();
       }
     }
@@ -200,10 +200,6 @@ public class WorkflowExample extends MetadataResource {
          */
         CARETEAM, 
         /**
-         * Catalog entries are wrappers that contextualize items included in a catalog.
-         */
-        CATALOGENTRY, 
-        /**
          * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
          */
         CHARGEITEM, 
@@ -248,7 +244,7 @@ public class WorkflowExample extends MetadataResource {
          */
         CONDITION, 
         /**
-         * A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
+         * A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
          */
         CONSENT, 
         /**
@@ -324,6 +320,10 @@ public class WorkflowExample extends MetadataResource {
          */
         ENROLLMENTRESPONSE, 
         /**
+         * Catalog entries are wrappers that contextualize items included in a catalog.
+         */
+        ENTRYDEFINITION, 
+        /**
          * An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
          */
         EPISODEOFCARE, 
@@ -331,6 +331,10 @@ public class WorkflowExample extends MetadataResource {
          * The EventDefinition resource provides a reusable description of when a particular event can occur.
          */
         EVENTDEFINITION, 
+        /**
+         * Example of workflow instance.
+         */
+        EXAMPLESCENARIO, 
         /**
          * Resource to define constraints on the Expansion of a FHIR ValueSet.
          */
@@ -388,6 +392,14 @@ public class WorkflowExample extends MetadataResource {
          */
         IMPLEMENTATIONGUIDE, 
         /**
+         * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+         */
+        IMPLEMENTATIONGUIDEINPUT, 
+        /**
+         * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
+         */
+        IMPLEMENTATIONGUIDEOUTPUT, 
+        /**
          * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
         LIBRARY, 
@@ -416,7 +428,7 @@ public class WorkflowExample extends MetadataResource {
          */
         MEDIA, 
         /**
-         * This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
+         * This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
          */
         MEDICATION, 
         /**
@@ -455,6 +467,10 @@ public class WorkflowExample extends MetadataResource {
          * Measurements and simple assertions made about a patient, device or other subject.
          */
         OBSERVATION, 
+        /**
+         * Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
+         */
+        OBSERVATIONDEFINITION, 
         /**
          * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
          */
@@ -504,10 +520,6 @@ public class WorkflowExample extends MetadataResource {
          */
         PROCEDURE, 
         /**
-         * A record of a request for diagnostic investigations, treatments, or operations to be performed.
-         */
-        PROCEDUREREQUEST, 
-        /**
          * This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
          */
         PROCESSREQUEST, 
@@ -540,7 +552,7 @@ public class WorkflowExample extends MetadataResource {
          */
         RESEARCHSTUDY, 
         /**
-         * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
+         * A physical entity which is the primary unit of operational and/or administrative interest in a study.
          */
         RESEARCHSUBJECT, 
         /**
@@ -567,6 +579,10 @@ public class WorkflowExample extends MetadataResource {
          * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
          */
         SERVICEDEFINITION, 
+        /**
+         * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
+         */
+        SERVICEREQUEST, 
         /**
          * A slot of time on a schedule that may be available for booking appointments.
          */
@@ -608,6 +624,10 @@ public class WorkflowExample extends MetadataResource {
          */
         TASK, 
         /**
+         * A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
+         */
+        TERMINOLOGYCAPABILITIES, 
+        /**
          * A summary of information based on the results of executing a TestScript.
          */
         TESTREPORT, 
@@ -616,6 +636,10 @@ public class WorkflowExample extends MetadataResource {
          */
         TESTSCRIPT, 
         /**
+         * Information about a user's current session.
+         */
+        USERSESSION, 
+        /**
          * A value set specifies a set of codes drawn from one or more code systems.
          */
         VALUESET, 
@@ -623,10 +647,6 @@ public class WorkflowExample extends MetadataResource {
          * An authorization for the supply of glasses and/or contact lenses to a patient.
          */
         VISIONPRESCRIPTION, 
-        /**
-         * Example of workflow instance.
-         */
-        WORKFLOWEXAMPLE, 
         /**
          * added to help the parsers with the generic types
          */
@@ -662,8 +682,6 @@ public class WorkflowExample extends MetadataResource {
           return CAREPLAN;
         if ("CareTeam".equals(codeString))
           return CARETEAM;
-        if ("CatalogEntry".equals(codeString))
-          return CATALOGENTRY;
         if ("ChargeItem".equals(codeString))
           return CHARGEITEM;
         if ("Claim".equals(codeString))
@@ -724,10 +742,14 @@ public class WorkflowExample extends MetadataResource {
           return ENROLLMENTREQUEST;
         if ("EnrollmentResponse".equals(codeString))
           return ENROLLMENTRESPONSE;
+        if ("EntryDefinition".equals(codeString))
+          return ENTRYDEFINITION;
         if ("EpisodeOfCare".equals(codeString))
           return EPISODEOFCARE;
         if ("EventDefinition".equals(codeString))
           return EVENTDEFINITION;
+        if ("ExampleScenario".equals(codeString))
+          return EXAMPLESCENARIO;
         if ("ExpansionProfile".equals(codeString))
           return EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
@@ -756,6 +778,10 @@ public class WorkflowExample extends MetadataResource {
           return IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
           return IMPLEMENTATIONGUIDE;
+        if ("ImplementationGuideInput".equals(codeString))
+          return IMPLEMENTATIONGUIDEINPUT;
+        if ("ImplementationGuideOutput".equals(codeString))
+          return IMPLEMENTATIONGUIDEOUTPUT;
         if ("Library".equals(codeString))
           return LIBRARY;
         if ("Linkage".equals(codeString))
@@ -790,6 +816,8 @@ public class WorkflowExample extends MetadataResource {
           return NUTRITIONORDER;
         if ("Observation".equals(codeString))
           return OBSERVATION;
+        if ("ObservationDefinition".equals(codeString))
+          return OBSERVATIONDEFINITION;
         if ("OperationDefinition".equals(codeString))
           return OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -814,8 +842,6 @@ public class WorkflowExample extends MetadataResource {
           return PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return PROCEDURE;
-        if ("ProcedureRequest".equals(codeString))
-          return PROCEDUREREQUEST;
         if ("ProcessRequest".equals(codeString))
           return PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
@@ -846,6 +872,8 @@ public class WorkflowExample extends MetadataResource {
           return SEQUENCE;
         if ("ServiceDefinition".equals(codeString))
           return SERVICEDEFINITION;
+        if ("ServiceRequest".equals(codeString))
+          return SERVICEREQUEST;
         if ("Slot".equals(codeString))
           return SLOT;
         if ("Specimen".equals(codeString))
@@ -866,16 +894,18 @@ public class WorkflowExample extends MetadataResource {
           return SUPPLYREQUEST;
         if ("Task".equals(codeString))
           return TASK;
+        if ("TerminologyCapabilities".equals(codeString))
+          return TERMINOLOGYCAPABILITIES;
         if ("TestReport".equals(codeString))
           return TESTREPORT;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
+        if ("UserSession".equals(codeString))
+          return USERSESSION;
         if ("ValueSet".equals(codeString))
           return VALUESET;
         if ("VisionPrescription".equals(codeString))
           return VISIONPRESCRIPTION;
-        if ("WorkflowExample".equals(codeString))
-          return WORKFLOWEXAMPLE;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -897,7 +927,6 @@ public class WorkflowExample extends MetadataResource {
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
-            case CATALOGENTRY: return "CatalogEntry";
             case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
@@ -928,8 +957,10 @@ public class WorkflowExample extends MetadataResource {
             case ENDPOINT: return "Endpoint";
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
+            case ENTRYDEFINITION: return "EntryDefinition";
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
+            case EXAMPLESCENARIO: return "ExampleScenario";
             case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
@@ -944,6 +975,8 @@ public class WorkflowExample extends MetadataResource {
             case IMMUNIZATION: return "Immunization";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
+            case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
+            case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -961,6 +994,7 @@ public class WorkflowExample extends MetadataResource {
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
+            case OBSERVATIONDEFINITION: return "ObservationDefinition";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -973,7 +1007,6 @@ public class WorkflowExample extends MetadataResource {
             case PRACTITIONER: return "Practitioner";
             case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
-            case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
             case PROVENANCE: return "Provenance";
@@ -989,6 +1022,7 @@ public class WorkflowExample extends MetadataResource {
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
             case SERVICEDEFINITION: return "ServiceDefinition";
+            case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
@@ -999,11 +1033,12 @@ public class WorkflowExample extends MetadataResource {
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
             case TASK: return "Task";
+            case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
+            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
-            case WORKFLOWEXAMPLE: return "WorkflowExample";
             default: return "?";
           }
         }
@@ -1023,7 +1058,6 @@ public class WorkflowExample extends MetadataResource {
             case CAPABILITYSTATEMENT: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
-            case CATALOGENTRY: return "http://hl7.org/fhir/resource-types";
             case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -1054,8 +1088,10 @@ public class WorkflowExample extends MetadataResource {
             case ENDPOINT: return "http://hl7.org/fhir/resource-types";
             case ENROLLMENTREQUEST: return "http://hl7.org/fhir/resource-types";
             case ENROLLMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
+            case ENTRYDEFINITION: return "http://hl7.org/fhir/resource-types";
             case EPISODEOFCARE: return "http://hl7.org/fhir/resource-types";
             case EVENTDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case EXAMPLESCENARIO: return "http://hl7.org/fhir/resource-types";
             case EXPANSIONPROFILE: return "http://hl7.org/fhir/resource-types";
             case EXPLANATIONOFBENEFIT: return "http://hl7.org/fhir/resource-types";
             case FAMILYMEMBERHISTORY: return "http://hl7.org/fhir/resource-types";
@@ -1070,6 +1106,8 @@ public class WorkflowExample extends MetadataResource {
             case IMMUNIZATION: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDE: return "http://hl7.org/fhir/resource-types";
+            case IMPLEMENTATIONGUIDEINPUT: return "http://hl7.org/fhir/resource-types";
+            case IMPLEMENTATIONGUIDEOUTPUT: return "http://hl7.org/fhir/resource-types";
             case LIBRARY: return "http://hl7.org/fhir/resource-types";
             case LINKAGE: return "http://hl7.org/fhir/resource-types";
             case LIST: return "http://hl7.org/fhir/resource-types";
@@ -1087,6 +1125,7 @@ public class WorkflowExample extends MetadataResource {
             case NAMINGSYSTEM: return "http://hl7.org/fhir/resource-types";
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case OBSERVATION: return "http://hl7.org/fhir/resource-types";
+            case OBSERVATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
@@ -1099,7 +1138,6 @@ public class WorkflowExample extends MetadataResource {
             case PRACTITIONER: return "http://hl7.org/fhir/resource-types";
             case PRACTITIONERROLE: return "http://hl7.org/fhir/resource-types";
             case PROCEDURE: return "http://hl7.org/fhir/resource-types";
-            case PROCEDUREREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSRESPONSE: return "http://hl7.org/fhir/resource-types";
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
@@ -1115,6 +1153,7 @@ public class WorkflowExample extends MetadataResource {
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
             case SEQUENCE: return "http://hl7.org/fhir/resource-types";
             case SERVICEDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case SERVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case SPECIMENDEFINITION: return "http://hl7.org/fhir/resource-types";
@@ -1125,11 +1164,12 @@ public class WorkflowExample extends MetadataResource {
             case SUPPLYDELIVERY: return "http://hl7.org/fhir/resource-types";
             case SUPPLYREQUEST: return "http://hl7.org/fhir/resource-types";
             case TASK: return "http://hl7.org/fhir/resource-types";
+            case TERMINOLOGYCAPABILITIES: return "http://hl7.org/fhir/resource-types";
             case TESTREPORT: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
+            case USERSESSION: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
-            case WORKFLOWEXAMPLE: return "http://hl7.org/fhir/resource-types";
             default: return "?";
           }
         }
@@ -1149,7 +1189,6 @@ public class WorkflowExample extends MetadataResource {
             case CAPABILITYSTATEMENT: return "A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
-            case CATALOGENTRY: return "Catalog entries are wrappers that contextualize items included in a catalog.";
             case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
@@ -1161,7 +1200,7 @@ public class WorkflowExample extends MetadataResource {
             case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.";
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.";
-            case CONSENT: return "A record of a healthcare consumer’s policy choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
+            case CONSENT: return "A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
             case CONTRACT: return "A formal agreement between parties regarding the conduct of business, exchange of information or other matters.";
             case COVERAGE: return "Financial instrument which may be used to reimburse or pay for health care products and services.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
@@ -1180,8 +1219,10 @@ public class WorkflowExample extends MetadataResource {
             case ENDPOINT: return "The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.";
             case ENROLLMENTREQUEST: return "This resource provides the insurance enrollment details to the insurer regarding a specified coverage.";
             case ENROLLMENTRESPONSE: return "This resource provides enrollment and plan details from the processing of an Enrollment resource.";
+            case ENTRYDEFINITION: return "Catalog entries are wrappers that contextualize items included in a catalog.";
             case EPISODEOFCARE: return "An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.";
             case EVENTDEFINITION: return "The EventDefinition resource provides a reusable description of when a particular event can occur.";
+            case EXAMPLESCENARIO: return "Example of workflow instance.";
             case EXPANSIONPROFILE: return "Resource to define constraints on the Expansion of a FHIR ValueSet.";
             case EXPLANATIONOFBENEFIT: return "This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.";
             case FAMILYMEMBERHISTORY: return "Significant health conditions for a person related to the patient relevant in the context of care for the patient.";
@@ -1196,6 +1237,8 @@ public class WorkflowExample extends MetadataResource {
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
+            case IMPLEMENTATIONGUIDEINPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
+            case IMPLEMENTATIONGUIDEOUTPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
@@ -1203,7 +1246,7 @@ public class WorkflowExample extends MetadataResource {
             case MEASURE: return "The Measure resource provides the definition of a quality measure.";
             case MEASUREREPORT: return "The MeasureReport resource contains the results of evaluating a measure.";
             case MEDIA: return "A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.";
-            case MEDICATION: return "This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.";
+            case MEDICATION: return "This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.";
             case MEDICATIONADMINISTRATION: return "Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.";
             case MEDICATIONDISPENSE: return "Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.";
             case MEDICATIONREQUEST: return "An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.";
@@ -1213,6 +1256,7 @@ public class WorkflowExample extends MetadataResource {
             case NAMINGSYSTEM: return "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.";
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
+            case OBSERVATIONDEFINITION: return "Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.";
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
@@ -1225,7 +1269,6 @@ public class WorkflowExample extends MetadataResource {
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
-            case PROCEDUREREQUEST: return "A record of a request for diagnostic investigations, treatments, or operations to be performed.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
@@ -1234,13 +1277,14 @@ public class WorkflowExample extends MetadataResource {
             case RELATEDPERSON: return "Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.";
             case REQUESTGROUP: return "A group of related requests that can be used to capture intended activities that have inter-dependencies such as \"give this medication after that one\".";
             case RESEARCHSTUDY: return "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.";
-            case RESEARCHSUBJECT: return "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.";
+            case RESEARCHSUBJECT: return "A physical entity which is the primary unit of operational and/or administrative interest in a study.";
             case RESOURCE: return "This is the base resource type for everything.";
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
             case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
             case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
+            case SERVICEREQUEST: return "A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case SPECIMENDEFINITION: return "A kind of specimen with associated set of requirements.";
@@ -1251,11 +1295,12 @@ public class WorkflowExample extends MetadataResource {
             case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
             case SUPPLYREQUEST: return "A record of a request for a medication, substance or device used in the healthcare setting.";
             case TASK: return "A task to be performed.";
+            case TERMINOLOGYCAPABILITIES: return "A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.";
             case TESTREPORT: return "A summary of information based on the results of executing a TestScript.";
             case TESTSCRIPT: return "A structured set of tests against a FHIR server implementation to determine compliance against the FHIR specification.";
+            case USERSESSION: return "Information about a user's current session.";
             case VALUESET: return "A value set specifies a set of codes drawn from one or more code systems.";
             case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
-            case WORKFLOWEXAMPLE: return "Example of workflow instance.";
             default: return "?";
           }
         }
@@ -1275,7 +1320,6 @@ public class WorkflowExample extends MetadataResource {
             case CAPABILITYSTATEMENT: return "CapabilityStatement";
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
-            case CATALOGENTRY: return "CatalogEntry";
             case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
@@ -1306,8 +1350,10 @@ public class WorkflowExample extends MetadataResource {
             case ENDPOINT: return "Endpoint";
             case ENROLLMENTREQUEST: return "EnrollmentRequest";
             case ENROLLMENTRESPONSE: return "EnrollmentResponse";
+            case ENTRYDEFINITION: return "EntryDefinition";
             case EPISODEOFCARE: return "EpisodeOfCare";
             case EVENTDEFINITION: return "EventDefinition";
+            case EXAMPLESCENARIO: return "ExampleScenario";
             case EXPANSIONPROFILE: return "ExpansionProfile";
             case EXPLANATIONOFBENEFIT: return "ExplanationOfBenefit";
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
@@ -1322,6 +1368,8 @@ public class WorkflowExample extends MetadataResource {
             case IMMUNIZATION: return "Immunization";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
+            case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
+            case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -1339,6 +1387,7 @@ public class WorkflowExample extends MetadataResource {
             case NAMINGSYSTEM: return "NamingSystem";
             case NUTRITIONORDER: return "NutritionOrder";
             case OBSERVATION: return "Observation";
+            case OBSERVATIONDEFINITION: return "ObservationDefinition";
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
@@ -1351,7 +1400,6 @@ public class WorkflowExample extends MetadataResource {
             case PRACTITIONER: return "Practitioner";
             case PRACTITIONERROLE: return "PractitionerRole";
             case PROCEDURE: return "Procedure";
-            case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
             case PROVENANCE: return "Provenance";
@@ -1367,6 +1415,7 @@ public class WorkflowExample extends MetadataResource {
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
             case SERVICEDEFINITION: return "ServiceDefinition";
+            case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case SPECIMENDEFINITION: return "SpecimenDefinition";
@@ -1377,11 +1426,12 @@ public class WorkflowExample extends MetadataResource {
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
             case TASK: return "Task";
+            case TERMINOLOGYCAPABILITIES: return "TerminologyCapabilities";
             case TESTREPORT: return "TestReport";
             case TESTSCRIPT: return "TestScript";
+            case USERSESSION: return "UserSession";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
-            case WORKFLOWEXAMPLE: return "WorkflowExample";
             default: return "?";
           }
         }
@@ -1420,8 +1470,6 @@ public class WorkflowExample extends MetadataResource {
           return FHIRResourceType.CAREPLAN;
         if ("CareTeam".equals(codeString))
           return FHIRResourceType.CARETEAM;
-        if ("CatalogEntry".equals(codeString))
-          return FHIRResourceType.CATALOGENTRY;
         if ("ChargeItem".equals(codeString))
           return FHIRResourceType.CHARGEITEM;
         if ("Claim".equals(codeString))
@@ -1482,10 +1530,14 @@ public class WorkflowExample extends MetadataResource {
           return FHIRResourceType.ENROLLMENTREQUEST;
         if ("EnrollmentResponse".equals(codeString))
           return FHIRResourceType.ENROLLMENTRESPONSE;
+        if ("EntryDefinition".equals(codeString))
+          return FHIRResourceType.ENTRYDEFINITION;
         if ("EpisodeOfCare".equals(codeString))
           return FHIRResourceType.EPISODEOFCARE;
         if ("EventDefinition".equals(codeString))
           return FHIRResourceType.EVENTDEFINITION;
+        if ("ExampleScenario".equals(codeString))
+          return FHIRResourceType.EXAMPLESCENARIO;
         if ("ExpansionProfile".equals(codeString))
           return FHIRResourceType.EXPANSIONPROFILE;
         if ("ExplanationOfBenefit".equals(codeString))
@@ -1514,6 +1566,10 @@ public class WorkflowExample extends MetadataResource {
           return FHIRResourceType.IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
           return FHIRResourceType.IMPLEMENTATIONGUIDE;
+        if ("ImplementationGuideInput".equals(codeString))
+          return FHIRResourceType.IMPLEMENTATIONGUIDEINPUT;
+        if ("ImplementationGuideOutput".equals(codeString))
+          return FHIRResourceType.IMPLEMENTATIONGUIDEOUTPUT;
         if ("Library".equals(codeString))
           return FHIRResourceType.LIBRARY;
         if ("Linkage".equals(codeString))
@@ -1548,6 +1604,8 @@ public class WorkflowExample extends MetadataResource {
           return FHIRResourceType.NUTRITIONORDER;
         if ("Observation".equals(codeString))
           return FHIRResourceType.OBSERVATION;
+        if ("ObservationDefinition".equals(codeString))
+          return FHIRResourceType.OBSERVATIONDEFINITION;
         if ("OperationDefinition".equals(codeString))
           return FHIRResourceType.OPERATIONDEFINITION;
         if ("OperationOutcome".equals(codeString))
@@ -1572,8 +1630,6 @@ public class WorkflowExample extends MetadataResource {
           return FHIRResourceType.PRACTITIONERROLE;
         if ("Procedure".equals(codeString))
           return FHIRResourceType.PROCEDURE;
-        if ("ProcedureRequest".equals(codeString))
-          return FHIRResourceType.PROCEDUREREQUEST;
         if ("ProcessRequest".equals(codeString))
           return FHIRResourceType.PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
@@ -1604,6 +1660,8 @@ public class WorkflowExample extends MetadataResource {
           return FHIRResourceType.SEQUENCE;
         if ("ServiceDefinition".equals(codeString))
           return FHIRResourceType.SERVICEDEFINITION;
+        if ("ServiceRequest".equals(codeString))
+          return FHIRResourceType.SERVICEREQUEST;
         if ("Slot".equals(codeString))
           return FHIRResourceType.SLOT;
         if ("Specimen".equals(codeString))
@@ -1624,16 +1682,18 @@ public class WorkflowExample extends MetadataResource {
           return FHIRResourceType.SUPPLYREQUEST;
         if ("Task".equals(codeString))
           return FHIRResourceType.TASK;
+        if ("TerminologyCapabilities".equals(codeString))
+          return FHIRResourceType.TERMINOLOGYCAPABILITIES;
         if ("TestReport".equals(codeString))
           return FHIRResourceType.TESTREPORT;
         if ("TestScript".equals(codeString))
           return FHIRResourceType.TESTSCRIPT;
+        if ("UserSession".equals(codeString))
+          return FHIRResourceType.USERSESSION;
         if ("ValueSet".equals(codeString))
           return FHIRResourceType.VALUESET;
         if ("VisionPrescription".equals(codeString))
           return FHIRResourceType.VISIONPRESCRIPTION;
-        if ("WorkflowExample".equals(codeString))
-          return FHIRResourceType.WORKFLOWEXAMPLE;
         throw new IllegalArgumentException("Unknown FHIRResourceType code '"+codeString+"'");
         }
         public Enumeration<FHIRResourceType> fromType(Base code) throws FHIRException {
@@ -1672,8 +1732,6 @@ public class WorkflowExample extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.CAREPLAN);
         if ("CareTeam".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.CARETEAM);
-        if ("CatalogEntry".equals(codeString))
-          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.CATALOGENTRY);
         if ("ChargeItem".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.CHARGEITEM);
         if ("Claim".equals(codeString))
@@ -1734,10 +1792,14 @@ public class WorkflowExample extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.ENROLLMENTREQUEST);
         if ("EnrollmentResponse".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.ENROLLMENTRESPONSE);
+        if ("EntryDefinition".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.ENTRYDEFINITION);
         if ("EpisodeOfCare".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.EPISODEOFCARE);
         if ("EventDefinition".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.EVENTDEFINITION);
+        if ("ExampleScenario".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.EXAMPLESCENARIO);
         if ("ExpansionProfile".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.EXPANSIONPROFILE);
         if ("ExplanationOfBenefit".equals(codeString))
@@ -1766,6 +1828,10 @@ public class WorkflowExample extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMMUNIZATIONRECOMMENDATION);
         if ("ImplementationGuide".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMPLEMENTATIONGUIDE);
+        if ("ImplementationGuideInput".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMPLEMENTATIONGUIDEINPUT);
+        if ("ImplementationGuideOutput".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMPLEMENTATIONGUIDEOUTPUT);
         if ("Library".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.LIBRARY);
         if ("Linkage".equals(codeString))
@@ -1800,6 +1866,8 @@ public class WorkflowExample extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.NUTRITIONORDER);
         if ("Observation".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.OBSERVATION);
+        if ("ObservationDefinition".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.OBSERVATIONDEFINITION);
         if ("OperationDefinition".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.OPERATIONDEFINITION);
         if ("OperationOutcome".equals(codeString))
@@ -1824,8 +1892,6 @@ public class WorkflowExample extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PRACTITIONERROLE);
         if ("Procedure".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROCEDURE);
-        if ("ProcedureRequest".equals(codeString))
-          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROCEDUREREQUEST);
         if ("ProcessRequest".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROCESSREQUEST);
         if ("ProcessResponse".equals(codeString))
@@ -1856,6 +1922,8 @@ public class WorkflowExample extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SEQUENCE);
         if ("ServiceDefinition".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SERVICEDEFINITION);
+        if ("ServiceRequest".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SERVICEREQUEST);
         if ("Slot".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SLOT);
         if ("Specimen".equals(codeString))
@@ -1876,16 +1944,18 @@ public class WorkflowExample extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.SUPPLYREQUEST);
         if ("Task".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.TASK);
+        if ("TerminologyCapabilities".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.TERMINOLOGYCAPABILITIES);
         if ("TestReport".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.TESTREPORT);
         if ("TestScript".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.TESTSCRIPT);
+        if ("UserSession".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.USERSESSION);
         if ("ValueSet".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.VALUESET);
         if ("VisionPrescription".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.VISIONPRESCRIPTION);
-        if ("WorkflowExample".equals(codeString))
-          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.WORKFLOWEXAMPLE);
         throw new FHIRException("Unknown FHIRResourceType code '"+codeString+"'");
         }
     public String toCode(FHIRResourceType code) {
@@ -1917,8 +1987,6 @@ public class WorkflowExample extends MetadataResource {
         return "CarePlan";
       if (code == FHIRResourceType.CARETEAM)
         return "CareTeam";
-      if (code == FHIRResourceType.CATALOGENTRY)
-        return "CatalogEntry";
       if (code == FHIRResourceType.CHARGEITEM)
         return "ChargeItem";
       if (code == FHIRResourceType.CLAIM)
@@ -1979,10 +2047,14 @@ public class WorkflowExample extends MetadataResource {
         return "EnrollmentRequest";
       if (code == FHIRResourceType.ENROLLMENTRESPONSE)
         return "EnrollmentResponse";
+      if (code == FHIRResourceType.ENTRYDEFINITION)
+        return "EntryDefinition";
       if (code == FHIRResourceType.EPISODEOFCARE)
         return "EpisodeOfCare";
       if (code == FHIRResourceType.EVENTDEFINITION)
         return "EventDefinition";
+      if (code == FHIRResourceType.EXAMPLESCENARIO)
+        return "ExampleScenario";
       if (code == FHIRResourceType.EXPANSIONPROFILE)
         return "ExpansionProfile";
       if (code == FHIRResourceType.EXPLANATIONOFBENEFIT)
@@ -2011,6 +2083,10 @@ public class WorkflowExample extends MetadataResource {
         return "ImmunizationRecommendation";
       if (code == FHIRResourceType.IMPLEMENTATIONGUIDE)
         return "ImplementationGuide";
+      if (code == FHIRResourceType.IMPLEMENTATIONGUIDEINPUT)
+        return "ImplementationGuideInput";
+      if (code == FHIRResourceType.IMPLEMENTATIONGUIDEOUTPUT)
+        return "ImplementationGuideOutput";
       if (code == FHIRResourceType.LIBRARY)
         return "Library";
       if (code == FHIRResourceType.LINKAGE)
@@ -2045,6 +2121,8 @@ public class WorkflowExample extends MetadataResource {
         return "NutritionOrder";
       if (code == FHIRResourceType.OBSERVATION)
         return "Observation";
+      if (code == FHIRResourceType.OBSERVATIONDEFINITION)
+        return "ObservationDefinition";
       if (code == FHIRResourceType.OPERATIONDEFINITION)
         return "OperationDefinition";
       if (code == FHIRResourceType.OPERATIONOUTCOME)
@@ -2069,8 +2147,6 @@ public class WorkflowExample extends MetadataResource {
         return "PractitionerRole";
       if (code == FHIRResourceType.PROCEDURE)
         return "Procedure";
-      if (code == FHIRResourceType.PROCEDUREREQUEST)
-        return "ProcedureRequest";
       if (code == FHIRResourceType.PROCESSREQUEST)
         return "ProcessRequest";
       if (code == FHIRResourceType.PROCESSRESPONSE)
@@ -2101,6 +2177,8 @@ public class WorkflowExample extends MetadataResource {
         return "Sequence";
       if (code == FHIRResourceType.SERVICEDEFINITION)
         return "ServiceDefinition";
+      if (code == FHIRResourceType.SERVICEREQUEST)
+        return "ServiceRequest";
       if (code == FHIRResourceType.SLOT)
         return "Slot";
       if (code == FHIRResourceType.SPECIMEN)
@@ -2121,16 +2199,18 @@ public class WorkflowExample extends MetadataResource {
         return "SupplyRequest";
       if (code == FHIRResourceType.TASK)
         return "Task";
+      if (code == FHIRResourceType.TERMINOLOGYCAPABILITIES)
+        return "TerminologyCapabilities";
       if (code == FHIRResourceType.TESTREPORT)
         return "TestReport";
       if (code == FHIRResourceType.TESTSCRIPT)
         return "TestScript";
+      if (code == FHIRResourceType.USERSESSION)
+        return "UserSession";
       if (code == FHIRResourceType.VALUESET)
         return "ValueSet";
       if (code == FHIRResourceType.VISIONPRESCRIPTION)
         return "VisionPrescription";
-      if (code == FHIRResourceType.WORKFLOWEXAMPLE)
-        return "WorkflowExample";
       return "?";
       }
     public String toSystem(FHIRResourceType code) {
@@ -2139,7 +2219,7 @@ public class WorkflowExample extends MetadataResource {
     }
 
     @Block()
-    public static class WorkflowExampleActorComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ExampleScenarioActorComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * ID or acronym of actor.
          */
@@ -2152,8 +2232,8 @@ public class WorkflowExample extends MetadataResource {
          */
         @Child(name = "type", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="person | entity", formalDefinition="The type of actor - person or system." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/workflowexample-actor-type")
-        protected Enumeration<WorkflowExampleActorType> type;
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/examplescenario-actor-type")
+        protected Enumeration<ExampleScenarioActorType> type;
 
         /**
          * The name of the actor as shown in the page.
@@ -2169,19 +2249,19 @@ public class WorkflowExample extends MetadataResource {
         @Description(shortDefinition="The description of the actor", formalDefinition="The description of the actor." )
         protected MarkdownType description;
 
-        private static final long serialVersionUID = 2096345169L;
+        private static final long serialVersionUID = 1348364162L;
 
     /**
      * Constructor
      */
-      public WorkflowExampleActorComponent() {
+      public ExampleScenarioActorComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public WorkflowExampleActorComponent(StringType actorId, Enumeration<WorkflowExampleActorType> type) {
+      public ExampleScenarioActorComponent(StringType actorId, Enumeration<ExampleScenarioActorType> type) {
         super();
         this.actorId = actorId;
         this.type = type;
@@ -2193,7 +2273,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getActorIdElement() { 
           if (this.actorId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleActorComponent.actorId");
+              throw new Error("Attempt to auto-create ExampleScenarioActorComponent.actorId");
             else if (Configuration.doAutoCreate())
               this.actorId = new StringType(); // bb
           return this.actorId;
@@ -2210,7 +2290,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #actorId} (ID or acronym of actor.). This is the underlying object with id, value and extensions. The accessor "getActorId" gives direct access to the value
          */
-        public WorkflowExampleActorComponent setActorIdElement(StringType value) { 
+        public ExampleScenarioActorComponent setActorIdElement(StringType value) { 
           this.actorId = value;
           return this;
         }
@@ -2225,7 +2305,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value ID or acronym of actor.
          */
-        public WorkflowExampleActorComponent setActorId(String value) { 
+        public ExampleScenarioActorComponent setActorId(String value) { 
             if (this.actorId == null)
               this.actorId = new StringType();
             this.actorId.setValue(value);
@@ -2235,12 +2315,12 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return {@link #type} (The type of actor - person or system.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<WorkflowExampleActorType> getTypeElement() { 
+        public Enumeration<ExampleScenarioActorType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleActorComponent.type");
+              throw new Error("Attempt to auto-create ExampleScenarioActorComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Enumeration<WorkflowExampleActorType>(new WorkflowExampleActorTypeEnumFactory()); // bb
+              this.type = new Enumeration<ExampleScenarioActorType>(new ExampleScenarioActorTypeEnumFactory()); // bb
           return this.type;
         }
 
@@ -2255,7 +2335,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #type} (The type of actor - person or system.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public WorkflowExampleActorComponent setTypeElement(Enumeration<WorkflowExampleActorType> value) { 
+        public ExampleScenarioActorComponent setTypeElement(Enumeration<ExampleScenarioActorType> value) { 
           this.type = value;
           return this;
         }
@@ -2263,16 +2343,16 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return The type of actor - person or system.
          */
-        public WorkflowExampleActorType getType() { 
+        public ExampleScenarioActorType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of actor - person or system.
          */
-        public WorkflowExampleActorComponent setType(WorkflowExampleActorType value) { 
+        public ExampleScenarioActorComponent setType(ExampleScenarioActorType value) { 
             if (this.type == null)
-              this.type = new Enumeration<WorkflowExampleActorType>(new WorkflowExampleActorTypeEnumFactory());
+              this.type = new Enumeration<ExampleScenarioActorType>(new ExampleScenarioActorTypeEnumFactory());
             this.type.setValue(value);
           return this;
         }
@@ -2283,7 +2363,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleActorComponent.name");
+              throw new Error("Attempt to auto-create ExampleScenarioActorComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -2300,7 +2380,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #name} (The name of the actor as shown in the page.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public WorkflowExampleActorComponent setNameElement(StringType value) { 
+        public ExampleScenarioActorComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -2315,7 +2395,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The name of the actor as shown in the page.
          */
-        public WorkflowExampleActorComponent setName(String value) { 
+        public ExampleScenarioActorComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -2332,7 +2412,7 @@ public class WorkflowExample extends MetadataResource {
         public MarkdownType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleActorComponent.description");
+              throw new Error("Attempt to auto-create ExampleScenarioActorComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new MarkdownType(); // bb
           return this.description;
@@ -2349,7 +2429,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #description} (The description of the actor.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public WorkflowExampleActorComponent setDescriptionElement(MarkdownType value) { 
+        public ExampleScenarioActorComponent setDescriptionElement(MarkdownType value) { 
           this.description = value;
           return this;
         }
@@ -2364,7 +2444,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The description of the actor.
          */
-        public WorkflowExampleActorComponent setDescription(String value) { 
+        public ExampleScenarioActorComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -2399,7 +2479,7 @@ public class WorkflowExample extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1161623056: /*actorId*/ return this.actorId == null ? new Base[0] : new Base[] {this.actorId}; // StringType
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<WorkflowExampleActorType>
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<ExampleScenarioActorType>
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         default: return super.getProperty(hash, name, checkValid);
@@ -2414,8 +2494,8 @@ public class WorkflowExample extends MetadataResource {
           this.actorId = castToString(value); // StringType
           return value;
         case 3575610: // type
-          value = new WorkflowExampleActorTypeEnumFactory().fromType(castToCode(value));
-          this.type = (Enumeration) value; // Enumeration<WorkflowExampleActorType>
+          value = new ExampleScenarioActorTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ExampleScenarioActorType>
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -2433,8 +2513,8 @@ public class WorkflowExample extends MetadataResource {
         if (name.equals("actorId")) {
           this.actorId = castToString(value); // StringType
         } else if (name.equals("type")) {
-          value = new WorkflowExampleActorTypeEnumFactory().fromType(castToCode(value));
-          this.type = (Enumeration) value; // Enumeration<WorkflowExampleActorType>
+          value = new ExampleScenarioActorTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ExampleScenarioActorType>
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
         } else if (name.equals("description")) {
@@ -2471,23 +2551,23 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("actorId")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.actorId");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.actorId");
         }
         else if (name.equals("type")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.type");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.type");
         }
         else if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.name");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.name");
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.description");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.description");
         }
         else
           return super.addChild(name);
       }
 
-      public WorkflowExampleActorComponent copy() {
-        WorkflowExampleActorComponent dst = new WorkflowExampleActorComponent();
+      public ExampleScenarioActorComponent copy() {
+        ExampleScenarioActorComponent dst = new ExampleScenarioActorComponent();
         copyValues(dst);
         dst.actorId = actorId == null ? null : actorId.copy();
         dst.type = type == null ? null : type.copy();
@@ -2500,9 +2580,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof WorkflowExampleActorComponent))
+        if (!(other instanceof ExampleScenarioActorComponent))
           return false;
-        WorkflowExampleActorComponent o = (WorkflowExampleActorComponent) other;
+        ExampleScenarioActorComponent o = (ExampleScenarioActorComponent) other;
         return compareDeep(actorId, o.actorId, true) && compareDeep(type, o.type, true) && compareDeep(name, o.name, true)
            && compareDeep(description, o.description, true);
       }
@@ -2511,9 +2591,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof WorkflowExampleActorComponent))
+        if (!(other instanceof ExampleScenarioActorComponent))
           return false;
-        WorkflowExampleActorComponent o = (WorkflowExampleActorComponent) other;
+        ExampleScenarioActorComponent o = (ExampleScenarioActorComponent) other;
         return compareValues(actorId, o.actorId, true) && compareValues(type, o.type, true) && compareValues(name, o.name, true)
            && compareValues(description, o.description, true);
       }
@@ -2524,14 +2604,14 @@ public class WorkflowExample extends MetadataResource {
       }
 
   public String fhirType() {
-    return "WorkflowExample.actor";
+    return "ExampleScenario.actor";
 
   }
 
   }
 
     @Block()
-    public static class WorkflowExampleInstanceComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ExampleScenarioInstanceComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The id of the resource for referencing.
          */
@@ -2566,21 +2646,28 @@ public class WorkflowExample extends MetadataResource {
          */
         @Child(name = "version", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="A specific version of the resource", formalDefinition="A specific version of the resource." )
-        protected List<WorkflowExampleInstanceVersionComponent> version;
+        protected List<ExampleScenarioInstanceVersionComponent> version;
 
-        private static final long serialVersionUID = -1972949622L;
+        /**
+         * Resources contained in the instance (e.g. the observations contained in a bundle).
+         */
+        @Child(name = "containedInstance", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Resources contained in the instance", formalDefinition="Resources contained in the instance (e.g. the observations contained in a bundle)." )
+        protected List<ExampleScenarioInstanceContainedInstanceComponent> containedInstance;
+
+        private static final long serialVersionUID = -1131860669L;
 
     /**
      * Constructor
      */
-      public WorkflowExampleInstanceComponent() {
+      public ExampleScenarioInstanceComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public WorkflowExampleInstanceComponent(StringType resourceId, Enumeration<FHIRResourceType> resourceType) {
+      public ExampleScenarioInstanceComponent(StringType resourceId, Enumeration<FHIRResourceType> resourceType) {
         super();
         this.resourceId = resourceId;
         this.resourceType = resourceType;
@@ -2592,7 +2679,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getResourceIdElement() { 
           if (this.resourceId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleInstanceComponent.resourceId");
+              throw new Error("Attempt to auto-create ExampleScenarioInstanceComponent.resourceId");
             else if (Configuration.doAutoCreate())
               this.resourceId = new StringType(); // bb
           return this.resourceId;
@@ -2609,7 +2696,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #resourceId} (The id of the resource for referencing.). This is the underlying object with id, value and extensions. The accessor "getResourceId" gives direct access to the value
          */
-        public WorkflowExampleInstanceComponent setResourceIdElement(StringType value) { 
+        public ExampleScenarioInstanceComponent setResourceIdElement(StringType value) { 
           this.resourceId = value;
           return this;
         }
@@ -2624,7 +2711,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The id of the resource for referencing.
          */
-        public WorkflowExampleInstanceComponent setResourceId(String value) { 
+        public ExampleScenarioInstanceComponent setResourceId(String value) { 
             if (this.resourceId == null)
               this.resourceId = new StringType();
             this.resourceId.setValue(value);
@@ -2637,7 +2724,7 @@ public class WorkflowExample extends MetadataResource {
         public Enumeration<FHIRResourceType> getResourceTypeElement() { 
           if (this.resourceType == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleInstanceComponent.resourceType");
+              throw new Error("Attempt to auto-create ExampleScenarioInstanceComponent.resourceType");
             else if (Configuration.doAutoCreate())
               this.resourceType = new Enumeration<FHIRResourceType>(new FHIRResourceTypeEnumFactory()); // bb
           return this.resourceType;
@@ -2654,7 +2741,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #resourceType} (The type of the resource.). This is the underlying object with id, value and extensions. The accessor "getResourceType" gives direct access to the value
          */
-        public WorkflowExampleInstanceComponent setResourceTypeElement(Enumeration<FHIRResourceType> value) { 
+        public ExampleScenarioInstanceComponent setResourceTypeElement(Enumeration<FHIRResourceType> value) { 
           this.resourceType = value;
           return this;
         }
@@ -2669,7 +2756,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The type of the resource.
          */
-        public WorkflowExampleInstanceComponent setResourceType(FHIRResourceType value) { 
+        public ExampleScenarioInstanceComponent setResourceType(FHIRResourceType value) { 
             if (this.resourceType == null)
               this.resourceType = new Enumeration<FHIRResourceType>(new FHIRResourceTypeEnumFactory());
             this.resourceType.setValue(value);
@@ -2682,7 +2769,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleInstanceComponent.name");
+              throw new Error("Attempt to auto-create ExampleScenarioInstanceComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -2699,7 +2786,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #name} (A short name for the resource instance.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public WorkflowExampleInstanceComponent setNameElement(StringType value) { 
+        public ExampleScenarioInstanceComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -2714,7 +2801,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value A short name for the resource instance.
          */
-        public WorkflowExampleInstanceComponent setName(String value) { 
+        public ExampleScenarioInstanceComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -2731,7 +2818,7 @@ public class WorkflowExample extends MetadataResource {
         public MarkdownType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleInstanceComponent.description");
+              throw new Error("Attempt to auto-create ExampleScenarioInstanceComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new MarkdownType(); // bb
           return this.description;
@@ -2748,7 +2835,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #description} (Human-friendly description of the resource instance.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public WorkflowExampleInstanceComponent setDescriptionElement(MarkdownType value) { 
+        public ExampleScenarioInstanceComponent setDescriptionElement(MarkdownType value) { 
           this.description = value;
           return this;
         }
@@ -2763,7 +2850,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value Human-friendly description of the resource instance.
          */
-        public WorkflowExampleInstanceComponent setDescription(String value) { 
+        public ExampleScenarioInstanceComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -2777,16 +2864,16 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return {@link #version} (A specific version of the resource.)
          */
-        public List<WorkflowExampleInstanceVersionComponent> getVersion() { 
+        public List<ExampleScenarioInstanceVersionComponent> getVersion() { 
           if (this.version == null)
-            this.version = new ArrayList<WorkflowExampleInstanceVersionComponent>();
+            this.version = new ArrayList<ExampleScenarioInstanceVersionComponent>();
           return this.version;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public WorkflowExampleInstanceComponent setVersion(List<WorkflowExampleInstanceVersionComponent> theVersion) { 
+        public ExampleScenarioInstanceComponent setVersion(List<ExampleScenarioInstanceVersionComponent> theVersion) { 
           this.version = theVersion;
           return this;
         }
@@ -2794,25 +2881,25 @@ public class WorkflowExample extends MetadataResource {
         public boolean hasVersion() { 
           if (this.version == null)
             return false;
-          for (WorkflowExampleInstanceVersionComponent item : this.version)
+          for (ExampleScenarioInstanceVersionComponent item : this.version)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public WorkflowExampleInstanceVersionComponent addVersion() { //3
-          WorkflowExampleInstanceVersionComponent t = new WorkflowExampleInstanceVersionComponent();
+        public ExampleScenarioInstanceVersionComponent addVersion() { //3
+          ExampleScenarioInstanceVersionComponent t = new ExampleScenarioInstanceVersionComponent();
           if (this.version == null)
-            this.version = new ArrayList<WorkflowExampleInstanceVersionComponent>();
+            this.version = new ArrayList<ExampleScenarioInstanceVersionComponent>();
           this.version.add(t);
           return t;
         }
 
-        public WorkflowExampleInstanceComponent addVersion(WorkflowExampleInstanceVersionComponent t) { //3
+        public ExampleScenarioInstanceComponent addVersion(ExampleScenarioInstanceVersionComponent t) { //3
           if (t == null)
             return this;
           if (this.version == null)
-            this.version = new ArrayList<WorkflowExampleInstanceVersionComponent>();
+            this.version = new ArrayList<ExampleScenarioInstanceVersionComponent>();
           this.version.add(t);
           return this;
         }
@@ -2820,11 +2907,64 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return The first repetition of repeating field {@link #version}, creating it if it does not already exist
          */
-        public WorkflowExampleInstanceVersionComponent getVersionFirstRep() { 
+        public ExampleScenarioInstanceVersionComponent getVersionFirstRep() { 
           if (getVersion().isEmpty()) {
             addVersion();
           }
           return getVersion().get(0);
+        }
+
+        /**
+         * @return {@link #containedInstance} (Resources contained in the instance (e.g. the observations contained in a bundle).)
+         */
+        public List<ExampleScenarioInstanceContainedInstanceComponent> getContainedInstance() { 
+          if (this.containedInstance == null)
+            this.containedInstance = new ArrayList<ExampleScenarioInstanceContainedInstanceComponent>();
+          return this.containedInstance;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ExampleScenarioInstanceComponent setContainedInstance(List<ExampleScenarioInstanceContainedInstanceComponent> theContainedInstance) { 
+          this.containedInstance = theContainedInstance;
+          return this;
+        }
+
+        public boolean hasContainedInstance() { 
+          if (this.containedInstance == null)
+            return false;
+          for (ExampleScenarioInstanceContainedInstanceComponent item : this.containedInstance)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public ExampleScenarioInstanceContainedInstanceComponent addContainedInstance() { //3
+          ExampleScenarioInstanceContainedInstanceComponent t = new ExampleScenarioInstanceContainedInstanceComponent();
+          if (this.containedInstance == null)
+            this.containedInstance = new ArrayList<ExampleScenarioInstanceContainedInstanceComponent>();
+          this.containedInstance.add(t);
+          return t;
+        }
+
+        public ExampleScenarioInstanceComponent addContainedInstance(ExampleScenarioInstanceContainedInstanceComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.containedInstance == null)
+            this.containedInstance = new ArrayList<ExampleScenarioInstanceContainedInstanceComponent>();
+          this.containedInstance.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #containedInstance}, creating it if it does not already exist
+         */
+        public ExampleScenarioInstanceContainedInstanceComponent getContainedInstanceFirstRep() { 
+          if (getContainedInstance().isEmpty()) {
+            addContainedInstance();
+          }
+          return getContainedInstance().get(0);
         }
 
         protected void listChildren(List<Property> children) {
@@ -2834,6 +2974,7 @@ public class WorkflowExample extends MetadataResource {
           children.add(new Property("name", "string", "A short name for the resource instance.", 0, 1, name));
           children.add(new Property("description", "markdown", "Human-friendly description of the resource instance.", 0, 1, description));
           children.add(new Property("version", "", "A specific version of the resource.", 0, java.lang.Integer.MAX_VALUE, version));
+          children.add(new Property("containedInstance", "", "Resources contained in the instance (e.g. the observations contained in a bundle).", 0, java.lang.Integer.MAX_VALUE, containedInstance));
         }
 
         @Override
@@ -2844,6 +2985,7 @@ public class WorkflowExample extends MetadataResource {
           case 3373707: /*name*/  return new Property("name", "string", "A short name for the resource instance.", 0, 1, name);
           case -1724546052: /*description*/  return new Property("description", "markdown", "Human-friendly description of the resource instance.", 0, 1, description);
           case 351608024: /*version*/  return new Property("version", "", "A specific version of the resource.", 0, java.lang.Integer.MAX_VALUE, version);
+          case -417062360: /*containedInstance*/  return new Property("containedInstance", "", "Resources contained in the instance (e.g. the observations contained in a bundle).", 0, java.lang.Integer.MAX_VALUE, containedInstance);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2856,7 +2998,8 @@ public class WorkflowExample extends MetadataResource {
         case -384364440: /*resourceType*/ return this.resourceType == null ? new Base[0] : new Base[] {this.resourceType}; // Enumeration<FHIRResourceType>
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
-        case 351608024: /*version*/ return this.version == null ? new Base[0] : this.version.toArray(new Base[this.version.size()]); // WorkflowExampleInstanceVersionComponent
+        case 351608024: /*version*/ return this.version == null ? new Base[0] : this.version.toArray(new Base[this.version.size()]); // ExampleScenarioInstanceVersionComponent
+        case -417062360: /*containedInstance*/ return this.containedInstance == null ? new Base[0] : this.containedInstance.toArray(new Base[this.containedInstance.size()]); // ExampleScenarioInstanceContainedInstanceComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2879,7 +3022,10 @@ public class WorkflowExample extends MetadataResource {
           this.description = castToMarkdown(value); // MarkdownType
           return value;
         case 351608024: // version
-          this.getVersion().add((WorkflowExampleInstanceVersionComponent) value); // WorkflowExampleInstanceVersionComponent
+          this.getVersion().add((ExampleScenarioInstanceVersionComponent) value); // ExampleScenarioInstanceVersionComponent
+          return value;
+        case -417062360: // containedInstance
+          this.getContainedInstance().add((ExampleScenarioInstanceContainedInstanceComponent) value); // ExampleScenarioInstanceContainedInstanceComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2898,7 +3044,9 @@ public class WorkflowExample extends MetadataResource {
         } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("version")) {
-          this.getVersion().add((WorkflowExampleInstanceVersionComponent) value);
+          this.getVersion().add((ExampleScenarioInstanceVersionComponent) value);
+        } else if (name.equals("containedInstance")) {
+          this.getContainedInstance().add((ExampleScenarioInstanceContainedInstanceComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -2912,6 +3060,7 @@ public class WorkflowExample extends MetadataResource {
         case 3373707:  return getNameElement();
         case -1724546052:  return getDescriptionElement();
         case 351608024:  return addVersion(); 
+        case -417062360:  return addContainedInstance(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2925,6 +3074,7 @@ public class WorkflowExample extends MetadataResource {
         case 3373707: /*name*/ return new String[] {"string"};
         case -1724546052: /*description*/ return new String[] {"markdown"};
         case 351608024: /*version*/ return new String[] {};
+        case -417062360: /*containedInstance*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2933,35 +3083,43 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("resourceId")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.resourceId");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.resourceId");
         }
         else if (name.equals("resourceType")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.resourceType");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.resourceType");
         }
         else if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.name");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.name");
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.description");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.description");
         }
         else if (name.equals("version")) {
           return addVersion();
+        }
+        else if (name.equals("containedInstance")) {
+          return addContainedInstance();
         }
         else
           return super.addChild(name);
       }
 
-      public WorkflowExampleInstanceComponent copy() {
-        WorkflowExampleInstanceComponent dst = new WorkflowExampleInstanceComponent();
+      public ExampleScenarioInstanceComponent copy() {
+        ExampleScenarioInstanceComponent dst = new ExampleScenarioInstanceComponent();
         copyValues(dst);
         dst.resourceId = resourceId == null ? null : resourceId.copy();
         dst.resourceType = resourceType == null ? null : resourceType.copy();
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
         if (version != null) {
-          dst.version = new ArrayList<WorkflowExampleInstanceVersionComponent>();
-          for (WorkflowExampleInstanceVersionComponent i : version)
+          dst.version = new ArrayList<ExampleScenarioInstanceVersionComponent>();
+          for (ExampleScenarioInstanceVersionComponent i : version)
             dst.version.add(i.copy());
+        };
+        if (containedInstance != null) {
+          dst.containedInstance = new ArrayList<ExampleScenarioInstanceContainedInstanceComponent>();
+          for (ExampleScenarioInstanceContainedInstanceComponent i : containedInstance)
+            dst.containedInstance.add(i.copy());
         };
         return dst;
       }
@@ -2970,39 +3128,39 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof WorkflowExampleInstanceComponent))
+        if (!(other instanceof ExampleScenarioInstanceComponent))
           return false;
-        WorkflowExampleInstanceComponent o = (WorkflowExampleInstanceComponent) other;
+        ExampleScenarioInstanceComponent o = (ExampleScenarioInstanceComponent) other;
         return compareDeep(resourceId, o.resourceId, true) && compareDeep(resourceType, o.resourceType, true)
            && compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(version, o.version, true)
-          ;
+           && compareDeep(containedInstance, o.containedInstance, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof WorkflowExampleInstanceComponent))
+        if (!(other instanceof ExampleScenarioInstanceComponent))
           return false;
-        WorkflowExampleInstanceComponent o = (WorkflowExampleInstanceComponent) other;
+        ExampleScenarioInstanceComponent o = (ExampleScenarioInstanceComponent) other;
         return compareValues(resourceId, o.resourceId, true) && compareValues(resourceType, o.resourceType, true)
            && compareValues(name, o.name, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(resourceId, resourceType, name
-          , description, version);
+          , description, version, containedInstance);
       }
 
   public String fhirType() {
-    return "WorkflowExample.instance";
+    return "ExampleScenario.instance";
 
   }
 
   }
 
     @Block()
-    public static class WorkflowExampleInstanceVersionComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ExampleScenarioInstanceVersionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The identifier of a specific version of a resource.
          */
@@ -3022,14 +3180,14 @@ public class WorkflowExample extends MetadataResource {
     /**
      * Constructor
      */
-      public WorkflowExampleInstanceVersionComponent() {
+      public ExampleScenarioInstanceVersionComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public WorkflowExampleInstanceVersionComponent(StringType versionId, MarkdownType description) {
+      public ExampleScenarioInstanceVersionComponent(StringType versionId, MarkdownType description) {
         super();
         this.versionId = versionId;
         this.description = description;
@@ -3041,7 +3199,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getVersionIdElement() { 
           if (this.versionId == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleInstanceVersionComponent.versionId");
+              throw new Error("Attempt to auto-create ExampleScenarioInstanceVersionComponent.versionId");
             else if (Configuration.doAutoCreate())
               this.versionId = new StringType(); // bb
           return this.versionId;
@@ -3058,7 +3216,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #versionId} (The identifier of a specific version of a resource.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
          */
-        public WorkflowExampleInstanceVersionComponent setVersionIdElement(StringType value) { 
+        public ExampleScenarioInstanceVersionComponent setVersionIdElement(StringType value) { 
           this.versionId = value;
           return this;
         }
@@ -3073,7 +3231,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The identifier of a specific version of a resource.
          */
-        public WorkflowExampleInstanceVersionComponent setVersionId(String value) { 
+        public ExampleScenarioInstanceVersionComponent setVersionId(String value) { 
             if (this.versionId == null)
               this.versionId = new StringType();
             this.versionId.setValue(value);
@@ -3086,7 +3244,7 @@ public class WorkflowExample extends MetadataResource {
         public MarkdownType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleInstanceVersionComponent.description");
+              throw new Error("Attempt to auto-create ExampleScenarioInstanceVersionComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new MarkdownType(); // bb
           return this.description;
@@ -3103,7 +3261,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #description} (The description of the resource version.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public WorkflowExampleInstanceVersionComponent setDescriptionElement(MarkdownType value) { 
+        public ExampleScenarioInstanceVersionComponent setDescriptionElement(MarkdownType value) { 
           this.description = value;
           return this;
         }
@@ -3118,7 +3276,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The description of the resource version.
          */
-        public WorkflowExampleInstanceVersionComponent setDescription(String value) { 
+        public ExampleScenarioInstanceVersionComponent setDescription(String value) { 
             if (this.description == null)
               this.description = new MarkdownType();
             this.description.setValue(value);
@@ -3199,17 +3357,17 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("versionId")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.versionId");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.versionId");
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.description");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.description");
         }
         else
           return super.addChild(name);
       }
 
-      public WorkflowExampleInstanceVersionComponent copy() {
-        WorkflowExampleInstanceVersionComponent dst = new WorkflowExampleInstanceVersionComponent();
+      public ExampleScenarioInstanceVersionComponent copy() {
+        ExampleScenarioInstanceVersionComponent dst = new ExampleScenarioInstanceVersionComponent();
         copyValues(dst);
         dst.versionId = versionId == null ? null : versionId.copy();
         dst.description = description == null ? null : description.copy();
@@ -3220,9 +3378,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof WorkflowExampleInstanceVersionComponent))
+        if (!(other instanceof ExampleScenarioInstanceVersionComponent))
           return false;
-        WorkflowExampleInstanceVersionComponent o = (WorkflowExampleInstanceVersionComponent) other;
+        ExampleScenarioInstanceVersionComponent o = (ExampleScenarioInstanceVersionComponent) other;
         return compareDeep(versionId, o.versionId, true) && compareDeep(description, o.description, true)
           ;
       }
@@ -3231,9 +3389,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof WorkflowExampleInstanceVersionComponent))
+        if (!(other instanceof ExampleScenarioInstanceVersionComponent))
           return false;
-        WorkflowExampleInstanceVersionComponent o = (WorkflowExampleInstanceVersionComponent) other;
+        ExampleScenarioInstanceVersionComponent o = (ExampleScenarioInstanceVersionComponent) other;
         return compareValues(versionId, o.versionId, true) && compareValues(description, o.description, true)
           ;
       }
@@ -3243,14 +3401,265 @@ public class WorkflowExample extends MetadataResource {
       }
 
   public String fhirType() {
-    return "WorkflowExample.instance.version";
+    return "ExampleScenario.instance.version";
 
   }
 
   }
 
     @Block()
-    public static class WorkflowExampleProcessComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ExampleScenarioInstanceContainedInstanceComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Each resource contained in the instance.
+         */
+        @Child(name = "resourceId", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Each resource contained in the instance", formalDefinition="Each resource contained in the instance." )
+        protected StringType resourceId;
+
+        /**
+         * A specific version of a resource contained in the instance.
+         */
+        @Child(name = "versionId", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="A specific version of a resource contained in the instance", formalDefinition="A specific version of a resource contained in the instance." )
+        protected StringType versionId;
+
+        private static final long serialVersionUID = 908084124L;
+
+    /**
+     * Constructor
+     */
+      public ExampleScenarioInstanceContainedInstanceComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public ExampleScenarioInstanceContainedInstanceComponent(StringType resourceId) {
+        super();
+        this.resourceId = resourceId;
+      }
+
+        /**
+         * @return {@link #resourceId} (Each resource contained in the instance.). This is the underlying object with id, value and extensions. The accessor "getResourceId" gives direct access to the value
+         */
+        public StringType getResourceIdElement() { 
+          if (this.resourceId == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ExampleScenarioInstanceContainedInstanceComponent.resourceId");
+            else if (Configuration.doAutoCreate())
+              this.resourceId = new StringType(); // bb
+          return this.resourceId;
+        }
+
+        public boolean hasResourceIdElement() { 
+          return this.resourceId != null && !this.resourceId.isEmpty();
+        }
+
+        public boolean hasResourceId() { 
+          return this.resourceId != null && !this.resourceId.isEmpty();
+        }
+
+        /**
+         * @param value {@link #resourceId} (Each resource contained in the instance.). This is the underlying object with id, value and extensions. The accessor "getResourceId" gives direct access to the value
+         */
+        public ExampleScenarioInstanceContainedInstanceComponent setResourceIdElement(StringType value) { 
+          this.resourceId = value;
+          return this;
+        }
+
+        /**
+         * @return Each resource contained in the instance.
+         */
+        public String getResourceId() { 
+          return this.resourceId == null ? null : this.resourceId.getValue();
+        }
+
+        /**
+         * @param value Each resource contained in the instance.
+         */
+        public ExampleScenarioInstanceContainedInstanceComponent setResourceId(String value) { 
+            if (this.resourceId == null)
+              this.resourceId = new StringType();
+            this.resourceId.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #versionId} (A specific version of a resource contained in the instance.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
+         */
+        public StringType getVersionIdElement() { 
+          if (this.versionId == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ExampleScenarioInstanceContainedInstanceComponent.versionId");
+            else if (Configuration.doAutoCreate())
+              this.versionId = new StringType(); // bb
+          return this.versionId;
+        }
+
+        public boolean hasVersionIdElement() { 
+          return this.versionId != null && !this.versionId.isEmpty();
+        }
+
+        public boolean hasVersionId() { 
+          return this.versionId != null && !this.versionId.isEmpty();
+        }
+
+        /**
+         * @param value {@link #versionId} (A specific version of a resource contained in the instance.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
+         */
+        public ExampleScenarioInstanceContainedInstanceComponent setVersionIdElement(StringType value) { 
+          this.versionId = value;
+          return this;
+        }
+
+        /**
+         * @return A specific version of a resource contained in the instance.
+         */
+        public String getVersionId() { 
+          return this.versionId == null ? null : this.versionId.getValue();
+        }
+
+        /**
+         * @param value A specific version of a resource contained in the instance.
+         */
+        public ExampleScenarioInstanceContainedInstanceComponent setVersionId(String value) { 
+          if (Utilities.noString(value))
+            this.versionId = null;
+          else {
+            if (this.versionId == null)
+              this.versionId = new StringType();
+            this.versionId.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("resourceId", "string", "Each resource contained in the instance.", 0, 1, resourceId));
+          children.add(new Property("versionId", "string", "A specific version of a resource contained in the instance.", 0, 1, versionId));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case -1345650231: /*resourceId*/  return new Property("resourceId", "string", "Each resource contained in the instance.", 0, 1, resourceId);
+          case -1407102957: /*versionId*/  return new Property("versionId", "string", "A specific version of a resource contained in the instance.", 0, 1, versionId);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1345650231: /*resourceId*/ return this.resourceId == null ? new Base[0] : new Base[] {this.resourceId}; // StringType
+        case -1407102957: /*versionId*/ return this.versionId == null ? new Base[0] : new Base[] {this.versionId}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case -1345650231: // resourceId
+          this.resourceId = castToString(value); // StringType
+          return value;
+        case -1407102957: // versionId
+          this.versionId = castToString(value); // StringType
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("resourceId")) {
+          this.resourceId = castToString(value); // StringType
+        } else if (name.equals("versionId")) {
+          this.versionId = castToString(value); // StringType
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1345650231:  return getResourceIdElement();
+        case -1407102957:  return getVersionIdElement();
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1345650231: /*resourceId*/ return new String[] {"string"};
+        case -1407102957: /*versionId*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("resourceId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.resourceId");
+        }
+        else if (name.equals("versionId")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.versionId");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public ExampleScenarioInstanceContainedInstanceComponent copy() {
+        ExampleScenarioInstanceContainedInstanceComponent dst = new ExampleScenarioInstanceContainedInstanceComponent();
+        copyValues(dst);
+        dst.resourceId = resourceId == null ? null : resourceId.copy();
+        dst.versionId = versionId == null ? null : versionId.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ExampleScenarioInstanceContainedInstanceComponent))
+          return false;
+        ExampleScenarioInstanceContainedInstanceComponent o = (ExampleScenarioInstanceContainedInstanceComponent) other;
+        return compareDeep(resourceId, o.resourceId, true) && compareDeep(versionId, o.versionId, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ExampleScenarioInstanceContainedInstanceComponent))
+          return false;
+        ExampleScenarioInstanceContainedInstanceComponent o = (ExampleScenarioInstanceContainedInstanceComponent) other;
+        return compareValues(resourceId, o.resourceId, true) && compareValues(versionId, o.versionId, true)
+          ;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(resourceId, versionId);
+      }
+
+  public String fhirType() {
+    return "ExampleScenario.instance.containedInstance";
+
+  }
+
+  }
+
+    @Block()
+    public static class ExampleScenarioProcessComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The diagram title of the group of operations.
          */
@@ -3284,21 +3693,21 @@ public class WorkflowExample extends MetadataResource {
          */
         @Child(name = "step", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Each step of the process", formalDefinition="Each step of the process." )
-        protected List<WorkflowExampleProcessStepComponent> step;
+        protected List<ExampleScenarioProcessStepComponent> step;
 
-        private static final long serialVersionUID = 1017361738L;
+        private static final long serialVersionUID = 325578043L;
 
     /**
      * Constructor
      */
-      public WorkflowExampleProcessComponent() {
+      public ExampleScenarioProcessComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public WorkflowExampleProcessComponent(StringType title) {
+      public ExampleScenarioProcessComponent(StringType title) {
         super();
         this.title = title;
       }
@@ -3309,7 +3718,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getTitleElement() { 
           if (this.title == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessComponent.title");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessComponent.title");
             else if (Configuration.doAutoCreate())
               this.title = new StringType(); // bb
           return this.title;
@@ -3326,7 +3735,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #title} (The diagram title of the group of operations.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public WorkflowExampleProcessComponent setTitleElement(StringType value) { 
+        public ExampleScenarioProcessComponent setTitleElement(StringType value) { 
           this.title = value;
           return this;
         }
@@ -3341,7 +3750,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The diagram title of the group of operations.
          */
-        public WorkflowExampleProcessComponent setTitle(String value) { 
+        public ExampleScenarioProcessComponent setTitle(String value) { 
             if (this.title == null)
               this.title = new StringType();
             this.title.setValue(value);
@@ -3354,7 +3763,7 @@ public class WorkflowExample extends MetadataResource {
         public MarkdownType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessComponent.description");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new MarkdownType(); // bb
           return this.description;
@@ -3371,7 +3780,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #description} (A longer description of the group of operations.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public WorkflowExampleProcessComponent setDescriptionElement(MarkdownType value) { 
+        public ExampleScenarioProcessComponent setDescriptionElement(MarkdownType value) { 
           this.description = value;
           return this;
         }
@@ -3386,7 +3795,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value A longer description of the group of operations.
          */
-        public WorkflowExampleProcessComponent setDescription(String value) { 
+        public ExampleScenarioProcessComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -3403,7 +3812,7 @@ public class WorkflowExample extends MetadataResource {
         public MarkdownType getPreConditionsElement() { 
           if (this.preConditions == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessComponent.preConditions");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessComponent.preConditions");
             else if (Configuration.doAutoCreate())
               this.preConditions = new MarkdownType(); // bb
           return this.preConditions;
@@ -3420,7 +3829,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #preConditions} (Description of initial status before the process starts.). This is the underlying object with id, value and extensions. The accessor "getPreConditions" gives direct access to the value
          */
-        public WorkflowExampleProcessComponent setPreConditionsElement(MarkdownType value) { 
+        public ExampleScenarioProcessComponent setPreConditionsElement(MarkdownType value) { 
           this.preConditions = value;
           return this;
         }
@@ -3435,7 +3844,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value Description of initial status before the process starts.
          */
-        public WorkflowExampleProcessComponent setPreConditions(String value) { 
+        public ExampleScenarioProcessComponent setPreConditions(String value) { 
           if (value == null)
             this.preConditions = null;
           else {
@@ -3452,7 +3861,7 @@ public class WorkflowExample extends MetadataResource {
         public MarkdownType getPostConditionsElement() { 
           if (this.postConditions == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessComponent.postConditions");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessComponent.postConditions");
             else if (Configuration.doAutoCreate())
               this.postConditions = new MarkdownType(); // bb
           return this.postConditions;
@@ -3469,7 +3878,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #postConditions} (Description of final status after the process ends.). This is the underlying object with id, value and extensions. The accessor "getPostConditions" gives direct access to the value
          */
-        public WorkflowExampleProcessComponent setPostConditionsElement(MarkdownType value) { 
+        public ExampleScenarioProcessComponent setPostConditionsElement(MarkdownType value) { 
           this.postConditions = value;
           return this;
         }
@@ -3484,7 +3893,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value Description of final status after the process ends.
          */
-        public WorkflowExampleProcessComponent setPostConditions(String value) { 
+        public ExampleScenarioProcessComponent setPostConditions(String value) { 
           if (value == null)
             this.postConditions = null;
           else {
@@ -3498,16 +3907,16 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return {@link #step} (Each step of the process.)
          */
-        public List<WorkflowExampleProcessStepComponent> getStep() { 
+        public List<ExampleScenarioProcessStepComponent> getStep() { 
           if (this.step == null)
-            this.step = new ArrayList<WorkflowExampleProcessStepComponent>();
+            this.step = new ArrayList<ExampleScenarioProcessStepComponent>();
           return this.step;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public WorkflowExampleProcessComponent setStep(List<WorkflowExampleProcessStepComponent> theStep) { 
+        public ExampleScenarioProcessComponent setStep(List<ExampleScenarioProcessStepComponent> theStep) { 
           this.step = theStep;
           return this;
         }
@@ -3515,25 +3924,25 @@ public class WorkflowExample extends MetadataResource {
         public boolean hasStep() { 
           if (this.step == null)
             return false;
-          for (WorkflowExampleProcessStepComponent item : this.step)
+          for (ExampleScenarioProcessStepComponent item : this.step)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public WorkflowExampleProcessStepComponent addStep() { //3
-          WorkflowExampleProcessStepComponent t = new WorkflowExampleProcessStepComponent();
+        public ExampleScenarioProcessStepComponent addStep() { //3
+          ExampleScenarioProcessStepComponent t = new ExampleScenarioProcessStepComponent();
           if (this.step == null)
-            this.step = new ArrayList<WorkflowExampleProcessStepComponent>();
+            this.step = new ArrayList<ExampleScenarioProcessStepComponent>();
           this.step.add(t);
           return t;
         }
 
-        public WorkflowExampleProcessComponent addStep(WorkflowExampleProcessStepComponent t) { //3
+        public ExampleScenarioProcessComponent addStep(ExampleScenarioProcessStepComponent t) { //3
           if (t == null)
             return this;
           if (this.step == null)
-            this.step = new ArrayList<WorkflowExampleProcessStepComponent>();
+            this.step = new ArrayList<ExampleScenarioProcessStepComponent>();
           this.step.add(t);
           return this;
         }
@@ -3541,7 +3950,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return The first repetition of repeating field {@link #step}, creating it if it does not already exist
          */
-        public WorkflowExampleProcessStepComponent getStepFirstRep() { 
+        public ExampleScenarioProcessStepComponent getStepFirstRep() { 
           if (getStep().isEmpty()) {
             addStep();
           }
@@ -3577,7 +3986,7 @@ public class WorkflowExample extends MetadataResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -1006692933: /*preConditions*/ return this.preConditions == null ? new Base[0] : new Base[] {this.preConditions}; // MarkdownType
         case 1738302328: /*postConditions*/ return this.postConditions == null ? new Base[0] : new Base[] {this.postConditions}; // MarkdownType
-        case 3540684: /*step*/ return this.step == null ? new Base[0] : this.step.toArray(new Base[this.step.size()]); // WorkflowExampleProcessStepComponent
+        case 3540684: /*step*/ return this.step == null ? new Base[0] : this.step.toArray(new Base[this.step.size()]); // ExampleScenarioProcessStepComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3599,7 +4008,7 @@ public class WorkflowExample extends MetadataResource {
           this.postConditions = castToMarkdown(value); // MarkdownType
           return value;
         case 3540684: // step
-          this.getStep().add((WorkflowExampleProcessStepComponent) value); // WorkflowExampleProcessStepComponent
+          this.getStep().add((ExampleScenarioProcessStepComponent) value); // ExampleScenarioProcessStepComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -3617,7 +4026,7 @@ public class WorkflowExample extends MetadataResource {
         } else if (name.equals("postConditions")) {
           this.postConditions = castToMarkdown(value); // MarkdownType
         } else if (name.equals("step")) {
-          this.getStep().add((WorkflowExampleProcessStepComponent) value);
+          this.getStep().add((ExampleScenarioProcessStepComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -3652,16 +4061,16 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("title")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.title");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.title");
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.description");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.description");
         }
         else if (name.equals("preConditions")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.preConditions");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.preConditions");
         }
         else if (name.equals("postConditions")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.postConditions");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.postConditions");
         }
         else if (name.equals("step")) {
           return addStep();
@@ -3670,16 +4079,16 @@ public class WorkflowExample extends MetadataResource {
           return super.addChild(name);
       }
 
-      public WorkflowExampleProcessComponent copy() {
-        WorkflowExampleProcessComponent dst = new WorkflowExampleProcessComponent();
+      public ExampleScenarioProcessComponent copy() {
+        ExampleScenarioProcessComponent dst = new ExampleScenarioProcessComponent();
         copyValues(dst);
         dst.title = title == null ? null : title.copy();
         dst.description = description == null ? null : description.copy();
         dst.preConditions = preConditions == null ? null : preConditions.copy();
         dst.postConditions = postConditions == null ? null : postConditions.copy();
         if (step != null) {
-          dst.step = new ArrayList<WorkflowExampleProcessStepComponent>();
-          for (WorkflowExampleProcessStepComponent i : step)
+          dst.step = new ArrayList<ExampleScenarioProcessStepComponent>();
+          for (ExampleScenarioProcessStepComponent i : step)
             dst.step.add(i.copy());
         };
         return dst;
@@ -3689,9 +4098,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessComponent))
+        if (!(other instanceof ExampleScenarioProcessComponent))
           return false;
-        WorkflowExampleProcessComponent o = (WorkflowExampleProcessComponent) other;
+        ExampleScenarioProcessComponent o = (ExampleScenarioProcessComponent) other;
         return compareDeep(title, o.title, true) && compareDeep(description, o.description, true) && compareDeep(preConditions, o.preConditions, true)
            && compareDeep(postConditions, o.postConditions, true) && compareDeep(step, o.step, true);
       }
@@ -3700,9 +4109,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessComponent))
+        if (!(other instanceof ExampleScenarioProcessComponent))
           return false;
-        WorkflowExampleProcessComponent o = (WorkflowExampleProcessComponent) other;
+        ExampleScenarioProcessComponent o = (ExampleScenarioProcessComponent) other;
         return compareValues(title, o.title, true) && compareValues(description, o.description, true) && compareValues(preConditions, o.preConditions, true)
            && compareValues(postConditions, o.postConditions, true);
       }
@@ -3713,20 +4122,20 @@ public class WorkflowExample extends MetadataResource {
       }
 
   public String fhirType() {
-    return "WorkflowExample.process";
+    return "ExampleScenario.process";
 
   }
 
   }
 
     @Block()
-    public static class WorkflowExampleProcessStepComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ExampleScenarioProcessStepComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Nested process.
          */
-        @Child(name = "process", type = {WorkflowExampleProcessComponent.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "process", type = {ExampleScenarioProcessComponent.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Nested process", formalDefinition="Nested process." )
-        protected List<WorkflowExampleProcessComponent> process;
+        protected List<ExampleScenarioProcessComponent> process;
 
         /**
          * If there is a pause in the flow.
@@ -3740,37 +4149,37 @@ public class WorkflowExample extends MetadataResource {
          */
         @Child(name = "operation", type = {}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Each interaction or action", formalDefinition="Each interaction or action." )
-        protected WorkflowExampleProcessStepOperationComponent operation;
+        protected ExampleScenarioProcessStepOperationComponent operation;
 
         /**
          * Each interaction in the workflow.
          */
         @Child(name = "alternative", type = {}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Each interaction in the process", formalDefinition="Each interaction in the workflow." )
-        protected WorkflowExampleProcessStepAlternativeComponent alternative;
+        protected ExampleScenarioProcessStepAlternativeComponent alternative;
 
-        private static final long serialVersionUID = -32412470L;
+        private static final long serialVersionUID = -939172007L;
 
     /**
      * Constructor
      */
-      public WorkflowExampleProcessStepComponent() {
+      public ExampleScenarioProcessStepComponent() {
         super();
       }
 
         /**
          * @return {@link #process} (Nested process.)
          */
-        public List<WorkflowExampleProcessComponent> getProcess() { 
+        public List<ExampleScenarioProcessComponent> getProcess() { 
           if (this.process == null)
-            this.process = new ArrayList<WorkflowExampleProcessComponent>();
+            this.process = new ArrayList<ExampleScenarioProcessComponent>();
           return this.process;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public WorkflowExampleProcessStepComponent setProcess(List<WorkflowExampleProcessComponent> theProcess) { 
+        public ExampleScenarioProcessStepComponent setProcess(List<ExampleScenarioProcessComponent> theProcess) { 
           this.process = theProcess;
           return this;
         }
@@ -3778,25 +4187,25 @@ public class WorkflowExample extends MetadataResource {
         public boolean hasProcess() { 
           if (this.process == null)
             return false;
-          for (WorkflowExampleProcessComponent item : this.process)
+          for (ExampleScenarioProcessComponent item : this.process)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public WorkflowExampleProcessComponent addProcess() { //3
-          WorkflowExampleProcessComponent t = new WorkflowExampleProcessComponent();
+        public ExampleScenarioProcessComponent addProcess() { //3
+          ExampleScenarioProcessComponent t = new ExampleScenarioProcessComponent();
           if (this.process == null)
-            this.process = new ArrayList<WorkflowExampleProcessComponent>();
+            this.process = new ArrayList<ExampleScenarioProcessComponent>();
           this.process.add(t);
           return t;
         }
 
-        public WorkflowExampleProcessStepComponent addProcess(WorkflowExampleProcessComponent t) { //3
+        public ExampleScenarioProcessStepComponent addProcess(ExampleScenarioProcessComponent t) { //3
           if (t == null)
             return this;
           if (this.process == null)
-            this.process = new ArrayList<WorkflowExampleProcessComponent>();
+            this.process = new ArrayList<ExampleScenarioProcessComponent>();
           this.process.add(t);
           return this;
         }
@@ -3804,7 +4213,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return The first repetition of repeating field {@link #process}, creating it if it does not already exist
          */
-        public WorkflowExampleProcessComponent getProcessFirstRep() { 
+        public ExampleScenarioProcessComponent getProcessFirstRep() { 
           if (getProcess().isEmpty()) {
             addProcess();
           }
@@ -3817,7 +4226,7 @@ public class WorkflowExample extends MetadataResource {
         public BooleanType getPauseElement() { 
           if (this.pause == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepComponent.pause");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepComponent.pause");
             else if (Configuration.doAutoCreate())
               this.pause = new BooleanType(); // bb
           return this.pause;
@@ -3834,7 +4243,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #pause} (If there is a pause in the flow.). This is the underlying object with id, value and extensions. The accessor "getPause" gives direct access to the value
          */
-        public WorkflowExampleProcessStepComponent setPauseElement(BooleanType value) { 
+        public ExampleScenarioProcessStepComponent setPauseElement(BooleanType value) { 
           this.pause = value;
           return this;
         }
@@ -3849,7 +4258,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value If there is a pause in the flow.
          */
-        public WorkflowExampleProcessStepComponent setPause(boolean value) { 
+        public ExampleScenarioProcessStepComponent setPause(boolean value) { 
             if (this.pause == null)
               this.pause = new BooleanType();
             this.pause.setValue(value);
@@ -3859,12 +4268,12 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return {@link #operation} (Each interaction or action.)
          */
-        public WorkflowExampleProcessStepOperationComponent getOperation() { 
+        public ExampleScenarioProcessStepOperationComponent getOperation() { 
           if (this.operation == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepComponent.operation");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepComponent.operation");
             else if (Configuration.doAutoCreate())
-              this.operation = new WorkflowExampleProcessStepOperationComponent(); // cc
+              this.operation = new ExampleScenarioProcessStepOperationComponent(); // cc
           return this.operation;
         }
 
@@ -3875,7 +4284,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #operation} (Each interaction or action.)
          */
-        public WorkflowExampleProcessStepComponent setOperation(WorkflowExampleProcessStepOperationComponent value) { 
+        public ExampleScenarioProcessStepComponent setOperation(ExampleScenarioProcessStepOperationComponent value) { 
           this.operation = value;
           return this;
         }
@@ -3883,12 +4292,12 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return {@link #alternative} (Each interaction in the workflow.)
          */
-        public WorkflowExampleProcessStepAlternativeComponent getAlternative() { 
+        public ExampleScenarioProcessStepAlternativeComponent getAlternative() { 
           if (this.alternative == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepComponent.alternative");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepComponent.alternative");
             else if (Configuration.doAutoCreate())
-              this.alternative = new WorkflowExampleProcessStepAlternativeComponent(); // cc
+              this.alternative = new ExampleScenarioProcessStepAlternativeComponent(); // cc
           return this.alternative;
         }
 
@@ -3899,14 +4308,14 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #alternative} (Each interaction in the workflow.)
          */
-        public WorkflowExampleProcessStepComponent setAlternative(WorkflowExampleProcessStepAlternativeComponent value) { 
+        public ExampleScenarioProcessStepComponent setAlternative(ExampleScenarioProcessStepAlternativeComponent value) { 
           this.alternative = value;
           return this;
         }
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("process", "@WorkflowExample.process", "Nested process.", 0, java.lang.Integer.MAX_VALUE, process));
+          children.add(new Property("process", "@ExampleScenario.process", "Nested process.", 0, java.lang.Integer.MAX_VALUE, process));
           children.add(new Property("pause", "boolean", "If there is a pause in the flow.", 0, 1, pause));
           children.add(new Property("operation", "", "Each interaction or action.", 0, 1, operation));
           children.add(new Property("alternative", "", "Each interaction in the workflow.", 0, 1, alternative));
@@ -3915,7 +4324,7 @@ public class WorkflowExample extends MetadataResource {
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case -309518737: /*process*/  return new Property("process", "@WorkflowExample.process", "Nested process.", 0, java.lang.Integer.MAX_VALUE, process);
+          case -309518737: /*process*/  return new Property("process", "@ExampleScenario.process", "Nested process.", 0, java.lang.Integer.MAX_VALUE, process);
           case 106440182: /*pause*/  return new Property("pause", "boolean", "If there is a pause in the flow.", 0, 1, pause);
           case 1662702951: /*operation*/  return new Property("operation", "", "Each interaction or action.", 0, 1, operation);
           case -196794451: /*alternative*/  return new Property("alternative", "", "Each interaction in the workflow.", 0, 1, alternative);
@@ -3927,10 +4336,10 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -309518737: /*process*/ return this.process == null ? new Base[0] : this.process.toArray(new Base[this.process.size()]); // WorkflowExampleProcessComponent
+        case -309518737: /*process*/ return this.process == null ? new Base[0] : this.process.toArray(new Base[this.process.size()]); // ExampleScenarioProcessComponent
         case 106440182: /*pause*/ return this.pause == null ? new Base[0] : new Base[] {this.pause}; // BooleanType
-        case 1662702951: /*operation*/ return this.operation == null ? new Base[0] : new Base[] {this.operation}; // WorkflowExampleProcessStepOperationComponent
-        case -196794451: /*alternative*/ return this.alternative == null ? new Base[0] : new Base[] {this.alternative}; // WorkflowExampleProcessStepAlternativeComponent
+        case 1662702951: /*operation*/ return this.operation == null ? new Base[0] : new Base[] {this.operation}; // ExampleScenarioProcessStepOperationComponent
+        case -196794451: /*alternative*/ return this.alternative == null ? new Base[0] : new Base[] {this.alternative}; // ExampleScenarioProcessStepAlternativeComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3940,16 +4349,16 @@ public class WorkflowExample extends MetadataResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -309518737: // process
-          this.getProcess().add((WorkflowExampleProcessComponent) value); // WorkflowExampleProcessComponent
+          this.getProcess().add((ExampleScenarioProcessComponent) value); // ExampleScenarioProcessComponent
           return value;
         case 106440182: // pause
           this.pause = castToBoolean(value); // BooleanType
           return value;
         case 1662702951: // operation
-          this.operation = (WorkflowExampleProcessStepOperationComponent) value; // WorkflowExampleProcessStepOperationComponent
+          this.operation = (ExampleScenarioProcessStepOperationComponent) value; // ExampleScenarioProcessStepOperationComponent
           return value;
         case -196794451: // alternative
-          this.alternative = (WorkflowExampleProcessStepAlternativeComponent) value; // WorkflowExampleProcessStepAlternativeComponent
+          this.alternative = (ExampleScenarioProcessStepAlternativeComponent) value; // ExampleScenarioProcessStepAlternativeComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -3959,13 +4368,13 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("process")) {
-          this.getProcess().add((WorkflowExampleProcessComponent) value);
+          this.getProcess().add((ExampleScenarioProcessComponent) value);
         } else if (name.equals("pause")) {
           this.pause = castToBoolean(value); // BooleanType
         } else if (name.equals("operation")) {
-          this.operation = (WorkflowExampleProcessStepOperationComponent) value; // WorkflowExampleProcessStepOperationComponent
+          this.operation = (ExampleScenarioProcessStepOperationComponent) value; // ExampleScenarioProcessStepOperationComponent
         } else if (name.equals("alternative")) {
-          this.alternative = (WorkflowExampleProcessStepAlternativeComponent) value; // WorkflowExampleProcessStepAlternativeComponent
+          this.alternative = (ExampleScenarioProcessStepAlternativeComponent) value; // ExampleScenarioProcessStepAlternativeComponent
         } else
           return super.setProperty(name, value);
         return value;
@@ -3986,7 +4395,7 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -309518737: /*process*/ return new String[] {"@WorkflowExample.process"};
+        case -309518737: /*process*/ return new String[] {"@ExampleScenario.process"};
         case 106440182: /*pause*/ return new String[] {"boolean"};
         case 1662702951: /*operation*/ return new String[] {};
         case -196794451: /*alternative*/ return new String[] {};
@@ -4001,26 +4410,26 @@ public class WorkflowExample extends MetadataResource {
           return addProcess();
         }
         else if (name.equals("pause")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.pause");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.pause");
         }
         else if (name.equals("operation")) {
-          this.operation = new WorkflowExampleProcessStepOperationComponent();
+          this.operation = new ExampleScenarioProcessStepOperationComponent();
           return this.operation;
         }
         else if (name.equals("alternative")) {
-          this.alternative = new WorkflowExampleProcessStepAlternativeComponent();
+          this.alternative = new ExampleScenarioProcessStepAlternativeComponent();
           return this.alternative;
         }
         else
           return super.addChild(name);
       }
 
-      public WorkflowExampleProcessStepComponent copy() {
-        WorkflowExampleProcessStepComponent dst = new WorkflowExampleProcessStepComponent();
+      public ExampleScenarioProcessStepComponent copy() {
+        ExampleScenarioProcessStepComponent dst = new ExampleScenarioProcessStepComponent();
         copyValues(dst);
         if (process != null) {
-          dst.process = new ArrayList<WorkflowExampleProcessComponent>();
-          for (WorkflowExampleProcessComponent i : process)
+          dst.process = new ArrayList<ExampleScenarioProcessComponent>();
+          for (ExampleScenarioProcessComponent i : process)
             dst.process.add(i.copy());
         };
         dst.pause = pause == null ? null : pause.copy();
@@ -4033,9 +4442,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessStepComponent))
+        if (!(other instanceof ExampleScenarioProcessStepComponent))
           return false;
-        WorkflowExampleProcessStepComponent o = (WorkflowExampleProcessStepComponent) other;
+        ExampleScenarioProcessStepComponent o = (ExampleScenarioProcessStepComponent) other;
         return compareDeep(process, o.process, true) && compareDeep(pause, o.pause, true) && compareDeep(operation, o.operation, true)
            && compareDeep(alternative, o.alternative, true);
       }
@@ -4044,9 +4453,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessStepComponent))
+        if (!(other instanceof ExampleScenarioProcessStepComponent))
           return false;
-        WorkflowExampleProcessStepComponent o = (WorkflowExampleProcessStepComponent) other;
+        ExampleScenarioProcessStepComponent o = (ExampleScenarioProcessStepComponent) other;
         return compareValues(pause, o.pause, true);
       }
 
@@ -4056,14 +4465,14 @@ public class WorkflowExample extends MetadataResource {
       }
 
   public String fhirType() {
-    return "WorkflowExample.process.step";
+    return "ExampleScenario.process.step";
 
   }
 
   }
 
     @Block()
-    public static class WorkflowExampleProcessStepOperationComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ExampleScenarioProcessStepOperationComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The sequential number of the interaction.
          */
@@ -4114,32 +4523,39 @@ public class WorkflowExample extends MetadataResource {
         protected BooleanType initiatorActive;
 
         /**
-         * Whether the initiator is deactivated right after the transaction.
+         * Whether the receiver is deactivated right after the transaction.
          */
         @Child(name = "receiverActive", type = {BooleanType.class}, order=8, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Whether the receiver is deactivated right after the transaction", formalDefinition="Whether the initiator is deactivated right after the transaction." )
+        @Description(shortDefinition="Whether the receiver is deactivated right after the transaction", formalDefinition="Whether the receiver is deactivated right after the transaction." )
         protected BooleanType receiverActive;
 
         /**
-         * Each resource instance used in this transaction.
+         * Each resource instance used by the initiator.
          */
-        @Child(name = "instance", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Each resource instance used in this transaction", formalDefinition="Each resource instance used in this transaction." )
-        protected List<WorkflowExampleProcessStepOperationInstanceComponent> instance;
+        @Child(name = "request", type = {ExampleScenarioInstanceContainedInstanceComponent.class}, order=9, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Each resource instance used by the initiator", formalDefinition="Each resource instance used by the initiator." )
+        protected ExampleScenarioInstanceContainedInstanceComponent request;
 
-        private static final long serialVersionUID = -202477628L;
+        /**
+         * Each resource instance used by the responder.
+         */
+        @Child(name = "response", type = {ExampleScenarioInstanceContainedInstanceComponent.class}, order=10, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Each resource instance used by the responder", formalDefinition="Each resource instance used by the responder." )
+        protected ExampleScenarioInstanceContainedInstanceComponent response;
+
+        private static final long serialVersionUID = 911241906L;
 
     /**
      * Constructor
      */
-      public WorkflowExampleProcessStepOperationComponent() {
+      public ExampleScenarioProcessStepOperationComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public WorkflowExampleProcessStepOperationComponent(StringType number) {
+      public ExampleScenarioProcessStepOperationComponent(StringType number) {
         super();
         this.number = number;
       }
@@ -4150,7 +4566,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getNumberElement() { 
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepOperationComponent.number");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.number");
             else if (Configuration.doAutoCreate())
               this.number = new StringType(); // bb
           return this.number;
@@ -4167,7 +4583,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #number} (The sequential number of the interaction.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public WorkflowExampleProcessStepOperationComponent setNumberElement(StringType value) { 
+        public ExampleScenarioProcessStepOperationComponent setNumberElement(StringType value) { 
           this.number = value;
           return this;
         }
@@ -4182,7 +4598,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The sequential number of the interaction.
          */
-        public WorkflowExampleProcessStepOperationComponent setNumber(String value) { 
+        public ExampleScenarioProcessStepOperationComponent setNumber(String value) { 
             if (this.number == null)
               this.number = new StringType();
             this.number.setValue(value);
@@ -4195,7 +4611,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepOperationComponent.type");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new StringType(); // bb
           return this.type;
@@ -4212,7 +4628,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #type} (The type of operation - CRUD.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public WorkflowExampleProcessStepOperationComponent setTypeElement(StringType value) { 
+        public ExampleScenarioProcessStepOperationComponent setTypeElement(StringType value) { 
           this.type = value;
           return this;
         }
@@ -4227,7 +4643,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The type of operation - CRUD.
          */
-        public WorkflowExampleProcessStepOperationComponent setType(String value) { 
+        public ExampleScenarioProcessStepOperationComponent setType(String value) { 
           if (Utilities.noString(value))
             this.type = null;
           else {
@@ -4244,7 +4660,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepOperationComponent.name");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -4261,7 +4677,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #name} (The human-friendly name of the interaction.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public WorkflowExampleProcessStepOperationComponent setNameElement(StringType value) { 
+        public ExampleScenarioProcessStepOperationComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -4276,7 +4692,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The human-friendly name of the interaction.
          */
-        public WorkflowExampleProcessStepOperationComponent setName(String value) { 
+        public ExampleScenarioProcessStepOperationComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -4293,7 +4709,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getInitiatorElement() { 
           if (this.initiator == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepOperationComponent.initiator");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.initiator");
             else if (Configuration.doAutoCreate())
               this.initiator = new StringType(); // bb
           return this.initiator;
@@ -4310,7 +4726,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #initiator} (Who starts the transaction.). This is the underlying object with id, value and extensions. The accessor "getInitiator" gives direct access to the value
          */
-        public WorkflowExampleProcessStepOperationComponent setInitiatorElement(StringType value) { 
+        public ExampleScenarioProcessStepOperationComponent setInitiatorElement(StringType value) { 
           this.initiator = value;
           return this;
         }
@@ -4325,7 +4741,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value Who starts the transaction.
          */
-        public WorkflowExampleProcessStepOperationComponent setInitiator(String value) { 
+        public ExampleScenarioProcessStepOperationComponent setInitiator(String value) { 
           if (Utilities.noString(value))
             this.initiator = null;
           else {
@@ -4342,7 +4758,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getReceiverElement() { 
           if (this.receiver == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepOperationComponent.receiver");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.receiver");
             else if (Configuration.doAutoCreate())
               this.receiver = new StringType(); // bb
           return this.receiver;
@@ -4359,7 +4775,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #receiver} (Who receives the transaction.). This is the underlying object with id, value and extensions. The accessor "getReceiver" gives direct access to the value
          */
-        public WorkflowExampleProcessStepOperationComponent setReceiverElement(StringType value) { 
+        public ExampleScenarioProcessStepOperationComponent setReceiverElement(StringType value) { 
           this.receiver = value;
           return this;
         }
@@ -4374,7 +4790,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value Who receives the transaction.
          */
-        public WorkflowExampleProcessStepOperationComponent setReceiver(String value) { 
+        public ExampleScenarioProcessStepOperationComponent setReceiver(String value) { 
           if (Utilities.noString(value))
             this.receiver = null;
           else {
@@ -4391,7 +4807,7 @@ public class WorkflowExample extends MetadataResource {
         public MarkdownType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepOperationComponent.description");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new MarkdownType(); // bb
           return this.description;
@@ -4408,7 +4824,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #description} (A comment to be inserted in the diagram.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public WorkflowExampleProcessStepOperationComponent setDescriptionElement(MarkdownType value) { 
+        public ExampleScenarioProcessStepOperationComponent setDescriptionElement(MarkdownType value) { 
           this.description = value;
           return this;
         }
@@ -4423,7 +4839,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value A comment to be inserted in the diagram.
          */
-        public WorkflowExampleProcessStepOperationComponent setDescription(String value) { 
+        public ExampleScenarioProcessStepOperationComponent setDescription(String value) { 
           if (value == null)
             this.description = null;
           else {
@@ -4440,7 +4856,7 @@ public class WorkflowExample extends MetadataResource {
         public BooleanType getInitiatorActiveElement() { 
           if (this.initiatorActive == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepOperationComponent.initiatorActive");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.initiatorActive");
             else if (Configuration.doAutoCreate())
               this.initiatorActive = new BooleanType(); // bb
           return this.initiatorActive;
@@ -4457,7 +4873,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #initiatorActive} (Whether the initiator is deactivated right after the transaction.). This is the underlying object with id, value and extensions. The accessor "getInitiatorActive" gives direct access to the value
          */
-        public WorkflowExampleProcessStepOperationComponent setInitiatorActiveElement(BooleanType value) { 
+        public ExampleScenarioProcessStepOperationComponent setInitiatorActiveElement(BooleanType value) { 
           this.initiatorActive = value;
           return this;
         }
@@ -4472,7 +4888,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value Whether the initiator is deactivated right after the transaction.
          */
-        public WorkflowExampleProcessStepOperationComponent setInitiatorActive(boolean value) { 
+        public ExampleScenarioProcessStepOperationComponent setInitiatorActive(boolean value) { 
             if (this.initiatorActive == null)
               this.initiatorActive = new BooleanType();
             this.initiatorActive.setValue(value);
@@ -4480,12 +4896,12 @@ public class WorkflowExample extends MetadataResource {
         }
 
         /**
-         * @return {@link #receiverActive} (Whether the initiator is deactivated right after the transaction.). This is the underlying object with id, value and extensions. The accessor "getReceiverActive" gives direct access to the value
+         * @return {@link #receiverActive} (Whether the receiver is deactivated right after the transaction.). This is the underlying object with id, value and extensions. The accessor "getReceiverActive" gives direct access to the value
          */
         public BooleanType getReceiverActiveElement() { 
           if (this.receiverActive == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepOperationComponent.receiverActive");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.receiverActive");
             else if (Configuration.doAutoCreate())
               this.receiverActive = new BooleanType(); // bb
           return this.receiverActive;
@@ -4500,24 +4916,24 @@ public class WorkflowExample extends MetadataResource {
         }
 
         /**
-         * @param value {@link #receiverActive} (Whether the initiator is deactivated right after the transaction.). This is the underlying object with id, value and extensions. The accessor "getReceiverActive" gives direct access to the value
+         * @param value {@link #receiverActive} (Whether the receiver is deactivated right after the transaction.). This is the underlying object with id, value and extensions. The accessor "getReceiverActive" gives direct access to the value
          */
-        public WorkflowExampleProcessStepOperationComponent setReceiverActiveElement(BooleanType value) { 
+        public ExampleScenarioProcessStepOperationComponent setReceiverActiveElement(BooleanType value) { 
           this.receiverActive = value;
           return this;
         }
 
         /**
-         * @return Whether the initiator is deactivated right after the transaction.
+         * @return Whether the receiver is deactivated right after the transaction.
          */
         public boolean getReceiverActive() { 
           return this.receiverActive == null || this.receiverActive.isEmpty() ? false : this.receiverActive.getValue();
         }
 
         /**
-         * @param value Whether the initiator is deactivated right after the transaction.
+         * @param value Whether the receiver is deactivated right after the transaction.
          */
-        public WorkflowExampleProcessStepOperationComponent setReceiverActive(boolean value) { 
+        public ExampleScenarioProcessStepOperationComponent setReceiverActive(boolean value) { 
             if (this.receiverActive == null)
               this.receiverActive = new BooleanType();
             this.receiverActive.setValue(value);
@@ -4525,56 +4941,51 @@ public class WorkflowExample extends MetadataResource {
         }
 
         /**
-         * @return {@link #instance} (Each resource instance used in this transaction.)
+         * @return {@link #request} (Each resource instance used by the initiator.)
          */
-        public List<WorkflowExampleProcessStepOperationInstanceComponent> getInstance() { 
-          if (this.instance == null)
-            this.instance = new ArrayList<WorkflowExampleProcessStepOperationInstanceComponent>();
-          return this.instance;
+        public ExampleScenarioInstanceContainedInstanceComponent getRequest() { 
+          if (this.request == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.request");
+            else if (Configuration.doAutoCreate())
+              this.request = new ExampleScenarioInstanceContainedInstanceComponent(); // cc
+          return this.request;
+        }
+
+        public boolean hasRequest() { 
+          return this.request != null && !this.request.isEmpty();
         }
 
         /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
+         * @param value {@link #request} (Each resource instance used by the initiator.)
          */
-        public WorkflowExampleProcessStepOperationComponent setInstance(List<WorkflowExampleProcessStepOperationInstanceComponent> theInstance) { 
-          this.instance = theInstance;
-          return this;
-        }
-
-        public boolean hasInstance() { 
-          if (this.instance == null)
-            return false;
-          for (WorkflowExampleProcessStepOperationInstanceComponent item : this.instance)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public WorkflowExampleProcessStepOperationInstanceComponent addInstance() { //3
-          WorkflowExampleProcessStepOperationInstanceComponent t = new WorkflowExampleProcessStepOperationInstanceComponent();
-          if (this.instance == null)
-            this.instance = new ArrayList<WorkflowExampleProcessStepOperationInstanceComponent>();
-          this.instance.add(t);
-          return t;
-        }
-
-        public WorkflowExampleProcessStepOperationComponent addInstance(WorkflowExampleProcessStepOperationInstanceComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.instance == null)
-            this.instance = new ArrayList<WorkflowExampleProcessStepOperationInstanceComponent>();
-          this.instance.add(t);
+        public ExampleScenarioProcessStepOperationComponent setRequest(ExampleScenarioInstanceContainedInstanceComponent value) { 
+          this.request = value;
           return this;
         }
 
         /**
-         * @return The first repetition of repeating field {@link #instance}, creating it if it does not already exist
+         * @return {@link #response} (Each resource instance used by the responder.)
          */
-        public WorkflowExampleProcessStepOperationInstanceComponent getInstanceFirstRep() { 
-          if (getInstance().isEmpty()) {
-            addInstance();
-          }
-          return getInstance().get(0);
+        public ExampleScenarioInstanceContainedInstanceComponent getResponse() { 
+          if (this.response == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepOperationComponent.response");
+            else if (Configuration.doAutoCreate())
+              this.response = new ExampleScenarioInstanceContainedInstanceComponent(); // cc
+          return this.response;
+        }
+
+        public boolean hasResponse() { 
+          return this.response != null && !this.response.isEmpty();
+        }
+
+        /**
+         * @param value {@link #response} (Each resource instance used by the responder.)
+         */
+        public ExampleScenarioProcessStepOperationComponent setResponse(ExampleScenarioInstanceContainedInstanceComponent value) { 
+          this.response = value;
+          return this;
         }
 
         protected void listChildren(List<Property> children) {
@@ -4586,8 +4997,9 @@ public class WorkflowExample extends MetadataResource {
           children.add(new Property("receiver", "string", "Who receives the transaction.", 0, 1, receiver));
           children.add(new Property("description", "markdown", "A comment to be inserted in the diagram.", 0, 1, description));
           children.add(new Property("initiatorActive", "boolean", "Whether the initiator is deactivated right after the transaction.", 0, 1, initiatorActive));
-          children.add(new Property("receiverActive", "boolean", "Whether the initiator is deactivated right after the transaction.", 0, 1, receiverActive));
-          children.add(new Property("instance", "", "Each resource instance used in this transaction.", 0, java.lang.Integer.MAX_VALUE, instance));
+          children.add(new Property("receiverActive", "boolean", "Whether the receiver is deactivated right after the transaction.", 0, 1, receiverActive));
+          children.add(new Property("request", "@ExampleScenario.instance.containedInstance", "Each resource instance used by the initiator.", 0, 1, request));
+          children.add(new Property("response", "@ExampleScenario.instance.containedInstance", "Each resource instance used by the responder.", 0, 1, response));
         }
 
         @Override
@@ -4600,8 +5012,9 @@ public class WorkflowExample extends MetadataResource {
           case -808719889: /*receiver*/  return new Property("receiver", "string", "Who receives the transaction.", 0, 1, receiver);
           case -1724546052: /*description*/  return new Property("description", "markdown", "A comment to be inserted in the diagram.", 0, 1, description);
           case 384339477: /*initiatorActive*/  return new Property("initiatorActive", "boolean", "Whether the initiator is deactivated right after the transaction.", 0, 1, initiatorActive);
-          case -285284907: /*receiverActive*/  return new Property("receiverActive", "boolean", "Whether the initiator is deactivated right after the transaction.", 0, 1, receiverActive);
-          case 555127957: /*instance*/  return new Property("instance", "", "Each resource instance used in this transaction.", 0, java.lang.Integer.MAX_VALUE, instance);
+          case -285284907: /*receiverActive*/  return new Property("receiverActive", "boolean", "Whether the receiver is deactivated right after the transaction.", 0, 1, receiverActive);
+          case 1095692943: /*request*/  return new Property("request", "@ExampleScenario.instance.containedInstance", "Each resource instance used by the initiator.", 0, 1, request);
+          case -340323263: /*response*/  return new Property("response", "@ExampleScenario.instance.containedInstance", "Each resource instance used by the responder.", 0, 1, response);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -4618,7 +5031,8 @@ public class WorkflowExample extends MetadataResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case 384339477: /*initiatorActive*/ return this.initiatorActive == null ? new Base[0] : new Base[] {this.initiatorActive}; // BooleanType
         case -285284907: /*receiverActive*/ return this.receiverActive == null ? new Base[0] : new Base[] {this.receiverActive}; // BooleanType
-        case 555127957: /*instance*/ return this.instance == null ? new Base[0] : this.instance.toArray(new Base[this.instance.size()]); // WorkflowExampleProcessStepOperationInstanceComponent
+        case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // ExampleScenarioInstanceContainedInstanceComponent
+        case -340323263: /*response*/ return this.response == null ? new Base[0] : new Base[] {this.response}; // ExampleScenarioInstanceContainedInstanceComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4651,8 +5065,11 @@ public class WorkflowExample extends MetadataResource {
         case -285284907: // receiverActive
           this.receiverActive = castToBoolean(value); // BooleanType
           return value;
-        case 555127957: // instance
-          this.getInstance().add((WorkflowExampleProcessStepOperationInstanceComponent) value); // WorkflowExampleProcessStepOperationInstanceComponent
+        case 1095692943: // request
+          this.request = (ExampleScenarioInstanceContainedInstanceComponent) value; // ExampleScenarioInstanceContainedInstanceComponent
+          return value;
+        case -340323263: // response
+          this.response = (ExampleScenarioInstanceContainedInstanceComponent) value; // ExampleScenarioInstanceContainedInstanceComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -4677,8 +5094,10 @@ public class WorkflowExample extends MetadataResource {
           this.initiatorActive = castToBoolean(value); // BooleanType
         } else if (name.equals("receiverActive")) {
           this.receiverActive = castToBoolean(value); // BooleanType
-        } else if (name.equals("instance")) {
-          this.getInstance().add((WorkflowExampleProcessStepOperationInstanceComponent) value);
+        } else if (name.equals("request")) {
+          this.request = (ExampleScenarioInstanceContainedInstanceComponent) value; // ExampleScenarioInstanceContainedInstanceComponent
+        } else if (name.equals("response")) {
+          this.response = (ExampleScenarioInstanceContainedInstanceComponent) value; // ExampleScenarioInstanceContainedInstanceComponent
         } else
           return super.setProperty(name, value);
         return value;
@@ -4695,7 +5114,8 @@ public class WorkflowExample extends MetadataResource {
         case -1724546052:  return getDescriptionElement();
         case 384339477:  return getInitiatorActiveElement();
         case -285284907:  return getReceiverActiveElement();
-        case 555127957:  return addInstance(); 
+        case 1095692943:  return getRequest(); 
+        case -340323263:  return getResponse(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4712,7 +5132,8 @@ public class WorkflowExample extends MetadataResource {
         case -1724546052: /*description*/ return new String[] {"markdown"};
         case 384339477: /*initiatorActive*/ return new String[] {"boolean"};
         case -285284907: /*receiverActive*/ return new String[] {"boolean"};
-        case 555127957: /*instance*/ return new String[] {};
+        case 1095692943: /*request*/ return new String[] {"@ExampleScenario.instance.containedInstance"};
+        case -340323263: /*response*/ return new String[] {"@ExampleScenario.instance.containedInstance"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -4721,38 +5142,43 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("number")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.number");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.number");
         }
         else if (name.equals("type")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.type");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.type");
         }
         else if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.name");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.name");
         }
         else if (name.equals("initiator")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.initiator");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.initiator");
         }
         else if (name.equals("receiver")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.receiver");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.receiver");
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.description");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.description");
         }
         else if (name.equals("initiatorActive")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.initiatorActive");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.initiatorActive");
         }
         else if (name.equals("receiverActive")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.receiverActive");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.receiverActive");
         }
-        else if (name.equals("instance")) {
-          return addInstance();
+        else if (name.equals("request")) {
+          this.request = new ExampleScenarioInstanceContainedInstanceComponent();
+          return this.request;
+        }
+        else if (name.equals("response")) {
+          this.response = new ExampleScenarioInstanceContainedInstanceComponent();
+          return this.response;
         }
         else
           return super.addChild(name);
       }
 
-      public WorkflowExampleProcessStepOperationComponent copy() {
-        WorkflowExampleProcessStepOperationComponent dst = new WorkflowExampleProcessStepOperationComponent();
+      public ExampleScenarioProcessStepOperationComponent copy() {
+        ExampleScenarioProcessStepOperationComponent dst = new ExampleScenarioProcessStepOperationComponent();
         copyValues(dst);
         dst.number = number == null ? null : number.copy();
         dst.type = type == null ? null : type.copy();
@@ -4762,11 +5188,8 @@ public class WorkflowExample extends MetadataResource {
         dst.description = description == null ? null : description.copy();
         dst.initiatorActive = initiatorActive == null ? null : initiatorActive.copy();
         dst.receiverActive = receiverActive == null ? null : receiverActive.copy();
-        if (instance != null) {
-          dst.instance = new ArrayList<WorkflowExampleProcessStepOperationInstanceComponent>();
-          for (WorkflowExampleProcessStepOperationInstanceComponent i : instance)
-            dst.instance.add(i.copy());
-        };
+        dst.request = request == null ? null : request.copy();
+        dst.response = response == null ? null : response.copy();
         return dst;
       }
 
@@ -4774,22 +5197,22 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessStepOperationComponent))
+        if (!(other instanceof ExampleScenarioProcessStepOperationComponent))
           return false;
-        WorkflowExampleProcessStepOperationComponent o = (WorkflowExampleProcessStepOperationComponent) other;
+        ExampleScenarioProcessStepOperationComponent o = (ExampleScenarioProcessStepOperationComponent) other;
         return compareDeep(number, o.number, true) && compareDeep(type, o.type, true) && compareDeep(name, o.name, true)
            && compareDeep(initiator, o.initiator, true) && compareDeep(receiver, o.receiver, true) && compareDeep(description, o.description, true)
            && compareDeep(initiatorActive, o.initiatorActive, true) && compareDeep(receiverActive, o.receiverActive, true)
-           && compareDeep(instance, o.instance, true);
+           && compareDeep(request, o.request, true) && compareDeep(response, o.response, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessStepOperationComponent))
+        if (!(other instanceof ExampleScenarioProcessStepOperationComponent))
           return false;
-        WorkflowExampleProcessStepOperationComponent o = (WorkflowExampleProcessStepOperationComponent) other;
+        ExampleScenarioProcessStepOperationComponent o = (ExampleScenarioProcessStepOperationComponent) other;
         return compareValues(number, o.number, true) && compareValues(type, o.type, true) && compareValues(name, o.name, true)
            && compareValues(initiator, o.initiator, true) && compareValues(receiver, o.receiver, true) && compareValues(description, o.description, true)
            && compareValues(initiatorActive, o.initiatorActive, true) && compareValues(receiverActive, o.receiverActive, true)
@@ -4798,193 +5221,18 @@ public class WorkflowExample extends MetadataResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(number, type, name, initiator
-          , receiver, description, initiatorActive, receiverActive, instance);
+          , receiver, description, initiatorActive, receiverActive, request, response);
       }
 
   public String fhirType() {
-    return "WorkflowExample.process.step.operation";
+    return "ExampleScenario.process.step.operation";
 
   }
 
   }
 
     @Block()
-    public static class WorkflowExampleProcessStepOperationInstanceComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The resource names used here.
-         */
-        @Child(name = "instanceId", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The resource names used here", formalDefinition="The resource names used here." )
-        protected StringType instanceId;
-
-        private static final long serialVersionUID = 1708425317L;
-
-    /**
-     * Constructor
-     */
-      public WorkflowExampleProcessStepOperationInstanceComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #instanceId} (The resource names used here.). This is the underlying object with id, value and extensions. The accessor "getInstanceId" gives direct access to the value
-         */
-        public StringType getInstanceIdElement() { 
-          if (this.instanceId == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepOperationInstanceComponent.instanceId");
-            else if (Configuration.doAutoCreate())
-              this.instanceId = new StringType(); // bb
-          return this.instanceId;
-        }
-
-        public boolean hasInstanceIdElement() { 
-          return this.instanceId != null && !this.instanceId.isEmpty();
-        }
-
-        public boolean hasInstanceId() { 
-          return this.instanceId != null && !this.instanceId.isEmpty();
-        }
-
-        /**
-         * @param value {@link #instanceId} (The resource names used here.). This is the underlying object with id, value and extensions. The accessor "getInstanceId" gives direct access to the value
-         */
-        public WorkflowExampleProcessStepOperationInstanceComponent setInstanceIdElement(StringType value) { 
-          this.instanceId = value;
-          return this;
-        }
-
-        /**
-         * @return The resource names used here.
-         */
-        public String getInstanceId() { 
-          return this.instanceId == null ? null : this.instanceId.getValue();
-        }
-
-        /**
-         * @param value The resource names used here.
-         */
-        public WorkflowExampleProcessStepOperationInstanceComponent setInstanceId(String value) { 
-          if (Utilities.noString(value))
-            this.instanceId = null;
-          else {
-            if (this.instanceId == null)
-              this.instanceId = new StringType();
-            this.instanceId.setValue(value);
-          }
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("instanceId", "string", "The resource names used here.", 0, 1, instanceId));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 902024336: /*instanceId*/  return new Property("instanceId", "string", "The resource names used here.", 0, 1, instanceId);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 902024336: /*instanceId*/ return this.instanceId == null ? new Base[0] : new Base[] {this.instanceId}; // StringType
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 902024336: // instanceId
-          this.instanceId = castToString(value); // StringType
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("instanceId")) {
-          this.instanceId = castToString(value); // StringType
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 902024336:  return getInstanceIdElement();
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 902024336: /*instanceId*/ return new String[] {"string"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("instanceId")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.instanceId");
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public WorkflowExampleProcessStepOperationInstanceComponent copy() {
-        WorkflowExampleProcessStepOperationInstanceComponent dst = new WorkflowExampleProcessStepOperationInstanceComponent();
-        copyValues(dst);
-        dst.instanceId = instanceId == null ? null : instanceId.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof WorkflowExampleProcessStepOperationInstanceComponent))
-          return false;
-        WorkflowExampleProcessStepOperationInstanceComponent o = (WorkflowExampleProcessStepOperationInstanceComponent) other;
-        return compareDeep(instanceId, o.instanceId, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof WorkflowExampleProcessStepOperationInstanceComponent))
-          return false;
-        WorkflowExampleProcessStepOperationInstanceComponent o = (WorkflowExampleProcessStepOperationInstanceComponent) other;
-        return compareValues(instanceId, o.instanceId, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(instanceId);
-      }
-
-  public String fhirType() {
-    return "WorkflowExample.process.step.operation.instance";
-
-  }
-
-  }
-
-    @Block()
-    public static class WorkflowExampleProcessStepAlternativeComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ExampleScenarioProcessStepAlternativeComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The name of each alternative.
          */
@@ -4997,14 +5245,14 @@ public class WorkflowExample extends MetadataResource {
          */
         @Child(name = "option", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Each of the possible options in an alternative", formalDefinition="Each of the possible options in an alternative." )
-        protected List<WorkflowExampleProcessStepAlternativeOptionComponent> option;
+        protected List<ExampleScenarioProcessStepAlternativeOptionComponent> option;
 
-        private static final long serialVersionUID = -1216354252L;
+        private static final long serialVersionUID = 379920547L;
 
     /**
      * Constructor
      */
-      public WorkflowExampleProcessStepAlternativeComponent() {
+      public ExampleScenarioProcessStepAlternativeComponent() {
         super();
       }
 
@@ -5014,7 +5262,7 @@ public class WorkflowExample extends MetadataResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepAlternativeComponent.name");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepAlternativeComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -5031,7 +5279,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #name} (The name of each alternative.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public WorkflowExampleProcessStepAlternativeComponent setNameElement(StringType value) { 
+        public ExampleScenarioProcessStepAlternativeComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -5046,7 +5294,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value The name of each alternative.
          */
-        public WorkflowExampleProcessStepAlternativeComponent setName(String value) { 
+        public ExampleScenarioProcessStepAlternativeComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -5060,16 +5308,16 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return {@link #option} (Each of the possible options in an alternative.)
          */
-        public List<WorkflowExampleProcessStepAlternativeOptionComponent> getOption() { 
+        public List<ExampleScenarioProcessStepAlternativeOptionComponent> getOption() { 
           if (this.option == null)
-            this.option = new ArrayList<WorkflowExampleProcessStepAlternativeOptionComponent>();
+            this.option = new ArrayList<ExampleScenarioProcessStepAlternativeOptionComponent>();
           return this.option;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public WorkflowExampleProcessStepAlternativeComponent setOption(List<WorkflowExampleProcessStepAlternativeOptionComponent> theOption) { 
+        public ExampleScenarioProcessStepAlternativeComponent setOption(List<ExampleScenarioProcessStepAlternativeOptionComponent> theOption) { 
           this.option = theOption;
           return this;
         }
@@ -5077,25 +5325,25 @@ public class WorkflowExample extends MetadataResource {
         public boolean hasOption() { 
           if (this.option == null)
             return false;
-          for (WorkflowExampleProcessStepAlternativeOptionComponent item : this.option)
+          for (ExampleScenarioProcessStepAlternativeOptionComponent item : this.option)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public WorkflowExampleProcessStepAlternativeOptionComponent addOption() { //3
-          WorkflowExampleProcessStepAlternativeOptionComponent t = new WorkflowExampleProcessStepAlternativeOptionComponent();
+        public ExampleScenarioProcessStepAlternativeOptionComponent addOption() { //3
+          ExampleScenarioProcessStepAlternativeOptionComponent t = new ExampleScenarioProcessStepAlternativeOptionComponent();
           if (this.option == null)
-            this.option = new ArrayList<WorkflowExampleProcessStepAlternativeOptionComponent>();
+            this.option = new ArrayList<ExampleScenarioProcessStepAlternativeOptionComponent>();
           this.option.add(t);
           return t;
         }
 
-        public WorkflowExampleProcessStepAlternativeComponent addOption(WorkflowExampleProcessStepAlternativeOptionComponent t) { //3
+        public ExampleScenarioProcessStepAlternativeComponent addOption(ExampleScenarioProcessStepAlternativeOptionComponent t) { //3
           if (t == null)
             return this;
           if (this.option == null)
-            this.option = new ArrayList<WorkflowExampleProcessStepAlternativeOptionComponent>();
+            this.option = new ArrayList<ExampleScenarioProcessStepAlternativeOptionComponent>();
           this.option.add(t);
           return this;
         }
@@ -5103,7 +5351,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return The first repetition of repeating field {@link #option}, creating it if it does not already exist
          */
-        public WorkflowExampleProcessStepAlternativeOptionComponent getOptionFirstRep() { 
+        public ExampleScenarioProcessStepAlternativeOptionComponent getOptionFirstRep() { 
           if (getOption().isEmpty()) {
             addOption();
           }
@@ -5130,7 +5378,7 @@ public class WorkflowExample extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -1010136971: /*option*/ return this.option == null ? new Base[0] : this.option.toArray(new Base[this.option.size()]); // WorkflowExampleProcessStepAlternativeOptionComponent
+        case -1010136971: /*option*/ return this.option == null ? new Base[0] : this.option.toArray(new Base[this.option.size()]); // ExampleScenarioProcessStepAlternativeOptionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -5143,7 +5391,7 @@ public class WorkflowExample extends MetadataResource {
           this.name = castToString(value); // StringType
           return value;
         case -1010136971: // option
-          this.getOption().add((WorkflowExampleProcessStepAlternativeOptionComponent) value); // WorkflowExampleProcessStepAlternativeOptionComponent
+          this.getOption().add((ExampleScenarioProcessStepAlternativeOptionComponent) value); // ExampleScenarioProcessStepAlternativeOptionComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -5155,7 +5403,7 @@ public class WorkflowExample extends MetadataResource {
         if (name.equals("name")) {
           this.name = castToString(value); // StringType
         } else if (name.equals("option")) {
-          this.getOption().add((WorkflowExampleProcessStepAlternativeOptionComponent) value);
+          this.getOption().add((ExampleScenarioProcessStepAlternativeOptionComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -5184,7 +5432,7 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.name");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.name");
         }
         else if (name.equals("option")) {
           return addOption();
@@ -5193,13 +5441,13 @@ public class WorkflowExample extends MetadataResource {
           return super.addChild(name);
       }
 
-      public WorkflowExampleProcessStepAlternativeComponent copy() {
-        WorkflowExampleProcessStepAlternativeComponent dst = new WorkflowExampleProcessStepAlternativeComponent();
+      public ExampleScenarioProcessStepAlternativeComponent copy() {
+        ExampleScenarioProcessStepAlternativeComponent dst = new ExampleScenarioProcessStepAlternativeComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         if (option != null) {
-          dst.option = new ArrayList<WorkflowExampleProcessStepAlternativeOptionComponent>();
-          for (WorkflowExampleProcessStepAlternativeOptionComponent i : option)
+          dst.option = new ArrayList<ExampleScenarioProcessStepAlternativeOptionComponent>();
+          for (ExampleScenarioProcessStepAlternativeOptionComponent i : option)
             dst.option.add(i.copy());
         };
         return dst;
@@ -5209,9 +5457,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessStepAlternativeComponent))
+        if (!(other instanceof ExampleScenarioProcessStepAlternativeComponent))
           return false;
-        WorkflowExampleProcessStepAlternativeComponent o = (WorkflowExampleProcessStepAlternativeComponent) other;
+        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(option, o.option, true);
       }
 
@@ -5219,9 +5467,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessStepAlternativeComponent))
+        if (!(other instanceof ExampleScenarioProcessStepAlternativeComponent))
           return false;
-        WorkflowExampleProcessStepAlternativeComponent o = (WorkflowExampleProcessStepAlternativeComponent) other;
+        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other;
         return compareValues(name, o.name, true);
       }
 
@@ -5230,14 +5478,14 @@ public class WorkflowExample extends MetadataResource {
       }
 
   public String fhirType() {
-    return "WorkflowExample.process.step.alternative";
+    return "ExampleScenario.process.step.alternative";
 
   }
 
   }
 
     @Block()
-    public static class WorkflowExampleProcessStepAlternativeOptionComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class ExampleScenarioProcessStepAlternativeOptionComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A human-readable description of each option.
          */
@@ -5246,46 +5494,32 @@ public class WorkflowExample extends MetadataResource {
         protected MarkdownType description;
 
         /**
-         * Nested processes in an option branch.
+         * What happens in each alternative option.
          */
-        @Child(name = "process", type = {WorkflowExampleProcessComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Nested processes in an option branch", formalDefinition="Nested processes in an option branch." )
-        protected List<WorkflowExampleProcessComponent> process;
-
-        /**
-         * Nested alternatives in an option branch.
-         */
-        @Child(name = "alternative", type = {WorkflowExampleProcessStepAlternativeComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Nested alternatives in an option branch", formalDefinition="Nested alternatives in an option branch." )
-        protected List<WorkflowExampleProcessStepAlternativeComponent> alternative;
-
-        /**
-         * Nested operations in an option branch.
-         */
-        @Child(name = "operation", type = {WorkflowExampleProcessStepOperationComponent.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Nested operations in an option branch", formalDefinition="Nested operations in an option branch." )
-        protected List<WorkflowExampleProcessStepOperationComponent> operation;
+        @Child(name = "step", type = {ExampleScenarioProcessStepComponent.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="What happens in each alternative option", formalDefinition="What happens in each alternative option." )
+        protected List<ExampleScenarioProcessStepComponent> step;
 
         /**
          * If there is a pause in the flow.
          */
-        @Child(name = "pause", type = {BooleanType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "pause", type = {BooleanType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="If there is a pause in the flow", formalDefinition="If there is a pause in the flow." )
         protected List<BooleanType> pause;
 
-        private static final long serialVersionUID = -296034913L;
+        private static final long serialVersionUID = -1719991565L;
 
     /**
      * Constructor
      */
-      public WorkflowExampleProcessStepAlternativeOptionComponent() {
+      public ExampleScenarioProcessStepAlternativeOptionComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public WorkflowExampleProcessStepAlternativeOptionComponent(MarkdownType description) {
+      public ExampleScenarioProcessStepAlternativeOptionComponent(MarkdownType description) {
         super();
         this.description = description;
       }
@@ -5296,7 +5530,7 @@ public class WorkflowExample extends MetadataResource {
         public MarkdownType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create WorkflowExampleProcessStepAlternativeOptionComponent.description");
+              throw new Error("Attempt to auto-create ExampleScenarioProcessStepAlternativeOptionComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new MarkdownType(); // bb
           return this.description;
@@ -5313,7 +5547,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #description} (A human-readable description of each option.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public WorkflowExampleProcessStepAlternativeOptionComponent setDescriptionElement(MarkdownType value) { 
+        public ExampleScenarioProcessStepAlternativeOptionComponent setDescriptionElement(MarkdownType value) { 
           this.description = value;
           return this;
         }
@@ -5328,7 +5562,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value A human-readable description of each option.
          */
-        public WorkflowExampleProcessStepAlternativeOptionComponent setDescription(String value) { 
+        public ExampleScenarioProcessStepAlternativeOptionComponent setDescription(String value) { 
             if (this.description == null)
               this.description = new MarkdownType();
             this.description.setValue(value);
@@ -5336,162 +5570,56 @@ public class WorkflowExample extends MetadataResource {
         }
 
         /**
-         * @return {@link #process} (Nested processes in an option branch.)
+         * @return {@link #step} (What happens in each alternative option.)
          */
-        public List<WorkflowExampleProcessComponent> getProcess() { 
-          if (this.process == null)
-            this.process = new ArrayList<WorkflowExampleProcessComponent>();
-          return this.process;
+        public List<ExampleScenarioProcessStepComponent> getStep() { 
+          if (this.step == null)
+            this.step = new ArrayList<ExampleScenarioProcessStepComponent>();
+          return this.step;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public WorkflowExampleProcessStepAlternativeOptionComponent setProcess(List<WorkflowExampleProcessComponent> theProcess) { 
-          this.process = theProcess;
+        public ExampleScenarioProcessStepAlternativeOptionComponent setStep(List<ExampleScenarioProcessStepComponent> theStep) { 
+          this.step = theStep;
           return this;
         }
 
-        public boolean hasProcess() { 
-          if (this.process == null)
+        public boolean hasStep() { 
+          if (this.step == null)
             return false;
-          for (WorkflowExampleProcessComponent item : this.process)
+          for (ExampleScenarioProcessStepComponent item : this.step)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public WorkflowExampleProcessComponent addProcess() { //3
-          WorkflowExampleProcessComponent t = new WorkflowExampleProcessComponent();
-          if (this.process == null)
-            this.process = new ArrayList<WorkflowExampleProcessComponent>();
-          this.process.add(t);
+        public ExampleScenarioProcessStepComponent addStep() { //3
+          ExampleScenarioProcessStepComponent t = new ExampleScenarioProcessStepComponent();
+          if (this.step == null)
+            this.step = new ArrayList<ExampleScenarioProcessStepComponent>();
+          this.step.add(t);
           return t;
         }
 
-        public WorkflowExampleProcessStepAlternativeOptionComponent addProcess(WorkflowExampleProcessComponent t) { //3
+        public ExampleScenarioProcessStepAlternativeOptionComponent addStep(ExampleScenarioProcessStepComponent t) { //3
           if (t == null)
             return this;
-          if (this.process == null)
-            this.process = new ArrayList<WorkflowExampleProcessComponent>();
-          this.process.add(t);
+          if (this.step == null)
+            this.step = new ArrayList<ExampleScenarioProcessStepComponent>();
+          this.step.add(t);
           return this;
         }
 
         /**
-         * @return The first repetition of repeating field {@link #process}, creating it if it does not already exist
+         * @return The first repetition of repeating field {@link #step}, creating it if it does not already exist
          */
-        public WorkflowExampleProcessComponent getProcessFirstRep() { 
-          if (getProcess().isEmpty()) {
-            addProcess();
+        public ExampleScenarioProcessStepComponent getStepFirstRep() { 
+          if (getStep().isEmpty()) {
+            addStep();
           }
-          return getProcess().get(0);
-        }
-
-        /**
-         * @return {@link #alternative} (Nested alternatives in an option branch.)
-         */
-        public List<WorkflowExampleProcessStepAlternativeComponent> getAlternative() { 
-          if (this.alternative == null)
-            this.alternative = new ArrayList<WorkflowExampleProcessStepAlternativeComponent>();
-          return this.alternative;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public WorkflowExampleProcessStepAlternativeOptionComponent setAlternative(List<WorkflowExampleProcessStepAlternativeComponent> theAlternative) { 
-          this.alternative = theAlternative;
-          return this;
-        }
-
-        public boolean hasAlternative() { 
-          if (this.alternative == null)
-            return false;
-          for (WorkflowExampleProcessStepAlternativeComponent item : this.alternative)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public WorkflowExampleProcessStepAlternativeComponent addAlternative() { //3
-          WorkflowExampleProcessStepAlternativeComponent t = new WorkflowExampleProcessStepAlternativeComponent();
-          if (this.alternative == null)
-            this.alternative = new ArrayList<WorkflowExampleProcessStepAlternativeComponent>();
-          this.alternative.add(t);
-          return t;
-        }
-
-        public WorkflowExampleProcessStepAlternativeOptionComponent addAlternative(WorkflowExampleProcessStepAlternativeComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.alternative == null)
-            this.alternative = new ArrayList<WorkflowExampleProcessStepAlternativeComponent>();
-          this.alternative.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #alternative}, creating it if it does not already exist
-         */
-        public WorkflowExampleProcessStepAlternativeComponent getAlternativeFirstRep() { 
-          if (getAlternative().isEmpty()) {
-            addAlternative();
-          }
-          return getAlternative().get(0);
-        }
-
-        /**
-         * @return {@link #operation} (Nested operations in an option branch.)
-         */
-        public List<WorkflowExampleProcessStepOperationComponent> getOperation() { 
-          if (this.operation == null)
-            this.operation = new ArrayList<WorkflowExampleProcessStepOperationComponent>();
-          return this.operation;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public WorkflowExampleProcessStepAlternativeOptionComponent setOperation(List<WorkflowExampleProcessStepOperationComponent> theOperation) { 
-          this.operation = theOperation;
-          return this;
-        }
-
-        public boolean hasOperation() { 
-          if (this.operation == null)
-            return false;
-          for (WorkflowExampleProcessStepOperationComponent item : this.operation)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public WorkflowExampleProcessStepOperationComponent addOperation() { //3
-          WorkflowExampleProcessStepOperationComponent t = new WorkflowExampleProcessStepOperationComponent();
-          if (this.operation == null)
-            this.operation = new ArrayList<WorkflowExampleProcessStepOperationComponent>();
-          this.operation.add(t);
-          return t;
-        }
-
-        public WorkflowExampleProcessStepAlternativeOptionComponent addOperation(WorkflowExampleProcessStepOperationComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.operation == null)
-            this.operation = new ArrayList<WorkflowExampleProcessStepOperationComponent>();
-          this.operation.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #operation}, creating it if it does not already exist
-         */
-        public WorkflowExampleProcessStepOperationComponent getOperationFirstRep() { 
-          if (getOperation().isEmpty()) {
-            addOperation();
-          }
-          return getOperation().get(0);
+          return getStep().get(0);
         }
 
         /**
@@ -5506,7 +5634,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public WorkflowExampleProcessStepAlternativeOptionComponent setPause(List<BooleanType> thePause) { 
+        public ExampleScenarioProcessStepAlternativeOptionComponent setPause(List<BooleanType> thePause) { 
           this.pause = thePause;
           return this;
         }
@@ -5534,7 +5662,7 @@ public class WorkflowExample extends MetadataResource {
         /**
          * @param value {@link #pause} (If there is a pause in the flow.)
          */
-        public WorkflowExampleProcessStepAlternativeOptionComponent addPause(boolean value) { //1
+        public ExampleScenarioProcessStepAlternativeOptionComponent addPause(boolean value) { //1
           BooleanType t = new BooleanType();
           t.setValue(value);
           if (this.pause == null)
@@ -5558,9 +5686,7 @@ public class WorkflowExample extends MetadataResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("description", "markdown", "A human-readable description of each option.", 0, 1, description));
-          children.add(new Property("process", "@WorkflowExample.process", "Nested processes in an option branch.", 0, java.lang.Integer.MAX_VALUE, process));
-          children.add(new Property("alternative", "@WorkflowExample.process.step.alternative", "Nested alternatives in an option branch.", 0, java.lang.Integer.MAX_VALUE, alternative));
-          children.add(new Property("operation", "@WorkflowExample.process.step.operation", "Nested operations in an option branch.", 0, java.lang.Integer.MAX_VALUE, operation));
+          children.add(new Property("step", "@ExampleScenario.process.step", "What happens in each alternative option.", 0, java.lang.Integer.MAX_VALUE, step));
           children.add(new Property("pause", "boolean", "If there is a pause in the flow.", 0, java.lang.Integer.MAX_VALUE, pause));
         }
 
@@ -5568,9 +5694,7 @@ public class WorkflowExample extends MetadataResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case -1724546052: /*description*/  return new Property("description", "markdown", "A human-readable description of each option.", 0, 1, description);
-          case -309518737: /*process*/  return new Property("process", "@WorkflowExample.process", "Nested processes in an option branch.", 0, java.lang.Integer.MAX_VALUE, process);
-          case -196794451: /*alternative*/  return new Property("alternative", "@WorkflowExample.process.step.alternative", "Nested alternatives in an option branch.", 0, java.lang.Integer.MAX_VALUE, alternative);
-          case 1662702951: /*operation*/  return new Property("operation", "@WorkflowExample.process.step.operation", "Nested operations in an option branch.", 0, java.lang.Integer.MAX_VALUE, operation);
+          case 3540684: /*step*/  return new Property("step", "@ExampleScenario.process.step", "What happens in each alternative option.", 0, java.lang.Integer.MAX_VALUE, step);
           case 106440182: /*pause*/  return new Property("pause", "boolean", "If there is a pause in the flow.", 0, java.lang.Integer.MAX_VALUE, pause);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -5581,9 +5705,7 @@ public class WorkflowExample extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
-        case -309518737: /*process*/ return this.process == null ? new Base[0] : this.process.toArray(new Base[this.process.size()]); // WorkflowExampleProcessComponent
-        case -196794451: /*alternative*/ return this.alternative == null ? new Base[0] : this.alternative.toArray(new Base[this.alternative.size()]); // WorkflowExampleProcessStepAlternativeComponent
-        case 1662702951: /*operation*/ return this.operation == null ? new Base[0] : this.operation.toArray(new Base[this.operation.size()]); // WorkflowExampleProcessStepOperationComponent
+        case 3540684: /*step*/ return this.step == null ? new Base[0] : this.step.toArray(new Base[this.step.size()]); // ExampleScenarioProcessStepComponent
         case 106440182: /*pause*/ return this.pause == null ? new Base[0] : this.pause.toArray(new Base[this.pause.size()]); // BooleanType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -5596,14 +5718,8 @@ public class WorkflowExample extends MetadataResource {
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
           return value;
-        case -309518737: // process
-          this.getProcess().add((WorkflowExampleProcessComponent) value); // WorkflowExampleProcessComponent
-          return value;
-        case -196794451: // alternative
-          this.getAlternative().add((WorkflowExampleProcessStepAlternativeComponent) value); // WorkflowExampleProcessStepAlternativeComponent
-          return value;
-        case 1662702951: // operation
-          this.getOperation().add((WorkflowExampleProcessStepOperationComponent) value); // WorkflowExampleProcessStepOperationComponent
+        case 3540684: // step
+          this.getStep().add((ExampleScenarioProcessStepComponent) value); // ExampleScenarioProcessStepComponent
           return value;
         case 106440182: // pause
           this.getPause().add(castToBoolean(value)); // BooleanType
@@ -5617,12 +5733,8 @@ public class WorkflowExample extends MetadataResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        } else if (name.equals("process")) {
-          this.getProcess().add((WorkflowExampleProcessComponent) value);
-        } else if (name.equals("alternative")) {
-          this.getAlternative().add((WorkflowExampleProcessStepAlternativeComponent) value);
-        } else if (name.equals("operation")) {
-          this.getOperation().add((WorkflowExampleProcessStepOperationComponent) value);
+        } else if (name.equals("step")) {
+          this.getStep().add((ExampleScenarioProcessStepComponent) value);
         } else if (name.equals("pause")) {
           this.getPause().add(castToBoolean(value));
         } else
@@ -5634,9 +5746,7 @@ public class WorkflowExample extends MetadataResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1724546052:  return getDescriptionElement();
-        case -309518737:  return addProcess(); 
-        case -196794451:  return addAlternative(); 
-        case 1662702951:  return addOperation(); 
+        case 3540684:  return addStep(); 
         case 106440182:  return addPauseElement();
         default: return super.makeProperty(hash, name);
         }
@@ -5647,9 +5757,7 @@ public class WorkflowExample extends MetadataResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1724546052: /*description*/ return new String[] {"markdown"};
-        case -309518737: /*process*/ return new String[] {"@WorkflowExample.process"};
-        case -196794451: /*alternative*/ return new String[] {"@WorkflowExample.process.step.alternative"};
-        case 1662702951: /*operation*/ return new String[] {"@WorkflowExample.process.step.operation"};
+        case 3540684: /*step*/ return new String[] {"@ExampleScenario.process.step"};
         case 106440182: /*pause*/ return new String[] {"boolean"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -5659,42 +5767,26 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.description");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.description");
         }
-        else if (name.equals("process")) {
-          return addProcess();
-        }
-        else if (name.equals("alternative")) {
-          return addAlternative();
-        }
-        else if (name.equals("operation")) {
-          return addOperation();
+        else if (name.equals("step")) {
+          return addStep();
         }
         else if (name.equals("pause")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.pause");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.pause");
         }
         else
           return super.addChild(name);
       }
 
-      public WorkflowExampleProcessStepAlternativeOptionComponent copy() {
-        WorkflowExampleProcessStepAlternativeOptionComponent dst = new WorkflowExampleProcessStepAlternativeOptionComponent();
+      public ExampleScenarioProcessStepAlternativeOptionComponent copy() {
+        ExampleScenarioProcessStepAlternativeOptionComponent dst = new ExampleScenarioProcessStepAlternativeOptionComponent();
         copyValues(dst);
         dst.description = description == null ? null : description.copy();
-        if (process != null) {
-          dst.process = new ArrayList<WorkflowExampleProcessComponent>();
-          for (WorkflowExampleProcessComponent i : process)
-            dst.process.add(i.copy());
-        };
-        if (alternative != null) {
-          dst.alternative = new ArrayList<WorkflowExampleProcessStepAlternativeComponent>();
-          for (WorkflowExampleProcessStepAlternativeComponent i : alternative)
-            dst.alternative.add(i.copy());
-        };
-        if (operation != null) {
-          dst.operation = new ArrayList<WorkflowExampleProcessStepOperationComponent>();
-          for (WorkflowExampleProcessStepOperationComponent i : operation)
-            dst.operation.add(i.copy());
+        if (step != null) {
+          dst.step = new ArrayList<ExampleScenarioProcessStepComponent>();
+          for (ExampleScenarioProcessStepComponent i : step)
+            dst.step.add(i.copy());
         };
         if (pause != null) {
           dst.pause = new ArrayList<BooleanType>();
@@ -5708,47 +5800,47 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessStepAlternativeOptionComponent))
+        if (!(other instanceof ExampleScenarioProcessStepAlternativeOptionComponent))
           return false;
-        WorkflowExampleProcessStepAlternativeOptionComponent o = (WorkflowExampleProcessStepAlternativeOptionComponent) other;
-        return compareDeep(description, o.description, true) && compareDeep(process, o.process, true) && compareDeep(alternative, o.alternative, true)
-           && compareDeep(operation, o.operation, true) && compareDeep(pause, o.pause, true);
+        ExampleScenarioProcessStepAlternativeOptionComponent o = (ExampleScenarioProcessStepAlternativeOptionComponent) other;
+        return compareDeep(description, o.description, true) && compareDeep(step, o.step, true) && compareDeep(pause, o.pause, true)
+          ;
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof WorkflowExampleProcessStepAlternativeOptionComponent))
+        if (!(other instanceof ExampleScenarioProcessStepAlternativeOptionComponent))
           return false;
-        WorkflowExampleProcessStepAlternativeOptionComponent o = (WorkflowExampleProcessStepAlternativeOptionComponent) other;
+        ExampleScenarioProcessStepAlternativeOptionComponent o = (ExampleScenarioProcessStepAlternativeOptionComponent) other;
         return compareValues(description, o.description, true) && compareValues(pause, o.pause, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, process, alternative
-          , operation, pause);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, step, pause
+          );
       }
 
   public String fhirType() {
-    return "WorkflowExample.process.step.alternative.option";
+    return "ExampleScenario.process.step.alternative.option";
 
   }
 
   }
 
     /**
-     * A formal identifier that is used to identify this workflow example when it is represented in other formats, or referenced in a specification, model, design or an instance.
+     * A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Additional identifier for the workflow example", formalDefinition="A formal identifier that is used to identify this workflow example when it is represented in other formats, or referenced in a specification, model, design or an instance." )
+    @Description(shortDefinition="Additional identifier for the example scenario", formalDefinition="A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance." )
     protected List<Identifier> identifier;
 
     /**
-     * A copyright statement relating to the workflow example and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the workflow example.
+     * A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.
      */
     @Child(name = "copyright", type = {MarkdownType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the workflow example and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the workflow example." )
+    @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario." )
     protected MarkdownType copyright;
 
     /**
@@ -5763,58 +5855,58 @@ public class WorkflowExample extends MetadataResource {
      */
     @Child(name = "actor", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Actor participating in the resource", formalDefinition="Actor participating in the resource." )
-    protected List<WorkflowExampleActorComponent> actor;
+    protected List<ExampleScenarioActorComponent> actor;
 
     /**
      * Each resource and each version that is present in the workflow.
      */
     @Child(name = "instance", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Each resource and each version that is present in the workflow", formalDefinition="Each resource and each version that is present in the workflow." )
-    protected List<WorkflowExampleInstanceComponent> instance;
+    protected List<ExampleScenarioInstanceComponent> instance;
 
     /**
      * Each major process - a group of operations.
      */
     @Child(name = "process", type = {}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Each major process - a group of operations", formalDefinition="Each major process - a group of operations." )
-    protected WorkflowExampleProcessComponent process;
+    protected ExampleScenarioProcessComponent process;
 
     /**
      * Another nested workflow.
      */
-    @Child(name = "workflow", type = {WorkflowExample.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "workflow", type = {ExampleScenario.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Another nested workflow", formalDefinition="Another nested workflow." )
     protected List<Reference> workflow;
     /**
      * The actual objects that are the target of the reference (Another nested workflow.)
      */
-    protected List<WorkflowExample> workflowTarget;
+    protected List<ExampleScenario> workflowTarget;
 
 
-    private static final long serialVersionUID = 2051024534L;
+    private static final long serialVersionUID = -1982575274L;
 
   /**
    * Constructor
    */
-    public WorkflowExample() {
+    public ExampleScenario() {
       super();
     }
 
   /**
    * Constructor
    */
-    public WorkflowExample(Enumeration<PublicationStatus> status) {
+    public ExampleScenario(Enumeration<PublicationStatus> status) {
       super();
       this.status = status;
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this workflow example when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this workflow example is (or will be) published. The URL SHOULD include the major version of the workflow example. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this example scenario is (or will be) published. The URL SHOULD include the major version of the example scenario. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.url");
+          throw new Error("Attempt to auto-create ExampleScenario.url");
         else if (Configuration.doAutoCreate())
           this.url = new UriType(); // bb
       return this.url;
@@ -5829,24 +5921,24 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this workflow example when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this workflow example is (or will be) published. The URL SHOULD include the major version of the workflow example. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this example scenario is (or will be) published. The URL SHOULD include the major version of the example scenario. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public WorkflowExample setUrlElement(UriType value) { 
+    public ExampleScenario setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
 
     /**
-     * @return An absolute URI that is used to identify this workflow example when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this workflow example is (or will be) published. The URL SHOULD include the major version of the workflow example. For more information see [Technical and Business Versions](resource.html#versions).
+     * @return An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this example scenario is (or will be) published. The URL SHOULD include the major version of the example scenario. For more information see [Technical and Business Versions](resource.html#versions).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this workflow example when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this workflow example is (or will be) published. The URL SHOULD include the major version of the workflow example. For more information see [Technical and Business Versions](resource.html#versions).
+     * @param value An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this example scenario is (or will be) published. The URL SHOULD include the major version of the example scenario. For more information see [Technical and Business Versions](resource.html#versions).
      */
-    public WorkflowExample setUrl(String value) { 
+    public ExampleScenario setUrl(String value) { 
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -5858,7 +5950,7 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #identifier} (A formal identifier that is used to identify this workflow example when it is represented in other formats, or referenced in a specification, model, design or an instance.)
+     * @return {@link #identifier} (A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -5869,7 +5961,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public WorkflowExample setIdentifier(List<Identifier> theIdentifier) { 
+    public ExampleScenario setIdentifier(List<Identifier> theIdentifier) { 
       this.identifier = theIdentifier;
       return this;
     }
@@ -5891,7 +5983,7 @@ public class WorkflowExample extends MetadataResource {
       return t;
     }
 
-    public WorkflowExample addIdentifier(Identifier t) { //3
+    public ExampleScenario addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
       if (this.identifier == null)
@@ -5911,12 +6003,12 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #version} (The identifier that is used to identify this version of the workflow example when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the workflow example author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @return {@link #version} (The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
     public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.version");
+          throw new Error("Attempt to auto-create ExampleScenario.version");
         else if (Configuration.doAutoCreate())
           this.version = new StringType(); // bb
       return this.version;
@@ -5931,24 +6023,24 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @param value {@link #version} (The identifier that is used to identify this version of the workflow example when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the workflow example author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
+     * @param value {@link #version} (The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public WorkflowExample setVersionElement(StringType value) { 
+    public ExampleScenario setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
 
     /**
-     * @return The identifier that is used to identify this version of the workflow example when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the workflow example author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
+     * @return The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
      */
     public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
-     * @param value The identifier that is used to identify this version of the workflow example when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the workflow example author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
+     * @param value The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.
      */
-    public WorkflowExample setVersion(String value) { 
+    public ExampleScenario setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -5960,12 +6052,12 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #name} (A natural language name identifying the workflow example. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @return {@link #name} (A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
     public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.name");
+          throw new Error("Attempt to auto-create ExampleScenario.name");
         else if (Configuration.doAutoCreate())
           this.name = new StringType(); // bb
       return this.name;
@@ -5980,24 +6072,24 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @param value {@link #name} (A natural language name identifying the workflow example. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+     * @param value {@link #name} (A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public WorkflowExample setNameElement(StringType value) { 
+    public ExampleScenario setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
 
     /**
-     * @return A natural language name identifying the workflow example. This name should be usable as an identifier for the module by machine processing applications such as code generation.
+     * @return A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
     public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
-     * @param value A natural language name identifying the workflow example. This name should be usable as an identifier for the module by machine processing applications such as code generation.
+     * @param value A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
-    public WorkflowExample setName(String value) { 
+    public ExampleScenario setName(String value) { 
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -6014,7 +6106,7 @@ public class WorkflowExample extends MetadataResource {
     public StringType getTitleElement() { 
       if (this.title == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.title");
+          throw new Error("Attempt to auto-create ExampleScenario.title");
         else if (Configuration.doAutoCreate())
           this.title = new StringType(); // bb
       return this.title;
@@ -6031,7 +6123,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @param value {@link #title} (The name of the example as showin in the title page.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public WorkflowExample setTitleElement(StringType value) { 
+    public ExampleScenario setTitleElement(StringType value) { 
       this.title = value;
       return this;
     }
@@ -6046,7 +6138,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @param value The name of the example as showin in the title page.
      */
-    public WorkflowExample setTitle(String value) { 
+    public ExampleScenario setTitle(String value) { 
       if (Utilities.noString(value))
         this.title = null;
       else {
@@ -6058,12 +6150,12 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #status} (The status of this workflow example. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (The status of this example scenario. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.status");
+          throw new Error("Attempt to auto-create ExampleScenario.status");
         else if (Configuration.doAutoCreate())
           this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
@@ -6078,24 +6170,24 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @param value {@link #status} (The status of this workflow example. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (The status of this example scenario. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public WorkflowExample setStatusElement(Enumeration<PublicationStatus> value) { 
+    public ExampleScenario setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
 
     /**
-     * @return The status of this workflow example. Enables tracking the life-cycle of the content.
+     * @return The status of this example scenario. Enables tracking the life-cycle of the content.
      */
     public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The status of this workflow example. Enables tracking the life-cycle of the content.
+     * @param value The status of this example scenario. Enables tracking the life-cycle of the content.
      */
-    public WorkflowExample setStatus(PublicationStatus value) { 
+    public ExampleScenario setStatus(PublicationStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
@@ -6103,12 +6195,12 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #experimental} (A boolean value to indicate that this workflow example is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @return {@link #experimental} (A boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.experimental");
+          throw new Error("Attempt to auto-create ExampleScenario.experimental");
         else if (Configuration.doAutoCreate())
           this.experimental = new BooleanType(); // bb
       return this.experimental;
@@ -6123,24 +6215,24 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @param value {@link #experimental} (A boolean value to indicate that this workflow example is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @param value {@link #experimental} (A boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public WorkflowExample setExperimentalElement(BooleanType value) { 
+    public ExampleScenario setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
 
     /**
-     * @return A boolean value to indicate that this workflow example is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @return A boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
     public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
-     * @param value A boolean value to indicate that this workflow example is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @param value A boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public WorkflowExample setExperimental(boolean value) { 
+    public ExampleScenario setExperimental(boolean value) { 
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -6148,12 +6240,12 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #date} (The date  (and optionally time) when the workflow example was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the workflow example changes. (e.g. the 'content logical definition').). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date  (and optionally time) when the example scenario was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.date");
+          throw new Error("Attempt to auto-create ExampleScenario.date");
         else if (Configuration.doAutoCreate())
           this.date = new DateTimeType(); // bb
       return this.date;
@@ -6168,24 +6260,24 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @param value {@link #date} (The date  (and optionally time) when the workflow example was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the workflow example changes. (e.g. the 'content logical definition').). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date  (and optionally time) when the example scenario was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public WorkflowExample setDateElement(DateTimeType value) { 
+    public ExampleScenario setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
 
     /**
-     * @return The date  (and optionally time) when the workflow example was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the workflow example changes. (e.g. the 'content logical definition').
+     * @return The date  (and optionally time) when the example scenario was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').
      */
     public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date  (and optionally time) when the workflow example was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the workflow example changes. (e.g. the 'content logical definition').
+     * @param value The date  (and optionally time) when the example scenario was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').
      */
-    public WorkflowExample setDate(Date value) { 
+    public ExampleScenario setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -6197,12 +6289,12 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #publisher} (The name of the individual or organization that published the workflow example.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the individual or organization that published the example scenario.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.publisher");
+          throw new Error("Attempt to auto-create ExampleScenario.publisher");
         else if (Configuration.doAutoCreate())
           this.publisher = new StringType(); // bb
       return this.publisher;
@@ -6217,24 +6309,24 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @param value {@link #publisher} (The name of the individual or organization that published the workflow example.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the individual or organization that published the example scenario.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public WorkflowExample setPublisherElement(StringType value) { 
+    public ExampleScenario setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
 
     /**
-     * @return The name of the individual or organization that published the workflow example.
+     * @return The name of the individual or organization that published the example scenario.
      */
     public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value The name of the individual or organization that published the workflow example.
+     * @param value The name of the individual or organization that published the example scenario.
      */
-    public WorkflowExample setPublisher(String value) { 
+    public ExampleScenario setPublisher(String value) { 
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -6257,7 +6349,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public WorkflowExample setContact(List<ContactDetail> theContact) { 
+    public ExampleScenario setContact(List<ContactDetail> theContact) { 
       this.contact = theContact;
       return this;
     }
@@ -6279,7 +6371,7 @@ public class WorkflowExample extends MetadataResource {
       return t;
     }
 
-    public WorkflowExample addContact(ContactDetail t) { //3
+    public ExampleScenario addContact(ContactDetail t) { //3
       if (t == null)
         return this;
       if (this.contact == null)
@@ -6299,7 +6391,7 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate workflow example instances.)
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate example scenario instances.)
      */
     public List<UsageContext> getUseContext() { 
       if (this.useContext == null)
@@ -6310,7 +6402,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public WorkflowExample setUseContext(List<UsageContext> theUseContext) { 
+    public ExampleScenario setUseContext(List<UsageContext> theUseContext) { 
       this.useContext = theUseContext;
       return this;
     }
@@ -6332,7 +6424,7 @@ public class WorkflowExample extends MetadataResource {
       return t;
     }
 
-    public WorkflowExample addUseContext(UsageContext t) { //3
+    public ExampleScenario addUseContext(UsageContext t) { //3
       if (t == null)
         return this;
       if (this.useContext == null)
@@ -6352,7 +6444,7 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #jurisdiction} (A legal or geographic region in which the workflow example is intended to be used.)
+     * @return {@link #jurisdiction} (A legal or geographic region in which the example scenario is intended to be used.)
      */
     public List<CodeableConcept> getJurisdiction() { 
       if (this.jurisdiction == null)
@@ -6363,7 +6455,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public WorkflowExample setJurisdiction(List<CodeableConcept> theJurisdiction) { 
+    public ExampleScenario setJurisdiction(List<CodeableConcept> theJurisdiction) { 
       this.jurisdiction = theJurisdiction;
       return this;
     }
@@ -6385,7 +6477,7 @@ public class WorkflowExample extends MetadataResource {
       return t;
     }
 
-    public WorkflowExample addJurisdiction(CodeableConcept t) { //3
+    public ExampleScenario addJurisdiction(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.jurisdiction == null)
@@ -6405,12 +6497,12 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @return {@link #copyright} (A copyright statement relating to the workflow example and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the workflow example.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     * @return {@link #copyright} (A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
     public MarkdownType getCopyrightElement() { 
       if (this.copyright == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.copyright");
+          throw new Error("Attempt to auto-create ExampleScenario.copyright");
         else if (Configuration.doAutoCreate())
           this.copyright = new MarkdownType(); // bb
       return this.copyright;
@@ -6425,24 +6517,24 @@ public class WorkflowExample extends MetadataResource {
     }
 
     /**
-     * @param value {@link #copyright} (A copyright statement relating to the workflow example and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the workflow example.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
+     * @param value {@link #copyright} (A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public WorkflowExample setCopyrightElement(MarkdownType value) { 
+    public ExampleScenario setCopyrightElement(MarkdownType value) { 
       this.copyright = value;
       return this;
     }
 
     /**
-     * @return A copyright statement relating to the workflow example and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the workflow example.
+     * @return A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.
      */
     public String getCopyright() { 
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
-     * @param value A copyright statement relating to the workflow example and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the workflow example.
+     * @param value A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.
      */
-    public WorkflowExample setCopyright(String value) { 
+    public ExampleScenario setCopyright(String value) { 
       if (value == null)
         this.copyright = null;
       else {
@@ -6459,7 +6551,7 @@ public class WorkflowExample extends MetadataResource {
     public MarkdownType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.description");
+          throw new Error("Attempt to auto-create ExampleScenario.description");
         else if (Configuration.doAutoCreate())
           this.description = new MarkdownType(); // bb
       return this.description;
@@ -6476,7 +6568,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @param value {@link #description} (Description of behaviour of the workflow example.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public WorkflowExample setDescriptionElement(MarkdownType value) { 
+    public ExampleScenario setDescriptionElement(MarkdownType value) { 
       this.description = value;
       return this;
     }
@@ -6491,7 +6583,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @param value Description of behaviour of the workflow example.
      */
-    public WorkflowExample setDescription(String value) { 
+    public ExampleScenario setDescription(String value) { 
       if (value == null)
         this.description = null;
       else {
@@ -6508,7 +6600,7 @@ public class WorkflowExample extends MetadataResource {
     public MarkdownType getPurposeElement() { 
       if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.purpose");
+          throw new Error("Attempt to auto-create ExampleScenario.purpose");
         else if (Configuration.doAutoCreate())
           this.purpose = new MarkdownType(); // bb
       return this.purpose;
@@ -6525,7 +6617,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @param value {@link #purpose} (What is the example supposed to resolve.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public WorkflowExample setPurposeElement(MarkdownType value) { 
+    public ExampleScenario setPurposeElement(MarkdownType value) { 
       this.purpose = value;
       return this;
     }
@@ -6540,7 +6632,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @param value What is the example supposed to resolve.
      */
-    public WorkflowExample setPurpose(String value) { 
+    public ExampleScenario setPurpose(String value) { 
       if (value == null)
         this.purpose = null;
       else {
@@ -6554,16 +6646,16 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return {@link #actor} (Actor participating in the resource.)
      */
-    public List<WorkflowExampleActorComponent> getActor() { 
+    public List<ExampleScenarioActorComponent> getActor() { 
       if (this.actor == null)
-        this.actor = new ArrayList<WorkflowExampleActorComponent>();
+        this.actor = new ArrayList<ExampleScenarioActorComponent>();
       return this.actor;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public WorkflowExample setActor(List<WorkflowExampleActorComponent> theActor) { 
+    public ExampleScenario setActor(List<ExampleScenarioActorComponent> theActor) { 
       this.actor = theActor;
       return this;
     }
@@ -6571,25 +6663,25 @@ public class WorkflowExample extends MetadataResource {
     public boolean hasActor() { 
       if (this.actor == null)
         return false;
-      for (WorkflowExampleActorComponent item : this.actor)
+      for (ExampleScenarioActorComponent item : this.actor)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public WorkflowExampleActorComponent addActor() { //3
-      WorkflowExampleActorComponent t = new WorkflowExampleActorComponent();
+    public ExampleScenarioActorComponent addActor() { //3
+      ExampleScenarioActorComponent t = new ExampleScenarioActorComponent();
       if (this.actor == null)
-        this.actor = new ArrayList<WorkflowExampleActorComponent>();
+        this.actor = new ArrayList<ExampleScenarioActorComponent>();
       this.actor.add(t);
       return t;
     }
 
-    public WorkflowExample addActor(WorkflowExampleActorComponent t) { //3
+    public ExampleScenario addActor(ExampleScenarioActorComponent t) { //3
       if (t == null)
         return this;
       if (this.actor == null)
-        this.actor = new ArrayList<WorkflowExampleActorComponent>();
+        this.actor = new ArrayList<ExampleScenarioActorComponent>();
       this.actor.add(t);
       return this;
     }
@@ -6597,7 +6689,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return The first repetition of repeating field {@link #actor}, creating it if it does not already exist
      */
-    public WorkflowExampleActorComponent getActorFirstRep() { 
+    public ExampleScenarioActorComponent getActorFirstRep() { 
       if (getActor().isEmpty()) {
         addActor();
       }
@@ -6607,16 +6699,16 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return {@link #instance} (Each resource and each version that is present in the workflow.)
      */
-    public List<WorkflowExampleInstanceComponent> getInstance() { 
+    public List<ExampleScenarioInstanceComponent> getInstance() { 
       if (this.instance == null)
-        this.instance = new ArrayList<WorkflowExampleInstanceComponent>();
+        this.instance = new ArrayList<ExampleScenarioInstanceComponent>();
       return this.instance;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public WorkflowExample setInstance(List<WorkflowExampleInstanceComponent> theInstance) { 
+    public ExampleScenario setInstance(List<ExampleScenarioInstanceComponent> theInstance) { 
       this.instance = theInstance;
       return this;
     }
@@ -6624,25 +6716,25 @@ public class WorkflowExample extends MetadataResource {
     public boolean hasInstance() { 
       if (this.instance == null)
         return false;
-      for (WorkflowExampleInstanceComponent item : this.instance)
+      for (ExampleScenarioInstanceComponent item : this.instance)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public WorkflowExampleInstanceComponent addInstance() { //3
-      WorkflowExampleInstanceComponent t = new WorkflowExampleInstanceComponent();
+    public ExampleScenarioInstanceComponent addInstance() { //3
+      ExampleScenarioInstanceComponent t = new ExampleScenarioInstanceComponent();
       if (this.instance == null)
-        this.instance = new ArrayList<WorkflowExampleInstanceComponent>();
+        this.instance = new ArrayList<ExampleScenarioInstanceComponent>();
       this.instance.add(t);
       return t;
     }
 
-    public WorkflowExample addInstance(WorkflowExampleInstanceComponent t) { //3
+    public ExampleScenario addInstance(ExampleScenarioInstanceComponent t) { //3
       if (t == null)
         return this;
       if (this.instance == null)
-        this.instance = new ArrayList<WorkflowExampleInstanceComponent>();
+        this.instance = new ArrayList<ExampleScenarioInstanceComponent>();
       this.instance.add(t);
       return this;
     }
@@ -6650,7 +6742,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return The first repetition of repeating field {@link #instance}, creating it if it does not already exist
      */
-    public WorkflowExampleInstanceComponent getInstanceFirstRep() { 
+    public ExampleScenarioInstanceComponent getInstanceFirstRep() { 
       if (getInstance().isEmpty()) {
         addInstance();
       }
@@ -6660,12 +6752,12 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return {@link #process} (Each major process - a group of operations.)
      */
-    public WorkflowExampleProcessComponent getProcess() { 
+    public ExampleScenarioProcessComponent getProcess() { 
       if (this.process == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create WorkflowExample.process");
+          throw new Error("Attempt to auto-create ExampleScenario.process");
         else if (Configuration.doAutoCreate())
-          this.process = new WorkflowExampleProcessComponent(); // cc
+          this.process = new ExampleScenarioProcessComponent(); // cc
       return this.process;
     }
 
@@ -6676,7 +6768,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @param value {@link #process} (Each major process - a group of operations.)
      */
-    public WorkflowExample setProcess(WorkflowExampleProcessComponent value) { 
+    public ExampleScenario setProcess(ExampleScenarioProcessComponent value) { 
       this.process = value;
       return this;
     }
@@ -6693,7 +6785,7 @@ public class WorkflowExample extends MetadataResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public WorkflowExample setWorkflow(List<Reference> theWorkflow) { 
+    public ExampleScenario setWorkflow(List<Reference> theWorkflow) { 
       this.workflow = theWorkflow;
       return this;
     }
@@ -6715,7 +6807,7 @@ public class WorkflowExample extends MetadataResource {
       return t;
     }
 
-    public WorkflowExample addWorkflow(Reference t) { //3
+    public ExampleScenario addWorkflow(Reference t) { //3
       if (t == null)
         return this;
       if (this.workflow == null)
@@ -6738,9 +6830,9 @@ public class WorkflowExample extends MetadataResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<WorkflowExample> getWorkflowTarget() { 
+    public List<ExampleScenario> getWorkflowTarget() { 
       if (this.workflowTarget == null)
-        this.workflowTarget = new ArrayList<WorkflowExample>();
+        this.workflowTarget = new ArrayList<ExampleScenario>();
       return this.workflowTarget;
     }
 
@@ -6748,59 +6840,59 @@ public class WorkflowExample extends MetadataResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public WorkflowExample addWorkflowTarget() { 
-      WorkflowExample r = new WorkflowExample();
+    public ExampleScenario addWorkflowTarget() { 
+      ExampleScenario r = new ExampleScenario();
       if (this.workflowTarget == null)
-        this.workflowTarget = new ArrayList<WorkflowExample>();
+        this.workflowTarget = new ArrayList<ExampleScenario>();
       this.workflowTarget.add(r);
       return r;
     }
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this workflow example when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this workflow example is (or will be) published. The URL SHOULD include the major version of the workflow example. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url));
-        children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this workflow example when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("version", "string", "The identifier that is used to identify this version of the workflow example when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the workflow example author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
-        children.add(new Property("name", "string", "A natural language name identifying the workflow example. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this example scenario is (or will be) published. The URL SHOULD include the major version of the example scenario. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url));
+        children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("version", "string", "The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
+        children.add(new Property("name", "string", "A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
         children.add(new Property("title", "string", "The name of the example as showin in the title page.", 0, 1, title));
-        children.add(new Property("status", "code", "The status of this workflow example. Enables tracking the life-cycle of the content.", 0, 1, status));
-        children.add(new Property("experimental", "boolean", "A boolean value to indicate that this workflow example is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental));
-        children.add(new Property("date", "dateTime", "The date  (and optionally time) when the workflow example was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the workflow example changes. (e.g. the 'content logical definition').", 0, 1, date));
-        children.add(new Property("publisher", "string", "The name of the individual or organization that published the workflow example.", 0, 1, publisher));
+        children.add(new Property("status", "code", "The status of this example scenario. Enables tracking the life-cycle of the content.", 0, 1, status));
+        children.add(new Property("experimental", "boolean", "A boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental));
+        children.add(new Property("date", "dateTime", "The date  (and optionally time) when the example scenario was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').", 0, 1, date));
+        children.add(new Property("publisher", "string", "The name of the individual or organization that published the example scenario.", 0, 1, publisher));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate workflow example instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
-        children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the workflow example is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
-        children.add(new Property("copyright", "markdown", "A copyright statement relating to the workflow example and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the workflow example.", 0, 1, copyright));
+        children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate example scenario instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
+        children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the example scenario is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
+        children.add(new Property("copyright", "markdown", "A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.", 0, 1, copyright));
         children.add(new Property("description", "markdown", "Description of behaviour of the workflow example.", 0, 1, description));
         children.add(new Property("purpose", "markdown", "What is the example supposed to resolve.", 0, 1, purpose));
         children.add(new Property("actor", "", "Actor participating in the resource.", 0, java.lang.Integer.MAX_VALUE, actor));
         children.add(new Property("instance", "", "Each resource and each version that is present in the workflow.", 0, java.lang.Integer.MAX_VALUE, instance));
         children.add(new Property("process", "", "Each major process - a group of operations.", 0, 1, process));
-        children.add(new Property("workflow", "Reference(WorkflowExample)", "Another nested workflow.", 0, java.lang.Integer.MAX_VALUE, workflow));
+        children.add(new Property("workflow", "Reference(ExampleScenario)", "Another nested workflow.", 0, java.lang.Integer.MAX_VALUE, workflow));
       }
 
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this workflow example when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this workflow example is (or will be) published. The URL SHOULD include the major version of the workflow example. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url);
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this workflow example when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the workflow example when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the workflow example author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
-        case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the workflow example. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this example scenario when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this example scenario is (or will be) published. The URL SHOULD include the major version of the example scenario. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
+        case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
         case 110371416: /*title*/  return new Property("title", "string", "The name of the example as showin in the title page.", 0, 1, title);
-        case -892481550: /*status*/  return new Property("status", "code", "The status of this workflow example. Enables tracking the life-cycle of the content.", 0, 1, status);
-        case -404562712: /*experimental*/  return new Property("experimental", "boolean", "A boolean value to indicate that this workflow example is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental);
-        case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the workflow example was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the workflow example changes. (e.g. the 'content logical definition').", 0, 1, date);
-        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the workflow example.", 0, 1, publisher);
+        case -892481550: /*status*/  return new Property("status", "code", "The status of this example scenario. Enables tracking the life-cycle of the content.", 0, 1, status);
+        case -404562712: /*experimental*/  return new Property("experimental", "boolean", "A boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental);
+        case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the example scenario was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').", 0, 1, date);
+        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the example scenario.", 0, 1, publisher);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
-        case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate workflow example instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
-        case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the workflow example is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
-        case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the workflow example and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the workflow example.", 0, 1, copyright);
+        case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate example scenario instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
+        case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the example scenario is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
+        case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.", 0, 1, copyright);
         case -1724546052: /*description*/  return new Property("description", "markdown", "Description of behaviour of the workflow example.", 0, 1, description);
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "What is the example supposed to resolve.", 0, 1, purpose);
         case 92645877: /*actor*/  return new Property("actor", "", "Actor participating in the resource.", 0, java.lang.Integer.MAX_VALUE, actor);
         case 555127957: /*instance*/  return new Property("instance", "", "Each resource and each version that is present in the workflow.", 0, java.lang.Integer.MAX_VALUE, instance);
         case -309518737: /*process*/  return new Property("process", "", "Each major process - a group of operations.", 0, 1, process);
-        case 35379135: /*workflow*/  return new Property("workflow", "Reference(WorkflowExample)", "Another nested workflow.", 0, java.lang.Integer.MAX_VALUE, workflow);
+        case 35379135: /*workflow*/  return new Property("workflow", "Reference(ExampleScenario)", "Another nested workflow.", 0, java.lang.Integer.MAX_VALUE, workflow);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -6824,9 +6916,9 @@ public class WorkflowExample extends MetadataResource {
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // MarkdownType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
-        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : this.actor.toArray(new Base[this.actor.size()]); // WorkflowExampleActorComponent
-        case 555127957: /*instance*/ return this.instance == null ? new Base[0] : this.instance.toArray(new Base[this.instance.size()]); // WorkflowExampleInstanceComponent
-        case -309518737: /*process*/ return this.process == null ? new Base[0] : new Base[] {this.process}; // WorkflowExampleProcessComponent
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : this.actor.toArray(new Base[this.actor.size()]); // ExampleScenarioActorComponent
+        case 555127957: /*instance*/ return this.instance == null ? new Base[0] : this.instance.toArray(new Base[this.instance.size()]); // ExampleScenarioInstanceComponent
+        case -309518737: /*process*/ return this.process == null ? new Base[0] : new Base[] {this.process}; // ExampleScenarioProcessComponent
         case 35379135: /*workflow*/ return this.workflow == null ? new Base[0] : this.workflow.toArray(new Base[this.workflow.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -6883,13 +6975,13 @@ public class WorkflowExample extends MetadataResource {
           this.purpose = castToMarkdown(value); // MarkdownType
           return value;
         case 92645877: // actor
-          this.getActor().add((WorkflowExampleActorComponent) value); // WorkflowExampleActorComponent
+          this.getActor().add((ExampleScenarioActorComponent) value); // ExampleScenarioActorComponent
           return value;
         case 555127957: // instance
-          this.getInstance().add((WorkflowExampleInstanceComponent) value); // WorkflowExampleInstanceComponent
+          this.getInstance().add((ExampleScenarioInstanceComponent) value); // ExampleScenarioInstanceComponent
           return value;
         case -309518737: // process
-          this.process = (WorkflowExampleProcessComponent) value; // WorkflowExampleProcessComponent
+          this.process = (ExampleScenarioProcessComponent) value; // ExampleScenarioProcessComponent
           return value;
         case 35379135: // workflow
           this.getWorkflow().add(castToReference(value)); // Reference
@@ -6933,11 +7025,11 @@ public class WorkflowExample extends MetadataResource {
         } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
         } else if (name.equals("actor")) {
-          this.getActor().add((WorkflowExampleActorComponent) value);
+          this.getActor().add((ExampleScenarioActorComponent) value);
         } else if (name.equals("instance")) {
-          this.getInstance().add((WorkflowExampleInstanceComponent) value);
+          this.getInstance().add((ExampleScenarioInstanceComponent) value);
         } else if (name.equals("process")) {
-          this.process = (WorkflowExampleProcessComponent) value; // WorkflowExampleProcessComponent
+          this.process = (ExampleScenarioProcessComponent) value; // ExampleScenarioProcessComponent
         } else if (name.equals("workflow")) {
           this.getWorkflow().add(castToReference(value));
         } else
@@ -7002,31 +7094,31 @@ public class WorkflowExample extends MetadataResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("url")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.url");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.url");
         }
         else if (name.equals("identifier")) {
           return addIdentifier();
         }
         else if (name.equals("version")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.version");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.version");
         }
         else if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.name");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.name");
         }
         else if (name.equals("title")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.title");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.title");
         }
         else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.status");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.status");
         }
         else if (name.equals("experimental")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.experimental");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.experimental");
         }
         else if (name.equals("date")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.date");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.date");
         }
         else if (name.equals("publisher")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.publisher");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.publisher");
         }
         else if (name.equals("contact")) {
           return addContact();
@@ -7038,13 +7130,13 @@ public class WorkflowExample extends MetadataResource {
           return addJurisdiction();
         }
         else if (name.equals("copyright")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.copyright");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.copyright");
         }
         else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.description");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.description");
         }
         else if (name.equals("purpose")) {
-          throw new FHIRException("Cannot call addChild on a primitive type WorkflowExample.purpose");
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.purpose");
         }
         else if (name.equals("actor")) {
           return addActor();
@@ -7053,7 +7145,7 @@ public class WorkflowExample extends MetadataResource {
           return addInstance();
         }
         else if (name.equals("process")) {
-          this.process = new WorkflowExampleProcessComponent();
+          this.process = new ExampleScenarioProcessComponent();
           return this.process;
         }
         else if (name.equals("workflow")) {
@@ -7064,12 +7156,12 @@ public class WorkflowExample extends MetadataResource {
       }
 
   public String fhirType() {
-    return "WorkflowExample";
+    return "ExampleScenario";
 
   }
 
-      public WorkflowExample copy() {
-        WorkflowExample dst = new WorkflowExample();
+      public ExampleScenario copy() {
+        ExampleScenario dst = new ExampleScenario();
         copyValues(dst);
         dst.url = url == null ? null : url.copy();
         if (identifier != null) {
@@ -7103,13 +7195,13 @@ public class WorkflowExample extends MetadataResource {
         dst.description = description == null ? null : description.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
         if (actor != null) {
-          dst.actor = new ArrayList<WorkflowExampleActorComponent>();
-          for (WorkflowExampleActorComponent i : actor)
+          dst.actor = new ArrayList<ExampleScenarioActorComponent>();
+          for (ExampleScenarioActorComponent i : actor)
             dst.actor.add(i.copy());
         };
         if (instance != null) {
-          dst.instance = new ArrayList<WorkflowExampleInstanceComponent>();
-          for (WorkflowExampleInstanceComponent i : instance)
+          dst.instance = new ArrayList<ExampleScenarioInstanceComponent>();
+          for (ExampleScenarioInstanceComponent i : instance)
             dst.instance.add(i.copy());
         };
         dst.process = process == null ? null : process.copy();
@@ -7121,7 +7213,7 @@ public class WorkflowExample extends MetadataResource {
         return dst;
       }
 
-      protected WorkflowExample typedCopy() {
+      protected ExampleScenario typedCopy() {
         return copy();
       }
 
@@ -7129,9 +7221,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof WorkflowExample))
+        if (!(other instanceof ExampleScenario))
           return false;
-        WorkflowExample o = (WorkflowExample) other;
+        ExampleScenario o = (ExampleScenario) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(purpose, o.purpose, true) && compareDeep(actor, o.actor, true) && compareDeep(instance, o.instance, true)
            && compareDeep(process, o.process, true) && compareDeep(workflow, o.workflow, true);
@@ -7141,9 +7233,9 @@ public class WorkflowExample extends MetadataResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof WorkflowExample))
+        if (!(other instanceof ExampleScenario))
           return false;
-        WorkflowExample o = (WorkflowExample) other;
+        ExampleScenario o = (ExampleScenario) other;
         return compareValues(copyright, o.copyright, true) && compareValues(purpose, o.purpose, true);
       }
 
@@ -7154,25 +7246,25 @@ public class WorkflowExample extends MetadataResource {
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.WorkflowExample;
+    return ResourceType.ExampleScenario;
    }
 
  /**
    * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>The workflow example publication date</b><br>
+   * Description: <b>The example scenario publication date</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>WorkflowExample.date</b><br>
+   * Path: <b>ExampleScenario.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="WorkflowExample.date", description="The workflow example publication date", type="date" )
+  @SearchParamDefinition(name="date", path="ExampleScenario.date", description="The example scenario publication date", type="date" )
   public static final String SP_DATE = "date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>The workflow example publication date</b><br>
+   * Description: <b>The example scenario publication date</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>WorkflowExample.date</b><br>
+   * Path: <b>ExampleScenario.date</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
@@ -7180,19 +7272,19 @@ public class WorkflowExample extends MetadataResource {
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>External identifier for the workflow example</b><br>
+   * Description: <b>External identifier for the example scenario</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>WorkflowExample.identifier</b><br>
+   * Path: <b>ExampleScenario.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="WorkflowExample.identifier", description="External identifier for the workflow example", type="token" )
+  @SearchParamDefinition(name="identifier", path="ExampleScenario.identifier", description="External identifier for the example scenario", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>External identifier for the workflow example</b><br>
+   * Description: <b>External identifier for the example scenario</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>WorkflowExample.identifier</b><br>
+   * Path: <b>ExampleScenario.identifier</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
@@ -7200,19 +7292,19 @@ public class WorkflowExample extends MetadataResource {
  /**
    * Search parameter: <b>jurisdiction</b>
    * <p>
-   * Description: <b>Intended jurisdiction for the workflow example</b><br>
+   * Description: <b>Intended jurisdiction for the example scenario</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>WorkflowExample.jurisdiction</b><br>
+   * Path: <b>ExampleScenario.jurisdiction</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="jurisdiction", path="WorkflowExample.jurisdiction", description="Intended jurisdiction for the workflow example", type="token" )
+  @SearchParamDefinition(name="jurisdiction", path="ExampleScenario.jurisdiction", description="Intended jurisdiction for the example scenario", type="token" )
   public static final String SP_JURISDICTION = "jurisdiction";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>jurisdiction</b>
    * <p>
-   * Description: <b>Intended jurisdiction for the workflow example</b><br>
+   * Description: <b>Intended jurisdiction for the example scenario</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>WorkflowExample.jurisdiction</b><br>
+   * Path: <b>ExampleScenario.jurisdiction</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
@@ -7220,19 +7312,19 @@ public class WorkflowExample extends MetadataResource {
  /**
    * Search parameter: <b>name</b>
    * <p>
-   * Description: <b>Computationally friendly name of the workflow example</b><br>
+   * Description: <b>Computationally friendly name of the example scenario</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>WorkflowExample.name</b><br>
+   * Path: <b>ExampleScenario.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="name", path="WorkflowExample.name", description="Computationally friendly name of the workflow example", type="string" )
+  @SearchParamDefinition(name="name", path="ExampleScenario.name", description="Computationally friendly name of the example scenario", type="string" )
   public static final String SP_NAME = "name";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>name</b>
    * <p>
-   * Description: <b>Computationally friendly name of the workflow example</b><br>
+   * Description: <b>Computationally friendly name of the example scenario</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>WorkflowExample.name</b><br>
+   * Path: <b>ExampleScenario.name</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
@@ -7240,19 +7332,19 @@ public class WorkflowExample extends MetadataResource {
  /**
    * Search parameter: <b>description</b>
    * <p>
-   * Description: <b>The description of the workflow example</b><br>
+   * Description: <b>The description of the example scenario</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>WorkflowExample.description</b><br>
+   * Path: <b>ExampleScenario.description</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="description", path="WorkflowExample.description", description="The description of the workflow example", type="string" )
+  @SearchParamDefinition(name="description", path="ExampleScenario.description", description="The description of the example scenario", type="string" )
   public static final String SP_DESCRIPTION = "description";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>description</b>
    * <p>
-   * Description: <b>The description of the workflow example</b><br>
+   * Description: <b>The description of the example scenario</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>WorkflowExample.description</b><br>
+   * Path: <b>ExampleScenario.description</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
@@ -7260,19 +7352,19 @@ public class WorkflowExample extends MetadataResource {
  /**
    * Search parameter: <b>publisher</b>
    * <p>
-   * Description: <b>Name of the publisher of the workflow example</b><br>
+   * Description: <b>Name of the publisher of the example scenario</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>WorkflowExample.publisher</b><br>
+   * Path: <b>ExampleScenario.publisher</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="WorkflowExample.publisher", description="Name of the publisher of the workflow example", type="string" )
+  @SearchParamDefinition(name="publisher", path="ExampleScenario.publisher", description="Name of the publisher of the example scenario", type="string" )
   public static final String SP_PUBLISHER = "publisher";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
    * <p>
-   * Description: <b>Name of the publisher of the workflow example</b><br>
+   * Description: <b>Name of the publisher of the example scenario</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>WorkflowExample.publisher</b><br>
+   * Path: <b>ExampleScenario.publisher</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
@@ -7280,19 +7372,19 @@ public class WorkflowExample extends MetadataResource {
  /**
    * Search parameter: <b>title</b>
    * <p>
-   * Description: <b>The human-friendly name of the workflow example</b><br>
+   * Description: <b>The human-friendly name of the example scenario</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>WorkflowExample.title</b><br>
+   * Path: <b>ExampleScenario.title</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="title", path="WorkflowExample.title", description="The human-friendly name of the workflow example", type="string" )
+  @SearchParamDefinition(name="title", path="ExampleScenario.title", description="The human-friendly name of the example scenario", type="string" )
   public static final String SP_TITLE = "title";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>title</b>
    * <p>
-   * Description: <b>The human-friendly name of the workflow example</b><br>
+   * Description: <b>The human-friendly name of the example scenario</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>WorkflowExample.title</b><br>
+   * Path: <b>ExampleScenario.title</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
@@ -7300,19 +7392,19 @@ public class WorkflowExample extends MetadataResource {
  /**
    * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The business version of the workflow example</b><br>
+   * Description: <b>The business version of the example scenario</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>WorkflowExample.version</b><br>
+   * Path: <b>ExampleScenario.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="WorkflowExample.version", description="The business version of the workflow example", type="token" )
+  @SearchParamDefinition(name="version", path="ExampleScenario.version", description="The business version of the example scenario", type="token" )
   public static final String SP_VERSION = "version";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The business version of the workflow example</b><br>
+   * Description: <b>The business version of the example scenario</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>WorkflowExample.version</b><br>
+   * Path: <b>ExampleScenario.version</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
@@ -7320,19 +7412,19 @@ public class WorkflowExample extends MetadataResource {
  /**
    * Search parameter: <b>url</b>
    * <p>
-   * Description: <b>The uri that identifies the workflow example</b><br>
+   * Description: <b>The uri that identifies the example scenario</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>WorkflowExample.url</b><br>
+   * Path: <b>ExampleScenario.url</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="url", path="WorkflowExample.url", description="The uri that identifies the workflow example", type="uri" )
+  @SearchParamDefinition(name="url", path="ExampleScenario.url", description="The uri that identifies the example scenario", type="uri" )
   public static final String SP_URL = "url";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>url</b>
    * <p>
-   * Description: <b>The uri that identifies the workflow example</b><br>
+   * Description: <b>The uri that identifies the example scenario</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>WorkflowExample.url</b><br>
+   * Path: <b>ExampleScenario.url</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
@@ -7340,19 +7432,19 @@ public class WorkflowExample extends MetadataResource {
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>The current status of the workflow example</b><br>
+   * Description: <b>The current status of the example scenario</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>WorkflowExample.status</b><br>
+   * Path: <b>ExampleScenario.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="WorkflowExample.status", description="The current status of the workflow example", type="token" )
+  @SearchParamDefinition(name="status", path="ExampleScenario.status", description="The current status of the example scenario", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>The current status of the workflow example</b><br>
+   * Description: <b>The current status of the example scenario</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>WorkflowExample.status</b><br>
+   * Path: <b>ExampleScenario.status</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);

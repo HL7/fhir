@@ -200,7 +200,7 @@
   Card. = 0..*
   Aliases = container
   Summary = Y
-  Type = Reference(??)
+  Type = Reference(Any)
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step
   Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.

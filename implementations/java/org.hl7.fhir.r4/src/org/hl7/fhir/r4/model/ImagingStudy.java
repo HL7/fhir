@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1590,7 +1590,7 @@ public class ImagingStudy extends DomainResource {
     /**
      * A list of the diagnostic requests that resulted in this imaging study being performed.
      */
-    @Child(name = "basedOn", type = {CarePlan.class, ProcedureRequest.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {CarePlan.class, ServiceRequest.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Request fulfilled", formalDefinition="A list of the diagnostic requests that resulted in this imaging study being performed." )
     protected List<Reference> basedOn;
     /**
@@ -2676,7 +2676,7 @@ public class ImagingStudy extends DomainResource {
         children.add(new Property("patient", "Reference(Patient)", "The patient imaged in the study.", 0, 1, patient));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode at which the request is initiated.", 0, 1, context));
         children.add(new Property("started", "dateTime", "Date and time the study started.", 0, 1, started));
-        children.add(new Property("basedOn", "Reference(CarePlan|ProcedureRequest)", "A list of the diagnostic requests that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        children.add(new Property("basedOn", "Reference(CarePlan|ServiceRequest)", "A list of the diagnostic requests that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("referrer", "Reference(Practitioner)", "The requesting/referring physician.", 0, 1, referrer));
         children.add(new Property("interpreter", "Reference(Practitioner)", "Who read the study and interpreted the images or other content.", 0, java.lang.Integer.MAX_VALUE, interpreter));
         children.add(new Property("endpoint", "Reference(Endpoint)", "The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.type.", 0, java.lang.Integer.MAX_VALUE, endpoint));
@@ -2700,7 +2700,7 @@ public class ImagingStudy extends DomainResource {
         case -791418107: /*patient*/  return new Property("patient", "Reference(Patient)", "The patient imaged in the study.", 0, 1, patient);
         case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode at which the request is initiated.", 0, 1, context);
         case -1897185151: /*started*/  return new Property("started", "dateTime", "Date and time the study started.", 0, 1, started);
-        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ProcedureRequest)", "A list of the diagnostic requests that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, basedOn);
+        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ServiceRequest)", "A list of the diagnostic requests that resulted in this imaging study being performed.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case -722568161: /*referrer*/  return new Property("referrer", "Reference(Practitioner)", "The requesting/referring physician.", 0, 1, referrer);
         case -2008009094: /*interpreter*/  return new Property("interpreter", "Reference(Practitioner)", "Who read the study and interpreted the images or other content.", 0, java.lang.Integer.MAX_VALUE, interpreter);
         case 1741102485: /*endpoint*/  return new Property("endpoint", "Reference(Endpoint)", "The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.type.", 0, java.lang.Integer.MAX_VALUE, endpoint);
@@ -3396,7 +3396,7 @@ public class ImagingStudy extends DomainResource {
    * Path: <b>ImagingStudy.basedOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="basedon", path="ImagingStudy.basedOn", description="The order for the image", type="reference", target={CarePlan.class, ProcedureRequest.class } )
+  @SearchParamDefinition(name="basedon", path="ImagingStudy.basedOn", description="The order for the image", type="reference", target={CarePlan.class, ServiceRequest.class } )
   public static final String SP_BASEDON = "basedon";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>basedon</b>

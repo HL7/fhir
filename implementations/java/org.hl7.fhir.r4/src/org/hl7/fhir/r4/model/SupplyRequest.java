@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -579,256 +579,6 @@ public class SupplyRequest extends DomainResource {
 
   }
 
-    @Block()
-    public static class SupplyRequestRequesterComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The device, practitioner, etc. who initiated the request.
-         */
-        @Child(name = "agent", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class, Device.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Individual making the request", formalDefinition="The device, practitioner, etc. who initiated the request." )
-        protected Reference agent;
-
-        /**
-         * The actual object that is the target of the reference (The device, practitioner, etc. who initiated the request.)
-         */
-        protected Resource agentTarget;
-
-        /**
-         * The organization the device or practitioner was acting on behalf of.
-         */
-        @Child(name = "onBehalfOf", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Organization agent is acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
-        protected Reference onBehalfOf;
-
-        /**
-         * The actual object that is the target of the reference (The organization the device or practitioner was acting on behalf of.)
-         */
-        protected Organization onBehalfOfTarget;
-
-        private static final long serialVersionUID = -71453027L;
-
-    /**
-     * Constructor
-     */
-      public SupplyRequestRequesterComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public SupplyRequestRequesterComponent(Reference agent) {
-        super();
-        this.agent = agent;
-      }
-
-        /**
-         * @return {@link #agent} (The device, practitioner, etc. who initiated the request.)
-         */
-        public Reference getAgent() { 
-          if (this.agent == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SupplyRequestRequesterComponent.agent");
-            else if (Configuration.doAutoCreate())
-              this.agent = new Reference(); // cc
-          return this.agent;
-        }
-
-        public boolean hasAgent() { 
-          return this.agent != null && !this.agent.isEmpty();
-        }
-
-        /**
-         * @param value {@link #agent} (The device, practitioner, etc. who initiated the request.)
-         */
-        public SupplyRequestRequesterComponent setAgent(Reference value) { 
-          this.agent = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #agent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who initiated the request.)
-         */
-        public Resource getAgentTarget() { 
-          return this.agentTarget;
-        }
-
-        /**
-         * @param value {@link #agent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who initiated the request.)
-         */
-        public SupplyRequestRequesterComponent setAgentTarget(Resource value) { 
-          this.agentTarget = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
-         */
-        public Reference getOnBehalfOf() { 
-          if (this.onBehalfOf == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SupplyRequestRequesterComponent.onBehalfOf");
-            else if (Configuration.doAutoCreate())
-              this.onBehalfOf = new Reference(); // cc
-          return this.onBehalfOf;
-        }
-
-        public boolean hasOnBehalfOf() { 
-          return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
-        }
-
-        /**
-         * @param value {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
-         */
-        public SupplyRequestRequesterComponent setOnBehalfOf(Reference value) { 
-          this.onBehalfOf = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
-         */
-        public Organization getOnBehalfOfTarget() { 
-          if (this.onBehalfOfTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SupplyRequestRequesterComponent.onBehalfOf");
-            else if (Configuration.doAutoCreate())
-              this.onBehalfOfTarget = new Organization(); // aa
-          return this.onBehalfOfTarget;
-        }
-
-        /**
-         * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
-         */
-        public SupplyRequestRequesterComponent setOnBehalfOfTarget(Organization value) { 
-          this.onBehalfOfTarget = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("agent", "Reference(Practitioner|Organization|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who initiated the request.", 0, 1, agent));
-          children.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, 1, onBehalfOf));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 92750597: /*agent*/  return new Property("agent", "Reference(Practitioner|Organization|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who initiated the request.", 0, 1, agent);
-          case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, 1, onBehalfOf);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 92750597: /*agent*/ return this.agent == null ? new Base[0] : new Base[] {this.agent}; // Reference
-        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 92750597: // agent
-          this.agent = castToReference(value); // Reference
-          return value;
-        case -14402964: // onBehalfOf
-          this.onBehalfOf = castToReference(value); // Reference
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("agent")) {
-          this.agent = castToReference(value); // Reference
-        } else if (name.equals("onBehalfOf")) {
-          this.onBehalfOf = castToReference(value); // Reference
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 92750597:  return getAgent(); 
-        case -14402964:  return getOnBehalfOf(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 92750597: /*agent*/ return new String[] {"Reference"};
-        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("agent")) {
-          this.agent = new Reference();
-          return this.agent;
-        }
-        else if (name.equals("onBehalfOf")) {
-          this.onBehalfOf = new Reference();
-          return this.onBehalfOf;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public SupplyRequestRequesterComponent copy() {
-        SupplyRequestRequesterComponent dst = new SupplyRequestRequesterComponent();
-        copyValues(dst);
-        dst.agent = agent == null ? null : agent.copy();
-        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof SupplyRequestRequesterComponent))
-          return false;
-        SupplyRequestRequesterComponent o = (SupplyRequestRequesterComponent) other;
-        return compareDeep(agent, o.agent, true) && compareDeep(onBehalfOf, o.onBehalfOf, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof SupplyRequestRequesterComponent))
-          return false;
-        SupplyRequestRequesterComponent o = (SupplyRequestRequesterComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(agent, onBehalfOf);
-      }
-
-  public String fhirType() {
-    return "SupplyRequest.requester";
-
-  }
-
-  }
-
     /**
      * Unique identifier for this supply request.
      */
@@ -882,36 +632,53 @@ public class SupplyRequest extends DomainResource {
     protected DateTimeType authoredOn;
 
     /**
-     * The individual who initiated the request and has responsibility for its activation.
+     * The device, practitioner, etc. who initiated the request.
      */
-    @Child(name = "requester", type = {}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who/what is requesting service", formalDefinition="The individual who initiated the request and has responsibility for its activation." )
-    protected SupplyRequestRequesterComponent requester;
+    @Child(name = "requester", type = {Practitioner.class, PractitionerRole.class, Organization.class, Patient.class, RelatedPerson.class, Device.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Individual making the request", formalDefinition="The device, practitioner, etc. who initiated the request." )
+    protected Reference requester;
+
+    /**
+     * The actual object that is the target of the reference (The device, practitioner, etc. who initiated the request.)
+     */
+    protected Resource requesterTarget;
 
     /**
      * Who is intended to fulfill the request.
      */
-    @Child(name = "supplier", type = {Organization.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "supplier", type = {Organization.class, HealthcareService.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Who is intended to fulfill the request", formalDefinition="Who is intended to fulfill the request." )
     protected List<Reference> supplier;
     /**
      * The actual objects that are the target of the reference (Who is intended to fulfill the request.)
      */
-    protected List<Organization> supplierTarget;
+    protected List<Resource> supplierTarget;
 
 
     /**
      * Why the supply item was requested.
      */
-    @Child(name = "reason", type = {CodeableConcept.class, Reference.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Why the supply item was requested", formalDefinition="Why the supply item was requested." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/supplyrequest-reason")
-    protected Type reason;
+    protected List<CodeableConcept> reasonCode;
+
+    /**
+     * Why the supply item was requested.
+     */
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class, DiagnosticReport.class, DocumentReference.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Why the supply item was requested", formalDefinition="Why the supply item was requested." )
+    protected List<Reference> reasonReference;
+    /**
+     * The actual objects that are the target of the reference (Why the supply item was requested.)
+     */
+    protected List<Resource> reasonReferenceTarget;
+
 
     /**
      * Where the supply is expected to come from.
      */
-    @Child(name = "deliverFrom", type = {Organization.class, Location.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "deliverFrom", type = {Organization.class, Location.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The origin of the supply", formalDefinition="Where the supply is expected to come from." )
     protected Reference deliverFrom;
 
@@ -923,7 +690,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * Where the supply is destined to go.
      */
-    @Child(name = "deliverTo", type = {Organization.class, Location.class, Patient.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "deliverTo", type = {Organization.class, Location.class, Patient.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The destination of the supply", formalDefinition="Where the supply is destined to go." )
     protected Reference deliverTo;
 
@@ -932,7 +699,7 @@ public class SupplyRequest extends DomainResource {
      */
     protected Resource deliverToTarget;
 
-    private static final long serialVersionUID = 43957782L;
+    private static final long serialVersionUID = 843024990L;
 
   /**
    * Constructor
@@ -1219,14 +986,14 @@ public class SupplyRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #requester} (The individual who initiated the request and has responsibility for its activation.)
+     * @return {@link #requester} (The device, practitioner, etc. who initiated the request.)
      */
-    public SupplyRequestRequesterComponent getRequester() { 
+    public Reference getRequester() { 
       if (this.requester == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.requester");
         else if (Configuration.doAutoCreate())
-          this.requester = new SupplyRequestRequesterComponent(); // cc
+          this.requester = new Reference(); // cc
       return this.requester;
     }
 
@@ -1235,10 +1002,25 @@ public class SupplyRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #requester} (The individual who initiated the request and has responsibility for its activation.)
+     * @param value {@link #requester} (The device, practitioner, etc. who initiated the request.)
      */
-    public SupplyRequest setRequester(SupplyRequestRequesterComponent value) { 
+    public SupplyRequest setRequester(Reference value) { 
       this.requester = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who initiated the request.)
+     */
+    public Resource getRequesterTarget() { 
+      return this.requesterTarget;
+    }
+
+    /**
+     * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who initiated the request.)
+     */
+    public SupplyRequest setRequesterTarget(Resource value) { 
+      this.requesterTarget = value;
       return this;
     }
 
@@ -1299,67 +1081,126 @@ public class SupplyRequest extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Organization> getSupplierTarget() { 
+    public List<Resource> getSupplierTarget() { 
       if (this.supplierTarget == null)
-        this.supplierTarget = new ArrayList<Organization>();
+        this.supplierTarget = new ArrayList<Resource>();
       return this.supplierTarget;
+    }
+
+    /**
+     * @return {@link #reasonCode} (Why the supply item was requested.)
+     */
+    public List<CodeableConcept> getReasonCode() { 
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      return this.reasonCode;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public SupplyRequest setReasonCode(List<CodeableConcept> theReasonCode) { 
+      this.reasonCode = theReasonCode;
+      return this;
+    }
+
+    public boolean hasReasonCode() { 
+      if (this.reasonCode == null)
+        return false;
+      for (CodeableConcept item : this.reasonCode)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addReasonCode() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
+      return t;
+    }
+
+    public SupplyRequest addReasonCode(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #reasonCode}, creating it if it does not already exist
+     */
+    public CodeableConcept getReasonCodeFirstRep() { 
+      if (getReasonCode().isEmpty()) {
+        addReasonCode();
+      }
+      return getReasonCode().get(0);
+    }
+
+    /**
+     * @return {@link #reasonReference} (Why the supply item was requested.)
+     */
+    public List<Reference> getReasonReference() { 
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      return this.reasonReference;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public SupplyRequest setReasonReference(List<Reference> theReasonReference) { 
+      this.reasonReference = theReasonReference;
+      return this;
+    }
+
+    public boolean hasReasonReference() { 
+      if (this.reasonReference == null)
+        return false;
+      for (Reference item : this.reasonReference)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addReasonReference() { //3
+      Reference t = new Reference();
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
+      return t;
+    }
+
+    public SupplyRequest addReasonReference(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #reasonReference}, creating it if it does not already exist
+     */
+    public Reference getReasonReferenceFirstRep() { 
+      if (getReasonReference().isEmpty()) {
+        addReasonReference();
+      }
+      return getReasonReference().get(0);
     }
 
     /**
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public Organization addSupplierTarget() { 
-      Organization r = new Organization();
-      if (this.supplierTarget == null)
-        this.supplierTarget = new ArrayList<Organization>();
-      this.supplierTarget.add(r);
-      return r;
-    }
-
-    /**
-     * @return {@link #reason} (Why the supply item was requested.)
-     */
-    public Type getReason() { 
-      return this.reason;
-    }
-
-    /**
-     * @return {@link #reason} (Why the supply item was requested.)
-     */
-    public CodeableConcept getReasonCodeableConcept() throws FHIRException { 
-      if (!(this.reason instanceof CodeableConcept))
-        throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.reason.getClass().getName()+" was encountered");
-      return (CodeableConcept) this.reason;
-    }
-
-    public boolean hasReasonCodeableConcept() { 
-      return this.reason instanceof CodeableConcept;
-    }
-
-    /**
-     * @return {@link #reason} (Why the supply item was requested.)
-     */
-    public Reference getReasonReference() throws FHIRException { 
-      if (!(this.reason instanceof Reference))
-        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.reason.getClass().getName()+" was encountered");
-      return (Reference) this.reason;
-    }
-
-    public boolean hasReasonReference() { 
-      return this.reason instanceof Reference;
-    }
-
-    public boolean hasReason() { 
-      return this.reason != null && !this.reason.isEmpty();
-    }
-
-    /**
-     * @param value {@link #reason} (Why the supply item was requested.)
-     */
-    public SupplyRequest setReason(Type value) { 
-      this.reason = value;
-      return this;
+    public List<Resource> getReasonReferenceTarget() { 
+      if (this.reasonReferenceTarget == null)
+        this.reasonReferenceTarget = new ArrayList<Resource>();
+      return this.reasonReferenceTarget;
     }
 
     /**
@@ -1449,9 +1290,10 @@ public class SupplyRequest extends DomainResource {
         children.add(new Property("orderedItem", "", "The item being requested.", 0, 1, orderedItem));
         children.add(new Property("occurrence[x]", "dateTime|Period|Timing", "When the request should be fulfilled.", 0, 1, occurrence));
         children.add(new Property("authoredOn", "dateTime", "When the request was made.", 0, 1, authoredOn));
-        children.add(new Property("requester", "", "The individual who initiated the request and has responsibility for its activation.", 0, 1, requester));
-        children.add(new Property("supplier", "Reference(Organization)", "Who is intended to fulfill the request.", 0, java.lang.Integer.MAX_VALUE, supplier));
-        children.add(new Property("reason[x]", "CodeableConcept|Reference(Any)", "Why the supply item was requested.", 0, 1, reason));
+        children.add(new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who initiated the request.", 0, 1, requester));
+        children.add(new Property("supplier", "Reference(Organization|HealthcareService)", "Who is intended to fulfill the request.", 0, java.lang.Integer.MAX_VALUE, supplier));
+        children.add(new Property("reasonCode", "CodeableConcept", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
+        children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         children.add(new Property("deliverFrom", "Reference(Organization|Location)", "Where the supply is expected to come from.", 0, 1, deliverFrom));
         children.add(new Property("deliverTo", "Reference(Organization|Location|Patient)", "Where the supply is destined to go.", 0, 1, deliverTo));
       }
@@ -1470,12 +1312,10 @@ public class SupplyRequest extends DomainResource {
         case 1397156594: /*occurrencePeriod*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "When the request should be fulfilled.", 0, 1, occurrence);
         case 1515218299: /*occurrenceTiming*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "When the request should be fulfilled.", 0, 1, occurrence);
         case -1500852503: /*authoredOn*/  return new Property("authoredOn", "dateTime", "When the request was made.", 0, 1, authoredOn);
-        case 693933948: /*requester*/  return new Property("requester", "", "The individual who initiated the request and has responsibility for its activation.", 0, 1, requester);
-        case -1663305268: /*supplier*/  return new Property("supplier", "Reference(Organization)", "Who is intended to fulfill the request.", 0, java.lang.Integer.MAX_VALUE, supplier);
-        case -669418564: /*reason[x]*/  return new Property("reason[x]", "CodeableConcept|Reference(Any)", "Why the supply item was requested.", 0, 1, reason);
-        case -934964668: /*reason*/  return new Property("reason[x]", "CodeableConcept|Reference(Any)", "Why the supply item was requested.", 0, 1, reason);
-        case -610155331: /*reasonCodeableConcept*/  return new Property("reason[x]", "CodeableConcept|Reference(Any)", "Why the supply item was requested.", 0, 1, reason);
-        case -1146218137: /*reasonReference*/  return new Property("reason[x]", "CodeableConcept|Reference(Any)", "Why the supply item was requested.", 0, 1, reason);
+        case 693933948: /*requester*/  return new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who initiated the request.", 0, 1, requester);
+        case -1663305268: /*supplier*/  return new Property("supplier", "Reference(Organization|HealthcareService)", "Who is intended to fulfill the request.", 0, java.lang.Integer.MAX_VALUE, supplier);
+        case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
+        case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
         case -949323153: /*deliverFrom*/  return new Property("deliverFrom", "Reference(Organization|Location)", "Where the supply is expected to come from.", 0, 1, deliverFrom);
         case -242327936: /*deliverTo*/  return new Property("deliverTo", "Reference(Organization|Location|Patient)", "Where the supply is destined to go.", 0, 1, deliverTo);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -1493,9 +1333,10 @@ public class SupplyRequest extends DomainResource {
         case 2129914144: /*orderedItem*/ return this.orderedItem == null ? new Base[0] : new Base[] {this.orderedItem}; // SupplyRequestOrderedItemComponent
         case 1687874001: /*occurrence*/ return this.occurrence == null ? new Base[0] : new Base[] {this.occurrence}; // Type
         case -1500852503: /*authoredOn*/ return this.authoredOn == null ? new Base[0] : new Base[] {this.authoredOn}; // DateTimeType
-        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // SupplyRequestRequesterComponent
+        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
         case -1663305268: /*supplier*/ return this.supplier == null ? new Base[0] : this.supplier.toArray(new Base[this.supplier.size()]); // Reference
-        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
+        case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
+        case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case -949323153: /*deliverFrom*/ return this.deliverFrom == null ? new Base[0] : new Base[] {this.deliverFrom}; // Reference
         case -242327936: /*deliverTo*/ return this.deliverTo == null ? new Base[0] : new Base[] {this.deliverTo}; // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -1530,13 +1371,16 @@ public class SupplyRequest extends DomainResource {
           this.authoredOn = castToDateTime(value); // DateTimeType
           return value;
         case 693933948: // requester
-          this.requester = (SupplyRequestRequesterComponent) value; // SupplyRequestRequesterComponent
+          this.requester = castToReference(value); // Reference
           return value;
         case -1663305268: // supplier
           this.getSupplier().add(castToReference(value)); // Reference
           return value;
-        case -934964668: // reason
-          this.reason = castToType(value); // Type
+        case 722137681: // reasonCode
+          this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
+        case -1146218137: // reasonReference
+          this.getReasonReference().add(castToReference(value)); // Reference
           return value;
         case -949323153: // deliverFrom
           this.deliverFrom = castToReference(value); // Reference
@@ -1568,11 +1412,13 @@ public class SupplyRequest extends DomainResource {
         } else if (name.equals("authoredOn")) {
           this.authoredOn = castToDateTime(value); // DateTimeType
         } else if (name.equals("requester")) {
-          this.requester = (SupplyRequestRequesterComponent) value; // SupplyRequestRequesterComponent
+          this.requester = castToReference(value); // Reference
         } else if (name.equals("supplier")) {
           this.getSupplier().add(castToReference(value));
-        } else if (name.equals("reason[x]")) {
-          this.reason = castToType(value); // Type
+        } else if (name.equals("reasonCode")) {
+          this.getReasonCode().add(castToCodeableConcept(value));
+        } else if (name.equals("reasonReference")) {
+          this.getReasonReference().add(castToReference(value));
         } else if (name.equals("deliverFrom")) {
           this.deliverFrom = castToReference(value); // Reference
         } else if (name.equals("deliverTo")) {
@@ -1595,8 +1441,8 @@ public class SupplyRequest extends DomainResource {
         case -1500852503:  return getAuthoredOnElement();
         case 693933948:  return getRequester(); 
         case -1663305268:  return addSupplier(); 
-        case -669418564:  return getReason(); 
-        case -934964668:  return getReason(); 
+        case 722137681:  return addReasonCode(); 
+        case -1146218137:  return addReasonReference(); 
         case -949323153:  return getDeliverFrom(); 
         case -242327936:  return getDeliverTo(); 
         default: return super.makeProperty(hash, name);
@@ -1614,9 +1460,10 @@ public class SupplyRequest extends DomainResource {
         case 2129914144: /*orderedItem*/ return new String[] {};
         case 1687874001: /*occurrence*/ return new String[] {"dateTime", "Period", "Timing"};
         case -1500852503: /*authoredOn*/ return new String[] {"dateTime"};
-        case 693933948: /*requester*/ return new String[] {};
+        case 693933948: /*requester*/ return new String[] {"Reference"};
         case -1663305268: /*supplier*/ return new String[] {"Reference"};
-        case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
+        case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
+        case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case -949323153: /*deliverFrom*/ return new String[] {"Reference"};
         case -242327936: /*deliverTo*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
@@ -1660,19 +1507,17 @@ public class SupplyRequest extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type SupplyRequest.authoredOn");
         }
         else if (name.equals("requester")) {
-          this.requester = new SupplyRequestRequesterComponent();
+          this.requester = new Reference();
           return this.requester;
         }
         else if (name.equals("supplier")) {
           return addSupplier();
         }
-        else if (name.equals("reasonCodeableConcept")) {
-          this.reason = new CodeableConcept();
-          return this.reason;
+        else if (name.equals("reasonCode")) {
+          return addReasonCode();
         }
         else if (name.equals("reasonReference")) {
-          this.reason = new Reference();
-          return this.reason;
+          return addReasonReference();
         }
         else if (name.equals("deliverFrom")) {
           this.deliverFrom = new Reference();
@@ -1707,7 +1552,16 @@ public class SupplyRequest extends DomainResource {
           for (Reference i : supplier)
             dst.supplier.add(i.copy());
         };
-        dst.reason = reason == null ? null : reason.copy();
+        if (reasonCode != null) {
+          dst.reasonCode = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reasonCode)
+            dst.reasonCode.add(i.copy());
+        };
+        if (reasonReference != null) {
+          dst.reasonReference = new ArrayList<Reference>();
+          for (Reference i : reasonReference)
+            dst.reasonReference.add(i.copy());
+        };
         dst.deliverFrom = deliverFrom == null ? null : deliverFrom.copy();
         dst.deliverTo = deliverTo == null ? null : deliverTo.copy();
         return dst;
@@ -1727,8 +1581,8 @@ public class SupplyRequest extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
            && compareDeep(priority, o.priority, true) && compareDeep(orderedItem, o.orderedItem, true) && compareDeep(occurrence, o.occurrence, true)
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(requester, o.requester, true) && compareDeep(supplier, o.supplier, true)
-           && compareDeep(reason, o.reason, true) && compareDeep(deliverFrom, o.deliverFrom, true) && compareDeep(deliverTo, o.deliverTo, true)
-          ;
+           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
+           && compareDeep(deliverFrom, o.deliverFrom, true) && compareDeep(deliverTo, o.deliverTo, true);
       }
 
       @Override
@@ -1744,8 +1598,8 @@ public class SupplyRequest extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , priority, orderedItem, occurrence, authoredOn, requester, supplier, reason, deliverFrom
-          , deliverTo);
+          , priority, orderedItem, occurrence, authoredOn, requester, supplier, reasonCode
+          , reasonReference, deliverFrom, deliverTo);
       }
 
   @Override
@@ -1758,17 +1612,17 @@ public class SupplyRequest extends DomainResource {
    * <p>
    * Description: <b>Individual making the request</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>SupplyRequest.requester.agent</b><br>
+   * Path: <b>SupplyRequest.requester</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requester", path="SupplyRequest.requester.agent", description="Individual making the request", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="requester", path="SupplyRequest.requester", description="Individual making the request", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_REQUESTER = "requester";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requester</b>
    * <p>
    * Description: <b>Individual making the request</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>SupplyRequest.requester.agent</b><br>
+   * Path: <b>SupplyRequest.requester</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTER);
@@ -1827,7 +1681,7 @@ public class SupplyRequest extends DomainResource {
    * Path: <b>SupplyRequest.supplier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="supplier", path="SupplyRequest.supplier", description="Who is intended to fulfill the request", type="reference", target={Organization.class } )
+  @SearchParamDefinition(name="supplier", path="SupplyRequest.supplier", description="Who is intended to fulfill the request", type="reference", target={HealthcareService.class, Organization.class } )
   public static final String SP_SUPPLIER = "supplier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>supplier</b>

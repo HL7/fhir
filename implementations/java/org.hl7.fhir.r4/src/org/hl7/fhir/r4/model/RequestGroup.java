@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -54,7 +54,7 @@ public class RequestGroup extends DomainResource {
          */
         DRAFT, 
         /**
-         * The request is ready to be acted upon
+         * The request is in force and ready to be acted upon
          */
         ACTIVE, 
         /**
@@ -130,7 +130,7 @@ public class RequestGroup extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case DRAFT: return "The request has been created but is not yet complete or ready for action";
-            case ACTIVE: return "The request is ready to be acted upon";
+            case ACTIVE: return "The request is in force and ready to be acted upon";
             case SUSPENDED: return "The authorization/request to act has been temporarily withdrawn but is expected to resume in the future";
             case CANCELLED: return "The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.";
             case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester";

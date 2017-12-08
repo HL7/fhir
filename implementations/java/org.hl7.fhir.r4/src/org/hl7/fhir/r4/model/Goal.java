@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -732,7 +732,7 @@ public class Goal extends DomainResource {
     /**
      * The identified conditions and other health record elements that are intended to be addressed by the goal.
      */
-    @Child(name = "addresses", type = {Condition.class, Observation.class, MedicationStatement.class, NutritionOrder.class, ProcedureRequest.class, RiskAssessment.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "addresses", type = {Condition.class, Observation.class, MedicationStatement.class, NutritionOrder.class, ServiceRequest.class, RiskAssessment.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Issues addressed by this goal", formalDefinition="The identified conditions and other health record elements that are intended to be addressed by the goal." )
     protected List<Reference> addresses;
     /**
@@ -1488,7 +1488,7 @@ public class Goal extends DomainResource {
         children.add(new Property("statusDate", "date", "Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.", 0, 1, statusDate));
         children.add(new Property("statusReason", "string", "Captures the reason for the current status.", 0, 1, statusReason));
         children.add(new Property("expressedBy", "Reference(Patient|Practitioner|RelatedPerson)", "Indicates whose goal this is - patient goal, practitioner goal, etc.", 0, 1, expressedBy));
-        children.add(new Property("addresses", "Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)", "The identified conditions and other health record elements that are intended to be addressed by the goal.", 0, java.lang.Integer.MAX_VALUE, addresses));
+        children.add(new Property("addresses", "Reference(Condition|Observation|MedicationStatement|NutritionOrder|ServiceRequest|RiskAssessment)", "The identified conditions and other health record elements that are intended to be addressed by the goal.", 0, java.lang.Integer.MAX_VALUE, addresses));
         children.add(new Property("note", "Annotation", "Any comments related to the goal.", 0, java.lang.Integer.MAX_VALUE, note));
         children.add(new Property("outcomeCode", "CodeableConcept", "Identifies the change (or lack of change) at the point when the status of the goal is assessed.", 0, java.lang.Integer.MAX_VALUE, outcomeCode));
         children.add(new Property("outcomeReference", "Reference(Observation)", "Details of what's changed (or not changed).", 0, java.lang.Integer.MAX_VALUE, outcomeReference));
@@ -1511,7 +1511,7 @@ public class Goal extends DomainResource {
         case 247524032: /*statusDate*/  return new Property("statusDate", "date", "Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.", 0, 1, statusDate);
         case 2051346646: /*statusReason*/  return new Property("statusReason", "string", "Captures the reason for the current status.", 0, 1, statusReason);
         case 175423686: /*expressedBy*/  return new Property("expressedBy", "Reference(Patient|Practitioner|RelatedPerson)", "Indicates whose goal this is - patient goal, practitioner goal, etc.", 0, 1, expressedBy);
-        case 874544034: /*addresses*/  return new Property("addresses", "Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)", "The identified conditions and other health record elements that are intended to be addressed by the goal.", 0, java.lang.Integer.MAX_VALUE, addresses);
+        case 874544034: /*addresses*/  return new Property("addresses", "Reference(Condition|Observation|MedicationStatement|NutritionOrder|ServiceRequest|RiskAssessment)", "The identified conditions and other health record elements that are intended to be addressed by the goal.", 0, java.lang.Integer.MAX_VALUE, addresses);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Any comments related to the goal.", 0, java.lang.Integer.MAX_VALUE, note);
         case 1062482015: /*outcomeCode*/  return new Property("outcomeCode", "CodeableConcept", "Identifies the change (or lack of change) at the point when the status of the goal is assessed.", 0, java.lang.Integer.MAX_VALUE, outcomeCode);
         case -782273511: /*outcomeReference*/  return new Property("outcomeReference", "Reference(Observation)", "Details of what's changed (or not changed).", 0, java.lang.Integer.MAX_VALUE, outcomeReference);

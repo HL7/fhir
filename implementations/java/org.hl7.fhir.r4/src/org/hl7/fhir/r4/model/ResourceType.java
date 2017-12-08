@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 public enum ResourceType {
     Account,
@@ -19,7 +19,6 @@ public enum ResourceType {
     CapabilityStatement,
     CarePlan,
     CareTeam,
-    CatalogEntry,
     ChargeItem,
     Claim,
     ClaimResponse,
@@ -49,8 +48,10 @@ public enum ResourceType {
     Endpoint,
     EnrollmentRequest,
     EnrollmentResponse,
+    EntryDefinition,
     EpisodeOfCare,
     EventDefinition,
+    ExampleScenario,
     ExpansionProfile,
     ExplanationOfBenefit,
     FamilyMemberHistory,
@@ -65,6 +66,8 @@ public enum ResourceType {
     Immunization,
     ImmunizationRecommendation,
     ImplementationGuide,
+    ImplementationGuideInput,
+    ImplementationGuideOutput,
     Library,
     Linkage,
     List,
@@ -82,6 +85,7 @@ public enum ResourceType {
     NamingSystem,
     NutritionOrder,
     Observation,
+    ObservationDefinition,
     OperationDefinition,
     OperationOutcome,
     Organization,
@@ -94,7 +98,6 @@ public enum ResourceType {
     Practitioner,
     PractitionerRole,
     Procedure,
-    ProcedureRequest,
     ProcessRequest,
     ProcessResponse,
     Provenance,
@@ -109,6 +112,7 @@ public enum ResourceType {
     SearchParameter,
     Sequence,
     ServiceDefinition,
+    ServiceRequest,
     Slot,
     Specimen,
     SpecimenDefinition,
@@ -119,11 +123,12 @@ public enum ResourceType {
     SupplyDelivery,
     SupplyRequest,
     Task,
+    TerminologyCapabilities,
     TestReport,
     TestScript,
+    UserSession,
     ValueSet,
-    VisionPrescription,
-    WorkflowExample;
+    VisionPrescription;
 
 
     public String getPath() {;
@@ -156,8 +161,6 @@ public enum ResourceType {
       return "careplan";
     case CareTeam:
       return "careteam";
-    case CatalogEntry:
-      return "catalogentry";
     case ChargeItem:
       return "chargeitem";
     case Claim:
@@ -216,10 +219,14 @@ public enum ResourceType {
       return "enrollmentrequest";
     case EnrollmentResponse:
       return "enrollmentresponse";
+    case EntryDefinition:
+      return "entrydefinition";
     case EpisodeOfCare:
       return "episodeofcare";
     case EventDefinition:
       return "eventdefinition";
+    case ExampleScenario:
+      return "examplescenario";
     case ExpansionProfile:
       return "expansionprofile";
     case ExplanationOfBenefit:
@@ -248,6 +255,10 @@ public enum ResourceType {
       return "immunizationrecommendation";
     case ImplementationGuide:
       return "implementationguide";
+    case ImplementationGuideInput:
+      return "implementationguideinput";
+    case ImplementationGuideOutput:
+      return "implementationguideoutput";
     case Library:
       return "library";
     case Linkage:
@@ -282,6 +293,8 @@ public enum ResourceType {
       return "nutritionorder";
     case Observation:
       return "observation";
+    case ObservationDefinition:
+      return "observationdefinition";
     case OperationDefinition:
       return "operationdefinition";
     case OperationOutcome:
@@ -306,8 +319,6 @@ public enum ResourceType {
       return "practitionerrole";
     case Procedure:
       return "procedure";
-    case ProcedureRequest:
-      return "procedurerequest";
     case ProcessRequest:
       return "processrequest";
     case ProcessResponse:
@@ -336,6 +347,8 @@ public enum ResourceType {
       return "sequence";
     case ServiceDefinition:
       return "servicedefinition";
+    case ServiceRequest:
+      return "servicerequest";
     case Slot:
       return "slot";
     case Specimen:
@@ -356,16 +369,18 @@ public enum ResourceType {
       return "supplyrequest";
     case Task:
       return "task";
+    case TerminologyCapabilities:
+      return "terminologycapabilities";
     case TestReport:
       return "testreport";
     case TestScript:
       return "testscript";
+    case UserSession:
+      return "usersession";
     case ValueSet:
       return "valueset";
     case VisionPrescription:
       return "visionprescription";
-    case WorkflowExample:
-      return "workflowexample";
     }
       return null;
   }
@@ -400,8 +415,6 @@ public enum ResourceType {
       return CarePlan;
     if ("CareTeam".equals(code))
       return CareTeam;
-    if ("CatalogEntry".equals(code))
-      return CatalogEntry;
     if ("ChargeItem".equals(code))
       return ChargeItem;
     if ("Claim".equals(code))
@@ -460,10 +473,14 @@ public enum ResourceType {
       return EnrollmentRequest;
     if ("EnrollmentResponse".equals(code))
       return EnrollmentResponse;
+    if ("EntryDefinition".equals(code))
+      return EntryDefinition;
     if ("EpisodeOfCare".equals(code))
       return EpisodeOfCare;
     if ("EventDefinition".equals(code))
       return EventDefinition;
+    if ("ExampleScenario".equals(code))
+      return ExampleScenario;
     if ("ExpansionProfile".equals(code))
       return ExpansionProfile;
     if ("ExplanationOfBenefit".equals(code))
@@ -492,6 +509,10 @@ public enum ResourceType {
       return ImmunizationRecommendation;
     if ("ImplementationGuide".equals(code))
       return ImplementationGuide;
+    if ("ImplementationGuideInput".equals(code))
+      return ImplementationGuideInput;
+    if ("ImplementationGuideOutput".equals(code))
+      return ImplementationGuideOutput;
     if ("Library".equals(code))
       return Library;
     if ("Linkage".equals(code))
@@ -526,6 +547,8 @@ public enum ResourceType {
       return NutritionOrder;
     if ("Observation".equals(code))
       return Observation;
+    if ("ObservationDefinition".equals(code))
+      return ObservationDefinition;
     if ("OperationDefinition".equals(code))
       return OperationDefinition;
     if ("OperationOutcome".equals(code))
@@ -550,8 +573,6 @@ public enum ResourceType {
       return PractitionerRole;
     if ("Procedure".equals(code))
       return Procedure;
-    if ("ProcedureRequest".equals(code))
-      return ProcedureRequest;
     if ("ProcessRequest".equals(code))
       return ProcessRequest;
     if ("ProcessResponse".equals(code))
@@ -580,6 +601,8 @@ public enum ResourceType {
       return Sequence;
     if ("ServiceDefinition".equals(code))
       return ServiceDefinition;
+    if ("ServiceRequest".equals(code))
+      return ServiceRequest;
     if ("Slot".equals(code))
       return Slot;
     if ("Specimen".equals(code))
@@ -600,16 +623,18 @@ public enum ResourceType {
       return SupplyRequest;
     if ("Task".equals(code))
       return Task;
+    if ("TerminologyCapabilities".equals(code))
+      return TerminologyCapabilities;
     if ("TestReport".equals(code))
       return TestReport;
     if ("TestScript".equals(code))
       return TestScript;
+    if ("UserSession".equals(code))
+      return UserSession;
     if ("ValueSet".equals(code))
       return ValueSet;
     if ("VisionPrescription".equals(code))
       return VisionPrescription;
-    if ("WorkflowExample".equals(code))
-      return WorkflowExample;
 
     throw new FHIRException("Unknown resource type"+code);
   }

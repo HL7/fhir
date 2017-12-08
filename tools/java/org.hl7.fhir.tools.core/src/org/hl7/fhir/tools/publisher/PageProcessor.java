@@ -1191,7 +1191,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           String r = rn.substring(2);
           ResourceDefn rd = definitions.getResourceByName(r);
           if (rd.getNormativePackage() != null)
-            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"><img src=\"assets/images/normative.png\"/></a></li>\r\n");
+            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" style=\"\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
         }
@@ -8455,7 +8455,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (rd.getNormativePackage() == null)
       return "";
     else
-      return " <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"><img src=\"assets/images/normative.png\"/></a>";
+      return " <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" class=\"normative-flag\">N</a>";
   }
   private String getFmmShort(String resourceName) throws Exception {
     ResourceDefn rd = definitions.getResourceByName(resourceName);
@@ -8463,7 +8463,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       throw new Exception("unable to find resource '"+resourceName+"'");
     if (rd.getNormativePackage() != null)
       return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>"+
-       "<a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\"><img src=\"assets/images/normative.png\"/></a>";
+       "<a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" class=\"normative-flag\">N</a>";
     else
       return "<a href=\"versions.html#std-process\" style=\"color: maroon; hover: maroon; visited; maroon; opacity: 0.7\" title=\"Maturity Level\">"+rd.getFmmLevel()+"</a>";
   }

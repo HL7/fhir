@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2468,13 +2468,13 @@ This would be used for a case where an admission starts of as an emergency encou
     /**
      * The referral request this encounter satisfies (incoming referral).
      */
-    @Child(name = "incomingReferral", type = {ProcedureRequest.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="The ProcedureRequest that initiated this encounter", formalDefinition="The referral request this encounter satisfies (incoming referral)." )
+    @Child(name = "incomingReferral", type = {ServiceRequest.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="The ServiceRequest that initiated this encounter", formalDefinition="The referral request this encounter satisfies (incoming referral)." )
     protected List<Reference> incomingReferral;
     /**
      * The actual objects that are the target of the reference (The referral request this encounter satisfies (incoming referral).)
      */
-    protected List<ProcedureRequest> incomingReferralTarget;
+    protected List<ServiceRequest> incomingReferralTarget;
 
 
     /**
@@ -2575,7 +2575,7 @@ This would be used for a case where an admission starts of as an emergency encou
      */
     protected Encounter partOfTarget;
 
-    private static final long serialVersionUID = 1760628408L;
+    private static final long serialVersionUID = -1467186922L;
 
   /**
    * Constructor
@@ -3070,9 +3070,9 @@ This would be used for a case where an admission starts of as an emergency encou
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<ProcedureRequest> getIncomingReferralTarget() { 
+    public List<ServiceRequest> getIncomingReferralTarget() { 
       if (this.incomingReferralTarget == null)
-        this.incomingReferralTarget = new ArrayList<ProcedureRequest>();
+        this.incomingReferralTarget = new ArrayList<ServiceRequest>();
       return this.incomingReferralTarget;
     }
 
@@ -3080,10 +3080,10 @@ This would be used for a case where an admission starts of as an emergency encou
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public ProcedureRequest addIncomingReferralTarget() { 
-      ProcedureRequest r = new ProcedureRequest();
+    public ServiceRequest addIncomingReferralTarget() { 
+      ServiceRequest r = new ServiceRequest();
       if (this.incomingReferralTarget == null)
-        this.incomingReferralTarget = new ArrayList<ProcedureRequest>();
+        this.incomingReferralTarget = new ArrayList<ServiceRequest>();
       this.incomingReferralTarget.add(r);
       return r;
     }
@@ -3590,7 +3590,7 @@ This would be used for a case where an admission starts of as an emergency encou
         children.add(new Property("priority", "CodeableConcept", "Indicates the urgency of the encounter.", 0, 1, priority));
         children.add(new Property("subject", "Reference(Patient|Group)", "The patient ro group present at the encounter.", 0, 1, subject));
         children.add(new Property("episodeOfCare", "Reference(EpisodeOfCare)", "Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).", 0, java.lang.Integer.MAX_VALUE, episodeOfCare));
-        children.add(new Property("incomingReferral", "Reference(ProcedureRequest)", "The referral request this encounter satisfies (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral));
+        children.add(new Property("incomingReferral", "Reference(ServiceRequest)", "The referral request this encounter satisfies (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral));
         children.add(new Property("participant", "", "The list of people responsible for providing the service.", 0, java.lang.Integer.MAX_VALUE, participant));
         children.add(new Property("appointment", "Reference(Appointment)", "The appointment that scheduled this encounter.", 0, 1, appointment));
         children.add(new Property("period", "Period", "The start and end time of the encounter.", 0, 1, period));
@@ -3616,7 +3616,7 @@ This would be used for a case where an admission starts of as an emergency encou
         case -1165461084: /*priority*/  return new Property("priority", "CodeableConcept", "Indicates the urgency of the encounter.", 0, 1, priority);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "The patient ro group present at the encounter.", 0, 1, subject);
         case -1892140189: /*episodeOfCare*/  return new Property("episodeOfCare", "Reference(EpisodeOfCare)", "Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).", 0, java.lang.Integer.MAX_VALUE, episodeOfCare);
-        case -1258204701: /*incomingReferral*/  return new Property("incomingReferral", "Reference(ProcedureRequest)", "The referral request this encounter satisfies (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral);
+        case -1258204701: /*incomingReferral*/  return new Property("incomingReferral", "Reference(ServiceRequest)", "The referral request this encounter satisfies (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral);
         case 767422259: /*participant*/  return new Property("participant", "", "The list of people responsible for providing the service.", 0, java.lang.Integer.MAX_VALUE, participant);
         case -1474995297: /*appointment*/  return new Property("appointment", "Reference(Appointment)", "The appointment that scheduled this encounter.", 0, 1, appointment);
         case -991726143: /*period*/  return new Property("period", "Period", "The start and end time of the encounter.", 0, 1, period);
@@ -4149,17 +4149,17 @@ This would be used for a case where an admission starts of as an emergency encou
  /**
    * Search parameter: <b>incomingreferral</b>
    * <p>
-   * Description: <b>The ProcedureRequest that initiated this encounter</b><br>
+   * Description: <b>The ServiceRequest that initiated this encounter</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Encounter.incomingReferral</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="incomingreferral", path="Encounter.incomingReferral", description="The ProcedureRequest that initiated this encounter", type="reference", target={ProcedureRequest.class } )
+  @SearchParamDefinition(name="incomingreferral", path="Encounter.incomingReferral", description="The ServiceRequest that initiated this encounter", type="reference", target={ServiceRequest.class } )
   public static final String SP_INCOMINGREFERRAL = "incomingreferral";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
    * <p>
-   * Description: <b>The ProcedureRequest that initiated this encounter</b><br>
+   * Description: <b>The ServiceRequest that initiated this encounter</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Encounter.incomingReferral</b><br>
    * </p>

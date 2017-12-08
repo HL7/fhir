@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -374,7 +374,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         /**
          * null
          */
-        PROCEDUREREQUEST, 
+        SERVICEREQUEST, 
         /**
          * null
          */
@@ -398,8 +398,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return NUTRITIONORDER;
         if ("Task".equals(codeString))
           return TASK;
-        if ("ProcedureRequest".equals(codeString))
-          return PROCEDUREREQUEST;
+        if ("ServiceRequest".equals(codeString))
+          return SERVICEREQUEST;
         if ("VisionPrescription".equals(codeString))
           return VISIONPRESCRIPTION;
         if (Configuration.isAcceptInvalidEnums())
@@ -415,7 +415,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             case MEDICATIONREQUEST: return "MedicationRequest";
             case NUTRITIONORDER: return "NutritionOrder";
             case TASK: return "Task";
-            case PROCEDUREREQUEST: return "ProcedureRequest";
+            case SERVICEREQUEST: return "ServiceRequest";
             case VISIONPRESCRIPTION: return "VisionPrescription";
             default: return "?";
           }
@@ -428,7 +428,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             case MEDICATIONREQUEST: return "http://hl7.org/fhir/resource-types";
             case NUTRITIONORDER: return "http://hl7.org/fhir/resource-types";
             case TASK: return "http://hl7.org/fhir/resource-types";
-            case PROCEDUREREQUEST: return "http://hl7.org/fhir/resource-types";
+            case SERVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
             default: return "?";
           }
@@ -441,7 +441,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             case MEDICATIONREQUEST: return "";
             case NUTRITIONORDER: return "";
             case TASK: return "";
-            case PROCEDUREREQUEST: return "";
+            case SERVICEREQUEST: return "";
             case VISIONPRESCRIPTION: return "";
             default: return "?";
           }
@@ -454,7 +454,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             case MEDICATIONREQUEST: return "MedicationRequest";
             case NUTRITIONORDER: return "NutritionOrder";
             case TASK: return "Task";
-            case PROCEDUREREQUEST: return "ProcedureRequest";
+            case SERVICEREQUEST: return "ServiceRequest";
             case VISIONPRESCRIPTION: return "VisionPrescription";
             default: return "?";
           }
@@ -478,8 +478,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return CarePlanActivityKind.NUTRITIONORDER;
         if ("Task".equals(codeString))
           return CarePlanActivityKind.TASK;
-        if ("ProcedureRequest".equals(codeString))
-          return CarePlanActivityKind.PROCEDUREREQUEST;
+        if ("ServiceRequest".equals(codeString))
+          return CarePlanActivityKind.SERVICEREQUEST;
         if ("VisionPrescription".equals(codeString))
           return CarePlanActivityKind.VISIONPRESCRIPTION;
         throw new IllegalArgumentException("Unknown CarePlanActivityKind code '"+codeString+"'");
@@ -504,8 +504,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return new Enumeration<CarePlanActivityKind>(this, CarePlanActivityKind.NUTRITIONORDER);
         if ("Task".equals(codeString))
           return new Enumeration<CarePlanActivityKind>(this, CarePlanActivityKind.TASK);
-        if ("ProcedureRequest".equals(codeString))
-          return new Enumeration<CarePlanActivityKind>(this, CarePlanActivityKind.PROCEDUREREQUEST);
+        if ("ServiceRequest".equals(codeString))
+          return new Enumeration<CarePlanActivityKind>(this, CarePlanActivityKind.SERVICEREQUEST);
         if ("VisionPrescription".equals(codeString))
           return new Enumeration<CarePlanActivityKind>(this, CarePlanActivityKind.VISIONPRESCRIPTION);
         throw new FHIRException("Unknown CarePlanActivityKind code '"+codeString+"'");
@@ -523,8 +523,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         return "NutritionOrder";
       if (code == CarePlanActivityKind.TASK)
         return "Task";
-      if (code == CarePlanActivityKind.PROCEDUREREQUEST)
-        return "ProcedureRequest";
+      if (code == CarePlanActivityKind.SERVICEREQUEST)
+        return "ServiceRequest";
       if (code == CarePlanActivityKind.VISIONPRESCRIPTION)
         return "VisionPrescription";
       return "?";
@@ -754,7 +754,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         /**
          * The details of the proposed activity represented in a specific resource.
          */
-        @Child(name = "reference", type = {Appointment.class, CommunicationRequest.class, DeviceRequest.class, MedicationRequest.class, NutritionOrder.class, Task.class, ProcedureRequest.class, VisionPrescription.class, RequestGroup.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "reference", type = {Appointment.class, CommunicationRequest.class, DeviceRequest.class, MedicationRequest.class, NutritionOrder.class, Task.class, ServiceRequest.class, VisionPrescription.class, RequestGroup.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Activity details defined in specific resource", formalDefinition="The details of the proposed activity represented in a specific resource." )
         protected Reference reference;
 
@@ -1016,7 +1016,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           children.add(new Property("outcomeCodeableConcept", "CodeableConcept", "Identifies the outcome at the point when the status of the activity is assessed.  For example, the outcome of an education activity could be patient understands (or not).", 0, java.lang.Integer.MAX_VALUE, outcomeCodeableConcept));
           children.add(new Property("outcomeReference", "Reference(Any)", "Details of the outcome or action resulting from the activity.  The reference to an \"event\" resource, such as Procedure or Encounter or Observation, is the result/outcome of the activity itself.  The activity can be conveyed using CarePlan.activity.detail OR using the CarePlan.activity.reference (a reference to a “request” resource).", 0, java.lang.Integer.MAX_VALUE, outcomeReference));
           children.add(new Property("progress", "Annotation", "Notes about the adherence/status/progress of the activity.", 0, java.lang.Integer.MAX_VALUE, progress));
-          children.add(new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|Task|ProcedureRequest|VisionPrescription|RequestGroup)", "The details of the proposed activity represented in a specific resource.", 0, 1, reference));
+          children.add(new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|Task|ServiceRequest|VisionPrescription|RequestGroup)", "The details of the proposed activity represented in a specific resource.", 0, 1, reference));
           children.add(new Property("detail", "", "A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, 1, detail));
         }
 
@@ -1026,7 +1026,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           case -511913489: /*outcomeCodeableConcept*/  return new Property("outcomeCodeableConcept", "CodeableConcept", "Identifies the outcome at the point when the status of the activity is assessed.  For example, the outcome of an education activity could be patient understands (or not).", 0, java.lang.Integer.MAX_VALUE, outcomeCodeableConcept);
           case -782273511: /*outcomeReference*/  return new Property("outcomeReference", "Reference(Any)", "Details of the outcome or action resulting from the activity.  The reference to an \"event\" resource, such as Procedure or Encounter or Observation, is the result/outcome of the activity itself.  The activity can be conveyed using CarePlan.activity.detail OR using the CarePlan.activity.reference (a reference to a “request” resource).", 0, java.lang.Integer.MAX_VALUE, outcomeReference);
           case -1001078227: /*progress*/  return new Property("progress", "Annotation", "Notes about the adherence/status/progress of the activity.", 0, java.lang.Integer.MAX_VALUE, progress);
-          case -925155509: /*reference*/  return new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|Task|ProcedureRequest|VisionPrescription|RequestGroup)", "The details of the proposed activity represented in a specific resource.", 0, 1, reference);
+          case -925155509: /*reference*/  return new Property("reference", "Reference(Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|Task|ServiceRequest|VisionPrescription|RequestGroup)", "The details of the proposed activity represented in a specific resource.", 0, 1, reference);
           case -1335224239: /*detail*/  return new Property("detail", "", "A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.", 0, 1, detail);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -1195,10 +1195,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     @Block()
     public static class CarePlanActivityDetailComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest.
+         * A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
          */
         @Child(name = "kind", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Kind of resource", formalDefinition="A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest." )
+        @Description(shortDefinition="Kind of resource", formalDefinition="A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/care-plan-activity-kind")
         protected Enumeration<CarePlanActivityKind> kind;
 
@@ -1354,7 +1354,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
         /**
-         * @return {@link #kind} (A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
+         * @return {@link #kind} (A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
          */
         public Enumeration<CarePlanActivityKind> getKindElement() { 
           if (this.kind == null)
@@ -1374,7 +1374,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @param value {@link #kind} (A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
+         * @param value {@link #kind} (A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
          */
         public CarePlanActivityDetailComponent setKindElement(Enumeration<CarePlanActivityKind> value) { 
           this.kind = value;
@@ -1382,14 +1382,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @return A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest.
+         * @return A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
          */
         public CarePlanActivityKind getKind() { 
           return this.kind == null ? null : this.kind.getValue();
         }
 
         /**
-         * @param value A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest.
+         * @param value A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.
          */
         public CarePlanActivityDetailComponent setKind(CarePlanActivityKind value) { 
           if (value == null)
@@ -2116,7 +2116,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("kind", "code", "A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest.", 0, 1, kind));
+          children.add(new Property("kind", "code", "A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.", 0, 1, kind));
           children.add(new Property("definition", "Reference(PlanDefinition|ActivityDefinition|Questionnaire)", "Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.", 0, 1, definition));
           children.add(new Property("code", "CodeableConcept", "Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.", 0, 1, code));
           children.add(new Property("reasonCode", "CodeableConcept", "Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
@@ -2137,7 +2137,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3292052: /*kind*/  return new Property("kind", "code", "A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest.", 0, 1, kind);
+          case 3292052: /*kind*/  return new Property("kind", "code", "A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.", 0, 1, kind);
           case -1014418093: /*definition*/  return new Property("definition", "Reference(PlanDefinition|ActivityDefinition|Questionnaire)", "Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.", 0, 1, definition);
           case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.", 0, 1, code);
           case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
@@ -4548,7 +4548,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Path: <b>CarePlan.activity.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="activity-reference", path="CarePlan.activity.reference", description="Activity details defined in specific resource", type="reference", target={Appointment.class, CommunicationRequest.class, DeviceRequest.class, MedicationRequest.class, NutritionOrder.class, ProcedureRequest.class, RequestGroup.class, Task.class, VisionPrescription.class } )
+  @SearchParamDefinition(name="activity-reference", path="CarePlan.activity.reference", description="Activity details defined in specific resource", type="reference", target={Appointment.class, CommunicationRequest.class, DeviceRequest.class, MedicationRequest.class, NutritionOrder.class, RequestGroup.class, ServiceRequest.class, Task.class, VisionPrescription.class } )
   public static final String SP_ACTIVITY_REFERENCE = "activity-reference";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>activity-reference</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -54,7 +54,7 @@ public class CommunicationRequest extends DomainResource {
          */
         DRAFT, 
         /**
-         * The request is ready to be acted upon
+         * The request is in force and ready to be acted upon
          */
         ACTIVE, 
         /**
@@ -130,7 +130,7 @@ public class CommunicationRequest extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case DRAFT: return "The request has been created but is not yet complete or ready for action";
-            case ACTIVE: return "The request is ready to be acted upon";
+            case ACTIVE: return "The request is in force and ready to be acted upon";
             case SUSPENDED: return "The authorization/request to act has been temporarily withdrawn but is expected to resume in the future";
             case CANCELLED: return "The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.";
             case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester";
@@ -895,15 +895,15 @@ public class CommunicationRequest extends DomainResource {
 
 
     /**
-     * The resources which were related to producing this communication request.
+     * Other resources that pertain to this communication request and to which this communication request should be associated.
      */
-    @Child(name = "topic", type = {Reference.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Focal resources", formalDefinition="The resources which were related to producing this communication request." )
-    protected List<Reference> topic;
+    @Child(name = "about", type = {Reference.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Resources that pertain to this communication request", formalDefinition="Other resources that pertain to this communication request and to which this communication request should be associated." )
+    protected List<Reference> about;
     /**
-     * The actual objects that are the target of the reference (The resources which were related to producing this communication request.)
+     * The actual objects that are the target of the reference (Other resources that pertain to this communication request and to which this communication request should be associated.)
      */
-    protected List<Resource> topicTarget;
+    protected List<Resource> aboutTarget;
 
 
     /**
@@ -985,7 +985,7 @@ public class CommunicationRequest extends DomainResource {
     @Description(shortDefinition="Comments made about communication request", formalDefinition="Comments made about the request by the requester, sender, recipient, subject or other participants." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = -722867744L;
+    private static final long serialVersionUID = 732561184L;
 
   /**
    * Constructor
@@ -1520,66 +1520,66 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #topic} (The resources which were related to producing this communication request.)
+     * @return {@link #about} (Other resources that pertain to this communication request and to which this communication request should be associated.)
      */
-    public List<Reference> getTopic() { 
-      if (this.topic == null)
-        this.topic = new ArrayList<Reference>();
-      return this.topic;
+    public List<Reference> getAbout() { 
+      if (this.about == null)
+        this.about = new ArrayList<Reference>();
+      return this.about;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public CommunicationRequest setTopic(List<Reference> theTopic) { 
-      this.topic = theTopic;
+    public CommunicationRequest setAbout(List<Reference> theAbout) { 
+      this.about = theAbout;
       return this;
     }
 
-    public boolean hasTopic() { 
-      if (this.topic == null)
+    public boolean hasAbout() { 
+      if (this.about == null)
         return false;
-      for (Reference item : this.topic)
+      for (Reference item : this.about)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addTopic() { //3
+    public Reference addAbout() { //3
       Reference t = new Reference();
-      if (this.topic == null)
-        this.topic = new ArrayList<Reference>();
-      this.topic.add(t);
+      if (this.about == null)
+        this.about = new ArrayList<Reference>();
+      this.about.add(t);
       return t;
     }
 
-    public CommunicationRequest addTopic(Reference t) { //3
+    public CommunicationRequest addAbout(Reference t) { //3
       if (t == null)
         return this;
-      if (this.topic == null)
-        this.topic = new ArrayList<Reference>();
-      this.topic.add(t);
+      if (this.about == null)
+        this.about = new ArrayList<Reference>();
+      this.about.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #topic}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #about}, creating it if it does not already exist
      */
-    public Reference getTopicFirstRep() { 
-      if (getTopic().isEmpty()) {
-        addTopic();
+    public Reference getAboutFirstRep() { 
+      if (getAbout().isEmpty()) {
+        addAbout();
       }
-      return getTopic().get(0);
+      return getAbout().get(0);
     }
 
     /**
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getTopicTarget() { 
-      if (this.topicTarget == null)
-        this.topicTarget = new ArrayList<Resource>();
-      return this.topicTarget;
+    public List<Resource> getAboutTarget() { 
+      if (this.aboutTarget == null)
+        this.aboutTarget = new ArrayList<Resource>();
+      return this.aboutTarget;
     }
 
     /**
@@ -2012,7 +2012,7 @@ public class CommunicationRequest extends DomainResource {
         children.add(new Property("medium", "CodeableConcept", "A channel that was used for this communication (e.g. email, fax).", 0, java.lang.Integer.MAX_VALUE, medium));
         children.add(new Property("subject", "Reference(Patient|Group)", "The patient or group that is the focus of this communication request.", 0, 1, subject));
         children.add(new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)", "The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication.", 0, java.lang.Integer.MAX_VALUE, recipient));
-        children.add(new Property("topic", "Reference(Any)", "The resources which were related to producing this communication request.", 0, java.lang.Integer.MAX_VALUE, topic));
+        children.add(new Property("about", "Reference(Any)", "Other resources that pertain to this communication request and to which this communication request should be associated.", 0, java.lang.Integer.MAX_VALUE, about));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care within which the communication request was created.", 0, 1, context));
         children.add(new Property("payload", "", "Text, attachment(s), or resource(s) to be communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, payload));
         children.add(new Property("occurrence[x]", "dateTime|Period", "The time when this communication is to occur.", 0, 1, occurrence));
@@ -2037,7 +2037,7 @@ public class CommunicationRequest extends DomainResource {
         case -1078030475: /*medium*/  return new Property("medium", "CodeableConcept", "A channel that was used for this communication (e.g. email, fax).", 0, java.lang.Integer.MAX_VALUE, medium);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group)", "The patient or group that is the focus of this communication request.", 0, 1, subject);
         case 820081177: /*recipient*/  return new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)", "The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication.", 0, java.lang.Integer.MAX_VALUE, recipient);
-        case 110546223: /*topic*/  return new Property("topic", "Reference(Any)", "The resources which were related to producing this communication request.", 0, java.lang.Integer.MAX_VALUE, topic);
+        case 92611469: /*about*/  return new Property("about", "Reference(Any)", "Other resources that pertain to this communication request and to which this communication request should be associated.", 0, java.lang.Integer.MAX_VALUE, about);
         case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care within which the communication request was created.", 0, 1, context);
         case -786701938: /*payload*/  return new Property("payload", "", "Text, attachment(s), or resource(s) to be communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, payload);
         case -2022646513: /*occurrence[x]*/  return new Property("occurrence[x]", "dateTime|Period", "The time when this communication is to occur.", 0, 1, occurrence);
@@ -2068,7 +2068,7 @@ public class CommunicationRequest extends DomainResource {
         case -1078030475: /*medium*/ return this.medium == null ? new Base[0] : this.medium.toArray(new Base[this.medium.size()]); // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
-        case 110546223: /*topic*/ return this.topic == null ? new Base[0] : this.topic.toArray(new Base[this.topic.size()]); // Reference
+        case 92611469: /*about*/ return this.about == null ? new Base[0] : this.about.toArray(new Base[this.about.size()]); // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case -786701938: /*payload*/ return this.payload == null ? new Base[0] : this.payload.toArray(new Base[this.payload.size()]); // CommunicationRequestPayloadComponent
         case 1687874001: /*occurrence*/ return this.occurrence == null ? new Base[0] : new Base[] {this.occurrence}; // Type
@@ -2118,8 +2118,8 @@ public class CommunicationRequest extends DomainResource {
         case 820081177: // recipient
           this.getRecipient().add(castToReference(value)); // Reference
           return value;
-        case 110546223: // topic
-          this.getTopic().add(castToReference(value)); // Reference
+        case 92611469: // about
+          this.getAbout().add(castToReference(value)); // Reference
           return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
@@ -2177,8 +2177,8 @@ public class CommunicationRequest extends DomainResource {
           this.subject = castToReference(value); // Reference
         } else if (name.equals("recipient")) {
           this.getRecipient().add(castToReference(value));
-        } else if (name.equals("topic")) {
-          this.getTopic().add(castToReference(value));
+        } else if (name.equals("about")) {
+          this.getAbout().add(castToReference(value));
         } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
         } else if (name.equals("payload")) {
@@ -2215,7 +2215,7 @@ public class CommunicationRequest extends DomainResource {
         case -1078030475:  return addMedium(); 
         case -1867885268:  return getSubject(); 
         case 820081177:  return addRecipient(); 
-        case 110546223:  return addTopic(); 
+        case 92611469:  return addAbout(); 
         case 951530927:  return getContext(); 
         case -786701938:  return addPayload(); 
         case -2022646513:  return getOccurrence(); 
@@ -2244,7 +2244,7 @@ public class CommunicationRequest extends DomainResource {
         case -1078030475: /*medium*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 820081177: /*recipient*/ return new String[] {"Reference"};
-        case 110546223: /*topic*/ return new String[] {"Reference"};
+        case 92611469: /*about*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
         case -786701938: /*payload*/ return new String[] {};
         case 1687874001: /*occurrence*/ return new String[] {"dateTime", "Period"};
@@ -2293,8 +2293,8 @@ public class CommunicationRequest extends DomainResource {
         else if (name.equals("recipient")) {
           return addRecipient();
         }
-        else if (name.equals("topic")) {
-          return addTopic();
+        else if (name.equals("about")) {
+          return addAbout();
         }
         else if (name.equals("context")) {
           this.context = new Reference();
@@ -2377,10 +2377,10 @@ public class CommunicationRequest extends DomainResource {
           for (Reference i : recipient)
             dst.recipient.add(i.copy());
         };
-        if (topic != null) {
-          dst.topic = new ArrayList<Reference>();
-          for (Reference i : topic)
-            dst.topic.add(i.copy());
+        if (about != null) {
+          dst.about = new ArrayList<Reference>();
+          for (Reference i : about)
+            dst.about.add(i.copy());
         };
         dst.context = context == null ? null : context.copy();
         if (payload != null) {
@@ -2424,7 +2424,7 @@ public class CommunicationRequest extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true)
            && compareDeep(groupIdentifier, o.groupIdentifier, true) && compareDeep(status, o.status, true)
            && compareDeep(category, o.category, true) && compareDeep(priority, o.priority, true) && compareDeep(medium, o.medium, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true) && compareDeep(topic, o.topic, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true) && compareDeep(about, o.about, true)
            && compareDeep(context, o.context, true) && compareDeep(payload, o.payload, true) && compareDeep(occurrence, o.occurrence, true)
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(sender, o.sender, true) && compareDeep(requester, o.requester, true)
            && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
@@ -2444,7 +2444,7 @@ public class CommunicationRequest extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, replaces
-          , groupIdentifier, status, category, priority, medium, subject, recipient, topic
+          , groupIdentifier, status, category, priority, medium, subject, recipient, about
           , context, payload, occurrence, authoredOn, sender, requester, reasonCode, reasonReference
           , note);
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2508,6 +2508,32 @@ public class Coverage extends DomainResource {
    * the path value of "<b>Coverage:beneficiary</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_BENEFICIARY = new ca.uhn.fhir.model.api.Include("Coverage:beneficiary").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Retrieve coverages for a patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Coverage.beneficiary</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Coverage.beneficiary", description="Retrieve coverages for a patient", type="reference", target={Patient.class } )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Retrieve coverages for a patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Coverage.beneficiary</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Coverage:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Coverage:patient").toLocked();
 
  /**
    * Search parameter: <b>subclass</b>

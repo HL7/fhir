@@ -970,7 +970,7 @@ public class VersionConvertor_14_40 {
     tgt.setWhen(src.getWhen());
     tgt.setWho(convertType(src.getWho()));
     if (src.hasContentType())
-      tgt.setContentType(src.getContentType());
+      tgt.setSigFormat(src.getContentType());
     if (src.hasBlob())
       tgt.setBlob(src.getBlob());
     return tgt;
@@ -985,8 +985,8 @@ public class VersionConvertor_14_40 {
       tgt.addType(convertCoding(t));
     tgt.setWhen(src.getWhen());
     tgt.setWho(convertType(src.getWho()));
-    if (src.hasContentType())
-      tgt.setContentType(src.getContentType());
+    if (src.hasSigFormat())
+      tgt.setContentType(src.getSigFormat());
     if (src.hasBlob())
       tgt.setBlob(src.getBlob());
     return tgt;

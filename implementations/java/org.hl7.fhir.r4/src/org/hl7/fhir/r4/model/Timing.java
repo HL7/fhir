@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -766,10 +766,10 @@ public class Timing extends Type implements ICompositeType {
         protected Type bounds;
 
         /**
-         * A total count of the desired number of repetitions.
+         * A total count of the desired number of repetitions across the duration of the entire timing specification.
          */
         @Child(name = "count", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Number of times to repeat", formalDefinition="A total count of the desired number of repetitions." )
+        @Description(shortDefinition="Number of times to repeat", formalDefinition="A total count of the desired number of repetitions across the duration of the entire timing specification." )
         protected IntegerType count;
 
         /**
@@ -935,7 +935,7 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #count} (A total count of the desired number of repetitions.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         * @return {@link #count} (A total count of the desired number of repetitions across the duration of the entire timing specification.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
         public IntegerType getCountElement() { 
           if (this.count == null)
@@ -955,7 +955,7 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #count} (A total count of the desired number of repetitions.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         * @param value {@link #count} (A total count of the desired number of repetitions across the duration of the entire timing specification.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
         public TimingRepeatComponent setCountElement(IntegerType value) { 
           this.count = value;
@@ -963,14 +963,14 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return A total count of the desired number of repetitions.
+         * @return A total count of the desired number of repetitions across the duration of the entire timing specification.
          */
         public int getCount() { 
           return this.count == null || this.count.isEmpty() ? 0 : this.count.getValue();
         }
 
         /**
-         * @param value A total count of the desired number of repetitions.
+         * @param value A total count of the desired number of repetitions across the duration of the entire timing specification.
          */
         public TimingRepeatComponent setCount(int value) { 
             if (this.count == null)
@@ -1711,7 +1711,7 @@ public class Timing extends Type implements ICompositeType {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("bounds[x]", "Duration|Range|Period", "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.", 0, 1, bounds));
-          children.add(new Property("count", "integer", "A total count of the desired number of repetitions.", 0, 1, count));
+          children.add(new Property("count", "integer", "A total count of the desired number of repetitions across the duration of the entire timing specification.", 0, 1, count));
           children.add(new Property("countMax", "integer", "A maximum value for the count of the desired repetitions (e.g. do something 6-8 times).", 0, 1, countMax));
           children.add(new Property("duration", "decimal", "How long this thing happens for when it happens.", 0, 1, duration));
           children.add(new Property("durationMax", "decimal", "The upper limit of how long this thing happens for when it happens.", 0, 1, durationMax));
@@ -1735,7 +1735,7 @@ public class Timing extends Type implements ICompositeType {
           case -189193367: /*boundsDuration*/  return new Property("bounds[x]", "Duration|Range|Period", "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.", 0, 1, bounds);
           case -1001768056: /*boundsRange*/  return new Property("bounds[x]", "Duration|Range|Period", "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.", 0, 1, bounds);
           case -1043481386: /*boundsPeriod*/  return new Property("bounds[x]", "Duration|Range|Period", "Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.", 0, 1, bounds);
-          case 94851343: /*count*/  return new Property("count", "integer", "A total count of the desired number of repetitions.", 0, 1, count);
+          case 94851343: /*count*/  return new Property("count", "integer", "A total count of the desired number of repetitions across the duration of the entire timing specification.", 0, 1, count);
           case -372044331: /*countMax*/  return new Property("countMax", "integer", "A maximum value for the count of the desired repetitions (e.g. do something 6-8 times).", 0, 1, countMax);
           case -1992012396: /*duration*/  return new Property("duration", "decimal", "How long this thing happens for when it happens.", 0, 1, duration);
           case -478083280: /*durationMax*/  return new Property("durationMax", "decimal", "The upper limit of how long this thing happens for when it happens.", 0, 1, durationMax);
@@ -2073,10 +2073,10 @@ public class Timing extends Type implements ICompositeType {
     protected TimingRepeatComponent repeat;
 
     /**
-     * A code for the timing schedule. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).
+     * A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +", formalDefinition="A code for the timing schedule. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code)." )
+    @Description(shortDefinition="BID | TID | QID | AM | PM | QD | QOD | Q4H | Q6H +", formalDefinition="A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/timing-abbreviation")
     protected CodeableConcept code;
 
@@ -2175,7 +2175,7 @@ public class Timing extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #code} (A code for the timing schedule. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).)
+     * @return {@link #code} (A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).)
      */
     public CodeableConcept getCode() { 
       if (this.code == null)
@@ -2191,7 +2191,7 @@ public class Timing extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #code} (A code for the timing schedule. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).)
+     * @param value {@link #code} (A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).)
      */
     public Timing setCode(CodeableConcept value) { 
       this.code = value;
@@ -2202,7 +2202,7 @@ public class Timing extends Type implements ICompositeType {
         super.listChildren(children);
         children.add(new Property("event", "dateTime", "Identifies specific times when the event occurs.", 0, java.lang.Integer.MAX_VALUE, event));
         children.add(new Property("repeat", "", "A set of rules that describe when the event is scheduled.", 0, 1, repeat));
-        children.add(new Property("code", "CodeableConcept", "A code for the timing schedule. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).", 0, 1, code));
+        children.add(new Property("code", "CodeableConcept", "A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).", 0, 1, code));
       }
 
       @Override
@@ -2210,7 +2210,7 @@ public class Timing extends Type implements ICompositeType {
         switch (_hash) {
         case 96891546: /*event*/  return new Property("event", "dateTime", "Identifies specific times when the event occurs.", 0, java.lang.Integer.MAX_VALUE, event);
         case -934531685: /*repeat*/  return new Property("repeat", "", "A set of rules that describe when the event is scheduled.", 0, 1, repeat);
-        case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code for the timing schedule. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).", 0, 1, code);
+        case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).", 0, 1, code);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 

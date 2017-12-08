@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1496,13 +1496,20 @@ public class CodeSystem extends MetadataResource {
         protected List<ConceptPropertyComponent> property;
 
         /**
+         * Alternate code that can be used to represent this concept.
+         */
+        @Child(name = "alternate", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Alternate code to use for the concept", formalDefinition="Alternate code that can be used to represent this concept." )
+        protected List<ConceptDefinitionAlternateComponent> alternate;
+
+        /**
          * Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.
          */
-        @Child(name = "concept", type = {ConceptDefinitionComponent.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "concept", type = {ConceptDefinitionComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Child Concepts (is-a/contains/categorizes)", formalDefinition="Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning." )
         protected List<ConceptDefinitionComponent> concept;
 
-        private static final long serialVersionUID = 878320988L;
+        private static final long serialVersionUID = 933053994L;
 
     /**
      * Constructor
@@ -1769,6 +1776,59 @@ public class CodeSystem extends MetadataResource {
         }
 
         /**
+         * @return {@link #alternate} (Alternate code that can be used to represent this concept.)
+         */
+        public List<ConceptDefinitionAlternateComponent> getAlternate() { 
+          if (this.alternate == null)
+            this.alternate = new ArrayList<ConceptDefinitionAlternateComponent>();
+          return this.alternate;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConceptDefinitionComponent setAlternate(List<ConceptDefinitionAlternateComponent> theAlternate) { 
+          this.alternate = theAlternate;
+          return this;
+        }
+
+        public boolean hasAlternate() { 
+          if (this.alternate == null)
+            return false;
+          for (ConceptDefinitionAlternateComponent item : this.alternate)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public ConceptDefinitionAlternateComponent addAlternate() { //3
+          ConceptDefinitionAlternateComponent t = new ConceptDefinitionAlternateComponent();
+          if (this.alternate == null)
+            this.alternate = new ArrayList<ConceptDefinitionAlternateComponent>();
+          this.alternate.add(t);
+          return t;
+        }
+
+        public ConceptDefinitionComponent addAlternate(ConceptDefinitionAlternateComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.alternate == null)
+            this.alternate = new ArrayList<ConceptDefinitionAlternateComponent>();
+          this.alternate.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #alternate}, creating it if it does not already exist
+         */
+        public ConceptDefinitionAlternateComponent getAlternateFirstRep() { 
+          if (getAlternate().isEmpty()) {
+            addAlternate();
+          }
+          return getAlternate().get(0);
+        }
+
+        /**
          * @return {@link #concept} (Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.)
          */
         public List<ConceptDefinitionComponent> getConcept() { 
@@ -1828,6 +1888,7 @@ public class CodeSystem extends MetadataResource {
           children.add(new Property("definition", "string", "The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept.", 0, 1, definition));
           children.add(new Property("designation", "", "Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.", 0, java.lang.Integer.MAX_VALUE, designation));
           children.add(new Property("property", "", "A property value for this concept.", 0, java.lang.Integer.MAX_VALUE, property));
+          children.add(new Property("alternate", "", "Alternate code that can be used to represent this concept.", 0, java.lang.Integer.MAX_VALUE, alternate));
           children.add(new Property("concept", "@CodeSystem.concept", "Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.", 0, java.lang.Integer.MAX_VALUE, concept));
         }
 
@@ -1839,6 +1900,7 @@ public class CodeSystem extends MetadataResource {
           case -1014418093: /*definition*/  return new Property("definition", "string", "The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept.", 0, 1, definition);
           case -900931593: /*designation*/  return new Property("designation", "", "Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.", 0, java.lang.Integer.MAX_VALUE, designation);
           case -993141291: /*property*/  return new Property("property", "", "A property value for this concept.", 0, java.lang.Integer.MAX_VALUE, property);
+          case -1408024454: /*alternate*/  return new Property("alternate", "", "Alternate code that can be used to represent this concept.", 0, java.lang.Integer.MAX_VALUE, alternate);
           case 951024232: /*concept*/  return new Property("concept", "@CodeSystem.concept", "Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) - see hierarchyMeaning.", 0, java.lang.Integer.MAX_VALUE, concept);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -1853,6 +1915,7 @@ public class CodeSystem extends MetadataResource {
         case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // StringType
         case -900931593: /*designation*/ return this.designation == null ? new Base[0] : this.designation.toArray(new Base[this.designation.size()]); // ConceptDefinitionDesignationComponent
         case -993141291: /*property*/ return this.property == null ? new Base[0] : this.property.toArray(new Base[this.property.size()]); // ConceptPropertyComponent
+        case -1408024454: /*alternate*/ return this.alternate == null ? new Base[0] : this.alternate.toArray(new Base[this.alternate.size()]); // ConceptDefinitionAlternateComponent
         case 951024232: /*concept*/ return this.concept == null ? new Base[0] : this.concept.toArray(new Base[this.concept.size()]); // ConceptDefinitionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1877,6 +1940,9 @@ public class CodeSystem extends MetadataResource {
         case -993141291: // property
           this.getProperty().add((ConceptPropertyComponent) value); // ConceptPropertyComponent
           return value;
+        case -1408024454: // alternate
+          this.getAlternate().add((ConceptDefinitionAlternateComponent) value); // ConceptDefinitionAlternateComponent
+          return value;
         case 951024232: // concept
           this.getConcept().add((ConceptDefinitionComponent) value); // ConceptDefinitionComponent
           return value;
@@ -1897,6 +1963,8 @@ public class CodeSystem extends MetadataResource {
           this.getDesignation().add((ConceptDefinitionDesignationComponent) value);
         } else if (name.equals("property")) {
           this.getProperty().add((ConceptPropertyComponent) value);
+        } else if (name.equals("alternate")) {
+          this.getAlternate().add((ConceptDefinitionAlternateComponent) value);
         } else if (name.equals("concept")) {
           this.getConcept().add((ConceptDefinitionComponent) value);
         } else
@@ -1912,6 +1980,7 @@ public class CodeSystem extends MetadataResource {
         case -1014418093:  return getDefinitionElement();
         case -900931593:  return addDesignation(); 
         case -993141291:  return addProperty(); 
+        case -1408024454:  return addAlternate(); 
         case 951024232:  return addConcept(); 
         default: return super.makeProperty(hash, name);
         }
@@ -1926,6 +1995,7 @@ public class CodeSystem extends MetadataResource {
         case -1014418093: /*definition*/ return new String[] {"string"};
         case -900931593: /*designation*/ return new String[] {};
         case -993141291: /*property*/ return new String[] {};
+        case -1408024454: /*alternate*/ return new String[] {};
         case 951024232: /*concept*/ return new String[] {"@CodeSystem.concept"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1948,6 +2018,9 @@ public class CodeSystem extends MetadataResource {
         }
         else if (name.equals("property")) {
           return addProperty();
+        }
+        else if (name.equals("alternate")) {
+          return addAlternate();
         }
         else if (name.equals("concept")) {
           return addConcept();
@@ -1972,6 +2045,11 @@ public class CodeSystem extends MetadataResource {
           for (ConceptPropertyComponent i : property)
             dst.property.add(i.copy());
         };
+        if (alternate != null) {
+          dst.alternate = new ArrayList<ConceptDefinitionAlternateComponent>();
+          for (ConceptDefinitionAlternateComponent i : alternate)
+            dst.alternate.add(i.copy());
+        };
         if (concept != null) {
           dst.concept = new ArrayList<ConceptDefinitionComponent>();
           for (ConceptDefinitionComponent i : concept)
@@ -1988,8 +2066,8 @@ public class CodeSystem extends MetadataResource {
           return false;
         ConceptDefinitionComponent o = (ConceptDefinitionComponent) other;
         return compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(definition, o.definition, true)
-           && compareDeep(designation, o.designation, true) && compareDeep(property, o.property, true) && compareDeep(concept, o.concept, true)
-          ;
+           && compareDeep(designation, o.designation, true) && compareDeep(property, o.property, true) && compareDeep(alternate, o.alternate, true)
+           && compareDeep(concept, o.concept, true);
       }
 
       @Override
@@ -2005,7 +2083,7 @@ public class CodeSystem extends MetadataResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, display, definition
-          , designation, property, concept);
+          , designation, property, alternate, concept);
       }
 
   public String fhirType() {
@@ -2635,6 +2713,233 @@ public class CodeSystem extends MetadataResource {
 
   public String fhirType() {
     return "CodeSystem.concept.property";
+
+  }
+
+  }
+
+    @Block()
+    public static class ConceptDefinitionAlternateComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Indicates the type of use for which the code is defined.
+         */
+        @Child(name = "kind", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Type of use for the code", formalDefinition="Indicates the type of use for which the code is defined." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/codesystem-altcode-kind")
+        protected Coding kind;
+
+        /**
+         * An alternative code that can be used to identify the concept.
+         */
+        @Child(name = "code", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Actual alternate code", formalDefinition="An alternative code that can be used to identify the concept." )
+        protected CodeType code;
+
+        private static final long serialVersionUID = 995516196L;
+
+    /**
+     * Constructor
+     */
+      public ConceptDefinitionAlternateComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public ConceptDefinitionAlternateComponent(Coding kind, CodeType code) {
+        super();
+        this.kind = kind;
+        this.code = code;
+      }
+
+        /**
+         * @return {@link #kind} (Indicates the type of use for which the code is defined.)
+         */
+        public Coding getKind() { 
+          if (this.kind == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConceptDefinitionAlternateComponent.kind");
+            else if (Configuration.doAutoCreate())
+              this.kind = new Coding(); // cc
+          return this.kind;
+        }
+
+        public boolean hasKind() { 
+          return this.kind != null && !this.kind.isEmpty();
+        }
+
+        /**
+         * @param value {@link #kind} (Indicates the type of use for which the code is defined.)
+         */
+        public ConceptDefinitionAlternateComponent setKind(Coding value) { 
+          this.kind = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #code} (An alternative code that can be used to identify the concept.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         */
+        public CodeType getCodeElement() { 
+          if (this.code == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ConceptDefinitionAlternateComponent.code");
+            else if (Configuration.doAutoCreate())
+              this.code = new CodeType(); // bb
+          return this.code;
+        }
+
+        public boolean hasCodeElement() { 
+          return this.code != null && !this.code.isEmpty();
+        }
+
+        public boolean hasCode() { 
+          return this.code != null && !this.code.isEmpty();
+        }
+
+        /**
+         * @param value {@link #code} (An alternative code that can be used to identify the concept.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         */
+        public ConceptDefinitionAlternateComponent setCodeElement(CodeType value) { 
+          this.code = value;
+          return this;
+        }
+
+        /**
+         * @return An alternative code that can be used to identify the concept.
+         */
+        public String getCode() { 
+          return this.code == null ? null : this.code.getValue();
+        }
+
+        /**
+         * @param value An alternative code that can be used to identify the concept.
+         */
+        public ConceptDefinitionAlternateComponent setCode(String value) { 
+            if (this.code == null)
+              this.code = new CodeType();
+            this.code.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("kind", "Coding", "Indicates the type of use for which the code is defined.", 0, 1, kind));
+          children.add(new Property("code", "code", "An alternative code that can be used to identify the concept.", 0, 1, code));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3292052: /*kind*/  return new Property("kind", "Coding", "Indicates the type of use for which the code is defined.", 0, 1, kind);
+          case 3059181: /*code*/  return new Property("code", "code", "An alternative code that can be used to identify the concept.", 0, 1, code);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Coding
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3292052: // kind
+          this.kind = castToCoding(value); // Coding
+          return value;
+        case 3059181: // code
+          this.code = castToCode(value); // CodeType
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("kind")) {
+          this.kind = castToCoding(value); // Coding
+        } else if (name.equals("code")) {
+          this.code = castToCode(value); // CodeType
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3292052:  return getKind(); 
+        case 3059181:  return getCodeElement();
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3292052: /*kind*/ return new String[] {"Coding"};
+        case 3059181: /*code*/ return new String[] {"code"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("kind")) {
+          this.kind = new Coding();
+          return this.kind;
+        }
+        else if (name.equals("code")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CodeSystem.code");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public ConceptDefinitionAlternateComponent copy() {
+        ConceptDefinitionAlternateComponent dst = new ConceptDefinitionAlternateComponent();
+        copyValues(dst);
+        dst.kind = kind == null ? null : kind.copy();
+        dst.code = code == null ? null : code.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ConceptDefinitionAlternateComponent))
+          return false;
+        ConceptDefinitionAlternateComponent o = (ConceptDefinitionAlternateComponent) other;
+        return compareDeep(kind, o.kind, true) && compareDeep(code, o.code, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ConceptDefinitionAlternateComponent))
+          return false;
+        ConceptDefinitionAlternateComponent o = (ConceptDefinitionAlternateComponent) other;
+        return compareValues(code, o.code, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, code);
+      }
+
+  public String fhirType() {
+    return "CodeSystem.concept.alternate";
 
   }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -191,9 +191,17 @@ public class Provenance extends DomainResource {
     @Block()
     public static class ProvenanceAgentComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * The participation the agent had with respect to the activity.
+         */
+        @Child(name = "type", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="How the agent participated", formalDefinition="The participation the agent had with respect to the activity." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/participation-role-type")
+        protected CodeableConcept type;
+
+        /**
          * The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.
          */
-        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="What the agents role was", formalDefinition="The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/security-role-type")
         protected List<CodeableConcept> role;
@@ -201,26 +209,18 @@ public class Provenance extends DomainResource {
         /**
          * The individual, device or organization that participated in the event.
          */
-        @Child(name = "who", type = {UriType.class, Practitioner.class, RelatedPerson.class, Patient.class, Device.class, Organization.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "who", type = {Identifier.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class, Patient.class, Device.class, Organization.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Who participated", formalDefinition="The individual, device or organization that participated in the event." )
         protected Type who;
 
         /**
          * The individual, device, or organization for whom the change was made.
          */
-        @Child(name = "onBehalfOf", type = {UriType.class, Practitioner.class, RelatedPerson.class, Patient.class, Device.class, Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "onBehalfOf", type = {Identifier.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class, Patient.class, Device.class, Organization.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Who the agent is representing", formalDefinition="The individual, device, or organization for whom the change was made." )
         protected Type onBehalfOf;
 
-        /**
-         * The type of relationship between agents.
-         */
-        @Child(name = "relatedAgentType", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Type of relationship between agents", formalDefinition="The type of relationship between agents." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-RoleLinkType")
-        protected CodeableConcept relatedAgentType;
-
-        private static final long serialVersionUID = -1431948744L;
+        private static final long serialVersionUID = -764886968L;
 
     /**
      * Constructor
@@ -236,6 +236,30 @@ public class Provenance extends DomainResource {
         super();
         this.who = who;
       }
+
+        /**
+         * @return {@link #type} (The participation the agent had with respect to the activity.)
+         */
+        public CodeableConcept getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProvenanceAgentComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new CodeableConcept(); // cc
+          return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (The participation the agent had with respect to the activity.)
+         */
+        public ProvenanceAgentComponent setType(CodeableConcept value) { 
+          this.type = value;
+          return this;
+        }
 
         /**
          * @return {@link #role} (The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.)
@@ -300,14 +324,14 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #who} (The individual, device or organization that participated in the event.)
          */
-        public UriType getWhoUriType() throws FHIRException { 
-          if (!(this.who instanceof UriType))
-            throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.who.getClass().getName()+" was encountered");
-          return (UriType) this.who;
+        public Identifier getWhoIdentifier() throws FHIRException { 
+          if (!(this.who instanceof Identifier))
+            throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.who.getClass().getName()+" was encountered");
+          return (Identifier) this.who;
         }
 
-        public boolean hasWhoUriType() { 
-          return this.who instanceof UriType;
+        public boolean hasWhoIdentifier() { 
+          return this.who instanceof Identifier;
         }
 
         /**
@@ -345,14 +369,14 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #onBehalfOf} (The individual, device, or organization for whom the change was made.)
          */
-        public UriType getOnBehalfOfUriType() throws FHIRException { 
-          if (!(this.onBehalfOf instanceof UriType))
-            throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.onBehalfOf.getClass().getName()+" was encountered");
-          return (UriType) this.onBehalfOf;
+        public Identifier getOnBehalfOfIdentifier() throws FHIRException { 
+          if (!(this.onBehalfOf instanceof Identifier))
+            throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.onBehalfOf.getClass().getName()+" was encountered");
+          return (Identifier) this.onBehalfOf;
         }
 
-        public boolean hasOnBehalfOfUriType() { 
-          return this.onBehalfOf instanceof UriType;
+        public boolean hasOnBehalfOfIdentifier() { 
+          return this.onBehalfOf instanceof Identifier;
         }
 
         /**
@@ -380,51 +404,27 @@ public class Provenance extends DomainResource {
           return this;
         }
 
-        /**
-         * @return {@link #relatedAgentType} (The type of relationship between agents.)
-         */
-        public CodeableConcept getRelatedAgentType() { 
-          if (this.relatedAgentType == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProvenanceAgentComponent.relatedAgentType");
-            else if (Configuration.doAutoCreate())
-              this.relatedAgentType = new CodeableConcept(); // cc
-          return this.relatedAgentType;
-        }
-
-        public boolean hasRelatedAgentType() { 
-          return this.relatedAgentType != null && !this.relatedAgentType.isEmpty();
-        }
-
-        /**
-         * @param value {@link #relatedAgentType} (The type of relationship between agents.)
-         */
-        public ProvenanceAgentComponent setRelatedAgentType(CodeableConcept value) { 
-          this.relatedAgentType = value;
-          return this;
-        }
-
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
+          children.add(new Property("type", "CodeableConcept", "The participation the agent had with respect to the activity.", 0, 1, type));
           children.add(new Property("role", "CodeableConcept", "The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.", 0, java.lang.Integer.MAX_VALUE, role));
-          children.add(new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who));
-          children.add(new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf));
-          children.add(new Property("relatedAgentType", "CodeableConcept", "The type of relationship between agents.", 0, 1, relatedAgentType));
+          children.add(new Property("who[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who));
+          children.add(new Property("onBehalfOf[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
+          case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The participation the agent had with respect to the activity.", 0, 1, type);
           case 3506294: /*role*/  return new Property("role", "CodeableConcept", "The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.", 0, java.lang.Integer.MAX_VALUE, role);
-          case -788654078: /*who[x]*/  return new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who);
-          case 117694: /*who*/  return new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who);
-          case -788660018: /*whoUri*/  return new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who);
-          case 1017243949: /*whoReference*/  return new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who);
-          case 418120340: /*onBehalfOf[x]*/  return new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf);
-          case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf);
-          case 418114400: /*onBehalfOfUri*/  return new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf);
-          case -1136255425: /*onBehalfOfReference*/  return new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf);
-          case 1228161012: /*relatedAgentType*/  return new Property("relatedAgentType", "CodeableConcept", "The type of relationship between agents.", 0, 1, relatedAgentType);
+          case -788654078: /*who[x]*/  return new Property("who[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who);
+          case 117694: /*who*/  return new Property("who[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who);
+          case -1533591801: /*whoIdentifier*/  return new Property("who[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who);
+          case 1017243949: /*whoReference*/  return new Property("who[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, 1, who);
+          case 418120340: /*onBehalfOf[x]*/  return new Property("onBehalfOf[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf);
+          case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf);
+          case 427404341: /*onBehalfOfIdentifier*/  return new Property("onBehalfOf[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf);
+          case -1136255425: /*onBehalfOfReference*/  return new Property("onBehalfOf[x]", "Identifier|Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, 1, onBehalfOf);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -433,10 +433,10 @@ public class Provenance extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case 3506294: /*role*/ return this.role == null ? new Base[0] : this.role.toArray(new Base[this.role.size()]); // CodeableConcept
         case 117694: /*who*/ return this.who == null ? new Base[0] : new Base[] {this.who}; // Type
         case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Type
-        case 1228161012: /*relatedAgentType*/ return this.relatedAgentType == null ? new Base[0] : new Base[] {this.relatedAgentType}; // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -445,6 +445,9 @@ public class Provenance extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case 3575610: // type
+          this.type = castToCodeableConcept(value); // CodeableConcept
+          return value;
         case 3506294: // role
           this.getRole().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
@@ -454,9 +457,6 @@ public class Provenance extends DomainResource {
         case -14402964: // onBehalfOf
           this.onBehalfOf = castToType(value); // Type
           return value;
-        case 1228161012: // relatedAgentType
-          this.relatedAgentType = castToCodeableConcept(value); // CodeableConcept
-          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -464,14 +464,14 @@ public class Provenance extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role")) {
+        if (name.equals("type")) {
+          this.type = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("role")) {
           this.getRole().add(castToCodeableConcept(value));
         } else if (name.equals("who[x]")) {
           this.who = castToType(value); // Type
         } else if (name.equals("onBehalfOf[x]")) {
           this.onBehalfOf = castToType(value); // Type
-        } else if (name.equals("relatedAgentType")) {
-          this.relatedAgentType = castToCodeableConcept(value); // CodeableConcept
         } else
           return super.setProperty(name, value);
         return value;
@@ -480,12 +480,12 @@ public class Provenance extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case 3575610:  return getType(); 
         case 3506294:  return addRole(); 
         case -788654078:  return getWho(); 
         case 117694:  return getWho(); 
         case 418120340:  return getOnBehalfOf(); 
         case -14402964:  return getOnBehalfOf(); 
-        case 1228161012:  return getRelatedAgentType(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -494,10 +494,10 @@ public class Provenance extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case 3506294: /*role*/ return new String[] {"CodeableConcept"};
-        case 117694: /*who*/ return new String[] {"uri", "Reference"};
-        case -14402964: /*onBehalfOf*/ return new String[] {"uri", "Reference"};
-        case 1228161012: /*relatedAgentType*/ return new String[] {"CodeableConcept"};
+        case 117694: /*who*/ return new String[] {"Identifier", "Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Identifier", "Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -505,28 +505,28 @@ public class Provenance extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("role")) {
+        if (name.equals("type")) {
+          this.type = new CodeableConcept();
+          return this.type;
+        }
+        else if (name.equals("role")) {
           return addRole();
         }
-        else if (name.equals("whoUri")) {
-          this.who = new UriType();
+        else if (name.equals("whoIdentifier")) {
+          this.who = new Identifier();
           return this.who;
         }
         else if (name.equals("whoReference")) {
           this.who = new Reference();
           return this.who;
         }
-        else if (name.equals("onBehalfOfUri")) {
-          this.onBehalfOf = new UriType();
+        else if (name.equals("onBehalfOfIdentifier")) {
+          this.onBehalfOf = new Identifier();
           return this.onBehalfOf;
         }
         else if (name.equals("onBehalfOfReference")) {
           this.onBehalfOf = new Reference();
           return this.onBehalfOf;
-        }
-        else if (name.equals("relatedAgentType")) {
-          this.relatedAgentType = new CodeableConcept();
-          return this.relatedAgentType;
         }
         else
           return super.addChild(name);
@@ -535,6 +535,7 @@ public class Provenance extends DomainResource {
       public ProvenanceAgentComponent copy() {
         ProvenanceAgentComponent dst = new ProvenanceAgentComponent();
         copyValues(dst);
+        dst.type = type == null ? null : type.copy();
         if (role != null) {
           dst.role = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : role)
@@ -542,7 +543,6 @@ public class Provenance extends DomainResource {
         };
         dst.who = who == null ? null : who.copy();
         dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
-        dst.relatedAgentType = relatedAgentType == null ? null : relatedAgentType.copy();
         return dst;
       }
 
@@ -553,8 +553,8 @@ public class Provenance extends DomainResource {
         if (!(other instanceof ProvenanceAgentComponent))
           return false;
         ProvenanceAgentComponent o = (ProvenanceAgentComponent) other;
-        return compareDeep(role, o.role, true) && compareDeep(who, o.who, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
-           && compareDeep(relatedAgentType, o.relatedAgentType, true);
+        return compareDeep(type, o.type, true) && compareDeep(role, o.role, true) && compareDeep(who, o.who, true)
+           && compareDeep(onBehalfOf, o.onBehalfOf, true);
       }
 
       @Override
@@ -568,7 +568,7 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, who, onBehalfOf, relatedAgentType
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, role, who, onBehalfOf
           );
       }
 
@@ -592,7 +592,7 @@ public class Provenance extends DomainResource {
         /**
          * Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.
          */
-        @Child(name = "what", type = {UriType.class, Reference.class, Identifier.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "what", type = {Identifier.class, Reference.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Identity of entity", formalDefinition="Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative." )
         protected Type what;
 
@@ -676,14 +676,14 @@ public class Provenance extends DomainResource {
         /**
          * @return {@link #what} (Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.)
          */
-        public UriType getWhatUriType() throws FHIRException { 
-          if (!(this.what instanceof UriType))
-            throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.what.getClass().getName()+" was encountered");
-          return (UriType) this.what;
+        public Identifier getWhatIdentifier() throws FHIRException { 
+          if (!(this.what instanceof Identifier))
+            throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.what.getClass().getName()+" was encountered");
+          return (Identifier) this.what;
         }
 
-        public boolean hasWhatUriType() { 
-          return this.what instanceof UriType;
+        public boolean hasWhatIdentifier() { 
+          return this.what instanceof Identifier;
         }
 
         /**
@@ -697,19 +697,6 @@ public class Provenance extends DomainResource {
 
         public boolean hasWhatReference() { 
           return this.what instanceof Reference;
-        }
-
-        /**
-         * @return {@link #what} (Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.)
-         */
-        public Identifier getWhatIdentifier() throws FHIRException { 
-          if (!(this.what instanceof Identifier))
-            throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.what.getClass().getName()+" was encountered");
-          return (Identifier) this.what;
-        }
-
-        public boolean hasWhatIdentifier() { 
-          return this.what instanceof Identifier;
         }
 
         public boolean hasWhat() { 
@@ -780,7 +767,7 @@ public class Provenance extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("role", "code", "How the entity was used during the activity.", 0, 1, role));
-          children.add(new Property("what[x]", "uri|Reference(Any)|Identifier", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what));
+          children.add(new Property("what[x]", "Identifier|Reference(Any)", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what));
           children.add(new Property("agent", "@Provenance.agent", "The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.", 0, java.lang.Integer.MAX_VALUE, agent));
         }
 
@@ -788,11 +775,10 @@ public class Provenance extends DomainResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3506294: /*role*/  return new Property("role", "code", "How the entity was used during the activity.", 0, 1, role);
-          case 1309315900: /*what[x]*/  return new Property("what[x]", "uri|Reference(Any)|Identifier", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what);
-          case 3648196: /*what*/  return new Property("what[x]", "uri|Reference(Any)|Identifier", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what);
-          case 1309309960: /*whatUri*/  return new Property("what[x]", "uri|Reference(Any)|Identifier", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what);
-          case 1531941095: /*whatReference*/  return new Property("what[x]", "uri|Reference(Any)|Identifier", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what);
-          case 1537117837: /*whatIdentifier*/  return new Property("what[x]", "uri|Reference(Any)|Identifier", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what);
+          case 1309315900: /*what[x]*/  return new Property("what[x]", "Identifier|Reference(Any)", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what);
+          case 3648196: /*what*/  return new Property("what[x]", "Identifier|Reference(Any)", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what);
+          case 1537117837: /*whatIdentifier*/  return new Property("what[x]", "Identifier|Reference(Any)", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what);
+          case 1531941095: /*whatReference*/  return new Property("what[x]", "Identifier|Reference(Any)", "Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.", 0, 1, what);
           case 92750597: /*agent*/  return new Property("agent", "@Provenance.agent", "The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity.", 0, java.lang.Integer.MAX_VALUE, agent);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -858,7 +844,7 @@ public class Provenance extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3506294: /*role*/ return new String[] {"code"};
-        case 3648196: /*what*/ return new String[] {"uri", "Reference", "Identifier"};
+        case 3648196: /*what*/ return new String[] {"Identifier", "Reference"};
         case 92750597: /*agent*/ return new String[] {"@Provenance.agent"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -870,16 +856,12 @@ public class Provenance extends DomainResource {
         if (name.equals("role")) {
           throw new FHIRException("Cannot call addChild on a primitive type Provenance.role");
         }
-        else if (name.equals("whatUri")) {
-          this.what = new UriType();
+        else if (name.equals("whatIdentifier")) {
+          this.what = new Identifier();
           return this.what;
         }
         else if (name.equals("whatReference")) {
           this.what = new Reference();
-          return this.what;
-        }
-        else if (name.equals("whatIdentifier")) {
-          this.what = new Identifier();
           return this.what;
         }
         else if (name.equals("agent")) {
@@ -949,9 +931,9 @@ public class Provenance extends DomainResource {
     /**
      * The period during which the activity occurred.
      */
-    @Child(name = "period", type = {Period.class}, order=1, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "occurred", type = {Period.class, DateTimeType.class}, order=1, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When the activity occurred", formalDefinition="The period during which the activity occurred." )
-    protected Period period;
+    protected Type occurred;
 
     /**
      * The instant of time at which the activity was recorded.
@@ -982,18 +964,18 @@ public class Provenance extends DomainResource {
     /**
      * The reason that the activity was taking place.
      */
-    @Child(name = "reason", type = {Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reason", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason the activity is occurring", formalDefinition="The reason that the activity was taking place." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
-    protected List<Coding> reason;
+    protected List<CodeableConcept> reason;
 
     /**
      * An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
      */
-    @Child(name = "activity", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "activity", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Activity that occurred", formalDefinition="An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/provenance-activity-type")
-    protected Coding activity;
+    protected CodeableConcept activity;
 
     /**
      * An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.
@@ -1016,7 +998,7 @@ public class Provenance extends DomainResource {
     @Description(shortDefinition="Signature on target", formalDefinition="A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated." )
     protected List<Signature> signature;
 
-    private static final long serialVersionUID = -1668640371L;
+    private static final long serialVersionUID = -1991881518L;
 
   /**
    * Constructor
@@ -1097,26 +1079,47 @@ public class Provenance extends DomainResource {
     }
 
     /**
-     * @return {@link #period} (The period during which the activity occurred.)
+     * @return {@link #occurred} (The period during which the activity occurred.)
      */
-    public Period getPeriod() { 
-      if (this.period == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Provenance.period");
-        else if (Configuration.doAutoCreate())
-          this.period = new Period(); // cc
-      return this.period;
-    }
-
-    public boolean hasPeriod() { 
-      return this.period != null && !this.period.isEmpty();
+    public Type getOccurred() { 
+      return this.occurred;
     }
 
     /**
-     * @param value {@link #period} (The period during which the activity occurred.)
+     * @return {@link #occurred} (The period during which the activity occurred.)
      */
-    public Provenance setPeriod(Period value) { 
-      this.period = value;
+    public Period getOccurredPeriod() throws FHIRException { 
+      if (!(this.occurred instanceof Period))
+        throw new FHIRException("Type mismatch: the type Period was expected, but "+this.occurred.getClass().getName()+" was encountered");
+      return (Period) this.occurred;
+    }
+
+    public boolean hasOccurredPeriod() { 
+      return this.occurred instanceof Period;
+    }
+
+    /**
+     * @return {@link #occurred} (The period during which the activity occurred.)
+     */
+    public DateTimeType getOccurredDateTimeType() throws FHIRException { 
+      if (!(this.occurred instanceof DateTimeType))
+        throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.occurred.getClass().getName()+" was encountered");
+      return (DateTimeType) this.occurred;
+    }
+
+    public boolean hasOccurredDateTimeType() { 
+      return this.occurred instanceof DateTimeType;
+    }
+
+    public boolean hasOccurred() { 
+      return this.occurred != null && !this.occurred.isEmpty();
+    }
+
+    /**
+     * @param value {@link #occurred} (The period during which the activity occurred.)
+     */
+    public Provenance setOccurred(Type value) { 
+      this.occurred = value;
       return this;
     }
 
@@ -1273,16 +1276,16 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #reason} (The reason that the activity was taking place.)
      */
-    public List<Coding> getReason() { 
+    public List<CodeableConcept> getReason() { 
       if (this.reason == null)
-        this.reason = new ArrayList<Coding>();
+        this.reason = new ArrayList<CodeableConcept>();
       return this.reason;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Provenance setReason(List<Coding> theReason) { 
+    public Provenance setReason(List<CodeableConcept> theReason) { 
       this.reason = theReason;
       return this;
     }
@@ -1290,25 +1293,25 @@ public class Provenance extends DomainResource {
     public boolean hasReason() { 
       if (this.reason == null)
         return false;
-      for (Coding item : this.reason)
+      for (CodeableConcept item : this.reason)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Coding addReason() { //3
-      Coding t = new Coding();
+    public CodeableConcept addReason() { //3
+      CodeableConcept t = new CodeableConcept();
       if (this.reason == null)
-        this.reason = new ArrayList<Coding>();
+        this.reason = new ArrayList<CodeableConcept>();
       this.reason.add(t);
       return t;
     }
 
-    public Provenance addReason(Coding t) { //3
+    public Provenance addReason(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.reason == null)
-        this.reason = new ArrayList<Coding>();
+        this.reason = new ArrayList<CodeableConcept>();
       this.reason.add(t);
       return this;
     }
@@ -1316,7 +1319,7 @@ public class Provenance extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #reason}, creating it if it does not already exist
      */
-    public Coding getReasonFirstRep() { 
+    public CodeableConcept getReasonFirstRep() { 
       if (getReason().isEmpty()) {
         addReason();
       }
@@ -1326,12 +1329,12 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #activity} (An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.)
      */
-    public Coding getActivity() { 
+    public CodeableConcept getActivity() { 
       if (this.activity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.activity");
         else if (Configuration.doAutoCreate())
-          this.activity = new Coding(); // cc
+          this.activity = new CodeableConcept(); // cc
       return this.activity;
     }
 
@@ -1342,7 +1345,7 @@ public class Provenance extends DomainResource {
     /**
      * @param value {@link #activity} (An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.)
      */
-    public Provenance setActivity(Coding value) { 
+    public Provenance setActivity(CodeableConcept value) { 
       this.activity = value;
       return this;
     }
@@ -1509,12 +1512,12 @@ public class Provenance extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("target", "Reference(Any)", "The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.", 0, java.lang.Integer.MAX_VALUE, target));
-        children.add(new Property("period", "Period", "The period during which the activity occurred.", 0, 1, period));
+        children.add(new Property("occurred[x]", "Period|dateTime", "The period during which the activity occurred.", 0, 1, occurred));
         children.add(new Property("recorded", "instant", "The instant of time at which the activity was recorded.", 0, 1, recorded));
         children.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
         children.add(new Property("location", "Reference(Location)", "Where the activity occurred, if relevant.", 0, 1, location));
-        children.add(new Property("reason", "Coding", "The reason that the activity was taking place.", 0, java.lang.Integer.MAX_VALUE, reason));
-        children.add(new Property("activity", "Coding", "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.", 0, 1, activity));
+        children.add(new Property("reason", "CodeableConcept", "The reason that the activity was taking place.", 0, java.lang.Integer.MAX_VALUE, reason));
+        children.add(new Property("activity", "CodeableConcept", "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.", 0, 1, activity));
         children.add(new Property("agent", "", "An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.", 0, java.lang.Integer.MAX_VALUE, agent));
         children.add(new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity));
         children.add(new Property("signature", "Signature", "A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.", 0, java.lang.Integer.MAX_VALUE, signature));
@@ -1524,12 +1527,15 @@ public class Provenance extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -880905839: /*target*/  return new Property("target", "Reference(Any)", "The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.", 0, java.lang.Integer.MAX_VALUE, target);
-        case -991726143: /*period*/  return new Property("period", "Period", "The period during which the activity occurred.", 0, 1, period);
+        case 784181563: /*occurred[x]*/  return new Property("occurred[x]", "Period|dateTime", "The period during which the activity occurred.", 0, 1, occurred);
+        case 792816933: /*occurred*/  return new Property("occurred[x]", "Period|dateTime", "The period during which the activity occurred.", 0, 1, occurred);
+        case 894082886: /*occurredPeriod*/  return new Property("occurred[x]", "Period|dateTime", "The period during which the activity occurred.", 0, 1, occurred);
+        case 1579027424: /*occurredDateTime*/  return new Property("occurred[x]", "Period|dateTime", "The period during which the activity occurred.", 0, 1, occurred);
         case -799233872: /*recorded*/  return new Property("recorded", "instant", "The instant of time at which the activity was recorded.", 0, 1, recorded);
         case -982670030: /*policy*/  return new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy);
         case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "Where the activity occurred, if relevant.", 0, 1, location);
-        case -934964668: /*reason*/  return new Property("reason", "Coding", "The reason that the activity was taking place.", 0, java.lang.Integer.MAX_VALUE, reason);
-        case -1655966961: /*activity*/  return new Property("activity", "Coding", "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.", 0, 1, activity);
+        case -934964668: /*reason*/  return new Property("reason", "CodeableConcept", "The reason that the activity was taking place.", 0, java.lang.Integer.MAX_VALUE, reason);
+        case -1655966961: /*activity*/  return new Property("activity", "CodeableConcept", "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.", 0, 1, activity);
         case 92750597: /*agent*/  return new Property("agent", "", "An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.", 0, java.lang.Integer.MAX_VALUE, agent);
         case -1298275357: /*entity*/  return new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity);
         case 1073584312: /*signature*/  return new Property("signature", "Signature", "A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.", 0, java.lang.Integer.MAX_VALUE, signature);
@@ -1542,12 +1548,12 @@ public class Provenance extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -880905839: /*target*/ return this.target == null ? new Base[0] : this.target.toArray(new Base[this.target.size()]); // Reference
-        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 792816933: /*occurred*/ return this.occurred == null ? new Base[0] : new Base[] {this.occurred}; // Type
         case -799233872: /*recorded*/ return this.recorded == null ? new Base[0] : new Base[] {this.recorded}; // InstantType
         case -982670030: /*policy*/ return this.policy == null ? new Base[0] : this.policy.toArray(new Base[this.policy.size()]); // UriType
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
-        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // Coding
-        case -1655966961: /*activity*/ return this.activity == null ? new Base[0] : new Base[] {this.activity}; // Coding
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
+        case -1655966961: /*activity*/ return this.activity == null ? new Base[0] : new Base[] {this.activity}; // CodeableConcept
         case 92750597: /*agent*/ return this.agent == null ? new Base[0] : this.agent.toArray(new Base[this.agent.size()]); // ProvenanceAgentComponent
         case -1298275357: /*entity*/ return this.entity == null ? new Base[0] : this.entity.toArray(new Base[this.entity.size()]); // ProvenanceEntityComponent
         case 1073584312: /*signature*/ return this.signature == null ? new Base[0] : this.signature.toArray(new Base[this.signature.size()]); // Signature
@@ -1562,8 +1568,8 @@ public class Provenance extends DomainResource {
         case -880905839: // target
           this.getTarget().add(castToReference(value)); // Reference
           return value;
-        case -991726143: // period
-          this.period = castToPeriod(value); // Period
+        case 792816933: // occurred
+          this.occurred = castToType(value); // Type
           return value;
         case -799233872: // recorded
           this.recorded = castToInstant(value); // InstantType
@@ -1575,10 +1581,10 @@ public class Provenance extends DomainResource {
           this.location = castToReference(value); // Reference
           return value;
         case -934964668: // reason
-          this.getReason().add(castToCoding(value)); // Coding
+          this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1655966961: // activity
-          this.activity = castToCoding(value); // Coding
+          this.activity = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 92750597: // agent
           this.getAgent().add((ProvenanceAgentComponent) value); // ProvenanceAgentComponent
@@ -1598,8 +1604,8 @@ public class Provenance extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("target")) {
           this.getTarget().add(castToReference(value));
-        } else if (name.equals("period")) {
-          this.period = castToPeriod(value); // Period
+        } else if (name.equals("occurred[x]")) {
+          this.occurred = castToType(value); // Type
         } else if (name.equals("recorded")) {
           this.recorded = castToInstant(value); // InstantType
         } else if (name.equals("policy")) {
@@ -1607,9 +1613,9 @@ public class Provenance extends DomainResource {
         } else if (name.equals("location")) {
           this.location = castToReference(value); // Reference
         } else if (name.equals("reason")) {
-          this.getReason().add(castToCoding(value));
+          this.getReason().add(castToCodeableConcept(value));
         } else if (name.equals("activity")) {
-          this.activity = castToCoding(value); // Coding
+          this.activity = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("agent")) {
           this.getAgent().add((ProvenanceAgentComponent) value);
         } else if (name.equals("entity")) {
@@ -1625,7 +1631,8 @@ public class Provenance extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -880905839:  return addTarget(); 
-        case -991726143:  return getPeriod(); 
+        case 784181563:  return getOccurred(); 
+        case 792816933:  return getOccurred(); 
         case -799233872:  return getRecordedElement();
         case -982670030:  return addPolicyElement();
         case 1901043637:  return getLocation(); 
@@ -1643,12 +1650,12 @@ public class Provenance extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -880905839: /*target*/ return new String[] {"Reference"};
-        case -991726143: /*period*/ return new String[] {"Period"};
+        case 792816933: /*occurred*/ return new String[] {"Period", "dateTime"};
         case -799233872: /*recorded*/ return new String[] {"instant"};
         case -982670030: /*policy*/ return new String[] {"uri"};
         case 1901043637: /*location*/ return new String[] {"Reference"};
-        case -934964668: /*reason*/ return new String[] {"Coding"};
-        case -1655966961: /*activity*/ return new String[] {"Coding"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
+        case -1655966961: /*activity*/ return new String[] {"CodeableConcept"};
         case 92750597: /*agent*/ return new String[] {};
         case -1298275357: /*entity*/ return new String[] {};
         case 1073584312: /*signature*/ return new String[] {"Signature"};
@@ -1662,9 +1669,13 @@ public class Provenance extends DomainResource {
         if (name.equals("target")) {
           return addTarget();
         }
-        else if (name.equals("period")) {
-          this.period = new Period();
-          return this.period;
+        else if (name.equals("occurredPeriod")) {
+          this.occurred = new Period();
+          return this.occurred;
+        }
+        else if (name.equals("occurredDateTime")) {
+          this.occurred = new DateTimeType();
+          return this.occurred;
         }
         else if (name.equals("recorded")) {
           throw new FHIRException("Cannot call addChild on a primitive type Provenance.recorded");
@@ -1680,7 +1691,7 @@ public class Provenance extends DomainResource {
           return addReason();
         }
         else if (name.equals("activity")) {
-          this.activity = new Coding();
+          this.activity = new CodeableConcept();
           return this.activity;
         }
         else if (name.equals("agent")) {
@@ -1709,7 +1720,7 @@ public class Provenance extends DomainResource {
           for (Reference i : target)
             dst.target.add(i.copy());
         };
-        dst.period = period == null ? null : period.copy();
+        dst.occurred = occurred == null ? null : occurred.copy();
         dst.recorded = recorded == null ? null : recorded.copy();
         if (policy != null) {
           dst.policy = new ArrayList<UriType>();
@@ -1718,8 +1729,8 @@ public class Provenance extends DomainResource {
         };
         dst.location = location == null ? null : location.copy();
         if (reason != null) {
-          dst.reason = new ArrayList<Coding>();
-          for (Coding i : reason)
+          dst.reason = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reason)
             dst.reason.add(i.copy());
         };
         dst.activity = activity == null ? null : activity.copy();
@@ -1752,7 +1763,7 @@ public class Provenance extends DomainResource {
         if (!(other instanceof Provenance))
           return false;
         Provenance o = (Provenance) other;
-        return compareDeep(target, o.target, true) && compareDeep(period, o.period, true) && compareDeep(recorded, o.recorded, true)
+        return compareDeep(target, o.target, true) && compareDeep(occurred, o.occurred, true) && compareDeep(recorded, o.recorded, true)
            && compareDeep(policy, o.policy, true) && compareDeep(location, o.location, true) && compareDeep(reason, o.reason, true)
            && compareDeep(activity, o.activity, true) && compareDeep(agent, o.agent, true) && compareDeep(entity, o.entity, true)
            && compareDeep(signature, o.signature, true);
@@ -1769,7 +1780,7 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(target, period, recorded
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(target, occurred, recorded
           , policy, location, reason, activity, agent, entity, signature);
       }
 
@@ -1805,6 +1816,26 @@ public class Provenance extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENTITY_REF = new ca.uhn.fhir.model.api.Include("Provenance:entity-ref").toLocked();
 
  /**
+   * Search parameter: <b>agent-type</b>
+   * <p>
+   * Description: <b>How the agent participated</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.agent.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="agent-type", path="Provenance.agent.type", description="How the agent participated", type="token" )
+  public static final String SP_AGENT_TYPE = "agent-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>agent-type</b>
+   * <p>
+   * Description: <b>How the agent participated</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.agent.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam AGENT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_AGENT_TYPE);
+
+ /**
    * Search parameter: <b>agent</b>
    * <p>
    * Description: <b>Who participated</b><br>
@@ -1812,7 +1843,7 @@ public class Provenance extends DomainResource {
    * Path: <b>Provenance.agent.who[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent", path="Provenance.agent.who", description="Who participated", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="agent", path="Provenance.agent.who", description="Who participated", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_AGENT = "agent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>agent</b>
@@ -1875,46 +1906,6 @@ public class Provenance extends DomainResource {
    * the path value of "<b>Provenance:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Provenance:patient").toLocked();
-
- /**
-   * Search parameter: <b>start</b>
-   * <p>
-   * Description: <b>Starting time with inclusive boundary</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Provenance.period.start</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="start", path="Provenance.period.start", description="Starting time with inclusive boundary", type="date" )
-  public static final String SP_START = "start";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>start</b>
-   * <p>
-   * Description: <b>Starting time with inclusive boundary</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Provenance.period.start</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam START = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_START);
-
- /**
-   * Search parameter: <b>end</b>
-   * <p>
-   * Description: <b>End time with inclusive boundary, if not ongoing</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Provenance.period.end</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="end", path="Provenance.period.end", description="End time with inclusive boundary, if not ongoing", type="date" )
-  public static final String SP_END = "end";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>end</b>
-   * <p>
-   * Description: <b>End time with inclusive boundary, if not ongoing</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Provenance.period.end</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam END = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_END);
 
  /**
    * Search parameter: <b>location</b>
@@ -1981,6 +1972,26 @@ public class Provenance extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam AGENT_ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_AGENT_ROLE);
+
+ /**
+   * Search parameter: <b>when</b>
+   * <p>
+   * Description: <b>When the activity occurred</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.occurredDateTime</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="when", path="Provenance.occurred.as(DateTime)", description="When the activity occurred", type="date" )
+  public static final String SP_WHEN = "when";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>when</b>
+   * <p>
+   * Description: <b>When the activity occurred</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.occurredDateTime</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam WHEN = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_WHEN);
 
  /**
    * Search parameter: <b>entity-id</b>

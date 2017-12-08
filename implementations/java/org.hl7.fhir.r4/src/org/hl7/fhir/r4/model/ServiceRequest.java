@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -43,18 +43,18 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A record of a request for diagnostic investigations, treatments, or operations to be performed.
+ * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
  */
-@ResourceDef(name="ProcedureRequest", profile="http://hl7.org/fhir/Profile/ProcedureRequest")
-public class ProcedureRequest extends DomainResource {
+@ResourceDef(name="ServiceRequest", profile="http://hl7.org/fhir/Profile/ServiceRequest")
+public class ServiceRequest extends DomainResource {
 
-    public enum ProcedureRequestStatus {
+    public enum ServiceRequestStatus {
         /**
          * The request has been created but is not yet complete or ready for action
          */
         DRAFT, 
         /**
-         * The request is ready to be acted upon
+         * The request is in force and ready to be acted upon
          */
         ACTIVE, 
         /**
@@ -81,7 +81,7 @@ public class ProcedureRequest extends DomainResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static ProcedureRequestStatus fromCode(String codeString) throws FHIRException {
+        public static ServiceRequestStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
@@ -101,7 +101,7 @@ public class ProcedureRequest extends DomainResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown ProcedureRequestStatus code '"+codeString+"'");
+          throw new FHIRException("Unknown ServiceRequestStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -130,7 +130,7 @@ public class ProcedureRequest extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case DRAFT: return "The request has been created but is not yet complete or ready for action";
-            case ACTIVE: return "The request is ready to be acted upon";
+            case ACTIVE: return "The request is in force and ready to be acted upon";
             case SUSPENDED: return "The authorization/request to act has been temporarily withdrawn but is expected to resume in the future";
             case CANCELLED: return "The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.";
             case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester";
@@ -153,74 +153,74 @@ public class ProcedureRequest extends DomainResource {
         }
     }
 
-  public static class ProcedureRequestStatusEnumFactory implements EnumFactory<ProcedureRequestStatus> {
-    public ProcedureRequestStatus fromCode(String codeString) throws IllegalArgumentException {
+  public static class ServiceRequestStatusEnumFactory implements EnumFactory<ServiceRequestStatus> {
+    public ServiceRequestStatus fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("draft".equals(codeString))
-          return ProcedureRequestStatus.DRAFT;
+          return ServiceRequestStatus.DRAFT;
         if ("active".equals(codeString))
-          return ProcedureRequestStatus.ACTIVE;
+          return ServiceRequestStatus.ACTIVE;
         if ("suspended".equals(codeString))
-          return ProcedureRequestStatus.SUSPENDED;
+          return ServiceRequestStatus.SUSPENDED;
         if ("cancelled".equals(codeString))
-          return ProcedureRequestStatus.CANCELLED;
+          return ServiceRequestStatus.CANCELLED;
         if ("completed".equals(codeString))
-          return ProcedureRequestStatus.COMPLETED;
+          return ServiceRequestStatus.COMPLETED;
         if ("entered-in-error".equals(codeString))
-          return ProcedureRequestStatus.ENTEREDINERROR;
+          return ServiceRequestStatus.ENTEREDINERROR;
         if ("unknown".equals(codeString))
-          return ProcedureRequestStatus.UNKNOWN;
-        throw new IllegalArgumentException("Unknown ProcedureRequestStatus code '"+codeString+"'");
+          return ServiceRequestStatus.UNKNOWN;
+        throw new IllegalArgumentException("Unknown ServiceRequestStatus code '"+codeString+"'");
         }
-        public Enumeration<ProcedureRequestStatus> fromType(Base code) throws FHIRException {
+        public Enumeration<ServiceRequestStatus> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<ProcedureRequestStatus>(this);
+            return new Enumeration<ServiceRequestStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("draft".equals(codeString))
-          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.DRAFT);
+          return new Enumeration<ServiceRequestStatus>(this, ServiceRequestStatus.DRAFT);
         if ("active".equals(codeString))
-          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.ACTIVE);
+          return new Enumeration<ServiceRequestStatus>(this, ServiceRequestStatus.ACTIVE);
         if ("suspended".equals(codeString))
-          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.SUSPENDED);
+          return new Enumeration<ServiceRequestStatus>(this, ServiceRequestStatus.SUSPENDED);
         if ("cancelled".equals(codeString))
-          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.CANCELLED);
+          return new Enumeration<ServiceRequestStatus>(this, ServiceRequestStatus.CANCELLED);
         if ("completed".equals(codeString))
-          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.COMPLETED);
+          return new Enumeration<ServiceRequestStatus>(this, ServiceRequestStatus.COMPLETED);
         if ("entered-in-error".equals(codeString))
-          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.ENTEREDINERROR);
+          return new Enumeration<ServiceRequestStatus>(this, ServiceRequestStatus.ENTEREDINERROR);
         if ("unknown".equals(codeString))
-          return new Enumeration<ProcedureRequestStatus>(this, ProcedureRequestStatus.UNKNOWN);
-        throw new FHIRException("Unknown ProcedureRequestStatus code '"+codeString+"'");
+          return new Enumeration<ServiceRequestStatus>(this, ServiceRequestStatus.UNKNOWN);
+        throw new FHIRException("Unknown ServiceRequestStatus code '"+codeString+"'");
         }
-    public String toCode(ProcedureRequestStatus code) {
-      if (code == ProcedureRequestStatus.DRAFT)
+    public String toCode(ServiceRequestStatus code) {
+      if (code == ServiceRequestStatus.DRAFT)
         return "draft";
-      if (code == ProcedureRequestStatus.ACTIVE)
+      if (code == ServiceRequestStatus.ACTIVE)
         return "active";
-      if (code == ProcedureRequestStatus.SUSPENDED)
+      if (code == ServiceRequestStatus.SUSPENDED)
         return "suspended";
-      if (code == ProcedureRequestStatus.CANCELLED)
+      if (code == ServiceRequestStatus.CANCELLED)
         return "cancelled";
-      if (code == ProcedureRequestStatus.COMPLETED)
+      if (code == ServiceRequestStatus.COMPLETED)
         return "completed";
-      if (code == ProcedureRequestStatus.ENTEREDINERROR)
+      if (code == ServiceRequestStatus.ENTEREDINERROR)
         return "entered-in-error";
-      if (code == ProcedureRequestStatus.UNKNOWN)
+      if (code == ServiceRequestStatus.UNKNOWN)
         return "unknown";
       return "?";
       }
-    public String toSystem(ProcedureRequestStatus code) {
+    public String toSystem(ServiceRequestStatus code) {
       return code.getSystem();
       }
     }
 
-    public enum ProcedureRequestIntent {
+    public enum ServiceRequestIntent {
         /**
          * The request is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act
          */
@@ -259,7 +259,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          * added to help the parsers with the generic types
          */
         NULL;
-        public static ProcedureRequestIntent fromCode(String codeString) throws FHIRException {
+        public static ServiceRequestIntent fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("proposal".equals(codeString))
@@ -281,7 +281,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown ProcedureRequestIntent code '"+codeString+"'");
+          throw new FHIRException("Unknown ServiceRequestIntent code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -337,80 +337,80 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
     }
 
-  public static class ProcedureRequestIntentEnumFactory implements EnumFactory<ProcedureRequestIntent> {
-    public ProcedureRequestIntent fromCode(String codeString) throws IllegalArgumentException {
+  public static class ServiceRequestIntentEnumFactory implements EnumFactory<ServiceRequestIntent> {
+    public ServiceRequestIntent fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("proposal".equals(codeString))
-          return ProcedureRequestIntent.PROPOSAL;
+          return ServiceRequestIntent.PROPOSAL;
         if ("plan".equals(codeString))
-          return ProcedureRequestIntent.PLAN;
+          return ServiceRequestIntent.PLAN;
         if ("order".equals(codeString))
-          return ProcedureRequestIntent.ORDER;
+          return ServiceRequestIntent.ORDER;
         if ("original-order".equals(codeString))
-          return ProcedureRequestIntent.ORIGINALORDER;
+          return ServiceRequestIntent.ORIGINALORDER;
         if ("reflex-order".equals(codeString))
-          return ProcedureRequestIntent.REFLEXORDER;
+          return ServiceRequestIntent.REFLEXORDER;
         if ("filler-order".equals(codeString))
-          return ProcedureRequestIntent.FILLERORDER;
+          return ServiceRequestIntent.FILLERORDER;
         if ("instance-order".equals(codeString))
-          return ProcedureRequestIntent.INSTANCEORDER;
+          return ServiceRequestIntent.INSTANCEORDER;
         if ("option".equals(codeString))
-          return ProcedureRequestIntent.OPTION;
-        throw new IllegalArgumentException("Unknown ProcedureRequestIntent code '"+codeString+"'");
+          return ServiceRequestIntent.OPTION;
+        throw new IllegalArgumentException("Unknown ServiceRequestIntent code '"+codeString+"'");
         }
-        public Enumeration<ProcedureRequestIntent> fromType(Base code) throws FHIRException {
+        public Enumeration<ServiceRequestIntent> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<ProcedureRequestIntent>(this);
+            return new Enumeration<ServiceRequestIntent>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("proposal".equals(codeString))
-          return new Enumeration<ProcedureRequestIntent>(this, ProcedureRequestIntent.PROPOSAL);
+          return new Enumeration<ServiceRequestIntent>(this, ServiceRequestIntent.PROPOSAL);
         if ("plan".equals(codeString))
-          return new Enumeration<ProcedureRequestIntent>(this, ProcedureRequestIntent.PLAN);
+          return new Enumeration<ServiceRequestIntent>(this, ServiceRequestIntent.PLAN);
         if ("order".equals(codeString))
-          return new Enumeration<ProcedureRequestIntent>(this, ProcedureRequestIntent.ORDER);
+          return new Enumeration<ServiceRequestIntent>(this, ServiceRequestIntent.ORDER);
         if ("original-order".equals(codeString))
-          return new Enumeration<ProcedureRequestIntent>(this, ProcedureRequestIntent.ORIGINALORDER);
+          return new Enumeration<ServiceRequestIntent>(this, ServiceRequestIntent.ORIGINALORDER);
         if ("reflex-order".equals(codeString))
-          return new Enumeration<ProcedureRequestIntent>(this, ProcedureRequestIntent.REFLEXORDER);
+          return new Enumeration<ServiceRequestIntent>(this, ServiceRequestIntent.REFLEXORDER);
         if ("filler-order".equals(codeString))
-          return new Enumeration<ProcedureRequestIntent>(this, ProcedureRequestIntent.FILLERORDER);
+          return new Enumeration<ServiceRequestIntent>(this, ServiceRequestIntent.FILLERORDER);
         if ("instance-order".equals(codeString))
-          return new Enumeration<ProcedureRequestIntent>(this, ProcedureRequestIntent.INSTANCEORDER);
+          return new Enumeration<ServiceRequestIntent>(this, ServiceRequestIntent.INSTANCEORDER);
         if ("option".equals(codeString))
-          return new Enumeration<ProcedureRequestIntent>(this, ProcedureRequestIntent.OPTION);
-        throw new FHIRException("Unknown ProcedureRequestIntent code '"+codeString+"'");
+          return new Enumeration<ServiceRequestIntent>(this, ServiceRequestIntent.OPTION);
+        throw new FHIRException("Unknown ServiceRequestIntent code '"+codeString+"'");
         }
-    public String toCode(ProcedureRequestIntent code) {
-      if (code == ProcedureRequestIntent.PROPOSAL)
+    public String toCode(ServiceRequestIntent code) {
+      if (code == ServiceRequestIntent.PROPOSAL)
         return "proposal";
-      if (code == ProcedureRequestIntent.PLAN)
+      if (code == ServiceRequestIntent.PLAN)
         return "plan";
-      if (code == ProcedureRequestIntent.ORDER)
+      if (code == ServiceRequestIntent.ORDER)
         return "order";
-      if (code == ProcedureRequestIntent.ORIGINALORDER)
+      if (code == ServiceRequestIntent.ORIGINALORDER)
         return "original-order";
-      if (code == ProcedureRequestIntent.REFLEXORDER)
+      if (code == ServiceRequestIntent.REFLEXORDER)
         return "reflex-order";
-      if (code == ProcedureRequestIntent.FILLERORDER)
+      if (code == ServiceRequestIntent.FILLERORDER)
         return "filler-order";
-      if (code == ProcedureRequestIntent.INSTANCEORDER)
+      if (code == ServiceRequestIntent.INSTANCEORDER)
         return "instance-order";
-      if (code == ProcedureRequestIntent.OPTION)
+      if (code == ServiceRequestIntent.OPTION)
         return "option";
       return "?";
       }
-    public String toSystem(ProcedureRequestIntent code) {
+    public String toSystem(ServiceRequestIntent code) {
       return code.getSystem();
       }
     }
 
-    public enum ProcedureRequestPriority {
+    public enum ServiceRequestPriority {
         /**
          * The request has normal priority
          */
@@ -431,7 +431,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          * added to help the parsers with the generic types
          */
         NULL;
-        public static ProcedureRequestPriority fromCode(String codeString) throws FHIRException {
+        public static ServiceRequestPriority fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("routine".equals(codeString))
@@ -445,7 +445,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown ProcedureRequestPriority code '"+codeString+"'");
+          throw new FHIRException("Unknown ServiceRequestPriority code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -485,304 +485,54 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
     }
 
-  public static class ProcedureRequestPriorityEnumFactory implements EnumFactory<ProcedureRequestPriority> {
-    public ProcedureRequestPriority fromCode(String codeString) throws IllegalArgumentException {
+  public static class ServiceRequestPriorityEnumFactory implements EnumFactory<ServiceRequestPriority> {
+    public ServiceRequestPriority fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("routine".equals(codeString))
-          return ProcedureRequestPriority.ROUTINE;
+          return ServiceRequestPriority.ROUTINE;
         if ("urgent".equals(codeString))
-          return ProcedureRequestPriority.URGENT;
+          return ServiceRequestPriority.URGENT;
         if ("asap".equals(codeString))
-          return ProcedureRequestPriority.ASAP;
+          return ServiceRequestPriority.ASAP;
         if ("stat".equals(codeString))
-          return ProcedureRequestPriority.STAT;
-        throw new IllegalArgumentException("Unknown ProcedureRequestPriority code '"+codeString+"'");
+          return ServiceRequestPriority.STAT;
+        throw new IllegalArgumentException("Unknown ServiceRequestPriority code '"+codeString+"'");
         }
-        public Enumeration<ProcedureRequestPriority> fromType(Base code) throws FHIRException {
+        public Enumeration<ServiceRequestPriority> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<ProcedureRequestPriority>(this);
+            return new Enumeration<ServiceRequestPriority>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("routine".equals(codeString))
-          return new Enumeration<ProcedureRequestPriority>(this, ProcedureRequestPriority.ROUTINE);
+          return new Enumeration<ServiceRequestPriority>(this, ServiceRequestPriority.ROUTINE);
         if ("urgent".equals(codeString))
-          return new Enumeration<ProcedureRequestPriority>(this, ProcedureRequestPriority.URGENT);
+          return new Enumeration<ServiceRequestPriority>(this, ServiceRequestPriority.URGENT);
         if ("asap".equals(codeString))
-          return new Enumeration<ProcedureRequestPriority>(this, ProcedureRequestPriority.ASAP);
+          return new Enumeration<ServiceRequestPriority>(this, ServiceRequestPriority.ASAP);
         if ("stat".equals(codeString))
-          return new Enumeration<ProcedureRequestPriority>(this, ProcedureRequestPriority.STAT);
-        throw new FHIRException("Unknown ProcedureRequestPriority code '"+codeString+"'");
+          return new Enumeration<ServiceRequestPriority>(this, ServiceRequestPriority.STAT);
+        throw new FHIRException("Unknown ServiceRequestPriority code '"+codeString+"'");
         }
-    public String toCode(ProcedureRequestPriority code) {
-      if (code == ProcedureRequestPriority.ROUTINE)
+    public String toCode(ServiceRequestPriority code) {
+      if (code == ServiceRequestPriority.ROUTINE)
         return "routine";
-      if (code == ProcedureRequestPriority.URGENT)
+      if (code == ServiceRequestPriority.URGENT)
         return "urgent";
-      if (code == ProcedureRequestPriority.ASAP)
+      if (code == ServiceRequestPriority.ASAP)
         return "asap";
-      if (code == ProcedureRequestPriority.STAT)
+      if (code == ServiceRequestPriority.STAT)
         return "stat";
       return "?";
       }
-    public String toSystem(ProcedureRequestPriority code) {
+    public String toSystem(ServiceRequestPriority code) {
       return code.getSystem();
       }
     }
-
-    @Block()
-    public static class ProcedureRequestRequesterComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The device, practitioner or organization who initiated the request.
-         */
-        @Child(name = "agent", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class, Device.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Individual making the request", formalDefinition="The device, practitioner or organization who initiated the request." )
-        protected Reference agent;
-
-        /**
-         * The actual object that is the target of the reference (The device, practitioner or organization who initiated the request.)
-         */
-        protected Resource agentTarget;
-
-        /**
-         * The organization the device or practitioner was acting on behalf of.
-         */
-        @Child(name = "onBehalfOf", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Organization agent is acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
-        protected Reference onBehalfOf;
-
-        /**
-         * The actual object that is the target of the reference (The organization the device or practitioner was acting on behalf of.)
-         */
-        protected Organization onBehalfOfTarget;
-
-        private static final long serialVersionUID = -71453027L;
-
-    /**
-     * Constructor
-     */
-      public ProcedureRequestRequesterComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public ProcedureRequestRequesterComponent(Reference agent) {
-        super();
-        this.agent = agent;
-      }
-
-        /**
-         * @return {@link #agent} (The device, practitioner or organization who initiated the request.)
-         */
-        public Reference getAgent() { 
-          if (this.agent == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProcedureRequestRequesterComponent.agent");
-            else if (Configuration.doAutoCreate())
-              this.agent = new Reference(); // cc
-          return this.agent;
-        }
-
-        public boolean hasAgent() { 
-          return this.agent != null && !this.agent.isEmpty();
-        }
-
-        /**
-         * @param value {@link #agent} (The device, practitioner or organization who initiated the request.)
-         */
-        public ProcedureRequestRequesterComponent setAgent(Reference value) { 
-          this.agent = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #agent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device, practitioner or organization who initiated the request.)
-         */
-        public Resource getAgentTarget() { 
-          return this.agentTarget;
-        }
-
-        /**
-         * @param value {@link #agent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device, practitioner or organization who initiated the request.)
-         */
-        public ProcedureRequestRequesterComponent setAgentTarget(Resource value) { 
-          this.agentTarget = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
-         */
-        public Reference getOnBehalfOf() { 
-          if (this.onBehalfOf == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProcedureRequestRequesterComponent.onBehalfOf");
-            else if (Configuration.doAutoCreate())
-              this.onBehalfOf = new Reference(); // cc
-          return this.onBehalfOf;
-        }
-
-        public boolean hasOnBehalfOf() { 
-          return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
-        }
-
-        /**
-         * @param value {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
-         */
-        public ProcedureRequestRequesterComponent setOnBehalfOf(Reference value) { 
-          this.onBehalfOf = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
-         */
-        public Organization getOnBehalfOfTarget() { 
-          if (this.onBehalfOfTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProcedureRequestRequesterComponent.onBehalfOf");
-            else if (Configuration.doAutoCreate())
-              this.onBehalfOfTarget = new Organization(); // aa
-          return this.onBehalfOfTarget;
-        }
-
-        /**
-         * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
-         */
-        public ProcedureRequestRequesterComponent setOnBehalfOfTarget(Organization value) { 
-          this.onBehalfOfTarget = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("agent", "Reference(Practitioner|Organization|Patient|RelatedPerson|Device)", "The device, practitioner or organization who initiated the request.", 0, 1, agent));
-          children.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, 1, onBehalfOf));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 92750597: /*agent*/  return new Property("agent", "Reference(Practitioner|Organization|Patient|RelatedPerson|Device)", "The device, practitioner or organization who initiated the request.", 0, 1, agent);
-          case -14402964: /*onBehalfOf*/  return new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, 1, onBehalfOf);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 92750597: /*agent*/ return this.agent == null ? new Base[0] : new Base[] {this.agent}; // Reference
-        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 92750597: // agent
-          this.agent = castToReference(value); // Reference
-          return value;
-        case -14402964: // onBehalfOf
-          this.onBehalfOf = castToReference(value); // Reference
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("agent")) {
-          this.agent = castToReference(value); // Reference
-        } else if (name.equals("onBehalfOf")) {
-          this.onBehalfOf = castToReference(value); // Reference
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 92750597:  return getAgent(); 
-        case -14402964:  return getOnBehalfOf(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 92750597: /*agent*/ return new String[] {"Reference"};
-        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("agent")) {
-          this.agent = new Reference();
-          return this.agent;
-        }
-        else if (name.equals("onBehalfOf")) {
-          this.onBehalfOf = new Reference();
-          return this.onBehalfOf;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public ProcedureRequestRequesterComponent copy() {
-        ProcedureRequestRequesterComponent dst = new ProcedureRequestRequesterComponent();
-        copyValues(dst);
-        dst.agent = agent == null ? null : agent.copy();
-        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof ProcedureRequestRequesterComponent))
-          return false;
-        ProcedureRequestRequesterComponent o = (ProcedureRequestRequesterComponent) other;
-        return compareDeep(agent, o.agent, true) && compareDeep(onBehalfOf, o.onBehalfOf, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof ProcedureRequestRequesterComponent))
-          return false;
-        ProcedureRequestRequesterComponent o = (ProcedureRequestRequesterComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(agent, onBehalfOf);
-      }
-
-  public String fhirType() {
-    return "ProcedureRequest.requester";
-
-  }
-
-  }
 
     /**
      * Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.
@@ -794,19 +544,19 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * Protocol or definition followed by this request.
      */
-    @Child(name = "definition", type = {ActivityDefinition.class, PlanDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "instantiates", type = {ActivityDefinition.class, PlanDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Protocol or definition", formalDefinition="Protocol or definition followed by this request." )
-    protected List<Reference> definition;
+    protected List<Reference> instantiates;
     /**
      * The actual objects that are the target of the reference (Protocol or definition followed by this request.)
      */
-    protected List<Resource> definitionTarget;
+    protected List<Resource> instantiatesTarget;
 
 
     /**
      * Plan/proposal/order fulfilled by this request.
      */
-    @Child(name = "basedOn", type = {CarePlan.class, ProcedureRequest.class, MedicationRequest.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {CarePlan.class, ServiceRequest.class, MedicationRequest.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="What request fulfills", formalDefinition="Plan/proposal/order fulfilled by this request." )
     protected List<Reference> basedOn;
     /**
@@ -818,20 +568,20 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * The request takes the place of the referenced completed or terminated request(s).
      */
-    @Child(name = "replaces", type = {ProcedureRequest.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "replaces", type = {ServiceRequest.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="What request replaces", formalDefinition="The request takes the place of the referenced completed or terminated request(s)." )
     protected List<Reference> replaces;
     /**
      * The actual objects that are the target of the reference (The request takes the place of the referenced completed or terminated request(s).)
      */
-    protected List<ProcedureRequest> replacesTarget;
+    protected List<ServiceRequest> replacesTarget;
 
 
     /**
-     * A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.
+     * A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.
      */
     @Child(name = "requisition", type = {Identifier.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Composite Request ID", formalDefinition="A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier." )
+    @Description(shortDefinition="Composite Request ID", formalDefinition="A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier." )
     protected Identifier requisition;
 
     /**
@@ -840,7 +590,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | active | suspended | completed | entered-in-error | cancelled", formalDefinition="The status of the order." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-status")
-    protected Enumeration<ProcedureRequestStatus> status;
+    protected Enumeration<ServiceRequestStatus> status;
 
     /**
      * Whether the request is a proposal, plan, an original order or a reflex order.
@@ -848,54 +598,63 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     @Child(name = "intent", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="proposal | plan | order +", formalDefinition="Whether the request is a proposal, plan, an original order or a reflex order." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-intent")
-    protected Enumeration<ProcedureRequestIntent> intent;
+    protected Enumeration<ServiceRequestIntent> intent;
 
     /**
-     * Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
+     * Indicates how quickly the ServiceRequest should be addressed with respect to other requests.
      */
     @Child(name = "priority", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="routine | urgent | asap | stat", formalDefinition="Indicates how quickly the ProcedureRequest should be addressed with respect to other requests." )
+    @Description(shortDefinition="routine | urgent | asap | stat", formalDefinition="Indicates how quickly the ServiceRequest should be addressed with respect to other requests." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-priority")
-    protected Enumeration<ProcedureRequestPriority> priority;
+    protected Enumeration<ServiceRequestPriority> priority;
 
     /**
-     * Set this to true if the record is saying that the procedure should NOT be performed.
+     * Set this to true if the record is saying that the service/procedure should NOT be performed.
      */
     @Child(name = "doNotPerform", type = {BooleanType.class}, order=8, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="True if procedure should not be performed", formalDefinition="Set this to true if the record is saying that the procedure should NOT be performed." )
+    @Description(shortDefinition="True if service/procedure should not be performed", formalDefinition="Set this to true if the record is saying that the service/procedure should NOT be performed." )
     protected BooleanType doNotPerform;
 
     /**
-     * A code that classifies the procedure for searching, sorting and display purposes (e.g. "Surgical Procedure").
+     * A code that classifies the service for searching, sorting and display purposes (e.g. "Surgical Procedure").
      */
     @Child(name = "category", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Classification of procedure", formalDefinition="A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\")." )
+    @Description(shortDefinition="Classification of service", formalDefinition="A code that classifies the service for searching, sorting and display purposes (e.g. \"Surgical Procedure\")." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/servicerequest-category")
     protected List<CodeableConcept> category;
 
     /**
-     * A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested.
+     * A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="What is being requested/ordered", formalDefinition="A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested." )
+    @Description(shortDefinition="What is being requested/ordered", formalDefinition="A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-code")
     protected CodeableConcept code;
 
     /**
-     * On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
+     * Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class, Location.class, Device.class}, order=11, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Individual the service is ordered for", formalDefinition="On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)." )
+    @Child(name = "orderDetail", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Additional order information", formalDefinition="Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/servicerequest-orderdetail")
+    protected List<CodeableConcept> orderDetail;
+
+    /**
+     * On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
+     */
+    @Child(name = "subject", type = {Patient.class, Group.class, Location.class, Device.class}, order=12, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Individual the service is ordered for", formalDefinition="On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)." )
     protected Reference subject;
 
     /**
-     * The actual object that is the target of the reference (On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * The actual object that is the target of the reference (On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     protected Resource subjectTarget;
 
     /**
      * An encounter or episode of care that provides additional information about the healthcare context in which this request is made.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Encounter or Episode during which request was created", formalDefinition="An encounter or episode of care that provides additional information about the healthcare context in which this request is made." )
     protected Reference context;
 
@@ -905,82 +664,99 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected Resource contextTarget;
 
     /**
-     * The date/time at which the requested procedure should occur.
+     * The date/time at which the requested service should occur.
      */
-    @Child(name = "occurrence", type = {DateTimeType.class, Period.class, Timing.class}, order=13, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When procedure should occur", formalDefinition="The date/time at which the requested procedure should occur." )
+    @Child(name = "occurrence", type = {DateTimeType.class, Period.class, Timing.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="When service should occur", formalDefinition="The date/time at which the requested service should occur." )
     protected Type occurrence;
 
     /**
-     * If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example "pain", "on flare-up", etc.
+     * If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example "pain", "on flare-up", etc.
      */
-    @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=14, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Preconditions for procedure or diagnostic", formalDefinition="If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc." )
+    @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Preconditions for service", formalDefinition="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example \"pain\", \"on flare-up\", etc." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-as-needed-reason")
     protected Type asNeeded;
 
     /**
      * When the request transitioned to being actionable.
      */
-    @Child(name = "authoredOn", type = {DateTimeType.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "authoredOn", type = {DateTimeType.class}, order=16, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Date request signed", formalDefinition="When the request transitioned to being actionable." )
     protected DateTimeType authoredOn;
 
     /**
      * The individual who initiated the request and has responsibility for its activation.
      */
-    @Child(name = "requester", type = {}, order=16, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who/what is requesting procedure or diagnostic", formalDefinition="The individual who initiated the request and has responsibility for its activation." )
-    protected ProcedureRequestRequesterComponent requester;
+    @Child(name = "requester", type = {Practitioner.class, PractitionerRole.class, Organization.class, Patient.class, RelatedPerson.class, Device.class}, order=17, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Who/what is requesting service", formalDefinition="The individual who initiated the request and has responsibility for its activation." )
+    protected Reference requester;
 
     /**
-     * Desired type of performer for doing the requested procedure.
+     * The actual object that is the target of the reference (The individual who initiated the request and has responsibility for its activation.)
      */
-    @Child(name = "performerType", type = {CodeableConcept.class}, order=17, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Performer role", formalDefinition="Desired type of performer for doing the requested procedure." )
+    protected Resource requesterTarget;
+
+    /**
+     * Desired type of performer for doing the requested service.
+     */
+    @Child(name = "performerType", type = {CodeableConcept.class}, order=18, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Performer role", formalDefinition="Desired type of performer for doing the requested service." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/participant-role")
     protected CodeableConcept performerType;
 
     /**
-     * The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.
+     * The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.
      */
-    @Child(name = "performer", type = {Practitioner.class, Organization.class, Patient.class, Device.class, RelatedPerson.class, HealthcareService.class}, order=18, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Requested perfomer", formalDefinition="The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc." )
+    @Child(name = "performer", type = {Practitioner.class, PractitionerRole.class, Organization.class, Patient.class, Device.class, RelatedPerson.class, HealthcareService.class, CareTeam.class}, order=19, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Requested perfomer", formalDefinition="The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc." )
     protected Reference performer;
 
     /**
-     * The actual object that is the target of the reference (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * The actual object that is the target of the reference (The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
     protected Resource performerTarget;
 
     /**
-     * An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+     * An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Explanation/Justification for procedure or service", formalDefinition="An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation." )
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Explanation/Justification for procedure or service", formalDefinition="An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-reason")
     protected List<CodeableConcept> reasonCode;
 
     /**
-     * Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.
+     * Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in supportingInformation.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Explanation/Justification for procedure or service", formalDefinition="Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation." )
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class, DiagnosticReport.class, DocumentReference.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Explanation/Justification for service or service", formalDefinition="Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in supportingInformation." )
     protected List<Reference> reasonReference;
     /**
-     * The actual objects that are the target of the reference (Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.)
+     * The actual objects that are the target of the reference (Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in supportingInformation.)
      */
     protected List<Resource> reasonReferenceTarget;
 
 
     /**
-     * Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as "ask at order entry questions (AOEs)".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.
+     * Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be needed for delivering the requested service.
      */
-    @Child(name = "supportingInfo", type = {Reference.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Additional clinical information", formalDefinition="Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements." )
+    @Child(name = "insurance", type = {Coverage.class, ClaimResponse.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Associated insurance coverage", formalDefinition="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be needed for delivering the requested service." )
+    protected List<Reference> insurance;
+    /**
+     * The actual objects that are the target of the reference (Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be needed for delivering the requested service.)
+     */
+    protected List<Resource> insuranceTarget;
+
+
+    /**
+     * Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as "ask at order entry questions (AOEs)".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.
+     */
+    @Child(name = "supportingInfo", type = {Reference.class}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Additional clinical information", formalDefinition="Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements." )
     protected List<Reference> supportingInfo;
     /**
-     * The actual objects that are the target of the reference (Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as "ask at order entry questions (AOEs)".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.)
+     * The actual objects that are the target of the reference (Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as "ask at order entry questions (AOEs)".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.)
      */
     protected List<Resource> supportingInfoTarget;
 
@@ -988,7 +764,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * One or more specimens that the laboratory procedure will use.
      */
-    @Child(name = "specimen", type = {Specimen.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "specimen", type = {Specimen.class}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Procedure Samples", formalDefinition="One or more specimens that the laboratory procedure will use." )
     protected List<Reference> specimen;
     /**
@@ -1000,29 +776,29 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * Anatomic location where the procedure should be performed. This is the target site.
      */
-    @Child(name = "bodySite", type = {CodeableConcept.class}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "bodySite", type = {CodeableConcept.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Location on Body", formalDefinition="Anatomic location where the procedure should be performed. This is the target site." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/body-site")
     protected List<CodeableConcept> bodySite;
 
     /**
-     * Any other notes and comments made about the service request. For example, letting provider know that "patient hates needles" or other provider instructions.
+     * Any other notes and comments made about the service request. For example, internal billing notes.
      */
-    @Child(name = "note", type = {Annotation.class}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Comments", formalDefinition="Any other notes and comments made about the service request. For example, letting provider know that \"patient hates needles\" or other provider instructions." )
+    @Child(name = "note", type = {Annotation.class}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Comments", formalDefinition="Any other notes and comments made about the service request. For example, internal billing notes." )
     protected List<Annotation> note;
 
     /**
-     * A textual description of the referral.
+     * Instructions in terms that are understood by the patient or consumer.
      */
-    @Child(name = "description", type = {StringType.class}, order=25, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Text Summary", formalDefinition="A textual description of the referral." )
-    protected StringType description;
+    @Child(name = "patientInstruction", type = {StringType.class}, order=27, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Patient or consumer oriented instructions", formalDefinition="Instructions in terms that are understood by the patient or consumer." )
+    protected StringType patientInstruction;
 
     /**
      * Key events in the history of the request.
      */
-    @Child(name = "relevantHistory", type = {Provenance.class}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relevantHistory", type = {Provenance.class}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Request provenance", formalDefinition="Key events in the history of the request." )
     protected List<Reference> relevantHistory;
     /**
@@ -1031,19 +807,19 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected List<Provenance> relevantHistoryTarget;
 
 
-    private static final long serialVersionUID = 254629109L;
+    private static final long serialVersionUID = -1786134429L;
 
   /**
    * Constructor
    */
-    public ProcedureRequest() {
+    public ServiceRequest() {
       super();
     }
 
   /**
    * Constructor
    */
-    public ProcedureRequest(Enumeration<ProcedureRequestStatus> status, Enumeration<ProcedureRequestIntent> intent, Reference subject) {
+    public ServiceRequest(Enumeration<ServiceRequestStatus> status, Enumeration<ServiceRequestIntent> intent, Reference subject) {
       super();
       this.status = status;
       this.intent = intent;
@@ -1062,7 +838,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setIdentifier(List<Identifier> theIdentifier) { 
+    public ServiceRequest setIdentifier(List<Identifier> theIdentifier) { 
       this.identifier = theIdentifier;
       return this;
     }
@@ -1084,7 +860,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addIdentifier(Identifier t) { //3
+    public ServiceRequest addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
       if (this.identifier == null)
@@ -1104,66 +880,66 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #definition} (Protocol or definition followed by this request.)
+     * @return {@link #instantiates} (Protocol or definition followed by this request.)
      */
-    public List<Reference> getDefinition() { 
-      if (this.definition == null)
-        this.definition = new ArrayList<Reference>();
-      return this.definition;
+    public List<Reference> getInstantiates() { 
+      if (this.instantiates == null)
+        this.instantiates = new ArrayList<Reference>();
+      return this.instantiates;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setDefinition(List<Reference> theDefinition) { 
-      this.definition = theDefinition;
+    public ServiceRequest setInstantiates(List<Reference> theInstantiates) { 
+      this.instantiates = theInstantiates;
       return this;
     }
 
-    public boolean hasDefinition() { 
-      if (this.definition == null)
+    public boolean hasInstantiates() { 
+      if (this.instantiates == null)
         return false;
-      for (Reference item : this.definition)
+      for (Reference item : this.instantiates)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addDefinition() { //3
+    public Reference addInstantiates() { //3
       Reference t = new Reference();
-      if (this.definition == null)
-        this.definition = new ArrayList<Reference>();
-      this.definition.add(t);
+      if (this.instantiates == null)
+        this.instantiates = new ArrayList<Reference>();
+      this.instantiates.add(t);
       return t;
     }
 
-    public ProcedureRequest addDefinition(Reference t) { //3
+    public ServiceRequest addInstantiates(Reference t) { //3
       if (t == null)
         return this;
-      if (this.definition == null)
-        this.definition = new ArrayList<Reference>();
-      this.definition.add(t);
+      if (this.instantiates == null)
+        this.instantiates = new ArrayList<Reference>();
+      this.instantiates.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #definition}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #instantiates}, creating it if it does not already exist
      */
-    public Reference getDefinitionFirstRep() { 
-      if (getDefinition().isEmpty()) {
-        addDefinition();
+    public Reference getInstantiatesFirstRep() { 
+      if (getInstantiates().isEmpty()) {
+        addInstantiates();
       }
-      return getDefinition().get(0);
+      return getInstantiates().get(0);
     }
 
     /**
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getDefinitionTarget() { 
-      if (this.definitionTarget == null)
-        this.definitionTarget = new ArrayList<Resource>();
-      return this.definitionTarget;
+    public List<Resource> getInstantiatesTarget() { 
+      if (this.instantiatesTarget == null)
+        this.instantiatesTarget = new ArrayList<Resource>();
+      return this.instantiatesTarget;
     }
 
     /**
@@ -1178,7 +954,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setBasedOn(List<Reference> theBasedOn) { 
+    public ServiceRequest setBasedOn(List<Reference> theBasedOn) { 
       this.basedOn = theBasedOn;
       return this;
     }
@@ -1200,7 +976,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addBasedOn(Reference t) { //3
+    public ServiceRequest addBasedOn(Reference t) { //3
       if (t == null)
         return this;
       if (this.basedOn == null)
@@ -1241,7 +1017,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setReplaces(List<Reference> theReplaces) { 
+    public ServiceRequest setReplaces(List<Reference> theReplaces) { 
       this.replaces = theReplaces;
       return this;
     }
@@ -1263,7 +1039,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addReplaces(Reference t) { //3
+    public ServiceRequest addReplaces(Reference t) { //3
       if (t == null)
         return this;
       if (this.replaces == null)
@@ -1286,9 +1062,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<ProcedureRequest> getReplacesTarget() { 
+    public List<ServiceRequest> getReplacesTarget() { 
       if (this.replacesTarget == null)
-        this.replacesTarget = new ArrayList<ProcedureRequest>();
+        this.replacesTarget = new ArrayList<ServiceRequest>();
       return this.replacesTarget;
     }
 
@@ -1296,21 +1072,21 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public ProcedureRequest addReplacesTarget() { 
-      ProcedureRequest r = new ProcedureRequest();
+    public ServiceRequest addReplacesTarget() { 
+      ServiceRequest r = new ServiceRequest();
       if (this.replacesTarget == null)
-        this.replacesTarget = new ArrayList<ProcedureRequest>();
+        this.replacesTarget = new ArrayList<ServiceRequest>();
       this.replacesTarget.add(r);
       return r;
     }
 
     /**
-     * @return {@link #requisition} (A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.)
+     * @return {@link #requisition} (A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.)
      */
     public Identifier getRequisition() { 
       if (this.requisition == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.requisition");
+          throw new Error("Attempt to auto-create ServiceRequest.requisition");
         else if (Configuration.doAutoCreate())
           this.requisition = new Identifier(); // cc
       return this.requisition;
@@ -1321,9 +1097,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #requisition} (A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.)
+     * @param value {@link #requisition} (A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.)
      */
-    public ProcedureRequest setRequisition(Identifier value) { 
+    public ServiceRequest setRequisition(Identifier value) { 
       this.requisition = value;
       return this;
     }
@@ -1331,12 +1107,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ProcedureRequestStatus> getStatusElement() { 
+    public Enumeration<ServiceRequestStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.status");
+          throw new Error("Attempt to auto-create ServiceRequest.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<ProcedureRequestStatus>(new ProcedureRequestStatusEnumFactory()); // bb
+          this.status = new Enumeration<ServiceRequestStatus>(new ServiceRequestStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -1351,7 +1127,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @param value {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ProcedureRequest setStatusElement(Enumeration<ProcedureRequestStatus> value) { 
+    public ServiceRequest setStatusElement(Enumeration<ServiceRequestStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1359,16 +1135,16 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return The status of the order.
      */
-    public ProcedureRequestStatus getStatus() { 
+    public ServiceRequestStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the order.
      */
-    public ProcedureRequest setStatus(ProcedureRequestStatus value) { 
+    public ServiceRequest setStatus(ServiceRequestStatus value) { 
         if (this.status == null)
-          this.status = new Enumeration<ProcedureRequestStatus>(new ProcedureRequestStatusEnumFactory());
+          this.status = new Enumeration<ServiceRequestStatus>(new ServiceRequestStatusEnumFactory());
         this.status.setValue(value);
       return this;
     }
@@ -1376,12 +1152,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return {@link #intent} (Whether the request is a proposal, plan, an original order or a reflex order.). This is the underlying object with id, value and extensions. The accessor "getIntent" gives direct access to the value
      */
-    public Enumeration<ProcedureRequestIntent> getIntentElement() { 
+    public Enumeration<ServiceRequestIntent> getIntentElement() { 
       if (this.intent == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.intent");
+          throw new Error("Attempt to auto-create ServiceRequest.intent");
         else if (Configuration.doAutoCreate())
-          this.intent = new Enumeration<ProcedureRequestIntent>(new ProcedureRequestIntentEnumFactory()); // bb
+          this.intent = new Enumeration<ServiceRequestIntent>(new ServiceRequestIntentEnumFactory()); // bb
       return this.intent;
     }
 
@@ -1396,7 +1172,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @param value {@link #intent} (Whether the request is a proposal, plan, an original order or a reflex order.). This is the underlying object with id, value and extensions. The accessor "getIntent" gives direct access to the value
      */
-    public ProcedureRequest setIntentElement(Enumeration<ProcedureRequestIntent> value) { 
+    public ServiceRequest setIntentElement(Enumeration<ServiceRequestIntent> value) { 
       this.intent = value;
       return this;
     }
@@ -1404,29 +1180,29 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Whether the request is a proposal, plan, an original order or a reflex order.
      */
-    public ProcedureRequestIntent getIntent() { 
+    public ServiceRequestIntent getIntent() { 
       return this.intent == null ? null : this.intent.getValue();
     }
 
     /**
      * @param value Whether the request is a proposal, plan, an original order or a reflex order.
      */
-    public ProcedureRequest setIntent(ProcedureRequestIntent value) { 
+    public ServiceRequest setIntent(ServiceRequestIntent value) { 
         if (this.intent == null)
-          this.intent = new Enumeration<ProcedureRequestIntent>(new ProcedureRequestIntentEnumFactory());
+          this.intent = new Enumeration<ServiceRequestIntent>(new ServiceRequestIntentEnumFactory());
         this.intent.setValue(value);
       return this;
     }
 
     /**
-     * @return {@link #priority} (Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
+     * @return {@link #priority} (Indicates how quickly the ServiceRequest should be addressed with respect to other requests.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public Enumeration<ProcedureRequestPriority> getPriorityElement() { 
+    public Enumeration<ServiceRequestPriority> getPriorityElement() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.priority");
+          throw new Error("Attempt to auto-create ServiceRequest.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new Enumeration<ProcedureRequestPriority>(new ProcedureRequestPriorityEnumFactory()); // bb
+          this.priority = new Enumeration<ServiceRequestPriority>(new ServiceRequestPriorityEnumFactory()); // bb
       return this.priority;
     }
 
@@ -1439,41 +1215,41 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #priority} (Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
+     * @param value {@link #priority} (Indicates how quickly the ServiceRequest should be addressed with respect to other requests.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public ProcedureRequest setPriorityElement(Enumeration<ProcedureRequestPriority> value) { 
+    public ServiceRequest setPriorityElement(Enumeration<ServiceRequestPriority> value) { 
       this.priority = value;
       return this;
     }
 
     /**
-     * @return Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
+     * @return Indicates how quickly the ServiceRequest should be addressed with respect to other requests.
      */
-    public ProcedureRequestPriority getPriority() { 
+    public ServiceRequestPriority getPriority() { 
       return this.priority == null ? null : this.priority.getValue();
     }
 
     /**
-     * @param value Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
+     * @param value Indicates how quickly the ServiceRequest should be addressed with respect to other requests.
      */
-    public ProcedureRequest setPriority(ProcedureRequestPriority value) { 
+    public ServiceRequest setPriority(ServiceRequestPriority value) { 
       if (value == null)
         this.priority = null;
       else {
         if (this.priority == null)
-          this.priority = new Enumeration<ProcedureRequestPriority>(new ProcedureRequestPriorityEnumFactory());
+          this.priority = new Enumeration<ServiceRequestPriority>(new ServiceRequestPriorityEnumFactory());
         this.priority.setValue(value);
       }
       return this;
     }
 
     /**
-     * @return {@link #doNotPerform} (Set this to true if the record is saying that the procedure should NOT be performed.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
+     * @return {@link #doNotPerform} (Set this to true if the record is saying that the service/procedure should NOT be performed.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
      */
     public BooleanType getDoNotPerformElement() { 
       if (this.doNotPerform == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.doNotPerform");
+          throw new Error("Attempt to auto-create ServiceRequest.doNotPerform");
         else if (Configuration.doAutoCreate())
           this.doNotPerform = new BooleanType(); // bb
       return this.doNotPerform;
@@ -1488,24 +1264,24 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #doNotPerform} (Set this to true if the record is saying that the procedure should NOT be performed.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
+     * @param value {@link #doNotPerform} (Set this to true if the record is saying that the service/procedure should NOT be performed.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
      */
-    public ProcedureRequest setDoNotPerformElement(BooleanType value) { 
+    public ServiceRequest setDoNotPerformElement(BooleanType value) { 
       this.doNotPerform = value;
       return this;
     }
 
     /**
-     * @return Set this to true if the record is saying that the procedure should NOT be performed.
+     * @return Set this to true if the record is saying that the service/procedure should NOT be performed.
      */
     public boolean getDoNotPerform() { 
       return this.doNotPerform == null || this.doNotPerform.isEmpty() ? false : this.doNotPerform.getValue();
     }
 
     /**
-     * @param value Set this to true if the record is saying that the procedure should NOT be performed.
+     * @param value Set this to true if the record is saying that the service/procedure should NOT be performed.
      */
-    public ProcedureRequest setDoNotPerform(boolean value) { 
+    public ServiceRequest setDoNotPerform(boolean value) { 
         if (this.doNotPerform == null)
           this.doNotPerform = new BooleanType();
         this.doNotPerform.setValue(value);
@@ -1513,7 +1289,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #category} (A code that classifies the procedure for searching, sorting and display purposes (e.g. "Surgical Procedure").)
+     * @return {@link #category} (A code that classifies the service for searching, sorting and display purposes (e.g. "Surgical Procedure").)
      */
     public List<CodeableConcept> getCategory() { 
       if (this.category == null)
@@ -1524,7 +1300,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setCategory(List<CodeableConcept> theCategory) { 
+    public ServiceRequest setCategory(List<CodeableConcept> theCategory) { 
       this.category = theCategory;
       return this;
     }
@@ -1546,7 +1322,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addCategory(CodeableConcept t) { //3
+    public ServiceRequest addCategory(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.category == null)
@@ -1566,12 +1342,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #code} (A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested.)
+     * @return {@link #code} (A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.)
      */
     public CodeableConcept getCode() { 
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.code");
+          throw new Error("Attempt to auto-create ServiceRequest.code");
         else if (Configuration.doAutoCreate())
           this.code = new CodeableConcept(); // cc
       return this.code;
@@ -1582,20 +1358,73 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #code} (A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested.)
+     * @param value {@link #code} (A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.)
      */
-    public ProcedureRequest setCode(CodeableConcept value) { 
+    public ServiceRequest setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} (On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @return {@link #orderDetail} (Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.)
+     */
+    public List<CodeableConcept> getOrderDetail() { 
+      if (this.orderDetail == null)
+        this.orderDetail = new ArrayList<CodeableConcept>();
+      return this.orderDetail;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ServiceRequest setOrderDetail(List<CodeableConcept> theOrderDetail) { 
+      this.orderDetail = theOrderDetail;
+      return this;
+    }
+
+    public boolean hasOrderDetail() { 
+      if (this.orderDetail == null)
+        return false;
+      for (CodeableConcept item : this.orderDetail)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addOrderDetail() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.orderDetail == null)
+        this.orderDetail = new ArrayList<CodeableConcept>();
+      this.orderDetail.add(t);
+      return t;
+    }
+
+    public ServiceRequest addOrderDetail(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.orderDetail == null)
+        this.orderDetail = new ArrayList<CodeableConcept>();
+      this.orderDetail.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #orderDetail}, creating it if it does not already exist
+     */
+    public CodeableConcept getOrderDetailFirstRep() { 
+      if (getOrderDetail().isEmpty()) {
+        addOrderDetail();
+      }
+      return getOrderDetail().get(0);
+    }
+
+    /**
+     * @return {@link #subject} (On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.subject");
+          throw new Error("Attempt to auto-create ServiceRequest.subject");
         else if (Configuration.doAutoCreate())
           this.subject = new Reference(); // cc
       return this.subject;
@@ -1606,24 +1435,24 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #subject} (On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @param value {@link #subject} (On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
-    public ProcedureRequest setSubject(Reference value) { 
+    public ServiceRequest setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
-    public ProcedureRequest setSubjectTarget(Resource value) { 
+    public ServiceRequest setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -1634,7 +1463,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     public Reference getContext() { 
       if (this.context == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.context");
+          throw new Error("Attempt to auto-create ServiceRequest.context");
         else if (Configuration.doAutoCreate())
           this.context = new Reference(); // cc
       return this.context;
@@ -1647,7 +1476,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @param value {@link #context} (An encounter or episode of care that provides additional information about the healthcare context in which this request is made.)
      */
-    public ProcedureRequest setContext(Reference value) { 
+    public ServiceRequest setContext(Reference value) { 
       this.context = value;
       return this;
     }
@@ -1662,20 +1491,20 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An encounter or episode of care that provides additional information about the healthcare context in which this request is made.)
      */
-    public ProcedureRequest setContextTarget(Resource value) { 
+    public ServiceRequest setContextTarget(Resource value) { 
       this.contextTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #occurrence} (The date/time at which the requested procedure should occur.)
+     * @return {@link #occurrence} (The date/time at which the requested service should occur.)
      */
     public Type getOccurrence() { 
       return this.occurrence;
     }
 
     /**
-     * @return {@link #occurrence} (The date/time at which the requested procedure should occur.)
+     * @return {@link #occurrence} (The date/time at which the requested service should occur.)
      */
     public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
       if (!(this.occurrence instanceof DateTimeType))
@@ -1688,7 +1517,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #occurrence} (The date/time at which the requested procedure should occur.)
+     * @return {@link #occurrence} (The date/time at which the requested service should occur.)
      */
     public Period getOccurrencePeriod() throws FHIRException { 
       if (!(this.occurrence instanceof Period))
@@ -1701,7 +1530,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #occurrence} (The date/time at which the requested procedure should occur.)
+     * @return {@link #occurrence} (The date/time at which the requested service should occur.)
      */
     public Timing getOccurrenceTiming() throws FHIRException { 
       if (!(this.occurrence instanceof Timing))
@@ -1718,22 +1547,22 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #occurrence} (The date/time at which the requested procedure should occur.)
+     * @param value {@link #occurrence} (The date/time at which the requested service should occur.)
      */
-    public ProcedureRequest setOccurrence(Type value) { 
+    public ServiceRequest setOccurrence(Type value) { 
       this.occurrence = value;
       return this;
     }
 
     /**
-     * @return {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example "pain", "on flare-up", etc.)
+     * @return {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example "pain", "on flare-up", etc.)
      */
     public Type getAsNeeded() { 
       return this.asNeeded;
     }
 
     /**
-     * @return {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example "pain", "on flare-up", etc.)
+     * @return {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example "pain", "on flare-up", etc.)
      */
     public BooleanType getAsNeededBooleanType() throws FHIRException { 
       if (!(this.asNeeded instanceof BooleanType))
@@ -1746,7 +1575,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example "pain", "on flare-up", etc.)
+     * @return {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example "pain", "on flare-up", etc.)
      */
     public CodeableConcept getAsNeededCodeableConcept() throws FHIRException { 
       if (!(this.asNeeded instanceof CodeableConcept))
@@ -1763,9 +1592,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example "pain", "on flare-up", etc.)
+     * @param value {@link #asNeeded} (If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example "pain", "on flare-up", etc.)
      */
-    public ProcedureRequest setAsNeeded(Type value) { 
+    public ServiceRequest setAsNeeded(Type value) { 
       this.asNeeded = value;
       return this;
     }
@@ -1776,7 +1605,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     public DateTimeType getAuthoredOnElement() { 
       if (this.authoredOn == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.authoredOn");
+          throw new Error("Attempt to auto-create ServiceRequest.authoredOn");
         else if (Configuration.doAutoCreate())
           this.authoredOn = new DateTimeType(); // bb
       return this.authoredOn;
@@ -1793,7 +1622,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @param value {@link #authoredOn} (When the request transitioned to being actionable.). This is the underlying object with id, value and extensions. The accessor "getAuthoredOn" gives direct access to the value
      */
-    public ProcedureRequest setAuthoredOnElement(DateTimeType value) { 
+    public ServiceRequest setAuthoredOnElement(DateTimeType value) { 
       this.authoredOn = value;
       return this;
     }
@@ -1808,7 +1637,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @param value When the request transitioned to being actionable.
      */
-    public ProcedureRequest setAuthoredOn(Date value) { 
+    public ServiceRequest setAuthoredOn(Date value) { 
       if (value == null)
         this.authoredOn = null;
       else {
@@ -1822,12 +1651,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return {@link #requester} (The individual who initiated the request and has responsibility for its activation.)
      */
-    public ProcedureRequestRequesterComponent getRequester() { 
+    public Reference getRequester() { 
       if (this.requester == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.requester");
+          throw new Error("Attempt to auto-create ServiceRequest.requester");
         else if (Configuration.doAutoCreate())
-          this.requester = new ProcedureRequestRequesterComponent(); // cc
+          this.requester = new Reference(); // cc
       return this.requester;
     }
 
@@ -1838,18 +1667,33 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @param value {@link #requester} (The individual who initiated the request and has responsibility for its activation.)
      */
-    public ProcedureRequest setRequester(ProcedureRequestRequesterComponent value) { 
+    public ServiceRequest setRequester(Reference value) { 
       this.requester = value;
       return this;
     }
 
     /**
-     * @return {@link #performerType} (Desired type of performer for doing the requested procedure.)
+     * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual who initiated the request and has responsibility for its activation.)
+     */
+    public Resource getRequesterTarget() { 
+      return this.requesterTarget;
+    }
+
+    /**
+     * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual who initiated the request and has responsibility for its activation.)
+     */
+    public ServiceRequest setRequesterTarget(Resource value) { 
+      this.requesterTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #performerType} (Desired type of performer for doing the requested service.)
      */
     public CodeableConcept getPerformerType() { 
       if (this.performerType == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.performerType");
+          throw new Error("Attempt to auto-create ServiceRequest.performerType");
         else if (Configuration.doAutoCreate())
           this.performerType = new CodeableConcept(); // cc
       return this.performerType;
@@ -1860,20 +1704,20 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #performerType} (Desired type of performer for doing the requested procedure.)
+     * @param value {@link #performerType} (Desired type of performer for doing the requested service.)
      */
-    public ProcedureRequest setPerformerType(CodeableConcept value) { 
+    public ServiceRequest setPerformerType(CodeableConcept value) { 
       this.performerType = value;
       return this;
     }
 
     /**
-     * @return {@link #performer} (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * @return {@link #performer} (The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
     public Reference getPerformer() { 
       if (this.performer == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.performer");
+          throw new Error("Attempt to auto-create ServiceRequest.performer");
         else if (Configuration.doAutoCreate())
           this.performer = new Reference(); // cc
       return this.performer;
@@ -1884,30 +1728,30 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #performer} (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * @param value {@link #performer} (The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
-    public ProcedureRequest setPerformer(Reference value) { 
+    public ServiceRequest setPerformer(Reference value) { 
       this.performer = value;
       return this;
     }
 
     /**
-     * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
     public Resource getPerformerTarget() { 
       return this.performerTarget;
     }
 
     /**
-     * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
+     * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.)
      */
-    public ProcedureRequest setPerformerTarget(Resource value) { 
+    public ServiceRequest setPerformerTarget(Resource value) { 
       this.performerTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #reasonCode} (An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.)
+     * @return {@link #reasonCode} (An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.)
      */
     public List<CodeableConcept> getReasonCode() { 
       if (this.reasonCode == null)
@@ -1918,7 +1762,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setReasonCode(List<CodeableConcept> theReasonCode) { 
+    public ServiceRequest setReasonCode(List<CodeableConcept> theReasonCode) { 
       this.reasonCode = theReasonCode;
       return this;
     }
@@ -1940,7 +1784,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addReasonCode(CodeableConcept t) { //3
+    public ServiceRequest addReasonCode(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.reasonCode == null)
@@ -1960,7 +1804,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #reasonReference} (Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.)
+     * @return {@link #reasonReference} (Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in supportingInformation.)
      */
     public List<Reference> getReasonReference() { 
       if (this.reasonReference == null)
@@ -1971,7 +1815,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setReasonReference(List<Reference> theReasonReference) { 
+    public ServiceRequest setReasonReference(List<Reference> theReasonReference) { 
       this.reasonReference = theReasonReference;
       return this;
     }
@@ -1993,7 +1837,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addReasonReference(Reference t) { //3
+    public ServiceRequest addReasonReference(Reference t) { //3
       if (t == null)
         return this;
       if (this.reasonReference == null)
@@ -2023,7 +1867,70 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #supportingInfo} (Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as "ask at order entry questions (AOEs)".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.)
+     * @return {@link #insurance} (Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be needed for delivering the requested service.)
+     */
+    public List<Reference> getInsurance() { 
+      if (this.insurance == null)
+        this.insurance = new ArrayList<Reference>();
+      return this.insurance;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ServiceRequest setInsurance(List<Reference> theInsurance) { 
+      this.insurance = theInsurance;
+      return this;
+    }
+
+    public boolean hasInsurance() { 
+      if (this.insurance == null)
+        return false;
+      for (Reference item : this.insurance)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addInsurance() { //3
+      Reference t = new Reference();
+      if (this.insurance == null)
+        this.insurance = new ArrayList<Reference>();
+      this.insurance.add(t);
+      return t;
+    }
+
+    public ServiceRequest addInsurance(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.insurance == null)
+        this.insurance = new ArrayList<Reference>();
+      this.insurance.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #insurance}, creating it if it does not already exist
+     */
+    public Reference getInsuranceFirstRep() { 
+      if (getInsurance().isEmpty()) {
+        addInsurance();
+      }
+      return getInsurance().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getInsuranceTarget() { 
+      if (this.insuranceTarget == null)
+        this.insuranceTarget = new ArrayList<Resource>();
+      return this.insuranceTarget;
+    }
+
+    /**
+     * @return {@link #supportingInfo} (Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as "ask at order entry questions (AOEs)".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.)
      */
     public List<Reference> getSupportingInfo() { 
       if (this.supportingInfo == null)
@@ -2034,7 +1941,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setSupportingInfo(List<Reference> theSupportingInfo) { 
+    public ServiceRequest setSupportingInfo(List<Reference> theSupportingInfo) { 
       this.supportingInfo = theSupportingInfo;
       return this;
     }
@@ -2056,7 +1963,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addSupportingInfo(Reference t) { //3
+    public ServiceRequest addSupportingInfo(Reference t) { //3
       if (t == null)
         return this;
       if (this.supportingInfo == null)
@@ -2097,7 +2004,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setSpecimen(List<Reference> theSpecimen) { 
+    public ServiceRequest setSpecimen(List<Reference> theSpecimen) { 
       this.specimen = theSpecimen;
       return this;
     }
@@ -2119,7 +2026,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addSpecimen(Reference t) { //3
+    public ServiceRequest addSpecimen(Reference t) { //3
       if (t == null)
         return this;
       if (this.specimen == null)
@@ -2172,7 +2079,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setBodySite(List<CodeableConcept> theBodySite) { 
+    public ServiceRequest setBodySite(List<CodeableConcept> theBodySite) { 
       this.bodySite = theBodySite;
       return this;
     }
@@ -2194,7 +2101,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addBodySite(CodeableConcept t) { //3
+    public ServiceRequest addBodySite(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.bodySite == null)
@@ -2214,7 +2121,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #note} (Any other notes and comments made about the service request. For example, letting provider know that "patient hates needles" or other provider instructions.)
+     * @return {@link #note} (Any other notes and comments made about the service request. For example, internal billing notes.)
      */
     public List<Annotation> getNote() { 
       if (this.note == null)
@@ -2225,7 +2132,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setNote(List<Annotation> theNote) { 
+    public ServiceRequest setNote(List<Annotation> theNote) { 
       this.note = theNote;
       return this;
     }
@@ -2247,7 +2154,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addNote(Annotation t) { //3
+    public ServiceRequest addNote(Annotation t) { //3
       if (t == null)
         return this;
       if (this.note == null)
@@ -2267,50 +2174,50 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #description} (A textual description of the referral.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #patientInstruction} (Instructions in terms that are understood by the patient or consumer.). This is the underlying object with id, value and extensions. The accessor "getPatientInstruction" gives direct access to the value
      */
-    public StringType getDescriptionElement() { 
-      if (this.description == null)
+    public StringType getPatientInstructionElement() { 
+      if (this.patientInstruction == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ProcedureRequest.description");
+          throw new Error("Attempt to auto-create ServiceRequest.patientInstruction");
         else if (Configuration.doAutoCreate())
-          this.description = new StringType(); // bb
-      return this.description;
+          this.patientInstruction = new StringType(); // bb
+      return this.patientInstruction;
     }
 
-    public boolean hasDescriptionElement() { 
-      return this.description != null && !this.description.isEmpty();
+    public boolean hasPatientInstructionElement() { 
+      return this.patientInstruction != null && !this.patientInstruction.isEmpty();
     }
 
-    public boolean hasDescription() { 
-      return this.description != null && !this.description.isEmpty();
+    public boolean hasPatientInstruction() { 
+      return this.patientInstruction != null && !this.patientInstruction.isEmpty();
     }
 
     /**
-     * @param value {@link #description} (A textual description of the referral.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #patientInstruction} (Instructions in terms that are understood by the patient or consumer.). This is the underlying object with id, value and extensions. The accessor "getPatientInstruction" gives direct access to the value
      */
-    public ProcedureRequest setDescriptionElement(StringType value) { 
-      this.description = value;
+    public ServiceRequest setPatientInstructionElement(StringType value) { 
+      this.patientInstruction = value;
       return this;
     }
 
     /**
-     * @return A textual description of the referral.
+     * @return Instructions in terms that are understood by the patient or consumer.
      */
-    public String getDescription() { 
-      return this.description == null ? null : this.description.getValue();
+    public String getPatientInstruction() { 
+      return this.patientInstruction == null ? null : this.patientInstruction.getValue();
     }
 
     /**
-     * @param value A textual description of the referral.
+     * @param value Instructions in terms that are understood by the patient or consumer.
      */
-    public ProcedureRequest setDescription(String value) { 
+    public ServiceRequest setPatientInstruction(String value) { 
       if (Utilities.noString(value))
-        this.description = null;
+        this.patientInstruction = null;
       else {
-        if (this.description == null)
-          this.description = new StringType();
-        this.description.setValue(value);
+        if (this.patientInstruction == null)
+          this.patientInstruction = new StringType();
+        this.patientInstruction.setValue(value);
       }
       return this;
     }
@@ -2327,7 +2234,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setRelevantHistory(List<Reference> theRelevantHistory) { 
+    public ServiceRequest setRelevantHistory(List<Reference> theRelevantHistory) { 
       this.relevantHistory = theRelevantHistory;
       return this;
     }
@@ -2349,7 +2256,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return t;
     }
 
-    public ProcedureRequest addRelevantHistory(Reference t) { //3
+    public ServiceRequest addRelevantHistory(Reference t) { //3
       if (t == null)
         return this;
       if (this.relevantHistory == null)
@@ -2393,31 +2300,33 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
-        children.add(new Property("basedOn", "Reference(CarePlan|ProcedureRequest|MedicationRequest)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
-        children.add(new Property("replaces", "Reference(ProcedureRequest)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces));
-        children.add(new Property("requisition", "Identifier", "A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.", 0, 1, requisition));
+        children.add(new Property("instantiates", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, instantiates));
+        children.add(new Property("basedOn", "Reference(CarePlan|ServiceRequest|MedicationRequest)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        children.add(new Property("replaces", "Reference(ServiceRequest)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces));
+        children.add(new Property("requisition", "Identifier", "A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.", 0, 1, requisition));
         children.add(new Property("status", "code", "The status of the order.", 0, 1, status));
         children.add(new Property("intent", "code", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, 1, intent));
-        children.add(new Property("priority", "code", "Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.", 0, 1, priority));
-        children.add(new Property("doNotPerform", "boolean", "Set this to true if the record is saying that the procedure should NOT be performed.", 0, 1, doNotPerform));
-        children.add(new Property("category", "CodeableConcept", "A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").", 0, java.lang.Integer.MAX_VALUE, category));
-        children.add(new Property("code", "CodeableConcept", "A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested.", 0, 1, code));
-        children.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, 1, subject));
+        children.add(new Property("priority", "code", "Indicates how quickly the ServiceRequest should be addressed with respect to other requests.", 0, 1, priority));
+        children.add(new Property("doNotPerform", "boolean", "Set this to true if the record is saying that the service/procedure should NOT be performed.", 0, 1, doNotPerform));
+        children.add(new Property("category", "CodeableConcept", "A code that classifies the service for searching, sorting and display purposes (e.g. \"Surgical Procedure\").", 0, java.lang.Integer.MAX_VALUE, category));
+        children.add(new Property("code", "CodeableConcept", "A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.", 0, 1, code));
+        children.add(new Property("orderDetail", "CodeableConcept", "Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.", 0, java.lang.Integer.MAX_VALUE, orderDetail));
+        children.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, 1, subject));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "An encounter or episode of care that provides additional information about the healthcare context in which this request is made.", 0, 1, context));
-        children.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested procedure should occur.", 0, 1, occurrence));
-        children.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded));
+        children.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested service should occur.", 0, 1, occurrence));
+        children.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded));
         children.add(new Property("authoredOn", "dateTime", "When the request transitioned to being actionable.", 0, 1, authoredOn));
-        children.add(new Property("requester", "", "The individual who initiated the request and has responsibility for its activation.", 0, 1, requester));
-        children.add(new Property("performerType", "CodeableConcept", "Desired type of performer for doing the requested procedure.", 0, 1, performerType));
-        children.add(new Property("performer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)", "The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.", 0, 1, performer));
-        children.add(new Property("reasonCode", "CodeableConcept", "An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
-        children.add(new Property("reasonReference", "Reference(Condition|Observation)", "Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
-        children.add(new Property("supportingInfo", "Reference(Any)", "Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
+        children.add(new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The individual who initiated the request and has responsibility for its activation.", 0, 1, requester));
+        children.add(new Property("performerType", "CodeableConcept", "Desired type of performer for doing the requested service.", 0, 1, performerType));
+        children.add(new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|Patient|Device|RelatedPerson|HealthcareService|CareTeam)", "The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.", 0, 1, performer));
+        children.add(new Property("reasonCode", "CodeableConcept", "An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
+        children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
+        children.add(new Property("insurance", "Reference(Coverage|ClaimResponse)", "Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be needed for delivering the requested service.", 0, java.lang.Integer.MAX_VALUE, insurance));
+        children.add(new Property("supportingInfo", "Reference(Any)", "Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
         children.add(new Property("specimen", "Reference(Specimen)", "One or more specimens that the laboratory procedure will use.", 0, java.lang.Integer.MAX_VALUE, specimen));
         children.add(new Property("bodySite", "CodeableConcept", "Anatomic location where the procedure should be performed. This is the target site.", 0, java.lang.Integer.MAX_VALUE, bodySite));
-        children.add(new Property("note", "Annotation", "Any other notes and comments made about the service request. For example, letting provider know that \"patient hates needles\" or other provider instructions.", 0, java.lang.Integer.MAX_VALUE, note));
-        children.add(new Property("description", "string", "A textual description of the referral.", 0, 1, description));
+        children.add(new Property("note", "Annotation", "Any other notes and comments made about the service request. For example, internal billing notes.", 0, java.lang.Integer.MAX_VALUE, note));
+        children.add(new Property("patientInstruction", "string", "Instructions in terms that are understood by the patient or consumer.", 0, 1, patientInstruction));
         children.add(new Property("relevantHistory", "Reference(Provenance)", "Key events in the history of the request.", 0, java.lang.Integer.MAX_VALUE, relevantHistory));
       }
 
@@ -2425,38 +2334,40 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -1014418093: /*definition*/  return new Property("definition", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, definition);
-        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ProcedureRequest|MedicationRequest)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn);
-        case -430332865: /*replaces*/  return new Property("replaces", "Reference(ProcedureRequest)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces);
-        case 395923612: /*requisition*/  return new Property("requisition", "Identifier", "A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.", 0, 1, requisition);
+        case -246883639: /*instantiates*/  return new Property("instantiates", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, instantiates);
+        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ServiceRequest|MedicationRequest)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn);
+        case -430332865: /*replaces*/  return new Property("replaces", "Reference(ServiceRequest)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces);
+        case 395923612: /*requisition*/  return new Property("requisition", "Identifier", "A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.", 0, 1, requisition);
         case -892481550: /*status*/  return new Property("status", "code", "The status of the order.", 0, 1, status);
         case -1183762788: /*intent*/  return new Property("intent", "code", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, 1, intent);
-        case -1165461084: /*priority*/  return new Property("priority", "code", "Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.", 0, 1, priority);
-        case -1788508167: /*doNotPerform*/  return new Property("doNotPerform", "boolean", "Set this to true if the record is saying that the procedure should NOT be performed.", 0, 1, doNotPerform);
-        case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").", 0, java.lang.Integer.MAX_VALUE, category);
-        case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested.", 0, 1, code);
-        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group|Location|Device)", "On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, 1, subject);
+        case -1165461084: /*priority*/  return new Property("priority", "code", "Indicates how quickly the ServiceRequest should be addressed with respect to other requests.", 0, 1, priority);
+        case -1788508167: /*doNotPerform*/  return new Property("doNotPerform", "boolean", "Set this to true if the record is saying that the service/procedure should NOT be performed.", 0, 1, doNotPerform);
+        case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code that classifies the service for searching, sorting and display purposes (e.g. \"Surgical Procedure\").", 0, java.lang.Integer.MAX_VALUE, category);
+        case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.", 0, 1, code);
+        case 1187338559: /*orderDetail*/  return new Property("orderDetail", "CodeableConcept", "Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.", 0, java.lang.Integer.MAX_VALUE, orderDetail);
+        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group|Location|Device)", "On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, 1, subject);
         case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "An encounter or episode of care that provides additional information about the healthcare context in which this request is made.", 0, 1, context);
-        case -2022646513: /*occurrence[x]*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested procedure should occur.", 0, 1, occurrence);
-        case 1687874001: /*occurrence*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested procedure should occur.", 0, 1, occurrence);
-        case -298443636: /*occurrenceDateTime*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested procedure should occur.", 0, 1, occurrence);
-        case 1397156594: /*occurrencePeriod*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested procedure should occur.", 0, 1, occurrence);
-        case 1515218299: /*occurrenceTiming*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested procedure should occur.", 0, 1, occurrence);
-        case -544329575: /*asNeeded[x]*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded);
-        case -1432923513: /*asNeeded*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded);
-        case -591717471: /*asNeededBoolean*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded);
-        case 1556420122: /*asNeededCodeableConcept*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded);
+        case -2022646513: /*occurrence[x]*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested service should occur.", 0, 1, occurrence);
+        case 1687874001: /*occurrence*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested service should occur.", 0, 1, occurrence);
+        case -298443636: /*occurrenceDateTime*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested service should occur.", 0, 1, occurrence);
+        case 1397156594: /*occurrencePeriod*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested service should occur.", 0, 1, occurrence);
+        case 1515218299: /*occurrenceTiming*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested service should occur.", 0, 1, occurrence);
+        case -544329575: /*asNeeded[x]*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded);
+        case -1432923513: /*asNeeded*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded);
+        case -591717471: /*asNeededBoolean*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded);
+        case 1556420122: /*asNeededCodeableConcept*/  return new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example \"pain\", \"on flare-up\", etc.", 0, 1, asNeeded);
         case -1500852503: /*authoredOn*/  return new Property("authoredOn", "dateTime", "When the request transitioned to being actionable.", 0, 1, authoredOn);
-        case 693933948: /*requester*/  return new Property("requester", "", "The individual who initiated the request and has responsibility for its activation.", 0, 1, requester);
-        case -901444568: /*performerType*/  return new Property("performerType", "CodeableConcept", "Desired type of performer for doing the requested procedure.", 0, 1, performerType);
-        case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)", "The desired perfomer for doing the requested procedure.  For example, the surgeon, dermatopathologist, endoscopist, etc.", 0, 1, performer);
-        case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "An explanation or justification for why this procedure is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
-        case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation)", "Indicates another resource that provides a justification for why this procedure is being requested.   May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
-        case 1922406657: /*supportingInfo*/  return new Property("supportingInfo", "Reference(Any)", "Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.", 0, java.lang.Integer.MAX_VALUE, supportingInfo);
+        case 693933948: /*requester*/  return new Property("requester", "Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson|Device)", "The individual who initiated the request and has responsibility for its activation.", 0, 1, requester);
+        case -901444568: /*performerType*/  return new Property("performerType", "CodeableConcept", "Desired type of performer for doing the requested service.", 0, 1, performerType);
+        case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|Patient|Device|RelatedPerson|HealthcareService|CareTeam)", "The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.", 0, 1, performer);
+        case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "An explanation or justification for why this service is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
+        case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
+        case 73049818: /*insurance*/  return new Property("insurance", "Reference(Coverage|ClaimResponse)", "Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be needed for delivering the requested service.", 0, java.lang.Integer.MAX_VALUE, insurance);
+        case 1922406657: /*supportingInfo*/  return new Property("supportingInfo", "Reference(Any)", "Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.", 0, java.lang.Integer.MAX_VALUE, supportingInfo);
         case -2132868344: /*specimen*/  return new Property("specimen", "Reference(Specimen)", "One or more specimens that the laboratory procedure will use.", 0, java.lang.Integer.MAX_VALUE, specimen);
         case 1702620169: /*bodySite*/  return new Property("bodySite", "CodeableConcept", "Anatomic location where the procedure should be performed. This is the target site.", 0, java.lang.Integer.MAX_VALUE, bodySite);
-        case 3387378: /*note*/  return new Property("note", "Annotation", "Any other notes and comments made about the service request. For example, letting provider know that \"patient hates needles\" or other provider instructions.", 0, java.lang.Integer.MAX_VALUE, note);
-        case -1724546052: /*description*/  return new Property("description", "string", "A textual description of the referral.", 0, 1, description);
+        case 3387378: /*note*/  return new Property("note", "Annotation", "Any other notes and comments made about the service request. For example, internal billing notes.", 0, java.lang.Integer.MAX_VALUE, note);
+        case 737543241: /*patientInstruction*/  return new Property("patientInstruction", "string", "Instructions in terms that are understood by the patient or consumer.", 0, 1, patientInstruction);
         case 1538891575: /*relevantHistory*/  return new Property("relevantHistory", "Reference(Provenance)", "Key events in the history of the request.", 0, java.lang.Integer.MAX_VALUE, relevantHistory);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
@@ -2467,31 +2378,33 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : this.definition.toArray(new Base[this.definition.size()]); // Reference
+        case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // Reference
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
         case -430332865: /*replaces*/ return this.replaces == null ? new Base[0] : this.replaces.toArray(new Base[this.replaces.size()]); // Reference
         case 395923612: /*requisition*/ return this.requisition == null ? new Base[0] : new Base[] {this.requisition}; // Identifier
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProcedureRequestStatus>
-        case -1183762788: /*intent*/ return this.intent == null ? new Base[0] : new Base[] {this.intent}; // Enumeration<ProcedureRequestIntent>
-        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<ProcedureRequestPriority>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ServiceRequestStatus>
+        case -1183762788: /*intent*/ return this.intent == null ? new Base[0] : new Base[] {this.intent}; // Enumeration<ServiceRequestIntent>
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<ServiceRequestPriority>
         case -1788508167: /*doNotPerform*/ return this.doNotPerform == null ? new Base[0] : new Base[] {this.doNotPerform}; // BooleanType
         case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 1187338559: /*orderDetail*/ return this.orderDetail == null ? new Base[0] : this.orderDetail.toArray(new Base[this.orderDetail.size()]); // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case 1687874001: /*occurrence*/ return this.occurrence == null ? new Base[0] : new Base[] {this.occurrence}; // Type
         case -1432923513: /*asNeeded*/ return this.asNeeded == null ? new Base[0] : new Base[] {this.asNeeded}; // Type
         case -1500852503: /*authoredOn*/ return this.authoredOn == null ? new Base[0] : new Base[] {this.authoredOn}; // DateTimeType
-        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // ProcedureRequestRequesterComponent
+        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
         case -901444568: /*performerType*/ return this.performerType == null ? new Base[0] : new Base[] {this.performerType}; // CodeableConcept
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
+        case 73049818: /*insurance*/ return this.insurance == null ? new Base[0] : this.insurance.toArray(new Base[this.insurance.size()]); // Reference
         case 1922406657: /*supportingInfo*/ return this.supportingInfo == null ? new Base[0] : this.supportingInfo.toArray(new Base[this.supportingInfo.size()]); // Reference
         case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
+        case 737543241: /*patientInstruction*/ return this.patientInstruction == null ? new Base[0] : new Base[] {this.patientInstruction}; // StringType
         case 1538891575: /*relevantHistory*/ return this.relevantHistory == null ? new Base[0] : this.relevantHistory.toArray(new Base[this.relevantHistory.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2504,8 +2417,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
-        case -1014418093: // definition
-          this.getDefinition().add(castToReference(value)); // Reference
+        case -246883639: // instantiates
+          this.getInstantiates().add(castToReference(value)); // Reference
           return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
@@ -2517,16 +2430,16 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.requisition = castToIdentifier(value); // Identifier
           return value;
         case -892481550: // status
-          value = new ProcedureRequestStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<ProcedureRequestStatus>
+          value = new ServiceRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ServiceRequestStatus>
           return value;
         case -1183762788: // intent
-          value = new ProcedureRequestIntentEnumFactory().fromType(castToCode(value));
-          this.intent = (Enumeration) value; // Enumeration<ProcedureRequestIntent>
+          value = new ServiceRequestIntentEnumFactory().fromType(castToCode(value));
+          this.intent = (Enumeration) value; // Enumeration<ServiceRequestIntent>
           return value;
         case -1165461084: // priority
-          value = new ProcedureRequestPriorityEnumFactory().fromType(castToCode(value));
-          this.priority = (Enumeration) value; // Enumeration<ProcedureRequestPriority>
+          value = new ServiceRequestPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<ServiceRequestPriority>
           return value;
         case -1788508167: // doNotPerform
           this.doNotPerform = castToBoolean(value); // BooleanType
@@ -2536,6 +2449,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 1187338559: // orderDetail
+          this.getOrderDetail().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
@@ -2553,7 +2469,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.authoredOn = castToDateTime(value); // DateTimeType
           return value;
         case 693933948: // requester
-          this.requester = (ProcedureRequestRequesterComponent) value; // ProcedureRequestRequesterComponent
+          this.requester = castToReference(value); // Reference
           return value;
         case -901444568: // performerType
           this.performerType = castToCodeableConcept(value); // CodeableConcept
@@ -2567,6 +2483,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
           return value;
+        case 73049818: // insurance
+          this.getInsurance().add(castToReference(value)); // Reference
+          return value;
         case 1922406657: // supportingInfo
           this.getSupportingInfo().add(castToReference(value)); // Reference
           return value;
@@ -2579,8 +2498,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
-        case -1724546052: // description
-          this.description = castToString(value); // StringType
+        case 737543241: // patientInstruction
+          this.patientInstruction = castToString(value); // StringType
           return value;
         case 1538891575: // relevantHistory
           this.getRelevantHistory().add(castToReference(value)); // Reference
@@ -2594,8 +2513,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        } else if (name.equals("definition")) {
-          this.getDefinition().add(castToReference(value));
+        } else if (name.equals("instantiates")) {
+          this.getInstantiates().add(castToReference(value));
         } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
         } else if (name.equals("replaces")) {
@@ -2603,20 +2522,22 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         } else if (name.equals("requisition")) {
           this.requisition = castToIdentifier(value); // Identifier
         } else if (name.equals("status")) {
-          value = new ProcedureRequestStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<ProcedureRequestStatus>
+          value = new ServiceRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ServiceRequestStatus>
         } else if (name.equals("intent")) {
-          value = new ProcedureRequestIntentEnumFactory().fromType(castToCode(value));
-          this.intent = (Enumeration) value; // Enumeration<ProcedureRequestIntent>
+          value = new ServiceRequestIntentEnumFactory().fromType(castToCode(value));
+          this.intent = (Enumeration) value; // Enumeration<ServiceRequestIntent>
         } else if (name.equals("priority")) {
-          value = new ProcedureRequestPriorityEnumFactory().fromType(castToCode(value));
-          this.priority = (Enumeration) value; // Enumeration<ProcedureRequestPriority>
+          value = new ServiceRequestPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<ServiceRequestPriority>
         } else if (name.equals("doNotPerform")) {
           this.doNotPerform = castToBoolean(value); // BooleanType
         } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
         } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("orderDetail")) {
+          this.getOrderDetail().add(castToCodeableConcept(value));
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
         } else if (name.equals("context")) {
@@ -2628,7 +2549,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         } else if (name.equals("authoredOn")) {
           this.authoredOn = castToDateTime(value); // DateTimeType
         } else if (name.equals("requester")) {
-          this.requester = (ProcedureRequestRequesterComponent) value; // ProcedureRequestRequesterComponent
+          this.requester = castToReference(value); // Reference
         } else if (name.equals("performerType")) {
           this.performerType = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("performer")) {
@@ -2637,6 +2558,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.getReasonCode().add(castToCodeableConcept(value));
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
+        } else if (name.equals("insurance")) {
+          this.getInsurance().add(castToReference(value));
         } else if (name.equals("supportingInfo")) {
           this.getSupportingInfo().add(castToReference(value));
         } else if (name.equals("specimen")) {
@@ -2645,8 +2568,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.getBodySite().add(castToCodeableConcept(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        } else if (name.equals("description")) {
-          this.description = castToString(value); // StringType
+        } else if (name.equals("patientInstruction")) {
+          this.patientInstruction = castToString(value); // StringType
         } else if (name.equals("relevantHistory")) {
           this.getRelevantHistory().add(castToReference(value));
         } else
@@ -2658,7 +2581,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case -1014418093:  return addDefinition(); 
+        case -246883639:  return addInstantiates(); 
         case -332612366:  return addBasedOn(); 
         case -430332865:  return addReplaces(); 
         case 395923612:  return getRequisition(); 
@@ -2668,6 +2591,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -1788508167:  return getDoNotPerformElement();
         case 50511102:  return addCategory(); 
         case 3059181:  return getCode(); 
+        case 1187338559:  return addOrderDetail(); 
         case -1867885268:  return getSubject(); 
         case 951530927:  return getContext(); 
         case -2022646513:  return getOccurrence(); 
@@ -2680,11 +2604,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 481140686:  return getPerformer(); 
         case 722137681:  return addReasonCode(); 
         case -1146218137:  return addReasonReference(); 
+        case 73049818:  return addInsurance(); 
         case 1922406657:  return addSupportingInfo(); 
         case -2132868344:  return addSpecimen(); 
         case 1702620169:  return addBodySite(); 
         case 3387378:  return addNote(); 
-        case -1724546052:  return getDescriptionElement();
+        case 737543241:  return getPatientInstructionElement();
         case 1538891575:  return addRelevantHistory(); 
         default: return super.makeProperty(hash, name);
         }
@@ -2695,7 +2620,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -1014418093: /*definition*/ return new String[] {"Reference"};
+        case -246883639: /*instantiates*/ return new String[] {"Reference"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
         case -430332865: /*replaces*/ return new String[] {"Reference"};
         case 395923612: /*requisition*/ return new String[] {"Identifier"};
@@ -2705,21 +2630,23 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -1788508167: /*doNotPerform*/ return new String[] {"boolean"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 1187338559: /*orderDetail*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
         case 1687874001: /*occurrence*/ return new String[] {"dateTime", "Period", "Timing"};
         case -1432923513: /*asNeeded*/ return new String[] {"boolean", "CodeableConcept"};
         case -1500852503: /*authoredOn*/ return new String[] {"dateTime"};
-        case 693933948: /*requester*/ return new String[] {};
+        case 693933948: /*requester*/ return new String[] {"Reference"};
         case -901444568: /*performerType*/ return new String[] {"CodeableConcept"};
         case 481140686: /*performer*/ return new String[] {"Reference"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
+        case 73049818: /*insurance*/ return new String[] {"Reference"};
         case 1922406657: /*supportingInfo*/ return new String[] {"Reference"};
         case -2132868344: /*specimen*/ return new String[] {"Reference"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
-        case -1724546052: /*description*/ return new String[] {"string"};
+        case 737543241: /*patientInstruction*/ return new String[] {"string"};
         case 1538891575: /*relevantHistory*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -2731,8 +2658,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         if (name.equals("identifier")) {
           return addIdentifier();
         }
-        else if (name.equals("definition")) {
-          return addDefinition();
+        else if (name.equals("instantiates")) {
+          return addInstantiates();
         }
         else if (name.equals("basedOn")) {
           return addBasedOn();
@@ -2745,16 +2672,16 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return this.requisition;
         }
         else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProcedureRequest.status");
+          throw new FHIRException("Cannot call addChild on a primitive type ServiceRequest.status");
         }
         else if (name.equals("intent")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProcedureRequest.intent");
+          throw new FHIRException("Cannot call addChild on a primitive type ServiceRequest.intent");
         }
         else if (name.equals("priority")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProcedureRequest.priority");
+          throw new FHIRException("Cannot call addChild on a primitive type ServiceRequest.priority");
         }
         else if (name.equals("doNotPerform")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProcedureRequest.doNotPerform");
+          throw new FHIRException("Cannot call addChild on a primitive type ServiceRequest.doNotPerform");
         }
         else if (name.equals("category")) {
           return addCategory();
@@ -2762,6 +2689,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         else if (name.equals("code")) {
           this.code = new CodeableConcept();
           return this.code;
+        }
+        else if (name.equals("orderDetail")) {
+          return addOrderDetail();
         }
         else if (name.equals("subject")) {
           this.subject = new Reference();
@@ -2792,10 +2722,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return this.asNeeded;
         }
         else if (name.equals("authoredOn")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProcedureRequest.authoredOn");
+          throw new FHIRException("Cannot call addChild on a primitive type ServiceRequest.authoredOn");
         }
         else if (name.equals("requester")) {
-          this.requester = new ProcedureRequestRequesterComponent();
+          this.requester = new Reference();
           return this.requester;
         }
         else if (name.equals("performerType")) {
@@ -2812,6 +2742,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         else if (name.equals("reasonReference")) {
           return addReasonReference();
         }
+        else if (name.equals("insurance")) {
+          return addInsurance();
+        }
         else if (name.equals("supportingInfo")) {
           return addSupportingInfo();
         }
@@ -2824,8 +2757,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         else if (name.equals("note")) {
           return addNote();
         }
-        else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ProcedureRequest.description");
+        else if (name.equals("patientInstruction")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ServiceRequest.patientInstruction");
         }
         else if (name.equals("relevantHistory")) {
           return addRelevantHistory();
@@ -2835,22 +2768,22 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
   public String fhirType() {
-    return "ProcedureRequest";
+    return "ServiceRequest";
 
   }
 
-      public ProcedureRequest copy() {
-        ProcedureRequest dst = new ProcedureRequest();
+      public ServiceRequest copy() {
+        ServiceRequest dst = new ServiceRequest();
         copyValues(dst);
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        if (definition != null) {
-          dst.definition = new ArrayList<Reference>();
-          for (Reference i : definition)
-            dst.definition.add(i.copy());
+        if (instantiates != null) {
+          dst.instantiates = new ArrayList<Reference>();
+          for (Reference i : instantiates)
+            dst.instantiates.add(i.copy());
         };
         if (basedOn != null) {
           dst.basedOn = new ArrayList<Reference>();
@@ -2873,6 +2806,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             dst.category.add(i.copy());
         };
         dst.code = code == null ? null : code.copy();
+        if (orderDetail != null) {
+          dst.orderDetail = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : orderDetail)
+            dst.orderDetail.add(i.copy());
+        };
         dst.subject = subject == null ? null : subject.copy();
         dst.context = context == null ? null : context.copy();
         dst.occurrence = occurrence == null ? null : occurrence.copy();
@@ -2890,6 +2828,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           dst.reasonReference = new ArrayList<Reference>();
           for (Reference i : reasonReference)
             dst.reasonReference.add(i.copy());
+        };
+        if (insurance != null) {
+          dst.insurance = new ArrayList<Reference>();
+          for (Reference i : insurance)
+            dst.insurance.add(i.copy());
         };
         if (supportingInfo != null) {
           dst.supportingInfo = new ArrayList<Reference>();
@@ -2911,7 +2854,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           for (Annotation i : note)
             dst.note.add(i.copy());
         };
-        dst.description = description == null ? null : description.copy();
+        dst.patientInstruction = patientInstruction == null ? null : patientInstruction.copy();
         if (relevantHistory != null) {
           dst.relevantHistory = new ArrayList<Reference>();
           for (Reference i : relevantHistory)
@@ -2920,7 +2863,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         return dst;
       }
 
-      protected ProcedureRequest typedCopy() {
+      protected ServiceRequest typedCopy() {
         return copy();
       }
 
@@ -2928,45 +2871,46 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof ProcedureRequest))
+        if (!(other instanceof ServiceRequest))
           return false;
-        ProcedureRequest o = (ProcedureRequest) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
+        ServiceRequest o = (ServiceRequest) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true) && compareDeep(requisition, o.requisition, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true)
            && compareDeep(doNotPerform, o.doNotPerform, true) && compareDeep(category, o.category, true) && compareDeep(code, o.code, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true)
-           && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(requester, o.requester, true)
-           && compareDeep(performerType, o.performerType, true) && compareDeep(performer, o.performer, true)
-           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
-           && compareDeep(supportingInfo, o.supportingInfo, true) && compareDeep(specimen, o.specimen, true)
-           && compareDeep(bodySite, o.bodySite, true) && compareDeep(note, o.note, true) && compareDeep(description, o.description, true)
-           && compareDeep(relevantHistory, o.relevantHistory, true);
+           && compareDeep(orderDetail, o.orderDetail, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
+           && compareDeep(occurrence, o.occurrence, true) && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(authoredOn, o.authoredOn, true)
+           && compareDeep(requester, o.requester, true) && compareDeep(performerType, o.performerType, true)
+           && compareDeep(performer, o.performer, true) && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
+           && compareDeep(insurance, o.insurance, true) && compareDeep(supportingInfo, o.supportingInfo, true)
+           && compareDeep(specimen, o.specimen, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(note, o.note, true)
+           && compareDeep(patientInstruction, o.patientInstruction, true) && compareDeep(relevantHistory, o.relevantHistory, true)
+          ;
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof ProcedureRequest))
+        if (!(other instanceof ServiceRequest))
           return false;
-        ProcedureRequest o = (ProcedureRequest) other;
+        ServiceRequest o = (ServiceRequest) other;
         return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
            && compareValues(doNotPerform, o.doNotPerform, true) && compareValues(authoredOn, o.authoredOn, true)
-           && compareValues(description, o.description, true);
+           && compareValues(patientInstruction, o.patientInstruction, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiates, basedOn
           , replaces, requisition, status, intent, priority, doNotPerform, category, code
-          , subject, context, occurrence, asNeeded, authoredOn, requester, performerType
-          , performer, reasonCode, reasonReference, supportingInfo, specimen, bodySite, note
-          , description, relevantHistory);
+          , orderDetail, subject, context, occurrence, asNeeded, authoredOn, requester, performerType
+          , performer, reasonCode, reasonReference, insurance, supportingInfo, specimen, bodySite
+          , note, patientInstruction, relevantHistory);
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.ProcedureRequest;
+    return ResourceType.ServiceRequest;
    }
 
  /**
@@ -2974,17 +2918,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>Date request signed</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>ProcedureRequest.authoredOn</b><br>
+   * Path: <b>ServiceRequest.authoredOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="authored", path="ProcedureRequest.authoredOn", description="Date request signed", type="date" )
+  @SearchParamDefinition(name="authored", path="ServiceRequest.authoredOn", description="Date request signed", type="date" )
   public static final String SP_AUTHORED = "authored";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>authored</b>
    * <p>
    * Description: <b>Date request signed</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>ProcedureRequest.authoredOn</b><br>
+   * Path: <b>ServiceRequest.authoredOn</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORED);
@@ -2992,45 +2936,71 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
  /**
    * Search parameter: <b>requester</b>
    * <p>
-   * Description: <b>Individual making the request</b><br>
+   * Description: <b>Who/what is requesting service</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.requester.agent</b><br>
+   * Path: <b>ServiceRequest.requester</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requester", path="ProcedureRequest.requester.agent", description="Individual making the request", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="requester", path="ServiceRequest.requester", description="Who/what is requesting service", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_REQUESTER = "requester";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requester</b>
    * <p>
-   * Description: <b>Individual making the request</b><br>
+   * Description: <b>Who/what is requesting service</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.requester.agent</b><br>
+   * Path: <b>ServiceRequest.requester</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:requester</b>".
+   * the path value of "<b>ServiceRequest:requester</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTER = new ca.uhn.fhir.model.api.Include("ProcedureRequest:requester").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTER = new ca.uhn.fhir.model.api.Include("ServiceRequest:requester").toLocked();
+
+ /**
+   * Search parameter: <b>instantiates</b>
+   * <p>
+   * Description: <b>Protocol or definition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ServiceRequest.instantiates</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="instantiates", path="ServiceRequest.instantiates", description="Protocol or definition", type="reference", target={ActivityDefinition.class, PlanDefinition.class } )
+  public static final String SP_INSTANTIATES = "instantiates";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>instantiates</b>
+   * <p>
+   * Description: <b>Protocol or definition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ServiceRequest.instantiates</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INSTANTIATES = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INSTANTIATES);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ServiceRequest:instantiates</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INSTANTIATES = new ca.uhn.fhir.model.api.Include("ServiceRequest:instantiates").toLocked();
 
  /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>Identifiers assigned to this order</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.identifier</b><br>
+   * Path: <b>ServiceRequest.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ProcedureRequest.identifier", description="Identifiers assigned to this order", type="token" )
+  @SearchParamDefinition(name="identifier", path="ServiceRequest.identifier", description="Identifiers assigned to this order", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
    * Description: <b>Identifiers assigned to this order</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.identifier</b><br>
+   * Path: <b>ServiceRequest.identifier</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
@@ -3040,17 +3010,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>What is being requested/ordered</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.code</b><br>
+   * Path: <b>ServiceRequest.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="ProcedureRequest.code", description="What is being requested/ordered", type="token" )
+  @SearchParamDefinition(name="code", path="ServiceRequest.code", description="What is being requested/ordered", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
    * Description: <b>What is being requested/ordered</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.code</b><br>
+   * Path: <b>ServiceRequest.code</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
@@ -3060,43 +3030,43 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>Requested perfomer</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.performer</b><br>
+   * Path: <b>ServiceRequest.performer</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performer", path="ProcedureRequest.performer", description="Requested perfomer", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, HealthcareService.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="performer", path="ServiceRequest.performer", description="Requested perfomer", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={CareTeam.class, Device.class, HealthcareService.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_PERFORMER = "performer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performer</b>
    * <p>
    * Description: <b>Requested perfomer</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.performer</b><br>
+   * Path: <b>ServiceRequest.performer</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:performer</b>".
+   * the path value of "<b>ServiceRequest:performer</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("ProcedureRequest:performer").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("ServiceRequest:performer").toLocked();
 
  /**
    * Search parameter: <b>requisition</b>
    * <p>
    * Description: <b>Composite Request ID</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.requisition</b><br>
+   * Path: <b>ServiceRequest.requisition</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requisition", path="ProcedureRequest.requisition", description="Composite Request ID", type="token" )
+  @SearchParamDefinition(name="requisition", path="ServiceRequest.requisition", description="Composite Request ID", type="token" )
   public static final String SP_REQUISITION = "requisition";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requisition</b>
    * <p>
    * Description: <b>Composite Request ID</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.requisition</b><br>
+   * Path: <b>ServiceRequest.requisition</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam REQUISITION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REQUISITION);
@@ -3106,95 +3076,95 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>What request replaces</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.replaces</b><br>
+   * Path: <b>ServiceRequest.replaces</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="replaces", path="ProcedureRequest.replaces", description="What request replaces", type="reference", target={ProcedureRequest.class } )
+  @SearchParamDefinition(name="replaces", path="ServiceRequest.replaces", description="What request replaces", type="reference", target={ServiceRequest.class } )
   public static final String SP_REPLACES = "replaces";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>replaces</b>
    * <p>
    * Description: <b>What request replaces</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.replaces</b><br>
+   * Path: <b>ServiceRequest.replaces</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REPLACES = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REPLACES);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:replaces</b>".
+   * the path value of "<b>ServiceRequest:replaces</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REPLACES = new ca.uhn.fhir.model.api.Include("ProcedureRequest:replaces").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REPLACES = new ca.uhn.fhir.model.api.Include("ServiceRequest:replaces").toLocked();
 
  /**
    * Search parameter: <b>subject</b>
    * <p>
    * Description: <b>Search by subject</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.subject</b><br>
+   * Path: <b>ServiceRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="ProcedureRequest.subject", description="Search by subject", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Device.class, Group.class, Location.class, Patient.class } )
+  @SearchParamDefinition(name="subject", path="ServiceRequest.subject", description="Search by subject", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Device.class, Group.class, Location.class, Patient.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
    * <p>
    * Description: <b>Search by subject</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.subject</b><br>
+   * Path: <b>ServiceRequest.subject</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:subject</b>".
+   * the path value of "<b>ServiceRequest:subject</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("ProcedureRequest:subject").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("ServiceRequest:subject").toLocked();
 
  /**
    * Search parameter: <b>encounter</b>
    * <p>
    * Description: <b>An encounter in which this request is made</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.context</b><br>
+   * Path: <b>ServiceRequest.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="ProcedureRequest.context", description="An encounter in which this request is made", type="reference", target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="ServiceRequest.context", description="An encounter in which this request is made", type="reference", target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
    * <p>
    * Description: <b>An encounter in which this request is made</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.context</b><br>
+   * Path: <b>ServiceRequest.context</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:encounter</b>".
+   * the path value of "<b>ServiceRequest:encounter</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("ProcedureRequest:encounter").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("ServiceRequest:encounter").toLocked();
 
  /**
    * Search parameter: <b>occurrence</b>
    * <p>
-   * Description: <b>When procedure should occur</b><br>
+   * Description: <b>When service should occur</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>ProcedureRequest.occurrence[x]</b><br>
+   * Path: <b>ServiceRequest.occurrence[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="occurrence", path="ProcedureRequest.occurrence", description="When procedure should occur", type="date" )
+  @SearchParamDefinition(name="occurrence", path="ServiceRequest.occurrence", description="When service should occur", type="date" )
   public static final String SP_OCCURRENCE = "occurrence";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>occurrence</b>
    * <p>
-   * Description: <b>When procedure should occur</b><br>
+   * Description: <b>When service should occur</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>ProcedureRequest.occurrence[x]</b><br>
+   * Path: <b>ServiceRequest.occurrence[x]</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam OCCURRENCE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_OCCURRENCE);
@@ -3204,17 +3174,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>routine | urgent | asap | stat</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.priority</b><br>
+   * Path: <b>ServiceRequest.priority</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="priority", path="ProcedureRequest.priority", description="routine | urgent | asap | stat", type="token" )
+  @SearchParamDefinition(name="priority", path="ServiceRequest.priority", description="routine | urgent | asap | stat", type="token" )
   public static final String SP_PRIORITY = "priority";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>priority</b>
    * <p>
    * Description: <b>routine | urgent | asap | stat</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.priority</b><br>
+   * Path: <b>ServiceRequest.priority</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
@@ -3224,17 +3194,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>proposal | plan | order +</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.intent</b><br>
+   * Path: <b>ServiceRequest.intent</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="intent", path="ProcedureRequest.intent", description="proposal | plan | order +", type="token" )
+  @SearchParamDefinition(name="intent", path="ServiceRequest.intent", description="proposal | plan | order +", type="token" )
   public static final String SP_INTENT = "intent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>intent</b>
    * <p>
    * Description: <b>proposal | plan | order +</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.intent</b><br>
+   * Path: <b>ServiceRequest.intent</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam INTENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INTENT);
@@ -3244,17 +3214,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>Performer role</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.performerType</b><br>
+   * Path: <b>ServiceRequest.performerType</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performer-type", path="ProcedureRequest.performerType", description="Performer role", type="token" )
+  @SearchParamDefinition(name="performer-type", path="ServiceRequest.performerType", description="Performer role", type="token" )
   public static final String SP_PERFORMER_TYPE = "performer-type";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performer-type</b>
    * <p>
    * Description: <b>Performer role</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.performerType</b><br>
+   * Path: <b>ServiceRequest.performerType</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PERFORMER_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PERFORMER_TYPE);
@@ -3264,147 +3234,121 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>What request fulfills</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.basedOn</b><br>
+   * Path: <b>ServiceRequest.basedOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="based-on", path="ProcedureRequest.basedOn", description="What request fulfills", type="reference", target={CarePlan.class, MedicationRequest.class, ProcedureRequest.class } )
+  @SearchParamDefinition(name="based-on", path="ServiceRequest.basedOn", description="What request fulfills", type="reference", target={CarePlan.class, MedicationRequest.class, ServiceRequest.class } )
   public static final String SP_BASED_ON = "based-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>based-on</b>
    * <p>
    * Description: <b>What request fulfills</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.basedOn</b><br>
+   * Path: <b>ServiceRequest.basedOn</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BASED_ON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BASED_ON);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:based-on</b>".
+   * the path value of "<b>ServiceRequest:based-on</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASED_ON = new ca.uhn.fhir.model.api.Include("ProcedureRequest:based-on").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASED_ON = new ca.uhn.fhir.model.api.Include("ServiceRequest:based-on").toLocked();
 
  /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>Search by subject - a patient</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.subject</b><br>
+   * Path: <b>ServiceRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ProcedureRequest.subject", description="Search by subject - a patient", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="ServiceRequest.subject", description="Search by subject - a patient", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
    * Description: <b>Search by subject - a patient</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.subject</b><br>
+   * Path: <b>ServiceRequest.subject</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:patient</b>".
+   * the path value of "<b>ServiceRequest:patient</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ProcedureRequest:patient").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ServiceRequest:patient").toLocked();
 
  /**
    * Search parameter: <b>specimen</b>
    * <p>
    * Description: <b>Specimen to be tested</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.specimen</b><br>
+   * Path: <b>ServiceRequest.specimen</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="specimen", path="ProcedureRequest.specimen", description="Specimen to be tested", type="reference", target={Specimen.class } )
+  @SearchParamDefinition(name="specimen", path="ServiceRequest.specimen", description="Specimen to be tested", type="reference", target={Specimen.class } )
   public static final String SP_SPECIMEN = "specimen";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>specimen</b>
    * <p>
    * Description: <b>Specimen to be tested</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.specimen</b><br>
+   * Path: <b>ServiceRequest.specimen</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SPECIMEN = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SPECIMEN);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:specimen</b>".
+   * the path value of "<b>ServiceRequest:specimen</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SPECIMEN = new ca.uhn.fhir.model.api.Include("ProcedureRequest:specimen").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SPECIMEN = new ca.uhn.fhir.model.api.Include("ServiceRequest:specimen").toLocked();
 
  /**
    * Search parameter: <b>context</b>
    * <p>
    * Description: <b>Encounter or Episode during which request was created</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.context</b><br>
+   * Path: <b>ServiceRequest.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="context", path="ProcedureRequest.context", description="Encounter or Episode during which request was created", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class, EpisodeOfCare.class } )
+  @SearchParamDefinition(name="context", path="ServiceRequest.context", description="Encounter or Episode during which request was created", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class, EpisodeOfCare.class } )
   public static final String SP_CONTEXT = "context";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>context</b>
    * <p>
    * Description: <b>Encounter or Episode during which request was created</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.context</b><br>
+   * Path: <b>ServiceRequest.context</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:context</b>".
+   * the path value of "<b>ServiceRequest:context</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("ProcedureRequest:context").toLocked();
-
- /**
-   * Search parameter: <b>definition</b>
-   * <p>
-   * Description: <b>Protocol or definition</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.definition</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="definition", path="ProcedureRequest.definition", description="Protocol or definition", type="reference", target={ActivityDefinition.class, PlanDefinition.class } )
-  public static final String SP_DEFINITION = "definition";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>definition</b>
-   * <p>
-   * Description: <b>Protocol or definition</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ProcedureRequest.definition</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEFINITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEFINITION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ProcedureRequest:definition</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEFINITION = new ca.uhn.fhir.model.api.Include("ProcedureRequest:definition").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("ServiceRequest:context").toLocked();
 
  /**
    * Search parameter: <b>body-site</b>
    * <p>
    * Description: <b>Where procedure is going to be done</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.bodySite</b><br>
+   * Path: <b>ServiceRequest.bodySite</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="body-site", path="ProcedureRequest.bodySite", description="Where procedure is going to be done", type="token" )
+  @SearchParamDefinition(name="body-site", path="ServiceRequest.bodySite", description="Where procedure is going to be done", type="token" )
   public static final String SP_BODY_SITE = "body-site";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>body-site</b>
    * <p>
    * Description: <b>Where procedure is going to be done</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.bodySite</b><br>
+   * Path: <b>ServiceRequest.bodySite</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODY_SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODY_SITE);
@@ -3412,19 +3356,19 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
  /**
    * Search parameter: <b>category</b>
    * <p>
-   * Description: <b>Classification of procedure</b><br>
+   * Description: <b>Classification of service</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.category</b><br>
+   * Path: <b>ServiceRequest.category</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="category", path="ProcedureRequest.category", description="Classification of procedure", type="token" )
+  @SearchParamDefinition(name="category", path="ServiceRequest.category", description="Classification of service", type="token" )
   public static final String SP_CATEGORY = "category";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>category</b>
    * <p>
-   * Description: <b>Classification of procedure</b><br>
+   * Description: <b>Classification of service</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.category</b><br>
+   * Path: <b>ServiceRequest.category</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
@@ -3434,17 +3378,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>draft | active | suspended | completed | entered-in-error | cancelled</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.status</b><br>
+   * Path: <b>ServiceRequest.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="ProcedureRequest.status", description="draft | active | suspended | completed | entered-in-error | cancelled", type="token" )
+  @SearchParamDefinition(name="status", path="ServiceRequest.status", description="draft | active | suspended | completed | entered-in-error | cancelled", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
    * Description: <b>draft | active | suspended | completed | entered-in-error | cancelled</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ProcedureRequest.status</b><br>
+   * Path: <b>ServiceRequest.status</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);

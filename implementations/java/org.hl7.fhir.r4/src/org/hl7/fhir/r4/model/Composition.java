@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2240,7 +2240,7 @@ public class Composition extends DomainResource {
     /**
      * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
      */
-    @Child(name = "subject", type = {Reference.class}, order=4, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Reference.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who and/or what the composition is about", formalDefinition="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)." )
     protected Reference subject;
 
@@ -2271,7 +2271,7 @@ public class Composition extends DomainResource {
     /**
      * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
      */
-    @Child(name = "author", type = {Practitioner.class, PractitionerRole.class, Device.class, Patient.class, RelatedPerson.class}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "author", type = {Practitioner.class, PractitionerRole.class, Device.class, Patient.class, RelatedPerson.class, Organization.class}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Who and/or what authored the composition", formalDefinition="Identifies who is responsible for the information in the composition, not necessarily who typed it in." )
     protected List<Reference> author;
     /**
@@ -2347,11 +2347,10 @@ public class Composition extends DomainResource {
   /**
    * Constructor
    */
-    public Composition(Enumeration<CompositionStatus> status, CodeableConcept type, Reference subject, DateTimeType date, StringType title) {
+    public Composition(Enumeration<CompositionStatus> status, CodeableConcept type, DateTimeType date, StringType title) {
       super();
       this.status = status;
       this.type = type;
-      this.subject = subject;
       this.date = date;
       this.title = title;
     }
@@ -3023,7 +3022,7 @@ public class Composition extends DomainResource {
         children.add(new Property("subject", "Reference(Any)", "Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).", 0, 1, subject));
         children.add(new Property("encounter", "Reference(Encounter)", "Describes the clinical encounter or type of care this documentation is associated with.", 0, 1, encounter));
         children.add(new Property("date", "dateTime", "The composition editing time, when the composition was last logically changed by the author.", 0, 1, date));
-        children.add(new Property("author", "Reference(Practitioner|PractitionerRole|Device|Patient|RelatedPerson)", "Identifies who is responsible for the information in the composition, not necessarily who typed it in.", 0, java.lang.Integer.MAX_VALUE, author));
+        children.add(new Property("author", "Reference(Practitioner|PractitionerRole|Device|Patient|RelatedPerson|Organization)", "Identifies who is responsible for the information in the composition, not necessarily who typed it in.", 0, java.lang.Integer.MAX_VALUE, author));
         children.add(new Property("title", "string", "Official human-readable label for the composition.", 0, 1, title));
         children.add(new Property("confidentiality", "code", "The code specifying the level of confidentiality of the Composition.", 0, 1, confidentiality));
         children.add(new Property("attester", "", "A participant who has attested to the accuracy of the composition/document.", 0, java.lang.Integer.MAX_VALUE, attester));
@@ -3043,7 +3042,7 @@ public class Composition extends DomainResource {
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Any)", "Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).", 0, 1, subject);
         case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "Describes the clinical encounter or type of care this documentation is associated with.", 0, 1, encounter);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The composition editing time, when the composition was last logically changed by the author.", 0, 1, date);
-        case -1406328437: /*author*/  return new Property("author", "Reference(Practitioner|PractitionerRole|Device|Patient|RelatedPerson)", "Identifies who is responsible for the information in the composition, not necessarily who typed it in.", 0, java.lang.Integer.MAX_VALUE, author);
+        case -1406328437: /*author*/  return new Property("author", "Reference(Practitioner|PractitionerRole|Device|Patient|RelatedPerson|Organization)", "Identifies who is responsible for the information in the composition, not necessarily who typed it in.", 0, java.lang.Integer.MAX_VALUE, author);
         case 110371416: /*title*/  return new Property("title", "string", "Official human-readable label for the composition.", 0, 1, title);
         case -1923018202: /*confidentiality*/  return new Property("confidentiality", "code", "The code specifying the level of confidentiality of the Composition.", 0, 1, confidentiality);
         case 542920370: /*attester*/  return new Property("attester", "", "A participant who has attested to the accuracy of the composition/document.", 0, java.lang.Integer.MAX_VALUE, attester);
@@ -3477,7 +3476,7 @@ public class Composition extends DomainResource {
    * Path: <b>Composition.author</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="Composition.author", description="Who and/or what authored the composition", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="author", path="Composition.author", description="Who and/or what authored the composition", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_AUTHOR = "author";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>author</b>

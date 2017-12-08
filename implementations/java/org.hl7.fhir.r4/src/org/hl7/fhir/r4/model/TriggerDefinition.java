@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -660,9 +660,9 @@ public class TriggerDefinition extends Type implements ICompositeType {
     /**
      * A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.
      */
-    @Child(name = "name", type = {UriType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Name or URI that identifies the event", formalDefinition="A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context." )
-    protected UriType name;
+    protected StringType name;
 
     /**
      * The timing of the event (if this is a periodic trigger).
@@ -685,7 +685,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
     @Description(shortDefinition="Whether the event triggers", formalDefinition="A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires." )
     protected TriggerDefinitionConditionComponent condition;
 
-    private static final long serialVersionUID = 789050637L;
+    private static final long serialVersionUID = -2027399070L;
 
   /**
    * Constructor
@@ -750,12 +750,12 @@ public class TriggerDefinition extends Type implements ICompositeType {
     /**
      * @return {@link #name} (A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public UriType getNameElement() { 
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TriggerDefinition.name");
         else if (Configuration.doAutoCreate())
-          this.name = new UriType(); // bb
+          this.name = new StringType(); // bb
       return this.name;
     }
 
@@ -770,7 +770,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
     /**
      * @param value {@link #name} (A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public TriggerDefinition setNameElement(UriType value) { 
+    public TriggerDefinition setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -790,7 +790,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
         this.name = null;
       else {
         if (this.name == null)
-          this.name = new UriType();
+          this.name = new StringType();
         this.name.setValue(value);
       }
       return this;
@@ -918,7 +918,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("type", "code", "The type of triggering event.", 0, 1, type));
-        children.add(new Property("name", "uri", "A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.", 0, 1, name));
+        children.add(new Property("name", "string", "A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.", 0, 1, name));
         children.add(new Property("timing[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a periodic trigger).", 0, 1, timing));
         children.add(new Property("data", "DataRequirement", "The triggering data of the event (if this is a data trigger).", 0, 1, data));
         children.add(new Property("condition", "", "A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires.", 0, 1, condition));
@@ -928,7 +928,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case 3575610: /*type*/  return new Property("type", "code", "The type of triggering event.", 0, 1, type);
-        case 3373707: /*name*/  return new Property("name", "uri", "A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.", 0, 1, name);
+        case 3373707: /*name*/  return new Property("name", "string", "A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context.", 0, 1, name);
         case 164632566: /*timing[x]*/  return new Property("timing[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a periodic trigger).", 0, 1, timing);
         case -873664438: /*timing*/  return new Property("timing[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a periodic trigger).", 0, 1, timing);
         case -497554124: /*timingTiming*/  return new Property("timing[x]", "Timing|Reference(Schedule)|date|dateTime", "The timing of the event (if this is a periodic trigger).", 0, 1, timing);
@@ -946,7 +946,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<TriggerType>
-        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // UriType
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 3076010: /*data*/ return this.data == null ? new Base[0] : new Base[] {this.data}; // DataRequirement
         case -861311717: /*condition*/ return this.condition == null ? new Base[0] : new Base[] {this.condition}; // TriggerDefinitionConditionComponent
@@ -963,7 +963,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
           this.type = (Enumeration) value; // Enumeration<TriggerType>
           return value;
         case 3373707: // name
-          this.name = castToUri(value); // UriType
+          this.name = castToString(value); // StringType
           return value;
         case -873664438: // timing
           this.timing = castToType(value); // Type
@@ -985,7 +985,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
           value = new TriggerTypeEnumFactory().fromType(castToCode(value));
           this.type = (Enumeration) value; // Enumeration<TriggerType>
         } else if (name.equals("name")) {
-          this.name = castToUri(value); // UriType
+          this.name = castToString(value); // StringType
         } else if (name.equals("timing[x]")) {
           this.timing = castToType(value); // Type
         } else if (name.equals("data")) {
@@ -1015,7 +1015,7 @@ public class TriggerDefinition extends Type implements ICompositeType {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return new String[] {"code"};
-        case 3373707: /*name*/ return new String[] {"uri"};
+        case 3373707: /*name*/ return new String[] {"string"};
         case -873664438: /*timing*/ return new String[] {"Timing", "Reference", "date", "dateTime"};
         case 3076010: /*data*/ return new String[] {"DataRequirement"};
         case -861311717: /*condition*/ return new String[] {};

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1013,13 +1013,13 @@ public class Appointment extends DomainResource {
     /**
      * The referral request this appointment is allocated to assess (incoming referral).
      */
-    @Child(name = "incomingReferral", type = {ProcedureRequest.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="The ProcedureRequest provided as information to allocate to the Encounter", formalDefinition="The referral request this appointment is allocated to assess (incoming referral)." )
+    @Child(name = "incomingReferral", type = {ServiceRequest.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="The ServiceRequest provided as information to allocate to the Encounter", formalDefinition="The referral request this appointment is allocated to assess (incoming referral)." )
     protected List<Reference> incomingReferral;
     /**
      * The actual objects that are the target of the reference (The referral request this appointment is allocated to assess (incoming referral).)
      */
-    protected List<ProcedureRequest> incomingReferralTarget;
+    protected List<ServiceRequest> incomingReferralTarget;
 
 
     /**
@@ -1036,7 +1036,7 @@ public class Appointment extends DomainResource {
     @Description(shortDefinition="Potential date/time interval(s) requested to allocate the appointment within", formalDefinition="A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time." )
     protected List<Period> requestedPeriod;
 
-    private static final long serialVersionUID = 2055293916L;
+    private static final long serialVersionUID = 2065732538L;
 
   /**
    * Constructor
@@ -1951,9 +1951,9 @@ public class Appointment extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<ProcedureRequest> getIncomingReferralTarget() { 
+    public List<ServiceRequest> getIncomingReferralTarget() { 
       if (this.incomingReferralTarget == null)
-        this.incomingReferralTarget = new ArrayList<ProcedureRequest>();
+        this.incomingReferralTarget = new ArrayList<ServiceRequest>();
       return this.incomingReferralTarget;
     }
 
@@ -1961,10 +1961,10 @@ public class Appointment extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public ProcedureRequest addIncomingReferralTarget() { 
-      ProcedureRequest r = new ProcedureRequest();
+    public ServiceRequest addIncomingReferralTarget() { 
+      ServiceRequest r = new ServiceRequest();
       if (this.incomingReferralTarget == null)
-        this.incomingReferralTarget = new ArrayList<ProcedureRequest>();
+        this.incomingReferralTarget = new ArrayList<ServiceRequest>();
       this.incomingReferralTarget.add(r);
       return r;
     }
@@ -2094,7 +2094,7 @@ public class Appointment extends DomainResource {
         children.add(new Property("slot", "Reference(Slot)", "The slots from the participants' schedules that will be filled by the appointment.", 0, java.lang.Integer.MAX_VALUE, slot));
         children.add(new Property("created", "dateTime", "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.", 0, 1, created));
         children.add(new Property("comment", "string", "Additional comments about the appointment.", 0, 1, comment));
-        children.add(new Property("incomingReferral", "Reference(ProcedureRequest)", "The referral request this appointment is allocated to assess (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral));
+        children.add(new Property("incomingReferral", "Reference(ServiceRequest)", "The referral request this appointment is allocated to assess (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral));
         children.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));
         children.add(new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod));
       }
@@ -2119,7 +2119,7 @@ public class Appointment extends DomainResource {
         case 3533310: /*slot*/  return new Property("slot", "Reference(Slot)", "The slots from the participants' schedules that will be filled by the appointment.", 0, java.lang.Integer.MAX_VALUE, slot);
         case 1028554472: /*created*/  return new Property("created", "dateTime", "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.", 0, 1, created);
         case 950398559: /*comment*/  return new Property("comment", "string", "Additional comments about the appointment.", 0, 1, comment);
-        case -1258204701: /*incomingReferral*/  return new Property("incomingReferral", "Reference(ProcedureRequest)", "The referral request this appointment is allocated to assess (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral);
+        case -1258204701: /*incomingReferral*/  return new Property("incomingReferral", "Reference(ServiceRequest)", "The referral request this appointment is allocated to assess (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral);
         case 767422259: /*participant*/  return new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant);
         case -897241393: /*requestedPeriod*/  return new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -2607,17 +2607,17 @@ public class Appointment extends DomainResource {
  /**
    * Search parameter: <b>incomingreferral</b>
    * <p>
-   * Description: <b>The ProcedureRequest provided as information to allocate to the Encounter</b><br>
+   * Description: <b>The ServiceRequest provided as information to allocate to the Encounter</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Appointment.incomingReferral</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="incomingreferral", path="Appointment.incomingReferral", description="The ProcedureRequest provided as information to allocate to the Encounter", type="reference", target={ProcedureRequest.class } )
+  @SearchParamDefinition(name="incomingreferral", path="Appointment.incomingReferral", description="The ServiceRequest provided as information to allocate to the Encounter", type="reference", target={ServiceRequest.class } )
   public static final String SP_INCOMINGREFERRAL = "incomingreferral";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
    * <p>
-   * Description: <b>The ProcedureRequest provided as information to allocate to the Encounter</b><br>
+   * Description: <b>The ServiceRequest provided as information to allocate to the Encounter</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>Appointment.incomingReferral</b><br>
    * </p>

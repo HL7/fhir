@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -43,36 +43,58 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
+ * A physical entity which is the primary unit of operational and/or administrative interest in a study.
  */
 @ResourceDef(name="ResearchSubject", profile="http://hl7.org/fhir/Profile/ResearchSubject")
 public class ResearchSubject extends DomainResource {
 
     public enum ResearchSubjectStatus {
         /**
-         * The subject has been identified as a potential participant in the study but has not yet agreed to participate
+         * An identified person that can be considered for inclusion in a study.
          */
         CANDIDATE, 
         /**
-         * The subject has agreed to participate in the study but has not yet begun performing any action within the study
+         * A person that has met the eligibility criteria for inclusion in a study.
          */
-        ENROLLED, 
+        ELIGIBLE, 
         /**
-         * The subject is currently being monitored and/or subject to treatment as part of the study
+         * A person is no longer receiving study intervention and/or being evaluated with tests and procedures according to the protocol, but they are being monitored on a protocol-prescribed schedule.
          */
-        ACTIVE, 
+        FOLLOWUP, 
         /**
-         * The subject has temporarily discontinued monitoring/treatment as part of the study
+         * A person who did not meet one or more criteria required for participation in a study is considered to have failed screening or
+is ineligible for the study.
          */
-        SUSPENDED, 
+        INELIGIBLE, 
         /**
-         * The subject has permanently ended participation in the study prior to completion of the intended monitoring/treatment
+         * A person for whom registration was not completed
+         */
+        NOTREGISTERED, 
+        /**
+         * A person that has ended their participation on a study either because their treatment/observation is complete or through not
+responding, withdrawal, non-compliance and/or adverse event.
+         */
+        OFFSTUDY, 
+        /**
+         * A person that is enrolled or registered on a study.
+         */
+        ONSTUDY, 
+        /**
+         * A person is pre-registered for a study.
+         */
+        PENDINGONSTUDY, 
+        /**
+         * A person that is potentially eligible for participation in the study.
+         */
+        POTENTIALCANDIDATE, 
+        /**
+         * A person who is being evaluated for eligibility for a study.
+         */
+        SCREENING, 
+        /**
+         * The person has withdrawn their participation in the study before registration.
          */
         WITHDRAWN, 
-        /**
-         * All intended monitoring/treatment of the subject has been completed and their engagement with the study is now ended
-         */
-        COMPLETED, 
         /**
          * added to help the parsers with the generic types
          */
@@ -82,16 +104,26 @@ public class ResearchSubject extends DomainResource {
                 return null;
         if ("candidate".equals(codeString))
           return CANDIDATE;
-        if ("enrolled".equals(codeString))
-          return ENROLLED;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("suspended".equals(codeString))
-          return SUSPENDED;
+        if ("eligible".equals(codeString))
+          return ELIGIBLE;
+        if ("follow-up".equals(codeString))
+          return FOLLOWUP;
+        if ("ineligible".equals(codeString))
+          return INELIGIBLE;
+        if ("not-registered".equals(codeString))
+          return NOTREGISTERED;
+        if ("off-study".equals(codeString))
+          return OFFSTUDY;
+        if ("on-study".equals(codeString))
+          return ONSTUDY;
+        if ("pending-on-study".equals(codeString))
+          return PENDINGONSTUDY;
+        if ("potential-candidate".equals(codeString))
+          return POTENTIALCANDIDATE;
+        if ("screening".equals(codeString))
+          return SCREENING;
         if ("withdrawn".equals(codeString))
           return WITHDRAWN;
-        if ("completed".equals(codeString))
-          return COMPLETED;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -100,44 +132,64 @@ public class ResearchSubject extends DomainResource {
         public String toCode() {
           switch (this) {
             case CANDIDATE: return "candidate";
-            case ENROLLED: return "enrolled";
-            case ACTIVE: return "active";
-            case SUSPENDED: return "suspended";
+            case ELIGIBLE: return "eligible";
+            case FOLLOWUP: return "follow-up";
+            case INELIGIBLE: return "ineligible";
+            case NOTREGISTERED: return "not-registered";
+            case OFFSTUDY: return "off-study";
+            case ONSTUDY: return "on-study";
+            case PENDINGONSTUDY: return "pending-on-study";
+            case POTENTIALCANDIDATE: return "potential-candidate";
+            case SCREENING: return "screening";
             case WITHDRAWN: return "withdrawn";
-            case COMPLETED: return "completed";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
             case CANDIDATE: return "http://hl7.org/fhir/research-subject-status";
-            case ENROLLED: return "http://hl7.org/fhir/research-subject-status";
-            case ACTIVE: return "http://hl7.org/fhir/research-subject-status";
-            case SUSPENDED: return "http://hl7.org/fhir/research-subject-status";
+            case ELIGIBLE: return "http://hl7.org/fhir/research-subject-status";
+            case FOLLOWUP: return "http://hl7.org/fhir/research-subject-status";
+            case INELIGIBLE: return "http://hl7.org/fhir/research-subject-status";
+            case NOTREGISTERED: return "http://hl7.org/fhir/research-subject-status";
+            case OFFSTUDY: return "http://hl7.org/fhir/research-subject-status";
+            case ONSTUDY: return "http://hl7.org/fhir/research-subject-status";
+            case PENDINGONSTUDY: return "http://hl7.org/fhir/research-subject-status";
+            case POTENTIALCANDIDATE: return "http://hl7.org/fhir/research-subject-status";
+            case SCREENING: return "http://hl7.org/fhir/research-subject-status";
             case WITHDRAWN: return "http://hl7.org/fhir/research-subject-status";
-            case COMPLETED: return "http://hl7.org/fhir/research-subject-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case CANDIDATE: return "The subject has been identified as a potential participant in the study but has not yet agreed to participate";
-            case ENROLLED: return "The subject has agreed to participate in the study but has not yet begun performing any action within the study";
-            case ACTIVE: return "The subject is currently being monitored and/or subject to treatment as part of the study";
-            case SUSPENDED: return "The subject has temporarily discontinued monitoring/treatment as part of the study";
-            case WITHDRAWN: return "The subject has permanently ended participation in the study prior to completion of the intended monitoring/treatment";
-            case COMPLETED: return "All intended monitoring/treatment of the subject has been completed and their engagement with the study is now ended";
+            case CANDIDATE: return "An identified person that can be considered for inclusion in a study.";
+            case ELIGIBLE: return "A person that has met the eligibility criteria for inclusion in a study.";
+            case FOLLOWUP: return "A person is no longer receiving study intervention and/or being evaluated with tests and procedures according to the protocol, but they are being monitored on a protocol-prescribed schedule.";
+            case INELIGIBLE: return "A person who did not meet one or more criteria required for participation in a study is considered to have failed screening or\nis ineligible for the study.";
+            case NOTREGISTERED: return "A person for whom registration was not completed";
+            case OFFSTUDY: return "A person that has ended their participation on a study either because their treatment/observation is complete or through not\nresponding, withdrawal, non-compliance and/or adverse event.";
+            case ONSTUDY: return "A person that is enrolled or registered on a study.";
+            case PENDINGONSTUDY: return "A person is pre-registered for a study.";
+            case POTENTIALCANDIDATE: return "A person that is potentially eligible for participation in the study.";
+            case SCREENING: return "A person who is being evaluated for eligibility for a study.";
+            case WITHDRAWN: return "The person has withdrawn their participation in the study before registration.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
             case CANDIDATE: return "Candidate";
-            case ENROLLED: return "Enrolled";
-            case ACTIVE: return "Active";
-            case SUSPENDED: return "Suspended";
+            case ELIGIBLE: return "Eligible";
+            case FOLLOWUP: return "Follow-up";
+            case INELIGIBLE: return "Ineligible";
+            case NOTREGISTERED: return "Not Registered";
+            case OFFSTUDY: return "Off-study";
+            case ONSTUDY: return "On-study";
+            case PENDINGONSTUDY: return "Pending on-study";
+            case POTENTIALCANDIDATE: return "Potential Candidate";
+            case SCREENING: return "Screening";
             case WITHDRAWN: return "Withdrawn";
-            case COMPLETED: return "Completed";
             default: return "?";
           }
         }
@@ -150,16 +202,26 @@ public class ResearchSubject extends DomainResource {
                 return null;
         if ("candidate".equals(codeString))
           return ResearchSubjectStatus.CANDIDATE;
-        if ("enrolled".equals(codeString))
-          return ResearchSubjectStatus.ENROLLED;
-        if ("active".equals(codeString))
-          return ResearchSubjectStatus.ACTIVE;
-        if ("suspended".equals(codeString))
-          return ResearchSubjectStatus.SUSPENDED;
+        if ("eligible".equals(codeString))
+          return ResearchSubjectStatus.ELIGIBLE;
+        if ("follow-up".equals(codeString))
+          return ResearchSubjectStatus.FOLLOWUP;
+        if ("ineligible".equals(codeString))
+          return ResearchSubjectStatus.INELIGIBLE;
+        if ("not-registered".equals(codeString))
+          return ResearchSubjectStatus.NOTREGISTERED;
+        if ("off-study".equals(codeString))
+          return ResearchSubjectStatus.OFFSTUDY;
+        if ("on-study".equals(codeString))
+          return ResearchSubjectStatus.ONSTUDY;
+        if ("pending-on-study".equals(codeString))
+          return ResearchSubjectStatus.PENDINGONSTUDY;
+        if ("potential-candidate".equals(codeString))
+          return ResearchSubjectStatus.POTENTIALCANDIDATE;
+        if ("screening".equals(codeString))
+          return ResearchSubjectStatus.SCREENING;
         if ("withdrawn".equals(codeString))
           return ResearchSubjectStatus.WITHDRAWN;
-        if ("completed".equals(codeString))
-          return ResearchSubjectStatus.COMPLETED;
         throw new IllegalArgumentException("Unknown ResearchSubjectStatus code '"+codeString+"'");
         }
         public Enumeration<ResearchSubjectStatus> fromType(Base code) throws FHIRException {
@@ -172,31 +234,51 @@ public class ResearchSubject extends DomainResource {
             return null;
         if ("candidate".equals(codeString))
           return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.CANDIDATE);
-        if ("enrolled".equals(codeString))
-          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.ENROLLED);
-        if ("active".equals(codeString))
-          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.ACTIVE);
-        if ("suspended".equals(codeString))
-          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.SUSPENDED);
+        if ("eligible".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.ELIGIBLE);
+        if ("follow-up".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.FOLLOWUP);
+        if ("ineligible".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.INELIGIBLE);
+        if ("not-registered".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.NOTREGISTERED);
+        if ("off-study".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.OFFSTUDY);
+        if ("on-study".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.ONSTUDY);
+        if ("pending-on-study".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.PENDINGONSTUDY);
+        if ("potential-candidate".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.POTENTIALCANDIDATE);
+        if ("screening".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.SCREENING);
         if ("withdrawn".equals(codeString))
           return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.WITHDRAWN);
-        if ("completed".equals(codeString))
-          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.COMPLETED);
         throw new FHIRException("Unknown ResearchSubjectStatus code '"+codeString+"'");
         }
     public String toCode(ResearchSubjectStatus code) {
       if (code == ResearchSubjectStatus.CANDIDATE)
         return "candidate";
-      if (code == ResearchSubjectStatus.ENROLLED)
-        return "enrolled";
-      if (code == ResearchSubjectStatus.ACTIVE)
-        return "active";
-      if (code == ResearchSubjectStatus.SUSPENDED)
-        return "suspended";
+      if (code == ResearchSubjectStatus.ELIGIBLE)
+        return "eligible";
+      if (code == ResearchSubjectStatus.FOLLOWUP)
+        return "follow-up";
+      if (code == ResearchSubjectStatus.INELIGIBLE)
+        return "ineligible";
+      if (code == ResearchSubjectStatus.NOTREGISTERED)
+        return "not-registered";
+      if (code == ResearchSubjectStatus.OFFSTUDY)
+        return "off-study";
+      if (code == ResearchSubjectStatus.ONSTUDY)
+        return "on-study";
+      if (code == ResearchSubjectStatus.PENDINGONSTUDY)
+        return "pending-on-study";
+      if (code == ResearchSubjectStatus.POTENTIALCANDIDATE)
+        return "potential-candidate";
+      if (code == ResearchSubjectStatus.SCREENING)
+        return "screening";
       if (code == ResearchSubjectStatus.WITHDRAWN)
         return "withdrawn";
-      if (code == ResearchSubjectStatus.COMPLETED)
-        return "completed";
       return "?";
       }
     public String toSystem(ResearchSubjectStatus code) {
@@ -207,15 +289,15 @@ public class ResearchSubject extends DomainResource {
     /**
      * Identifiers assigned to this research study by the sponsor or other systems.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Business Identifier for research subject", formalDefinition="Identifiers assigned to this research study by the sponsor or other systems." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
 
     /**
      * The current state of the subject.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="candidate | enrolled | active | suspended | withdrawn | completed", formalDefinition="The current state of the subject." )
+    @Description(shortDefinition="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn", formalDefinition="The current state of the subject." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/research-subject-status")
     protected Enumeration<ResearchSubjectStatus> status;
 
@@ -276,7 +358,7 @@ public class ResearchSubject extends DomainResource {
      */
     protected Consent consentTarget;
 
-    private static final long serialVersionUID = -1730128953L;
+    private static final long serialVersionUID = -884133739L;
 
   /**
    * Constructor
@@ -298,25 +380,54 @@ public class ResearchSubject extends DomainResource {
     /**
      * @return {@link #identifier} (Identifiers assigned to this research study by the sponsor or other systems.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ResearchSubject.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier(); // cc
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ResearchSubject setIdentifier(List<Identifier> theIdentifier) { 
+      this.identifier = theIdentifier;
+      return this;
+    }
+
     public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
+    }
+
+    public ResearchSubject addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #identifier} (Identifiers assigned to this research study by the sponsor or other systems.)
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
      */
-    public ResearchSubject setIdentifier(Identifier value) { 
-      this.identifier = value;
-      return this;
+    public Identifier getIdentifierFirstRep() { 
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
     }
 
     /**
@@ -620,7 +731,7 @@ public class ResearchSubject extends DomainResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "Identifiers assigned to this research study by the sponsor or other systems.", 0, 1, identifier));
+        children.add(new Property("identifier", "Identifier", "Identifiers assigned to this research study by the sponsor or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("status", "code", "The current state of the subject.", 0, 1, status));
         children.add(new Property("period", "Period", "The dates the subject began and ended their participation in the study.", 0, 1, period));
         children.add(new Property("study", "Reference(ResearchStudy)", "Reference to the study the subject is participating in.", 0, 1, study));
@@ -633,7 +744,7 @@ public class ResearchSubject extends DomainResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this research study by the sponsor or other systems.", 0, 1, identifier);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this research study by the sponsor or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -892481550: /*status*/  return new Property("status", "code", "The current state of the subject.", 0, 1, status);
         case -991726143: /*period*/  return new Property("period", "Period", "The dates the subject began and ended their participation in the study.", 0, 1, period);
         case 109776329: /*study*/  return new Property("study", "Reference(ResearchStudy)", "Reference to the study the subject is participating in.", 0, 1, study);
@@ -649,7 +760,7 @@ public class ResearchSubject extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ResearchSubjectStatus>
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         case 109776329: /*study*/ return this.study == null ? new Base[0] : new Base[] {this.study}; // Reference
@@ -666,7 +777,7 @@ public class ResearchSubject extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
-          this.identifier = castToIdentifier(value); // Identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
           value = new ResearchSubjectStatusEnumFactory().fromType(castToCode(value));
@@ -698,7 +809,7 @@ public class ResearchSubject extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
-          this.identifier = castToIdentifier(value); // Identifier
+          this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("status")) {
           value = new ResearchSubjectStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<ResearchSubjectStatus>
@@ -722,7 +833,7 @@ public class ResearchSubject extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); 
+        case -1618432855:  return addIdentifier(); 
         case -892481550:  return getStatusElement();
         case -991726143:  return getPeriod(); 
         case 109776329:  return getStudy(); 
@@ -754,8 +865,7 @@ public class ResearchSubject extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("identifier")) {
-          this.identifier = new Identifier();
-          return this.identifier;
+          return addIdentifier();
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type ResearchSubject.status");
@@ -794,7 +904,11 @@ public class ResearchSubject extends DomainResource {
       public ResearchSubject copy() {
         ResearchSubject dst = new ResearchSubject();
         copyValues(dst);
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
         dst.status = status == null ? null : status.copy();
         dst.period = period == null ? null : period.copy();
         dst.study = study == null ? null : study.copy();
@@ -883,6 +997,32 @@ public class ResearchSubject extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>study</b>
+   * <p>
+   * Description: <b>Study subject is part of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ResearchSubject.study</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="study", path="ResearchSubject.study", description="Study subject is part of", type="reference", target={ResearchStudy.class } )
+  public static final String SP_STUDY = "study";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>study</b>
+   * <p>
+   * Description: <b>Study subject is part of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ResearchSubject.study</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam STUDY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_STUDY);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ResearchSubject:study</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_STUDY = new ca.uhn.fhir.model.api.Include("ResearchSubject:study").toLocked();
+
+ /**
    * Search parameter: <b>individual</b>
    * <p>
    * Description: <b>Who is part of study</b><br>
@@ -937,17 +1077,17 @@ public class ResearchSubject extends DomainResource {
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>candidate | enrolled | active | suspended | withdrawn | completed</b><br>
+   * Description: <b>candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchSubject.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="ResearchSubject.status", description="candidate | enrolled | active | suspended | withdrawn | completed", type="token" )
+  @SearchParamDefinition(name="status", path="ResearchSubject.status", description="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>candidate | enrolled | active | suspended | withdrawn | completed</b><br>
+   * Description: <b>candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchSubject.status</b><br>
    * </p>

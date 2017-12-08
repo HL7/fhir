@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -475,7 +475,7 @@ public class SupplyDelivery extends DomainResource {
     /**
      * The individual responsible for dispensing the medication, supplier or device.
      */
-    @Child(name = "supplier", type = {Practitioner.class, Organization.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "supplier", type = {Practitioner.class, PractitionerRole.class, Organization.class}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Dispenser", formalDefinition="The individual responsible for dispensing the medication, supplier or device." )
     protected Reference supplier;
 
@@ -1046,7 +1046,7 @@ public class SupplyDelivery extends DomainResource {
         children.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, 1, type));
         children.add(new Property("suppliedItem", "", "The item that is being delivered or has been supplied.", 0, 1, suppliedItem));
         children.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The date or time(s) the activity occurred.", 0, 1, occurrence));
-        children.add(new Property("supplier", "Reference(Practitioner|Organization)", "The individual responsible for dispensing the medication, supplier or device.", 0, 1, supplier));
+        children.add(new Property("supplier", "Reference(Practitioner|PractitionerRole|Organization)", "The individual responsible for dispensing the medication, supplier or device.", 0, 1, supplier));
         children.add(new Property("destination", "Reference(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, 1, destination));
         children.add(new Property("receiver", "Reference(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver));
       }
@@ -1066,7 +1066,7 @@ public class SupplyDelivery extends DomainResource {
         case -298443636: /*occurrenceDateTime*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date or time(s) the activity occurred.", 0, 1, occurrence);
         case 1397156594: /*occurrencePeriod*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date or time(s) the activity occurred.", 0, 1, occurrence);
         case 1515218299: /*occurrenceTiming*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date or time(s) the activity occurred.", 0, 1, occurrence);
-        case -1663305268: /*supplier*/  return new Property("supplier", "Reference(Practitioner|Organization)", "The individual responsible for dispensing the medication, supplier or device.", 0, 1, supplier);
+        case -1663305268: /*supplier*/  return new Property("supplier", "Reference(Practitioner|PractitionerRole|Organization)", "The individual responsible for dispensing the medication, supplier or device.", 0, 1, supplier);
         case -1429847026: /*destination*/  return new Property("destination", "Reference(Location)", "Identification of the facility/location where the Supply was shipped to, as part of the dispense event.", 0, 1, destination);
         case -808719889: /*receiver*/  return new Property("receiver", "Reference(Practitioner)", "Identifies the person who picked up the Supply.", 0, java.lang.Integer.MAX_VALUE, receiver);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -1411,7 +1411,7 @@ public class SupplyDelivery extends DomainResource {
    * Path: <b>SupplyDelivery.supplier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="supplier", path="SupplyDelivery.supplier", description="Dispenser", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
+  @SearchParamDefinition(name="supplier", path="SupplyDelivery.supplier", description="Dispenser", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class, PractitionerRole.class } )
   public static final String SP_SUPPLIER = "supplier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>supplier</b>

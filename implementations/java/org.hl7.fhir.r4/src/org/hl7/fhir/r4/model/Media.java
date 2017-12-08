@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Aug 11, 2017 07:23+1000 for FHIR v3.1.0
+// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -47,6 +47,194 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="Media", profile="http://hl7.org/fhir/Profile/Media")
 public class Media extends DomainResource {
+
+    public enum MediaStatus {
+        /**
+         * The core event has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes.
+         */
+        PREPARATION, 
+        /**
+         * The event is currently occurring
+         */
+        INPROGRESS, 
+        /**
+         * The event was terminated prior to any impact on the subject (though preparatory actions may have been taken)
+         */
+        NOTDONE, 
+        /**
+         * The event has been temporarily stopped but is expected to resume in the future
+         */
+        SUSPENDED, 
+        /**
+         * The event was  terminated prior to the full completion of the intended actions but after having at least some impact on the subject.
+         */
+        ABORTED, 
+        /**
+         * The event has now concluded
+         */
+        COMPLETED, 
+        /**
+         * This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".)
+         */
+        ENTEREDINERROR, 
+        /**
+         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+         */
+        UNKNOWN, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static MediaStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("preparation".equals(codeString))
+          return PREPARATION;
+        if ("in-progress".equals(codeString))
+          return INPROGRESS;
+        if ("not-done".equals(codeString))
+          return NOTDONE;
+        if ("suspended".equals(codeString))
+          return SUSPENDED;
+        if ("aborted".equals(codeString))
+          return ABORTED;
+        if ("completed".equals(codeString))
+          return COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown MediaStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case PREPARATION: return "preparation";
+            case INPROGRESS: return "in-progress";
+            case NOTDONE: return "not-done";
+            case SUSPENDED: return "suspended";
+            case ABORTED: return "aborted";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered-in-error";
+            case UNKNOWN: return "unknown";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PREPARATION: return "http://hl7.org/fhir/media-status";
+            case INPROGRESS: return "http://hl7.org/fhir/media-status";
+            case NOTDONE: return "http://hl7.org/fhir/media-status";
+            case SUSPENDED: return "http://hl7.org/fhir/media-status";
+            case ABORTED: return "http://hl7.org/fhir/media-status";
+            case COMPLETED: return "http://hl7.org/fhir/media-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/media-status";
+            case UNKNOWN: return "http://hl7.org/fhir/media-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PREPARATION: return "The core event has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes.";
+            case INPROGRESS: return "The event is currently occurring";
+            case NOTDONE: return "The event was terminated prior to any impact on the subject (though preparatory actions may have been taken)";
+            case SUSPENDED: return "The event has been temporarily stopped but is expected to resume in the future";
+            case ABORTED: return "The event was  terminated prior to the full completion of the intended actions but after having at least some impact on the subject.";
+            case COMPLETED: return "The event has now concluded";
+            case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PREPARATION: return "Preparation";
+            case INPROGRESS: return "In Progress";
+            case NOTDONE: return "Not Done";
+            case SUSPENDED: return "Suspended";
+            case ABORTED: return "Aborted";
+            case COMPLETED: return "Completed";
+            case ENTEREDINERROR: return "Entered in Error";
+            case UNKNOWN: return "Unknown";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class MediaStatusEnumFactory implements EnumFactory<MediaStatus> {
+    public MediaStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("preparation".equals(codeString))
+          return MediaStatus.PREPARATION;
+        if ("in-progress".equals(codeString))
+          return MediaStatus.INPROGRESS;
+        if ("not-done".equals(codeString))
+          return MediaStatus.NOTDONE;
+        if ("suspended".equals(codeString))
+          return MediaStatus.SUSPENDED;
+        if ("aborted".equals(codeString))
+          return MediaStatus.ABORTED;
+        if ("completed".equals(codeString))
+          return MediaStatus.COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return MediaStatus.ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return MediaStatus.UNKNOWN;
+        throw new IllegalArgumentException("Unknown MediaStatus code '"+codeString+"'");
+        }
+        public Enumeration<MediaStatus> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<MediaStatus>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("preparation".equals(codeString))
+          return new Enumeration<MediaStatus>(this, MediaStatus.PREPARATION);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<MediaStatus>(this, MediaStatus.INPROGRESS);
+        if ("not-done".equals(codeString))
+          return new Enumeration<MediaStatus>(this, MediaStatus.NOTDONE);
+        if ("suspended".equals(codeString))
+          return new Enumeration<MediaStatus>(this, MediaStatus.SUSPENDED);
+        if ("aborted".equals(codeString))
+          return new Enumeration<MediaStatus>(this, MediaStatus.ABORTED);
+        if ("completed".equals(codeString))
+          return new Enumeration<MediaStatus>(this, MediaStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<MediaStatus>(this, MediaStatus.ENTEREDINERROR);
+        if ("unknown".equals(codeString))
+          return new Enumeration<MediaStatus>(this, MediaStatus.UNKNOWN);
+        throw new FHIRException("Unknown MediaStatus code '"+codeString+"'");
+        }
+    public String toCode(MediaStatus code) {
+      if (code == MediaStatus.PREPARATION)
+        return "preparation";
+      if (code == MediaStatus.INPROGRESS)
+        return "in-progress";
+      if (code == MediaStatus.NOTDONE)
+        return "not-done";
+      if (code == MediaStatus.SUSPENDED)
+        return "suspended";
+      if (code == MediaStatus.ABORTED)
+        return "aborted";
+      if (code == MediaStatus.COMPLETED)
+        return "completed";
+      if (code == MediaStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      if (code == MediaStatus.UNKNOWN)
+        return "unknown";
+      return "?";
+      }
+    public String toSystem(MediaStatus code) {
+      return code.getSystem();
+      }
+    }
 
     public enum DigitalMediaType {
         /**
@@ -166,19 +354,39 @@ public class Media extends DomainResource {
     /**
      * A procedure that is fulfilled in whole or in part by the creation of this media.
      */
-    @Child(name = "basedOn", type = {ProcedureRequest.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {ServiceRequest.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Procedure that caused this media to be created", formalDefinition="A procedure that is fulfilled in whole or in part by the creation of this media." )
     protected List<Reference> basedOn;
     /**
      * The actual objects that are the target of the reference (A procedure that is fulfilled in whole or in part by the creation of this media.)
      */
-    protected List<ProcedureRequest> basedOnTarget;
+    protected List<ServiceRequest> basedOnTarget;
 
+
+    /**
+     * A larger event of which this particular event is a component or step.
+     */
+    @Child(name = "partOf", type = {Resource.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Part of referenced event", formalDefinition="A larger event of which this particular event is a component or step." )
+    protected List<Reference> partOf;
+    /**
+     * The actual objects that are the target of the reference (A larger event of which this particular event is a component or step.)
+     */
+    protected List<Resource> partOfTarget;
+
+
+    /**
+     * The current state of the {{title}}.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown", formalDefinition="The current state of the {{title}}." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/media-status")
+    protected Enumeration<MediaStatus> status;
 
     /**
      * Whether the media is a photo (still image), an audio recording, or a video recording.
      */
-    @Child(name = "type", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "type", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="photo | video | audio", formalDefinition="Whether the media is a photo (still image), an audio recording, or a video recording." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/digital-media-type")
     protected Enumeration<DigitalMediaType> type;
@@ -186,7 +394,7 @@ public class Media extends DomainResource {
     /**
      * Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.
      */
-    @Child(name = "subtype", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subtype", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The type of acquisition equipment/process", formalDefinition="Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/digital-media-subtype")
     protected CodeableConcept subtype;
@@ -194,7 +402,7 @@ public class Media extends DomainResource {
     /**
      * The name of the imaging view e.g. Lateral or Antero-posterior (AP).
      */
-    @Child(name = "view", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "view", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Imaging view, e.g. Lateral or Antero-posterior", formalDefinition="The name of the imaging view e.g. Lateral or Antero-posterior (AP)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/media-view")
     protected CodeableConcept view;
@@ -202,7 +410,7 @@ public class Media extends DomainResource {
     /**
      * Who/What this Media is a record of.
      */
-    @Child(name = "subject", type = {Patient.class, Practitioner.class, Group.class, Device.class, Specimen.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Practitioner.class, Group.class, Device.class, Specimen.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who/What this Media is a record of", formalDefinition="Who/What this Media is a record of." )
     protected Reference subject;
 
@@ -214,7 +422,7 @@ public class Media extends DomainResource {
     /**
      * The encounter or episode of care that establishes the context for this media.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Encounter / Episode associated with media", formalDefinition="The encounter or episode of care that establishes the context for this media." )
     protected Reference context;
 
@@ -226,26 +434,26 @@ public class Media extends DomainResource {
     /**
      * The date and time(s) at which the media was collected.
      */
-    @Child(name = "occurrence", type = {DateTimeType.class, Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "occurrence", type = {DateTimeType.class, Period.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When Media was collected", formalDefinition="The date and time(s) at which the media was collected." )
     protected Type occurrence;
 
     /**
      * The person who administered the collection of the image.
      */
-    @Child(name = "operator", type = {Practitioner.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "operator", type = {Practitioner.class, PractitionerRole.class, Organization.class, CareTeam.class, Patient.class, Device.class, RelatedPerson.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The person who generated the image", formalDefinition="The person who administered the collection of the image." )
     protected Reference operator;
 
     /**
      * The actual object that is the target of the reference (The person who administered the collection of the image.)
      */
-    protected Practitioner operatorTarget;
+    protected Resource operatorTarget;
 
     /**
      * Describes why the event occurred in coded or textual form.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Why was event performed?", formalDefinition="Describes why the event occurred in coded or textual form." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-reason")
     protected List<CodeableConcept> reasonCode;
@@ -253,15 +461,22 @@ public class Media extends DomainResource {
     /**
      * Indicates the site on the subject's body where the media was collected (i.e. the target site).
      */
-    @Child(name = "bodySite", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "bodySite", type = {CodeableConcept.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Body part in media", formalDefinition="Indicates the site on the subject's body where the media was collected (i.e. the target site)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/body-site")
     protected CodeableConcept bodySite;
 
     /**
+     * The name of the device / manufacturer of the device  that was used to make the recording.
+     */
+    @Child(name = "deviceName", type = {StringType.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Name of the device/manufacturer", formalDefinition="The name of the device / manufacturer of the device  that was used to make the recording." )
+    protected StringType deviceName;
+
+    /**
      * The device used to collect the media.
      */
-    @Child(name = "device", type = {Device.class, DeviceMetric.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "device", type = {Device.class, DeviceMetric.class}, order=14, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Observing Device", formalDefinition="The device used to collect the media." )
     protected Reference device;
 
@@ -273,46 +488,46 @@ public class Media extends DomainResource {
     /**
      * Height of the image in pixels (photo/video).
      */
-    @Child(name = "height", type = {PositiveIntType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "height", type = {PositiveIntType.class}, order=15, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Height of the image in pixels (photo/video)", formalDefinition="Height of the image in pixels (photo/video)." )
     protected PositiveIntType height;
 
     /**
      * Width of the image in pixels (photo/video).
      */
-    @Child(name = "width", type = {PositiveIntType.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "width", type = {PositiveIntType.class}, order=16, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Width of the image in pixels (photo/video)", formalDefinition="Width of the image in pixels (photo/video)." )
     protected PositiveIntType width;
 
     /**
      * The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
-    @Child(name = "frames", type = {PositiveIntType.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "frames", type = {PositiveIntType.class}, order=17, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Number of frames if > 1 (photo)", formalDefinition="The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required." )
     protected PositiveIntType frames;
 
     /**
      * The duration of the recording in seconds - for audio and video.
      */
-    @Child(name = "duration", type = {UnsignedIntType.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "duration", type = {UnsignedIntType.class}, order=18, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Length in seconds (audio / video)", formalDefinition="The duration of the recording in seconds - for audio and video." )
     protected UnsignedIntType duration;
 
     /**
      * The actual content of the media - inline or by direct reference to the media source file.
      */
-    @Child(name = "content", type = {Attachment.class}, order=16, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "content", type = {Attachment.class}, order=19, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Actual Media - reference or data", formalDefinition="The actual content of the media - inline or by direct reference to the media source file." )
     protected Attachment content;
 
     /**
      * Comments made about the media by the performer, subject or other participants.
      */
-    @Child(name = "note", type = {Annotation.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Comments made about the media", formalDefinition="Comments made about the media by the performer, subject or other participants." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = -831317677L;
+    private static final long serialVersionUID = -1897076130L;
 
   /**
    * Constructor
@@ -324,8 +539,9 @@ public class Media extends DomainResource {
   /**
    * Constructor
    */
-    public Media(Enumeration<DigitalMediaType> type, Attachment content) {
+    public Media(Enumeration<MediaStatus> status, Enumeration<DigitalMediaType> type, Attachment content) {
       super();
+      this.status = status;
       this.type = type;
       this.content = content;
     }
@@ -440,9 +656,9 @@ public class Media extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<ProcedureRequest> getBasedOnTarget() { 
+    public List<ServiceRequest> getBasedOnTarget() { 
       if (this.basedOnTarget == null)
-        this.basedOnTarget = new ArrayList<ProcedureRequest>();
+        this.basedOnTarget = new ArrayList<ServiceRequest>();
       return this.basedOnTarget;
     }
 
@@ -450,12 +666,120 @@ public class Media extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public ProcedureRequest addBasedOnTarget() { 
-      ProcedureRequest r = new ProcedureRequest();
+    public ServiceRequest addBasedOnTarget() { 
+      ServiceRequest r = new ServiceRequest();
       if (this.basedOnTarget == null)
-        this.basedOnTarget = new ArrayList<ProcedureRequest>();
+        this.basedOnTarget = new ArrayList<ServiceRequest>();
       this.basedOnTarget.add(r);
       return r;
+    }
+
+    /**
+     * @return {@link #partOf} (A larger event of which this particular event is a component or step.)
+     */
+    public List<Reference> getPartOf() { 
+      if (this.partOf == null)
+        this.partOf = new ArrayList<Reference>();
+      return this.partOf;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Media setPartOf(List<Reference> thePartOf) { 
+      this.partOf = thePartOf;
+      return this;
+    }
+
+    public boolean hasPartOf() { 
+      if (this.partOf == null)
+        return false;
+      for (Reference item : this.partOf)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addPartOf() { //3
+      Reference t = new Reference();
+      if (this.partOf == null)
+        this.partOf = new ArrayList<Reference>();
+      this.partOf.add(t);
+      return t;
+    }
+
+    public Media addPartOf(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.partOf == null)
+        this.partOf = new ArrayList<Reference>();
+      this.partOf.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #partOf}, creating it if it does not already exist
+     */
+    public Reference getPartOfFirstRep() { 
+      if (getPartOf().isEmpty()) {
+        addPartOf();
+      }
+      return getPartOf().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getPartOfTarget() { 
+      if (this.partOfTarget == null)
+        this.partOfTarget = new ArrayList<Resource>();
+      return this.partOfTarget;
+    }
+
+    /**
+     * @return {@link #status} (The current state of the {{title}}.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<MediaStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Media.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<MediaStatus>(new MediaStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The current state of the {{title}}.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Media setStatusElement(Enumeration<MediaStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The current state of the {{title}}.
+     */
+    public MediaStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The current state of the {{title}}.
+     */
+    public Media setStatus(MediaStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<MediaStatus>(new MediaStatusEnumFactory());
+        this.status.setValue(value);
+      return this;
     }
 
     /**
@@ -701,19 +1025,14 @@ public class Media extends DomainResource {
     /**
      * @return {@link #operator} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who administered the collection of the image.)
      */
-    public Practitioner getOperatorTarget() { 
-      if (this.operatorTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Media.operator");
-        else if (Configuration.doAutoCreate())
-          this.operatorTarget = new Practitioner(); // aa
+    public Resource getOperatorTarget() { 
       return this.operatorTarget;
     }
 
     /**
      * @param value {@link #operator} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who administered the collection of the image.)
      */
-    public Media setOperatorTarget(Practitioner value) { 
+    public Media setOperatorTarget(Resource value) { 
       this.operatorTarget = value;
       return this;
     }
@@ -792,6 +1111,55 @@ public class Media extends DomainResource {
      */
     public Media setBodySite(CodeableConcept value) { 
       this.bodySite = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.). This is the underlying object with id, value and extensions. The accessor "getDeviceName" gives direct access to the value
+     */
+    public StringType getDeviceNameElement() { 
+      if (this.deviceName == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Media.deviceName");
+        else if (Configuration.doAutoCreate())
+          this.deviceName = new StringType(); // bb
+      return this.deviceName;
+    }
+
+    public boolean hasDeviceNameElement() { 
+      return this.deviceName != null && !this.deviceName.isEmpty();
+    }
+
+    public boolean hasDeviceName() { 
+      return this.deviceName != null && !this.deviceName.isEmpty();
+    }
+
+    /**
+     * @param value {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.). This is the underlying object with id, value and extensions. The accessor "getDeviceName" gives direct access to the value
+     */
+    public Media setDeviceNameElement(StringType value) { 
+      this.deviceName = value;
+      return this;
+    }
+
+    /**
+     * @return The name of the device / manufacturer of the device  that was used to make the recording.
+     */
+    public String getDeviceName() { 
+      return this.deviceName == null ? null : this.deviceName.getValue();
+    }
+
+    /**
+     * @param value The name of the device / manufacturer of the device  that was used to make the recording.
+     */
+    public Media setDeviceName(String value) { 
+      if (Utilities.noString(value))
+        this.deviceName = null;
+      else {
+        if (this.deviceName == null)
+          this.deviceName = new StringType();
+        this.deviceName.setValue(value);
+      }
       return this;
     }
 
@@ -1094,16 +1462,19 @@ public class Media extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("basedOn", "Reference(ProcedureRequest)", "A procedure that is fulfilled in whole or in part by the creation of this media.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        children.add(new Property("basedOn", "Reference(ServiceRequest)", "A procedure that is fulfilled in whole or in part by the creation of this media.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        children.add(new Property("partOf", "Reference(??)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
+        children.add(new Property("status", "code", "The current state of the {{title}}.", 0, 1, status));
         children.add(new Property("type", "code", "Whether the media is a photo (still image), an audio recording, or a video recording.", 0, 1, type));
         children.add(new Property("subtype", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, 1, subtype));
         children.add(new Property("view", "CodeableConcept", "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 0, 1, view));
         children.add(new Property("subject", "Reference(Patient|Practitioner|Group|Device|Specimen)", "Who/What this Media is a record of.", 0, 1, subject));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care that establishes the context for this media.", 0, 1, context));
         children.add(new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, occurrence));
-        children.add(new Property("operator", "Reference(Practitioner)", "The person who administered the collection of the image.", 0, 1, operator));
+        children.add(new Property("operator", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|Patient|Device|RelatedPerson)", "The person who administered the collection of the image.", 0, 1, operator));
         children.add(new Property("reasonCode", "CodeableConcept", "Describes why the event occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         children.add(new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the media was collected (i.e. the target site).", 0, 1, bodySite));
+        children.add(new Property("deviceName", "string", "The name of the device / manufacturer of the device  that was used to make the recording.", 0, 1, deviceName));
         children.add(new Property("device", "Reference(Device|DeviceMetric)", "The device used to collect the media.", 0, 1, device));
         children.add(new Property("height", "positiveInt", "Height of the image in pixels (photo/video).", 0, 1, height));
         children.add(new Property("width", "positiveInt", "Width of the image in pixels (photo/video).", 0, 1, width));
@@ -1117,7 +1488,9 @@ public class Media extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(ProcedureRequest)", "A procedure that is fulfilled in whole or in part by the creation of this media.", 0, java.lang.Integer.MAX_VALUE, basedOn);
+        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(ServiceRequest)", "A procedure that is fulfilled in whole or in part by the creation of this media.", 0, java.lang.Integer.MAX_VALUE, basedOn);
+        case -995410646: /*partOf*/  return new Property("partOf", "Reference(??)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf);
+        case -892481550: /*status*/  return new Property("status", "code", "The current state of the {{title}}.", 0, 1, status);
         case 3575610: /*type*/  return new Property("type", "code", "Whether the media is a photo (still image), an audio recording, or a video recording.", 0, 1, type);
         case -1867567750: /*subtype*/  return new Property("subtype", "CodeableConcept", "Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.", 0, 1, subtype);
         case 3619493: /*view*/  return new Property("view", "CodeableConcept", "The name of the imaging view e.g. Lateral or Antero-posterior (AP).", 0, 1, view);
@@ -1127,9 +1500,10 @@ public class Media extends DomainResource {
         case 1687874001: /*occurrence*/  return new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, occurrence);
         case -298443636: /*occurrenceDateTime*/  return new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, occurrence);
         case 1397156594: /*occurrencePeriod*/  return new Property("occurrence[x]", "dateTime|Period", "The date and time(s) at which the media was collected.", 0, 1, occurrence);
-        case -500553564: /*operator*/  return new Property("operator", "Reference(Practitioner)", "The person who administered the collection of the image.", 0, 1, operator);
+        case -500553564: /*operator*/  return new Property("operator", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|Patient|Device|RelatedPerson)", "The person who administered the collection of the image.", 0, 1, operator);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Describes why the event occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
         case 1702620169: /*bodySite*/  return new Property("bodySite", "CodeableConcept", "Indicates the site on the subject's body where the media was collected (i.e. the target site).", 0, 1, bodySite);
+        case 780988929: /*deviceName*/  return new Property("deviceName", "string", "The name of the device / manufacturer of the device  that was used to make the recording.", 0, 1, deviceName);
         case -1335157162: /*device*/  return new Property("device", "Reference(Device|DeviceMetric)", "The device used to collect the media.", 0, 1, device);
         case -1221029593: /*height*/  return new Property("height", "positiveInt", "Height of the image in pixels (photo/video).", 0, 1, height);
         case 113126854: /*width*/  return new Property("width", "positiveInt", "Width of the image in pixels (photo/video).", 0, 1, width);
@@ -1147,6 +1521,8 @@ public class Media extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
+        case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MediaStatus>
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<DigitalMediaType>
         case -1867567750: /*subtype*/ return this.subtype == null ? new Base[0] : new Base[] {this.subtype}; // CodeableConcept
         case 3619493: /*view*/ return this.view == null ? new Base[0] : new Base[] {this.view}; // CodeableConcept
@@ -1156,6 +1532,7 @@ public class Media extends DomainResource {
         case -500553564: /*operator*/ return this.operator == null ? new Base[0] : new Base[] {this.operator}; // Reference
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
+        case 780988929: /*deviceName*/ return this.deviceName == null ? new Base[0] : new Base[] {this.deviceName}; // StringType
         case -1335157162: /*device*/ return this.device == null ? new Base[0] : new Base[] {this.device}; // Reference
         case -1221029593: /*height*/ return this.height == null ? new Base[0] : new Base[] {this.height}; // PositiveIntType
         case 113126854: /*width*/ return this.width == null ? new Base[0] : new Base[] {this.width}; // PositiveIntType
@@ -1176,6 +1553,13 @@ public class Media extends DomainResource {
           return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
+          return value;
+        case -995410646: // partOf
+          this.getPartOf().add(castToReference(value)); // Reference
+          return value;
+        case -892481550: // status
+          value = new MediaStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<MediaStatus>
           return value;
         case 3575610: // type
           value = new DigitalMediaTypeEnumFactory().fromType(castToCode(value));
@@ -1204,6 +1588,9 @@ public class Media extends DomainResource {
           return value;
         case 1702620169: // bodySite
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 780988929: // deviceName
+          this.deviceName = castToString(value); // StringType
           return value;
         case -1335157162: // device
           this.device = castToReference(value); // Reference
@@ -1237,6 +1624,11 @@ public class Media extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
+        } else if (name.equals("partOf")) {
+          this.getPartOf().add(castToReference(value));
+        } else if (name.equals("status")) {
+          value = new MediaStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<MediaStatus>
         } else if (name.equals("type")) {
           value = new DigitalMediaTypeEnumFactory().fromType(castToCode(value));
           this.type = (Enumeration) value; // Enumeration<DigitalMediaType>
@@ -1256,6 +1648,8 @@ public class Media extends DomainResource {
           this.getReasonCode().add(castToCodeableConcept(value));
         } else if (name.equals("bodySite")) {
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("deviceName")) {
+          this.deviceName = castToString(value); // StringType
         } else if (name.equals("device")) {
           this.device = castToReference(value); // Reference
         } else if (name.equals("height")) {
@@ -1280,6 +1674,8 @@ public class Media extends DomainResource {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
         case -332612366:  return addBasedOn(); 
+        case -995410646:  return addPartOf(); 
+        case -892481550:  return getStatusElement();
         case 3575610:  return getTypeElement();
         case -1867567750:  return getSubtype(); 
         case 3619493:  return getView(); 
@@ -1290,6 +1686,7 @@ public class Media extends DomainResource {
         case -500553564:  return getOperator(); 
         case 722137681:  return addReasonCode(); 
         case 1702620169:  return getBodySite(); 
+        case 780988929:  return getDeviceNameElement();
         case -1335157162:  return getDevice(); 
         case -1221029593:  return getHeightElement();
         case 113126854:  return getWidthElement();
@@ -1307,6 +1704,8 @@ public class Media extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
+        case -995410646: /*partOf*/ return new String[] {"Reference"};
+        case -892481550: /*status*/ return new String[] {"code"};
         case 3575610: /*type*/ return new String[] {"code"};
         case -1867567750: /*subtype*/ return new String[] {"CodeableConcept"};
         case 3619493: /*view*/ return new String[] {"CodeableConcept"};
@@ -1316,6 +1715,7 @@ public class Media extends DomainResource {
         case -500553564: /*operator*/ return new String[] {"Reference"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
+        case 780988929: /*deviceName*/ return new String[] {"string"};
         case -1335157162: /*device*/ return new String[] {"Reference"};
         case -1221029593: /*height*/ return new String[] {"positiveInt"};
         case 113126854: /*width*/ return new String[] {"positiveInt"};
@@ -1335,6 +1735,12 @@ public class Media extends DomainResource {
         }
         else if (name.equals("basedOn")) {
           return addBasedOn();
+        }
+        else if (name.equals("partOf")) {
+          return addPartOf();
+        }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Media.status");
         }
         else if (name.equals("type")) {
           throw new FHIRException("Cannot call addChild on a primitive type Media.type");
@@ -1373,6 +1779,9 @@ public class Media extends DomainResource {
         else if (name.equals("bodySite")) {
           this.bodySite = new CodeableConcept();
           return this.bodySite;
+        }
+        else if (name.equals("deviceName")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Media.deviceName");
         }
         else if (name.equals("device")) {
           this.device = new Reference();
@@ -1419,6 +1828,12 @@ public class Media extends DomainResource {
           for (Reference i : basedOn)
             dst.basedOn.add(i.copy());
         };
+        if (partOf != null) {
+          dst.partOf = new ArrayList<Reference>();
+          for (Reference i : partOf)
+            dst.partOf.add(i.copy());
+        };
+        dst.status = status == null ? null : status.copy();
         dst.type = type == null ? null : type.copy();
         dst.subtype = subtype == null ? null : subtype.copy();
         dst.view = view == null ? null : view.copy();
@@ -1432,6 +1847,7 @@ public class Media extends DomainResource {
             dst.reasonCode.add(i.copy());
         };
         dst.bodySite = bodySite == null ? null : bodySite.copy();
+        dst.deviceName = deviceName == null ? null : deviceName.copy();
         dst.device = device == null ? null : device.copy();
         dst.height = height == null ? null : height.copy();
         dst.width = width == null ? null : width.copy();
@@ -1457,10 +1873,11 @@ public class Media extends DomainResource {
         if (!(other instanceof Media))
           return false;
         Media o = (Media) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(type, o.type, true)
-           && compareDeep(subtype, o.subtype, true) && compareDeep(view, o.view, true) && compareDeep(subject, o.subject, true)
-           && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true) && compareDeep(operator, o.operator, true)
-           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(device, o.device, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true)
+           && compareDeep(status, o.status, true) && compareDeep(type, o.type, true) && compareDeep(subtype, o.subtype, true)
+           && compareDeep(view, o.view, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
+           && compareDeep(occurrence, o.occurrence, true) && compareDeep(operator, o.operator, true) && compareDeep(reasonCode, o.reasonCode, true)
+           && compareDeep(bodySite, o.bodySite, true) && compareDeep(deviceName, o.deviceName, true) && compareDeep(device, o.device, true)
            && compareDeep(height, o.height, true) && compareDeep(width, o.width, true) && compareDeep(frames, o.frames, true)
            && compareDeep(duration, o.duration, true) && compareDeep(content, o.content, true) && compareDeep(note, o.note, true)
           ;
@@ -1473,14 +1890,16 @@ public class Media extends DomainResource {
         if (!(other instanceof Media))
           return false;
         Media o = (Media) other;
-        return compareValues(type, o.type, true) && compareValues(height, o.height, true) && compareValues(width, o.width, true)
-           && compareValues(frames, o.frames, true) && compareValues(duration, o.duration, true);
+        return compareValues(status, o.status, true) && compareValues(type, o.type, true) && compareValues(deviceName, o.deviceName, true)
+           && compareValues(height, o.height, true) && compareValues(width, o.width, true) && compareValues(frames, o.frames, true)
+           && compareValues(duration, o.duration, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, type
-          , subtype, view, subject, context, occurrence, operator, reasonCode, bodySite
-          , device, height, width, frames, duration, content, note);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, partOf
+          , status, type, subtype, view, subject, context, occurrence, operator, reasonCode
+          , bodySite, deviceName, device, height, width, frames, duration, content, note
+          );
       }
 
   @Override
@@ -1602,7 +2021,7 @@ public class Media extends DomainResource {
    * Path: <b>Media.operator</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="operator", path="Media.operator", description="The person who generated the image", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  @SearchParamDefinition(name="operator", path="Media.operator", description="The person who generated the image", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={CareTeam.class, Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_OPERATOR = "operator";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>operator</b>
@@ -1668,7 +2087,7 @@ public class Media extends DomainResource {
    * Path: <b>Media.basedOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="based-on", path="Media.basedOn", description="Procedure that caused this media to be created", type="reference", target={ProcedureRequest.class } )
+  @SearchParamDefinition(name="based-on", path="Media.basedOn", description="Procedure that caused this media to be created", type="reference", target={ServiceRequest.class } )
   public static final String SP_BASED_ON = "based-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>based-on</b>
@@ -1783,6 +2202,26 @@ public class Media extends DomainResource {
    * the path value of "<b>Media:device</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_DEVICE = new ca.uhn.fhir.model.api.Include("Media:device").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Media.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Media.status", description="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Media.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

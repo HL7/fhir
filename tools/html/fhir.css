@@ -795,3 +795,13 @@ input.gsc-input,
 	line-height : normal;
 	margin-top  : 0px;
 }
+
+
+a.normative-flag {
+  border: 1px grey solid; 
+  background-color: #e6ffe6; 
+  padding-left: 3px; 
+  padding-right: 3px; 
+  color: black; 
+  font-weight: bold
+}
