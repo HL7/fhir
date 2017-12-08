@@ -14,7 +14,8 @@ WARNING: CompartmentDefinition: All resources should have an identifier
 WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation
 WARNING: ConceptMap.group.element.target.comment: MnM must have confirmed this should not be an Annotation
 WARNING: DataElement.mapping.comment: MnM must have confirmed this should not be an Annotation
-WARNING: DiagnosticReport.image.comment: MnM must have confirmed this should not be an Annotation
+WARNING: DiagnosticReport.media.comment: MnM must have confirmed this should not be an Annotation
+WARNING: DiagnosticReport.media: Element names should be singular
 WARNING: ElementDefinition.comment: MnM must have confirmed this should not be an Annotation
 WARNING: ElementDefinition.comment: The type of 'comment' must be 'string'
 WARNING: ElementDefinition.mapping.language: Unable to resolve value set on 'code' Binding
