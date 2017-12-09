@@ -354,4 +354,12 @@
 		<sort>36</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+		<url>http://www.hl7.org/documentcenter/private/standards/v3/edition_web/domains/uvrx/uvrx_MedicationDispenseEvent.html#PORX_RM020070UV</url>
+		<columnName>V3 Dispense Mapping</columnName>
+		<title>V3 Pharmacy Dispense RMIM</title>
+		<id>rx-dispense-rmim</id>
+		<sort>37</sort>
+		<publish>true</publish>
+	</space>
 </mappingSpaces>
