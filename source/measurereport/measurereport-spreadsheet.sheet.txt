@@ -50,19 +50,19 @@
   Id = 1
   Code = individual
   Display = Individual
-  Definition = An individual report that provides information on the performance for a given measure with respect to a single patient
+  Definition = An individual report that provides information on the performance for a given measure with respect to a single subject
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = patient-list
-  Display = Patient List
-  Definition = A patient list report that includes a listing of patients that satisfied each population criteria in the measure
+  Code = subject-list
+  Display = Subject List
+  Definition = A subject list report that includes a listing of subjects that satisfied each population criteria in the measure
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = summary
   Display = Summary
-  Definition = A summary report that returns the number of patients in each population criteria for the measure
+  Definition = A summary report that returns the number of members in each population criteria for the measure
 
 === Sheet Invariants =====================================
 
@@ -107,8 +107,8 @@
   Summary = Y
   Type = code
   Binding = MeasureReportType
-  Short Name = individual | patient-list | summary
-  Definition = The type of measure report. This may be an individual report, which provides a single patient\'s score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure
+  Short Name = individual | subject-list | summary
+  Definition = The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Event.code
   w5 = class
@@ -124,12 +124,12 @@
   w5 = what
 
  -- Row 6 -----------------------------------
-  Element = MeasureReport.patient
+  Element = MeasureReport.subject
   Card. = 0..1
   Summary = Y
-  Type = Reference(Patient)
-  Short Name = What patient the report is for
-  Definition = Optional Patient if the report was requested for a single patient.
+  Type = Reference(Patient|Practitioner|Location|Device|RelatedPerson|Group)
+  Short Name = What individual(s) the report is for
+  Definition = Optional subject identifying the individual or individuals the report is for.
   Workflow Mapping = Event.subject
   w5 = who.focus
 
@@ -169,12 +169,12 @@
   Definition = The results of the calculation, one for each population group in the measure
 
  -- Row 11 -----------------------------------
-  Element = MeasureReport.group.identifier
-  Card. = 1..1
+  Element = MeasureReport.group.code
+  Card. = 0..1
   Summary = Y
-  Type = Identifier
+  Type = CodeableConcept
   Short Name = What group of the measure
-  Definition = The identifier of the population group as defined in the measure definition
+  Definition = The meaning of the population group as defined in the measure definition
 
  -- Row 12 -----------------------------------
   Element = MeasureReport.group.population
@@ -184,59 +184,51 @@
   Definition = The populations that make up the population group, one for each type of population appropriate for the measure
 
  -- Row 13 -----------------------------------
-  Element = MeasureReport.group.population.identifier
-  Card. = 0..1
-  Summary = Y
-  Type = Identifier
-  Short Name = Population identifier as defined in the measure
-  Definition = The identifier of the population being reported, as defined by the population element of the measure
-
- -- Row 14 -----------------------------------
   Element = MeasureReport.group.population.code
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
   Binding = MeasurePopulation
-  Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
+  Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation
   Definition = The type of the population
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MeasureReport.group.population.count
   Card. = 0..1
   Type = integer
   Short Name = Size of the population
   Definition = The number of members of the population
 
- -- Row 16 -----------------------------------
-  Element = MeasureReport.group.population.patients
+ -- Row 15 -----------------------------------
+  Element = MeasureReport.group.population.subjects
   Card. = 0..1
   Type = Reference(List)
-  Short Name = For patient-list reports, the patients in this population
-  Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population
+  Short Name = For subject-list reports, the subjects in this population
+  Definition = This element refers to a List of subject level MeasureReport resources, one for each subject in this population
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MeasureReport.group.measureScore
   Card. = 0..1
   Summary = Y
-  Type = decimal
+  Type = Quantity
   Short Name = What score this group achieved
   Definition = The measure score for this population group, calculated as appropriate for the measure type and scoring method, and based on the contents of the populations defined in the group
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MeasureReport.group.stratifier
   Card. = 0..*
   UML = 550;0
   Short Name = Stratification results
   Definition = When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure
 
- -- Row 19 -----------------------------------
-  Element = MeasureReport.group.stratifier.identifier
+ -- Row 18 -----------------------------------
+  Element = MeasureReport.group.stratifier.code
   Card. = 0..1
-  Type = Identifier
+  Type = CodeableConcept
   Short Name = What stratifier of the group
-  Definition = The identifier of this stratifier, as defined in the measure definition
+  Definition = The meaning of this stratifier, as defined in the measure definition
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum
   Card. = 0..*
   UML = 450;120
@@ -244,14 +236,14 @@
   Short Name = Stratum results, one for each unique value in the stratifier
   Definition = This element contains the results for a single stratum within the stratifier. For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.value
   Card. = 1..1
-  Type = string
+  Type = CodeableConcept
   Short Name = The stratum value, e.g. male
-  Definition = The value for this stratum, expressed as a string. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique
+  Definition = The value for this stratum, expressed as a CodeableConcept. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population
   Card. = 0..*
   UML = 300;240
@@ -259,43 +251,36 @@
   Short Name = Population results in this stratum
   Definition = The populations that make up the stratum, one for each type of population appropriate to the measure
 
- -- Row 23 -----------------------------------
-  Element = MeasureReport.group.stratifier.stratum.population.identifier
-  Card. = 0..1
-  Type = Identifier
-  Short Name = Population identifier as defined in the measure
-  Definition = The identifier of the population being reported, as defined by the population element of the measure
-
- -- Row 24 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.code
   Card. = 0..1
   Type = CodeableConcept
   Binding = MeasurePopulation
-  Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
+  Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation
   Definition = The type of the population
 
- -- Row 25 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.population.count
   Card. = 0..1
   Type = integer
   Short Name = Size of the population
   Definition = The number of members of the population in this stratum
 
- -- Row 26 -----------------------------------
-  Element = MeasureReport.group.stratifier.stratum.population.patients
+ -- Row 24 -----------------------------------
+  Element = MeasureReport.group.stratifier.stratum.population.subjects
   Card. = 0..1
   Type = Reference(List)
-  Short Name = For patient-list reports, the patients in this population
-  Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum
+  Short Name = For subject-list reports, the subjects in this population
+  Definition = This element refers to a List of subject level MeasureReport resources, one for each subject in this population in this stratum
 
- -- Row 27 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MeasureReport.group.stratifier.stratum.measureScore
   Card. = 0..1
-  Type = decimal
+  Type = Quantity
   Short Name = What score this stratum achieved
   Definition = The measure score for this stratum, calculated as appropriate for the measure type and scoring method, and based on only the members of this stratum
 
- -- Row 28 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MeasureReport.evaluatedResources
   Card. = 0..1
   Type = Reference(Bundle)
@@ -308,15 +293,22 @@
   Name = patient
   Type = reference
   Description = The identity of a patient to search for individual measure report results for
-  Path = MeasureReport.patient
+  Path = MeasureReport.subject
+  Target Types = Patient
 
  -- Row 2 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The identity of a subject to search for individual measure report results for
+  Path = MeasureReport.subject
+
+ -- Row 3 -----------------------------------
   Name = status
   Type = token
   Description = The status of the measure report
   Path = MeasureReport.status
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = identifier
   Type = token
   Description = External identifier of the measure report to be returned

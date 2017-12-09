@@ -24,7 +24,7 @@
 <p>Quality measures follow a generally hierarchical structure that defines:</p>
 
 <ul>
-	<li><p><b>Population Groups:</b> Groups of population criteria that define a particular focus of measurement. A given measure may include any number of population groups, each with different criteria for the various measure components.</p>
+	<li><p><b>Population Groups:</b> Groups of population criteria that define a particular area of measurement. A given measure may include any number of population groups, each with different criteria for the various measure components.</p>
 		<ul>
 			<li><b>Populations:</b> Within each population group, a measure defines criteria appropriate to the type of measure being calculated. Each population type identifies a specific component of the calculation such as the <i>numerator</i>, <i>denominator</i>, and <i>initial population</i>.</li>
 			<li><b>Stratifiers:</b> Additional criteria used to calculate the measure along different dimensions within the population such as age or gender. A measure may define any number of stratifiers for each population group.</li>
@@ -32,6 +32,8 @@
 	</li>
 	<li><b>Supplemental Data:</b> Additional information that should be included with the calculated results of the measure such as individual age or gender. A measure may define any number of supplemental data elements.</li>
 </ul>
+
+<p>Population Quality Measures are often focused on evaluating from a patient perspective, but this is not always the case. The <code>subject</code> element of the Measure indicates the intended subjects of a measure. If no <code>subject</code> is specified, the measure subject is Patient, but Practitioners, Organizations, Locations, or even Devices can also be the subject of a measure.</p>
 
 <a name="measure-metadata"> </a>
 <h5>Measure Metadata</h5>
@@ -94,10 +96,8 @@
 
 <p>The Measure resource then identifies specific named expressions within the referenced primary measure library that define the criteria for each population. For example, the following fragment illustrates the population criteria definitions for the CMS146 measure example:</p>
 
-<pre><code>&lt;group&gt;
-  &lt;identifier&gt;&lt;value value=&quot;CMS146-group-1&quot;/&gt;&lt;/identifier&gt;
+<pre><code>&lt;group id=&quot;CMS146-group-1&quot;&gt;
   &lt;population&gt;
-    &lt;identifier&gt;&lt;value value=&quot;initial-population-identifier&quot;/&gt;&lt;/identifier&gt;
     &lt;code&gt;
       &lt;coding&gt;
         &lt;code value=&quot;initial-population&quot;/&gt;
@@ -106,7 +106,6 @@
     &lt;criteria value=&quot;CMS146.InInitialPopulation&quot;/&gt;
   &lt;/population&gt;
   &lt;population&gt;
-    &lt;identifier&gt;&lt;value value=&quot;numerator-identifier&quot;/&gt;&lt;/identifier&gt;
     &lt;code&gt;
       &lt;coding&gt;
         &lt;code value=&quot;numerator&quot;/&gt;
@@ -115,7 +114,6 @@
     &lt;criteria value=&quot;CMS146.InNumerator&quot;/&gt;
   &lt;/population&gt;
   &lt;population&gt;
-    &lt;identifier&gt;&lt;value value=&quot;denominator-identifier&quot;/&gt;&lt;/identifier&gt;
     &lt;code&gt;
       &lt;coding&gt;
         &lt;code value=&quot;denominator&quot;/&gt;
@@ -124,7 +122,6 @@
     &lt;criteria value=&quot;CMS146.InDenominator&quot;/&gt;
   &lt;/population&gt;
   &lt;population&gt;
-    &lt;identifier&gt;&lt;value value=&quot;denominator-exclusions-identifier&quot;/&gt;&lt;/identifier&gt;
     &lt;code&gt;
       &lt;coding&gt;
         &lt;code value=&quot;denominator-exclusion&quot;/&gt;
@@ -138,7 +135,7 @@
 <a name="multiple-populations"> </a>
 <h6>Measures with Multiple Populations</h6>
 
-<p>For quality measures that contain multiple populations, the criteria are specified once for each group. The <code>group</code> element contains an identifier that is used to uniquely identify the group within the measure, as well as within the quality reporting results.</p>
+<p>For quality measures that contain multiple populations, the criteria are specified once for each group. The <code>id</code> attribute of the <code>group</code> element is used to uniquely identify the group within the measure, as well as within the quality reporting results.</p>
 
 <a name="continuous-variable-measures"> </a>
 <h6>Continuous Variable Measures</h6>
@@ -215,7 +212,7 @@ The above examples show how to obtain the results of evaluating the eMeasure wit
 <p>
 The next example demonstrates how to obtain the results of evaluating the eMeasure with id "CMS146" for the patient with id "124" over a measurement period that consists of the first three months of 2014.</p>
 
-<pre><code>GET [base]/Basic/CMS146/$evaluate-measure?patient=124&amp;periodStart=2014-01&amp;periodEnd=2014-03</code></pre>
+<pre><code>GET [base]/Basic/CMS146/$evaluate-measure?subject=124&amp;periodStart=2014-01&amp;periodEnd=2014-03</code></pre>
 
 <a name="measure-report"> </a>
 <h4>Measure Report</h4>
@@ -236,18 +233,18 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 <a name="reporting-individual-data"> </a>
 <h5>Reporting Individual Data</h5>
 
-<p>When using a MeasureReport resource to represent the results of an individual calculation, the MeasureReport SHALL have a type-code of "individual" and SHALL have a reference to a patient that is the subject of the report. In addition, the result SHOULD include a reference to a Bundle containing the patient-specific resources that were used to calculate the result.</p>
+<p>When using a MeasureReport resource to represent the results of an individual calculation, the MeasureReport SHALL have a type-code of "individual" and SHALL have a reference to the subject of the report. In addition, the result SHOULD include a reference to a Bundle containing the subject-specific resources that were used to calculate the result.</p>
 
 <img alt="Individual Measure Report" src="cqif-measure-report-individual.png"/>
 
 <p>See the MeasureReport <a href="../measurereport-examples.html">examples</a> for a detailed illustration of how the data elements involved in the calculation of the measure are communicated through the <code>evaluatedResources</code> element.</p>
 
-<a name="reporting-patient-list-data"> </a>
-<h5>Patient-List Reports</h5>
+<a name="reporting-subject-list-data"> </a>
+<h5>Subject-List Reports</h5>
 
-<p>When using a MeasureReport resource to represent a patient-list, the MeasureReport SHALL have a type-code of "patient-list" and SHALL NOT have a reference to a patient. Instead, the resource SHALL include for each population a reference to a List resource that references individual level MeasureReport resources for the same measure, one for each patient in the overall population.</p>
+<p>When using a MeasureReport resource to represent a subject-list, the MeasureReport SHALL have a type-code of "subject-list" and if a subject reference is present, it SHALL be a reference to a Group. In addition, the resource SHALL include for each population a reference to a List resource that references individual level MeasureReport resources for the same measure, one for each subject in the overall population.</p>
 
-<img alt="Patient-List Measure Report" src="cqif-measure-report-patient-list.png" style="width:650px;height:550px"/>
+<img alt="Subject-List Measure Report" src="cqif-measure-report-patient-list.png" style="width:650px;height:550px"/>
 
 <p>For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the patients that make up that population. For each of those patients, the List will contain a reference to an individual-level report for that patient.</p>
 
@@ -257,24 +254,28 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 <ol>
 	<li>
 		<a name="bibitem-cql"> </a>
-		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1.</a>
+		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1 (Standard for Trial Use, Release 2).</a>
 	</li>
 	<li>
 		<a name="bibitem-qicore"> </a>
-		<a href="http://hl7.org/fhir/current/qicore">Quality Improvement Core (QICore) FHIR Implementation Guide.</a>
+		<a href="http://hl7.org/fhir/us/qicore">Quality Improvement Core (QICore) FHIR Implementation Guide.</a>
 	</li>
 	<li>
 		<a name="bibitem-hqmf"> </a>
-		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">Representation of the Health Quality Measures Format (eMeasure) DSTU, Release 2.1.</a>
+		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">Representation of the Health Quality Measures Format (eMeasure) Release 1 Normative.</a>
 	</li>
 	<li>
 		<a name="bibitem-qdmhqmf1"> </a>
-		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346">HL7 Version 3 Implementation Guide: Quality Data Model (QDM)-based Health Quality Measure Format (HQMF), R1 – US Realm, Volume 1 (Draft Standard for Trial Use)</a>
+		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346">HL7 Version 3 Implementation Guide: Quality Data Model (QDM)-based Health Quality Measure Format (HQMF), R1 - US Realm, Volume 1 (Draft Standard for Trial Use)</a>
 	</li>
 	<li>
 		<a name="bibitem-qdmhqmf2"> </a>
-		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346">HL7 Version 3 Implementation Guide: Quality Data Model (QDM)-based Health Quality Measure Format (HQMF), R1 – US Realm, Volume 2 (Draft Standard for Trial Use)</a>
+		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=346">HL7 Version 3 Implementation Guide: Quality Data Model (QDM)-based Health Quality Measure Format (HQMF), R1 - US Realm, Volume 2 (Draft Standard for Trial Use)</a>
 	</li>
+  <li>
+    <a name="bibitem-cqlhqmf"> </a>
+    <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=405">HL7 Version 3 Implementation Guide: Clinical Quality Language (CQL)-based Health Quality Measure Format (HQMF), Release 1 - US Realm (Standard for Trial Use)</a>
+  </li>
 	<li>
 		<a name="bibitem-qdm"> </a>
 		<a href="https://ecqi.healthit.gov/system/files/qdm_4_2.pdf">Quality Data Model, Version 4.2</a>

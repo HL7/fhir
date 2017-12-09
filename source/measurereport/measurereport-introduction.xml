@@ -7,7 +7,7 @@
 <p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#event">Event</a>.</p>
 
 <p>
-The MeasureReport resource represents the results of evaluating a measure for a specific patient or group of patients. The <code>$evaluate-measure</code> operation of the <a href="measure.html">Measure</a> resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: patient-level, patient-list, and summary.
+The MeasureReport resource represents the results of evaluating a measure for a specific subject or group of subjects. The <code>$evaluate-measure</code> operation of the <a href="measure.html">Measure</a> resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: individual, subject-list, and summary.
 </p>
 
 <p>

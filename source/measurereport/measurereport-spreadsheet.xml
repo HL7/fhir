@@ -20,11 +20,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7820</WindowHeight>
-  <WindowWidth>17250</WindowWidth>
+  <WindowHeight>7845</WindowHeight>
+  <WindowWidth>18750</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>11</ActiveSheet>
+  <FirstVisibleSheet>8</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -840,23 +841,23 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R116C24" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R114C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="116" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="114" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="414"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.5"/>
-   <Column ss:StyleID="s68" ss:Width="29.5"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s68" ss:Width="29.25"/>
    <Column ss:StyleID="s68" ss:Width="34.5"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="371.5"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="371.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="28.5"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="49"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="48.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="147"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="38.5"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="38.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:StyleID="s68" ss:Width="52" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="80.5"/>
+   <Column ss:StyleID="s68" ss:Width="51.75" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="80.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="201"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="265.5"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="114"/>
@@ -864,9 +865,9 @@
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="135"/>
    <Column ss:Index="21" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="103.5"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="50.5"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="50.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="66"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="119.5"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="45.75" ss:StyleID="s70">
     <Cell ss:StyleID="s71"><Data ss:Type="String">Element</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -1088,9 +1089,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">individual | patient-list | summary</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">individual | subject-list | summary</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of measure report. This may be an individual report, which provides a single patient's score for the measure; a patient listing, which returns the list of patients that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid</Data><NamedCell
@@ -1139,13 +1140,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.patient</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.subject</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Patient)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Patient|Practitioner|Location|Device|RelatedPerson|Group)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
@@ -1157,9 +1158,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">What patient the report is for</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">What individual(s) the report is for</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Optional Patient if the report was requested for a single patient.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Optional subject identifying the individual or individuals the report is for.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1304,13 +1305,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.identifier</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifier</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
@@ -1323,7 +1324,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">What group of the measure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The identifier of the population group as defined in the measure definition</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The meaning of the population group as defined in the measure definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1367,38 +1368,6 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.population.identifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Population identifier as defined in the measure</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The identifier of the population being reported, as defined by the population element of the measure</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.population.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1417,7 +1386,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of the population</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1463,7 +1432,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.population.patients</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.population.subjects</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1479,9 +1448,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">For patient-list reports, the patients in this population</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">For subject-list reports, the subjects in this population</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">This element refers to a List of patient level MeasureReport resources, one for each patient in this population</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">This element refers to a List of subject level MeasureReport resources, one for each subject in this population</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1500,7 +1469,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">decimal</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
@@ -1557,13 +1526,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.stratifier.identifier</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.stratifier.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Identifier</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1575,7 +1544,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">What stratifier of the group</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The identifier of this stratifier, as defined in the measure definition</Data><NamedCell
+    <Cell><Data ss:Type="String">The meaning of this stratifier, as defined in the measure definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1626,7 +1595,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1638,7 +1607,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The stratum value, e.g. male</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The value for this stratum, expressed as a string. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique</Data><NamedCell
+    <Cell><Data ss:Type="String">The value for this stratum, expressed as a CodeableConcept. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1683,37 +1652,6 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.stratifier.stratum.population.identifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String" x:Ticked="1">Identifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Population identifier as defined in the measure</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The identifier of the population being reported, as defined by the population element of the measure</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.stratifier.stratum.population.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1731,7 +1669,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of the population</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1777,7 +1715,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.stratifier.stratum.population.patients</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">MeasureReport.group.stratifier.stratum.population.subjects</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1793,9 +1731,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">For patient-list reports, the patients in this population</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">For subject-list reports, the subjects in this population</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">This element refers to a List of subject level MeasureReport resources, one for each subject in this population in this stratum</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1814,7 +1752,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">decimal</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4144,13 +4082,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4158,20 +4095,20 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R116C24"
+  <AutoFilter x:Range="R1C1:R114C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -4186,9 +4123,9 @@
    <Column ss:Index="2" ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="115.5"/>
    <Column ss:StyleID="s102" ss:Width="55.5"/>
    <Column ss:StyleID="s102" ss:Width="165"/>
-   <Column ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="205"/>
-   <Column ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="199"/>
-   <Column ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="188.5"/>
+   <Column ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75" ss:StyleID="s70">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -4708,7 +4645,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="32" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s113" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="70.5"/>
@@ -4740,9 +4677,16 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">MeasureReport.patient</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Patient</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">MeasureReport.subject</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">The identity of a patient to search for individual measure report results for</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s115"><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">MeasureReport.subject</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">The identity of a subject to search for individual measure report results for</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">status</Data></Cell>
@@ -4968,8 +4912,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4991,7 +4935,7 @@
    <Column ss:StyleID="s113" ss:Width="24"/>
    <Column ss:StyleID="s113" ss:Width="25.5"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="106.5" ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="223"/>
+   <Column ss:Index="7" ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="222.75"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="253.5" ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s122"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
@@ -5616,13 +5560,13 @@
    x:FullRows="1" ss:StyleID="s113" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="82.5" ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="199"/>
+   <Column ss:Index="3" ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="198.75"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="157.5"/>
    <Column ss:StyleID="s113" ss:Width="106.5"/>
-   <Column ss:StyleID="s113" ss:Width="113.5"/>
+   <Column ss:StyleID="s113" ss:Width="113.25"/>
    <Column ss:StyleID="s113" ss:Width="120"/>
    <Column ss:StyleID="s113" ss:Width="127.5"/>
-   <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="74.5"/>
+   <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="74.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Event Code</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -5915,7 +5859,7 @@
    x:FullRows="1" ss:StyleID="s113" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="281.5"/>
+   <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="281.25"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="252"/>
    <Column ss:StyleID="s113" ss:Width="63"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75">
@@ -6213,14 +6157,14 @@
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s138" ss:DefaultColumnWidth="260.5"
+   x:FullRows="1" ss:StyleID="s138" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s138" ss:Width="88.5"/>
-   <Column ss:StyleID="s138" ss:Width="28"/>
-   <Column ss:StyleID="s138" ss:Width="328"/>
+   <Column ss:StyleID="s138" ss:Width="27.75"/>
+   <Column ss:StyleID="s138" ss:Width="327.75"/>
    <Column ss:StyleID="s138" ss:Width="57"/>
    <Column ss:StyleID="s138" ss:Width="205.5" ss:Span="1"/>
-   <Column ss:Index="7" ss:StyleID="s138" ss:Width="40"/>
+   <Column ss:Index="7" ss:StyleID="s138" ss:Width="39.75"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -6654,16 +6598,16 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s113" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s113" ss:Width="115"/>
+   <Column ss:StyleID="s113" ss:Width="114.75"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:Index="4" ss:StyleID="s113" ss:Width="45"/>
-   <Column ss:StyleID="s113" ss:Width="146.5"/>
+   <Column ss:StyleID="s113" ss:Width="146.25"/>
    <Column ss:StyleID="s113" ss:Width="172.5"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="97.5"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="88.5"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="172.5"/>
-   <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="166" ss:Span="1"/>
+   <Column ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="165.75" ss:Span="1"/>
    <Column ss:Index="13" ss:StyleID="s113" ss:AutoFitWidth="0" ss:Width="106.5"/>
    <Row ss:AutoFitHeight="0" ss:Height="30.75">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Binding Name</Data><Comment
@@ -7190,13 +7134,13 @@
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s138" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s138" ss:Width="80.5"/>
+   <Column ss:StyleID="s138" ss:Width="80.25"/>
    <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="155.5"/>
-   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="80.5" ss:Span="1"/>
+   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="244.5"/>
    <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="242.5"/>
+   <Column ss:Index="9" ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -7819,13 +7763,13 @@
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s138" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s138" ss:Width="80.5"/>
+   <Column ss:StyleID="s138" ss:Width="80.25"/>
    <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="155.5"/>
-   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="80.5" ss:Span="1"/>
+   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="244.5"/>
    <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="242.5"/>
+   <Column ss:Index="9" ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -8448,13 +8392,13 @@
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s138" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s138" ss:Width="80.5"/>
+   <Column ss:StyleID="s138" ss:Width="80.25"/>
    <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="34.5"/>
-   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="155.5"/>
-   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="80.5" ss:Span="1"/>
+   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="155.25"/>
+   <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="80.25" ss:Span="1"/>
    <Column ss:Index="6" ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="244.5"/>
    <Column ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
-   <Column ss:Index="9" ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="242.5"/>
+   <Column ss:Index="9" ss:StyleID="s138" ss:AutoFitWidth="0" ss:Width="242.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s103"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -8499,18 +8443,18 @@
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Individual</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">An individual report that provides information on the performance for a given measure with respect to a single patient</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">An individual report that provides information on the performance for a given measure with respect to a single subject</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">patient-list</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">subject-list</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">Patient List</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">A patient list report that includes a listing of patients that satisfied each population criteria in the measure</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Subject List</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">A subject list report that includes a listing of subjects that satisfied each population criteria in the measure</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
@@ -8521,7 +8465,7 @@
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">Summary</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">A summary report that returns the number of patients in each population criteria for the measure</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">A summary report that returns the number of members in each population criteria for the measure</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
@@ -9041,6 +8985,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9060,8 +9005,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

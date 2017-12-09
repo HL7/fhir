@@ -10,8 +10,7 @@
   <status value="draft"/>
   <scoring><coding><code value="proportion"/></coding></scoring>
   
-  <group>
-    <identifier><value value="Main"/></identifier>
+  <group id="Main">
     <population>
       <code><coding><code value="initial-population"/></coding></code>
       <criteria value="Initial Population"/>

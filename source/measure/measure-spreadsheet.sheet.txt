@@ -43,6 +43,13 @@
   Definition = High-level categorization of the definition, used for searching, sorting, and filtering
   Conformance = example
 
+ -- Row 7 -----------------------------------
+  Binding Name = SubjectType
+  Binding = value set
+  Reference = valueset-subject-type
+  Definition = The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc)
+  Conformance = extensible
+
 === Sheet measure-population =====================================
 
  -- Row 1 -----------------------------------
@@ -284,6 +291,17 @@
   Workflow Mapping = Definition.jurisdiction
 
  -- Row 19 -----------------------------------
+  Element = Measure.subject
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = SubjectType
+  Short Name = E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device
+  Definition = The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything.
+  Comments = The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration
+  Missing Meaning = Patient
+
+ -- Row 20 -----------------------------------
   Element = Measure.topic
   Card. = 0..*
   Type = CodeableConcept
@@ -292,7 +310,7 @@
   Definition = Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching
   Requirements = Repositories must be able to determine how to categorize the measure so that it can be found by topical searches
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Measure.contributor
   Card. = 0..*
   Type = Contributor
@@ -300,15 +318,15 @@
   Definition = A contributor to the content of the measure, including authors, editors, reviewers, and endorsers
   Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the measure
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Measure.contact
   Workflow Mapping = Definition.contact
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Measure.copyright
   Workflow Mapping = Definition.copyright
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Measure.relatedArtifact
   Card. = 0..*
   Type = RelatedArtifact
@@ -317,14 +335,14 @@
   Requirements = Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related artifact is either an attachment, or a reference to another resource, but not both
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Measure.library
   Card. = 0..*
   Type = Reference(Library)
   Short Name = Logic used by the measure
   Definition = A reference to a Library resource containing the formal logic used by the measure
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Measure.disclaimer
   Card. = 0..1
   Summary = Y
@@ -333,7 +351,7 @@
   Definition = Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure
   Requirements = Some organizations require that notices and disclosures be included when publishing measures that reference their intellecutal property
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Measure.scoring
   Card. = 0..1
   Summary = Y
@@ -342,7 +360,7 @@
   Short Name = proportion | ratio | continuous-variable | cohort
   Definition = Indicates how the calculation is performed for the measure, including proportion, ratio, continuous variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Measure.compositeScoring
   Card. = 0..1
   Summary = Y
@@ -351,7 +369,7 @@
   Short Name = opportunity | all-or-nothing | linear | weighted
   Definition = If this is a composite measure, the scoring method used to combine the component measures to determine the composite score
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Measure.type
   Card. = 0..*
   Summary = Y
@@ -361,7 +379,7 @@
   Definition = Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization
   Workflow Mapping = Definition.subject[x]
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Measure.riskAdjustment
   Card. = 0..1
   Summary = Y
@@ -370,7 +388,7 @@
   Definition = A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results
   Comments = Describes the method of adjusting for clinical severity and conditions present at the start of care that can influence patient outcomes for making valid comparisons of outcome measures across providers. Indicates whether an eMeasure is subject to the statistical process for reducing, removing, or clarifying the influences of confounding factors to allow more useful comparisons
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Measure.rateAggregation
   Card. = 0..1
   Summary = Y
@@ -379,7 +397,7 @@
   Definition = Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result
   Comments = The measure rate for an organization or clinician is based upon the entities’ aggregate data and summarizes the performance of the entity over a given time period (e.g., monthly, quarterly, yearly). The aggregated data are derived from the results of a specific measure algorithm and, if appropriate, the application of specific risk adjustment models.  Can also be used to describe how to risk adjust the data based on supplemental data elements described in the eMeasure (e.g., pneumonia hospital measures antibiotic selection in the ICU versus non-ICU and then the roll-up of the two). This could be applied to aggregated cohort measure definitions (e.g., CDC\'s aggregate reporting for TB at the state level)
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Measure.rationale
   Card. = 0..1
   Summary = Y
@@ -387,7 +405,7 @@
   Short Name = Why does this measure exist
   Definition = Provides a succint statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Measure.clinicalRecommendationStatement
   Card. = 0..1
   Summary = Y
@@ -395,7 +413,7 @@
   Short Name = Summary of clinical guidelines
   Definition = Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Measure.improvementNotation
   Card. = 0..1
   Summary = Y
@@ -404,7 +422,7 @@
   Definition = Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is whthin a range)
   Requirements = Measure consumers and implementers must be able to determine how to interpret a measure score
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Measure.definition
   Card. = 0..*
   Summary = Y
@@ -413,7 +431,7 @@
   Definition = Provides a description of an individual term used within the measure
   Requirements = Measure developers must be able to provide precise definitions of terms used within measure descriptions and guidance to help communicate the intent of the measure
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Measure.guidance
   Card. = 0..1
   Summary = Y
@@ -422,7 +440,7 @@
   Definition = Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure
   Requirements = Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the logic of the measure
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Measure.set
   Card. = 0..1
   Summary = Y
@@ -430,26 +448,19 @@
   Short Name = The measure set, e.g. Preventive Care and Screening
   Definition = The measure set, e.g. Preventive Care and Screening
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = Measure.group
   Card. = 0..*
   UML = 370;300
   Short Name = Population criteria group
   Definition = A group of population criteria for the measure
 
- -- Row 38 -----------------------------------
-  Element = Measure.group.identifier
-  Card. = 1..1
-  Type = Identifier
-  Short Name = Unique identifier
-  Definition = A unique identifier for the group. This identifier will used to report data for the group in the measure report
-
  -- Row 39 -----------------------------------
-  Element = Measure.group.name
+  Element = Measure.group.code
   Card. = 0..1
-  Type = string
-  Short Name = Short name
-  Definition = Optional name or short description of this group
+  Type = CodeableConcept
+  Short Name = Meaning of the group
+  Definition = Indicates a meaning for the group. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing groups to be correlated across measures
 
  -- Row 40 -----------------------------------
   Element = Measure.group.description
@@ -466,13 +477,6 @@
   Definition = A population criteria for the measure
 
  -- Row 42 -----------------------------------
-  Element = Measure.group.population.identifier
-  Card. = 0..1
-  Type = Identifier
-  Short Name = Unique identifier
-  Definition = A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report
-
- -- Row 43 -----------------------------------
   Element = Measure.group.population.code
   Card. = 0..1
   Type = CodeableConcept
@@ -480,21 +484,14 @@
   Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation
   Definition = The type of population criteria
 
- -- Row 44 -----------------------------------
-  Element = Measure.group.population.name
-  Card. = 0..1
-  Type = string
-  Short Name = Short name
-  Definition = Optional name or short description of this population
-
- -- Row 45 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Measure.group.population.description
   Card. = 0..1
   Type = string
   Short Name = The human readable description of this population criteria
   Definition = The human readable description of this population criteria
 
- -- Row 46 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = Measure.group.population.criteria
   Card. = 1..1
   Type = string
@@ -502,35 +499,42 @@
   Definition = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
   Comments = In the case of a continuous variable or ratio measure, this may be the name of a function that calculates the value of the individual observation for each patient or event in the population. For these types of measures, individual observations are reported as observation resources included in the evaluatedResources bundle for each patient. See the MeasureReport resource or the Quality Reporting topic for more information
 
- -- Row 47 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = Measure.group.stratifier
   Card. = 0..*
   UML = 370;450
   Short Name = Stratifier criteria for the measure
   Definition = The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path
 
- -- Row 48 -----------------------------------
-  Element = Measure.group.stratifier.identifier
+ -- Row 46 -----------------------------------
+  Element = Measure.group.stratifier.code
   Card. = 0..1
-  Type = Identifier
-  Short Name = The identifier for the stratifier used to coordinate the reported data back to this stratifier
-  Definition = The identifier for the stratifier used to coordinate the reported data back to this stratifier
+  Type = CodeableConcept
+  Short Name = Meaning of the stratifier
+  Definition = Indicates a meaning for the stratifier. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures
 
- -- Row 49 -----------------------------------
+ -- Row 47 -----------------------------------
+  Element = Measure.group.stratifier.description
+  Card. = 0..1
+  Type = string
+  Short Name = The human readable description of this stratifier
+  Definition = The human readable description of this stratifier criteria
+
+ -- Row 48 -----------------------------------
   Element = Measure.group.stratifier.criteria
   Card. = 0..1
   Type = string
   Short Name = How the measure should be stratified
   Definition = The criteria for the stratifier. This must be the name of an expression defined within a referenced library
 
- -- Row 50 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = Measure.group.stratifier.path
   Card. = 0..1
   Type = string
   Short Name = Path to the stratifier
   Definition = The path to an element that defines the stratifier, specified as a valid FHIR resource path
 
- -- Row 51 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = Measure.supplementalData
   Card. = 0..*
   UML = 370;0
@@ -538,20 +542,27 @@
   Definition = The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path
   Comments = Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information
 
- -- Row 52 -----------------------------------
-  Element = Measure.supplementalData.identifier
+ -- Row 51 -----------------------------------
+  Element = Measure.supplementalData.code
   Card. = 0..1
-  Type = Identifier
-  Short Name = Identifier, unique within the measure
-  Definition = An identifier for the supplemental data
+  Type = CodeableConcept
+  Short Name = Meaning of the supplemental data
+  Definition = Indicates a meaning for the supplemental data. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing supplemental data to be correlated across measures
 
- -- Row 53 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = Measure.supplementalData.usage
   Card. = 0..*
   Type = CodeableConcept
   Binding = MeasureDataUsage
   Short Name = supplemental-data | risk-adjustment-factor
   Definition = An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation
+
+ -- Row 53 -----------------------------------
+  Element = Measure.supplementalData.description
+  Card. = 0..1
+  Type = string
+  Short Name = The human readable description of this supplemental data
+  Definition = The human readable description of this supplemental data
 
  -- Row 54 -----------------------------------
   Element = Measure.supplementalData.criteria
@@ -705,11 +716,11 @@
   Max = 1
 
  -- Row 6 -----------------------------------
-  Name = evaluate-measure.patient
+  Name = evaluate-measure.subject
   Use = in
-  Documentation = Patient to evaluate against. If not specified, the measure will be evaluated for all patients that meet the requirements of the measure. If specified, only the referenced patient will be evaluated
-  Type = Reference(Patient)
-  Title = Patient
+  Documentation = Subject to evaluate against. If not specified, the measure will be evaluated for all subjects that meet the requirements of the measure. If specified, only the referenced subject(s) will be evaluated
+  Type = Reference(Patient|Practitioner|Organization|Location|Device|Group)
+  Title = Subject
   Min = 0
   Max = 1
 

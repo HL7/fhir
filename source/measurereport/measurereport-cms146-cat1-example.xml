@@ -1007,9 +1007,9 @@
   <measure>
     <reference value="Measure/CMS146"/>
   </measure>
-  <patient>
+  <subject>
     <reference value="Patient/123"/>
-  </patient>
+  </subject>
   <reportingOrganization>
     <reference value="#reporter"/>
   </reportingOrganization>
@@ -1017,8 +1017,7 @@
       <start value="2014-01-01" />
       <end value="2014-03-31" />
   </period>
-  <group>
-    <identifier><value value="CMS146-group-1"/></identifier>
+  <group id="CMS146-group-1">
     <population>
       <code><coding><code value="initial-population"/></coding></code>
       <count value="1"/>
@@ -1036,9 +1035,9 @@
       <count value="0"/>
     </population>
     <stratifier>
-      <identifier><value value="stratifier-ages-up-to-9"/></identifier>
+      <code><text value="stratifier-ages-up-to-9"/></code>
       <stratum>
-        <value value="true"/>
+        <value><text value="true"/></value>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="1"/>
@@ -1057,7 +1056,7 @@
         </population>
       </stratum>
       <stratum>
-        <value value="false"/>
+        <value><text value="false"/></value>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1077,9 +1076,9 @@
       </stratum>
     </stratifier>
     <stratifier>
-      <identifier><value value="stratifier-ages-10-plus"/></identifier>
+      <code><text value="stratifier-ages-10-plus"/></code>
       <stratum>
-        <value value="true"/>
+        <value><text value="true"/></value>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1098,7 +1097,7 @@
         </population>
       </stratum>
       <stratum>
-        <value value="false"/>
+        <value><text value="false"/></value>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="1"/>
@@ -1118,9 +1117,9 @@
       </stratum>
     </stratifier>
     <stratifier>
-      <identifier><value value="stratifier-gender"/></identifier>
+      <code><text value="stratifier-gender"/></code>
       <stratum>
-        <value value="male"/>
+        <value><text value="male"/></value>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="1"/>
@@ -1139,7 +1138,7 @@
         </population>
       </stratum>
       <stratum>
-        <value value="female"/>
+        <value><text value="female"/></value>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1158,7 +1157,7 @@
         </population>
       </stratum>
       <stratum>
-        <value value="other"/>
+        <value><text value="other"/></value>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
@@ -1177,7 +1176,7 @@
         </population>
       </stratum>
       <stratum>
-        <value value="unknown"/>
+        <value><text value="unknown"/></value>
         <population>
           <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>

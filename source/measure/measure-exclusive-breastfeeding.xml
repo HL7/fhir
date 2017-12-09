@@ -98,50 +98,38 @@
   <improvementNotation value="Improvement noted as an increase in the rate"/>
   <definition value="Gestational age is calculated using the ACOG ReVITALize guidelines with Estimated Due Date (EDD) http://www.acog.org/about_acog/acog_departments/patient_safety_and_quality_improvement/~/media/departments/patient%20safety%20and%20quality%20improvement/201213issuesandrationale-gestationalageterm.pdf. The exam used needs to be the most recent exam associated with this pregnancy"/>
   <guidance value="A discharge to a designated cancer center or children's hospital should be captured as a discharge to an acute care facility. It is acceptable to calculate Gestational Age using the American College of Obstetricians and Gynecologists ReVITALize guidelines, which define Gestational Age as calculated using the best obstetrical Estimated Due Date (EDD) based on the formula: Gestational Age= (280-(EDD-Reference Date))/7 where Reference Date is the date on which you are trying to determine gestational age. For PC-05, Reference Date is the Birth Date. Note however that the calculation may yield a non-whole number and gestational age should be rounded off to the nearest completed week. For example, an infant born on the 5th day of the 36th week (35 weeks and 5/7 days) is at a gestational age of 35 weeks, not 36 weeks."/>
-  <group>
-    <identifier>
-      <value value="Population Group 1"/>
-    </identifier>
+  <group id="PopulationGroup1">
     <population>
-      <identifier><value value="initial-population-1-identifier"/></identifier>
       <code><coding><code value="initial-population"/></coding></code>
       <criteria value="InitialPopulation1"/>
     </population>
     <population>
-      <identifier><value value="denominator-1-identifier"/></identifier>
       <code><coding><code value="denominator"/></coding></code>
       <criteria value="Denominator1"/>
     </population>
     <population>
-      <identifier><value value="denominator-exclusions-1-identifier"/></identifier>
       <code><coding><code value="denominator-exclusions"/></coding></code>
       <criteria value="DenominatorExclusions1"/>
     </population>
     <population>
-      <identifier><value value="numerator-1-identifier"/></identifier>
       <code><coding><code value="numerator"/></coding></code>
       <criteria value="Numerator1"/>
     </population>
   </group>
-  <group>
-    <identifier><value value="Population Group 2"/></identifier>
+  <group id="PopulationGroup2">
     <population>
-      <identifier><value value="initial-population-2-identifier"/></identifier>
       <code><coding><code value="initial-population"/></coding></code>
       <criteria value="InitialPopulation2"/>
     </population>
     <population>
-      <identifier><value value="denominator-2-identifier"/></identifier>
       <code><coding><code value="denominator"/></coding></code>
       <criteria value="Denominator2"/>
     </population>
     <population>
-      <identifier><value value="denominator-exclusions-2-identifier"/></identifier>
       <code><coding><code value="denominator-exclusion"/></coding></code>
       <criteria value="DenominatorExclusions2"/>
     </population>
     <population>
-      <identifier><value value="numerator-2-identifier"/></identifier>
       <code><coding><code value="numerator"/></coding></code>
       <criteria value="Numerator2"/>
     </population>

@@ -100,47 +100,42 @@ CPT(R) contained in the Measure specifications is copyright 2004-2015 American M
   <clinicalRecommendationStatement value="The Infectious Diseases Society of America (IDSA) &quot;recommends swabbing the throat and testing for GAS pharyngitis by rapid antigen detection test (RADT) and/or culture because the clinical features alone do not reliably discriminate between GAS and viral pharyngitis except when overt viral features like rhinorrhea, cough, oral ulcers, and/or hoarseness are present&quot;"/>
   <improvementNotation value="Higher score indicates better quality"/>
   <guidance value="This is an episode of care measure that examines all eligible episodes for the patient during the measurement period. If the patient has more than one episode, include all episodes in the measure"/>
-  <group>
-    <identifier><value value="CMS146-group-1"/></identifier>
+  <group id="CMS146-group-1">
     <population>
-      <identifier><value value="initial-population-identifier"/></identifier>
       <code><coding><code value="initial-population"/></coding></code>
       <criteria value="CMS146.InInitialPopulation"/>
     </population>
     <population>
-      <identifier><value value="numerator-identifier"/></identifier>
       <code><coding><code value="numerator"/></coding></code>
       <criteria value="CMS146.InNumerator"/>
     </population>
     <population>
-      <identifier><value value="denominator-identifier"/></identifier>
       <code><coding><code value="denominator"/></coding></code>
       <criteria value="CMS146.InDenominator"/>
     </population>
     <population>
-      <identifier><value value="denominator-exclusions-identifier"/></identifier>
       <code><coding><code value="denominator-exclusion"/></coding></code>
       <criteria value="CMS146.InDenominatorExclusions"/>
     </population>
     <stratifier>
-      <identifier><value value="stratifier-ages-up-to-9"/></identifier>
+      <code><text value="stratifier-ages-up-to-9"/></code>
       <criteria value="CMS146.AgesUpToNine"/>
     </stratifier>
     <stratifier>
-      <identifier><value value="stratifier-ages-10-plus"/></identifier>
+      <code><text value="stratifier-ages-10-plus"/></code>
       <criteria value="CMS146.AgesTenPlus"/>
     </stratifier>
     <stratifier>
-      <identifier><value value="stratifier-ages-up-to-9"/></identifier>
+      <code><text value="stratifier-ages-up-to-9"/></code>
       <path value="Patient.gender"/>
     </stratifier>
   </group>
   <supplementalData>
-    <identifier><value value="supplemental-data-gender"/></identifier>
+    <code><text value="supplemental-data-gender"/></code>
     <path value="Patient.gender"/>
   </supplementalData>
   <supplementalData>
-    <identifier><value value="supplemental-data-deceased"/></identifier>
+    <code><text value="supplemental-data-deceased"/></code>
     <path value="deceasedBoolean"/>
   </supplementalData>
 </Measure>
