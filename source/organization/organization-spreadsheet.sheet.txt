@@ -335,13 +335,13 @@
  -- Row 7 -----------------------------------
   Name = active
   Type = token
-  Description = A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text
+  Description = Is the Organization record active
   Path = Organization.active
 
  -- Row 8 -----------------------------------
   Name = address
   Type = string
-  Description = A (part of the) address of the organization
+  Description = A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text
   Path = Organization.address
 
  -- Row 9 -----------------------------------

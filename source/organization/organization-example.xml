@@ -23,10 +23,8 @@
     </div>
   </text>
 <!--  HL7 itself  -->
-  <extension url="http://hl7.org/fhir/StructureDefinition/organization-alias">
-    <valueString value="HL7 International"/>
-  </extension>
   <name value="Health Level Seven International"/>
+  <alias value="HL7 International"/>
   <telecom>
     <system value="phone"/>
     <value value="(+1) 734-677-7777"/>

@@ -150,7 +150,6 @@
  -- Row 8 -----------------------------------
   Element = Location.mode
   Card. = 0..1
-  Is Modifier = y
   Summary = Y
   Type = code
   Binding = LocationMode
