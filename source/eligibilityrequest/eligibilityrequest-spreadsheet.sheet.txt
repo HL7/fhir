@@ -36,6 +36,20 @@
   Definition = A code specifying the state of the resource instance.
   Conformance = required
 
+ -- Row 6 -----------------------------------
+  Binding Name = ServiceProduct
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/service-uscls
+  Definition = Allowable service and product codes
+  Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = Modifiers
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/claim-modifiers
+  Definition = Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -212,6 +226,50 @@
   Short Name = Detailed services covered within the type
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
 
+ -- Row 22 -----------------------------------
+  Element = EligibilityRequest.authorization
+  Card. = 0..*
+  Type = =Authorization
+  Short Name = Services which may require prior authorization
+  Definition = A list of sbillable ervices for which an authorization prior to service delivery may be required by the payor.
+
+ -- Row 23 -----------------------------------
+  Element = EligibilityRequest.authorization.sequence
+  Card. = 1..1
+  Type = positiveInt
+  Short Name = Procedure sequence for reference
+  Definition = Sequence of procedures which serves to order and provide a link.
+
+ -- Row 24 -----------------------------------
+  Element = EligibilityRequest.authorization.service
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ServiceProduct
+  Short Name = Billing Code
+  Definition = A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
+
+ -- Row 25 -----------------------------------
+  Element = EligibilityRequest.authorization.modifier
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = Modifiers
+  Short Name = Service/Product billing modifiers
+  Definition = Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
+
+ -- Row 26 -----------------------------------
+  Element = EligibilityRequest.authorization.unitPrice
+  Card. = 0..1
+  Type = Money
+  Short Name = Fee, charge or cost per point
+  Definition = The fee for an addittional service or product or charge.
+
+ -- Row 27 -----------------------------------
+  Element = EligibilityRequest.authorization.facility
+  Card. = 0..1
+  Type = Reference(Location|Organization)
+  Short Name = Servicing Facility
+  Definition = Facility where the services were provided.
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
@@ -327,3 +385,31 @@
   Filename = eligibilityrequest-example-2.xml
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = submit
+  Use = Resource
+  Documentation = This operation is used to submit an EligibilityRequest for assessment either as a single EligibilityRequest resource instance or as a Bundle containing the EligibilityRequest and other referenced resources, or Bundle containing a batch of EligibilityRequest resources, either as single EligibilityRequests resources or Bundle resources, for processing. The only input parameter is the single EligibilityRequest or Bundle resource and the only output is a single EligibilityResponse, Bundle of EligibilityResponses or an OperationOutcome resource.
+  Type = operation
+  Example.Request = $submit-request.txt
+  Example.Response = $submit-response.txt
+  Title = Submit an EligibilityRequest resource for assessment
+  Idempotent = False
+
+ -- Row 2 -----------------------------------
+  Name = submit.resource
+  Use = in
+  Documentation = An EligibilityRequest resource or Bundle of claims, either as individual EligibilityRequest resources or as Bundles each containing a single EligibilityRequest plus referenced resources.
+  Type = Resource
+  Title = The EligibilityRequest(s) to be assessed
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = submit.return
+  Use = out
+  Documentation = An EligibilityResponse resource or Bundle of claim responses, either as individual EligibilityResponse resources or as Bundles each containing a single EligibilityResponse plus referenced resources.
+  Type = Resource
+  Title = The responses to the EligibilityRequests(s)
+  Min = 1
+  Max = 1

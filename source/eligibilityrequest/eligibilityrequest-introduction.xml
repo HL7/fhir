@@ -7,7 +7,11 @@
 The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an Eligibility Response,
 with information regarding whether the stated coverage is valid and in-force, and potentially the amount of coverage which may be available to any 
 services classes identified in this request.
-
+</p>
+<p>
+<b>For Balloters:</b> The optional Authorization subclass has been addded for comment ballot review. It is intended to convey the billable services which may be performed and for which the provider wishes to determine
+whether it needs to submit a prior authorization or pre-authorization request. The EligibilityResponse would return a boolean indicating whether pre-authorization is required adn an optional text element woud convey and 
+special instructions.
 Todo
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>

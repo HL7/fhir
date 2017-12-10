@@ -1,40 +1,40 @@
 <EligibilityRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
-  <id value="52345"/>
+	<id value="52345"/>
 
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EligibilityRequest</div>
-  </text>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EligibilityRequest</div>
+	</text>
 
-  <identifier>
-    <system value="http://happyvalley.com/elegibilityrequest"/>
-    <value value="52345"/>
-  </identifier>
- 
-  <status value="active"/>
- 
-  <priority>
-   <coding>
-    <code value="normal"/>
-   </coding>
-  </priority>
+	<identifier>
+		<system value="http://happyvalley.com/elegibilityrequest"/>
+		<value value="52345"/>
+	</identifier>
 
-  <patient>
-    <reference value="Patient/pat1"/>
-  </patient>
- 
-  <created value="2014-08-16"/>
+	<status value="active"/>
 
-  <organization>
-    <reference value="Organization/1"/>
-  </organization>
+	<priority>
+		<coding>
+			<code value="normal"/>
+		</coding>
+	</priority>
 
-  <insurer>
-    <reference value="Organization/2"/>
-  </insurer>
+	<patient>
+		<reference value="Patient/pat1"/>
+	</patient>
 
-  <coverage>
-      <reference value="Coverage/9876B1"/>
-  </coverage>
+	<created value="2014-08-16"/>
 
- </EligibilityRequest>
+	<organization>
+		<reference value="Organization/1"/>
+	</organization>
+
+	<insurer>
+		<reference value="Organization/2"/>
+	</insurer>
+
+	<coverage>
+		<reference value="Coverage/9876B1"/>
+	</coverage>
+
+</EligibilityRequest>
