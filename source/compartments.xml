@@ -20,10 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12900</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>8880</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -69,12 +70,12 @@
  </Styles>
  <Worksheet ss:Name="compartments">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="110.25" ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="131.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="209.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="110.4" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="131.4"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="209.39999999999998"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254.39999999999998"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Title</Data></Cell>
@@ -125,7 +126,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -138,13 +138,13 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="126" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s65" ss:DefaultColumnWidth="65.25"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="127" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s65" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="158.25"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="158.4"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="198"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="98.25"/>
-   <Column ss:StyleID="s65" ss:Width="149.25"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="98.4"/>
+   <Column ss:StyleID="s65" ss:Width="149.4"/>
    <Column ss:StyleID="s65" ss:Width="198"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
@@ -749,6 +749,9 @@
     <Cell><Data ss:Type="String">participant</Data></Cell>
     <Cell><Data ss:Type="String">participant</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ProductPlan</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -763,6 +766,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -774,8 +778,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>53</ActiveRow>
-     <RangeSelection>R54</RangeSelection>
+     <ActiveRow>126</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

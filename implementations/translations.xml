@@ -731,6 +731,9 @@
 		<translation lang="es">RespuestaDeProceso</translation>
 		<translation lang="zh">处理响应</translation>
 	</item>
+	<item id="ProductPlan">
+		<translation lang="en">ProductPlan</translation>
+	</item>
 	<item id="ProfessionalClaim">
 		<translation lang="en">ProfessionalClaim</translation>
 		<translation lang="fr">DemandeProfessionnel</translation>

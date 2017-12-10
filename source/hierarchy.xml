@@ -264,7 +264,9 @@ signatures.html
   	  <page type="resource" resource="ObservationDefinition"/> 
   	  <page type="resource" resource="SpecimenDefinition"/>
   	  <page type="resource" resource="EntryDefinition"/>
-	  <page type="resource" resource="Invoice"/>
+      <!-- Think these 2 need to be left off as are REALLy drafty -->
+	    <page type="resource" resource="Invoice"/>
+	    <page type="resource" resource="ProductPlan"/>
     </page>
 
     <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">
