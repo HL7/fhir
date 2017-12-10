@@ -63,7 +63,7 @@
 
  -- Row 5 -----------------------------------
   Element = RelatedPerson.relationship
-  Card. = 0..1
+  Card. = 0..*
   Summary = y
   Type = CodeableConcept
   Binding = PatientRelationshipType
