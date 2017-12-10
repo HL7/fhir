@@ -1,0 +1,26 @@
+POST [baseurl]/ProcessRequest/$submit
+[headers]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcessRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
+ <id value="1115"/>
+
+ <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Poll ProcessRequest</div>
+  </text>
+
+  <identifier>
+    <system value="http://www.phr.com/patient/12345/processrequest"/>
+    <value value="115"/>
+  </identifier>
+  
+  <status value="active"/>
+  
+  <action value="poll"/>
+ 
+  <created value="2014-08-16"/>
+
+  <include value="ExplanationOfBenefit"/>
+  
+ </ProcessRequest>

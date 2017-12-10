@@ -329,3 +329,31 @@
   Filename = processrequest-example-status.xml
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = submit
+  Use = Resource
+  Documentation = This operation is used to submit an ProcessRequest for assessment either as a single ProcessRequest resource instance or as a Bundle containing the ProcessRequest and other referenced resources, or Bundle containing a batch of ProcessRequest resources, either as single ProcessRequests resources or Bundle resources, for processing. The only input parameter is the single ProcessRequest or Bundle resource and the only output is a single ProcessResponse or other single resource, Bundle of resources or Bundles or an OperationOutcome resource.
+  Type = operation
+  Example.Request = $submit-request.txt
+  Example.Response = $submit-response.txt
+  Title = Submit an ProcessRequest resource for assessment
+  Idempotent = False
+
+ -- Row 2 -----------------------------------
+  Name = submit.resource
+  Use = in
+  Documentation = An ProcessRequest resource or Bundle of ProcessRequests, either as individual ProcessRequest resources or as Bundles each containing a single ProcessRequest plus referenced resources.
+  Type = Resource
+  Title = The ProcessRequest(s) to be assessed
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = submit.return
+  Use = out
+  Documentation = A resource or Bundle of responses, either as individual  resources or as Bundles each containing a single focal resource plus referenced resources.
+  Type = Resource
+  Title = The responses to the ProcessRequests(s)
+  Min = 1
+  Max = 1
