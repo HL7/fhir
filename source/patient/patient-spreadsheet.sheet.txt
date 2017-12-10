@@ -846,7 +846,7 @@
  -- Row 2 -----------------------------------
   Name = match.resource
   Use = in
-  Documentation = Use this to provide an entire set of patient details for the MPI to match against (e.g. POST a patient record to Patient/$match). If a patient record is not provided, then one or more of the other parameters must be provided
+  Documentation = Use this to provide an entire set of patient details for the MPI to match against (e.g. POST a patient record to Patient/$match).
   Type = Resource
   Title = A (Patient) resource (complete or fragment) that contains property values to match in the search
   Min = 1

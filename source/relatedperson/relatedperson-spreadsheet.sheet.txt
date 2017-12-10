@@ -15,7 +15,7 @@
  -- Row 1 -----------------------------------
   Element = RelatedPerson
   Type = DomainResource
-  Short Name = An person that is related to a patient, but who is not a direct target of care
+  Short Name = A person that is related to a patient, but who is not a direct target of care
   Definition = Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
   Requirements = Need to track persons related to the patient or the healthcare process.
   RIM Mapping = role
@@ -143,7 +143,7 @@
   Card. = 0..1
   Type = Period
   Short Name = Period of time that this relationship is considered valid
-  Definition = The period of time that this relationship is considered to be valid. If there are no dates defined, then the interval is unknown.
+  Definition = The period of time during which this relationship is or was active. If there are no dates defined, then the interval is unknown.
   RIM Mapping = .effectiveTime
   w5 = when.done
 
