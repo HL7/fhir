@@ -231,7 +231,7 @@
   Card. = 0..*
   Type = =Authorization
   Short Name = Services which may require prior authorization
-  Definition = A list of sbillable ervices for which an authorization prior to service delivery may be required by the payor.
+  Definition = A list of billable services for which an authorization prior to service delivery may be required by the payor.
 
  -- Row 23 -----------------------------------
   Element = EligibilityRequest.authorization.sequence

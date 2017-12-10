@@ -9,6 +9,8 @@ EligibilityRequest resource. It combines key information from a payor as to whet
 in-force, and optionally the nature of the Policy details.
 </p>
 <p>
+<b>For Balloters:</b> The optional Authorization subclass has been addded for comment ballot review. The EligibilityResponse would return a boolean indicating whether pre-authorization is required and an optional text element woud convey and 
+special instructions for each of the billable services provided in the EligibilityRequest.
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
 </div>
