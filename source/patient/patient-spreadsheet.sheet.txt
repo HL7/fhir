@@ -43,27 +43,28 @@
   Code = replaced-by
   Display = Replaced-by
   Definition = The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains this link.
-  Display:nl = vervangen
+  Display:nl = Vervangen door
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = replaces
   Display = Replaces
   Definition = The patient resource containing this link is the current active patient record. The link points back to an inactive patient resource that has been merged into this resource, and should be consulted to retrieve additional referenced information.
+  Display:nl = Vervangt
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = refer
   Display = Refer
   Definition = The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information.
-  Display:nl = verwijzing
+  Display:nl = Verwijzing
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = seealso
   Display = See also
   Definition = The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid.
-  Display:nl = zie ook
+  Display:nl = Zie ook
 
 === Sheet Invariants =====================================
 
@@ -375,7 +376,7 @@
   Definition = Identifies the detailed categorization of the kind of animal.
   Requirements = May need to know the specific kind within the species
   Comments = Breed MAY be used to provide further taxonomic or non-taxonomic classification.  It may involve local or proprietary designation--such as commercial strain--and/or additional information such as production type.
-  v2 Mapping = PID-37
+  v2 Mapping = PID-35 (where more detailed value is present)
   RIM Mapping = playedRole[classCode=GEN]/scoper[classCode=ANM, determinerCode=KIND]/code
   CDA Mapping = n/a
 
