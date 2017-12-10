@@ -28,8 +28,4 @@
     <value value="gastro@acme.org"/>
     <use value="work"/>
   </telecom>
-  <partOf>
-    <reference value="Organization/1"/>
-    <display value="ACME Healthcare, Inc"/>
-  </partOf>
 </Organization>

@@ -34,6 +34,11 @@
     <definition value="A company that provides insurance to its subscribers that may include healthcare related policies."/>
   </concept>
   <concept>
+    <code value="pay"/>
+    <display value="Payer"/>
+    <definition value="A company, charity, or governmental organization which processes claims and/or issues payments to providers on behalf of patients or groups of patients."/>
+  </concept>
+  <concept>
     <code value="edu"/>
     <display value="Educational Institute"/>
     <definition value="An educational institution that provides education or research facilities."/>

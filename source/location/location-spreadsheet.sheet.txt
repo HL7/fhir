@@ -36,6 +36,13 @@
   Definition = The operational status if the location (where typically a bed/room)
   Conformance = preferred
 
+ -- Row 6 -----------------------------------
+  Binding Name = DaysOfWeek
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/days-of-week
+  Definition = The days of the week.
+  Conformance = required
+
 === Sheet location-mode =====================================
 
  -- Row 1 -----------------------------------
@@ -254,6 +261,47 @@
   RIM Mapping = .inboundLink[typeCode=PART].source[classCode=SDLC]
 
  -- Row 19 -----------------------------------
+  Element = Location.hoursOfOperation
+  Card. = 0..*
+  Short Name = What days/times during a week is this location usually open
+  Comments = This type of information is commonly found published in directories and on websites informing customers when the facility is available.\n\nSpecific services within the location may have their own hours which could be shorter (or longer) than the locations hours.
+  RIM Mapping = .effectiveTime
+
+ -- Row 20 -----------------------------------
+  Element = Location.hoursOfOperation.daysOfWeek
+  Card. = 0..*
+  Type = code
+  Binding = DaysOfWeek
+  Short Name = mon | tue | wed | thu | fri | sat | sun
+  Definition = Indicates which days of the week are available between the start and end Times
+  RIM Mapping = .effectiveTime
+
+ -- Row 21 -----------------------------------
+  Element = Location.hoursOfOperation.allDay
+  Card. = 0..1
+  Type = boolean
+  Short Name = The Location is open all day
+
+ -- Row 22 -----------------------------------
+  Element = Location.hoursOfOperation.openingTime
+  Card. = 0..1
+  Type = time
+  Short Name = Time that the Location opens
+
+ -- Row 23 -----------------------------------
+  Element = Location.hoursOfOperation.closingTime
+  Card. = 0..1
+  Type = time
+  Short Name = Time that the Location closes
+
+ -- Row 24 -----------------------------------
+  Element = Location.availabilityExceptions
+  Card. = 0..1
+  Type = string
+  Short Name = Description of availability exceptions
+  Definition = A description of when the locations opening ours are different to normal, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as detailed in the opening hours Times
+
+ -- Row 25 -----------------------------------
   Element = Location.endpoint
   Card. = 0..*
   Type = Reference(Endpoint)

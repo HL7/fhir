@@ -46,7 +46,7 @@ resource, use the <a href="relatedperson.html">RelatedPerson</a> resource.
 </p>
 <p>
   The <a href="practitionerrole.html">PractitionerRole</a> resource provides the details of roles that the practitioner 
-  is approved to perform for which organizations (an at which locations, and optionally what services too).
+  is approved to perform for which organizations (and at which locations, and optionally what services too).
 </p>
 <p>
   Practitioners are also often grouped into <a href="careteam.html">CareTeams</a> independently of roles, where the CareTeam

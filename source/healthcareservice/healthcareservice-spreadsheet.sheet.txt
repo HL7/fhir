@@ -178,8 +178,8 @@
   Is Modifier = Y
   Summary = Y
   Type = boolean
-  Short Name = Whether this healthcareservice is in active use
-  Definition = Whether this healthcareservice record is in active use
+  Short Name = Whether this HealthcareService record is in active use
+  Definition = This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.
   Comments = This element is labeled as a modifier because it may be used to mark that the resource was created in error
   RIM Mapping = .statusCode
   Default Value = True
