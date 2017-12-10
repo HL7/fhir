@@ -32,12 +32,6 @@
     <start value="2016-01-01"/>
     <end value="2016-06-30"/>
   </active>
-  <balance>
-    <value value="-1200"/>
-    <unit value="USD"/>
-    <system value="urn:iso:std:iso:4217"/>
-    <code value="USD"/>
-  </balance>
     <coverage>
       <coverage>
         <reference value="Coverage/9876B1"/>

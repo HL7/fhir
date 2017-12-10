@@ -154,14 +154,6 @@
   Committee Notes = This has been commented out for now to consider the wider implications of multi-currency, especially since none of the other financial content handle it currently, and maybe extension on Money datatype would be more appropriate, or update to that type (constraint mny-1?).
 
  -- Row 10 -----------------------------------
-  Element = Account.balance
-  Card. = 0..1
-  Type = Money
-  Short Name = How much is in account?
-  Definition = Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.
-  RIM Mapping = .balanceAmt
-
- -- Row 11 -----------------------------------
   Element = Account.coverage
   Card. = 0..*
   Summary = y
@@ -171,7 +163,7 @@
   Comments = Typically this may be some form of insurance, internal charges, or self-pay.\n\nLocal or jurisdicational business rules may determine which coverage covers which types of billable items charged to the account, and in which order.\nWhere the order is important, a local/jurisdicational extension may be defined to specify the order for the type of charge.
   RIM Mapping = .coverage
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Account.coverage.coverage
   Card. = 1..1
   Summary = y
@@ -180,7 +172,7 @@
   Definition = The party(s) that are responsible for payment (or part of) of charges applied to this account (including self-pay).\n\nA coverage may only be resposible for specific types of charges, and the sequence of the coverages in the account could be important when processing billing.
   RIM Mapping = .coverage.insurancePolicy.author
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Account.coverage.priority
   Card. = 0..1
   Aliases = coordination of benefit priority
@@ -190,7 +182,7 @@
   Comments = It is common in some jurisdictions for there to be multiple coverages allocated to an account, and a sequence is required to order the settling of the account (often with insurance claiming)
   RIM Mapping = .coverage.sequenceNumber
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Account.owner
   Card. = 0..1
   Summary = y
@@ -199,7 +191,7 @@
   Definition = Indicates the organization, department, etc. with responsibility for the account.
   RIM Mapping = .holder
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Account.description
   Card. = 0..1
   Summary = y
@@ -208,7 +200,7 @@
   Definition = Provides additional information about what the account tracks and how it is used
   RIM Mapping = .subjectOf.observationEvent[code=\"annotation\"].value
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Account.guarantor
   Card. = 0..*
   UML = 360;150
@@ -217,7 +209,7 @@
   Definition = Parties financially responsible for the account.
   RIM Mapping = .holder.guarantorRole
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Account.guarantor.party
   Card. = 1..1
   Type = Reference(Patient|RelatedPerson|Organization)
@@ -225,7 +217,7 @@
   Definition = The entity who is responsible.
   RIM Mapping = .holder.guarantorRole[guarantorPerson|guarantorOrganization]
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Account.guarantor.onHold
   Card. = 0..1
   Type = boolean
@@ -233,13 +225,19 @@
   Definition = A guarantor may be placed on credit hold or otherwise have their role temporarily suspended.
   RIM Mapping = .holder.guarantorRole.statusCode
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Account.guarantor.period
   Card. = 0..1
   Type = Period
-  Short Name = Guarrantee account during
+  Short Name = Guarantee account during
   Definition = The timeframe during which the guarantor accepts responsibility for the account.
   RIM Mapping = .holder.guarantorRole.effectiveTime
+
+ -- Row 19 -----------------------------------
+  Element = Account.partOf
+  Card. = 0..1
+  Type = Reference(Account)
+  Short Name = Reference to a parent Account
 
 === Sheet Search =====================================
 
@@ -264,27 +262,22 @@
   Path = Account.status
 
  -- Row 5 -----------------------------------
-  Name = balance
-  Type = quantity
-  Path = Account.balance
-
- -- Row 6 -----------------------------------
   Name = period
   Type = date
   Path = Account.period
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = subject
   Type = reference
   Path = Account.subject
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = owner
   Type = reference
   Path = Account.owner
   Target Types = Organization
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = patient
   Type = reference
   Path = Account.subject
