@@ -204,8 +204,8 @@
   Card. = 0..*
   Summary = y
   Type = Address
-  Short Name = Addresses for the individual
-  Definition = Addresses for the individual
+  Short Name = An address for the individual
+  Definition = An address for the individual
   Requirements = May need to keep track of patient addresses for contacting, billing or reporting requirements and also to help with identification
   Comments = Patient may have multiple addresses with different uses or applicable periods
   v2 Mapping = PID-11
@@ -411,8 +411,8 @@
   Element = Patient.communication
   Card. = 0..*
   UML = 40;270
-  Short Name = A list of Languages which may be used to communicate with the patient about his or her health
-  Definition = Languages which may be used to communicate with the patient about his or her health
+  Short Name = A language which may be used to communicate with the patient about his or her health
+  Definition = A language which may be used to communicate with the patient about his or her health
   Requirements = If a patient does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest
   Comments = If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes then you need multiple Patient.Communication associations.   For animals, language is not a relevant field, and should be absent from the instance. If the Patient does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required.
   RIM Mapping = LanguageCommunication
