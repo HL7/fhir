@@ -20,7 +20,7 @@
   <WindowWidth>21804</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4288,7 +4288,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4311,7 +4310,8 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>22</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R23:R24</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5225,7 +5225,7 @@
     <Cell><Data ss:Type="String">Example.Request</Data></Cell>
     <Cell><Data ss:Type="String">Example.Response</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="108">
+   <Row ss:AutoFitHeight="0" ss:Height="142.80000000000001">
     <Cell ss:StyleID="s119"><Data ss:Type="String">submit</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Resource</Data><NamedCell
@@ -5245,7 +5245,7 @@
     <Cell><Data ss:Type="String">$submit-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$submit-response.txt</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="61.8">
     <Cell ss:StyleID="s122"><Data ss:Type="String">submit.resource</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
@@ -5254,10 +5254,10 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"><Data ss:Type="String">The EligibilityRequest(s) to be assessed</Data></Cell>
-    <Cell ss:StyleID="s123"><Data ss:Type="String">An EligibilityRequest resource or Bundle of claims, either as individual EligibilityRequest resources or as Bundles each containing a single EligibilityRequest plus referenced resources.</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">An EligibilityRequest resource or Bundle of EligibilityRequests, either as individual EligibilityRequest resources or as Bundles each containing a single EligibilityRequest plus referenced resources.</Data></Cell>
     <Cell ss:StyleID="s138"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="46.800000000000004">
     <Cell ss:StyleID="s122"><Data ss:Type="String">submit.return</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="Number">1</Data></Cell>
@@ -5266,7 +5266,7 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"><Data ss:Type="String">The responses to the EligibilityRequests(s)</Data></Cell>
-    <Cell ss:StyleID="s123"><Data ss:Type="String">An EligibilityResponse resource or Bundle of claim responses, either as individual EligibilityResponse resources or as Bundles each containing a single EligibilityResponse plus referenced resources.</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">An EligibilityResponse resource or Bundle of EligibilityResponse responses, either as individual EligibilityResponse resources or as Bundles each containing a single EligibilityResponse plus referenced resources.</Data></Cell>
     <Cell ss:StyleID="s138"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5784,12 +5784,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5797,14 +5798,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

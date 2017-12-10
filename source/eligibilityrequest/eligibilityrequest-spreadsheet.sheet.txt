@@ -399,7 +399,7 @@
  -- Row 2 -----------------------------------
   Name = submit.resource
   Use = in
-  Documentation = An EligibilityRequest resource or Bundle of claims, either as individual EligibilityRequest resources or as Bundles each containing a single EligibilityRequest plus referenced resources.
+  Documentation = An EligibilityRequest resource or Bundle of EligibilityRequests, either as individual EligibilityRequest resources or as Bundles each containing a single EligibilityRequest plus referenced resources.
   Type = Resource
   Title = The EligibilityRequest(s) to be assessed
   Min = 1
@@ -408,7 +408,7 @@
  -- Row 3 -----------------------------------
   Name = submit.return
   Use = out
-  Documentation = An EligibilityResponse resource or Bundle of claim responses, either as individual EligibilityResponse resources or as Bundles each containing a single EligibilityResponse plus referenced resources.
+  Documentation = An EligibilityResponse resource or Bundle of EligibilityResponse responses, either as individual EligibilityResponse resources or as Bundles each containing a single EligibilityResponse plus referenced resources.
   Type = Resource
   Title = The responses to the EligibilityRequests(s)
   Min = 1
