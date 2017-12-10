@@ -281,18 +281,21 @@
   Card. = 0..1
   Type = boolean
   Short Name = The Location is open all day
+  RIM Mapping = .effectiveTime
 
  -- Row 22 -----------------------------------
   Element = Location.hoursOfOperation.openingTime
   Card. = 0..1
   Type = time
   Short Name = Time that the Location opens
+  RIM Mapping = .effectiveTime
 
  -- Row 23 -----------------------------------
   Element = Location.hoursOfOperation.closingTime
   Card. = 0..1
   Type = time
   Short Name = Time that the Location closes
+  RIM Mapping = .effectiveTime
 
  -- Row 24 -----------------------------------
   Element = Location.availabilityExceptions
@@ -300,6 +303,7 @@
   Type = string
   Short Name = Description of availability exceptions
   Definition = A description of when the locations opening ours are different to normal, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as detailed in the opening hours Times
+  RIM Mapping = n/a
 
  -- Row 25 -----------------------------------
   Element = Location.endpoint
