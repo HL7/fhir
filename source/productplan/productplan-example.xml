@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductPlan xmlns="http://hl7.org/fhir">
+	<id value="example" />
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			Health Level Seven International Staff Plan
+		</div>
+	</text>
+	<!-- HL7 itself -->
+	<name value="Health Level Seven International Staff Plan" />
+	<alias value="HL7 International" />
+	<period>
+		<start value="2017-01-01" />
+	</period>
+	<ownedBy>
+		<reference value="Organization/hl7" />
+		<display value="Health Level Seven International" />
+	</ownedBy>
+	<administeredBy>
+		<reference value="Organization/hl7" />
+		<display value="Health Level Seven International" />
+	</administeredBy>
+	<address>
+		<line value="3300 Washtenaw Avenue, Suite 227" />
+		<city value="Ann Arbor" />
+		<state value="MI" />
+		<postalCode value="48104" />
+		<country value="USA" />
+	</address>
+	<coverageArea>
+		<reference value="Location/2" />
+		<display value="USSS Enterprise-D" />
+	</coverageArea>
+	<coverage>
+		<type>
+			<text value="Substance Abuse" />
+		</type>
+		<benefit>
+			<type>
+				<text value="Primary Care" />
+			</type>
+			<item>
+				<code>
+					<text value="day" />
+				</code>
+				<benefitValue>
+					<value value="450.23" />
+					<!-- This is a money type, hence the value is able to have the currency included -->
+					<system value="urn:iso:std:iso:4217" />
+					<code value="USD" />
+				</benefitValue>
+			</item>
+		</benefit>
+	</coverage>
+	<plan>
+		<type>
+			<text value="Silver" />
+		</type>
+		<premium>
+			<value value="2000" />
+			<!-- This is a money type, hence the value is able to have the currency included -->
+			<system value="urn:iso:std:iso:4217" />
+			<code value="USD" />
+		</premium>
+	</plan>
+	<endpoint>
+		<!-- Endpoint that handles the v2 messaging for the external organization -->
+		<reference value="Endpoint/example" />
+	</endpoint>
+</ProductPlan>
