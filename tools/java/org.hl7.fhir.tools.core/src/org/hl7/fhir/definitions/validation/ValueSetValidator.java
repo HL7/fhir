@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.definitions.model.ResourceDefn.StandardsStatus;
+import org.hl7.fhir.definitions.model.StandardsStatus;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;

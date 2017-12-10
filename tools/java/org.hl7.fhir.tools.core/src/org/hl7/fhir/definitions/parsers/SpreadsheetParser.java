@@ -135,6 +135,7 @@ import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 import com.trilead.ssh2.crypto.Base64;
+import org.hl7.fhir.definitions.model.StandardsStatus;
 
 public class SpreadsheetParser {
 
@@ -497,6 +498,7 @@ public class SpreadsheetParser {
       tabfmt.column("Max");
       tabfmt.column("Binding");
       tabfmt.column("Idempotent");
+      tabfmt.column("Standards-Status");
 
       for (int row = 0; row < sheet.rows.size(); row++) {
         tabfmt.row();
@@ -514,7 +516,8 @@ public class SpreadsheetParser {
         tabfmt.cell(sheet.getColumn(row, "Max"));
         tabfmt.cell(sheet.getColumn(row, "Binding"));
         tabfmt.cell(sheet.getColumn(row, "Idempotent"));
-
+        tabfmt.cell(sheet.getColumn(row, "Standards-Status"));
+        
         String name = sheet.getColumn(row, "Name");
 
         String use = sheet.getColumn(row, "Use");
@@ -546,6 +549,7 @@ public class SpreadsheetParser {
 	              throw new Exception("unknown operation use code "+c+" at "+getLocation(row));
 	          }
 	          Operation op = new Operation(name, system, istype, instance, sheet.getColumn(row, "Type"), sheet.getColumn(row, "Title"), doco, sheet.getColumn(row, "Footer"), examples, parseBoolean(sheet.getColumn(row, "Idempotent"), row,  false));
+	          op.setStandardsStatus(StandardsStatus.fromCode(sheet.getColumn(row, "Standards-Status")));
             oplist.add(op);
             ops.put(name, op);
 	        } else {
@@ -1740,7 +1744,8 @@ public class SpreadsheetParser {
       tabfmt.column("w5");
       tabfmt.column("Translatable");
       tabfmt.column("Order Meaning");
-		}
+      tabfmt.column("Standards-Status");
+	}
 
     tabfmt.row();
 		tabfmt.cell(path);
@@ -1779,6 +1784,7 @@ public class SpreadsheetParser {
     tabfmt.cell(sheet.getColumn(row, "Missing Meaning"));
     tabfmt.cell(sheet.getColumn(row, "w5"));
     tabfmt.cell(sheet.getColumn(row, "Order Meaning"));
+    tabfmt.cell(sheet.getColumn(row, "Standards-Status"));
 
 		if (path.startsWith("!"))
 		  return null;
@@ -1811,6 +1817,7 @@ public class SpreadsheetParser {
 			}
 		}
 
+    e.setStandardsStatus(StandardsStatus.fromCode(sheet.getColumn(row, "Standards-Status")));
 
 		if (e.getName().startsWith("@")) {
 		  e.setName(e.getName().substring(1));

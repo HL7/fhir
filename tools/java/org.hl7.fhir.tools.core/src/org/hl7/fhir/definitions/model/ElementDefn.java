@@ -92,6 +92,7 @@ public class ElementDefn {
 	private boolean noBindingAllowed; // note to validator 
 	private boolean translatable;
 	private String orderMeaning;
+	private StandardsStatus standardsStatus; // defaults to container value
 	
 	public ElementDefn() {
 		super();
@@ -961,6 +962,14 @@ public class ElementDefn {
 
   public boolean hasDescriminator() {
     return !discriminator.isEmpty();
+  }
+
+  public StandardsStatus getStandardsStatus() {
+    return standardsStatus;
+  }
+
+  public void setStandardsStatus(StandardsStatus standardsStatus) {
+    this.standardsStatus = standardsStatus;
   }	
   
 }

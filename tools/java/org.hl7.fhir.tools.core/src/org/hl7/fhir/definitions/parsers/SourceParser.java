@@ -68,7 +68,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.ResourceDefn.StandardsStatus;
+import org.hl7.fhir.definitions.model.StandardsStatus;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
@@ -976,6 +976,8 @@ public class SourceParser {
       context.getResourceNames().add(root.getName());
     }
     root.setNormativePackage(ini.getStringProperty("normative", root.getName()));
+    if (root.getNormativePackage() != null)
+      root.setStatus(StandardsStatus.NORMATIVE);
     return root;
   }
 

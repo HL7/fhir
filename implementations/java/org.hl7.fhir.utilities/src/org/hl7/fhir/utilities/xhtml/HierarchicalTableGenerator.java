@@ -201,21 +201,23 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
       for (Piece p : pieces)
         p.addToHint(text);            
     }
-    public Piece addImage(String src, String hint, String alt, String fgColor, String bgColor) {
-//      Piece img = new Piece("img");
-      Piece img = new Piece(null, alt, hint);
-      img.addStyle("padding: 3px");
-      if (fgColor != null) {
-        img.addStyle("color: "+fgColor);
-        img.addStyle("background-color: "+bgColor);
+    public Piece addStyledText(String hint, String alt, String fgColor, String bgColor, String link, boolean border) {
+      Piece p = new Piece(link, alt, hint);
+      p.addStyle("padding-left: 3px");
+      p.addStyle("padding-right: 3px");
+      if (border) {
+        p.addStyle("border: 1px grey solid");
+        p.addStyle("font-weight: bold");
       }
-        
-//      img.attributes = new HashMap<String, String>();
-//      img.attributes.put("src", src);
-//      img.attributes.put("alt", alt);
-//      img.hint = hint;
-      pieces.add(img);
-      return img;
+      if (fgColor != null) {
+        p.addStyle("color: "+fgColor);
+        p.addStyle("background-color: "+bgColor);
+      } else {
+        p.addStyle("color: black");
+        p.addStyle("background-color: white");       
+      }
+      pieces.add(p);
+      return p;
     }
     public String text() {
       StringBuilder b = new StringBuilder();

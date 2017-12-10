@@ -37,6 +37,7 @@ public class Operation {
   private String title;
   private String footer;
   private Boolean idempotent;
+  private StandardsStatus standardsStatus; // defaults to container value
   private List<OperationExample> examples = new ArrayList<Operation.OperationExample>();
 
   public Operation(String name, boolean system, boolean type, boolean instance, String kind, String title, String doco, String footer, List<OperationExample> examples, boolean idempotent) {
@@ -139,6 +140,14 @@ public class Operation {
 
   public void setIdempotent(Boolean idempotent) {
     this.idempotent = idempotent;
+  }
+
+  public StandardsStatus getStandardsStatus() {
+    return standardsStatus;
+  }
+
+  public void setStandardsStatus(StandardsStatus standardsStatus) {
+    this.standardsStatus = standardsStatus;
   }
 
 }

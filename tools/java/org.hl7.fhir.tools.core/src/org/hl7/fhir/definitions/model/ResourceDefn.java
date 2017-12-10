@@ -32,32 +32,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.definitions.model.ResourceDefn.StandardsStatus;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;
 
 public class ResourceDefn  {
-  public enum StandardsStatus {
-    DRAFT, TRIAL_USE, NORMATIVE, INFORMATIVE, EXTERNAL;
-
-    public String toDisplay() {
-      switch (this) {
-      case DRAFT : 
-        return "Draft";  
-      case NORMATIVE  : 
-        return "Normative";
-      case TRIAL_USE : 
-        return "Trial Use";  
-      case INFORMATIVE:
-        return "Informative";
-      case EXTERNAL:
-        return "External";
-      }
-      return "?";
-    }
-  }
 
   public class StringPair {
     public String name;

@@ -102,7 +102,7 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.ResourceDefn.StandardsStatus;
+import org.hl7.fhir.definitions.model.StandardsStatus;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.W5Entry;
@@ -1102,7 +1102,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+ig.getBallot()+s3;
       else if (com[0].equals("operations")) {
         Profile p = (Profile) object;
-        src = s1 + genOperations(p.getOperations(), p.getTitle(), p.getId(), "../") + s3;
+        src = s1 + genOperations(p.getOperations(), p.getTitle(), p.getId(), false, null, "../", "") + s3;
       } else if (com[0].equals("operations-summary"))
         src = s1 + genOperationsSummary(((Profile) object).getOperations()) + s3;
       else if (com[0].equals("ig.opcount"))
@@ -1163,11 +1163,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
-  private String getNormativeNote(String genlevel, String pack, String title, String filename) {
-    if (!filename.contains("-definitions"))
-      normativePackages.get(pack).put(filename, title);
+  private String getNormativeNote(String genlevel, String pack, String title, String filename) throws Exception {
+    if (!filename.contains("-definitions")) {
+      Map<String, String> map = normativePackages.get(pack);
+      if (map == null)
+        throw new Exception("Unable to find infrastructure package '"+pack+"'");
+      map.put(filename, title);
+    }
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: This page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+        "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
+        "</p>\r\n" + 
+        "";
+  }
+
+  private String getMixedNormativeNote(String genlevel, String pack, String title, String filename) throws Exception {
+    if (!filename.contains("-definitions") && !filename.contains("-operations")) {
+      Map<String, String> map = normativePackages.get(pack);
+      if (map == null)
+        throw new Exception("Unable to find infrastructure package '"+pack+"'");
+      map.put(filename, title);
+    }
+    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
+        "Normative Candidate Note: Some of the content on this page (marked clearly) is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
         "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
         "</p>\r\n" + 
         "";
@@ -5332,11 +5350,28 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("svg"))
         src = s1+new SvgGenerator(this, genlevel(level)).generate(resource, com[1])+s3;
       else if (com[0].equals("normative")) {
-        String np = (com.length > 1 && !com[1].equals("%check") ? com[1] : resource.getNormativePackage());
-        if (np == null)
+        String np = null;
+        if (com[1].equals("%check") || com[1].equals("%check-op")) {
+          StandardsStatus st = resource.getStatus();
+          boolean mixed = false;
+          if (com[1].equals("%check-op") && st == StandardsStatus.NORMATIVE) {
+            for (Operation op : resource.getOperations()) {
+              if (op.getStandardsStatus() != null)
+                mixed = true;
+            }
+          }
+          if (st != null && resource.getNormativePackage() != null) {
+            if (mixed)
+              np = getMixedNormativeNote(genlevel(level), resource.getNormativePackage(), workingTitle, name+".html")+s3;
+            else
+              np = getNormativeNote(genlevel(level), resource.getNormativePackage(), workingTitle, name+".html")+s3;
+          }
+        } else 
+          np = getNormativeNote(genlevel(level), resource.getNormativePackage(), workingTitle, name+".html");
+        if (np == null)  
           src = s1+s3;
         else
-          src = s1+getNormativeNote(genlevel(level), np, workingTitle, name+".html")+s3;
+          src = s1+np+s3;
       } else if (com.length != 1)
         throw new Exception("Instruction <%"+s2+"%> not understood parsing resource "+name);
       else if (com[0].equals("pageheader"))
@@ -5455,9 +5490,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + Utilities.URLEncode(baseURL) + s3;
       else if (com[0].equals("baseURLn"))
         src = s1 + Utilities.appendForwardSlash(baseURL) + s3;
-      else if (com[0].equals("operations"))
-        src = s1 + genOperations(resource.getOperations(), resource.getName(), resource.getName().toLowerCase(), "") + s3;
-      else if (com[0].equals("operations-summary"))
+      else if (com[0].equals("operations")) {
+        List<Operation> oplist = resource.getOperations(); 
+        String n = resource.getName(); 
+        String id = resource.getName().toLowerCase();
+        boolean mixed = false;
+        if (resource.getStatus() == StandardsStatus.NORMATIVE) {
+          for (Operation op : resource.getOperations()) {
+            if (op.getStandardsStatus() != null)
+              mixed = true;
+          }
+        }
+        src = s1 + genOperations(oplist, n, id, mixed, resource.getStatus(), "", resource.getNormativePackage()) + s3;
+      } else if (com[0].equals("operations-summary"))
         src = s1 + genOperationsSummary(resource.getOperations()) + s3;
       else if (com[0].equals("opcount"))
         src = s1 + genOpCount(resource.getOperations()) + s3;
@@ -5588,11 +5633,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("</table>\r\n");
     return b.toString();
   }
-
-  private String genOperations(List<Operation> oplist, String n, String id, String prefix) throws Exception {
+  
+  private String genOperations(List<Operation> oplist, String n, String id, boolean mixed, StandardsStatus resStatus, String prefix, String np) throws Exception {
+    
     StringBuilder b = new StringBuilder();
     for (Operation op : oplist) {
       b.append("<h3>").append(Utilities.escapeXml(op.getTitle())).append("<a name=\"").append(op.getName()).append("\"> </a></h3>\r\n");
+      if (mixed)
+        b.append(opStandardsStatusNotice(n, op.getStandardsStatus(), resStatus, np, prefix)+"\r\n");
       b.append(processMarkdown(n, op.getDoco(), prefix)+"\r\n");
       b.append("<p>The official URL for this operation definition is</p>\r\n<pre> http://hl7.org/fhir/OperationDefinition/"+n+"-"+op.getName()+"</pre>\r\n");
       b.append("<p><a href=\"operation-"+id+"-"+op.getName().toLowerCase()+".html\">Formal Definition</a> (as a <a href=\""+prefix+"operationdefinition.html\">OperationDefinition</a>).</p>\r\n");
@@ -5633,6 +5681,22 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("<p>&nbsp;</p>");
     }
     return b.toString();
+  }
+
+  private String opStandardsStatusNotice(String n, StandardsStatus opStatus, StandardsStatus resStatus, String pack, String prefix) {
+    if (resStatus == StandardsStatus.NORMATIVE && opStatus == StandardsStatus.TRIAL_USE)
+      return "<p style=\"border: 1px black solid; background-color: #ffe6e6; padding: 5px\">\r\n" + 
+        "Normative Candidate Note: Though the resource is a candidate for normative for R4, this operation is not included. It's status will remain 'Trail Use' while more experience is gathered.\r\n" + 
+        "</p>\r\n";
+    if (resStatus == StandardsStatus.NORMATIVE && opStatus == null)
+    
+    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
+    "Normative Candidate Note: This operation is candidate normative content as part of the overall resource for R4 in the <a href=\""+prefix+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+    "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
+    "</p>\r\n" + 
+    "";
+
+    return "";
   }
 
   private String checkWrap(String n) {

@@ -187,6 +187,7 @@
   Title = Access a list of profiles, tags, and security labels
   Footer = At the system and type levels, the $meta operation is used to get a summary of all the labels that are in use across the system. The principle use for this operation is to support search e.g. what tags can be searched for. At these levels, the meta will not contain versionId, lastUpdated etc. Systems are not obligated to implement the operation at this level (and should return a 4xx error if they don\'t). At the resource and historical entry level, the $meta operation returns the same meta as would be returned by accessing the resource directly. This can be used to allow a system to get access to the meta-information for the resource without accessing the resource itself, e.g. for security reasons
   Idempotent = True
+  Standards-Status = trial-use
 
  -- Row 7 -----------------------------------
   Name = meta.return
@@ -206,6 +207,7 @@
   Example.Response = $meta-add-response.txt
   Title = Add profiles, tags, and security labels to a resource
   Footer = This operation is special in that executing this operation does not cause a new version of the resource to be created. The meta is updated directly. This is because the content in meta does not affect the meaning of the resource, and the security labels (in particular) are used to apply access rules to existing versions of resources
+  Standards-Status = trial-use
 
  -- Row 9 -----------------------------------
   Name = meta-add.meta
@@ -234,6 +236,7 @@
   Example.Response = $meta-delete-response.txt
   Title = Delete profiles, tags, and security labels for a resource
   Footer = This operation is special in that executing this operation does not cause a new version of the resource to be created. The meta is updated directly. This is because the content in meta does not affect the meaning of the resource, and the security labels (in particular) are used to apply access rules to existing versions of resources
+  Standards-Status = trial-use
 
  -- Row 12 -----------------------------------
   Name = meta-delete.meta

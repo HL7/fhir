@@ -41,6 +41,7 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
+import org.hl7.fhir.definitions.model.StandardsStatus;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.ElementDefinition;
@@ -449,7 +450,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
 	private void writeEntry(String path, String cardinality, String type, BindingSpecification bs, ElementDefn e, String resourceName) throws Exception {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"> </a><b>"+path+"</b></td></tr>\r\n");
-		tableRowNE("Definition", null, page.processMarkdown(path, e.getDefinition(), prefix));
+		if (e.getStandardsStatus() != null)
+      tableRowStyled("Standards Status", "versions.html#std-process", getStandardsStatusNote(e.getStandardsStatus()), getStandardsStatusStyle(e.getStandardsStatus()));
+    tableRowNE("Definition", null, page.processMarkdown(path, e.getDefinition(), prefix));
     tableRowNE("Note", null, businessIdWarning(resourceName, e.getName()));
 		tableRow("Control", "conformance-rules.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
 		tableRowNE("Terminology Binding", "terminologies.html", describeBinding(path, e));
@@ -475,6 +478,14 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		tableRow("To Do", null, e.getTodo());
 	}
 	
+  private String getStandardsStatusStyle(StandardsStatus status) {
+    return "background-color: "+status.getColor();
+  }
+
+  private String getStandardsStatusNote(StandardsStatus status) {
+    return "This element has a standards status of \""+status.toDisplay()+"\" which is different to the status of the whole resource";  
+  }
+
   private String tasks(List<String> tasks) {
     StringBuilder b = new StringBuilder();
     boolean first = true;
@@ -618,6 +629,13 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
         write("  <tr><td><a href=\""+prefix+defRef+"\">"+name+"</a></td><td>"+value+"</td></tr>\r\n");
       else
         write("  <tr><td>"+name+"</td><td>"+value+"</td></tr>\r\n");
+  }
+
+  private void tableRowStyled(String name, String defRef, String value, String style) throws IOException {
+    if (defRef != null) 
+      write("  <tr style=\""+style+"\"><td><a href=\""+prefix+defRef+"\">"+name+"</a></td><td>"+value+"</td></tr>\r\n");
+    else
+      write("  <tr style=\""+style+"\"><td>"+name+"</td><td>"+value+"</td></tr>\r\n");
   }
 
 

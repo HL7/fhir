@@ -50,14 +50,15 @@ public class TableGenerator extends BaseGenerator {
     Cell gc = gen.new Cell();
     row.getCells().add(gc);
     if (e.hasMustSupport() && e.isMustSupport()) 
-      gc.addImage("mustsupport.png", "This element must be supported", "S", "white", "red");
+      gc.addStyledText("This element must be supported", "S", "white", "red", prefix+"conformance-rules.html#mustSupport", false);
     if (e.isModifier()) 
-      gc.addImage("modifier.png", "This element is a modifier element", "?!", null, null);
+      gc.addStyledText("This element is a modifier element", "?!", null, null, prefix+"conformance-rules.html#isModifier", false);
     if (e.isSummary()) 
-      gc.addImage("summary.png", "This element is included in summaries", "Σ", null, null);
+      gc.addStyledText("This element is included in summaries", "Σ", null, null, prefix+"elementdefinition-definitions.html#ElementDefinition.isSummary", false);
     if (!e.getInvariants().isEmpty() || !e.getStatedInvariants().isEmpty()) 
-      gc.addImage("lock.png", "This element has or is affected by some invariants", "I", null, null);
-  
+      gc.addStyledText("This element has or is affected by some invariants", "I", null, null, prefix+"conformance-rules.html#constraints", false);
+    if (e.getStandardsStatus() != null)
+      gc.addStyledText("Ballot Status = "+e.getStandardsStatus().toDisplay(), e.getStandardsStatus().getAbbrev(), "black", e.getStandardsStatus().getColor(), prefix+"versions.html#std-process", true);
     if (resource) {
       row.getCells().add(gen.new Cell()); 
   

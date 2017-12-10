@@ -824,6 +824,7 @@
   Example.Response = $compose-response.txt
   Title = Code Composition based on supplied properties
   Idempotent = True
+  Standards-Status = trial-use
 
  -- Row 33 -----------------------------------
   Name = compose.system
