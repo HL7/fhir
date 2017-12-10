@@ -57,25 +57,39 @@
 
  -- Row 8 -----------------------------------
   Id = 8
+  Code = on-study-intervention
+  Display = On-study-intervention
+  Definition = The person is receiving the treatment or participating in an activity (e.g. yoga, diet, etc.) that the study is evaluating.
+  v3 = active
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = on-study-observation
+  Display = On-study-observation
+  Definition = The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and may not exist in all studies.  A synonym for this is \"short-term follow-up\".
+  v3 = active
+
+ -- Row 10 -----------------------------------
+  Id = 10
   Code = pending-on-study
   Display = Pending on-study
   Definition = A person is pre-registered for a study.
 
- -- Row 9 -----------------------------------
-  Id = 9
+ -- Row 11 -----------------------------------
+  Id = 11
   Code = potential-candidate
   Display = Potential Candidate
   Definition = A person that is potentially eligible for participation in the study.
   v3 = draft
 
- -- Row 10 -----------------------------------
-  Id = 10
+ -- Row 12 -----------------------------------
+  Id = 12
   Code = screening
   Display = Screening
   Definition = A person who is being evaluated for eligibility for a study.
 
- -- Row 11 -----------------------------------
-  Id = 11
+ -- Row 13 -----------------------------------
+  Id = 13
   Code = withdrawn
   Display = Withdrawn
   Definition = The person has withdrawn their participation in the study before registration.
@@ -101,9 +115,8 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Name = Business Identifier for research subject
-  Definition = Identifiers assigned to this research study by the sponsor or other systems
-  Requirements = Allows identification of the research study as it is known by various participating systems and in a way that remains consistent across servers
+  Short Name = Business Identifier for research subject in a study
+  Definition = Identifiers assigned to this research subject for a study
   RIM Mapping = .identifier
   w5 = id
 
@@ -114,7 +127,7 @@
   Summary = Y
   Type = code
   Binding = ResearchSubjectStatus
-  Short Name = candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn
+  Short Name = candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn
   Definition = The current state of the subject
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   RIM Mapping = .status
@@ -195,6 +208,11 @@
   Name = patient
   Type = reference
   Path = ResearchSubject.individual
+
+ -- Row 6 -----------------------------------
+  Name = study
+  Type = reference
+  Path = ResearchSubject.study
 
 === Sheet Profiles =====================================
 

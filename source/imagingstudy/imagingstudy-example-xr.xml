@@ -30,9 +30,9 @@
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="DX"/>
 	</modalityList>
-	<patient>
+	<subject>
 		<reference value="Patient/dicom"/>
-	</patient>
+	</subject>
 	<context>
 		<reference value="Encounter/example"/>
 	</context>

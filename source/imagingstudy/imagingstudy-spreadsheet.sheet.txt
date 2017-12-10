@@ -151,12 +151,13 @@
   w5 = class
 
  -- Row 7 -----------------------------------
-  Element = ImagingStudy.patient
+  Element = ImagingStudy.subject
   Card. = 1..1
   Summary = Y
-  Type = Reference(Patient)
-  Short Name = Who the images are of
-  Definition = The patient imaged in the study.
+  Type = Reference(Patient|Device|Group)
+  Short Name = Who or what is the subject of the study
+  Definition = The subject, typically a patient, of the imaging study.
+  Comments = QA phantoms can be recorded with a Device; multiiple subjects 9such as mice) can be recorded with a Group.
   Workflow Mapping = Event.subject
   RIM Mapping = .participation[typeCode=SBJ].role
   DICOM Mapping = (0010/*)
@@ -477,6 +478,16 @@
   DICOM Mapping = (0020,0060)
 
  -- Row 36 -----------------------------------
+  Element = ImagingStudy.series.specimen
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Specimen)
+  Short Name = Specimen imaged
+  Definition = The specimen imaged, e.g., for whole slide imaging of a biopsy
+  RIM Mapping = Role[classCode=SPEC]
+  DICOM Mapping = (0040,0551) + (0040,0562)
+
+ -- Row 37 -----------------------------------
   Element = ImagingStudy.series.started
   Card. = 0..1
   Summary = Y
@@ -487,20 +498,22 @@
   RIM Mapping = .effectiveTime
   DICOM Mapping = (0008,0021) + (0008,0031)
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ImagingStudy.series.performer
   Card. = 0..*
   Aliases = PerformingPhysicianName, OperatorName
   Summary = Y
-  Type = Reference(Practitioner)
+  Type = Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson)
   Short Name = Who performed the series
-  Definition = The physician or operator (often the radiology technician)  who performed the series. The performer is recorded at the series level, since each series in a study may be performed by a different practitioner, at different times, and using different devices. A series may be performed by multiple practitioners.
+  Definition = The physician or operator (often the radiology technician) who performed the series.
+  Requirements = The performer is recorded at the series level, since each series in a study may be performed by a different performer, at different times, and using different devices. A series may be performed by multiple performers.
+  Comments = If the person who performed the series is not known, their Organization may be recorded. A patient, or related person, may be the performer, e.g. for patient-captured images.
   Workflow Mapping = Event.performer.agent
   RIM Mapping = .participation[typeCode=PRF].role
   DICOM Mapping = (0008,1050) | (0008,1072)
   w5 = who.actor
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ImagingStudy.series.instance
   Card. = 0..*
   UML = 680;70
@@ -508,7 +521,7 @@
   Definition = A single SOP instance within the series, e.g. an image, or presentation state.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DGIMG, moodCode=EVN]
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = ImagingStudy.series.instance.uid
   Card. = 1..1
   Aliases = SOPInstanceUID
@@ -520,7 +533,7 @@
   DICOM Mapping = (0008,0018)
   Example = urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = ImagingStudy.series.instance.number
   Card. = 0..1
   Aliases = InstanceNumber
@@ -531,7 +544,7 @@
   DICOM Mapping = (0020,0013)
   Example = 1
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = ImagingStudy.series.instance.sopClass
   Card. = 1..1
   Aliases = SOPClassUID
@@ -542,7 +555,7 @@
   DICOM Mapping = (0008,0016)
   Example = urn:oid:1.2.840.10008.5.1.4.1.1.2
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = !ImagingStudy.series.instance.type
   Card. = 0..1
   Type = string
@@ -553,7 +566,7 @@
   RIM Mapping = .code
   DICOM Mapping = (0004,1430)
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = ImagingStudy.series.instance.title
   Card. = 0..1
   Type = string
@@ -569,87 +582,93 @@
   Name = patient
   Type = reference
   Description = Who the study is about
-  Path = ImagingStudy.patient
+  Path = ImagingStudy.subject
 
  -- Row 2 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = Who the study is about
+  Path = ImagingStudy.subject
+
+ -- Row 3 -----------------------------------
   Name = started
   Type = date
   Description = When the study was started
   Path = ImagingStudy.started
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = accession
   Type = token
   Description = The accession identifier for the study
   Path = ImagingStudy.accession
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = study
   Type = uri
   Description = The study identifier for the image
   Path = ImagingStudy.uid
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = basedon
   Type = reference
   Description = The order for the image
   Path = ImagingStudy.basedOn
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = identifier
   Type = token
   Description = Other identifiers for the Study
   Path = ImagingStudy.identifier
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = series
   Type = uri
   Description = The identifier of the series of images
   Path = ImagingStudy.series.uid
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = modality
   Type = token
   Description = The modality of the series
   Path = ImagingStudy.series.modality
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = bodysite
   Type = token
   Description = The body site studied
   Path = ImagingStudy.series.bodySite
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = uid
   Type = uri
   Description = The instance unique identifier
   Path = ImagingStudy.series.instance.uid
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = dicom-class
   Type = uri
   Description = The type of the instance
   Path = ImagingStudy.series.instance.sopClass
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = context
   Type = reference
   Description = The context of the study
   Path = ImagingStudy.context
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = reason
   Type = token
   Description = The reason for the study
   Path = ImagingStudy.reason
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = performer
   Type = reference
   Description = The person who performed the study
   Path = ImagingStudy.series.performer
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = endpoint
   Type = reference
   Description = The endpoint for te study or series

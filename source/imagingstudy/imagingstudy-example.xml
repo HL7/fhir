@@ -7,9 +7,9 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>
 	</text>
 	<uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
-	<patient>
+	<subject>
 		<reference value="Patient/dicom"/>
-	</patient>
+	</subject>
 	<started value="2011-01-01T11:01:20+03:00"/>
 	<numberOfSeries value="1"/>
 	<numberOfInstances value="1"/>

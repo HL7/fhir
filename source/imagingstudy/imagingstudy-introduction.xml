@@ -34,10 +34,6 @@ will reference a particular DICOM study, but this is not required.
 <div>
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
-<p>
-In contrast to <a href="imagingmanifest.html">ImagingManifest</a>, this resource represents all of the known imaging objects from a single 
-study. Imaging Manifest represents selected instances from multiple studies for one patient.
-</p>
 <p> 
 ImagingStudy is used for DICOM imaging and associated information. Use <a href="media.html">Media</a> to 
 track non-DICOM images, video, or audio. 

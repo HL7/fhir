@@ -16,7 +16,7 @@
  -- Row 3 -----------------------------------
   Binding Name = ResearchStudyFocus
   Binding = unbound
-  Definition = Codes for medications, devices, conditions and other interventions
+  Definition = Codes for medications, devices and other interventions
 
  -- Row 4 -----------------------------------
   Binding Name = ResearchStudyKeyword
@@ -28,7 +28,7 @@
   Binding = code list
   Reference = #research-study-phase
   Definition = Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.
-  Conformance = preferred
+  Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = ResearchStudyObjectiveType
@@ -272,18 +272,6 @@
   Display = Device Feasibility
   Definition = An intervention of a device product is being evaluated to determine the feasibility of the product or to test a prototype device and not health outcomes. Such studies are conducted to confirm the design and operating specifications of a device before beginning a full clinical trial.
 
- -- Row 9 -----------------------------------
-  Id = 9
-  Code = epidemiological
-  Display = Epidemiological
-  Definition = The study and analysis of the patterns, causes, and effects of health and disease conditions in defined populations.
-
- -- Row 10 -----------------------------------
-  Id = 10
-  Code = bio-banking
-  Display = Bio-banking
-  Definition = Study that uses biological samples for research.
-
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -352,7 +340,6 @@
   Definition = The current state of the study
   Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   RIM Mapping = .status
-  To Do = Should this be a common code system for all events?
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -361,7 +348,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ResearchStudyPrimaryPurposeType
-  Short Name = treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibility | epidemiological | bio-banking
+  Short Name = treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibility
   Definition = The type of study based upon the intent of the study\'s activities. A classification of the intent of the study.
 
  -- Row 8 -----------------------------------
@@ -375,15 +362,6 @@
   clinicaltrials.gov Mapping = Study Phase
 
  -- Row 9 -----------------------------------
-  Element = ResearchStudy.condition
-  Card. = 0..*
-  Summary = Y
-  Type = Reference(Condition)
-  Short Name = Condition being studied
-  Definition = The condition that is the focus of the study. \n\nEXAMPLE(S):\nIn a study to examine risk factors for Lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a Lupus SNOMED code.\n\nOTHER NAME(S):\n\nNOTE(S):
-  clinicaltrials.gov Mapping = Conditions
-
- -- Row 10 -----------------------------------
   Element = ResearchStudy.category
   Card. = 0..*
   Summary = Y
@@ -393,16 +371,25 @@
   Definition = Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.
   clinicaltrials.gov Mapping = Study Type; Primary Purpose; Interventional Model; Masking; Allocation; study Classification; Observational Study Model; Time Perspective; Biospecimen Retention
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = ResearchStudy.focus
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = ResearchStudyFocus
-  Short Name = Drugs, devices, conditions, etc. under study
+  Short Name = Drugs, devices, etc. under study
   Definition = The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about
   clinicaltrials.gov Mapping = Focus of Study
   w5 = what
+
+ -- Row 11 -----------------------------------
+  Element = ResearchStudy.condition
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Condition)
+  Short Name = Condition being studied
+  Definition = The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a Lupus SNOMED code.
+  clinicaltrials.gov Mapping = Conditions
 
  -- Row 12 -----------------------------------
   Element = ResearchStudy.contact
@@ -432,7 +419,7 @@
   clinicaltrials.gov Mapping = Keywords
 
  -- Row 15 -----------------------------------
-  Element = ResearchStudy.participatingLocation
+  Element = ResearchStudy.location
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
@@ -458,7 +445,7 @@
   Definition = Reference to a Group that defines the criteria for and quantity of subjects participating in the study.  E.g. \" 200 female Europeans between the ages of 20 and 45 with early onset diabetes\"
   Comments = The Group referenced should not generally enumerate specific subjects.  Subjects will be linked to the study using the ResearchSubject resource.
   clinicaltrials.gov Mapping = Enrollment; Number of Groups/Cohorts (= number of \"enrollment\" instances); Groups (Group/Cohort Label = Group.name; Group/Cohort Description = Group.description); Eligibility (Group criteria)
-  To Do = .participation[typeCode=SBJ].role
+  RIM Mapping = .participation[typeCode=SBJ].role
   w5 = who.focus
 
  -- Row 18 -----------------------------------
@@ -469,9 +456,8 @@
   Type = Period
   Short Name = When the study began and ended
   Definition = Identifies the start date and the expected (or actual, depending on status) end date for the study.
-  Requirements = [The list of types may be constrained as appropriate for the type of event]
   clinicaltrials.gov Mapping = Study Start Date (start); Study Completion Date (end)
-  To Do = .effectiveTime
+  RIM Mapping = .effectiveTime
   w5 = when.done
 
  -- Row 19 -----------------------------------
@@ -482,7 +468,7 @@
   Short Name = Organization that initiates and is legally responsible for the study
   Definition = An organization that initiates the investigation and is legally responsible for the study.
   clinicaltrials.gov Mapping = Sponsor
-  To Do = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
+  RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
 
  -- Row 20 -----------------------------------
@@ -522,7 +508,7 @@
   Type = Annotation
   Short Name = Comments made about the study
   Definition = Comments made about the study by the performer, subject or other participants.
-  To Do = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
+  RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
 
  -- Row 24 -----------------------------------
   Element = ResearchStudy.arm
@@ -619,9 +605,9 @@
   Path = ResearchStudy.keyword
 
  -- Row 9 -----------------------------------
-  Name = participatinglocation
+  Name = location
   Type = token
-  Path = ResearchStudy.participatingLocation
+  Path = ResearchStudy.location
 
  -- Row 10 -----------------------------------
   Name = date
