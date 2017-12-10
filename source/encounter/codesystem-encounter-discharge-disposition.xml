@@ -13,6 +13,11 @@
     <display value="Home"/>
     <definition value="The patient was dicharged and has indicated that they are going to return home afterwards." />
   </concept>
+    <concept>
+    <code value="alt-home"/>
+    <display value="Alternative home"/>
+    <definition value="The patient was discharged and has indicated that they are going to return home afterwards, but not the patient's home - e.g. a family member's home." />
+  </concept>
   <concept>
     <code value="other-hcf"/>
     <display value="Other healthcare facility"/>
