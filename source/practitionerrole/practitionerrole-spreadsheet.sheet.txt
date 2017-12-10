@@ -84,7 +84,7 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner)
-  Short Name = Practitioner that is able to provide the defined services for the organation
+  Short Name = Practitioner that is able to provide the defined services for the organization
   RIM Mapping = .player
 
  -- Row 6 -----------------------------------
@@ -214,7 +214,7 @@
   Element = PractitionerRole.notAvailable.during
   Card. = 0..1
   Type = Period
-  Short Name = Service not availablefrom this date
+  Short Name = Service not available from this date
   Definition = Service is not available (seasonally or for a public holiday) from this date
   RIM Mapping = .effectiveTime
 
