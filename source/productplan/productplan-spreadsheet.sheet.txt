@@ -13,7 +13,7 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/publication-status
   Definition = ProductPlan status
-  Conformance = example
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = ContactPartyType
@@ -44,6 +44,7 @@
   Element = ProductPlan
   Type = DomainResource
   Short Name = Details of a Health Insurance product/plan provided by an organization
+  w5 = administrative.entity
 
  -- Row 2 -----------------------------------
   Element = ProductPlan.identifier
@@ -88,7 +89,7 @@
   Summary = Y
   Inv. = 1
   Type = string
-  Short Name = official name
+  Short Name = Official name
   Definition = Official name of the product/plan (as designated by the owner)
   Comments = If the name of the product/plan changes, consider putting the old name in the alias column so that it can still be located through searches.
   RIM Mapping = .name
@@ -204,7 +205,7 @@
 
  -- Row 18 -----------------------------------
   Element = ProductPlan.coverage
-  Card. = 1..*
+  Card. = 0..*
   Short Name = Details about the coverage offered by the insurance product
 
  -- Row 19 -----------------------------------
@@ -223,13 +224,13 @@
   Element = ProductPlan.coverage.benefit.type
   Card. = 1..1
   Type = CodeableConcept
-  Short Name = type of benefit
+  Short Name = Type of benefit
   Definition = Type of benefit (primary care; speciality care; inpatient; outpatient)
 
  -- Row 22 -----------------------------------
   Element = ProductPlan.coverage.benefit.item
   Card. = 1..*
-  Short Name = specific benefit and related value
+  Short Name = Specific benefit and related value
 
  -- Row 23 -----------------------------------
   Element = ProductPlan.coverage.benefit.item.code
@@ -245,7 +246,7 @@
 
  -- Row 25 -----------------------------------
   Element = ProductPlan.plan
-  Card. = 1..*
+  Card. = 0..*
   Short Name = Details about an insurance plan
 
  -- Row 26 -----------------------------------
