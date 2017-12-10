@@ -51,6 +51,7 @@
 			<beneficiary>
 				<reference value="#patient-1"/>
 			</beneficiary>
+			<dependent value="1"/>
 
 			<relationship>
 				<coding>
@@ -72,7 +73,6 @@
 				<subPlanDisplay value="Trainee Part-time Benefits"/>
 			</grouping> 
 
-			<dependent value="1"/>
 			<sequence value="1"/>
 		</Coverage>
 	</contained>
