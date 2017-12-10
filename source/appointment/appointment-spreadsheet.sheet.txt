@@ -303,7 +303,7 @@
   Definition = The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field
   v2 Mapping = NTE-3
   RIM Mapping = .text
-  iCal Mapping = DESCRIPTION
+  iCal Mapping = SUMMARY
 
  -- Row 12 -----------------------------------
   Element = Appointment.supportingInformation
@@ -404,9 +404,19 @@
   Workflow Mapping = Request.note
   v2 Mapping = NTE-3
   RIM Mapping = .subjectOf.observation[@moodCode = \'EVN\'][code = \'annotation\'].value
-  iCal Mapping = COMMENT
+  iCal Mapping = DESCRIPTION (for internal use)
 
  -- Row 22 -----------------------------------
+  Element = Appointment.patientInstruction
+  Card. = 0..1
+  Type = string
+  Short Name = Instructions for the patient
+  Definition = While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment.
+  v2 Mapping = NTE-3
+  RIM Mapping = .subjectOf.observation[@moodCode = \'EVN\'][code = \'annotation\'].value
+  iCal Mapping = DESCRIPTION (for patient use)
+
+ -- Row 23 -----------------------------------
   Element = !Appointment.order
   Card. = 0..1
   Type = Reference(Order)
@@ -417,7 +427,7 @@
   RIM Mapping = .referencedOrder
   Committee Notes = The Supply Order from the HL7 v3 DMIM was discussed and decided outside 80%, permit via extensions where required
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Appointment.incomingReferral
   Card. = 0..*
   Type = Reference(ServiceRequest)
@@ -426,7 +436,7 @@
   Workflow Mapping = Request.basedOn
   RIM Mapping = .outboundRelationship[@typeCode = \'FLFS\'].act[@classCode < \'ActCareProvisionRequestType\'][@moodCode = \'RQO\']
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Appointment.participant
   Card. = 1..*
   UML = right
@@ -437,7 +447,7 @@
   RIM Mapping = performer | reusableDevice | subject | location
   iCal Mapping = ATTENDEE component to be created
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Appointment.participant.type
   Card. = 0..*
   Summary = Y
@@ -450,7 +460,7 @@
   RIM Mapping = (performer | reusableDevice | subject | location).@typeCode
   iCal Mapping = n/a
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Appointment.participant.actor
   Card. = 0..1
   Summary = Y
@@ -462,7 +472,7 @@
   iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource) where the participant type is not \"information-only\"
   w5 = who
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Appointment.participant.required
   Card. = 0..1
   Summary = Y
@@ -473,7 +483,7 @@
   RIM Mapping = (performer | reusableDevice | subject | location).@performInd
   iCal Mapping = ROLE=REQ-PARTICIPANT (roleparam)
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Appointment.participant.status
   Card. = 1..1
   Summary = Y
@@ -485,7 +495,7 @@
   RIM Mapping = (performer | reusableDevice | subject | location).statusCode
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = !Appointment.participant.observation
   Card. = 0..*
   Type = Reference(Observation)
@@ -493,7 +503,7 @@
   Comments = PA discussed, concerms that this was part of HL7 v2 and v3, but not sure that is should be in 80%
   v2 Mapping = OBX-21-Observation Instance Identifier (Subject to Ch7 caveats)
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Appointment.requestedPeriod
   Card. = 0..*
   Type = Period
