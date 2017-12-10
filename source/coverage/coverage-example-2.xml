@@ -32,6 +32,8 @@
 		<reference value="Patient/5"/>
 	</beneficiary>
 
+	<dependent value="1"/>
+
 	<relationship>
 		<coding>
 			<code value="self"/>
@@ -55,8 +57,6 @@
 		<subPlan value="D15C9" />
 		<subPlanDisplay value="Platinum" />
 	</grouping>
-
-	<dependent value="1"/>
 
 	<order value="2"/> <!-- Second after the national medical coverage -->
 	

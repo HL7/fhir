@@ -48,7 +48,7 @@
   Binding = value set
   Reference = valueset-coverage-level
   Definition = The policy classifications, eg. Group, Plan, Class, etc.
-  Conformance = example
+  Conformance = extensible
 
  -- Row 8 -----------------------------------
   Binding Name = CoverageSelfPay
@@ -56,6 +56,13 @@
   Reference = valueset-coverage-selfpay
   Definition = Self Payment program codes
   Conformance = example
+
+ -- Row 9 -----------------------------------
+  Binding Name = CopayTypes
+  Binding = value set
+  Reference = valueset-coverage-copay-type
+  Definition = The tytpes of services to which patient copayments are specified.
+  Conformance = extensible
 
 === Sheet Invariants =====================================
 
@@ -205,6 +212,17 @@
   w5 = who.focus
 
  -- Row 11 -----------------------------------
+  Element = Coverage.dependent
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Dependent number
+  Definition = A unique identifier for a dependent under the coverage.
+  Requirements = For some coverage a single identifier is issued to the Subscriber and a dependent number issued to each beneficiary.
+  CDAnet v4 Mapping = C17
+  v2 Mapping = - No exact HL7 v2 equivalent concept seems to exist;
+
+ -- Row 12 -----------------------------------
   Element = Coverage.relationship
   Card. = 0..1
   Type = CodeableConcept
@@ -214,7 +232,7 @@
   Requirements = To determine relationship between the patient and the subscriber
   CDAnet v4 Mapping = C03
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Coverage.period
   Card. = 0..1
   Summary = Y
@@ -226,7 +244,7 @@
   RIM Mapping = Act.effectiveTime
   w5 = when.done
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Coverage.payor
   Card. = 0..*
   Summary = Y
@@ -239,7 +257,7 @@
   CPhA3 (Pharmacy) Mapping = C.30
   w5 = who.author
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = !Coverage.level
   Card. = 0..*
   Summary = Y
@@ -248,7 +266,46 @@
   Short Name = Additional coverage classifications
   Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
+  Element = Coverage.class
+  Card. = 0..*
+  UML = 360;0
+  Type = =Class
+  Short Name = Additional coverage classifications
+  Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+
+ -- Row 17 -----------------------------------
+  Element = Coverage.class.type
+  Card. = 1..1
+  Summary = Y
+  Type = Coding
+  Binding = CoverageLevel
+  Short Name = Type of class such as \'group\' or \'plan\'
+  Definition = The type of classification for which an insurer-specific class tag or number and optional name is provided, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+
+ -- Row 18 -----------------------------------
+  Element = Coverage.class.value
+  Card. = 1..1
+  Summary = Y
+  Type = string
+  Short Name = The tag or value under the classification
+  Definition = For example the Group or Plan number.
+  CDAnet v4 Mapping = C11 (Division,Section)
+  v2 Mapping = IN1-8
+  CPhA3 (Pharmacy) Mapping = C.31
+
+ -- Row 19 -----------------------------------
+  Element = Coverage.class.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Display text for an identifier for the group
+  Definition = A short description for the class.
+  CDAnet v4 Mapping = C11 (Division,Section)
+  v2 Mapping = IN1-8
+  CPhA3 (Pharmacy) Mapping = C.31
+
+ -- Row 20 -----------------------------------
   Element = Coverage.grouping
   Card. = 0..1
   UML = 360;0
@@ -256,7 +313,7 @@
   Short Name = Additional coverage classifications
   Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
 
- -- Row 16 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Coverage.grouping.group
   Card. = 0..1
   Summary = Y
@@ -267,7 +324,7 @@
   v2 Mapping = IN1-8
   CPhA3 (Pharmacy) Mapping = C.31
 
- -- Row 17 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Coverage.grouping.groupDisplay
   Card. = 0..1
   Summary = Y
@@ -278,7 +335,7 @@
   v2 Mapping = IN1-8
   CPhA3 (Pharmacy) Mapping = C.31
 
- -- Row 18 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Coverage.grouping.subGroup
   Card. = 0..1
   Summary = Y
@@ -287,7 +344,7 @@
   Definition = Identifies a style or collective of coverage issued by the underwriter, for example may be used to identify a subset of an employer group.
   v2 Mapping = IN1-8
 
- -- Row 19 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Coverage.grouping.subGroupDisplay
   Card. = 0..1
   Summary = Y
@@ -296,7 +353,7 @@
   Definition = A short description for the subgroup.
   v2 Mapping = IN1-8
 
- -- Row 20 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Coverage.grouping.plan
   Card. = 0..1
   Summary = Y
@@ -306,7 +363,7 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 21 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Coverage.grouping.planDisplay
   Card. = 0..1
   Summary = Y
@@ -316,7 +373,7 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 22 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Coverage.grouping.subPlan
   Card. = 0..1
   Summary = Y
@@ -325,7 +382,7 @@
   Definition = Identifies a sub-style or sub-collective of coverage issued by the underwriter, for example may be used to identify a subset of a collection of benefits provided to employees.
   v2 Mapping = IN1-10
 
- -- Row 23 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Coverage.grouping.subPlanDisplay
   Card. = 0..1
   Summary = Y
@@ -334,7 +391,7 @@
   Definition = A short description for the subplan.
   v2 Mapping = IN1-10
 
- -- Row 24 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Coverage.grouping.class
   Card. = 0..1
   Summary = Y
@@ -344,7 +401,7 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 25 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Coverage.grouping.classDisplay
   Card. = 0..1
   Summary = Y
@@ -354,7 +411,7 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 26 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Coverage.grouping.subClass
   Card. = 0..1
   Summary = Y
@@ -364,7 +421,7 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 27 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Coverage.grouping.subClassDisplay
   Card. = 0..1
   Summary = Y
@@ -374,8 +431,8 @@
   CDAnet v4 Mapping = C01
   v2 Mapping = IN1-35
 
- -- Row 28 -----------------------------------
-  Element = Coverage.dependent
+ -- Row 33 -----------------------------------
+  Element = !Coverage.dependent
   Card. = 0..1
   Summary = Y
   Type = string
@@ -385,7 +442,7 @@
   CDAnet v4 Mapping = C17
   v2 Mapping = - No exact HL7 v2 equivalent concept seems to exist;
 
- -- Row 29 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Coverage.sequence
   Card. = 0..1
   Summary = Y
@@ -396,7 +453,7 @@
   CDAnet v4 Mapping = D11
   v2 Mapping = No HL7 v2 equivalent concept seems to exist
 
- -- Row 30 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Coverage.order
   Card. = 0..1
   Summary = Y
@@ -405,7 +462,7 @@
   Definition = The order of applicability of this coverage relative to other coverages which are currently inforce. Note, there may be gaps in the numbering and this does not imply primary, secondard etc. as the specific positioning of coverages depends upon the episode of care.
   v2 Mapping = - No exact HL7 v2 equivalent concept seems to exist;
 
- -- Row 31 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Coverage.network
   Card. = 0..1
   Summary = Y
@@ -414,7 +471,35 @@
   Definition = The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the \'in-network\' rate, otherwise \'out of network\' terms and conditions apply
   CDAnet v4 Mapping = D10
 
- -- Row 32 -----------------------------------
+ -- Row 37 -----------------------------------
+  Element = Coverage.copay
+  Card. = 0..*
+  UML = 360;0
+  Type = =CoPay
+  Short Name = Patient payments for services/products
+  Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
+
+ -- Row 38 -----------------------------------
+  Element = Coverage.copay.type
+  Card. = 0..1
+  Summary = Y
+  Type = Coding
+  Binding = CopayTypes
+  Short Name = The type of service or product
+  Definition = Types of products or services such as visit, specialist vists, emergency, inpatient care, etc.
+
+ -- Row 39 -----------------------------------
+  Element = Coverage.copay.value
+  Card. = 1..1
+  Summary = Y
+  Type = Quantity
+  Short Name = The amount or percentage of the copayment
+  Definition = The amount of patient payments for various types of services/products, expressed as a percentage of the service/product cost or a fixed amount of currency,.
+  CDAnet v4 Mapping = C11 (Division,Section)
+  v2 Mapping = IN1-8
+  CPhA3 (Pharmacy) Mapping = C.31
+
+ -- Row 40 -----------------------------------
   Element = Coverage.contract
   Card. = 0..*
   Type = Reference(Contract)

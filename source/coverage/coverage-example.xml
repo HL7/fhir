@@ -1,70 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Coverage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
- <id value="9876B1"/>
+	<id value="9876B1"/>
 
- <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the coverage</div>
- </text>
- 
- <identifier>
-   <system value="http://benefitsinc.com/certificate"/>
-   <value value="12345"/>
- </identifier>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the coverage</div>
+	</text>
 
- <status value="active"/>
+	<identifier>
+		<system value="http://benefitsinc.com/certificate"/>
+		<value value="12345"/>
+	</identifier>
 
- <type>
-  <coding>
-   <system value="http://hl7.org/fhir/v3/ActCode"/>
-   <code value="EHCPOL"/>
-   <display value="extended healthcare"/>
-  </coding>
- </type>
- 
- <policyHolder>
-   <reference value="http://benefitsinc.com/FHIR/Organization/CBI35"/>
- </policyHolder>
- 
- <subscriber>
-   <reference value="Patient/4"/>
- </subscriber>
- 
- <beneficiary>
-   <reference value="Patient/4"/>
- </beneficiary>
- 
- <relationship>
-  <coding>
-   <code value="self"/>
-  </coding>
- </relationship>
+	<status value="active"/>
 
- <period> 
-   <start value="2011-05-23"/>
-   <end value="2012-05-23"/>
- </period>
- 
- <payor>
-   <reference value="Organization/2"/>
- </payor>
- 
- <grouping>
-   <group value="CBI35"/>
-   <groupDisplay value="Corporate Baker's Inc. Local #35"/>
-   <subGroup value="123"/>
-   <subGroupDisplay value="Trainee Part-time Benefits"/>
-   <plan value="B37FC"/>
-   <planDisplay value="Full Coverage: Medical, Dental, Pharmacy, Vision, EHC"/>
-   <subPlan value="P7"/>
-   <subPlanDisplay value="Includes afterlife benefits"/>
-   <class value="SILVER"/>
-   <classDisplay value="Silver: Family Plan spouse only"/>
-   <subClass value="Tier2"/>
-   <subClassDisplay value="Low deductable, max $20 copay"/>
- </grouping>
-  
- <dependent value="0"/>
- <sequence value="9"/>
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/v3/ActCode"/>
+			<code value="EHCPOL"/>
+			<display value="extended healthcare"/>
+		</coding>
+	</type>
+
+	<policyHolder>
+		<reference value="http://benefitsinc.com/FHIR/Organization/CBI35"/>
+	</policyHolder>
+
+	<subscriber>
+		<reference value="Patient/4"/>
+	</subscriber>
+
+	<beneficiary>
+		<reference value="Patient/4"/>
+	</beneficiary>
+	<dependent value="0"/> 
+	<relationship>
+		<coding>
+			<code value="self"/>
+		</coding>
+	</relationship>
+
+	<period> 
+		<start value="2011-05-23"/>
+		<end value="2012-05-23"/>
+	</period>
+
+	<payor>
+		<reference value="Organization/2"/>
+	</payor>
+
+	<grouping>
+		<group value="CBI35"/>
+		<groupDisplay value="Corporate Baker's Inc. Local #35"/>
+		<subGroup value="123"/>
+		<subGroupDisplay value="Trainee Part-time Benefits"/>
+		<plan value="B37FC"/>
+		<planDisplay value="Full Coverage: Medical, Dental, Pharmacy, Vision, EHC"/>
+		<subPlan value="P7"/>
+		<subPlanDisplay value="Includes afterlife benefits"/>
+		<class value="SILVER"/>
+		<classDisplay value="Silver: Family Plan spouse only"/>
+		<subClass value="Tier2"/>
+		<subClassDisplay value="Low deductable, max $20 copay"/>
+	</grouping>
+
+	<sequence value="9"/>
 
 </Coverage>

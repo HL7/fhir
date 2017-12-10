@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+	<url value="http://hl7.org/fhir/coverage-copay-type"/>
+	<name value="Coverage CoPay Type Codes"/>
+	<status value="draft"/>
+	<publisher value="Financial Management"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="This value set includes Coverage Copayment Type codes."/>
+	<copyright value="This is an example set."/>
+	<caseSensitive value="true"/>
+	<content value="complete"/>
+	<concept>
+		<code value="gpvisit"/>
+		<display value="GP Office Visit"/>
+		<definition value="An office visit for a general practitioner of a discipline."/>
+	</concept>
+	<concept>
+		<code value="spvisit"/>
+		<display value="Specialist Office Visit"/>
+		<definition value="An office visit for a specialist practitioner of a discipline"/>
+	</concept>
+	<concept>
+		<code value="emergency"/>
+		<display value="Emergency"/>
+		<definition value="An episode in an emergency department."/>
+	</concept>
+	<concept>
+		<code value="inpthosp"/>
+		<display value="InPatient Hospital"/>
+		<definition value="An episode of an Inpatient hospital stay."/>
+	</concept>
+	<concept>
+		<code value="urgentcare"/>
+		<display value="Urgent Care"/>
+		<definition value="A visit to an urgent care facility - typically a community care clinic."/>
+	</concept>
+	<concept>
+		<code value="copaypct"/>
+		<display value="Copay Percentage"/>
+		<definition value="A percentage of all classes or service or product not otherwise specified."/>
+	</concept>  
+</CodeSystem>
