@@ -178,7 +178,6 @@
   Type = Reference(Practitioner)
   Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
-  CDAnet v4 Mapping = B01
   w5 = who.source
 
  -- Row 11 -----------------------------------
@@ -196,7 +195,6 @@
   Short Name = Id of resource triggering adjudication
   Definition = Original request resource referrence
   Workflow Mapping = Event.basedOn
-  CDAnet v4 Mapping = A02|G01
   w5 = why
 
  -- Row 13 -----------------------------------
@@ -253,7 +251,6 @@
   Type = positiveInt
   Short Name = Service instance
   Definition = A service line number.
-  CDAnet v4 Mapping = F07
 
  -- Row 21 -----------------------------------
   Element = ClaimResponse.item.itemSequence
@@ -261,7 +258,6 @@
   Type = positiveInt
   Short Name = Service instance
   Definition = A service line number.
-  CDAnet v4 Mapping = F07
 
  -- Row 22 -----------------------------------
   Element = !Notes
@@ -334,7 +330,6 @@
   Type = positiveInt
   Short Name = Service instance
   Definition = A service line number.
-  CDAnet v4 Mapping = F07
 
  -- Row 33 -----------------------------------
   Element = ClaimResponse.item.detail.detailSequence
@@ -342,7 +337,6 @@
   Type = positiveInt
   Short Name = Service instance
   Definition = A service line number.
-  CDAnet v4 Mapping = F07
 
  -- Row 34 -----------------------------------
   Element = ClaimResponse.item.detail.noteNumber
@@ -377,7 +371,6 @@
   Type = positiveInt
   Short Name = Service instance
   Definition = A service line number.
-  CDAnet v4 Mapping = F07
 
  -- Row 39 -----------------------------------
   Element = ClaimResponse.item.detail.subDetail.subDetailSequence
@@ -385,7 +378,6 @@
   Type = positiveInt
   Short Name = Service instance
   Definition = A service line number.
-  CDAnet v4 Mapping = F07
 
  -- Row 40 -----------------------------------
   Element = ClaimResponse.item.detail.subDetail.noteNumber
@@ -734,7 +726,6 @@
   Binding = Forms
   Short Name = Printed Form Identifier
   Definition = The form to be used for printing the content.
-  CDAnet v4 Mapping = G42
 
  -- Row 87 -----------------------------------
   Element = ClaimResponse.processNote
@@ -765,7 +756,6 @@
   Type = string
   Short Name = Note explanatory text
   Definition = The note text.
-  CDAnet v4 Mapping = G32
 
  -- Row 91 -----------------------------------
   Element = ClaimResponse.processNote.language
@@ -833,7 +823,6 @@
   Short Name = Pre-Authorization/Determination Reference
   Definition = A list of references from the Insurer to which these services pertain.
   Requirements = To provide any pre-determination or prior authorization reference.
-  CDAnet v4 Mapping = F03
 
  -- Row 100 -----------------------------------
   Element = ClaimResponse.insurance.claimResponse
@@ -842,7 +831,6 @@
   Short Name = Adjudication results
   Definition = The Coverages adjudication details.
   Requirements = Used by downstream payers to determine what balance remains and the net payable.
-  CDAnet v4 Mapping = EOB
 
 === Sheet Search =====================================
 

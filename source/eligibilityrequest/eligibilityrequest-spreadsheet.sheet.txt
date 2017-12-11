@@ -126,7 +126,6 @@
   Definition = Patient Resource
   Comments = 1..1
   Workflow Mapping = Request.subject
-  CDAnet v4 Mapping = C06,C07,C08, C05, C04
   w5 = who.focus
 
  -- Row 10 -----------------------------------
@@ -135,7 +134,6 @@
   Type = date|Period
   Short Name = Estimated date or dates of Service
   Definition = The date or dates when the enclosed suite of services were performed or completed
-  CDAnet v4 Mapping = F09
   w5 = when.done
 
  -- Row 11 -----------------------------------
@@ -162,7 +160,6 @@
   Short Name = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   Workflow Mapping = Request.requester
-  CDAnet v4 Mapping = B01
   w5 = who.source
 
  -- Row 14 -----------------------------------

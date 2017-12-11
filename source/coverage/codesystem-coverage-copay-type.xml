@@ -43,6 +43,6 @@
 	<concept>
 		<code value="copaypct"/>
 		<display value="Copay Percentage"/>
-		<definition value="A percentage of all classes or service or product not otherwise specified."/>
+		<definition value="A standard amount, percentage or fixed currency amount, applied to all classes or service or product not otherwise specified."/>
 	</concept>  
 </CodeSystem>
