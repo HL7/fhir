@@ -651,6 +651,9 @@
 		<translation lang="it">Organizzazione</translation>
 		<translation lang="es">Organización</translation>
 	</item>
+	<item id="OrganizationRole">
+		<translation lang="en">OrganizationRole</translation>
+	</item>
 	<item id="Parameters">
 		<translation lang="en">Parameters</translation>
 		<translation lang="es">Parametros</translation>
@@ -733,6 +736,9 @@
 	</item>
 	<item id="ProductPlan">
 		<translation lang="en">ProductPlan</translation>
+	</item>
+	<item id="Network">
+		<translation lang="en">Network</translation>
 	</item>
 	<item id="ProfessionalClaim">
 		<translation lang="en">ProfessionalClaim</translation>

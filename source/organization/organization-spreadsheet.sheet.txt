@@ -461,4 +461,10 @@
   Description = Government Department of Health
   Filename = organization-example-mihealth.xml
 
+ -- Row 13 -----------------------------------
+  Name = HL7 Payer Network
+  Identity = hl7pay
+  Description = HL7 Payer Network
+  Filename = organization-example-hl7pay.xml
+
 === Sheet Examples =====================================

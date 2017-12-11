@@ -1,0 +1,45 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="scope"> </a>
+<h2>Scope and Usage</h2>
+<p>
+PractitionerRole covers the recording of the location and types of services that Practitioners are able to provide
+for an organization.
+</p>
+<p>
+The role, specialty, Location telecom and HealthcareService properties can be repeated if required in other instances
+of the PractitionerRole. Some systems record a collection of service values for a single location, others record the 
+single service and the list of locations it is available. Both are acceptable options for representing this data.
+</p>
+</div>
+
+<div>
+<a name="bnr"> </a>
+<h2>Boundaries and Relationships</h2>
+<p>
+	Qualifications (from the Practitioner resource) do not imply a Role, but might be considered when an Organization 
+  allocates practitioners to roles within their organization, and could provide useful information (such as expiry information)
+  which could need to be tracked in some situations to ensure they continue to be eligible for a specific role.
+</p>
+<p>
+  The <a href="careteam.html">CareTeam</a> resource is also often used to provide details of a role that a practitioner is
+  allocated to perform, but is usually scoped to a much finer granularity of care, and often within the specific context
+  of a <a href="patient.html">Patient</a>, or functional role (e.g. Crisis planning team). In contrast the PractitionerRole
+  is used in a more general sense to cover all the places that the practitioner is allocated to work (and specific details
+  relevant to that role - such as a specific contact number, or electronic services endpoint).
+</p>
+</div>
+
+<div>
+<a name="bnc"> </a>
+<h2>Background and Context</h2>
+<p>
+Practitioner performs different roles within the same or even different organizations. Depending on jurisdiction and custom, 
+it may be necessary to maintain a specific Practitioner Resource for each such role or have a single Practitioner with multiple roles.
+The role can be limited to a specific period, after which authorization for this role ends. Note that the represented organization
+need not necessarily be the (direct) employer of a Practitioner.
+</p>
+</div>
+
+</div>

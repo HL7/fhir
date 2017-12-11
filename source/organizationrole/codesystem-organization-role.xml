@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/organization-role"/>
+  <name value="OrganizationRole"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to another."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="provider"/>
+    <display value="Provider"/>
+    <!-- Need to have definitions written <definition value=""/> -->
+  </concept>
+  <concept>
+    <code value="agency"/>
+    <display value="Agency"/>
+  </concept>
+  <concept>
+    <code value="research"/>
+    <display value="Research"/>
+  </concept>
+  <concept>
+    <code value="payer"/>
+    <display value="Payer"/>
+  </concept>
+  <concept>
+    <code value="diagnostics"/>
+    <display value="Diagnostics"/>
+  </concept>
+  <concept>
+    <code value="supplier"/>
+    <display value="Supplier"/>
+  </concept>
+  <concept>
+    <code value="HIE/HIO"/>
+    <display value="HIE/HIO"/>
+  </concept>
+  <concept>
+    <code value="member"/>
+    <display value="Member"/>
+  </concept>
+</CodeSystem>
