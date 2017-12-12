@@ -2,7 +2,7 @@
 <a name="statemachine"> </a>
 <h2>ResearchStudy State Machine</h2>
   <p>
-    The state machine diagram for ResearchStudy is under development.  
+    The following diagram reflects the "typical" state machine for ResearchStudy. 
   </p>
-<!--  <img src="researchstudy-state-machine.png" alt="Diagram showing typical state machine for the ResearchStudy resource"/> -->
+<img src="researchstudy-state-machine.png" alt="Diagram showing typical state machine for the ResearchStudy resource"/> 
   </div>
