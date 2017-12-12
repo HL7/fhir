@@ -211,40 +211,36 @@ Or in JSON:
 <p>
 As the URL suggests, <a href="extension-patient-citizenship.html">this extension is defined as part of this specification</a>.
 </p>
-<!--
+
 <p>
-This extension can be extended again, by adding a "registrar" extension:
+This extension can be extended again, by adding a "passport-number" extension:
 </p>
 <div class="example">
 <p>
-The registrar is defined as a separate extension (e.g. by
-an implementing organization) rather than part of the official clinical-trial extension.
+The passport number is defined as a separate extension (e.g. by
+an implementing organization) rather than part of the official citizenship extension.
 The URL of the extension is thus different. In XML:
 </p>
 <pre class="xml" fragment="Patient">
+
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
-    &lt;extension url=&quot;NCT&quot; &gt;
-      &lt;valueString value=&quot;123456789&quot; /&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-citizenship&quot; &gt;
+    &lt;extension url=&quot;code&quot; &gt;
+      &lt;valueCodeableConcept&gt;
+        &lt;coding&gt;
+          &lt;system value=&quot;urn:iso:std:iso:3166&quot; /&gt;
+          &lt;code value=&quot;DE&quot; /&gt;
+        &lt;/coding&gt;
+      &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
     &lt;extension url=&quot;period&quot; &gt;
       &lt;valuePeriod&gt;
         &lt;start value=&quot;2009-03-14&quot; /&gt;
       &lt;/valuePeriod&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;reason&quot; &gt;
-      &lt;valueCodeableConcept&gt;
-        &lt;coding&gt;
-          &lt;system value=&quot;http://acme.org/codes/general&quot; /&gt;
-          &lt;code value=&quot;tt14j&quot; /&gt;
-        &lt;/coding&gt;
-      &lt;/valueCodeableConcept&gt;
-    &lt;/extension&gt;
   &lt;/extension&gt;
-    &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/registrar&quot; &gt;
-      &lt;valueReference&gt;
-        &lt;reference value=&quot;Practitioner/example&quot; /&gt;
-      &lt;/valueReference&gt;
+  &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/passport-number&quot; &gt;
+      &lt;valueString value=&quot;12345ABC&quot; /&gt;
     &lt;/extension&gt;
   &lt;!-- other data for patient --&gt;
 &lt;/Patient&gt;
@@ -253,40 +249,34 @@ The URL of the extension is thus different. In XML:
 or in JSON:
 </p>
 <pre class="json" fragment="Patient">
+
 {
-	"resourceType": "Patient",
-	"extension": [{
-		"url": "http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial",
-		"extension": [{
-			"url": "NCT",
-			"valueString": "123456789"
-		},
+  "resourceType" : "Patient",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-citizenship",
+    "extension" : [{
+      "url" : "code",
+      "valueCodeableConcept" : {
+          "coding" : [{
+             "system" : "urn:iso:std:iso:3166",
+             "code" : "DE"
+          }]
+       }
+    }, {
+      "url" : "period",
+      "valuePeriod" : {
+         "start" : "2009-03-14"
+      }
+    },
 		{
-			"url": "period",
-			"valuePeriod": {
-				"start": "2009-03-14"
-			}
-		},
-		{
-			"url": "reason",
-			"valueCodeableConcept": {
-				"coding": [{
-					"system": "http://acme.org/codes/general",
-					"code": "tt14j"
-				}]
-			}
-		},
-		{
-			"url": "http://acme.org/fhir/StructureDefinition/registrar",
-			"valueReference": {
-				"reference": "Practitioner/example"
-			}
+			"url": "http://acme.org/fhir/StructureDefinition/passport-number",
+			"valueString": "12345ABC"
 		}]
 	}]
 }
 </pre>
 </div>
--->
+
 <a name="mustUnderstand"> </a>
 <a name="isModifier"> </a>
 <a name="modifierExtension"> </a>
