@@ -79,7 +79,7 @@
   Element = Immunization
   Type = DomainResource
   Short Name = Immunization event information
-  Definition = Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party.
+  Definition = Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
   Workflow Mapping = Event
   v2 Mapping = VXU_V04
   RIM Mapping = SubstanceAdministration
@@ -104,8 +104,8 @@
   Type = code
   Binding = ImmunizationStatus
   Short Name = completed | entered-in-error | not-done
-  Definition = Indicates the current status of the vaccination event
-  Comments = Will generally be set to show that the immunization has been completed.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
+  Definition = Indicates the current status of the immunization event
+  Comments = Will generally be set to show that the immunization has been completed or not done.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Event.status
   RIM Mapping = statusCode
   Committee Notes = #7867
@@ -143,7 +143,7 @@
   Element = Immunization.encounter
   Card. = 0..1
   Type = Reference(Encounter)
-  Short Name = Encounter administered as part of
+  Short Name = Encounter immunization was part of
   Definition = The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
   Workflow Mapping = Event.context
   v2 Mapping = PV1-19
@@ -155,7 +155,7 @@
   Element = Immunization.date
   Card. = 0..1
   Type = dateTime
-  Short Name = Vaccination administration date
+  Short Name = Vaccine administration date
   Definition = Date vaccine administered or was to be administered
   Comments = When immunizations are given a specific date and time should always be known.   When immunizations are patient reported, a specific date might not be known.  Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given
   Workflow Mapping = Event.occurrence.occurrence[]
@@ -184,7 +184,7 @@
   Binding = ImmunizationReportOrigin
   Short Name = Indicates the source of a secondarily reported record
   Definition = The source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.
-  Comments = Should not be populated if primarySource = True, will not be required even if primarySource = False
+  Comments = Should not be populated if primarySource = True, not required even if primarySource = False
   v2 Mapping = RXA-9
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT] (this syntax for self-reported)\n.participation[typeCode=INF].role[classCode=LIC] (this syntax for health care professional)\n.participation[typeCode=INF].role[classCode=PRS] (this syntax for family member)
   w5 = who.source
@@ -193,7 +193,7 @@
   Element = Immunization.location
   Card. = 0..1
   Type = Reference(Location)
-  Short Name = Where vaccination occurred
+  Short Name = Where immunization occurred
   Definition = The service delivery location where the vaccine administration occurred.
   Workflow Mapping = Event.location
   v2 Mapping = RXA-27  (or RXA-11, deprecated as of v2.7)
@@ -257,7 +257,7 @@
   Type = SimpleQuantity
   Short Name = Amount of vaccine administered
   Definition = The quantity of vaccine product that was administered
-  v2 Mapping = RXA-6 / RXA-7.1
+  v2 Mapping = RXA-6 / RXA-7
   RIM Mapping = .doseQuantity
 
  -- Row 17 -----------------------------------
@@ -266,7 +266,7 @@
   Summary = Y
   UML = 0;360
   Short Name = Who performed event
-  Definition = Indicates who or what performed the event
+  Definition = Indicates who performed the immunization event
   Workflow Mapping = Event.performer
   v2 Mapping = ORC-12 / RXA-10
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
@@ -288,7 +288,7 @@
   Summary = Y
   Type = Reference(Practitioner)
   Short Name = Individual who was performing
-  Definition = The device, practitioner, etc. who performed the action
+  Definition = The practitioner who performed the action
   Workflow Mapping = Event.performer.actor
   RIM Mapping = .player
   w5 = who.actor
@@ -298,9 +298,10 @@
   Card. = 0..*
   Summary = Y
   Type = Annotation
-  Short Name = Vaccination notes
+  Short Name = Additional immunization notes
   Definition = Extra information about the immunization that is not conveyed by the other attributes.
   Workflow Mapping = Event.note
+  v2 Mapping = OBX-5 : OBX-3 = 48767-8
   RIM Mapping = note
   Committee Notes = #7866
 
@@ -310,7 +311,7 @@
   Type = CodeableConcept
   Binding = ImmunizationReason
   Short Name = Why immunization did or did not occur
-  Definition = Reasons why a vaccine was or was notadministered
+  Definition = Reasons why a vaccine was or was not administered
   Workflow Mapping = Event.reasonCode
   RIM Mapping = [actionNegationInd=false].reasonCode
 
@@ -327,6 +328,7 @@
   Type = string
   Short Name = Educational material document identifier
   Definition = Identifier of the material presented ot the patient
+  v2 Mapping = OBX-5 : OBX-3 = 69764-9
   RIM Mapping = N/A
 
  -- Row 24 -----------------------------------
@@ -334,7 +336,7 @@
   Card. = 0..1
   Type = uri
   Short Name = Educational material reference pointer
-  Definition = Reference point to the educational material given to the patient if the information was on line
+  Definition = Reference pointer to the educational material given to the patient if the information was on line
   RIM Mapping = N/A
 
  -- Row 25 -----------------------------------
@@ -342,7 +344,8 @@
   Card. = 0..1
   Type = dateTime
   Short Name = Educational material publication date
-  Definition = Date the edcuational material was published
+  Definition = Date the educational material was published
+  v2 Mapping = OBX-5 : OBX-3 = 29768-9
   RIM Mapping = N/A
 
  -- Row 26 -----------------------------------
@@ -350,7 +353,8 @@
   Card. = 0..1
   Type = dateTime
   Short Name = Educational material presentation date
-  Definition = Date the edcuational material was given to the patient
+  Definition = Date the educational material was given to the patient
+  v2 Mapping = OBX-5 : OBX-3 = 29769-7
   RIM Mapping = N/A
 
  -- Row 27 -----------------------------------
@@ -360,6 +364,7 @@
   Binding = ProgramEligibility
   Short Name = Patient eligibility for a vaccination program
   Definition = Indicates a patient\'s eligibility for a funding program.
+  v2 Mapping = OBX-5 : OBX-3 = 64994-7
   RIM Mapping = N/A
   Committee Notes = #5758
 

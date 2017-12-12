@@ -4,7 +4,7 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-The ImmunizationEvaluation resource is intended to cover communicating the results of an evaluation of a vaccine administration event (documented using the Immunization resource). Evaluating administered doses in a patient's immunization history is central to ensuring that the patient if fully protected against vaccine-preventable diseases. It is also a necessary prerequisite to generating a customized set of immunization recommendations for the patient.
+The ImmunizationEvaluation resource is intended to cover communicating the results of an evaluation of a vaccine administration event (documented using the Immunization resource) against a set of published recommendations (protocols). Evaluating administered doses in a patient's immunization history is central to ensuring that the patient if fully protected against vaccine-preventable diseases. It is also a necessary prerequisite to generating a customized set of immunization recommendations for the patient.
 </p>
 </div>
 

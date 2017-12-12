@@ -4,10 +4,10 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-The ImmunizationRecommendation resource is intended to cover communication of a specified patient's immunization recommendations and status across all healthcare disciplines in all care settings and all regions.
+The ImmunizationRecommendation resource is intended to cover communication of a specified patient's immunization recommendations and status across all healthcare disciplines in all care settings and all regions. The set of customized (for the patient) recommendations is based on the comparison of the patient's immunization history with a set of published recommendations (protocols).
 </p>
 <p>
-Additionally, the ImmunizationRecommendation resource is expected to cover key concepts related to the querying of a patient's immunization recommendations and status. This resource - through consultation with the PHER work group - is believed to meet key use cases and information requirements as defined in the existing <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> POIZ domain and Immunization Domain Analysis Model.
+Additionally, the ImmunizationRecommendation resource is expected to cover key concepts related to the querying of a patient's immunization recommendations and status. This resource - through consultation with the Public Health work group - is believed to meet key use cases and information requirements as defined in the existing <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> POIZ domain and Immunization Domain Analysis Model.
 </p>
 </div>
 
@@ -18,11 +18,10 @@ Additionally, the ImmunizationRecommendation resource is expected to cover key c
 This resource references the following resources:
 </p>
 <ul>
-    <li>Allergy/Intolerance</li>
     <li>Patient</li>
     <li>Organization</li>
     <li>Immunization</li>
-    <li>Observation</li>
+    <li>ImmunizationEvaluation</li>
 </ul>
 <p>
 One of the considerations for this resource is if it is better for this resource to be a profile of the CarePlan resource, or if it is more appropriate for this to be a separate resource due to the number of immunization profile-specific data elements.

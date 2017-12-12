@@ -37,7 +37,7 @@
   Element = ImmunizationEvaluation
   Type = DomainResource
   Short Name = Immunization evaluation information
-  Definition = Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to the published recommendations.
+  Definition = Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to those  recommendations.
   Workflow Mapping = Event
   v2 Mapping = RSP_K11
   Committee Notes = #8406
@@ -50,7 +50,6 @@
   Short Name = Business identifier
   Definition = A unique identifier assigned to this immunization evaluation record.
   Workflow Mapping = Event.identifier
-  v2 Mapping = ORC-3
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -59,7 +58,7 @@
   Summary = Y
   Type = code
   Binding = ImmunizationEvaluationStatus
-  Short Name = Immunization evaluation status
+  Short Name = completed | entered-in-error
   Definition = Indicates the current status of the evaluation of the vaccination administration event
   Workflow Mapping = Event.status
   w5 = status
@@ -90,7 +89,7 @@
   Card. = 0..1
   Type = Reference(Organization)
   Short Name = Who is responsible for publishing the recommendations
-  Definition = Indicates the authority who created the recommendations being evaluated against  E.g. ACIP
+  Definition = Indicates the authority who published the protocol (e.g. ACIP)
   v2 Mapping = OBX-5 : OBX-3 = ( 59779-9 )
 
  -- Row 7 -----------------------------------
@@ -135,7 +134,7 @@
   Card. = 0..1
   Type = string
   Short Name = Evaluation notes
-  Definition = Additional infomration about the evaluation
+  Definition = Additional information about the evaluation
   Workflow Mapping = Event.note
   v2 Mapping = OBX-5 : OBX-3 = ( 48767-8 )
 
