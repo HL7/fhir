@@ -1345,8 +1345,12 @@ public class Publisher implements URIResolver, SectionNumberer {
             ns.setDate(page.getGenDate().getTime());
           ns.setDescription(cs.getDescription());
           ns.addUniqueId().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()).setPreferred(true);
-          if (CodeSystemUtilities.getOID(cs) != null)
-            ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(CodeSystemUtilities.getOID(cs).substring(8)).setPreferred(false);
+          String oid = CodeSystemUtilities.getOID(cs);
+          if (oid != null) {
+            if (oid.startsWith("urn:oid:"))
+              oid = oid.substring(8);
+            ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(oid).setPreferred(false);
+          }
           ns.setUserData("path", cs.getUserData("path"));
           bnd.addEntry().setResource(ns).setFullUrl(cs.getUrl().replace("ValueSet", "NamingSystem"));
         }

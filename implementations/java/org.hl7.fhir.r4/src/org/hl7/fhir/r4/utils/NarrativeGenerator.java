@@ -2763,6 +2763,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     generateVersionNotice(x, vs.getExpansion());
 
     CodeSystem allCS = null;
+    boolean doLevel = false;
+    for (ValueSetExpansionContainsComponent cc : vs.getExpansion().getContains()) {
+      if (cc.hasContains()) {
+        doLevel = true;
+        break;
+      }
+    }
+    
     boolean doSystem = true; // checkDoSystem(vs, src);
     boolean doDefinition = checkDoDefinition(vs.getExpansion().getContains());
     if (doSystem && allFromOneSystem(vs)) {
@@ -2780,6 +2788,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     XhtmlNode t = x.table( "codes");
     XhtmlNode tr = t.tr();
+    if (doLevel)
+      tr.td().b().tx("Lvl");
     tr.td().b().tx("Code");
     if (doSystem)
       tr.td().b().tx("System");
@@ -2789,7 +2799,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     addMapHeaders(tr, maps);
     for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
-      addExpansionRowToTable(t, c, 0, doSystem, doDefinition, maps, allCS, langs);
+      addExpansionRowToTable(t, c, 0, doLevel, doSystem, doDefinition, maps, allCS, langs);
     }
 
     // now, build observed languages
@@ -3112,15 +3122,18 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return tr;
   }
 
-  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, boolean doDefinition, List<UsedConceptMap> maps, CodeSystem allCS, List<String> langs) {
+  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doLevel, boolean doSystem, boolean doDefinition, List<UsedConceptMap> maps, CodeSystem allCS, List<String> langs) {
     XhtmlNode tr = t.tr();
     XhtmlNode td = tr.td();
 
     String tgt = makeAnchor(c.getSystem(), c.getCode());
     td.an(tgt);
 
+    if (doLevel) {
+      td.addText(Integer.toString(i));
+      td = tr.td();
+    }
     String s = Utilities.padLeft("", '\u00A0', i*2);
-
     td.addText(s);
     addCodeToTable(c.getAbstract(), c.getSystem(), c.getCode(), c.getDisplay(), td);
     if (doSystem) {
@@ -3162,7 +3175,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       }
     }
     for (ValueSetExpansionContainsComponent cc : c.getContains()) {
-      addExpansionRowToTable(t, cc, i+1, doSystem, doDefinition, maps, allCS, langs);
+      addExpansionRowToTable(t, cc, i+1, doLevel, doSystem, doDefinition, maps, allCS, langs);
     }
   }
 

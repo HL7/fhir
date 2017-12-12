@@ -2719,7 +2719,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       ValueSet vs = map.get(n);
       String id = tail(vs.getUrl()).substring(3);
       String oid = ValueSetUtilities.getOID(vs);
-      if (oid != null)
+      if (oid != null && oid.startsWith("urn:oid:"))
         oid = oid.substring(8);
       String[] desc = vs.getDescription().split("\\(OID \\= ");
       s.append(" <tr><td><a href=\"v3/").append(id).append("/vs.html\">").append(Utilities.escapeXml(id))
