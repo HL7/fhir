@@ -142,7 +142,7 @@ These code systems are not usually presented in a hierachical fashion in a <code
 then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> must be used.
 </p>
 <p>
-The parent and child properties above are mostly only used when performing concept lookup (using the <a href="codesystem-opreations.html#lookup">$lookup</a> operation.
+The parent and child properties above are mostly only used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation.
 </p>
 
 <a name="subsumption"> </a>
