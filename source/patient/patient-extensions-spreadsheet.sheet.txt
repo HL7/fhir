@@ -8,10 +8,10 @@
   Conformance = extensible
 
  -- Row 2 -----------------------------------
-  Binding Name = !GenderIdentity
+  Binding Name = GenderIdentity
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/administrative-gender
-  Conformance = extensible
+  Reference = valueset-gender-identity
+  Conformance = example
 
 === Sheet Search =====================================
 
