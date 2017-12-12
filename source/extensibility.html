@@ -156,31 +156,27 @@ extension defined separately.
 In the case where an extension defines complex content, the identity of the parts of the extension are local/relative to the reference
 to the extension definition.
 </p>
-<!--
+
 <div class="example">
 
 <p>
-As an example, consider extending a patient with an opt-in status for a clinical trial containing 3 fields: clinical trial number, period of involvement, and
-a reason for enrollment. In XML:
+As an example, consider extending a patient with information about citizenship containing 2 fields: code and period. In XML:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
-    &lt;extension url=&quot;NCT&quot; &gt;
-      &lt;valueString value=&quot;123456789&quot; /&gt;
+  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-citizenship&quot; &gt;
+    &lt;extension url=&quot;code&quot; &gt;
+      &lt;valueCodeableConcept&gt;
+        &lt;coding&gt;
+          &lt;system value=&quot;urn:iso:std:iso:3166&quot; /&gt;
+          &lt;code value=&quot;DE&quot; /&gt;
+        &lt;/coding&gt;
+      &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
     &lt;extension url=&quot;period&quot; &gt;
       &lt;valuePeriod&gt;
         &lt;start value=&quot;2009-03-14&quot; /&gt;
       &lt;/valuePeriod&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;reason&quot; &gt;
-      &lt;valueCodeableConcept&gt;
-        &lt;coding&gt;
-          &lt;system value=&quot;http://acme.org/codes/general&quot; /&gt;
-          &lt;code value=&quot;tt14j&quot; /&gt;
-        &lt;/coding&gt;
-      &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
   &lt;/extension&gt;
   &lt;!-- other data for patient --&gt;
@@ -193,31 +189,29 @@ Or in JSON:
 {
   "resourceType" : "Patient",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial",
+    "url" : "http://hl7.org/fhir/StructureDefinition/patient-citizenship",
     "extension" : [{
-      "url" : "NCT",
-      "valueString" : "123456789"
+      "url" : "code",
+      "valueCodeableConcept" : {
+          "coding" : [{
+             "system" : "urn:iso:std:iso:3166",
+             "code" : "DE"
+          }]
+       }
     }, {
       "url" : "period",
       "valuePeriod" : {
          "start" : "2009-03-14"
       }
-    },  {
-      "url" : "reason",
-      "valueCodeableConcept" : {
-          "coding" : [{
-             "system" : "http://acme.org/codes/general",
-             "code" : "tt14j"
-          }]
-       }
     }]
-  }]
+	}]
 }
 </pre>
 </div>
 <p>
-As the URL suggests, <a href="extension-patient-clinicaltrial.html">this extension is defined as part of this specification</a>.
+As the URL suggests, <a href="extension-patient-citizenship.html">this extension is defined as part of this specification</a>.
 </p>
+<!--
 <p>
 This extension can be extended again, by adding a "registrar" extension:
 </p>
