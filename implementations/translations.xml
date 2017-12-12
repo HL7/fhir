@@ -1020,7 +1020,7 @@
 		<translation lang="nl">Kan feed niet verwerken (rootelementnaam = "%s")</translation>
 		<translation lang="zh">无法解析feed (根元素名 = "%s")</translation>
 		<translation lang="pl">Błąd parsowania (nazwa elementu root = "%s")</translation>
-		<translation lang="ee">No se pudo parsear el feed (nombre del elemento raiz = "%s")</translation>
+		<translation lang="es">No se pudo parsear el feed (nombre del elemento raiz = "%s")</translation>
 		<translation lang="fr">Impossible d'analyser le flux (nom de l'élément racine = "%s")</translation>
 		<translation lang="ru">Не удалось разобрать данные (корневой элемент = "%s")</translation>
 	</item>
@@ -2159,4 +2159,63 @@
 	<item id="MSG_UNKNOWN_COMPARTMENT">
 		<translation lang="en">Unknown Compartment %s    </translation>
 	</item>
+  
+  
+  <item id="CS1">
+    <translation lang="en">Copyright Statement</translation>
+    <translation lang="nl">Copyright</translation>
+  </item>
+  <item id="CS2">
+    <translation lang="en">Properties</translation>
+    <translation lang="nl">Eigenschappen</translation>
+  </item>
+  <item id="CS3">
+    <translation lang="en">Description</translation>
+    <translation lang="nl">Omschrijving</translation>
+  </item>
+  <item id="CS4">
+    <translation lang="en">Value</translation>
+    <translation lang="nl">Waarde</translation>
+  </item>
+  <item id="CS5">
+    <translation lang="en">Deprecated</translation>
+    <translation lang="nl">Verouderd</translation>
+  </item>
+  <item id="CS6">
+    <translation lang="en">Comments</translation>
+    <translation lang="nl">Commentaar</translation>
+  </item>
+  <item id="CS7">
+    <translation lang="en">Version</translation>
+    <translation lang="nl">Versie</translation>
+  </item>
+  <item id="CS8">
+    <translation lang="en">replaced</translation>
+    <translation lang="nl">vervangen</translation>
+  </item>
+  <item id="CS9">
+    <translation lang="en">added</translation>
+    <translation lang="nl">toegevoegd</translation>
+  </item>
+  <item id="CS10">
+    <translation lang="en">retired</translation>
+    <translation lang="nl">afgeschaft</translation>
+  </item>
+  <item id="CS11">
+    <translation lang="en">This code system %s defines the following codes</translation>
+    <translation lang="nl">Dit code systeem %s definieert de volgende codes</translation>
+  </item>
+  <item id="CS12">
+    <translation lang="en">This code system %s defines many codes, of which the following are some examples</translation>
+    <translation lang="nl">Dit code systeem %s definieert een groot aantal codes, dit zijn enkele voorbeelden</translation>
+  </item>
+  <item id="CS13">
+    <translation lang="en">This code system %s defines many codes, of which the following are a subset</translation>
+    <translation lang="nl">Dit code systeem %s definieert een groot aantal codes, dit is slechts een gedeelte</translation>
+  </item>
+  <item id="CS14">
+    <translation lang="en">This code system %s defines many codes, but they are not represented here</translation>
+    <translation lang="nl">Dit code systeem %s definieert een groot aantal codes, maar deze zijn hier niet beschikbaar</translation>
+  </item>
+  
 </translations>

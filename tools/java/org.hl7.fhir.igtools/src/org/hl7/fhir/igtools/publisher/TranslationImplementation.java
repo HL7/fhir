@@ -1,6 +1,8 @@
 package org.hl7.fhir.igtools.publisher;
 
 import java.util.Date;
+import java.util.Map;
+import java.util.Set;
 
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.PrimitiveType;
@@ -49,6 +51,36 @@ public class TranslationImplementation implements TranslationServices {
 
   public String egt(@SuppressWarnings("rawtypes") Enumeration<? extends Enum> enumeration) {
     return MARKER1+enumeration.primitiveValue()+MARKER1;
+  }
+
+  @Override
+  public String translate(String context, String value, String targetLang) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public String toStr(float value) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public String translateAndFormat(String contest, String lang, String string2, Object... args) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Map<String, String> translations(String value) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public Set<String> listTranslations(String category) {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 

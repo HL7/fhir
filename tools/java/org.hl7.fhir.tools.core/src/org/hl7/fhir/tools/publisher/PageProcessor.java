@@ -113,6 +113,7 @@ import org.hl7.fhir.r4.conformance.ProfileComparer;
 import org.hl7.fhir.r4.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.formats.IParser;
@@ -125,6 +126,7 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
@@ -142,13 +144,16 @@ import org.hl7.fhir.r4.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r4.model.ExpressionNode.CollectionStatus;
+import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.r4.model.MarkdownType;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.r4.model.Narrative;
 import org.hl7.fhir.r4.model.Quantity;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Resource;
@@ -163,6 +168,7 @@ import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.UsageContext;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceDesignationComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
@@ -180,6 +186,7 @@ import org.hl7.fhir.r4.utils.Translations;
 import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
@@ -927,9 +934,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
       else if (com[0].equals("vsdef"))
         if (resource instanceof CodeSystem)
-          src = s1 + Utilities.escapeXml(((CodeSystem) resource).getDescription()) + s3;
+          src = s1 + processMarkdown("vsdef", ((CodeSystem) resource).getDescription(), genlevel(level)) + s3;
         else
-          src = s1 + Utilities.escapeXml(((ValueSet) resource).getDescription()) + s3;
+          src = s1 + processMarkdown("vsdef", ((ValueSet) resource).getDescription(), genlevel(level)) + s3;
       else if (com[0].equals("txoid"))
         src = s1 + generateOID((CodeSystem) resource) + s3;
       else if (com[0].equals("vsoid"))
@@ -2452,6 +2459,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.json"), vs);
     new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".cs.canonical.json"), vs);
     jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".cs.json"), Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".cs.json.html"), vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:cs:"+name, "CodeSystem", null, null, definitions.getWorkgroups().get("vocab"));
+    Set<String> langs = findCodeSystemTranslations(vs);
+    if (langs.size() > 0) {
+      return renderCodeSystemWithLangs(langs, vs, "../../");  
+    }
 
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -2488,6 +2499,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".cs.json"), cs);
       new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+n[0]+File.separator+n[1]+File.separator+"v2-"+n[0]+"-"+n[1]+".cs.canonical.json"), cs);
       jsonToXhtml(Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".cs.json"), Utilities.path(folders.dstDir, "v2", n[0], n[1], "v2-"+n[0]+"-"+n[1]+".cs.json.html"), cs.getName(), cs.getDescription(), 3, r2Json(cs), "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
+      Set<String> langs = findCodeSystemTranslations(cs);
+      if (langs.size() > 0) {
+        return renderCodeSystemWithLangs(langs, cs, "../../../");  
+      }
     }
     return new XhtmlComposer().compose(vs.getText().getDiv());
   }
@@ -2508,8 +2523,88 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.canonical.json"), cs);
       cloneToXhtml(folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.xml", folders.dstDir+"v2"+File.separator+name+File.separator+"v2-"+name+".cs.xml.html", cs.getName(), cs.getDescription(), 2, false, "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
       jsonToXhtml(Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".cs.json"), Utilities.path(folders.dstDir, "v2", name, "v2-"+name+".cs.json.html"), cs.getName(), cs.getDescription(), 2, r2Json(cs), "v2:tbl"+name, "V2 Table", null, null, definitions.getWorkgroups().get("vocab"));
+      Set<String> langs = findCodeSystemTranslations(cs);
+      if (langs.size() > 0) {
+        return renderCodeSystemWithLangs(langs, cs, "../../");  
+      }
     }
+
     return new XhtmlComposer().compose(vs.getText().getDiv());
+  }
+
+  private String renderCodeSystemWithLangs(Set<String> langs, CodeSystem cs, String prefix) throws Exception {
+    Narrative n = cs.getText();
+    
+    StringBuilder b = new StringBuilder();
+    b.append("<div id=\"tabs\" style=\"border-right-style: none;\">\r\n");
+    b.append("<ul>\r\n");
+    b.append("<li><a href=\"#tabs-all\">All Languages</a></li>\r\n");
+    b.append("<li><a href=\"#tabs-en\">English</a></li>\r\n");
+    for (String l : sorted(langs))
+      b.append("<li><a href=\"#tabs-"+l+"\">"+langDisplay(l)+"</a></li>\r\n");
+    b.append("</ul>\r\n");
+
+    b.append("<div id=\"tabs-all\">\r\n");
+    cs.setText(null);
+    new NarrativeGenerator(prefix, null, workerContext).generate(null, cs, false, "*");
+    b.append(new XhtmlComposer().compose(cs.getText().getDiv()));
+    b.append("</div>\r\n");
+    
+    b.append("<div id=\"tabs-en\">\r\n");
+    cs.setText(null);
+    new NarrativeGenerator(prefix, null, workerContext).generate(null, cs, false, "en");
+    b.append(new XhtmlComposer().compose(cs.getText().getDiv()));
+    b.append("</div>\r\n");
+    
+    for (String l : sorted(langs)) {
+      b.append("<div id=\"tabs-"+l+"\">\r\n");
+      String desc = cs.getDescriptionElement().getTranslation(l);
+      if (!Utilities.noString(desc))
+        b.append(processMarkdown("RenderingCodeSystem", workerContext.translator().translate("render-cs", "Definition", l)+": "+desc, prefix));
+      cs.setText(null);
+      new NarrativeGenerator(prefix, null, workerContext).generate(null, cs, false, l);
+      b.append(new XhtmlComposer().compose(cs.getText().getDiv()));
+      b.append("</div>\r\n");
+    }
+    b.append("</div>\r\n");
+
+    cs.setText(n);
+    return b.toString();
+  }
+
+  private String langDisplay(String l) {
+    ValueSet vs = getValueSets().get("http://hl7.org/fhir/ValueSet/languages");
+    for (ConceptReferenceComponent vc : vs.getCompose().getInclude().get(0).getConcept()) {
+      if (vc.getCode().equals(l)) {
+        for (ConceptReferenceDesignationComponent cd : vc.getDesignation()) {
+          if (cd.getLanguage().equals(l))
+            return cd.getValue()+" ("+vc.getDisplay()+")";
+        }
+        return vc.getDisplay();
+      }
+    }
+    return "??Lang";
+  }
+
+  private Set<String> findCodeSystemTranslations(CodeSystem cs) {
+    Set<String> res = new HashSet<String>();
+    findTranslations(res, cs.getConcept());
+    return res;
+  }
+
+  private void findTranslations(Set<String> res, List<ConceptDefinitionComponent> list) {
+    for (ConceptDefinitionComponent cc : list) {
+      for (ConceptDefinitionDesignationComponent cd : cc.getDesignation()) {
+        if (cd.hasLanguage())
+          res.add(cd.getLanguage());
+      }
+      Extension ex = cc.getExtensionByUrl(ToolingExtensions.EXT_CS_COMMENT);
+      if (ex != null) {
+        for (String l : ToolingExtensions.getLanguageTranslations(ex).keySet())
+          res.add(l);
+      }
+      findTranslations(res, cc.getConcept());
+    }
   }
 
   private String r2Json(ValueSet vs) throws Exception {
@@ -4567,7 +4662,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String csContent(String fileTitle, CodeSystem cs, String prefix) throws Exception {
-    if (cs.hasText() && cs.getText().hasDiv())
+    Set<String> langs = findCodeSystemTranslations(cs);
+    if (langs.size() > 0) 
+      return renderCodeSystemWithLangs(langs, cs, "");  
+    else if (cs.hasText() && cs.getText().hasDiv())
       return new XhtmlComposer().compose(cs.getText().getDiv());
     else
       return "not done yet";
@@ -7613,7 +7711,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       client = null;
     }
 
-    workerContext = new BuildWorkerContext(definitions, client, definitions.getCodeSystems(), definitions.getValuesets(), conceptMaps, profiles);
+    workerContext = new BuildWorkerContext(definitions, client, definitions.getCodeSystems(), definitions.getValuesets(), conceptMaps, profiles, folders.rootDir);
     workerContext.setDefinitions(definitions);
     workerContext.setLogger(this);
     workerContext.initTS(Utilities.path(folders.rootDir, "vscache"));

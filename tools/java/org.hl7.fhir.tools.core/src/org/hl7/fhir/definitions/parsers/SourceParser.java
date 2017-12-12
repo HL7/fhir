@@ -165,7 +165,7 @@ public class SourceParser {
     dtDir = srcDir + "datatypes" + sl;
     imgDir = root + sl + "images" + sl;
     rootDir = root + sl;
-    vsGen = new ValueSetGenerator(definitions, version, genDate, srcDir+"test");
+    vsGen = new ValueSetGenerator(definitions, version, genDate, context.translator());
   }
 
 

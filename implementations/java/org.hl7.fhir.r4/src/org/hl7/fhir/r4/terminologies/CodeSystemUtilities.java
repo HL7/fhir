@@ -1,5 +1,6 @@
 package org.hl7.fhir.r4.terminologies;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.hl7.fhir.r4.model.BooleanType;
@@ -24,7 +25,7 @@ public class CodeSystemUtilities {
       if (p.getCode().equals("deprecated") && p.hasValue() && p.getValue() instanceof BooleanType) 
         return ((BooleanType) p.getValue()).getValue();
       if (p.getCode().equals("deprecationDate") && p.hasValue() && p.getValue() instanceof DateTimeType) 
-        return ((DateTimeType) p.getValue()).before(new DateTimeType());
+        return ((DateTimeType) p.getValue()).before(new DateTimeType(Calendar.getInstance()));
     }
     return false;
   }

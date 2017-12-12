@@ -26,9 +26,11 @@ import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.r4.model.Extension;
 import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.Narrative;
 import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
@@ -247,8 +249,19 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     while (ver != null) {
        Element code = getChildForCode(ver, c.getCode());
        for (Element e : getLangList(code)) {
-         if (!hasLangDesc(c, e.getAttribute("lang")))
-           addLangDesc(c, e.getAttribute("lang"), e.getAttribute("value"));
+         if (!hasLangDesc(c, e.getAttribute("lang"))) {
+           if (e.hasAttribute("value"))
+             addLangDesc(c, e.getAttribute("lang"), e.getAttribute("value"), "display");
+           if (e.hasAttribute("comments")) {
+             // this gets added as an extension on the comments extension
+             Extension ex = c.getExtensionByUrl(ToolingExtensions.EXT_CS_COMMENT);
+             if (ex == null) {
+               ex = c.addExtension().setUrl(ToolingExtensions.EXT_CS_COMMENT);
+               ex.setValue(new StringType());
+             } 
+             ToolingExtensions.addLanguageTranslation(ex.getValue(), e.getAttribute("lang"), e.getAttribute("comments"));
+           }
+         }
        }
        ver = XMLUtil.getPrevSibling(ver);
     }    
@@ -262,9 +275,10 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     return false;
   }
 
-  private void addLangDesc(ConceptDefinitionComponent c, String lang, String value) {
-    if (!Utilities.noString(value))
-      c.addDesignation().setLanguage(lang).setValue(value);
+  private void addLangDesc(ConceptDefinitionComponent c, String lang, String value, String type) {
+    if (!Utilities.noString(value)) {
+      c.addDesignation().setLanguage(lang).setValue(value).getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode(type);
+    }
   }
 
   private List<Element> getLangList(Element node) {
@@ -437,6 +451,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
         String nm = Utilities.nmtokenize(cd);
         s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>"+cset.getSystem()+"</td><td>" + Utilities.escapeXml(codes.get(cd))
         + "</td><td>" + Utilities.escapeXml(comment) + "</td><td>" + ver + "</td></tr>");
+        concept.setUserData("cs.version.notes", ver);
       }
     }
     s.append("</table>\r\n");
@@ -578,6 +593,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       String nm = Utilities.nmtokenize(concept.getCode());
       s.append("<tr><td>" + Utilities.escapeXml(concept.getCode()) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>" + Utilities.escapeXml(codes.get(cd))
          + "</td><td>" + Utilities.escapeXml(comment) + "</td><td>" + ver + "</td></tr>");
+      concept.setUserData("cs.version.notes", ver);
     }
     s.append("</table>\r\n");
     vs.setText(new Narrative());
@@ -754,6 +770,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       cs.getConcept().add(concept);
       s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(Utilities.nmtokenize(cd)) + "\"> </a></td><td>"
           + Utilities.escapeXml(codes.get(cd)) + "</td><td>" + ver + "</td></tr>");
+      concept.setUserData("cs.version.notes", ver);
     }
     s.append("</table>\r\n");
     vs.setText(new Narrative());

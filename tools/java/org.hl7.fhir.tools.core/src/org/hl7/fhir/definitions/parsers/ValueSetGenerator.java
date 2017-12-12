@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -34,6 +35,7 @@ import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.utilities.TranslationServices;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
@@ -46,17 +48,15 @@ public class ValueSetGenerator {
   private Definitions definitions;
   private String version;
   private Calendar genDate;
-  private Document translations; 
+  private TranslationServices translator; 
+  
 
-  public ValueSetGenerator(Definitions definitions, String version, Calendar genDate, String folder) throws ParserConfigurationException, SAXException, IOException {
+  public ValueSetGenerator(Definitions definitions, String version, Calendar genDate, TranslationServices translator) throws ParserConfigurationException, SAXException, IOException {
     super();
     this.definitions = definitions;
     this.version = version;
     this.genDate = genDate;
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(false);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    translations = builder.parse(new File(Utilities.path(folder, "..", "..", "implementations", "translations.xml")));
+    this.translator = translator;
   }
 
   public void check(ValueSet vs) throws Exception {
@@ -138,37 +138,24 @@ public class ValueSetGenerator {
     for (String s : codes) {
       DefinedCode rd = definitions.getKnownResources().get(s);
       ConceptDefinitionComponent c = cs.addConcept();
-      Element t;
+      Map<String, String> t;
       if (rd == null) {
-        t = getTranslations(s);
+        t = translator.translations(s);
         c.setCode(s);
         c.setDisplay(definitions.getBaseResources().get(s).getName());
         c.setDefinition((definitions.getBaseResources().get(s).isAbstract() ? "--- Abstract Type! ---" : "")+ definitions.getBaseResources().get(s).getDefinition());
       }  else {
-        t = getTranslations(rd.getCode());
+        t = translator.translations(rd.getCode());
         c.setCode(rd.getCode());
         c.setDisplay(rd.getCode());
         c.setDefinition(rd.getDefinition());
       }
       if (t != null) {
-        Element e = XMLUtil.getFirstChild(t);
-        while (e != null) {
-          c.addDesignation().setLanguage(e.getAttribute("lang")).setValue(e.getTextContent());
-          e = XMLUtil.getNextSibling(e);
-        }
+        for (String l : t.keySet())
+          c.addDesignation().setLanguage(l).setValue(t.get(l)).getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode("display");
       }
     }
 
-  }
-
-  private Element getTranslations(String code) {
-    Element e = XMLUtil.getFirstChild(translations.getDocumentElement());
-    while (e != null) {
-      if (code.equals(e.getAttribute("id")))
-        return e;
-      e = XMLUtil.getNextSibling(e);
-    }
-    return null;
   }
 
   private void genAbstractTypes(ValueSet vs) {
@@ -306,32 +293,22 @@ public class ValueSetGenerator {
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/operation-outcome");
 
     CodeSystem cs = new CodeSystem();
-    Element n = XMLUtil.getFirstChild(translations.getDocumentElement());
     cs.setHierarchyMeaning(CodeSystemHierarchyMeaning.ISA);
-    while (n != null) {
-      if ("true".equals(n.getAttribute("ecode"))) {
-        String code = n.getAttribute("id");
-        Map<String, String> langs = new HashMap<String, String>();
-        Element l = XMLUtil.getFirstChild(n);
-        while (l != null) {
-          langs.put(l.getAttribute("lang"), l.getTextContent());
-          l = XMLUtil.getNextSibling(l);
-        }
-        if (langs.containsKey("en")) {
-          ConceptDefinitionComponent cv = cs.addConcept();
-          cv.setCode(code);
-          cv.setDisplay(langs.get("en"));
-          for (String lang : langs.keySet()) {
-            if (!lang.equals("en")) {
-              String value = langs.get(lang);
-              ConceptDefinitionDesignationComponent dc = cv.addDesignation();
-              dc.setLanguage(lang);
-              dc.setValue(value);
-            }
-          }
+    Set<String> codes = translator.listTranslations("code");
+    for (String s : sorted(codes)) {
+      Map<String, String> langs = translator.translations(s);
+      ConceptDefinitionComponent cv = cs.addConcept();
+      cv.setCode(s);
+      cv.setDisplay(langs.get("en"));
+      for (String lang : langs.keySet()) {
+        if (!lang.equals("en")) {
+          String value = langs.get(lang);
+          ConceptDefinitionDesignationComponent dc = cv.addDesignation();
+          dc.setLanguage(lang);
+          dc.setValue(value);
+          dc.getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode("display");
         }
       }
-      n = XMLUtil.getNextSibling(n);
     }
     CodeSystemConvertor.populate(cs, vs);
     cs.setUrl("http://hl7.org/fhir/operation-outcome");
@@ -339,6 +316,13 @@ public class ValueSetGenerator {
     cs.setCaseSensitive(true);
     cs.setContent(CodeSystemContentMode.COMPLETE);
     definitions.getCodeSystems().put(cs.getUrl(), cs);
+  }
+
+  private List<String> sorted(Set<String> keys) {
+    List<String> sl = new ArrayList<String>();
+    sl.addAll(keys);
+    Collections.sort(sl);
+    return sl;
   }
 
 

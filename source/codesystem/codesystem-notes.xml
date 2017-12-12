@@ -131,12 +131,18 @@ basic property URIs are defined:
  <tr><td>http://hl7.org/fhir/concept-properties#notSelectable</td><td>This concept is a grouping concept and not intended to be used in
    the normal use of the code system (though my be used for filters etc). This is also known as 'Abstract'</td></tr>
 </table>
+
+<a name="hierarchy"> </a>
+<h3>Concept Hierarchy</h3>
 <p>
-Typically, Code systems are presented hierachically, where the hierachy has <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">a defined meaning</a>.
-For this reason, the parent and child properties are mostly only used when performing concept lookup.
-Note that in some code systems, concepts may have multiple parents, so the parent property may repeat.
+Typically, Code systems are presented hierachically, using nested <code>concept</code> properties, where the 
+hierachy has a defined meaning specified in <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning"><code>hierarchyMeaning</code></a>.
+The code system hierarchy is a single tree, where concepts have only one parents. Note that in some code systems, concepts may have multiple parents, so the parent property may repeat.
 These code systems are not usually presented in a hierachical fashion in a <code>CodeSystem</code> if they are represented in a CodeSystem at all. If they are,
 then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> must be used.
+</p>
+<p>
+The parent and child properties above are mostly only used when performing concept lookup (using the <a href="codesystem-opreations.html#lookup">$lookup</a> operation.
 </p>
 
 <a name="subsumption"> </a>

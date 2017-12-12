@@ -18,6 +18,7 @@ import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -73,6 +74,7 @@ import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.utilities.TranslatorXml;
 import org.hl7.fhir.utilities.Utilities;
 import org.fhir.ucum.UcumEssenceService;
 import org.fhir.ucum.UcumException;
@@ -82,6 +84,7 @@ import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
@@ -126,7 +129,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   
 
 
-  public BuildWorkerContext(Definitions definitions, FHIRToolingClient client, Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles) throws UcumException {
+  public BuildWorkerContext(Definitions definitions, FHIRToolingClient client, Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles, String folder) throws UcumException, ParserConfigurationException, SAXException, IOException {
     super();
     this.definitions = definitions;
     this.txServer = client;
@@ -136,6 +139,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     this.structures = profiles;
     this.cacheValidation = true;
     setExpansionProfile(buildExpansionProfile());
+    this.setTranslator(new TranslatorXml(Utilities.path(folder, "implementations", "translations.xml")));
   }
 
   private ExpansionProfile buildExpansionProfile() {

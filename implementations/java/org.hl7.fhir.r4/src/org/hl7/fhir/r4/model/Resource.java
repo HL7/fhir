@@ -419,5 +419,10 @@ public abstract class Resource extends BaseResource implements IAnyResource {
   }
   public abstract ResourceType getResourceType();
 
+  public String getLanguage(String defValue) {
+    return hasLanguage() ? getLanguage() : defValue;
+  }
+
+  
 }
 

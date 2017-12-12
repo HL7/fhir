@@ -49,6 +49,7 @@ import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.DOMException;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -104,7 +105,9 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     boolean select;
     String code;
     String display;
+    String displayNL;
     String definition;
+    String definitionNL;
     String textDefinition;
     String partOf;
     boolean inactive;
@@ -133,6 +136,11 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         concept.setCode(code);
         concept.setDisplay(display);
         concept.setDefinition(textDefinition);
+        if (displayNL != null)
+          concept.addDesignation().setLanguage("nl").setValue(displayNL).getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode("display");
+        if (definitionNL != null)
+          concept.addDesignation().setLanguage("nl").setValue(definitionNL).getUse().setSystem("http://hl7.org/fhir/CodeSystem/designation-usage").setCode("definition");
+        
         if (doPart && partOf != null)
           concept.addProperty().setCode("partOf").setValue(new CodeType(partOf));
         if (!concept.hasDefinition())
@@ -176,7 +184,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     }
   }
 
-  private void buildV3CodeSystem(VSPack vp, String id, String date, Element e, String csOid, String vsOid) throws Exception {
+  private void buildV3CodeSystem(VSPack vp, String id, String date, Element e, String csOid, String vsOid, Element nl) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
     ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
@@ -216,6 +224,11 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 //      s.append("<p>").append(nodeToString(r)).append("</p>\r\n");
 //      s.append("<hr/>\r\n");
       vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r));
+      r = XMLUtil.getNamedChildByAttribute(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(nl, "annotations"), "documentation"), "description"), "text", "lang", "nl");
+      if (r == null)
+        r = XMLUtil.getNamedChildByAttribute(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(nl, "annotations"), "documentation"), "definition"), "text", "lang", "nl");
+      if (r != null)
+        ToolingExtensions.addLanguageTranslation(vs.getDescriptionElement(), "nl", XMLUtil.htmlToXmlEscapedPlainText(r));
     } else
       vs.setDescription("**** MISSING DEFINITIONS ****");
 
@@ -251,11 +264,16 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
         ci.select = !"false".equals(c.getAttribute("isSelectable"));
         r = XMLUtil.getNamedChild(c, "code");
         ci.code = r == null ? null : r.getAttribute("code");
+        Element enl = getCodeFromSecondary(nl, ci.code);
         r = XMLUtil.getNamedChild(c, "printName");
         ci.display = r == null ? null : r.getAttribute("text");
+        r = XMLUtil.getNamedChildByAttribute(enl, "printName", "language", "nl");
+        ci.displayNL = r == null ? null : r.getAttribute("text");
         r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "documentation"), "definition"), "text");
         ci.definition = r == null ? null : nodeToString(r);
         ci.textDefinition = r == null ? null : nodeToText(r).trim();
+        r = XMLUtil.getNamedChildByAttribute(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(enl, "annotations"), "documentation"), "definition"), "text", "lang", "nl");
+        ci.definitionNL = r == null ? null : nodeToText(r).trim();
         if (partOfName != null)
          ci.partOf = getRelationshipValue(c, partOfName);  
         if ("retired".equals(XMLUtil.getNamedChild(c, "code").getAttribute("status")))
@@ -319,6 +337,20 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 
   }
 
+  private Element getCodeFromSecondary(Element cs, String code) {
+    if (cs == null)
+      return null;
+    List<Element> rvl = XMLUtil.getNamedChildren(cs, "releasedVersion");
+    for (Element rv : rvl) {
+      List<Element> cl = XMLUtil.getNamedChildren(rv, "concept");
+      for (Element c : cl) {
+        if (code.equals(XMLUtil.getNamedChildAttribute(c, "code", "code")))
+            return c;
+      }
+    }
+    return null;
+  }
+
   private String getRelationshipValue(Element e, String partOfName) {
     List<Element> rl = new ArrayList<Element>();
     XMLUtil.getNamedChildren(e, "conceptRelationship", rl);
@@ -347,6 +379,9 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     factory.setNamespaceAware(true);
     DocumentBuilder builder = factory.newDocumentBuilder();
     page.setV3src(builder.parse(new CSFileInputStream(new CSFile(page.getFolders().srcDir + "v3" + File.separator + "source.xml"))));
+    Document nl = builder.parse(new CSFileInputStream(new CSFile(page.getFolders().srcDir + "v3" + File.separator + "source_nl.xml")));
+    
+    
     String dt = null;
     Map<String, CodeSystem> codesystems = new HashMap<String, CodeSystem>();
     Set<String> cslist = new HashSet<String>();
@@ -372,7 +407,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
           if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", id)) {
             String vsOid = getVSForCodeSystem(page.getV3src().getDocumentElement(), e.getAttribute("codeSystemId"));
             VSPack vp = new VSPack();
-            buildV3CodeSystem(vp, id, dt, e, e.getAttribute("codeSystemId"), vsOid);
+            buildV3CodeSystem(vp, id, dt, e, e.getAttribute("codeSystemId"), vsOid, getNLcS(nl, id));
             if (vp.vs.hasDate())
               vp.vs.getMeta().setLastUpdatedElement(new InstantType(vp.vs.getDate()));
             else
@@ -414,6 +449,16 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       }
       e = XMLUtil.getNextSibling(e);
     }
+  }
+
+  private Element getNLcS(Document nl, String id) {
+    Element e = XMLUtil.getFirstChild(nl.getDocumentElement());
+    while (e != null) {
+      if (e.getNodeName().equals("codeSystem") && e.getAttribute("name").equals(id))
+        return e;
+      e = XMLUtil.getNextSibling(e);
+    }
+    return null;
   }
 
   private boolean deprecated(Element cs) {

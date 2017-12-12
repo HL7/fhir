@@ -30,8 +30,10 @@ POSSIBILITY OF SUCH DAMAGE.
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.r4.model.BooleanType;
@@ -543,6 +545,18 @@ public class ToolingExtensions {
     if (ex.getValue() instanceof IntegerType)
       return ((IntegerType) ex.getValue()).getValue();
     throw new Error("Unable to read extension "+uri+" as an integer");
+  }
+
+  public static Map<String, String> getLanguageTranslations(Element e) {
+    Map<String, String> res = new HashMap<String, String>();
+    for (Extension ext : e.getExtension()) {
+      if (ext.getUrl().equals(EXT_TRANSLATION)) {
+        String lang = readStringExtension(ext, "lang");
+        String value = readStringExtension(ext, "content");
+        res.put(lang,  value);
+      }
+    }
+    return res;
   }
 
 //  public static boolean hasOID(ValueSet vs) {

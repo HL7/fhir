@@ -157,6 +157,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.TranslationServices;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -293,7 +294,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (r instanceof ValueSet) {
       return generate(rcontext, (ValueSet) r, true); // Maintainer = Grahame
     } else if (r instanceof CodeSystem) {
-      return generate(rcontext, (CodeSystem) r, true); // Maintainer = Grahame
+      return generate(rcontext, (CodeSystem) r, true, null); // Maintainer = Grahame
     } else if (r instanceof OperationOutcome) {
       return generate(rcontext, (OperationOutcome) r); // Maintainer = Grahame
     } else if (r instanceof CapabilityStatement) {
@@ -2474,43 +2475,42 @@ public class NarrativeGenerator implements INarrativeGenerator {
    * @throws FHIRFormatError
    * @throws Exception
    */
-  public boolean generate(ResourceContext rcontext, CodeSystem cs, boolean header) throws FHIRFormatError, DefinitionException, IOException {
+  public boolean generate(ResourceContext rcontext, CodeSystem cs, boolean header, String lang) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     boolean hasExtensions = false;
-    hasExtensions = generateDefinition(x, cs, header);
+    hasExtensions = generateDefinition(x, cs, header, lang);
     inject(cs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
     return true;
   }
 
-  private boolean generateDefinition(XhtmlNode x, CodeSystem cs, boolean header) throws FHIRFormatError, DefinitionException, IOException {
+  private boolean generateDefinition(XhtmlNode x, CodeSystem cs, boolean header, String lang) throws FHIRFormatError, DefinitionException, IOException {
     boolean hasExtensions = false;
-    List<String> langs = new ArrayList<String>();
 
     if (header) {
       XhtmlNode h = x.h2();
       h.addText(cs.hasTitle() ? cs.getTitle() : cs.getName());
       addMarkdown(x, cs.getDescription());
       if (cs.hasCopyright())
-        generateCopyright(x, cs);
+        generateCopyright(x, cs, lang);
     }
 
-    generateProperties(x, cs);
-    generateFilters(x, cs);
+    generateProperties(x, cs, lang);
+    generateFilters(x, cs, lang);
     List<UsedConceptMap> maps = new ArrayList<UsedConceptMap>();
-    hasExtensions = generateCodeSystemContent(x, cs, hasExtensions, langs, maps );
+    hasExtensions = generateCodeSystemContent(x, cs, hasExtensions, maps, lang);
 
     return hasExtensions;
   }
 
-  private void generateFilters(XhtmlNode x, CodeSystem cs) {
+  private void generateFilters(XhtmlNode x, CodeSystem cs, String lang) {
     if (cs.hasFilter()) {
-      x.para().b().tx("Filters");
+      x.para().b().tx(context.translator().translate("xhtml-gen-cs", "Filters", lang));
       XhtmlNode tbl = x.table("grid");
       XhtmlNode tr = tbl.tr();
-      tr.td().b().tx("Code");
-      tr.td().b().tx("Description");
-      tr.td().b().tx("operator");
-      tr.td().b().tx("Value");
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Code", lang));
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Description", lang));
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "operator", lang));
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Value", lang));
       for (CodeSystemFilterComponent f : cs.getFilter()) {
         tr = tbl.tr();
         tr.td().tx(f.getCode());
@@ -2523,15 +2523,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private void generateProperties(XhtmlNode x, CodeSystem cs) {
+  private void generateProperties(XhtmlNode x, CodeSystem cs, String lang) {
     if (cs.hasProperty()) {
-      x.para().b().tx("Properties");
+      x.para().b().tx(context.translator().translate("xhtml-gen-cs", "Properties", lang));
       XhtmlNode tbl = x.table("grid");
       XhtmlNode tr = tbl.tr();
-      tr.td().b().tx("Code");
-      tr.td().b().tx("URL");
-      tr.td().b().tx("Description");
-      tr.td().b().tx("Type");
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Code", lang));
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "URL", lang));
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Description", lang));
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Type", lang));
       for (PropertyComponent p : cs.getProperty()) {
         tr = tbl.tr();
         tr.td().tx(p.getCode());
@@ -2542,16 +2542,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private boolean generateCodeSystemContent(XhtmlNode x, CodeSystem cs, boolean hasExtensions, List<String> langs, List<UsedConceptMap> maps) throws FHIRFormatError, DefinitionException, IOException {
+  private boolean generateCodeSystemContent(XhtmlNode x, CodeSystem cs, boolean hasExtensions, List<UsedConceptMap> maps, String lang) throws FHIRFormatError, DefinitionException, IOException {
     XhtmlNode p = x.para();
     if (cs.getContent() == CodeSystemContentMode.COMPLETE)
-      p.tx("This code system "+cs.getUrl()+" defines the following codes:");
+      p.tx(context.translator().translateAndFormat("xhtml-gen-cs", lang, "This code system %s defines the following codes", cs.getUrl())+":");
     else if (cs.getContent() == CodeSystemContentMode.EXAMPLE)
-        p.tx("This code system "+cs.getUrl()+" defines many codes, of which the following are some examples:");
+      p.tx(context.translator().translateAndFormat("xhtml-gen-cs", lang, "This code system %s defines many codes, of which the following are some examples", cs.getUrl())+":");
     else if (cs.getContent() == CodeSystemContentMode.FRAGMENT )
-      p.tx("This code system "+cs.getUrl()+" defines many codes, of which the following are a subset:");
+      p.tx(context.translator().translateAndFormat("xhtml-gen-cs", lang, "This code system %s defines many codes, of which the following are a subset", cs.getUrl())+":");
     else if (cs.getContent() == CodeSystemContentMode.NOTPRESENT ) {
-      p.tx("This code system "+cs.getUrl()+" defines many codes, but they are not represented here");
+      p.tx(context.translator().translateAndFormat("xhtml-gen-cs", lang, "This code system %s defines many codes, but they are not represented here", cs.getUrl()));
       return false;
     }
     XhtmlNode t = x.table( "codes");
@@ -2559,29 +2559,30 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean deprecated = false;
     boolean display = false;
     boolean hierarchy = false;
+    boolean version = false;
     for (ConceptDefinitionComponent c : cs.getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
       deprecated = deprecated || conceptsHaveDeprecated(cs, c);
       display = display || conceptsHaveDisplay(c);
+      version = version || conceptsHaveVersion(c);
       hierarchy = hierarchy || c.hasConcept();
-      scanLangs(c, langs);
     }
-    addMapHeaders(addTableHeaderRowStandard(t, hierarchy, display, true, commentS, deprecated), maps);
+    addMapHeaders(addTableHeaderRowStandard(t, hierarchy, display, true, commentS, version, deprecated, lang), maps);
     for (ConceptDefinitionComponent c : cs.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, maps, cs.getUrl(), cs) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, version, deprecated, maps, cs.getUrl(), cs, lang) || hasExtensions;
     }
-    if (langs.size() > 0) {
-      Collections.sort(langs);
-      x.para().b().tx("Additional Language Displays");
-      t = x.table( "codes");
-      XhtmlNode tr = t.tr();
-      tr.td().b().tx("Code");
-      for (String lang : langs)
-        tr.td().b().addText(describeLang(lang));
-      for (ConceptDefinitionComponent c : cs.getConcept()) {
-        addLanguageRow(c, t, langs);
-      }
-    }
+//    if (langs.size() > 0) {
+//      Collections.sort(langs);
+//      x.para().b().tx("Additional Language Displays");
+//      t = x.table( "codes");
+//      XhtmlNode tr = t.tr();
+//      tr.td().b().tx("Code");
+//      for (String lang : langs)
+//        tr.td().b().addText(describeLang(lang));
+//      for (ConceptDefinitionComponent c : cs.getConcept()) {
+//        addLanguageRow(c, t, langs);
+//      }
+//    }
     return hasExtensions;
   }
 
@@ -2593,9 +2594,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return count;
   }
 
-  private void generateCopyright(XhtmlNode x, CodeSystem cs) {
+  private void generateCopyright(XhtmlNode x, CodeSystem cs, String lang) {
     XhtmlNode p = x.para();
-    p.b().tx("Copyright Statement:");
+    p.b().tx(context.translator().translate("xhtml-gen-cs", "Copyright Statement:", lang));
     smartAddText(p, " " + cs.getCopyright());
   }
 
@@ -3015,17 +3016,17 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private void scanLangs(ConceptDefinitionComponent c, List<String> langs) {
-    for (ConceptDefinitionDesignationComponent designation : c.getDesignation()) {
-      if (designation.hasLanguage()) {
-        String lang = designation.getLanguage();
-        if (langs != null && !langs.contains(lang) && !c.getDisplay().equalsIgnoreCase(designation.getValue()))
-          langs.add(lang);
-      }
-    }
-    for (ConceptDefinitionComponent g : c.getConcept())
-      scanLangs(g, langs);
-  }
+//  private void scanLangs(ConceptDefinitionComponent c, List<String> langs) {
+//    for (ConceptDefinitionDesignationComponent designation : c.getDesignation()) {
+//      if (designation.hasLanguage()) {
+//        String lang = designation.getLanguage();
+//        if (langs != null && !langs.contains(lang) && c.hasDisplay() && !c.getDisplay().equalsIgnoreCase(designation.getValue()))
+//          langs.add(lang);
+//      }
+//    }
+//    for (ConceptDefinitionComponent g : c.getConcept())
+//      scanLangs(g, langs);
+//  }
 
   private void addMapHeaders(XhtmlNode tr, List<UsedConceptMap> maps) throws FHIRFormatError, DefinitionException, IOException {
 	  for (UsedConceptMap m : maps) {
@@ -3068,6 +3069,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return false;
   }
 
+  private boolean conceptsHaveVersion(ConceptDefinitionComponent c) {
+    if (c.hasUserData("cs.version.notes"))
+      return true;
+    for (ConceptDefinitionComponent g : c.getConcept())
+      if (conceptsHaveVersion(g))
+        return true;
+    return false;
+  }
+
   private boolean conceptsHaveDeprecated(CodeSystem cs, ConceptDefinitionComponent c) {
     if (CodeSystemUtilities.isDeprecated(cs, c))
       return true;
@@ -3084,19 +3094,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
 
-  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean hasHierarchy, boolean hasDisplay, boolean definitions, boolean comments, boolean deprecated) {
+  private XhtmlNode addTableHeaderRowStandard(XhtmlNode t, boolean hasHierarchy, boolean hasDisplay, boolean definitions, boolean comments, boolean version, boolean deprecated, String lang) {
     XhtmlNode tr = t.tr();
     if (hasHierarchy)
       tr.td().b().tx("Lvl");
-    tr.td().b().tx("Code");
+    tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Code", lang));
     if (hasDisplay)
-      tr.td().b().tx("Display");
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Display", lang));
     if (definitions)
-      tr.td().b().tx("Definition");
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Definition", lang));
     if (deprecated)
-      tr.td().b().tx("Deprecated");
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Deprecated", lang));
     if (comments)
-      tr.td().b().tx("Comments");
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Comments", lang));
+    if (version)
+      tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Version", lang));
     return tr;
   }
 
@@ -3189,7 +3201,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   }
 
-  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean deprecated, List<UsedConceptMap> maps, String system, CodeSystem cs) {
+  private String langDisplay(String l, boolean isShort) {
+    ValueSet vs = context.fetchResource(ValueSet.class, "http://hl7.org/fhir/ValueSet/languages");
+    for (ConceptReferenceComponent vc : vs.getCompose().getInclude().get(0).getConcept()) {
+      if (vc.getCode().equals(l)) {
+        for (ConceptReferenceDesignationComponent cd : vc.getDesignation()) {
+          if (cd.getLanguage().equals(l))
+            return cd.getValue()+(isShort ? "" : " ("+vc.getDisplay()+")");
+        }
+        return vc.getDisplay();
+      }
+    }
+    return "??Lang";
+  }
+ 
+  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean version, boolean deprecated, List<UsedConceptMap> maps, String system, CodeSystem cs, String lang) {
     boolean hasExtensions = false;
     XhtmlNode tr = t.tr();
     XhtmlNode td = tr.td();
@@ -3207,17 +3233,64 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     if (hasDisplay) {
       td = tr.td();
-      if (c.hasDisplayElement())
-        td.addText(c.getDisplay());
+      if (c.hasDisplayElement()) {
+        if (lang == null) {
+          td.addText(c.getDisplay());
+        } else if (lang.equals("*")) {
+          boolean sl = false;
+          for (ConceptDefinitionDesignationComponent cd : c.getDesignation()) 
+            if (cd.getUse().is("http://hl7.org/fhir/CodeSystem/designation-usage", "display") && cd.hasLanguage() && !c.getDisplay().equalsIgnoreCase(cd.getValue())) 
+              sl = true;
+          td.addText((sl ? cs.getLanguage("en")+": " : "")+c.getDisplay());
+          for (ConceptDefinitionDesignationComponent cd : c.getDesignation()) {
+            if (cd.getUse().is("http://hl7.org/fhir/CodeSystem/designation-usage", "display") && cd.hasLanguage() && !c.getDisplay().equalsIgnoreCase(cd.getValue())) {
+              td.br();
+              td.addText(cd.getLanguage()+": "+cd.getValue());
+            }
+          }
+       } else if (lang.equals(cs.getLanguage()) || (lang.equals("en") && !cs.hasLanguage())) {
+         td.addText(c.getDisplay());
+       } else {
+         for (ConceptDefinitionDesignationComponent cd : c.getDesignation()) {
+           if (cd.getUse().is("http://hl7.org/fhir/CodeSystem/designation-usage", "display") && cd.hasLanguage() && cd.getLanguage().equals(lang)) {
+             td.addText(cd.getValue());
+           }
+         }
+       }
+      }
     }
     td = tr.td();
-    if (c != null)
-      smartAddText(td, c.getDefinition());
+    if (c != null && 
+        c.hasDefinitionElement()) {
+      if (lang == null) {
+        td.addText(c.getDefinition());
+      } else if (lang.equals("*")) {
+        boolean sl = false;
+        for (ConceptDefinitionDesignationComponent cd : c.getDesignation()) 
+          if (cd.getUse().is("http://hl7.org/fhir/CodeSystem/designation-usage", "definition") && cd.hasLanguage() && !c.getDefinition().equalsIgnoreCase(cd.getValue())) 
+            sl = true;
+        td.addText((sl ? cs.getLanguage("en")+": " : "")+c.getDefinition());
+        for (ConceptDefinitionDesignationComponent cd : c.getDesignation()) {
+          if (cd.getUse().is("http://hl7.org/fhir/CodeSystem/designation-usage", "definition") && cd.hasLanguage() && !c.getDefinition().equalsIgnoreCase(cd.getValue())) {
+            td.br();
+            td.addText(cd.getLanguage()+": "+cd.getValue());
+          }
+        }
+     } else if (lang.equals(cs.getLanguage()) || (lang.equals("en") && !cs.hasLanguage())) {
+       td.addText(c.getDefinition());
+     } else {
+       for (ConceptDefinitionDesignationComponent cd : c.getDesignation()) {
+         if (cd.getUse().is("http://hl7.org/fhir/CodeSystem/designation-usage", "definition") && cd.hasLanguage() && cd.getLanguage().equals(lang)) {
+           td.addText(cd.getValue());
+         }
+       }
+     }
+    }
     if (deprecated) {
       td = tr.td();
       Boolean b = CodeSystemUtilities.isDeprecated(cs, c);
       if (b !=  null && b) {
-        smartAddText(td, "Deprecated");
+        smartAddText(td, context.translator().translate("xhtml-gen-cs", "Deprecated", lang));
         hasExtensions = true;
         if (ToolingExtensions.hasExtension(c, ToolingExtensions.EXT_REPLACED_BY)) {
           Coding cc = (Coding) ToolingExtensions.getExtension(c, ToolingExtensions.EXT_REPLACED_BY).getValue();
@@ -3233,11 +3306,48 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     if (comment) {
       td = tr.td();
-      String s = ToolingExtensions.getCSComment(c);
-      if (s != null) {
-        smartAddText(td, s);
+      Extension ext = c.getExtensionByUrl(ToolingExtensions.EXT_CS_COMMENT);
+      if (ext != null) {
         hasExtensions = true;
-      }
+        String bc = ext.hasValue() ? ext.getValue().primitiveValue() : null;
+        Map<String, String> translations = ToolingExtensions.getLanguageTranslations(ext.getValue());
+
+        if (lang == null) {
+          if (bc != null)
+            td.addText(bc);
+        } else if (lang.equals("*")) {
+          boolean sl = false;
+          for (String l : translations.keySet()) 
+            if (bc == null || !bc.equalsIgnoreCase(translations.get(l))) 
+              sl = true;
+          if (bc != null) {
+            td.addText((sl ? cs.getLanguage("en") : "")+bc);
+          }
+          for (String l : translations.keySet()) {
+            if (bc == null || !bc.equalsIgnoreCase(translations.get(l))) {
+              if (!td.getChildNodes().isEmpty()) 
+                td.br();
+              td.addText(l+": "+translations.get(l));
+            }
+          }
+        } else if (lang.equals(cs.getLanguage()) || (lang.equals("en") && !cs.hasLanguage())) {
+          if (bc != null)
+            td.addText(bc);
+        } else {
+          if (bc != null)
+            translations.put(cs.getLanguage("en"), bc);
+          for (String l : translations.keySet()) { 
+            if (l.equals(lang)) {
+              td.addText(translations.get(l));
+            }
+          }
+        }
+      }      
+    }
+    if (version) {
+      td = tr.td();
+      if (c.hasUserData("cs.version.notes"))
+        td.addText(c.getUserString("cs.version.notes"));
     }
     for (UsedConceptMap m : maps) {
       td = tr.td();
@@ -3265,7 +3375,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       a.addText(c.getCode());
     }
     for (ConceptDefinitionComponent cc : c.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHierarchy, hasDisplay, comment, deprecated, maps, system, cs) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHierarchy, hasDisplay, comment, version, deprecated, maps, system, cs, lang) || hasExtensions;
     }
     return hasExtensions;
   }
@@ -3449,7 +3559,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           }
           if (hasComments || hasDefinition)
             hasExtensions = true;
-          addMapHeaders(addTableHeaderRowStandard(t, false, true, hasDefinition, hasComments, false), maps);
+          addMapHeaders(addTableHeaderRowStandard(t, false, true, hasDefinition, hasComments, false, false, null), maps);
           for (ConceptReferenceComponent c : inc.getConcept()) {
             XhtmlNode tr = t.tr();
             XhtmlNode td = tr.td();

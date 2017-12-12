@@ -524,6 +524,10 @@ public class Coding extends Type implements IBaseCoding, ICompositeType, ICoding
         return true;
       }
 
+      public boolean is(String system, String code) {
+        return hasSystem() && hasCode() &&  this.getSystem().equals(system) && this.getCode().equals(code);
+      }
+
 
 // end addition
 

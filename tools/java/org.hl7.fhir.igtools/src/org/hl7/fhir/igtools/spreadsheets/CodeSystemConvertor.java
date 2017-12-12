@@ -66,6 +66,7 @@ public class CodeSystemConvertor {
     }
     cs.setDate(vs.getDate());
     cs.setDescription(vs.getDescription());
+    cs.getDescriptionElement().getExtension().addAll(vs.getDescriptionElement().getExtension());
     for (UsageContext cc : vs.getUseContext())
       cs.addUseContext(cc);
     cs.setPurpose(vs.getPurpose());

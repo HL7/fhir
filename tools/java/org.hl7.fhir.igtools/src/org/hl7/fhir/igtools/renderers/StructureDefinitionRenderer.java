@@ -53,7 +53,7 @@ import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.TranslatingUtilities.TranslationServices;
+import org.hl7.fhir.utilities.TranslationServices;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 public class StructureDefinitionRenderer extends BaseRenderer {
@@ -75,7 +75,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   @Override
-  public void setTranslator(org.hl7.fhir.utilities.TranslatingUtilities.TranslationServices translator) {
+  public void setTranslator(org.hl7.fhir.utilities.TranslationServices translator) {
     super.setTranslator(translator);
     utils.setTranslator(translator);
   }
