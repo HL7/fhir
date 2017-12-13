@@ -68,7 +68,6 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.Profile.ConformancePackageSourceType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.StandardsStatus;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
@@ -100,6 +99,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -199,17 +199,17 @@ public class SourceParser {
       definitions.getDeletedResources().add(n);
 
     for (String n : ini.getPropertyNames("infrastructure"))
-      loadCompositeType(n, definitions.getInfrastructure());
+      loadCompositeType(n, definitions.getInfrastructure(), "5", StandardsStatus.NORMATIVE);
 
     for (String n : ini.getPropertyNames("types"))
-      loadCompositeType(n, definitions.getTypes());	
+      loadCompositeType(n, definitions.getTypes(), "5", StandardsStatus.NORMATIVE);	
     for (String n : ini.getPropertyNames("structures"))
-      loadCompositeType(n, definitions.getStructures());
+      loadCompositeType(n, definitions.getStructures(), "5", StandardsStatus.NORMATIVE);
 
     String[] shared = ini.getPropertyNames("shared"); 
     if(shared != null)
       for (String n : shared )
-        definitions.getShared().add(loadCompositeType(n, definitions.getStructures()));
+        definitions.getShared().add(loadCompositeType(n, definitions.getStructures(), "2", StandardsStatus.TRIAL_USE));
 
     String[] logical = ini.getPropertyNames("logical"); 
     if(logical != null)
@@ -881,7 +881,7 @@ public class SourceParser {
     }
   }
 
-  private String loadCompositeType(String n, Map<String, org.hl7.fhir.definitions.model.TypeDefn> map) throws Exception {
+  private String loadCompositeType(String n, Map<String, org.hl7.fhir.definitions.model.TypeDefn> map, String fmm, StandardsStatus status) throws Exception {
     TypeParser tp = new TypeParser();
     List<TypeRef> ts = tp.parse(n, false, null, context, true);
     definitions.getKnownTypes().addAll(ts);
@@ -892,6 +892,8 @@ public class SourceParser {
       if (csv.exists()) {
         SpreadsheetParser p = new SpreadsheetParser("core", new CSFileInputStream(csv), csv.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, page, true, ini, wg("fhir"), definitions.getProfileIds(), fpUsages, page.getConceptMaps());
         org.hl7.fhir.definitions.model.TypeDefn el = p.parseCompositeType();
+        el.setFmmLevel(fmm);
+        el.setStandardsStatus(status);
         map.put(t.getName(), el);
         genTypeProfile(el);
         return el.getName();
@@ -959,6 +961,7 @@ public class SourceParser {
     }
     root.setWg(wg);
     root.setFmmLevel(ini.getStringProperty("fmm", n.toLowerCase()));
+    root.setNormativePackage(ini.getStringProperty("normative", root.getName()));
 
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());
@@ -975,7 +978,6 @@ public class SourceParser {
       definitions.getKnownResources().put(root.getName(), new DefinedCode(root.getName(), root.getRoot().getDefinition(), n));
       context.getResourceNames().add(root.getName());
     }
-    root.setNormativePackage(ini.getStringProperty("normative", root.getName()));
     if (root.getNormativePackage() != null)
       root.setStatus(StandardsStatus.NORMATIVE);
     return root;

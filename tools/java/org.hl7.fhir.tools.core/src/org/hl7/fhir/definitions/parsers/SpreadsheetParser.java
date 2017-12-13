@@ -128,6 +128,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
@@ -135,7 +136,6 @@ import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 import com.trilead.ssh2.crypto.Base64;
-import org.hl7.fhir.definitions.model.StandardsStatus;
 
 public class SpreadsheetParser {
 
@@ -1199,7 +1199,13 @@ public class SpreadsheetParser {
         cd.getValueSet().setId(igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUserData("filename", "valueset-"+cd.getValueSet().getId());
-        cd.getValueSet().setUserData("committee", committee);
+        if (!cd.getValueSet().hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+          cd.getValueSet().addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(committee.getCode()));
+        } else {
+          String ec = ToolingExtensions.readStringExtension(cd.getValueSet(), ToolingExtensions.EXT_WORKGROUP);
+          if (!ec.equals(committee))
+            System.out.println("ValueSet "+cd.getValueSet().getUrl()+" WG mismatch 3: is "+ec+", want to set to "+committee.getCode());
+        } 
         if (ig != null) {
           cd.getValueSet().setUserDataINN(ToolResourceUtilities.NAME_RES_IG, ig);
           cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
@@ -1234,7 +1240,14 @@ public class SpreadsheetParser {
         ValueSet vs = cd.getValueSet();
         ValueSetUtilities.makeShareable(vs);
         vs.setUserData("filename", "valueset-"+vs.getId());
-        vs.setUserData("committee", committee);
+        if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+          vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(committee.getCode()));
+        } else {
+          String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
+          if (!ec.equals(committee.getCode()))
+            System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 4: is "+ec+", want to set to "+committee.getCode());
+        } 
+
         if (ig != null) {
           vs.setUserDataINN(ToolResourceUtilities.NAME_RES_IG, ig);
           vs.setUserData("path", ig.getCode()+"/valueset-"+vs.getId()+".html");
@@ -1324,7 +1337,14 @@ public class SpreadsheetParser {
 	      result.setVersion(version);
       result.setUserData("filename", ref);
       result.setUserData("path", ((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ ref+".html");
-      result.setUserData("committee", committee);
+      if (!result.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+        result.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(committee.getCode()));
+      } else {
+        String ec = ToolingExtensions.readStringExtension(result, ToolingExtensions.EXT_WORKGROUP);
+        if (!ec.equals(committee))
+          System.out.println("ValueSet "+result.getUrl()+" WG mismatch 5: is "+ec+", want to set to "+committee.getCode());
+      } 
+
       new CodeSystemConvertor(codeSystems).convert(p, result, filename);
       valuesets.add(result);
 	    return result;

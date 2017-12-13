@@ -36,6 +36,7 @@ import java.util.Map;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ElementDefn {

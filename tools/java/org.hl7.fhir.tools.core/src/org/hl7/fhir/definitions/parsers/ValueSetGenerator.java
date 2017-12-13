@@ -29,6 +29,7 @@ import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Factory;
+import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
@@ -82,7 +83,13 @@ public class ValueSetGenerator {
       vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/data-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
-    vs.setUserData("committee", "fhir");
+    if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+    } else {
+      String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
+      if (!ec.equals("fhir"))
+        System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 6: is "+ec+", want to set to "+"fhir");
+    }     
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
     
     CodeSystem cs = new CodeSystem();
@@ -120,7 +127,13 @@ public class ValueSetGenerator {
       vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/resource-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
-    vs.setUserData("committee", "fhir");
+    if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+    } else {
+      String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
+      if (!ec.equals("fhir"))
+        System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 7: is "+ec+", want to set to "+"fhir");
+    }     
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
     
     CodeSystem cs = new CodeSystem();
@@ -163,7 +176,13 @@ public class ValueSetGenerator {
       vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/abstract-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
-    vs.setUserData("committee", "fhir");
+    if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+    } else {
+      String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
+      if (!ec.equals("fhir"))
+        System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 8: is "+ec+", want to set to "+"fhir");
+    }     
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
     
     CodeSystem cs = new CodeSystem();
@@ -188,7 +207,13 @@ public class ValueSetGenerator {
     if (doAbstract)
       compose.addInclude().setSystem("http://hl7.org/fhir/abstract-types");
     vs.setUserData("filename", "valueset-"+vs.getId());
-    vs.setUserData("committee", "fhir");
+    if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+    } else {
+      String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
+      if (!ec.equals("fhir"))
+        System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 9: is "+ec+", want to set to "+"fhir");
+    }     
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
   }
 
@@ -197,7 +222,13 @@ public class ValueSetGenerator {
       vs.setCompose(new ValueSetComposeComponent());
     vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/message-events");
     vs.setUserData("filename", "valueset-"+vs.getId());
-    vs.setUserData("committee", "fhir");
+    if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+    } else {
+      String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
+      if (!ec.equals("fhir"))
+        System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 10: is "+ec+", want to set to "+"fhir");
+    }     
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
     
     CodeSystem cs = new CodeSystem();
@@ -280,7 +311,13 @@ public class ValueSetGenerator {
     vs.setPublisher("HL7 (FHIR Project)");
     
     vs.setUserData("filename", "valueset-"+vs.getId());
-    vs.setUserData("committee", "fhir");
+    if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
+    } else {
+      String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
+      if (!ec.equals("fhir"))
+        System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 11: is "+ec+", want to set to "+"fhir");
+    }     
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
     
     ContactDetail c = vs.addContact();

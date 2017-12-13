@@ -41,7 +41,6 @@ import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.Invariant;
-import org.hl7.fhir.definitions.model.StandardsStatus;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.ElementDefinition;
@@ -63,6 +62,7 @@ import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 
 public class DictHTMLGenerator  extends OutputStreamWriter {

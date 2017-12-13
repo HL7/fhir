@@ -4023,6 +4023,12 @@ public class Publisher implements URIResolver, SectionNumberer {
         //      src = page.processResourceIncludes(n, resource, xml, json, tx, dict, src, mappings, mappingsList, "res-Detailed Descriptions", n + "-definitions.html", null);
         //      cachePage(n + "-definitions.html", src, "Resource Definitions for " + resource.getName(), true);
       }
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-dependencies.html");
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-Dependencies", n + "-dependencies.html", null, values, resource.getWg(), null), st, n
+              + "-dependencies.html", 0, null), page.getFolders().dstDir + n + "-dependencies.html");
+      page.getHTMLChecker().registerFile(n + "-dependencies.html", "Dependency graph for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+      
       produceMap(resource.getName(), st, resource);
       for (ConceptMap cm : statusCodeConceptMaps)
         if (cm.getUserData("resource-definition") == resource) 
@@ -4365,7 +4371,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (rt.equals("ValueSet")) {
       ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(file));
       vs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
-      vs.setUserData("committee", "fhir");
+      vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
 
       page.getVsValidator().validate(page.getValidationErrors(), "Value set Example "+prefix +n, vs, false, false);
       if (vs.getUrl() == null)
@@ -4379,7 +4385,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       CodeSystem cs = (CodeSystem) new XmlParser().parse(new FileInputStream(file));
       cs.setUserData("example", "true");
       cs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
-      cs.setUserData("committee", "fhir");
+      cs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("fhir"));
       cs.setUserData("path", prefix +n + ".html");
       addToResourceFeed(cs, valueSetsFeed, file.getName());
       page.getCodeSystems().put(cs.getUrl(), cs);

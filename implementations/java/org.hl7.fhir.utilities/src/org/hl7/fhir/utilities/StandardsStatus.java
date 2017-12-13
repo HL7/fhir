@@ -1,6 +1,6 @@
-package org.hl7.fhir.definitions.model;
+package org.hl7.fhir.utilities;
 
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public enum StandardsStatus {
 
@@ -22,7 +22,7 @@ public enum StandardsStatus {
     return "?";
   }
 
-  public static StandardsStatus fromCode(String value) throws Exception {
+  public static StandardsStatus fromCode(String value) throws FHIRException {
     if (Utilities.noString(value))
       return null;
     if (value.equalsIgnoreCase("draft"))
@@ -39,7 +39,7 @@ public enum StandardsStatus {
       return INFORMATIVE;
     if (value.equalsIgnoreCase("EXTERNAL"))
       return EXTERNAL;
-    throw new Exception("Incorrect Standards Status '"+value+"'");
+    throw new FHIRException("Incorrect Standards Status '"+value+"'");
   }
 
   public String getAbbrev() {
@@ -72,5 +72,19 @@ public enum StandardsStatus {
       return "#000000";
     }
     return "?";
+  }
+
+  public boolean canDependOn(StandardsStatus tgtSS) {
+    if (this == DRAFT || this == INFORMATIVE || this == EXTERNAL)
+      return true;
+    if (this == TRIAL_USE)
+      return (tgtSS != DRAFT);
+    if (this == NORMATIVE)
+      return (tgtSS == NORMATIVE || tgtSS == EXTERNAL );
+    return false;
+  }
+
+  public boolean isLowerThan(StandardsStatus status) {
+    return this.compareTo(status) <0;
   }
 }

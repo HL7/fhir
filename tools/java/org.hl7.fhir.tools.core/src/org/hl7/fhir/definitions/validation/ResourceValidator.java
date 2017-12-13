@@ -62,6 +62,7 @@ import org.hl7.fhir.r4.utils.Translations;
 import org.hl7.fhir.r4.validation.BaseValidator;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -700,11 +701,11 @@ public class ResourceValidator extends BaseValidator {
 			  check(errors, path, cd, sd, e);
 			  if (cd.getValueSet() != null) {
 			    if (e.getBinding().getStrength() == BindingStrength.EXAMPLE)
-	          ValueSetUtilities.markStatus(cd.getValueSet(), parent == null ? "fhir" : parent.getWg().getCode(), "Draft", "1");
+	          ValueSetUtilities.markStatus(cd.getValueSet(), parent == null ? "fhir" : parent.getWg().getCode(), StandardsStatus.DRAFT, null, "1");
 			    else if (parent == null)
-            ValueSetUtilities.markStatus(cd.getValueSet(), "fhir", "Draft", "0");
+            ValueSetUtilities.markStatus(cd.getValueSet(), "fhir", StandardsStatus.DRAFT, null, "0");
 			    else
-			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus().toDisplay(), parent.getFmmLevel());
+			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativePackage(), parent.getFmmLevel());
 			    Integer w = (Integer) cd.getValueSet().getUserData("warnings");
 			    if (w != null && w > 0 && !vsWarns.contains(cd.getValueSet().getId())) {
 			      vsWarnings++;

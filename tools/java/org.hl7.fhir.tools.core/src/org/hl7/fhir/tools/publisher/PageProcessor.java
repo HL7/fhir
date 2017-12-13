@@ -74,6 +74,7 @@ import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
 import org.hl7.fhir.definitions.generators.specification.JsonSpecGenerator;
 import org.hl7.fhir.definitions.generators.specification.MappingsGenerator;
+import org.hl7.fhir.definitions.generators.specification.ResourceDependencyGenerator;
 import org.hl7.fhir.definitions.generators.specification.ResourceTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.generators.specification.TerminologyNotesGenerator;
@@ -102,7 +103,6 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.definitions.model.StandardsStatus;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.W5Entry;
@@ -199,6 +199,7 @@ import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -789,7 +790,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         if ("External".equals(ss))
           src = s1+"colse"+s3;
         else
-          src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
+          src = s1+(ss != null && ss.equals("Normative") ? "colsn" : (fmm == null || "0".equals(fmm) ? "colsd" : "cols"))+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         String ss = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS);
@@ -801,7 +802,17 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String fmm = "N/A";
         src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
       } else if (com[0].equals("normative")) {
-        src = s1+getNormativeNote(genlevel(level), com.length < 2 ? null : com[1], workingTitle, file)+s3;
+        String p = null;
+        String wt = workingTitle; 
+        if (com.length >= 2) {
+          if (!com[1].equals("%check"))
+            p = com[1]; 
+          else if ("Normative".equals(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS))) {
+            p = resource.getUserString("ballot.package");
+            wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).getName();
+          }
+        }
+        src = s1+(p == null ? "" : getNormativeNote(genlevel(level), p, wt, file))+s3;
       } else if (com[0].equals("fmmshort")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         String npr = resource == null || !(resource instanceof MetadataResource) ? getNormativePackageRef(com[1]) : "";
@@ -926,9 +937,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1 + (cs == null ? "" : cs.getUrl()) + s3;
         }
       } else if (com[0].equals("vsurl")) {
-        if (resource instanceof CodeSystem)
+        if (resource == null)
+          src = s1 + s3;
+        else if (resource instanceof CodeSystem)
           src = s1 + ((CodeSystem) resource).getUrl() + s3;
-        else
+        else 
           src = s1 + ((ValueSet) resource).getUrl() + s3;
       } else if (com[0].equals("txdef"))
         src = s1 + generateCodeDefinition(Utilities.fileTitle(file)) + s3;
@@ -1450,7 +1463,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String vscommittee(Resource resource) {
-    WorkGroup wg = definitions.getWorkgroups().get(resource.getUserString("committee"));
+    MetadataResource vs = (MetadataResource) resource;
+    WorkGroup wg = definitions.getWorkgroups().get(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP));
     return wg == null ? "??" : "<a _target=\"blank\" href=\""+wg.getUrl()+"\">"+wg.getName()+"</a> Work Group";
   }
 
@@ -4024,7 +4038,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         ValueSet vs = ae;
         if (wantPublish(vs)) {
           String path = (String) ae.getUserData("path");
-          s.append(" <tr><td><a href=\""+pathTail(Utilities.changeFileExt(path, ".html"))+"\">"+n+"</a></td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
+          s.append(" <tr><td><a href=\""+pathTail(Utilities.changeFileExt(path, ".html"))+"\">"+n+"</a>");
+          if ("Normative".equals(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS)))
+            s.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
+          s.append("</td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");
           if (hasId)
             s.append("<td>"+Utilities.oidTail(ValueSetUtilities.getOID(ae))+"</td>");
           s.append("</tr>\r\n");
@@ -4975,7 +4992,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         else
           src = s1 + ((ValueSet) resource).getUrl() + s3;
       } else if (com[0].equals("vsurl")) {
-        if (resource instanceof CodeSystem)
+        if (resource == null) 
+          src = s1 + s3;
+        else if (resource instanceof CodeSystem)
           src = s1 + ((CodeSystem) resource).getUrl() + s3;
         else
           src = s1 + ((ValueSet) resource).getUrl() + s3;
@@ -5619,7 +5638,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (otherValues.containsKey(com[0]))
         src = s1+otherValues.get(com[0])+s3;
       else if (com[0].equals("lmexamples"))
-        src = s1+genExampleList(examples)+s3;      
+        src = s1+genExampleList(examples)+s3; 
+      else if (com[0].equals("dependency-graph"))
+        src = s1+genDependencyGraph(resource, genlevel(level))+s3; 
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -5630,6 +5651,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     }
     return src;
+  }
+
+  private String genDependencyGraph(ResourceDefn resource, String prefix) throws Exception {    
+    ElementDefn e = resource.getRoot();
+    ResourceDependencyGenerator gen = new ResourceDependencyGenerator(folders.dstDir, this, resource.getName()+"-definitions.html", false, resource.getFmmLevel(), resource.getStatus());
+    return "<p>Dependency Graph for "+resource.getName()+" FMM level "+resource.getFmmLevel()+"</p>" + new XhtmlComposer().compose(gen.generate(e, prefix));
+
   }
 
   private String genExampleList(Map<String, String> examples) {
@@ -8652,7 +8680,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (cs != null) {
         if (cs.getUrl().startsWith("http://hl7.org/fhir") && !cs.getUrl().startsWith("http://hl7.org/fhir/v2/") && !cs.getUrl().startsWith("http://hl7.org/fhir/v3/")) {
           b.append("  <tr>\r\n");
-          b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(20)+"</a></td>\r\n");
+          b.append("    <td><a href=\""+cs.getUserString("path")+"\">"+cs.getUrl().substring(20)+"</a>");
+          if ("Normative".equals(ToolingExtensions.readStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS)))
+            b.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
+          b.append("</td>\r\n");
           b.append("    <td>"+cs.getName()+": "+Utilities.escapeXml(cs.getDescription())+"</td>\r\n");
           String oid = CodeSystemUtilities.getOID(cs);
           b.append("    <td>"+(oid == null ? "" : oid)+"</td>\r\n");

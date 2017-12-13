@@ -12,7 +12,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.model.WorkGroup;
-import org.hl7.fhir.definitions.model.StandardsStatus;
 import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
@@ -27,6 +26,7 @@ import org.hl7.fhir.r4.model.Factory;
 import org.hl7.fhir.r4.model.InstantType;
 import org.hl7.fhir.r4.model.Meta;
 import org.hl7.fhir.r4.model.Narrative;
+import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
@@ -43,6 +43,7 @@ import org.hl7.fhir.tools.publisher.SectionNumberer;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -187,7 +188,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
   private void buildV3CodeSystem(VSPack vp, String id, String date, Element e, String csOid, String vsOid, Element nl) throws Exception {
     StringBuilder s = new StringBuilder();
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0");
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setId("v3-"+FormatUtilities.makeId(id));
@@ -201,8 +202,8 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
     vs.setUserData("path", "v3" + "/" + id + "/" + "vs.html");
     
     vs.setUserData("filename", "valueset-"+id);
-    vs.setUserData("committee", "vocab");
-    
+    vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType("vocab"));
+
     Element r = XMLUtil.getNamedChild(e, "releasedVersion");
     if (r != null) {
       s.append("<p>Release Date: " + r.getAttribute("releaseDate") + "</p>\r\n");
@@ -233,7 +234,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
       vs.setDescription("**** MISSING DEFINITIONS ****");
 
     CodeSystem cs = new CodeSystem();
-    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0");
     cs.setUrl("http://hl7.org/fhir/v3/" + id);
     cs.setId("v3-"+FormatUtilities.makeId(id));
     CodeSystemUtilities.setOID(cs, "urn:oid:"+csOid);
@@ -486,7 +487,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 
   private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0");
 
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
@@ -536,7 +537,7 @@ public class ValueSetImporterV3 extends ValueSetImporterBase {
 
   private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, CodeSystem> codesystems, IniFile vsini) throws DOMException, Exception {
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0");
     ValueSetUtilities.makeShareable(vs);
     vs.setUserData("filename", Utilities.path("v3", id, "vs.html"));
     vs.setUserData("path", Utilities.path("v3", id, "vs.html"));

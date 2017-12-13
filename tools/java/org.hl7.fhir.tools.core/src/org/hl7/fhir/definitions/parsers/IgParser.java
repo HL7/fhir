@@ -36,6 +36,7 @@ import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResou
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePageComponent;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.ResourceType;
+import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.UriType;
@@ -167,7 +168,13 @@ public class IgParser {
           vs.setUserData(ToolResourceUtilities.NAME_RES_IG, igd);
           vs.setUserData("path", igd.getPath()+"valueset-"+id+".html");
           vs.setUserData("filename", "valueset-"+id);
-          vs.setUserData("committee", committee);
+          if (!vs.hasExtension(ToolingExtensions.EXT_WORKGROUP)) {
+            vs.addExtension().setUrl(ToolingExtensions.EXT_WORKGROUP).setValue(new StringType(committee.getCode()));
+          } else {
+            String ec = ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP);
+            if (!ec.equals(committee.getCode()))
+              System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 2: is "+ec+", want to set to "+committee);
+          } 
           new CodeSystemConvertor(codeSystems).convert(new XmlParser(), vs, fn.getAbsolutePath());
 //          if (id.contains(File.separator))
           igd.getValueSets().add(vs);

@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Element;

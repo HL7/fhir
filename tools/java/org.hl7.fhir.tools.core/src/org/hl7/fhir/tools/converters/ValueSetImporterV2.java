@@ -17,7 +17,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.definitions.model.WorkGroup;
-import org.hl7.fhir.definitions.model.StandardsStatus;
 import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
@@ -44,6 +43,7 @@ import org.hl7.fhir.tools.publisher.SectionNumberer;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -360,7 +360,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   private ValueSet buildV2ValueSet(String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0");
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
@@ -498,7 +498,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   private void buildV2CodeSystem(VSPack vp, String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0");
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
@@ -516,7 +516,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     StringBuilder s = new StringBuilder();
 
     CodeSystem cs = new CodeSystem();
-    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0");
     String desc = "";
     // we use the latest description of the table
     Element c = XMLUtil.getFirstChild(e);
@@ -662,7 +662,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0");
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, version, "index.html"));
@@ -678,7 +678,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     CodeSystem cs = new CodeSystem();
     CodeSystemUtilities.makeShareable(cs);
     CodeSystemConvertor.populate(cs, vs);
-    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL.toDisplay(), "0");
+    CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0");
     cs.setUserData("spec.vs.cs", vs);
     cs.setContent(CodeSystemContentMode.COMPLETE);
 
