@@ -52,6 +52,13 @@
   v2 = >0190.BA (unclear about old addresses)
   v3 = >AddressUse.OLD(Bad or Old),>AddressUse.BAD(Bad or Old)
 
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = billing
+  Display = Billing
+  Definition = An address to be used to send bills, invoices, receipts etc
+  v2 = ~0190.BI
+
 === Sheet address-type =====================================
 
  -- Row 1 -----------------------------------
@@ -97,7 +104,7 @@
   Is Modifier = Y
   Type = code
   Binding = AddressUse
-  Short Name = home | work | temp | old - purpose of this address
+  Short Name = home | work | temp | old | billing - purpose of this address
   Definition = The purpose of this address
   Requirements = Allows an appropriate address to be chosen from a list of many
   Comments = This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old address etc.for a current/permanent one. Applications can assume that an address is current unless it explicitly says that it is temporary or old
