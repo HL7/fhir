@@ -54,7 +54,7 @@ public class W5TurtleGenerator {
         model.setNsPrefix(RDFNamespace.W5.getPrefix(), RDFNamespace.W5.getURI());
         model.setNsPrefix(RDFNamespace.FHIR.getPrefix(), RDFNamespace.FHIR.getURI());
 
-        Ontology w5 = model.createOntology(RDFNamespace.W5.getURI());
+        Ontology w5 = model.createOntology("http://hl7.org/fhir/w5.ttl");
         w5.addProperty(RDFS.label, "W5 Categorization");
         w5.addProperty(RDFS.comment, "FHIR W5 categorization is a preliminary classification of the fhir property");
         w5.addVersionInfo("FHIR W5 categorization (Preliminary)");

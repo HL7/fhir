@@ -34,7 +34,7 @@ public class FhirTurtleGenerator {
     private Resource value;
 
     // OWL doesn't recognize xsd:gYear, xsd:gYearMonth or xsd:date.  If true, map all three to xsd:datetime
-    private boolean owlTarget = false;
+    private boolean owlTarget = true;
 
 
     public FhirTurtleGenerator(OutputStream destination, Definitions definitions, BuildWorkerContext context,
@@ -107,7 +107,7 @@ public class FhirTurtleGenerator {
         fact.fhir_ontology("fhir.ttl", "FHIR Model Ontology")
                 .addDataProperty(RDFS.comment, "Formal model of FHIR Clinical Resources")
                 .addObjectProperty(OWL2.versionIRI, ResourceFactory.createResource("http://build.fhir.org/fhir.ttl"))
-                .addObjectProperty(OWL2.imports, RDFNamespace.W5.resourceRef(""));
+                .addObjectProperty(OWL2.imports, ResourceFactory.createResource("http://hl7.org/fhir/w5.ttl"));
     }
 
     /**
@@ -148,9 +148,8 @@ public class FhirTurtleGenerator {
 
         // XHTML is an XML Literal -- but it isn't recognized by OWL so we use string
         FHIRResource NarrativeDiv = fact.fhir_dataProperty("Narrative.div");
-        fact.fhir_class("xhtml")
-                .domain(NarrativeDiv)
-                .range(XSD.xstring);
+        fact.fhir_class("xhtml", "Primitive")
+            .restriction(fact.fhir_cardinality_restriction(value, fact.fhir_datatype(XSD.xstring).resource, 1, 1));
     }
 
   /* ==============================================
@@ -167,11 +166,9 @@ public class FhirTurtleGenerator {
         String ptName = pt.getCode();
         FHIRResource ptRes = fact.fhir_class(ptName, "Primitive")
                 .addDefinition(pt.getDefinition());
-        if(!owlTarget) {
-            Resource rdfType = RDFTypeMap.xsd_type_for(ptName);
-            if (rdfType != null)
-                ptRes.restriction(fact.fhir_cardinality_restriction(value, rdfType, 0, 1));
-        }
+        Resource rdfType = RDFTypeMap.xsd_type_for(ptName, owlTarget);
+        if (rdfType != null)
+            ptRes.restriction(fact.fhir_cardinality_restriction(value, fact.fhir_datatype(rdfType).resource, 1, 1));
     }
 
 
@@ -184,23 +181,17 @@ public class FhirTurtleGenerator {
     private void genDefinedStringPattern(DefinedStringPattern dsp) throws Exception {
         String dspType = dsp.getSchema();
         String dspTypeName = dspType.endsWith("+")? dspType.substring(0, dspType.length() - 1) : dspType;
-        Resource dspTypeRes = RDFTypeMap.xsd_type_for(dspTypeName);
+        Resource dspTypeRes = RDFTypeMap.xsd_type_for(dspTypeName, owlTarget);
 
         FHIRResource dspRes = fact.fhir_class(dsp.getCode(), dsp.getBase())
                 .addDefinition(dsp.getDefinition());
 
         if(dspRes != null) {
             if (dspType.endsWith("+")) {
-                // For some reason, Protege won't process constraints directly against string.  While not strictly
-                // correct, we shift them to normalizedString when this situation occurs
-                // The FACT++ reasoner chokes on pattern restrictions so we don't do this for now
-                if (!owlTarget) {
-                    List<Resource> facets = new ArrayList<Resource>(1);
-                    facets.add(fact.fhir_pattern(dsp.getRegex()));
-                    dspRes.restriction(fact.fhir_restriction(value,
-                            fact.fhir_datatype_restriction(dspTypeRes == XSD.xstring ? XSD.normalizedString : dspTypeRes, facets)));
-                } else
-                    dspRes.restriction(fact.fhir_restriction(value, dspTypeRes));
+                List<Resource> facets = new ArrayList<Resource>(1);
+                facets.add(fact.fhir_pattern(dsp.getRegex()));
+                dspRes.restriction(fact.fhir_restriction(value,
+                        fact.fhir_datatype_restriction(dspTypeRes == XSD.xstring ? XSD.normalizedString : dspTypeRes, facets)));
             } else
                 dspRes.restriction(fact.fhir_restriction(value, dspTypeRes));
         }
@@ -294,7 +285,11 @@ public class FhirTurtleGenerator {
                     // Create a restriction on the union of possible types
                     List<Resource> typeOpts = new ArrayList<Resource>();
                     for (TypeRef tr : ed.getTypes()) {
-                        String qualifiedPredicateName = predicateName + Utilities.capitalize(tr.getName());
+                        // TODO: Figure out how to get the type reference code
+                        String trName = tr.getName();
+                        if(trName.equals("SimpleQuantity"))
+                            trName = "Quantity";
+                        String qualifiedPredicateName = predicateName + Utilities.capitalize(trName);
                         Resource targetRes = fact.fhir_class(tr.getName()).resource;
                         FHIRResource qualifiedPredicate = fact.fhir_objectProperty(qualifiedPredicateName, predicateResource.resource)
                                 .domain(baseResource)
