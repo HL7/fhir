@@ -4,7 +4,7 @@
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
-  Id = 2
+  Id = !2
   Context = Range
   English = If present, low SHALL have a lower value than high
   XPath = not(exists(f:low/f:value/@value)) or not(exists(f:high/f:value/@value)) or (number(f:low/f:value/@value) <= number(f:high/f:value/@value))
@@ -25,7 +25,7 @@
  -- Row 2 -----------------------------------
   Element = Range.low
   Card. = 0..1
-  Inv. = 2
+  Inv. = !2
   Type = SimpleQuantity
   Short Name = Low limit
   Definition = The low limit. The boundary is inclusive.
@@ -36,7 +36,7 @@
  -- Row 3 -----------------------------------
   Element = Range.high
   Card. = 0..1
-  Inv. = 2
+  Inv. = !2
   Type = SimpleQuantity
   Short Name = High limit
   Definition = The high limit. The boundary is inclusive.

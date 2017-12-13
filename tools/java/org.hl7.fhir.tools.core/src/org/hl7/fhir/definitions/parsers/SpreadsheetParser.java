@@ -1902,10 +1902,12 @@ public class SpreadsheetParser {
 		s = sheet.getColumn(row, "Inv.");
 		if (s != null && !s.equals("")) {
 		  for (String sn : s.split(",")) {
-		    Invariant inv = invariants.get(sn);
-		    if (inv == null)
-		      throw new Exception("unable to find Invariant '" + sn + "' "   + getLocation(row));
-		    e.getStatedInvariants().add(inv);
+		    if (!sn.startsWith("!")) {
+		      Invariant inv = invariants.get(sn);
+		      if (inv == null)
+		        throw new Exception("unable to find Invariant '" + sn + "' "   + getLocation(row));
+		      e.getStatedInvariants().add(inv);
+		    }
 		  }
 		}
 
