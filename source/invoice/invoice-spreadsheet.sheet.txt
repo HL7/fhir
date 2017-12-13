@@ -66,18 +66,24 @@
 
  -- Row 3 -----------------------------------
   Id = 3
+  Code = deduction
+  Display = deduction
+  Definition = the amount is a deduction applied on the base price
+
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = discount
   Display = discount
   Definition = the amount is a discount applied on the base price
 
- -- Row 4 -----------------------------------
-  Id = 4
+ -- Row 5 -----------------------------------
+  Id = 5
   Code = tax
   Display = tax
   Definition = the amount is the tax component of the total price
 
- -- Row 5 -----------------------------------
-  Id = 5
+ -- Row 6 -----------------------------------
+  Id = 6
   Code = informational
   Display = informational
   Definition = the amount is of informational character, it has not been applied in the calculation of the total price
@@ -136,7 +142,7 @@
   Summary = Y
   Type = CodeableConcept
   Short Name = Type of Invoice
-  Definition = Type of Invoice depending on domain, realm an usage (eg. Internal/external, dental, preliminary)
+  Definition = Type of Invoice depending on domain, realm an usage (eg. internal/external, dental, preliminary)
   Workflow Mapping = Event.code
   v2 Mapping = FT1.7
   RIM Mapping = .code
@@ -194,7 +200,7 @@
   Summary = N
   Type = CodeableConcept
   Short Name = Type of involevent in creation of this Invoice
-  Definition = Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.)
+  Definition = Describes the type of involvement (e.g. transcriptionist, creator etc.). If the invoice has been created automatically, the Participant may be a billing engine or another kind of device.
   v2 Mapping = Varies by domain
   RIM Mapping = .participation.functionCode
 
@@ -214,8 +220,8 @@
   Card. = 0..1
   Summary = N
   Type = Reference(Organization)
-  Short Name = Issuer of Invoice
-  Definition = The organization requesting the service
+  Short Name = Issuing Organization of Invoice
+  Definition = The organizationissuing the Invoice
   Comments = Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered
   v2 Mapping = N/A
   RIM Mapping = .scoper
@@ -226,7 +232,7 @@
   Summary = N
   Type = Reference(Account)
   Short Name = Account that is being balanced
-  Definition = Account into which this ChargeItems belongs
+  Definition = Account which is supposed to be balanced with this Invoice
   Comments = Systems posting the ChargeItems may not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate
 
  -- Row 14 -----------------------------------
@@ -234,7 +240,7 @@
   Card. = 0..*
   Summary = N
   Short Name = Line items of this Invoice
-  Definition = Indicates who or what performed or participated in the charged service
+  Definition = Each line item represents one charge for goods ond services rendered. Details such as date, code and amount are found in the referenced ChargeItem resource
   v2 Mapping = EVN.5 or by domain
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
 
@@ -244,6 +250,7 @@
   Summary = N
   Type = positiveInt
   Short Name = Sequence number of line item
+  Definition = Sequence in which the items appear on the invoice
 
  -- Row 16 -----------------------------------
   Element = Invoice.lineItem.chargeItem
@@ -251,7 +258,7 @@
   Summary = N
   Type = Reference(ChargeItem)
   Short Name = Reference to ChargeItem containing details of this line item
-  Definition = The device, practitioner, etc. who performed or participated in the service
+  Definition = The ChargeItem contains information such as the billing code, date, amount etc.
   v2 Mapping = EVN.5 or by domain
   RIM Mapping = .player
 
@@ -260,7 +267,7 @@
   Card. = 0..*
   Summary = N
   Short Name = Components of total line item price
-  Definition = Indicates who or what performed or participated in the charged service
+  Definition = The price for a ChargeItem may be calculated as a base price with surcharges/deductions that apply in certain conditions. A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under developement. The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the prices have been calculated.
   v2 Mapping = EVN.5 or by domain
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
 
@@ -270,8 +277,8 @@
   Summary = N
   Type = code
   Binding = InvoicePriceComponentType
-  Short Name = base | surcharge | discount | tax | informational
-  Definition = A code that identifies the charge, like a billing code
+  Short Name = base | surcharge | discount | deduction | tax | informational
+  Definition = This code identifies the type of the component
   Workflow Mapping = Event.code
   v2 Mapping = FT1.7
   RIM Mapping = .code
@@ -282,64 +289,72 @@
   Summary = N
   Type = CodeableConcept
   Short Name = Code identifying the specific component
-  Definition = A code that identifies the charge, like a billing code
+  Definition = A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.
   Workflow Mapping = Event.code
   v2 Mapping = FT1.7
   RIM Mapping = .code
 
  -- Row 20 -----------------------------------
-  Element = Invoice.lineItem.priceComponent.amount
-  Card. = 1..1
+  Element = Invoice.lineItem.priceComponent.factor
+  Card. = 0..1
   Summary = N
   Type = Money
   Short Name = Monetary amount associated with this component
-  Definition = Total price of the charge overriding the list price associated with the code
+  Definition = The amount calculated for this component
   Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.22
 
  -- Row 21 -----------------------------------
+  Element = Invoice.lineItem.priceComponent.amount
+  Card. = 0..1
+  Summary = N
+  Type = decimal
+  Short Name = Factor used for calculating this component
+  Definition = The factor that has been applied on the base price for calculating this component
+  Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
+  v2 Mapping = FT1.22
+
+ -- Row 22 -----------------------------------
   Element = Invoice.totalPriceComponent
   Card. = 0..*
   Summary = N
+  Type = @Invoice.lineItem.priceComponent
   Short Name = Components of Invoice total
-  Definition = Indicates who or what performed or participated in the charged service
+  Definition = The total amount for the Invoice may be calculated as the sum of the line items with surcharges/deductions that apply in certain conditions.  The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the total price was calculated
   v2 Mapping = EVN.5 or by domain
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
 
- -- Row 22 -----------------------------------
-  Element = Invoice.totalPriceComponent.type
+ -- Row 23 -----------------------------------
+  Element = !Invoice.totalPriceComponent.type
   Card. = 1..1
   Summary = N
   Type = code
   Binding = InvoicePriceComponentType
-  Short Name = base | surcharge | discount | tax | informational
-  Definition = A code that identifies the charge, like a billing code
-  Workflow Mapping = Event.code
-  v2 Mapping = FT1.7
-  RIM Mapping = .code
-
- -- Row 23 -----------------------------------
-  Element = Invoice.totalPriceComponent.code
-  Card. = 0..1
-  Summary = N
-  Type = CodeableConcept
-  Short Name = Code identifying the specific component
-  Definition = A code that identifies the charge, like a billing code
+  Short Name = base | surcharge | deduction | tax | informational
   Workflow Mapping = Event.code
   v2 Mapping = FT1.7
   RIM Mapping = .code
 
  -- Row 24 -----------------------------------
-  Element = Invoice.totalPriceComponent.amount
+  Element = !Invoice.totalPriceComponent.code
+  Card. = 0..1
+  Summary = N
+  Type = CodeableConcept
+  Short Name = Code identifying the specific component
+  Workflow Mapping = Event.code
+  v2 Mapping = FT1.7
+  RIM Mapping = .code
+
+ -- Row 25 -----------------------------------
+  Element = !Invoice.totalPriceComponent.amount
   Card. = 1..1
   Summary = N
   Type = Money
   Short Name = Monetary amount associated with this component
-  Definition = Total price of the charge overriding the list price associated with the code
   Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.22
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Invoice.totalNet
   Card. = 0..1
   Summary = Y
@@ -349,7 +364,7 @@
   Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.22
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Invoice.totalGross
   Card. = 0..1
   Summary = Y
@@ -359,7 +374,7 @@
   Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.22
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Invoice.paymentTerms
   Card. = 0..1
   Summary = N
@@ -368,7 +383,7 @@
   Definition = Payment details such as banking details, period of payment, deductables, methods of payment
   Comments = Derived Profiles may chose to add invariants requiring this field to be populated if either priceOverride or factorOverride have been filled
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Invoice.note
   Card. = 0..*
   Summary = N
