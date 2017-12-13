@@ -425,14 +425,16 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       indentS += "  ";
     }
     write(indentS);
+    List<ElementDefinition> slices = getSlices(elem, children);
+    boolean hasContent = slices.size() > 0;
+    
     write("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
     + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
-    write("[ // <span style=\"color: navy\">"+describeSlicing(elem.getSlicing())+"</span>");
+    write("[ // <span style=\"color: navy\">"+describeSlicing(elem.getSlicing())+"</span> "+(hasContent ? "" : "]"));
 //    write(" <span style=\"color: Gray\">//</span>");
 //    writeCardinality(elem);
     write("\r\n");
     
-    List<ElementDefinition> slices = getSlices(elem, children);
     int c = 0;
     for (ElementDefinition slice : slices) {
       write(indentS+"  ");
@@ -470,11 +472,13 @@ public class JsonSpecGenerator extends OutputStreamWriter {
         write("  },\r\n");
 
     }
-    write(indentS);
-    if (last)
-      write("]\r\n");
-    else
-      write("],\r\n");
+    if (hasContent) {
+      write(indentS);
+      if (last)
+        write("]\r\n");
+      else
+        write("],\r\n");
+    }
   }
 
   private int lastChild(List<ElementDefinition> extchildren) {
@@ -498,7 +502,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     for (ElementDefinitionSlicingDiscriminatorComponent d : slicing.getDiscriminator()) {
       csv.append(d.getType().toCode()+":"+d.getPath());
     }
-    String s = slicing.getOrdered() ? " in any order" : " in the specified order" + (slicing.hasRules() ? slicing.getRules().getDisplay() : "");
+    String s = slicing.getOrdered() ? " in any order, " : " in the specified order, " + (slicing.hasRules() ? slicing.getRules().getDisplay() : "");
     return " sliced by "+csv.toString()+" "+s;
   }
 
