@@ -44,7 +44,6 @@ public class RDFTypeMap {
         owlTypeMap.put(XSD.gYearMonth, XSD.dateTime);
         owlTypeMap.put(XSD.date, XSD.dateTime);
         owlTypeMap.put(XSD.time, XSD.xstring);
-        owlTypeMap.put(XSD.base64Binary, XSD.xstring);
         owlTypeMap.put(RDFNamespace.FHIR.resourceRef("xhtml"), XSD.xstring);
     }
 
