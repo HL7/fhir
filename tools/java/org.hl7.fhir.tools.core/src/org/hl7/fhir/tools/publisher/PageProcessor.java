@@ -6258,8 +6258,41 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
       b.append(" </tr>\r\n");
     }
+
     if (count == 0)
       b.append("<tr><td>No Extensions defined for this resource</td></tr>");
+
+    map.clear();
+    
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
+      if (sd.getContextType() == ExtensionContext.RESOURCE) {
+        boolean inc = false;
+        for (StringType s : sd.getContext()) {
+          inc = inc || (s.getValue().equals("Resource") || s.getValue().equals("DomainResource") || s.getValue().equals("Any"));
+        }
+        if (inc)
+          map.put(sd.getId(), sd);
+      }
+    }
+
+    b.append("<tr><td colspan=\"3\">Extensions for all resources or elements</td></tr>");
+    for (String s : sorted(map.keySet())) {
+      StructureDefinition cs = map.get(s);
+      count++;
+      b.append("  <tr>\r\n");
+      String ref = cs.getUserString("path");
+      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.getId())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(cs.getName())).append("</td>\r\n");
+      Profile ap = (Profile) cs.getUserData("profile");
+      if (ap == null)
+        b.append("    <td></td>\r\n");
+      else {
+        ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
+        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+      }
+      b.append(" </tr>\r\n");
+    }
+
 
     return b.toString();
   }
@@ -6297,7 +6330,38 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append(" </tr>\r\n");
     }
     if (count == 0)
-      b.append("<tr><td>No Extensions refer to this resource</td></tr>");
+      b.append("<tr><td colspan=\"\3\">No Extensions refer to this resource</td></tr>");
+
+    map.clear();
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
+      boolean refers  = false;
+      for (ElementDefinition ed : sd.getSnapshot().getElement()) {
+        for (TypeRefComponent tr : ed.getType()) {
+          if (tr.hasTargetProfile() && (tr.getTargetProfile().endsWith("/Any") || tr.getTargetProfile().endsWith("/Resource") || tr.getTargetProfile().endsWith("/DomainResource")))
+              refers = true;
+        }
+        if (refers)
+          map.put(sd.getId(), sd);
+      }
+    }
+
+    b.append("<tr><td colspan=\"\3\">Extensions that refer to Any resource</td></tr>");
+    for (String s : sorted(map.keySet())) {
+      StructureDefinition cs = map.get(s);
+      count++;
+      b.append("  <tr>\r\n");
+      String ref = cs.getUserString("path");
+      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.getId())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(cs.getName())).append("</td>\r\n");
+      Profile ap = (Profile) cs.getUserData("profile");
+      if (ap == null)
+        b.append("    <td></td>\r\n");
+      else {
+        ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
+        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+      }
+      b.append(" </tr>\r\n");
+    }
 
     return b.toString();
   }

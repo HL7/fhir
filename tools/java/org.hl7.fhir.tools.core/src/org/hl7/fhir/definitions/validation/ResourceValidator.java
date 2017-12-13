@@ -985,6 +985,7 @@ public class ResourceValidator extends BaseValidator {
     if (cd.getBinding() == BindingMethod.CodeList) {
       if (path.toLowerCase().endsWith("status")) {
         if (rule(errors, IssueType.STRUCTURE, path, definitions.getStatusCodes().containsKey(path), "Status element not registered in status-codes.xml")) {
+//          rule(errors, IssueType.STRUCTURE, path, e.isModifier(), "Status elements that map to status-codes should be labelled as a modifier");
           for (DefinedCode c : ac) {
             boolean ok = false;
             for (String s : definitions.getStatusCodes().get(path)) {
