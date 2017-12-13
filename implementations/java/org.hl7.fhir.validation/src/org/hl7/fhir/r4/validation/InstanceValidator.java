@@ -1429,7 +1429,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   "a.charset", "a.type", "a.name", "a.href", "a.hreflang", "a.rel", "a.rev", "a.shape", "a.coords", "img.src",
                   "img.alt", "img.longdesc", "img.height", "img.width", "img.usemap", "img.ismap", "map.name", "area.shape",
                   "area.coords", "area.href", "area.nohref", "area.alt", "table.summary", "table.width", "table.border",
-                  "table.frame", "table.rules", "table.cellspacing", "table.cellpadding", "pre.space"
+                  "table.frame", "table.rules", "table.cellspacing", "table.cellpadding", "pre.space", "td.nowrap"
                   );
           if (!ok)
             rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "Illegal attribute name in the XHTML ('"+an+"' on '"+node.getName()+"')");

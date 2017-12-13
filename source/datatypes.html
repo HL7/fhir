@@ -143,7 +143,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>instant<a name="instant"> </a></td>
-   <td>An instant in time - <b>known at least to the second and always includes a time zone</b>. Note: This is intended for precisely observed times (typically system logs etc.), and not human-reported times - for them, use date and dateTime. <code>instant</code> is a more constrained dateTime</td>
+   <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL be known at least to the second and SHALL includes a time zone. Note: This is intended for precisely observed times (typically system logs etc.), and not human-reported times - for them, use date and dateTime. <code>instant</code> is a more constrained dateTime</td>
    <td>xs:dateTime</td>
    <td>A JSON string - an xs:dateTime</td>
  </tr>
@@ -157,7 +157,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>date<a name="date"> </a></td>
-   <td>A date, or partial date (e.g. just year or year + month) as used in human communication. <b>There is no time zone</b>. Dates SHALL be valid dates</td>
+   <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates</td>
    <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
    <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
   </tr>
@@ -167,7 +167,8 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>dateTime<a name="dateTime"> </a><a name="datetime"> </a></td>
-   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
+   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g. 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
+    If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
    <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
    <td>A JSON string - a union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
   </tr>
@@ -177,7 +178,8 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>time<a name="time"> </a></td>
-   <td>A time during the day, with no date specified (can be converted to a <a href="#Duration">Duration</a> since midnight). Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. <b>The time "24:00" is not allowed, and neither is a time zone</b></td>
+   <td>A time during the day, in the format hh:mm:ss. There is no date specified. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. 
+   <b>The time "24:00" SHALL not be used. A time zone SHALL not be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
    <td>xs:time</td>
    <td>A JSON string - an xs:time</td>
   </tr>
