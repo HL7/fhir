@@ -103,31 +103,73 @@
   Id = 1
   Code = MORN
   Display = Morning
-  Definition = event occurs during the morning
+  Definition = Event occurs during the morning. The exact time is unspecified and established by instition convention or patient interpretation
 
  -- Row 16 -----------------------------------
+  Id = 7
+  Code = MORN.early
+  Display = Early Morning
+  Definition = Event occurs during the early morning. The exact time is unspecified and established by instition convention or patient interpretation
+
+ -- Row 17 -----------------------------------
+  Id = 8
+  Code = MORN.late
+  Display = Late Morning
+  Definition = Event occurs during the late morning. The exact time is unspecified and established by instition convention or patient interpretation
+
+ -- Row 18 -----------------------------------
+  Id = 6
+  Code = NOON
+  Display = Noon
+  Definition = Event occurs around 12:00pm. The exact time is unspecified and established by instition convention or patient interpretation
+
+ -- Row 19 -----------------------------------
   Id = 2
   Code = AFT
   Display = Afternoon
-  Definition = event occurs during the afternoon
+  Definition = Event occurs during the afternoon. The exact time is unspecified and established by instition convention or patient interpretation
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
+  Id = 9
+  Code = AFT.early
+  Display = Early Afternoon
+  Definition = Event occurs during the early afternoon. The exact time is unspecified and established by instition convention or patient interpretation
+
+ -- Row 21 -----------------------------------
+  Id = 10
+  Code = AFT.late
+  Display = Late Afternoon
+  Definition = Event occurs during the late afternoon. The exact time is unspecified and established by instition convention or patient interpretation
+
+ -- Row 22 -----------------------------------
   Id = 3
   Code = EVE
   Display = Evening
-  Definition = event occurs during the evening
+  Definition = Event occurs during the evening. The exact time is unspecified and established by instition convention or patient interpretation
 
- -- Row 18 -----------------------------------
+ -- Row 23 -----------------------------------
+  Id = 11
+  Code = EVE.early
+  Display = Early Evening
+  Definition = Event occurs during the early evening. The exact time is unspecified and established by instition convention or patient interpretation
+
+ -- Row 24 -----------------------------------
+  Id = 12
+  Code = EVE.late
+  Display = Late Evening
+  Definition = Event occurs during the late evening. The exact time is unspecified and established by instition convention or patient interpretation
+
+ -- Row 25 -----------------------------------
   Id = 4
   Code = NIGHT
   Display = Night
-  Definition = event occurs during the night
+  Definition = Event occurs during the night. The exact time is unspecified and established by instition convention or patient interpretation
 
- -- Row 19 -----------------------------------
+ -- Row 26 -----------------------------------
   Id = 5
   Code = PHS
   Display = After Sleep
-  Definition = event occurs [offset] after subject goes to sleep
+  Definition = Event occurs [offset] after subject goes to sleep. The exact time is unspecified and established by instition convention or patient interpretation
 
 === Sheet units-of-time =====================================
 
@@ -452,8 +494,8 @@
   Card. = 0..*
   Type = code
   Binding = EventTiming
-  Short Name = Regular life events the event is tied to
-  Definition = Real world events that the occurrence of the event should be tied to
+  Short Name = Code for time period of occurrence
+  Definition = An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur
   Requirements = Timings are frequently determined by occurrences such as waking, eating and sleep
   Comments = When more than one event is listed, the event is tied to the union of the specified events
   RIM Mapping = EIVL.event
