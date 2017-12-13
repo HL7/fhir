@@ -26,6 +26,7 @@
   <WindowTopY>0</WindowTopY>
   <TabRatio>735</TabRatio>
   <ActiveSheet>1</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1559,7 +1560,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">base | surcharge | discount | deduction | tax | informational</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">base | surcharge | deduction | discount | tax | informational</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">This code identifies the type of the component</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2057,8 +2058,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
