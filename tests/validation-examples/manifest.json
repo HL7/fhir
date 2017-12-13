@@ -59,8 +59,8 @@
 				"errorCount": 0
 			},
 			"list-extension2.json": {
-				"errorCount": 1,
-				"errors": ["/List/status/extension (line 18, col8) Unrecognised property '@valueCodeX' "]
+				"errorCount": 2,
+				"errors": ["/List/status/extension (line 18, col8) Unrecognised property '@valueCodeX' ", "List.status.extension (line 15, col8) Must have either extensions or value[x], not both [extension.exists() != value.exists()]"]
 			},
 			"list-minimal.json": {
 				"errorCount": 0
@@ -116,7 +116,7 @@
 				"errorCount": 0
       },
       "primitive-bad.xml" : {
-				"errorCount": 49
+				"errorCount": 51
       },
 			"group-choice-bad1.xml": {
 				"errorCount": 2,

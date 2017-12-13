@@ -3106,9 +3106,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       String sliceInfo = "";
       if (slicer != null)
         sliceInfo = " (slice: " + slicer.getPath()+")";
-      if (ei.path.endsWith(".extension"))
+      //Lloyd: Removed this because there's no need for extension-specific logic here
+/*      if (ei.path.endsWith(".extension"))
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\"" + ei.element.getNamedChildValue("url") + "\")" + (profile==null ? "" : " for profile " + profile.getUrl()));
-      else if (!unsupportedSlicing)
+      else if (!unsupportedSlicing)*/
+      if (!unsupportedSlicing)
         if (ei.slice!=null && (ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN) || ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN)))
           hint(errors, IssueType.INFORMATIONAL, ei.line(), ei.col(), ei.path, (ei.definition != null),
               "Element " + ei.element.getName() + " is unknown or does not match any slice " + sliceInfo + (profile==null ? "" : " for profile " + profile.getUrl()));
@@ -3264,76 +3266,75 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             checkPrimitive(hostContext, errors, ei.path, type, ei.definition, ei.element, profile);
           } else {
 //            checkNonPrimitive(appContext, errors, ei.path, type, ei.definition, ei.element, profile);
-            if (type.equals("Identifier"))
-              checkIdentifier(errors, ei.path, ei.element, ei.definition);
-            else if (type.equals("Coding"))
-              checkCoding(errors, ei.path, ei.element, profile, ei.definition, inCodeableConcept);
-            else if (type.equals("CodeableConcept")) {
-              checkCodeableConcept(errors, ei.path, ei.element, profile, ei.definition);
-              thisIsCodeableConcept = true;
-            } else if (type.equals("Reference"))
-              checkReference(hostContext, errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
-            // We only check extensions if we're not in a complex extension or if the element we're dealing with is not defined as part of that complex extension
-            if (type.equals("Extension") && ei.element.getChildValue("url").contains("/"))
-              checkExtension(hostContext, errors, ei.path, resource, ei.element, ei.definition, profile, localStack);
-            else if (type.equals("Resource"))
-              validateContains(hostContext, errors, ei.path, ei.definition, definition, resource, ei.element, localStack, idStatusForEntry(element, ei)); // if
-            // (str.matches(".*([.,/])work\\1$"))
-            else {
-              StructureDefinition p = null;
-              boolean elementValidated = false;
-              if (profiles.isEmpty()) {
-                p = getProfileForType(type);
-                rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown type " + type);
-              } else if (profiles.size()==1) {
-                p = this.context.fetchResource(StructureDefinition.class, profiles.get(0));
-                rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown profile " + profiles.get(0));
+          }
+          if (type.equals("Identifier")) {
+            checkIdentifier(errors, ei.path, ei.element, ei.definition);
+          } else if (type.equals("Coding")) {
+            checkCoding(errors, ei.path, ei.element, profile, ei.definition, inCodeableConcept);
+          } else if (type.equals("CodeableConcept")) {
+            checkCodeableConcept(errors, ei.path, ei.element, profile, ei.definition);
+            thisIsCodeableConcept = true;
+          } else if (type.equals("Reference")) {
+            checkReference(hostContext, errors, ei.path, ei.element, profile, ei.definition, actualType, localStack);
+          // We only check extensions if we're not in a complex extension or if the element we're dealing with is not defined as part of that complex extension
+          } else if (type.equals("Extension") && ei.element.getChildValue("url").contains("/")) {
+            checkExtension(hostContext, errors, ei.path, resource, ei.element, ei.definition, profile, localStack);
+          } else if (type.equals("Resource")) {
+            validateContains(hostContext, errors, ei.path, ei.definition, definition, resource, ei.element, localStack, idStatusForEntry(element, ei)); // if
+          // (str.matches(".*([.,/])work\\1$"))
+          }
+          StructureDefinition p = null;
+          boolean elementValidated = false;
+          if (profiles.isEmpty()) {
+            p = getProfileForType(type);
+            rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown type " + type);
+          } else if (profiles.size()==1) {
+            p = this.context.fetchResource(StructureDefinition.class, profiles.get(0));
+            rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown profile " + profiles.get(0));
+          } else {
+            elementValidated = true;
+            HashMap<String, List<ValidationMessage>> goodProfiles = new HashMap<String, List<ValidationMessage>>();
+            List<List<ValidationMessage>> badProfiles = new ArrayList<List<ValidationMessage>>();
+            for (String typeProfile : profiles) {
+              p = this.context.fetchResource(StructureDefinition.class, typeProfile);
+              if (rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown profile " + typeProfile)) {
+                List<ValidationMessage> profileErrors = new ArrayList<ValidationMessage>();
+                validateElement(hostContext, profileErrors, p, p.getSnapshot().getElement().get(0), profile, ei.definition, resource, ei.element, type, localStack, thisIsCodeableConcept);
+                boolean hasError = false;
+                for (ValidationMessage msg : profileErrors) {
+                  if (msg.getLevel()==ValidationMessage.IssueSeverity.ERROR || msg.getLevel()==ValidationMessage.IssueSeverity.FATAL) {
+                    hasError = true;
+                    break;
+                  }
+                }
+                if (hasError)
+                  badProfiles.add(profileErrors);
+                else
+                  goodProfiles.put(typeProfile, profileErrors);
+              }
+              if (goodProfiles.size()==1) {
+                errors.addAll(goodProfiles.get(0));
+              } else if (goodProfiles.size()==0) {
+                rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + StringUtils.join("; ", profiles));
+                for (List<ValidationMessage> messages : badProfiles) {
+                  errors.addAll(messages);
+                }
               } else {
-                elementValidated = true;
-                HashMap<String, List<ValidationMessage>> goodProfiles = new HashMap<String, List<ValidationMessage>>();
-                List<List<ValidationMessage>> badProfiles = new ArrayList<List<ValidationMessage>>();
-                for (String typeProfile : profiles) {
-                  p = this.context.fetchResource(StructureDefinition.class, typeProfile);
-                  if (rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown profile " + typeProfile)) {
-                    List<ValidationMessage> profileErrors = new ArrayList<ValidationMessage>();
-                    validateElement(hostContext, profileErrors, p, p.getSnapshot().getElement().get(0), profile, ei.definition, resource, ei.element, type, localStack, thisIsCodeableConcept);
-                    boolean hasError = false;
-                    for (ValidationMessage msg : profileErrors) {
-                      if (msg.getLevel()==ValidationMessage.IssueSeverity.ERROR || msg.getLevel()==ValidationMessage.IssueSeverity.FATAL) {
-                        hasError = true;
-                        break;
-                      }
-                    }
-                    if (hasError)
-                      badProfiles.add(profileErrors);
-                    else
-                      goodProfiles.put(typeProfile, profileErrors);
-                  }
-                  if (goodProfiles.size()==1) {
-                    errors.addAll(goodProfiles.get(0));
-                  } else if (goodProfiles.size()==0) {
-                    rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + StringUtils.join("; ", profiles));
-                    for (List<ValidationMessage> messages : badProfiles) {
-                      errors.addAll(messages);
-                    }
-                  } else {
-                    warning(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Found multiple matching profiles among choices: " + StringUtils.join("; ", goodProfiles.keySet()));
-                    for (List<ValidationMessage> messages : goodProfiles.values()) {
-                      errors.addAll(messages);
-                    }                    
-                  }
-                }
+                warning(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Found multiple matching profiles among choices: " + StringUtils.join("; ", goodProfiles.keySet()));
+                for (List<ValidationMessage> messages : goodProfiles.values()) {
+                  errors.addAll(messages);
+                }                    
               }
-              if (p!=null) {
-                if (!elementValidated)
-                  validateElement(hostContext, errors, p, p.getSnapshot().getElement().get(0), profile, ei.definition, resource, ei.element, type, localStack, thisIsCodeableConcept);
-                int index = profile.getSnapshot().getElement().indexOf(ei.definition);
-                if (index < profile.getSnapshot().getElement().size() - 1) {
-                  String nextPath = profile.getSnapshot().getElement().get(index+1).getPath();
-                  if (!nextPath.equals(ei.definition.getPath()) && nextPath.startsWith(ei.definition.getPath()))
-                    validateElement(hostContext, errors, profile, ei.definition, null, null, resource, ei.element, type, localStack, thisIsCodeableConcept);
-                }
-              }
+            }
+          }
+          if (p!=null) {
+            if (!elementValidated)
+              validateElement(hostContext, errors, p, p.getSnapshot().getElement().get(0), profile, ei.definition, resource, ei.element, type, localStack, thisIsCodeableConcept);
+            int index = profile.getSnapshot().getElement().indexOf(ei.definition);
+            if (index < profile.getSnapshot().getElement().size() - 1) {
+              String nextPath = profile.getSnapshot().getElement().get(index+1).getPath();
+              if (!nextPath.equals(ei.definition.getPath()) && nextPath.startsWith(ei.definition.getPath()))
+                validateElement(hostContext, errors, profile, ei.definition, null, null, resource, ei.element, type, localStack, thisIsCodeableConcept);
             }
           }
         } else {
