@@ -43,6 +43,7 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Source;
 
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
@@ -698,7 +699,7 @@ public class SourceParser {
   private void loadConformancePackages(String n, List<ValidationMessage> issues) throws Exception {
     String usage = "core";
     String[] v = ini.getStringProperty("profiles", n).split("\\:");
-    File spreadsheet = new CSFile(rootDir+v[1]);
+    File spreadsheet = new CSFile(Utilities.path(rootDir, v[1]));
     if (TextFile.fileToString(spreadsheet.getAbsolutePath()).contains("urn:schemas-microsoft-com:office:spreadsheet")) {
       SpreadsheetParser sparser = new SpreadsheetParser(n, new CSFileInputStream(spreadsheet), spreadsheet.getName(), definitions, srcDir, logger, registry, version, context, genDate, false, page, false, ini, wg(v[0]), definitions.getProfileIds(), fpUsages, page.getConceptMaps());
       try {
