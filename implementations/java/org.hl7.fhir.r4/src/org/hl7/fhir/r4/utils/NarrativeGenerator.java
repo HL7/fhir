@@ -2790,7 +2790,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode tr = t.tr();
     if (doLevel)
       tr.td().b().tx("Lvl");
-    tr.td().b().tx("Code");
+    tr.td().attribute("nowrap", "nowrap").b().tx("Code");
     if (doSystem)
       tr.td().b().tx("System");
     tr.td().b().tx("Display");
@@ -3108,7 +3108,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     XhtmlNode tr = t.tr();
     if (hasHierarchy)
       tr.td().b().tx("Lvl");
-    tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Code", lang));
+    tr.td().attribute("nowrap", "nowrap").b().tx(context.translator().translate("xhtml-gen-cs", "Code", lang));
     if (hasDisplay)
       tr.td().b().tx(context.translator().translate("xhtml-gen-cs", "Display", lang));
     if (definitions)
@@ -3134,7 +3134,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       td = tr.td();
     }
     String s = Utilities.padLeft("", '\u00A0', i*2);
-    td.addText(s);
+    td.attribute("nowrap", "nowrap").addText(s);
     addCodeToTable(c.getAbstract(), c.getSystem(), c.getCode(), c.getDisplay(), td);
     if (doSystem) {
       td = tr.td();
@@ -3238,7 +3238,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       String s = Utilities.padLeft("", '\u00A0', i*2);
       td.addText(s);
     }
-    td.addText(c.getCode());
+    td.attribute("nowrap", "nowrap").addText(c.getCode());
     XhtmlNode a;
     if (c.hasCodeElement()) {
       td.an(cs.getId()+"-" + Utilities.nmtokenize(c.getCode()));
