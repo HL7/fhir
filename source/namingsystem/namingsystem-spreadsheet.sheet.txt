@@ -87,13 +87,6 @@
   XPath = not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:preferred/@value=true()])>1) then $type else ()))
   Expression = uniqueId.where(preferred = true).select(type).isDistinct()
 
- -- Row 3 -----------------------------------
-  Id = 3
-  Context = NamingSystem
-  English = Can only have replacedBy if naming system is retired
-  XPath = not(f:replacedBy) or f:status/@value=\'retired\'
-  Expression = replacedBy.empty() or status = \'retired\'
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -223,14 +216,6 @@
   Definition = Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic
   Comments = Within a registry, a given identifier should only be \"active\" for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time)
 
- -- Row 20 -----------------------------------
-  Element = NamingSystem.replacedBy
-  Card. = 0..1
-  Inv. = 3
-  Type = Reference(NamingSystem)
-  Short Name = Use this instead
-  Definition = For naming systems that are retired, indicates the naming system that should be used in their place (if any)
-
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
@@ -273,11 +258,6 @@
   Type = token
   Path = NamingSystem.contact.telecom
 
- -- Row 9 -----------------------------------
-  Name = replaced-by
-  Type = reference
-  Path = NamingSystem.replacedBy
-
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
@@ -297,20 +277,13 @@
   Type = xml
 
  -- Row 3 -----------------------------------
-  Name = namingsystem-example-replaced
-  Identity = example-replaced
-  Description = Example of a deprecated naming system
-  Filename = namingsystem-example-replaced.xml
-  Type = xml
-
- -- Row 4 -----------------------------------
   Name = namingsystem-registry
   Identity = registry
   Description = Common US Driver\'s license identification
   Filename = namingsystem-registry.xml
   Type = xml
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = namingsystem-terminologies
   Identity = terminologies
   Description = Defined Code systems
