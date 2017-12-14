@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -40,6 +40,8 @@ public class ResourceFactory extends Factory {
             return new Appointment();
         if ("Account".equals(name))
             return new Account();
+        if ("Invoice".equals(name))
+            return new Invoice();
         if ("EventDefinition".equals(name))
             return new EventDefinition();
         if ("DocumentManifest".equals(name))
@@ -70,8 +72,6 @@ public class ResourceFactory extends Factory {
             return new DocumentReference();
         if ("GraphDefinition".equals(name))
             return new GraphDefinition();
-        if ("ImagingManifest".equals(name))
-            return new ImagingManifest();
         if ("Parameters".equals(name))
             return new Parameters();
         if ("ImplementationGuideOutput".equals(name))
@@ -134,6 +134,8 @@ public class ResourceFactory extends Factory {
             return new ActivityDefinition();
         if ("Linkage".equals(name))
             return new Linkage();
+        if ("ImmunizationEvaluation".equals(name))
+            return new ImmunizationEvaluation();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
         if ("ImplementationGuideInput".equals(name))
@@ -192,6 +194,8 @@ public class ResourceFactory extends Factory {
             return new Media();
         if ("EligibilityResponse".equals(name))
             return new EligibilityResponse();
+        if ("OrganizationRole".equals(name))
+            return new OrganizationRole();
         if ("Sequence".equals(name))
             return new Sequence();
         if ("DeviceMetric".equals(name))
@@ -260,6 +264,8 @@ public class ResourceFactory extends Factory {
             return new Bundle();
         if ("CompartmentDefinition".equals(name))
             return new CompartmentDefinition();
+        if ("ProductPlan".equals(name))
+            return new ProductPlan();
         if ("Patient".equals(name))
             return new Patient();
         if ("Coverage".equals(name))
@@ -471,13 +477,14 @@ public class ResourceFactory extends Factory {
         case 933423720: return new HealthcareService();
         case 1592332600: return new HumanName();
         case 375032009: return new Identifier();
-        case -5812857: return new ImagingManifest();
         case -650580623: return new ImagingStudy();
         case -2004863454: return new Immunization();
+        case -1768794370: return new ImmunizationEvaluation();
         case 1728372347: return new ImmunizationRecommendation();
         case 1410262602: return new ImplementationGuide();
         case 30400416: return new ImplementationGuideInput();
         case 1120766955: return new ImplementationGuideOutput();
+        case -670115059: return new Invoice();
         case 1830861979: return new Library();
         case 1841735333: return new Linkage();
         case 2368702: return new ListResource();
@@ -502,6 +509,7 @@ public class ResourceFactory extends Factory {
         case -2140710406: return new OperationDefinition();
         case -526550005: return new OperationOutcome();
         case 1343242579: return new Organization();
+        case 1623217257: return new OrganizationRole();
         case 671337916: return new ParameterDefinition();
         case -1842766326: return new Parameters();
         case 873235173: return new Patient();
@@ -515,6 +523,7 @@ public class ResourceFactory extends Factory {
         case 908763827: return new Procedure();
         case 8777024: return new ProcessRequest();
         case 325021616: return new ProcessResponse();
+        case 176120984: return new ProductPlan();
         case 2093211201: return new Provenance();
         case -1220360021: return new Quantity();
         case -218088061: return new Questionnaire();

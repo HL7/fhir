@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1953,7 +1953,7 @@ public class PlanDefinition extends MetadataResource {
         /**
          * An optional value describing when the action should be performed.
          */
-        @Child(name = "timing", type = {DateTimeType.class, Period.class, Duration.class, Range.class, Timing.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "timing", type = {DateTimeType.class, Age.class, Period.class, Duration.class, Range.class, Timing.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="When the action should take place", formalDefinition="An optional value describing when the action should be performed." )
         protected Type timing;
 
@@ -2763,6 +2763,19 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #timing} (An optional value describing when the action should be performed.)
          */
+        public Age getTimingAge() throws FHIRException { 
+          if (!(this.timing instanceof Age))
+            throw new FHIRException("Type mismatch: the type Age was expected, but "+this.timing.getClass().getName()+" was encountered");
+          return (Age) this.timing;
+        }
+
+        public boolean hasTimingAge() { 
+          return this.timing instanceof Age;
+        }
+
+        /**
+         * @return {@link #timing} (An optional value describing when the action should be performed.)
+         */
         public Period getTimingPeriod() throws FHIRException { 
           if (!(this.timing instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
@@ -3350,7 +3363,7 @@ public class PlanDefinition extends MetadataResource {
           children.add(new Property("input", "DataRequirement", "Defines input data requirements for the action.", 0, java.lang.Integer.MAX_VALUE, input));
           children.add(new Property("output", "DataRequirement", "Defines the outputs of the action, if any.", 0, java.lang.Integer.MAX_VALUE, output));
           children.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
-          children.add(new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing));
+          children.add(new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing));
           children.add(new Property("participant", "", "Indicates who should participate in performing the action described.", 0, java.lang.Integer.MAX_VALUE, participant));
           children.add(new Property("type", "Coding", "The type of action to perform (create, update, remove).", 0, 1, type));
           children.add(new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, 1, groupingBehavior));
@@ -3380,13 +3393,14 @@ public class PlanDefinition extends MetadataResource {
           case 100358090: /*input*/  return new Property("input", "DataRequirement", "Defines input data requirements for the action.", 0, java.lang.Integer.MAX_VALUE, input);
           case -1005512447: /*output*/  return new Property("output", "DataRequirement", "Defines the outputs of the action, if any.", 0, java.lang.Integer.MAX_VALUE, output);
           case -384107967: /*relatedAction*/  return new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction);
-          case 164632566: /*timing[x]*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -873664438: /*timing*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -1837458939: /*timingDateTime*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -615615829: /*timingPeriod*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -1327253506: /*timingDuration*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -710871277: /*timingRange*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -497554124: /*timingTiming*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case 164632566: /*timing[x]*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -873664438: /*timing*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -1837458939: /*timingDateTime*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case 164607061: /*timingAge*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -615615829: /*timingPeriod*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -1327253506: /*timingDuration*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -710871277: /*timingRange*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -497554124: /*timingTiming*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
           case 767422259: /*participant*/  return new Property("participant", "", "Indicates who should participate in performing the action described.", 0, java.lang.Integer.MAX_VALUE, participant);
           case 3575610: /*type*/  return new Property("type", "Coding", "The type of action to perform (create, update, remove).", 0, 1, type);
           case 586678389: /*groupingBehavior*/  return new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, 1, groupingBehavior);
@@ -3636,7 +3650,7 @@ public class PlanDefinition extends MetadataResource {
         case 100358090: /*input*/ return new String[] {"DataRequirement"};
         case -1005512447: /*output*/ return new String[] {"DataRequirement"};
         case -384107967: /*relatedAction*/ return new String[] {};
-        case -873664438: /*timing*/ return new String[] {"dateTime", "Period", "Duration", "Range", "Timing"};
+        case -873664438: /*timing*/ return new String[] {"dateTime", "Age", "Period", "Duration", "Range", "Timing"};
         case 767422259: /*participant*/ return new String[] {};
         case 3575610: /*type*/ return new String[] {"Coding"};
         case 586678389: /*groupingBehavior*/ return new String[] {"code"};
@@ -3696,6 +3710,10 @@ public class PlanDefinition extends MetadataResource {
         }
         else if (name.equals("timingDateTime")) {
           this.timing = new DateTimeType();
+          return this.timing;
+        }
+        else if (name.equals("timingAge")) {
+          this.timing = new Age();
           return this.timing;
         }
         else if (name.equals("timingPeriod")) {
@@ -5228,10 +5246,10 @@ public class PlanDefinition extends MetadataResource {
     protected List<Identifier> identifier;
 
     /**
-     * The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.
+     * The type of artifact the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="order-set | protocol | eca-rule", formalDefinition="The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule." )
+    @Description(shortDefinition="order-set | protocol | eca-rule", formalDefinition="The type of artifact the plan definition represents, e.g. an order set, protocol, or event-condition-action rule." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/plan-definition-type")
     protected CodeableConcept type;
 
@@ -5243,10 +5261,10 @@ public class PlanDefinition extends MetadataResource {
     protected MarkdownType purpose;
 
     /**
-     * A detailed description of how the asset is used from a clinical perspective.
+     * A detailed description of how the plan definition is used from a clinical perspective.
      */
     @Child(name = "usage", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Describes the clinical usage of the asset", formalDefinition="A detailed description of how the asset is used from a clinical perspective." )
+    @Description(shortDefinition="Describes the clinical usage of the plan", formalDefinition="A detailed description of how the plan definition is used from a clinical perspective." )
     protected StringType usage;
 
     /**
@@ -5279,10 +5297,10 @@ public class PlanDefinition extends MetadataResource {
     protected List<CodeableConcept> topic;
 
     /**
-     * A contributor to the content of the asset, including authors, editors, reviewers, and endorsers.
+     * A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers.
      */
     @Child(name = "contributor", type = {Contributor.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="A content contributor", formalDefinition="A contributor to the content of the asset, including authors, editors, reviewers, and endorsers." )
+    @Description(shortDefinition="A content contributor", formalDefinition="A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers." )
     protected List<Contributor> contributor;
 
     /**
@@ -5296,7 +5314,7 @@ public class PlanDefinition extends MetadataResource {
      * Related artifacts such as additional documentation, justification, or bibliographic references.
      */
     @Child(name = "relatedArtifact", type = {RelatedArtifact.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Related artifacts for the asset", formalDefinition="Related artifacts such as additional documentation, justification, or bibliographic references." )
+    @Description(shortDefinition="Additional documentation, citations, etc", formalDefinition="Related artifacts such as additional documentation, justification, or bibliographic references." )
     protected List<RelatedArtifact> relatedArtifact;
 
     /**
@@ -5592,7 +5610,7 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #type} (The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.)
+     * @return {@link #type} (The type of artifact the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.)
      */
     public CodeableConcept getType() { 
       if (this.type == null)
@@ -5608,7 +5626,7 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #type} (The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.)
+     * @param value {@link #type} (The type of artifact the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.)
      */
     public PlanDefinition setType(CodeableConcept value) { 
       this.type = value;
@@ -5902,7 +5920,7 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #usage} (A detailed description of how the asset is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
+     * @return {@link #usage} (A detailed description of how the plan definition is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
     public StringType getUsageElement() { 
       if (this.usage == null)
@@ -5922,7 +5940,7 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #usage} (A detailed description of how the asset is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
+     * @param value {@link #usage} (A detailed description of how the plan definition is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
     public PlanDefinition setUsageElement(StringType value) { 
       this.usage = value;
@@ -5930,14 +5948,14 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @return A detailed description of how the asset is used from a clinical perspective.
+     * @return A detailed description of how the plan definition is used from a clinical perspective.
      */
     public String getUsage() { 
       return this.usage == null ? null : this.usage.getValue();
     }
 
     /**
-     * @param value A detailed description of how the asset is used from a clinical perspective.
+     * @param value A detailed description of how the plan definition is used from a clinical perspective.
      */
     public PlanDefinition setUsage(String value) { 
       if (Utilities.noString(value))
@@ -6232,7 +6250,7 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #contributor} (A contributor to the content of the asset, including authors, editors, reviewers, and endorsers.)
+     * @return {@link #contributor} (A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers.)
      */
     public List<Contributor> getContributor() { 
       if (this.contributor == null)
@@ -6627,21 +6645,21 @@ public class PlanDefinition extends MetadataResource {
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the plan definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
         children.add(new Property("title", "string", "A short, descriptive, user-friendly title for the plan definition.", 0, 1, title));
-        children.add(new Property("type", "CodeableConcept", "The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.", 0, 1, type));
+        children.add(new Property("type", "CodeableConcept", "The type of artifact the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.", 0, 1, type));
         children.add(new Property("status", "code", "The status of this plan definition. Enables tracking the life-cycle of the content.", 0, 1, status));
         children.add(new Property("experimental", "boolean", "A boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental));
         children.add(new Property("date", "dateTime", "The date  (and optionally time) when the plan definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes.", 0, 1, date));
         children.add(new Property("publisher", "string", "The name of the individual or organization that published the plan definition.", 0, 1, publisher));
         children.add(new Property("description", "markdown", "A free text natural language description of the plan definition from a consumer's perspective.", 0, 1, description));
         children.add(new Property("purpose", "markdown", "Explaination of why this plan definition is needed and why it has been designed as it has.", 0, 1, purpose));
-        children.add(new Property("usage", "string", "A detailed description of how the asset is used from a clinical perspective.", 0, 1, usage));
+        children.add(new Property("usage", "string", "A detailed description of how the plan definition is used from a clinical perspective.", 0, 1, usage));
         children.add(new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, 1, approvalDate));
         children.add(new Property("lastReviewDate", "date", "The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.", 0, 1, lastReviewDate));
         children.add(new Property("effectivePeriod", "Period", "The period during which the plan definition content was or is planned to be in active use.", 0, 1, effectivePeriod));
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate plan definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the plan definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         children.add(new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic));
-        children.add(new Property("contributor", "Contributor", "A contributor to the content of the asset, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
+        children.add(new Property("contributor", "Contributor", "A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the plan definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the plan definition.", 0, 1, copyright));
         children.add(new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
@@ -6658,21 +6676,21 @@ public class PlanDefinition extends MetadataResource {
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the plan definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
         case 110371416: /*title*/  return new Property("title", "string", "A short, descriptive, user-friendly title for the plan definition.", 0, 1, title);
-        case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.", 0, 1, type);
+        case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The type of artifact the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.", 0, 1, type);
         case -892481550: /*status*/  return new Property("status", "code", "The status of this plan definition. Enables tracking the life-cycle of the content.", 0, 1, status);
         case -404562712: /*experimental*/  return new Property("experimental", "boolean", "A boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the plan definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes.", 0, 1, date);
         case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the plan definition.", 0, 1, publisher);
         case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the plan definition from a consumer's perspective.", 0, 1, description);
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explaination of why this plan definition is needed and why it has been designed as it has.", 0, 1, purpose);
-        case 111574433: /*usage*/  return new Property("usage", "string", "A detailed description of how the asset is used from a clinical perspective.", 0, 1, usage);
+        case 111574433: /*usage*/  return new Property("usage", "string", "A detailed description of how the plan definition is used from a clinical perspective.", 0, 1, usage);
         case 223539345: /*approvalDate*/  return new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, 1, approvalDate);
         case -1687512484: /*lastReviewDate*/  return new Property("lastReviewDate", "date", "The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.", 0, 1, lastReviewDate);
         case -403934648: /*effectivePeriod*/  return new Property("effectivePeriod", "Period", "The period during which the plan definition content was or is planned to be in active use.", 0, 1, effectivePeriod);
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate plan definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the plan definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
         case 110546223: /*topic*/  return new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic);
-        case -1895276325: /*contributor*/  return new Property("contributor", "Contributor", "A contributor to the content of the asset, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor);
+        case -1895276325: /*contributor*/  return new Property("contributor", "Contributor", "A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the plan definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the plan definition.", 0, 1, copyright);
         case 666807069: /*relatedArtifact*/  return new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact);
@@ -7343,6 +7361,26 @@ public class PlanDefinition extends MetadataResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_COMPOSED_OF = new ca.uhn.fhir.model.api.Include("PlanDefinition:composed-of").toLocked();
 
  /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>The type of artifact the plan (e.g. order-set, eca-rule, protocol)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PlanDefinition.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="PlanDefinition.type", description="The type of artifact the plan (e.g. order-set, eca-rule, protocol)", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>The type of artifact the plan (e.g. order-set, eca-rule, protocol)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>PlanDefinition.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
    * Search parameter: <b>version</b>
    * <p>
    * Description: <b>The business version of the plan definition</b><br>
@@ -7487,6 +7525,32 @@ public class PlanDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
+
+ /**
+   * Search parameter: <b>definition</b>
+   * <p>
+   * Description: <b>Activity or plan definitions used by plan definition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PlanDefinition.action.definition</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="definition", path="PlanDefinition.action.definition", description="Activity or plan definitions used by plan definition", type="reference", target={ActivityDefinition.class, PlanDefinition.class } )
+  public static final String SP_DEFINITION = "definition";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>definition</b>
+   * <p>
+   * Description: <b>Activity or plan definitions used by plan definition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>PlanDefinition.action.definition</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEFINITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEFINITION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>PlanDefinition:definition</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEFINITION = new ca.uhn.fhir.model.api.Include("PlanDefinition:definition").toLocked();
 
  /**
    * Search parameter: <b>status</b>

@@ -1863,10 +1863,8 @@ public class ProfileGenerator {
         throw new Error("Max binding not handled yet");
       pp.setBinding(new OperationDefinitionParameterBindingComponent().setStrength(p.getBs().getStrength()).setValueSet(buildReference(p.getBs())));
     }
-    Reference ref = new Reference();
     if (!Utilities.noString(p.getProfile())) {
-      ref.setReference(p.getProfile());
-      pp.setProfile(ref);
+      pp.addTargetProfile(p.getProfile());
     }
     opd.add(pp);
     if (p.getFhirType().equals("Tuple")) {
@@ -1878,13 +1876,13 @@ public class ProfileGenerator {
       if (definitions.getConstraints().containsKey(tr.getName())) {
         ProfiledType pt = definitions.getConstraints().get(tr.getName());
         pp.setType(pt.getBaseType().equals("*") ? "Type" : pt.getBaseType());
-        pp.setProfile(new Reference().setReference("http://hl7.org/fhir/StructureDefinition/"+pt.getName()));
+        pp.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+pt.getName());
       } else { 
         if (p.getSearchType() != null)
           pp.setSearchType(SearchParamType.fromCode(p.getSearchType()));
         pp.setType(tr.getName().equals("*") ? "Type" : tr.getName());
         if (tr.getParams().size() == 1 && !tr.getParams().get(0).equals("Any"))
-          pp.setProfile(new Reference().setReference("http://hl7.org/fhir/StructureDefinition/"+tr.getParams().get(0)));
+          pp.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+tr.getParams().get(0));
       } 
     }
   }

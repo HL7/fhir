@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -544,14 +544,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * Protocol or definition followed by this request.
      */
-    @Child(name = "instantiates", type = {ActivityDefinition.class, PlanDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "instantiates", type = {UriType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Protocol or definition", formalDefinition="Protocol or definition followed by this request." )
-    protected List<Reference> instantiates;
-    /**
-     * The actual objects that are the target of the reference (Protocol or definition followed by this request.)
-     */
-    protected List<Resource> instantiatesTarget;
-
+    protected List<UriType> instantiates;
 
     /**
      * Plan/proposal/order fulfilled by this request.
@@ -632,10 +627,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected CodeableConcept code;
 
     /**
-     * Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.
+     * Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied.
      */
     @Child(name = "orderDetail", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Additional order information", formalDefinition="Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied." )
+    @Description(shortDefinition="Additional order information", formalDefinition="Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/servicerequest-orderdetail")
     protected List<CodeableConcept> orderDetail;
 
@@ -807,7 +802,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected List<Provenance> relevantHistoryTarget;
 
 
-    private static final long serialVersionUID = -1786134429L;
+    private static final long serialVersionUID = 1305142790L;
 
   /**
    * Constructor
@@ -882,16 +877,16 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * @return {@link #instantiates} (Protocol or definition followed by this request.)
      */
-    public List<Reference> getInstantiates() { 
+    public List<UriType> getInstantiates() { 
       if (this.instantiates == null)
-        this.instantiates = new ArrayList<Reference>();
+        this.instantiates = new ArrayList<UriType>();
       return this.instantiates;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ServiceRequest setInstantiates(List<Reference> theInstantiates) { 
+    public ServiceRequest setInstantiates(List<UriType> theInstantiates) { 
       this.instantiates = theInstantiates;
       return this;
     }
@@ -899,47 +894,45 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     public boolean hasInstantiates() { 
       if (this.instantiates == null)
         return false;
-      for (Reference item : this.instantiates)
+      for (UriType item : this.instantiates)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addInstantiates() { //3
-      Reference t = new Reference();
+    /**
+     * @return {@link #instantiates} (Protocol or definition followed by this request.)
+     */
+    public UriType addInstantiatesElement() {//2 
+      UriType t = new UriType();
       if (this.instantiates == null)
-        this.instantiates = new ArrayList<Reference>();
+        this.instantiates = new ArrayList<UriType>();
       this.instantiates.add(t);
       return t;
     }
 
-    public ServiceRequest addInstantiates(Reference t) { //3
-      if (t == null)
-        return this;
+    /**
+     * @param value {@link #instantiates} (Protocol or definition followed by this request.)
+     */
+    public ServiceRequest addInstantiates(String value) { //1
+      UriType t = new UriType();
+      t.setValue(value);
       if (this.instantiates == null)
-        this.instantiates = new ArrayList<Reference>();
+        this.instantiates = new ArrayList<UriType>();
       this.instantiates.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #instantiates}, creating it if it does not already exist
+     * @param value {@link #instantiates} (Protocol or definition followed by this request.)
      */
-    public Reference getInstantiatesFirstRep() { 
-      if (getInstantiates().isEmpty()) {
-        addInstantiates();
-      }
-      return getInstantiates().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Resource> getInstantiatesTarget() { 
-      if (this.instantiatesTarget == null)
-        this.instantiatesTarget = new ArrayList<Resource>();
-      return this.instantiatesTarget;
+    public boolean hasInstantiates(String value) { 
+      if (this.instantiates == null)
+        return false;
+      for (UriType v : this.instantiates)
+        if (v.equals(value)) // uri
+          return true;
+      return false;
     }
 
     /**
@@ -1366,7 +1359,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #orderDetail} (Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.)
+     * @return {@link #orderDetail} (Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied.)
      */
     public List<CodeableConcept> getOrderDetail() { 
       if (this.orderDetail == null)
@@ -2300,7 +2293,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("instantiates", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, instantiates));
+        children.add(new Property("instantiates", "uri", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, instantiates));
         children.add(new Property("basedOn", "Reference(CarePlan|ServiceRequest|MedicationRequest)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("replaces", "Reference(ServiceRequest)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces));
         children.add(new Property("requisition", "Identifier", "A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.", 0, 1, requisition));
@@ -2310,7 +2303,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         children.add(new Property("doNotPerform", "boolean", "Set this to true if the record is saying that the service/procedure should NOT be performed.", 0, 1, doNotPerform));
         children.add(new Property("category", "CodeableConcept", "A code that classifies the service for searching, sorting and display purposes (e.g. \"Surgical Procedure\").", 0, java.lang.Integer.MAX_VALUE, category));
         children.add(new Property("code", "CodeableConcept", "A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.", 0, 1, code));
-        children.add(new Property("orderDetail", "CodeableConcept", "Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.", 0, java.lang.Integer.MAX_VALUE, orderDetail));
+        children.add(new Property("orderDetail", "CodeableConcept", "Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied.", 0, java.lang.Integer.MAX_VALUE, orderDetail));
         children.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, 1, subject));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "An encounter or episode of care that provides additional information about the healthcare context in which this request is made.", 0, 1, context));
         children.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested service should occur.", 0, 1, occurrence));
@@ -2334,7 +2327,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -246883639: /*instantiates*/  return new Property("instantiates", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, instantiates);
+        case -246883639: /*instantiates*/  return new Property("instantiates", "uri", "Protocol or definition followed by this request.", 0, java.lang.Integer.MAX_VALUE, instantiates);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(CarePlan|ServiceRequest|MedicationRequest)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case -430332865: /*replaces*/  return new Property("replaces", "Reference(ServiceRequest)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces);
         case 395923612: /*requisition*/  return new Property("requisition", "Identifier", "A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.", 0, 1, requisition);
@@ -2344,7 +2337,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -1788508167: /*doNotPerform*/  return new Property("doNotPerform", "boolean", "Set this to true if the record is saying that the service/procedure should NOT be performed.", 0, 1, doNotPerform);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "A code that classifies the service for searching, sorting and display purposes (e.g. \"Surgical Procedure\").", 0, java.lang.Integer.MAX_VALUE, category);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.", 0, 1, code);
-        case 1187338559: /*orderDetail*/  return new Property("orderDetail", "CodeableConcept", "Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail or external catheter  Iindwelling catheter or an order for a bandage may require text  specifying how the bandage should be applied.", 0, java.lang.Integer.MAX_VALUE, orderDetail);
+        case 1187338559: /*orderDetail*/  return new Property("orderDetail", "CodeableConcept", "Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied.", 0, java.lang.Integer.MAX_VALUE, orderDetail);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group|Location|Device)", "On whom or what the service is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, 1, subject);
         case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "An encounter or episode of care that provides additional information about the healthcare context in which this request is made.", 0, 1, context);
         case -2022646513: /*occurrence[x]*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the requested service should occur.", 0, 1, occurrence);
@@ -2378,7 +2371,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // Reference
+        case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // UriType
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
         case -430332865: /*replaces*/ return this.replaces == null ? new Base[0] : this.replaces.toArray(new Base[this.replaces.size()]); // Reference
         case 395923612: /*requisition*/ return this.requisition == null ? new Base[0] : new Base[] {this.requisition}; // Identifier
@@ -2418,7 +2411,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -246883639: // instantiates
-          this.getInstantiates().add(castToReference(value)); // Reference
+          this.getInstantiates().add(castToUri(value)); // UriType
           return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
@@ -2514,7 +2507,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("instantiates")) {
-          this.getInstantiates().add(castToReference(value));
+          this.getInstantiates().add(castToUri(value));
         } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
         } else if (name.equals("replaces")) {
@@ -2581,7 +2574,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case -246883639:  return addInstantiates(); 
+        case -246883639:  return addInstantiatesElement();
         case -332612366:  return addBasedOn(); 
         case -430332865:  return addReplaces(); 
         case 395923612:  return getRequisition(); 
@@ -2620,7 +2613,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -246883639: /*instantiates*/ return new String[] {"Reference"};
+        case -246883639: /*instantiates*/ return new String[] {"uri"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
         case -430332865: /*replaces*/ return new String[] {"Reference"};
         case 395923612: /*requisition*/ return new String[] {"Identifier"};
@@ -2659,7 +2652,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return addIdentifier();
         }
         else if (name.equals("instantiates")) {
-          return addInstantiates();
+          throw new FHIRException("Cannot call addChild on a primitive type ServiceRequest.instantiates");
         }
         else if (name.equals("basedOn")) {
           return addBasedOn();
@@ -2781,8 +2774,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             dst.identifier.add(i.copy());
         };
         if (instantiates != null) {
-          dst.instantiates = new ArrayList<Reference>();
-          for (Reference i : instantiates)
+          dst.instantiates = new ArrayList<UriType>();
+          for (UriType i : instantiates)
             dst.instantiates.add(i.copy());
         };
         if (basedOn != null) {
@@ -2895,8 +2888,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         if (!(other instanceof ServiceRequest))
           return false;
         ServiceRequest o = (ServiceRequest) other;
-        return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
-           && compareValues(doNotPerform, o.doNotPerform, true) && compareValues(authoredOn, o.authoredOn, true)
+        return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true) && compareValues(intent, o.intent, true)
+           && compareValues(priority, o.priority, true) && compareValues(doNotPerform, o.doNotPerform, true) && compareValues(authoredOn, o.authoredOn, true)
            && compareValues(patientInstruction, o.patientInstruction, true);
       }
 
@@ -2963,27 +2956,21 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * Search parameter: <b>instantiates</b>
    * <p>
    * Description: <b>Protocol or definition</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>ServiceRequest.instantiates</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="instantiates", path="ServiceRequest.instantiates", description="Protocol or definition", type="reference", target={ActivityDefinition.class, PlanDefinition.class } )
+  @SearchParamDefinition(name="instantiates", path="ServiceRequest.instantiates", description="Protocol or definition", type="uri" )
   public static final String SP_INSTANTIATES = "instantiates";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>instantiates</b>
    * <p>
    * Description: <b>Protocol or definition</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>ServiceRequest.instantiates</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INSTANTIATES = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INSTANTIATES);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ServiceRequest:instantiates</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INSTANTIATES = new ca.uhn.fhir.model.api.Include("ServiceRequest:instantiates").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam INSTANTIATES = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_INSTANTIATES);
 
  /**
    * Search parameter: <b>identifier</b>

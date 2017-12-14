@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -206,12 +206,12 @@ public abstract class Element extends Base implements IBaseHasExtensions, IBaseE
      }
    }
 
-   public boolean hasExtension(String theUrl) {
-     return !getExtensionsByUrl(theUrl).isEmpty(); 
-   }
+  public boolean hasExtension(String theUrl) {
+    return !getExtensionsByUrl(theUrl).isEmpty(); 
+  }
 
-   public String getExtensionString(String theUrl) throws FHIRException {
-     List<Extension> ext = getExtensionsByUrl(theUrl); 
+  public String getExtensionString(String theUrl) throws FHIRException {
+    List<Extension> ext = getExtensionsByUrl(theUrl); 
     if (ext.isEmpty()) 
       return null; 
     if (ext.size() > 1) 

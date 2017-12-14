@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 public enum ResourceType {
     Account,
@@ -61,13 +61,14 @@ public enum ResourceType {
     Group,
     GuidanceResponse,
     HealthcareService,
-    ImagingManifest,
     ImagingStudy,
     Immunization,
+    ImmunizationEvaluation,
     ImmunizationRecommendation,
     ImplementationGuide,
     ImplementationGuideInput,
     ImplementationGuideOutput,
+    Invoice,
     Library,
     Linkage,
     List,
@@ -89,6 +90,7 @@ public enum ResourceType {
     OperationDefinition,
     OperationOutcome,
     Organization,
+    OrganizationRole,
     Parameters,
     Patient,
     PaymentNotice,
@@ -100,6 +102,7 @@ public enum ResourceType {
     Procedure,
     ProcessRequest,
     ProcessResponse,
+    ProductPlan,
     Provenance,
     Questionnaire,
     QuestionnaireResponse,
@@ -245,12 +248,12 @@ public enum ResourceType {
       return "guidanceresponse";
     case HealthcareService:
       return "healthcareservice";
-    case ImagingManifest:
-      return "imagingmanifest";
     case ImagingStudy:
       return "imagingstudy";
     case Immunization:
       return "immunization";
+    case ImmunizationEvaluation:
+      return "immunizationevaluation";
     case ImmunizationRecommendation:
       return "immunizationrecommendation";
     case ImplementationGuide:
@@ -259,6 +262,8 @@ public enum ResourceType {
       return "implementationguideinput";
     case ImplementationGuideOutput:
       return "implementationguideoutput";
+    case Invoice:
+      return "invoice";
     case Library:
       return "library";
     case Linkage:
@@ -301,6 +306,8 @@ public enum ResourceType {
       return "operationoutcome";
     case Organization:
       return "organization";
+    case OrganizationRole:
+      return "organizationrole";
     case Parameters:
       return "parameters";
     case Patient:
@@ -323,6 +330,8 @@ public enum ResourceType {
       return "processrequest";
     case ProcessResponse:
       return "processresponse";
+    case ProductPlan:
+      return "productplan";
     case Provenance:
       return "provenance";
     case Questionnaire:
@@ -499,12 +508,12 @@ public enum ResourceType {
       return GuidanceResponse;
     if ("HealthcareService".equals(code))
       return HealthcareService;
-    if ("ImagingManifest".equals(code))
-      return ImagingManifest;
     if ("ImagingStudy".equals(code))
       return ImagingStudy;
     if ("Immunization".equals(code))
       return Immunization;
+    if ("ImmunizationEvaluation".equals(code))
+      return ImmunizationEvaluation;
     if ("ImmunizationRecommendation".equals(code))
       return ImmunizationRecommendation;
     if ("ImplementationGuide".equals(code))
@@ -513,6 +522,8 @@ public enum ResourceType {
       return ImplementationGuideInput;
     if ("ImplementationGuideOutput".equals(code))
       return ImplementationGuideOutput;
+    if ("Invoice".equals(code))
+      return Invoice;
     if ("Library".equals(code))
       return Library;
     if ("Linkage".equals(code))
@@ -555,6 +566,8 @@ public enum ResourceType {
       return OperationOutcome;
     if ("Organization".equals(code))
       return Organization;
+    if ("OrganizationRole".equals(code))
+      return OrganizationRole;
     if ("Parameters".equals(code))
       return Parameters;
     if ("Patient".equals(code))
@@ -577,6 +590,8 @@ public enum ResourceType {
       return ProcessRequest;
     if ("ProcessResponse".equals(code))
       return ProcessResponse;
+    if ("ProductPlan".equals(code))
+      return ProductPlan;
     if ("Provenance".equals(code))
       return Provenance;
     if ("Questionnaire".equals(code))

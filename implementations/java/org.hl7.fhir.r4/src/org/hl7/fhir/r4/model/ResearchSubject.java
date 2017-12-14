@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -80,6 +80,14 @@ responding, withdrawal, non-compliance and/or adverse event.
          */
         ONSTUDY, 
         /**
+         * The person is receiving the treatment or participating in an activity (e.g. yoga, diet, etc.) that the study is evaluating.
+         */
+        ONSTUDYINTERVENTION, 
+        /**
+         * The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and may not exist in all studies.  A synonym for this is "short-term follow-up".
+         */
+        ONSTUDYOBSERVATION, 
+        /**
          * A person is pre-registered for a study.
          */
         PENDINGONSTUDY, 
@@ -116,6 +124,10 @@ responding, withdrawal, non-compliance and/or adverse event.
           return OFFSTUDY;
         if ("on-study".equals(codeString))
           return ONSTUDY;
+        if ("on-study-intervention".equals(codeString))
+          return ONSTUDYINTERVENTION;
+        if ("on-study-observation".equals(codeString))
+          return ONSTUDYOBSERVATION;
         if ("pending-on-study".equals(codeString))
           return PENDINGONSTUDY;
         if ("potential-candidate".equals(codeString))
@@ -138,6 +150,8 @@ responding, withdrawal, non-compliance and/or adverse event.
             case NOTREGISTERED: return "not-registered";
             case OFFSTUDY: return "off-study";
             case ONSTUDY: return "on-study";
+            case ONSTUDYINTERVENTION: return "on-study-intervention";
+            case ONSTUDYOBSERVATION: return "on-study-observation";
             case PENDINGONSTUDY: return "pending-on-study";
             case POTENTIALCANDIDATE: return "potential-candidate";
             case SCREENING: return "screening";
@@ -154,6 +168,8 @@ responding, withdrawal, non-compliance and/or adverse event.
             case NOTREGISTERED: return "http://hl7.org/fhir/research-subject-status";
             case OFFSTUDY: return "http://hl7.org/fhir/research-subject-status";
             case ONSTUDY: return "http://hl7.org/fhir/research-subject-status";
+            case ONSTUDYINTERVENTION: return "http://hl7.org/fhir/research-subject-status";
+            case ONSTUDYOBSERVATION: return "http://hl7.org/fhir/research-subject-status";
             case PENDINGONSTUDY: return "http://hl7.org/fhir/research-subject-status";
             case POTENTIALCANDIDATE: return "http://hl7.org/fhir/research-subject-status";
             case SCREENING: return "http://hl7.org/fhir/research-subject-status";
@@ -170,6 +186,8 @@ responding, withdrawal, non-compliance and/or adverse event.
             case NOTREGISTERED: return "A person for whom registration was not completed";
             case OFFSTUDY: return "A person that has ended their participation on a study either because their treatment/observation is complete or through not\nresponding, withdrawal, non-compliance and/or adverse event.";
             case ONSTUDY: return "A person that is enrolled or registered on a study.";
+            case ONSTUDYINTERVENTION: return "The person is receiving the treatment or participating in an activity (e.g. yoga, diet, etc.) that the study is evaluating.";
+            case ONSTUDYOBSERVATION: return "The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and may not exist in all studies.  A synonym for this is \"short-term follow-up\".";
             case PENDINGONSTUDY: return "A person is pre-registered for a study.";
             case POTENTIALCANDIDATE: return "A person that is potentially eligible for participation in the study.";
             case SCREENING: return "A person who is being evaluated for eligibility for a study.";
@@ -186,6 +204,8 @@ responding, withdrawal, non-compliance and/or adverse event.
             case NOTREGISTERED: return "Not Registered";
             case OFFSTUDY: return "Off-study";
             case ONSTUDY: return "On-study";
+            case ONSTUDYINTERVENTION: return "On-study-intervention";
+            case ONSTUDYOBSERVATION: return "On-study-observation";
             case PENDINGONSTUDY: return "Pending on-study";
             case POTENTIALCANDIDATE: return "Potential Candidate";
             case SCREENING: return "Screening";
@@ -214,6 +234,10 @@ responding, withdrawal, non-compliance and/or adverse event.
           return ResearchSubjectStatus.OFFSTUDY;
         if ("on-study".equals(codeString))
           return ResearchSubjectStatus.ONSTUDY;
+        if ("on-study-intervention".equals(codeString))
+          return ResearchSubjectStatus.ONSTUDYINTERVENTION;
+        if ("on-study-observation".equals(codeString))
+          return ResearchSubjectStatus.ONSTUDYOBSERVATION;
         if ("pending-on-study".equals(codeString))
           return ResearchSubjectStatus.PENDINGONSTUDY;
         if ("potential-candidate".equals(codeString))
@@ -246,6 +270,10 @@ responding, withdrawal, non-compliance and/or adverse event.
           return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.OFFSTUDY);
         if ("on-study".equals(codeString))
           return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.ONSTUDY);
+        if ("on-study-intervention".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.ONSTUDYINTERVENTION);
+        if ("on-study-observation".equals(codeString))
+          return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.ONSTUDYOBSERVATION);
         if ("pending-on-study".equals(codeString))
           return new Enumeration<ResearchSubjectStatus>(this, ResearchSubjectStatus.PENDINGONSTUDY);
         if ("potential-candidate".equals(codeString))
@@ -271,6 +299,10 @@ responding, withdrawal, non-compliance and/or adverse event.
         return "off-study";
       if (code == ResearchSubjectStatus.ONSTUDY)
         return "on-study";
+      if (code == ResearchSubjectStatus.ONSTUDYINTERVENTION)
+        return "on-study-intervention";
+      if (code == ResearchSubjectStatus.ONSTUDYOBSERVATION)
+        return "on-study-observation";
       if (code == ResearchSubjectStatus.PENDINGONSTUDY)
         return "pending-on-study";
       if (code == ResearchSubjectStatus.POTENTIALCANDIDATE)
@@ -287,17 +319,17 @@ responding, withdrawal, non-compliance and/or adverse event.
     }
 
     /**
-     * Identifiers assigned to this research study by the sponsor or other systems.
+     * Identifiers assigned to this research subject for a study.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Business Identifier for research subject", formalDefinition="Identifiers assigned to this research study by the sponsor or other systems." )
+    @Description(shortDefinition="Business Identifier for research subject in a study", formalDefinition="Identifiers assigned to this research subject for a study." )
     protected List<Identifier> identifier;
 
     /**
      * The current state of the subject.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn", formalDefinition="The current state of the subject." )
+    @Description(shortDefinition="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn", formalDefinition="The current state of the subject." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/research-subject-status")
     protected Enumeration<ResearchSubjectStatus> status;
 
@@ -378,7 +410,7 @@ responding, withdrawal, non-compliance and/or adverse event.
     }
 
     /**
-     * @return {@link #identifier} (Identifiers assigned to this research study by the sponsor or other systems.)
+     * @return {@link #identifier} (Identifiers assigned to this research subject for a study.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -731,7 +763,7 @@ responding, withdrawal, non-compliance and/or adverse event.
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "Identifiers assigned to this research study by the sponsor or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("identifier", "Identifier", "Identifiers assigned to this research subject for a study.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("status", "code", "The current state of the subject.", 0, 1, status));
         children.add(new Property("period", "Period", "The dates the subject began and ended their participation in the study.", 0, 1, period));
         children.add(new Property("study", "Reference(ResearchStudy)", "Reference to the study the subject is participating in.", 0, 1, study));
@@ -744,7 +776,7 @@ responding, withdrawal, non-compliance and/or adverse event.
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this research study by the sponsor or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this research subject for a study.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -892481550: /*status*/  return new Property("status", "code", "The current state of the subject.", 0, 1, status);
         case -991726143: /*period*/  return new Property("period", "Period", "The dates the subject began and ended their participation in the study.", 0, 1, period);
         case 109776329: /*study*/  return new Property("study", "Reference(ResearchStudy)", "Reference to the study the subject is participating in.", 0, 1, study);
@@ -979,17 +1011,17 @@ responding, withdrawal, non-compliance and/or adverse event.
  /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Business Identifier for research subject</b><br>
+   * Description: <b>Business Identifier for research subject in a study</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchSubject.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="ResearchSubject.identifier", description="Business Identifier for research subject", type="token" )
+  @SearchParamDefinition(name="identifier", path="ResearchSubject.identifier", description="Business Identifier for research subject in a study", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Business Identifier for research subject</b><br>
+   * Description: <b>Business Identifier for research subject in a study</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchSubject.identifier</b><br>
    * </p>
@@ -1077,17 +1109,17 @@ responding, withdrawal, non-compliance and/or adverse event.
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn</b><br>
+   * Description: <b>candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchSubject.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="ResearchSubject.status", description="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn", type="token" )
+  @SearchParamDefinition(name="status", path="ResearchSubject.status", description="candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | pending-on-study | potential-candidate | screening | withdrawn</b><br>
+   * Description: <b>candidate | eligible | follow-up | ineligible | not-registered | off-study | on-study | on-study-intervention | on-study-observation | pending-on-study | potential-candidate | screening | withdrawn</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchSubject.status</b><br>
    * </p>

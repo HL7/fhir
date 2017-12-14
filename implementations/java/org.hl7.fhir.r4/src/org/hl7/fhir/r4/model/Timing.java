@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -394,23 +394,51 @@ public class Timing extends Type implements ICompositeType {
 
     public enum EventTiming {
         /**
-         * event occurs during the morning
+         * Event occurs during the morning. The exact time is unspecified and established by instition convention or patient interpretation
          */
         MORN, 
         /**
-         * event occurs during the afternoon
+         * Event occurs during the early morning. The exact time is unspecified and established by instition convention or patient interpretation
+         */
+        MORN_EARLY, 
+        /**
+         * Event occurs during the late morning. The exact time is unspecified and established by instition convention or patient interpretation
+         */
+        MORN_LATE, 
+        /**
+         * Event occurs around 12:00pm. The exact time is unspecified and established by instition convention or patient interpretation
+         */
+        NOON, 
+        /**
+         * Event occurs during the afternoon. The exact time is unspecified and established by instition convention or patient interpretation
          */
         AFT, 
         /**
-         * event occurs during the evening
+         * Event occurs during the early afternoon. The exact time is unspecified and established by instition convention or patient interpretation
+         */
+        AFT_EARLY, 
+        /**
+         * Event occurs during the late afternoon. The exact time is unspecified and established by instition convention or patient interpretation
+         */
+        AFT_LATE, 
+        /**
+         * Event occurs during the evening. The exact time is unspecified and established by instition convention or patient interpretation
          */
         EVE, 
         /**
-         * event occurs during the night
+         * Event occurs during the early evening. The exact time is unspecified and established by instition convention or patient interpretation
+         */
+        EVE_EARLY, 
+        /**
+         * Event occurs during the late evening. The exact time is unspecified and established by instition convention or patient interpretation
+         */
+        EVE_LATE, 
+        /**
+         * Event occurs during the night. The exact time is unspecified and established by instition convention or patient interpretation
          */
         NIGHT, 
         /**
-         * event occurs [offset] after subject goes to sleep
+         * Event occurs [offset] after subject goes to sleep. The exact time is unspecified and established by instition convention or patient interpretation
          */
         PHS, 
         /**
@@ -478,10 +506,24 @@ public class Timing extends Type implements ICompositeType {
                 return null;
         if ("MORN".equals(codeString))
           return MORN;
+        if ("MORN.early".equals(codeString))
+          return MORN_EARLY;
+        if ("MORN.late".equals(codeString))
+          return MORN_LATE;
+        if ("NOON".equals(codeString))
+          return NOON;
         if ("AFT".equals(codeString))
           return AFT;
+        if ("AFT.early".equals(codeString))
+          return AFT_EARLY;
+        if ("AFT.late".equals(codeString))
+          return AFT_LATE;
         if ("EVE".equals(codeString))
           return EVE;
+        if ("EVE.early".equals(codeString))
+          return EVE_EARLY;
+        if ("EVE.late".equals(codeString))
+          return EVE_LATE;
         if ("NIGHT".equals(codeString))
           return NIGHT;
         if ("PHS".equals(codeString))
@@ -522,8 +564,15 @@ public class Timing extends Type implements ICompositeType {
         public String toCode() {
           switch (this) {
             case MORN: return "MORN";
+            case MORN_EARLY: return "MORN.early";
+            case MORN_LATE: return "MORN.late";
+            case NOON: return "NOON";
             case AFT: return "AFT";
+            case AFT_EARLY: return "AFT.early";
+            case AFT_LATE: return "AFT.late";
             case EVE: return "EVE";
+            case EVE_EARLY: return "EVE.early";
+            case EVE_LATE: return "EVE.late";
             case NIGHT: return "NIGHT";
             case PHS: return "PHS";
             case HS: return "HS";
@@ -546,8 +595,15 @@ public class Timing extends Type implements ICompositeType {
         public String getSystem() {
           switch (this) {
             case MORN: return "http://hl7.org/fhir/event-timing";
+            case MORN_EARLY: return "http://hl7.org/fhir/event-timing";
+            case MORN_LATE: return "http://hl7.org/fhir/event-timing";
+            case NOON: return "http://hl7.org/fhir/event-timing";
             case AFT: return "http://hl7.org/fhir/event-timing";
+            case AFT_EARLY: return "http://hl7.org/fhir/event-timing";
+            case AFT_LATE: return "http://hl7.org/fhir/event-timing";
             case EVE: return "http://hl7.org/fhir/event-timing";
+            case EVE_EARLY: return "http://hl7.org/fhir/event-timing";
+            case EVE_LATE: return "http://hl7.org/fhir/event-timing";
             case NIGHT: return "http://hl7.org/fhir/event-timing";
             case PHS: return "http://hl7.org/fhir/event-timing";
             case HS: return "http://hl7.org/fhir/v3/TimingEvent";
@@ -569,11 +625,18 @@ public class Timing extends Type implements ICompositeType {
         }
         public String getDefinition() {
           switch (this) {
-            case MORN: return "event occurs during the morning";
-            case AFT: return "event occurs during the afternoon";
-            case EVE: return "event occurs during the evening";
-            case NIGHT: return "event occurs during the night";
-            case PHS: return "event occurs [offset] after subject goes to sleep";
+            case MORN: return "Event occurs during the morning. The exact time is unspecified and established by instition convention or patient interpretation";
+            case MORN_EARLY: return "Event occurs during the early morning. The exact time is unspecified and established by instition convention or patient interpretation";
+            case MORN_LATE: return "Event occurs during the late morning. The exact time is unspecified and established by instition convention or patient interpretation";
+            case NOON: return "Event occurs around 12:00pm. The exact time is unspecified and established by instition convention or patient interpretation";
+            case AFT: return "Event occurs during the afternoon. The exact time is unspecified and established by instition convention or patient interpretation";
+            case AFT_EARLY: return "Event occurs during the early afternoon. The exact time is unspecified and established by instition convention or patient interpretation";
+            case AFT_LATE: return "Event occurs during the late afternoon. The exact time is unspecified and established by instition convention or patient interpretation";
+            case EVE: return "Event occurs during the evening. The exact time is unspecified and established by instition convention or patient interpretation";
+            case EVE_EARLY: return "Event occurs during the early evening. The exact time is unspecified and established by instition convention or patient interpretation";
+            case EVE_LATE: return "Event occurs during the late evening. The exact time is unspecified and established by instition convention or patient interpretation";
+            case NIGHT: return "Event occurs during the night. The exact time is unspecified and established by instition convention or patient interpretation";
+            case PHS: return "Event occurs [offset] after subject goes to sleep. The exact time is unspecified and established by instition convention or patient interpretation";
             case HS: return "";
             case WAKE: return "";
             case C: return "";
@@ -594,8 +657,15 @@ public class Timing extends Type implements ICompositeType {
         public String getDisplay() {
           switch (this) {
             case MORN: return "Morning";
+            case MORN_EARLY: return "Early Morning";
+            case MORN_LATE: return "Late Morning";
+            case NOON: return "Noon";
             case AFT: return "Afternoon";
+            case AFT_EARLY: return "Early Afternoon";
+            case AFT_LATE: return "Late Afternoon";
             case EVE: return "Evening";
+            case EVE_EARLY: return "Early Evening";
+            case EVE_LATE: return "Late Evening";
             case NIGHT: return "Night";
             case PHS: return "After Sleep";
             case HS: return "HS";
@@ -624,10 +694,24 @@ public class Timing extends Type implements ICompositeType {
                 return null;
         if ("MORN".equals(codeString))
           return EventTiming.MORN;
+        if ("MORN.early".equals(codeString))
+          return EventTiming.MORN_EARLY;
+        if ("MORN.late".equals(codeString))
+          return EventTiming.MORN_LATE;
+        if ("NOON".equals(codeString))
+          return EventTiming.NOON;
         if ("AFT".equals(codeString))
           return EventTiming.AFT;
+        if ("AFT.early".equals(codeString))
+          return EventTiming.AFT_EARLY;
+        if ("AFT.late".equals(codeString))
+          return EventTiming.AFT_LATE;
         if ("EVE".equals(codeString))
           return EventTiming.EVE;
+        if ("EVE.early".equals(codeString))
+          return EventTiming.EVE_EARLY;
+        if ("EVE.late".equals(codeString))
+          return EventTiming.EVE_LATE;
         if ("NIGHT".equals(codeString))
           return EventTiming.NIGHT;
         if ("PHS".equals(codeString))
@@ -672,10 +756,24 @@ public class Timing extends Type implements ICompositeType {
             return null;
         if ("MORN".equals(codeString))
           return new Enumeration<EventTiming>(this, EventTiming.MORN);
+        if ("MORN.early".equals(codeString))
+          return new Enumeration<EventTiming>(this, EventTiming.MORN_EARLY);
+        if ("MORN.late".equals(codeString))
+          return new Enumeration<EventTiming>(this, EventTiming.MORN_LATE);
+        if ("NOON".equals(codeString))
+          return new Enumeration<EventTiming>(this, EventTiming.NOON);
         if ("AFT".equals(codeString))
           return new Enumeration<EventTiming>(this, EventTiming.AFT);
+        if ("AFT.early".equals(codeString))
+          return new Enumeration<EventTiming>(this, EventTiming.AFT_EARLY);
+        if ("AFT.late".equals(codeString))
+          return new Enumeration<EventTiming>(this, EventTiming.AFT_LATE);
         if ("EVE".equals(codeString))
           return new Enumeration<EventTiming>(this, EventTiming.EVE);
+        if ("EVE.early".equals(codeString))
+          return new Enumeration<EventTiming>(this, EventTiming.EVE_EARLY);
+        if ("EVE.late".equals(codeString))
+          return new Enumeration<EventTiming>(this, EventTiming.EVE_LATE);
         if ("NIGHT".equals(codeString))
           return new Enumeration<EventTiming>(this, EventTiming.NIGHT);
         if ("PHS".equals(codeString))
@@ -713,10 +811,24 @@ public class Timing extends Type implements ICompositeType {
     public String toCode(EventTiming code) {
       if (code == EventTiming.MORN)
         return "MORN";
+      if (code == EventTiming.MORN_EARLY)
+        return "MORN.early";
+      if (code == EventTiming.MORN_LATE)
+        return "MORN.late";
+      if (code == EventTiming.NOON)
+        return "NOON";
       if (code == EventTiming.AFT)
         return "AFT";
+      if (code == EventTiming.AFT_EARLY)
+        return "AFT.early";
+      if (code == EventTiming.AFT_LATE)
+        return "AFT.late";
       if (code == EventTiming.EVE)
         return "EVE";
+      if (code == EventTiming.EVE_EARLY)
+        return "EVE.early";
+      if (code == EventTiming.EVE_LATE)
+        return "EVE.late";
       if (code == EventTiming.NIGHT)
         return "NIGHT";
       if (code == EventTiming.PHS)
@@ -853,10 +965,10 @@ public class Timing extends Type implements ICompositeType {
         protected List<TimeType> timeOfDay;
 
         /**
-         * Real world events that the occurrence of the event should be tied to.
+         * An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.
          */
         @Child(name = "when", type = {CodeType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Regular life events the event is tied to", formalDefinition="Real world events that the occurrence of the event should be tied to." )
+        @Description(shortDefinition="Code for time period of occurrence", formalDefinition="An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/event-timing")
         protected List<Enumeration<EventTiming>> when;
 
@@ -1603,7 +1715,7 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #when} (Real world events that the occurrence of the event should be tied to.)
+         * @return {@link #when} (An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.)
          */
         public List<Enumeration<EventTiming>> getWhen() { 
           if (this.when == null)
@@ -1629,7 +1741,7 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #when} (Real world events that the occurrence of the event should be tied to.)
+         * @return {@link #when} (An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.)
          */
         public Enumeration<EventTiming> addWhenElement() {//2 
           Enumeration<EventTiming> t = new Enumeration<EventTiming>(new EventTimingEnumFactory());
@@ -1640,7 +1752,7 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #when} (Real world events that the occurrence of the event should be tied to.)
+         * @param value {@link #when} (An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.)
          */
         public TimingRepeatComponent addWhen(EventTiming value) { //1
           Enumeration<EventTiming> t = new Enumeration<EventTiming>(new EventTimingEnumFactory());
@@ -1652,7 +1764,7 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #when} (Real world events that the occurrence of the event should be tied to.)
+         * @param value {@link #when} (An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.)
          */
         public boolean hasWhen(EventTiming value) { 
           if (this.when == null)
@@ -1723,7 +1835,7 @@ public class Timing extends Type implements ICompositeType {
           children.add(new Property("periodUnit", "code", "The units of time for the period in UCUM units.", 0, 1, periodUnit));
           children.add(new Property("dayOfWeek", "code", "If one or more days of week is provided, then the action happens only on the specified day(s).", 0, java.lang.Integer.MAX_VALUE, dayOfWeek));
           children.add(new Property("timeOfDay", "time", "Specified time of day for action to take place.", 0, java.lang.Integer.MAX_VALUE, timeOfDay));
-          children.add(new Property("when", "code", "Real world events that the occurrence of the event should be tied to.", 0, java.lang.Integer.MAX_VALUE, when));
+          children.add(new Property("when", "code", "An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.", 0, java.lang.Integer.MAX_VALUE, when));
           children.add(new Property("offset", "unsignedInt", "The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event.", 0, 1, offset));
         }
 
@@ -1747,7 +1859,7 @@ public class Timing extends Type implements ICompositeType {
           case 384367333: /*periodUnit*/  return new Property("periodUnit", "code", "The units of time for the period in UCUM units.", 0, 1, periodUnit);
           case -730552025: /*dayOfWeek*/  return new Property("dayOfWeek", "code", "If one or more days of week is provided, then the action happens only on the specified day(s).", 0, java.lang.Integer.MAX_VALUE, dayOfWeek);
           case 21434232: /*timeOfDay*/  return new Property("timeOfDay", "time", "Specified time of day for action to take place.", 0, java.lang.Integer.MAX_VALUE, timeOfDay);
-          case 3648314: /*when*/  return new Property("when", "code", "Real world events that the occurrence of the event should be tied to.", 0, java.lang.Integer.MAX_VALUE, when);
+          case 3648314: /*when*/  return new Property("when", "code", "An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.", 0, java.lang.Integer.MAX_VALUE, when);
           case -1019779949: /*offset*/  return new Property("offset", "unsignedInt", "The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event.", 0, 1, offset);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }

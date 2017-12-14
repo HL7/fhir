@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -74,14 +74,14 @@ public class EventDefinition extends MetadataResource {
     /**
      * The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
-    @Child(name = "approvalDate", type = {DateType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "approvalDate", type = {DateType.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When the event definition was approved by publisher", formalDefinition="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage." )
     protected DateType approvalDate;
 
     /**
      * The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
-    @Child(name = "lastReviewDate", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "lastReviewDate", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When the event definition was last reviewed", formalDefinition="The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date." )
     protected DateType lastReviewDate;
 
@@ -124,7 +124,7 @@ public class EventDefinition extends MetadataResource {
     /**
      * The trigger element defines when the event occurs.
      */
-    @Child(name = "trigger", type = {TriggerDefinition.class}, order=10, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "trigger", type = {TriggerDefinition.class}, order=10, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="\"when\" the event occurs", formalDefinition="The trigger element defines when the event occurs." )
     protected TriggerDefinition trigger;
 

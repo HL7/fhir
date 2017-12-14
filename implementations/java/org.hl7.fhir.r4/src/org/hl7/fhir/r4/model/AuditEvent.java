@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -507,7 +507,7 @@ public class AuditEvent extends DomainResource {
         /**
          * Indicator that the user is or is not the requestor, or initiator, for the event being audited.
          */
-        @Child(name = "requestor", type = {BooleanType.class}, order=7, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "requestor", type = {BooleanType.class}, order=7, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Whether user is initiator", formalDefinition="Indicator that the user is or is not the requestor, or initiator, for the event being audited." )
         protected BooleanType requestor;
 

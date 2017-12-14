@@ -1421,7 +1421,7 @@ public class IgSpreadsheetParser {
             p.setMax(max);
             p.setType(type);
             p.getSearchTypeElement().setValueAsString(sheet.getColumn(row, "Search Type"));
-            p.setProfile(new Reference().setReference(profile));
+            p.addTargetProfile(profile);
             String bs = sheet.getColumn(row, "Binding");
             if (!Utilities.noString(bs)) {
               ElementDefinitionBindingComponent b = bindings.get(bs);

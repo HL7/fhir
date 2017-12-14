@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -3422,7 +3422,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * Identifies a restful operation supported by the solution.
          */
-        @Child(name = "interaction", type = {}, order=4, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "interaction", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="What operations are supported?", formalDefinition="Identifies a restful operation supported by the solution." )
         protected List<ResourceInteractionComponent> interaction;
 
@@ -5527,7 +5527,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.
          */
-        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Name by which the operation/query is invoked", formalDefinition="The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called." )
         protected StringType name;
 
@@ -6754,7 +6754,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * The mode of this event declaration - whether an application is a sender or receiver.
          */
-        @Child(name = "mode", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "mode", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="sender | receiver", formalDefinition="The mode of this event declaration - whether an application is a sender or receiver." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/event-capability-mode")
         protected Enumeration<EventCapabilityMode> mode;
@@ -6762,7 +6762,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * A resource associated with the event.  This is the resource that defines the event.
          */
-        @Child(name = "focus", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "focus", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Resource that's focus of message", formalDefinition="A resource associated with the event.  This is the resource that defines the event." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
         protected CodeType focus;
@@ -7327,7 +7327,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * Mode of this document declaration - whether an application is a producer or consumer.
          */
-        @Child(name = "mode", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "mode", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="producer | consumer", formalDefinition="Mode of this document declaration - whether an application is a producer or consumer." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/document-mode")
         protected Enumeration<DocumentMode> mode;

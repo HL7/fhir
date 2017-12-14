@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -372,19 +372,19 @@ public class ExampleScenario extends MetadataResource {
          */
         HEALTHCARESERVICE, 
         /**
-         * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
-         */
-        IMAGINGMANIFEST, 
-        /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
         IMAGINGSTUDY, 
         /**
-         * Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.
+         * Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
          */
         IMMUNIZATION, 
         /**
-         * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
+         * Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
+         */
+        IMMUNIZATIONEVALUATION, 
+        /**
+         * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
          */
         IMMUNIZATIONRECOMMENDATION, 
         /**
@@ -399,6 +399,10 @@ public class ExampleScenario extends MetadataResource {
          * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
          */
         IMPLEMENTATIONGUIDEOUTPUT, 
+        /**
+         * Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.
+         */
+        INVOICE, 
         /**
          * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
@@ -484,6 +488,10 @@ public class ExampleScenario extends MetadataResource {
          */
         ORGANIZATION, 
         /**
+         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         */
+        ORGANIZATIONROLE, 
+        /**
          * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
         PARAMETERS, 
@@ -527,6 +535,10 @@ public class ExampleScenario extends MetadataResource {
          * This resource provides processing status, errors and notes from the processing of a resource.
          */
         PROCESSRESPONSE, 
+        /**
+         * Details of a Health Insurance product/plan provided by an organization.
+         */
+        PRODUCTPLAN, 
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
@@ -768,12 +780,12 @@ public class ExampleScenario extends MetadataResource {
           return GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return HEALTHCARESERVICE;
-        if ("ImagingManifest".equals(codeString))
-          return IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
           return IMMUNIZATION;
+        if ("ImmunizationEvaluation".equals(codeString))
+          return IMMUNIZATIONEVALUATION;
         if ("ImmunizationRecommendation".equals(codeString))
           return IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
@@ -782,6 +794,8 @@ public class ExampleScenario extends MetadataResource {
           return IMPLEMENTATIONGUIDEINPUT;
         if ("ImplementationGuideOutput".equals(codeString))
           return IMPLEMENTATIONGUIDEOUTPUT;
+        if ("Invoice".equals(codeString))
+          return INVOICE;
         if ("Library".equals(codeString))
           return LIBRARY;
         if ("Linkage".equals(codeString))
@@ -824,6 +838,8 @@ public class ExampleScenario extends MetadataResource {
           return OPERATIONOUTCOME;
         if ("Organization".equals(codeString))
           return ORGANIZATION;
+        if ("OrganizationRole".equals(codeString))
+          return ORGANIZATIONROLE;
         if ("Parameters".equals(codeString))
           return PARAMETERS;
         if ("Patient".equals(codeString))
@@ -846,6 +862,8 @@ public class ExampleScenario extends MetadataResource {
           return PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return PROCESSRESPONSE;
+        if ("ProductPlan".equals(codeString))
+          return PRODUCTPLAN;
         if ("Provenance".equals(codeString))
           return PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -970,13 +988,14 @@ public class ExampleScenario extends MetadataResource {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
+            case IMMUNIZATIONEVALUATION: return "ImmunizationEvaluation";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
             case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
+            case INVOICE: return "Invoice";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -998,6 +1017,7 @@ public class ExampleScenario extends MetadataResource {
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
+            case ORGANIZATIONROLE: return "OrganizationRole";
             case PARAMETERS: return "Parameters";
             case PATIENT: return "Patient";
             case PAYMENTNOTICE: return "PaymentNotice";
@@ -1009,6 +1029,7 @@ public class ExampleScenario extends MetadataResource {
             case PROCEDURE: return "Procedure";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PRODUCTPLAN: return "ProductPlan";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -1101,13 +1122,14 @@ public class ExampleScenario extends MetadataResource {
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGMANIFEST: return "http://hl7.org/fhir/resource-types";
             case IMAGINGSTUDY: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATION: return "http://hl7.org/fhir/resource-types";
+            case IMMUNIZATIONEVALUATION: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDE: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDEINPUT: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDEOUTPUT: return "http://hl7.org/fhir/resource-types";
+            case INVOICE: return "http://hl7.org/fhir/resource-types";
             case LIBRARY: return "http://hl7.org/fhir/resource-types";
             case LINKAGE: return "http://hl7.org/fhir/resource-types";
             case LIST: return "http://hl7.org/fhir/resource-types";
@@ -1129,6 +1151,7 @@ public class ExampleScenario extends MetadataResource {
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
+            case ORGANIZATIONROLE: return "http://hl7.org/fhir/resource-types";
             case PARAMETERS: return "http://hl7.org/fhir/resource-types";
             case PATIENT: return "http://hl7.org/fhir/resource-types";
             case PAYMENTNOTICE: return "http://hl7.org/fhir/resource-types";
@@ -1140,6 +1163,7 @@ public class ExampleScenario extends MetadataResource {
             case PROCEDURE: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSRESPONSE: return "http://hl7.org/fhir/resource-types";
+            case PRODUCTPLAN: return "http://hl7.org/fhir/resource-types";
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -1232,13 +1256,14 @@ public class ExampleScenario extends MetadataResource {
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGMANIFEST: return "A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
-            case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
-            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
+            case IMMUNIZATION: return "Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.";
+            case IMMUNIZATIONEVALUATION: return "Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to those  recommendations.";
+            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case IMPLEMENTATIONGUIDEINPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case IMPLEMENTATIONGUIDEOUTPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
+            case INVOICE: return "Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.";
             case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
@@ -1260,6 +1285,7 @@ public class ExampleScenario extends MetadataResource {
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
+            case ORGANIZATIONROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
@@ -1271,6 +1297,7 @@ public class ExampleScenario extends MetadataResource {
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
+            case PRODUCTPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.";
@@ -1363,13 +1390,14 @@ public class ExampleScenario extends MetadataResource {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
+            case IMMUNIZATIONEVALUATION: return "ImmunizationEvaluation";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
             case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
+            case INVOICE: return "Invoice";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -1391,6 +1419,7 @@ public class ExampleScenario extends MetadataResource {
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
+            case ORGANIZATIONROLE: return "OrganizationRole";
             case PARAMETERS: return "Parameters";
             case PATIENT: return "Patient";
             case PAYMENTNOTICE: return "PaymentNotice";
@@ -1402,6 +1431,7 @@ public class ExampleScenario extends MetadataResource {
             case PROCEDURE: return "Procedure";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PRODUCTPLAN: return "ProductPlan";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -1556,12 +1586,12 @@ public class ExampleScenario extends MetadataResource {
           return FHIRResourceType.GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return FHIRResourceType.HEALTHCARESERVICE;
-        if ("ImagingManifest".equals(codeString))
-          return FHIRResourceType.IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return FHIRResourceType.IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
           return FHIRResourceType.IMMUNIZATION;
+        if ("ImmunizationEvaluation".equals(codeString))
+          return FHIRResourceType.IMMUNIZATIONEVALUATION;
         if ("ImmunizationRecommendation".equals(codeString))
           return FHIRResourceType.IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
@@ -1570,6 +1600,8 @@ public class ExampleScenario extends MetadataResource {
           return FHIRResourceType.IMPLEMENTATIONGUIDEINPUT;
         if ("ImplementationGuideOutput".equals(codeString))
           return FHIRResourceType.IMPLEMENTATIONGUIDEOUTPUT;
+        if ("Invoice".equals(codeString))
+          return FHIRResourceType.INVOICE;
         if ("Library".equals(codeString))
           return FHIRResourceType.LIBRARY;
         if ("Linkage".equals(codeString))
@@ -1612,6 +1644,8 @@ public class ExampleScenario extends MetadataResource {
           return FHIRResourceType.OPERATIONOUTCOME;
         if ("Organization".equals(codeString))
           return FHIRResourceType.ORGANIZATION;
+        if ("OrganizationRole".equals(codeString))
+          return FHIRResourceType.ORGANIZATIONROLE;
         if ("Parameters".equals(codeString))
           return FHIRResourceType.PARAMETERS;
         if ("Patient".equals(codeString))
@@ -1634,6 +1668,8 @@ public class ExampleScenario extends MetadataResource {
           return FHIRResourceType.PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return FHIRResourceType.PROCESSRESPONSE;
+        if ("ProductPlan".equals(codeString))
+          return FHIRResourceType.PRODUCTPLAN;
         if ("Provenance".equals(codeString))
           return FHIRResourceType.PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -1818,12 +1854,12 @@ public class ExampleScenario extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.GUIDANCERESPONSE);
         if ("HealthcareService".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.HEALTHCARESERVICE);
-        if ("ImagingManifest".equals(codeString))
-          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMAGINGMANIFEST);
         if ("ImagingStudy".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMAGINGSTUDY);
         if ("Immunization".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMMUNIZATION);
+        if ("ImmunizationEvaluation".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMMUNIZATIONEVALUATION);
         if ("ImmunizationRecommendation".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMMUNIZATIONRECOMMENDATION);
         if ("ImplementationGuide".equals(codeString))
@@ -1832,6 +1868,8 @@ public class ExampleScenario extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMPLEMENTATIONGUIDEINPUT);
         if ("ImplementationGuideOutput".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.IMPLEMENTATIONGUIDEOUTPUT);
+        if ("Invoice".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.INVOICE);
         if ("Library".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.LIBRARY);
         if ("Linkage".equals(codeString))
@@ -1874,6 +1912,8 @@ public class ExampleScenario extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.OPERATIONOUTCOME);
         if ("Organization".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.ORGANIZATION);
+        if ("OrganizationRole".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.ORGANIZATIONROLE);
         if ("Parameters".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PARAMETERS);
         if ("Patient".equals(codeString))
@@ -1896,6 +1936,8 @@ public class ExampleScenario extends MetadataResource {
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROCESSREQUEST);
         if ("ProcessResponse".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROCESSRESPONSE);
+        if ("ProductPlan".equals(codeString))
+          return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PRODUCTPLAN);
         if ("Provenance".equals(codeString))
           return new Enumeration<FHIRResourceType>(this, FHIRResourceType.PROVENANCE);
         if ("Questionnaire".equals(codeString))
@@ -2073,12 +2115,12 @@ public class ExampleScenario extends MetadataResource {
         return "GuidanceResponse";
       if (code == FHIRResourceType.HEALTHCARESERVICE)
         return "HealthcareService";
-      if (code == FHIRResourceType.IMAGINGMANIFEST)
-        return "ImagingManifest";
       if (code == FHIRResourceType.IMAGINGSTUDY)
         return "ImagingStudy";
       if (code == FHIRResourceType.IMMUNIZATION)
         return "Immunization";
+      if (code == FHIRResourceType.IMMUNIZATIONEVALUATION)
+        return "ImmunizationEvaluation";
       if (code == FHIRResourceType.IMMUNIZATIONRECOMMENDATION)
         return "ImmunizationRecommendation";
       if (code == FHIRResourceType.IMPLEMENTATIONGUIDE)
@@ -2087,6 +2129,8 @@ public class ExampleScenario extends MetadataResource {
         return "ImplementationGuideInput";
       if (code == FHIRResourceType.IMPLEMENTATIONGUIDEOUTPUT)
         return "ImplementationGuideOutput";
+      if (code == FHIRResourceType.INVOICE)
+        return "Invoice";
       if (code == FHIRResourceType.LIBRARY)
         return "Library";
       if (code == FHIRResourceType.LINKAGE)
@@ -2129,6 +2173,8 @@ public class ExampleScenario extends MetadataResource {
         return "OperationOutcome";
       if (code == FHIRResourceType.ORGANIZATION)
         return "Organization";
+      if (code == FHIRResourceType.ORGANIZATIONROLE)
+        return "OrganizationRole";
       if (code == FHIRResourceType.PARAMETERS)
         return "Parameters";
       if (code == FHIRResourceType.PATIENT)
@@ -2151,6 +2197,8 @@ public class ExampleScenario extends MetadataResource {
         return "ProcessRequest";
       if (code == FHIRResourceType.PROCESSRESPONSE)
         return "ProcessResponse";
+      if (code == FHIRResourceType.PRODUCTPLAN)
+        return "ProductPlan";
       if (code == FHIRResourceType.PROVENANCE)
         return "Provenance";
       if (code == FHIRResourceType.QUESTIONNAIRE)

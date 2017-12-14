@@ -45,8 +45,8 @@ import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
  */
-@ResourceDef(name="PractitionerRole", profile="http://hl7.org/fhir/Profile/PractitionerRole")
-public class PractitionerRole extends DomainResource {
+@ResourceDef(name="OrganizationRole", profile="http://hl7.org/fhir/Profile/OrganizationRole")
+public class OrganizationRole extends DomainResource {
 
     public enum DaysOfWeek {
         /**
@@ -221,7 +221,7 @@ public class PractitionerRole extends DomainResource {
     }
 
     @Block()
-    public static class PractitionerRoleAvailableTimeComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class OrganizationRoleAvailableTimeComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Indicates which days of the week are available between the start and end Times.
          */
@@ -256,7 +256,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * Constructor
      */
-      public PractitionerRoleAvailableTimeComponent() {
+      public OrganizationRoleAvailableTimeComponent() {
         super();
       }
 
@@ -272,7 +272,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public PractitionerRoleAvailableTimeComponent setDaysOfWeek(List<Enumeration<DaysOfWeek>> theDaysOfWeek) { 
+        public OrganizationRoleAvailableTimeComponent setDaysOfWeek(List<Enumeration<DaysOfWeek>> theDaysOfWeek) { 
           this.daysOfWeek = theDaysOfWeek;
           return this;
         }
@@ -300,7 +300,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value {@link #daysOfWeek} (Indicates which days of the week are available between the start and end Times.)
          */
-        public PractitionerRoleAvailableTimeComponent addDaysOfWeek(DaysOfWeek value) { //1
+        public OrganizationRoleAvailableTimeComponent addDaysOfWeek(DaysOfWeek value) { //1
           Enumeration<DaysOfWeek> t = new Enumeration<DaysOfWeek>(new DaysOfWeekEnumFactory());
           t.setValue(value);
           if (this.daysOfWeek == null)
@@ -327,7 +327,7 @@ public class PractitionerRole extends DomainResource {
         public BooleanType getAllDayElement() { 
           if (this.allDay == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PractitionerRoleAvailableTimeComponent.allDay");
+              throw new Error("Attempt to auto-create OrganizationRoleAvailableTimeComponent.allDay");
             else if (Configuration.doAutoCreate())
               this.allDay = new BooleanType(); // bb
           return this.allDay;
@@ -344,7 +344,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value {@link #allDay} (Is this always available? (hence times are irrelevant) e.g. 24 hour service.). This is the underlying object with id, value and extensions. The accessor "getAllDay" gives direct access to the value
          */
-        public PractitionerRoleAvailableTimeComponent setAllDayElement(BooleanType value) { 
+        public OrganizationRoleAvailableTimeComponent setAllDayElement(BooleanType value) { 
           this.allDay = value;
           return this;
         }
@@ -359,7 +359,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value Is this always available? (hence times are irrelevant) e.g. 24 hour service.
          */
-        public PractitionerRoleAvailableTimeComponent setAllDay(boolean value) { 
+        public OrganizationRoleAvailableTimeComponent setAllDay(boolean value) { 
             if (this.allDay == null)
               this.allDay = new BooleanType();
             this.allDay.setValue(value);
@@ -372,7 +372,7 @@ public class PractitionerRole extends DomainResource {
         public TimeType getAvailableStartTimeElement() { 
           if (this.availableStartTime == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PractitionerRoleAvailableTimeComponent.availableStartTime");
+              throw new Error("Attempt to auto-create OrganizationRoleAvailableTimeComponent.availableStartTime");
             else if (Configuration.doAutoCreate())
               this.availableStartTime = new TimeType(); // bb
           return this.availableStartTime;
@@ -389,7 +389,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value {@link #availableStartTime} (The opening time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableStartTime" gives direct access to the value
          */
-        public PractitionerRoleAvailableTimeComponent setAvailableStartTimeElement(TimeType value) { 
+        public OrganizationRoleAvailableTimeComponent setAvailableStartTimeElement(TimeType value) { 
           this.availableStartTime = value;
           return this;
         }
@@ -404,7 +404,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value The opening time of day. Note: If the AllDay flag is set, then this time is ignored.
          */
-        public PractitionerRoleAvailableTimeComponent setAvailableStartTime(String value) { 
+        public OrganizationRoleAvailableTimeComponent setAvailableStartTime(String value) { 
           if (value == null)
             this.availableStartTime = null;
           else {
@@ -421,7 +421,7 @@ public class PractitionerRole extends DomainResource {
         public TimeType getAvailableEndTimeElement() { 
           if (this.availableEndTime == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PractitionerRoleAvailableTimeComponent.availableEndTime");
+              throw new Error("Attempt to auto-create OrganizationRoleAvailableTimeComponent.availableEndTime");
             else if (Configuration.doAutoCreate())
               this.availableEndTime = new TimeType(); // bb
           return this.availableEndTime;
@@ -438,7 +438,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value {@link #availableEndTime} (The closing time of day. Note: If the AllDay flag is set, then this time is ignored.). This is the underlying object with id, value and extensions. The accessor "getAvailableEndTime" gives direct access to the value
          */
-        public PractitionerRoleAvailableTimeComponent setAvailableEndTimeElement(TimeType value) { 
+        public OrganizationRoleAvailableTimeComponent setAvailableEndTimeElement(TimeType value) { 
           this.availableEndTime = value;
           return this;
         }
@@ -453,7 +453,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value The closing time of day. Note: If the AllDay flag is set, then this time is ignored.
          */
-        public PractitionerRoleAvailableTimeComponent setAvailableEndTime(String value) { 
+        public OrganizationRoleAvailableTimeComponent setAvailableEndTime(String value) { 
           if (value == null)
             this.availableEndTime = null;
           else {
@@ -560,23 +560,23 @@ public class PractitionerRole extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("daysOfWeek")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.daysOfWeek");
+          throw new FHIRException("Cannot call addChild on a primitive type OrganizationRole.daysOfWeek");
         }
         else if (name.equals("allDay")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.allDay");
+          throw new FHIRException("Cannot call addChild on a primitive type OrganizationRole.allDay");
         }
         else if (name.equals("availableStartTime")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.availableStartTime");
+          throw new FHIRException("Cannot call addChild on a primitive type OrganizationRole.availableStartTime");
         }
         else if (name.equals("availableEndTime")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.availableEndTime");
+          throw new FHIRException("Cannot call addChild on a primitive type OrganizationRole.availableEndTime");
         }
         else
           return super.addChild(name);
       }
 
-      public PractitionerRoleAvailableTimeComponent copy() {
-        PractitionerRoleAvailableTimeComponent dst = new PractitionerRoleAvailableTimeComponent();
+      public OrganizationRoleAvailableTimeComponent copy() {
+        OrganizationRoleAvailableTimeComponent dst = new OrganizationRoleAvailableTimeComponent();
         copyValues(dst);
         if (daysOfWeek != null) {
           dst.daysOfWeek = new ArrayList<Enumeration<DaysOfWeek>>();
@@ -593,9 +593,9 @@ public class PractitionerRole extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof PractitionerRoleAvailableTimeComponent))
+        if (!(other instanceof OrganizationRoleAvailableTimeComponent))
           return false;
-        PractitionerRoleAvailableTimeComponent o = (PractitionerRoleAvailableTimeComponent) other;
+        OrganizationRoleAvailableTimeComponent o = (OrganizationRoleAvailableTimeComponent) other;
         return compareDeep(daysOfWeek, o.daysOfWeek, true) && compareDeep(allDay, o.allDay, true) && compareDeep(availableStartTime, o.availableStartTime, true)
            && compareDeep(availableEndTime, o.availableEndTime, true);
       }
@@ -604,9 +604,9 @@ public class PractitionerRole extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof PractitionerRoleAvailableTimeComponent))
+        if (!(other instanceof OrganizationRoleAvailableTimeComponent))
           return false;
-        PractitionerRoleAvailableTimeComponent o = (PractitionerRoleAvailableTimeComponent) other;
+        OrganizationRoleAvailableTimeComponent o = (OrganizationRoleAvailableTimeComponent) other;
         return compareValues(daysOfWeek, o.daysOfWeek, true) && compareValues(allDay, o.allDay, true) && compareValues(availableStartTime, o.availableStartTime, true)
            && compareValues(availableEndTime, o.availableEndTime, true);
       }
@@ -617,14 +617,14 @@ public class PractitionerRole extends DomainResource {
       }
 
   public String fhirType() {
-    return "PractitionerRole.availableTime";
+    return "OrganizationRole.availableTime";
 
   }
 
   }
 
     @Block()
-    public static class PractitionerRoleNotAvailableComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class OrganizationRoleNotAvailableComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The reason that can be presented to the user as to why this time is not available.
          */
@@ -644,14 +644,14 @@ public class PractitionerRole extends DomainResource {
     /**
      * Constructor
      */
-      public PractitionerRoleNotAvailableComponent() {
+      public OrganizationRoleNotAvailableComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public PractitionerRoleNotAvailableComponent(StringType description) {
+      public OrganizationRoleNotAvailableComponent(StringType description) {
         super();
         this.description = description;
       }
@@ -662,7 +662,7 @@ public class PractitionerRole extends DomainResource {
         public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PractitionerRoleNotAvailableComponent.description");
+              throw new Error("Attempt to auto-create OrganizationRoleNotAvailableComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new StringType(); // bb
           return this.description;
@@ -679,7 +679,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value {@link #description} (The reason that can be presented to the user as to why this time is not available.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public PractitionerRoleNotAvailableComponent setDescriptionElement(StringType value) { 
+        public OrganizationRoleNotAvailableComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -694,7 +694,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value The reason that can be presented to the user as to why this time is not available.
          */
-        public PractitionerRoleNotAvailableComponent setDescription(String value) { 
+        public OrganizationRoleNotAvailableComponent setDescription(String value) { 
             if (this.description == null)
               this.description = new StringType();
             this.description.setValue(value);
@@ -707,7 +707,7 @@ public class PractitionerRole extends DomainResource {
         public Period getDuring() { 
           if (this.during == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PractitionerRoleNotAvailableComponent.during");
+              throw new Error("Attempt to auto-create OrganizationRoleNotAvailableComponent.during");
             else if (Configuration.doAutoCreate())
               this.during = new Period(); // cc
           return this.during;
@@ -720,7 +720,7 @@ public class PractitionerRole extends DomainResource {
         /**
          * @param value {@link #during} (Service is not available (seasonally or for a public holiday) from this date.)
          */
-        public PractitionerRoleNotAvailableComponent setDuring(Period value) { 
+        public OrganizationRoleNotAvailableComponent setDuring(Period value) { 
           this.during = value;
           return this;
         }
@@ -799,7 +799,7 @@ public class PractitionerRole extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.description");
+          throw new FHIRException("Cannot call addChild on a primitive type OrganizationRole.description");
         }
         else if (name.equals("during")) {
           this.during = new Period();
@@ -809,8 +809,8 @@ public class PractitionerRole extends DomainResource {
           return super.addChild(name);
       }
 
-      public PractitionerRoleNotAvailableComponent copy() {
-        PractitionerRoleNotAvailableComponent dst = new PractitionerRoleNotAvailableComponent();
+      public OrganizationRoleNotAvailableComponent copy() {
+        OrganizationRoleNotAvailableComponent dst = new OrganizationRoleNotAvailableComponent();
         copyValues(dst);
         dst.description = description == null ? null : description.copy();
         dst.during = during == null ? null : during.copy();
@@ -821,9 +821,9 @@ public class PractitionerRole extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof PractitionerRoleNotAvailableComponent))
+        if (!(other instanceof OrganizationRoleNotAvailableComponent))
           return false;
-        PractitionerRoleNotAvailableComponent o = (PractitionerRoleNotAvailableComponent) other;
+        OrganizationRoleNotAvailableComponent o = (OrganizationRoleNotAvailableComponent) other;
         return compareDeep(description, o.description, true) && compareDeep(during, o.during, true);
       }
 
@@ -831,9 +831,9 @@ public class PractitionerRole extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof PractitionerRoleNotAvailableComponent))
+        if (!(other instanceof OrganizationRoleNotAvailableComponent))
           return false;
-        PractitionerRoleNotAvailableComponent o = (PractitionerRoleNotAvailableComponent) other;
+        OrganizationRoleNotAvailableComponent o = (OrganizationRoleNotAvailableComponent) other;
         return compareValues(description, o.description, true);
       }
 
@@ -842,7 +842,7 @@ public class PractitionerRole extends DomainResource {
       }
 
   public String fhirType() {
-    return "PractitionerRole.notAvailable";
+    return "OrganizationRole.notAvailable";
 
   }
 
@@ -870,21 +870,9 @@ public class PractitionerRole extends DomainResource {
     protected Period period;
 
     /**
-     * Practitioner that is able to provide the defined services for the organization.
-     */
-    @Child(name = "practitioner", type = {Practitioner.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Practitioner that is able to provide the defined services for the organization", formalDefinition="Practitioner that is able to provide the defined services for the organization." )
-    protected Reference practitioner;
-
-    /**
-     * The actual object that is the target of the reference (Practitioner that is able to provide the defined services for the organization.)
-     */
-    protected Practitioner practitionerTarget;
-
-    /**
      * The organization where the Practitioner performs the roles associated.
      */
-    @Child(name = "organization", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "organization", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Organization where the roles are available", formalDefinition="The organization where the Practitioner performs the roles associated." )
     protected Reference organization;
 
@@ -894,17 +882,41 @@ public class PractitionerRole extends DomainResource {
     protected Organization organizationTarget;
 
     /**
+     * Practitioner that is able to provide the defined services for the organization.
+     */
+    @Child(name = "participatingOrganization", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Practitioner that is able to provide the defined services for the organization", formalDefinition="Practitioner that is able to provide the defined services for the organization." )
+    protected Reference participatingOrganization;
+
+    /**
+     * The actual object that is the target of the reference (Practitioner that is able to provide the defined services for the organization.)
+     */
+    protected Organization participatingOrganizationTarget;
+
+    /**
+     * The network(s) this association applies to (if any).
+     */
+    @Child(name = "network", type = {Organization.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="The network(s) this association applies to", formalDefinition="The network(s) this association applies to (if any)." )
+    protected List<Reference> network;
+    /**
+     * The actual objects that are the target of the reference (The network(s) this association applies to (if any).)
+     */
+    protected List<Organization> networkTarget;
+
+
+    /**
      * Roles which this practitioner is authorized to perform for the organization.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Roles which this practitioner may perform", formalDefinition="Roles which this practitioner is authorized to perform for the organization." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/practitioner-role")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/organization-role")
     protected List<CodeableConcept> code;
 
     /**
      * Specific specialty of the practitioner.
      */
-    @Child(name = "specialty", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "specialty", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Specific specialty of the practitioner", formalDefinition="Specific specialty of the practitioner." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-practice-codes")
     protected List<CodeableConcept> specialty;
@@ -912,7 +924,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * The location(s) at which this practitioner provides care.
      */
-    @Child(name = "location", type = {Location.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "location", type = {Location.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The location(s) at which this practitioner provides care", formalDefinition="The location(s) at which this practitioner provides care." )
     protected List<Reference> location;
     /**
@@ -924,7 +936,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * The list of healthcare services that this worker provides for this role's Organization/Location(s).
      */
-    @Child(name = "healthcareService", type = {HealthcareService.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "healthcareService", type = {HealthcareService.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)", formalDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)." )
     protected List<Reference> healthcareService;
     /**
@@ -936,35 +948,35 @@ public class PractitionerRole extends DomainResource {
     /**
      * Contact details that are specific to the role/location/service.
      */
-    @Child(name = "telecom", type = {ContactPoint.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "telecom", type = {ContactPoint.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Contact details that are specific to the role/location/service", formalDefinition="Contact details that are specific to the role/location/service." )
     protected List<ContactPoint> telecom;
 
     /**
      * A collection of times that the Service Site is available.
      */
-    @Child(name = "availableTime", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "availableTime", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Times the Service Site is available", formalDefinition="A collection of times that the Service Site is available." )
-    protected List<PractitionerRoleAvailableTimeComponent> availableTime;
+    protected List<OrganizationRoleAvailableTimeComponent> availableTime;
 
     /**
      * The HealthcareService is not available during this period of time due to the provided reason.
      */
-    @Child(name = "notAvailable", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "notAvailable", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Not available during this time due to provided reason", formalDefinition="The HealthcareService is not available during this period of time due to the provided reason." )
-    protected List<PractitionerRoleNotAvailableComponent> notAvailable;
+    protected List<OrganizationRoleNotAvailableComponent> notAvailable;
 
     /**
      * A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.
      */
-    @Child(name = "availabilityExceptions", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "availabilityExceptions", type = {StringType.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Description of availability exceptions", formalDefinition="A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times." )
     protected StringType availabilityExceptions;
 
     /**
      * Technical endpoints providing access to services operated for the practitioner with this role.
      */
-    @Child(name = "endpoint", type = {Endpoint.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "endpoint", type = {Endpoint.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Technical endpoints providing access to services operated for the practitioner with this role", formalDefinition="Technical endpoints providing access to services operated for the practitioner with this role." )
     protected List<Reference> endpoint;
     /**
@@ -973,12 +985,12 @@ public class PractitionerRole extends DomainResource {
     protected List<Endpoint> endpointTarget;
 
 
-    private static final long serialVersionUID = 423338051L;
+    private static final long serialVersionUID = 1850231735L;
 
   /**
    * Constructor
    */
-    public PractitionerRole() {
+    public OrganizationRole() {
       super();
     }
 
@@ -994,7 +1006,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setIdentifier(List<Identifier> theIdentifier) { 
+    public OrganizationRole setIdentifier(List<Identifier> theIdentifier) { 
       this.identifier = theIdentifier;
       return this;
     }
@@ -1016,7 +1028,7 @@ public class PractitionerRole extends DomainResource {
       return t;
     }
 
-    public PractitionerRole addIdentifier(Identifier t) { //3
+    public OrganizationRole addIdentifier(Identifier t) { //3
       if (t == null)
         return this;
       if (this.identifier == null)
@@ -1041,7 +1053,7 @@ public class PractitionerRole extends DomainResource {
     public BooleanType getActiveElement() { 
       if (this.active == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create PractitionerRole.active");
+          throw new Error("Attempt to auto-create OrganizationRole.active");
         else if (Configuration.doAutoCreate())
           this.active = new BooleanType(); // bb
       return this.active;
@@ -1058,7 +1070,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @param value {@link #active} (Whether this practitioner role record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public PractitionerRole setActiveElement(BooleanType value) { 
+    public OrganizationRole setActiveElement(BooleanType value) { 
       this.active = value;
       return this;
     }
@@ -1073,7 +1085,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @param value Whether this practitioner role record is in active use.
      */
-    public PractitionerRole setActive(boolean value) { 
+    public OrganizationRole setActive(boolean value) { 
         if (this.active == null)
           this.active = new BooleanType();
         this.active.setValue(value);
@@ -1086,7 +1098,7 @@ public class PractitionerRole extends DomainResource {
     public Period getPeriod() { 
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create PractitionerRole.period");
+          throw new Error("Attempt to auto-create OrganizationRole.period");
         else if (Configuration.doAutoCreate())
           this.period = new Period(); // cc
       return this.period;
@@ -1099,52 +1111,8 @@ public class PractitionerRole extends DomainResource {
     /**
      * @param value {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
      */
-    public PractitionerRole setPeriod(Period value) { 
+    public OrganizationRole setPeriod(Period value) { 
       this.period = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #practitioner} (Practitioner that is able to provide the defined services for the organization.)
-     */
-    public Reference getPractitioner() { 
-      if (this.practitioner == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create PractitionerRole.practitioner");
-        else if (Configuration.doAutoCreate())
-          this.practitioner = new Reference(); // cc
-      return this.practitioner;
-    }
-
-    public boolean hasPractitioner() { 
-      return this.practitioner != null && !this.practitioner.isEmpty();
-    }
-
-    /**
-     * @param value {@link #practitioner} (Practitioner that is able to provide the defined services for the organization.)
-     */
-    public PractitionerRole setPractitioner(Reference value) { 
-      this.practitioner = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #practitioner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Practitioner that is able to provide the defined services for the organization.)
-     */
-    public Practitioner getPractitionerTarget() { 
-      if (this.practitionerTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create PractitionerRole.practitioner");
-        else if (Configuration.doAutoCreate())
-          this.practitionerTarget = new Practitioner(); // aa
-      return this.practitionerTarget;
-    }
-
-    /**
-     * @param value {@link #practitioner} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Practitioner that is able to provide the defined services for the organization.)
-     */
-    public PractitionerRole setPractitionerTarget(Practitioner value) { 
-      this.practitionerTarget = value;
       return this;
     }
 
@@ -1154,7 +1122,7 @@ public class PractitionerRole extends DomainResource {
     public Reference getOrganization() { 
       if (this.organization == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create PractitionerRole.organization");
+          throw new Error("Attempt to auto-create OrganizationRole.organization");
         else if (Configuration.doAutoCreate())
           this.organization = new Reference(); // cc
       return this.organization;
@@ -1167,7 +1135,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @param value {@link #organization} (The organization where the Practitioner performs the roles associated.)
      */
-    public PractitionerRole setOrganization(Reference value) { 
+    public OrganizationRole setOrganization(Reference value) { 
       this.organization = value;
       return this;
     }
@@ -1178,7 +1146,7 @@ public class PractitionerRole extends DomainResource {
     public Organization getOrganizationTarget() { 
       if (this.organizationTarget == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create PractitionerRole.organization");
+          throw new Error("Attempt to auto-create OrganizationRole.organization");
         else if (Configuration.doAutoCreate())
           this.organizationTarget = new Organization(); // aa
       return this.organizationTarget;
@@ -1187,9 +1155,128 @@ public class PractitionerRole extends DomainResource {
     /**
      * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization where the Practitioner performs the roles associated.)
      */
-    public PractitionerRole setOrganizationTarget(Organization value) { 
+    public OrganizationRole setOrganizationTarget(Organization value) { 
       this.organizationTarget = value;
       return this;
+    }
+
+    /**
+     * @return {@link #participatingOrganization} (Practitioner that is able to provide the defined services for the organization.)
+     */
+    public Reference getParticipatingOrganization() { 
+      if (this.participatingOrganization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OrganizationRole.participatingOrganization");
+        else if (Configuration.doAutoCreate())
+          this.participatingOrganization = new Reference(); // cc
+      return this.participatingOrganization;
+    }
+
+    public boolean hasParticipatingOrganization() { 
+      return this.participatingOrganization != null && !this.participatingOrganization.isEmpty();
+    }
+
+    /**
+     * @param value {@link #participatingOrganization} (Practitioner that is able to provide the defined services for the organization.)
+     */
+    public OrganizationRole setParticipatingOrganization(Reference value) { 
+      this.participatingOrganization = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #participatingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Practitioner that is able to provide the defined services for the organization.)
+     */
+    public Organization getParticipatingOrganizationTarget() { 
+      if (this.participatingOrganizationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OrganizationRole.participatingOrganization");
+        else if (Configuration.doAutoCreate())
+          this.participatingOrganizationTarget = new Organization(); // aa
+      return this.participatingOrganizationTarget;
+    }
+
+    /**
+     * @param value {@link #participatingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Practitioner that is able to provide the defined services for the organization.)
+     */
+    public OrganizationRole setParticipatingOrganizationTarget(Organization value) { 
+      this.participatingOrganizationTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #network} (The network(s) this association applies to (if any).)
+     */
+    public List<Reference> getNetwork() { 
+      if (this.network == null)
+        this.network = new ArrayList<Reference>();
+      return this.network;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OrganizationRole setNetwork(List<Reference> theNetwork) { 
+      this.network = theNetwork;
+      return this;
+    }
+
+    public boolean hasNetwork() { 
+      if (this.network == null)
+        return false;
+      for (Reference item : this.network)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addNetwork() { //3
+      Reference t = new Reference();
+      if (this.network == null)
+        this.network = new ArrayList<Reference>();
+      this.network.add(t);
+      return t;
+    }
+
+    public OrganizationRole addNetwork(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.network == null)
+        this.network = new ArrayList<Reference>();
+      this.network.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #network}, creating it if it does not already exist
+     */
+    public Reference getNetworkFirstRep() { 
+      if (getNetwork().isEmpty()) {
+        addNetwork();
+      }
+      return getNetwork().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Organization> getNetworkTarget() { 
+      if (this.networkTarget == null)
+        this.networkTarget = new ArrayList<Organization>();
+      return this.networkTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Organization addNetworkTarget() { 
+      Organization r = new Organization();
+      if (this.networkTarget == null)
+        this.networkTarget = new ArrayList<Organization>();
+      this.networkTarget.add(r);
+      return r;
     }
 
     /**
@@ -1204,7 +1291,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setCode(List<CodeableConcept> theCode) { 
+    public OrganizationRole setCode(List<CodeableConcept> theCode) { 
       this.code = theCode;
       return this;
     }
@@ -1226,7 +1313,7 @@ public class PractitionerRole extends DomainResource {
       return t;
     }
 
-    public PractitionerRole addCode(CodeableConcept t) { //3
+    public OrganizationRole addCode(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.code == null)
@@ -1257,7 +1344,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setSpecialty(List<CodeableConcept> theSpecialty) { 
+    public OrganizationRole setSpecialty(List<CodeableConcept> theSpecialty) { 
       this.specialty = theSpecialty;
       return this;
     }
@@ -1279,7 +1366,7 @@ public class PractitionerRole extends DomainResource {
       return t;
     }
 
-    public PractitionerRole addSpecialty(CodeableConcept t) { //3
+    public OrganizationRole addSpecialty(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.specialty == null)
@@ -1310,7 +1397,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setLocation(List<Reference> theLocation) { 
+    public OrganizationRole setLocation(List<Reference> theLocation) { 
       this.location = theLocation;
       return this;
     }
@@ -1332,7 +1419,7 @@ public class PractitionerRole extends DomainResource {
       return t;
     }
 
-    public PractitionerRole addLocation(Reference t) { //3
+    public OrganizationRole addLocation(Reference t) { //3
       if (t == null)
         return this;
       if (this.location == null)
@@ -1385,7 +1472,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setHealthcareService(List<Reference> theHealthcareService) { 
+    public OrganizationRole setHealthcareService(List<Reference> theHealthcareService) { 
       this.healthcareService = theHealthcareService;
       return this;
     }
@@ -1407,7 +1494,7 @@ public class PractitionerRole extends DomainResource {
       return t;
     }
 
-    public PractitionerRole addHealthcareService(Reference t) { //3
+    public OrganizationRole addHealthcareService(Reference t) { //3
       if (t == null)
         return this;
       if (this.healthcareService == null)
@@ -1460,7 +1547,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setTelecom(List<ContactPoint> theTelecom) { 
+    public OrganizationRole setTelecom(List<ContactPoint> theTelecom) { 
       this.telecom = theTelecom;
       return this;
     }
@@ -1482,7 +1569,7 @@ public class PractitionerRole extends DomainResource {
       return t;
     }
 
-    public PractitionerRole addTelecom(ContactPoint t) { //3
+    public OrganizationRole addTelecom(ContactPoint t) { //3
       if (t == null)
         return this;
       if (this.telecom == null)
@@ -1504,16 +1591,16 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return {@link #availableTime} (A collection of times that the Service Site is available.)
      */
-    public List<PractitionerRoleAvailableTimeComponent> getAvailableTime() { 
+    public List<OrganizationRoleAvailableTimeComponent> getAvailableTime() { 
       if (this.availableTime == null)
-        this.availableTime = new ArrayList<PractitionerRoleAvailableTimeComponent>();
+        this.availableTime = new ArrayList<OrganizationRoleAvailableTimeComponent>();
       return this.availableTime;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setAvailableTime(List<PractitionerRoleAvailableTimeComponent> theAvailableTime) { 
+    public OrganizationRole setAvailableTime(List<OrganizationRoleAvailableTimeComponent> theAvailableTime) { 
       this.availableTime = theAvailableTime;
       return this;
     }
@@ -1521,25 +1608,25 @@ public class PractitionerRole extends DomainResource {
     public boolean hasAvailableTime() { 
       if (this.availableTime == null)
         return false;
-      for (PractitionerRoleAvailableTimeComponent item : this.availableTime)
+      for (OrganizationRoleAvailableTimeComponent item : this.availableTime)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public PractitionerRoleAvailableTimeComponent addAvailableTime() { //3
-      PractitionerRoleAvailableTimeComponent t = new PractitionerRoleAvailableTimeComponent();
+    public OrganizationRoleAvailableTimeComponent addAvailableTime() { //3
+      OrganizationRoleAvailableTimeComponent t = new OrganizationRoleAvailableTimeComponent();
       if (this.availableTime == null)
-        this.availableTime = new ArrayList<PractitionerRoleAvailableTimeComponent>();
+        this.availableTime = new ArrayList<OrganizationRoleAvailableTimeComponent>();
       this.availableTime.add(t);
       return t;
     }
 
-    public PractitionerRole addAvailableTime(PractitionerRoleAvailableTimeComponent t) { //3
+    public OrganizationRole addAvailableTime(OrganizationRoleAvailableTimeComponent t) { //3
       if (t == null)
         return this;
       if (this.availableTime == null)
-        this.availableTime = new ArrayList<PractitionerRoleAvailableTimeComponent>();
+        this.availableTime = new ArrayList<OrganizationRoleAvailableTimeComponent>();
       this.availableTime.add(t);
       return this;
     }
@@ -1547,7 +1634,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #availableTime}, creating it if it does not already exist
      */
-    public PractitionerRoleAvailableTimeComponent getAvailableTimeFirstRep() { 
+    public OrganizationRoleAvailableTimeComponent getAvailableTimeFirstRep() { 
       if (getAvailableTime().isEmpty()) {
         addAvailableTime();
       }
@@ -1557,16 +1644,16 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return {@link #notAvailable} (The HealthcareService is not available during this period of time due to the provided reason.)
      */
-    public List<PractitionerRoleNotAvailableComponent> getNotAvailable() { 
+    public List<OrganizationRoleNotAvailableComponent> getNotAvailable() { 
       if (this.notAvailable == null)
-        this.notAvailable = new ArrayList<PractitionerRoleNotAvailableComponent>();
+        this.notAvailable = new ArrayList<OrganizationRoleNotAvailableComponent>();
       return this.notAvailable;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setNotAvailable(List<PractitionerRoleNotAvailableComponent> theNotAvailable) { 
+    public OrganizationRole setNotAvailable(List<OrganizationRoleNotAvailableComponent> theNotAvailable) { 
       this.notAvailable = theNotAvailable;
       return this;
     }
@@ -1574,25 +1661,25 @@ public class PractitionerRole extends DomainResource {
     public boolean hasNotAvailable() { 
       if (this.notAvailable == null)
         return false;
-      for (PractitionerRoleNotAvailableComponent item : this.notAvailable)
+      for (OrganizationRoleNotAvailableComponent item : this.notAvailable)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public PractitionerRoleNotAvailableComponent addNotAvailable() { //3
-      PractitionerRoleNotAvailableComponent t = new PractitionerRoleNotAvailableComponent();
+    public OrganizationRoleNotAvailableComponent addNotAvailable() { //3
+      OrganizationRoleNotAvailableComponent t = new OrganizationRoleNotAvailableComponent();
       if (this.notAvailable == null)
-        this.notAvailable = new ArrayList<PractitionerRoleNotAvailableComponent>();
+        this.notAvailable = new ArrayList<OrganizationRoleNotAvailableComponent>();
       this.notAvailable.add(t);
       return t;
     }
 
-    public PractitionerRole addNotAvailable(PractitionerRoleNotAvailableComponent t) { //3
+    public OrganizationRole addNotAvailable(OrganizationRoleNotAvailableComponent t) { //3
       if (t == null)
         return this;
       if (this.notAvailable == null)
-        this.notAvailable = new ArrayList<PractitionerRoleNotAvailableComponent>();
+        this.notAvailable = new ArrayList<OrganizationRoleNotAvailableComponent>();
       this.notAvailable.add(t);
       return this;
     }
@@ -1600,7 +1687,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #notAvailable}, creating it if it does not already exist
      */
-    public PractitionerRoleNotAvailableComponent getNotAvailableFirstRep() { 
+    public OrganizationRoleNotAvailableComponent getNotAvailableFirstRep() { 
       if (getNotAvailable().isEmpty()) {
         addNotAvailable();
       }
@@ -1613,7 +1700,7 @@ public class PractitionerRole extends DomainResource {
     public StringType getAvailabilityExceptionsElement() { 
       if (this.availabilityExceptions == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create PractitionerRole.availabilityExceptions");
+          throw new Error("Attempt to auto-create OrganizationRole.availabilityExceptions");
         else if (Configuration.doAutoCreate())
           this.availabilityExceptions = new StringType(); // bb
       return this.availabilityExceptions;
@@ -1630,7 +1717,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @param value {@link #availabilityExceptions} (A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.). This is the underlying object with id, value and extensions. The accessor "getAvailabilityExceptions" gives direct access to the value
      */
-    public PractitionerRole setAvailabilityExceptionsElement(StringType value) { 
+    public OrganizationRole setAvailabilityExceptionsElement(StringType value) { 
       this.availabilityExceptions = value;
       return this;
     }
@@ -1645,7 +1732,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @param value A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.
      */
-    public PractitionerRole setAvailabilityExceptions(String value) { 
+    public OrganizationRole setAvailabilityExceptions(String value) { 
       if (Utilities.noString(value))
         this.availabilityExceptions = null;
       else {
@@ -1668,7 +1755,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PractitionerRole setEndpoint(List<Reference> theEndpoint) { 
+    public OrganizationRole setEndpoint(List<Reference> theEndpoint) { 
       this.endpoint = theEndpoint;
       return this;
     }
@@ -1690,7 +1777,7 @@ public class PractitionerRole extends DomainResource {
       return t;
     }
 
-    public PractitionerRole addEndpoint(Reference t) { //3
+    public OrganizationRole addEndpoint(Reference t) { //3
       if (t == null)
         return this;
       if (this.endpoint == null)
@@ -1736,8 +1823,9 @@ public class PractitionerRole extends DomainResource {
         children.add(new Property("identifier", "Identifier", "Business Identifiers that are specific to a role/location.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("active", "boolean", "Whether this practitioner role record is in active use.", 0, 1, active));
         children.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, 1, period));
-        children.add(new Property("practitioner", "Reference(Practitioner)", "Practitioner that is able to provide the defined services for the organization.", 0, 1, practitioner));
         children.add(new Property("organization", "Reference(Organization)", "The organization where the Practitioner performs the roles associated.", 0, 1, organization));
+        children.add(new Property("participatingOrganization", "Reference(Organization)", "Practitioner that is able to provide the defined services for the organization.", 0, 1, participatingOrganization));
+        children.add(new Property("network", "Reference(Organization)", "The network(s) this association applies to (if any).", 0, java.lang.Integer.MAX_VALUE, network));
         children.add(new Property("code", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, code));
         children.add(new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty));
         children.add(new Property("location", "Reference(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
@@ -1755,8 +1843,9 @@ public class PractitionerRole extends DomainResource {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business Identifiers that are specific to a role/location.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -1422950650: /*active*/  return new Property("active", "boolean", "Whether this practitioner role record is in active use.", 0, 1, active);
         case -991726143: /*period*/  return new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, 1, period);
-        case 574573338: /*practitioner*/  return new Property("practitioner", "Reference(Practitioner)", "Practitioner that is able to provide the defined services for the organization.", 0, 1, practitioner);
         case 1178922291: /*organization*/  return new Property("organization", "Reference(Organization)", "The organization where the Practitioner performs the roles associated.", 0, 1, organization);
+        case 1593310702: /*participatingOrganization*/  return new Property("participatingOrganization", "Reference(Organization)", "Practitioner that is able to provide the defined services for the organization.", 0, 1, participatingOrganization);
+        case 1843485230: /*network*/  return new Property("network", "Reference(Organization)", "The network(s) this association applies to (if any).", 0, java.lang.Integer.MAX_VALUE, network);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, code);
         case -1694759682: /*specialty*/  return new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty);
         case 1901043637: /*location*/  return new Property("location", "Reference(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location);
@@ -1777,15 +1866,16 @@ public class PractitionerRole extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case 574573338: /*practitioner*/ return this.practitioner == null ? new Base[0] : new Base[] {this.practitioner}; // Reference
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
+        case 1593310702: /*participatingOrganization*/ return this.participatingOrganization == null ? new Base[0] : new Base[] {this.participatingOrganization}; // Reference
+        case 1843485230: /*network*/ return this.network == null ? new Base[0] : this.network.toArray(new Base[this.network.size()]); // Reference
         case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // CodeableConcept
         case -1694759682: /*specialty*/ return this.specialty == null ? new Base[0] : this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : this.location.toArray(new Base[this.location.size()]); // Reference
         case 1289661064: /*healthcareService*/ return this.healthcareService == null ? new Base[0] : this.healthcareService.toArray(new Base[this.healthcareService.size()]); // Reference
         case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
-        case 1873069366: /*availableTime*/ return this.availableTime == null ? new Base[0] : this.availableTime.toArray(new Base[this.availableTime.size()]); // PractitionerRoleAvailableTimeComponent
-        case -629572298: /*notAvailable*/ return this.notAvailable == null ? new Base[0] : this.notAvailable.toArray(new Base[this.notAvailable.size()]); // PractitionerRoleNotAvailableComponent
+        case 1873069366: /*availableTime*/ return this.availableTime == null ? new Base[0] : this.availableTime.toArray(new Base[this.availableTime.size()]); // OrganizationRoleAvailableTimeComponent
+        case -629572298: /*notAvailable*/ return this.notAvailable == null ? new Base[0] : this.notAvailable.toArray(new Base[this.notAvailable.size()]); // OrganizationRoleNotAvailableComponent
         case -1149143617: /*availabilityExceptions*/ return this.availabilityExceptions == null ? new Base[0] : new Base[] {this.availabilityExceptions}; // StringType
         case 1741102485: /*endpoint*/ return this.endpoint == null ? new Base[0] : this.endpoint.toArray(new Base[this.endpoint.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -1805,11 +1895,14 @@ public class PractitionerRole extends DomainResource {
         case -991726143: // period
           this.period = castToPeriod(value); // Period
           return value;
-        case 574573338: // practitioner
-          this.practitioner = castToReference(value); // Reference
-          return value;
         case 1178922291: // organization
           this.organization = castToReference(value); // Reference
+          return value;
+        case 1593310702: // participatingOrganization
+          this.participatingOrganization = castToReference(value); // Reference
+          return value;
+        case 1843485230: // network
+          this.getNetwork().add(castToReference(value)); // Reference
           return value;
         case 3059181: // code
           this.getCode().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1827,10 +1920,10 @@ public class PractitionerRole extends DomainResource {
           this.getTelecom().add(castToContactPoint(value)); // ContactPoint
           return value;
         case 1873069366: // availableTime
-          this.getAvailableTime().add((PractitionerRoleAvailableTimeComponent) value); // PractitionerRoleAvailableTimeComponent
+          this.getAvailableTime().add((OrganizationRoleAvailableTimeComponent) value); // OrganizationRoleAvailableTimeComponent
           return value;
         case -629572298: // notAvailable
-          this.getNotAvailable().add((PractitionerRoleNotAvailableComponent) value); // PractitionerRoleNotAvailableComponent
+          this.getNotAvailable().add((OrganizationRoleNotAvailableComponent) value); // OrganizationRoleNotAvailableComponent
           return value;
         case -1149143617: // availabilityExceptions
           this.availabilityExceptions = castToString(value); // StringType
@@ -1851,10 +1944,12 @@ public class PractitionerRole extends DomainResource {
           this.active = castToBoolean(value); // BooleanType
         } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        } else if (name.equals("practitioner")) {
-          this.practitioner = castToReference(value); // Reference
         } else if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
+        } else if (name.equals("participatingOrganization")) {
+          this.participatingOrganization = castToReference(value); // Reference
+        } else if (name.equals("network")) {
+          this.getNetwork().add(castToReference(value));
         } else if (name.equals("code")) {
           this.getCode().add(castToCodeableConcept(value));
         } else if (name.equals("specialty")) {
@@ -1866,9 +1961,9 @@ public class PractitionerRole extends DomainResource {
         } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
         } else if (name.equals("availableTime")) {
-          this.getAvailableTime().add((PractitionerRoleAvailableTimeComponent) value);
+          this.getAvailableTime().add((OrganizationRoleAvailableTimeComponent) value);
         } else if (name.equals("notAvailable")) {
-          this.getNotAvailable().add((PractitionerRoleNotAvailableComponent) value);
+          this.getNotAvailable().add((OrganizationRoleNotAvailableComponent) value);
         } else if (name.equals("availabilityExceptions")) {
           this.availabilityExceptions = castToString(value); // StringType
         } else if (name.equals("endpoint")) {
@@ -1884,8 +1979,9 @@ public class PractitionerRole extends DomainResource {
         case -1618432855:  return addIdentifier(); 
         case -1422950650:  return getActiveElement();
         case -991726143:  return getPeriod(); 
-        case 574573338:  return getPractitioner(); 
         case 1178922291:  return getOrganization(); 
+        case 1593310702:  return getParticipatingOrganization(); 
+        case 1843485230:  return addNetwork(); 
         case 3059181:  return addCode(); 
         case -1694759682:  return addSpecialty(); 
         case 1901043637:  return addLocation(); 
@@ -1906,8 +2002,9 @@ public class PractitionerRole extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -1422950650: /*active*/ return new String[] {"boolean"};
         case -991726143: /*period*/ return new String[] {"Period"};
-        case 574573338: /*practitioner*/ return new String[] {"Reference"};
         case 1178922291: /*organization*/ return new String[] {"Reference"};
+        case 1593310702: /*participatingOrganization*/ return new String[] {"Reference"};
+        case 1843485230: /*network*/ return new String[] {"Reference"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1694759682: /*specialty*/ return new String[] {"CodeableConcept"};
         case 1901043637: /*location*/ return new String[] {"Reference"};
@@ -1928,19 +2025,22 @@ public class PractitionerRole extends DomainResource {
           return addIdentifier();
         }
         else if (name.equals("active")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.active");
+          throw new FHIRException("Cannot call addChild on a primitive type OrganizationRole.active");
         }
         else if (name.equals("period")) {
           this.period = new Period();
           return this.period;
         }
-        else if (name.equals("practitioner")) {
-          this.practitioner = new Reference();
-          return this.practitioner;
-        }
         else if (name.equals("organization")) {
           this.organization = new Reference();
           return this.organization;
+        }
+        else if (name.equals("participatingOrganization")) {
+          this.participatingOrganization = new Reference();
+          return this.participatingOrganization;
+        }
+        else if (name.equals("network")) {
+          return addNetwork();
         }
         else if (name.equals("code")) {
           return addCode();
@@ -1964,7 +2064,7 @@ public class PractitionerRole extends DomainResource {
           return addNotAvailable();
         }
         else if (name.equals("availabilityExceptions")) {
-          throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.availabilityExceptions");
+          throw new FHIRException("Cannot call addChild on a primitive type OrganizationRole.availabilityExceptions");
         }
         else if (name.equals("endpoint")) {
           return addEndpoint();
@@ -1974,12 +2074,12 @@ public class PractitionerRole extends DomainResource {
       }
 
   public String fhirType() {
-    return "PractitionerRole";
+    return "OrganizationRole";
 
   }
 
-      public PractitionerRole copy() {
-        PractitionerRole dst = new PractitionerRole();
+      public OrganizationRole copy() {
+        OrganizationRole dst = new OrganizationRole();
         copyValues(dst);
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
@@ -1988,8 +2088,13 @@ public class PractitionerRole extends DomainResource {
         };
         dst.active = active == null ? null : active.copy();
         dst.period = period == null ? null : period.copy();
-        dst.practitioner = practitioner == null ? null : practitioner.copy();
         dst.organization = organization == null ? null : organization.copy();
+        dst.participatingOrganization = participatingOrganization == null ? null : participatingOrganization.copy();
+        if (network != null) {
+          dst.network = new ArrayList<Reference>();
+          for (Reference i : network)
+            dst.network.add(i.copy());
+        };
         if (code != null) {
           dst.code = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : code)
@@ -2016,13 +2121,13 @@ public class PractitionerRole extends DomainResource {
             dst.telecom.add(i.copy());
         };
         if (availableTime != null) {
-          dst.availableTime = new ArrayList<PractitionerRoleAvailableTimeComponent>();
-          for (PractitionerRoleAvailableTimeComponent i : availableTime)
+          dst.availableTime = new ArrayList<OrganizationRoleAvailableTimeComponent>();
+          for (OrganizationRoleAvailableTimeComponent i : availableTime)
             dst.availableTime.add(i.copy());
         };
         if (notAvailable != null) {
-          dst.notAvailable = new ArrayList<PractitionerRoleNotAvailableComponent>();
-          for (PractitionerRoleNotAvailableComponent i : notAvailable)
+          dst.notAvailable = new ArrayList<OrganizationRoleNotAvailableComponent>();
+          for (OrganizationRoleNotAvailableComponent i : notAvailable)
             dst.notAvailable.add(i.copy());
         };
         dst.availabilityExceptions = availabilityExceptions == null ? null : availabilityExceptions.copy();
@@ -2034,7 +2139,7 @@ public class PractitionerRole extends DomainResource {
         return dst;
       }
 
-      protected PractitionerRole typedCopy() {
+      protected OrganizationRole typedCopy() {
         return copy();
       }
 
@@ -2042,14 +2147,14 @@ public class PractitionerRole extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof PractitionerRole))
+        if (!(other instanceof OrganizationRole))
           return false;
-        PractitionerRole o = (PractitionerRole) other;
+        OrganizationRole o = (OrganizationRole) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(period, o.period, true)
-           && compareDeep(practitioner, o.practitioner, true) && compareDeep(organization, o.organization, true)
-           && compareDeep(code, o.code, true) && compareDeep(specialty, o.specialty, true) && compareDeep(location, o.location, true)
-           && compareDeep(healthcareService, o.healthcareService, true) && compareDeep(telecom, o.telecom, true)
-           && compareDeep(availableTime, o.availableTime, true) && compareDeep(notAvailable, o.notAvailable, true)
+           && compareDeep(organization, o.organization, true) && compareDeep(participatingOrganization, o.participatingOrganization, true)
+           && compareDeep(network, o.network, true) && compareDeep(code, o.code, true) && compareDeep(specialty, o.specialty, true)
+           && compareDeep(location, o.location, true) && compareDeep(healthcareService, o.healthcareService, true)
+           && compareDeep(telecom, o.telecom, true) && compareDeep(availableTime, o.availableTime, true) && compareDeep(notAvailable, o.notAvailable, true)
            && compareDeep(availabilityExceptions, o.availabilityExceptions, true) && compareDeep(endpoint, o.endpoint, true)
           ;
       }
@@ -2058,22 +2163,22 @@ public class PractitionerRole extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof PractitionerRole))
+        if (!(other instanceof OrganizationRole))
           return false;
-        PractitionerRole o = (PractitionerRole) other;
+        OrganizationRole o = (OrganizationRole) other;
         return compareValues(active, o.active, true) && compareValues(availabilityExceptions, o.availabilityExceptions, true)
           ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, period
-          , practitioner, organization, code, specialty, location, healthcareService, telecom
-          , availableTime, notAvailable, availabilityExceptions, endpoint);
+          , organization, participatingOrganization, network, code, specialty, location, healthcareService
+          , telecom, availableTime, notAvailable, availabilityExceptions, endpoint);
       }
 
   @Override
   public ResourceType getResourceType() {
-    return ResourceType.PractitionerRole;
+    return ResourceType.OrganizationRole;
    }
 
  /**
@@ -2081,17 +2186,17 @@ public class PractitionerRole extends DomainResource {
    * <p>
    * Description: <b>The period during which the practitioner is authorized to perform in these role(s)</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>PractitionerRole.period</b><br>
+   * Path: <b>OrganizationRole.period</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="PractitionerRole.period", description="The period during which the practitioner is authorized to perform in these role(s)", type="date" )
+  @SearchParamDefinition(name="date", path="OrganizationRole.period", description="The period during which the practitioner is authorized to perform in these role(s)", type="date" )
   public static final String SP_DATE = "date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
    * Description: <b>The period during which the practitioner is authorized to perform in these role(s)</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>PractitionerRole.period</b><br>
+   * Path: <b>OrganizationRole.period</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
@@ -2101,17 +2206,17 @@ public class PractitionerRole extends DomainResource {
    * <p>
    * Description: <b>A practitioner's Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.identifier</b><br>
+   * Path: <b>OrganizationRole.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="PractitionerRole.identifier", description="A practitioner's Identifier", type="token" )
+  @SearchParamDefinition(name="identifier", path="OrganizationRole.identifier", description="A practitioner's Identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
    * Description: <b>A practitioner's Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.identifier</b><br>
+   * Path: <b>OrganizationRole.identifier</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
@@ -2121,17 +2226,17 @@ public class PractitionerRole extends DomainResource {
    * <p>
    * Description: <b>The practitioner has this specialty at an organization</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.specialty</b><br>
+   * Path: <b>OrganizationRole.specialty</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="specialty", path="PractitionerRole.specialty", description="The practitioner has this specialty at an organization", type="token" )
+  @SearchParamDefinition(name="specialty", path="OrganizationRole.specialty", description="The practitioner has this specialty at an organization", type="token" )
   public static final String SP_SPECIALTY = "specialty";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>specialty</b>
    * <p>
    * Description: <b>The practitioner has this specialty at an organization</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.specialty</b><br>
+   * Path: <b>OrganizationRole.specialty</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
@@ -2141,109 +2246,135 @@ public class PractitionerRole extends DomainResource {
    * <p>
    * Description: <b>The practitioner can perform this role at for the organization</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.code</b><br>
+   * Path: <b>OrganizationRole.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="role", path="PractitionerRole.code", description="The practitioner can perform this role at for the organization", type="token" )
+  @SearchParamDefinition(name="role", path="OrganizationRole.code", description="The practitioner can perform this role at for the organization", type="token" )
   public static final String SP_ROLE = "role";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>role</b>
    * <p>
    * Description: <b>The practitioner can perform this role at for the organization</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.code</b><br>
+   * Path: <b>OrganizationRole.code</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROLE);
-
- /**
-   * Search parameter: <b>practitioner</b>
-   * <p>
-   * Description: <b>Practitioner that is able to provide the defined services for the organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.practitioner</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="practitioner", path="PractitionerRole.practitioner", description="Practitioner that is able to provide the defined services for the organization", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
-  public static final String SP_PRACTITIONER = "practitioner";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
-   * <p>
-   * Description: <b>Practitioner that is able to provide the defined services for the organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.practitioner</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>PractitionerRole:practitioner</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("PractitionerRole:practitioner").toLocked();
 
  /**
    * Search parameter: <b>active</b>
    * <p>
    * Description: <b>Whether this practitioner role record is in active use</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.active</b><br>
+   * Path: <b>OrganizationRole.active</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="active", path="PractitionerRole.active", description="Whether this practitioner role record is in active use", type="token" )
+  @SearchParamDefinition(name="active", path="OrganizationRole.active", description="Whether this practitioner role record is in active use", type="token" )
   public static final String SP_ACTIVE = "active";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>active</b>
    * <p>
    * Description: <b>Whether this practitioner role record is in active use</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.active</b><br>
+   * Path: <b>OrganizationRole.active</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTIVE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTIVE);
+
+ /**
+   * Search parameter: <b>primary-organization</b>
+   * <p>
+   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OrganizationRole.organization</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="primary-organization", path="OrganizationRole.organization", description="The identity of the organization the practitioner represents / acts on behalf of", type="reference", target={Organization.class } )
+  public static final String SP_PRIMARY_ORGANIZATION = "primary-organization";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>primary-organization</b>
+   * <p>
+   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OrganizationRole.organization</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRIMARY_ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRIMARY_ORGANIZATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OrganizationRole:primary-organization</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRIMARY_ORGANIZATION = new ca.uhn.fhir.model.api.Include("OrganizationRole:primary-organization").toLocked();
+
+ /**
+   * Search parameter: <b>network</b>
+   * <p>
+   * Description: <b>One of the locations at which this practitioner provides care</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OrganizationRole.network</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="network", path="OrganizationRole.network", description="One of the locations at which this practitioner provides care", type="reference", target={Organization.class } )
+  public static final String SP_NETWORK = "network";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>network</b>
+   * <p>
+   * Description: <b>One of the locations at which this practitioner provides care</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OrganizationRole.network</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam NETWORK = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_NETWORK);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OrganizationRole:network</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_NETWORK = new ca.uhn.fhir.model.api.Include("OrganizationRole:network").toLocked();
 
  /**
    * Search parameter: <b>endpoint</b>
    * <p>
    * Description: <b>Technical endpoints providing access to services operated for the practitioner with this role</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.endpoint</b><br>
+   * Path: <b>OrganizationRole.endpoint</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="endpoint", path="PractitionerRole.endpoint", description="Technical endpoints providing access to services operated for the practitioner with this role", type="reference", target={Endpoint.class } )
+  @SearchParamDefinition(name="endpoint", path="OrganizationRole.endpoint", description="Technical endpoints providing access to services operated for the practitioner with this role", type="reference", target={Endpoint.class } )
   public static final String SP_ENDPOINT = "endpoint";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>endpoint</b>
    * <p>
    * Description: <b>Technical endpoints providing access to services operated for the practitioner with this role</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.endpoint</b><br>
+   * Path: <b>OrganizationRole.endpoint</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENDPOINT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENDPOINT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>PractitionerRole:endpoint</b>".
+   * the path value of "<b>OrganizationRole:endpoint</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENDPOINT = new ca.uhn.fhir.model.api.Include("PractitionerRole:endpoint").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENDPOINT = new ca.uhn.fhir.model.api.Include("OrganizationRole:endpoint").toLocked();
 
  /**
    * Search parameter: <b>phone</b>
    * <p>
    * Description: <b>A value in a phone contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom(system=phone)</b><br>
+   * Path: <b>OrganizationRole.telecom(system=phone)</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="phone", path="PractitionerRole.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
+  @SearchParamDefinition(name="phone", path="OrganizationRole.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
   public static final String SP_PHONE = "phone";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>phone</b>
    * <p>
    * Description: <b>A value in a phone contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom(system=phone)</b><br>
+   * Path: <b>OrganizationRole.telecom(system=phone)</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PHONE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PHONE);
@@ -2253,69 +2384,69 @@ public class PractitionerRole extends DomainResource {
    * <p>
    * Description: <b>The list of healthcare services that this worker provides for this role's Organization/Location(s)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.healthcareService</b><br>
+   * Path: <b>OrganizationRole.healthcareService</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="service", path="PractitionerRole.healthcareService", description="The list of healthcare services that this worker provides for this role's Organization/Location(s)", type="reference", target={HealthcareService.class } )
+  @SearchParamDefinition(name="service", path="OrganizationRole.healthcareService", description="The list of healthcare services that this worker provides for this role's Organization/Location(s)", type="reference", target={HealthcareService.class } )
   public static final String SP_SERVICE = "service";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>service</b>
    * <p>
    * Description: <b>The list of healthcare services that this worker provides for this role's Organization/Location(s)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.healthcareService</b><br>
+   * Path: <b>OrganizationRole.healthcareService</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SERVICE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SERVICE);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>PractitionerRole:service</b>".
+   * the path value of "<b>OrganizationRole:service</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SERVICE = new ca.uhn.fhir.model.api.Include("PractitionerRole:service").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SERVICE = new ca.uhn.fhir.model.api.Include("OrganizationRole:service").toLocked();
 
  /**
-   * Search parameter: <b>organization</b>
+   * Search parameter: <b>participating-organization</b>
    * <p>
-   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
+   * Description: <b>Practitioner that is able to provide the defined services for the organization</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.organization</b><br>
+   * Path: <b>OrganizationRole.participatingOrganization</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organization", path="PractitionerRole.organization", description="The identity of the organization the practitioner represents / acts on behalf of", type="reference", target={Organization.class } )
-  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="participating-organization", path="OrganizationRole.participatingOrganization", description="Practitioner that is able to provide the defined services for the organization", type="reference", target={Organization.class } )
+  public static final String SP_PARTICIPATING_ORGANIZATION = "participating-organization";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
+   * <b>Fluent Client</b> search parameter constant for <b>participating-organization</b>
    * <p>
-   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
+   * Description: <b>Practitioner that is able to provide the defined services for the organization</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.organization</b><br>
+   * Path: <b>OrganizationRole.participatingOrganization</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPATING_ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPATING_ORGANIZATION);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>PractitionerRole:organization</b>".
+   * the path value of "<b>OrganizationRole:participating-organization</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("PractitionerRole:organization").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPATING_ORGANIZATION = new ca.uhn.fhir.model.api.Include("OrganizationRole:participating-organization").toLocked();
 
  /**
    * Search parameter: <b>telecom</b>
    * <p>
    * Description: <b>The value in any kind of contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom</b><br>
+   * Path: <b>OrganizationRole.telecom</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="telecom", path="PractitionerRole.telecom", description="The value in any kind of contact", type="token" )
+  @SearchParamDefinition(name="telecom", path="OrganizationRole.telecom", description="The value in any kind of contact", type="token" )
   public static final String SP_TELECOM = "telecom";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>telecom</b>
    * <p>
    * Description: <b>The value in any kind of contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom</b><br>
+   * Path: <b>OrganizationRole.telecom</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
@@ -2325,43 +2456,43 @@ public class PractitionerRole extends DomainResource {
    * <p>
    * Description: <b>One of the locations at which this practitioner provides care</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.location</b><br>
+   * Path: <b>OrganizationRole.location</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="location", path="PractitionerRole.location", description="One of the locations at which this practitioner provides care", type="reference", target={Location.class } )
+  @SearchParamDefinition(name="location", path="OrganizationRole.location", description="One of the locations at which this practitioner provides care", type="reference", target={Location.class } )
   public static final String SP_LOCATION = "location";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>location</b>
    * <p>
    * Description: <b>One of the locations at which this practitioner provides care</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>PractitionerRole.location</b><br>
+   * Path: <b>OrganizationRole.location</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>PractitionerRole:location</b>".
+   * the path value of "<b>OrganizationRole:location</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("PractitionerRole:location").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("OrganizationRole:location").toLocked();
 
  /**
    * Search parameter: <b>email</b>
    * <p>
    * Description: <b>A value in an email contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom(system=email)</b><br>
+   * Path: <b>OrganizationRole.telecom(system=email)</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="email", path="PractitionerRole.telecom.where(system='email')", description="A value in an email contact", type="token" )
+  @SearchParamDefinition(name="email", path="OrganizationRole.telecom.where(system='email')", description="A value in an email contact", type="token" )
   public static final String SP_EMAIL = "email";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>email</b>
    * <p>
    * Description: <b>A value in an email contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>PractitionerRole.telecom(system=email)</b><br>
+   * Path: <b>OrganizationRole.telecom(system=email)</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EMAIL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EMAIL);

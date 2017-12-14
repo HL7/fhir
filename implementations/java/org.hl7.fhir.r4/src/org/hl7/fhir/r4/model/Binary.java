@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -71,7 +71,7 @@ public class Binary extends BaseBinary implements IBaseBinary {
     /**
      * The actual content, base64 encoded.
      */
-    @Child(name = "content", type = {Base64BinaryType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "content", type = {Base64BinaryType.class}, order=2, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The actual content", formalDefinition="The actual content, base64 encoded." )
     protected Base64BinaryType content;
 

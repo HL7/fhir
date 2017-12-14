@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1895,7 +1895,7 @@ public class GraphDefinition extends MetadataResource {
     /**
      * The type of FHIR resource at which instances of this graph start.
      */
-    @Child(name = "start", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "start", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Type of resource at which the graph starts", formalDefinition="The type of FHIR resource at which instances of this graph start." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
     protected CodeType start;

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2145,6 +2145,26 @@ public class Library extends MetadataResource {
    * the path value of "<b>Library:composed-of</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_COMPOSED_OF = new ca.uhn.fhir.model.api.Include("Library:composed-of").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>The type of the library (e.g. logic-library, model-definition, asset-collection, module-definition)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Library.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="Library.type", description="The type of the library (e.g. logic-library, model-definition, asset-collection, module-definition)", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>The type of the library (e.g. logic-library, model-definition, asset-collection, module-definition)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Library.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
    * Search parameter: <b>version</b>

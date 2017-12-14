@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -65,6 +65,10 @@ public class Address extends Type implements ICompositeType {
          */
         OLD, 
         /**
+         * An address to be used to send bills, invoices, receipts etc
+         */
+        BILLING, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -79,6 +83,8 @@ public class Address extends Type implements ICompositeType {
           return TEMP;
         if ("old".equals(codeString))
           return OLD;
+        if ("billing".equals(codeString))
+          return BILLING;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -90,6 +96,7 @@ public class Address extends Type implements ICompositeType {
             case WORK: return "work";
             case TEMP: return "temp";
             case OLD: return "old";
+            case BILLING: return "billing";
             default: return "?";
           }
         }
@@ -99,6 +106,7 @@ public class Address extends Type implements ICompositeType {
             case WORK: return "http://hl7.org/fhir/address-use";
             case TEMP: return "http://hl7.org/fhir/address-use";
             case OLD: return "http://hl7.org/fhir/address-use";
+            case BILLING: return "http://hl7.org/fhir/address-use";
             default: return "?";
           }
         }
@@ -108,6 +116,7 @@ public class Address extends Type implements ICompositeType {
             case WORK: return "An office address. First choice for business related contacts during business hours.";
             case TEMP: return "A temporary address. The period can provide more detailed information.";
             case OLD: return "This address is no longer in use (or was never correct, but retained for records).";
+            case BILLING: return "An address to be used to send bills, invoices, receipts etc";
             default: return "?";
           }
         }
@@ -117,6 +126,7 @@ public class Address extends Type implements ICompositeType {
             case WORK: return "Work";
             case TEMP: return "Temporary";
             case OLD: return "Old / Incorrect";
+            case BILLING: return "Billing";
             default: return "?";
           }
         }
@@ -135,6 +145,8 @@ public class Address extends Type implements ICompositeType {
           return AddressUse.TEMP;
         if ("old".equals(codeString))
           return AddressUse.OLD;
+        if ("billing".equals(codeString))
+          return AddressUse.BILLING;
         throw new IllegalArgumentException("Unknown AddressUse code '"+codeString+"'");
         }
         public Enumeration<AddressUse> fromType(Base code) throws FHIRException {
@@ -153,6 +165,8 @@ public class Address extends Type implements ICompositeType {
           return new Enumeration<AddressUse>(this, AddressUse.TEMP);
         if ("old".equals(codeString))
           return new Enumeration<AddressUse>(this, AddressUse.OLD);
+        if ("billing".equals(codeString))
+          return new Enumeration<AddressUse>(this, AddressUse.BILLING);
         throw new FHIRException("Unknown AddressUse code '"+codeString+"'");
         }
     public String toCode(AddressUse code) {
@@ -164,6 +178,8 @@ public class Address extends Type implements ICompositeType {
         return "temp";
       if (code == AddressUse.OLD)
         return "old";
+      if (code == AddressUse.BILLING)
+        return "billing";
       return "?";
       }
     public String toSystem(AddressUse code) {
@@ -283,7 +299,7 @@ public class Address extends Type implements ICompositeType {
      * The purpose of this address.
      */
     @Child(name = "use", type = {CodeType.class}, order=0, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="home | work | temp | old - purpose of this address", formalDefinition="The purpose of this address." )
+    @Description(shortDefinition="home | work | temp | old | billing - purpose of this address", formalDefinition="The purpose of this address." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/address-use")
     protected Enumeration<AddressUse> use;
 

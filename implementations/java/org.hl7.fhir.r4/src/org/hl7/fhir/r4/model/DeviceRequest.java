@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -344,6 +344,268 @@ public class DeviceRequest extends DomainResource {
       }
     }
 
+    @Block()
+    public static class DeviceRequestParameterComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * A code or string that identifies the device detail being asserted.
+         */
+        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Device detail", formalDefinition="A code or string that identifies the device detail being asserted." )
+        protected CodeableConcept code;
+
+        /**
+         * The value of the device detail.
+         */
+        @Child(name = "value", type = {CodeableConcept.class, Quantity.class, Range.class, BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Value of detail", formalDefinition="The value of the device detail." )
+        protected Type value;
+
+        private static final long serialVersionUID = 884525025L;
+
+    /**
+     * Constructor
+     */
+      public DeviceRequestParameterComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #code} (A code or string that identifies the device detail being asserted.)
+         */
+        public CodeableConcept getCode() { 
+          if (this.code == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DeviceRequestParameterComponent.code");
+            else if (Configuration.doAutoCreate())
+              this.code = new CodeableConcept(); // cc
+          return this.code;
+        }
+
+        public boolean hasCode() { 
+          return this.code != null && !this.code.isEmpty();
+        }
+
+        /**
+         * @param value {@link #code} (A code or string that identifies the device detail being asserted.)
+         */
+        public DeviceRequestParameterComponent setCode(CodeableConcept value) { 
+          this.code = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #value} (The value of the device detail.)
+         */
+        public Type getValue() { 
+          return this.value;
+        }
+
+        /**
+         * @return {@link #value} (The value of the device detail.)
+         */
+        public CodeableConcept getValueCodeableConcept() throws FHIRException { 
+          if (!(this.value instanceof CodeableConcept))
+            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (CodeableConcept) this.value;
+        }
+
+        public boolean hasValueCodeableConcept() { 
+          return this.value instanceof CodeableConcept;
+        }
+
+        /**
+         * @return {@link #value} (The value of the device detail.)
+         */
+        public Quantity getValueQuantity() throws FHIRException { 
+          if (!(this.value instanceof Quantity))
+            throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (Quantity) this.value;
+        }
+
+        public boolean hasValueQuantity() { 
+          return this.value instanceof Quantity;
+        }
+
+        /**
+         * @return {@link #value} (The value of the device detail.)
+         */
+        public Range getValueRange() throws FHIRException { 
+          if (!(this.value instanceof Range))
+            throw new FHIRException("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (Range) this.value;
+        }
+
+        public boolean hasValueRange() { 
+          return this.value instanceof Range;
+        }
+
+        /**
+         * @return {@link #value} (The value of the device detail.)
+         */
+        public BooleanType getValueBooleanType() throws FHIRException { 
+          if (!(this.value instanceof BooleanType))
+            throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (BooleanType) this.value;
+        }
+
+        public boolean hasValueBooleanType() { 
+          return this.value instanceof BooleanType;
+        }
+
+        public boolean hasValue() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        /**
+         * @param value {@link #value} (The value of the device detail.)
+         */
+        public DeviceRequestParameterComponent setValue(Type value) { 
+          this.value = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("code", "CodeableConcept", "A code or string that identifies the device detail being asserted.", 0, 1, code));
+          children.add(new Property("value[x]", "CodeableConcept|Quantity|Range|boolean", "The value of the device detail.", 0, 1, value));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code or string that identifies the device detail being asserted.", 0, 1, code);
+          case -1410166417: /*value[x]*/  return new Property("value[x]", "CodeableConcept|Quantity|Range|boolean", "The value of the device detail.", 0, 1, value);
+          case 111972721: /*value*/  return new Property("value[x]", "CodeableConcept|Quantity|Range|boolean", "The value of the device detail.", 0, 1, value);
+          case 924902896: /*valueCodeableConcept*/  return new Property("value[x]", "CodeableConcept|Quantity|Range|boolean", "The value of the device detail.", 0, 1, value);
+          case -2029823716: /*valueQuantity*/  return new Property("value[x]", "CodeableConcept|Quantity|Range|boolean", "The value of the device detail.", 0, 1, value);
+          case 2030761548: /*valueRange*/  return new Property("value[x]", "CodeableConcept|Quantity|Range|boolean", "The value of the device detail.", 0, 1, value);
+          case 733421943: /*valueBoolean*/  return new Property("value[x]", "CodeableConcept|Quantity|Range|boolean", "The value of the device detail.", 0, 1, value);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3059181: // code
+          this.code = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 111972721: // value
+          this.value = castToType(value); // Type
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("code")) {
+          this.code = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("value[x]")) {
+          this.value = castToType(value); // Type
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181:  return getCode(); 
+        case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 111972721: /*value*/ return new String[] {"CodeableConcept", "Quantity", "Range", "boolean"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
+        }
+        else if (name.equals("valueCodeableConcept")) {
+          this.value = new CodeableConcept();
+          return this.value;
+        }
+        else if (name.equals("valueQuantity")) {
+          this.value = new Quantity();
+          return this.value;
+        }
+        else if (name.equals("valueRange")) {
+          this.value = new Range();
+          return this.value;
+        }
+        else if (name.equals("valueBoolean")) {
+          this.value = new BooleanType();
+          return this.value;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public DeviceRequestParameterComponent copy() {
+        DeviceRequestParameterComponent dst = new DeviceRequestParameterComponent();
+        copyValues(dst);
+        dst.code = code == null ? null : code.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DeviceRequestParameterComponent))
+          return false;
+        DeviceRequestParameterComponent o = (DeviceRequestParameterComponent) other;
+        return compareDeep(code, o.code, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DeviceRequestParameterComponent))
+          return false;
+        DeviceRequestParameterComponent o = (DeviceRequestParameterComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value);
+      }
+
+  public String fhirType() {
+    return "DeviceRequest.parameter";
+
+  }
+
+  }
+
     /**
      * Identifiers assigned to this order by the orderer or by the receiver.
      */
@@ -354,14 +616,9 @@ public class DeviceRequest extends DomainResource {
     /**
      * Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
      */
-    @Child(name = "instantiates", type = {ActivityDefinition.class, PlanDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "instantiates", type = {UriType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Protocol or definition", formalDefinition="Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%." )
-    protected List<Reference> instantiates;
-    /**
-     * The actual objects that are the target of the reference (Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.)
-     */
-    protected List<Resource> instantiatesTarget;
-
+    protected List<UriType> instantiates;
 
     /**
      * Plan/proposal/order fulfilled by this request.
@@ -426,9 +683,16 @@ public class DeviceRequest extends DomainResource {
     protected Type code;
 
     /**
+     * Specific parameters for the ordered item.  For example, the prism value for lenses.
+     */
+    @Child(name = "parameter", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Device details", formalDefinition="Specific parameters for the ordered item.  For example, the prism value for lenses." )
+    protected List<DeviceRequestParameterComponent> parameter;
+
+    /**
      * The patient who will use the device.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class, Location.class, Device.class}, order=9, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class, Location.class, Device.class}, order=10, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Focus of request", formalDefinition="The patient who will use the device." )
     protected Reference subject;
 
@@ -440,7 +704,7 @@ public class DeviceRequest extends DomainResource {
     /**
      * An encounter that provides additional context in which this request is made.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Encounter or Episode motivating request", formalDefinition="An encounter that provides additional context in which this request is made." )
     protected Reference context;
 
@@ -452,21 +716,21 @@ public class DeviceRequest extends DomainResource {
     /**
      * The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
      */
-    @Child(name = "occurrence", type = {DateTimeType.class, Period.class, Timing.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "occurrence", type = {DateTimeType.class, Period.class, Timing.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Desired time or schedule for use", formalDefinition="The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"." )
     protected Type occurrence;
 
     /**
      * When the request transitioned to being actionable.
      */
-    @Child(name = "authoredOn", type = {DateTimeType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "authoredOn", type = {DateTimeType.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When recorded", formalDefinition="When the request transitioned to being actionable." )
     protected DateTimeType authoredOn;
 
     /**
      * The individual who initiated the request and has responsibility for its activation.
      */
-    @Child(name = "requester", type = {Device.class, Practitioner.class, PractitionerRole.class, Organization.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "requester", type = {Device.class, Practitioner.class, PractitionerRole.class, Organization.class}, order=14, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who/what is requesting diagnostics", formalDefinition="The individual who initiated the request and has responsibility for its activation." )
     protected Reference requester;
 
@@ -478,7 +742,7 @@ public class DeviceRequest extends DomainResource {
     /**
      * Desired type of performer for doing the diagnostic testing.
      */
-    @Child(name = "performerType", type = {CodeableConcept.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "performerType", type = {CodeableConcept.class}, order=15, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Fille role", formalDefinition="Desired type of performer for doing the diagnostic testing." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/participant-role")
     protected CodeableConcept performerType;
@@ -486,7 +750,7 @@ public class DeviceRequest extends DomainResource {
     /**
      * The desired perfomer for doing the diagnostic testing.
      */
-    @Child(name = "performer", type = {Practitioner.class, PractitionerRole.class, Organization.class, CareTeam.class, HealthcareService.class, Patient.class, Device.class, RelatedPerson.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "performer", type = {Practitioner.class, PractitionerRole.class, Organization.class, CareTeam.class, HealthcareService.class, Patient.class, Device.class, RelatedPerson.class}, order=16, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Requested Filler", formalDefinition="The desired perfomer for doing the diagnostic testing." )
     protected Reference performer;
 
@@ -498,22 +762,10 @@ public class DeviceRequest extends DomainResource {
     /**
      * Reason or justification for the use of this device.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Coded Reason for request", formalDefinition="Reason or justification for the use of this device." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-code")
     protected List<CodeableConcept> reasonCode;
-
-    /**
-     * Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.
-     */
-    @Child(name = "insurance", type = {Coverage.class, ClaimResponse.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Associated insurance coverage", formalDefinition="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service." )
-    protected List<Reference> insurance;
-    /**
-     * The actual objects that are the target of the reference (Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.)
-     */
-    protected List<Resource> insuranceTarget;
-
 
     /**
      * Reason or justification for the use of this device.
@@ -528,9 +780,21 @@ public class DeviceRequest extends DomainResource {
 
 
     /**
+     * Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.
+     */
+    @Child(name = "insurance", type = {Coverage.class, ClaimResponse.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Associated insurance coverage", formalDefinition="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service." )
+    protected List<Reference> insurance;
+    /**
+     * The actual objects that are the target of the reference (Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.)
+     */
+    protected List<Resource> insuranceTarget;
+
+
+    /**
      * Additional clinical information about the patient that may influence the request fulfilment.  For example, this may includes body where on the subject's the device will be used ( i.e. the target site).
      */
-    @Child(name = "supportingInfo", type = {Reference.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "supportingInfo", type = {Reference.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional clinical information", formalDefinition="Additional clinical information about the patient that may influence the request fulfilment.  For example, this may includes body where on the subject's the device will be used ( i.e. the target site)." )
     protected List<Reference> supportingInfo;
     /**
@@ -542,14 +806,14 @@ public class DeviceRequest extends DomainResource {
     /**
      * Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
      */
-    @Child(name = "note", type = {Annotation.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Notes or comments", formalDefinition="Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement." )
     protected List<Annotation> note;
 
     /**
      * Key events in the history of the request.
      */
-    @Child(name = "relevantHistory", type = {Provenance.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relevantHistory", type = {Provenance.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Request provenance", formalDefinition="Key events in the history of the request." )
     protected List<Reference> relevantHistory;
     /**
@@ -558,7 +822,7 @@ public class DeviceRequest extends DomainResource {
     protected List<Provenance> relevantHistoryTarget;
 
 
-    private static final long serialVersionUID = 447134211L;
+    private static final long serialVersionUID = -40631826L;
 
   /**
    * Constructor
@@ -633,16 +897,16 @@ public class DeviceRequest extends DomainResource {
     /**
      * @return {@link #instantiates} (Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.)
      */
-    public List<Reference> getInstantiates() { 
+    public List<UriType> getInstantiates() { 
       if (this.instantiates == null)
-        this.instantiates = new ArrayList<Reference>();
+        this.instantiates = new ArrayList<UriType>();
       return this.instantiates;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DeviceRequest setInstantiates(List<Reference> theInstantiates) { 
+    public DeviceRequest setInstantiates(List<UriType> theInstantiates) { 
       this.instantiates = theInstantiates;
       return this;
     }
@@ -650,47 +914,45 @@ public class DeviceRequest extends DomainResource {
     public boolean hasInstantiates() { 
       if (this.instantiates == null)
         return false;
-      for (Reference item : this.instantiates)
+      for (UriType item : this.instantiates)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addInstantiates() { //3
-      Reference t = new Reference();
+    /**
+     * @return {@link #instantiates} (Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.)
+     */
+    public UriType addInstantiatesElement() {//2 
+      UriType t = new UriType();
       if (this.instantiates == null)
-        this.instantiates = new ArrayList<Reference>();
+        this.instantiates = new ArrayList<UriType>();
       this.instantiates.add(t);
       return t;
     }
 
-    public DeviceRequest addInstantiates(Reference t) { //3
-      if (t == null)
-        return this;
+    /**
+     * @param value {@link #instantiates} (Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.)
+     */
+    public DeviceRequest addInstantiates(String value) { //1
+      UriType t = new UriType();
+      t.setValue(value);
       if (this.instantiates == null)
-        this.instantiates = new ArrayList<Reference>();
+        this.instantiates = new ArrayList<UriType>();
       this.instantiates.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #instantiates}, creating it if it does not already exist
+     * @param value {@link #instantiates} (Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.)
      */
-    public Reference getInstantiatesFirstRep() { 
-      if (getInstantiates().isEmpty()) {
-        addInstantiates();
-      }
-      return getInstantiates().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Resource> getInstantiatesTarget() { 
-      if (this.instantiatesTarget == null)
-        this.instantiatesTarget = new ArrayList<Resource>();
-      return this.instantiatesTarget;
+    public boolean hasInstantiates(String value) { 
+      if (this.instantiates == null)
+        return false;
+      for (UriType v : this.instantiates)
+        if (v.equals(value)) // uri
+          return true;
+      return false;
     }
 
     /**
@@ -1008,6 +1270,59 @@ public class DeviceRequest extends DomainResource {
     public DeviceRequest setCode(Type value) { 
       this.code = value;
       return this;
+    }
+
+    /**
+     * @return {@link #parameter} (Specific parameters for the ordered item.  For example, the prism value for lenses.)
+     */
+    public List<DeviceRequestParameterComponent> getParameter() { 
+      if (this.parameter == null)
+        this.parameter = new ArrayList<DeviceRequestParameterComponent>();
+      return this.parameter;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DeviceRequest setParameter(List<DeviceRequestParameterComponent> theParameter) { 
+      this.parameter = theParameter;
+      return this;
+    }
+
+    public boolean hasParameter() { 
+      if (this.parameter == null)
+        return false;
+      for (DeviceRequestParameterComponent item : this.parameter)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public DeviceRequestParameterComponent addParameter() { //3
+      DeviceRequestParameterComponent t = new DeviceRequestParameterComponent();
+      if (this.parameter == null)
+        this.parameter = new ArrayList<DeviceRequestParameterComponent>();
+      this.parameter.add(t);
+      return t;
+    }
+
+    public DeviceRequest addParameter(DeviceRequestParameterComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.parameter == null)
+        this.parameter = new ArrayList<DeviceRequestParameterComponent>();
+      this.parameter.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #parameter}, creating it if it does not already exist
+     */
+    public DeviceRequestParameterComponent getParameterFirstRep() { 
+      if (getParameter().isEmpty()) {
+        addParameter();
+      }
+      return getParameter().get(0);
     }
 
     /**
@@ -1351,69 +1666,6 @@ public class DeviceRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #insurance} (Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.)
-     */
-    public List<Reference> getInsurance() { 
-      if (this.insurance == null)
-        this.insurance = new ArrayList<Reference>();
-      return this.insurance;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public DeviceRequest setInsurance(List<Reference> theInsurance) { 
-      this.insurance = theInsurance;
-      return this;
-    }
-
-    public boolean hasInsurance() { 
-      if (this.insurance == null)
-        return false;
-      for (Reference item : this.insurance)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public Reference addInsurance() { //3
-      Reference t = new Reference();
-      if (this.insurance == null)
-        this.insurance = new ArrayList<Reference>();
-      this.insurance.add(t);
-      return t;
-    }
-
-    public DeviceRequest addInsurance(Reference t) { //3
-      if (t == null)
-        return this;
-      if (this.insurance == null)
-        this.insurance = new ArrayList<Reference>();
-      this.insurance.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #insurance}, creating it if it does not already exist
-     */
-    public Reference getInsuranceFirstRep() { 
-      if (getInsurance().isEmpty()) {
-        addInsurance();
-      }
-      return getInsurance().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Resource> getInsuranceTarget() { 
-      if (this.insuranceTarget == null)
-        this.insuranceTarget = new ArrayList<Resource>();
-      return this.insuranceTarget;
-    }
-
-    /**
      * @return {@link #reasonReference} (Reason or justification for the use of this device.)
      */
     public List<Reference> getReasonReference() { 
@@ -1474,6 +1726,69 @@ public class DeviceRequest extends DomainResource {
       if (this.reasonReferenceTarget == null)
         this.reasonReferenceTarget = new ArrayList<Resource>();
       return this.reasonReferenceTarget;
+    }
+
+    /**
+     * @return {@link #insurance} (Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.)
+     */
+    public List<Reference> getInsurance() { 
+      if (this.insurance == null)
+        this.insurance = new ArrayList<Reference>();
+      return this.insurance;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DeviceRequest setInsurance(List<Reference> theInsurance) { 
+      this.insurance = theInsurance;
+      return this;
+    }
+
+    public boolean hasInsurance() { 
+      if (this.insurance == null)
+        return false;
+      for (Reference item : this.insurance)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addInsurance() { //3
+      Reference t = new Reference();
+      if (this.insurance == null)
+        this.insurance = new ArrayList<Reference>();
+      this.insurance.add(t);
+      return t;
+    }
+
+    public DeviceRequest addInsurance(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.insurance == null)
+        this.insurance = new ArrayList<Reference>();
+      this.insurance.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #insurance}, creating it if it does not already exist
+     */
+    public Reference getInsuranceFirstRep() { 
+      if (getInsurance().isEmpty()) {
+        addInsurance();
+      }
+      return getInsurance().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getInsuranceTarget() { 
+      if (this.insuranceTarget == null)
+        this.insuranceTarget = new ArrayList<Resource>();
+      return this.insuranceTarget;
     }
 
     /**
@@ -1670,7 +1985,7 @@ public class DeviceRequest extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the orderer or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("instantiates", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.", 0, java.lang.Integer.MAX_VALUE, instantiates));
+        children.add(new Property("instantiates", "uri", "Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.", 0, java.lang.Integer.MAX_VALUE, instantiates));
         children.add(new Property("basedOn", "Reference(Any)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("priorRequest", "Reference(Any)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, priorRequest));
         children.add(new Property("groupIdentifier", "Identifier", "Composite request this is part of.", 0, 1, groupIdentifier));
@@ -1678,6 +1993,7 @@ public class DeviceRequest extends DomainResource {
         children.add(new Property("intent", "CodeableConcept", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, 1, intent));
         children.add(new Property("priority", "code", "Indicates how quickly the {{title}} should be addressed with respect to other requests.", 0, 1, priority));
         children.add(new Property("code[x]", "Reference(Device)|CodeableConcept", "The details of the device to be used.", 0, 1, code));
+        children.add(new Property("parameter", "", "Specific parameters for the ordered item.  For example, the prism value for lenses.", 0, java.lang.Integer.MAX_VALUE, parameter));
         children.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "The patient who will use the device.", 0, 1, subject));
         children.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "An encounter that provides additional context in which this request is made.", 0, 1, context));
         children.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, 1, occurrence));
@@ -1686,8 +2002,8 @@ public class DeviceRequest extends DomainResource {
         children.add(new Property("performerType", "CodeableConcept", "Desired type of performer for doing the diagnostic testing.", 0, 1, performerType));
         children.add(new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)", "The desired perfomer for doing the diagnostic testing.", 0, 1, performer));
         children.add(new Property("reasonCode", "CodeableConcept", "Reason or justification for the use of this device.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
-        children.add(new Property("insurance", "Reference(Coverage|ClaimResponse)", "Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.", 0, java.lang.Integer.MAX_VALUE, insurance));
         children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Reason or justification for the use of this device.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
+        children.add(new Property("insurance", "Reference(Coverage|ClaimResponse)", "Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.", 0, java.lang.Integer.MAX_VALUE, insurance));
         children.add(new Property("supportingInfo", "Reference(Any)", "Additional clinical information about the patient that may influence the request fulfilment.  For example, this may includes body where on the subject's the device will be used ( i.e. the target site).", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
         children.add(new Property("note", "Annotation", "Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.", 0, java.lang.Integer.MAX_VALUE, note));
         children.add(new Property("relevantHistory", "Reference(Provenance)", "Key events in the history of the request.", 0, java.lang.Integer.MAX_VALUE, relevantHistory));
@@ -1697,7 +2013,7 @@ public class DeviceRequest extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Identifiers assigned to this order by the orderer or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -246883639: /*instantiates*/  return new Property("instantiates", "Reference(ActivityDefinition|PlanDefinition)", "Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.", 0, java.lang.Integer.MAX_VALUE, instantiates);
+        case -246883639: /*instantiates*/  return new Property("instantiates", "uri", "Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.", 0, java.lang.Integer.MAX_VALUE, instantiates);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(Any)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case 237568101: /*priorRequest*/  return new Property("priorRequest", "Reference(Any)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, priorRequest);
         case -445338488: /*groupIdentifier*/  return new Property("groupIdentifier", "Identifier", "Composite request this is part of.", 0, 1, groupIdentifier);
@@ -1708,6 +2024,7 @@ public class DeviceRequest extends DomainResource {
         case 3059181: /*code*/  return new Property("code[x]", "Reference(Device)|CodeableConcept", "The details of the device to be used.", 0, 1, code);
         case 1565461470: /*codeReference*/  return new Property("code[x]", "Reference(Device)|CodeableConcept", "The details of the device to be used.", 0, 1, code);
         case 4899316: /*codeCodeableConcept*/  return new Property("code[x]", "Reference(Device)|CodeableConcept", "The details of the device to be used.", 0, 1, code);
+        case 1954460585: /*parameter*/  return new Property("parameter", "", "Specific parameters for the ordered item.  For example, the prism value for lenses.", 0, java.lang.Integer.MAX_VALUE, parameter);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group|Location|Device)", "The patient who will use the device.", 0, 1, subject);
         case 951530927: /*context*/  return new Property("context", "Reference(Encounter|EpisodeOfCare)", "An encounter that provides additional context in which this request is made.", 0, 1, context);
         case -2022646513: /*occurrence[x]*/  return new Property("occurrence[x]", "dateTime|Period|Timing", "The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, 1, occurrence);
@@ -1720,8 +2037,8 @@ public class DeviceRequest extends DomainResource {
         case -901444568: /*performerType*/  return new Property("performerType", "CodeableConcept", "Desired type of performer for doing the diagnostic testing.", 0, 1, performerType);
         case 481140686: /*performer*/  return new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)", "The desired perfomer for doing the diagnostic testing.", 0, 1, performer);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Reason or justification for the use of this device.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
-        case 73049818: /*insurance*/  return new Property("insurance", "Reference(Coverage|ClaimResponse)", "Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.", 0, java.lang.Integer.MAX_VALUE, insurance);
         case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Reason or justification for the use of this device.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
+        case 73049818: /*insurance*/  return new Property("insurance", "Reference(Coverage|ClaimResponse)", "Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service.", 0, java.lang.Integer.MAX_VALUE, insurance);
         case 1922406657: /*supportingInfo*/  return new Property("supportingInfo", "Reference(Any)", "Additional clinical information about the patient that may influence the request fulfilment.  For example, this may includes body where on the subject's the device will be used ( i.e. the target site).", 0, java.lang.Integer.MAX_VALUE, supportingInfo);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.", 0, java.lang.Integer.MAX_VALUE, note);
         case 1538891575: /*relevantHistory*/  return new Property("relevantHistory", "Reference(Provenance)", "Key events in the history of the request.", 0, java.lang.Integer.MAX_VALUE, relevantHistory);
@@ -1734,7 +2051,7 @@ public class DeviceRequest extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // Reference
+        case -246883639: /*instantiates*/ return this.instantiates == null ? new Base[0] : this.instantiates.toArray(new Base[this.instantiates.size()]); // UriType
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
         case 237568101: /*priorRequest*/ return this.priorRequest == null ? new Base[0] : this.priorRequest.toArray(new Base[this.priorRequest.size()]); // Reference
         case -445338488: /*groupIdentifier*/ return this.groupIdentifier == null ? new Base[0] : new Base[] {this.groupIdentifier}; // Identifier
@@ -1742,6 +2059,7 @@ public class DeviceRequest extends DomainResource {
         case -1183762788: /*intent*/ return this.intent == null ? new Base[0] : new Base[] {this.intent}; // CodeableConcept
         case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<RequestPriority>
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Type
+        case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // DeviceRequestParameterComponent
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case 1687874001: /*occurrence*/ return this.occurrence == null ? new Base[0] : new Base[] {this.occurrence}; // Type
@@ -1750,8 +2068,8 @@ public class DeviceRequest extends DomainResource {
         case -901444568: /*performerType*/ return this.performerType == null ? new Base[0] : new Base[] {this.performerType}; // CodeableConcept
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
-        case 73049818: /*insurance*/ return this.insurance == null ? new Base[0] : this.insurance.toArray(new Base[this.insurance.size()]); // Reference
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
+        case 73049818: /*insurance*/ return this.insurance == null ? new Base[0] : this.insurance.toArray(new Base[this.insurance.size()]); // Reference
         case 1922406657: /*supportingInfo*/ return this.supportingInfo == null ? new Base[0] : this.supportingInfo.toArray(new Base[this.supportingInfo.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case 1538891575: /*relevantHistory*/ return this.relevantHistory == null ? new Base[0] : this.relevantHistory.toArray(new Base[this.relevantHistory.size()]); // Reference
@@ -1767,7 +2085,7 @@ public class DeviceRequest extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -246883639: // instantiates
-          this.getInstantiates().add(castToReference(value)); // Reference
+          this.getInstantiates().add(castToUri(value)); // UriType
           return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
@@ -1791,6 +2109,9 @@ public class DeviceRequest extends DomainResource {
           return value;
         case 3059181: // code
           this.code = castToType(value); // Type
+          return value;
+        case 1954460585: // parameter
+          this.getParameter().add((DeviceRequestParameterComponent) value); // DeviceRequestParameterComponent
           return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
@@ -1816,11 +2137,11 @@ public class DeviceRequest extends DomainResource {
         case 722137681: // reasonCode
           this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case 73049818: // insurance
-          this.getInsurance().add(castToReference(value)); // Reference
-          return value;
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
+          return value;
+        case 73049818: // insurance
+          this.getInsurance().add(castToReference(value)); // Reference
           return value;
         case 1922406657: // supportingInfo
           this.getSupportingInfo().add(castToReference(value)); // Reference
@@ -1841,7 +2162,7 @@ public class DeviceRequest extends DomainResource {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("instantiates")) {
-          this.getInstantiates().add(castToReference(value));
+          this.getInstantiates().add(castToUri(value));
         } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
         } else if (name.equals("priorRequest")) {
@@ -1858,6 +2179,8 @@ public class DeviceRequest extends DomainResource {
           this.priority = (Enumeration) value; // Enumeration<RequestPriority>
         } else if (name.equals("code[x]")) {
           this.code = castToType(value); // Type
+        } else if (name.equals("parameter")) {
+          this.getParameter().add((DeviceRequestParameterComponent) value);
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
         } else if (name.equals("context")) {
@@ -1874,10 +2197,10 @@ public class DeviceRequest extends DomainResource {
           this.performer = castToReference(value); // Reference
         } else if (name.equals("reasonCode")) {
           this.getReasonCode().add(castToCodeableConcept(value));
-        } else if (name.equals("insurance")) {
-          this.getInsurance().add(castToReference(value));
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
+        } else if (name.equals("insurance")) {
+          this.getInsurance().add(castToReference(value));
         } else if (name.equals("supportingInfo")) {
           this.getSupportingInfo().add(castToReference(value));
         } else if (name.equals("note")) {
@@ -1893,7 +2216,7 @@ public class DeviceRequest extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case -246883639:  return addInstantiates(); 
+        case -246883639:  return addInstantiatesElement();
         case -332612366:  return addBasedOn(); 
         case 237568101:  return addPriorRequest(); 
         case -445338488:  return getGroupIdentifier(); 
@@ -1902,6 +2225,7 @@ public class DeviceRequest extends DomainResource {
         case -1165461084:  return getPriorityElement();
         case 941839219:  return getCode(); 
         case 3059181:  return getCode(); 
+        case 1954460585:  return addParameter(); 
         case -1867885268:  return getSubject(); 
         case 951530927:  return getContext(); 
         case -2022646513:  return getOccurrence(); 
@@ -1911,8 +2235,8 @@ public class DeviceRequest extends DomainResource {
         case -901444568:  return getPerformerType(); 
         case 481140686:  return getPerformer(); 
         case 722137681:  return addReasonCode(); 
-        case 73049818:  return addInsurance(); 
         case -1146218137:  return addReasonReference(); 
+        case 73049818:  return addInsurance(); 
         case 1922406657:  return addSupportingInfo(); 
         case 3387378:  return addNote(); 
         case 1538891575:  return addRelevantHistory(); 
@@ -1925,7 +2249,7 @@ public class DeviceRequest extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -246883639: /*instantiates*/ return new String[] {"Reference"};
+        case -246883639: /*instantiates*/ return new String[] {"uri"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
         case 237568101: /*priorRequest*/ return new String[] {"Reference"};
         case -445338488: /*groupIdentifier*/ return new String[] {"Identifier"};
@@ -1933,6 +2257,7 @@ public class DeviceRequest extends DomainResource {
         case -1183762788: /*intent*/ return new String[] {"CodeableConcept"};
         case -1165461084: /*priority*/ return new String[] {"code"};
         case 3059181: /*code*/ return new String[] {"Reference", "CodeableConcept"};
+        case 1954460585: /*parameter*/ return new String[] {};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
         case 1687874001: /*occurrence*/ return new String[] {"dateTime", "Period", "Timing"};
@@ -1941,8 +2266,8 @@ public class DeviceRequest extends DomainResource {
         case -901444568: /*performerType*/ return new String[] {"CodeableConcept"};
         case 481140686: /*performer*/ return new String[] {"Reference"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
-        case 73049818: /*insurance*/ return new String[] {"Reference"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
+        case 73049818: /*insurance*/ return new String[] {"Reference"};
         case 1922406657: /*supportingInfo*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         case 1538891575: /*relevantHistory*/ return new String[] {"Reference"};
@@ -1957,7 +2282,7 @@ public class DeviceRequest extends DomainResource {
           return addIdentifier();
         }
         else if (name.equals("instantiates")) {
-          return addInstantiates();
+          throw new FHIRException("Cannot call addChild on a primitive type DeviceRequest.instantiates");
         }
         else if (name.equals("basedOn")) {
           return addBasedOn();
@@ -1986,6 +2311,9 @@ public class DeviceRequest extends DomainResource {
         else if (name.equals("codeCodeableConcept")) {
           this.code = new CodeableConcept();
           return this.code;
+        }
+        else if (name.equals("parameter")) {
+          return addParameter();
         }
         else if (name.equals("subject")) {
           this.subject = new Reference();
@@ -2025,11 +2353,11 @@ public class DeviceRequest extends DomainResource {
         else if (name.equals("reasonCode")) {
           return addReasonCode();
         }
-        else if (name.equals("insurance")) {
-          return addInsurance();
-        }
         else if (name.equals("reasonReference")) {
           return addReasonReference();
+        }
+        else if (name.equals("insurance")) {
+          return addInsurance();
         }
         else if (name.equals("supportingInfo")) {
           return addSupportingInfo();
@@ -2058,8 +2386,8 @@ public class DeviceRequest extends DomainResource {
             dst.identifier.add(i.copy());
         };
         if (instantiates != null) {
-          dst.instantiates = new ArrayList<Reference>();
-          for (Reference i : instantiates)
+          dst.instantiates = new ArrayList<UriType>();
+          for (UriType i : instantiates)
             dst.instantiates.add(i.copy());
         };
         if (basedOn != null) {
@@ -2077,6 +2405,11 @@ public class DeviceRequest extends DomainResource {
         dst.intent = intent == null ? null : intent.copy();
         dst.priority = priority == null ? null : priority.copy();
         dst.code = code == null ? null : code.copy();
+        if (parameter != null) {
+          dst.parameter = new ArrayList<DeviceRequestParameterComponent>();
+          for (DeviceRequestParameterComponent i : parameter)
+            dst.parameter.add(i.copy());
+        };
         dst.subject = subject == null ? null : subject.copy();
         dst.context = context == null ? null : context.copy();
         dst.occurrence = occurrence == null ? null : occurrence.copy();
@@ -2089,15 +2422,15 @@ public class DeviceRequest extends DomainResource {
           for (CodeableConcept i : reasonCode)
             dst.reasonCode.add(i.copy());
         };
-        if (insurance != null) {
-          dst.insurance = new ArrayList<Reference>();
-          for (Reference i : insurance)
-            dst.insurance.add(i.copy());
-        };
         if (reasonReference != null) {
           dst.reasonReference = new ArrayList<Reference>();
           for (Reference i : reasonReference)
             dst.reasonReference.add(i.copy());
+        };
+        if (insurance != null) {
+          dst.insurance = new ArrayList<Reference>();
+          for (Reference i : insurance)
+            dst.insurance.add(i.copy());
         };
         if (supportingInfo != null) {
           dst.supportingInfo = new ArrayList<Reference>();
@@ -2131,12 +2464,12 @@ public class DeviceRequest extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(priorRequest, o.priorRequest, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true)
-           && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
-           && compareDeep(occurrence, o.occurrence, true) && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(requester, o.requester, true)
-           && compareDeep(performerType, o.performerType, true) && compareDeep(performer, o.performer, true)
-           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(insurance, o.insurance, true) && compareDeep(reasonReference, o.reasonReference, true)
-           && compareDeep(supportingInfo, o.supportingInfo, true) && compareDeep(note, o.note, true) && compareDeep(relevantHistory, o.relevantHistory, true)
-          ;
+           && compareDeep(code, o.code, true) && compareDeep(parameter, o.parameter, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true) && compareDeep(authoredOn, o.authoredOn, true)
+           && compareDeep(requester, o.requester, true) && compareDeep(performerType, o.performerType, true)
+           && compareDeep(performer, o.performer, true) && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
+           && compareDeep(insurance, o.insurance, true) && compareDeep(supportingInfo, o.supportingInfo, true)
+           && compareDeep(note, o.note, true) && compareDeep(relevantHistory, o.relevantHistory, true);
       }
 
       @Override
@@ -2146,15 +2479,15 @@ public class DeviceRequest extends DomainResource {
         if (!(other instanceof DeviceRequest))
           return false;
         DeviceRequest o = (DeviceRequest) other;
-        return compareValues(status, o.status, true) && compareValues(priority, o.priority, true) && compareValues(authoredOn, o.authoredOn, true)
-          ;
+        return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true) && compareValues(priority, o.priority, true)
+           && compareValues(authoredOn, o.authoredOn, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiates, basedOn
-          , priorRequest, groupIdentifier, status, intent, priority, code, subject, context
-          , occurrence, authoredOn, requester, performerType, performer, reasonCode, insurance
-          , reasonReference, supportingInfo, note, relevantHistory);
+          , priorRequest, groupIdentifier, status, intent, priority, code, parameter, subject
+          , context, occurrence, authoredOn, requester, performerType, performer, reasonCode
+          , reasonReference, insurance, supportingInfo, note, relevantHistory);
       }
 
   @Override
@@ -2218,27 +2551,21 @@ public class DeviceRequest extends DomainResource {
    * Search parameter: <b>instantiates</b>
    * <p>
    * Description: <b>Protocol or definition followed by this request</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>DeviceRequest.instantiates</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="instantiates", path="DeviceRequest.instantiates", description="Protocol or definition followed by this request", type="reference", target={ActivityDefinition.class, PlanDefinition.class } )
+  @SearchParamDefinition(name="instantiates", path="DeviceRequest.instantiates", description="Protocol or definition followed by this request", type="uri" )
   public static final String SP_INSTANTIATES = "instantiates";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>instantiates</b>
    * <p>
    * Description: <b>Protocol or definition followed by this request</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>DeviceRequest.instantiates</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INSTANTIATES = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INSTANTIATES);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DeviceRequest:instantiates</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INSTANTIATES = new ca.uhn.fhir.model.api.Include("DeviceRequest:instantiates").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam INSTANTIATES = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_INSTANTIATES);
 
  /**
    * Search parameter: <b>identifier</b>
@@ -2314,7 +2641,7 @@ public class DeviceRequest extends DomainResource {
    * Path: <b>DeviceRequest.occurrenceDateTime, DeviceRequest.occurrencePeriod</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="event-date", path="DeviceRequest.occurrence.as(DateTime) | DeviceRequest.occurrence.as(Period)", description="When service should occur", type="date" )
+  @SearchParamDefinition(name="event-date", path="DeviceRequest.occurrence.as(dateTime) | DeviceRequest.occurrence.as(Period)", description="When service should occur", type="date" )
   public static final String SP_EVENT_DATE = "event-date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>event-date</b>

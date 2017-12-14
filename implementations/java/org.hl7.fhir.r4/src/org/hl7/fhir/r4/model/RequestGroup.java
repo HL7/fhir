@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1463,7 +1463,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         /**
          * An optional value describing when the action should be performed.
          */
-        @Child(name = "timing", type = {DateTimeType.class, Period.class, Duration.class, Range.class, Timing.class}, order=9, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "timing", type = {DateTimeType.class, Age.class, Period.class, Duration.class, Range.class, Timing.class}, order=9, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="When the action should take place", formalDefinition="An optional value describing when the action should be performed." )
         protected Type timing;
 
@@ -1986,6 +1986,19 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         /**
          * @return {@link #timing} (An optional value describing when the action should be performed.)
          */
+        public Age getTimingAge() throws FHIRException { 
+          if (!(this.timing instanceof Age))
+            throw new FHIRException("Type mismatch: the type Age was expected, but "+this.timing.getClass().getName()+" was encountered");
+          return (Age) this.timing;
+        }
+
+        public boolean hasTimingAge() { 
+          return this.timing instanceof Age;
+        }
+
+        /**
+         * @return {@link #timing} (An optional value describing when the action should be performed.)
+         */
         public Period getTimingPeriod() throws FHIRException { 
           if (!(this.timing instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
@@ -2481,7 +2494,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           children.add(new Property("documentation", "RelatedArtifact", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
           children.add(new Property("condition", "", "An expression that describes applicability criteria, or start/stop conditions for the action.", 0, java.lang.Integer.MAX_VALUE, condition));
           children.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
-          children.add(new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing));
+          children.add(new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing));
           children.add(new Property("participant", "Reference(Patient|Person|Practitioner|RelatedPerson)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant));
           children.add(new Property("type", "Coding", "The type of action to perform (create, update, remove).", 0, 1, type));
           children.add(new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, 1, groupingBehavior));
@@ -2504,13 +2517,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           case 1587405498: /*documentation*/  return new Property("documentation", "RelatedArtifact", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation);
           case -861311717: /*condition*/  return new Property("condition", "", "An expression that describes applicability criteria, or start/stop conditions for the action.", 0, java.lang.Integer.MAX_VALUE, condition);
           case -384107967: /*relatedAction*/  return new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction);
-          case 164632566: /*timing[x]*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -873664438: /*timing*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -1837458939: /*timingDateTime*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -615615829: /*timingPeriod*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -1327253506: /*timingDuration*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -710871277: /*timingRange*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case -497554124: /*timingTiming*/  return new Property("timing[x]", "dateTime|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case 164632566: /*timing[x]*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -873664438: /*timing*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -1837458939: /*timingDateTime*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case 164607061: /*timingAge*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -615615829: /*timingPeriod*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -1327253506: /*timingDuration*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -710871277: /*timingRange*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
+          case -497554124: /*timingTiming*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
           case 767422259: /*participant*/  return new Property("participant", "Reference(Patient|Person|Practitioner|RelatedPerson)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant);
           case 3575610: /*type*/  return new Property("type", "Coding", "The type of action to perform (create, update, remove).", 0, 1, type);
           case 586678389: /*groupingBehavior*/  return new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, 1, groupingBehavior);
@@ -2704,7 +2718,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 1587405498: /*documentation*/ return new String[] {"RelatedArtifact"};
         case -861311717: /*condition*/ return new String[] {};
         case -384107967: /*relatedAction*/ return new String[] {};
-        case -873664438: /*timing*/ return new String[] {"dateTime", "Period", "Duration", "Range", "Timing"};
+        case -873664438: /*timing*/ return new String[] {"dateTime", "Age", "Period", "Duration", "Range", "Timing"};
         case 767422259: /*participant*/ return new String[] {"Reference"};
         case 3575610: /*type*/ return new String[] {"Coding"};
         case 586678389: /*groupingBehavior*/ return new String[] {"code"};
@@ -2747,6 +2761,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
         else if (name.equals("timingDateTime")) {
           this.timing = new DateTimeType();
+          return this.timing;
+        }
+        else if (name.equals("timingAge")) {
+          this.timing = new Age();
           return this.timing;
         }
         else if (name.equals("timingPeriod")) {

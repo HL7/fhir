@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -412,7 +412,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
         /**
          * A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers).
          */
-        @Child(name = "code", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "code", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Corresponding concept for this item in a terminology", formalDefinition="A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-questions")
         protected List<Coding> code;
@@ -427,7 +427,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
         /**
          * The name of a section, the text of a question or text content for a display item.
          */
-        @Child(name = "text", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "text", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Primary text for the item", formalDefinition="The name of a section, the text of a question or text content for a display item." )
         protected StringType text;
 
@@ -442,7 +442,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
         /**
          * A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.
          */
-        @Child(name = "enableWhen", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=true, summary=true)
+        @Child(name = "enableWhen", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=true, summary=false)
         @Description(shortDefinition="Only allow data when", formalDefinition="A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true." )
         protected List<QuestionnaireItemEnableWhenComponent> enableWhen;
 
@@ -2315,7 +2315,14 @@ Any information provided in these elements on a Questionnaire Item overrides the
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-answers")
         protected Type value;
 
-        private static final long serialVersionUID = -732981989L;
+        /**
+         * Indicates whether the option value is selected when the list of options is initially shown.
+         */
+        @Child(name = "initialSelected", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Whether option is selected by default", formalDefinition="Indicates whether the option value is selected when the list of options is initially shown." )
+        protected BooleanType initialSelected;
+
+        private static final long serialVersionUID = 1703686148L;
 
     /**
      * Constructor
@@ -2416,9 +2423,55 @@ Any information provided in these elements on a Questionnaire Item overrides the
           return this;
         }
 
+        /**
+         * @return {@link #initialSelected} (Indicates whether the option value is selected when the list of options is initially shown.). This is the underlying object with id, value and extensions. The accessor "getInitialSelected" gives direct access to the value
+         */
+        public BooleanType getInitialSelectedElement() { 
+          if (this.initialSelected == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create QuestionnaireItemOptionComponent.initialSelected");
+            else if (Configuration.doAutoCreate())
+              this.initialSelected = new BooleanType(); // bb
+          return this.initialSelected;
+        }
+
+        public boolean hasInitialSelectedElement() { 
+          return this.initialSelected != null && !this.initialSelected.isEmpty();
+        }
+
+        public boolean hasInitialSelected() { 
+          return this.initialSelected != null && !this.initialSelected.isEmpty();
+        }
+
+        /**
+         * @param value {@link #initialSelected} (Indicates whether the option value is selected when the list of options is initially shown.). This is the underlying object with id, value and extensions. The accessor "getInitialSelected" gives direct access to the value
+         */
+        public QuestionnaireItemOptionComponent setInitialSelectedElement(BooleanType value) { 
+          this.initialSelected = value;
+          return this;
+        }
+
+        /**
+         * @return Indicates whether the option value is selected when the list of options is initially shown.
+         */
+        public boolean getInitialSelected() { 
+          return this.initialSelected == null || this.initialSelected.isEmpty() ? false : this.initialSelected.getValue();
+        }
+
+        /**
+         * @param value Indicates whether the option value is selected when the list of options is initially shown.
+         */
+        public QuestionnaireItemOptionComponent setInitialSelected(boolean value) { 
+            if (this.initialSelected == null)
+              this.initialSelected = new BooleanType();
+            this.initialSelected.setValue(value);
+          return this;
+        }
+
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("value[x]", "integer|date|time|string|Coding", "A potential answer that's allowed as the answer to this question.", 0, 1, value));
+          children.add(new Property("initialSelected", "boolean", "Indicates whether the option value is selected when the list of options is initially shown.", 0, 1, initialSelected));
         }
 
         @Override
@@ -2431,6 +2484,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
           case -765708322: /*valueTime*/  return new Property("value[x]", "integer|date|time|string|Coding", "A potential answer that's allowed as the answer to this question.", 0, 1, value);
           case -1424603934: /*valueString*/  return new Property("value[x]", "integer|date|time|string|Coding", "A potential answer that's allowed as the answer to this question.", 0, 1, value);
           case -1887705029: /*valueCoding*/  return new Property("value[x]", "integer|date|time|string|Coding", "A potential answer that's allowed as the answer to this question.", 0, 1, value);
+          case -1310184961: /*initialSelected*/  return new Property("initialSelected", "boolean", "Indicates whether the option value is selected when the list of options is initially shown.", 0, 1, initialSelected);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2440,6 +2494,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Type
+        case -1310184961: /*initialSelected*/ return this.initialSelected == null ? new Base[0] : new Base[] {this.initialSelected}; // BooleanType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2451,6 +2506,9 @@ Any information provided in these elements on a Questionnaire Item overrides the
         case 111972721: // value
           this.value = castToType(value); // Type
           return value;
+        case -1310184961: // initialSelected
+          this.initialSelected = castToBoolean(value); // BooleanType
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -2460,6 +2518,8 @@ Any information provided in these elements on a Questionnaire Item overrides the
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("value[x]")) {
           this.value = castToType(value); // Type
+        } else if (name.equals("initialSelected")) {
+          this.initialSelected = castToBoolean(value); // BooleanType
         } else
           return super.setProperty(name, value);
         return value;
@@ -2470,6 +2530,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
         switch (hash) {
         case -1410166417:  return getValue(); 
         case 111972721:  return getValue(); 
+        case -1310184961:  return getInitialSelectedElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2479,6 +2540,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 111972721: /*value*/ return new String[] {"integer", "date", "time", "string", "Coding"};
+        case -1310184961: /*initialSelected*/ return new String[] {"boolean"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2506,6 +2568,9 @@ Any information provided in these elements on a Questionnaire Item overrides the
           this.value = new Coding();
           return this.value;
         }
+        else if (name.equals("initialSelected")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Questionnaire.initialSelected");
+        }
         else
           return super.addChild(name);
       }
@@ -2514,6 +2579,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
         QuestionnaireItemOptionComponent dst = new QuestionnaireItemOptionComponent();
         copyValues(dst);
         dst.value = value == null ? null : value.copy();
+        dst.initialSelected = initialSelected == null ? null : initialSelected.copy();
         return dst;
       }
 
@@ -2524,7 +2590,8 @@ Any information provided in these elements on a Questionnaire Item overrides the
         if (!(other instanceof QuestionnaireItemOptionComponent))
           return false;
         QuestionnaireItemOptionComponent o = (QuestionnaireItemOptionComponent) other;
-        return compareDeep(value, o.value, true);
+        return compareDeep(value, o.value, true) && compareDeep(initialSelected, o.initialSelected, true)
+          ;
       }
 
       @Override
@@ -2534,11 +2601,11 @@ Any information provided in these elements on a Questionnaire Item overrides the
         if (!(other instanceof QuestionnaireItemOptionComponent))
           return false;
         QuestionnaireItemOptionComponent o = (QuestionnaireItemOptionComponent) other;
-        return true;
+        return compareValues(initialSelected, o.initialSelected, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value, initialSelected);
       }
 
   public String fhirType() {
@@ -4223,26 +4290,6 @@ Any information provided in these elements on a Questionnaire Item overrides the
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>effective</b>
-   * <p>
-   * Description: <b>The time during which the questionnaire is intended to be in use</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Questionnaire.effectivePeriod</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="effective", path="Questionnaire.effectivePeriod", description="The time during which the questionnaire is intended to be in use", type="date" )
-  public static final String SP_EFFECTIVE = "effective";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>effective</b>
-   * <p>
-   * Description: <b>The time during which the questionnaire is intended to be in use</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Questionnaire.effectivePeriod</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVE);
-
- /**
    * Search parameter: <b>code</b>
    * <p>
    * Description: <b>A code that corresponds to one of its items in the questionnaire</b><br>
@@ -4283,26 +4330,6 @@ Any information provided in these elements on a Questionnaire Item overrides the
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
 
  /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the questionnaire</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Questionnaire.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="Questionnaire.name", description="Computationally friendly name of the questionnaire", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the questionnaire</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Questionnaire.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
    * Search parameter: <b>description</b>
    * <p>
    * Description: <b>The description of the questionnaire</b><br>
@@ -4323,24 +4350,24 @@ Any information provided in these elements on a Questionnaire Item overrides the
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>context-type</b>
    * <p>
-   * Description: <b>Name of the publisher of the questionnaire</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Questionnaire.publisher</b><br>
+   * Description: <b>A type of use context assigned to the questionnaire</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Questionnaire.useContext.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="publisher", path="Questionnaire.publisher", description="Name of the publisher of the questionnaire", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
+  @SearchParamDefinition(name="context-type", path="Questionnaire.useContext.code", description="A type of use context assigned to the questionnaire", type="token" )
+  public static final String SP_CONTEXT_TYPE = "context-type";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <b>Fluent Client</b> search parameter constant for <b>context-type</b>
    * <p>
-   * Description: <b>Name of the publisher of the questionnaire</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Questionnaire.publisher</b><br>
+   * Description: <b>A type of use context assigned to the questionnaire</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Questionnaire.useContext.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT_TYPE);
 
  /**
    * Search parameter: <b>title</b>
@@ -4401,6 +4428,66 @@ Any information provided in these elements on a Questionnaire Item overrides the
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>effective</b>
+   * <p>
+   * Description: <b>The time during which the questionnaire is intended to be in use</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Questionnaire.effectivePeriod</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="effective", path="Questionnaire.effectivePeriod", description="The time during which the questionnaire is intended to be in use", type="date" )
+  public static final String SP_EFFECTIVE = "effective";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>effective</b>
+   * <p>
+   * Description: <b>The time during which the questionnaire is intended to be in use</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Questionnaire.effectivePeriod</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVE);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the questionnaire</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Questionnaire.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="Questionnaire.name", description="Computationally friendly name of the questionnaire", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the questionnaire</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Questionnaire.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the questionnaire</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Questionnaire.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="Questionnaire.publisher", description="Name of the publisher of the questionnaire", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the questionnaire</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Questionnaire.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
    * Search parameter: <b>status</b>

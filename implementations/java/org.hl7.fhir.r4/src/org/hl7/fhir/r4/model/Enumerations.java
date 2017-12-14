@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2447,19 +2447,19 @@ public class Enumerations {
          */
         HEALTHCARESERVICE, 
         /**
-         * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
-         */
-        IMAGINGMANIFEST, 
-        /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
         IMAGINGSTUDY, 
         /**
-         * Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.
+         * Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
          */
         IMMUNIZATION, 
         /**
-         * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
+         * Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
+         */
+        IMMUNIZATIONEVALUATION, 
+        /**
+         * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
          */
         IMMUNIZATIONRECOMMENDATION, 
         /**
@@ -2474,6 +2474,10 @@ public class Enumerations {
          * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
          */
         IMPLEMENTATIONGUIDEOUTPUT, 
+        /**
+         * Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.
+         */
+        INVOICE, 
         /**
          * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
@@ -2559,6 +2563,10 @@ public class Enumerations {
          */
         ORGANIZATION, 
         /**
+         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         */
+        ORGANIZATIONROLE, 
+        /**
          * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
         PARAMETERS, 
@@ -2602,6 +2610,10 @@ public class Enumerations {
          * This resource provides processing status, errors and notes from the processing of a resource.
          */
         PROCESSRESPONSE, 
+        /**
+         * Details of a Health Insurance product/plan provided by an organization.
+         */
+        PRODUCTPLAN, 
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
@@ -2959,12 +2971,12 @@ public class Enumerations {
           return GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return HEALTHCARESERVICE;
-        if ("ImagingManifest".equals(codeString))
-          return IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
           return IMMUNIZATION;
+        if ("ImmunizationEvaluation".equals(codeString))
+          return IMMUNIZATIONEVALUATION;
         if ("ImmunizationRecommendation".equals(codeString))
           return IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
@@ -2973,6 +2985,8 @@ public class Enumerations {
           return IMPLEMENTATIONGUIDEINPUT;
         if ("ImplementationGuideOutput".equals(codeString))
           return IMPLEMENTATIONGUIDEOUTPUT;
+        if ("Invoice".equals(codeString))
+          return INVOICE;
         if ("Library".equals(codeString))
           return LIBRARY;
         if ("Linkage".equals(codeString))
@@ -3015,6 +3029,8 @@ public class Enumerations {
           return OPERATIONOUTCOME;
         if ("Organization".equals(codeString))
           return ORGANIZATION;
+        if ("OrganizationRole".equals(codeString))
+          return ORGANIZATIONROLE;
         if ("Parameters".equals(codeString))
           return PARAMETERS;
         if ("Patient".equals(codeString))
@@ -3037,6 +3053,8 @@ public class Enumerations {
           return PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return PROCESSRESPONSE;
+        if ("ProductPlan".equals(codeString))
+          return PRODUCTPLAN;
         if ("Provenance".equals(codeString))
           return PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -3216,13 +3234,14 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
+            case IMMUNIZATIONEVALUATION: return "ImmunizationEvaluation";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
             case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
+            case INVOICE: return "Invoice";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -3244,6 +3263,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
+            case ORGANIZATIONROLE: return "OrganizationRole";
             case PARAMETERS: return "Parameters";
             case PATIENT: return "Patient";
             case PAYMENTNOTICE: return "PaymentNotice";
@@ -3255,6 +3275,7 @@ public class Enumerations {
             case PROCEDURE: return "Procedure";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PRODUCTPLAN: return "ProductPlan";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -3403,13 +3424,14 @@ public class Enumerations {
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGMANIFEST: return "http://hl7.org/fhir/resource-types";
             case IMAGINGSTUDY: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATION: return "http://hl7.org/fhir/resource-types";
+            case IMMUNIZATIONEVALUATION: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDE: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDEINPUT: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDEOUTPUT: return "http://hl7.org/fhir/resource-types";
+            case INVOICE: return "http://hl7.org/fhir/resource-types";
             case LIBRARY: return "http://hl7.org/fhir/resource-types";
             case LINKAGE: return "http://hl7.org/fhir/resource-types";
             case LIST: return "http://hl7.org/fhir/resource-types";
@@ -3431,6 +3453,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
+            case ORGANIZATIONROLE: return "http://hl7.org/fhir/resource-types";
             case PARAMETERS: return "http://hl7.org/fhir/resource-types";
             case PATIENT: return "http://hl7.org/fhir/resource-types";
             case PAYMENTNOTICE: return "http://hl7.org/fhir/resource-types";
@@ -3442,6 +3465,7 @@ public class Enumerations {
             case PROCEDURE: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSRESPONSE: return "http://hl7.org/fhir/resource-types";
+            case PRODUCTPLAN: return "http://hl7.org/fhir/resource-types";
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -3590,13 +3614,14 @@ public class Enumerations {
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGMANIFEST: return "A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
-            case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
-            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
+            case IMMUNIZATION: return "Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.";
+            case IMMUNIZATIONEVALUATION: return "Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to those  recommendations.";
+            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case IMPLEMENTATIONGUIDEINPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case IMPLEMENTATIONGUIDEOUTPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
+            case INVOICE: return "Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.";
             case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
@@ -3618,6 +3643,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
+            case ORGANIZATIONROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
@@ -3629,6 +3655,7 @@ public class Enumerations {
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
+            case PRODUCTPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.";
@@ -3777,13 +3804,14 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
+            case IMMUNIZATIONEVALUATION: return "ImmunizationEvaluation";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
             case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
+            case INVOICE: return "Invoice";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -3805,6 +3833,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
+            case ORGANIZATIONROLE: return "OrganizationRole";
             case PARAMETERS: return "Parameters";
             case PATIENT: return "Patient";
             case PAYMENTNOTICE: return "PaymentNotice";
@@ -3816,6 +3845,7 @@ public class Enumerations {
             case PROCEDURE: return "Procedure";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PRODUCTPLAN: return "ProductPlan";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -4080,12 +4110,12 @@ public class Enumerations {
           return FHIRAllTypes.GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return FHIRAllTypes.HEALTHCARESERVICE;
-        if ("ImagingManifest".equals(codeString))
-          return FHIRAllTypes.IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return FHIRAllTypes.IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
           return FHIRAllTypes.IMMUNIZATION;
+        if ("ImmunizationEvaluation".equals(codeString))
+          return FHIRAllTypes.IMMUNIZATIONEVALUATION;
         if ("ImmunizationRecommendation".equals(codeString))
           return FHIRAllTypes.IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
@@ -4094,6 +4124,8 @@ public class Enumerations {
           return FHIRAllTypes.IMPLEMENTATIONGUIDEINPUT;
         if ("ImplementationGuideOutput".equals(codeString))
           return FHIRAllTypes.IMPLEMENTATIONGUIDEOUTPUT;
+        if ("Invoice".equals(codeString))
+          return FHIRAllTypes.INVOICE;
         if ("Library".equals(codeString))
           return FHIRAllTypes.LIBRARY;
         if ("Linkage".equals(codeString))
@@ -4136,6 +4168,8 @@ public class Enumerations {
           return FHIRAllTypes.OPERATIONOUTCOME;
         if ("Organization".equals(codeString))
           return FHIRAllTypes.ORGANIZATION;
+        if ("OrganizationRole".equals(codeString))
+          return FHIRAllTypes.ORGANIZATIONROLE;
         if ("Parameters".equals(codeString))
           return FHIRAllTypes.PARAMETERS;
         if ("Patient".equals(codeString))
@@ -4158,6 +4192,8 @@ public class Enumerations {
           return FHIRAllTypes.PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return FHIRAllTypes.PROCESSRESPONSE;
+        if ("ProductPlan".equals(codeString))
+          return FHIRAllTypes.PRODUCTPLAN;
         if ("Provenance".equals(codeString))
           return FHIRAllTypes.PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -4454,12 +4490,12 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.GUIDANCERESPONSE);
         if ("HealthcareService".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.HEALTHCARESERVICE);
-        if ("ImagingManifest".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMAGINGMANIFEST);
         if ("ImagingStudy".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMAGINGSTUDY);
         if ("Immunization".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMMUNIZATION);
+        if ("ImmunizationEvaluation".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMMUNIZATIONEVALUATION);
         if ("ImmunizationRecommendation".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMMUNIZATIONRECOMMENDATION);
         if ("ImplementationGuide".equals(codeString))
@@ -4468,6 +4504,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMPLEMENTATIONGUIDEINPUT);
         if ("ImplementationGuideOutput".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.IMPLEMENTATIONGUIDEOUTPUT);
+        if ("Invoice".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.INVOICE);
         if ("Library".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.LIBRARY);
         if ("Linkage".equals(codeString))
@@ -4510,6 +4548,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.OPERATIONOUTCOME);
         if ("Organization".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ORGANIZATION);
+        if ("OrganizationRole".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ORGANIZATIONROLE);
         if ("Parameters".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PARAMETERS);
         if ("Patient".equals(codeString))
@@ -4532,6 +4572,8 @@ public class Enumerations {
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PROCESSREQUEST);
         if ("ProcessResponse".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PROCESSRESPONSE);
+        if ("ProductPlan".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PRODUCTPLAN);
         if ("Provenance".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.PROVENANCE);
         if ("Questionnaire".equals(codeString))
@@ -4821,12 +4863,12 @@ public class Enumerations {
         return "GuidanceResponse";
       if (code == FHIRAllTypes.HEALTHCARESERVICE)
         return "HealthcareService";
-      if (code == FHIRAllTypes.IMAGINGMANIFEST)
-        return "ImagingManifest";
       if (code == FHIRAllTypes.IMAGINGSTUDY)
         return "ImagingStudy";
       if (code == FHIRAllTypes.IMMUNIZATION)
         return "Immunization";
+      if (code == FHIRAllTypes.IMMUNIZATIONEVALUATION)
+        return "ImmunizationEvaluation";
       if (code == FHIRAllTypes.IMMUNIZATIONRECOMMENDATION)
         return "ImmunizationRecommendation";
       if (code == FHIRAllTypes.IMPLEMENTATIONGUIDE)
@@ -4835,6 +4877,8 @@ public class Enumerations {
         return "ImplementationGuideInput";
       if (code == FHIRAllTypes.IMPLEMENTATIONGUIDEOUTPUT)
         return "ImplementationGuideOutput";
+      if (code == FHIRAllTypes.INVOICE)
+        return "Invoice";
       if (code == FHIRAllTypes.LIBRARY)
         return "Library";
       if (code == FHIRAllTypes.LINKAGE)
@@ -4877,6 +4921,8 @@ public class Enumerations {
         return "OperationOutcome";
       if (code == FHIRAllTypes.ORGANIZATION)
         return "Organization";
+      if (code == FHIRAllTypes.ORGANIZATIONROLE)
+        return "OrganizationRole";
       if (code == FHIRAllTypes.PARAMETERS)
         return "Parameters";
       if (code == FHIRAllTypes.PATIENT)
@@ -4899,6 +4945,8 @@ public class Enumerations {
         return "ProcessRequest";
       if (code == FHIRAllTypes.PROCESSRESPONSE)
         return "ProcessResponse";
+      if (code == FHIRAllTypes.PRODUCTPLAN)
+        return "ProductPlan";
       if (code == FHIRAllTypes.PROVENANCE)
         return "Provenance";
       if (code == FHIRAllTypes.QUESTIONNAIRE)
@@ -5416,19 +5464,19 @@ public class Enumerations {
          */
         HEALTHCARESERVICE, 
         /**
-         * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
-         */
-        IMAGINGMANIFEST, 
-        /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
         IMAGINGSTUDY, 
         /**
-         * Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.
+         * Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
          */
         IMMUNIZATION, 
         /**
-         * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
+         * Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
+         */
+        IMMUNIZATIONEVALUATION, 
+        /**
+         * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
          */
         IMMUNIZATIONRECOMMENDATION, 
         /**
@@ -5443,6 +5491,10 @@ public class Enumerations {
          * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
          */
         IMPLEMENTATIONGUIDEOUTPUT, 
+        /**
+         * Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.
+         */
+        INVOICE, 
         /**
          * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
@@ -5528,6 +5580,10 @@ public class Enumerations {
          */
         ORGANIZATION, 
         /**
+         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         */
+        ORGANIZATIONROLE, 
+        /**
          * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
         PARAMETERS, 
@@ -5571,6 +5627,10 @@ public class Enumerations {
          * This resource provides processing status, errors and notes from the processing of a resource.
          */
         PROCESSRESPONSE, 
+        /**
+         * Details of a Health Insurance product/plan provided by an organization.
+         */
+        PRODUCTPLAN, 
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
@@ -5920,12 +5980,12 @@ public class Enumerations {
           return GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return HEALTHCARESERVICE;
-        if ("ImagingManifest".equals(codeString))
-          return IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
           return IMMUNIZATION;
+        if ("ImmunizationEvaluation".equals(codeString))
+          return IMMUNIZATIONEVALUATION;
         if ("ImmunizationRecommendation".equals(codeString))
           return IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
@@ -5934,6 +5994,8 @@ public class Enumerations {
           return IMPLEMENTATIONGUIDEINPUT;
         if ("ImplementationGuideOutput".equals(codeString))
           return IMPLEMENTATIONGUIDEOUTPUT;
+        if ("Invoice".equals(codeString))
+          return INVOICE;
         if ("Library".equals(codeString))
           return LIBRARY;
         if ("Linkage".equals(codeString))
@@ -5976,6 +6038,8 @@ public class Enumerations {
           return OPERATIONOUTCOME;
         if ("Organization".equals(codeString))
           return ORGANIZATION;
+        if ("OrganizationRole".equals(codeString))
+          return ORGANIZATIONROLE;
         if ("Parameters".equals(codeString))
           return PARAMETERS;
         if ("Patient".equals(codeString))
@@ -5998,6 +6062,8 @@ public class Enumerations {
           return PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return PROCESSRESPONSE;
+        if ("ProductPlan".equals(codeString))
+          return PRODUCTPLAN;
         if ("Provenance".equals(codeString))
           return PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -6173,13 +6239,14 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
+            case IMMUNIZATIONEVALUATION: return "ImmunizationEvaluation";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
             case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
+            case INVOICE: return "Invoice";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -6201,6 +6268,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
+            case ORGANIZATIONROLE: return "OrganizationRole";
             case PARAMETERS: return "Parameters";
             case PATIENT: return "Patient";
             case PAYMENTNOTICE: return "PaymentNotice";
@@ -6212,6 +6280,7 @@ public class Enumerations {
             case PROCEDURE: return "Procedure";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PRODUCTPLAN: return "ProductPlan";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -6358,13 +6427,14 @@ public class Enumerations {
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGMANIFEST: return "http://hl7.org/fhir/resource-types";
             case IMAGINGSTUDY: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATION: return "http://hl7.org/fhir/resource-types";
+            case IMMUNIZATIONEVALUATION: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDE: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDEINPUT: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDEOUTPUT: return "http://hl7.org/fhir/resource-types";
+            case INVOICE: return "http://hl7.org/fhir/resource-types";
             case LIBRARY: return "http://hl7.org/fhir/resource-types";
             case LINKAGE: return "http://hl7.org/fhir/resource-types";
             case LIST: return "http://hl7.org/fhir/resource-types";
@@ -6386,6 +6456,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
+            case ORGANIZATIONROLE: return "http://hl7.org/fhir/resource-types";
             case PARAMETERS: return "http://hl7.org/fhir/resource-types";
             case PATIENT: return "http://hl7.org/fhir/resource-types";
             case PAYMENTNOTICE: return "http://hl7.org/fhir/resource-types";
@@ -6397,6 +6468,7 @@ public class Enumerations {
             case PROCEDURE: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSRESPONSE: return "http://hl7.org/fhir/resource-types";
+            case PRODUCTPLAN: return "http://hl7.org/fhir/resource-types";
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -6543,13 +6615,14 @@ public class Enumerations {
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGMANIFEST: return "A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
-            case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
-            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
+            case IMMUNIZATION: return "Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.";
+            case IMMUNIZATIONEVALUATION: return "Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to those  recommendations.";
+            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case IMPLEMENTATIONGUIDEINPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case IMPLEMENTATIONGUIDEOUTPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
+            case INVOICE: return "Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.";
             case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
@@ -6571,6 +6644,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
+            case ORGANIZATIONROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
@@ -6582,6 +6656,7 @@ public class Enumerations {
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
+            case PRODUCTPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.";
@@ -6728,13 +6803,14 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
+            case IMMUNIZATIONEVALUATION: return "ImmunizationEvaluation";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
             case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
+            case INVOICE: return "Invoice";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -6756,6 +6832,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
+            case ORGANIZATIONROLE: return "OrganizationRole";
             case PARAMETERS: return "Parameters";
             case PATIENT: return "Patient";
             case PAYMENTNOTICE: return "PaymentNotice";
@@ -6767,6 +6844,7 @@ public class Enumerations {
             case PROCEDURE: return "Procedure";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PRODUCTPLAN: return "ProductPlan";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -7029,12 +7107,12 @@ public class Enumerations {
           return FHIRDefinedType.GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return FHIRDefinedType.HEALTHCARESERVICE;
-        if ("ImagingManifest".equals(codeString))
-          return FHIRDefinedType.IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return FHIRDefinedType.IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
           return FHIRDefinedType.IMMUNIZATION;
+        if ("ImmunizationEvaluation".equals(codeString))
+          return FHIRDefinedType.IMMUNIZATIONEVALUATION;
         if ("ImmunizationRecommendation".equals(codeString))
           return FHIRDefinedType.IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
@@ -7043,6 +7121,8 @@ public class Enumerations {
           return FHIRDefinedType.IMPLEMENTATIONGUIDEINPUT;
         if ("ImplementationGuideOutput".equals(codeString))
           return FHIRDefinedType.IMPLEMENTATIONGUIDEOUTPUT;
+        if ("Invoice".equals(codeString))
+          return FHIRDefinedType.INVOICE;
         if ("Library".equals(codeString))
           return FHIRDefinedType.LIBRARY;
         if ("Linkage".equals(codeString))
@@ -7085,6 +7165,8 @@ public class Enumerations {
           return FHIRDefinedType.OPERATIONOUTCOME;
         if ("Organization".equals(codeString))
           return FHIRDefinedType.ORGANIZATION;
+        if ("OrganizationRole".equals(codeString))
+          return FHIRDefinedType.ORGANIZATIONROLE;
         if ("Parameters".equals(codeString))
           return FHIRDefinedType.PARAMETERS;
         if ("Patient".equals(codeString))
@@ -7107,6 +7189,8 @@ public class Enumerations {
           return FHIRDefinedType.PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return FHIRDefinedType.PROCESSRESPONSE;
+        if ("ProductPlan".equals(codeString))
+          return FHIRDefinedType.PRODUCTPLAN;
         if ("Provenance".equals(codeString))
           return FHIRDefinedType.PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -7399,12 +7483,12 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.GUIDANCERESPONSE);
         if ("HealthcareService".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.HEALTHCARESERVICE);
-        if ("ImagingManifest".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMAGINGMANIFEST);
         if ("ImagingStudy".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMAGINGSTUDY);
         if ("Immunization".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMMUNIZATION);
+        if ("ImmunizationEvaluation".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMMUNIZATIONEVALUATION);
         if ("ImmunizationRecommendation".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMMUNIZATIONRECOMMENDATION);
         if ("ImplementationGuide".equals(codeString))
@@ -7413,6 +7497,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMPLEMENTATIONGUIDEINPUT);
         if ("ImplementationGuideOutput".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMPLEMENTATIONGUIDEOUTPUT);
+        if ("Invoice".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.INVOICE);
         if ("Library".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.LIBRARY);
         if ("Linkage".equals(codeString))
@@ -7455,6 +7541,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.OPERATIONOUTCOME);
         if ("Organization".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ORGANIZATION);
+        if ("OrganizationRole".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ORGANIZATIONROLE);
         if ("Parameters".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PARAMETERS);
         if ("Patient".equals(codeString))
@@ -7477,6 +7565,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PROCESSREQUEST);
         if ("ProcessResponse".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PROCESSRESPONSE);
+        if ("ProductPlan".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PRODUCTPLAN);
         if ("Provenance".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PROVENANCE);
         if ("Questionnaire".equals(codeString))
@@ -7762,12 +7852,12 @@ public class Enumerations {
         return "GuidanceResponse";
       if (code == FHIRDefinedType.HEALTHCARESERVICE)
         return "HealthcareService";
-      if (code == FHIRDefinedType.IMAGINGMANIFEST)
-        return "ImagingManifest";
       if (code == FHIRDefinedType.IMAGINGSTUDY)
         return "ImagingStudy";
       if (code == FHIRDefinedType.IMMUNIZATION)
         return "Immunization";
+      if (code == FHIRDefinedType.IMMUNIZATIONEVALUATION)
+        return "ImmunizationEvaluation";
       if (code == FHIRDefinedType.IMMUNIZATIONRECOMMENDATION)
         return "ImmunizationRecommendation";
       if (code == FHIRDefinedType.IMPLEMENTATIONGUIDE)
@@ -7776,6 +7866,8 @@ public class Enumerations {
         return "ImplementationGuideInput";
       if (code == FHIRDefinedType.IMPLEMENTATIONGUIDEOUTPUT)
         return "ImplementationGuideOutput";
+      if (code == FHIRDefinedType.INVOICE)
+        return "Invoice";
       if (code == FHIRDefinedType.LIBRARY)
         return "Library";
       if (code == FHIRDefinedType.LINKAGE)
@@ -7818,6 +7910,8 @@ public class Enumerations {
         return "OperationOutcome";
       if (code == FHIRDefinedType.ORGANIZATION)
         return "Organization";
+      if (code == FHIRDefinedType.ORGANIZATIONROLE)
+        return "OrganizationRole";
       if (code == FHIRDefinedType.PARAMETERS)
         return "Parameters";
       if (code == FHIRDefinedType.PATIENT)
@@ -7840,6 +7934,8 @@ public class Enumerations {
         return "ProcessRequest";
       if (code == FHIRDefinedType.PROCESSRESPONSE)
         return "ProcessResponse";
+      if (code == FHIRDefinedType.PRODUCTPLAN)
+        return "ProductPlan";
       if (code == FHIRDefinedType.PROVENANCE)
         return "Provenance";
       if (code == FHIRDefinedType.QUESTIONNAIRE)
@@ -7925,7 +8021,7 @@ public class Enumerations {
          */
         MEDICATIONADMINISTRATIONUPDATE, 
         /**
-         * Notification of a change to an administrative resource (either create or update). Note that there is no delete, though some administrative resources have status or period elements for this use.
+         * Notification.
          */
         ADMINNOTIFY, 
         /**
@@ -8029,7 +8125,7 @@ public class Enumerations {
             case MEDICATIONADMINISTRATIONNULLIFICATION: return "Someone wishes to record that the record of administration of a medication is in error and should be ignored.";
             case MEDICATIONADMINISTRATIONRECORDING: return "Indicates that a medication has been recorded against the patient's record.";
             case MEDICATIONADMINISTRATIONUPDATE: return "Update a Medication Administration record.";
-            case ADMINNOTIFY: return "Notification of a change to an administrative resource (either create or update). Note that there is no delete, though some administrative resources have status or period elements for this use.";
+            case ADMINNOTIFY: return "Notification.";
             case CODESYSTEMEXPAND: return "The definition of a code system is used to create a simple collection of codes suitable for use for data entry or validation. An expanded code system will be returned, or an error message.";
             case COMMUNICATIONREQUEST: return "Notification to convey information.";
             case DIAGNOSTICREPORTPROVIDE: return "Provide a diagnostic report, or update a previously provided diagnostic report.";
@@ -8717,19 +8813,19 @@ public class Enumerations {
          */
         HEALTHCARESERVICE, 
         /**
-         * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
-         */
-        IMAGINGMANIFEST, 
-        /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
         IMAGINGSTUDY, 
         /**
-         * Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.
+         * Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
          */
         IMMUNIZATION, 
         /**
-         * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
+         * Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
+         */
+        IMMUNIZATIONEVALUATION, 
+        /**
+         * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
          */
         IMMUNIZATIONRECOMMENDATION, 
         /**
@@ -8744,6 +8840,10 @@ public class Enumerations {
          * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
          */
         IMPLEMENTATIONGUIDEOUTPUT, 
+        /**
+         * Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.
+         */
+        INVOICE, 
         /**
          * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
@@ -8829,6 +8929,10 @@ public class Enumerations {
          */
         ORGANIZATION, 
         /**
+         * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
+         */
+        ORGANIZATIONROLE, 
+        /**
          * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
         PARAMETERS, 
@@ -8872,6 +8976,10 @@ public class Enumerations {
          * This resource provides processing status, errors and notes from the processing of a resource.
          */
         PROCESSRESPONSE, 
+        /**
+         * Details of a Health Insurance product/plan provided by an organization.
+         */
+        PRODUCTPLAN, 
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
@@ -9113,12 +9221,12 @@ public class Enumerations {
           return GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return HEALTHCARESERVICE;
-        if ("ImagingManifest".equals(codeString))
-          return IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
           return IMMUNIZATION;
+        if ("ImmunizationEvaluation".equals(codeString))
+          return IMMUNIZATIONEVALUATION;
         if ("ImmunizationRecommendation".equals(codeString))
           return IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
@@ -9127,6 +9235,8 @@ public class Enumerations {
           return IMPLEMENTATIONGUIDEINPUT;
         if ("ImplementationGuideOutput".equals(codeString))
           return IMPLEMENTATIONGUIDEOUTPUT;
+        if ("Invoice".equals(codeString))
+          return INVOICE;
         if ("Library".equals(codeString))
           return LIBRARY;
         if ("Linkage".equals(codeString))
@@ -9169,6 +9279,8 @@ public class Enumerations {
           return OPERATIONOUTCOME;
         if ("Organization".equals(codeString))
           return ORGANIZATION;
+        if ("OrganizationRole".equals(codeString))
+          return ORGANIZATIONROLE;
         if ("Parameters".equals(codeString))
           return PARAMETERS;
         if ("Patient".equals(codeString))
@@ -9191,6 +9303,8 @@ public class Enumerations {
           return PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return PROCESSRESPONSE;
+        if ("ProductPlan".equals(codeString))
+          return PRODUCTPLAN;
         if ("Provenance".equals(codeString))
           return PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -9312,13 +9426,14 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
+            case IMMUNIZATIONEVALUATION: return "ImmunizationEvaluation";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
             case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
+            case INVOICE: return "Invoice";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -9340,6 +9455,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
+            case ORGANIZATIONROLE: return "OrganizationRole";
             case PARAMETERS: return "Parameters";
             case PATIENT: return "Patient";
             case PAYMENTNOTICE: return "PaymentNotice";
@@ -9351,6 +9467,7 @@ public class Enumerations {
             case PROCEDURE: return "Procedure";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PRODUCTPLAN: return "ProductPlan";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -9443,13 +9560,14 @@ public class Enumerations {
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
-            case IMAGINGMANIFEST: return "http://hl7.org/fhir/resource-types";
             case IMAGINGSTUDY: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATION: return "http://hl7.org/fhir/resource-types";
+            case IMMUNIZATIONEVALUATION: return "http://hl7.org/fhir/resource-types";
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDE: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDEINPUT: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDEOUTPUT: return "http://hl7.org/fhir/resource-types";
+            case INVOICE: return "http://hl7.org/fhir/resource-types";
             case LIBRARY: return "http://hl7.org/fhir/resource-types";
             case LINKAGE: return "http://hl7.org/fhir/resource-types";
             case LIST: return "http://hl7.org/fhir/resource-types";
@@ -9471,6 +9589,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "http://hl7.org/fhir/resource-types";
             case OPERATIONOUTCOME: return "http://hl7.org/fhir/resource-types";
             case ORGANIZATION: return "http://hl7.org/fhir/resource-types";
+            case ORGANIZATIONROLE: return "http://hl7.org/fhir/resource-types";
             case PARAMETERS: return "http://hl7.org/fhir/resource-types";
             case PATIENT: return "http://hl7.org/fhir/resource-types";
             case PAYMENTNOTICE: return "http://hl7.org/fhir/resource-types";
@@ -9482,6 +9601,7 @@ public class Enumerations {
             case PROCEDURE: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSRESPONSE: return "http://hl7.org/fhir/resource-types";
+            case PRODUCTPLAN: return "http://hl7.org/fhir/resource-types";
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -9574,13 +9694,14 @@ public class Enumerations {
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGMANIFEST: return "A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
-            case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
-            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
+            case IMMUNIZATION: return "Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.";
+            case IMMUNIZATIONEVALUATION: return "Describes a comparison of an immunization event against published recommendations to determine if the administration is \"valid\" in relation to those  recommendations.";
+            case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case IMPLEMENTATIONGUIDEINPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
             case IMPLEMENTATIONGUIDEOUTPUT: return "A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.";
+            case INVOICE: return "Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.";
             case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
@@ -9602,6 +9723,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
+            case ORGANIZATIONROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PARAMETERS: return "This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.";
             case PATIENT: return "Demographics and other administrative information about an individual or animal receiving care or other health-related services.";
             case PAYMENTNOTICE: return "This resource provides the status of the payment for goods and services rendered, and the request and response resource references.";
@@ -9613,6 +9735,7 @@ public class Enumerations {
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
+            case PRODUCTPLAN: return "Details of a Health Insurance product/plan provided by an organization.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.";
@@ -9705,13 +9828,14 @@ public class Enumerations {
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
-            case IMAGINGMANIFEST: return "ImagingManifest";
             case IMAGINGSTUDY: return "ImagingStudy";
             case IMMUNIZATION: return "Immunization";
+            case IMMUNIZATIONEVALUATION: return "ImmunizationEvaluation";
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case IMPLEMENTATIONGUIDEINPUT: return "ImplementationGuideInput";
             case IMPLEMENTATIONGUIDEOUTPUT: return "ImplementationGuideOutput";
+            case INVOICE: return "Invoice";
             case LIBRARY: return "Library";
             case LINKAGE: return "Linkage";
             case LIST: return "List";
@@ -9733,6 +9857,7 @@ public class Enumerations {
             case OPERATIONDEFINITION: return "OperationDefinition";
             case OPERATIONOUTCOME: return "OperationOutcome";
             case ORGANIZATION: return "Organization";
+            case ORGANIZATIONROLE: return "OrganizationRole";
             case PARAMETERS: return "Parameters";
             case PATIENT: return "Patient";
             case PAYMENTNOTICE: return "PaymentNotice";
@@ -9744,6 +9869,7 @@ public class Enumerations {
             case PROCEDURE: return "Procedure";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PRODUCTPLAN: return "ProductPlan";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -9898,12 +10024,12 @@ public class Enumerations {
           return ResourceType.GUIDANCERESPONSE;
         if ("HealthcareService".equals(codeString))
           return ResourceType.HEALTHCARESERVICE;
-        if ("ImagingManifest".equals(codeString))
-          return ResourceType.IMAGINGMANIFEST;
         if ("ImagingStudy".equals(codeString))
           return ResourceType.IMAGINGSTUDY;
         if ("Immunization".equals(codeString))
           return ResourceType.IMMUNIZATION;
+        if ("ImmunizationEvaluation".equals(codeString))
+          return ResourceType.IMMUNIZATIONEVALUATION;
         if ("ImmunizationRecommendation".equals(codeString))
           return ResourceType.IMMUNIZATIONRECOMMENDATION;
         if ("ImplementationGuide".equals(codeString))
@@ -9912,6 +10038,8 @@ public class Enumerations {
           return ResourceType.IMPLEMENTATIONGUIDEINPUT;
         if ("ImplementationGuideOutput".equals(codeString))
           return ResourceType.IMPLEMENTATIONGUIDEOUTPUT;
+        if ("Invoice".equals(codeString))
+          return ResourceType.INVOICE;
         if ("Library".equals(codeString))
           return ResourceType.LIBRARY;
         if ("Linkage".equals(codeString))
@@ -9954,6 +10082,8 @@ public class Enumerations {
           return ResourceType.OPERATIONOUTCOME;
         if ("Organization".equals(codeString))
           return ResourceType.ORGANIZATION;
+        if ("OrganizationRole".equals(codeString))
+          return ResourceType.ORGANIZATIONROLE;
         if ("Parameters".equals(codeString))
           return ResourceType.PARAMETERS;
         if ("Patient".equals(codeString))
@@ -9976,6 +10106,8 @@ public class Enumerations {
           return ResourceType.PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return ResourceType.PROCESSRESPONSE;
+        if ("ProductPlan".equals(codeString))
+          return ResourceType.PRODUCTPLAN;
         if ("Provenance".equals(codeString))
           return ResourceType.PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -10160,12 +10292,12 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.GUIDANCERESPONSE);
         if ("HealthcareService".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.HEALTHCARESERVICE);
-        if ("ImagingManifest".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.IMAGINGMANIFEST);
         if ("ImagingStudy".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.IMAGINGSTUDY);
         if ("Immunization".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.IMMUNIZATION);
+        if ("ImmunizationEvaluation".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.IMMUNIZATIONEVALUATION);
         if ("ImmunizationRecommendation".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.IMMUNIZATIONRECOMMENDATION);
         if ("ImplementationGuide".equals(codeString))
@@ -10174,6 +10306,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.IMPLEMENTATIONGUIDEINPUT);
         if ("ImplementationGuideOutput".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.IMPLEMENTATIONGUIDEOUTPUT);
+        if ("Invoice".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.INVOICE);
         if ("Library".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.LIBRARY);
         if ("Linkage".equals(codeString))
@@ -10216,6 +10350,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.OPERATIONOUTCOME);
         if ("Organization".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ORGANIZATION);
+        if ("OrganizationRole".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.ORGANIZATIONROLE);
         if ("Parameters".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.PARAMETERS);
         if ("Patient".equals(codeString))
@@ -10238,6 +10374,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.PROCESSREQUEST);
         if ("ProcessResponse".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.PROCESSRESPONSE);
+        if ("ProductPlan".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.PRODUCTPLAN);
         if ("Provenance".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.PROVENANCE);
         if ("Questionnaire".equals(codeString))
@@ -10415,12 +10553,12 @@ public class Enumerations {
         return "GuidanceResponse";
       if (code == ResourceType.HEALTHCARESERVICE)
         return "HealthcareService";
-      if (code == ResourceType.IMAGINGMANIFEST)
-        return "ImagingManifest";
       if (code == ResourceType.IMAGINGSTUDY)
         return "ImagingStudy";
       if (code == ResourceType.IMMUNIZATION)
         return "Immunization";
+      if (code == ResourceType.IMMUNIZATIONEVALUATION)
+        return "ImmunizationEvaluation";
       if (code == ResourceType.IMMUNIZATIONRECOMMENDATION)
         return "ImmunizationRecommendation";
       if (code == ResourceType.IMPLEMENTATIONGUIDE)
@@ -10429,6 +10567,8 @@ public class Enumerations {
         return "ImplementationGuideInput";
       if (code == ResourceType.IMPLEMENTATIONGUIDEOUTPUT)
         return "ImplementationGuideOutput";
+      if (code == ResourceType.INVOICE)
+        return "Invoice";
       if (code == ResourceType.LIBRARY)
         return "Library";
       if (code == ResourceType.LINKAGE)
@@ -10471,6 +10611,8 @@ public class Enumerations {
         return "OperationOutcome";
       if (code == ResourceType.ORGANIZATION)
         return "Organization";
+      if (code == ResourceType.ORGANIZATIONROLE)
+        return "OrganizationRole";
       if (code == ResourceType.PARAMETERS)
         return "Parameters";
       if (code == ResourceType.PATIENT)
@@ -10493,6 +10635,8 @@ public class Enumerations {
         return "ProcessRequest";
       if (code == ResourceType.PROCESSRESPONSE)
         return "ProcessResponse";
+      if (code == ResourceType.PRODUCTPLAN)
+        return "ProductPlan";
       if (code == ResourceType.PROVENANCE)
         return "Provenance";
       if (code == ResourceType.QUESTIONNAIRE)

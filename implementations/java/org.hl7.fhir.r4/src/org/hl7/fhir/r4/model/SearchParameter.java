@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2801,6 +2801,26 @@ public class SearchParameter extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam DERIVED_FROM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DERIVED_FROM);
+
+ /**
+   * Search parameter: <b>context-type</b>
+   * <p>
+   * Description: <b>A type of use context assigned to the search parameter</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SearchParameter.useContext.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type", path="SearchParameter.useContext.code", description="A type of use context assigned to the search parameter", type="token" )
+  public static final String SP_CONTEXT_TYPE = "context-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type</b>
+   * <p>
+   * Description: <b>A type of use context assigned to the search parameter</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>SearchParameter.useContext.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT_TYPE);
 
  /**
    * Search parameter: <b>type</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -501,7 +501,7 @@ public class Appointment extends DomainResource {
         /**
          * Participation status of the actor.
          */
-        @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="accepted | declined | tentative | needs-action", formalDefinition="Participation status of the actor." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/participationstatus")
         protected Enumeration<ParticipationStatus> status;
@@ -1011,9 +1011,16 @@ public class Appointment extends DomainResource {
     protected StringType comment;
 
     /**
+     * While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).
+     */
+    @Child(name = "patientInstruction", type = {StringType.class}, order=17, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Detailed information and instructions for the patient", formalDefinition="While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before)." )
+    protected StringType patientInstruction;
+
+    /**
      * The referral request this appointment is allocated to assess (incoming referral).
      */
-    @Child(name = "incomingReferral", type = {ServiceRequest.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "incomingReferral", type = {ServiceRequest.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="The ServiceRequest provided as information to allocate to the Encounter", formalDefinition="The referral request this appointment is allocated to assess (incoming referral)." )
     protected List<Reference> incomingReferral;
     /**
@@ -1025,18 +1032,18 @@ public class Appointment extends DomainResource {
     /**
      * List of participants involved in the appointment.
      */
-    @Child(name = "participant", type = {}, order=18, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "participant", type = {}, order=19, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Participants involved in appointment", formalDefinition="List of participants involved in the appointment." )
     protected List<AppointmentParticipantComponent> participant;
 
     /**
      * A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.
      */
-    @Child(name = "requestedPeriod", type = {Period.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "requestedPeriod", type = {Period.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Potential date/time interval(s) requested to allocate the appointment within", formalDefinition="A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time." )
     protected List<Period> requestedPeriod;
 
-    private static final long serialVersionUID = 2065732538L;
+    private static final long serialVersionUID = 456556614L;
 
   /**
    * Constructor
@@ -1895,6 +1902,55 @@ public class Appointment extends DomainResource {
     }
 
     /**
+     * @return {@link #patientInstruction} (While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).). This is the underlying object with id, value and extensions. The accessor "getPatientInstruction" gives direct access to the value
+     */
+    public StringType getPatientInstructionElement() { 
+      if (this.patientInstruction == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Appointment.patientInstruction");
+        else if (Configuration.doAutoCreate())
+          this.patientInstruction = new StringType(); // bb
+      return this.patientInstruction;
+    }
+
+    public boolean hasPatientInstructionElement() { 
+      return this.patientInstruction != null && !this.patientInstruction.isEmpty();
+    }
+
+    public boolean hasPatientInstruction() { 
+      return this.patientInstruction != null && !this.patientInstruction.isEmpty();
+    }
+
+    /**
+     * @param value {@link #patientInstruction} (While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).). This is the underlying object with id, value and extensions. The accessor "getPatientInstruction" gives direct access to the value
+     */
+    public Appointment setPatientInstructionElement(StringType value) { 
+      this.patientInstruction = value;
+      return this;
+    }
+
+    /**
+     * @return While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).
+     */
+    public String getPatientInstruction() { 
+      return this.patientInstruction == null ? null : this.patientInstruction.getValue();
+    }
+
+    /**
+     * @param value While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).
+     */
+    public Appointment setPatientInstruction(String value) { 
+      if (Utilities.noString(value))
+        this.patientInstruction = null;
+      else {
+        if (this.patientInstruction == null)
+          this.patientInstruction = new StringType();
+        this.patientInstruction.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #incomingReferral} (The referral request this appointment is allocated to assess (incoming referral).)
      */
     public List<Reference> getIncomingReferral() { 
@@ -2094,6 +2150,7 @@ public class Appointment extends DomainResource {
         children.add(new Property("slot", "Reference(Slot)", "The slots from the participants' schedules that will be filled by the appointment.", 0, java.lang.Integer.MAX_VALUE, slot));
         children.add(new Property("created", "dateTime", "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.", 0, 1, created));
         children.add(new Property("comment", "string", "Additional comments about the appointment.", 0, 1, comment));
+        children.add(new Property("patientInstruction", "string", "While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).", 0, 1, patientInstruction));
         children.add(new Property("incomingReferral", "Reference(ServiceRequest)", "The referral request this appointment is allocated to assess (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral));
         children.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));
         children.add(new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod));
@@ -2119,6 +2176,7 @@ public class Appointment extends DomainResource {
         case 3533310: /*slot*/  return new Property("slot", "Reference(Slot)", "The slots from the participants' schedules that will be filled by the appointment.", 0, java.lang.Integer.MAX_VALUE, slot);
         case 1028554472: /*created*/  return new Property("created", "dateTime", "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.", 0, 1, created);
         case 950398559: /*comment*/  return new Property("comment", "string", "Additional comments about the appointment.", 0, 1, comment);
+        case 737543241: /*patientInstruction*/  return new Property("patientInstruction", "string", "While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).", 0, 1, patientInstruction);
         case -1258204701: /*incomingReferral*/  return new Property("incomingReferral", "Reference(ServiceRequest)", "The referral request this appointment is allocated to assess (incoming referral).", 0, java.lang.Integer.MAX_VALUE, incomingReferral);
         case 767422259: /*participant*/  return new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant);
         case -897241393: /*requestedPeriod*/  return new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod);
@@ -2147,6 +2205,7 @@ public class Appointment extends DomainResource {
         case 3533310: /*slot*/ return this.slot == null ? new Base[0] : this.slot.toArray(new Base[this.slot.size()]); // Reference
         case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
         case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 737543241: /*patientInstruction*/ return this.patientInstruction == null ? new Base[0] : new Base[] {this.patientInstruction}; // StringType
         case -1258204701: /*incomingReferral*/ return this.incomingReferral == null ? new Base[0] : this.incomingReferral.toArray(new Base[this.incomingReferral.size()]); // Reference
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // AppointmentParticipantComponent
         case -897241393: /*requestedPeriod*/ return this.requestedPeriod == null ? new Base[0] : this.requestedPeriod.toArray(new Base[this.requestedPeriod.size()]); // Period
@@ -2210,6 +2269,9 @@ public class Appointment extends DomainResource {
         case 950398559: // comment
           this.comment = castToString(value); // StringType
           return value;
+        case 737543241: // patientInstruction
+          this.patientInstruction = castToString(value); // StringType
+          return value;
         case -1258204701: // incomingReferral
           this.getIncomingReferral().add(castToReference(value)); // Reference
           return value;
@@ -2261,6 +2323,8 @@ public class Appointment extends DomainResource {
           this.created = castToDateTime(value); // DateTimeType
         } else if (name.equals("comment")) {
           this.comment = castToString(value); // StringType
+        } else if (name.equals("patientInstruction")) {
+          this.patientInstruction = castToString(value); // StringType
         } else if (name.equals("incomingReferral")) {
           this.getIncomingReferral().add(castToReference(value));
         } else if (name.equals("participant")) {
@@ -2292,6 +2356,7 @@ public class Appointment extends DomainResource {
         case 3533310:  return addSlot(); 
         case 1028554472:  return getCreatedElement();
         case 950398559:  return getCommentElement();
+        case 737543241:  return getPatientInstructionElement();
         case -1258204701:  return addIncomingReferral(); 
         case 767422259:  return addParticipant(); 
         case -897241393:  return addRequestedPeriod(); 
@@ -2320,6 +2385,7 @@ public class Appointment extends DomainResource {
         case 3533310: /*slot*/ return new String[] {"Reference"};
         case 1028554472: /*created*/ return new String[] {"dateTime"};
         case 950398559: /*comment*/ return new String[] {"string"};
+        case 737543241: /*patientInstruction*/ return new String[] {"string"};
         case -1258204701: /*incomingReferral*/ return new String[] {"Reference"};
         case 767422259: /*participant*/ return new String[] {};
         case -897241393: /*requestedPeriod*/ return new String[] {"Period"};
@@ -2382,6 +2448,9 @@ public class Appointment extends DomainResource {
         }
         else if (name.equals("comment")) {
           throw new FHIRException("Cannot call addChild on a primitive type Appointment.comment");
+        }
+        else if (name.equals("patientInstruction")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Appointment.patientInstruction");
         }
         else if (name.equals("incomingReferral")) {
           return addIncomingReferral();
@@ -2449,6 +2518,7 @@ public class Appointment extends DomainResource {
         };
         dst.created = created == null ? null : created.copy();
         dst.comment = comment == null ? null : comment.copy();
+        dst.patientInstruction = patientInstruction == null ? null : patientInstruction.copy();
         if (incomingReferral != null) {
           dst.incomingReferral = new ArrayList<Reference>();
           for (Reference i : incomingReferral)
@@ -2484,8 +2554,9 @@ public class Appointment extends DomainResource {
            && compareDeep(description, o.description, true) && compareDeep(supportingInformation, o.supportingInformation, true)
            && compareDeep(start, o.start, true) && compareDeep(end, o.end, true) && compareDeep(minutesDuration, o.minutesDuration, true)
            && compareDeep(slot, o.slot, true) && compareDeep(created, o.created, true) && compareDeep(comment, o.comment, true)
-           && compareDeep(incomingReferral, o.incomingReferral, true) && compareDeep(participant, o.participant, true)
-           && compareDeep(requestedPeriod, o.requestedPeriod, true);
+           && compareDeep(patientInstruction, o.patientInstruction, true) && compareDeep(incomingReferral, o.incomingReferral, true)
+           && compareDeep(participant, o.participant, true) && compareDeep(requestedPeriod, o.requestedPeriod, true)
+          ;
       }
 
       @Override
@@ -2497,14 +2568,15 @@ public class Appointment extends DomainResource {
         Appointment o = (Appointment) other;
         return compareValues(status, o.status, true) && compareValues(priority, o.priority, true) && compareValues(description, o.description, true)
            && compareValues(start, o.start, true) && compareValues(end, o.end, true) && compareValues(minutesDuration, o.minutesDuration, true)
-           && compareValues(created, o.created, true) && compareValues(comment, o.comment, true);
+           && compareValues(created, o.created, true) && compareValues(comment, o.comment, true) && compareValues(patientInstruction, o.patientInstruction, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, serviceCategory
           , serviceType, specialty, appointmentType, reason, indication, priority, description
-          , supportingInformation, start, end, minutesDuration, slot, created, comment, incomingReferral
-          , participant, requestedPeriod);
+          , supportingInformation, start, end, minutesDuration, slot, created, comment, patientInstruction
+          , incomingReferral, participant, requestedPeriod);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -269,7 +269,7 @@ public class DiagnosticReport extends DomainResource {
     }
 
     @Block()
-    public static class DiagnosticReportImageComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class DiagnosticReportMediaComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
@@ -294,14 +294,14 @@ public class DiagnosticReport extends DomainResource {
     /**
      * Constructor
      */
-      public DiagnosticReportImageComponent() {
+      public DiagnosticReportMediaComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public DiagnosticReportImageComponent(Reference link) {
+      public DiagnosticReportMediaComponent(Reference link) {
         super();
         this.link = link;
       }
@@ -312,7 +312,7 @@ public class DiagnosticReport extends DomainResource {
         public StringType getCommentElement() { 
           if (this.comment == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DiagnosticReportImageComponent.comment");
+              throw new Error("Attempt to auto-create DiagnosticReportMediaComponent.comment");
             else if (Configuration.doAutoCreate())
               this.comment = new StringType(); // bb
           return this.comment;
@@ -329,7 +329,7 @@ public class DiagnosticReport extends DomainResource {
         /**
          * @param value {@link #comment} (A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
          */
-        public DiagnosticReportImageComponent setCommentElement(StringType value) { 
+        public DiagnosticReportMediaComponent setCommentElement(StringType value) { 
           this.comment = value;
           return this;
         }
@@ -344,7 +344,7 @@ public class DiagnosticReport extends DomainResource {
         /**
          * @param value A comment about the image. Typically, this is used to provide an explanation for why the image is included, or to draw the viewer's attention to important features.
          */
-        public DiagnosticReportImageComponent setComment(String value) { 
+        public DiagnosticReportMediaComponent setComment(String value) { 
           if (Utilities.noString(value))
             this.comment = null;
           else {
@@ -361,7 +361,7 @@ public class DiagnosticReport extends DomainResource {
         public Reference getLink() { 
           if (this.link == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DiagnosticReportImageComponent.link");
+              throw new Error("Attempt to auto-create DiagnosticReportMediaComponent.link");
             else if (Configuration.doAutoCreate())
               this.link = new Reference(); // cc
           return this.link;
@@ -374,7 +374,7 @@ public class DiagnosticReport extends DomainResource {
         /**
          * @param value {@link #link} (Reference to the image source.)
          */
-        public DiagnosticReportImageComponent setLink(Reference value) { 
+        public DiagnosticReportMediaComponent setLink(Reference value) { 
           this.link = value;
           return this;
         }
@@ -385,7 +385,7 @@ public class DiagnosticReport extends DomainResource {
         public Media getLinkTarget() { 
           if (this.linkTarget == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DiagnosticReportImageComponent.link");
+              throw new Error("Attempt to auto-create DiagnosticReportMediaComponent.link");
             else if (Configuration.doAutoCreate())
               this.linkTarget = new Media(); // aa
           return this.linkTarget;
@@ -394,7 +394,7 @@ public class DiagnosticReport extends DomainResource {
         /**
          * @param value {@link #link} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the image source.)
          */
-        public DiagnosticReportImageComponent setLinkTarget(Media value) { 
+        public DiagnosticReportMediaComponent setLinkTarget(Media value) { 
           this.linkTarget = value;
           return this;
         }
@@ -483,8 +483,8 @@ public class DiagnosticReport extends DomainResource {
           return super.addChild(name);
       }
 
-      public DiagnosticReportImageComponent copy() {
-        DiagnosticReportImageComponent dst = new DiagnosticReportImageComponent();
+      public DiagnosticReportMediaComponent copy() {
+        DiagnosticReportMediaComponent dst = new DiagnosticReportMediaComponent();
         copyValues(dst);
         dst.comment = comment == null ? null : comment.copy();
         dst.link = link == null ? null : link.copy();
@@ -495,9 +495,9 @@ public class DiagnosticReport extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof DiagnosticReportImageComponent))
+        if (!(other instanceof DiagnosticReportMediaComponent))
           return false;
-        DiagnosticReportImageComponent o = (DiagnosticReportImageComponent) other;
+        DiagnosticReportMediaComponent o = (DiagnosticReportMediaComponent) other;
         return compareDeep(comment, o.comment, true) && compareDeep(link, o.link, true);
       }
 
@@ -505,9 +505,9 @@ public class DiagnosticReport extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof DiagnosticReportImageComponent))
+        if (!(other instanceof DiagnosticReportMediaComponent))
           return false;
-        DiagnosticReportImageComponent o = (DiagnosticReportImageComponent) other;
+        DiagnosticReportMediaComponent o = (DiagnosticReportMediaComponent) other;
         return compareValues(comment, o.comment, true);
       }
 
@@ -516,7 +516,7 @@ public class DiagnosticReport extends DomainResource {
       }
 
   public String fhirType() {
-    return "DiagnosticReport.image";
+    return "DiagnosticReport.media";
 
   }
 
@@ -654,21 +654,21 @@ public class DiagnosticReport extends DomainResource {
     /**
      * One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.
      */
-    @Child(name = "imagingStudy", type = {ImagingStudy.class, ImagingManifest.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "imagingStudy", type = {ImagingStudy.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reference to full details of imaging associated with the diagnostic report", formalDefinition="One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images." )
     protected List<Reference> imagingStudy;
     /**
      * The actual objects that are the target of the reference (One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.)
      */
-    protected List<Resource> imagingStudyTarget;
+    protected List<ImagingStudy> imagingStudyTarget;
 
 
     /**
      * A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).
      */
-    @Child(name = "image", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "media", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Key images associated with this report", formalDefinition="A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)." )
-    protected List<DiagnosticReportImageComponent> image;
+    protected List<DiagnosticReportMediaComponent> media;
 
     /**
      * Concise and clinically contextualized impression / summary of the diagnostic report.
@@ -692,7 +692,7 @@ public class DiagnosticReport extends DomainResource {
     @Description(shortDefinition="Entire report as issued", formalDefinition="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent." )
     protected List<Attachment> presentedForm;
 
-    private static final long serialVersionUID = -742902632L;
+    private static final long serialVersionUID = 808706953L;
 
   /**
    * Constructor
@@ -1424,63 +1424,75 @@ public class DiagnosticReport extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getImagingStudyTarget() { 
+    public List<ImagingStudy> getImagingStudyTarget() { 
       if (this.imagingStudyTarget == null)
-        this.imagingStudyTarget = new ArrayList<Resource>();
+        this.imagingStudyTarget = new ArrayList<ImagingStudy>();
       return this.imagingStudyTarget;
     }
 
     /**
-     * @return {@link #image} (A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
-    public List<DiagnosticReportImageComponent> getImage() { 
-      if (this.image == null)
-        this.image = new ArrayList<DiagnosticReportImageComponent>();
-      return this.image;
+    @Deprecated
+    public ImagingStudy addImagingStudyTarget() { 
+      ImagingStudy r = new ImagingStudy();
+      if (this.imagingStudyTarget == null)
+        this.imagingStudyTarget = new ArrayList<ImagingStudy>();
+      this.imagingStudyTarget.add(r);
+      return r;
+    }
+
+    /**
+     * @return {@link #media} (A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).)
+     */
+    public List<DiagnosticReportMediaComponent> getMedia() { 
+      if (this.media == null)
+        this.media = new ArrayList<DiagnosticReportMediaComponent>();
+      return this.media;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DiagnosticReport setImage(List<DiagnosticReportImageComponent> theImage) { 
-      this.image = theImage;
+    public DiagnosticReport setMedia(List<DiagnosticReportMediaComponent> theMedia) { 
+      this.media = theMedia;
       return this;
     }
 
-    public boolean hasImage() { 
-      if (this.image == null)
+    public boolean hasMedia() { 
+      if (this.media == null)
         return false;
-      for (DiagnosticReportImageComponent item : this.image)
+      for (DiagnosticReportMediaComponent item : this.media)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public DiagnosticReportImageComponent addImage() { //3
-      DiagnosticReportImageComponent t = new DiagnosticReportImageComponent();
-      if (this.image == null)
-        this.image = new ArrayList<DiagnosticReportImageComponent>();
-      this.image.add(t);
+    public DiagnosticReportMediaComponent addMedia() { //3
+      DiagnosticReportMediaComponent t = new DiagnosticReportMediaComponent();
+      if (this.media == null)
+        this.media = new ArrayList<DiagnosticReportMediaComponent>();
+      this.media.add(t);
       return t;
     }
 
-    public DiagnosticReport addImage(DiagnosticReportImageComponent t) { //3
+    public DiagnosticReport addMedia(DiagnosticReportMediaComponent t) { //3
       if (t == null)
         return this;
-      if (this.image == null)
-        this.image = new ArrayList<DiagnosticReportImageComponent>();
-      this.image.add(t);
+      if (this.media == null)
+        this.media = new ArrayList<DiagnosticReportMediaComponent>();
+      this.media.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #image}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #media}, creating it if it does not already exist
      */
-    public DiagnosticReportImageComponent getImageFirstRep() { 
-      if (getImage().isEmpty()) {
-        addImage();
+    public DiagnosticReportMediaComponent getMediaFirstRep() { 
+      if (getMedia().isEmpty()) {
+        addMedia();
       }
-      return getImage().get(0);
+      return getMedia().get(0);
     }
 
     /**
@@ -1653,8 +1665,8 @@ public class DiagnosticReport extends DomainResource {
         children.add(new Property("resultsInterpreter", "Reference(Practitioner|PractitionerRole|Organization|CareTeam)", "The practitioner or organization that is responsible for the report's conclusions and interpretations.", 0, java.lang.Integer.MAX_VALUE, resultsInterpreter));
         children.add(new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this diagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen));
         children.add(new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").", 0, java.lang.Integer.MAX_VALUE, result));
-        children.add(new Property("imagingStudy", "Reference(ImagingStudy|ImagingManifest)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
-        children.add(new Property("image", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, image));
+        children.add(new Property("imagingStudy", "Reference(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy));
+        children.add(new Property("media", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, media));
         children.add(new Property("conclusion", "string", "Concise and clinically contextualized impression / summary of the diagnostic report.", 0, 1, conclusion));
         children.add(new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis));
         children.add(new Property("presentedForm", "Attachment", "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.", 0, java.lang.Integer.MAX_VALUE, presentedForm));
@@ -1679,8 +1691,8 @@ public class DiagnosticReport extends DomainResource {
         case 2134944932: /*resultsInterpreter*/  return new Property("resultsInterpreter", "Reference(Practitioner|PractitionerRole|Organization|CareTeam)", "The practitioner or organization that is responsible for the report's conclusions and interpretations.", 0, java.lang.Integer.MAX_VALUE, resultsInterpreter);
         case -2132868344: /*specimen*/  return new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this diagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen);
         case -934426595: /*result*/  return new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").", 0, java.lang.Integer.MAX_VALUE, result);
-        case -814900911: /*imagingStudy*/  return new Property("imagingStudy", "Reference(ImagingStudy|ImagingManifest)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy);
-        case 100313435: /*image*/  return new Property("image", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, image);
+        case -814900911: /*imagingStudy*/  return new Property("imagingStudy", "Reference(ImagingStudy)", "One or more links to full details of any imaging performed during the diagnostic investigation. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images.", 0, java.lang.Integer.MAX_VALUE, imagingStudy);
+        case 103772132: /*media*/  return new Property("media", "", "A list of key images associated with this report. The images are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest).", 0, java.lang.Integer.MAX_VALUE, media);
         case -1731259873: /*conclusion*/  return new Property("conclusion", "string", "Concise and clinically contextualized impression / summary of the diagnostic report.", 0, 1, conclusion);
         case -1364269926: /*codedDiagnosis*/  return new Property("codedDiagnosis", "CodeableConcept", "Codes for the conclusion.", 0, java.lang.Integer.MAX_VALUE, codedDiagnosis);
         case 230090366: /*presentedForm*/  return new Property("presentedForm", "Attachment", "Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.", 0, java.lang.Integer.MAX_VALUE, presentedForm);
@@ -1706,7 +1718,7 @@ public class DiagnosticReport extends DomainResource {
         case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
         case -934426595: /*result*/ return this.result == null ? new Base[0] : this.result.toArray(new Base[this.result.size()]); // Reference
         case -814900911: /*imagingStudy*/ return this.imagingStudy == null ? new Base[0] : this.imagingStudy.toArray(new Base[this.imagingStudy.size()]); // Reference
-        case 100313435: /*image*/ return this.image == null ? new Base[0] : this.image.toArray(new Base[this.image.size()]); // DiagnosticReportImageComponent
+        case 103772132: /*media*/ return this.media == null ? new Base[0] : this.media.toArray(new Base[this.media.size()]); // DiagnosticReportMediaComponent
         case -1731259873: /*conclusion*/ return this.conclusion == null ? new Base[0] : new Base[] {this.conclusion}; // StringType
         case -1364269926: /*codedDiagnosis*/ return this.codedDiagnosis == null ? new Base[0] : this.codedDiagnosis.toArray(new Base[this.codedDiagnosis.size()]); // CodeableConcept
         case 230090366: /*presentedForm*/ return this.presentedForm == null ? new Base[0] : this.presentedForm.toArray(new Base[this.presentedForm.size()]); // Attachment
@@ -1761,8 +1773,8 @@ public class DiagnosticReport extends DomainResource {
         case -814900911: // imagingStudy
           this.getImagingStudy().add(castToReference(value)); // Reference
           return value;
-        case 100313435: // image
-          this.getImage().add((DiagnosticReportImageComponent) value); // DiagnosticReportImageComponent
+        case 103772132: // media
+          this.getMedia().add((DiagnosticReportMediaComponent) value); // DiagnosticReportMediaComponent
           return value;
         case -1731259873: // conclusion
           this.conclusion = castToString(value); // StringType
@@ -1809,8 +1821,8 @@ public class DiagnosticReport extends DomainResource {
           this.getResult().add(castToReference(value));
         } else if (name.equals("imagingStudy")) {
           this.getImagingStudy().add(castToReference(value));
-        } else if (name.equals("image")) {
-          this.getImage().add((DiagnosticReportImageComponent) value);
+        } else if (name.equals("media")) {
+          this.getMedia().add((DiagnosticReportMediaComponent) value);
         } else if (name.equals("conclusion")) {
           this.conclusion = castToString(value); // StringType
         } else if (name.equals("codedDiagnosis")) {
@@ -1840,7 +1852,7 @@ public class DiagnosticReport extends DomainResource {
         case -2132868344:  return addSpecimen(); 
         case -934426595:  return addResult(); 
         case -814900911:  return addImagingStudy(); 
-        case 100313435:  return addImage(); 
+        case 103772132:  return addMedia(); 
         case -1731259873:  return getConclusionElement();
         case -1364269926:  return addCodedDiagnosis(); 
         case 230090366:  return addPresentedForm(); 
@@ -1866,7 +1878,7 @@ public class DiagnosticReport extends DomainResource {
         case -2132868344: /*specimen*/ return new String[] {"Reference"};
         case -934426595: /*result*/ return new String[] {"Reference"};
         case -814900911: /*imagingStudy*/ return new String[] {"Reference"};
-        case 100313435: /*image*/ return new String[] {};
+        case 103772132: /*media*/ return new String[] {};
         case -1731259873: /*conclusion*/ return new String[] {"string"};
         case -1364269926: /*codedDiagnosis*/ return new String[] {"CodeableConcept"};
         case 230090366: /*presentedForm*/ return new String[] {"Attachment"};
@@ -1928,8 +1940,8 @@ public class DiagnosticReport extends DomainResource {
         else if (name.equals("imagingStudy")) {
           return addImagingStudy();
         }
-        else if (name.equals("image")) {
-          return addImage();
+        else if (name.equals("media")) {
+          return addMedia();
         }
         else if (name.equals("conclusion")) {
           throw new FHIRException("Cannot call addChild on a primitive type DiagnosticReport.conclusion");
@@ -1994,10 +2006,10 @@ public class DiagnosticReport extends DomainResource {
           for (Reference i : imagingStudy)
             dst.imagingStudy.add(i.copy());
         };
-        if (image != null) {
-          dst.image = new ArrayList<DiagnosticReportImageComponent>();
-          for (DiagnosticReportImageComponent i : image)
-            dst.image.add(i.copy());
+        if (media != null) {
+          dst.media = new ArrayList<DiagnosticReportMediaComponent>();
+          for (DiagnosticReportMediaComponent i : media)
+            dst.media.add(i.copy());
         };
         dst.conclusion = conclusion == null ? null : conclusion.copy();
         if (codedDiagnosis != null) {
@@ -2029,7 +2041,7 @@ public class DiagnosticReport extends DomainResource {
            && compareDeep(context, o.context, true) && compareDeep(effective, o.effective, true) && compareDeep(issued, o.issued, true)
            && compareDeep(performer, o.performer, true) && compareDeep(resultsInterpreter, o.resultsInterpreter, true)
            && compareDeep(specimen, o.specimen, true) && compareDeep(result, o.result, true) && compareDeep(imagingStudy, o.imagingStudy, true)
-           && compareDeep(image, o.image, true) && compareDeep(conclusion, o.conclusion, true) && compareDeep(codedDiagnosis, o.codedDiagnosis, true)
+           && compareDeep(media, o.media, true) && compareDeep(conclusion, o.conclusion, true) && compareDeep(codedDiagnosis, o.codedDiagnosis, true)
            && compareDeep(presentedForm, o.presentedForm, true);
       }
 
@@ -2047,7 +2059,7 @@ public class DiagnosticReport extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, status
           , category, code, subject, context, effective, issued, performer, resultsInterpreter
-          , specimen, result, imagingStudy, image, conclusion, codedDiagnosis, presentedForm
+          , specimen, result, imagingStudy, media, conclusion, codedDiagnosis, presentedForm
           );
       }
 
@@ -2095,32 +2107,6 @@ public class DiagnosticReport extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>image</b>
-   * <p>
-   * Description: <b>A reference to the image source.</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticReport.image.link</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="image", path="DiagnosticReport.image.link", description="A reference to the image source.", type="reference", target={Media.class } )
-  public static final String SP_IMAGE = "image";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>image</b>
-   * <p>
-   * Description: <b>A reference to the image source.</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticReport.image.link</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam IMAGE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_IMAGE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DiagnosticReport:image</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_IMAGE = new ca.uhn.fhir.model.api.Include("DiagnosticReport:image").toLocked();
 
  /**
    * Search parameter: <b>performer</b>
@@ -2213,6 +2199,32 @@ public class DiagnosticReport extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam DIAGNOSIS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_DIAGNOSIS);
+
+ /**
+   * Search parameter: <b>media</b>
+   * <p>
+   * Description: <b>A reference to the image source.</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DiagnosticReport.media.link</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="media", path="DiagnosticReport.media.link", description="A reference to the image source.", type="reference", target={Media.class } )
+  public static final String SP_MEDIA = "media";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>media</b>
+   * <p>
+   * Description: <b>A reference to the image source.</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DiagnosticReport.media.link</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDIA = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDIA);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DiagnosticReport:media</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDIA = new ca.uhn.fhir.model.api.Include("DiagnosticReport:media").toLocked();
 
  /**
    * Search parameter: <b>encounter</b>

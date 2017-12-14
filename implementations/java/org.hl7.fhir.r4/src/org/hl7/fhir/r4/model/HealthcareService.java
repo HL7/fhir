@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -856,10 +856,10 @@ public class HealthcareService extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * Whether this healthcareservice record is in active use.
+     * This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.
      */
     @Child(name = "active", type = {BooleanType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="Whether this healthcareservice is in active use", formalDefinition="Whether this healthcareservice record is in active use." )
+    @Description(shortDefinition="Whether this HealthcareService record is in active use", formalDefinition="This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this." )
     protected BooleanType active;
 
     /**
@@ -1104,7 +1104,7 @@ public class HealthcareService extends DomainResource {
     }
 
     /**
-     * @return {@link #active} (Whether this healthcareservice record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     * @return {@link #active} (This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
     public BooleanType getActiveElement() { 
       if (this.active == null)
@@ -1124,7 +1124,7 @@ public class HealthcareService extends DomainResource {
     }
 
     /**
-     * @param value {@link #active} (Whether this healthcareservice record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     * @param value {@link #active} (This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
     public HealthcareService setActiveElement(BooleanType value) { 
       this.active = value;
@@ -1132,14 +1132,14 @@ public class HealthcareService extends DomainResource {
     }
 
     /**
-     * @return Whether this healthcareservice record is in active use.
+     * @return This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.
      */
     public boolean getActive() { 
       return this.active == null || this.active.isEmpty() ? false : this.active.getValue();
     }
 
     /**
-     * @param value Whether this healthcareservice record is in active use.
+     * @param value This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.
      */
     public HealthcareService setActive(boolean value) { 
         if (this.active == null)
@@ -2267,7 +2267,7 @@ public class HealthcareService extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "External identifiers for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("active", "boolean", "Whether this healthcareservice record is in active use.", 0, 1, active));
+        children.add(new Property("active", "boolean", "This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.", 0, 1, active));
         children.add(new Property("providedBy", "Reference(Organization)", "The organization that provides this healthcare service.", 0, 1, providedBy));
         children.add(new Property("category", "CodeableConcept", "Identifies the broad category of service being performed or delivered.", 0, 1, category));
         children.add(new Property("type", "CodeableConcept", "The specific type of service that may be delivered or performed.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -2296,7 +2296,7 @@ public class HealthcareService extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "External identifiers for this item.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -1422950650: /*active*/  return new Property("active", "boolean", "Whether this healthcareservice record is in active use.", 0, 1, active);
+        case -1422950650: /*active*/  return new Property("active", "boolean", "This flag is used to mark the record to not be used. This is not used when a centre is closed for maintenance, or for holidays, the notAvailable period is to be used for this.", 0, 1, active);
         case 205136282: /*providedBy*/  return new Property("providedBy", "Reference(Organization)", "The organization that provides this healthcare service.", 0, 1, providedBy);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "Identifies the broad category of service being performed or delivered.", 0, 1, category);
         case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The specific type of service that may be delivered or performed.", 0, java.lang.Integer.MAX_VALUE, type);

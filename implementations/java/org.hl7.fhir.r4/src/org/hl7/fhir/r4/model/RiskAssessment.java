@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -789,7 +789,7 @@ public class RiskAssessment extends DomainResource {
     /**
      * The status of the RiskAssessment, using the same statuses as an Observation.
      */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="registered | preliminary | final | amended +", formalDefinition="The status of the RiskAssessment, using the same statuses as an Observation." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/observation-status")
     protected Enumeration<RiskAssessmentStatus> status;
@@ -1958,7 +1958,7 @@ public class RiskAssessment extends DomainResource {
    * Path: <b>RiskAssessment.occurrenceDateTime</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="RiskAssessment.occurrence.as(DateTime)", description="When was assessment made?", type="date" )
+  @SearchParamDefinition(name="date", path="RiskAssessment.occurrence.as(dateTime)", description="When was assessment made?", type="date" )
   public static final String SP_DATE = "date";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>date</b>

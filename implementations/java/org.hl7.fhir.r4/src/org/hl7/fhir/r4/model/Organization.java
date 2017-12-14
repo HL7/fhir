@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1325,17 +1325,17 @@ public class Organization extends DomainResource {
  /**
    * Search parameter: <b>address</b>
    * <p>
-   * Description: <b>A (part of the) address of the organization</b><br>
+   * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Organization.address</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address", path="Organization.address", description="A (part of the) address of the organization", type="string" )
+  @SearchParamDefinition(name="address", path="Organization.address", description="A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text", type="string" )
   public static final String SP_ADDRESS = "address";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address</b>
    * <p>
-   * Description: <b>A (part of the) address of the organization</b><br>
+   * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text</b><br>
    * Type: <b>string</b><br>
    * Path: <b>Organization.address</b><br>
    * </p>
@@ -1365,17 +1365,17 @@ public class Organization extends DomainResource {
  /**
    * Search parameter: <b>active</b>
    * <p>
-   * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text</b><br>
+   * Description: <b>Is the Organization record active</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Organization.active</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="active", path="Organization.active", description="A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text", type="token" )
+  @SearchParamDefinition(name="active", path="Organization.active", description="Is the Organization record active", type="token" )
   public static final String SP_ACTIVE = "active";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>active</b>
    * <p>
-   * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text</b><br>
+   * Description: <b>Is the Organization record active</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Organization.active</b><br>
    * </p>

@@ -1579,12 +1579,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   
   private void generateEquals(ElementDefn e, String tn, boolean owner, boolean isAbstract) throws Exception {
     write("      @Override\r\n");
-    write("      public boolean equalsDeep(Base other) {\r\n");
-    write("        if (!super.equalsDeep(other))\r\n");
+    write("      public boolean equalsDeep(Base other_) {\r\n");
+    write("        if (!super.equalsDeep(other_))\r\n");
     write("          return false;\r\n");
-    write("        if (!(other instanceof "+tn+"))\r\n");
+    write("        if (!(other_ instanceof "+tn+"))\r\n");
     write("          return false;\r\n");
-    write("        "+tn+" o = ("+tn+") other;\r\n");
+    write("        "+tn+" o = ("+tn+") other_;\r\n");
     write("        return ");
     boolean first = true;
     int col = 18;
@@ -1612,12 +1612,12 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write(";\r\n");
     write("      }\r\n\r\n");  
     write("      @Override\r\n");
-    write("      public boolean equalsShallow(Base other) {\r\n");
-    write("        if (!super.equalsShallow(other))\r\n");
+    write("      public boolean equalsShallow(Base other_) {\r\n");
+    write("        if (!super.equalsShallow(other_))\r\n");
     write("          return false;\r\n");
-    write("        if (!(other instanceof "+tn+"))\r\n");
+    write("        if (!(other_ instanceof "+tn+"))\r\n");
     write("          return false;\r\n");
-    write("        "+tn+" o = ("+tn+") other;\r\n");
+    write("        "+tn+" o = ("+tn+") other_;\r\n");
     write("        return ");
     first = true;
     col = 18;

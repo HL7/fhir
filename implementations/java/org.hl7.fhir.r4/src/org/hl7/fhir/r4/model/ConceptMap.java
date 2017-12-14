@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -3936,7 +3936,7 @@ public class ConceptMap extends MetadataResource {
    * Path: <b>ConceptMap.sourceUri</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source-uri", path="ConceptMap.source.as(Uri)", description="Identifies the source of the concepts which are being mapped", type="reference", target={ValueSet.class } )
+  @SearchParamDefinition(name="source-uri", path="ConceptMap.source.as(uri)", description="Identifies the source of the concepts which are being mapped", type="reference", target={ValueSet.class } )
   public static final String SP_SOURCE_URI = "source-uri";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source-uri</b>
@@ -4062,7 +4062,7 @@ public class ConceptMap extends MetadataResource {
    * Path: <b>ConceptMap.targetUri</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target-uri", path="ConceptMap.target.as(Uri)", description="Provides context to the mappings", type="reference", target={ValueSet.class } )
+  @SearchParamDefinition(name="target-uri", path="ConceptMap.target.as(uri)", description="Provides context to the mappings", type="reference", target={ValueSet.class } )
   public static final String SP_TARGET_URI = "target-uri";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>target-uri</b>

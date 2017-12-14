@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -913,7 +913,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide.
          */
-        @Child(name = "example", type = {BooleanType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "example", type = {BooleanType.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="If not an example, has its normal meaning", formalDefinition="Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide." )
         protected BooleanType example;
 
@@ -969,9 +969,8 @@ public class ImplementationGuide extends MetadataResource {
     /**
      * Constructor
      */
-      public ImplementationGuidePackageResourceComponent(BooleanType example, Type source) {
+      public ImplementationGuidePackageResourceComponent(Type source) {
         super();
-        this.example = example;
         this.source = source;
       }
 

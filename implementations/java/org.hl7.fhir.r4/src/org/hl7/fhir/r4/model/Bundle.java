@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2470,34 +2470,41 @@ public class Bundle extends Resource implements IBaseBundle {
     protected Enumeration<BundleType> type;
 
     /**
+     * The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.
+     */
+    @Child(name = "timestamp", type = {InstantType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="When the bundle was assembled", formalDefinition="The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle." )
+    protected InstantType timestamp;
+
+    /**
      * If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).
      */
-    @Child(name = "total", type = {UnsignedIntType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "total", type = {UnsignedIntType.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="If search, the total number of matches", formalDefinition="If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle)." )
     protected UnsignedIntType total;
 
     /**
      * A series of links that provide context to this bundle.
      */
-    @Child(name = "link", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "link", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Links related to this Bundle", formalDefinition="A series of links that provide context to this bundle." )
     protected List<BundleLinkComponent> link;
 
     /**
      * An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).
      */
-    @Child(name = "entry", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "entry", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Entry in the bundle - will have a resource, or information", formalDefinition="An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only)." )
     protected List<BundleEntryComponent> entry;
 
     /**
      * Digital Signature - base64 encoded. XML-DSIg or a JWT.
      */
-    @Child(name = "signature", type = {Signature.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "signature", type = {Signature.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Digital Signature", formalDefinition="Digital Signature - base64 encoded. XML-DSIg or a JWT." )
     protected Signature signature;
 
-    private static final long serialVersionUID = 982760501L;
+    private static final long serialVersionUID = 1740470158L;
 
   /**
    * Constructor
@@ -2580,6 +2587,55 @@ public class Bundle extends Resource implements IBaseBundle {
         if (this.type == null)
           this.type = new Enumeration<BundleType>(new BundleTypeEnumFactory());
         this.type.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #timestamp} (The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
+     */
+    public InstantType getTimestampElement() { 
+      if (this.timestamp == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Bundle.timestamp");
+        else if (Configuration.doAutoCreate())
+          this.timestamp = new InstantType(); // bb
+      return this.timestamp;
+    }
+
+    public boolean hasTimestampElement() { 
+      return this.timestamp != null && !this.timestamp.isEmpty();
+    }
+
+    public boolean hasTimestamp() { 
+      return this.timestamp != null && !this.timestamp.isEmpty();
+    }
+
+    /**
+     * @param value {@link #timestamp} (The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.). This is the underlying object with id, value and extensions. The accessor "getTimestamp" gives direct access to the value
+     */
+    public Bundle setTimestampElement(InstantType value) { 
+      this.timestamp = value;
+      return this;
+    }
+
+    /**
+     * @return The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.
+     */
+    public Date getTimestamp() { 
+      return this.timestamp == null ? null : this.timestamp.getValue();
+    }
+
+    /**
+     * @param value The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.
+     */
+    public Bundle setTimestamp(Date value) { 
+      if (value == null)
+        this.timestamp = null;
+      else {
+        if (this.timestamp == null)
+          this.timestamp = new InstantType();
+        this.timestamp.setValue(value);
+      }
       return this;
     }
 
@@ -2809,6 +2865,7 @@ public class Bundle extends Resource implements IBaseBundle {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "A persistent identifier for the batch that won't change as a batch is copied from server to server.", 0, 1, identifier));
         children.add(new Property("type", "code", "Indicates the purpose of this bundle - how it was intended to be used.", 0, 1, type));
+        children.add(new Property("timestamp", "instant", "The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.", 0, 1, timestamp));
         children.add(new Property("total", "unsignedInt", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, 1, total));
         children.add(new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link));
         children.add(new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).", 0, java.lang.Integer.MAX_VALUE, entry));
@@ -2820,6 +2877,7 @@ public class Bundle extends Resource implements IBaseBundle {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A persistent identifier for the batch that won't change as a batch is copied from server to server.", 0, 1, identifier);
         case 3575610: /*type*/  return new Property("type", "code", "Indicates the purpose of this bundle - how it was intended to be used.", 0, 1, type);
+        case 55126294: /*timestamp*/  return new Property("timestamp", "instant", "The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.", 0, 1, timestamp);
         case 110549828: /*total*/  return new Property("total", "unsignedInt", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, 1, total);
         case 3321850: /*link*/  return new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link);
         case 96667762: /*entry*/  return new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).", 0, java.lang.Integer.MAX_VALUE, entry);
@@ -2834,6 +2892,7 @@ public class Bundle extends Resource implements IBaseBundle {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<BundleType>
+        case 55126294: /*timestamp*/ return this.timestamp == null ? new Base[0] : new Base[] {this.timestamp}; // InstantType
         case 110549828: /*total*/ return this.total == null ? new Base[0] : new Base[] {this.total}; // UnsignedIntType
         case 3321850: /*link*/ return this.link == null ? new Base[0] : this.link.toArray(new Base[this.link.size()]); // BundleLinkComponent
         case 96667762: /*entry*/ return this.entry == null ? new Base[0] : this.entry.toArray(new Base[this.entry.size()]); // BundleEntryComponent
@@ -2852,6 +2911,9 @@ public class Bundle extends Resource implements IBaseBundle {
         case 3575610: // type
           value = new BundleTypeEnumFactory().fromType(castToCode(value));
           this.type = (Enumeration) value; // Enumeration<BundleType>
+          return value;
+        case 55126294: // timestamp
+          this.timestamp = castToInstant(value); // InstantType
           return value;
         case 110549828: // total
           this.total = castToUnsignedInt(value); // UnsignedIntType
@@ -2877,6 +2939,8 @@ public class Bundle extends Resource implements IBaseBundle {
         } else if (name.equals("type")) {
           value = new BundleTypeEnumFactory().fromType(castToCode(value));
           this.type = (Enumeration) value; // Enumeration<BundleType>
+        } else if (name.equals("timestamp")) {
+          this.timestamp = castToInstant(value); // InstantType
         } else if (name.equals("total")) {
           this.total = castToUnsignedInt(value); // UnsignedIntType
         } else if (name.equals("link")) {
@@ -2895,6 +2959,7 @@ public class Bundle extends Resource implements IBaseBundle {
         switch (hash) {
         case -1618432855:  return getIdentifier(); 
         case 3575610:  return getTypeElement();
+        case 55126294:  return getTimestampElement();
         case 110549828:  return getTotalElement();
         case 3321850:  return addLink(); 
         case 96667762:  return addEntry(); 
@@ -2909,6 +2974,7 @@ public class Bundle extends Resource implements IBaseBundle {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case 3575610: /*type*/ return new String[] {"code"};
+        case 55126294: /*timestamp*/ return new String[] {"instant"};
         case 110549828: /*total*/ return new String[] {"unsignedInt"};
         case 3321850: /*link*/ return new String[] {};
         case 96667762: /*entry*/ return new String[] {};
@@ -2926,6 +2992,9 @@ public class Bundle extends Resource implements IBaseBundle {
         }
         else if (name.equals("type")) {
           throw new FHIRException("Cannot call addChild on a primitive type Bundle.type");
+        }
+        else if (name.equals("timestamp")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Bundle.timestamp");
         }
         else if (name.equals("total")) {
           throw new FHIRException("Cannot call addChild on a primitive type Bundle.total");
@@ -2954,6 +3023,7 @@ public class Bundle extends Resource implements IBaseBundle {
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.type = type == null ? null : type.copy();
+        dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.total = total == null ? null : total.copy();
         if (link != null) {
           dst.link = new ArrayList<BundleLinkComponent>();
@@ -2980,9 +3050,9 @@ public class Bundle extends Resource implements IBaseBundle {
         if (!(other instanceof Bundle))
           return false;
         Bundle o = (Bundle) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(total, o.total, true)
-           && compareDeep(link, o.link, true) && compareDeep(entry, o.entry, true) && compareDeep(signature, o.signature, true)
-          ;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(timestamp, o.timestamp, true)
+           && compareDeep(total, o.total, true) && compareDeep(link, o.link, true) && compareDeep(entry, o.entry, true)
+           && compareDeep(signature, o.signature, true);
       }
 
       @Override
@@ -2992,12 +3062,13 @@ public class Bundle extends Resource implements IBaseBundle {
         if (!(other instanceof Bundle))
           return false;
         Bundle o = (Bundle) other;
-        return compareValues(type, o.type, true) && compareValues(total, o.total, true);
+        return compareValues(type, o.type, true) && compareValues(timestamp, o.timestamp, true) && compareValues(total, o.total, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, total
-          , link, entry, signature);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, timestamp
+          , total, link, entry, signature);
       }
 
   @Override
@@ -3096,6 +3167,26 @@ public class Bundle extends Resource implements IBaseBundle {
    * the path value of "<b>Bundle:message</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_MESSAGE = new ca.uhn.fhir.model.api.Include("Bundle:message").toLocked();
+
+ /**
+   * Search parameter: <b>timestamp</b>
+   * <p>
+   * Description: <b>When the bundle was assembled</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Bundle.timestamp</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="timestamp", path="Bundle.timestamp", description="When the bundle was assembled", type="date" )
+  public static final String SP_TIMESTAMP = "timestamp";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>timestamp</b>
+   * <p>
+   * Description: <b>When the bundle was assembled</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Bundle.timestamp</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam TIMESTAMP = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_TIMESTAMP);
 
 
 }

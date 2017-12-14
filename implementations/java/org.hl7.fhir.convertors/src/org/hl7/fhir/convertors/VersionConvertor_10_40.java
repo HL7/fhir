@@ -2042,66 +2042,7 @@ public class VersionConvertor_10_40 {
     }
   }
 
-  public org.hl7.fhir.r4.model.Account convertAccount(org.hl7.fhir.dstu2.model.Account src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Account tgt = new org.hl7.fhir.r4.model.Account();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    if (src.hasName())
-      tgt.setName(src.getName());
-    if (src.hasType())
-      tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setStatus(convertAccountStatus(src.getStatus()));
-    tgt.setActive(convertPeriod(src.getActivePeriod()));
-    tgt.setBalance(convertMoney(src.getBalance()));
-//    tgt.setCoveragePeriod(convertPeriod(src.getCoveragePeriod()));
-    tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setOwner(convertReference(src.getOwner()));
-    tgt.setDescription(src.getDescription());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Account convertAccount(org.hl7.fhir.r4.model.Account src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Account tgt = new org.hl7.fhir.dstu2.model.Account();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setName(src.getName());
-    tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setStatus(convertAccountStatus(src.getStatus()));
-    tgt.setActivePeriod(convertPeriod(src.getActive()));
-    tgt.setBalance(convertMoney(src.getBalance()));
-//    tgt.setCoveragePeriod(convertPeriod(src.getCoveragePeriod()));
-    tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setOwner(convertReference(src.getOwner()));
-    tgt.setDescription(src.getDescription());
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Account.AccountStatus convertAccountStatus(org.hl7.fhir.dstu2.model.Account.AccountStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.r4.model.Account.AccountStatus.ACTIVE;
-    case INACTIVE: return org.hl7.fhir.r4.model.Account.AccountStatus.INACTIVE;
-    default: return org.hl7.fhir.r4.model.Account.AccountStatus.NULL;
-    }
-  }
-
-  public org.hl7.fhir.dstu2.model.Account.AccountStatus convertAccountStatus(org.hl7.fhir.r4.model.Account.AccountStatus src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ACTIVE: return org.hl7.fhir.dstu2.model.Account.AccountStatus.ACTIVE;
-    case INACTIVE: return org.hl7.fhir.dstu2.model.Account.AccountStatus.INACTIVE;
-    default: return org.hl7.fhir.dstu2.model.Account.AccountStatus.NULL;
-    }
-  }
-
+ 
 
   public org.hl7.fhir.r4.model.Appointment convertAppointment(org.hl7.fhir.dstu2.model.Appointment src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -3382,7 +3323,7 @@ public class VersionConvertor_10_40 {
       tgt.addPayload(convertCommunicationRequestPayloadComponent(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getMedium())
       tgt.addMedium(convertCodeableConcept(t));
-    tgt.getRequester().setAgent(convertReference(src.getRequester()));
+    tgt.setRequester(convertReference(src.getRequester()));
     tgt.setStatus(convertCommunicationRequestStatus(src.getStatus()));
     tgt.setContext(convertReference(src.getEncounter()));
     tgt.setOccurrence(convertType(src.getScheduled()));
@@ -3423,7 +3364,7 @@ public class VersionConvertor_10_40 {
       tgt.addPayload(convertCommunicationRequestPayloadComponent(t));
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getMedium())
       tgt.addMedium(convertCodeableConcept(t));
-    tgt.setRequester(convertReference(src.getRequester().getAgent()));
+    tgt.setRequester(convertReference(src.getRequester()));
     tgt.setStatus(convertCommunicationRequestStatus(src.getStatus()));
     tgt.setEncounter(convertReference(src.getContext()));
     tgt.setScheduled(convertType(src.getOccurrence()));
@@ -5786,7 +5727,7 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.Reference t : src.getImagingStudy())
       tgt.addImagingStudy(convertReference(t));
     for (org.hl7.fhir.dstu2.model.DiagnosticReport.DiagnosticReportImageComponent t : src.getImage())
-      tgt.addImage(convertDiagnosticReportImageComponent(t));
+      tgt.addMedia(convertDiagnosticReportImageComponent(t));
     tgt.setConclusion(src.getConclusion());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getCodedDiagnosis())
       tgt.addCodedDiagnosis(convertCodeableConcept(t));
@@ -5818,7 +5759,7 @@ public class VersionConvertor_10_40 {
       tgt.addResult(convertReference(t));
     for (org.hl7.fhir.r4.model.Reference t : src.getImagingStudy())
       tgt.addImagingStudy(convertReference(t));
-    for (org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportImageComponent t : src.getImage())
+    for (org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportMediaComponent t : src.getMedia())
       tgt.addImage(convertDiagnosticReportImageComponent(t));
     tgt.setConclusion(src.getConclusion());
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getCodedDiagnosis())
@@ -5858,17 +5799,17 @@ public class VersionConvertor_10_40 {
     }
   }
 
-  public org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportImageComponent convertDiagnosticReportImageComponent(org.hl7.fhir.dstu2.model.DiagnosticReport.DiagnosticReportImageComponent src) throws FHIRException {
+  public org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportMediaComponent convertDiagnosticReportImageComponent(org.hl7.fhir.dstu2.model.DiagnosticReport.DiagnosticReportImageComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportImageComponent tgt = new org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportImageComponent();
+    org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportMediaComponent tgt = new org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportMediaComponent();
     copyElement(src, tgt);
     tgt.setComment(src.getComment());
     tgt.setLink(convertReference(src.getLink()));
     return tgt;
   }
 
-  public org.hl7.fhir.dstu2.model.DiagnosticReport.DiagnosticReportImageComponent convertDiagnosticReportImageComponent(org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportImageComponent src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.DiagnosticReport.DiagnosticReportImageComponent convertDiagnosticReportImageComponent(org.hl7.fhir.r4.model.DiagnosticReport.DiagnosticReportMediaComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2.model.DiagnosticReport.DiagnosticReportImageComponent tgt = new org.hl7.fhir.dstu2.model.DiagnosticReport.DiagnosticReportImageComponent();
@@ -7166,218 +7107,6 @@ public class VersionConvertor_10_40 {
 //    return tgt;
 //  }
 //
-  public org.hl7.fhir.r4.model.ImagingStudy convertImagingStudy(org.hl7.fhir.dstu2.model.ImagingStudy src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.ImagingStudy tgt = new org.hl7.fhir.r4.model.ImagingStudy();
-    copyDomainResource(src, tgt);
-    tgt.setUid(src.getUid());
-    tgt.setAccession(convertIdentifier(src.getAccession()));
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setAvailability(convertInstanceAvailability(src.getAvailability()));
-    for (org.hl7.fhir.dstu2.model.Coding t : src.getModalityList())
-      tgt.addModalityList(convertCoding(t));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setStarted(src.getStarted());
-    tgt.setReferrer(convertReference(src.getReferrer()));
-    tgt.addInterpreter(convertReference(src.getInterpreter()));
-    tgt.setNumberOfSeries(src.getNumberOfSeries());
-    tgt.setNumberOfInstances(src.getNumberOfInstances());
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getProcedure())
-      tgt.addProcedureReference(convertReference(t));
-    tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesComponent t : src.getSeries())
-      tgt.addSeries(convertImagingStudySeriesComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ImagingStudy convertImagingStudy(org.hl7.fhir.r4.model.ImagingStudy src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ImagingStudy tgt = new org.hl7.fhir.dstu2.model.ImagingStudy();
-    copyDomainResource(src, tgt);
-    tgt.setUid(src.getUid());
-    tgt.setAccession(convertIdentifier(src.getAccession()));
-    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setAvailability(convertInstanceAvailability(src.getAvailability()));
-    for (org.hl7.fhir.r4.model.Coding t : src.getModalityList())
-      tgt.addModalityList(convertCoding(t));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setStarted(src.getStarted());
-    tgt.setReferrer(convertReference(src.getReferrer()));
-    for (org.hl7.fhir.r4.model.Reference t : src.getInterpreter())
-      tgt.setInterpreter(convertReference(t));
-    tgt.setNumberOfSeries(src.getNumberOfSeries());
-    tgt.setNumberOfInstances(src.getNumberOfInstances());
-    for (org.hl7.fhir.r4.model.Reference t : src.getProcedureReference())
-      tgt.addProcedure(convertReference(t));
-    tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesComponent t : src.getSeries())
-      tgt.addSeries(convertImagingStudySeriesComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.ImagingStudy.InstanceAvailability convertInstanceAvailability(org.hl7.fhir.dstu2.model.ImagingStudy.InstanceAvailability src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ONLINE: return org.hl7.fhir.r4.model.ImagingStudy.InstanceAvailability.ONLINE;
-    case OFFLINE: return org.hl7.fhir.r4.model.ImagingStudy.InstanceAvailability.OFFLINE;
-    case NEARLINE: return org.hl7.fhir.r4.model.ImagingStudy.InstanceAvailability.NEARLINE;
-    case UNAVAILABLE: return org.hl7.fhir.r4.model.ImagingStudy.InstanceAvailability.UNAVAILABLE;
-    default: return org.hl7.fhir.r4.model.ImagingStudy.InstanceAvailability.NULL;
-    }
-  }
-
-  public org.hl7.fhir.dstu2.model.ImagingStudy.InstanceAvailability convertInstanceAvailability(org.hl7.fhir.r4.model.ImagingStudy.InstanceAvailability src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case ONLINE: return org.hl7.fhir.dstu2.model.ImagingStudy.InstanceAvailability.ONLINE;
-    case OFFLINE: return org.hl7.fhir.dstu2.model.ImagingStudy.InstanceAvailability.OFFLINE;
-    case NEARLINE: return org.hl7.fhir.dstu2.model.ImagingStudy.InstanceAvailability.NEARLINE;
-    case UNAVAILABLE: return org.hl7.fhir.dstu2.model.ImagingStudy.InstanceAvailability.UNAVAILABLE;
-    default: return org.hl7.fhir.dstu2.model.ImagingStudy.InstanceAvailability.NULL;
-    }
-  }
-
-  public org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesComponent convertImagingStudySeriesComponent(org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesComponent tgt = new org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesComponent();
-    copyElement(src, tgt);
-    tgt.setUid(src.getUid());
-    tgt.setNumber(src.getNumber());
-    tgt.setModality(convertCoding(src.getModality()));
-    tgt.setDescription(src.getDescription());
-    tgt.setNumberOfInstances(src.getNumberOfInstances());
-    tgt.setAvailability(convertInstanceAvailability(src.getAvailability()));
-    tgt.setBodySite(convertCoding(src.getBodySite()));
-    tgt.setLaterality(convertCoding(src.getLaterality()));
-    tgt.setStarted(src.getStarted());
-    for (org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesInstanceComponent t : src.getInstance())
-      tgt.addInstance(convertImagingStudySeriesInstanceComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesComponent convertImagingStudySeriesComponent(org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesComponent tgt = new org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesComponent();
-    copyElement(src, tgt);
-    tgt.setUid(src.getUid());
-    tgt.setNumber(src.getNumber());
-    tgt.setModality(convertCoding(src.getModality()));
-    tgt.setDescription(src.getDescription());
-    tgt.setNumberOfInstances(src.getNumberOfInstances());
-    tgt.setAvailability(convertInstanceAvailability(src.getAvailability()));
-    tgt.setBodySite(convertCoding(src.getBodySite()));
-    tgt.setLaterality(convertCoding(src.getLaterality()));
-    tgt.setStarted(src.getStarted());
-    for (org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesInstanceComponent t : src.getInstance())
-      tgt.addInstance(convertImagingStudySeriesInstanceComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesInstanceComponent convertImagingStudySeriesInstanceComponent(org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesInstanceComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesInstanceComponent tgt = new org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesInstanceComponent();
-    copyElement(src, tgt);
-    tgt.setUid(src.getUid());
-    tgt.setNumber(src.getNumber());
-    tgt.setSopClass(src.getSopClass());
-    tgt.setTitle(src.getTitle());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesInstanceComponent convertImagingStudySeriesInstanceComponent(org.hl7.fhir.r4.model.ImagingStudy.ImagingStudySeriesInstanceComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesInstanceComponent tgt = new org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesInstanceComponent();
-    copyElement(src, tgt);
-    tgt.setUid(src.getUid());
-    tgt.setNumber(src.getNumber());
-    tgt.setSopClass(src.getSopClass());
-    tgt.setTitle(src.getTitle());
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Immunization convertImmunization(org.hl7.fhir.dstu2.model.Immunization src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Immunization tgt = new org.hl7.fhir.r4.model.Immunization();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    try {
-      tgt.setStatus(org.hl7.fhir.r4.model.Immunization.ImmunizationStatus.fromCode(src.getStatus()));
-    } catch (org.hl7.fhir.exceptions.FHIRException e) {
-      throw new FHIRException(e);
-    }
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setNotGiven(src.getWasNotGiven());
-    tgt.setPrimarySource(!src.getReported());
-    if (src.hasPerformer())
-      tgt.addPractitioner().setActor(convertReference(src.getPerformer())).setRole(new org.hl7.fhir.r4.model.CodeableConcept().addCoding(new Coding().setSystem("http://hl7.org/fhir/v2/0443").setCode("AP")));
-    if (src.hasRequester())
-      tgt.addPractitioner().setActor(convertReference(src.getRequester())).setRole(new org.hl7.fhir.r4.model.CodeableConcept().addCoding(new Coding().setSystem("http://hl7.org/fhir/v2/0443").setCode("OP")));
-    tgt.setEncounter(convertReference(src.getEncounter()));
-    tgt.setManufacturer(convertReference(src.getManufacturer()));
-    tgt.setLocation(convertReference(src.getLocation()));
-    tgt.setLotNumber(src.getLotNumber());
-    tgt.setExpirationDate(src.getExpirationDate());
-    tgt.setSite(convertCodeableConcept(src.getSite()));
-    tgt.setRoute(convertCodeableConcept(src.getRoute()));
-    tgt.setDoseQuantity(convertSimpleQuantity(src.getDoseQuantity()));
-    for (org.hl7.fhir.dstu2.model.Annotation t : src.getNote())
-      tgt.addNote(convertAnnotation(t));
-    tgt.setExplanation(convertImmunizationExplanationComponent(src.getExplanation()));
-    for (org.hl7.fhir.dstu2.model.Immunization.ImmunizationReactionComponent t : src.getReaction())
-      tgt.addReaction(convertImmunizationReactionComponent(t));
-    for (org.hl7.fhir.dstu2.model.Immunization.ImmunizationVaccinationProtocolComponent t : src.getVaccinationProtocol())
-      tgt.addVaccinationProtocol(convertImmunizationVaccinationProtocolComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Immunization convertImmunization(org.hl7.fhir.r4.model.Immunization src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Immunization tgt = new org.hl7.fhir.dstu2.model.Immunization();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setStatus(src.getStatus().toCode());
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setWasNotGiven(src.getNotGiven());
-    tgt.setReported(!src.getPrimarySource());
-    tgt.setPerformer(convertReference(getPerformer(src.getPractitioner())));
-    tgt.setRequester(convertReference(getRequester(src.getPractitioner())));
-    tgt.setEncounter(convertReference(src.getEncounter()));
-    tgt.setManufacturer(convertReference(src.getManufacturer()));
-    tgt.setLocation(convertReference(src.getLocation()));
-    tgt.setLotNumber(src.getLotNumber());
-    tgt.setExpirationDate(src.getExpirationDate());
-    tgt.setSite(convertCodeableConcept(src.getSite()));
-    tgt.setRoute(convertCodeableConcept(src.getRoute()));
-    tgt.setDoseQuantity(convertSimpleQuantity(src.getDoseQuantity()));
-    for (org.hl7.fhir.r4.model.Annotation t : src.getNote())
-      tgt.addNote(convertAnnotation(t));
-    tgt.setExplanation(convertImmunizationExplanationComponent(src.getExplanation()));
-    for (org.hl7.fhir.r4.model.Immunization.ImmunizationReactionComponent t : src.getReaction())
-      tgt.addReaction(convertImmunizationReactionComponent(t));
-    for (org.hl7.fhir.r4.model.Immunization.ImmunizationVaccinationProtocolComponent t : src.getVaccinationProtocol())
-      tgt.addVaccinationProtocol(convertImmunizationVaccinationProtocolComponent(t));
-    return tgt;
-  }
 
   private org.hl7.fhir.r4.model.Reference getPerformer(List<ImmunizationPractitionerComponent> practitioner) {
     for (ImmunizationPractitionerComponent p : practitioner) {
@@ -7411,197 +7140,6 @@ public class VersionConvertor_10_40 {
     return false;
   }
 
-  public org.hl7.fhir.r4.model.Immunization.ImmunizationExplanationComponent convertImmunizationExplanationComponent(org.hl7.fhir.dstu2.model.Immunization.ImmunizationExplanationComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Immunization.ImmunizationExplanationComponent tgt = new org.hl7.fhir.r4.model.Immunization.ImmunizationExplanationComponent();
-    copyElement(src, tgt);
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReason())
-      tgt.addReason(convertCodeableConcept(t));
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonNotGiven())
-      tgt.addReasonNotGiven(convertCodeableConcept(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Immunization.ImmunizationExplanationComponent convertImmunizationExplanationComponent(org.hl7.fhir.r4.model.Immunization.ImmunizationExplanationComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Immunization.ImmunizationExplanationComponent tgt = new org.hl7.fhir.dstu2.model.Immunization.ImmunizationExplanationComponent();
-    copyElement(src, tgt);
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReason())
-      tgt.addReason(convertCodeableConcept(t));
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReasonNotGiven())
-      tgt.addReasonNotGiven(convertCodeableConcept(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Immunization.ImmunizationReactionComponent convertImmunizationReactionComponent(org.hl7.fhir.dstu2.model.Immunization.ImmunizationReactionComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Immunization.ImmunizationReactionComponent tgt = new org.hl7.fhir.r4.model.Immunization.ImmunizationReactionComponent();
-    copyElement(src, tgt);
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    tgt.setDetail(convertReference(src.getDetail()));
-    tgt.setReported(src.getReported());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Immunization.ImmunizationReactionComponent convertImmunizationReactionComponent(org.hl7.fhir.r4.model.Immunization.ImmunizationReactionComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Immunization.ImmunizationReactionComponent tgt = new org.hl7.fhir.dstu2.model.Immunization.ImmunizationReactionComponent();
-    copyElement(src, tgt);
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    tgt.setDetail(convertReference(src.getDetail()));
-    tgt.setReported(src.getReported());
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Immunization.ImmunizationVaccinationProtocolComponent convertImmunizationVaccinationProtocolComponent(org.hl7.fhir.dstu2.model.Immunization.ImmunizationVaccinationProtocolComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Immunization.ImmunizationVaccinationProtocolComponent tgt = new org.hl7.fhir.r4.model.Immunization.ImmunizationVaccinationProtocolComponent();
-    copyElement(src, tgt);
-    tgt.setDoseSequence(src.getDoseSequence());
-    tgt.setDescription(src.getDescription());
-    tgt.setAuthority(convertReference(src.getAuthority()));
-    tgt.setSeries(src.getSeries());
-    tgt.setSeriesDoses(src.getSeriesDoses());
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getTargetDisease())
-      tgt.addTargetDisease(convertCodeableConcept(t));
-    tgt.setDoseStatus(convertCodeableConcept(src.getDoseStatus()));
-    tgt.setDoseStatusReason(convertCodeableConcept(src.getDoseStatusReason()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Immunization.ImmunizationVaccinationProtocolComponent convertImmunizationVaccinationProtocolComponent(org.hl7.fhir.r4.model.Immunization.ImmunizationVaccinationProtocolComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Immunization.ImmunizationVaccinationProtocolComponent tgt = new org.hl7.fhir.dstu2.model.Immunization.ImmunizationVaccinationProtocolComponent();
-    copyElement(src, tgt);
-    tgt.setDoseSequence(src.getDoseSequence());
-    tgt.setDescription(src.getDescription());
-    tgt.setAuthority(convertReference(src.getAuthority()));
-    tgt.setSeries(src.getSeries());
-    tgt.setSeriesDoses(src.getSeriesDoses());
-    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getTargetDisease())
-      tgt.addTargetDisease(convertCodeableConcept(t));
-    tgt.setDoseStatus(convertCodeableConcept(src.getDoseStatus()));
-    tgt.setDoseStatusReason(convertCodeableConcept(src.getDoseStatusReason()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.ImmunizationRecommendation convertImmunizationRecommendation(org.hl7.fhir.dstu2.model.ImmunizationRecommendation src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.ImmunizationRecommendation tgt = new org.hl7.fhir.r4.model.ImmunizationRecommendation();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setPatient(convertReference(src.getPatient()));
-    for (org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent t : src.getRecommendation())
-      tgt.addRecommendation(convertImmunizationRecommendationRecommendationComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ImmunizationRecommendation convertImmunizationRecommendation(org.hl7.fhir.r4.model.ImmunizationRecommendation src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ImmunizationRecommendation tgt = new org.hl7.fhir.dstu2.model.ImmunizationRecommendation();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setPatient(convertReference(src.getPatient()));
-    for (org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent t : src.getRecommendation())
-      tgt.addRecommendation(convertImmunizationRecommendationRecommendationComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent convertImmunizationRecommendationRecommendationComponent(org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent tgt = new org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent();
-    copyElement(src, tgt);
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
-    tgt.setDoseNumber(src.getDoseNumber());
-    tgt.setForecastStatus(convertCodeableConcept(src.getForecastStatus()));
-    for (org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent t : src.getDateCriterion())
-      tgt.addDateCriterion(convertImmunizationRecommendationRecommendationDateCriterionComponent(t));
-    tgt.setProtocol(convertImmunizationRecommendationRecommendationProtocolComponent(src.getProtocol()));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getSupportingImmunization())
-      tgt.addSupportingImmunization(convertReference(t));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getSupportingPatientInformation())
-      tgt.addSupportingPatientInformation(convertReference(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent convertImmunizationRecommendationRecommendationComponent(org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent tgt = new org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationComponent();
-    copyElement(src, tgt);
-    if (src.hasDate())
-      tgt.setDate(src.getDate());
-    tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
-    tgt.setDoseNumber(src.getDoseNumber());
-    tgt.setForecastStatus(convertCodeableConcept(src.getForecastStatus()));
-    for (org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent t : src.getDateCriterion())
-      tgt.addDateCriterion(convertImmunizationRecommendationRecommendationDateCriterionComponent(t));
-    tgt.setProtocol(convertImmunizationRecommendationRecommendationProtocolComponent(src.getProtocol()));
-    for (org.hl7.fhir.r4.model.Reference t : src.getSupportingImmunization())
-      tgt.addSupportingImmunization(convertReference(t));
-    for (org.hl7.fhir.r4.model.Reference t : src.getSupportingPatientInformation())
-      tgt.addSupportingPatientInformation(convertReference(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent convertImmunizationRecommendationRecommendationDateCriterionComponent(org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent tgt = new org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent();
-    copyElement(src, tgt);
-    tgt.setCode(convertCodeableConcept(src.getCode()));
-    tgt.setValue(src.getValue());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent convertImmunizationRecommendationRecommendationDateCriterionComponent(org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent tgt = new org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationDateCriterionComponent();
-    copyElement(src, tgt);
-    tgt.setCode(convertCodeableConcept(src.getCode()));
-    tgt.setValue(src.getValue());
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent convertImmunizationRecommendationRecommendationProtocolComponent(org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent tgt = new org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent();
-    copyElement(src, tgt);
-    tgt.setDoseSequence(src.getDoseSequence());
-    tgt.setDescription(src.getDescription());
-    tgt.setAuthority(convertReference(src.getAuthority()));
-    tgt.setSeries(src.getSeries());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent convertImmunizationRecommendationRecommendationProtocolComponent(org.hl7.fhir.r4.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent tgt = new org.hl7.fhir.dstu2.model.ImmunizationRecommendation.ImmunizationRecommendationRecommendationProtocolComponent();
-    copyElement(src, tgt);
-    tgt.setDoseSequence(src.getDoseSequence());
-    tgt.setDescription(src.getDescription());
-    tgt.setAuthority(convertReference(src.getAuthority()));
-    tgt.setSeries(src.getSeries());
-    return tgt;
-  }
 
   public org.hl7.fhir.r4.model.ImplementationGuide convertImplementationGuide(org.hl7.fhir.dstu2.model.ImplementationGuide src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -7988,70 +7526,70 @@ public class VersionConvertor_10_40 {
     tgt.setAltitude(src.getAltitude());
     return tgt;
   }
-
-  public org.hl7.fhir.r4.model.Media convertMedia(org.hl7.fhir.dstu2.model.Media src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.Media tgt = new org.hl7.fhir.r4.model.Media();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setType(convertDigitalMediaType(src.getType()));
-    tgt.setSubtype(convertCodeableConcept(src.getSubtype()));
-    tgt.setView(convertCodeableConcept(src.getView()));
-    tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setOperator(convertReference(src.getOperator()));
-    tgt.getDevice().setDisplay(src.getDeviceName());
-    tgt.setHeight(src.getHeight());
-    tgt.setWidth(src.getWidth());
-    tgt.setFrames(src.getFrames());
-    tgt.setDuration(src.getDuration());
-    tgt.setContent(convertAttachment(src.getContent()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Media convertMedia(org.hl7.fhir.r4.model.Media src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Media tgt = new org.hl7.fhir.dstu2.model.Media();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setType(convertDigitalMediaType(src.getType()));
-    tgt.setSubtype(convertCodeableConcept(src.getSubtype()));
-    tgt.setView(convertCodeableConcept(src.getView()));
-    tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setOperator(convertReference(src.getOperator()));
-    tgt.setDeviceName(src.getDevice().getDisplay());
-    tgt.setHeight(src.getHeight());
-    tgt.setWidth(src.getWidth());
-    tgt.setFrames(src.getFrames());
-    tgt.setDuration(src.getDuration());
-    tgt.setContent(convertAttachment(src.getContent()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.Media.DigitalMediaType convertDigitalMediaType(org.hl7.fhir.dstu2.model.Media.DigitalMediaType src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case PHOTO: return org.hl7.fhir.r4.model.Media.DigitalMediaType.PHOTO;
-    case VIDEO: return org.hl7.fhir.r4.model.Media.DigitalMediaType.VIDEO;
-    case AUDIO: return org.hl7.fhir.r4.model.Media.DigitalMediaType.AUDIO;
-    default: return org.hl7.fhir.r4.model.Media.DigitalMediaType.NULL;
-    }
-  }
-
-  public org.hl7.fhir.dstu2.model.Media.DigitalMediaType convertDigitalMediaType(org.hl7.fhir.r4.model.Media.DigitalMediaType src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case PHOTO: return org.hl7.fhir.dstu2.model.Media.DigitalMediaType.PHOTO;
-    case VIDEO: return org.hl7.fhir.dstu2.model.Media.DigitalMediaType.VIDEO;
-    case AUDIO: return org.hl7.fhir.dstu2.model.Media.DigitalMediaType.AUDIO;
-    default: return org.hl7.fhir.dstu2.model.Media.DigitalMediaType.NULL;
-    }
-  }
+//
+//  public org.hl7.fhir.r4.model.Media convertMedia(org.hl7.fhir.dstu2.model.Media src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.r4.model.Media tgt = new org.hl7.fhir.r4.model.Media();
+//    copyDomainResource(src, tgt);
+//    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
+//      tgt.addIdentifier(convertIdentifier(t));
+//    tgt.setType(convertDigitalMediaType(src.getType()));
+//    tgt.setSubtype(convertCodeableConcept(src.getSubtype()));
+//    tgt.setView(convertCodeableConcept(src.getView()));
+//    tgt.setSubject(convertReference(src.getSubject()));
+//    tgt.setOperator(convertReference(src.getOperator()));
+//    tgt.getDevice().setDisplay(src.getDeviceName());
+//    tgt.setHeight(src.getHeight());
+//    tgt.setWidth(src.getWidth());
+//    tgt.setFrames(src.getFrames());
+//    tgt.setDuration(src.getDuration());
+//    tgt.setContent(convertAttachment(src.getContent()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Media convertMedia(org.hl7.fhir.r4.model.Media src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Media tgt = new org.hl7.fhir.dstu2.model.Media();
+//    copyDomainResource(src, tgt);
+//    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
+//      tgt.addIdentifier(convertIdentifier(t));
+//    tgt.setType(convertDigitalMediaType(src.getType()));
+//    tgt.setSubtype(convertCodeableConcept(src.getSubtype()));
+//    tgt.setView(convertCodeableConcept(src.getView()));
+//    tgt.setSubject(convertReference(src.getSubject()));
+//    tgt.setOperator(convertReference(src.getOperator()));
+//    tgt.setDeviceName(src.getDevice().getDisplay());
+//    tgt.setHeight(src.getHeight());
+//    tgt.setWidth(src.getWidth());
+//    tgt.setFrames(src.getFrames());
+//    tgt.setDuration(src.getDuration());
+//    tgt.setContent(convertAttachment(src.getContent()));
+//    return tgt;
+//  }
+//
+//  public org.hl7.fhir.r4.model.Media.DigitalCategoryType convertDigitalMediaType(org.hl7.fhir.dstu2.model.Media.DigitalMediaType src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case PHOTO: return org.hl7.fhir.r4.model.Media.DigitalMediaType.PHOTO;
+//    case VIDEO: return org.hl7.fhir.r4.model.Media.DigitalMediaType.VIDEO;
+//    case AUDIO: return org.hl7.fhir.r4.model.Media.DigitalMediaType.AUDIO;
+//    default: return org.hl7.fhir.r4.model.Media.DigitalMediaType.NULL;
+//    }
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Media.DigitalMediaType convertDigitalMediaType(org.hl7.fhir.r4.model.Media.DigitalMediaType src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case PHOTO: return org.hl7.fhir.dstu2.model.Media.DigitalMediaType.PHOTO;
+//    case VIDEO: return org.hl7.fhir.dstu2.model.Media.DigitalMediaType.VIDEO;
+//    case AUDIO: return org.hl7.fhir.dstu2.model.Media.DigitalMediaType.AUDIO;
+//    default: return org.hl7.fhir.dstu2.model.Media.DigitalMediaType.NULL;
+//    }
+//  }
 //
 //  public org.hl7.fhir.r4.model.Medication convertMedication(org.hl7.fhir.dstu2.model.Medication src) throws FHIRException {
 //    if (src == null || src.isEmpty())
@@ -8623,7 +8161,7 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.r4.model.MessageHeader tgt = new org.hl7.fhir.r4.model.MessageHeader();
     copyDomainResource(src, tgt);
-    tgt.setTimestamp(src.getTimestamp());
+//    tgt.setTimestamp(src.getTimestamp());
     tgt.setEvent(convertCoding(src.getEvent()));
     tgt.setResponse(convertMessageHeaderResponseComponent(src.getResponse()));
     tgt.setSource(convertMessageSourceComponent(src.getSource()));
@@ -8643,7 +8181,7 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.dstu2.model.MessageHeader tgt = new org.hl7.fhir.dstu2.model.MessageHeader();
     copyDomainResource(src, tgt);
-    tgt.setTimestamp(src.getTimestamp());
+//    tgt.setTimestamp(src.getTimestamp());
     tgt.setEvent(convertCoding(src.getEvent()));
     tgt.setResponse(convertMessageHeaderResponseComponent(src.getResponse()));
     tgt.setSource(convertMessageSourceComponent(src.getSource()));
@@ -8774,7 +8312,6 @@ public class VersionConvertor_10_40 {
     tgt.setUsage(src.getUsage());
     for (org.hl7.fhir.dstu2.model.NamingSystem.NamingSystemUniqueIdComponent t : src.getUniqueId())
       tgt.addUniqueId(convertNamingSystemUniqueIdComponent(t));
-    tgt.setReplacedBy(convertReference(src.getReplacedBy()));
     return tgt;
   }
 
@@ -8802,7 +8339,6 @@ public class VersionConvertor_10_40 {
     tgt.setUsage(src.getUsage());
     for (org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent t : src.getUniqueId())
       tgt.addUniqueId(convertNamingSystemUniqueIdComponent(t));
-    tgt.setReplacedBy(convertReference(src.getReplacedBy()));
     return tgt;
   }
 
@@ -9185,7 +8721,7 @@ public class VersionConvertor_10_40 {
     tgt.setMax(src.getMax());
     tgt.setDocumentation(src.getDocumentation());
     tgt.setType(src.getType());
-    tgt.setProfile(convertReference(src.getProfile()));
+    tgt.addTargetProfile(src.getProfile().getReference());
     tgt.setBinding(convertOperationDefinitionParameterBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu2.model.OperationDefinition.OperationDefinitionParameterComponent t : src.getPart())
       tgt.addPart(convertOperationDefinitionParameterComponent(t));
@@ -9207,8 +8743,8 @@ public class VersionConvertor_10_40 {
       tgt.setType("string");
     } else
       tgt.setType(src.getType());
-    if (src.hasProfile())
-      tgt.setProfile(convertReference(src.getProfile()));
+    for (org.hl7.fhir.r4.model.UriType t: src.getTargetProfile())
+      tgt.setProfile(new Reference(t.getValue()));
     if (src.hasBinding())
       tgt.setBinding(convertOperationDefinitionParameterBindingComponent(src.getBinding()));
     for (org.hl7.fhir.r4.model.OperationDefinition.OperationDefinitionParameterComponent t : src.getPart())
@@ -10377,51 +9913,6 @@ public class VersionConvertor_10_40 {
     return tgt;
   }
 
-
-  public org.hl7.fhir.r4.model.RelatedPerson convertRelatedPerson(org.hl7.fhir.dstu2.model.RelatedPerson src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.RelatedPerson tgt = new org.hl7.fhir.r4.model.RelatedPerson();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setRelationship(convertCodeableConcept(src.getRelationship()));
-    tgt.addName(convertHumanName(src.getName()));
-    for (org.hl7.fhir.dstu2.model.ContactPoint t : src.getTelecom())
-      tgt.addTelecom(convertContactPoint(t));
-    tgt.setGender(convertAdministrativeGender(src.getGender()));
-    tgt.setBirthDate(src.getBirthDate());
-    for (org.hl7.fhir.dstu2.model.Address t : src.getAddress())
-      tgt.addAddress(convertAddress(t));
-    for (org.hl7.fhir.dstu2.model.Attachment t : src.getPhoto())
-      tgt.addPhoto(convertAttachment(t));
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.RelatedPerson convertRelatedPerson(org.hl7.fhir.r4.model.RelatedPerson src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.RelatedPerson tgt = new org.hl7.fhir.dstu2.model.RelatedPerson();
-    copyDomainResource(src, tgt);
-    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
-      tgt.addIdentifier(convertIdentifier(t));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setRelationship(convertCodeableConcept(src.getRelationship()));
-    if (!src.getName().isEmpty())
-    tgt.setName(convertHumanName(src.getName().get(0)));
-    for (org.hl7.fhir.r4.model.ContactPoint t : src.getTelecom())
-      tgt.addTelecom(convertContactPoint(t));
-    tgt.setGender(convertAdministrativeGender(src.getGender()));
-    tgt.setBirthDate(src.getBirthDate());
-    for (org.hl7.fhir.r4.model.Address t : src.getAddress())
-      tgt.addAddress(convertAddress(t));
-    for (org.hl7.fhir.r4.model.Attachment t : src.getPhoto())
-      tgt.addPhoto(convertAttachment(t));
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    return tgt;
-  }
 
   public org.hl7.fhir.r4.model.RiskAssessment convertRiskAssessment(org.hl7.fhir.dstu2.model.RiskAssessment src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -12420,8 +11911,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return null;
     if (src instanceof org.hl7.fhir.dstu2.model.Parameters)
       return convertParameters((org.hl7.fhir.dstu2.model.Parameters) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.Account)
-      return convertAccount((org.hl7.fhir.dstu2.model.Account) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Appointment)
       return convertAppointment((org.hl7.fhir.dstu2.model.Appointment) src);
     if (src instanceof org.hl7.fhir.dstu2.model.AppointmentResponse)
@@ -12486,20 +11975,14 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertGroup((org.hl7.fhir.dstu2.model.Group) src);
     if (src instanceof org.hl7.fhir.dstu2.model.HealthcareService)
       return convertHealthcareService((org.hl7.fhir.dstu2.model.HealthcareService) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.ImagingStudy)
-      return convertImagingStudy((org.hl7.fhir.dstu2.model.ImagingStudy) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.Immunization)
-      return convertImmunization((org.hl7.fhir.dstu2.model.Immunization) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.ImmunizationRecommendation)
-      return convertImmunizationRecommendation((org.hl7.fhir.dstu2.model.ImmunizationRecommendation) src);
     if (src instanceof org.hl7.fhir.dstu2.model.ImplementationGuide)
       return convertImplementationGuide((org.hl7.fhir.dstu2.model.ImplementationGuide) src);
     if (src instanceof org.hl7.fhir.dstu2.model.List_)
       return convertList((org.hl7.fhir.dstu2.model.List_) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Location)
       return convertLocation((org.hl7.fhir.dstu2.model.Location) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.Media)
-      return convertMedia((org.hl7.fhir.dstu2.model.Media) src);
+//    if (src instanceof org.hl7.fhir.dstu2.model.Media)
+//      return convertMedia((org.hl7.fhir.dstu2.model.Media) src);
 //    if (src instanceof org.hl7.fhir.dstu2.model.Medication)
 //      return convertMedication((org.hl7.fhir.dstu2.model.Medication) src);
     if (src instanceof org.hl7.fhir.dstu2.model.MedicationDispense)
@@ -12532,8 +12015,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertQuestionnaire((org.hl7.fhir.dstu2.model.Questionnaire) src);
     if (src instanceof org.hl7.fhir.dstu2.model.QuestionnaireResponse)
       return convertQuestionnaireResponse((org.hl7.fhir.dstu2.model.QuestionnaireResponse) src);
-    if (src instanceof org.hl7.fhir.dstu2.model.RelatedPerson)
-      return convertRelatedPerson((org.hl7.fhir.dstu2.model.RelatedPerson) src);
     if (src instanceof org.hl7.fhir.dstu2.model.RiskAssessment)
       return convertRiskAssessment((org.hl7.fhir.dstu2.model.RiskAssessment) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Schedule)
@@ -12626,20 +12107,14 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertGroup((org.hl7.fhir.r4.model.Group) src);
     if (src instanceof org.hl7.fhir.r4.model.HealthcareService)
       return convertHealthcareService((org.hl7.fhir.r4.model.HealthcareService) src);
-    if (src instanceof org.hl7.fhir.r4.model.ImagingStudy)
-      return convertImagingStudy((org.hl7.fhir.r4.model.ImagingStudy) src);
-    if (src instanceof org.hl7.fhir.r4.model.Immunization)
-      return convertImmunization((org.hl7.fhir.r4.model.Immunization) src);
-    if (src instanceof org.hl7.fhir.r4.model.ImmunizationRecommendation)
-      return convertImmunizationRecommendation((org.hl7.fhir.r4.model.ImmunizationRecommendation) src);
     if (src instanceof org.hl7.fhir.r4.model.ImplementationGuide)
       return convertImplementationGuide((org.hl7.fhir.r4.model.ImplementationGuide) src);
     if (src instanceof org.hl7.fhir.r4.model.ListResource)
       return convertList((org.hl7.fhir.r4.model.ListResource) src);
     if (src instanceof org.hl7.fhir.r4.model.Location)
       return convertLocation((org.hl7.fhir.r4.model.Location) src);
-    if (src instanceof org.hl7.fhir.r4.model.Media)
-      return convertMedia((org.hl7.fhir.r4.model.Media) src);
+//    if (src instanceof org.hl7.fhir.r4.model.Media)
+//      return convertMedia((org.hl7.fhir.r4.model.Media) src);
 //    if (src instanceof org.hl7.fhir.r4.model.Medication)
 //      return convertMedication((org.hl7.fhir.r4.model.Medication) src);
     if (src instanceof org.hl7.fhir.r4.model.MedicationDispense)
@@ -12672,8 +12147,6 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
       return convertQuestionnaire((org.hl7.fhir.r4.model.Questionnaire) src);
     if (src instanceof org.hl7.fhir.r4.model.QuestionnaireResponse)
       return convertQuestionnaireResponse((org.hl7.fhir.r4.model.QuestionnaireResponse) src);
-    if (src instanceof org.hl7.fhir.r4.model.RelatedPerson)
-      return convertRelatedPerson((org.hl7.fhir.r4.model.RelatedPerson) src);
     if (src instanceof org.hl7.fhir.r4.model.RiskAssessment)
       return convertRiskAssessment((org.hl7.fhir.r4.model.RiskAssessment) src);
     if (src instanceof org.hl7.fhir.r4.model.Schedule)

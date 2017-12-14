@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -93,7 +93,7 @@ public class SampledData extends Type implements ICompositeType {
     /**
      * A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
      */
-    @Child(name = "data", type = {StringType.class}, order=6, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "data", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Decimal values with spaces, or \"E\" | \"U\" | \"L\"", formalDefinition="A series of data points which are decimal values separated by a single space (character u20). The special values \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) can also be used in place of a decimal value." )
     protected StringType data;
 
@@ -109,12 +109,11 @@ public class SampledData extends Type implements ICompositeType {
   /**
    * Constructor
    */
-    public SampledData(SimpleQuantity origin, DecimalType period, PositiveIntType dimensions, StringType data) {
+    public SampledData(SimpleQuantity origin, DecimalType period, PositiveIntType dimensions) {
       super();
       this.origin = origin;
       this.period = period;
       this.dimensions = dimensions;
-      this.data = data;
     }
 
     /**
@@ -489,9 +488,13 @@ public class SampledData extends Type implements ICompositeType {
      * @param value A series of data points which are decimal values separated by a single space (character u20). The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can also be used in place of a decimal value.
      */
     public SampledData setData(String value) { 
+      if (Utilities.noString(value))
+        this.data = null;
+      else {
         if (this.data == null)
           this.data = new StringType();
         this.data.setValue(value);
+      }
       return this;
     }
 

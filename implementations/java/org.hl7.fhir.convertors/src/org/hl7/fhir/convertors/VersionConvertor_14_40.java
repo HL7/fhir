@@ -4465,7 +4465,6 @@ public class VersionConvertor_14_40 {
       tgt.setUsage(src.getUsage());
     for (org.hl7.fhir.dstu2016may.model.NamingSystem.NamingSystemUniqueIdComponent t : src.getUniqueId())
       tgt.addUniqueId(convertNamingSystemUniqueIdComponent(t));
-    tgt.setReplacedBy(convertReference(src.getReplacedBy()));
     return tgt;
   }
 
@@ -4496,7 +4495,6 @@ public class VersionConvertor_14_40 {
       tgt.setUsage(src.getUsage());
     for (org.hl7.fhir.r4.model.NamingSystem.NamingSystemUniqueIdComponent t : src.getUniqueId())
       tgt.addUniqueId(convertNamingSystemUniqueIdComponent(t));
-    tgt.setReplacedBy(convertReference(src.getReplacedBy()));
     return tgt;
   }
 
@@ -4744,7 +4742,7 @@ public class VersionConvertor_14_40 {
     if (src.hasType())
       tgt.setType(src.getType());
     tgt.setSearchType(convertSearchParamType(src.getSearchType()));
-    tgt.setProfile(convertReference(src.getProfile()));
+    tgt.addTargetProfile(src.getProfile().getReference());
     tgt.setBinding(convertOperationDefinitionParameterBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionParameterComponent t : src.getPart())
       tgt.addPart(convertOperationDefinitionParameterComponent(t));
@@ -4765,7 +4763,8 @@ public class VersionConvertor_14_40 {
     if (src.hasType())
       tgt.setType(src.getType());
     tgt.setSearchType(convertSearchParamType(src.getSearchType()));
-    tgt.setProfile(convertReference(src.getProfile()));
+    for (org.hl7.fhir.r4.model.UriType t : src.getTargetProfile())
+    tgt.setProfile(new org.hl7.fhir.dstu2016may.model.Reference(t.getValue()));
     tgt.setBinding(convertOperationDefinitionParameterBindingComponent(src.getBinding()));
     for (org.hl7.fhir.r4.model.OperationDefinition.OperationDefinitionParameterComponent t : src.getPart())
       tgt.addPart(convertOperationDefinitionParameterComponent(t));

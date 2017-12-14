@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -856,7 +856,7 @@ or intervention but are still being followed according to the primary objective 
      * The type of study based upon the intent of the study's activities. A classification of the intent of the study.
      */
     @Child(name = "primaryPurposeType", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibility | epidemiological | bio-banking", formalDefinition="The type of study based upon the intent of the study's activities. A classification of the intent of the study." )
+    @Description(shortDefinition="treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibility", formalDefinition="The type of study based upon the intent of the study's activities. A classification of the intent of the study." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/research-study-prim-purp-type")
     protected CodeableConcept primaryPurposeType;
 
@@ -869,44 +869,30 @@ or intervention but are still being followed according to the primary objective 
     protected CodeableConcept phase;
 
     /**
-     * The condition that is the focus of the study. 
-
-EXAMPLE(S):
-In a study to examine risk factors for Lupus, might have as an inclusion criterion "healthy volunteer", but the target condition code would be a Lupus SNOMED code.
-
-OTHER NAME(S):
-
-NOTE(S):.
-     */
-    @Child(name = "condition", type = {Condition.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Condition being studied", formalDefinition="The condition that is the focus of the study. \n\nEXAMPLE(S):\nIn a study to examine risk factors for Lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a Lupus SNOMED code.\n\nOTHER NAME(S):\n\nNOTE(S):." )
-    protected List<Reference> condition;
-    /**
-     * The actual objects that are the target of the reference (The condition that is the focus of the study. 
-
-EXAMPLE(S):
-In a study to examine risk factors for Lupus, might have as an inclusion criterion "healthy volunteer", but the target condition code would be a Lupus SNOMED code.
-
-OTHER NAME(S):
-
-NOTE(S):.)
-     */
-    protected List<Condition> conditionTarget;
-
-
-    /**
      * Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.
      */
-    @Child(name = "category", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "category", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Classifications for the study", formalDefinition="Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc." )
     protected List<CodeableConcept> category;
 
     /**
      * The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about.
      */
-    @Child(name = "focus", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Drugs, devices, conditions, etc. under study", formalDefinition="The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about." )
+    @Child(name = "focus", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Drugs, devices, etc. under study", formalDefinition="The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about." )
     protected List<CodeableConcept> focus;
+
+    /**
+     * The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion "healthy volunteer", but the target condition code would be a Lupus SNOMED code.
+     */
+    @Child(name = "condition", type = {Condition.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Condition being studied", formalDefinition="The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a Lupus SNOMED code." )
+    protected List<Reference> condition;
+    /**
+     * The actual objects that are the target of the reference (The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion "healthy volunteer", but the target condition code would be a Lupus SNOMED code.)
+     */
+    protected List<Condition> conditionTarget;
+
 
     /**
      * Contact details to assist a user in learning more about or engaging with the study.
@@ -932,10 +918,10 @@ NOTE(S):.)
     /**
      * Indicates a country, state or other region where the study is taking place.
      */
-    @Child(name = "participatingLocation", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "location", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Geographic region(s) for study", formalDefinition="Indicates a country, state or other region where the study is taking place." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/jurisdiction")
-    protected List<CodeableConcept> participatingLocation;
+    protected List<CodeableConcept> location;
 
     /**
      * A full description of how the study is being conducted.
@@ -1028,7 +1014,7 @@ NOTE(S):.)
     @Description(shortDefinition="A goal for the study", formalDefinition="A goal that the study is aiming to achieve in terms of a scientific question to be answered by the analysis of data collected during the study." )
     protected List<ResearchStudyObjectiveComponent> objective;
 
-    private static final long serialVersionUID = -45189823L;
+    private static final long serialVersionUID = 220174930L;
 
   /**
    * Constructor
@@ -1391,88 +1377,6 @@ NOTE(S):.)
     }
 
     /**
-     * @return {@link #condition} (The condition that is the focus of the study. 
-
-EXAMPLE(S):
-In a study to examine risk factors for Lupus, might have as an inclusion criterion "healthy volunteer", but the target condition code would be a Lupus SNOMED code.
-
-OTHER NAME(S):
-
-NOTE(S):.)
-     */
-    public List<Reference> getCondition() { 
-      if (this.condition == null)
-        this.condition = new ArrayList<Reference>();
-      return this.condition;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public ResearchStudy setCondition(List<Reference> theCondition) { 
-      this.condition = theCondition;
-      return this;
-    }
-
-    public boolean hasCondition() { 
-      if (this.condition == null)
-        return false;
-      for (Reference item : this.condition)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public Reference addCondition() { //3
-      Reference t = new Reference();
-      if (this.condition == null)
-        this.condition = new ArrayList<Reference>();
-      this.condition.add(t);
-      return t;
-    }
-
-    public ResearchStudy addCondition(Reference t) { //3
-      if (t == null)
-        return this;
-      if (this.condition == null)
-        this.condition = new ArrayList<Reference>();
-      this.condition.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #condition}, creating it if it does not already exist
-     */
-    public Reference getConditionFirstRep() { 
-      if (getCondition().isEmpty()) {
-        addCondition();
-      }
-      return getCondition().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Condition> getConditionTarget() { 
-      if (this.conditionTarget == null)
-        this.conditionTarget = new ArrayList<Condition>();
-      return this.conditionTarget;
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public Condition addConditionTarget() { 
-      Condition r = new Condition();
-      if (this.conditionTarget == null)
-        this.conditionTarget = new ArrayList<Condition>();
-      this.conditionTarget.add(r);
-      return r;
-    }
-
-    /**
      * @return {@link #category} (Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.)
      */
     public List<CodeableConcept> getCategory() { 
@@ -1576,6 +1480,81 @@ NOTE(S):.)
         addFocus();
       }
       return getFocus().get(0);
+    }
+
+    /**
+     * @return {@link #condition} (The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion "healthy volunteer", but the target condition code would be a Lupus SNOMED code.)
+     */
+    public List<Reference> getCondition() { 
+      if (this.condition == null)
+        this.condition = new ArrayList<Reference>();
+      return this.condition;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ResearchStudy setCondition(List<Reference> theCondition) { 
+      this.condition = theCondition;
+      return this;
+    }
+
+    public boolean hasCondition() { 
+      if (this.condition == null)
+        return false;
+      for (Reference item : this.condition)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addCondition() { //3
+      Reference t = new Reference();
+      if (this.condition == null)
+        this.condition = new ArrayList<Reference>();
+      this.condition.add(t);
+      return t;
+    }
+
+    public ResearchStudy addCondition(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.condition == null)
+        this.condition = new ArrayList<Reference>();
+      this.condition.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #condition}, creating it if it does not already exist
+     */
+    public Reference getConditionFirstRep() { 
+      if (getCondition().isEmpty()) {
+        addCondition();
+      }
+      return getCondition().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Condition> getConditionTarget() { 
+      if (this.conditionTarget == null)
+        this.conditionTarget = new ArrayList<Condition>();
+      return this.conditionTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Condition addConditionTarget() { 
+      Condition r = new Condition();
+      if (this.conditionTarget == null)
+        this.conditionTarget = new ArrayList<Condition>();
+      this.conditionTarget.add(r);
+      return r;
     }
 
     /**
@@ -1738,56 +1717,56 @@ NOTE(S):.)
     }
 
     /**
-     * @return {@link #participatingLocation} (Indicates a country, state or other region where the study is taking place.)
+     * @return {@link #location} (Indicates a country, state or other region where the study is taking place.)
      */
-    public List<CodeableConcept> getParticipatingLocation() { 
-      if (this.participatingLocation == null)
-        this.participatingLocation = new ArrayList<CodeableConcept>();
-      return this.participatingLocation;
+    public List<CodeableConcept> getLocation() { 
+      if (this.location == null)
+        this.location = new ArrayList<CodeableConcept>();
+      return this.location;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ResearchStudy setParticipatingLocation(List<CodeableConcept> theParticipatingLocation) { 
-      this.participatingLocation = theParticipatingLocation;
+    public ResearchStudy setLocation(List<CodeableConcept> theLocation) { 
+      this.location = theLocation;
       return this;
     }
 
-    public boolean hasParticipatingLocation() { 
-      if (this.participatingLocation == null)
+    public boolean hasLocation() { 
+      if (this.location == null)
         return false;
-      for (CodeableConcept item : this.participatingLocation)
+      for (CodeableConcept item : this.location)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addParticipatingLocation() { //3
+    public CodeableConcept addLocation() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.participatingLocation == null)
-        this.participatingLocation = new ArrayList<CodeableConcept>();
-      this.participatingLocation.add(t);
+      if (this.location == null)
+        this.location = new ArrayList<CodeableConcept>();
+      this.location.add(t);
       return t;
     }
 
-    public ResearchStudy addParticipatingLocation(CodeableConcept t) { //3
+    public ResearchStudy addLocation(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.participatingLocation == null)
-        this.participatingLocation = new ArrayList<CodeableConcept>();
-      this.participatingLocation.add(t);
+      if (this.location == null)
+        this.location = new ArrayList<CodeableConcept>();
+      this.location.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #participatingLocation}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #location}, creating it if it does not already exist
      */
-    public CodeableConcept getParticipatingLocationFirstRep() { 
-      if (getParticipatingLocation().isEmpty()) {
-        addParticipatingLocation();
+    public CodeableConcept getLocationFirstRep() { 
+      if (getLocation().isEmpty()) {
+        addLocation();
       }
-      return getParticipatingLocation().get(0);
+      return getLocation().get(0);
     }
 
     /**
@@ -2293,13 +2272,13 @@ NOTE(S):.)
         children.add(new Property("status", "code", "The current state of the study.", 0, 1, status));
         children.add(new Property("primaryPurposeType", "CodeableConcept", "The type of study based upon the intent of the study's activities. A classification of the intent of the study.", 0, 1, primaryPurposeType));
         children.add(new Property("phase", "CodeableConcept", "The stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.", 0, 1, phase));
-        children.add(new Property("condition", "Reference(Condition)", "The condition that is the focus of the study. \n\nEXAMPLE(S):\nIn a study to examine risk factors for Lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a Lupus SNOMED code.\n\nOTHER NAME(S):\n\nNOTE(S):.", 0, java.lang.Integer.MAX_VALUE, condition));
         children.add(new Property("category", "CodeableConcept", "Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.", 0, java.lang.Integer.MAX_VALUE, category));
         children.add(new Property("focus", "CodeableConcept", "The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about.", 0, java.lang.Integer.MAX_VALUE, focus));
+        children.add(new Property("condition", "Reference(Condition)", "The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a Lupus SNOMED code.", 0, java.lang.Integer.MAX_VALUE, condition));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in learning more about or engaging with the study.", 0, java.lang.Integer.MAX_VALUE, contact));
         children.add(new Property("relatedArtifact", "RelatedArtifact", "Citations, references and other related documents.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
         children.add(new Property("keyword", "CodeableConcept", "Key terms to aid in searching for or filtering the study.", 0, java.lang.Integer.MAX_VALUE, keyword));
-        children.add(new Property("participatingLocation", "CodeableConcept", "Indicates a country, state or other region where the study is taking place.", 0, java.lang.Integer.MAX_VALUE, participatingLocation));
+        children.add(new Property("location", "CodeableConcept", "Indicates a country, state or other region where the study is taking place.", 0, java.lang.Integer.MAX_VALUE, location));
         children.add(new Property("description", "markdown", "A full description of how the study is being conducted.", 0, 1, description));
         children.add(new Property("enrollment", "Reference(Group)", "Reference to a Group that defines the criteria for and quantity of subjects participating in the study.  E.g. \" 200 female Europeans between the ages of 20 and 45 with early onset diabetes\".", 0, java.lang.Integer.MAX_VALUE, enrollment));
         children.add(new Property("period", "Period", "Identifies the start date and the expected (or actual, depending on status) end date for the study.", 0, 1, period));
@@ -2322,13 +2301,13 @@ NOTE(S):.)
         case -892481550: /*status*/  return new Property("status", "code", "The current state of the study.", 0, 1, status);
         case -2132842986: /*primaryPurposeType*/  return new Property("primaryPurposeType", "CodeableConcept", "The type of study based upon the intent of the study's activities. A classification of the intent of the study.", 0, 1, primaryPurposeType);
         case 106629499: /*phase*/  return new Property("phase", "CodeableConcept", "The stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.", 0, 1, phase);
-        case -861311717: /*condition*/  return new Property("condition", "Reference(Condition)", "The condition that is the focus of the study. \n\nEXAMPLE(S):\nIn a study to examine risk factors for Lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a Lupus SNOMED code.\n\nOTHER NAME(S):\n\nNOTE(S):.", 0, java.lang.Integer.MAX_VALUE, condition);
         case 50511102: /*category*/  return new Property("category", "CodeableConcept", "Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.", 0, java.lang.Integer.MAX_VALUE, category);
         case 97604824: /*focus*/  return new Property("focus", "CodeableConcept", "The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about.", 0, java.lang.Integer.MAX_VALUE, focus);
+        case -861311717: /*condition*/  return new Property("condition", "Reference(Condition)", "The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion \"healthy volunteer\", but the target condition code would be a Lupus SNOMED code.", 0, java.lang.Integer.MAX_VALUE, condition);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in learning more about or engaging with the study.", 0, java.lang.Integer.MAX_VALUE, contact);
         case 666807069: /*relatedArtifact*/  return new Property("relatedArtifact", "RelatedArtifact", "Citations, references and other related documents.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact);
         case -814408215: /*keyword*/  return new Property("keyword", "CodeableConcept", "Key terms to aid in searching for or filtering the study.", 0, java.lang.Integer.MAX_VALUE, keyword);
-        case -293190160: /*participatingLocation*/  return new Property("participatingLocation", "CodeableConcept", "Indicates a country, state or other region where the study is taking place.", 0, java.lang.Integer.MAX_VALUE, participatingLocation);
+        case 1901043637: /*location*/  return new Property("location", "CodeableConcept", "Indicates a country, state or other region where the study is taking place.", 0, java.lang.Integer.MAX_VALUE, location);
         case -1724546052: /*description*/  return new Property("description", "markdown", "A full description of how the study is being conducted.", 0, 1, description);
         case 116089604: /*enrollment*/  return new Property("enrollment", "Reference(Group)", "Reference to a Group that defines the criteria for and quantity of subjects participating in the study.  E.g. \" 200 female Europeans between the ages of 20 and 45 with early onset diabetes\".", 0, java.lang.Integer.MAX_VALUE, enrollment);
         case -991726143: /*period*/  return new Property("period", "Period", "Identifies the start date and the expected (or actual, depending on status) end date for the study.", 0, 1, period);
@@ -2354,13 +2333,13 @@ NOTE(S):.)
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ResearchStudyStatus>
         case -2132842986: /*primaryPurposeType*/ return this.primaryPurposeType == null ? new Base[0] : new Base[] {this.primaryPurposeType}; // CodeableConcept
         case 106629499: /*phase*/ return this.phase == null ? new Base[0] : new Base[] {this.phase}; // CodeableConcept
-        case -861311717: /*condition*/ return this.condition == null ? new Base[0] : this.condition.toArray(new Base[this.condition.size()]); // Reference
         case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
         case 97604824: /*focus*/ return this.focus == null ? new Base[0] : this.focus.toArray(new Base[this.focus.size()]); // CodeableConcept
+        case -861311717: /*condition*/ return this.condition == null ? new Base[0] : this.condition.toArray(new Base[this.condition.size()]); // Reference
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
         case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
         case -814408215: /*keyword*/ return this.keyword == null ? new Base[0] : this.keyword.toArray(new Base[this.keyword.size()]); // CodeableConcept
-        case -293190160: /*participatingLocation*/ return this.participatingLocation == null ? new Base[0] : this.participatingLocation.toArray(new Base[this.participatingLocation.size()]); // CodeableConcept
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : this.location.toArray(new Base[this.location.size()]); // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case 116089604: /*enrollment*/ return this.enrollment == null ? new Base[0] : this.enrollment.toArray(new Base[this.enrollment.size()]); // Reference
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
@@ -2401,14 +2380,14 @@ NOTE(S):.)
         case 106629499: // phase
           this.phase = castToCodeableConcept(value); // CodeableConcept
           return value;
-        case -861311717: // condition
-          this.getCondition().add(castToReference(value)); // Reference
-          return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case 97604824: // focus
           this.getFocus().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
+        case -861311717: // condition
+          this.getCondition().add(castToReference(value)); // Reference
           return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
@@ -2419,8 +2398,8 @@ NOTE(S):.)
         case -814408215: // keyword
           this.getKeyword().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case -293190160: // participatingLocation
-          this.getParticipatingLocation().add(castToCodeableConcept(value)); // CodeableConcept
+        case 1901043637: // location
+          this.getLocation().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
@@ -2474,20 +2453,20 @@ NOTE(S):.)
           this.primaryPurposeType = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("phase")) {
           this.phase = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("condition")) {
-          this.getCondition().add(castToReference(value));
         } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
         } else if (name.equals("focus")) {
           this.getFocus().add(castToCodeableConcept(value));
+        } else if (name.equals("condition")) {
+          this.getCondition().add(castToReference(value));
         } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
         } else if (name.equals("relatedArtifact")) {
           this.getRelatedArtifact().add(castToRelatedArtifact(value));
         } else if (name.equals("keyword")) {
           this.getKeyword().add(castToCodeableConcept(value));
-        } else if (name.equals("participatingLocation")) {
-          this.getParticipatingLocation().add(castToCodeableConcept(value));
+        } else if (name.equals("location")) {
+          this.getLocation().add(castToCodeableConcept(value));
         } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("enrollment")) {
@@ -2523,13 +2502,13 @@ NOTE(S):.)
         case -892481550:  return getStatusElement();
         case -2132842986:  return getPrimaryPurposeType(); 
         case 106629499:  return getPhase(); 
-        case -861311717:  return addCondition(); 
         case 50511102:  return addCategory(); 
         case 97604824:  return addFocus(); 
+        case -861311717:  return addCondition(); 
         case 951526432:  return addContact(); 
         case 666807069:  return addRelatedArtifact(); 
         case -814408215:  return addKeyword(); 
-        case -293190160:  return addParticipatingLocation(); 
+        case 1901043637:  return addLocation(); 
         case -1724546052:  return getDescriptionElement();
         case 116089604:  return addEnrollment(); 
         case -991726143:  return getPeriod(); 
@@ -2555,13 +2534,13 @@ NOTE(S):.)
         case -892481550: /*status*/ return new String[] {"code"};
         case -2132842986: /*primaryPurposeType*/ return new String[] {"CodeableConcept"};
         case 106629499: /*phase*/ return new String[] {"CodeableConcept"};
-        case -861311717: /*condition*/ return new String[] {"Reference"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 97604824: /*focus*/ return new String[] {"CodeableConcept"};
+        case -861311717: /*condition*/ return new String[] {"Reference"};
         case 951526432: /*contact*/ return new String[] {"ContactDetail"};
         case 666807069: /*relatedArtifact*/ return new String[] {"RelatedArtifact"};
         case -814408215: /*keyword*/ return new String[] {"CodeableConcept"};
-        case -293190160: /*participatingLocation*/ return new String[] {"CodeableConcept"};
+        case 1901043637: /*location*/ return new String[] {"CodeableConcept"};
         case -1724546052: /*description*/ return new String[] {"markdown"};
         case 116089604: /*enrollment*/ return new String[] {"Reference"};
         case -991726143: /*period*/ return new String[] {"Period"};
@@ -2602,14 +2581,14 @@ NOTE(S):.)
           this.phase = new CodeableConcept();
           return this.phase;
         }
-        else if (name.equals("condition")) {
-          return addCondition();
-        }
         else if (name.equals("category")) {
           return addCategory();
         }
         else if (name.equals("focus")) {
           return addFocus();
+        }
+        else if (name.equals("condition")) {
+          return addCondition();
         }
         else if (name.equals("contact")) {
           return addContact();
@@ -2620,8 +2599,8 @@ NOTE(S):.)
         else if (name.equals("keyword")) {
           return addKeyword();
         }
-        else if (name.equals("participatingLocation")) {
-          return addParticipatingLocation();
+        else if (name.equals("location")) {
+          return addLocation();
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type ResearchStudy.description");
@@ -2688,11 +2667,6 @@ NOTE(S):.)
         dst.status = status == null ? null : status.copy();
         dst.primaryPurposeType = primaryPurposeType == null ? null : primaryPurposeType.copy();
         dst.phase = phase == null ? null : phase.copy();
-        if (condition != null) {
-          dst.condition = new ArrayList<Reference>();
-          for (Reference i : condition)
-            dst.condition.add(i.copy());
-        };
         if (category != null) {
           dst.category = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : category)
@@ -2702,6 +2676,11 @@ NOTE(S):.)
           dst.focus = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : focus)
             dst.focus.add(i.copy());
+        };
+        if (condition != null) {
+          dst.condition = new ArrayList<Reference>();
+          for (Reference i : condition)
+            dst.condition.add(i.copy());
         };
         if (contact != null) {
           dst.contact = new ArrayList<ContactDetail>();
@@ -2718,10 +2697,10 @@ NOTE(S):.)
           for (CodeableConcept i : keyword)
             dst.keyword.add(i.copy());
         };
-        if (participatingLocation != null) {
-          dst.participatingLocation = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : participatingLocation)
-            dst.participatingLocation.add(i.copy());
+        if (location != null) {
+          dst.location = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : location)
+            dst.location.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
         if (enrollment != null) {
@@ -2769,13 +2748,13 @@ NOTE(S):.)
         ResearchStudy o = (ResearchStudy) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(title, o.title, true) && compareDeep(protocol, o.protocol, true)
            && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true) && compareDeep(primaryPurposeType, o.primaryPurposeType, true)
-           && compareDeep(phase, o.phase, true) && compareDeep(condition, o.condition, true) && compareDeep(category, o.category, true)
-           && compareDeep(focus, o.focus, true) && compareDeep(contact, o.contact, true) && compareDeep(relatedArtifact, o.relatedArtifact, true)
-           && compareDeep(keyword, o.keyword, true) && compareDeep(participatingLocation, o.participatingLocation, true)
-           && compareDeep(description, o.description, true) && compareDeep(enrollment, o.enrollment, true)
-           && compareDeep(period, o.period, true) && compareDeep(sponsor, o.sponsor, true) && compareDeep(principalInvestigator, o.principalInvestigator, true)
-           && compareDeep(site, o.site, true) && compareDeep(reasonStopped, o.reasonStopped, true) && compareDeep(note, o.note, true)
-           && compareDeep(arm, o.arm, true) && compareDeep(objective, o.objective, true);
+           && compareDeep(phase, o.phase, true) && compareDeep(category, o.category, true) && compareDeep(focus, o.focus, true)
+           && compareDeep(condition, o.condition, true) && compareDeep(contact, o.contact, true) && compareDeep(relatedArtifact, o.relatedArtifact, true)
+           && compareDeep(keyword, o.keyword, true) && compareDeep(location, o.location, true) && compareDeep(description, o.description, true)
+           && compareDeep(enrollment, o.enrollment, true) && compareDeep(period, o.period, true) && compareDeep(sponsor, o.sponsor, true)
+           && compareDeep(principalInvestigator, o.principalInvestigator, true) && compareDeep(site, o.site, true)
+           && compareDeep(reasonStopped, o.reasonStopped, true) && compareDeep(note, o.note, true) && compareDeep(arm, o.arm, true)
+           && compareDeep(objective, o.objective, true);
       }
 
       @Override
@@ -2791,9 +2770,9 @@ NOTE(S):.)
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, title, protocol
-          , partOf, status, primaryPurposeType, phase, condition, category, focus, contact
-          , relatedArtifact, keyword, participatingLocation, description, enrollment, period
-          , sponsor, principalInvestigator, site, reasonStopped, note, arm, objective);
+          , partOf, status, primaryPurposeType, phase, category, focus, condition, contact
+          , relatedArtifact, keyword, location, description, enrollment, period, sponsor
+          , principalInvestigator, site, reasonStopped, note, arm, objective);
       }
 
   @Override
@@ -2896,17 +2875,17 @@ NOTE(S):.)
  /**
    * Search parameter: <b>focus</b>
    * <p>
-   * Description: <b>Drugs, devices, conditions, etc. under study</b><br>
+   * Description: <b>Drugs, devices, etc. under study</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchStudy.focus</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="focus", path="ResearchStudy.focus", description="Drugs, devices, conditions, etc. under study", type="token" )
+  @SearchParamDefinition(name="focus", path="ResearchStudy.focus", description="Drugs, devices, etc. under study", type="token" )
   public static final String SP_FOCUS = "focus";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>focus</b>
    * <p>
-   * Description: <b>Drugs, devices, conditions, etc. under study</b><br>
+   * Description: <b>Drugs, devices, etc. under study</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ResearchStudy.focus</b><br>
    * </p>
@@ -3012,24 +2991,24 @@ NOTE(S):.)
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SITE = new ca.uhn.fhir.model.api.Include("ResearchStudy:site").toLocked();
 
  /**
-   * Search parameter: <b>participatinglocation</b>
+   * Search parameter: <b>location</b>
    * <p>
    * Description: <b>Geographic region(s) for study</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ResearchStudy.participatingLocation</b><br>
+   * Path: <b>ResearchStudy.location</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participatinglocation", path="ResearchStudy.participatingLocation", description="Geographic region(s) for study", type="token" )
-  public static final String SP_PARTICIPATINGLOCATION = "participatinglocation";
+  @SearchParamDefinition(name="location", path="ResearchStudy.location", description="Geographic region(s) for study", type="token" )
+  public static final String SP_LOCATION = "location";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>participatinglocation</b>
+   * <b>Fluent Client</b> search parameter constant for <b>location</b>
    * <p>
    * Description: <b>Geographic region(s) for study</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ResearchStudy.participatingLocation</b><br>
+   * Path: <b>ResearchStudy.location</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PARTICIPATINGLOCATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PARTICIPATINGLOCATION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam LOCATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_LOCATION);
 
  /**
    * Search parameter: <b>category</b>

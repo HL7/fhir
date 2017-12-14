@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -796,7 +796,7 @@ public class UserSession extends DomainResource {
     /**
      * A practitioner, patient, device, or related person engaged in the session.
      */
-    @Child(name = "user", type = {Device.class, Practitioner.class, Patient.class, RelatedPerson.class}, order=1, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "user", type = {Device.class, Practitioner.class, Patient.class, RelatedPerson.class}, order=1, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="User engaged in the session", formalDefinition="A practitioner, patient, device, or related person engaged in the session." )
     protected Reference user;
 
@@ -822,7 +822,7 @@ public class UserSession extends DomainResource {
     /**
      * The current focus of the user's session. Common values are a reference to a Patient, Encounter, ImagingStudy, etc.
      */
-    @Child(name = "focus", type = {Reference.class}, order=4, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "focus", type = {Reference.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="What is the user's current focus", formalDefinition="The current focus of the user's session. Common values are a reference to a Patient, Encounter, ImagingStudy, etc." )
     protected List<Reference> focus;
     /**
@@ -848,7 +848,7 @@ public class UserSession extends DomainResource {
     /**
      * Provides additional information associated with the context.
      */
-    @Child(name = "context", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "context", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional information about the session", formalDefinition="Provides additional information associated with the context." )
     protected List<UserSessionContextComponent> context;
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -145,14 +145,14 @@ public class SpecimenDefinition extends DomainResource {
         /**
          * Primary of secondary specimen.
          */
-        @Child(name = "isDerived", type = {BooleanType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "isDerived", type = {BooleanType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Primary or secondary specimen", formalDefinition="Primary of secondary specimen." )
         protected BooleanType isDerived;
 
         /**
          * The kind of specimen conditioned for testing expected by lab.
          */
-        @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Type of intended specimen", formalDefinition="The kind of specimen conditioned for testing expected by lab." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v2-0487")
         protected CodeableConcept type;

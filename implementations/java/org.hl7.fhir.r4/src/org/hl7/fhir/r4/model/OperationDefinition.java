@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Dec 14, 2017 22:41+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
 @ResourceDef(name="OperationDefinition", profile="http://hl7.org/fhir/Profile/OperationDefinition")
-@ChildOrder(names={"url", "version", "name", "status", "kind", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "affectsState", "code", "comment", "base", "resource", "system", "type", "instance", "parameter", "overload"})
+@ChildOrder(names={"url", "version", "name", "status", "kind", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "affectsState", "code", "comment", "base", "resource", "system", "type", "instance", "inputProfile", "outputProfile", "parameter", "overload"})
 public class OperationDefinition extends MetadataResource {
 
     public enum OperationKind {
@@ -281,24 +281,19 @@ public class OperationDefinition extends MetadataResource {
         protected CodeType type;
 
         /**
+         * If the type is "Reference", then targetProfile lists a one or more profiles that the Reference can refer to.
+         */
+        @Child(name = "targetProfile", type = {UriType.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="If type is Reference, allowed targets", formalDefinition="If the type is \"Reference\", then targetProfile lists a one or more profiles that the Reference can refer to." )
+        protected List<UriType> targetProfile;
+
+        /**
          * How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.
          */
-        @Child(name = "searchType", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "searchType", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="number | date | string | token | reference | composite | quantity | uri", formalDefinition="How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/search-param-type")
         protected Enumeration<SearchParamType> searchType;
-
-        /**
-         * A profile the specifies the rules that this parameter must conform to.
-         */
-        @Child(name = "profile", type = {StructureDefinition.class}, order=8, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Profile on the type", formalDefinition="A profile the specifies the rules that this parameter must conform to." )
-        protected Reference profile;
-
-        /**
-         * The actual object that is the target of the reference (A profile the specifies the rules that this parameter must conform to.)
-         */
-        protected StructureDefinition profileTarget;
 
         /**
          * Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).
@@ -314,7 +309,7 @@ public class OperationDefinition extends MetadataResource {
         @Description(shortDefinition="Parts of a nested Parameter", formalDefinition="The parts of a nested Parameter." )
         protected List<OperationDefinitionParameterComponent> part;
 
-        private static final long serialVersionUID = -885506257L;
+        private static final long serialVersionUID = 1774015115L;
 
     /**
      * Constructor
@@ -613,6 +608,67 @@ public class OperationDefinition extends MetadataResource {
         }
 
         /**
+         * @return {@link #targetProfile} (If the type is "Reference", then targetProfile lists a one or more profiles that the Reference can refer to.)
+         */
+        public List<UriType> getTargetProfile() { 
+          if (this.targetProfile == null)
+            this.targetProfile = new ArrayList<UriType>();
+          return this.targetProfile;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public OperationDefinitionParameterComponent setTargetProfile(List<UriType> theTargetProfile) { 
+          this.targetProfile = theTargetProfile;
+          return this;
+        }
+
+        public boolean hasTargetProfile() { 
+          if (this.targetProfile == null)
+            return false;
+          for (UriType item : this.targetProfile)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #targetProfile} (If the type is "Reference", then targetProfile lists a one or more profiles that the Reference can refer to.)
+         */
+        public UriType addTargetProfileElement() {//2 
+          UriType t = new UriType();
+          if (this.targetProfile == null)
+            this.targetProfile = new ArrayList<UriType>();
+          this.targetProfile.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #targetProfile} (If the type is "Reference", then targetProfile lists a one or more profiles that the Reference can refer to.)
+         */
+        public OperationDefinitionParameterComponent addTargetProfile(String value) { //1
+          UriType t = new UriType();
+          t.setValue(value);
+          if (this.targetProfile == null)
+            this.targetProfile = new ArrayList<UriType>();
+          this.targetProfile.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #targetProfile} (If the type is "Reference", then targetProfile lists a one or more profiles that the Reference can refer to.)
+         */
+        public boolean hasTargetProfile(String value) { 
+          if (this.targetProfile == null)
+            return false;
+          for (UriType v : this.targetProfile)
+            if (v.equals(value)) // uri
+              return true;
+          return false;
+        }
+
+        /**
          * @return {@link #searchType} (How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.). This is the underlying object with id, value and extensions. The accessor "getSearchType" gives direct access to the value
          */
         public Enumeration<SearchParamType> getSearchTypeElement() { 
@@ -658,50 +714,6 @@ public class OperationDefinition extends MetadataResource {
               this.searchType = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
             this.searchType.setValue(value);
           }
-          return this;
-        }
-
-        /**
-         * @return {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
-         */
-        public Reference getProfile() { 
-          if (this.profile == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.profile");
-            else if (Configuration.doAutoCreate())
-              this.profile = new Reference(); // cc
-          return this.profile;
-        }
-
-        public boolean hasProfile() { 
-          return this.profile != null && !this.profile.isEmpty();
-        }
-
-        /**
-         * @param value {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
-         */
-        public OperationDefinitionParameterComponent setProfile(Reference value) { 
-          this.profile = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
-         */
-        public StructureDefinition getProfileTarget() { 
-          if (this.profileTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.profile");
-            else if (Configuration.doAutoCreate())
-              this.profileTarget = new StructureDefinition(); // aa
-          return this.profileTarget;
-        }
-
-        /**
-         * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
-         */
-        public OperationDefinitionParameterComponent setProfileTarget(StructureDefinition value) { 
-          this.profileTarget = value;
           return this;
         }
 
@@ -790,8 +802,8 @@ public class OperationDefinition extends MetadataResource {
           children.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, 1, max));
           children.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, 1, documentation));
           children.add(new Property("type", "code", "The type for this parameter.", 0, 1, type));
+          children.add(new Property("targetProfile", "uri", "If the type is \"Reference\", then targetProfile lists a one or more profiles that the Reference can refer to.", 0, java.lang.Integer.MAX_VALUE, targetProfile));
           children.add(new Property("searchType", "code", "How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.", 0, 1, searchType));
-          children.add(new Property("profile", "Reference(StructureDefinition)", "A profile the specifies the rules that this parameter must conform to.", 0, 1, profile));
           children.add(new Property("binding", "", "Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).", 0, 1, binding));
           children.add(new Property("part", "@OperationDefinition.parameter", "The parts of a nested Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
         }
@@ -805,8 +817,8 @@ public class OperationDefinition extends MetadataResource {
           case 107876: /*max*/  return new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, 1, max);
           case 1587405498: /*documentation*/  return new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, 1, documentation);
           case 3575610: /*type*/  return new Property("type", "code", "The type for this parameter.", 0, 1, type);
+          case 1994521304: /*targetProfile*/  return new Property("targetProfile", "uri", "If the type is \"Reference\", then targetProfile lists a one or more profiles that the Reference can refer to.", 0, java.lang.Integer.MAX_VALUE, targetProfile);
           case -710454014: /*searchType*/  return new Property("searchType", "code", "How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.", 0, 1, searchType);
-          case -309425751: /*profile*/  return new Property("profile", "Reference(StructureDefinition)", "A profile the specifies the rules that this parameter must conform to.", 0, 1, profile);
           case -108220795: /*binding*/  return new Property("binding", "", "Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).", 0, 1, binding);
           case 3433459: /*part*/  return new Property("part", "@OperationDefinition.parameter", "The parts of a nested Parameter.", 0, java.lang.Integer.MAX_VALUE, part);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -823,8 +835,8 @@ public class OperationDefinition extends MetadataResource {
         case 107876: /*max*/ return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
         case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // StringType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case 1994521304: /*targetProfile*/ return this.targetProfile == null ? new Base[0] : this.targetProfile.toArray(new Base[this.targetProfile.size()]); // UriType
         case -710454014: /*searchType*/ return this.searchType == null ? new Base[0] : new Base[] {this.searchType}; // Enumeration<SearchParamType>
-        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : new Base[] {this.profile}; // Reference
         case -108220795: /*binding*/ return this.binding == null ? new Base[0] : new Base[] {this.binding}; // OperationDefinitionParameterBindingComponent
         case 3433459: /*part*/ return this.part == null ? new Base[0] : this.part.toArray(new Base[this.part.size()]); // OperationDefinitionParameterComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -854,12 +866,12 @@ public class OperationDefinition extends MetadataResource {
         case 3575610: // type
           this.type = castToCode(value); // CodeType
           return value;
+        case 1994521304: // targetProfile
+          this.getTargetProfile().add(castToUri(value)); // UriType
+          return value;
         case -710454014: // searchType
           value = new SearchParamTypeEnumFactory().fromType(castToCode(value));
           this.searchType = (Enumeration) value; // Enumeration<SearchParamType>
-          return value;
-        case -309425751: // profile
-          this.profile = castToReference(value); // Reference
           return value;
         case -108220795: // binding
           this.binding = (OperationDefinitionParameterBindingComponent) value; // OperationDefinitionParameterBindingComponent
@@ -887,11 +899,11 @@ public class OperationDefinition extends MetadataResource {
           this.documentation = castToString(value); // StringType
         } else if (name.equals("type")) {
           this.type = castToCode(value); // CodeType
+        } else if (name.equals("targetProfile")) {
+          this.getTargetProfile().add(castToUri(value));
         } else if (name.equals("searchType")) {
           value = new SearchParamTypeEnumFactory().fromType(castToCode(value));
           this.searchType = (Enumeration) value; // Enumeration<SearchParamType>
-        } else if (name.equals("profile")) {
-          this.profile = castToReference(value); // Reference
         } else if (name.equals("binding")) {
           this.binding = (OperationDefinitionParameterBindingComponent) value; // OperationDefinitionParameterBindingComponent
         } else if (name.equals("part")) {
@@ -910,8 +922,8 @@ public class OperationDefinition extends MetadataResource {
         case 107876:  return getMaxElement();
         case 1587405498:  return getDocumentationElement();
         case 3575610:  return getTypeElement();
+        case 1994521304:  return addTargetProfileElement();
         case -710454014:  return getSearchTypeElement();
-        case -309425751:  return getProfile(); 
         case -108220795:  return getBinding(); 
         case 3433459:  return addPart(); 
         default: return super.makeProperty(hash, name);
@@ -928,8 +940,8 @@ public class OperationDefinition extends MetadataResource {
         case 107876: /*max*/ return new String[] {"string"};
         case 1587405498: /*documentation*/ return new String[] {"string"};
         case 3575610: /*type*/ return new String[] {"code"};
+        case 1994521304: /*targetProfile*/ return new String[] {"uri"};
         case -710454014: /*searchType*/ return new String[] {"code"};
-        case -309425751: /*profile*/ return new String[] {"Reference"};
         case -108220795: /*binding*/ return new String[] {};
         case 3433459: /*part*/ return new String[] {"@OperationDefinition.parameter"};
         default: return super.getTypesForProperty(hash, name);
@@ -957,12 +969,11 @@ public class OperationDefinition extends MetadataResource {
         else if (name.equals("type")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.type");
         }
+        else if (name.equals("targetProfile")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.targetProfile");
+        }
         else if (name.equals("searchType")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.searchType");
-        }
-        else if (name.equals("profile")) {
-          this.profile = new Reference();
-          return this.profile;
         }
         else if (name.equals("binding")) {
           this.binding = new OperationDefinitionParameterBindingComponent();
@@ -984,8 +995,12 @@ public class OperationDefinition extends MetadataResource {
         dst.max = max == null ? null : max.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         dst.type = type == null ? null : type.copy();
+        if (targetProfile != null) {
+          dst.targetProfile = new ArrayList<UriType>();
+          for (UriType i : targetProfile)
+            dst.targetProfile.add(i.copy());
+        };
         dst.searchType = searchType == null ? null : searchType.copy();
-        dst.profile = profile == null ? null : profile.copy();
         dst.binding = binding == null ? null : binding.copy();
         if (part != null) {
           dst.part = new ArrayList<OperationDefinitionParameterComponent>();
@@ -1004,8 +1019,8 @@ public class OperationDefinition extends MetadataResource {
         OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(use, o.use, true) && compareDeep(min, o.min, true)
            && compareDeep(max, o.max, true) && compareDeep(documentation, o.documentation, true) && compareDeep(type, o.type, true)
-           && compareDeep(searchType, o.searchType, true) && compareDeep(profile, o.profile, true) && compareDeep(binding, o.binding, true)
-           && compareDeep(part, o.part, true);
+           && compareDeep(targetProfile, o.targetProfile, true) && compareDeep(searchType, o.searchType, true)
+           && compareDeep(binding, o.binding, true) && compareDeep(part, o.part, true);
       }
 
       @Override
@@ -1017,12 +1032,13 @@ public class OperationDefinition extends MetadataResource {
         OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other;
         return compareValues(name, o.name, true) && compareValues(use, o.use, true) && compareValues(min, o.min, true)
            && compareValues(max, o.max, true) && compareValues(documentation, o.documentation, true) && compareValues(type, o.type, true)
-           && compareValues(searchType, o.searchType, true);
+           && compareValues(targetProfile, o.targetProfile, true) && compareValues(searchType, o.searchType, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, use, min, max, documentation
-          , type, searchType, profile, binding, part);
+          , type, targetProfile, searchType, binding, part);
       }
 
   public String fhirType() {
@@ -1631,20 +1647,44 @@ public class OperationDefinition extends MetadataResource {
     protected BooleanType instance;
 
     /**
+     * Additional validation information for the in parameters. The profile is a constraint on the parameters resource.
+     */
+    @Child(name = "inputProfile", type = {StructureDefinition.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Validation information for in parameters", formalDefinition="Additional validation information for the in parameters. The profile is a constraint on the parameters resource." )
+    protected Reference inputProfile;
+
+    /**
+     * The actual object that is the target of the reference (Additional validation information for the in parameters. The profile is a constraint on the parameters resource.)
+     */
+    protected StructureDefinition inputProfileTarget;
+
+    /**
+     * Additional validation information for the out parameters. The profile is a constraint on the parameters resource.
+     */
+    @Child(name = "outputProfile", type = {StructureDefinition.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Validation information for out parameters", formalDefinition="Additional validation information for the out parameters. The profile is a constraint on the parameters resource." )
+    protected Reference outputProfile;
+
+    /**
+     * The actual object that is the target of the reference (Additional validation information for the out parameters. The profile is a constraint on the parameters resource.)
+     */
+    protected StructureDefinition outputProfileTarget;
+
+    /**
      * The parameters for the operation/query.
      */
-    @Child(name = "parameter", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "parameter", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
     /**
      * Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation.
      */
-    @Child(name = "overload", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "overload", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Define overloaded variants for when  generating code", formalDefinition="Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation." )
     protected List<OperationDefinitionOverloadComponent> overload;
 
-    private static final long serialVersionUID = -1592997361L;
+    private static final long serialVersionUID = -437477765L;
 
   /**
    * Constructor
@@ -2680,6 +2720,94 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
+     * @return {@link #inputProfile} (Additional validation information for the in parameters. The profile is a constraint on the parameters resource.)
+     */
+    public Reference getInputProfile() { 
+      if (this.inputProfile == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.inputProfile");
+        else if (Configuration.doAutoCreate())
+          this.inputProfile = new Reference(); // cc
+      return this.inputProfile;
+    }
+
+    public boolean hasInputProfile() { 
+      return this.inputProfile != null && !this.inputProfile.isEmpty();
+    }
+
+    /**
+     * @param value {@link #inputProfile} (Additional validation information for the in parameters. The profile is a constraint on the parameters resource.)
+     */
+    public OperationDefinition setInputProfile(Reference value) { 
+      this.inputProfile = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #inputProfile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Additional validation information for the in parameters. The profile is a constraint on the parameters resource.)
+     */
+    public StructureDefinition getInputProfileTarget() { 
+      if (this.inputProfileTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.inputProfile");
+        else if (Configuration.doAutoCreate())
+          this.inputProfileTarget = new StructureDefinition(); // aa
+      return this.inputProfileTarget;
+    }
+
+    /**
+     * @param value {@link #inputProfile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Additional validation information for the in parameters. The profile is a constraint on the parameters resource.)
+     */
+    public OperationDefinition setInputProfileTarget(StructureDefinition value) { 
+      this.inputProfileTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #outputProfile} (Additional validation information for the out parameters. The profile is a constraint on the parameters resource.)
+     */
+    public Reference getOutputProfile() { 
+      if (this.outputProfile == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.outputProfile");
+        else if (Configuration.doAutoCreate())
+          this.outputProfile = new Reference(); // cc
+      return this.outputProfile;
+    }
+
+    public boolean hasOutputProfile() { 
+      return this.outputProfile != null && !this.outputProfile.isEmpty();
+    }
+
+    /**
+     * @param value {@link #outputProfile} (Additional validation information for the out parameters. The profile is a constraint on the parameters resource.)
+     */
+    public OperationDefinition setOutputProfile(Reference value) { 
+      this.outputProfile = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #outputProfile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Additional validation information for the out parameters. The profile is a constraint on the parameters resource.)
+     */
+    public StructureDefinition getOutputProfileTarget() { 
+      if (this.outputProfileTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.outputProfile");
+        else if (Configuration.doAutoCreate())
+          this.outputProfileTarget = new StructureDefinition(); // aa
+      return this.outputProfileTarget;
+    }
+
+    /**
+     * @param value {@link #outputProfile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Additional validation information for the out parameters. The profile is a constraint on the parameters resource.)
+     */
+    public OperationDefinition setOutputProfileTarget(StructureDefinition value) { 
+      this.outputProfileTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #parameter} (The parameters for the operation/query.)
      */
     public List<OperationDefinitionParameterComponent> getParameter() { 
@@ -2808,6 +2936,8 @@ public class OperationDefinition extends MetadataResource {
         children.add(new Property("system", "boolean", "Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).", 0, 1, system));
         children.add(new Property("type", "boolean", "Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).", 0, 1, type));
         children.add(new Property("instance", "boolean", "Indicates whether this operation can be invoked on a particular instance of one of the given types.", 0, 1, instance));
+        children.add(new Property("inputProfile", "Reference(StructureDefinition)", "Additional validation information for the in parameters. The profile is a constraint on the parameters resource.", 0, 1, inputProfile));
+        children.add(new Property("outputProfile", "Reference(StructureDefinition)", "Additional validation information for the out parameters. The profile is a constraint on the parameters resource.", 0, 1, outputProfile));
         children.add(new Property("parameter", "", "The parameters for the operation/query.", 0, java.lang.Integer.MAX_VALUE, parameter));
         children.add(new Property("overload", "", "Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation.", 0, java.lang.Integer.MAX_VALUE, overload));
       }
@@ -2836,6 +2966,8 @@ public class OperationDefinition extends MetadataResource {
         case -887328209: /*system*/  return new Property("system", "boolean", "Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).", 0, 1, system);
         case 3575610: /*type*/  return new Property("type", "boolean", "Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context).", 0, 1, type);
         case 555127957: /*instance*/  return new Property("instance", "boolean", "Indicates whether this operation can be invoked on a particular instance of one of the given types.", 0, 1, instance);
+        case 676942463: /*inputProfile*/  return new Property("inputProfile", "Reference(StructureDefinition)", "Additional validation information for the in parameters. The profile is a constraint on the parameters resource.", 0, 1, inputProfile);
+        case 1826166120: /*outputProfile*/  return new Property("outputProfile", "Reference(StructureDefinition)", "Additional validation information for the out parameters. The profile is a constraint on the parameters resource.", 0, 1, outputProfile);
         case 1954460585: /*parameter*/  return new Property("parameter", "", "The parameters for the operation/query.", 0, java.lang.Integer.MAX_VALUE, parameter);
         case 529823674: /*overload*/  return new Property("overload", "", "Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation.", 0, java.lang.Integer.MAX_VALUE, overload);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -2867,6 +2999,8 @@ public class OperationDefinition extends MetadataResource {
         case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // BooleanType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // BooleanType
         case 555127957: /*instance*/ return this.instance == null ? new Base[0] : new Base[] {this.instance}; // BooleanType
+        case 676942463: /*inputProfile*/ return this.inputProfile == null ? new Base[0] : new Base[] {this.inputProfile}; // Reference
+        case 1826166120: /*outputProfile*/ return this.outputProfile == null ? new Base[0] : new Base[] {this.outputProfile}; // Reference
         case 1954460585: /*parameter*/ return this.parameter == null ? new Base[0] : this.parameter.toArray(new Base[this.parameter.size()]); // OperationDefinitionParameterComponent
         case 529823674: /*overload*/ return this.overload == null ? new Base[0] : this.overload.toArray(new Base[this.overload.size()]); // OperationDefinitionOverloadComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -2942,6 +3076,12 @@ public class OperationDefinition extends MetadataResource {
         case 555127957: // instance
           this.instance = castToBoolean(value); // BooleanType
           return value;
+        case 676942463: // inputProfile
+          this.inputProfile = castToReference(value); // Reference
+          return value;
+        case 1826166120: // outputProfile
+          this.outputProfile = castToReference(value); // Reference
+          return value;
         case 1954460585: // parameter
           this.getParameter().add((OperationDefinitionParameterComponent) value); // OperationDefinitionParameterComponent
           return value;
@@ -2999,6 +3139,10 @@ public class OperationDefinition extends MetadataResource {
           this.type = castToBoolean(value); // BooleanType
         } else if (name.equals("instance")) {
           this.instance = castToBoolean(value); // BooleanType
+        } else if (name.equals("inputProfile")) {
+          this.inputProfile = castToReference(value); // Reference
+        } else if (name.equals("outputProfile")) {
+          this.outputProfile = castToReference(value); // Reference
         } else if (name.equals("parameter")) {
           this.getParameter().add((OperationDefinitionParameterComponent) value);
         } else if (name.equals("overload")) {
@@ -3032,6 +3176,8 @@ public class OperationDefinition extends MetadataResource {
         case -887328209:  return getSystemElement();
         case 3575610:  return getTypeElement();
         case 555127957:  return getInstanceElement();
+        case 676942463:  return getInputProfile(); 
+        case 1826166120:  return getOutputProfile(); 
         case 1954460585:  return addParameter(); 
         case 529823674:  return addOverload(); 
         default: return super.makeProperty(hash, name);
@@ -3063,6 +3209,8 @@ public class OperationDefinition extends MetadataResource {
         case -887328209: /*system*/ return new String[] {"boolean"};
         case 3575610: /*type*/ return new String[] {"boolean"};
         case 555127957: /*instance*/ return new String[] {"boolean"};
+        case 676942463: /*inputProfile*/ return new String[] {"Reference"};
+        case 1826166120: /*outputProfile*/ return new String[] {"Reference"};
         case 1954460585: /*parameter*/ return new String[] {};
         case 529823674: /*overload*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
@@ -3136,6 +3284,14 @@ public class OperationDefinition extends MetadataResource {
         else if (name.equals("instance")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.instance");
         }
+        else if (name.equals("inputProfile")) {
+          this.inputProfile = new Reference();
+          return this.inputProfile;
+        }
+        else if (name.equals("outputProfile")) {
+          this.outputProfile = new Reference();
+          return this.outputProfile;
+        }
         else if (name.equals("parameter")) {
           return addParameter();
         }
@@ -3191,6 +3347,8 @@ public class OperationDefinition extends MetadataResource {
         dst.system = system == null ? null : system.copy();
         dst.type = type == null ? null : type.copy();
         dst.instance = instance == null ? null : instance.copy();
+        dst.inputProfile = inputProfile == null ? null : inputProfile.copy();
+        dst.outputProfile = outputProfile == null ? null : outputProfile.copy();
         if (parameter != null) {
           dst.parameter = new ArrayList<OperationDefinitionParameterComponent>();
           for (OperationDefinitionParameterComponent i : parameter)
@@ -3218,8 +3376,8 @@ public class OperationDefinition extends MetadataResource {
         return compareDeep(kind, o.kind, true) && compareDeep(purpose, o.purpose, true) && compareDeep(affectsState, o.affectsState, true)
            && compareDeep(code, o.code, true) && compareDeep(comment, o.comment, true) && compareDeep(base, o.base, true)
            && compareDeep(resource, o.resource, true) && compareDeep(system, o.system, true) && compareDeep(type, o.type, true)
-           && compareDeep(instance, o.instance, true) && compareDeep(parameter, o.parameter, true) && compareDeep(overload, o.overload, true)
-          ;
+           && compareDeep(instance, o.instance, true) && compareDeep(inputProfile, o.inputProfile, true) && compareDeep(outputProfile, o.outputProfile, true)
+           && compareDeep(parameter, o.parameter, true) && compareDeep(overload, o.overload, true);
       }
 
       @Override
@@ -3237,8 +3395,8 @@ public class OperationDefinition extends MetadataResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, purpose, affectsState
-          , code, comment, base, resource, system, type, instance, parameter, overload
-          );
+          , code, comment, base, resource, system, type, instance, inputProfile, outputProfile
+          , parameter, overload);
       }
 
   @Override
@@ -3447,6 +3605,58 @@ public class OperationDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
+   * Search parameter: <b>input-profile</b>
+   * <p>
+   * Description: <b>Validation information for in parameters</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.inputProfile</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="input-profile", path="OperationDefinition.inputProfile", description="Validation information for in parameters", type="reference", target={StructureDefinition.class } )
+  public static final String SP_INPUT_PROFILE = "input-profile";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>input-profile</b>
+   * <p>
+   * Description: <b>Validation information for in parameters</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.inputProfile</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INPUT_PROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INPUT_PROFILE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OperationDefinition:input-profile</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INPUT_PROFILE = new ca.uhn.fhir.model.api.Include("OperationDefinition:input-profile").toLocked();
+
+ /**
+   * Search parameter: <b>output-profile</b>
+   * <p>
+   * Description: <b>Validation information for out parameters</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.outputProfile</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="output-profile", path="OperationDefinition.outputProfile", description="Validation information for out parameters", type="reference", target={StructureDefinition.class } )
+  public static final String SP_OUTPUT_PROFILE = "output-profile";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>output-profile</b>
+   * <p>
+   * Description: <b>Validation information for out parameters</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.outputProfile</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam OUTPUT_PROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_OUTPUT_PROFILE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OperationDefinition:output-profile</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_OUTPUT_PROFILE = new ca.uhn.fhir.model.api.Include("OperationDefinition:output-profile").toLocked();
+
+ /**
    * Search parameter: <b>system</b>
    * <p>
    * Description: <b>Invoke at the system level?</b><br>
@@ -3505,32 +3715,6 @@ public class OperationDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
-
- /**
-   * Search parameter: <b>param-profile</b>
-   * <p>
-   * Description: <b>Profile on the type</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OperationDefinition.parameter.profile</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="param-profile", path="OperationDefinition.parameter.profile", description="Profile on the type", type="reference", target={StructureDefinition.class } )
-  public static final String SP_PARAM_PROFILE = "param-profile";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>param-profile</b>
-   * <p>
-   * Description: <b>Profile on the type</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OperationDefinition.parameter.profile</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARAM_PROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARAM_PROFILE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>OperationDefinition:param-profile</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARAM_PROFILE = new ca.uhn.fhir.model.api.Include("OperationDefinition:param-profile").toLocked();
 
  /**
    * Search parameter: <b>status</b>
