@@ -3,6 +3,7 @@
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="3a0707d3-549e-4467-b8b8-5a2ab3800efe"/>
   <type value="message"/>
+  <timestamp value="2015-07-14T11:15:33+10:00"/>
   <entry>
     <fullUrl value="urn:uuid:d9d296d8-5afd-42e1-a0ce-3344e0e003ed"/>
     <resource>
@@ -20,7 +21,6 @@
           <system value="http://hl7.org/fhir/message-events"/>
           <code value="patient-link"/>
         </event>        
-       <timestamp value="2015-07-14T11:15:33+10:00"/>
         <source>
           <endpoint value="http://acme.com/ehr/fhir"/>
         </source>

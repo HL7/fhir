@@ -41,8 +41,8 @@ section that reports the outcome of processing the message and any additional re
 resources required.
 </p>
 <ul>
- <li>Example Request Message: <A href="message-request-link.xml.html" /> </li>
- <li>Example Response Message: <A href="message-response-link.xml.html" /> </li>
+ <li><a href="message-request-link.xml.html">Example Request Message</a> </li>
+ <li><a href="message-response-link.xml.html">Example Response Message</a> </li>
 </ul>
 
 <a name="basic"> </a>
@@ -140,7 +140,7 @@ response messages. In these cases, the asynchronous message pattern
 </p>
 
 
-<h3>MessageHeader Identifiers</h3>
+<h3>MessageHeader Identifiers &amp; Timestamps</h3>
 <p>
 An incoming message contains two identifiers: the Bundle.id and
 the <a href="messageheader.html">MessageHeader</a>.id.
@@ -158,8 +158,18 @@ The response message also quotes the request MessageHeader.id in
 MessageHeader.response.identifier so that the source system can relate the response to its request.
 </p>
 
-
-
+<p>
+A message has 2 important timestamps:
+</p>
+<ul>
+ <li><b><a href="bundle-definitions.html#Bundle.timestamp">Bundle.timestamp</a></b>: the time the message was sent</li>
+ <li><b><a href="resource-definitions.html#Meta.lastUpdated">Bundle.meta.lastUpdated</a></b>: the last time the message was updated (either by storing, or by modification)</li>
+</ul>
+<p>
+In addition, the message may have additional timestamps in additional resources 
+in the message, either .meta.lastUpdated or others throughout the resources.
+The meaning of these will depend on the message event. 
+</p>
 
 
 <a name="reliable"> </a>

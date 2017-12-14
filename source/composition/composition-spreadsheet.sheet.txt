@@ -268,7 +268,7 @@
   Type = dateTime
   Short Name = Composition editing time
   Definition = The composition editing time, when the composition was last logically changed by the author
-  Requirements = dateTime is used for tracking, organizing versions and searching.
+  Requirements = dateTime is used for tracking, organizing versions and searching. Note that this is the time of *authoring*. When packaged in a document, [[[Bundle.timestamp]]] is the date of packaging
   Comments = The Last Modified Date on the composition may be after the date of the document was attested without being changed
   Workflow Mapping = Event.occurrence[x]
   RIM Mapping = .effectiveTime[type=\"TS\"]

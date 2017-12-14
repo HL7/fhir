@@ -69,6 +69,7 @@
   Short Name = Code for the event this message represents
   Definition = Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\"
   Requirements = Drives the behavior associated with this message
+  Comments = The time of the event will be found in the focus resource. The time of the message will be found in [[[Bundle.timestamp]]]
   v2 Mapping = MSH-9.2
   RIM Mapping = ./payload[classCode=\"CACT\" and moodCode=\"EVN\" and isNormalAct()]/code[isNormalDatatype()]/code
   w5 = what
@@ -141,7 +142,7 @@
   w5 = who.focus
 
  -- Row 10 -----------------------------------
-  Element = MessageHeader.timestamp
+  Element = !MessageHeader.timestamp
   Card. = 1..1
   Type = instant
   Short Name = Time that the message was sent
@@ -352,7 +353,7 @@
   Path = MessageHeader.destination.receiver
 
  -- Row 6 -----------------------------------
-  Name = timestamp
+  Name = !timestamp
   Type = date
   Path = MessageHeader.timestamp
 
