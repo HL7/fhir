@@ -79,7 +79,7 @@ public class ToolingExtensions {
   public static final String EXT_JSON_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-json-type"; 
   public static final String EXT_RDF_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-rdf-type"; 
   public static final String EXT_XML_TYPE = "http://hl7.org/fhir/StructureDefinition/structuredefinition-xml-type"; 
-  public static final String EXT_REGEX = "http://hl7.org/fhir/StructureDefinition/structuredefinition-regex"; 
+  public static final String EXT_REGEX = "http://hl7.org/fhir/StructureDefinition/regex"; 
   public static final String EXT_CONTROL = "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"; 
   public static final String EXT_MINOCCURS = "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs"; 
   public static final String EXT_MAXOCCURS = "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs";

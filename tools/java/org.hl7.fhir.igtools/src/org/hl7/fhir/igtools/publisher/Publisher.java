@@ -1527,7 +1527,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
       ImplementationGuidePackageResourceComponent res = pck.addResource();
-      res.setExample(false).setName(r.getId()).setSource(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
+      res.setName(r.getId()).setSource(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
     }
     return changed || needToBuild;
   }
@@ -1550,7 +1550,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     ImplementationGuidePackageComponent pck = publishedIg.getPackageFirstRep();
     for (FetchedResource r : f.getResources()) {
       ImplementationGuidePackageResourceComponent res = pck.addResource();
-      res.setExample(false).setName(r.getTitle()).setSource(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
+      res.setName(r.getTitle()).setSource(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
     }
     return changed || needToBuild;
   }
@@ -1619,7 +1619,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     for (FetchedResource r : f.getResources()) {
       bndIds.add(r.getElement().fhirType()+"/"+r.getId());
       ImplementationGuidePackageResourceComponent res = pck.addResource();
-      res.setExample(false).setName(r.getTitle()).setSource(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
+      res.setName(r.getTitle()).setSource(new Reference().setReference(r.getElement().fhirType()+"/"+r.getId()));
     }
     return changed || needToBuild;
   }
