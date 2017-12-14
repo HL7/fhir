@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2865,12 +2865,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof RequestGroupActionComponent))
+        if (!(other_ instanceof RequestGroupActionComponent))
           return false;
-        RequestGroupActionComponent o = (RequestGroupActionComponent) other;
+        RequestGroupActionComponent o = (RequestGroupActionComponent) other_;
         return compareDeep(prefix, o.prefix, true) && compareDeep(title, o.title, true) && compareDeep(description, o.description, true)
            && compareDeep(textEquivalent, o.textEquivalent, true) && compareDeep(code, o.code, true) && compareDeep(documentation, o.documentation, true)
            && compareDeep(condition, o.condition, true) && compareDeep(relatedAction, o.relatedAction, true)
@@ -2882,12 +2882,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof RequestGroupActionComponent))
+        if (!(other_ instanceof RequestGroupActionComponent))
           return false;
-        RequestGroupActionComponent o = (RequestGroupActionComponent) other;
+        RequestGroupActionComponent o = (RequestGroupActionComponent) other_;
         return compareValues(prefix, o.prefix, true) && compareValues(title, o.title, true) && compareValues(description, o.description, true)
            && compareValues(textEquivalent, o.textEquivalent, true) && compareValues(groupingBehavior, o.groupingBehavior, true)
            && compareValues(selectionBehavior, o.selectionBehavior, true) && compareValues(requiredBehavior, o.requiredBehavior, true)
@@ -3271,23 +3271,23 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof RequestGroupActionConditionComponent))
+        if (!(other_ instanceof RequestGroupActionConditionComponent))
           return false;
-        RequestGroupActionConditionComponent o = (RequestGroupActionConditionComponent) other;
+        RequestGroupActionConditionComponent o = (RequestGroupActionConditionComponent) other_;
         return compareDeep(kind, o.kind, true) && compareDeep(description, o.description, true) && compareDeep(language, o.language, true)
            && compareDeep(expression, o.expression, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof RequestGroupActionConditionComponent))
+        if (!(other_ instanceof RequestGroupActionConditionComponent))
           return false;
-        RequestGroupActionConditionComponent o = (RequestGroupActionConditionComponent) other;
+        RequestGroupActionConditionComponent o = (RequestGroupActionConditionComponent) other_;
         return compareValues(kind, o.kind, true) && compareValues(description, o.description, true) && compareValues(language, o.language, true)
            && compareValues(expression, o.expression, true);
       }
@@ -3598,23 +3598,23 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof RequestGroupActionRelatedActionComponent))
+        if (!(other_ instanceof RequestGroupActionRelatedActionComponent))
           return false;
-        RequestGroupActionRelatedActionComponent o = (RequestGroupActionRelatedActionComponent) other;
+        RequestGroupActionRelatedActionComponent o = (RequestGroupActionRelatedActionComponent) other_;
         return compareDeep(actionId, o.actionId, true) && compareDeep(relationship, o.relationship, true)
            && compareDeep(offset, o.offset, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof RequestGroupActionRelatedActionComponent))
+        if (!(other_ instanceof RequestGroupActionRelatedActionComponent))
           return false;
-        RequestGroupActionRelatedActionComponent o = (RequestGroupActionRelatedActionComponent) other;
+        RequestGroupActionRelatedActionComponent o = (RequestGroupActionRelatedActionComponent) other_;
         return compareValues(actionId, o.actionId, true) && compareValues(relationship, o.relationship, true)
           ;
       }
@@ -4977,12 +4977,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof RequestGroup))
+        if (!(other_ instanceof RequestGroup))
           return false;
-        RequestGroup o = (RequestGroup) other;
+        RequestGroup o = (RequestGroup) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true)
@@ -4993,12 +4993,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof RequestGroup))
+        if (!(other_ instanceof RequestGroup))
           return false;
-        RequestGroup o = (RequestGroup) other;
+        RequestGroup o = (RequestGroup) other_;
         return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
            && compareValues(authoredOn, o.authoredOn, true);
       }

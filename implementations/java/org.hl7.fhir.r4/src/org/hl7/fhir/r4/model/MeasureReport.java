@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -587,23 +587,23 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MeasureReportGroupComponent))
+        if (!(other_ instanceof MeasureReportGroupComponent))
           return false;
-        MeasureReportGroupComponent o = (MeasureReportGroupComponent) other;
+        MeasureReportGroupComponent o = (MeasureReportGroupComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(population, o.population, true) && compareDeep(measureScore, o.measureScore, true)
            && compareDeep(stratifier, o.stratifier, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MeasureReportGroupComponent))
+        if (!(other_ instanceof MeasureReportGroupComponent))
           return false;
-        MeasureReportGroupComponent o = (MeasureReportGroupComponent) other;
+        MeasureReportGroupComponent o = (MeasureReportGroupComponent) other_;
         return true;
       }
 
@@ -878,23 +878,23 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MeasureReportGroupPopulationComponent))
+        if (!(other_ instanceof MeasureReportGroupPopulationComponent))
           return false;
-        MeasureReportGroupPopulationComponent o = (MeasureReportGroupPopulationComponent) other;
+        MeasureReportGroupPopulationComponent o = (MeasureReportGroupPopulationComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(count, o.count, true) && compareDeep(subjects, o.subjects, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MeasureReportGroupPopulationComponent))
+        if (!(other_ instanceof MeasureReportGroupPopulationComponent))
           return false;
-        MeasureReportGroupPopulationComponent o = (MeasureReportGroupPopulationComponent) other;
+        MeasureReportGroupPopulationComponent o = (MeasureReportGroupPopulationComponent) other_;
         return compareValues(count, o.count, true);
       }
 
@@ -1108,22 +1108,22 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MeasureReportGroupStratifierComponent))
+        if (!(other_ instanceof MeasureReportGroupStratifierComponent))
           return false;
-        MeasureReportGroupStratifierComponent o = (MeasureReportGroupStratifierComponent) other;
+        MeasureReportGroupStratifierComponent o = (MeasureReportGroupStratifierComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(stratum, o.stratum, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MeasureReportGroupStratifierComponent))
+        if (!(other_ instanceof MeasureReportGroupStratifierComponent))
           return false;
-        MeasureReportGroupStratifierComponent o = (MeasureReportGroupStratifierComponent) other;
+        MeasureReportGroupStratifierComponent o = (MeasureReportGroupStratifierComponent) other_;
         return true;
       }
 
@@ -1391,23 +1391,23 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StratifierGroupComponent))
+        if (!(other_ instanceof StratifierGroupComponent))
           return false;
-        StratifierGroupComponent o = (StratifierGroupComponent) other;
+        StratifierGroupComponent o = (StratifierGroupComponent) other_;
         return compareDeep(value, o.value, true) && compareDeep(population, o.population, true) && compareDeep(measureScore, o.measureScore, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StratifierGroupComponent))
+        if (!(other_ instanceof StratifierGroupComponent))
           return false;
-        StratifierGroupComponent o = (StratifierGroupComponent) other;
+        StratifierGroupComponent o = (StratifierGroupComponent) other_;
         return true;
       }
 
@@ -1682,23 +1682,23 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StratifierGroupPopulationComponent))
+        if (!(other_ instanceof StratifierGroupPopulationComponent))
           return false;
-        StratifierGroupPopulationComponent o = (StratifierGroupPopulationComponent) other;
+        StratifierGroupPopulationComponent o = (StratifierGroupPopulationComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(count, o.count, true) && compareDeep(subjects, o.subjects, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StratifierGroupPopulationComponent))
+        if (!(other_ instanceof StratifierGroupPopulationComponent))
           return false;
-        StratifierGroupPopulationComponent o = (StratifierGroupPopulationComponent) other;
+        StratifierGroupPopulationComponent o = (StratifierGroupPopulationComponent) other_;
         return compareValues(count, o.count, true);
       }
 
@@ -2463,12 +2463,12 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MeasureReport))
+        if (!(other_ instanceof MeasureReport))
           return false;
-        MeasureReport o = (MeasureReport) other;
+        MeasureReport o = (MeasureReport) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
            && compareDeep(measure, o.measure, true) && compareDeep(subject, o.subject, true) && compareDeep(date, o.date, true)
            && compareDeep(reportingOrganization, o.reportingOrganization, true) && compareDeep(period, o.period, true)
@@ -2477,12 +2477,12 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MeasureReport))
+        if (!(other_ instanceof MeasureReport))
           return false;
-        MeasureReport o = (MeasureReport) other;
+        MeasureReport o = (MeasureReport) other_;
         return compareValues(status, o.status, true) && compareValues(type, o.type, true) && compareValues(date, o.date, true)
           ;
       }

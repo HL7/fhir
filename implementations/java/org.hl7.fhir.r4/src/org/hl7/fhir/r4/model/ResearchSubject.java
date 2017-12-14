@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -956,24 +956,24 @@ responding, withdrawal, non-compliance and/or adverse event.
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ResearchSubject))
+        if (!(other_ instanceof ResearchSubject))
           return false;
-        ResearchSubject o = (ResearchSubject) other;
+        ResearchSubject o = (ResearchSubject) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(period, o.period, true)
            && compareDeep(study, o.study, true) && compareDeep(individual, o.individual, true) && compareDeep(assignedArm, o.assignedArm, true)
            && compareDeep(actualArm, o.actualArm, true) && compareDeep(consent, o.consent, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ResearchSubject))
+        if (!(other_ instanceof ResearchSubject))
           return false;
-        ResearchSubject o = (ResearchSubject) other;
+        ResearchSubject o = (ResearchSubject) other_;
         return compareValues(status, o.status, true) && compareValues(assignedArm, o.assignedArm, true) && compareValues(actualArm, o.actualArm, true)
           ;
       }

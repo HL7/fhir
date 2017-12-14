@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1905,12 +1905,12 @@ public class Library extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Library))
+        if (!(other_ instanceof Library))
           return false;
-        Library o = (Library) other;
+        Library o = (Library) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(purpose, o.purpose, true)
            && compareDeep(usage, o.usage, true) && compareDeep(approvalDate, o.approvalDate, true) && compareDeep(lastReviewDate, o.lastReviewDate, true)
            && compareDeep(effectivePeriod, o.effectivePeriod, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
@@ -1920,12 +1920,12 @@ public class Library extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Library))
+        if (!(other_ instanceof Library))
           return false;
-        Library o = (Library) other;
+        Library o = (Library) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(usage, o.usage, true) && compareValues(approvalDate, o.approvalDate, true)
            && compareValues(lastReviewDate, o.lastReviewDate, true) && compareValues(copyright, o.copyright, true)
           ;

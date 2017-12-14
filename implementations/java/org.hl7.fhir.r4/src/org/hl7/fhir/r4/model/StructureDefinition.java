@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -733,23 +733,23 @@ public class StructureDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureDefinitionMappingComponent))
+        if (!(other_ instanceof StructureDefinitionMappingComponent))
           return false;
-        StructureDefinitionMappingComponent o = (StructureDefinitionMappingComponent) other;
+        StructureDefinitionMappingComponent o = (StructureDefinitionMappingComponent) other_;
         return compareDeep(identity, o.identity, true) && compareDeep(uri, o.uri, true) && compareDeep(name, o.name, true)
            && compareDeep(comment, o.comment, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureDefinitionMappingComponent))
+        if (!(other_ instanceof StructureDefinitionMappingComponent))
           return false;
-        StructureDefinitionMappingComponent o = (StructureDefinitionMappingComponent) other;
+        StructureDefinitionMappingComponent o = (StructureDefinitionMappingComponent) other_;
         return compareValues(identity, o.identity, true) && compareValues(uri, o.uri, true) && compareValues(name, o.name, true)
            && compareValues(comment, o.comment, true);
       }
@@ -919,22 +919,22 @@ public class StructureDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureDefinitionSnapshotComponent))
+        if (!(other_ instanceof StructureDefinitionSnapshotComponent))
           return false;
-        StructureDefinitionSnapshotComponent o = (StructureDefinitionSnapshotComponent) other;
+        StructureDefinitionSnapshotComponent o = (StructureDefinitionSnapshotComponent) other_;
         return compareDeep(element, o.element, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureDefinitionSnapshotComponent))
+        if (!(other_ instanceof StructureDefinitionSnapshotComponent))
           return false;
-        StructureDefinitionSnapshotComponent o = (StructureDefinitionSnapshotComponent) other;
+        StructureDefinitionSnapshotComponent o = (StructureDefinitionSnapshotComponent) other_;
         return true;
       }
 
@@ -1102,22 +1102,22 @@ public class StructureDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureDefinitionDifferentialComponent))
+        if (!(other_ instanceof StructureDefinitionDifferentialComponent))
           return false;
-        StructureDefinitionDifferentialComponent o = (StructureDefinitionDifferentialComponent) other;
+        StructureDefinitionDifferentialComponent o = (StructureDefinitionDifferentialComponent) other_;
         return compareDeep(element, o.element, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureDefinitionDifferentialComponent))
+        if (!(other_ instanceof StructureDefinitionDifferentialComponent))
           return false;
-        StructureDefinitionDifferentialComponent o = (StructureDefinitionDifferentialComponent) other;
+        StructureDefinitionDifferentialComponent o = (StructureDefinitionDifferentialComponent) other_;
         return true;
       }
 
@@ -3121,12 +3121,12 @@ public class StructureDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureDefinition))
+        if (!(other_ instanceof StructureDefinition))
           return false;
-        StructureDefinition o = (StructureDefinition) other;
+        StructureDefinition o = (StructureDefinition) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(keyword, o.keyword, true) && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(mapping, o.mapping, true)
            && compareDeep(kind, o.kind, true) && compareDeep(abstract_, o.abstract_, true) && compareDeep(contextType, o.contextType, true)
@@ -3136,12 +3136,12 @@ public class StructureDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureDefinition))
+        if (!(other_ instanceof StructureDefinition))
           return false;
-        StructureDefinition o = (StructureDefinition) other;
+        StructureDefinition o = (StructureDefinition) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(fhirVersion, o.fhirVersion, true)
            && compareValues(kind, o.kind, true) && compareValues(abstract_, o.abstract_, true) && compareValues(contextType, o.contextType, true)
            && compareValues(context, o.context, true) && compareValues(contextInvariant, o.contextInvariant, true)

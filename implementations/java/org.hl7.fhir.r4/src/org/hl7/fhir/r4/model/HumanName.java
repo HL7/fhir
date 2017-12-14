@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -884,24 +884,24 @@ public class HumanName extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof HumanName))
+        if (!(other_ instanceof HumanName))
           return false;
-        HumanName o = (HumanName) other;
+        HumanName o = (HumanName) other_;
         return compareDeep(use, o.use, true) && compareDeep(text, o.text, true) && compareDeep(family, o.family, true)
            && compareDeep(given, o.given, true) && compareDeep(prefix, o.prefix, true) && compareDeep(suffix, o.suffix, true)
            && compareDeep(period, o.period, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof HumanName))
+        if (!(other_ instanceof HumanName))
           return false;
-        HumanName o = (HumanName) other;
+        HumanName o = (HumanName) other_;
         return compareValues(use, o.use, true) && compareValues(text, o.text, true) && compareValues(family, o.family, true)
            && compareValues(given, o.given, true) && compareValues(prefix, o.prefix, true) && compareValues(suffix, o.suffix, true)
           ;

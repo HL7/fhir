@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1129,12 +1129,12 @@ public class SpecimenDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SpecimenDefinitionSpecimenToLabComponent))
+        if (!(other_ instanceof SpecimenDefinitionSpecimenToLabComponent))
           return false;
-        SpecimenDefinitionSpecimenToLabComponent o = (SpecimenDefinitionSpecimenToLabComponent) other;
+        SpecimenDefinitionSpecimenToLabComponent o = (SpecimenDefinitionSpecimenToLabComponent) other_;
         return compareDeep(isDerived, o.isDerived, true) && compareDeep(type, o.type, true) && compareDeep(preference, o.preference, true)
            && compareDeep(containerMaterial, o.containerMaterial, true) && compareDeep(containerType, o.containerType, true)
            && compareDeep(containerCap, o.containerCap, true) && compareDeep(containerDescription, o.containerDescription, true)
@@ -1146,12 +1146,12 @@ public class SpecimenDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SpecimenDefinitionSpecimenToLabComponent))
+        if (!(other_ instanceof SpecimenDefinitionSpecimenToLabComponent))
           return false;
-        SpecimenDefinitionSpecimenToLabComponent o = (SpecimenDefinitionSpecimenToLabComponent) other;
+        SpecimenDefinitionSpecimenToLabComponent o = (SpecimenDefinitionSpecimenToLabComponent) other_;
         return compareValues(isDerived, o.isDerived, true) && compareValues(preference, o.preference, true)
            && compareValues(containerDescription, o.containerDescription, true) && compareValues(containerPreparation, o.containerPreparation, true)
            && compareValues(requirement, o.requirement, true);
@@ -1330,22 +1330,22 @@ public class SpecimenDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SpecimenDefinitionSpecimenToLabContainerAdditiveComponent))
+        if (!(other_ instanceof SpecimenDefinitionSpecimenToLabContainerAdditiveComponent))
           return false;
-        SpecimenDefinitionSpecimenToLabContainerAdditiveComponent o = (SpecimenDefinitionSpecimenToLabContainerAdditiveComponent) other;
+        SpecimenDefinitionSpecimenToLabContainerAdditiveComponent o = (SpecimenDefinitionSpecimenToLabContainerAdditiveComponent) other_;
         return compareDeep(additive, o.additive, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SpecimenDefinitionSpecimenToLabContainerAdditiveComponent))
+        if (!(other_ instanceof SpecimenDefinitionSpecimenToLabContainerAdditiveComponent))
           return false;
-        SpecimenDefinitionSpecimenToLabContainerAdditiveComponent o = (SpecimenDefinitionSpecimenToLabContainerAdditiveComponent) other;
+        SpecimenDefinitionSpecimenToLabContainerAdditiveComponent o = (SpecimenDefinitionSpecimenToLabContainerAdditiveComponent) other_;
         return true;
       }
 
@@ -1714,24 +1714,24 @@ public class SpecimenDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SpecimenDefinitionSpecimenToLabHandlingComponent))
+        if (!(other_ instanceof SpecimenDefinitionSpecimenToLabHandlingComponent))
           return false;
-        SpecimenDefinitionSpecimenToLabHandlingComponent o = (SpecimenDefinitionSpecimenToLabHandlingComponent) other;
+        SpecimenDefinitionSpecimenToLabHandlingComponent o = (SpecimenDefinitionSpecimenToLabHandlingComponent) other_;
         return compareDeep(conditionSet, o.conditionSet, true) && compareDeep(tempRange, o.tempRange, true)
            && compareDeep(maxDuration, o.maxDuration, true) && compareDeep(lightExposure, o.lightExposure, true)
            && compareDeep(instruction, o.instruction, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SpecimenDefinitionSpecimenToLabHandlingComponent))
+        if (!(other_ instanceof SpecimenDefinitionSpecimenToLabHandlingComponent))
           return false;
-        SpecimenDefinitionSpecimenToLabHandlingComponent o = (SpecimenDefinitionSpecimenToLabHandlingComponent) other;
+        SpecimenDefinitionSpecimenToLabHandlingComponent o = (SpecimenDefinitionSpecimenToLabHandlingComponent) other_;
         return compareValues(lightExposure, o.lightExposure, true) && compareValues(instruction, o.instruction, true)
           ;
       }
@@ -2219,12 +2219,12 @@ public class SpecimenDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SpecimenDefinition))
+        if (!(other_ instanceof SpecimenDefinition))
           return false;
-        SpecimenDefinition o = (SpecimenDefinition) other;
+        SpecimenDefinition o = (SpecimenDefinition) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(typeCollected, o.typeCollected, true)
            && compareDeep(patientPreparation, o.patientPreparation, true) && compareDeep(timeAspect, o.timeAspect, true)
            && compareDeep(collection, o.collection, true) && compareDeep(specimenToLab, o.specimenToLab, true)
@@ -2232,12 +2232,12 @@ public class SpecimenDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SpecimenDefinition))
+        if (!(other_ instanceof SpecimenDefinition))
           return false;
-        SpecimenDefinition o = (SpecimenDefinition) other;
+        SpecimenDefinition o = (SpecimenDefinition) other_;
         return compareValues(patientPreparation, o.patientPreparation, true) && compareValues(timeAspect, o.timeAspect, true)
           ;
       }

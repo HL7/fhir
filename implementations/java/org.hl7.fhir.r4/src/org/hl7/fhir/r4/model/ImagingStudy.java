@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1189,12 +1189,12 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImagingStudySeriesComponent))
+        if (!(other_ instanceof ImagingStudySeriesComponent))
           return false;
-        ImagingStudySeriesComponent o = (ImagingStudySeriesComponent) other;
+        ImagingStudySeriesComponent o = (ImagingStudySeriesComponent) other_;
         return compareDeep(uid, o.uid, true) && compareDeep(number, o.number, true) && compareDeep(modality, o.modality, true)
            && compareDeep(description, o.description, true) && compareDeep(numberOfInstances, o.numberOfInstances, true)
            && compareDeep(availability, o.availability, true) && compareDeep(endpoint, o.endpoint, true) && compareDeep(bodySite, o.bodySite, true)
@@ -1203,12 +1203,12 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImagingStudySeriesComponent))
+        if (!(other_ instanceof ImagingStudySeriesComponent))
           return false;
-        ImagingStudySeriesComponent o = (ImagingStudySeriesComponent) other;
+        ImagingStudySeriesComponent o = (ImagingStudySeriesComponent) other_;
         return compareValues(uid, o.uid, true) && compareValues(number, o.number, true) && compareValues(description, o.description, true)
            && compareValues(numberOfInstances, o.numberOfInstances, true) && compareValues(availability, o.availability, true)
            && compareValues(started, o.started, true);
@@ -1579,23 +1579,23 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImagingStudySeriesInstanceComponent))
+        if (!(other_ instanceof ImagingStudySeriesInstanceComponent))
           return false;
-        ImagingStudySeriesInstanceComponent o = (ImagingStudySeriesInstanceComponent) other;
+        ImagingStudySeriesInstanceComponent o = (ImagingStudySeriesInstanceComponent) other_;
         return compareDeep(uid, o.uid, true) && compareDeep(number, o.number, true) && compareDeep(sopClass, o.sopClass, true)
            && compareDeep(title, o.title, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImagingStudySeriesInstanceComponent))
+        if (!(other_ instanceof ImagingStudySeriesInstanceComponent))
           return false;
-        ImagingStudySeriesInstanceComponent o = (ImagingStudySeriesInstanceComponent) other;
+        ImagingStudySeriesInstanceComponent o = (ImagingStudySeriesInstanceComponent) other_;
         return compareValues(uid, o.uid, true) && compareValues(number, o.number, true) && compareValues(sopClass, o.sopClass, true)
            && compareValues(title, o.title, true);
       }
@@ -3132,12 +3132,12 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImagingStudy))
+        if (!(other_ instanceof ImagingStudy))
           return false;
-        ImagingStudy o = (ImagingStudy) other;
+        ImagingStudy o = (ImagingStudy) other_;
         return compareDeep(uid, o.uid, true) && compareDeep(accession, o.accession, true) && compareDeep(identifier, o.identifier, true)
            && compareDeep(availability, o.availability, true) && compareDeep(modalityList, o.modalityList, true)
            && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(started, o.started, true)
@@ -3149,12 +3149,12 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImagingStudy))
+        if (!(other_ instanceof ImagingStudy))
           return false;
-        ImagingStudy o = (ImagingStudy) other;
+        ImagingStudy o = (ImagingStudy) other_;
         return compareValues(uid, o.uid, true) && compareValues(availability, o.availability, true) && compareValues(started, o.started, true)
            && compareValues(numberOfSeries, o.numberOfSeries, true) && compareValues(numberOfInstances, o.numberOfInstances, true)
            && compareValues(description, o.description, true);

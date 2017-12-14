@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -590,23 +590,23 @@ public class HealthcareService extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof HealthcareServiceAvailableTimeComponent))
+        if (!(other_ instanceof HealthcareServiceAvailableTimeComponent))
           return false;
-        HealthcareServiceAvailableTimeComponent o = (HealthcareServiceAvailableTimeComponent) other;
+        HealthcareServiceAvailableTimeComponent o = (HealthcareServiceAvailableTimeComponent) other_;
         return compareDeep(daysOfWeek, o.daysOfWeek, true) && compareDeep(allDay, o.allDay, true) && compareDeep(availableStartTime, o.availableStartTime, true)
            && compareDeep(availableEndTime, o.availableEndTime, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof HealthcareServiceAvailableTimeComponent))
+        if (!(other_ instanceof HealthcareServiceAvailableTimeComponent))
           return false;
-        HealthcareServiceAvailableTimeComponent o = (HealthcareServiceAvailableTimeComponent) other;
+        HealthcareServiceAvailableTimeComponent o = (HealthcareServiceAvailableTimeComponent) other_;
         return compareValues(daysOfWeek, o.daysOfWeek, true) && compareValues(allDay, o.allDay, true) && compareValues(availableStartTime, o.availableStartTime, true)
            && compareValues(availableEndTime, o.availableEndTime, true);
       }
@@ -818,22 +818,22 @@ public class HealthcareService extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof HealthcareServiceNotAvailableComponent))
+        if (!(other_ instanceof HealthcareServiceNotAvailableComponent))
           return false;
-        HealthcareServiceNotAvailableComponent o = (HealthcareServiceNotAvailableComponent) other;
+        HealthcareServiceNotAvailableComponent o = (HealthcareServiceNotAvailableComponent) other_;
         return compareDeep(description, o.description, true) && compareDeep(during, o.during, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof HealthcareServiceNotAvailableComponent))
+        if (!(other_ instanceof HealthcareServiceNotAvailableComponent))
           return false;
-        HealthcareServiceNotAvailableComponent o = (HealthcareServiceNotAvailableComponent) other;
+        HealthcareServiceNotAvailableComponent o = (HealthcareServiceNotAvailableComponent) other_;
         return compareValues(description, o.description, true);
       }
 
@@ -2729,12 +2729,12 @@ public class HealthcareService extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof HealthcareService))
+        if (!(other_ instanceof HealthcareService))
           return false;
-        HealthcareService o = (HealthcareService) other;
+        HealthcareService o = (HealthcareService) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(providedBy, o.providedBy, true)
            && compareDeep(category, o.category, true) && compareDeep(type, o.type, true) && compareDeep(specialty, o.specialty, true)
            && compareDeep(location, o.location, true) && compareDeep(name, o.name, true) && compareDeep(comment, o.comment, true)
@@ -2749,12 +2749,12 @@ public class HealthcareService extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof HealthcareService))
+        if (!(other_ instanceof HealthcareService))
           return false;
-        HealthcareService o = (HealthcareService) other;
+        HealthcareService o = (HealthcareService) other_;
         return compareValues(active, o.active, true) && compareValues(name, o.name, true) && compareValues(comment, o.comment, true)
            && compareValues(extraDetails, o.extraDetails, true) && compareValues(eligibilityNote, o.eligibilityNote, true)
            && compareValues(programName, o.programName, true) && compareValues(appointmentRequired, o.appointmentRequired, true)

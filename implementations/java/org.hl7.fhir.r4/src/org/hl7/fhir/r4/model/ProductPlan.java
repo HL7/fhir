@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -464,23 +464,23 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProductPlanContactComponent))
+        if (!(other_ instanceof ProductPlanContactComponent))
           return false;
-        ProductPlanContactComponent o = (ProductPlanContactComponent) other;
+        ProductPlanContactComponent o = (ProductPlanContactComponent) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true)
            && compareDeep(address, o.address, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProductPlanContactComponent))
+        if (!(other_ instanceof ProductPlanContactComponent))
           return false;
-        ProductPlanContactComponent o = (ProductPlanContactComponent) other;
+        ProductPlanContactComponent o = (ProductPlanContactComponent) other_;
         return true;
       }
 
@@ -703,22 +703,22 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProductPlanCoverageComponent))
+        if (!(other_ instanceof ProductPlanCoverageComponent))
           return false;
-        ProductPlanCoverageComponent o = (ProductPlanCoverageComponent) other;
+        ProductPlanCoverageComponent o = (ProductPlanCoverageComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(benefit, o.benefit, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProductPlanCoverageComponent))
+        if (!(other_ instanceof ProductPlanCoverageComponent))
           return false;
-        ProductPlanCoverageComponent o = (ProductPlanCoverageComponent) other;
+        ProductPlanCoverageComponent o = (ProductPlanCoverageComponent) other_;
         return true;
       }
 
@@ -940,22 +940,22 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProductPlanCoverageBenefitComponent))
+        if (!(other_ instanceof ProductPlanCoverageBenefitComponent))
           return false;
-        ProductPlanCoverageBenefitComponent o = (ProductPlanCoverageBenefitComponent) other;
+        ProductPlanCoverageBenefitComponent o = (ProductPlanCoverageBenefitComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(item, o.item, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProductPlanCoverageBenefitComponent))
+        if (!(other_ instanceof ProductPlanCoverageBenefitComponent))
           return false;
-        ProductPlanCoverageBenefitComponent o = (ProductPlanCoverageBenefitComponent) other;
+        ProductPlanCoverageBenefitComponent o = (ProductPlanCoverageBenefitComponent) other_;
         return true;
       }
 
@@ -1145,22 +1145,22 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProductPlanCoverageBenefitItemComponent))
+        if (!(other_ instanceof ProductPlanCoverageBenefitItemComponent))
           return false;
-        ProductPlanCoverageBenefitItemComponent o = (ProductPlanCoverageBenefitItemComponent) other;
+        ProductPlanCoverageBenefitItemComponent o = (ProductPlanCoverageBenefitItemComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(benefitValue, o.benefitValue, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProductPlanCoverageBenefitItemComponent))
+        if (!(other_ instanceof ProductPlanCoverageBenefitItemComponent))
           return false;
-        ProductPlanCoverageBenefitItemComponent o = (ProductPlanCoverageBenefitItemComponent) other;
+        ProductPlanCoverageBenefitItemComponent o = (ProductPlanCoverageBenefitItemComponent) other_;
         return true;
       }
 
@@ -1490,23 +1490,23 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProductPlanPlanComponent))
+        if (!(other_ instanceof ProductPlanPlanComponent))
           return false;
-        ProductPlanPlanComponent o = (ProductPlanPlanComponent) other;
+        ProductPlanPlanComponent o = (ProductPlanPlanComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(description, o.description, true) && compareDeep(premium, o.premium, true)
            && compareDeep(category, o.category, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProductPlanPlanComponent))
+        if (!(other_ instanceof ProductPlanPlanComponent))
           return false;
-        ProductPlanPlanComponent o = (ProductPlanPlanComponent) other;
+        ProductPlanPlanComponent o = (ProductPlanPlanComponent) other_;
         return compareValues(description, o.description, true);
       }
 
@@ -1721,22 +1721,22 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProductPlanPlanCategoryComponent))
+        if (!(other_ instanceof ProductPlanPlanCategoryComponent))
           return false;
-        ProductPlanPlanCategoryComponent o = (ProductPlanPlanCategoryComponent) other;
+        ProductPlanPlanCategoryComponent o = (ProductPlanPlanCategoryComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(benefit, o.benefit, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProductPlanPlanCategoryComponent))
+        if (!(other_ instanceof ProductPlanPlanCategoryComponent))
           return false;
-        ProductPlanPlanCategoryComponent o = (ProductPlanPlanCategoryComponent) other;
+        ProductPlanPlanCategoryComponent o = (ProductPlanPlanCategoryComponent) other_;
         return true;
       }
 
@@ -1958,22 +1958,22 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProductPlanPlanCategoryBenefitComponent))
+        if (!(other_ instanceof ProductPlanPlanCategoryBenefitComponent))
           return false;
-        ProductPlanPlanCategoryBenefitComponent o = (ProductPlanPlanCategoryBenefitComponent) other;
+        ProductPlanPlanCategoryBenefitComponent o = (ProductPlanPlanCategoryBenefitComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(cost, o.cost, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProductPlanPlanCategoryBenefitComponent))
+        if (!(other_ instanceof ProductPlanPlanCategoryBenefitComponent))
           return false;
-        ProductPlanPlanCategoryBenefitComponent o = (ProductPlanPlanCategoryBenefitComponent) other;
+        ProductPlanPlanCategoryBenefitComponent o = (ProductPlanPlanCategoryBenefitComponent) other_;
         return true;
       }
 
@@ -2327,23 +2327,23 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProductPlanPlanCategoryBenefitCostComponent))
+        if (!(other_ instanceof ProductPlanPlanCategoryBenefitCostComponent))
           return false;
-        ProductPlanPlanCategoryBenefitCostComponent o = (ProductPlanPlanCategoryBenefitCostComponent) other;
+        ProductPlanPlanCategoryBenefitCostComponent o = (ProductPlanPlanCategoryBenefitCostComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(applicability, o.applicability, true) && compareDeep(qualifiers, o.qualifiers, true)
            && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProductPlanPlanCategoryBenefitCostComponent))
+        if (!(other_ instanceof ProductPlanPlanCategoryBenefitCostComponent))
           return false;
-        ProductPlanPlanCategoryBenefitCostComponent o = (ProductPlanPlanCategoryBenefitCostComponent) other;
+        ProductPlanPlanCategoryBenefitCostComponent o = (ProductPlanPlanCategoryBenefitCostComponent) other_;
         return compareValues(qualifiers, o.qualifiers, true);
       }
 
@@ -3503,12 +3503,12 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProductPlan))
+        if (!(other_ instanceof ProductPlan))
           return false;
-        ProductPlan o = (ProductPlan) other;
+        ProductPlan o = (ProductPlan) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
            && compareDeep(name, o.name, true) && compareDeep(alias, o.alias, true) && compareDeep(period, o.period, true)
            && compareDeep(ownedBy, o.ownedBy, true) && compareDeep(administeredBy, o.administeredBy, true)
@@ -3518,12 +3518,12 @@ public class ProductPlan extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProductPlan))
+        if (!(other_ instanceof ProductPlan))
           return false;
-        ProductPlan o = (ProductPlan) other;
+        ProductPlan o = (ProductPlan) other_;
         return compareValues(status, o.status, true) && compareValues(name, o.name, true) && compareValues(alias, o.alias, true)
           ;
       }

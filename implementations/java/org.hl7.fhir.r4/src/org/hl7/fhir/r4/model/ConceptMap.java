@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -637,24 +637,24 @@ public class ConceptMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptMapGroupComponent))
+        if (!(other_ instanceof ConceptMapGroupComponent))
           return false;
-        ConceptMapGroupComponent o = (ConceptMapGroupComponent) other;
+        ConceptMapGroupComponent o = (ConceptMapGroupComponent) other_;
         return compareDeep(source, o.source, true) && compareDeep(sourceVersion, o.sourceVersion, true)
            && compareDeep(target, o.target, true) && compareDeep(targetVersion, o.targetVersion, true) && compareDeep(element, o.element, true)
            && compareDeep(unmapped, o.unmapped, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptMapGroupComponent))
+        if (!(other_ instanceof ConceptMapGroupComponent))
           return false;
-        ConceptMapGroupComponent o = (ConceptMapGroupComponent) other;
+        ConceptMapGroupComponent o = (ConceptMapGroupComponent) other_;
         return compareValues(source, o.source, true) && compareValues(sourceVersion, o.sourceVersion, true)
            && compareValues(target, o.target, true) && compareValues(targetVersion, o.targetVersion, true);
       }
@@ -964,23 +964,23 @@ public class ConceptMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SourceElementComponent))
+        if (!(other_ instanceof SourceElementComponent))
           return false;
-        SourceElementComponent o = (SourceElementComponent) other;
+        SourceElementComponent o = (SourceElementComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(target, o.target, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SourceElementComponent))
+        if (!(other_ instanceof SourceElementComponent))
           return false;
-        SourceElementComponent o = (SourceElementComponent) other;
+        SourceElementComponent o = (SourceElementComponent) other_;
         return compareValues(code, o.code, true) && compareValues(display, o.display, true);
       }
 
@@ -1509,24 +1509,24 @@ public class ConceptMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TargetElementComponent))
+        if (!(other_ instanceof TargetElementComponent))
           return false;
-        TargetElementComponent o = (TargetElementComponent) other;
+        TargetElementComponent o = (TargetElementComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(equivalence, o.equivalence, true)
            && compareDeep(comment, o.comment, true) && compareDeep(dependsOn, o.dependsOn, true) && compareDeep(product, o.product, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TargetElementComponent))
+        if (!(other_ instanceof TargetElementComponent))
           return false;
-        TargetElementComponent o = (TargetElementComponent) other;
+        TargetElementComponent o = (TargetElementComponent) other_;
         return compareValues(code, o.code, true) && compareValues(display, o.display, true) && compareValues(equivalence, o.equivalence, true)
            && compareValues(comment, o.comment, true);
       }
@@ -1899,23 +1899,23 @@ public class ConceptMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OtherElementComponent))
+        if (!(other_ instanceof OtherElementComponent))
           return false;
-        OtherElementComponent o = (OtherElementComponent) other;
+        OtherElementComponent o = (OtherElementComponent) other_;
         return compareDeep(property, o.property, true) && compareDeep(system, o.system, true) && compareDeep(code, o.code, true)
            && compareDeep(display, o.display, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OtherElementComponent))
+        if (!(other_ instanceof OtherElementComponent))
           return false;
-        OtherElementComponent o = (OtherElementComponent) other;
+        OtherElementComponent o = (OtherElementComponent) other_;
         return compareValues(property, o.property, true) && compareValues(system, o.system, true) && compareValues(code, o.code, true)
            && compareValues(display, o.display, true);
       }
@@ -2294,23 +2294,23 @@ public class ConceptMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptMapGroupUnmappedComponent))
+        if (!(other_ instanceof ConceptMapGroupUnmappedComponent))
           return false;
-        ConceptMapGroupUnmappedComponent o = (ConceptMapGroupUnmappedComponent) other;
+        ConceptMapGroupUnmappedComponent o = (ConceptMapGroupUnmappedComponent) other_;
         return compareDeep(mode, o.mode, true) && compareDeep(code, o.code, true) && compareDeep(display, o.display, true)
            && compareDeep(url, o.url, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptMapGroupUnmappedComponent))
+        if (!(other_ instanceof ConceptMapGroupUnmappedComponent))
           return false;
-        ConceptMapGroupUnmappedComponent o = (ConceptMapGroupUnmappedComponent) other;
+        ConceptMapGroupUnmappedComponent o = (ConceptMapGroupUnmappedComponent) other_;
         return compareValues(mode, o.mode, true) && compareValues(code, o.code, true) && compareValues(display, o.display, true)
            && compareValues(url, o.url, true);
       }
@@ -3605,24 +3605,24 @@ public class ConceptMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptMap))
+        if (!(other_ instanceof ConceptMap))
           return false;
-        ConceptMap o = (ConceptMap) other;
+        ConceptMap o = (ConceptMap) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(source, o.source, true) && compareDeep(target, o.target, true) && compareDeep(group, o.group, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptMap))
+        if (!(other_ instanceof ConceptMap))
           return false;
-        ConceptMap o = (ConceptMap) other;
+        ConceptMap o = (ConceptMap) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true);
       }
 

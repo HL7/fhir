@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1425,23 +1425,23 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureMapStructureComponent))
+        if (!(other_ instanceof StructureMapStructureComponent))
           return false;
-        StructureMapStructureComponent o = (StructureMapStructureComponent) other;
+        StructureMapStructureComponent o = (StructureMapStructureComponent) other_;
         return compareDeep(url, o.url, true) && compareDeep(mode, o.mode, true) && compareDeep(alias, o.alias, true)
            && compareDeep(documentation, o.documentation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureMapStructureComponent))
+        if (!(other_ instanceof StructureMapStructureComponent))
           return false;
-        StructureMapStructureComponent o = (StructureMapStructureComponent) other;
+        StructureMapStructureComponent o = (StructureMapStructureComponent) other_;
         return compareValues(url, o.url, true) && compareValues(mode, o.mode, true) && compareValues(alias, o.alias, true)
            && compareValues(documentation, o.documentation, true);
       }
@@ -1973,24 +1973,24 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureMapGroupComponent))
+        if (!(other_ instanceof StructureMapGroupComponent))
           return false;
-        StructureMapGroupComponent o = (StructureMapGroupComponent) other;
+        StructureMapGroupComponent o = (StructureMapGroupComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(extends_, o.extends_, true) && compareDeep(typeMode, o.typeMode, true)
            && compareDeep(documentation, o.documentation, true) && compareDeep(input, o.input, true) && compareDeep(rule, o.rule, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureMapGroupComponent))
+        if (!(other_ instanceof StructureMapGroupComponent))
           return false;
-        StructureMapGroupComponent o = (StructureMapGroupComponent) other;
+        StructureMapGroupComponent o = (StructureMapGroupComponent) other_;
         return compareValues(name, o.name, true) && compareValues(extends_, o.extends_, true) && compareValues(typeMode, o.typeMode, true)
            && compareValues(documentation, o.documentation, true);
       }
@@ -2374,23 +2374,23 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureMapGroupInputComponent))
+        if (!(other_ instanceof StructureMapGroupInputComponent))
           return false;
-        StructureMapGroupInputComponent o = (StructureMapGroupInputComponent) other;
+        StructureMapGroupInputComponent o = (StructureMapGroupInputComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(type, o.type, true) && compareDeep(mode, o.mode, true)
            && compareDeep(documentation, o.documentation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureMapGroupInputComponent))
+        if (!(other_ instanceof StructureMapGroupInputComponent))
           return false;
-        StructureMapGroupInputComponent o = (StructureMapGroupInputComponent) other;
+        StructureMapGroupInputComponent o = (StructureMapGroupInputComponent) other_;
         return compareValues(name, o.name, true) && compareValues(type, o.type, true) && compareValues(mode, o.mode, true)
            && compareValues(documentation, o.documentation, true);
       }
@@ -2938,24 +2938,24 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleComponent))
+        if (!(other_ instanceof StructureMapGroupRuleComponent))
           return false;
-        StructureMapGroupRuleComponent o = (StructureMapGroupRuleComponent) other;
+        StructureMapGroupRuleComponent o = (StructureMapGroupRuleComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(source, o.source, true) && compareDeep(target, o.target, true)
            && compareDeep(rule, o.rule, true) && compareDeep(dependent, o.dependent, true) && compareDeep(documentation, o.documentation, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleComponent))
+        if (!(other_ instanceof StructureMapGroupRuleComponent))
           return false;
-        StructureMapGroupRuleComponent o = (StructureMapGroupRuleComponent) other;
+        StructureMapGroupRuleComponent o = (StructureMapGroupRuleComponent) other_;
         return compareValues(name, o.name, true) && compareValues(documentation, o.documentation, true);
       }
 
@@ -3891,12 +3891,12 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleSourceComponent))
+        if (!(other_ instanceof StructureMapGroupRuleSourceComponent))
           return false;
-        StructureMapGroupRuleSourceComponent o = (StructureMapGroupRuleSourceComponent) other;
+        StructureMapGroupRuleSourceComponent o = (StructureMapGroupRuleSourceComponent) other_;
         return compareDeep(context, o.context, true) && compareDeep(min, o.min, true) && compareDeep(max, o.max, true)
            && compareDeep(type, o.type, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(element, o.element, true)
            && compareDeep(listMode, o.listMode, true) && compareDeep(variable, o.variable, true) && compareDeep(condition, o.condition, true)
@@ -3904,12 +3904,12 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleSourceComponent))
+        if (!(other_ instanceof StructureMapGroupRuleSourceComponent))
           return false;
-        StructureMapGroupRuleSourceComponent o = (StructureMapGroupRuleSourceComponent) other;
+        StructureMapGroupRuleSourceComponent o = (StructureMapGroupRuleSourceComponent) other_;
         return compareValues(context, o.context, true) && compareValues(min, o.min, true) && compareValues(max, o.max, true)
            && compareValues(type, o.type, true) && compareValues(element, o.element, true) && compareValues(listMode, o.listMode, true)
            && compareValues(variable, o.variable, true) && compareValues(condition, o.condition, true) && compareValues(check, o.check, true)
@@ -4604,24 +4604,24 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleTargetComponent))
+        if (!(other_ instanceof StructureMapGroupRuleTargetComponent))
           return false;
-        StructureMapGroupRuleTargetComponent o = (StructureMapGroupRuleTargetComponent) other;
+        StructureMapGroupRuleTargetComponent o = (StructureMapGroupRuleTargetComponent) other_;
         return compareDeep(context, o.context, true) && compareDeep(contextType, o.contextType, true) && compareDeep(element, o.element, true)
            && compareDeep(variable, o.variable, true) && compareDeep(listMode, o.listMode, true) && compareDeep(listRuleId, o.listRuleId, true)
            && compareDeep(transform, o.transform, true) && compareDeep(parameter, o.parameter, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleTargetComponent))
+        if (!(other_ instanceof StructureMapGroupRuleTargetComponent))
           return false;
-        StructureMapGroupRuleTargetComponent o = (StructureMapGroupRuleTargetComponent) other;
+        StructureMapGroupRuleTargetComponent o = (StructureMapGroupRuleTargetComponent) other_;
         return compareValues(context, o.context, true) && compareValues(contextType, o.contextType, true) && compareValues(element, o.element, true)
            && compareValues(variable, o.variable, true) && compareValues(listMode, o.listMode, true) && compareValues(listRuleId, o.listRuleId, true)
            && compareValues(transform, o.transform, true);
@@ -4859,22 +4859,22 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleTargetParameterComponent))
+        if (!(other_ instanceof StructureMapGroupRuleTargetParameterComponent))
           return false;
-        StructureMapGroupRuleTargetParameterComponent o = (StructureMapGroupRuleTargetParameterComponent) other;
+        StructureMapGroupRuleTargetParameterComponent o = (StructureMapGroupRuleTargetParameterComponent) other_;
         return compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleTargetParameterComponent))
+        if (!(other_ instanceof StructureMapGroupRuleTargetParameterComponent))
           return false;
-        StructureMapGroupRuleTargetParameterComponent o = (StructureMapGroupRuleTargetParameterComponent) other;
+        StructureMapGroupRuleTargetParameterComponent o = (StructureMapGroupRuleTargetParameterComponent) other_;
         return true;
       }
 
@@ -5133,22 +5133,22 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleDependentComponent))
+        if (!(other_ instanceof StructureMapGroupRuleDependentComponent))
           return false;
-        StructureMapGroupRuleDependentComponent o = (StructureMapGroupRuleDependentComponent) other;
+        StructureMapGroupRuleDependentComponent o = (StructureMapGroupRuleDependentComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(variable, o.variable, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureMapGroupRuleDependentComponent))
+        if (!(other_ instanceof StructureMapGroupRuleDependentComponent))
           return false;
-        StructureMapGroupRuleDependentComponent o = (StructureMapGroupRuleDependentComponent) other;
+        StructureMapGroupRuleDependentComponent o = (StructureMapGroupRuleDependentComponent) other_;
         return compareValues(name, o.name, true) && compareValues(variable, o.variable, true);
       }
 
@@ -6481,24 +6481,24 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StructureMap))
+        if (!(other_ instanceof StructureMap))
           return false;
-        StructureMap o = (StructureMap) other;
+        StructureMap o = (StructureMap) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(structure, o.structure, true) && compareDeep(import_, o.import_, true) && compareDeep(group, o.group, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StructureMap))
+        if (!(other_ instanceof StructureMap))
           return false;
-        StructureMap o = (StructureMap) other;
+        StructureMap o = (StructureMap) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(import_, o.import_, true)
           ;
       }

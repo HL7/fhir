@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1023,23 +1023,23 @@ public class DeviceMetric extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DeviceMetricCalibrationComponent))
+        if (!(other_ instanceof DeviceMetricCalibrationComponent))
           return false;
-        DeviceMetricCalibrationComponent o = (DeviceMetricCalibrationComponent) other;
+        DeviceMetricCalibrationComponent o = (DeviceMetricCalibrationComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(state, o.state, true) && compareDeep(time, o.time, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DeviceMetricCalibrationComponent))
+        if (!(other_ instanceof DeviceMetricCalibrationComponent))
           return false;
-        DeviceMetricCalibrationComponent o = (DeviceMetricCalibrationComponent) other;
+        DeviceMetricCalibrationComponent o = (DeviceMetricCalibrationComponent) other_;
         return compareValues(type, o.type, true) && compareValues(state, o.state, true) && compareValues(time, o.time, true)
           ;
       }
@@ -1799,12 +1799,12 @@ public class DeviceMetric extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DeviceMetric))
+        if (!(other_ instanceof DeviceMetric))
           return false;
-        DeviceMetric o = (DeviceMetric) other;
+        DeviceMetric o = (DeviceMetric) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(unit, o.unit, true)
            && compareDeep(source, o.source, true) && compareDeep(parent, o.parent, true) && compareDeep(operationalStatus, o.operationalStatus, true)
            && compareDeep(color, o.color, true) && compareDeep(category, o.category, true) && compareDeep(measurementPeriod, o.measurementPeriod, true)
@@ -1812,12 +1812,12 @@ public class DeviceMetric extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DeviceMetric))
+        if (!(other_ instanceof DeviceMetric))
           return false;
-        DeviceMetric o = (DeviceMetric) other;
+        DeviceMetric o = (DeviceMetric) other_;
         return compareValues(operationalStatus, o.operationalStatus, true) && compareValues(color, o.color, true)
            && compareValues(category, o.category, true);
       }

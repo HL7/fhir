@@ -3447,7 +3447,7 @@ public class VersionConvertor_14_40 {
       tgt.addInteraction(convertSystemInteractionComponent(t));
     for (org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent t : src.getSearchParam())
       tgt.addSearchParam(convertConformanceRestResourceSearchParamComponent(t));
-    for (org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestOperationComponent t : src.getOperation())
+    for (org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceOperationComponent t : src.getOperation())
       tgt.addOperation(convertConformanceRestOperationComponent(t));
     for (org.hl7.fhir.r4.model.UriType t : src.getCompartment())
       tgt.addCompartment(t.getValue());
@@ -3788,17 +3788,17 @@ public class VersionConvertor_14_40 {
     }
   }
 
-  public static org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestOperationComponent convertConformanceRestOperationComponent(org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestOperationComponent src) throws FHIRException {
+  public static org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceOperationComponent convertConformanceRestOperationComponent(org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestOperationComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
-    org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestOperationComponent tgt = new org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestOperationComponent();
+    org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceOperationComponent tgt = new org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceOperationComponent();
     copyElement(src, tgt);
     tgt.setName(src.getName());
     tgt.setDefinition(convertReference(src.getDefinition()));
     return tgt;
   }
 
-  public static org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestOperationComponent convertConformanceRestOperationComponent(org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestOperationComponent src) throws FHIRException {
+  public static org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestOperationComponent convertConformanceRestOperationComponent(org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceOperationComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestOperationComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestOperationComponent();

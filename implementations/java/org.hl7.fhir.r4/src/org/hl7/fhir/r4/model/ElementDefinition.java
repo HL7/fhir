@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1115,23 +1115,23 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ElementDefinitionSlicingComponent))
+        if (!(other_ instanceof ElementDefinitionSlicingComponent))
           return false;
-        ElementDefinitionSlicingComponent o = (ElementDefinitionSlicingComponent) other;
+        ElementDefinitionSlicingComponent o = (ElementDefinitionSlicingComponent) other_;
         return compareDeep(discriminator, o.discriminator, true) && compareDeep(description, o.description, true)
            && compareDeep(ordered, o.ordered, true) && compareDeep(rules, o.rules, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ElementDefinitionSlicingComponent))
+        if (!(other_ instanceof ElementDefinitionSlicingComponent))
           return false;
-        ElementDefinitionSlicingComponent o = (ElementDefinitionSlicingComponent) other;
+        ElementDefinitionSlicingComponent o = (ElementDefinitionSlicingComponent) other_;
         return compareValues(description, o.description, true) && compareValues(ordered, o.ordered, true) && compareValues(rules, o.rules, true)
           ;
       }
@@ -1367,22 +1367,22 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ElementDefinitionSlicingDiscriminatorComponent))
+        if (!(other_ instanceof ElementDefinitionSlicingDiscriminatorComponent))
           return false;
-        ElementDefinitionSlicingDiscriminatorComponent o = (ElementDefinitionSlicingDiscriminatorComponent) other;
+        ElementDefinitionSlicingDiscriminatorComponent o = (ElementDefinitionSlicingDiscriminatorComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(path, o.path, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ElementDefinitionSlicingDiscriminatorComponent))
+        if (!(other_ instanceof ElementDefinitionSlicingDiscriminatorComponent))
           return false;
-        ElementDefinitionSlicingDiscriminatorComponent o = (ElementDefinitionSlicingDiscriminatorComponent) other;
+        ElementDefinitionSlicingDiscriminatorComponent o = (ElementDefinitionSlicingDiscriminatorComponent) other_;
         return compareValues(type, o.type, true) && compareValues(path, o.path, true);
       }
 
@@ -1680,23 +1680,23 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ElementDefinitionBaseComponent))
+        if (!(other_ instanceof ElementDefinitionBaseComponent))
           return false;
-        ElementDefinitionBaseComponent o = (ElementDefinitionBaseComponent) other;
+        ElementDefinitionBaseComponent o = (ElementDefinitionBaseComponent) other_;
         return compareDeep(path, o.path, true) && compareDeep(min, o.min, true) && compareDeep(max, o.max, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ElementDefinitionBaseComponent))
+        if (!(other_ instanceof ElementDefinitionBaseComponent))
           return false;
-        ElementDefinitionBaseComponent o = (ElementDefinitionBaseComponent) other;
+        ElementDefinitionBaseComponent o = (ElementDefinitionBaseComponent) other_;
         return compareValues(path, o.path, true) && compareValues(min, o.min, true) && compareValues(max, o.max, true)
           ;
       }
@@ -2164,24 +2164,24 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TypeRefComponent))
+        if (!(other_ instanceof TypeRefComponent))
           return false;
-        TypeRefComponent o = (TypeRefComponent) other;
+        TypeRefComponent o = (TypeRefComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(profile, o.profile, true) && compareDeep(targetProfile, o.targetProfile, true)
            && compareDeep(aggregation, o.aggregation, true) && compareDeep(versioning, o.versioning, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TypeRefComponent))
+        if (!(other_ instanceof TypeRefComponent))
           return false;
-        TypeRefComponent o = (TypeRefComponent) other;
+        TypeRefComponent o = (TypeRefComponent) other_;
         return compareValues(code, o.code, true) && compareValues(profile, o.profile, true) && compareValues(targetProfile, o.targetProfile, true)
            && compareValues(aggregation, o.aggregation, true) && compareValues(versioning, o.versioning, true)
           ;
@@ -2553,22 +2553,22 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ElementDefinitionExampleComponent))
+        if (!(other_ instanceof ElementDefinitionExampleComponent))
           return false;
-        ElementDefinitionExampleComponent o = (ElementDefinitionExampleComponent) other;
+        ElementDefinitionExampleComponent o = (ElementDefinitionExampleComponent) other_;
         return compareDeep(label, o.label, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ElementDefinitionExampleComponent))
+        if (!(other_ instanceof ElementDefinitionExampleComponent))
           return false;
-        ElementDefinitionExampleComponent o = (ElementDefinitionExampleComponent) other;
+        ElementDefinitionExampleComponent o = (ElementDefinitionExampleComponent) other_;
         return compareValues(label, o.label, true);
       }
 
@@ -3146,24 +3146,24 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ElementDefinitionConstraintComponent))
+        if (!(other_ instanceof ElementDefinitionConstraintComponent))
           return false;
-        ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
+        ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other_;
         return compareDeep(key, o.key, true) && compareDeep(requirements, o.requirements, true) && compareDeep(severity, o.severity, true)
            && compareDeep(human, o.human, true) && compareDeep(expression, o.expression, true) && compareDeep(xpath, o.xpath, true)
            && compareDeep(source, o.source, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ElementDefinitionConstraintComponent))
+        if (!(other_ instanceof ElementDefinitionConstraintComponent))
           return false;
-        ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
+        ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other_;
         return compareValues(key, o.key, true) && compareValues(requirements, o.requirements, true) && compareValues(severity, o.severity, true)
            && compareValues(human, o.human, true) && compareValues(expression, o.expression, true) && compareValues(xpath, o.xpath, true)
            && compareValues(source, o.source, true);
@@ -3478,23 +3478,23 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ElementDefinitionBindingComponent))
+        if (!(other_ instanceof ElementDefinitionBindingComponent))
           return false;
-        ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other;
+        ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other_;
         return compareDeep(strength, o.strength, true) && compareDeep(description, o.description, true)
            && compareDeep(valueSet, o.valueSet, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ElementDefinitionBindingComponent))
+        if (!(other_ instanceof ElementDefinitionBindingComponent))
           return false;
-        ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other;
+        ElementDefinitionBindingComponent o = (ElementDefinitionBindingComponent) other_;
         return compareValues(strength, o.strength, true) && compareValues(description, o.description, true)
           ;
       }
@@ -3867,23 +3867,23 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ElementDefinitionMappingComponent))
+        if (!(other_ instanceof ElementDefinitionMappingComponent))
           return false;
-        ElementDefinitionMappingComponent o = (ElementDefinitionMappingComponent) other;
+        ElementDefinitionMappingComponent o = (ElementDefinitionMappingComponent) other_;
         return compareDeep(identity, o.identity, true) && compareDeep(language, o.language, true) && compareDeep(map, o.map, true)
            && compareDeep(comment, o.comment, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ElementDefinitionMappingComponent))
+        if (!(other_ instanceof ElementDefinitionMappingComponent))
           return false;
-        ElementDefinitionMappingComponent o = (ElementDefinitionMappingComponent) other;
+        ElementDefinitionMappingComponent o = (ElementDefinitionMappingComponent) other_;
         return compareValues(identity, o.identity, true) && compareValues(language, o.language, true) && compareValues(map, o.map, true)
            && compareValues(comment, o.comment, true);
       }
@@ -6890,12 +6890,12 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ElementDefinition))
+        if (!(other_ instanceof ElementDefinition))
           return false;
-        ElementDefinition o = (ElementDefinition) other;
+        ElementDefinition o = (ElementDefinition) other_;
         return compareDeep(path, o.path, true) && compareDeep(representation, o.representation, true) && compareDeep(sliceName, o.sliceName, true)
            && compareDeep(label, o.label, true) && compareDeep(code, o.code, true) && compareDeep(slicing, o.slicing, true)
            && compareDeep(short_, o.short_, true) && compareDeep(definition, o.definition, true) && compareDeep(comment, o.comment, true)
@@ -6911,12 +6911,12 @@ public class ElementDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ElementDefinition))
+        if (!(other_ instanceof ElementDefinition))
           return false;
-        ElementDefinition o = (ElementDefinition) other;
+        ElementDefinition o = (ElementDefinition) other_;
         return compareValues(path, o.path, true) && compareValues(representation, o.representation, true) && compareValues(sliceName, o.sliceName, true)
            && compareValues(label, o.label, true) && compareValues(short_, o.short_, true) && compareValues(definition, o.definition, true)
            && compareValues(comment, o.comment, true) && compareValues(requirements, o.requirements, true) && compareValues(alias, o.alias, true)

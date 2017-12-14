@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -690,23 +690,23 @@ public class Subscription extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SubscriptionChannelComponent))
+        if (!(other_ instanceof SubscriptionChannelComponent))
           return false;
-        SubscriptionChannelComponent o = (SubscriptionChannelComponent) other;
+        SubscriptionChannelComponent o = (SubscriptionChannelComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(endpoint, o.endpoint, true) && compareDeep(payload, o.payload, true)
            && compareDeep(header, o.header, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SubscriptionChannelComponent))
+        if (!(other_ instanceof SubscriptionChannelComponent))
           return false;
-        SubscriptionChannelComponent o = (SubscriptionChannelComponent) other;
+        SubscriptionChannelComponent o = (SubscriptionChannelComponent) other_;
         return compareValues(type, o.type, true) && compareValues(endpoint, o.endpoint, true) && compareValues(payload, o.payload, true)
            && compareValues(header, o.header, true);
       }
@@ -1360,24 +1360,24 @@ public class Subscription extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Subscription))
+        if (!(other_ instanceof Subscription))
           return false;
-        Subscription o = (Subscription) other;
+        Subscription o = (Subscription) other_;
         return compareDeep(status, o.status, true) && compareDeep(contact, o.contact, true) && compareDeep(end, o.end, true)
            && compareDeep(reason, o.reason, true) && compareDeep(criteria, o.criteria, true) && compareDeep(error, o.error, true)
            && compareDeep(channel, o.channel, true) && compareDeep(tag, o.tag, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Subscription))
+        if (!(other_ instanceof Subscription))
           return false;
-        Subscription o = (Subscription) other;
+        Subscription o = (Subscription) other_;
         return compareValues(status, o.status, true) && compareValues(end, o.end, true) && compareValues(reason, o.reason, true)
            && compareValues(criteria, o.criteria, true) && compareValues(error, o.error, true);
       }

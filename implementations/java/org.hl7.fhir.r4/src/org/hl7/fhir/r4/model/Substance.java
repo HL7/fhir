@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -393,23 +393,23 @@ public class Substance extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SubstanceInstanceComponent))
+        if (!(other_ instanceof SubstanceInstanceComponent))
           return false;
-        SubstanceInstanceComponent o = (SubstanceInstanceComponent) other;
+        SubstanceInstanceComponent o = (SubstanceInstanceComponent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(expiry, o.expiry, true) && compareDeep(quantity, o.quantity, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SubstanceInstanceComponent))
+        if (!(other_ instanceof SubstanceInstanceComponent))
           return false;
-        SubstanceInstanceComponent o = (SubstanceInstanceComponent) other;
+        SubstanceInstanceComponent o = (SubstanceInstanceComponent) other_;
         return compareValues(expiry, o.expiry, true);
       }
 
@@ -630,22 +630,22 @@ public class Substance extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SubstanceIngredientComponent))
+        if (!(other_ instanceof SubstanceIngredientComponent))
           return false;
-        SubstanceIngredientComponent o = (SubstanceIngredientComponent) other;
+        SubstanceIngredientComponent o = (SubstanceIngredientComponent) other_;
         return compareDeep(quantity, o.quantity, true) && compareDeep(substance, o.substance, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SubstanceIngredientComponent))
+        if (!(other_ instanceof SubstanceIngredientComponent))
           return false;
-        SubstanceIngredientComponent o = (SubstanceIngredientComponent) other;
+        SubstanceIngredientComponent o = (SubstanceIngredientComponent) other_;
         return true;
       }
 
@@ -1253,24 +1253,24 @@ public class Substance extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Substance))
+        if (!(other_ instanceof Substance))
           return false;
-        Substance o = (Substance) other;
+        Substance o = (Substance) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
            && compareDeep(code, o.code, true) && compareDeep(description, o.description, true) && compareDeep(instance, o.instance, true)
            && compareDeep(ingredient, o.ingredient, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Substance))
+        if (!(other_ instanceof Substance))
           return false;
-        Substance o = (Substance) other;
+        Substance o = (Substance) other_;
         return compareValues(status, o.status, true) && compareValues(description, o.description, true);
       }
 

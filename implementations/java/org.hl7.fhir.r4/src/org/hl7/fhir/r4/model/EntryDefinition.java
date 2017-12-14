@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -248,22 +248,22 @@ public class EntryDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof EntryDefinitionRelatedEntryComponent))
+        if (!(other_ instanceof EntryDefinitionRelatedEntryComponent))
           return false;
-        EntryDefinitionRelatedEntryComponent o = (EntryDefinitionRelatedEntryComponent) other;
+        EntryDefinitionRelatedEntryComponent o = (EntryDefinitionRelatedEntryComponent) other_;
         return compareDeep(relationtype, o.relationtype, true) && compareDeep(item, o.item, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof EntryDefinitionRelatedEntryComponent))
+        if (!(other_ instanceof EntryDefinitionRelatedEntryComponent))
           return false;
-        EntryDefinitionRelatedEntryComponent o = (EntryDefinitionRelatedEntryComponent) other;
+        EntryDefinitionRelatedEntryComponent o = (EntryDefinitionRelatedEntryComponent) other_;
         return true;
       }
 
@@ -1125,12 +1125,12 @@ public class EntryDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof EntryDefinition))
+        if (!(other_ instanceof EntryDefinition))
           return false;
-        EntryDefinition o = (EntryDefinition) other;
+        EntryDefinition o = (EntryDefinition) other_;
         return compareDeep(type, o.type, true) && compareDeep(purpose, o.purpose, true) && compareDeep(referencedItem, o.referencedItem, true)
            && compareDeep(identifier, o.identifier, true) && compareDeep(additionalIdentifier, o.additionalIdentifier, true)
            && compareDeep(classification, o.classification, true) && compareDeep(status, o.status, true) && compareDeep(validityPeriod, o.validityPeriod, true)
@@ -1140,12 +1140,12 @@ public class EntryDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof EntryDefinition))
+        if (!(other_ instanceof EntryDefinition))
           return false;
-        EntryDefinition o = (EntryDefinition) other;
+        EntryDefinition o = (EntryDefinition) other_;
         return compareValues(lastUpdated, o.lastUpdated, true);
       }
 

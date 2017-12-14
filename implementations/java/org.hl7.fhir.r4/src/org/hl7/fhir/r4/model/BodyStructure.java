@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -674,12 +674,12 @@ public class BodyStructure extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof BodyStructure))
+        if (!(other_ instanceof BodyStructure))
           return false;
-        BodyStructure o = (BodyStructure) other;
+        BodyStructure o = (BodyStructure) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(morphology, o.morphology, true)
            && compareDeep(location, o.location, true) && compareDeep(locationQualifier, o.locationQualifier, true)
            && compareDeep(description, o.description, true) && compareDeep(image, o.image, true) && compareDeep(patient, o.patient, true)
@@ -687,12 +687,12 @@ public class BodyStructure extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof BodyStructure))
+        if (!(other_ instanceof BodyStructure))
           return false;
-        BodyStructure o = (BodyStructure) other;
+        BodyStructure o = (BodyStructure) other_;
         return compareValues(active, o.active, true) && compareValues(description, o.description, true);
       }
 

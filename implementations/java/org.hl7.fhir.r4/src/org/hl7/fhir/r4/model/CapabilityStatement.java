@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1763,23 +1763,23 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementSoftwareComponent))
+        if (!(other_ instanceof CapabilityStatementSoftwareComponent))
           return false;
-        CapabilityStatementSoftwareComponent o = (CapabilityStatementSoftwareComponent) other;
+        CapabilityStatementSoftwareComponent o = (CapabilityStatementSoftwareComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(version, o.version, true) && compareDeep(releaseDate, o.releaseDate, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementSoftwareComponent))
+        if (!(other_ instanceof CapabilityStatementSoftwareComponent))
           return false;
-        CapabilityStatementSoftwareComponent o = (CapabilityStatementSoftwareComponent) other;
+        CapabilityStatementSoftwareComponent o = (CapabilityStatementSoftwareComponent) other_;
         return compareValues(name, o.name, true) && compareValues(version, o.version, true) && compareValues(releaseDate, o.releaseDate, true)
           ;
       }
@@ -2015,22 +2015,22 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementImplementationComponent))
+        if (!(other_ instanceof CapabilityStatementImplementationComponent))
           return false;
-        CapabilityStatementImplementationComponent o = (CapabilityStatementImplementationComponent) other;
+        CapabilityStatementImplementationComponent o = (CapabilityStatementImplementationComponent) other_;
         return compareDeep(description, o.description, true) && compareDeep(url, o.url, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementImplementationComponent))
+        if (!(other_ instanceof CapabilityStatementImplementationComponent))
           return false;
-        CapabilityStatementImplementationComponent o = (CapabilityStatementImplementationComponent) other;
+        CapabilityStatementImplementationComponent o = (CapabilityStatementImplementationComponent) other_;
         return compareValues(description, o.description, true) && compareValues(url, o.url, true);
       }
 
@@ -2093,9 +2093,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * Definition of an operation or a named query together with its parameters and their meaning and type.
          */
-        @Child(name = "operation", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Definition of an operation or a custom query", formalDefinition="Definition of an operation or a named query together with its parameters and their meaning and type." )
-        protected List<CapabilityStatementRestOperationComponent> operation;
+        @Child(name = "operation", type = {CapabilityStatementRestResourceOperationComponent.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Definition of a system level operation", formalDefinition="Definition of an operation or a named query together with its parameters and their meaning and type." )
+        protected List<CapabilityStatementRestResourceOperationComponent> operation;
 
         /**
          * An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL .
@@ -2104,7 +2104,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         @Description(shortDefinition="Compartments served/used by system", formalDefinition="An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL ." )
         protected List<UriType> compartment;
 
-        private static final long serialVersionUID = 38012979L;
+        private static final long serialVersionUID = -1933258783L;
 
     /**
      * Constructor
@@ -2401,16 +2401,16 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @return {@link #operation} (Definition of an operation or a named query together with its parameters and their meaning and type.)
          */
-        public List<CapabilityStatementRestOperationComponent> getOperation() { 
+        public List<CapabilityStatementRestResourceOperationComponent> getOperation() { 
           if (this.operation == null)
-            this.operation = new ArrayList<CapabilityStatementRestOperationComponent>();
+            this.operation = new ArrayList<CapabilityStatementRestResourceOperationComponent>();
           return this.operation;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public CapabilityStatementRestComponent setOperation(List<CapabilityStatementRestOperationComponent> theOperation) { 
+        public CapabilityStatementRestComponent setOperation(List<CapabilityStatementRestResourceOperationComponent> theOperation) { 
           this.operation = theOperation;
           return this;
         }
@@ -2418,25 +2418,25 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         public boolean hasOperation() { 
           if (this.operation == null)
             return false;
-          for (CapabilityStatementRestOperationComponent item : this.operation)
+          for (CapabilityStatementRestResourceOperationComponent item : this.operation)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public CapabilityStatementRestOperationComponent addOperation() { //3
-          CapabilityStatementRestOperationComponent t = new CapabilityStatementRestOperationComponent();
+        public CapabilityStatementRestResourceOperationComponent addOperation() { //3
+          CapabilityStatementRestResourceOperationComponent t = new CapabilityStatementRestResourceOperationComponent();
           if (this.operation == null)
-            this.operation = new ArrayList<CapabilityStatementRestOperationComponent>();
+            this.operation = new ArrayList<CapabilityStatementRestResourceOperationComponent>();
           this.operation.add(t);
           return t;
         }
 
-        public CapabilityStatementRestComponent addOperation(CapabilityStatementRestOperationComponent t) { //3
+        public CapabilityStatementRestComponent addOperation(CapabilityStatementRestResourceOperationComponent t) { //3
           if (t == null)
             return this;
           if (this.operation == null)
-            this.operation = new ArrayList<CapabilityStatementRestOperationComponent>();
+            this.operation = new ArrayList<CapabilityStatementRestResourceOperationComponent>();
           this.operation.add(t);
           return this;
         }
@@ -2444,7 +2444,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         /**
          * @return The first repetition of repeating field {@link #operation}, creating it if it does not already exist
          */
-        public CapabilityStatementRestOperationComponent getOperationFirstRep() { 
+        public CapabilityStatementRestResourceOperationComponent getOperationFirstRep() { 
           if (getOperation().isEmpty()) {
             addOperation();
           }
@@ -2520,7 +2520,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           children.add(new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource));
           children.add(new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction));
           children.add(new Property("searchParam", "@CapabilityStatement.rest.resource.searchParam", "Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
-          children.add(new Property("operation", "", "Definition of an operation or a named query together with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
+          children.add(new Property("operation", "@CapabilityStatement.rest.resource.operation", "Definition of an operation or a named query together with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
           children.add(new Property("compartment", "uri", "An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL .", 0, java.lang.Integer.MAX_VALUE, compartment));
         }
 
@@ -2533,7 +2533,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           case -341064690: /*resource*/  return new Property("resource", "", "A specification of the restful capabilities of the solution for a specific resource type.", 0, java.lang.Integer.MAX_VALUE, resource);
           case 1844104722: /*interaction*/  return new Property("interaction", "", "A specification of restful operations supported by the system.", 0, java.lang.Integer.MAX_VALUE, interaction);
           case -553645115: /*searchParam*/  return new Property("searchParam", "@CapabilityStatement.rest.resource.searchParam", "Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam);
-          case 1662702951: /*operation*/  return new Property("operation", "", "Definition of an operation or a named query together with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation);
+          case 1662702951: /*operation*/  return new Property("operation", "@CapabilityStatement.rest.resource.operation", "Definition of an operation or a named query together with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation);
           case -397756334: /*compartment*/  return new Property("compartment", "uri", "An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL .", 0, java.lang.Integer.MAX_VALUE, compartment);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -2549,7 +2549,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : this.resource.toArray(new Base[this.resource.size()]); // CapabilityStatementRestResourceComponent
         case 1844104722: /*interaction*/ return this.interaction == null ? new Base[0] : this.interaction.toArray(new Base[this.interaction.size()]); // SystemInteractionComponent
         case -553645115: /*searchParam*/ return this.searchParam == null ? new Base[0] : this.searchParam.toArray(new Base[this.searchParam.size()]); // CapabilityStatementRestResourceSearchParamComponent
-        case 1662702951: /*operation*/ return this.operation == null ? new Base[0] : this.operation.toArray(new Base[this.operation.size()]); // CapabilityStatementRestOperationComponent
+        case 1662702951: /*operation*/ return this.operation == null ? new Base[0] : this.operation.toArray(new Base[this.operation.size()]); // CapabilityStatementRestResourceOperationComponent
         case -397756334: /*compartment*/ return this.compartment == null ? new Base[0] : this.compartment.toArray(new Base[this.compartment.size()]); // UriType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2579,7 +2579,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.getSearchParam().add((CapabilityStatementRestResourceSearchParamComponent) value); // CapabilityStatementRestResourceSearchParamComponent
           return value;
         case 1662702951: // operation
-          this.getOperation().add((CapabilityStatementRestOperationComponent) value); // CapabilityStatementRestOperationComponent
+          this.getOperation().add((CapabilityStatementRestResourceOperationComponent) value); // CapabilityStatementRestResourceOperationComponent
           return value;
         case -397756334: // compartment
           this.getCompartment().add(castToUri(value)); // UriType
@@ -2605,7 +2605,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         } else if (name.equals("searchParam")) {
           this.getSearchParam().add((CapabilityStatementRestResourceSearchParamComponent) value);
         } else if (name.equals("operation")) {
-          this.getOperation().add((CapabilityStatementRestOperationComponent) value);
+          this.getOperation().add((CapabilityStatementRestResourceOperationComponent) value);
         } else if (name.equals("compartment")) {
           this.getCompartment().add(castToUri(value));
         } else
@@ -2638,7 +2638,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -341064690: /*resource*/ return new String[] {};
         case 1844104722: /*interaction*/ return new String[] {};
         case -553645115: /*searchParam*/ return new String[] {"@CapabilityStatement.rest.resource.searchParam"};
-        case 1662702951: /*operation*/ return new String[] {};
+        case 1662702951: /*operation*/ return new String[] {"@CapabilityStatement.rest.resource.operation"};
         case -397756334: /*compartment*/ return new String[] {"uri"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -2698,8 +2698,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
             dst.searchParam.add(i.copy());
         };
         if (operation != null) {
-          dst.operation = new ArrayList<CapabilityStatementRestOperationComponent>();
-          for (CapabilityStatementRestOperationComponent i : operation)
+          dst.operation = new ArrayList<CapabilityStatementRestResourceOperationComponent>();
+          for (CapabilityStatementRestResourceOperationComponent i : operation)
             dst.operation.add(i.copy());
         };
         if (compartment != null) {
@@ -2711,24 +2711,24 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestComponent))
+        if (!(other_ instanceof CapabilityStatementRestComponent))
           return false;
-        CapabilityStatementRestComponent o = (CapabilityStatementRestComponent) other;
+        CapabilityStatementRestComponent o = (CapabilityStatementRestComponent) other_;
         return compareDeep(mode, o.mode, true) && compareDeep(documentation, o.documentation, true) && compareDeep(security, o.security, true)
            && compareDeep(resource, o.resource, true) && compareDeep(interaction, o.interaction, true) && compareDeep(searchParam, o.searchParam, true)
            && compareDeep(operation, o.operation, true) && compareDeep(compartment, o.compartment, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestComponent))
+        if (!(other_ instanceof CapabilityStatementRestComponent))
           return false;
-        CapabilityStatementRestComponent o = (CapabilityStatementRestComponent) other;
+        CapabilityStatementRestComponent o = (CapabilityStatementRestComponent) other_;
         return compareValues(mode, o.mode, true) && compareValues(documentation, o.documentation, true) && compareValues(compartment, o.compartment, true)
           ;
       }
@@ -3113,23 +3113,23 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestSecurityComponent))
+        if (!(other_ instanceof CapabilityStatementRestSecurityComponent))
           return false;
-        CapabilityStatementRestSecurityComponent o = (CapabilityStatementRestSecurityComponent) other;
+        CapabilityStatementRestSecurityComponent o = (CapabilityStatementRestSecurityComponent) other_;
         return compareDeep(cors, o.cors, true) && compareDeep(service, o.service, true) && compareDeep(description, o.description, true)
            && compareDeep(certificate, o.certificate, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestSecurityComponent))
+        if (!(other_ instanceof CapabilityStatementRestSecurityComponent))
           return false;
-        CapabilityStatementRestSecurityComponent o = (CapabilityStatementRestSecurityComponent) other;
+        CapabilityStatementRestSecurityComponent o = (CapabilityStatementRestSecurityComponent) other_;
         return compareValues(cors, o.cors, true) && compareValues(description, o.description, true);
       }
 
@@ -3360,22 +3360,22 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestSecurityCertificateComponent))
+        if (!(other_ instanceof CapabilityStatementRestSecurityCertificateComponent))
           return false;
-        CapabilityStatementRestSecurityCertificateComponent o = (CapabilityStatementRestSecurityCertificateComponent) other;
+        CapabilityStatementRestSecurityCertificateComponent o = (CapabilityStatementRestSecurityCertificateComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(blob, o.blob, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestSecurityCertificateComponent))
+        if (!(other_ instanceof CapabilityStatementRestSecurityCertificateComponent))
           return false;
-        CapabilityStatementRestSecurityCertificateComponent o = (CapabilityStatementRestSecurityCertificateComponent) other;
+        CapabilityStatementRestSecurityCertificateComponent o = (CapabilityStatementRestSecurityCertificateComponent) other_;
         return compareValues(type, o.type, true) && compareValues(blob, o.blob, true);
       }
 
@@ -3507,7 +3507,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         @Description(shortDefinition="Search parameters supported by implementation", formalDefinition="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation." )
         protected List<CapabilityStatementRestResourceSearchParamComponent> searchParam;
 
-        private static final long serialVersionUID = 1271233297L;
+        /**
+         * Definition of an operation or a named query together with its parameters and their meaning and type.
+         */
+        @Child(name = "operation", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Definition of an resource operation", formalDefinition="Definition of an operation or a named query together with its parameters and their meaning and type." )
+        protected List<CapabilityStatementRestResourceOperationComponent> operation;
+
+        private static final long serialVersionUID = 1108335911L;
 
     /**
      * Constructor
@@ -4278,6 +4285,59 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return getSearchParam().get(0);
         }
 
+        /**
+         * @return {@link #operation} (Definition of an operation or a named query together with its parameters and their meaning and type.)
+         */
+        public List<CapabilityStatementRestResourceOperationComponent> getOperation() { 
+          if (this.operation == null)
+            this.operation = new ArrayList<CapabilityStatementRestResourceOperationComponent>();
+          return this.operation;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public CapabilityStatementRestResourceComponent setOperation(List<CapabilityStatementRestResourceOperationComponent> theOperation) { 
+          this.operation = theOperation;
+          return this;
+        }
+
+        public boolean hasOperation() { 
+          if (this.operation == null)
+            return false;
+          for (CapabilityStatementRestResourceOperationComponent item : this.operation)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public CapabilityStatementRestResourceOperationComponent addOperation() { //3
+          CapabilityStatementRestResourceOperationComponent t = new CapabilityStatementRestResourceOperationComponent();
+          if (this.operation == null)
+            this.operation = new ArrayList<CapabilityStatementRestResourceOperationComponent>();
+          this.operation.add(t);
+          return t;
+        }
+
+        public CapabilityStatementRestResourceComponent addOperation(CapabilityStatementRestResourceOperationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.operation == null)
+            this.operation = new ArrayList<CapabilityStatementRestResourceOperationComponent>();
+          this.operation.add(t);
+          return this;
+        }
+
+        /**
+         * @return The first repetition of repeating field {@link #operation}, creating it if it does not already exist
+         */
+        public CapabilityStatementRestResourceOperationComponent getOperationFirstRep() { 
+          if (getOperation().isEmpty()) {
+            addOperation();
+          }
+          return getOperation().get(0);
+        }
+
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("type", "code", "A type of resource exposed via the restful interface.", 0, 1, type));
@@ -4295,6 +4355,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           children.add(new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude));
           children.add(new Property("searchRevInclude", "string", "A list of _revinclude (reverse include) values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchRevInclude));
           children.add(new Property("searchParam", "", "Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
+          children.add(new Property("operation", "", "Definition of an operation or a named query together with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
         }
 
         @Override
@@ -4315,6 +4376,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           case -1035904544: /*searchInclude*/  return new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude);
           case -2123884979: /*searchRevInclude*/  return new Property("searchRevInclude", "string", "A list of _revinclude (reverse include) values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchRevInclude);
           case -553645115: /*searchParam*/  return new Property("searchParam", "", "Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam);
+          case 1662702951: /*operation*/  return new Property("operation", "", "Definition of an operation or a named query together with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -4338,6 +4400,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1035904544: /*searchInclude*/ return this.searchInclude == null ? new Base[0] : this.searchInclude.toArray(new Base[this.searchInclude.size()]); // StringType
         case -2123884979: /*searchRevInclude*/ return this.searchRevInclude == null ? new Base[0] : this.searchRevInclude.toArray(new Base[this.searchRevInclude.size()]); // StringType
         case -553645115: /*searchParam*/ return this.searchParam == null ? new Base[0] : this.searchParam.toArray(new Base[this.searchParam.size()]); // CapabilityStatementRestResourceSearchParamComponent
+        case 1662702951: /*operation*/ return this.operation == null ? new Base[0] : this.operation.toArray(new Base[this.operation.size()]); // CapabilityStatementRestResourceOperationComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4395,6 +4458,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -553645115: // searchParam
           this.getSearchParam().add((CapabilityStatementRestResourceSearchParamComponent) value); // CapabilityStatementRestResourceSearchParamComponent
           return value;
+        case 1662702951: // operation
+          this.getOperation().add((CapabilityStatementRestResourceOperationComponent) value); // CapabilityStatementRestResourceOperationComponent
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -4436,6 +4502,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.getSearchRevInclude().add(castToString(value));
         } else if (name.equals("searchParam")) {
           this.getSearchParam().add((CapabilityStatementRestResourceSearchParamComponent) value);
+        } else if (name.equals("operation")) {
+          this.getOperation().add((CapabilityStatementRestResourceOperationComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -4459,6 +4527,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1035904544:  return addSearchIncludeElement();
         case -2123884979:  return addSearchRevIncludeElement();
         case -553645115:  return addSearchParam(); 
+        case 1662702951:  return addOperation(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4482,6 +4551,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1035904544: /*searchInclude*/ return new String[] {"string"};
         case -2123884979: /*searchRevInclude*/ return new String[] {"string"};
         case -553645115: /*searchParam*/ return new String[] {};
+        case 1662702951: /*operation*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -4535,6 +4605,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("searchParam")) {
           return addSearchParam();
         }
+        else if (name.equals("operation")) {
+          return addOperation();
+        }
         else
           return super.addChild(name);
       }
@@ -4577,16 +4650,21 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           for (CapabilityStatementRestResourceSearchParamComponent i : searchParam)
             dst.searchParam.add(i.copy());
         };
+        if (operation != null) {
+          dst.operation = new ArrayList<CapabilityStatementRestResourceOperationComponent>();
+          for (CapabilityStatementRestResourceOperationComponent i : operation)
+            dst.operation.add(i.copy());
+        };
         return dst;
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestResourceComponent))
+        if (!(other_ instanceof CapabilityStatementRestResourceComponent))
           return false;
-        CapabilityStatementRestResourceComponent o = (CapabilityStatementRestResourceComponent) other;
+        CapabilityStatementRestResourceComponent o = (CapabilityStatementRestResourceComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(profile, o.profile, true) && compareDeep(documentation, o.documentation, true)
            && compareDeep(interaction, o.interaction, true) && compareDeep(versioning, o.versioning, true)
            && compareDeep(readHistory, o.readHistory, true) && compareDeep(updateCreate, o.updateCreate, true)
@@ -4594,16 +4672,16 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
            && compareDeep(conditionalUpdate, o.conditionalUpdate, true) && compareDeep(conditionalDelete, o.conditionalDelete, true)
            && compareDeep(referencePolicy, o.referencePolicy, true) && compareDeep(searchInclude, o.searchInclude, true)
            && compareDeep(searchRevInclude, o.searchRevInclude, true) && compareDeep(searchParam, o.searchParam, true)
-          ;
+           && compareDeep(operation, o.operation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestResourceComponent))
+        if (!(other_ instanceof CapabilityStatementRestResourceComponent))
           return false;
-        CapabilityStatementRestResourceComponent o = (CapabilityStatementRestResourceComponent) other;
+        CapabilityStatementRestResourceComponent o = (CapabilityStatementRestResourceComponent) other_;
         return compareValues(type, o.type, true) && compareValues(documentation, o.documentation, true) && compareValues(versioning, o.versioning, true)
            && compareValues(readHistory, o.readHistory, true) && compareValues(updateCreate, o.updateCreate, true)
            && compareValues(conditionalCreate, o.conditionalCreate, true) && compareValues(conditionalRead, o.conditionalRead, true)
@@ -4616,7 +4694,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, profile, documentation
           , interaction, versioning, readHistory, updateCreate, conditionalCreate, conditionalRead
           , conditionalUpdate, conditionalDelete, referencePolicy, searchInclude, searchRevInclude
-          , searchParam);
+          , searchParam, operation);
       }
 
   public String fhirType() {
@@ -4848,22 +4926,22 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ResourceInteractionComponent))
+        if (!(other_ instanceof ResourceInteractionComponent))
           return false;
-        ResourceInteractionComponent o = (ResourceInteractionComponent) other;
+        ResourceInteractionComponent o = (ResourceInteractionComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(documentation, o.documentation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ResourceInteractionComponent))
+        if (!(other_ instanceof ResourceInteractionComponent))
           return false;
-        ResourceInteractionComponent o = (ResourceInteractionComponent) other;
+        ResourceInteractionComponent o = (ResourceInteractionComponent) other_;
         return compareValues(code, o.code, true) && compareValues(documentation, o.documentation, true);
       }
 
@@ -5237,23 +5315,23 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestResourceSearchParamComponent))
+        if (!(other_ instanceof CapabilityStatementRestResourceSearchParamComponent))
           return false;
-        CapabilityStatementRestResourceSearchParamComponent o = (CapabilityStatementRestResourceSearchParamComponent) other;
+        CapabilityStatementRestResourceSearchParamComponent o = (CapabilityStatementRestResourceSearchParamComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(definition, o.definition, true) && compareDeep(type, o.type, true)
            && compareDeep(documentation, o.documentation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementRestResourceSearchParamComponent))
+        if (!(other_ instanceof CapabilityStatementRestResourceSearchParamComponent))
           return false;
-        CapabilityStatementRestResourceSearchParamComponent o = (CapabilityStatementRestResourceSearchParamComponent) other;
+        CapabilityStatementRestResourceSearchParamComponent o = (CapabilityStatementRestResourceSearchParamComponent) other_;
         return compareValues(name, o.name, true) && compareValues(definition, o.definition, true) && compareValues(type, o.type, true)
            && compareValues(documentation, o.documentation, true);
       }
@@ -5265,6 +5343,257 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
   public String fhirType() {
     return "CapabilityStatement.rest.resource.searchParam";
+
+  }
+
+  }
+
+    @Block()
+    public static class CapabilityStatementRestResourceOperationComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.
+         */
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Name by which the operation/query is invoked", formalDefinition="The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called." )
+        protected StringType name;
+
+        /**
+         * Where the formal definition can be found.
+         */
+        @Child(name = "definition", type = {OperationDefinition.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="The defined operation/query", formalDefinition="Where the formal definition can be found." )
+        protected Reference definition;
+
+        /**
+         * The actual object that is the target of the reference (Where the formal definition can be found.)
+         */
+        protected OperationDefinition definitionTarget;
+
+        private static final long serialVersionUID = 122107272L;
+
+    /**
+     * Constructor
+     */
+      public CapabilityStatementRestResourceOperationComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public CapabilityStatementRestResourceOperationComponent(StringType name, Reference definition) {
+        super();
+        this.name = name;
+        this.definition = definition;
+      }
+
+        /**
+         * @return {@link #name} (The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CapabilityStatementRestResourceOperationComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public CapabilityStatementRestResourceOperationComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.
+         */
+        public CapabilityStatementRestResourceOperationComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #definition} (Where the formal definition can be found.)
+         */
+        public Reference getDefinition() { 
+          if (this.definition == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CapabilityStatementRestResourceOperationComponent.definition");
+            else if (Configuration.doAutoCreate())
+              this.definition = new Reference(); // cc
+          return this.definition;
+        }
+
+        public boolean hasDefinition() { 
+          return this.definition != null && !this.definition.isEmpty();
+        }
+
+        /**
+         * @param value {@link #definition} (Where the formal definition can be found.)
+         */
+        public CapabilityStatementRestResourceOperationComponent setDefinition(Reference value) { 
+          this.definition = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #definition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the formal definition can be found.)
+         */
+        public OperationDefinition getDefinitionTarget() { 
+          if (this.definitionTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CapabilityStatementRestResourceOperationComponent.definition");
+            else if (Configuration.doAutoCreate())
+              this.definitionTarget = new OperationDefinition(); // aa
+          return this.definitionTarget;
+        }
+
+        /**
+         * @param value {@link #definition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the formal definition can be found.)
+         */
+        public CapabilityStatementRestResourceOperationComponent setDefinitionTarget(OperationDefinition value) { 
+          this.definitionTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("name", "string", "The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.", 0, 1, name));
+          children.add(new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, 1, definition));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3373707: /*name*/  return new Property("name", "string", "The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.", 0, 1, name);
+          case -1014418093: /*definition*/  return new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, 1, definition);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3373707: // name
+          this.name = castToString(value); // StringType
+          return value;
+        case -1014418093: // definition
+          this.definition = castToReference(value); // Reference
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("name")) {
+          this.name = castToString(value); // StringType
+        } else if (name.equals("definition")) {
+          this.definition = castToReference(value); // Reference
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707:  return getNameElement();
+        case -1014418093:  return getDefinition(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1014418093: /*definition*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.name");
+        }
+        else if (name.equals("definition")) {
+          this.definition = new Reference();
+          return this.definition;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public CapabilityStatementRestResourceOperationComponent copy() {
+        CapabilityStatementRestResourceOperationComponent dst = new CapabilityStatementRestResourceOperationComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.definition = definition == null ? null : definition.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
+          return false;
+        if (!(other_ instanceof CapabilityStatementRestResourceOperationComponent))
+          return false;
+        CapabilityStatementRestResourceOperationComponent o = (CapabilityStatementRestResourceOperationComponent) other_;
+        return compareDeep(name, o.name, true) && compareDeep(definition, o.definition, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
+          return false;
+        if (!(other_ instanceof CapabilityStatementRestResourceOperationComponent))
+          return false;
+        CapabilityStatementRestResourceOperationComponent o = (CapabilityStatementRestResourceOperationComponent) other_;
+        return compareValues(name, o.name, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, definition);
+      }
+
+  public String fhirType() {
+    return "CapabilityStatement.rest.resource.operation";
 
   }
 
@@ -5492,22 +5821,22 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SystemInteractionComponent))
+        if (!(other_ instanceof SystemInteractionComponent))
           return false;
-        SystemInteractionComponent o = (SystemInteractionComponent) other;
+        SystemInteractionComponent o = (SystemInteractionComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(documentation, o.documentation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SystemInteractionComponent))
+        if (!(other_ instanceof SystemInteractionComponent))
           return false;
-        SystemInteractionComponent o = (SystemInteractionComponent) other;
+        SystemInteractionComponent o = (SystemInteractionComponent) other_;
         return compareValues(code, o.code, true) && compareValues(documentation, o.documentation, true);
       }
 
@@ -5517,257 +5846,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
   public String fhirType() {
     return "CapabilityStatement.rest.interaction";
-
-  }
-
-  }
-
-    @Block()
-    public static class CapabilityStatementRestOperationComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.
-         */
-        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Name by which the operation/query is invoked", formalDefinition="The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called." )
-        protected StringType name;
-
-        /**
-         * Where the formal definition can be found.
-         */
-        @Child(name = "definition", type = {OperationDefinition.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The defined operation/query", formalDefinition="Where the formal definition can be found." )
-        protected Reference definition;
-
-        /**
-         * The actual object that is the target of the reference (Where the formal definition can be found.)
-         */
-        protected OperationDefinition definitionTarget;
-
-        private static final long serialVersionUID = 122107272L;
-
-    /**
-     * Constructor
-     */
-      public CapabilityStatementRestOperationComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public CapabilityStatementRestOperationComponent(StringType name, Reference definition) {
-        super();
-        this.name = name;
-        this.definition = definition;
-      }
-
-        /**
-         * @return {@link #name} (The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public StringType getNameElement() { 
-          if (this.name == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CapabilityStatementRestOperationComponent.name");
-            else if (Configuration.doAutoCreate())
-              this.name = new StringType(); // bb
-          return this.name;
-        }
-
-        public boolean hasNameElement() { 
-          return this.name != null && !this.name.isEmpty();
-        }
-
-        public boolean hasName() { 
-          return this.name != null && !this.name.isEmpty();
-        }
-
-        /**
-         * @param value {@link #name} (The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
-         */
-        public CapabilityStatementRestOperationComponent setNameElement(StringType value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.
-         */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.
-         */
-        public CapabilityStatementRestOperationComponent setName(String value) { 
-            if (this.name == null)
-              this.name = new StringType();
-            this.name.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #definition} (Where the formal definition can be found.)
-         */
-        public Reference getDefinition() { 
-          if (this.definition == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CapabilityStatementRestOperationComponent.definition");
-            else if (Configuration.doAutoCreate())
-              this.definition = new Reference(); // cc
-          return this.definition;
-        }
-
-        public boolean hasDefinition() { 
-          return this.definition != null && !this.definition.isEmpty();
-        }
-
-        /**
-         * @param value {@link #definition} (Where the formal definition can be found.)
-         */
-        public CapabilityStatementRestOperationComponent setDefinition(Reference value) { 
-          this.definition = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #definition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the formal definition can be found.)
-         */
-        public OperationDefinition getDefinitionTarget() { 
-          if (this.definitionTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CapabilityStatementRestOperationComponent.definition");
-            else if (Configuration.doAutoCreate())
-              this.definitionTarget = new OperationDefinition(); // aa
-          return this.definitionTarget;
-        }
-
-        /**
-         * @param value {@link #definition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the formal definition can be found.)
-         */
-        public CapabilityStatementRestOperationComponent setDefinitionTarget(OperationDefinition value) { 
-          this.definitionTarget = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("name", "string", "The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.", 0, 1, name));
-          children.add(new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, 1, definition));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 3373707: /*name*/  return new Property("name", "string", "The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.", 0, 1, name);
-          case -1014418093: /*definition*/  return new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, 1, definition);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // Reference
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3373707: // name
-          this.name = castToString(value); // StringType
-          return value;
-        case -1014418093: // definition
-          this.definition = castToReference(value); // Reference
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name")) {
-          this.name = castToString(value); // StringType
-        } else if (name.equals("definition")) {
-          this.definition = castToReference(value); // Reference
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3373707:  return getNameElement();
-        case -1014418093:  return getDefinition(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3373707: /*name*/ return new String[] {"string"};
-        case -1014418093: /*definition*/ return new String[] {"Reference"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.name");
-        }
-        else if (name.equals("definition")) {
-          this.definition = new Reference();
-          return this.definition;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public CapabilityStatementRestOperationComponent copy() {
-        CapabilityStatementRestOperationComponent dst = new CapabilityStatementRestOperationComponent();
-        copyValues(dst);
-        dst.name = name == null ? null : name.copy();
-        dst.definition = definition == null ? null : definition.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof CapabilityStatementRestOperationComponent))
-          return false;
-        CapabilityStatementRestOperationComponent o = (CapabilityStatementRestOperationComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(definition, o.definition, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof CapabilityStatementRestOperationComponent))
-          return false;
-        CapabilityStatementRestOperationComponent o = (CapabilityStatementRestOperationComponent) other;
-        return compareValues(name, o.name, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, definition);
-      }
-
-  public String fhirType() {
-    return "CapabilityStatement.rest.operation";
 
   }
 
@@ -6218,24 +6296,24 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementMessagingComponent))
+        if (!(other_ instanceof CapabilityStatementMessagingComponent))
           return false;
-        CapabilityStatementMessagingComponent o = (CapabilityStatementMessagingComponent) other;
+        CapabilityStatementMessagingComponent o = (CapabilityStatementMessagingComponent) other_;
         return compareDeep(endpoint, o.endpoint, true) && compareDeep(reliableCache, o.reliableCache, true)
            && compareDeep(documentation, o.documentation, true) && compareDeep(supportedMessage, o.supportedMessage, true)
            && compareDeep(event, o.event, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementMessagingComponent))
+        if (!(other_ instanceof CapabilityStatementMessagingComponent))
           return false;
-        CapabilityStatementMessagingComponent o = (CapabilityStatementMessagingComponent) other;
+        CapabilityStatementMessagingComponent o = (CapabilityStatementMessagingComponent) other_;
         return compareValues(reliableCache, o.reliableCache, true) && compareValues(documentation, o.documentation, true)
           ;
       }
@@ -6449,22 +6527,22 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementMessagingEndpointComponent))
+        if (!(other_ instanceof CapabilityStatementMessagingEndpointComponent))
           return false;
-        CapabilityStatementMessagingEndpointComponent o = (CapabilityStatementMessagingEndpointComponent) other;
+        CapabilityStatementMessagingEndpointComponent o = (CapabilityStatementMessagingEndpointComponent) other_;
         return compareDeep(protocol, o.protocol, true) && compareDeep(address, o.address, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementMessagingEndpointComponent))
+        if (!(other_ instanceof CapabilityStatementMessagingEndpointComponent))
           return false;
-        CapabilityStatementMessagingEndpointComponent o = (CapabilityStatementMessagingEndpointComponent) other;
+        CapabilityStatementMessagingEndpointComponent o = (CapabilityStatementMessagingEndpointComponent) other_;
         return compareValues(address, o.address, true);
       }
 
@@ -6703,22 +6781,22 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementMessagingSupportedMessageComponent))
+        if (!(other_ instanceof CapabilityStatementMessagingSupportedMessageComponent))
           return false;
-        CapabilityStatementMessagingSupportedMessageComponent o = (CapabilityStatementMessagingSupportedMessageComponent) other;
+        CapabilityStatementMessagingSupportedMessageComponent o = (CapabilityStatementMessagingSupportedMessageComponent) other_;
         return compareDeep(mode, o.mode, true) && compareDeep(definition, o.definition, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementMessagingSupportedMessageComponent))
+        if (!(other_ instanceof CapabilityStatementMessagingSupportedMessageComponent))
           return false;
-        CapabilityStatementMessagingSupportedMessageComponent o = (CapabilityStatementMessagingSupportedMessageComponent) other;
+        CapabilityStatementMessagingSupportedMessageComponent o = (CapabilityStatementMessagingSupportedMessageComponent) other_;
         return compareValues(mode, o.mode, true);
       }
 
@@ -7288,24 +7366,24 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementMessagingEventComponent))
+        if (!(other_ instanceof CapabilityStatementMessagingEventComponent))
           return false;
-        CapabilityStatementMessagingEventComponent o = (CapabilityStatementMessagingEventComponent) other;
+        CapabilityStatementMessagingEventComponent o = (CapabilityStatementMessagingEventComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(category, o.category, true) && compareDeep(mode, o.mode, true)
            && compareDeep(focus, o.focus, true) && compareDeep(request, o.request, true) && compareDeep(response, o.response, true)
            && compareDeep(documentation, o.documentation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementMessagingEventComponent))
+        if (!(other_ instanceof CapabilityStatementMessagingEventComponent))
           return false;
-        CapabilityStatementMessagingEventComponent o = (CapabilityStatementMessagingEventComponent) other;
+        CapabilityStatementMessagingEventComponent o = (CapabilityStatementMessagingEventComponent) other_;
         return compareValues(category, o.category, true) && compareValues(mode, o.mode, true) && compareValues(focus, o.focus, true)
            && compareValues(documentation, o.documentation, true);
       }
@@ -7616,23 +7694,23 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatementDocumentComponent))
+        if (!(other_ instanceof CapabilityStatementDocumentComponent))
           return false;
-        CapabilityStatementDocumentComponent o = (CapabilityStatementDocumentComponent) other;
+        CapabilityStatementDocumentComponent o = (CapabilityStatementDocumentComponent) other_;
         return compareDeep(mode, o.mode, true) && compareDeep(documentation, o.documentation, true) && compareDeep(profile, o.profile, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatementDocumentComponent))
+        if (!(other_ instanceof CapabilityStatementDocumentComponent))
           return false;
-        CapabilityStatementDocumentComponent o = (CapabilityStatementDocumentComponent) other;
+        CapabilityStatementDocumentComponent o = (CapabilityStatementDocumentComponent) other_;
         return compareValues(mode, o.mode, true) && compareValues(documentation, o.documentation, true);
       }
 
@@ -9632,12 +9710,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CapabilityStatement))
+        if (!(other_ instanceof CapabilityStatement))
           return false;
-        CapabilityStatement o = (CapabilityStatement) other;
+        CapabilityStatement o = (CapabilityStatement) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(kind, o.kind, true)
            && compareDeep(instantiates, o.instantiates, true) && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
            && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(acceptUnknown, o.acceptUnknown, true)
@@ -9647,12 +9725,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CapabilityStatement))
+        if (!(other_ instanceof CapabilityStatement))
           return false;
-        CapabilityStatement o = (CapabilityStatement) other;
+        CapabilityStatement o = (CapabilityStatement) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(kind, o.kind, true)
            && compareValues(instantiates, o.instantiates, true) && compareValues(fhirVersion, o.fhirVersion, true)
            && compareValues(acceptUnknown, o.acceptUnknown, true) && compareValues(format, o.format, true) && compareValues(patchFormat, o.patchFormat, true)

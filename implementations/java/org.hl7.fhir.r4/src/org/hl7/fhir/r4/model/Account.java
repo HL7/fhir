@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -388,22 +388,22 @@ A coverage may only be resposible for specific types of charges, and the sequenc
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CoverageComponent))
+        if (!(other_ instanceof CoverageComponent))
           return false;
-        CoverageComponent o = (CoverageComponent) other;
+        CoverageComponent o = (CoverageComponent) other_;
         return compareDeep(coverage, o.coverage, true) && compareDeep(priority, o.priority, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CoverageComponent))
+        if (!(other_ instanceof CoverageComponent))
           return false;
-        CoverageComponent o = (CoverageComponent) other;
+        CoverageComponent o = (CoverageComponent) other_;
         return compareValues(priority, o.priority, true);
       }
 
@@ -679,23 +679,23 @@ A coverage may only be resposible for specific types of charges, and the sequenc
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GuarantorComponent))
+        if (!(other_ instanceof GuarantorComponent))
           return false;
-        GuarantorComponent o = (GuarantorComponent) other;
+        GuarantorComponent o = (GuarantorComponent) other_;
         return compareDeep(party, o.party, true) && compareDeep(onHold, o.onHold, true) && compareDeep(period, o.period, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GuarantorComponent))
+        if (!(other_ instanceof GuarantorComponent))
           return false;
-        GuarantorComponent o = (GuarantorComponent) other;
+        GuarantorComponent o = (GuarantorComponent) other_;
         return compareValues(onHold, o.onHold, true);
       }
 
@@ -1589,12 +1589,12 @@ This period may be different to the coveragePeriod which is the duration of time
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Account))
+        if (!(other_ instanceof Account))
           return false;
-        Account o = (Account) other;
+        Account o = (Account) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
            && compareDeep(name, o.name, true) && compareDeep(subject, o.subject, true) && compareDeep(period, o.period, true)
            && compareDeep(active, o.active, true) && compareDeep(coverage, o.coverage, true) && compareDeep(owner, o.owner, true)
@@ -1603,12 +1603,12 @@ This period may be different to the coveragePeriod which is the duration of time
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Account))
+        if (!(other_ instanceof Account))
           return false;
-        Account o = (Account) other;
+        Account o = (Account) other_;
         return compareValues(status, o.status, true) && compareValues(name, o.name, true) && compareValues(description, o.description, true)
           ;
       }

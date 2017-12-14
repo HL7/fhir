@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -539,23 +539,23 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof FamilyMemberHistoryConditionComponent))
+        if (!(other_ instanceof FamilyMemberHistoryConditionComponent))
           return false;
-        FamilyMemberHistoryConditionComponent o = (FamilyMemberHistoryConditionComponent) other;
+        FamilyMemberHistoryConditionComponent o = (FamilyMemberHistoryConditionComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(outcome, o.outcome, true) && compareDeep(onset, o.onset, true)
            && compareDeep(note, o.note, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof FamilyMemberHistoryConditionComponent))
+        if (!(other_ instanceof FamilyMemberHistoryConditionComponent))
           return false;
-        FamilyMemberHistoryConditionComponent o = (FamilyMemberHistoryConditionComponent) other;
+        FamilyMemberHistoryConditionComponent o = (FamilyMemberHistoryConditionComponent) other_;
         return true;
       }
 
@@ -1983,12 +1983,12 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof FamilyMemberHistory))
+        if (!(other_ instanceof FamilyMemberHistory))
           return false;
-        FamilyMemberHistory o = (FamilyMemberHistory) other;
+        FamilyMemberHistory o = (FamilyMemberHistory) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
            && compareDeep(status, o.status, true) && compareDeep(dataAbsentReason, o.dataAbsentReason, true)
            && compareDeep(patient, o.patient, true) && compareDeep(date, o.date, true) && compareDeep(name, o.name, true)
@@ -1999,12 +1999,12 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof FamilyMemberHistory))
+        if (!(other_ instanceof FamilyMemberHistory))
           return false;
-        FamilyMemberHistory o = (FamilyMemberHistory) other;
+        FamilyMemberHistory o = (FamilyMemberHistory) other_;
         return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true) && compareValues(date, o.date, true)
            && compareValues(name, o.name, true) && compareValues(gender, o.gender, true) && compareValues(estimatedAge, o.estimatedAge, true)
           ;

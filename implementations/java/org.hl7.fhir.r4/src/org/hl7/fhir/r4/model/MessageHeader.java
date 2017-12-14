@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -513,23 +513,23 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MessageDestinationComponent))
+        if (!(other_ instanceof MessageDestinationComponent))
           return false;
-        MessageDestinationComponent o = (MessageDestinationComponent) other;
+        MessageDestinationComponent o = (MessageDestinationComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(target, o.target, true) && compareDeep(endpoint, o.endpoint, true)
            && compareDeep(receiver, o.receiver, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MessageDestinationComponent))
+        if (!(other_ instanceof MessageDestinationComponent))
           return false;
-        MessageDestinationComponent o = (MessageDestinationComponent) other;
+        MessageDestinationComponent o = (MessageDestinationComponent) other_;
         return compareValues(name, o.name, true) && compareValues(endpoint, o.endpoint, true);
       }
 
@@ -950,23 +950,23 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MessageSourceComponent))
+        if (!(other_ instanceof MessageSourceComponent))
           return false;
-        MessageSourceComponent o = (MessageSourceComponent) other;
+        MessageSourceComponent o = (MessageSourceComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(software, o.software, true) && compareDeep(version, o.version, true)
            && compareDeep(contact, o.contact, true) && compareDeep(endpoint, o.endpoint, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MessageSourceComponent))
+        if (!(other_ instanceof MessageSourceComponent))
           return false;
-        MessageSourceComponent o = (MessageSourceComponent) other;
+        MessageSourceComponent o = (MessageSourceComponent) other_;
         return compareValues(name, o.name, true) && compareValues(software, o.software, true) && compareValues(version, o.version, true)
            && compareValues(endpoint, o.endpoint, true);
       }
@@ -1273,23 +1273,23 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MessageHeaderResponseComponent))
+        if (!(other_ instanceof MessageHeaderResponseComponent))
           return false;
-        MessageHeaderResponseComponent o = (MessageHeaderResponseComponent) other;
+        MessageHeaderResponseComponent o = (MessageHeaderResponseComponent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(code, o.code, true) && compareDeep(details, o.details, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MessageHeaderResponseComponent))
+        if (!(other_ instanceof MessageHeaderResponseComponent))
           return false;
-        MessageHeaderResponseComponent o = (MessageHeaderResponseComponent) other;
+        MessageHeaderResponseComponent o = (MessageHeaderResponseComponent) other_;
         return compareValues(identifier, o.identifier, true) && compareValues(code, o.code, true);
       }
 
@@ -2097,12 +2097,12 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MessageHeader))
+        if (!(other_ instanceof MessageHeader))
           return false;
-        MessageHeader o = (MessageHeader) other;
+        MessageHeader o = (MessageHeader) other_;
         return compareDeep(event, o.event, true) && compareDeep(destination, o.destination, true) && compareDeep(sender, o.sender, true)
            && compareDeep(enterer, o.enterer, true) && compareDeep(author, o.author, true) && compareDeep(source, o.source, true)
            && compareDeep(responsible, o.responsible, true) && compareDeep(reason, o.reason, true) && compareDeep(response, o.response, true)
@@ -2110,12 +2110,12 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MessageHeader))
+        if (!(other_ instanceof MessageHeader))
           return false;
-        MessageHeader o = (MessageHeader) other;
+        MessageHeader o = (MessageHeader) other_;
         return compareValues(definition, o.definition, true);
       }
 

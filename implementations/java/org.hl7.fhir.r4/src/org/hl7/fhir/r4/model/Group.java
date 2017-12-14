@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -558,23 +558,23 @@ public class Group extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GroupCharacteristicComponent))
+        if (!(other_ instanceof GroupCharacteristicComponent))
           return false;
-        GroupCharacteristicComponent o = (GroupCharacteristicComponent) other;
+        GroupCharacteristicComponent o = (GroupCharacteristicComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(value, o.value, true) && compareDeep(exclude, o.exclude, true)
            && compareDeep(period, o.period, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GroupCharacteristicComponent))
+        if (!(other_ instanceof GroupCharacteristicComponent))
           return false;
-        GroupCharacteristicComponent o = (GroupCharacteristicComponent) other;
+        GroupCharacteristicComponent o = (GroupCharacteristicComponent) other_;
         return compareValues(exclude, o.exclude, true);
       }
 
@@ -851,23 +851,23 @@ public class Group extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GroupMemberComponent))
+        if (!(other_ instanceof GroupMemberComponent))
           return false;
-        GroupMemberComponent o = (GroupMemberComponent) other;
+        GroupMemberComponent o = (GroupMemberComponent) other_;
         return compareDeep(entity, o.entity, true) && compareDeep(period, o.period, true) && compareDeep(inactive, o.inactive, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GroupMemberComponent))
+        if (!(other_ instanceof GroupMemberComponent))
           return false;
-        GroupMemberComponent o = (GroupMemberComponent) other;
+        GroupMemberComponent o = (GroupMemberComponent) other_;
         return compareValues(inactive, o.inactive, true);
       }
 
@@ -1591,12 +1591,12 @@ public class Group extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Group))
+        if (!(other_ instanceof Group))
           return false;
-        Group o = (Group) other;
+        Group o = (Group) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(type, o.type, true)
            && compareDeep(actual, o.actual, true) && compareDeep(code, o.code, true) && compareDeep(name, o.name, true)
            && compareDeep(quantity, o.quantity, true) && compareDeep(characteristic, o.characteristic, true)
@@ -1604,12 +1604,12 @@ public class Group extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Group))
+        if (!(other_ instanceof Group))
           return false;
-        Group o = (Group) other;
+        Group o = (Group) other_;
         return compareValues(active, o.active, true) && compareValues(type, o.type, true) && compareValues(actual, o.actual, true)
            && compareValues(name, o.name, true) && compareValues(quantity, o.quantity, true);
       }

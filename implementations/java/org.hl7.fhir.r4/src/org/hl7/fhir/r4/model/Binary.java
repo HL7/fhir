@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -338,23 +338,23 @@ public class Binary extends BaseBinary implements IBaseBinary {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Binary))
+        if (!(other_ instanceof Binary))
           return false;
-        Binary o = (Binary) other;
+        Binary o = (Binary) other_;
         return compareDeep(contentType, o.contentType, true) && compareDeep(securityContext, o.securityContext, true)
            && compareDeep(content, o.content, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Binary))
+        if (!(other_ instanceof Binary))
           return false;
-        Binary o = (Binary) other;
+        Binary o = (Binary) other_;
         return compareValues(contentType, o.contentType, true) && compareValues(content, o.content, true);
       }
 

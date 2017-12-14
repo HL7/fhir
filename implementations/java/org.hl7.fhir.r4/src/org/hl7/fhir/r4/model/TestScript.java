@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1107,22 +1107,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptOriginComponent))
+        if (!(other_ instanceof TestScriptOriginComponent))
           return false;
-        TestScriptOriginComponent o = (TestScriptOriginComponent) other;
+        TestScriptOriginComponent o = (TestScriptOriginComponent) other_;
         return compareDeep(index, o.index, true) && compareDeep(profile, o.profile, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptOriginComponent))
+        if (!(other_ instanceof TestScriptOriginComponent))
           return false;
-        TestScriptOriginComponent o = (TestScriptOriginComponent) other;
+        TestScriptOriginComponent o = (TestScriptOriginComponent) other_;
         return compareValues(index, o.index, true);
       }
 
@@ -1334,22 +1334,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptDestinationComponent))
+        if (!(other_ instanceof TestScriptDestinationComponent))
           return false;
-        TestScriptDestinationComponent o = (TestScriptDestinationComponent) other;
+        TestScriptDestinationComponent o = (TestScriptDestinationComponent) other_;
         return compareDeep(index, o.index, true) && compareDeep(profile, o.profile, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptDestinationComponent))
+        if (!(other_ instanceof TestScriptDestinationComponent))
           return false;
-        TestScriptDestinationComponent o = (TestScriptDestinationComponent) other;
+        TestScriptDestinationComponent o = (TestScriptDestinationComponent) other_;
         return compareValues(index, o.index, true);
       }
 
@@ -1595,22 +1595,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptMetadataComponent))
+        if (!(other_ instanceof TestScriptMetadataComponent))
           return false;
-        TestScriptMetadataComponent o = (TestScriptMetadataComponent) other;
+        TestScriptMetadataComponent o = (TestScriptMetadataComponent) other_;
         return compareDeep(link, o.link, true) && compareDeep(capability, o.capability, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptMetadataComponent))
+        if (!(other_ instanceof TestScriptMetadataComponent))
           return false;
-        TestScriptMetadataComponent o = (TestScriptMetadataComponent) other;
+        TestScriptMetadataComponent o = (TestScriptMetadataComponent) other_;
         return true;
       }
 
@@ -1844,22 +1844,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptMetadataLinkComponent))
+        if (!(other_ instanceof TestScriptMetadataLinkComponent))
           return false;
-        TestScriptMetadataLinkComponent o = (TestScriptMetadataLinkComponent) other;
+        TestScriptMetadataLinkComponent o = (TestScriptMetadataLinkComponent) other_;
         return compareDeep(url, o.url, true) && compareDeep(description, o.description, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptMetadataLinkComponent))
+        if (!(other_ instanceof TestScriptMetadataLinkComponent))
           return false;
-        TestScriptMetadataLinkComponent o = (TestScriptMetadataLinkComponent) other;
+        TestScriptMetadataLinkComponent o = (TestScriptMetadataLinkComponent) other_;
         return compareValues(url, o.url, true) && compareValues(description, o.description, true);
       }
 
@@ -2468,24 +2468,24 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptMetadataCapabilityComponent))
+        if (!(other_ instanceof TestScriptMetadataCapabilityComponent))
           return false;
-        TestScriptMetadataCapabilityComponent o = (TestScriptMetadataCapabilityComponent) other;
+        TestScriptMetadataCapabilityComponent o = (TestScriptMetadataCapabilityComponent) other_;
         return compareDeep(required, o.required, true) && compareDeep(validated, o.validated, true) && compareDeep(description, o.description, true)
            && compareDeep(origin, o.origin, true) && compareDeep(destination, o.destination, true) && compareDeep(link, o.link, true)
            && compareDeep(capabilities, o.capabilities, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptMetadataCapabilityComponent))
+        if (!(other_ instanceof TestScriptMetadataCapabilityComponent))
           return false;
-        TestScriptMetadataCapabilityComponent o = (TestScriptMetadataCapabilityComponent) other;
+        TestScriptMetadataCapabilityComponent o = (TestScriptMetadataCapabilityComponent) other_;
         return compareValues(required, o.required, true) && compareValues(validated, o.validated, true) && compareValues(description, o.description, true)
            && compareValues(origin, o.origin, true) && compareValues(destination, o.destination, true) && compareValues(link, o.link, true)
           ;
@@ -2776,23 +2776,23 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptFixtureComponent))
+        if (!(other_ instanceof TestScriptFixtureComponent))
           return false;
-        TestScriptFixtureComponent o = (TestScriptFixtureComponent) other;
+        TestScriptFixtureComponent o = (TestScriptFixtureComponent) other_;
         return compareDeep(autocreate, o.autocreate, true) && compareDeep(autodelete, o.autodelete, true)
            && compareDeep(resource, o.resource, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptFixtureComponent))
+        if (!(other_ instanceof TestScriptFixtureComponent))
           return false;
-        TestScriptFixtureComponent o = (TestScriptFixtureComponent) other;
+        TestScriptFixtureComponent o = (TestScriptFixtureComponent) other_;
         return compareValues(autocreate, o.autocreate, true) && compareValues(autodelete, o.autodelete, true)
           ;
       }
@@ -3448,12 +3448,12 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptVariableComponent))
+        if (!(other_ instanceof TestScriptVariableComponent))
           return false;
-        TestScriptVariableComponent o = (TestScriptVariableComponent) other;
+        TestScriptVariableComponent o = (TestScriptVariableComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(description, o.description, true)
            && compareDeep(expression, o.expression, true) && compareDeep(headerField, o.headerField, true)
            && compareDeep(hint, o.hint, true) && compareDeep(path, o.path, true) && compareDeep(sourceId, o.sourceId, true)
@@ -3461,12 +3461,12 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptVariableComponent))
+        if (!(other_ instanceof TestScriptVariableComponent))
           return false;
-        TestScriptVariableComponent o = (TestScriptVariableComponent) other;
+        TestScriptVariableComponent o = (TestScriptVariableComponent) other_;
         return compareValues(name, o.name, true) && compareValues(defaultValue, o.defaultValue, true) && compareValues(description, o.description, true)
            && compareValues(expression, o.expression, true) && compareValues(headerField, o.headerField, true)
            && compareValues(hint, o.hint, true) && compareValues(path, o.path, true) && compareValues(sourceId, o.sourceId, true)
@@ -3712,22 +3712,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptRuleComponent))
+        if (!(other_ instanceof TestScriptRuleComponent))
           return false;
-        TestScriptRuleComponent o = (TestScriptRuleComponent) other;
+        TestScriptRuleComponent o = (TestScriptRuleComponent) other_;
         return compareDeep(resource, o.resource, true) && compareDeep(param, o.param, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptRuleComponent))
+        if (!(other_ instanceof TestScriptRuleComponent))
           return false;
-        TestScriptRuleComponent o = (TestScriptRuleComponent) other;
+        TestScriptRuleComponent o = (TestScriptRuleComponent) other_;
         return true;
       }
 
@@ -3961,22 +3961,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof RuleParamComponent))
+        if (!(other_ instanceof RuleParamComponent))
           return false;
-        RuleParamComponent o = (RuleParamComponent) other;
+        RuleParamComponent o = (RuleParamComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof RuleParamComponent))
+        if (!(other_ instanceof RuleParamComponent))
           return false;
-        RuleParamComponent o = (RuleParamComponent) other;
+        RuleParamComponent o = (RuleParamComponent) other_;
         return compareValues(name, o.name, true) && compareValues(value, o.value, true);
       }
 
@@ -4218,22 +4218,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptRulesetComponent))
+        if (!(other_ instanceof TestScriptRulesetComponent))
           return false;
-        TestScriptRulesetComponent o = (TestScriptRulesetComponent) other;
+        TestScriptRulesetComponent o = (TestScriptRulesetComponent) other_;
         return compareDeep(resource, o.resource, true) && compareDeep(rule, o.rule, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptRulesetComponent))
+        if (!(other_ instanceof TestScriptRulesetComponent))
           return false;
-        TestScriptRulesetComponent o = (TestScriptRulesetComponent) other;
+        TestScriptRulesetComponent o = (TestScriptRulesetComponent) other_;
         return true;
       }
 
@@ -4475,22 +4475,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof RulesetRuleComponent))
+        if (!(other_ instanceof RulesetRuleComponent))
           return false;
-        RulesetRuleComponent o = (RulesetRuleComponent) other;
+        RulesetRuleComponent o = (RulesetRuleComponent) other_;
         return compareDeep(ruleId, o.ruleId, true) && compareDeep(param, o.param, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof RulesetRuleComponent))
+        if (!(other_ instanceof RulesetRuleComponent))
           return false;
-        RulesetRuleComponent o = (RulesetRuleComponent) other;
+        RulesetRuleComponent o = (RulesetRuleComponent) other_;
         return compareValues(ruleId, o.ruleId, true);
       }
 
@@ -4724,22 +4724,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof RulesetRuleParamComponent))
+        if (!(other_ instanceof RulesetRuleParamComponent))
           return false;
-        RulesetRuleParamComponent o = (RulesetRuleParamComponent) other;
+        RulesetRuleParamComponent o = (RulesetRuleParamComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof RulesetRuleParamComponent))
+        if (!(other_ instanceof RulesetRuleParamComponent))
           return false;
-        RulesetRuleParamComponent o = (RulesetRuleParamComponent) other;
+        RulesetRuleParamComponent o = (RulesetRuleParamComponent) other_;
         return compareValues(name, o.name, true) && compareValues(value, o.value, true);
       }
 
@@ -4907,22 +4907,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptSetupComponent))
+        if (!(other_ instanceof TestScriptSetupComponent))
           return false;
-        TestScriptSetupComponent o = (TestScriptSetupComponent) other;
+        TestScriptSetupComponent o = (TestScriptSetupComponent) other_;
         return compareDeep(action, o.action, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptSetupComponent))
+        if (!(other_ instanceof TestScriptSetupComponent))
           return false;
-        TestScriptSetupComponent o = (TestScriptSetupComponent) other;
+        TestScriptSetupComponent o = (TestScriptSetupComponent) other_;
         return true;
       }
 
@@ -5104,22 +5104,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SetupActionComponent))
+        if (!(other_ instanceof SetupActionComponent))
           return false;
-        SetupActionComponent o = (SetupActionComponent) other;
+        SetupActionComponent o = (SetupActionComponent) other_;
         return compareDeep(operation, o.operation, true) && compareDeep(assert_, o.assert_, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SetupActionComponent))
+        if (!(other_ instanceof SetupActionComponent))
           return false;
-        SetupActionComponent o = (SetupActionComponent) other;
+        SetupActionComponent o = (SetupActionComponent) other_;
         return true;
       }
 
@@ -6309,12 +6309,12 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SetupActionOperationComponent))
+        if (!(other_ instanceof SetupActionOperationComponent))
           return false;
-        SetupActionOperationComponent o = (SetupActionOperationComponent) other;
+        SetupActionOperationComponent o = (SetupActionOperationComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(resource, o.resource, true) && compareDeep(label, o.label, true)
            && compareDeep(description, o.description, true) && compareDeep(accept, o.accept, true) && compareDeep(contentType, o.contentType, true)
            && compareDeep(destination, o.destination, true) && compareDeep(encodeRequestUrl, o.encodeRequestUrl, true)
@@ -6324,12 +6324,12 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SetupActionOperationComponent))
+        if (!(other_ instanceof SetupActionOperationComponent))
           return false;
-        SetupActionOperationComponent o = (SetupActionOperationComponent) other;
+        SetupActionOperationComponent o = (SetupActionOperationComponent) other_;
         return compareValues(resource, o.resource, true) && compareValues(label, o.label, true) && compareValues(description, o.description, true)
            && compareValues(accept, o.accept, true) && compareValues(contentType, o.contentType, true) && compareValues(destination, o.destination, true)
            && compareValues(encodeRequestUrl, o.encodeRequestUrl, true) && compareValues(origin, o.origin, true)
@@ -6567,22 +6567,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SetupActionOperationRequestHeaderComponent))
+        if (!(other_ instanceof SetupActionOperationRequestHeaderComponent))
           return false;
-        SetupActionOperationRequestHeaderComponent o = (SetupActionOperationRequestHeaderComponent) other;
+        SetupActionOperationRequestHeaderComponent o = (SetupActionOperationRequestHeaderComponent) other_;
         return compareDeep(field, o.field, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SetupActionOperationRequestHeaderComponent))
+        if (!(other_ instanceof SetupActionOperationRequestHeaderComponent))
           return false;
-        SetupActionOperationRequestHeaderComponent o = (SetupActionOperationRequestHeaderComponent) other;
+        SetupActionOperationRequestHeaderComponent o = (SetupActionOperationRequestHeaderComponent) other_;
         return compareValues(field, o.field, true) && compareValues(value, o.value, true);
       }
 
@@ -8312,12 +8312,12 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SetupActionAssertComponent))
+        if (!(other_ instanceof SetupActionAssertComponent))
           return false;
-        SetupActionAssertComponent o = (SetupActionAssertComponent) other;
+        SetupActionAssertComponent o = (SetupActionAssertComponent) other_;
         return compareDeep(label, o.label, true) && compareDeep(description, o.description, true) && compareDeep(direction, o.direction, true)
            && compareDeep(compareToSourceId, o.compareToSourceId, true) && compareDeep(compareToSourceExpression, o.compareToSourceExpression, true)
            && compareDeep(compareToSourcePath, o.compareToSourcePath, true) && compareDeep(contentType, o.contentType, true)
@@ -8331,12 +8331,12 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SetupActionAssertComponent))
+        if (!(other_ instanceof SetupActionAssertComponent))
           return false;
-        SetupActionAssertComponent o = (SetupActionAssertComponent) other;
+        SetupActionAssertComponent o = (SetupActionAssertComponent) other_;
         return compareValues(label, o.label, true) && compareValues(description, o.description, true) && compareValues(direction, o.direction, true)
            && compareValues(compareToSourceId, o.compareToSourceId, true) && compareValues(compareToSourceExpression, o.compareToSourceExpression, true)
            && compareValues(compareToSourcePath, o.compareToSourcePath, true) && compareValues(contentType, o.contentType, true)
@@ -8590,22 +8590,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ActionAssertRuleComponent))
+        if (!(other_ instanceof ActionAssertRuleComponent))
           return false;
-        ActionAssertRuleComponent o = (ActionAssertRuleComponent) other;
+        ActionAssertRuleComponent o = (ActionAssertRuleComponent) other_;
         return compareDeep(ruleId, o.ruleId, true) && compareDeep(param, o.param, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ActionAssertRuleComponent))
+        if (!(other_ instanceof ActionAssertRuleComponent))
           return false;
-        ActionAssertRuleComponent o = (ActionAssertRuleComponent) other;
+        ActionAssertRuleComponent o = (ActionAssertRuleComponent) other_;
         return compareValues(ruleId, o.ruleId, true);
       }
 
@@ -8836,22 +8836,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ActionAssertRuleParamComponent))
+        if (!(other_ instanceof ActionAssertRuleParamComponent))
           return false;
-        ActionAssertRuleParamComponent o = (ActionAssertRuleParamComponent) other;
+        ActionAssertRuleParamComponent o = (ActionAssertRuleParamComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ActionAssertRuleParamComponent))
+        if (!(other_ instanceof ActionAssertRuleParamComponent))
           return false;
-        ActionAssertRuleParamComponent o = (ActionAssertRuleParamComponent) other;
+        ActionAssertRuleParamComponent o = (ActionAssertRuleParamComponent) other_;
         return compareValues(name, o.name, true) && compareValues(value, o.value, true);
       }
 
@@ -9093,22 +9093,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ActionAssertRulesetComponent))
+        if (!(other_ instanceof ActionAssertRulesetComponent))
           return false;
-        ActionAssertRulesetComponent o = (ActionAssertRulesetComponent) other;
+        ActionAssertRulesetComponent o = (ActionAssertRulesetComponent) other_;
         return compareDeep(rulesetId, o.rulesetId, true) && compareDeep(rule, o.rule, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ActionAssertRulesetComponent))
+        if (!(other_ instanceof ActionAssertRulesetComponent))
           return false;
-        ActionAssertRulesetComponent o = (ActionAssertRulesetComponent) other;
+        ActionAssertRulesetComponent o = (ActionAssertRulesetComponent) other_;
         return compareValues(rulesetId, o.rulesetId, true);
       }
 
@@ -9350,22 +9350,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ActionAssertRulesetRuleComponent))
+        if (!(other_ instanceof ActionAssertRulesetRuleComponent))
           return false;
-        ActionAssertRulesetRuleComponent o = (ActionAssertRulesetRuleComponent) other;
+        ActionAssertRulesetRuleComponent o = (ActionAssertRulesetRuleComponent) other_;
         return compareDeep(ruleId, o.ruleId, true) && compareDeep(param, o.param, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ActionAssertRulesetRuleComponent))
+        if (!(other_ instanceof ActionAssertRulesetRuleComponent))
           return false;
-        ActionAssertRulesetRuleComponent o = (ActionAssertRulesetRuleComponent) other;
+        ActionAssertRulesetRuleComponent o = (ActionAssertRulesetRuleComponent) other_;
         return compareValues(ruleId, o.ruleId, true);
       }
 
@@ -9596,22 +9596,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ActionAssertRulesetRuleParamComponent))
+        if (!(other_ instanceof ActionAssertRulesetRuleParamComponent))
           return false;
-        ActionAssertRulesetRuleParamComponent o = (ActionAssertRulesetRuleParamComponent) other;
+        ActionAssertRulesetRuleParamComponent o = (ActionAssertRulesetRuleParamComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ActionAssertRulesetRuleParamComponent))
+        if (!(other_ instanceof ActionAssertRulesetRuleParamComponent))
           return false;
-        ActionAssertRulesetRuleParamComponent o = (ActionAssertRulesetRuleParamComponent) other;
+        ActionAssertRulesetRuleParamComponent o = (ActionAssertRulesetRuleParamComponent) other_;
         return compareValues(name, o.name, true) && compareValues(value, o.value, true);
       }
 
@@ -9919,23 +9919,23 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptTestComponent))
+        if (!(other_ instanceof TestScriptTestComponent))
           return false;
-        TestScriptTestComponent o = (TestScriptTestComponent) other;
+        TestScriptTestComponent o = (TestScriptTestComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(action, o.action, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptTestComponent))
+        if (!(other_ instanceof TestScriptTestComponent))
           return false;
-        TestScriptTestComponent o = (TestScriptTestComponent) other;
+        TestScriptTestComponent o = (TestScriptTestComponent) other_;
         return compareValues(name, o.name, true) && compareValues(description, o.description, true);
       }
 
@@ -10118,22 +10118,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestActionComponent))
+        if (!(other_ instanceof TestActionComponent))
           return false;
-        TestActionComponent o = (TestActionComponent) other;
+        TestActionComponent o = (TestActionComponent) other_;
         return compareDeep(operation, o.operation, true) && compareDeep(assert_, o.assert_, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestActionComponent))
+        if (!(other_ instanceof TestActionComponent))
           return false;
-        TestActionComponent o = (TestActionComponent) other;
+        TestActionComponent o = (TestActionComponent) other_;
         return true;
       }
 
@@ -10301,22 +10301,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScriptTeardownComponent))
+        if (!(other_ instanceof TestScriptTeardownComponent))
           return false;
-        TestScriptTeardownComponent o = (TestScriptTeardownComponent) other;
+        TestScriptTeardownComponent o = (TestScriptTeardownComponent) other_;
         return compareDeep(action, o.action, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScriptTeardownComponent))
+        if (!(other_ instanceof TestScriptTeardownComponent))
           return false;
-        TestScriptTeardownComponent o = (TestScriptTeardownComponent) other;
+        TestScriptTeardownComponent o = (TestScriptTeardownComponent) other_;
         return true;
       }
 
@@ -10460,22 +10460,22 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TeardownActionComponent))
+        if (!(other_ instanceof TeardownActionComponent))
           return false;
-        TeardownActionComponent o = (TeardownActionComponent) other;
+        TeardownActionComponent o = (TeardownActionComponent) other_;
         return compareDeep(operation, o.operation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TeardownActionComponent))
+        if (!(other_ instanceof TeardownActionComponent))
           return false;
-        TeardownActionComponent o = (TeardownActionComponent) other;
+        TeardownActionComponent o = (TeardownActionComponent) other_;
         return true;
       }
 
@@ -12311,12 +12311,12 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TestScript))
+        if (!(other_ instanceof TestScript))
           return false;
-        TestScript o = (TestScript) other;
+        TestScript o = (TestScript) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(origin, o.origin, true) && compareDeep(destination, o.destination, true) && compareDeep(metadata, o.metadata, true)
            && compareDeep(fixture, o.fixture, true) && compareDeep(profile, o.profile, true) && compareDeep(variable, o.variable, true)
@@ -12325,12 +12325,12 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TestScript))
+        if (!(other_ instanceof TestScript))
           return false;
-        TestScript o = (TestScript) other;
+        TestScript o = (TestScript) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true);
       }
 

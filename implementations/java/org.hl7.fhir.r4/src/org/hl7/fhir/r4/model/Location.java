@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -761,23 +761,23 @@ public class Location extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof LocationPositionComponent))
+        if (!(other_ instanceof LocationPositionComponent))
           return false;
-        LocationPositionComponent o = (LocationPositionComponent) other;
+        LocationPositionComponent o = (LocationPositionComponent) other_;
         return compareDeep(longitude, o.longitude, true) && compareDeep(latitude, o.latitude, true) && compareDeep(altitude, o.altitude, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof LocationPositionComponent))
+        if (!(other_ instanceof LocationPositionComponent))
           return false;
-        LocationPositionComponent o = (LocationPositionComponent) other;
+        LocationPositionComponent o = (LocationPositionComponent) other_;
         return compareValues(longitude, o.longitude, true) && compareValues(latitude, o.latitude, true) && compareValues(altitude, o.altitude, true)
           ;
       }
@@ -1164,23 +1164,23 @@ public class Location extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof LocationHoursOfOperationComponent))
+        if (!(other_ instanceof LocationHoursOfOperationComponent))
           return false;
-        LocationHoursOfOperationComponent o = (LocationHoursOfOperationComponent) other;
+        LocationHoursOfOperationComponent o = (LocationHoursOfOperationComponent) other_;
         return compareDeep(daysOfWeek, o.daysOfWeek, true) && compareDeep(allDay, o.allDay, true) && compareDeep(openingTime, o.openingTime, true)
            && compareDeep(closingTime, o.closingTime, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof LocationHoursOfOperationComponent))
+        if (!(other_ instanceof LocationHoursOfOperationComponent))
           return false;
-        LocationHoursOfOperationComponent o = (LocationHoursOfOperationComponent) other;
+        LocationHoursOfOperationComponent o = (LocationHoursOfOperationComponent) other_;
         return compareValues(daysOfWeek, o.daysOfWeek, true) && compareValues(allDay, o.allDay, true) && compareValues(openingTime, o.openingTime, true)
            && compareValues(closingTime, o.closingTime, true);
       }
@@ -2435,12 +2435,12 @@ public class Location extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Location))
+        if (!(other_ instanceof Location))
           return false;
-        Location o = (Location) other;
+        Location o = (Location) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(operationalStatus, o.operationalStatus, true)
            && compareDeep(name, o.name, true) && compareDeep(alias, o.alias, true) && compareDeep(description, o.description, true)
            && compareDeep(mode, o.mode, true) && compareDeep(type, o.type, true) && compareDeep(telecom, o.telecom, true)
@@ -2451,12 +2451,12 @@ public class Location extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Location))
+        if (!(other_ instanceof Location))
           return false;
-        Location o = (Location) other;
+        Location o = (Location) other_;
         return compareValues(status, o.status, true) && compareValues(name, o.name, true) && compareValues(alias, o.alias, true)
            && compareValues(description, o.description, true) && compareValues(mode, o.mode, true) && compareValues(availabilityExceptions, o.availabilityExceptions, true)
           ;

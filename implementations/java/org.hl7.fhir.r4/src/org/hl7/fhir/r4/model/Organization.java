@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -340,23 +340,23 @@ public class Organization extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OrganizationContactComponent))
+        if (!(other_ instanceof OrganizationContactComponent))
           return false;
-        OrganizationContactComponent o = (OrganizationContactComponent) other;
+        OrganizationContactComponent o = (OrganizationContactComponent) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true)
            && compareDeep(address, o.address, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OrganizationContactComponent))
+        if (!(other_ instanceof OrganizationContactComponent))
           return false;
-        OrganizationContactComponent o = (OrganizationContactComponent) other;
+        OrganizationContactComponent o = (OrganizationContactComponent) other_;
         return true;
       }
 
@@ -1243,12 +1243,12 @@ public class Organization extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Organization))
+        if (!(other_ instanceof Organization))
           return false;
-        Organization o = (Organization) other;
+        Organization o = (Organization) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(type, o.type, true)
            && compareDeep(name, o.name, true) && compareDeep(alias, o.alias, true) && compareDeep(telecom, o.telecom, true)
            && compareDeep(address, o.address, true) && compareDeep(partOf, o.partOf, true) && compareDeep(contact, o.contact, true)
@@ -1256,12 +1256,12 @@ public class Organization extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Organization))
+        if (!(other_ instanceof Organization))
           return false;
-        Organization o = (Organization) other;
+        Organization o = (Organization) other_;
         return compareValues(active, o.active, true) && compareValues(name, o.name, true) && compareValues(alias, o.alias, true)
           ;
       }

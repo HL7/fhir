@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -2178,7 +2178,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getSearchParam().size(); i++)
       composeCapabilityStatementCapabilityStatementRestResourceSearchParamComponent(t, "CapabilityStatement", "searchParam", element.getSearchParam().get(i), i);
     for (int i = 0; i < element.getOperation().size(); i++)
-      composeCapabilityStatementCapabilityStatementRestOperationComponent(t, "CapabilityStatement", "operation", element.getOperation().get(i), i);
+      composeCapabilityStatementCapabilityStatementRestResourceOperationComponent(t, "CapabilityStatement", "operation", element.getOperation().get(i), i);
     for (int i = 0; i < element.getCompartment().size(); i++)
       composeUri(t, "CapabilityStatement", "compartment", element.getCompartment().get(i), i);
   }
@@ -2259,6 +2259,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "CapabilityStatement", "searchRevInclude", element.getSearchRevInclude().get(i), i);
     for (int i = 0; i < element.getSearchParam().size(); i++)
       composeCapabilityStatementCapabilityStatementRestResourceSearchParamComponent(t, "CapabilityStatement", "searchParam", element.getSearchParam().get(i), i);
+    for (int i = 0; i < element.getOperation().size(); i++)
+      composeCapabilityStatementCapabilityStatementRestResourceOperationComponent(t, "CapabilityStatement", "operation", element.getOperation().get(i), i);
   }
 
   protected void composeCapabilityStatementResourceInteractionComponent(Complex parent, String parentType, String name, CapabilityStatement.ResourceInteractionComponent element, int index) {
@@ -2297,6 +2299,22 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
   }
 
+  protected void composeCapabilityStatementCapabilityStatementRestResourceOperationComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestResourceOperationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "operation", name, element, index);
+    if (element.hasNameElement())
+      composeString(t, "CapabilityStatement", "name", element.getNameElement(), -1);
+    if (element.hasDefinition())
+      composeReference(t, "CapabilityStatement", "definition", element.getDefinition(), -1);
+  }
+
   protected void composeCapabilityStatementSystemInteractionComponent(Complex parent, String parentType, String name, CapabilityStatement.SystemInteractionComponent element, int index) {
     if (element == null) 
       return;
@@ -2311,22 +2329,6 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "CapabilityStatement", "code", element.getCodeElement(), -1);
     if (element.hasDocumentationElement())
       composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
-  }
-
-  protected void composeCapabilityStatementCapabilityStatementRestOperationComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestOperationComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "operation", name, element, index);
-    if (element.hasNameElement())
-      composeString(t, "CapabilityStatement", "name", element.getNameElement(), -1);
-    if (element.hasDefinition())
-      composeReference(t, "CapabilityStatement", "definition", element.getDefinition(), -1);
   }
 
   protected void composeCapabilityStatementCapabilityStatementMessagingComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementMessagingComponent element, int index) {

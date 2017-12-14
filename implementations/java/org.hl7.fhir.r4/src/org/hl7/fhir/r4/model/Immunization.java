@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -357,22 +357,22 @@ public class Immunization extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImmunizationPractitionerComponent))
+        if (!(other_ instanceof ImmunizationPractitionerComponent))
           return false;
-        ImmunizationPractitionerComponent o = (ImmunizationPractitionerComponent) other;
+        ImmunizationPractitionerComponent o = (ImmunizationPractitionerComponent) other_;
         return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImmunizationPractitionerComponent))
+        if (!(other_ instanceof ImmunizationPractitionerComponent))
           return false;
-        ImmunizationPractitionerComponent o = (ImmunizationPractitionerComponent) other;
+        ImmunizationPractitionerComponent o = (ImmunizationPractitionerComponent) other_;
         return true;
       }
 
@@ -742,24 +742,24 @@ public class Immunization extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImmunizationEducationComponent))
+        if (!(other_ instanceof ImmunizationEducationComponent))
           return false;
-        ImmunizationEducationComponent o = (ImmunizationEducationComponent) other;
+        ImmunizationEducationComponent o = (ImmunizationEducationComponent) other_;
         return compareDeep(documentType, o.documentType, true) && compareDeep(reference, o.reference, true)
            && compareDeep(publicationDate, o.publicationDate, true) && compareDeep(presentationDate, o.presentationDate, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImmunizationEducationComponent))
+        if (!(other_ instanceof ImmunizationEducationComponent))
           return false;
-        ImmunizationEducationComponent o = (ImmunizationEducationComponent) other;
+        ImmunizationEducationComponent o = (ImmunizationEducationComponent) other_;
         return compareValues(documentType, o.documentType, true) && compareValues(reference, o.reference, true)
            && compareValues(publicationDate, o.publicationDate, true) && compareValues(presentationDate, o.presentationDate, true)
           ;
@@ -2250,12 +2250,12 @@ public class Immunization extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Immunization))
+        if (!(other_ instanceof Immunization))
           return false;
-        Immunization o = (Immunization) other;
+        Immunization o = (Immunization) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(vaccineCode, o.vaccineCode, true)
            && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true) && compareDeep(date, o.date, true)
            && compareDeep(primarySource, o.primarySource, true) && compareDeep(reportOrigin, o.reportOrigin, true)
@@ -2268,12 +2268,12 @@ public class Immunization extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Immunization))
+        if (!(other_ instanceof Immunization))
           return false;
-        Immunization o = (Immunization) other;
+        Immunization o = (Immunization) other_;
         return compareValues(status, o.status, true) && compareValues(date, o.date, true) && compareValues(primarySource, o.primarySource, true)
            && compareValues(lotNumber, o.lotNumber, true) && compareValues(expirationDate, o.expirationDate, true)
           ;

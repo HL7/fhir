@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -590,23 +590,23 @@ public class OrganizationRole extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OrganizationRoleAvailableTimeComponent))
+        if (!(other_ instanceof OrganizationRoleAvailableTimeComponent))
           return false;
-        OrganizationRoleAvailableTimeComponent o = (OrganizationRoleAvailableTimeComponent) other;
+        OrganizationRoleAvailableTimeComponent o = (OrganizationRoleAvailableTimeComponent) other_;
         return compareDeep(daysOfWeek, o.daysOfWeek, true) && compareDeep(allDay, o.allDay, true) && compareDeep(availableStartTime, o.availableStartTime, true)
            && compareDeep(availableEndTime, o.availableEndTime, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OrganizationRoleAvailableTimeComponent))
+        if (!(other_ instanceof OrganizationRoleAvailableTimeComponent))
           return false;
-        OrganizationRoleAvailableTimeComponent o = (OrganizationRoleAvailableTimeComponent) other;
+        OrganizationRoleAvailableTimeComponent o = (OrganizationRoleAvailableTimeComponent) other_;
         return compareValues(daysOfWeek, o.daysOfWeek, true) && compareValues(allDay, o.allDay, true) && compareValues(availableStartTime, o.availableStartTime, true)
            && compareValues(availableEndTime, o.availableEndTime, true);
       }
@@ -818,22 +818,22 @@ public class OrganizationRole extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OrganizationRoleNotAvailableComponent))
+        if (!(other_ instanceof OrganizationRoleNotAvailableComponent))
           return false;
-        OrganizationRoleNotAvailableComponent o = (OrganizationRoleNotAvailableComponent) other;
+        OrganizationRoleNotAvailableComponent o = (OrganizationRoleNotAvailableComponent) other_;
         return compareDeep(description, o.description, true) && compareDeep(during, o.during, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OrganizationRoleNotAvailableComponent))
+        if (!(other_ instanceof OrganizationRoleNotAvailableComponent))
           return false;
-        OrganizationRoleNotAvailableComponent o = (OrganizationRoleNotAvailableComponent) other;
+        OrganizationRoleNotAvailableComponent o = (OrganizationRoleNotAvailableComponent) other_;
         return compareValues(description, o.description, true);
       }
 
@@ -2144,12 +2144,12 @@ public class OrganizationRole extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OrganizationRole))
+        if (!(other_ instanceof OrganizationRole))
           return false;
-        OrganizationRole o = (OrganizationRole) other;
+        OrganizationRole o = (OrganizationRole) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(period, o.period, true)
            && compareDeep(organization, o.organization, true) && compareDeep(participatingOrganization, o.participatingOrganization, true)
            && compareDeep(network, o.network, true) && compareDeep(code, o.code, true) && compareDeep(specialty, o.specialty, true)
@@ -2160,12 +2160,12 @@ public class OrganizationRole extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OrganizationRole))
+        if (!(other_ instanceof OrganizationRole))
           return false;
-        OrganizationRole o = (OrganizationRole) other;
+        OrganizationRole o = (OrganizationRole) other_;
         return compareValues(active, o.active, true) && compareValues(availabilityExceptions, o.availabilityExceptions, true)
           ;
       }

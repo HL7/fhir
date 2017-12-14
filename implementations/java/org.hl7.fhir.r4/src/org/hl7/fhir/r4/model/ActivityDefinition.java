@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2481,22 +2481,22 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ActivityDefinitionParticipantComponent))
+        if (!(other_ instanceof ActivityDefinitionParticipantComponent))
           return false;
-        ActivityDefinitionParticipantComponent o = (ActivityDefinitionParticipantComponent) other;
+        ActivityDefinitionParticipantComponent o = (ActivityDefinitionParticipantComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(role, o.role, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ActivityDefinitionParticipantComponent))
+        if (!(other_ instanceof ActivityDefinitionParticipantComponent))
           return false;
-        ActivityDefinitionParticipantComponent o = (ActivityDefinitionParticipantComponent) other;
+        ActivityDefinitionParticipantComponent o = (ActivityDefinitionParticipantComponent) other_;
         return compareValues(type, o.type, true);
       }
 
@@ -2866,23 +2866,23 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ActivityDefinitionDynamicValueComponent))
+        if (!(other_ instanceof ActivityDefinitionDynamicValueComponent))
           return false;
-        ActivityDefinitionDynamicValueComponent o = (ActivityDefinitionDynamicValueComponent) other;
+        ActivityDefinitionDynamicValueComponent o = (ActivityDefinitionDynamicValueComponent) other_;
         return compareDeep(description, o.description, true) && compareDeep(path, o.path, true) && compareDeep(language, o.language, true)
            && compareDeep(expression, o.expression, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ActivityDefinitionDynamicValueComponent))
+        if (!(other_ instanceof ActivityDefinitionDynamicValueComponent))
           return false;
-        ActivityDefinitionDynamicValueComponent o = (ActivityDefinitionDynamicValueComponent) other;
+        ActivityDefinitionDynamicValueComponent o = (ActivityDefinitionDynamicValueComponent) other_;
         return compareValues(description, o.description, true) && compareValues(path, o.path, true) && compareValues(language, o.language, true)
            && compareValues(expression, o.expression, true);
       }
@@ -5592,12 +5592,12 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ActivityDefinition))
+        if (!(other_ instanceof ActivityDefinition))
           return false;
-        ActivityDefinition o = (ActivityDefinition) other;
+        ActivityDefinition o = (ActivityDefinition) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(usage, o.usage, true)
            && compareDeep(approvalDate, o.approvalDate, true) && compareDeep(lastReviewDate, o.lastReviewDate, true)
            && compareDeep(effectivePeriod, o.effectivePeriod, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
@@ -5611,12 +5611,12 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ActivityDefinition))
+        if (!(other_ instanceof ActivityDefinition))
           return false;
-        ActivityDefinition o = (ActivityDefinition) other;
+        ActivityDefinition o = (ActivityDefinition) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(usage, o.usage, true) && compareValues(approvalDate, o.approvalDate, true)
            && compareValues(lastReviewDate, o.lastReviewDate, true) && compareValues(copyright, o.copyright, true)
            && compareValues(kind, o.kind, true) && compareValues(doNotPerform, o.doNotPerform, true);

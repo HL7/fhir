@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -468,23 +468,23 @@ public class EligibilityResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof InsuranceComponent))
+        if (!(other_ instanceof InsuranceComponent))
           return false;
-        InsuranceComponent o = (InsuranceComponent) other;
+        InsuranceComponent o = (InsuranceComponent) other_;
         return compareDeep(coverage, o.coverage, true) && compareDeep(contract, o.contract, true) && compareDeep(benefitBalance, o.benefitBalance, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof InsuranceComponent))
+        if (!(other_ instanceof InsuranceComponent))
           return false;
-        InsuranceComponent o = (InsuranceComponent) other;
+        InsuranceComponent o = (InsuranceComponent) other_;
         return true;
       }
 
@@ -1102,12 +1102,12 @@ public class EligibilityResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof BenefitsComponent))
+        if (!(other_ instanceof BenefitsComponent))
           return false;
-        BenefitsComponent o = (BenefitsComponent) other;
+        BenefitsComponent o = (BenefitsComponent) other_;
         return compareDeep(category, o.category, true) && compareDeep(subCategory, o.subCategory, true)
            && compareDeep(excluded, o.excluded, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
            && compareDeep(network, o.network, true) && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true)
@@ -1115,12 +1115,12 @@ public class EligibilityResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof BenefitsComponent))
+        if (!(other_ instanceof BenefitsComponent))
           return false;
-        BenefitsComponent o = (BenefitsComponent) other;
+        BenefitsComponent o = (BenefitsComponent) other_;
         return compareValues(excluded, o.excluded, true) && compareValues(name, o.name, true) && compareValues(description, o.description, true)
           ;
       }
@@ -1435,23 +1435,23 @@ public class EligibilityResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof BenefitComponent))
+        if (!(other_ instanceof BenefitComponent))
           return false;
-        BenefitComponent o = (BenefitComponent) other;
+        BenefitComponent o = (BenefitComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(allowed, o.allowed, true) && compareDeep(used, o.used, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof BenefitComponent))
+        if (!(other_ instanceof BenefitComponent))
           return false;
-        BenefitComponent o = (BenefitComponent) other;
+        BenefitComponent o = (BenefitComponent) other_;
         return true;
       }
 
@@ -1760,23 +1760,23 @@ public class EligibilityResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AuthorizationComponent))
+        if (!(other_ instanceof AuthorizationComponent))
           return false;
-        AuthorizationComponent o = (AuthorizationComponent) other;
+        AuthorizationComponent o = (AuthorizationComponent) other_;
         return compareDeep(authorizationSequence, o.authorizationSequence, true) && compareDeep(required, o.required, true)
            && compareDeep(note, o.note, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AuthorizationComponent))
+        if (!(other_ instanceof AuthorizationComponent))
           return false;
-        AuthorizationComponent o = (AuthorizationComponent) other;
+        AuthorizationComponent o = (AuthorizationComponent) other_;
         return compareValues(authorizationSequence, o.authorizationSequence, true) && compareValues(required, o.required, true)
           ;
       }
@@ -1923,22 +1923,22 @@ public class EligibilityResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ErrorsComponent))
+        if (!(other_ instanceof ErrorsComponent))
           return false;
-        ErrorsComponent o = (ErrorsComponent) other;
+        ErrorsComponent o = (ErrorsComponent) other_;
         return compareDeep(code, o.code, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ErrorsComponent))
+        if (!(other_ instanceof ErrorsComponent))
           return false;
-        ErrorsComponent o = (ErrorsComponent) other;
+        ErrorsComponent o = (ErrorsComponent) other_;
         return true;
       }
 
@@ -3100,12 +3100,12 @@ public class EligibilityResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof EligibilityResponse))
+        if (!(other_ instanceof EligibilityResponse))
           return false;
-        EligibilityResponse o = (EligibilityResponse) other;
+        EligibilityResponse o = (EligibilityResponse) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(created, o.created, true)
            && compareDeep(requestProvider, o.requestProvider, true) && compareDeep(requestOrganization, o.requestOrganization, true)
            && compareDeep(request, o.request, true) && compareDeep(outcome, o.outcome, true) && compareDeep(disposition, o.disposition, true)
@@ -3115,12 +3115,12 @@ public class EligibilityResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof EligibilityResponse))
+        if (!(other_ instanceof EligibilityResponse))
           return false;
-        EligibilityResponse o = (EligibilityResponse) other;
+        EligibilityResponse o = (EligibilityResponse) other_;
         return compareValues(status, o.status, true) && compareValues(created, o.created, true) && compareValues(outcome, o.outcome, true)
            && compareValues(disposition, o.disposition, true) && compareValues(inforce, o.inforce, true) && compareValues(preAuthRef, o.preAuthRef, true)
           ;

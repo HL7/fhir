@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -552,23 +552,23 @@ or intervention but are still being followed according to the primary objective 
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ResearchStudyArmComponent))
+        if (!(other_ instanceof ResearchStudyArmComponent))
           return false;
-        ResearchStudyArmComponent o = (ResearchStudyArmComponent) other;
+        ResearchStudyArmComponent o = (ResearchStudyArmComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(type, o.type, true) && compareDeep(description, o.description, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ResearchStudyArmComponent))
+        if (!(other_ instanceof ResearchStudyArmComponent))
           return false;
-        ResearchStudyArmComponent o = (ResearchStudyArmComponent) other;
+        ResearchStudyArmComponent o = (ResearchStudyArmComponent) other_;
         return compareValues(name, o.name, true) && compareValues(description, o.description, true);
       }
 
@@ -776,22 +776,22 @@ or intervention but are still being followed according to the primary objective 
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ResearchStudyObjectiveComponent))
+        if (!(other_ instanceof ResearchStudyObjectiveComponent))
           return false;
-        ResearchStudyObjectiveComponent o = (ResearchStudyObjectiveComponent) other;
+        ResearchStudyObjectiveComponent o = (ResearchStudyObjectiveComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(type, o.type, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ResearchStudyObjectiveComponent))
+        if (!(other_ instanceof ResearchStudyObjectiveComponent))
           return false;
-        ResearchStudyObjectiveComponent o = (ResearchStudyObjectiveComponent) other;
+        ResearchStudyObjectiveComponent o = (ResearchStudyObjectiveComponent) other_;
         return compareValues(name, o.name, true);
       }
 
@@ -2740,12 +2740,12 @@ or intervention but are still being followed according to the primary objective 
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ResearchStudy))
+        if (!(other_ instanceof ResearchStudy))
           return false;
-        ResearchStudy o = (ResearchStudy) other;
+        ResearchStudy o = (ResearchStudy) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(title, o.title, true) && compareDeep(protocol, o.protocol, true)
            && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true) && compareDeep(primaryPurposeType, o.primaryPurposeType, true)
            && compareDeep(phase, o.phase, true) && compareDeep(category, o.category, true) && compareDeep(focus, o.focus, true)
@@ -2758,12 +2758,12 @@ or intervention but are still being followed according to the primary objective 
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ResearchStudy))
+        if (!(other_ instanceof ResearchStudy))
           return false;
-        ResearchStudy o = (ResearchStudy) other;
+        ResearchStudy o = (ResearchStudy) other_;
         return compareValues(title, o.title, true) && compareValues(status, o.status, true) && compareValues(description, o.description, true)
           ;
       }

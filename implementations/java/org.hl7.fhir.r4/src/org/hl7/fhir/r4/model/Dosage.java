@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -983,12 +983,12 @@ public class Dosage extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Dosage))
+        if (!(other_ instanceof Dosage))
           return false;
-        Dosage o = (Dosage) other;
+        Dosage o = (Dosage) other_;
         return compareDeep(sequence, o.sequence, true) && compareDeep(text, o.text, true) && compareDeep(additionalInstruction, o.additionalInstruction, true)
            && compareDeep(patientInstruction, o.patientInstruction, true) && compareDeep(timing, o.timing, true)
            && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(site, o.site, true) && compareDeep(route, o.route, true)
@@ -998,12 +998,12 @@ public class Dosage extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Dosage))
+        if (!(other_ instanceof Dosage))
           return false;
-        Dosage o = (Dosage) other;
+        Dosage o = (Dosage) other_;
         return compareValues(sequence, o.sequence, true) && compareValues(text, o.text, true) && compareValues(patientInstruction, o.patientInstruction, true)
           ;
       }

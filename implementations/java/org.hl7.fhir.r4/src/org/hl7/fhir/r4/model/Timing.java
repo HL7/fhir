@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2128,12 +2128,12 @@ public class Timing extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TimingRepeatComponent))
+        if (!(other_ instanceof TimingRepeatComponent))
           return false;
-        TimingRepeatComponent o = (TimingRepeatComponent) other;
+        TimingRepeatComponent o = (TimingRepeatComponent) other_;
         return compareDeep(bounds, o.bounds, true) && compareDeep(count, o.count, true) && compareDeep(countMax, o.countMax, true)
            && compareDeep(duration, o.duration, true) && compareDeep(durationMax, o.durationMax, true) && compareDeep(durationUnit, o.durationUnit, true)
            && compareDeep(frequency, o.frequency, true) && compareDeep(frequencyMax, o.frequencyMax, true)
@@ -2143,12 +2143,12 @@ public class Timing extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TimingRepeatComponent))
+        if (!(other_ instanceof TimingRepeatComponent))
           return false;
-        TimingRepeatComponent o = (TimingRepeatComponent) other;
+        TimingRepeatComponent o = (TimingRepeatComponent) other_;
         return compareValues(count, o.count, true) && compareValues(countMax, o.countMax, true) && compareValues(duration, o.duration, true)
            && compareValues(durationMax, o.durationMax, true) && compareValues(durationUnit, o.durationUnit, true)
            && compareValues(frequency, o.frequency, true) && compareValues(frequencyMax, o.frequencyMax, true)
@@ -2431,23 +2431,23 @@ public class Timing extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Timing))
+        if (!(other_ instanceof Timing))
           return false;
-        Timing o = (Timing) other;
+        Timing o = (Timing) other_;
         return compareDeep(event, o.event, true) && compareDeep(repeat, o.repeat, true) && compareDeep(code, o.code, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Timing))
+        if (!(other_ instanceof Timing))
           return false;
-        Timing o = (Timing) other;
+        Timing o = (Timing) other_;
         return compareValues(event, o.event, true);
       }
 

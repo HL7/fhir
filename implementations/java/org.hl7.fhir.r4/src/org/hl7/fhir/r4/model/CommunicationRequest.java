@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -520,22 +520,22 @@ public class CommunicationRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CommunicationRequestPayloadComponent))
+        if (!(other_ instanceof CommunicationRequestPayloadComponent))
           return false;
-        CommunicationRequestPayloadComponent o = (CommunicationRequestPayloadComponent) other;
+        CommunicationRequestPayloadComponent o = (CommunicationRequestPayloadComponent) other_;
         return compareDeep(content, o.content, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CommunicationRequestPayloadComponent))
+        if (!(other_ instanceof CommunicationRequestPayloadComponent))
           return false;
-        CommunicationRequestPayloadComponent o = (CommunicationRequestPayloadComponent) other;
+        CommunicationRequestPayloadComponent o = (CommunicationRequestPayloadComponent) other_;
         return true;
       }
 
@@ -2185,12 +2185,12 @@ public class CommunicationRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CommunicationRequest))
+        if (!(other_ instanceof CommunicationRequest))
           return false;
-        CommunicationRequest o = (CommunicationRequest) other;
+        CommunicationRequest o = (CommunicationRequest) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true)
            && compareDeep(groupIdentifier, o.groupIdentifier, true) && compareDeep(status, o.status, true)
            && compareDeep(category, o.category, true) && compareDeep(priority, o.priority, true) && compareDeep(medium, o.medium, true)
@@ -2202,12 +2202,12 @@ public class CommunicationRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CommunicationRequest))
+        if (!(other_ instanceof CommunicationRequest))
           return false;
-        CommunicationRequest o = (CommunicationRequest) other;
+        CommunicationRequest o = (CommunicationRequest) other_;
         return compareValues(status, o.status, true) && compareValues(priority, o.priority, true) && compareValues(authoredOn, o.authoredOn, true)
           ;
       }

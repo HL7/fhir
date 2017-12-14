@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -371,22 +371,22 @@ public class Narrative extends BaseNarrative implements INarrative {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Narrative))
+        if (!(other_ instanceof Narrative))
           return false;
-        Narrative o = (Narrative) other;
+        Narrative o = (Narrative) other_;
         return compareDeep(status, o.status, true) && compareDeep(div, o.div, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Narrative))
+        if (!(other_ instanceof Narrative))
           return false;
-        Narrative o = (Narrative) other;
+        Narrative o = (Narrative) other_;
         return compareValues(status, o.status, true);
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -496,23 +496,23 @@ public class CompartmentDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CompartmentDefinitionResourceComponent))
+        if (!(other_ instanceof CompartmentDefinitionResourceComponent))
           return false;
-        CompartmentDefinitionResourceComponent o = (CompartmentDefinitionResourceComponent) other;
+        CompartmentDefinitionResourceComponent o = (CompartmentDefinitionResourceComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(param, o.param, true) && compareDeep(documentation, o.documentation, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CompartmentDefinitionResourceComponent))
+        if (!(other_ instanceof CompartmentDefinitionResourceComponent))
           return false;
-        CompartmentDefinitionResourceComponent o = (CompartmentDefinitionResourceComponent) other;
+        CompartmentDefinitionResourceComponent o = (CompartmentDefinitionResourceComponent) other_;
         return compareValues(code, o.code, true) && compareValues(param, o.param, true) && compareValues(documentation, o.documentation, true)
           ;
       }
@@ -1609,23 +1609,23 @@ public class CompartmentDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CompartmentDefinition))
+        if (!(other_ instanceof CompartmentDefinition))
           return false;
-        CompartmentDefinition o = (CompartmentDefinition) other;
+        CompartmentDefinition o = (CompartmentDefinition) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(code, o.code, true) && compareDeep(search, o.search, true)
            && compareDeep(resource, o.resource, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CompartmentDefinition))
+        if (!(other_ instanceof CompartmentDefinition))
           return false;
-        CompartmentDefinition o = (CompartmentDefinition) other;
+        CompartmentDefinition o = (CompartmentDefinition) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(code, o.code, true) && compareValues(search, o.search, true)
           ;
       }

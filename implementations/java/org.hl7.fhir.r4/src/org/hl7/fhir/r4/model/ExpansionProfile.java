@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -444,23 +444,23 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExpansionProfileFixedVersionComponent))
+        if (!(other_ instanceof ExpansionProfileFixedVersionComponent))
           return false;
-        ExpansionProfileFixedVersionComponent o = (ExpansionProfileFixedVersionComponent) other;
+        ExpansionProfileFixedVersionComponent o = (ExpansionProfileFixedVersionComponent) other_;
         return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(mode, o.mode, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExpansionProfileFixedVersionComponent))
+        if (!(other_ instanceof ExpansionProfileFixedVersionComponent))
           return false;
-        ExpansionProfileFixedVersionComponent o = (ExpansionProfileFixedVersionComponent) other;
+        ExpansionProfileFixedVersionComponent o = (ExpansionProfileFixedVersionComponent) other_;
         return compareValues(system, o.system, true) && compareValues(version, o.version, true) && compareValues(mode, o.mode, true)
           ;
       }
@@ -695,22 +695,22 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExpansionProfileExcludedSystemComponent))
+        if (!(other_ instanceof ExpansionProfileExcludedSystemComponent))
           return false;
-        ExpansionProfileExcludedSystemComponent o = (ExpansionProfileExcludedSystemComponent) other;
+        ExpansionProfileExcludedSystemComponent o = (ExpansionProfileExcludedSystemComponent) other_;
         return compareDeep(system, o.system, true) && compareDeep(version, o.version, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExpansionProfileExcludedSystemComponent))
+        if (!(other_ instanceof ExpansionProfileExcludedSystemComponent))
           return false;
-        ExpansionProfileExcludedSystemComponent o = (ExpansionProfileExcludedSystemComponent) other;
+        ExpansionProfileExcludedSystemComponent o = (ExpansionProfileExcludedSystemComponent) other_;
         return compareValues(system, o.system, true) && compareValues(version, o.version, true);
       }
 
@@ -892,22 +892,22 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExpansionProfileDesignationComponent))
+        if (!(other_ instanceof ExpansionProfileDesignationComponent))
           return false;
-        ExpansionProfileDesignationComponent o = (ExpansionProfileDesignationComponent) other;
+        ExpansionProfileDesignationComponent o = (ExpansionProfileDesignationComponent) other_;
         return compareDeep(include, o.include, true) && compareDeep(exclude, o.exclude, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExpansionProfileDesignationComponent))
+        if (!(other_ instanceof ExpansionProfileDesignationComponent))
           return false;
-        ExpansionProfileDesignationComponent o = (ExpansionProfileDesignationComponent) other;
+        ExpansionProfileDesignationComponent o = (ExpansionProfileDesignationComponent) other_;
         return true;
       }
 
@@ -1075,22 +1075,22 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DesignationIncludeComponent))
+        if (!(other_ instanceof DesignationIncludeComponent))
           return false;
-        DesignationIncludeComponent o = (DesignationIncludeComponent) other;
+        DesignationIncludeComponent o = (DesignationIncludeComponent) other_;
         return compareDeep(designation, o.designation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DesignationIncludeComponent))
+        if (!(other_ instanceof DesignationIncludeComponent))
           return false;
-        DesignationIncludeComponent o = (DesignationIncludeComponent) other;
+        DesignationIncludeComponent o = (DesignationIncludeComponent) other_;
         return true;
       }
 
@@ -1298,22 +1298,22 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DesignationIncludeDesignationComponent))
+        if (!(other_ instanceof DesignationIncludeDesignationComponent))
           return false;
-        DesignationIncludeDesignationComponent o = (DesignationIncludeDesignationComponent) other;
+        DesignationIncludeDesignationComponent o = (DesignationIncludeDesignationComponent) other_;
         return compareDeep(language, o.language, true) && compareDeep(use, o.use, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DesignationIncludeDesignationComponent))
+        if (!(other_ instanceof DesignationIncludeDesignationComponent))
           return false;
-        DesignationIncludeDesignationComponent o = (DesignationIncludeDesignationComponent) other;
+        DesignationIncludeDesignationComponent o = (DesignationIncludeDesignationComponent) other_;
         return compareValues(language, o.language, true);
       }
 
@@ -1481,22 +1481,22 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DesignationExcludeComponent))
+        if (!(other_ instanceof DesignationExcludeComponent))
           return false;
-        DesignationExcludeComponent o = (DesignationExcludeComponent) other;
+        DesignationExcludeComponent o = (DesignationExcludeComponent) other_;
         return compareDeep(designation, o.designation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DesignationExcludeComponent))
+        if (!(other_ instanceof DesignationExcludeComponent))
           return false;
-        DesignationExcludeComponent o = (DesignationExcludeComponent) other;
+        DesignationExcludeComponent o = (DesignationExcludeComponent) other_;
         return true;
       }
 
@@ -1704,22 +1704,22 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DesignationExcludeDesignationComponent))
+        if (!(other_ instanceof DesignationExcludeDesignationComponent))
           return false;
-        DesignationExcludeDesignationComponent o = (DesignationExcludeDesignationComponent) other;
+        DesignationExcludeDesignationComponent o = (DesignationExcludeDesignationComponent) other_;
         return compareDeep(language, o.language, true) && compareDeep(use, o.use, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DesignationExcludeDesignationComponent))
+        if (!(other_ instanceof DesignationExcludeDesignationComponent))
           return false;
-        DesignationExcludeDesignationComponent o = (DesignationExcludeDesignationComponent) other;
+        DesignationExcludeDesignationComponent o = (DesignationExcludeDesignationComponent) other_;
         return compareValues(language, o.language, true);
       }
 
@@ -3284,12 +3284,12 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExpansionProfile))
+        if (!(other_ instanceof ExpansionProfile))
           return false;
-        ExpansionProfile o = (ExpansionProfile) other;
+        ExpansionProfile o = (ExpansionProfile) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(fixedVersion, o.fixedVersion, true)
            && compareDeep(excludedSystem, o.excludedSystem, true) && compareDeep(includeDesignations, o.includeDesignations, true)
            && compareDeep(designation, o.designation, true) && compareDeep(includeDefinition, o.includeDefinition, true)
@@ -3300,12 +3300,12 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExpansionProfile))
+        if (!(other_ instanceof ExpansionProfile))
           return false;
-        ExpansionProfile o = (ExpansionProfile) other;
+        ExpansionProfile o = (ExpansionProfile) other_;
         return compareValues(includeDesignations, o.includeDesignations, true) && compareValues(includeDefinition, o.includeDefinition, true)
            && compareValues(activeOnly, o.activeOnly, true) && compareValues(excludeNested, o.excludeNested, true)
            && compareValues(excludeNotForUI, o.excludeNotForUI, true) && compareValues(excludePostCoordinated, o.excludePostCoordinated, true)

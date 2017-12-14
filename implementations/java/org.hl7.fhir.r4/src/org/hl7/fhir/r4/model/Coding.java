@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -487,23 +487,23 @@ public class Coding extends Type implements IBaseCoding, ICompositeType, ICoding
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Coding))
+        if (!(other_ instanceof Coding))
           return false;
-        Coding o = (Coding) other;
+        Coding o = (Coding) other_;
         return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(code, o.code, true)
            && compareDeep(display, o.display, true) && compareDeep(userSelected, o.userSelected, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Coding))
+        if (!(other_ instanceof Coding))
           return false;
-        Coding o = (Coding) other;
+        Coding o = (Coding) other_;
         return compareValues(system, o.system, true) && compareValues(version, o.version, true) && compareValues(code, o.code, true)
            && compareValues(display, o.display, true) && compareValues(userSelected, o.userSelected, true);
       }
@@ -524,10 +524,11 @@ public class Coding extends Type implements IBaseCoding, ICompositeType, ICoding
         return true;
       }
 
+
       public boolean is(String system, String code) {
         return hasSystem() && hasCode() &&  this.getSystem().equals(system) && this.getCode().equals(code);
       }
-
+      
 
 // end addition
 

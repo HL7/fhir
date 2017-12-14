@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -721,24 +721,24 @@ public class RiskAssessment extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof RiskAssessmentPredictionComponent))
+        if (!(other_ instanceof RiskAssessmentPredictionComponent))
           return false;
-        RiskAssessmentPredictionComponent o = (RiskAssessmentPredictionComponent) other;
+        RiskAssessmentPredictionComponent o = (RiskAssessmentPredictionComponent) other_;
         return compareDeep(outcome, o.outcome, true) && compareDeep(probability, o.probability, true) && compareDeep(qualitativeRisk, o.qualitativeRisk, true)
            && compareDeep(relativeRisk, o.relativeRisk, true) && compareDeep(when, o.when, true) && compareDeep(rationale, o.rationale, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof RiskAssessmentPredictionComponent))
+        if (!(other_ instanceof RiskAssessmentPredictionComponent))
           return false;
-        RiskAssessmentPredictionComponent o = (RiskAssessmentPredictionComponent) other;
+        RiskAssessmentPredictionComponent o = (RiskAssessmentPredictionComponent) other_;
         return compareValues(relativeRisk, o.relativeRisk, true) && compareValues(rationale, o.rationale, true)
           ;
       }
@@ -1914,12 +1914,12 @@ public class RiskAssessment extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof RiskAssessment))
+        if (!(other_ instanceof RiskAssessment))
           return false;
-        RiskAssessment o = (RiskAssessment) other;
+        RiskAssessment o = (RiskAssessment) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(parent, o.parent, true)
            && compareDeep(status, o.status, true) && compareDeep(method, o.method, true) && compareDeep(code, o.code, true)
            && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true)
@@ -1929,12 +1929,12 @@ public class RiskAssessment extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof RiskAssessment))
+        if (!(other_ instanceof RiskAssessment))
           return false;
-        RiskAssessment o = (RiskAssessment) other;
+        RiskAssessment o = (RiskAssessment) other_;
         return compareValues(status, o.status, true) && compareValues(mitigation, o.mitigation, true) && compareValues(comment, o.comment, true)
           ;
       }

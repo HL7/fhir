@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -350,23 +350,23 @@ public class DataRequirement extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DataRequirementCodeFilterComponent))
+        if (!(other_ instanceof DataRequirementCodeFilterComponent))
           return false;
-        DataRequirementCodeFilterComponent o = (DataRequirementCodeFilterComponent) other;
+        DataRequirementCodeFilterComponent o = (DataRequirementCodeFilterComponent) other_;
         return compareDeep(path, o.path, true) && compareDeep(valueSet, o.valueSet, true) && compareDeep(code, o.code, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DataRequirementCodeFilterComponent))
+        if (!(other_ instanceof DataRequirementCodeFilterComponent))
           return false;
-        DataRequirementCodeFilterComponent o = (DataRequirementCodeFilterComponent) other;
+        DataRequirementCodeFilterComponent o = (DataRequirementCodeFilterComponent) other_;
         return compareValues(path, o.path, true);
       }
 
@@ -623,22 +623,22 @@ public class DataRequirement extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DataRequirementDateFilterComponent))
+        if (!(other_ instanceof DataRequirementDateFilterComponent))
           return false;
-        DataRequirementDateFilterComponent o = (DataRequirementDateFilterComponent) other;
+        DataRequirementDateFilterComponent o = (DataRequirementDateFilterComponent) other_;
         return compareDeep(path, o.path, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DataRequirementDateFilterComponent))
+        if (!(other_ instanceof DataRequirementDateFilterComponent))
           return false;
-        DataRequirementDateFilterComponent o = (DataRequirementDateFilterComponent) other;
+        DataRequirementDateFilterComponent o = (DataRequirementDateFilterComponent) other_;
         return compareValues(path, o.path, true);
       }
 
@@ -1138,23 +1138,23 @@ public class DataRequirement extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DataRequirement))
+        if (!(other_ instanceof DataRequirement))
           return false;
-        DataRequirement o = (DataRequirement) other;
+        DataRequirement o = (DataRequirement) other_;
         return compareDeep(type, o.type, true) && compareDeep(profile, o.profile, true) && compareDeep(mustSupport, o.mustSupport, true)
            && compareDeep(codeFilter, o.codeFilter, true) && compareDeep(dateFilter, o.dateFilter, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DataRequirement))
+        if (!(other_ instanceof DataRequirement))
           return false;
-        DataRequirement o = (DataRequirement) other;
+        DataRequirement o = (DataRequirement) other_;
         return compareValues(type, o.type, true) && compareValues(profile, o.profile, true) && compareValues(mustSupport, o.mustSupport, true)
           ;
       }

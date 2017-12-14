@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -547,23 +547,23 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProvenanceAgentComponent))
+        if (!(other_ instanceof ProvenanceAgentComponent))
           return false;
-        ProvenanceAgentComponent o = (ProvenanceAgentComponent) other;
+        ProvenanceAgentComponent o = (ProvenanceAgentComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(role, o.role, true) && compareDeep(who, o.who, true)
            && compareDeep(onBehalfOf, o.onBehalfOf, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProvenanceAgentComponent))
+        if (!(other_ instanceof ProvenanceAgentComponent))
           return false;
-        ProvenanceAgentComponent o = (ProvenanceAgentComponent) other;
+        ProvenanceAgentComponent o = (ProvenanceAgentComponent) other_;
         return true;
       }
 
@@ -885,23 +885,23 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProvenanceEntityComponent))
+        if (!(other_ instanceof ProvenanceEntityComponent))
           return false;
-        ProvenanceEntityComponent o = (ProvenanceEntityComponent) other;
+        ProvenanceEntityComponent o = (ProvenanceEntityComponent) other_;
         return compareDeep(role, o.role, true) && compareDeep(what, o.what, true) && compareDeep(agent, o.agent, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProvenanceEntityComponent))
+        if (!(other_ instanceof ProvenanceEntityComponent))
           return false;
-        ProvenanceEntityComponent o = (ProvenanceEntityComponent) other;
+        ProvenanceEntityComponent o = (ProvenanceEntityComponent) other_;
         return compareValues(role, o.role, true);
       }
 
@@ -1757,12 +1757,12 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Provenance))
+        if (!(other_ instanceof Provenance))
           return false;
-        Provenance o = (Provenance) other;
+        Provenance o = (Provenance) other_;
         return compareDeep(target, o.target, true) && compareDeep(occurred, o.occurred, true) && compareDeep(recorded, o.recorded, true)
            && compareDeep(policy, o.policy, true) && compareDeep(location, o.location, true) && compareDeep(reason, o.reason, true)
            && compareDeep(activity, o.activity, true) && compareDeep(agent, o.agent, true) && compareDeep(entity, o.entity, true)
@@ -1770,12 +1770,12 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Provenance))
+        if (!(other_ instanceof Provenance))
           return false;
-        Provenance o = (Provenance) other;
+        Provenance o = (Provenance) other_;
         return compareValues(recorded, o.recorded, true) && compareValues(policy, o.policy, true);
       }
 

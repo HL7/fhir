@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -687,12 +687,12 @@ public class Attachment extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Attachment))
+        if (!(other_ instanceof Attachment))
           return false;
-        Attachment o = (Attachment) other;
+        Attachment o = (Attachment) other_;
         return compareDeep(contentType, o.contentType, true) && compareDeep(language, o.language, true)
            && compareDeep(data, o.data, true) && compareDeep(url, o.url, true) && compareDeep(size, o.size, true)
            && compareDeep(hash, o.hash, true) && compareDeep(title, o.title, true) && compareDeep(creation, o.creation, true)
@@ -700,12 +700,12 @@ public class Attachment extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Attachment))
+        if (!(other_ instanceof Attachment))
           return false;
-        Attachment o = (Attachment) other;
+        Attachment o = (Attachment) other_;
         return compareValues(contentType, o.contentType, true) && compareValues(language, o.language, true)
            && compareValues(data, o.data, true) && compareValues(url, o.url, true) && compareValues(size, o.size, true)
            && compareValues(hash, o.hash, true) && compareValues(title, o.title, true) && compareValues(creation, o.creation, true)

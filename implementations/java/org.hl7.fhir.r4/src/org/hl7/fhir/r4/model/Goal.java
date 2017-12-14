@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -606,23 +606,23 @@ public class Goal extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GoalTargetComponent))
+        if (!(other_ instanceof GoalTargetComponent))
           return false;
-        GoalTargetComponent o = (GoalTargetComponent) other;
+        GoalTargetComponent o = (GoalTargetComponent) other_;
         return compareDeep(measure, o.measure, true) && compareDeep(detail, o.detail, true) && compareDeep(due, o.due, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GoalTargetComponent))
+        if (!(other_ instanceof GoalTargetComponent))
           return false;
-        GoalTargetComponent o = (GoalTargetComponent) other;
+        GoalTargetComponent o = (GoalTargetComponent) other_;
         return true;
       }
 
@@ -1798,12 +1798,12 @@ public class Goal extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Goal))
+        if (!(other_ instanceof Goal))
           return false;
-        Goal o = (Goal) other;
+        Goal o = (Goal) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
            && compareDeep(priority, o.priority, true) && compareDeep(description, o.description, true) && compareDeep(subject, o.subject, true)
            && compareDeep(start, o.start, true) && compareDeep(target, o.target, true) && compareDeep(statusDate, o.statusDate, true)
@@ -1813,12 +1813,12 @@ public class Goal extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Goal))
+        if (!(other_ instanceof Goal))
           return false;
-        Goal o = (Goal) other;
+        Goal o = (Goal) other_;
         return compareValues(status, o.status, true) && compareValues(statusDate, o.statusDate, true) && compareValues(statusReason, o.statusReason, true)
           ;
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -503,23 +503,23 @@ public class Procedure extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProcedurePerformerComponent))
+        if (!(other_ instanceof ProcedurePerformerComponent))
           return false;
-        ProcedurePerformerComponent o = (ProcedurePerformerComponent) other;
+        ProcedurePerformerComponent o = (ProcedurePerformerComponent) other_;
         return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProcedurePerformerComponent))
+        if (!(other_ instanceof ProcedurePerformerComponent))
           return false;
-        ProcedurePerformerComponent o = (ProcedurePerformerComponent) other;
+        ProcedurePerformerComponent o = (ProcedurePerformerComponent) other_;
         return true;
       }
 
@@ -736,22 +736,22 @@ public class Procedure extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ProcedureFocalDeviceComponent))
+        if (!(other_ instanceof ProcedureFocalDeviceComponent))
           return false;
-        ProcedureFocalDeviceComponent o = (ProcedureFocalDeviceComponent) other;
+        ProcedureFocalDeviceComponent o = (ProcedureFocalDeviceComponent) other_;
         return compareDeep(action, o.action, true) && compareDeep(manipulated, o.manipulated, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ProcedureFocalDeviceComponent))
+        if (!(other_ instanceof ProcedureFocalDeviceComponent))
           return false;
-        ProcedureFocalDeviceComponent o = (ProcedureFocalDeviceComponent) other;
+        ProcedureFocalDeviceComponent o = (ProcedureFocalDeviceComponent) other_;
         return true;
       }
 
@@ -2821,12 +2821,12 @@ public class Procedure extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Procedure))
+        if (!(other_ instanceof Procedure))
           return false;
-        Procedure o = (Procedure) other;
+        Procedure o = (Procedure) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true)
            && compareDeep(statusReason, o.statusReason, true) && compareDeep(category, o.category, true) && compareDeep(code, o.code, true)
@@ -2840,12 +2840,12 @@ public class Procedure extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Procedure))
+        if (!(other_ instanceof Procedure))
           return false;
-        Procedure o = (Procedure) other;
+        Procedure o = (Procedure) other_;
         return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true);
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1762,12 +1762,12 @@ Any information provided in these elements on a Questionnaire Item overrides the
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof QuestionnaireItemComponent))
+        if (!(other_ instanceof QuestionnaireItemComponent))
           return false;
-        QuestionnaireItemComponent o = (QuestionnaireItemComponent) other;
+        QuestionnaireItemComponent o = (QuestionnaireItemComponent) other_;
         return compareDeep(linkId, o.linkId, true) && compareDeep(definition, o.definition, true) && compareDeep(code, o.code, true)
            && compareDeep(prefix, o.prefix, true) && compareDeep(text, o.text, true) && compareDeep(type, o.type, true)
            && compareDeep(enableWhen, o.enableWhen, true) && compareDeep(required, o.required, true) && compareDeep(repeats, o.repeats, true)
@@ -1777,12 +1777,12 @@ Any information provided in these elements on a Questionnaire Item overrides the
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof QuestionnaireItemComponent))
+        if (!(other_ instanceof QuestionnaireItemComponent))
           return false;
-        QuestionnaireItemComponent o = (QuestionnaireItemComponent) other;
+        QuestionnaireItemComponent o = (QuestionnaireItemComponent) other_;
         return compareValues(linkId, o.linkId, true) && compareValues(definition, o.definition, true) && compareValues(prefix, o.prefix, true)
            && compareValues(text, o.text, true) && compareValues(type, o.type, true) && compareValues(required, o.required, true)
            && compareValues(repeats, o.repeats, true) && compareValues(readOnly, o.readOnly, true) && compareValues(maxLength, o.maxLength, true)
@@ -2273,23 +2273,23 @@ Any information provided in these elements on a Questionnaire Item overrides the
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof QuestionnaireItemEnableWhenComponent))
+        if (!(other_ instanceof QuestionnaireItemEnableWhenComponent))
           return false;
-        QuestionnaireItemEnableWhenComponent o = (QuestionnaireItemEnableWhenComponent) other;
+        QuestionnaireItemEnableWhenComponent o = (QuestionnaireItemEnableWhenComponent) other_;
         return compareDeep(question, o.question, true) && compareDeep(hasAnswer, o.hasAnswer, true) && compareDeep(answer, o.answer, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof QuestionnaireItemEnableWhenComponent))
+        if (!(other_ instanceof QuestionnaireItemEnableWhenComponent))
           return false;
-        QuestionnaireItemEnableWhenComponent o = (QuestionnaireItemEnableWhenComponent) other;
+        QuestionnaireItemEnableWhenComponent o = (QuestionnaireItemEnableWhenComponent) other_;
         return compareValues(question, o.question, true) && compareValues(hasAnswer, o.hasAnswer, true);
       }
 
@@ -2584,23 +2584,23 @@ Any information provided in these elements on a Questionnaire Item overrides the
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof QuestionnaireItemOptionComponent))
+        if (!(other_ instanceof QuestionnaireItemOptionComponent))
           return false;
-        QuestionnaireItemOptionComponent o = (QuestionnaireItemOptionComponent) other;
+        QuestionnaireItemOptionComponent o = (QuestionnaireItemOptionComponent) other_;
         return compareDeep(value, o.value, true) && compareDeep(initialSelected, o.initialSelected, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof QuestionnaireItemOptionComponent))
+        if (!(other_ instanceof QuestionnaireItemOptionComponent))
           return false;
-        QuestionnaireItemOptionComponent o = (QuestionnaireItemOptionComponent) other;
+        QuestionnaireItemOptionComponent o = (QuestionnaireItemOptionComponent) other_;
         return compareValues(initialSelected, o.initialSelected, true);
       }
 
@@ -4213,12 +4213,12 @@ Any information provided in these elements on a Questionnaire Item overrides the
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Questionnaire))
+        if (!(other_ instanceof Questionnaire))
           return false;
-        Questionnaire o = (Questionnaire) other;
+        Questionnaire o = (Questionnaire) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(derivedFrom, o.derivedFrom, true)
            && compareDeep(subjectType, o.subjectType, true) && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(approvalDate, o.approvalDate, true) && compareDeep(lastReviewDate, o.lastReviewDate, true)
@@ -4227,12 +4227,12 @@ Any information provided in these elements on a Questionnaire Item overrides the
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Questionnaire))
+        if (!(other_ instanceof Questionnaire))
           return false;
-        Questionnaire o = (Questionnaire) other;
+        Questionnaire o = (Questionnaire) other_;
         return compareValues(derivedFrom, o.derivedFrom, true) && compareValues(subjectType, o.subjectType, true)
            && compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(approvalDate, o.approvalDate, true)
            && compareValues(lastReviewDate, o.lastReviewDate, true);

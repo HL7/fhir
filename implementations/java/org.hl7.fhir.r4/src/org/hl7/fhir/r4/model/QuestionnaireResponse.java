@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -699,24 +699,24 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof QuestionnaireResponseItemComponent))
+        if (!(other_ instanceof QuestionnaireResponseItemComponent))
           return false;
-        QuestionnaireResponseItemComponent o = (QuestionnaireResponseItemComponent) other;
+        QuestionnaireResponseItemComponent o = (QuestionnaireResponseItemComponent) other_;
         return compareDeep(linkId, o.linkId, true) && compareDeep(definition, o.definition, true) && compareDeep(text, o.text, true)
            && compareDeep(subject, o.subject, true) && compareDeep(answer, o.answer, true) && compareDeep(item, o.item, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof QuestionnaireResponseItemComponent))
+        if (!(other_ instanceof QuestionnaireResponseItemComponent))
           return false;
-        QuestionnaireResponseItemComponent o = (QuestionnaireResponseItemComponent) other;
+        QuestionnaireResponseItemComponent o = (QuestionnaireResponseItemComponent) other_;
         return compareValues(linkId, o.linkId, true) && compareValues(definition, o.definition, true) && compareValues(text, o.text, true)
           ;
       }
@@ -1142,22 +1142,22 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof QuestionnaireResponseItemAnswerComponent))
+        if (!(other_ instanceof QuestionnaireResponseItemAnswerComponent))
           return false;
-        QuestionnaireResponseItemAnswerComponent o = (QuestionnaireResponseItemAnswerComponent) other;
+        QuestionnaireResponseItemAnswerComponent o = (QuestionnaireResponseItemAnswerComponent) other_;
         return compareDeep(value, o.value, true) && compareDeep(item, o.item, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof QuestionnaireResponseItemAnswerComponent))
+        if (!(other_ instanceof QuestionnaireResponseItemAnswerComponent))
           return false;
-        QuestionnaireResponseItemAnswerComponent o = (QuestionnaireResponseItemAnswerComponent) other;
+        QuestionnaireResponseItemAnswerComponent o = (QuestionnaireResponseItemAnswerComponent) other_;
         return true;
       }
 
@@ -2046,12 +2046,12 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof QuestionnaireResponse))
+        if (!(other_ instanceof QuestionnaireResponse))
           return false;
-        QuestionnaireResponse o = (QuestionnaireResponse) other;
+        QuestionnaireResponse o = (QuestionnaireResponse) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true)
            && compareDeep(questionnaire, o.questionnaire, true) && compareDeep(status, o.status, true) && compareDeep(subject, o.subject, true)
            && compareDeep(context, o.context, true) && compareDeep(authored, o.authored, true) && compareDeep(author, o.author, true)
@@ -2059,12 +2059,12 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof QuestionnaireResponse))
+        if (!(other_ instanceof QuestionnaireResponse))
           return false;
-        QuestionnaireResponse o = (QuestionnaireResponse) other;
+        QuestionnaireResponse o = (QuestionnaireResponse) other_;
         return compareValues(status, o.status, true) && compareValues(authored, o.authored, true);
       }
 

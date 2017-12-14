@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -422,22 +422,22 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Extension))
+        if (!(other_ instanceof Extension))
           return false;
-        Extension o = (Extension) other;
+        Extension o = (Extension) other_;
         return compareDeep(url, o.url, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Extension))
+        if (!(other_ instanceof Extension))
           return false;
-        Extension o = (Extension) other;
+        Extension o = (Extension) other_;
         return compareValues(url, o.url, true);
       }
 

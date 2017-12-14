@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1019,12 +1019,12 @@ public class Slot extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Slot))
+        if (!(other_ instanceof Slot))
           return false;
-        Slot o = (Slot) other;
+        Slot o = (Slot) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(serviceCategory, o.serviceCategory, true)
            && compareDeep(serviceType, o.serviceType, true) && compareDeep(specialty, o.specialty, true) && compareDeep(appointmentType, o.appointmentType, true)
            && compareDeep(schedule, o.schedule, true) && compareDeep(status, o.status, true) && compareDeep(start, o.start, true)
@@ -1033,12 +1033,12 @@ public class Slot extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Slot))
+        if (!(other_ instanceof Slot))
           return false;
-        Slot o = (Slot) other;
+        Slot o = (Slot) other_;
         return compareValues(status, o.status, true) && compareValues(start, o.start, true) && compareValues(end, o.end, true)
            && compareValues(overbooked, o.overbooked, true) && compareValues(comment, o.comment, true);
       }

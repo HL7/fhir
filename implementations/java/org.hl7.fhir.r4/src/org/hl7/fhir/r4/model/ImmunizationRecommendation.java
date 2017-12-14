@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -998,12 +998,12 @@ public class ImmunizationRecommendation extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImmunizationRecommendationRecommendationComponent))
+        if (!(other_ instanceof ImmunizationRecommendationRecommendationComponent))
           return false;
-        ImmunizationRecommendationRecommendationComponent o = (ImmunizationRecommendationRecommendationComponent) other;
+        ImmunizationRecommendationRecommendationComponent o = (ImmunizationRecommendationRecommendationComponent) other_;
         return compareDeep(vaccineCode, o.vaccineCode, true) && compareDeep(targetDisease, o.targetDisease, true)
            && compareDeep(contraindicatedVaccineCode, o.contraindicatedVaccineCode, true) && compareDeep(forecastStatus, o.forecastStatus, true)
            && compareDeep(forecastReason, o.forecastReason, true) && compareDeep(dateCriterion, o.dateCriterion, true)
@@ -1013,12 +1013,12 @@ public class ImmunizationRecommendation extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImmunizationRecommendationRecommendationComponent))
+        if (!(other_ instanceof ImmunizationRecommendationRecommendationComponent))
           return false;
-        ImmunizationRecommendationRecommendationComponent o = (ImmunizationRecommendationRecommendationComponent) other;
+        ImmunizationRecommendationRecommendationComponent o = (ImmunizationRecommendationRecommendationComponent) other_;
         return compareValues(description, o.description, true) && compareValues(series, o.series, true) && compareValues(doseNumber, o.doseNumber, true)
            && compareValues(seriesDoses, o.seriesDoses, true);
       }
@@ -1234,22 +1234,22 @@ public class ImmunizationRecommendation extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImmunizationRecommendationRecommendationDateCriterionComponent))
+        if (!(other_ instanceof ImmunizationRecommendationRecommendationDateCriterionComponent))
           return false;
-        ImmunizationRecommendationRecommendationDateCriterionComponent o = (ImmunizationRecommendationRecommendationDateCriterionComponent) other;
+        ImmunizationRecommendationRecommendationDateCriterionComponent o = (ImmunizationRecommendationRecommendationDateCriterionComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImmunizationRecommendationRecommendationDateCriterionComponent))
+        if (!(other_ instanceof ImmunizationRecommendationRecommendationDateCriterionComponent))
           return false;
-        ImmunizationRecommendationRecommendationDateCriterionComponent o = (ImmunizationRecommendationRecommendationDateCriterionComponent) other;
+        ImmunizationRecommendationRecommendationDateCriterionComponent o = (ImmunizationRecommendationRecommendationDateCriterionComponent) other_;
         return compareValues(value, o.value, true);
       }
 
@@ -1719,24 +1719,24 @@ public class ImmunizationRecommendation extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImmunizationRecommendation))
+        if (!(other_ instanceof ImmunizationRecommendation))
           return false;
-        ImmunizationRecommendation o = (ImmunizationRecommendation) other;
+        ImmunizationRecommendation o = (ImmunizationRecommendation) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(date, o.date, true)
            && compareDeep(authority, o.authority, true) && compareDeep(recommendation, o.recommendation, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImmunizationRecommendation))
+        if (!(other_ instanceof ImmunizationRecommendation))
           return false;
-        ImmunizationRecommendation o = (ImmunizationRecommendation) other;
+        ImmunizationRecommendation o = (ImmunizationRecommendation) other_;
         return compareValues(date, o.date, true);
       }
 

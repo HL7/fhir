@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -381,23 +381,23 @@ public abstract class Resource extends BaseResource implements IAnyResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Resource))
+        if (!(other_ instanceof Resource))
           return false;
-        Resource o = (Resource) other;
+        Resource o = (Resource) other_;
         return compareDeep(id, o.id, true) && compareDeep(meta, o.meta, true) && compareDeep(implicitRules, o.implicitRules, true)
            && compareDeep(language, o.language, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Resource))
+        if (!(other_ instanceof Resource))
           return false;
-        Resource o = (Resource) other;
+        Resource o = (Resource) other_;
         return compareValues(id, o.id, true) && compareValues(implicitRules, o.implicitRules, true) && compareValues(language, o.language, true)
           ;
       }
@@ -418,11 +418,14 @@ public abstract class Resource extends BaseResource implements IAnyResource {
     setId(value);
   }
   public abstract ResourceType getResourceType();
+// added from java-adornments.txt:
 
   public String getLanguage(String defValue) {
     return hasLanguage() ? getLanguage() : defValue;
   }
 
-  
+
+// end addition
+
 }
 

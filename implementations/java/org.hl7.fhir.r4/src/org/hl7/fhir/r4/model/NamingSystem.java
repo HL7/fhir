@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -683,23 +683,23 @@ public class NamingSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof NamingSystemUniqueIdComponent))
+        if (!(other_ instanceof NamingSystemUniqueIdComponent))
           return false;
-        NamingSystemUniqueIdComponent o = (NamingSystemUniqueIdComponent) other;
+        NamingSystemUniqueIdComponent o = (NamingSystemUniqueIdComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(value, o.value, true) && compareDeep(preferred, o.preferred, true)
            && compareDeep(comment, o.comment, true) && compareDeep(period, o.period, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof NamingSystemUniqueIdComponent))
+        if (!(other_ instanceof NamingSystemUniqueIdComponent))
           return false;
-        NamingSystemUniqueIdComponent o = (NamingSystemUniqueIdComponent) other;
+        NamingSystemUniqueIdComponent o = (NamingSystemUniqueIdComponent) other_;
         return compareValues(type, o.type, true) && compareValues(value, o.value, true) && compareValues(preferred, o.preferred, true)
            && compareValues(comment, o.comment, true);
       }
@@ -1661,23 +1661,23 @@ public class NamingSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof NamingSystem))
+        if (!(other_ instanceof NamingSystem))
           return false;
-        NamingSystem o = (NamingSystem) other;
+        NamingSystem o = (NamingSystem) other_;
         return compareDeep(kind, o.kind, true) && compareDeep(responsible, o.responsible, true) && compareDeep(type, o.type, true)
            && compareDeep(usage, o.usage, true) && compareDeep(uniqueId, o.uniqueId, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof NamingSystem))
+        if (!(other_ instanceof NamingSystem))
           return false;
-        NamingSystem o = (NamingSystem) other;
+        NamingSystem o = (NamingSystem) other_;
         return compareValues(kind, o.kind, true) && compareValues(responsible, o.responsible, true) && compareValues(usage, o.usage, true)
           ;
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -540,22 +540,22 @@ public class Invoice extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof InvoiceParticipantComponent))
+        if (!(other_ instanceof InvoiceParticipantComponent))
           return false;
-        InvoiceParticipantComponent o = (InvoiceParticipantComponent) other;
+        InvoiceParticipantComponent o = (InvoiceParticipantComponent) other_;
         return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof InvoiceParticipantComponent))
+        if (!(other_ instanceof InvoiceParticipantComponent))
           return false;
-        InvoiceParticipantComponent o = (InvoiceParticipantComponent) other;
+        InvoiceParticipantComponent o = (InvoiceParticipantComponent) other_;
         return true;
       }
 
@@ -868,23 +868,23 @@ public class Invoice extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof InvoiceLineItemComponent))
+        if (!(other_ instanceof InvoiceLineItemComponent))
           return false;
-        InvoiceLineItemComponent o = (InvoiceLineItemComponent) other;
+        InvoiceLineItemComponent o = (InvoiceLineItemComponent) other_;
         return compareDeep(sequence, o.sequence, true) && compareDeep(chargeItem, o.chargeItem, true) && compareDeep(priceComponent, o.priceComponent, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof InvoiceLineItemComponent))
+        if (!(other_ instanceof InvoiceLineItemComponent))
           return false;
-        InvoiceLineItemComponent o = (InvoiceLineItemComponent) other;
+        InvoiceLineItemComponent o = (InvoiceLineItemComponent) other_;
         return compareValues(sequence, o.sequence, true);
       }
 
@@ -1232,23 +1232,23 @@ public class Invoice extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof InvoiceLineItemPriceComponentComponent))
+        if (!(other_ instanceof InvoiceLineItemPriceComponentComponent))
           return false;
-        InvoiceLineItemPriceComponentComponent o = (InvoiceLineItemPriceComponentComponent) other;
+        InvoiceLineItemPriceComponentComponent o = (InvoiceLineItemPriceComponentComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(code, o.code, true) && compareDeep(factor, o.factor, true)
            && compareDeep(amount, o.amount, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof InvoiceLineItemPriceComponentComponent))
+        if (!(other_ instanceof InvoiceLineItemPriceComponentComponent))
           return false;
-        InvoiceLineItemPriceComponentComponent o = (InvoiceLineItemPriceComponentComponent) other;
+        InvoiceLineItemPriceComponentComponent o = (InvoiceLineItemPriceComponentComponent) other_;
         return compareValues(type, o.type, true) && compareValues(amount, o.amount, true);
       }
 
@@ -2435,12 +2435,12 @@ public class Invoice extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Invoice))
+        if (!(other_ instanceof Invoice))
           return false;
-        Invoice o = (Invoice) other;
+        Invoice o = (Invoice) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(cancelledReason, o.cancelledReason, true)
            && compareDeep(type, o.type, true) && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true)
            && compareDeep(date, o.date, true) && compareDeep(participant, o.participant, true) && compareDeep(issuer, o.issuer, true)
@@ -2450,12 +2450,12 @@ public class Invoice extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Invoice))
+        if (!(other_ instanceof Invoice))
           return false;
-        Invoice o = (Invoice) other;
+        Invoice o = (Invoice) other_;
         return compareValues(status, o.status, true) && compareValues(cancelledReason, o.cancelledReason, true)
            && compareValues(date, o.date, true) && compareValues(paymentTerms, o.paymentTerms, true);
       }

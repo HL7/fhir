@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -3143,7 +3143,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("operation")) {
       JsonArray array = json.getAsJsonArray("operation");
       for (int i = 0; i < array.size(); i++) {
-        res.getOperation().add(parseCapabilityStatementCapabilityStatementRestOperationComponent(array.get(i).getAsJsonObject(), owner));
+        res.getOperation().add(parseCapabilityStatementCapabilityStatementRestResourceOperationComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     if (json.has("compartment")) {
@@ -3314,6 +3314,12 @@ public class JsonParser extends JsonParserBase {
         res.getSearchParam().add(parseCapabilityStatementCapabilityStatementRestResourceSearchParamComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
+    if (json.has("operation")) {
+      JsonArray array = json.getAsJsonArray("operation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOperation().add(parseCapabilityStatementCapabilityStatementRestResourceOperationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
   }
 
   protected CapabilityStatement.ResourceInteractionComponent parseCapabilityStatementResourceInteractionComponent(JsonObject json, CapabilityStatement owner) throws IOException, FHIRFormatError {
@@ -3360,6 +3366,22 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationElement());
   }
 
+  protected CapabilityStatement.CapabilityStatementRestResourceOperationComponent parseCapabilityStatementCapabilityStatementRestResourceOperationComponent(JsonObject json, CapabilityStatement owner) throws IOException, FHIRFormatError {
+    CapabilityStatement.CapabilityStatementRestResourceOperationComponent res = new CapabilityStatement.CapabilityStatementRestResourceOperationComponent();
+    parseCapabilityStatementCapabilityStatementRestResourceOperationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseCapabilityStatementCapabilityStatementRestResourceOperationComponentProperties(JsonObject json, CapabilityStatement owner, CapabilityStatement.CapabilityStatementRestResourceOperationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("definition"))
+      res.setDefinition(parseReference(json.getAsJsonObject("definition")));
+  }
+
   protected CapabilityStatement.SystemInteractionComponent parseCapabilityStatementSystemInteractionComponent(JsonObject json, CapabilityStatement owner) throws IOException, FHIRFormatError {
     CapabilityStatement.SystemInteractionComponent res = new CapabilityStatement.SystemInteractionComponent();
     parseCapabilityStatementSystemInteractionComponentProperties(json, owner, res);
@@ -3376,22 +3398,6 @@ public class JsonParser extends JsonParserBase {
       res.setDocumentationElement(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
       parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationElement());
-  }
-
-  protected CapabilityStatement.CapabilityStatementRestOperationComponent parseCapabilityStatementCapabilityStatementRestOperationComponent(JsonObject json, CapabilityStatement owner) throws IOException, FHIRFormatError {
-    CapabilityStatement.CapabilityStatementRestOperationComponent res = new CapabilityStatement.CapabilityStatementRestOperationComponent();
-    parseCapabilityStatementCapabilityStatementRestOperationComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseCapabilityStatementCapabilityStatementRestOperationComponentProperties(JsonObject json, CapabilityStatement owner, CapabilityStatement.CapabilityStatementRestOperationComponent res) throws IOException, FHIRFormatError {
-    parseBackboneProperties(json, res);
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("definition"))
-      res.setDefinition(parseReference(json.getAsJsonObject("definition")));
   }
 
   protected CapabilityStatement.CapabilityStatementMessagingComponent parseCapabilityStatementCapabilityStatementMessagingComponent(JsonObject json, CapabilityStatement owner) throws IOException, FHIRFormatError {
@@ -26192,8 +26198,8 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasOperation()) {
         openArray("operation");
-        for (CapabilityStatement.CapabilityStatementRestOperationComponent e : element.getOperation()) 
-          composeCapabilityStatementCapabilityStatementRestOperationComponent(null, e);
+        for (CapabilityStatement.CapabilityStatementRestResourceOperationComponent e : element.getOperation()) 
+          composeCapabilityStatementCapabilityStatementRestResourceOperationComponent(null, e);
         closeArray();
       };
       if (element.hasCompartment()) {
@@ -26359,6 +26365,12 @@ public class JsonParser extends JsonParserBase {
           composeCapabilityStatementCapabilityStatementRestResourceSearchParamComponent(null, e);
         closeArray();
       };
+      if (element.hasOperation()) {
+        openArray("operation");
+        for (CapabilityStatement.CapabilityStatementRestResourceOperationComponent e : element.getOperation()) 
+          composeCapabilityStatementCapabilityStatementRestResourceOperationComponent(null, e);
+        closeArray();
+      };
   }
 
   protected void composeCapabilityStatementResourceInteractionComponent(String name, CapabilityStatement.ResourceInteractionComponent element) throws IOException {
@@ -26409,6 +26421,25 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
+  protected void composeCapabilityStatementCapabilityStatementRestResourceOperationComponent(String name, CapabilityStatement.CapabilityStatementRestResourceOperationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeCapabilityStatementCapabilityStatementRestResourceOperationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementRestResourceOperationComponentInner(CapabilityStatement.CapabilityStatementRestResourceOperationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasDefinition()) {
+        composeReference("definition", element.getDefinition());
+      }
+  }
+
   protected void composeCapabilityStatementSystemInteractionComponent(String name, CapabilityStatement.SystemInteractionComponent element) throws IOException {
     if (element != null) {
       open(name);
@@ -26426,25 +26457,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasDocumentationElement()) {
         composeStringCore("documentation", element.getDocumentationElement(), false);
         composeStringExtras("documentation", element.getDocumentationElement(), false);
-      }
-  }
-
-  protected void composeCapabilityStatementCapabilityStatementRestOperationComponent(String name, CapabilityStatement.CapabilityStatementRestOperationComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeCapabilityStatementCapabilityStatementRestOperationComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeCapabilityStatementCapabilityStatementRestOperationComponentInner(CapabilityStatement.CapabilityStatementRestOperationComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasDefinition()) {
-        composeReference("definition", element.getDefinition());
       }
   }
 

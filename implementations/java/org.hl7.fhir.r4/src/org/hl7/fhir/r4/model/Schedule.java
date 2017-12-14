@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -688,12 +688,12 @@ public class Schedule extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Schedule))
+        if (!(other_ instanceof Schedule))
           return false;
-        Schedule o = (Schedule) other;
+        Schedule o = (Schedule) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(serviceCategory, o.serviceCategory, true)
            && compareDeep(serviceType, o.serviceType, true) && compareDeep(specialty, o.specialty, true) && compareDeep(actor, o.actor, true)
            && compareDeep(planningHorizon, o.planningHorizon, true) && compareDeep(comment, o.comment, true)
@@ -701,12 +701,12 @@ public class Schedule extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Schedule))
+        if (!(other_ instanceof Schedule))
           return false;
-        Schedule o = (Schedule) other;
+        Schedule o = (Schedule) other_;
         return compareValues(active, o.active, true) && compareValues(comment, o.comment, true);
       }
 

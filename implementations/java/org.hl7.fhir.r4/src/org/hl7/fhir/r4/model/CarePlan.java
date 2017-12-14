@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1159,24 +1159,24 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CarePlanActivityComponent))
+        if (!(other_ instanceof CarePlanActivityComponent))
           return false;
-        CarePlanActivityComponent o = (CarePlanActivityComponent) other;
+        CarePlanActivityComponent o = (CarePlanActivityComponent) other_;
         return compareDeep(outcomeCodeableConcept, o.outcomeCodeableConcept, true) && compareDeep(outcomeReference, o.outcomeReference, true)
            && compareDeep(progress, o.progress, true) && compareDeep(reference, o.reference, true) && compareDeep(detail, o.detail, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CarePlanActivityComponent))
+        if (!(other_ instanceof CarePlanActivityComponent))
           return false;
-        CarePlanActivityComponent o = (CarePlanActivityComponent) other;
+        CarePlanActivityComponent o = (CarePlanActivityComponent) other_;
         return true;
       }
 
@@ -2442,12 +2442,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CarePlanActivityDetailComponent))
+        if (!(other_ instanceof CarePlanActivityDetailComponent))
           return false;
-        CarePlanActivityDetailComponent o = (CarePlanActivityDetailComponent) other;
+        CarePlanActivityDetailComponent o = (CarePlanActivityDetailComponent) other_;
         return compareDeep(kind, o.kind, true) && compareDeep(instantiates, o.instantiates, true) && compareDeep(code, o.code, true)
            && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(goal, o.goal, true) && compareDeep(status, o.status, true) && compareDeep(statusReason, o.statusReason, true)
@@ -2457,12 +2457,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CarePlanActivityDetailComponent))
+        if (!(other_ instanceof CarePlanActivityDetailComponent))
           return false;
-        CarePlanActivityDetailComponent o = (CarePlanActivityDetailComponent) other;
+        CarePlanActivityDetailComponent o = (CarePlanActivityDetailComponent) other_;
         return compareValues(kind, o.kind, true) && compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true)
            && compareValues(statusReason, o.statusReason, true) && compareValues(prohibited, o.prohibited, true)
            && compareValues(description, o.description, true);
@@ -4244,12 +4244,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CarePlan))
+        if (!(other_ instanceof CarePlan))
           return false;
-        CarePlan o = (CarePlan) other;
+        CarePlan o = (CarePlan) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true) && compareDeep(partOf, o.partOf, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(category, o.category, true)
@@ -4261,12 +4261,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CarePlan))
+        if (!(other_ instanceof CarePlan))
           return false;
-        CarePlan o = (CarePlan) other;
+        CarePlan o = (CarePlan) other_;
         return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true) && compareValues(intent, o.intent, true)
            && compareValues(title, o.title, true) && compareValues(description, o.description, true);
       }

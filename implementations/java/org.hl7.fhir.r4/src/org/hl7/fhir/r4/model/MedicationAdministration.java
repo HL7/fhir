@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -416,22 +416,22 @@ public class MedicationAdministration extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MedicationAdministrationPerformerComponent))
+        if (!(other_ instanceof MedicationAdministrationPerformerComponent))
           return false;
-        MedicationAdministrationPerformerComponent o = (MedicationAdministrationPerformerComponent) other;
+        MedicationAdministrationPerformerComponent o = (MedicationAdministrationPerformerComponent) other_;
         return compareDeep(function, o.function, true) && compareDeep(actor, o.actor, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MedicationAdministrationPerformerComponent))
+        if (!(other_ instanceof MedicationAdministrationPerformerComponent))
           return false;
-        MedicationAdministrationPerformerComponent o = (MedicationAdministrationPerformerComponent) other;
+        MedicationAdministrationPerformerComponent o = (MedicationAdministrationPerformerComponent) other_;
         return true;
       }
 
@@ -853,24 +853,24 @@ public class MedicationAdministration extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MedicationAdministrationDosageComponent))
+        if (!(other_ instanceof MedicationAdministrationDosageComponent))
           return false;
-        MedicationAdministrationDosageComponent o = (MedicationAdministrationDosageComponent) other;
+        MedicationAdministrationDosageComponent o = (MedicationAdministrationDosageComponent) other_;
         return compareDeep(text, o.text, true) && compareDeep(site, o.site, true) && compareDeep(route, o.route, true)
            && compareDeep(method, o.method, true) && compareDeep(dose, o.dose, true) && compareDeep(rate, o.rate, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MedicationAdministrationDosageComponent))
+        if (!(other_ instanceof MedicationAdministrationDosageComponent))
           return false;
-        MedicationAdministrationDosageComponent o = (MedicationAdministrationDosageComponent) other;
+        MedicationAdministrationDosageComponent o = (MedicationAdministrationDosageComponent) other_;
         return compareValues(text, o.text, true);
       }
 
@@ -2462,12 +2462,12 @@ public class MedicationAdministration extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MedicationAdministration))
+        if (!(other_ instanceof MedicationAdministration))
           return false;
-        MedicationAdministration o = (MedicationAdministration) other;
+        MedicationAdministration o = (MedicationAdministration) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
            && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
            && compareDeep(medication, o.medication, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
@@ -2479,12 +2479,12 @@ public class MedicationAdministration extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MedicationAdministration))
+        if (!(other_ instanceof MedicationAdministration))
           return false;
-        MedicationAdministration o = (MedicationAdministration) other;
+        MedicationAdministration o = (MedicationAdministration) other_;
         return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true);
       }
 

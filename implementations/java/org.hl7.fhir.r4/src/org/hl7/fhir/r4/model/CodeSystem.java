@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1033,23 +1033,23 @@ public class CodeSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CodeSystemFilterComponent))
+        if (!(other_ instanceof CodeSystemFilterComponent))
           return false;
-        CodeSystemFilterComponent o = (CodeSystemFilterComponent) other;
+        CodeSystemFilterComponent o = (CodeSystemFilterComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(description, o.description, true) && compareDeep(operator, o.operator, true)
            && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CodeSystemFilterComponent))
+        if (!(other_ instanceof CodeSystemFilterComponent))
           return false;
-        CodeSystemFilterComponent o = (CodeSystemFilterComponent) other;
+        CodeSystemFilterComponent o = (CodeSystemFilterComponent) other_;
         return compareValues(code, o.code, true) && compareValues(description, o.description, true) && compareValues(operator, o.operator, true)
            && compareValues(value, o.value, true);
       }
@@ -1425,23 +1425,23 @@ public class CodeSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PropertyComponent))
+        if (!(other_ instanceof PropertyComponent))
           return false;
-        PropertyComponent o = (PropertyComponent) other;
+        PropertyComponent o = (PropertyComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(uri, o.uri, true) && compareDeep(description, o.description, true)
            && compareDeep(type, o.type, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PropertyComponent))
+        if (!(other_ instanceof PropertyComponent))
           return false;
-        PropertyComponent o = (PropertyComponent) other;
+        PropertyComponent o = (PropertyComponent) other_;
         return compareValues(code, o.code, true) && compareValues(uri, o.uri, true) && compareValues(description, o.description, true)
            && compareValues(type, o.type, true);
       }
@@ -2059,24 +2059,24 @@ public class CodeSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptDefinitionComponent))
+        if (!(other_ instanceof ConceptDefinitionComponent))
           return false;
-        ConceptDefinitionComponent o = (ConceptDefinitionComponent) other;
+        ConceptDefinitionComponent o = (ConceptDefinitionComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(definition, o.definition, true)
            && compareDeep(designation, o.designation, true) && compareDeep(property, o.property, true) && compareDeep(alternate, o.alternate, true)
            && compareDeep(concept, o.concept, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptDefinitionComponent))
+        if (!(other_ instanceof ConceptDefinitionComponent))
           return false;
-        ConceptDefinitionComponent o = (ConceptDefinitionComponent) other;
+        ConceptDefinitionComponent o = (ConceptDefinitionComponent) other_;
         return compareValues(code, o.code, true) && compareValues(display, o.display, true) && compareValues(definition, o.definition, true)
           ;
       }
@@ -2360,23 +2360,23 @@ public class CodeSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptDefinitionDesignationComponent))
+        if (!(other_ instanceof ConceptDefinitionDesignationComponent))
           return false;
-        ConceptDefinitionDesignationComponent o = (ConceptDefinitionDesignationComponent) other;
+        ConceptDefinitionDesignationComponent o = (ConceptDefinitionDesignationComponent) other_;
         return compareDeep(language, o.language, true) && compareDeep(use, o.use, true) && compareDeep(value, o.value, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptDefinitionDesignationComponent))
+        if (!(other_ instanceof ConceptDefinitionDesignationComponent))
           return false;
-        ConceptDefinitionDesignationComponent o = (ConceptDefinitionDesignationComponent) other;
+        ConceptDefinitionDesignationComponent o = (ConceptDefinitionDesignationComponent) other_;
         return compareValues(language, o.language, true) && compareValues(value, o.value, true);
       }
 
@@ -2688,22 +2688,22 @@ public class CodeSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptPropertyComponent))
+        if (!(other_ instanceof ConceptPropertyComponent))
           return false;
-        ConceptPropertyComponent o = (ConceptPropertyComponent) other;
+        ConceptPropertyComponent o = (ConceptPropertyComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptPropertyComponent))
+        if (!(other_ instanceof ConceptPropertyComponent))
           return false;
-        ConceptPropertyComponent o = (ConceptPropertyComponent) other;
+        ConceptPropertyComponent o = (ConceptPropertyComponent) other_;
         return compareValues(code, o.code, true);
       }
 
@@ -2915,22 +2915,22 @@ public class CodeSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptDefinitionAlternateComponent))
+        if (!(other_ instanceof ConceptDefinitionAlternateComponent))
           return false;
-        ConceptDefinitionAlternateComponent o = (ConceptDefinitionAlternateComponent) other;
+        ConceptDefinitionAlternateComponent o = (ConceptDefinitionAlternateComponent) other_;
         return compareDeep(kind, o.kind, true) && compareDeep(code, o.code, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptDefinitionAlternateComponent))
+        if (!(other_ instanceof ConceptDefinitionAlternateComponent))
           return false;
-        ConceptDefinitionAlternateComponent o = (ConceptDefinitionAlternateComponent) other;
+        ConceptDefinitionAlternateComponent o = (ConceptDefinitionAlternateComponent) other_;
         return compareValues(code, o.code, true);
       }
 
@@ -4706,12 +4706,12 @@ public class CodeSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CodeSystem))
+        if (!(other_ instanceof CodeSystem))
           return false;
-        CodeSystem o = (CodeSystem) other;
+        CodeSystem o = (CodeSystem) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(caseSensitive, o.caseSensitive, true) && compareDeep(valueSet, o.valueSet, true)
            && compareDeep(hierarchyMeaning, o.hierarchyMeaning, true) && compareDeep(compositional, o.compositional, true)
@@ -4721,12 +4721,12 @@ public class CodeSystem extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CodeSystem))
+        if (!(other_ instanceof CodeSystem))
           return false;
-        CodeSystem o = (CodeSystem) other;
+        CodeSystem o = (CodeSystem) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(caseSensitive, o.caseSensitive, true)
            && compareValues(valueSet, o.valueSet, true) && compareValues(hierarchyMeaning, o.hierarchyMeaning, true)
            && compareValues(compositional, o.compositional, true) && compareValues(versionNeeded, o.versionNeeded, true)

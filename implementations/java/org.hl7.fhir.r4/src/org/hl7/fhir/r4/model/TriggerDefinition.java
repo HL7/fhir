@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -616,23 +616,23 @@ public class TriggerDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TriggerDefinitionConditionComponent))
+        if (!(other_ instanceof TriggerDefinitionConditionComponent))
           return false;
-        TriggerDefinitionConditionComponent o = (TriggerDefinitionConditionComponent) other;
+        TriggerDefinitionConditionComponent o = (TriggerDefinitionConditionComponent) other_;
         return compareDeep(description, o.description, true) && compareDeep(language, o.language, true)
            && compareDeep(expression, o.expression, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TriggerDefinitionConditionComponent))
+        if (!(other_ instanceof TriggerDefinitionConditionComponent))
           return false;
-        TriggerDefinitionConditionComponent o = (TriggerDefinitionConditionComponent) other;
+        TriggerDefinitionConditionComponent o = (TriggerDefinitionConditionComponent) other_;
         return compareValues(description, o.description, true) && compareValues(language, o.language, true)
            && compareValues(expression, o.expression, true);
       }
@@ -1081,23 +1081,23 @@ public class TriggerDefinition extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TriggerDefinition))
+        if (!(other_ instanceof TriggerDefinition))
           return false;
-        TriggerDefinition o = (TriggerDefinition) other;
+        TriggerDefinition o = (TriggerDefinition) other_;
         return compareDeep(type, o.type, true) && compareDeep(name, o.name, true) && compareDeep(timing, o.timing, true)
            && compareDeep(data, o.data, true) && compareDeep(condition, o.condition, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TriggerDefinition))
+        if (!(other_ instanceof TriggerDefinition))
           return false;
-        TriggerDefinition o = (TriggerDefinition) other;
+        TriggerDefinition o = (TriggerDefinition) other_;
         return compareValues(type, o.type, true) && compareValues(name, o.name, true);
       }
 

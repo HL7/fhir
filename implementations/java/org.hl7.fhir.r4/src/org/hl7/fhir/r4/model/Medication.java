@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -426,23 +426,23 @@ public class Medication extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MedicationIngredientComponent))
+        if (!(other_ instanceof MedicationIngredientComponent))
           return false;
-        MedicationIngredientComponent o = (MedicationIngredientComponent) other;
+        MedicationIngredientComponent o = (MedicationIngredientComponent) other_;
         return compareDeep(item, o.item, true) && compareDeep(isActive, o.isActive, true) && compareDeep(amount, o.amount, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MedicationIngredientComponent))
+        if (!(other_ instanceof MedicationIngredientComponent))
           return false;
-        MedicationIngredientComponent o = (MedicationIngredientComponent) other;
+        MedicationIngredientComponent o = (MedicationIngredientComponent) other_;
         return compareValues(isActive, o.isActive, true);
       }
 
@@ -672,23 +672,23 @@ public class Medication extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MedicationBatchComponent))
+        if (!(other_ instanceof MedicationBatchComponent))
           return false;
-        MedicationBatchComponent o = (MedicationBatchComponent) other;
+        MedicationBatchComponent o = (MedicationBatchComponent) other_;
         return compareDeep(lotNumber, o.lotNumber, true) && compareDeep(expirationDate, o.expirationDate, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MedicationBatchComponent))
+        if (!(other_ instanceof MedicationBatchComponent))
           return false;
-        MedicationBatchComponent o = (MedicationBatchComponent) other;
+        MedicationBatchComponent o = (MedicationBatchComponent) other_;
         return compareValues(lotNumber, o.lotNumber, true) && compareValues(expirationDate, o.expirationDate, true)
           ;
       }
@@ -1195,24 +1195,24 @@ public class Medication extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Medication))
+        if (!(other_ instanceof Medication))
           return false;
-        Medication o = (Medication) other;
+        Medication o = (Medication) other_;
         return compareDeep(code, o.code, true) && compareDeep(status, o.status, true) && compareDeep(manufacturer, o.manufacturer, true)
            && compareDeep(form, o.form, true) && compareDeep(amount, o.amount, true) && compareDeep(ingredient, o.ingredient, true)
            && compareDeep(batch, o.batch, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Medication))
+        if (!(other_ instanceof Medication))
           return false;
-        Medication o = (Medication) other;
+        Medication o = (Medication) other_;
         return compareValues(status, o.status, true);
       }
 

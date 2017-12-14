@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -420,22 +420,22 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof EpisodeOfCareStatusHistoryComponent))
+        if (!(other_ instanceof EpisodeOfCareStatusHistoryComponent))
           return false;
-        EpisodeOfCareStatusHistoryComponent o = (EpisodeOfCareStatusHistoryComponent) other;
+        EpisodeOfCareStatusHistoryComponent o = (EpisodeOfCareStatusHistoryComponent) other_;
         return compareDeep(status, o.status, true) && compareDeep(period, o.period, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof EpisodeOfCareStatusHistoryComponent))
+        if (!(other_ instanceof EpisodeOfCareStatusHistoryComponent))
           return false;
-        EpisodeOfCareStatusHistoryComponent o = (EpisodeOfCareStatusHistoryComponent) other;
+        EpisodeOfCareStatusHistoryComponent o = (EpisodeOfCareStatusHistoryComponent) other_;
         return compareValues(status, o.status, true);
       }
 
@@ -717,23 +717,23 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DiagnosisComponent))
+        if (!(other_ instanceof DiagnosisComponent))
           return false;
-        DiagnosisComponent o = (DiagnosisComponent) other;
+        DiagnosisComponent o = (DiagnosisComponent) other_;
         return compareDeep(condition, o.condition, true) && compareDeep(role, o.role, true) && compareDeep(rank, o.rank, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DiagnosisComponent))
+        if (!(other_ instanceof DiagnosisComponent))
           return false;
-        DiagnosisComponent o = (DiagnosisComponent) other;
+        DiagnosisComponent o = (DiagnosisComponent) other_;
         return compareValues(rank, o.rank, true);
       }
 
@@ -1795,12 +1795,12 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof EpisodeOfCare))
+        if (!(other_ instanceof EpisodeOfCare))
           return false;
-        EpisodeOfCare o = (EpisodeOfCare) other;
+        EpisodeOfCare o = (EpisodeOfCare) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(statusHistory, o.statusHistory, true)
            && compareDeep(type, o.type, true) && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(patient, o.patient, true)
            && compareDeep(managingOrganization, o.managingOrganization, true) && compareDeep(period, o.period, true)
@@ -1809,12 +1809,12 @@ public class EpisodeOfCare extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof EpisodeOfCare))
+        if (!(other_ instanceof EpisodeOfCare))
           return false;
-        EpisodeOfCare o = (EpisodeOfCare) other;
+        EpisodeOfCare o = (EpisodeOfCare) other_;
         return compareValues(status, o.status, true);
       }
 

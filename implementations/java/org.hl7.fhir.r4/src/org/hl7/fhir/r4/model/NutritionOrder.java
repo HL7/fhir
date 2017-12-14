@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -789,24 +789,24 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof NutritionOrderOralDietComponent))
+        if (!(other_ instanceof NutritionOrderOralDietComponent))
           return false;
-        NutritionOrderOralDietComponent o = (NutritionOrderOralDietComponent) other;
+        NutritionOrderOralDietComponent o = (NutritionOrderOralDietComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(schedule, o.schedule, true) && compareDeep(nutrient, o.nutrient, true)
            && compareDeep(texture, o.texture, true) && compareDeep(fluidConsistencyType, o.fluidConsistencyType, true)
            && compareDeep(instruction, o.instruction, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof NutritionOrderOralDietComponent))
+        if (!(other_ instanceof NutritionOrderOralDietComponent))
           return false;
-        NutritionOrderOralDietComponent o = (NutritionOrderOralDietComponent) other;
+        NutritionOrderOralDietComponent o = (NutritionOrderOralDietComponent) other_;
         return compareValues(instruction, o.instruction, true);
       }
 
@@ -990,22 +990,22 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof NutritionOrderOralDietNutrientComponent))
+        if (!(other_ instanceof NutritionOrderOralDietNutrientComponent))
           return false;
-        NutritionOrderOralDietNutrientComponent o = (NutritionOrderOralDietNutrientComponent) other;
+        NutritionOrderOralDietNutrientComponent o = (NutritionOrderOralDietNutrientComponent) other_;
         return compareDeep(modifier, o.modifier, true) && compareDeep(amount, o.amount, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof NutritionOrderOralDietNutrientComponent))
+        if (!(other_ instanceof NutritionOrderOralDietNutrientComponent))
           return false;
-        NutritionOrderOralDietNutrientComponent o = (NutritionOrderOralDietNutrientComponent) other;
+        NutritionOrderOralDietNutrientComponent o = (NutritionOrderOralDietNutrientComponent) other_;
         return true;
       }
 
@@ -1189,22 +1189,22 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof NutritionOrderOralDietTextureComponent))
+        if (!(other_ instanceof NutritionOrderOralDietTextureComponent))
           return false;
-        NutritionOrderOralDietTextureComponent o = (NutritionOrderOralDietTextureComponent) other;
+        NutritionOrderOralDietTextureComponent o = (NutritionOrderOralDietTextureComponent) other_;
         return compareDeep(modifier, o.modifier, true) && compareDeep(foodType, o.foodType, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof NutritionOrderOralDietTextureComponent))
+        if (!(other_ instanceof NutritionOrderOralDietTextureComponent))
           return false;
-        NutritionOrderOralDietTextureComponent o = (NutritionOrderOralDietTextureComponent) other;
+        NutritionOrderOralDietTextureComponent o = (NutritionOrderOralDietTextureComponent) other_;
         return true;
       }
 
@@ -1605,23 +1605,23 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof NutritionOrderSupplementComponent))
+        if (!(other_ instanceof NutritionOrderSupplementComponent))
           return false;
-        NutritionOrderSupplementComponent o = (NutritionOrderSupplementComponent) other;
+        NutritionOrderSupplementComponent o = (NutritionOrderSupplementComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(productName, o.productName, true) && compareDeep(schedule, o.schedule, true)
            && compareDeep(quantity, o.quantity, true) && compareDeep(instruction, o.instruction, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof NutritionOrderSupplementComponent))
+        if (!(other_ instanceof NutritionOrderSupplementComponent))
           return false;
-        NutritionOrderSupplementComponent o = (NutritionOrderSupplementComponent) other;
+        NutritionOrderSupplementComponent o = (NutritionOrderSupplementComponent) other_;
         return compareValues(productName, o.productName, true) && compareValues(instruction, o.instruction, true)
           ;
       }
@@ -2234,12 +2234,12 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof NutritionOrderEnteralFormulaComponent))
+        if (!(other_ instanceof NutritionOrderEnteralFormulaComponent))
           return false;
-        NutritionOrderEnteralFormulaComponent o = (NutritionOrderEnteralFormulaComponent) other;
+        NutritionOrderEnteralFormulaComponent o = (NutritionOrderEnteralFormulaComponent) other_;
         return compareDeep(baseFormulaType, o.baseFormulaType, true) && compareDeep(baseFormulaProductName, o.baseFormulaProductName, true)
            && compareDeep(additiveType, o.additiveType, true) && compareDeep(additiveProductName, o.additiveProductName, true)
            && compareDeep(caloricDensity, o.caloricDensity, true) && compareDeep(routeofAdministration, o.routeofAdministration, true)
@@ -2248,12 +2248,12 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof NutritionOrderEnteralFormulaComponent))
+        if (!(other_ instanceof NutritionOrderEnteralFormulaComponent))
           return false;
-        NutritionOrderEnteralFormulaComponent o = (NutritionOrderEnteralFormulaComponent) other;
+        NutritionOrderEnteralFormulaComponent o = (NutritionOrderEnteralFormulaComponent) other_;
         return compareValues(baseFormulaProductName, o.baseFormulaProductName, true) && compareValues(additiveProductName, o.additiveProductName, true)
            && compareValues(administrationInstruction, o.administrationInstruction, true);
       }
@@ -2513,23 +2513,23 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof NutritionOrderEnteralFormulaAdministrationComponent))
+        if (!(other_ instanceof NutritionOrderEnteralFormulaAdministrationComponent))
           return false;
-        NutritionOrderEnteralFormulaAdministrationComponent o = (NutritionOrderEnteralFormulaAdministrationComponent) other;
+        NutritionOrderEnteralFormulaAdministrationComponent o = (NutritionOrderEnteralFormulaAdministrationComponent) other_;
         return compareDeep(schedule, o.schedule, true) && compareDeep(quantity, o.quantity, true) && compareDeep(rate, o.rate, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof NutritionOrderEnteralFormulaAdministrationComponent))
+        if (!(other_ instanceof NutritionOrderEnteralFormulaAdministrationComponent))
           return false;
-        NutritionOrderEnteralFormulaAdministrationComponent o = (NutritionOrderEnteralFormulaAdministrationComponent) other;
+        NutritionOrderEnteralFormulaAdministrationComponent o = (NutritionOrderEnteralFormulaAdministrationComponent) other_;
         return true;
       }
 
@@ -3572,12 +3572,12 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof NutritionOrder))
+        if (!(other_ instanceof NutritionOrder))
           return false;
-        NutritionOrder o = (NutritionOrder) other;
+        NutritionOrder o = (NutritionOrder) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(patient, o.patient, true)
            && compareDeep(encounter, o.encounter, true) && compareDeep(dateTime, o.dateTime, true) && compareDeep(orderer, o.orderer, true)
            && compareDeep(allergyIntolerance, o.allergyIntolerance, true) && compareDeep(foodPreferenceModifier, o.foodPreferenceModifier, true)
@@ -3587,12 +3587,12 @@ public class NutritionOrder extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof NutritionOrder))
+        if (!(other_ instanceof NutritionOrder))
           return false;
-        NutritionOrder o = (NutritionOrder) other;
+        NutritionOrder o = (NutritionOrder) other_;
         return compareValues(status, o.status, true) && compareValues(dateTime, o.dateTime, true);
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -273,22 +273,22 @@ public class TerminologyCapabilities extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesCodeSystemComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesCodeSystemComponent))
           return false;
-        TerminologyCapabilitiesCodeSystemComponent o = (TerminologyCapabilitiesCodeSystemComponent) other;
+        TerminologyCapabilitiesCodeSystemComponent o = (TerminologyCapabilitiesCodeSystemComponent) other_;
         return compareDeep(uri, o.uri, true) && compareDeep(version, o.version, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesCodeSystemComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesCodeSystemComponent))
           return false;
-        TerminologyCapabilitiesCodeSystemComponent o = (TerminologyCapabilitiesCodeSystemComponent) other;
+        TerminologyCapabilitiesCodeSystemComponent o = (TerminologyCapabilitiesCodeSystemComponent) other_;
         return compareValues(uri, o.uri, true);
       }
 
@@ -830,24 +830,24 @@ public class TerminologyCapabilities extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesCodeSystemVersionComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesCodeSystemVersionComponent))
           return false;
-        TerminologyCapabilitiesCodeSystemVersionComponent o = (TerminologyCapabilitiesCodeSystemVersionComponent) other;
+        TerminologyCapabilitiesCodeSystemVersionComponent o = (TerminologyCapabilitiesCodeSystemVersionComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(isDefault, o.isDefault, true) && compareDeep(compositional, o.compositional, true)
            && compareDeep(language, o.language, true) && compareDeep(filter, o.filter, true) && compareDeep(property, o.property, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesCodeSystemVersionComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesCodeSystemVersionComponent))
           return false;
-        TerminologyCapabilitiesCodeSystemVersionComponent o = (TerminologyCapabilitiesCodeSystemVersionComponent) other;
+        TerminologyCapabilitiesCodeSystemVersionComponent o = (TerminologyCapabilitiesCodeSystemVersionComponent) other_;
         return compareValues(code, o.code, true) && compareValues(isDefault, o.isDefault, true) && compareValues(compositional, o.compositional, true)
            && compareValues(language, o.language, true) && compareValues(property, o.property, true);
       }
@@ -1099,22 +1099,22 @@ public class TerminologyCapabilities extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesCodeSystemVersionFilterComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesCodeSystemVersionFilterComponent))
           return false;
-        TerminologyCapabilitiesCodeSystemVersionFilterComponent o = (TerminologyCapabilitiesCodeSystemVersionFilterComponent) other;
+        TerminologyCapabilitiesCodeSystemVersionFilterComponent o = (TerminologyCapabilitiesCodeSystemVersionFilterComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(op, o.op, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesCodeSystemVersionFilterComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesCodeSystemVersionFilterComponent))
           return false;
-        TerminologyCapabilitiesCodeSystemVersionFilterComponent o = (TerminologyCapabilitiesCodeSystemVersionFilterComponent) other;
+        TerminologyCapabilitiesCodeSystemVersionFilterComponent o = (TerminologyCapabilitiesCodeSystemVersionFilterComponent) other_;
         return compareValues(code, o.code, true) && compareValues(op, o.op, true);
       }
 
@@ -1648,24 +1648,24 @@ public class TerminologyCapabilities extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesExpansionComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesExpansionComponent))
           return false;
-        TerminologyCapabilitiesExpansionComponent o = (TerminologyCapabilitiesExpansionComponent) other;
+        TerminologyCapabilitiesExpansionComponent o = (TerminologyCapabilitiesExpansionComponent) other_;
         return compareDeep(hierarchical, o.hierarchical, true) && compareDeep(paging, o.paging, true) && compareDeep(incomplete, o.incomplete, true)
            && compareDeep(definition, o.definition, true) && compareDeep(profile, o.profile, true) && compareDeep(textFilter, o.textFilter, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesExpansionComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesExpansionComponent))
           return false;
-        TerminologyCapabilitiesExpansionComponent o = (TerminologyCapabilitiesExpansionComponent) other;
+        TerminologyCapabilitiesExpansionComponent o = (TerminologyCapabilitiesExpansionComponent) other_;
         return compareValues(hierarchical, o.hierarchical, true) && compareValues(paging, o.paging, true) && compareValues(incomplete, o.incomplete, true)
            && compareValues(textFilter, o.textFilter, true);
       }
@@ -1831,22 +1831,22 @@ public class TerminologyCapabilities extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesValidateCodeComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesValidateCodeComponent))
           return false;
-        TerminologyCapabilitiesValidateCodeComponent o = (TerminologyCapabilitiesValidateCodeComponent) other;
+        TerminologyCapabilitiesValidateCodeComponent o = (TerminologyCapabilitiesValidateCodeComponent) other_;
         return compareDeep(translations, o.translations, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesValidateCodeComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesValidateCodeComponent))
           return false;
-        TerminologyCapabilitiesValidateCodeComponent o = (TerminologyCapabilitiesValidateCodeComponent) other;
+        TerminologyCapabilitiesValidateCodeComponent o = (TerminologyCapabilitiesValidateCodeComponent) other_;
         return compareValues(translations, o.translations, true);
       }
 
@@ -2010,22 +2010,22 @@ public class TerminologyCapabilities extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesTranslationComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesTranslationComponent))
           return false;
-        TerminologyCapabilitiesTranslationComponent o = (TerminologyCapabilitiesTranslationComponent) other;
+        TerminologyCapabilitiesTranslationComponent o = (TerminologyCapabilitiesTranslationComponent) other_;
         return compareDeep(needsMap, o.needsMap, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesTranslationComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesTranslationComponent))
           return false;
-        TerminologyCapabilitiesTranslationComponent o = (TerminologyCapabilitiesTranslationComponent) other;
+        TerminologyCapabilitiesTranslationComponent o = (TerminologyCapabilitiesTranslationComponent) other_;
         return compareValues(needsMap, o.needsMap, true);
       }
 
@@ -2181,22 +2181,22 @@ public class TerminologyCapabilities extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesClosureComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesClosureComponent))
           return false;
-        TerminologyCapabilitiesClosureComponent o = (TerminologyCapabilitiesClosureComponent) other;
+        TerminologyCapabilitiesClosureComponent o = (TerminologyCapabilitiesClosureComponent) other_;
         return compareDeep(translation, o.translation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilitiesClosureComponent))
+        if (!(other_ instanceof TerminologyCapabilitiesClosureComponent))
           return false;
-        TerminologyCapabilitiesClosureComponent o = (TerminologyCapabilitiesClosureComponent) other;
+        TerminologyCapabilitiesClosureComponent o = (TerminologyCapabilitiesClosureComponent) other_;
         return compareValues(translation, o.translation, true);
       }
 
@@ -3540,24 +3540,24 @@ public class TerminologyCapabilities extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilities))
+        if (!(other_ instanceof TerminologyCapabilities))
           return false;
-        TerminologyCapabilities o = (TerminologyCapabilities) other;
+        TerminologyCapabilities o = (TerminologyCapabilities) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(lockedDate, o.lockedDate, true)
            && compareDeep(codeSystem, o.codeSystem, true) && compareDeep(expansion, o.expansion, true) && compareDeep(validateCode, o.validateCode, true)
            && compareDeep(translation, o.translation, true) && compareDeep(closure, o.closure, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TerminologyCapabilities))
+        if (!(other_ instanceof TerminologyCapabilities))
           return false;
-        TerminologyCapabilities o = (TerminologyCapabilities) other;
+        TerminologyCapabilities o = (TerminologyCapabilities) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(lockedDate, o.lockedDate, true)
           ;
       }

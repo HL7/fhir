@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -576,22 +576,22 @@ public class Encounter extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof StatusHistoryComponent))
+        if (!(other_ instanceof StatusHistoryComponent))
           return false;
-        StatusHistoryComponent o = (StatusHistoryComponent) other;
+        StatusHistoryComponent o = (StatusHistoryComponent) other_;
         return compareDeep(status, o.status, true) && compareDeep(period, o.period, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof StatusHistoryComponent))
+        if (!(other_ instanceof StatusHistoryComponent))
           return false;
-        StatusHistoryComponent o = (StatusHistoryComponent) other;
+        StatusHistoryComponent o = (StatusHistoryComponent) other_;
         return compareValues(status, o.status, true);
       }
 
@@ -783,22 +783,22 @@ public class Encounter extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ClassHistoryComponent))
+        if (!(other_ instanceof ClassHistoryComponent))
           return false;
-        ClassHistoryComponent o = (ClassHistoryComponent) other;
+        ClassHistoryComponent o = (ClassHistoryComponent) other_;
         return compareDeep(class_, o.class_, true) && compareDeep(period, o.period, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ClassHistoryComponent))
+        if (!(other_ instanceof ClassHistoryComponent))
           return false;
-        ClassHistoryComponent o = (ClassHistoryComponent) other;
+        ClassHistoryComponent o = (ClassHistoryComponent) other_;
         return true;
       }
 
@@ -1079,23 +1079,23 @@ public class Encounter extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof EncounterParticipantComponent))
+        if (!(other_ instanceof EncounterParticipantComponent))
           return false;
-        EncounterParticipantComponent o = (EncounterParticipantComponent) other;
+        EncounterParticipantComponent o = (EncounterParticipantComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(period, o.period, true) && compareDeep(individual, o.individual, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof EncounterParticipantComponent))
+        if (!(other_ instanceof EncounterParticipantComponent))
           return false;
-        EncounterParticipantComponent o = (EncounterParticipantComponent) other;
+        EncounterParticipantComponent o = (EncounterParticipantComponent) other_;
         return true;
       }
 
@@ -1373,23 +1373,23 @@ public class Encounter extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DiagnosisComponent))
+        if (!(other_ instanceof DiagnosisComponent))
           return false;
-        DiagnosisComponent o = (DiagnosisComponent) other;
+        DiagnosisComponent o = (DiagnosisComponent) other_;
         return compareDeep(condition, o.condition, true) && compareDeep(role, o.role, true) && compareDeep(rank, o.rank, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DiagnosisComponent))
+        if (!(other_ instanceof DiagnosisComponent))
           return false;
-        DiagnosisComponent o = (DiagnosisComponent) other;
+        DiagnosisComponent o = (DiagnosisComponent) other_;
         return compareValues(rank, o.rank, true);
       }
 
@@ -2045,12 +2045,12 @@ public class Encounter extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof EncounterHospitalizationComponent))
+        if (!(other_ instanceof EncounterHospitalizationComponent))
           return false;
-        EncounterHospitalizationComponent o = (EncounterHospitalizationComponent) other;
+        EncounterHospitalizationComponent o = (EncounterHospitalizationComponent) other_;
         return compareDeep(preAdmissionIdentifier, o.preAdmissionIdentifier, true) && compareDeep(origin, o.origin, true)
            && compareDeep(admitSource, o.admitSource, true) && compareDeep(reAdmission, o.reAdmission, true)
            && compareDeep(dietPreference, o.dietPreference, true) && compareDeep(specialCourtesy, o.specialCourtesy, true)
@@ -2059,12 +2059,12 @@ public class Encounter extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof EncounterHospitalizationComponent))
+        if (!(other_ instanceof EncounterHospitalizationComponent))
           return false;
-        EncounterHospitalizationComponent o = (EncounterHospitalizationComponent) other;
+        EncounterHospitalizationComponent o = (EncounterHospitalizationComponent) other_;
         return true;
       }
 
@@ -2354,23 +2354,23 @@ public class Encounter extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof EncounterLocationComponent))
+        if (!(other_ instanceof EncounterLocationComponent))
           return false;
-        EncounterLocationComponent o = (EncounterLocationComponent) other;
+        EncounterLocationComponent o = (EncounterLocationComponent) other_;
         return compareDeep(location, o.location, true) && compareDeep(status, o.status, true) && compareDeep(period, o.period, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof EncounterLocationComponent))
+        if (!(other_ instanceof EncounterLocationComponent))
           return false;
-        EncounterLocationComponent o = (EncounterLocationComponent) other;
+        EncounterLocationComponent o = (EncounterLocationComponent) other_;
         return compareValues(status, o.status, true);
       }
 
@@ -4060,12 +4060,12 @@ Refer to the example bundle showing an abbreviated set of Encounters for a colon
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Encounter))
+        if (!(other_ instanceof Encounter))
           return false;
-        Encounter o = (Encounter) other;
+        Encounter o = (Encounter) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(statusHistory, o.statusHistory, true)
            && compareDeep(class_, o.class_, true) && compareDeep(classHistory, o.classHistory, true) && compareDeep(type, o.type, true)
            && compareDeep(serviceType, o.serviceType, true) && compareDeep(priority, o.priority, true) && compareDeep(subject, o.subject, true)
@@ -4078,12 +4078,12 @@ Refer to the example bundle showing an abbreviated set of Encounters for a colon
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Encounter))
+        if (!(other_ instanceof Encounter))
           return false;
-        Encounter o = (Encounter) other;
+        Encounter o = (Encounter) other_;
         return compareValues(status, o.status, true);
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -519,23 +519,23 @@ public class Parameters extends Resource implements IBaseParameters {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ParametersParameterComponent))
+        if (!(other_ instanceof ParametersParameterComponent))
           return false;
-        ParametersParameterComponent o = (ParametersParameterComponent) other;
+        ParametersParameterComponent o = (ParametersParameterComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true) && compareDeep(resource, o.resource, true)
            && compareDeep(part, o.part, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ParametersParameterComponent))
+        if (!(other_ instanceof ParametersParameterComponent))
           return false;
-        ParametersParameterComponent o = (ParametersParameterComponent) other;
+        ParametersParameterComponent o = (ParametersParameterComponent) other_;
         return compareValues(name, o.name, true);
       }
 
@@ -711,22 +711,22 @@ public class Parameters extends Resource implements IBaseParameters {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Parameters))
+        if (!(other_ instanceof Parameters))
           return false;
-        Parameters o = (Parameters) other;
+        Parameters o = (Parameters) other_;
         return compareDeep(parameter, o.parameter, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Parameters))
+        if (!(other_ instanceof Parameters))
           return false;
-        Parameters o = (Parameters) other;
+        Parameters o = (Parameters) other_;
         return true;
       }
 

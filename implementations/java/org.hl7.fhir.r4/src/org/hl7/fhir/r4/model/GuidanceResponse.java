@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1297,12 +1297,12 @@ public class GuidanceResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GuidanceResponse))
+        if (!(other_ instanceof GuidanceResponse))
           return false;
-        GuidanceResponse o = (GuidanceResponse) other;
+        GuidanceResponse o = (GuidanceResponse) other_;
         return compareDeep(requestId, o.requestId, true) && compareDeep(identifier, o.identifier, true)
            && compareDeep(module, o.module, true) && compareDeep(status, o.status, true) && compareDeep(subject, o.subject, true)
            && compareDeep(context, o.context, true) && compareDeep(occurrenceDateTime, o.occurrenceDateTime, true)
@@ -1313,12 +1313,12 @@ public class GuidanceResponse extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GuidanceResponse))
+        if (!(other_ instanceof GuidanceResponse))
           return false;
-        GuidanceResponse o = (GuidanceResponse) other;
+        GuidanceResponse o = (GuidanceResponse) other_;
         return compareValues(requestId, o.requestId, true) && compareValues(status, o.status, true) && compareValues(occurrenceDateTime, o.occurrenceDateTime, true)
           ;
       }

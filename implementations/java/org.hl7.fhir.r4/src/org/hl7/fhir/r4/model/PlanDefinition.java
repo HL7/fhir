@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1532,24 +1532,24 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PlanDefinitionGoalComponent))
+        if (!(other_ instanceof PlanDefinitionGoalComponent))
           return false;
-        PlanDefinitionGoalComponent o = (PlanDefinitionGoalComponent) other;
+        PlanDefinitionGoalComponent o = (PlanDefinitionGoalComponent) other_;
         return compareDeep(category, o.category, true) && compareDeep(description, o.description, true)
            && compareDeep(priority, o.priority, true) && compareDeep(start, o.start, true) && compareDeep(addresses, o.addresses, true)
            && compareDeep(documentation, o.documentation, true) && compareDeep(target, o.target, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PlanDefinitionGoalComponent))
+        if (!(other_ instanceof PlanDefinitionGoalComponent))
           return false;
-        PlanDefinitionGoalComponent o = (PlanDefinitionGoalComponent) other;
+        PlanDefinitionGoalComponent o = (PlanDefinitionGoalComponent) other_;
         return true;
       }
 
@@ -1826,23 +1826,23 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PlanDefinitionGoalTargetComponent))
+        if (!(other_ instanceof PlanDefinitionGoalTargetComponent))
           return false;
-        PlanDefinitionGoalTargetComponent o = (PlanDefinitionGoalTargetComponent) other;
+        PlanDefinitionGoalTargetComponent o = (PlanDefinitionGoalTargetComponent) other_;
         return compareDeep(measure, o.measure, true) && compareDeep(detail, o.detail, true) && compareDeep(due, o.due, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PlanDefinitionGoalTargetComponent))
+        if (!(other_ instanceof PlanDefinitionGoalTargetComponent))
           return false;
-        PlanDefinitionGoalTargetComponent o = (PlanDefinitionGoalTargetComponent) other;
+        PlanDefinitionGoalTargetComponent o = (PlanDefinitionGoalTargetComponent) other_;
         return true;
       }
 
@@ -3852,12 +3852,12 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionComponent))
+        if (!(other_ instanceof PlanDefinitionActionComponent))
           return false;
-        PlanDefinitionActionComponent o = (PlanDefinitionActionComponent) other;
+        PlanDefinitionActionComponent o = (PlanDefinitionActionComponent) other_;
         return compareDeep(prefix, o.prefix, true) && compareDeep(title, o.title, true) && compareDeep(description, o.description, true)
            && compareDeep(textEquivalent, o.textEquivalent, true) && compareDeep(code, o.code, true) && compareDeep(reason, o.reason, true)
            && compareDeep(documentation, o.documentation, true) && compareDeep(goalId, o.goalId, true) && compareDeep(triggerDefinition, o.triggerDefinition, true)
@@ -3871,12 +3871,12 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionComponent))
+        if (!(other_ instanceof PlanDefinitionActionComponent))
           return false;
-        PlanDefinitionActionComponent o = (PlanDefinitionActionComponent) other;
+        PlanDefinitionActionComponent o = (PlanDefinitionActionComponent) other_;
         return compareValues(prefix, o.prefix, true) && compareValues(title, o.title, true) && compareValues(description, o.description, true)
            && compareValues(textEquivalent, o.textEquivalent, true) && compareValues(goalId, o.goalId, true) && compareValues(groupingBehavior, o.groupingBehavior, true)
            && compareValues(selectionBehavior, o.selectionBehavior, true) && compareValues(requiredBehavior, o.requiredBehavior, true)
@@ -4261,23 +4261,23 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionConditionComponent))
+        if (!(other_ instanceof PlanDefinitionActionConditionComponent))
           return false;
-        PlanDefinitionActionConditionComponent o = (PlanDefinitionActionConditionComponent) other;
+        PlanDefinitionActionConditionComponent o = (PlanDefinitionActionConditionComponent) other_;
         return compareDeep(kind, o.kind, true) && compareDeep(description, o.description, true) && compareDeep(language, o.language, true)
            && compareDeep(expression, o.expression, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionConditionComponent))
+        if (!(other_ instanceof PlanDefinitionActionConditionComponent))
           return false;
-        PlanDefinitionActionConditionComponent o = (PlanDefinitionActionConditionComponent) other;
+        PlanDefinitionActionConditionComponent o = (PlanDefinitionActionConditionComponent) other_;
         return compareValues(kind, o.kind, true) && compareValues(description, o.description, true) && compareValues(language, o.language, true)
            && compareValues(expression, o.expression, true);
       }
@@ -4588,23 +4588,23 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionRelatedActionComponent))
+        if (!(other_ instanceof PlanDefinitionActionRelatedActionComponent))
           return false;
-        PlanDefinitionActionRelatedActionComponent o = (PlanDefinitionActionRelatedActionComponent) other;
+        PlanDefinitionActionRelatedActionComponent o = (PlanDefinitionActionRelatedActionComponent) other_;
         return compareDeep(actionId, o.actionId, true) && compareDeep(relationship, o.relationship, true)
            && compareDeep(offset, o.offset, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionRelatedActionComponent))
+        if (!(other_ instanceof PlanDefinitionActionRelatedActionComponent))
           return false;
-        PlanDefinitionActionRelatedActionComponent o = (PlanDefinitionActionRelatedActionComponent) other;
+        PlanDefinitionActionRelatedActionComponent o = (PlanDefinitionActionRelatedActionComponent) other_;
         return compareValues(actionId, o.actionId, true) && compareValues(relationship, o.relationship, true)
           ;
       }
@@ -4820,22 +4820,22 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionParticipantComponent))
+        if (!(other_ instanceof PlanDefinitionActionParticipantComponent))
           return false;
-        PlanDefinitionActionParticipantComponent o = (PlanDefinitionActionParticipantComponent) other;
+        PlanDefinitionActionParticipantComponent o = (PlanDefinitionActionParticipantComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(role, o.role, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionParticipantComponent))
+        if (!(other_ instanceof PlanDefinitionActionParticipantComponent))
           return false;
-        PlanDefinitionActionParticipantComponent o = (PlanDefinitionActionParticipantComponent) other;
+        PlanDefinitionActionParticipantComponent o = (PlanDefinitionActionParticipantComponent) other_;
         return compareValues(type, o.type, true);
       }
 
@@ -5205,23 +5205,23 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionDynamicValueComponent))
+        if (!(other_ instanceof PlanDefinitionActionDynamicValueComponent))
           return false;
-        PlanDefinitionActionDynamicValueComponent o = (PlanDefinitionActionDynamicValueComponent) other;
+        PlanDefinitionActionDynamicValueComponent o = (PlanDefinitionActionDynamicValueComponent) other_;
         return compareDeep(description, o.description, true) && compareDeep(path, o.path, true) && compareDeep(language, o.language, true)
            && compareDeep(expression, o.expression, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PlanDefinitionActionDynamicValueComponent))
+        if (!(other_ instanceof PlanDefinitionActionDynamicValueComponent))
           return false;
-        PlanDefinitionActionDynamicValueComponent o = (PlanDefinitionActionDynamicValueComponent) other;
+        PlanDefinitionActionDynamicValueComponent o = (PlanDefinitionActionDynamicValueComponent) other_;
         return compareValues(description, o.description, true) && compareValues(path, o.path, true) && compareValues(language, o.language, true)
            && compareValues(expression, o.expression, true);
       }
@@ -7119,12 +7119,12 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PlanDefinition))
+        if (!(other_ instanceof PlanDefinition))
           return false;
-        PlanDefinition o = (PlanDefinition) other;
+        PlanDefinition o = (PlanDefinition) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(purpose, o.purpose, true)
            && compareDeep(usage, o.usage, true) && compareDeep(approvalDate, o.approvalDate, true) && compareDeep(lastReviewDate, o.lastReviewDate, true)
            && compareDeep(effectivePeriod, o.effectivePeriod, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
@@ -7134,12 +7134,12 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PlanDefinition))
+        if (!(other_ instanceof PlanDefinition))
           return false;
-        PlanDefinition o = (PlanDefinition) other;
+        PlanDefinition o = (PlanDefinition) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(usage, o.usage, true) && compareValues(approvalDate, o.approvalDate, true)
            && compareValues(lastReviewDate, o.lastReviewDate, true) && compareValues(copyright, o.copyright, true)
           ;

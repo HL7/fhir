@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1075,12 +1075,12 @@ public class Address extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Address))
+        if (!(other_ instanceof Address))
           return false;
-        Address o = (Address) other;
+        Address o = (Address) other_;
         return compareDeep(use, o.use, true) && compareDeep(type, o.type, true) && compareDeep(text, o.text, true)
            && compareDeep(line, o.line, true) && compareDeep(city, o.city, true) && compareDeep(district, o.district, true)
            && compareDeep(state, o.state, true) && compareDeep(postalCode, o.postalCode, true) && compareDeep(country, o.country, true)
@@ -1088,12 +1088,12 @@ public class Address extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Address))
+        if (!(other_ instanceof Address))
           return false;
-        Address o = (Address) other;
+        Address o = (Address) other_;
         return compareValues(use, o.use, true) && compareValues(type, o.type, true) && compareValues(text, o.text, true)
            && compareValues(line, o.line, true) && compareValues(city, o.city, true) && compareValues(district, o.district, true)
            && compareValues(state, o.state, true) && compareValues(postalCode, o.postalCode, true) && compareValues(country, o.country, true)

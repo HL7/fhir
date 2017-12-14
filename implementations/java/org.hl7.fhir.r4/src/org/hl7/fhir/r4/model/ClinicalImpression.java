@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -379,22 +379,22 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ClinicalImpressionInvestigationComponent))
+        if (!(other_ instanceof ClinicalImpressionInvestigationComponent))
           return false;
-        ClinicalImpressionInvestigationComponent o = (ClinicalImpressionInvestigationComponent) other;
+        ClinicalImpressionInvestigationComponent o = (ClinicalImpressionInvestigationComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(item, o.item, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ClinicalImpressionInvestigationComponent))
+        if (!(other_ instanceof ClinicalImpressionInvestigationComponent))
           return false;
-        ClinicalImpressionInvestigationComponent o = (ClinicalImpressionInvestigationComponent) other;
+        ClinicalImpressionInvestigationComponent o = (ClinicalImpressionInvestigationComponent) other_;
         return true;
       }
 
@@ -638,22 +638,22 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ClinicalImpressionFindingComponent))
+        if (!(other_ instanceof ClinicalImpressionFindingComponent))
           return false;
-        ClinicalImpressionFindingComponent o = (ClinicalImpressionFindingComponent) other;
+        ClinicalImpressionFindingComponent o = (ClinicalImpressionFindingComponent) other_;
         return compareDeep(item, o.item, true) && compareDeep(basis, o.basis, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ClinicalImpressionFindingComponent))
+        if (!(other_ instanceof ClinicalImpressionFindingComponent))
           return false;
-        ClinicalImpressionFindingComponent o = (ClinicalImpressionFindingComponent) other;
+        ClinicalImpressionFindingComponent o = (ClinicalImpressionFindingComponent) other_;
         return compareValues(basis, o.basis, true);
       }
 
@@ -2201,12 +2201,12 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ClinicalImpression))
+        if (!(other_ instanceof ClinicalImpression))
           return false;
-        ClinicalImpression o = (ClinicalImpression) other;
+        ClinicalImpression o = (ClinicalImpression) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(code, o.code, true)
            && compareDeep(description, o.description, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
            && compareDeep(effective, o.effective, true) && compareDeep(date, o.date, true) && compareDeep(assessor, o.assessor, true)
@@ -2217,12 +2217,12 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ClinicalImpression))
+        if (!(other_ instanceof ClinicalImpression))
           return false;
-        ClinicalImpression o = (ClinicalImpression) other;
+        ClinicalImpression o = (ClinicalImpression) other_;
         return compareValues(status, o.status, true) && compareValues(description, o.description, true) && compareValues(date, o.date, true)
            && compareValues(protocol, o.protocol, true) && compareValues(summary, o.summary, true);
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -397,23 +397,23 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MeasureGroupComponent))
+        if (!(other_ instanceof MeasureGroupComponent))
           return false;
-        MeasureGroupComponent o = (MeasureGroupComponent) other;
+        MeasureGroupComponent o = (MeasureGroupComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(description, o.description, true) && compareDeep(population, o.population, true)
            && compareDeep(stratifier, o.stratifier, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MeasureGroupComponent))
+        if (!(other_ instanceof MeasureGroupComponent))
           return false;
-        MeasureGroupComponent o = (MeasureGroupComponent) other;
+        MeasureGroupComponent o = (MeasureGroupComponent) other_;
         return compareValues(description, o.description, true);
       }
 
@@ -695,23 +695,23 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MeasureGroupPopulationComponent))
+        if (!(other_ instanceof MeasureGroupPopulationComponent))
           return false;
-        MeasureGroupPopulationComponent o = (MeasureGroupPopulationComponent) other;
+        MeasureGroupPopulationComponent o = (MeasureGroupPopulationComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(description, o.description, true) && compareDeep(criteria, o.criteria, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MeasureGroupPopulationComponent))
+        if (!(other_ instanceof MeasureGroupPopulationComponent))
           return false;
-        MeasureGroupPopulationComponent o = (MeasureGroupPopulationComponent) other;
+        MeasureGroupPopulationComponent o = (MeasureGroupPopulationComponent) other_;
         return compareValues(description, o.description, true) && compareValues(criteria, o.criteria, true)
           ;
       }
@@ -1059,23 +1059,23 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MeasureGroupStratifierComponent))
+        if (!(other_ instanceof MeasureGroupStratifierComponent))
           return false;
-        MeasureGroupStratifierComponent o = (MeasureGroupStratifierComponent) other;
+        MeasureGroupStratifierComponent o = (MeasureGroupStratifierComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(description, o.description, true) && compareDeep(criteria, o.criteria, true)
            && compareDeep(path, o.path, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MeasureGroupStratifierComponent))
+        if (!(other_ instanceof MeasureGroupStratifierComponent))
           return false;
-        MeasureGroupStratifierComponent o = (MeasureGroupStratifierComponent) other;
+        MeasureGroupStratifierComponent o = (MeasureGroupStratifierComponent) other_;
         return compareValues(description, o.description, true) && compareValues(criteria, o.criteria, true)
            && compareValues(path, o.path, true);
       }
@@ -1502,23 +1502,23 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MeasureSupplementalDataComponent))
+        if (!(other_ instanceof MeasureSupplementalDataComponent))
           return false;
-        MeasureSupplementalDataComponent o = (MeasureSupplementalDataComponent) other;
+        MeasureSupplementalDataComponent o = (MeasureSupplementalDataComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(usage, o.usage, true) && compareDeep(description, o.description, true)
            && compareDeep(criteria, o.criteria, true) && compareDeep(path, o.path, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MeasureSupplementalDataComponent))
+        if (!(other_ instanceof MeasureSupplementalDataComponent))
           return false;
-        MeasureSupplementalDataComponent o = (MeasureSupplementalDataComponent) other;
+        MeasureSupplementalDataComponent o = (MeasureSupplementalDataComponent) other_;
         return compareValues(description, o.description, true) && compareValues(criteria, o.criteria, true)
            && compareValues(path, o.path, true);
       }
@@ -4235,12 +4235,12 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Measure))
+        if (!(other_ instanceof Measure))
           return false;
-        Measure o = (Measure) other;
+        Measure o = (Measure) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(usage, o.usage, true)
            && compareDeep(approvalDate, o.approvalDate, true) && compareDeep(lastReviewDate, o.lastReviewDate, true)
            && compareDeep(effectivePeriod, o.effectivePeriod, true) && compareDeep(subject, o.subject, true)
@@ -4255,12 +4255,12 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Measure))
+        if (!(other_ instanceof Measure))
           return false;
-        Measure o = (Measure) other;
+        Measure o = (Measure) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(usage, o.usage, true) && compareValues(approvalDate, o.approvalDate, true)
            && compareValues(lastReviewDate, o.lastReviewDate, true) && compareValues(copyright, o.copyright, true)
            && compareValues(disclaimer, o.disclaimer, true) && compareValues(riskAdjustment, o.riskAdjustment, true)

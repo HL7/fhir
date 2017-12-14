@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -560,23 +560,23 @@ public class EligibilityRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AuthorizationComponent))
+        if (!(other_ instanceof AuthorizationComponent))
           return false;
-        AuthorizationComponent o = (AuthorizationComponent) other;
+        AuthorizationComponent o = (AuthorizationComponent) other_;
         return compareDeep(sequence, o.sequence, true) && compareDeep(service, o.service, true) && compareDeep(modifier, o.modifier, true)
            && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(facility, o.facility, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AuthorizationComponent))
+        if (!(other_ instanceof AuthorizationComponent))
           return false;
-        AuthorizationComponent o = (AuthorizationComponent) other;
+        AuthorizationComponent o = (AuthorizationComponent) other_;
         return compareValues(sequence, o.sequence, true);
       }
 
@@ -1756,12 +1756,12 @@ public class EligibilityRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof EligibilityRequest))
+        if (!(other_ instanceof EligibilityRequest))
           return false;
-        EligibilityRequest o = (EligibilityRequest) other;
+        EligibilityRequest o = (EligibilityRequest) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(priority, o.priority, true)
            && compareDeep(patient, o.patient, true) && compareDeep(serviced, o.serviced, true) && compareDeep(created, o.created, true)
            && compareDeep(enterer, o.enterer, true) && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true)
@@ -1772,12 +1772,12 @@ public class EligibilityRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof EligibilityRequest))
+        if (!(other_ instanceof EligibilityRequest))
           return false;
-        EligibilityRequest o = (EligibilityRequest) other;
+        EligibilityRequest o = (EligibilityRequest) other_;
         return compareValues(status, o.status, true) && compareValues(created, o.created, true) && compareValues(businessArrangement, o.businessArrangement, true)
           ;
       }

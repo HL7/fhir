@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -3065,7 +3065,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("searchParam")) {
         res.getSearchParam().add(parseCapabilityStatementCapabilityStatementRestResourceSearchParamComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("operation")) {
-        res.getOperation().add(parseCapabilityStatementCapabilityStatementRestOperationComponent(xpp, owner));
+        res.getOperation().add(parseCapabilityStatementCapabilityStatementRestResourceOperationComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("compartment")) {
         res.getCompartment().add(parseUri(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -3173,6 +3173,8 @@ public class XmlParser extends XmlParserBase {
         res.getSearchRevInclude().add(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("searchParam")) {
         res.getSearchParam().add(parseCapabilityStatementCapabilityStatementRestResourceSearchParamComponent(xpp, owner));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("operation")) {
+        res.getOperation().add(parseCapabilityStatementCapabilityStatementRestResourceOperationComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -3232,6 +3234,31 @@ public class XmlParser extends XmlParserBase {
     return true;
   }
 
+  protected CapabilityStatement.CapabilityStatementRestResourceOperationComponent parseCapabilityStatementCapabilityStatementRestResourceOperationComponent(XmlPullParser xpp, CapabilityStatement owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    CapabilityStatement.CapabilityStatementRestResourceOperationComponent res = new CapabilityStatement.CapabilityStatementRestResourceOperationComponent();
+    parseBackboneAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+  if (!parseCapabilityStatementCapabilityStatementRestResourceOperationComponentContent(eventType, xpp, owner, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    parseElementClose(res);
+    return res;
+  }
+
+  protected boolean parseCapabilityStatementCapabilityStatementRestResourceOperationComponentContent(int eventType, XmlPullParser xpp, CapabilityStatement owner, CapabilityStatement.CapabilityStatementRestResourceOperationComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
+        res.setNameElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("definition")) {
+        res.setDefinition(parseReference(xpp));
+      } else if (!parseBackboneContent(eventType, xpp, res))
+        return false;
+    return true;
+  }
+
   protected CapabilityStatement.SystemInteractionComponent parseCapabilityStatementSystemInteractionComponent(XmlPullParser xpp, CapabilityStatement owner) throws XmlPullParserException, IOException, FHIRFormatError {
     CapabilityStatement.SystemInteractionComponent res = new CapabilityStatement.SystemInteractionComponent();
     parseBackboneAttributes(xpp, res);
@@ -3252,31 +3279,6 @@ public class XmlParser extends XmlParserBase {
         res.setCodeElement(parseEnumeration(xpp, CapabilityStatement.SystemRestfulInteraction.NULL, new CapabilityStatement.SystemRestfulInteractionEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("documentation")) {
         res.setDocumentationElement(parseString(xpp));
-      } else if (!parseBackboneContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected CapabilityStatement.CapabilityStatementRestOperationComponent parseCapabilityStatementCapabilityStatementRestOperationComponent(XmlPullParser xpp, CapabilityStatement owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    CapabilityStatement.CapabilityStatementRestOperationComponent res = new CapabilityStatement.CapabilityStatementRestOperationComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseCapabilityStatementCapabilityStatementRestOperationComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseCapabilityStatementCapabilityStatementRestOperationComponentContent(int eventType, XmlPullParser xpp, CapabilityStatement owner, CapabilityStatement.CapabilityStatementRestOperationComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setNameElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("definition")) {
-        res.setDefinition(parseReference(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -23446,8 +23448,8 @@ public class XmlParser extends XmlParserBase {
           composeCapabilityStatementCapabilityStatementRestResourceSearchParamComponent("searchParam", e);
       }
       if (element.hasOperation()) { 
-        for (CapabilityStatement.CapabilityStatementRestOperationComponent e : element.getOperation()) 
-          composeCapabilityStatementCapabilityStatementRestOperationComponent("operation", e);
+        for (CapabilityStatement.CapabilityStatementRestResourceOperationComponent e : element.getOperation()) 
+          composeCapabilityStatementCapabilityStatementRestResourceOperationComponent("operation", e);
       }
       if (element.hasCompartment()) { 
         for (UriType e : element.getCompartment()) 
@@ -23561,6 +23563,10 @@ public class XmlParser extends XmlParserBase {
         for (CapabilityStatement.CapabilityStatementRestResourceSearchParamComponent e : element.getSearchParam()) 
           composeCapabilityStatementCapabilityStatementRestResourceSearchParamComponent("searchParam", e);
       }
+      if (element.hasOperation()) { 
+        for (CapabilityStatement.CapabilityStatementRestResourceOperationComponent e : element.getOperation()) 
+          composeCapabilityStatementCapabilityStatementRestResourceOperationComponent("operation", e);
+      }
   }
 
   protected void composeCapabilityStatementResourceInteractionComponent(String name, CapabilityStatement.ResourceInteractionComponent element) throws IOException {
@@ -23607,6 +23613,26 @@ public class XmlParser extends XmlParserBase {
       }
   }
 
+  protected void composeCapabilityStatementCapabilityStatementRestResourceOperationComponent(String name, CapabilityStatement.CapabilityStatementRestResourceOperationComponent element) throws IOException {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.enter(FHIR_NS, name);
+      composeCapabilityStatementCapabilityStatementRestResourceOperationComponentElements(element);
+      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
+    }
+  }
+
+  protected void composeCapabilityStatementCapabilityStatementRestResourceOperationComponentElements(CapabilityStatement.CapabilityStatementRestResourceOperationComponent element) throws IOException {
+      composeBackboneElements(element);
+      if (element.hasNameElement()) {
+        composeString("name", element.getNameElement());
+      }
+      if (element.hasDefinition()) {
+        composeReference("definition", element.getDefinition());
+      }
+  }
+
   protected void composeCapabilityStatementSystemInteractionComponent(String name, CapabilityStatement.SystemInteractionComponent element) throws IOException {
     if (element != null) {
       composeElementAttributes(element);
@@ -23623,26 +23649,6 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("code", element.getCodeElement(), new CapabilityStatement.SystemRestfulInteractionEnumFactory());
       if (element.hasDocumentationElement()) {
         composeString("documentation", element.getDocumentationElement());
-      }
-  }
-
-  protected void composeCapabilityStatementCapabilityStatementRestOperationComponent(String name, CapabilityStatement.CapabilityStatementRestOperationComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeCapabilityStatementCapabilityStatementRestOperationComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeCapabilityStatementCapabilityStatementRestOperationComponentElements(CapabilityStatement.CapabilityStatementRestOperationComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasNameElement()) {
-        composeString("name", element.getNameElement());
-      }
-      if (element.hasDefinition()) {
-        composeReference("definition", element.getDefinition());
       }
   }
 

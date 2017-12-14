@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -687,24 +687,24 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ContactComponent))
+        if (!(other_ instanceof ContactComponent))
           return false;
-        ContactComponent o = (ContactComponent) other;
+        ContactComponent o = (ContactComponent) other_;
         return compareDeep(relationship, o.relationship, true) && compareDeep(name, o.name, true) && compareDeep(telecom, o.telecom, true)
            && compareDeep(address, o.address, true) && compareDeep(gender, o.gender, true) && compareDeep(organization, o.organization, true)
            && compareDeep(period, o.period, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ContactComponent))
+        if (!(other_ instanceof ContactComponent))
           return false;
-        ContactComponent o = (ContactComponent) other;
+        ContactComponent o = (ContactComponent) other_;
         return compareValues(gender, o.gender, true);
       }
 
@@ -944,23 +944,23 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AnimalComponent))
+        if (!(other_ instanceof AnimalComponent))
           return false;
-        AnimalComponent o = (AnimalComponent) other;
+        AnimalComponent o = (AnimalComponent) other_;
         return compareDeep(species, o.species, true) && compareDeep(breed, o.breed, true) && compareDeep(genderStatus, o.genderStatus, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AnimalComponent))
+        if (!(other_ instanceof AnimalComponent))
           return false;
-        AnimalComponent o = (AnimalComponent) other;
+        AnimalComponent o = (AnimalComponent) other_;
         return true;
       }
 
@@ -1172,22 +1172,22 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PatientCommunicationComponent))
+        if (!(other_ instanceof PatientCommunicationComponent))
           return false;
-        PatientCommunicationComponent o = (PatientCommunicationComponent) other;
+        PatientCommunicationComponent o = (PatientCommunicationComponent) other_;
         return compareDeep(language, o.language, true) && compareDeep(preferred, o.preferred, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PatientCommunicationComponent))
+        if (!(other_ instanceof PatientCommunicationComponent))
           return false;
-        PatientCommunicationComponent o = (PatientCommunicationComponent) other;
+        PatientCommunicationComponent o = (PatientCommunicationComponent) other_;
         return compareValues(preferred, o.preferred, true);
       }
 
@@ -1421,22 +1421,22 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PatientLinkComponent))
+        if (!(other_ instanceof PatientLinkComponent))
           return false;
-        PatientLinkComponent o = (PatientLinkComponent) other;
+        PatientLinkComponent o = (PatientLinkComponent) other_;
         return compareDeep(other, o.other, true) && compareDeep(type, o.type, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PatientLinkComponent))
+        if (!(other_ instanceof PatientLinkComponent))
           return false;
-        PatientLinkComponent o = (PatientLinkComponent) other;
+        PatientLinkComponent o = (PatientLinkComponent) other_;
         return compareValues(type, o.type, true);
       }
 
@@ -2773,12 +2773,12 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Patient))
+        if (!(other_ instanceof Patient))
           return false;
-        Patient o = (Patient) other;
+        Patient o = (Patient) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(name, o.name, true)
            && compareDeep(telecom, o.telecom, true) && compareDeep(gender, o.gender, true) && compareDeep(birthDate, o.birthDate, true)
            && compareDeep(deceased, o.deceased, true) && compareDeep(address, o.address, true) && compareDeep(maritalStatus, o.maritalStatus, true)
@@ -2789,12 +2789,12 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Patient))
+        if (!(other_ instanceof Patient))
           return false;
-        Patient o = (Patient) other;
+        Patient o = (Patient) other_;
         return compareValues(active, o.active, true) && compareValues(gender, o.gender, true) && compareValues(birthDate, o.birthDate, true)
           ;
       }

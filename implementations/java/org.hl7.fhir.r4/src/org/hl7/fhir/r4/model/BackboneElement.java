@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -201,22 +201,22 @@ public abstract class BackboneElement extends Element implements IBaseBackboneEl
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof BackboneElement))
+        if (!(other_ instanceof BackboneElement))
           return false;
-        BackboneElement o = (BackboneElement) other;
+        BackboneElement o = (BackboneElement) other_;
         return compareDeep(modifierExtension, o.modifierExtension, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof BackboneElement))
+        if (!(other_ instanceof BackboneElement))
           return false;
-        BackboneElement o = (BackboneElement) other;
+        BackboneElement o = (BackboneElement) other_;
         return true;
       }
 

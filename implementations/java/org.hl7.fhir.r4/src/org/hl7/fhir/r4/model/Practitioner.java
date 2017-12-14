@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -374,23 +374,23 @@ public class Practitioner extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof PractitionerQualificationComponent))
+        if (!(other_ instanceof PractitionerQualificationComponent))
           return false;
-        PractitionerQualificationComponent o = (PractitionerQualificationComponent) other;
+        PractitionerQualificationComponent o = (PractitionerQualificationComponent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(code, o.code, true) && compareDeep(period, o.period, true)
            && compareDeep(issuer, o.issuer, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof PractitionerQualificationComponent))
+        if (!(other_ instanceof PractitionerQualificationComponent))
           return false;
-        PractitionerQualificationComponent o = (PractitionerQualificationComponent) other;
+        PractitionerQualificationComponent o = (PractitionerQualificationComponent) other_;
         return true;
       }
 
@@ -1244,12 +1244,12 @@ public class Practitioner extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Practitioner))
+        if (!(other_ instanceof Practitioner))
           return false;
-        Practitioner o = (Practitioner) other;
+        Practitioner o = (Practitioner) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(name, o.name, true)
            && compareDeep(telecom, o.telecom, true) && compareDeep(address, o.address, true) && compareDeep(gender, o.gender, true)
            && compareDeep(birthDate, o.birthDate, true) && compareDeep(photo, o.photo, true) && compareDeep(qualification, o.qualification, true)
@@ -1257,12 +1257,12 @@ public class Practitioner extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Practitioner))
+        if (!(other_ instanceof Practitioner))
           return false;
-        Practitioner o = (Practitioner) other;
+        Practitioner o = (Practitioner) other_;
         return compareValues(active, o.active, true) && compareValues(gender, o.gender, true) && compareValues(birthDate, o.birthDate, true)
           ;
       }

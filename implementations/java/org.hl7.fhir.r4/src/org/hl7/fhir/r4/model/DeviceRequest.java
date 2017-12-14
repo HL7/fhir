@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -576,22 +576,22 @@ public class DeviceRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DeviceRequestParameterComponent))
+        if (!(other_ instanceof DeviceRequestParameterComponent))
           return false;
-        DeviceRequestParameterComponent o = (DeviceRequestParameterComponent) other;
+        DeviceRequestParameterComponent o = (DeviceRequestParameterComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DeviceRequestParameterComponent))
+        if (!(other_ instanceof DeviceRequestParameterComponent))
           return false;
-        DeviceRequestParameterComponent o = (DeviceRequestParameterComponent) other;
+        DeviceRequestParameterComponent o = (DeviceRequestParameterComponent) other_;
         return true;
       }
 
@@ -2455,12 +2455,12 @@ public class DeviceRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DeviceRequest))
+        if (!(other_ instanceof DeviceRequest))
           return false;
-        DeviceRequest o = (DeviceRequest) other;
+        DeviceRequest o = (DeviceRequest) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(priorRequest, o.priorRequest, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true)
@@ -2473,12 +2473,12 @@ public class DeviceRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DeviceRequest))
+        if (!(other_ instanceof DeviceRequest))
           return false;
-        DeviceRequest o = (DeviceRequest) other;
+        DeviceRequest o = (DeviceRequest) other_;
         return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true) && compareValues(priority, o.priority, true)
            && compareValues(authoredOn, o.authoredOn, true);
       }

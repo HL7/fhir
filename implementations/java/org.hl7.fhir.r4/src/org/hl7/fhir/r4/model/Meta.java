@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -633,24 +633,24 @@ public class Meta extends Type implements IBaseMetaType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Meta))
+        if (!(other_ instanceof Meta))
           return false;
-        Meta o = (Meta) other;
+        Meta o = (Meta) other_;
         return compareDeep(versionId, o.versionId, true) && compareDeep(lastUpdated, o.lastUpdated, true)
            && compareDeep(profile, o.profile, true) && compareDeep(source, o.source, true) && compareDeep(security, o.security, true)
            && compareDeep(tag, o.tag, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Meta))
+        if (!(other_ instanceof Meta))
           return false;
-        Meta o = (Meta) other;
+        Meta o = (Meta) other_;
         return compareValues(versionId, o.versionId, true) && compareValues(lastUpdated, o.lastUpdated, true)
            && compareValues(profile, o.profile, true) && compareValues(source, o.source, true);
       }

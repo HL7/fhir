@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -850,24 +850,24 @@ public class MedicationRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MedicationRequestDispenseRequestComponent))
+        if (!(other_ instanceof MedicationRequestDispenseRequestComponent))
           return false;
-        MedicationRequestDispenseRequestComponent o = (MedicationRequestDispenseRequestComponent) other;
+        MedicationRequestDispenseRequestComponent o = (MedicationRequestDispenseRequestComponent) other_;
         return compareDeep(validityPeriod, o.validityPeriod, true) && compareDeep(numberOfRepeatsAllowed, o.numberOfRepeatsAllowed, true)
            && compareDeep(quantity, o.quantity, true) && compareDeep(expectedSupplyDuration, o.expectedSupplyDuration, true)
            && compareDeep(performer, o.performer, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MedicationRequestDispenseRequestComponent))
+        if (!(other_ instanceof MedicationRequestDispenseRequestComponent))
           return false;
-        MedicationRequestDispenseRequestComponent o = (MedicationRequestDispenseRequestComponent) other;
+        MedicationRequestDispenseRequestComponent o = (MedicationRequestDispenseRequestComponent) other_;
         return compareValues(numberOfRepeatsAllowed, o.numberOfRepeatsAllowed, true);
       }
 
@@ -1079,22 +1079,22 @@ public class MedicationRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MedicationRequestSubstitutionComponent))
+        if (!(other_ instanceof MedicationRequestSubstitutionComponent))
           return false;
-        MedicationRequestSubstitutionComponent o = (MedicationRequestSubstitutionComponent) other;
+        MedicationRequestSubstitutionComponent o = (MedicationRequestSubstitutionComponent) other_;
         return compareDeep(allowed, o.allowed, true) && compareDeep(reason, o.reason, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MedicationRequestSubstitutionComponent))
+        if (!(other_ instanceof MedicationRequestSubstitutionComponent))
           return false;
-        MedicationRequestSubstitutionComponent o = (MedicationRequestSubstitutionComponent) other;
+        MedicationRequestSubstitutionComponent o = (MedicationRequestSubstitutionComponent) other_;
         return compareValues(allowed, o.allowed, true);
       }
 
@@ -3260,12 +3260,12 @@ public class MedicationRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MedicationRequest))
+        if (!(other_ instanceof MedicationRequest))
           return false;
-        MedicationRequest o = (MedicationRequest) other;
+        MedicationRequest o = (MedicationRequest) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true)
            && compareDeep(category, o.category, true) && compareDeep(priority, o.priority, true) && compareDeep(medication, o.medication, true)
            && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(supportingInformation, o.supportingInformation, true)
@@ -3281,12 +3281,12 @@ public class MedicationRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MedicationRequest))
+        if (!(other_ instanceof MedicationRequest))
           return false;
-        MedicationRequest o = (MedicationRequest) other;
+        MedicationRequest o = (MedicationRequest) other_;
         return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
            && compareValues(authoredOn, o.authoredOn, true) && compareValues(instantiates, o.instantiates, true)
           ;

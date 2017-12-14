@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -769,23 +769,23 @@ public class ContactPoint extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ContactPoint))
+        if (!(other_ instanceof ContactPoint))
           return false;
-        ContactPoint o = (ContactPoint) other;
+        ContactPoint o = (ContactPoint) other_;
         return compareDeep(system, o.system, true) && compareDeep(value, o.value, true) && compareDeep(use, o.use, true)
            && compareDeep(rank, o.rank, true) && compareDeep(period, o.period, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ContactPoint))
+        if (!(other_ instanceof ContactPoint))
           return false;
-        ContactPoint o = (ContactPoint) other;
+        ContactPoint o = (ContactPoint) other_;
         return compareValues(system, o.system, true) && compareValues(value, o.value, true) && compareValues(use, o.use, true)
            && compareValues(rank, o.rank, true);
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1251,24 +1251,24 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AllergyIntoleranceReactionComponent))
+        if (!(other_ instanceof AllergyIntoleranceReactionComponent))
           return false;
-        AllergyIntoleranceReactionComponent o = (AllergyIntoleranceReactionComponent) other;
+        AllergyIntoleranceReactionComponent o = (AllergyIntoleranceReactionComponent) other_;
         return compareDeep(substance, o.substance, true) && compareDeep(manifestation, o.manifestation, true)
            && compareDeep(description, o.description, true) && compareDeep(onset, o.onset, true) && compareDeep(severity, o.severity, true)
            && compareDeep(exposureRoute, o.exposureRoute, true) && compareDeep(note, o.note, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AllergyIntoleranceReactionComponent))
+        if (!(other_ instanceof AllergyIntoleranceReactionComponent))
           return false;
-        AllergyIntoleranceReactionComponent o = (AllergyIntoleranceReactionComponent) other;
+        AllergyIntoleranceReactionComponent o = (AllergyIntoleranceReactionComponent) other_;
         return compareValues(description, o.description, true) && compareValues(onset, o.onset, true) && compareValues(severity, o.severity, true)
           ;
       }
@@ -2509,12 +2509,12 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AllergyIntolerance))
+        if (!(other_ instanceof AllergyIntolerance))
           return false;
-        AllergyIntolerance o = (AllergyIntolerance) other;
+        AllergyIntolerance o = (AllergyIntolerance) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(clinicalStatus, o.clinicalStatus, true)
            && compareDeep(verificationStatus, o.verificationStatus, true) && compareDeep(type, o.type, true)
            && compareDeep(category, o.category, true) && compareDeep(criticality, o.criticality, true) && compareDeep(code, o.code, true)
@@ -2524,12 +2524,12 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AllergyIntolerance))
+        if (!(other_ instanceof AllergyIntolerance))
           return false;
-        AllergyIntolerance o = (AllergyIntolerance) other;
+        AllergyIntolerance o = (AllergyIntolerance) other_;
         return compareValues(clinicalStatus, o.clinicalStatus, true) && compareValues(verificationStatus, o.verificationStatus, true)
            && compareValues(type, o.type, true) && compareValues(category, o.category, true) && compareValues(criticality, o.criticality, true)
            && compareValues(assertedDate, o.assertedDate, true) && compareValues(lastOccurrence, o.lastOccurrence, true)

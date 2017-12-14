@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -515,23 +515,23 @@ public class MessageDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MessageDefinitionFocusComponent))
+        if (!(other_ instanceof MessageDefinitionFocusComponent))
           return false;
-        MessageDefinitionFocusComponent o = (MessageDefinitionFocusComponent) other;
+        MessageDefinitionFocusComponent o = (MessageDefinitionFocusComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(profile, o.profile, true) && compareDeep(min, o.min, true)
            && compareDeep(max, o.max, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MessageDefinitionFocusComponent))
+        if (!(other_ instanceof MessageDefinitionFocusComponent))
           return false;
-        MessageDefinitionFocusComponent o = (MessageDefinitionFocusComponent) other;
+        MessageDefinitionFocusComponent o = (MessageDefinitionFocusComponent) other_;
         return compareValues(code, o.code, true) && compareValues(min, o.min, true) && compareValues(max, o.max, true)
           ;
       }
@@ -772,22 +772,22 @@ public class MessageDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MessageDefinitionAllowedResponseComponent))
+        if (!(other_ instanceof MessageDefinitionAllowedResponseComponent))
           return false;
-        MessageDefinitionAllowedResponseComponent o = (MessageDefinitionAllowedResponseComponent) other;
+        MessageDefinitionAllowedResponseComponent o = (MessageDefinitionAllowedResponseComponent) other_;
         return compareDeep(message, o.message, true) && compareDeep(situation, o.situation, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MessageDefinitionAllowedResponseComponent))
+        if (!(other_ instanceof MessageDefinitionAllowedResponseComponent))
           return false;
-        MessageDefinitionAllowedResponseComponent o = (MessageDefinitionAllowedResponseComponent) other;
+        MessageDefinitionAllowedResponseComponent o = (MessageDefinitionAllowedResponseComponent) other_;
         return compareValues(situation, o.situation, true);
       }
 
@@ -2483,12 +2483,12 @@ public class MessageDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MessageDefinition))
+        if (!(other_ instanceof MessageDefinition))
           return false;
-        MessageDefinition o = (MessageDefinition) other;
+        MessageDefinition o = (MessageDefinition) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(base, o.base, true) && compareDeep(parent, o.parent, true) && compareDeep(replaces, o.replaces, true)
            && compareDeep(event, o.event, true) && compareDeep(category, o.category, true) && compareDeep(focus, o.focus, true)
@@ -2497,12 +2497,12 @@ public class MessageDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MessageDefinition))
+        if (!(other_ instanceof MessageDefinition))
           return false;
-        MessageDefinition o = (MessageDefinition) other;
+        MessageDefinition o = (MessageDefinition) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(event, o.event, true)
            && compareValues(category, o.category, true) && compareValues(responseRequired, o.responseRequired, true)
           ;

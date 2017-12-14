@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -439,23 +439,23 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ClassComponent))
+        if (!(other_ instanceof ClassComponent))
           return false;
-        ClassComponent o = (ClassComponent) other;
+        ClassComponent o = (ClassComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(value, o.value, true) && compareDeep(name, o.name, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ClassComponent))
+        if (!(other_ instanceof ClassComponent))
           return false;
-        ClassComponent o = (ClassComponent) other;
+        ClassComponent o = (ClassComponent) other_;
         return compareValues(value, o.value, true) && compareValues(name, o.name, true);
       }
 
@@ -1385,12 +1385,12 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GroupComponent))
+        if (!(other_ instanceof GroupComponent))
           return false;
-        GroupComponent o = (GroupComponent) other;
+        GroupComponent o = (GroupComponent) other_;
         return compareDeep(group, o.group, true) && compareDeep(groupDisplay, o.groupDisplay, true) && compareDeep(subGroup, o.subGroup, true)
            && compareDeep(subGroupDisplay, o.subGroupDisplay, true) && compareDeep(plan, o.plan, true) && compareDeep(planDisplay, o.planDisplay, true)
            && compareDeep(subPlan, o.subPlan, true) && compareDeep(subPlanDisplay, o.subPlanDisplay, true)
@@ -1399,12 +1399,12 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GroupComponent))
+        if (!(other_ instanceof GroupComponent))
           return false;
-        GroupComponent o = (GroupComponent) other;
+        GroupComponent o = (GroupComponent) other_;
         return compareValues(group, o.group, true) && compareValues(groupDisplay, o.groupDisplay, true) && compareValues(subGroup, o.subGroup, true)
            && compareValues(subGroupDisplay, o.subGroupDisplay, true) && compareValues(plan, o.plan, true) && compareValues(planDisplay, o.planDisplay, true)
            && compareValues(subPlan, o.subPlan, true) && compareValues(subPlanDisplay, o.subPlanDisplay, true)
@@ -1601,22 +1601,22 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CoPayComponent))
+        if (!(other_ instanceof CoPayComponent))
           return false;
-        CoPayComponent o = (CoPayComponent) other;
+        CoPayComponent o = (CoPayComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CoPayComponent))
+        if (!(other_ instanceof CoPayComponent))
           return false;
-        CoPayComponent o = (CoPayComponent) other;
+        CoPayComponent o = (CoPayComponent) other_;
         return true;
       }
 
@@ -2953,12 +2953,12 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Coverage))
+        if (!(other_ instanceof Coverage))
           return false;
-        Coverage o = (Coverage) other;
+        Coverage o = (Coverage) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
            && compareDeep(policyHolder, o.policyHolder, true) && compareDeep(subscriber, o.subscriber, true)
            && compareDeep(subscriberId, o.subscriberId, true) && compareDeep(beneficiary, o.beneficiary, true)
@@ -2970,12 +2970,12 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Coverage))
+        if (!(other_ instanceof Coverage))
           return false;
-        Coverage o = (Coverage) other;
+        Coverage o = (Coverage) other_;
         return compareValues(status, o.status, true) && compareValues(subscriberId, o.subscriberId, true) && compareValues(dependent, o.dependent, true)
            && compareValues(sequence, o.sequence, true) && compareValues(order, o.order, true) && compareValues(network, o.network, true)
           ;

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -647,24 +647,24 @@ public class Identifier extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Identifier))
+        if (!(other_ instanceof Identifier))
           return false;
-        Identifier o = (Identifier) other;
+        Identifier o = (Identifier) other_;
         return compareDeep(use, o.use, true) && compareDeep(type, o.type, true) && compareDeep(system, o.system, true)
            && compareDeep(value, o.value, true) && compareDeep(period, o.period, true) && compareDeep(assigner, o.assigner, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Identifier))
+        if (!(other_ instanceof Identifier))
           return false;
-        Identifier o = (Identifier) other;
+        Identifier o = (Identifier) other_;
         return compareValues(use, o.use, true) && compareValues(system, o.system, true) && compareValues(value, o.value, true)
           ;
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -621,23 +621,23 @@ public class ValueSet extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ValueSetComposeComponent))
+        if (!(other_ instanceof ValueSetComposeComponent))
           return false;
-        ValueSetComposeComponent o = (ValueSetComposeComponent) other;
+        ValueSetComposeComponent o = (ValueSetComposeComponent) other_;
         return compareDeep(lockedDate, o.lockedDate, true) && compareDeep(inactive, o.inactive, true) && compareDeep(include, o.include, true)
            && compareDeep(exclude, o.exclude, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ValueSetComposeComponent))
+        if (!(other_ instanceof ValueSetComposeComponent))
           return false;
-        ValueSetComposeComponent o = (ValueSetComposeComponent) other;
+        ValueSetComposeComponent o = (ValueSetComposeComponent) other_;
         return compareValues(lockedDate, o.lockedDate, true) && compareValues(inactive, o.inactive, true);
       }
 
@@ -1110,23 +1110,23 @@ public class ValueSet extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptSetComponent))
+        if (!(other_ instanceof ConceptSetComponent))
           return false;
-        ConceptSetComponent o = (ConceptSetComponent) other;
+        ConceptSetComponent o = (ConceptSetComponent) other_;
         return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(concept, o.concept, true)
            && compareDeep(filter, o.filter, true) && compareDeep(valueSet, o.valueSet, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptSetComponent))
+        if (!(other_ instanceof ConceptSetComponent))
           return false;
-        ConceptSetComponent o = (ConceptSetComponent) other;
+        ConceptSetComponent o = (ConceptSetComponent) other_;
         return compareValues(system, o.system, true) && compareValues(version, o.version, true) && compareValues(valueSet, o.valueSet, true)
           ;
       }
@@ -1440,23 +1440,23 @@ public class ValueSet extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptReferenceComponent))
+        if (!(other_ instanceof ConceptReferenceComponent))
           return false;
-        ConceptReferenceComponent o = (ConceptReferenceComponent) other;
+        ConceptReferenceComponent o = (ConceptReferenceComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(display, o.display, true) && compareDeep(designation, o.designation, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptReferenceComponent))
+        if (!(other_ instanceof ConceptReferenceComponent))
           return false;
-        ConceptReferenceComponent o = (ConceptReferenceComponent) other;
+        ConceptReferenceComponent o = (ConceptReferenceComponent) other_;
         return compareValues(code, o.code, true) && compareValues(display, o.display, true);
       }
 
@@ -1739,23 +1739,23 @@ public class ValueSet extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptReferenceDesignationComponent))
+        if (!(other_ instanceof ConceptReferenceDesignationComponent))
           return false;
-        ConceptReferenceDesignationComponent o = (ConceptReferenceDesignationComponent) other;
+        ConceptReferenceDesignationComponent o = (ConceptReferenceDesignationComponent) other_;
         return compareDeep(language, o.language, true) && compareDeep(use, o.use, true) && compareDeep(value, o.value, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptReferenceDesignationComponent))
+        if (!(other_ instanceof ConceptReferenceDesignationComponent))
           return false;
-        ConceptReferenceDesignationComponent o = (ConceptReferenceDesignationComponent) other;
+        ConceptReferenceDesignationComponent o = (ConceptReferenceDesignationComponent) other_;
         return compareValues(language, o.language, true) && compareValues(value, o.value, true);
       }
 
@@ -2056,23 +2056,23 @@ public class ValueSet extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConceptSetFilterComponent))
+        if (!(other_ instanceof ConceptSetFilterComponent))
           return false;
-        ConceptSetFilterComponent o = (ConceptSetFilterComponent) other;
+        ConceptSetFilterComponent o = (ConceptSetFilterComponent) other_;
         return compareDeep(property, o.property, true) && compareDeep(op, o.op, true) && compareDeep(value, o.value, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConceptSetFilterComponent))
+        if (!(other_ instanceof ConceptSetFilterComponent))
           return false;
-        ConceptSetFilterComponent o = (ConceptSetFilterComponent) other;
+        ConceptSetFilterComponent o = (ConceptSetFilterComponent) other_;
         return compareValues(property, o.property, true) && compareValues(op, o.op, true) && compareValues(value, o.value, true)
           ;
       }
@@ -2592,24 +2592,24 @@ public class ValueSet extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ValueSetExpansionComponent))
+        if (!(other_ instanceof ValueSetExpansionComponent))
           return false;
-        ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
+        ValueSetExpansionComponent o = (ValueSetExpansionComponent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(timestamp, o.timestamp, true)
            && compareDeep(total, o.total, true) && compareDeep(offset, o.offset, true) && compareDeep(parameter, o.parameter, true)
            && compareDeep(contains, o.contains, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ValueSetExpansionComponent))
+        if (!(other_ instanceof ValueSetExpansionComponent))
           return false;
-        ValueSetExpansionComponent o = (ValueSetExpansionComponent) other;
+        ValueSetExpansionComponent o = (ValueSetExpansionComponent) other_;
         return compareValues(identifier, o.identifier, true) && compareValues(timestamp, o.timestamp, true)
            && compareValues(total, o.total, true) && compareValues(offset, o.offset, true);
       }
@@ -2922,22 +2922,22 @@ public class ValueSet extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ValueSetExpansionParameterComponent))
+        if (!(other_ instanceof ValueSetExpansionParameterComponent))
           return false;
-        ValueSetExpansionParameterComponent o = (ValueSetExpansionParameterComponent) other;
+        ValueSetExpansionParameterComponent o = (ValueSetExpansionParameterComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ValueSetExpansionParameterComponent))
+        if (!(other_ instanceof ValueSetExpansionParameterComponent))
           return false;
-        ValueSetExpansionParameterComponent o = (ValueSetExpansionParameterComponent) other;
+        ValueSetExpansionParameterComponent o = (ValueSetExpansionParameterComponent) other_;
         return compareValues(name, o.name, true);
       }
 
@@ -3595,24 +3595,24 @@ public class ValueSet extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ValueSetExpansionContainsComponent))
+        if (!(other_ instanceof ValueSetExpansionContainsComponent))
           return false;
-        ValueSetExpansionContainsComponent o = (ValueSetExpansionContainsComponent) other;
+        ValueSetExpansionContainsComponent o = (ValueSetExpansionContainsComponent) other_;
         return compareDeep(system, o.system, true) && compareDeep(abstract_, o.abstract_, true) && compareDeep(inactive, o.inactive, true)
            && compareDeep(version, o.version, true) && compareDeep(code, o.code, true) && compareDeep(display, o.display, true)
            && compareDeep(designation, o.designation, true) && compareDeep(contains, o.contains, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ValueSetExpansionContainsComponent))
+        if (!(other_ instanceof ValueSetExpansionContainsComponent))
           return false;
-        ValueSetExpansionContainsComponent o = (ValueSetExpansionContainsComponent) other;
+        ValueSetExpansionContainsComponent o = (ValueSetExpansionContainsComponent) other_;
         return compareValues(system, o.system, true) && compareValues(abstract_, o.abstract_, true) && compareValues(inactive, o.inactive, true)
            && compareValues(version, o.version, true) && compareValues(code, o.code, true) && compareValues(display, o.display, true)
           ;
@@ -4936,24 +4936,24 @@ public class ValueSet extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ValueSet))
+        if (!(other_ instanceof ValueSet))
           return false;
-        ValueSet o = (ValueSet) other;
+        ValueSet o = (ValueSet) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(immutable, o.immutable, true)
            && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(extensible, o.extensible, true)
            && compareDeep(compose, o.compose, true) && compareDeep(expansion, o.expansion, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ValueSet))
+        if (!(other_ instanceof ValueSet))
           return false;
-        ValueSet o = (ValueSet) other;
+        ValueSet o = (ValueSet) other_;
         return compareValues(immutable, o.immutable, true) && compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true)
            && compareValues(extensible, o.extensible, true);
       }

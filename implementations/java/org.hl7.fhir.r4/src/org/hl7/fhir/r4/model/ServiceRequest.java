@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2861,12 +2861,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ServiceRequest))
+        if (!(other_ instanceof ServiceRequest))
           return false;
-        ServiceRequest o = (ServiceRequest) other;
+        ServiceRequest o = (ServiceRequest) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true) && compareDeep(requisition, o.requisition, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true)
@@ -2882,12 +2882,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ServiceRequest))
+        if (!(other_ instanceof ServiceRequest))
           return false;
-        ServiceRequest o = (ServiceRequest) other;
+        ServiceRequest o = (ServiceRequest) other_;
         return compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true) && compareValues(intent, o.intent, true)
            && compareValues(priority, o.priority, true) && compareValues(doNotPerform, o.doNotPerform, true) && compareValues(authoredOn, o.authoredOn, true)
            && compareValues(patientInstruction, o.patientInstruction, true);

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -894,23 +894,23 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TaskRestrictionComponent))
+        if (!(other_ instanceof TaskRestrictionComponent))
           return false;
-        TaskRestrictionComponent o = (TaskRestrictionComponent) other;
+        TaskRestrictionComponent o = (TaskRestrictionComponent) other_;
         return compareDeep(repetitions, o.repetitions, true) && compareDeep(period, o.period, true) && compareDeep(recipient, o.recipient, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TaskRestrictionComponent))
+        if (!(other_ instanceof TaskRestrictionComponent))
           return false;
-        TaskRestrictionComponent o = (TaskRestrictionComponent) other;
+        TaskRestrictionComponent o = (TaskRestrictionComponent) other_;
         return compareValues(repetitions, o.repetitions, true);
       }
 
@@ -1260,22 +1260,22 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ParameterComponent))
+        if (!(other_ instanceof ParameterComponent))
           return false;
-        ParameterComponent o = (ParameterComponent) other;
+        ParameterComponent o = (ParameterComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ParameterComponent))
+        if (!(other_ instanceof ParameterComponent))
           return false;
-        ParameterComponent o = (ParameterComponent) other;
+        ParameterComponent o = (ParameterComponent) other_;
         return true;
       }
 
@@ -1624,22 +1624,22 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof TaskOutputComponent))
+        if (!(other_ instanceof TaskOutputComponent))
           return false;
-        TaskOutputComponent o = (TaskOutputComponent) other;
+        TaskOutputComponent o = (TaskOutputComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof TaskOutputComponent))
+        if (!(other_ instanceof TaskOutputComponent))
           return false;
-        TaskOutputComponent o = (TaskOutputComponent) other;
+        TaskOutputComponent o = (TaskOutputComponent) other_;
         return true;
       }
 
@@ -3653,12 +3653,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Task))
+        if (!(other_ instanceof Task))
           return false;
-        Task o = (Task) other;
+        Task o = (Task) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(instantiates, o.instantiates, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
            && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true) && compareDeep(statusReason, o.statusReason, true)
@@ -3673,12 +3673,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Task))
+        if (!(other_ instanceof Task))
           return false;
-        Task o = (Task) other;
+        Task o = (Task) other_;
         return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
            && compareValues(description, o.description, true) && compareValues(authoredOn, o.authoredOn, true)
            && compareValues(lastModified, o.lastModified, true);

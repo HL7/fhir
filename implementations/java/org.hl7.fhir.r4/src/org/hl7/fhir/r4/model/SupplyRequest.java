@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -576,22 +576,22 @@ public class SupplyRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SupplyRequestParameterComponent))
+        if (!(other_ instanceof SupplyRequestParameterComponent))
           return false;
-        SupplyRequestParameterComponent o = (SupplyRequestParameterComponent) other;
+        SupplyRequestParameterComponent o = (SupplyRequestParameterComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SupplyRequestParameterComponent))
+        if (!(other_ instanceof SupplyRequestParameterComponent))
           return false;
-        SupplyRequestParameterComponent o = (SupplyRequestParameterComponent) other;
+        SupplyRequestParameterComponent o = (SupplyRequestParameterComponent) other_;
         return true;
       }
 
@@ -1762,12 +1762,12 @@ public class SupplyRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SupplyRequest))
+        if (!(other_ instanceof SupplyRequest))
           return false;
-        SupplyRequest o = (SupplyRequest) other;
+        SupplyRequest o = (SupplyRequest) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
            && compareDeep(priority, o.priority, true) && compareDeep(item, o.item, true) && compareDeep(quantity, o.quantity, true)
            && compareDeep(parameter, o.parameter, true) && compareDeep(occurrence, o.occurrence, true) && compareDeep(authoredOn, o.authoredOn, true)
@@ -1777,12 +1777,12 @@ public class SupplyRequest extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SupplyRequest))
+        if (!(other_ instanceof SupplyRequest))
           return false;
-        SupplyRequest o = (SupplyRequest) other;
+        SupplyRequest o = (SupplyRequest) other_;
         return compareValues(status, o.status, true) && compareValues(priority, o.priority, true) && compareValues(authoredOn, o.authoredOn, true)
           ;
       }

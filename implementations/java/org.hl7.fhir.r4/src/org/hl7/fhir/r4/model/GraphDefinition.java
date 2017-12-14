@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -905,24 +905,24 @@ public class GraphDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GraphDefinitionLinkComponent))
+        if (!(other_ instanceof GraphDefinitionLinkComponent))
           return false;
-        GraphDefinitionLinkComponent o = (GraphDefinitionLinkComponent) other;
+        GraphDefinitionLinkComponent o = (GraphDefinitionLinkComponent) other_;
         return compareDeep(path, o.path, true) && compareDeep(sliceName, o.sliceName, true) && compareDeep(min, o.min, true)
            && compareDeep(max, o.max, true) && compareDeep(description, o.description, true) && compareDeep(target, o.target, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GraphDefinitionLinkComponent))
+        if (!(other_ instanceof GraphDefinitionLinkComponent))
           return false;
-        GraphDefinitionLinkComponent o = (GraphDefinitionLinkComponent) other;
+        GraphDefinitionLinkComponent o = (GraphDefinitionLinkComponent) other_;
         return compareValues(path, o.path, true) && compareValues(sliceName, o.sliceName, true) && compareValues(min, o.min, true)
            && compareValues(max, o.max, true) && compareValues(description, o.description, true);
       }
@@ -1385,23 +1385,23 @@ public class GraphDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GraphDefinitionLinkTargetComponent))
+        if (!(other_ instanceof GraphDefinitionLinkTargetComponent))
           return false;
-        GraphDefinitionLinkTargetComponent o = (GraphDefinitionLinkTargetComponent) other;
+        GraphDefinitionLinkTargetComponent o = (GraphDefinitionLinkTargetComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(params, o.params, true) && compareDeep(profile, o.profile, true)
            && compareDeep(compartment, o.compartment, true) && compareDeep(link, o.link, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GraphDefinitionLinkTargetComponent))
+        if (!(other_ instanceof GraphDefinitionLinkTargetComponent))
           return false;
-        GraphDefinitionLinkTargetComponent o = (GraphDefinitionLinkTargetComponent) other;
+        GraphDefinitionLinkTargetComponent o = (GraphDefinitionLinkTargetComponent) other_;
         return compareValues(type, o.type, true) && compareValues(params, o.params, true) && compareValues(profile, o.profile, true)
           ;
       }
@@ -1850,24 +1850,24 @@ public class GraphDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GraphDefinitionLinkTargetCompartmentComponent))
+        if (!(other_ instanceof GraphDefinitionLinkTargetCompartmentComponent))
           return false;
-        GraphDefinitionLinkTargetCompartmentComponent o = (GraphDefinitionLinkTargetCompartmentComponent) other;
+        GraphDefinitionLinkTargetCompartmentComponent o = (GraphDefinitionLinkTargetCompartmentComponent) other_;
         return compareDeep(use, o.use, true) && compareDeep(code, o.code, true) && compareDeep(rule, o.rule, true)
            && compareDeep(expression, o.expression, true) && compareDeep(description, o.description, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GraphDefinitionLinkTargetCompartmentComponent))
+        if (!(other_ instanceof GraphDefinitionLinkTargetCompartmentComponent))
           return false;
-        GraphDefinitionLinkTargetCompartmentComponent o = (GraphDefinitionLinkTargetCompartmentComponent) other;
+        GraphDefinitionLinkTargetCompartmentComponent o = (GraphDefinitionLinkTargetCompartmentComponent) other_;
         return compareValues(use, o.use, true) && compareValues(code, o.code, true) && compareValues(rule, o.rule, true)
            && compareValues(expression, o.expression, true) && compareValues(description, o.description, true)
           ;
@@ -2969,23 +2969,23 @@ public class GraphDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof GraphDefinition))
+        if (!(other_ instanceof GraphDefinition))
           return false;
-        GraphDefinition o = (GraphDefinition) other;
+        GraphDefinition o = (GraphDefinition) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(start, o.start, true) && compareDeep(profile, o.profile, true)
            && compareDeep(link, o.link, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof GraphDefinition))
+        if (!(other_ instanceof GraphDefinition))
           return false;
-        GraphDefinition o = (GraphDefinition) other;
+        GraphDefinition o = (GraphDefinition) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(start, o.start, true) && compareValues(profile, o.profile, true)
           ;
       }

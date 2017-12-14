@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -502,22 +502,22 @@ public class UserSession extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof UserSessionStatusComponent))
+        if (!(other_ instanceof UserSessionStatusComponent))
           return false;
-        UserSessionStatusComponent o = (UserSessionStatusComponent) other;
+        UserSessionStatusComponent o = (UserSessionStatusComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(source, o.source, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof UserSessionStatusComponent))
+        if (!(other_ instanceof UserSessionStatusComponent))
           return false;
-        UserSessionStatusComponent o = (UserSessionStatusComponent) other;
+        UserSessionStatusComponent o = (UserSessionStatusComponent) other_;
         return compareValues(code, o.code, true) && compareValues(source, o.source, true);
       }
 
@@ -756,22 +756,22 @@ public class UserSession extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof UserSessionContextComponent))
+        if (!(other_ instanceof UserSessionContextComponent))
           return false;
-        UserSessionContextComponent o = (UserSessionContextComponent) other;
+        UserSessionContextComponent o = (UserSessionContextComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof UserSessionContextComponent))
+        if (!(other_ instanceof UserSessionContextComponent))
           return false;
-        UserSessionContextComponent o = (UserSessionContextComponent) other;
+        UserSessionContextComponent o = (UserSessionContextComponent) other_;
         return compareValues(type, o.type, true);
       }
 
@@ -1391,24 +1391,24 @@ public class UserSession extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof UserSession))
+        if (!(other_ instanceof UserSession))
           return false;
-        UserSession o = (UserSession) other;
+        UserSession o = (UserSession) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(user, o.user, true) && compareDeep(status, o.status, true)
            && compareDeep(workstation, o.workstation, true) && compareDeep(focus, o.focus, true) && compareDeep(created, o.created, true)
            && compareDeep(expires, o.expires, true) && compareDeep(context, o.context, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof UserSession))
+        if (!(other_ instanceof UserSession))
           return false;
-        UserSession o = (UserSession) other;
+        UserSession o = (UserSession) other_;
         return compareValues(created, o.created, true) && compareValues(expires, o.expires, true);
       }
 

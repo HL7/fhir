@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -549,22 +549,22 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImplementationGuideDependencyComponent))
+        if (!(other_ instanceof ImplementationGuideDependencyComponent))
           return false;
-        ImplementationGuideDependencyComponent o = (ImplementationGuideDependencyComponent) other;
+        ImplementationGuideDependencyComponent o = (ImplementationGuideDependencyComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(uri, o.uri, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImplementationGuideDependencyComponent))
+        if (!(other_ instanceof ImplementationGuideDependencyComponent))
           return false;
-        ImplementationGuideDependencyComponent o = (ImplementationGuideDependencyComponent) other;
+        ImplementationGuideDependencyComponent o = (ImplementationGuideDependencyComponent) other_;
         return compareValues(type, o.type, true) && compareValues(uri, o.uri, true);
       }
 
@@ -876,23 +876,23 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImplementationGuidePackageComponent))
+        if (!(other_ instanceof ImplementationGuidePackageComponent))
           return false;
-        ImplementationGuidePackageComponent o = (ImplementationGuidePackageComponent) other;
+        ImplementationGuidePackageComponent o = (ImplementationGuidePackageComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(resource, o.resource, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImplementationGuidePackageComponent))
+        if (!(other_ instanceof ImplementationGuidePackageComponent))
           return false;
-        ImplementationGuidePackageComponent o = (ImplementationGuidePackageComponent) other;
+        ImplementationGuidePackageComponent o = (ImplementationGuidePackageComponent) other_;
         return compareValues(name, o.name, true) && compareValues(description, o.description, true);
       }
 
@@ -1413,24 +1413,24 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImplementationGuidePackageResourceComponent))
+        if (!(other_ instanceof ImplementationGuidePackageResourceComponent))
           return false;
-        ImplementationGuidePackageResourceComponent o = (ImplementationGuidePackageResourceComponent) other;
+        ImplementationGuidePackageResourceComponent o = (ImplementationGuidePackageResourceComponent) other_;
         return compareDeep(example, o.example, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
            && compareDeep(acronym, o.acronym, true) && compareDeep(source, o.source, true) && compareDeep(exampleFor, o.exampleFor, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImplementationGuidePackageResourceComponent))
+        if (!(other_ instanceof ImplementationGuidePackageResourceComponent))
           return false;
-        ImplementationGuidePackageResourceComponent o = (ImplementationGuidePackageResourceComponent) other;
+        ImplementationGuidePackageResourceComponent o = (ImplementationGuidePackageResourceComponent) other_;
         return compareValues(example, o.example, true) && compareValues(name, o.name, true) && compareValues(description, o.description, true)
            && compareValues(acronym, o.acronym, true);
       }
@@ -1669,22 +1669,22 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImplementationGuideGlobalComponent))
+        if (!(other_ instanceof ImplementationGuideGlobalComponent))
           return false;
-        ImplementationGuideGlobalComponent o = (ImplementationGuideGlobalComponent) other;
+        ImplementationGuideGlobalComponent o = (ImplementationGuideGlobalComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(profile, o.profile, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImplementationGuideGlobalComponent))
+        if (!(other_ instanceof ImplementationGuideGlobalComponent))
           return false;
-        ImplementationGuideGlobalComponent o = (ImplementationGuideGlobalComponent) other;
+        ImplementationGuideGlobalComponent o = (ImplementationGuideGlobalComponent) other_;
         return compareValues(type, o.type, true);
       }
 
@@ -2306,24 +2306,24 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImplementationGuidePageComponent))
+        if (!(other_ instanceof ImplementationGuidePageComponent))
           return false;
-        ImplementationGuidePageComponent o = (ImplementationGuidePageComponent) other;
+        ImplementationGuidePageComponent o = (ImplementationGuidePageComponent) other_;
         return compareDeep(source, o.source, true) && compareDeep(title, o.title, true) && compareDeep(kind, o.kind, true)
            && compareDeep(type, o.type, true) && compareDeep(package_, o.package_, true) && compareDeep(format, o.format, true)
            && compareDeep(page, o.page, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImplementationGuidePageComponent))
+        if (!(other_ instanceof ImplementationGuidePageComponent))
           return false;
-        ImplementationGuidePageComponent o = (ImplementationGuidePageComponent) other;
+        ImplementationGuidePageComponent o = (ImplementationGuidePageComponent) other_;
         return compareValues(source, o.source, true) && compareValues(title, o.title, true) && compareValues(kind, o.kind, true)
            && compareValues(type, o.type, true) && compareValues(package_, o.package_, true) && compareValues(format, o.format, true)
           ;
@@ -3642,24 +3642,24 @@ public class ImplementationGuide extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ImplementationGuide))
+        if (!(other_ instanceof ImplementationGuide))
           return false;
-        ImplementationGuide o = (ImplementationGuide) other;
+        ImplementationGuide o = (ImplementationGuide) other_;
         return compareDeep(copyright, o.copyright, true) && compareDeep(fhirVersion, o.fhirVersion, true)
            && compareDeep(dependency, o.dependency, true) && compareDeep(package_, o.package_, true) && compareDeep(global, o.global, true)
            && compareDeep(binary, o.binary, true) && compareDeep(page, o.page, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ImplementationGuide))
+        if (!(other_ instanceof ImplementationGuide))
           return false;
-        ImplementationGuide o = (ImplementationGuide) other;
+        ImplementationGuide o = (ImplementationGuide) other_;
         return compareValues(copyright, o.copyright, true) && compareValues(fhirVersion, o.fhirVersion, true)
            && compareValues(binary, o.binary, true);
       }

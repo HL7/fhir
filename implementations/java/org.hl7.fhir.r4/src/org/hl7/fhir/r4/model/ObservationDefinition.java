@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -370,23 +370,23 @@ public class ObservationDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ObservationDefinitionQuantitativeDetailsComponent))
+        if (!(other_ instanceof ObservationDefinitionQuantitativeDetailsComponent))
           return false;
-        ObservationDefinitionQuantitativeDetailsComponent o = (ObservationDefinitionQuantitativeDetailsComponent) other;
+        ObservationDefinitionQuantitativeDetailsComponent o = (ObservationDefinitionQuantitativeDetailsComponent) other_;
         return compareDeep(customaryUnit, o.customaryUnit, true) && compareDeep(unit, o.unit, true) && compareDeep(conversionFactor, o.conversionFactor, true)
            && compareDeep(decimalPrecision, o.decimalPrecision, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ObservationDefinitionQuantitativeDetailsComponent))
+        if (!(other_ instanceof ObservationDefinitionQuantitativeDetailsComponent))
           return false;
-        ObservationDefinitionQuantitativeDetailsComponent o = (ObservationDefinitionQuantitativeDetailsComponent) other;
+        ObservationDefinitionQuantitativeDetailsComponent o = (ObservationDefinitionQuantitativeDetailsComponent) other_;
         return compareValues(conversionFactor, o.conversionFactor, true) && compareValues(decimalPrecision, o.decimalPrecision, true)
           ;
       }
@@ -859,24 +859,24 @@ public class ObservationDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ObservationDefinitionQualifiedIntervalComponent))
+        if (!(other_ instanceof ObservationDefinitionQualifiedIntervalComponent))
           return false;
-        ObservationDefinitionQualifiedIntervalComponent o = (ObservationDefinitionQualifiedIntervalComponent) other;
+        ObservationDefinitionQualifiedIntervalComponent o = (ObservationDefinitionQualifiedIntervalComponent) other_;
         return compareDeep(category, o.category, true) && compareDeep(range, o.range, true) && compareDeep(type, o.type, true)
            && compareDeep(appliesTo, o.appliesTo, true) && compareDeep(age, o.age, true) && compareDeep(gestationalAge, o.gestationalAge, true)
            && compareDeep(condition, o.condition, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ObservationDefinitionQualifiedIntervalComponent))
+        if (!(other_ instanceof ObservationDefinitionQualifiedIntervalComponent))
           return false;
-        ObservationDefinitionQualifiedIntervalComponent o = (ObservationDefinitionQualifiedIntervalComponent) other;
+        ObservationDefinitionQualifiedIntervalComponent o = (ObservationDefinitionQualifiedIntervalComponent) other_;
         return compareValues(condition, o.condition, true);
       }
 
@@ -1740,12 +1740,12 @@ public class ObservationDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ObservationDefinition))
+        if (!(other_ instanceof ObservationDefinition))
           return false;
-        ObservationDefinition o = (ObservationDefinition) other;
+        ObservationDefinition o = (ObservationDefinition) other_;
         return compareDeep(category, o.category, true) && compareDeep(code, o.code, true) && compareDeep(permittedDataType, o.permittedDataType, true)
            && compareDeep(multipleResultsAllowed, o.multipleResultsAllowed, true) && compareDeep(method, o.method, true)
            && compareDeep(preferredReportName, o.preferredReportName, true) && compareDeep(quantitativeDetails, o.quantitativeDetails, true)
@@ -1755,12 +1755,12 @@ public class ObservationDefinition extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ObservationDefinition))
+        if (!(other_ instanceof ObservationDefinition))
           return false;
-        ObservationDefinition o = (ObservationDefinition) other;
+        ObservationDefinition o = (ObservationDefinition) other_;
         return compareValues(multipleResultsAllowed, o.multipleResultsAllowed, true) && compareValues(preferredReportName, o.preferredReportName, true)
            && compareValues(validCodedValueSet, o.validCodedValueSet, true) && compareValues(normalCodedValueSet, o.normalCodedValueSet, true)
            && compareValues(abnormalCodedValueSet, o.abnormalCodedValueSet, true) && compareValues(criticalCodedValueSet, o.criticalCodedValueSet, true)

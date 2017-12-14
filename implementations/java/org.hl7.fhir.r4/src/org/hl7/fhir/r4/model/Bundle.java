@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -701,22 +701,22 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof BundleLinkComponent))
+        if (!(other_ instanceof BundleLinkComponent))
           return false;
-        BundleLinkComponent o = (BundleLinkComponent) other;
+        BundleLinkComponent o = (BundleLinkComponent) other_;
         return compareDeep(relation, o.relation, true) && compareDeep(url, o.url, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof BundleLinkComponent))
+        if (!(other_ instanceof BundleLinkComponent))
           return false;
-        BundleLinkComponent o = (BundleLinkComponent) other;
+        BundleLinkComponent o = (BundleLinkComponent) other_;
         return compareValues(relation, o.relation, true) && compareValues(url, o.url, true);
       }
 
@@ -1189,24 +1189,24 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof BundleEntryComponent))
+        if (!(other_ instanceof BundleEntryComponent))
           return false;
-        BundleEntryComponent o = (BundleEntryComponent) other;
+        BundleEntryComponent o = (BundleEntryComponent) other_;
         return compareDeep(link, o.link, true) && compareDeep(fullUrl, o.fullUrl, true) && compareDeep(resource, o.resource, true)
            && compareDeep(search, o.search, true) && compareDeep(request, o.request, true) && compareDeep(response, o.response, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof BundleEntryComponent))
+        if (!(other_ instanceof BundleEntryComponent))
           return false;
-        BundleEntryComponent o = (BundleEntryComponent) other;
+        BundleEntryComponent o = (BundleEntryComponent) other_;
         return compareValues(fullUrl, o.fullUrl, true);
       }
 
@@ -1458,22 +1458,22 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof BundleEntrySearchComponent))
+        if (!(other_ instanceof BundleEntrySearchComponent))
           return false;
-        BundleEntrySearchComponent o = (BundleEntrySearchComponent) other;
+        BundleEntrySearchComponent o = (BundleEntrySearchComponent) other_;
         return compareDeep(mode, o.mode, true) && compareDeep(score, o.score, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof BundleEntrySearchComponent))
+        if (!(other_ instanceof BundleEntrySearchComponent))
           return false;
-        BundleEntrySearchComponent o = (BundleEntrySearchComponent) other;
+        BundleEntrySearchComponent o = (BundleEntrySearchComponent) other_;
         return compareValues(mode, o.mode, true) && compareValues(score, o.score, true);
       }
 
@@ -1987,24 +1987,24 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof BundleEntryRequestComponent))
+        if (!(other_ instanceof BundleEntryRequestComponent))
           return false;
-        BundleEntryRequestComponent o = (BundleEntryRequestComponent) other;
+        BundleEntryRequestComponent o = (BundleEntryRequestComponent) other_;
         return compareDeep(method, o.method, true) && compareDeep(url, o.url, true) && compareDeep(ifNoneMatch, o.ifNoneMatch, true)
            && compareDeep(ifModifiedSince, o.ifModifiedSince, true) && compareDeep(ifMatch, o.ifMatch, true)
            && compareDeep(ifNoneExist, o.ifNoneExist, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof BundleEntryRequestComponent))
+        if (!(other_ instanceof BundleEntryRequestComponent))
           return false;
-        BundleEntryRequestComponent o = (BundleEntryRequestComponent) other;
+        BundleEntryRequestComponent o = (BundleEntryRequestComponent) other_;
         return compareValues(method, o.method, true) && compareValues(url, o.url, true) && compareValues(ifNoneMatch, o.ifNoneMatch, true)
            && compareValues(ifModifiedSince, o.ifModifiedSince, true) && compareValues(ifMatch, o.ifMatch, true)
            && compareValues(ifNoneExist, o.ifNoneExist, true);
@@ -2421,23 +2421,23 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof BundleEntryResponseComponent))
+        if (!(other_ instanceof BundleEntryResponseComponent))
           return false;
-        BundleEntryResponseComponent o = (BundleEntryResponseComponent) other;
+        BundleEntryResponseComponent o = (BundleEntryResponseComponent) other_;
         return compareDeep(status, o.status, true) && compareDeep(location, o.location, true) && compareDeep(etag, o.etag, true)
            && compareDeep(lastModified, o.lastModified, true) && compareDeep(outcome, o.outcome, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof BundleEntryResponseComponent))
+        if (!(other_ instanceof BundleEntryResponseComponent))
           return false;
-        BundleEntryResponseComponent o = (BundleEntryResponseComponent) other;
+        BundleEntryResponseComponent o = (BundleEntryResponseComponent) other_;
         return compareValues(status, o.status, true) && compareValues(location, o.location, true) && compareValues(etag, o.etag, true)
            && compareValues(lastModified, o.lastModified, true);
       }
@@ -3044,24 +3044,24 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Bundle))
+        if (!(other_ instanceof Bundle))
           return false;
-        Bundle o = (Bundle) other;
+        Bundle o = (Bundle) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(timestamp, o.timestamp, true)
            && compareDeep(total, o.total, true) && compareDeep(link, o.link, true) && compareDeep(entry, o.entry, true)
            && compareDeep(signature, o.signature, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Bundle))
+        if (!(other_ instanceof Bundle))
           return false;
-        Bundle o = (Bundle) other;
+        Bundle o = (Bundle) other_;
         return compareValues(type, o.type, true) && compareValues(timestamp, o.timestamp, true) && compareValues(total, o.total, true)
           ;
       }

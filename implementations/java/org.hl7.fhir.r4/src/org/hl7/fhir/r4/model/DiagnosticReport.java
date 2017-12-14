@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -492,22 +492,22 @@ public class DiagnosticReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DiagnosticReportMediaComponent))
+        if (!(other_ instanceof DiagnosticReportMediaComponent))
           return false;
-        DiagnosticReportMediaComponent o = (DiagnosticReportMediaComponent) other;
+        DiagnosticReportMediaComponent o = (DiagnosticReportMediaComponent) other_;
         return compareDeep(comment, o.comment, true) && compareDeep(link, o.link, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DiagnosticReportMediaComponent))
+        if (!(other_ instanceof DiagnosticReportMediaComponent))
           return false;
-        DiagnosticReportMediaComponent o = (DiagnosticReportMediaComponent) other;
+        DiagnosticReportMediaComponent o = (DiagnosticReportMediaComponent) other_;
         return compareValues(comment, o.comment, true);
       }
 
@@ -2030,12 +2030,12 @@ public class DiagnosticReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DiagnosticReport))
+        if (!(other_ instanceof DiagnosticReport))
           return false;
-        DiagnosticReport o = (DiagnosticReport) other;
+        DiagnosticReport o = (DiagnosticReport) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(status, o.status, true)
            && compareDeep(category, o.category, true) && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true)
            && compareDeep(context, o.context, true) && compareDeep(effective, o.effective, true) && compareDeep(issued, o.issued, true)
@@ -2046,12 +2046,12 @@ public class DiagnosticReport extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DiagnosticReport))
+        if (!(other_ instanceof DiagnosticReport))
           return false;
-        DiagnosticReport o = (DiagnosticReport) other;
+        DiagnosticReport o = (DiagnosticReport) other_;
         return compareValues(status, o.status, true) && compareValues(issued, o.issued, true) && compareValues(conclusion, o.conclusion, true)
           ;
       }

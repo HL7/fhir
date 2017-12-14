@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -245,22 +245,22 @@ public class DocumentManifest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DocumentManifestAgentComponent))
+        if (!(other_ instanceof DocumentManifestAgentComponent))
           return false;
-        DocumentManifestAgentComponent o = (DocumentManifestAgentComponent) other;
+        DocumentManifestAgentComponent o = (DocumentManifestAgentComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(who, o.who, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DocumentManifestAgentComponent))
+        if (!(other_ instanceof DocumentManifestAgentComponent))
           return false;
-        DocumentManifestAgentComponent o = (DocumentManifestAgentComponent) other;
+        DocumentManifestAgentComponent o = (DocumentManifestAgentComponent) other_;
         return true;
       }
 
@@ -462,22 +462,22 @@ public class DocumentManifest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DocumentManifestRelatedComponent))
+        if (!(other_ instanceof DocumentManifestRelatedComponent))
           return false;
-        DocumentManifestRelatedComponent o = (DocumentManifestRelatedComponent) other;
+        DocumentManifestRelatedComponent o = (DocumentManifestRelatedComponent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(ref, o.ref, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DocumentManifestRelatedComponent))
+        if (!(other_ instanceof DocumentManifestRelatedComponent))
           return false;
-        DocumentManifestRelatedComponent o = (DocumentManifestRelatedComponent) other;
+        DocumentManifestRelatedComponent o = (DocumentManifestRelatedComponent) other_;
         return true;
       }
 
@@ -1440,12 +1440,12 @@ public class DocumentManifest extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DocumentManifest))
+        if (!(other_ instanceof DocumentManifest))
           return false;
-        DocumentManifest o = (DocumentManifest) other;
+        DocumentManifest o = (DocumentManifest) other_;
         return compareDeep(masterIdentifier, o.masterIdentifier, true) && compareDeep(identifier, o.identifier, true)
            && compareDeep(status, o.status, true) && compareDeep(type, o.type, true) && compareDeep(subject, o.subject, true)
            && compareDeep(created, o.created, true) && compareDeep(agent, o.agent, true) && compareDeep(recipient, o.recipient, true)
@@ -1454,12 +1454,12 @@ public class DocumentManifest extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DocumentManifest))
+        if (!(other_ instanceof DocumentManifest))
           return false;
-        DocumentManifest o = (DocumentManifest) other;
+        DocumentManifest o = (DocumentManifest) other_;
         return compareValues(status, o.status, true) && compareValues(created, o.created, true) && compareValues(source, o.source, true)
            && compareValues(description, o.description, true);
       }

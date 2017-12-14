@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -993,12 +993,12 @@ public abstract class MetadataResource extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof MetadataResource))
+        if (!(other_ instanceof MetadataResource))
           return false;
-        MetadataResource o = (MetadataResource) other;
+        MetadataResource o = (MetadataResource) other_;
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
            && compareDeep(title, o.title, true) && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(date, o.date, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
@@ -1007,12 +1007,12 @@ public abstract class MetadataResource extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof MetadataResource))
+        if (!(other_ instanceof MetadataResource))
           return false;
-        MetadataResource o = (MetadataResource) other;
+        MetadataResource o = (MetadataResource) other_;
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
            && compareValues(title, o.title, true) && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true)
            && compareValues(date, o.date, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)

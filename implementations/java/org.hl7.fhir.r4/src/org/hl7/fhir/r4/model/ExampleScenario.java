@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -2625,23 +2625,23 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenarioActorComponent))
+        if (!(other_ instanceof ExampleScenarioActorComponent))
           return false;
-        ExampleScenarioActorComponent o = (ExampleScenarioActorComponent) other;
+        ExampleScenarioActorComponent o = (ExampleScenarioActorComponent) other_;
         return compareDeep(actorId, o.actorId, true) && compareDeep(type, o.type, true) && compareDeep(name, o.name, true)
            && compareDeep(description, o.description, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenarioActorComponent))
+        if (!(other_ instanceof ExampleScenarioActorComponent))
           return false;
-        ExampleScenarioActorComponent o = (ExampleScenarioActorComponent) other;
+        ExampleScenarioActorComponent o = (ExampleScenarioActorComponent) other_;
         return compareValues(actorId, o.actorId, true) && compareValues(type, o.type, true) && compareValues(name, o.name, true)
            && compareValues(description, o.description, true);
       }
@@ -3173,24 +3173,24 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenarioInstanceComponent))
+        if (!(other_ instanceof ExampleScenarioInstanceComponent))
           return false;
-        ExampleScenarioInstanceComponent o = (ExampleScenarioInstanceComponent) other;
+        ExampleScenarioInstanceComponent o = (ExampleScenarioInstanceComponent) other_;
         return compareDeep(resourceId, o.resourceId, true) && compareDeep(resourceType, o.resourceType, true)
            && compareDeep(name, o.name, true) && compareDeep(description, o.description, true) && compareDeep(version, o.version, true)
            && compareDeep(containedInstance, o.containedInstance, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenarioInstanceComponent))
+        if (!(other_ instanceof ExampleScenarioInstanceComponent))
           return false;
-        ExampleScenarioInstanceComponent o = (ExampleScenarioInstanceComponent) other;
+        ExampleScenarioInstanceComponent o = (ExampleScenarioInstanceComponent) other_;
         return compareValues(resourceId, o.resourceId, true) && compareValues(resourceType, o.resourceType, true)
            && compareValues(name, o.name, true) && compareValues(description, o.description, true);
       }
@@ -3423,23 +3423,23 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenarioInstanceVersionComponent))
+        if (!(other_ instanceof ExampleScenarioInstanceVersionComponent))
           return false;
-        ExampleScenarioInstanceVersionComponent o = (ExampleScenarioInstanceVersionComponent) other;
+        ExampleScenarioInstanceVersionComponent o = (ExampleScenarioInstanceVersionComponent) other_;
         return compareDeep(versionId, o.versionId, true) && compareDeep(description, o.description, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenarioInstanceVersionComponent))
+        if (!(other_ instanceof ExampleScenarioInstanceVersionComponent))
           return false;
-        ExampleScenarioInstanceVersionComponent o = (ExampleScenarioInstanceVersionComponent) other;
+        ExampleScenarioInstanceVersionComponent o = (ExampleScenarioInstanceVersionComponent) other_;
         return compareValues(versionId, o.versionId, true) && compareValues(description, o.description, true)
           ;
       }
@@ -3674,23 +3674,23 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenarioInstanceContainedInstanceComponent))
+        if (!(other_ instanceof ExampleScenarioInstanceContainedInstanceComponent))
           return false;
-        ExampleScenarioInstanceContainedInstanceComponent o = (ExampleScenarioInstanceContainedInstanceComponent) other;
+        ExampleScenarioInstanceContainedInstanceComponent o = (ExampleScenarioInstanceContainedInstanceComponent) other_;
         return compareDeep(resourceId, o.resourceId, true) && compareDeep(versionId, o.versionId, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenarioInstanceContainedInstanceComponent))
+        if (!(other_ instanceof ExampleScenarioInstanceContainedInstanceComponent))
           return false;
-        ExampleScenarioInstanceContainedInstanceComponent o = (ExampleScenarioInstanceContainedInstanceComponent) other;
+        ExampleScenarioInstanceContainedInstanceComponent o = (ExampleScenarioInstanceContainedInstanceComponent) other_;
         return compareValues(resourceId, o.resourceId, true) && compareValues(versionId, o.versionId, true)
           ;
       }
@@ -4143,23 +4143,23 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessComponent))
+        if (!(other_ instanceof ExampleScenarioProcessComponent))
           return false;
-        ExampleScenarioProcessComponent o = (ExampleScenarioProcessComponent) other;
+        ExampleScenarioProcessComponent o = (ExampleScenarioProcessComponent) other_;
         return compareDeep(title, o.title, true) && compareDeep(description, o.description, true) && compareDeep(preConditions, o.preConditions, true)
            && compareDeep(postConditions, o.postConditions, true) && compareDeep(step, o.step, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessComponent))
+        if (!(other_ instanceof ExampleScenarioProcessComponent))
           return false;
-        ExampleScenarioProcessComponent o = (ExampleScenarioProcessComponent) other;
+        ExampleScenarioProcessComponent o = (ExampleScenarioProcessComponent) other_;
         return compareValues(title, o.title, true) && compareValues(description, o.description, true) && compareValues(preConditions, o.preConditions, true)
            && compareValues(postConditions, o.postConditions, true);
       }
@@ -4487,23 +4487,23 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessStepComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepComponent))
           return false;
-        ExampleScenarioProcessStepComponent o = (ExampleScenarioProcessStepComponent) other;
+        ExampleScenarioProcessStepComponent o = (ExampleScenarioProcessStepComponent) other_;
         return compareDeep(process, o.process, true) && compareDeep(pause, o.pause, true) && compareDeep(operation, o.operation, true)
            && compareDeep(alternative, o.alternative, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessStepComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepComponent))
           return false;
-        ExampleScenarioProcessStepComponent o = (ExampleScenarioProcessStepComponent) other;
+        ExampleScenarioProcessStepComponent o = (ExampleScenarioProcessStepComponent) other_;
         return compareValues(pause, o.pause, true);
       }
 
@@ -5242,12 +5242,12 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessStepOperationComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepOperationComponent))
           return false;
-        ExampleScenarioProcessStepOperationComponent o = (ExampleScenarioProcessStepOperationComponent) other;
+        ExampleScenarioProcessStepOperationComponent o = (ExampleScenarioProcessStepOperationComponent) other_;
         return compareDeep(number, o.number, true) && compareDeep(type, o.type, true) && compareDeep(name, o.name, true)
            && compareDeep(initiator, o.initiator, true) && compareDeep(receiver, o.receiver, true) && compareDeep(description, o.description, true)
            && compareDeep(initiatorActive, o.initiatorActive, true) && compareDeep(receiverActive, o.receiverActive, true)
@@ -5255,12 +5255,12 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessStepOperationComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepOperationComponent))
           return false;
-        ExampleScenarioProcessStepOperationComponent o = (ExampleScenarioProcessStepOperationComponent) other;
+        ExampleScenarioProcessStepOperationComponent o = (ExampleScenarioProcessStepOperationComponent) other_;
         return compareValues(number, o.number, true) && compareValues(type, o.type, true) && compareValues(name, o.name, true)
            && compareValues(initiator, o.initiator, true) && compareValues(receiver, o.receiver, true) && compareValues(description, o.description, true)
            && compareValues(initiatorActive, o.initiatorActive, true) && compareValues(receiverActive, o.receiverActive, true)
@@ -5502,22 +5502,22 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessStepAlternativeComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeComponent))
           return false;
-        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other;
+        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(option, o.option, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessStepAlternativeComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeComponent))
           return false;
-        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other;
+        ExampleScenarioProcessStepAlternativeComponent o = (ExampleScenarioProcessStepAlternativeComponent) other_;
         return compareValues(name, o.name, true);
       }
 
@@ -5845,23 +5845,23 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessStepAlternativeOptionComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeOptionComponent))
           return false;
-        ExampleScenarioProcessStepAlternativeOptionComponent o = (ExampleScenarioProcessStepAlternativeOptionComponent) other;
+        ExampleScenarioProcessStepAlternativeOptionComponent o = (ExampleScenarioProcessStepAlternativeOptionComponent) other_;
         return compareDeep(description, o.description, true) && compareDeep(step, o.step, true) && compareDeep(pause, o.pause, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenarioProcessStepAlternativeOptionComponent))
+        if (!(other_ instanceof ExampleScenarioProcessStepAlternativeOptionComponent))
           return false;
-        ExampleScenarioProcessStepAlternativeOptionComponent o = (ExampleScenarioProcessStepAlternativeOptionComponent) other;
+        ExampleScenarioProcessStepAlternativeOptionComponent o = (ExampleScenarioProcessStepAlternativeOptionComponent) other_;
         return compareValues(description, o.description, true) && compareValues(pause, o.pause, true);
       }
 
@@ -7266,24 +7266,24 @@ public class ExampleScenario extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ExampleScenario))
+        if (!(other_ instanceof ExampleScenario))
           return false;
-        ExampleScenario o = (ExampleScenario) other;
+        ExampleScenario o = (ExampleScenario) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(purpose, o.purpose, true) && compareDeep(actor, o.actor, true) && compareDeep(instance, o.instance, true)
            && compareDeep(process, o.process, true) && compareDeep(workflow, o.workflow, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ExampleScenario))
+        if (!(other_ instanceof ExampleScenario))
           return false;
-        ExampleScenario o = (ExampleScenario) other;
+        ExampleScenario o = (ExampleScenario) other_;
         return compareValues(copyright, o.copyright, true) && compareValues(purpose, o.purpose, true);
       }
 

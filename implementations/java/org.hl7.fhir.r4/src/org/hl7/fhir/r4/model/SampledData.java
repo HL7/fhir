@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -670,24 +670,24 @@ public class SampledData extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SampledData))
+        if (!(other_ instanceof SampledData))
           return false;
-        SampledData o = (SampledData) other;
+        SampledData o = (SampledData) other_;
         return compareDeep(origin, o.origin, true) && compareDeep(period, o.period, true) && compareDeep(factor, o.factor, true)
            && compareDeep(lowerLimit, o.lowerLimit, true) && compareDeep(upperLimit, o.upperLimit, true) && compareDeep(dimensions, o.dimensions, true)
            && compareDeep(data, o.data, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SampledData))
+        if (!(other_ instanceof SampledData))
           return false;
-        SampledData o = (SampledData) other;
+        SampledData o = (SampledData) other_;
         return compareValues(period, o.period, true) && compareValues(factor, o.factor, true) && compareValues(lowerLimit, o.lowerLimit, true)
            && compareValues(upperLimit, o.upperLimit, true) && compareValues(dimensions, o.dimensions, true) && compareValues(data, o.data, true)
           ;

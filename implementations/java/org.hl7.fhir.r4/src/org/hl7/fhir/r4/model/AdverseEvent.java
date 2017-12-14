@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -367,22 +367,22 @@ public class AdverseEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AdverseEventSuspectEntityComponent))
+        if (!(other_ instanceof AdverseEventSuspectEntityComponent))
           return false;
-        AdverseEventSuspectEntityComponent o = (AdverseEventSuspectEntityComponent) other;
+        AdverseEventSuspectEntityComponent o = (AdverseEventSuspectEntityComponent) other_;
         return compareDeep(instance, o.instance, true) && compareDeep(causality, o.causality, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AdverseEventSuspectEntityComponent))
+        if (!(other_ instanceof AdverseEventSuspectEntityComponent))
           return false;
-        AdverseEventSuspectEntityComponent o = (AdverseEventSuspectEntityComponent) other;
+        AdverseEventSuspectEntityComponent o = (AdverseEventSuspectEntityComponent) other_;
         return true;
       }
 
@@ -702,23 +702,23 @@ public class AdverseEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AdverseEventSuspectEntityCausalityComponent))
+        if (!(other_ instanceof AdverseEventSuspectEntityCausalityComponent))
           return false;
-        AdverseEventSuspectEntityCausalityComponent o = (AdverseEventSuspectEntityCausalityComponent) other;
+        AdverseEventSuspectEntityCausalityComponent o = (AdverseEventSuspectEntityCausalityComponent) other_;
         return compareDeep(assessment, o.assessment, true) && compareDeep(productRelatedness, o.productRelatedness, true)
            && compareDeep(author, o.author, true) && compareDeep(method, o.method, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AdverseEventSuspectEntityCausalityComponent))
+        if (!(other_ instanceof AdverseEventSuspectEntityCausalityComponent))
           return false;
-        AdverseEventSuspectEntityCausalityComponent o = (AdverseEventSuspectEntityCausalityComponent) other;
+        AdverseEventSuspectEntityCausalityComponent o = (AdverseEventSuspectEntityCausalityComponent) other_;
         return compareValues(productRelatedness, o.productRelatedness, true);
       }
 
@@ -2101,12 +2101,12 @@ public class AdverseEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AdverseEvent))
+        if (!(other_ instanceof AdverseEvent))
           return false;
-        AdverseEvent o = (AdverseEvent) other;
+        AdverseEvent o = (AdverseEvent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(actuality, o.actuality, true)
            && compareDeep(category, o.category, true) && compareDeep(event, o.event, true) && compareDeep(subject, o.subject, true)
            && compareDeep(date, o.date, true) && compareDeep(resultingCondition, o.resultingCondition, true)
@@ -2118,12 +2118,12 @@ public class AdverseEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AdverseEvent))
+        if (!(other_ instanceof AdverseEvent))
           return false;
-        AdverseEvent o = (AdverseEvent) other;
+        AdverseEvent o = (AdverseEvent) other_;
         return compareValues(actuality, o.actuality, true) && compareValues(date, o.date, true) && compareValues(description, o.description, true)
           ;
       }

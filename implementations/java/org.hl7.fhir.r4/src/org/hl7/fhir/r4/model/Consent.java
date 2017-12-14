@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -760,22 +760,22 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConsentPolicyComponent))
+        if (!(other_ instanceof ConsentPolicyComponent))
           return false;
-        ConsentPolicyComponent o = (ConsentPolicyComponent) other;
+        ConsentPolicyComponent o = (ConsentPolicyComponent) other_;
         return compareDeep(authority, o.authority, true) && compareDeep(uri, o.uri, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConsentPolicyComponent))
+        if (!(other_ instanceof ConsentPolicyComponent))
           return false;
-        ConsentPolicyComponent o = (ConsentPolicyComponent) other;
+        ConsentPolicyComponent o = (ConsentPolicyComponent) other_;
         return compareValues(authority, o.authority, true) && compareValues(uri, o.uri, true);
       }
 
@@ -1075,23 +1075,23 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConsentVerificationComponent))
+        if (!(other_ instanceof ConsentVerificationComponent))
           return false;
-        ConsentVerificationComponent o = (ConsentVerificationComponent) other;
+        ConsentVerificationComponent o = (ConsentVerificationComponent) other_;
         return compareDeep(verified, o.verified, true) && compareDeep(verifiedWith, o.verifiedWith, true)
            && compareDeep(verificationDate, o.verificationDate, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConsentVerificationComponent))
+        if (!(other_ instanceof ConsentVerificationComponent))
           return false;
-        ConsentVerificationComponent o = (ConsentVerificationComponent) other;
+        ConsentVerificationComponent o = (ConsentVerificationComponent) other_;
         return compareValues(verified, o.verified, true) && compareValues(verificationDate, o.verificationDate, true)
           ;
       }
@@ -1977,12 +1977,12 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof provisionComponent))
+        if (!(other_ instanceof provisionComponent))
           return false;
-        provisionComponent o = (provisionComponent) other;
+        provisionComponent o = (provisionComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(period, o.period, true) && compareDeep(actor, o.actor, true)
            && compareDeep(action, o.action, true) && compareDeep(securityLabel, o.securityLabel, true) && compareDeep(purpose, o.purpose, true)
            && compareDeep(class_, o.class_, true) && compareDeep(code, o.code, true) && compareDeep(dataPeriod, o.dataPeriod, true)
@@ -1990,12 +1990,12 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof provisionComponent))
+        if (!(other_ instanceof provisionComponent))
           return false;
-        provisionComponent o = (provisionComponent) other;
+        provisionComponent o = (provisionComponent) other_;
         return compareValues(type, o.type, true);
       }
 
@@ -2208,22 +2208,22 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof provisionActorComponent))
+        if (!(other_ instanceof provisionActorComponent))
           return false;
-        provisionActorComponent o = (provisionActorComponent) other;
+        provisionActorComponent o = (provisionActorComponent) other_;
         return compareDeep(role, o.role, true) && compareDeep(reference, o.reference, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof provisionActorComponent))
+        if (!(other_ instanceof provisionActorComponent))
           return false;
-        provisionActorComponent o = (provisionActorComponent) other;
+        provisionActorComponent o = (provisionActorComponent) other_;
         return true;
       }
 
@@ -2457,22 +2457,22 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof provisionDataComponent))
+        if (!(other_ instanceof provisionDataComponent))
           return false;
-        provisionDataComponent o = (provisionDataComponent) other;
+        provisionDataComponent o = (provisionDataComponent) other_;
         return compareDeep(meaning, o.meaning, true) && compareDeep(reference, o.reference, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof provisionDataComponent))
+        if (!(other_ instanceof provisionDataComponent))
           return false;
-        provisionDataComponent o = (provisionDataComponent) other;
+        provisionDataComponent o = (provisionDataComponent) other_;
         return compareValues(meaning, o.meaning, true);
       }
 
@@ -3524,12 +3524,12 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Consent))
+        if (!(other_ instanceof Consent))
           return false;
-        Consent o = (Consent) other;
+        Consent o = (Consent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(scope, o.scope, true)
            && compareDeep(category, o.category, true) && compareDeep(patient, o.patient, true) && compareDeep(dateTime, o.dateTime, true)
            && compareDeep(consentingParty, o.consentingParty, true) && compareDeep(organization, o.organization, true)
@@ -3539,12 +3539,12 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Consent))
+        if (!(other_ instanceof Consent))
           return false;
-        Consent o = (Consent) other;
+        Consent o = (Consent) other_;
         return compareValues(status, o.status, true) && compareValues(scope, o.scope, true) && compareValues(dateTime, o.dateTime, true)
           ;
       }

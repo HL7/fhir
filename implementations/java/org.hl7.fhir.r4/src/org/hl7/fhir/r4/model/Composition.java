@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -984,23 +984,23 @@ public class Composition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CompositionAttesterComponent))
+        if (!(other_ instanceof CompositionAttesterComponent))
           return false;
-        CompositionAttesterComponent o = (CompositionAttesterComponent) other;
+        CompositionAttesterComponent o = (CompositionAttesterComponent) other_;
         return compareDeep(mode, o.mode, true) && compareDeep(time, o.time, true) && compareDeep(party, o.party, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CompositionAttesterComponent))
+        if (!(other_ instanceof CompositionAttesterComponent))
           return false;
-        CompositionAttesterComponent o = (CompositionAttesterComponent) other;
+        CompositionAttesterComponent o = (CompositionAttesterComponent) other_;
         return compareValues(mode, o.mode, true) && compareValues(time, o.time, true);
       }
 
@@ -1243,22 +1243,22 @@ public class Composition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CompositionRelatesToComponent))
+        if (!(other_ instanceof CompositionRelatesToComponent))
           return false;
-        CompositionRelatesToComponent o = (CompositionRelatesToComponent) other;
+        CompositionRelatesToComponent o = (CompositionRelatesToComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(target, o.target, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CompositionRelatesToComponent))
+        if (!(other_ instanceof CompositionRelatesToComponent))
           return false;
-        CompositionRelatesToComponent o = (CompositionRelatesToComponent) other;
+        CompositionRelatesToComponent o = (CompositionRelatesToComponent) other_;
         return compareValues(code, o.code, true);
       }
 
@@ -1566,23 +1566,23 @@ public class Composition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof CompositionEventComponent))
+        if (!(other_ instanceof CompositionEventComponent))
           return false;
-        CompositionEventComponent o = (CompositionEventComponent) other;
+        CompositionEventComponent o = (CompositionEventComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(period, o.period, true) && compareDeep(detail, o.detail, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof CompositionEventComponent))
+        if (!(other_ instanceof CompositionEventComponent))
           return false;
-        CompositionEventComponent o = (CompositionEventComponent) other;
+        CompositionEventComponent o = (CompositionEventComponent) other_;
         return true;
       }
 
@@ -2173,24 +2173,24 @@ public class Composition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SectionComponent))
+        if (!(other_ instanceof SectionComponent))
           return false;
-        SectionComponent o = (SectionComponent) other;
+        SectionComponent o = (SectionComponent) other_;
         return compareDeep(title, o.title, true) && compareDeep(code, o.code, true) && compareDeep(text, o.text, true)
            && compareDeep(mode, o.mode, true) && compareDeep(orderedBy, o.orderedBy, true) && compareDeep(entry, o.entry, true)
            && compareDeep(emptyReason, o.emptyReason, true) && compareDeep(section, o.section, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SectionComponent))
+        if (!(other_ instanceof SectionComponent))
           return false;
-        SectionComponent o = (SectionComponent) other;
+        SectionComponent o = (SectionComponent) other_;
         return compareValues(title, o.title, true) && compareValues(mode, o.mode, true);
       }
 
@@ -3326,12 +3326,12 @@ public class Composition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Composition))
+        if (!(other_ instanceof Composition))
           return false;
-        Composition o = (Composition) other;
+        Composition o = (Composition) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
            && compareDeep(class_, o.class_, true) && compareDeep(subject, o.subject, true) && compareDeep(encounter, o.encounter, true)
            && compareDeep(date, o.date, true) && compareDeep(author, o.author, true) && compareDeep(title, o.title, true)
@@ -3341,12 +3341,12 @@ public class Composition extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Composition))
+        if (!(other_ instanceof Composition))
           return false;
-        Composition o = (Composition) other;
+        Composition o = (Composition) other_;
         return compareValues(status, o.status, true) && compareValues(date, o.date, true) && compareValues(title, o.title, true)
            && compareValues(confidentiality, o.confidentiality, true);
       }

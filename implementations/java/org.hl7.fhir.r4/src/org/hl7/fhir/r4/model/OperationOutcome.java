@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1207,24 +1207,24 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OperationOutcomeIssueComponent))
+        if (!(other_ instanceof OperationOutcomeIssueComponent))
           return false;
-        OperationOutcomeIssueComponent o = (OperationOutcomeIssueComponent) other;
+        OperationOutcomeIssueComponent o = (OperationOutcomeIssueComponent) other_;
         return compareDeep(severity, o.severity, true) && compareDeep(code, o.code, true) && compareDeep(details, o.details, true)
            && compareDeep(diagnostics, o.diagnostics, true) && compareDeep(location, o.location, true) && compareDeep(expression, o.expression, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OperationOutcomeIssueComponent))
+        if (!(other_ instanceof OperationOutcomeIssueComponent))
           return false;
-        OperationOutcomeIssueComponent o = (OperationOutcomeIssueComponent) other;
+        OperationOutcomeIssueComponent o = (OperationOutcomeIssueComponent) other_;
         return compareValues(severity, o.severity, true) && compareValues(code, o.code, true) && compareValues(diagnostics, o.diagnostics, true)
            && compareValues(location, o.location, true) && compareValues(expression, o.expression, true);
       }
@@ -1401,22 +1401,22 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OperationOutcome))
+        if (!(other_ instanceof OperationOutcome))
           return false;
-        OperationOutcome o = (OperationOutcome) other;
+        OperationOutcome o = (OperationOutcome) other_;
         return compareDeep(issue, o.issue, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OperationOutcome))
+        if (!(other_ instanceof OperationOutcome))
           return false;
-        OperationOutcome o = (OperationOutcome) other;
+        OperationOutcome o = (OperationOutcome) other_;
         return true;
       }
 

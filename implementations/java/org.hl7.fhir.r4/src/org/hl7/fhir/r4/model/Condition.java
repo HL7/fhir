@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -654,23 +654,23 @@ public class Condition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConditionStageComponent))
+        if (!(other_ instanceof ConditionStageComponent))
           return false;
-        ConditionStageComponent o = (ConditionStageComponent) other;
+        ConditionStageComponent o = (ConditionStageComponent) other_;
         return compareDeep(summary, o.summary, true) && compareDeep(assessment, o.assessment, true) && compareDeep(type, o.type, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConditionStageComponent))
+        if (!(other_ instanceof ConditionStageComponent))
           return false;
-        ConditionStageComponent o = (ConditionStageComponent) other;
+        ConditionStageComponent o = (ConditionStageComponent) other_;
         return true;
       }
 
@@ -933,22 +933,22 @@ public class Condition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof ConditionEvidenceComponent))
+        if (!(other_ instanceof ConditionEvidenceComponent))
           return false;
-        ConditionEvidenceComponent o = (ConditionEvidenceComponent) other;
+        ConditionEvidenceComponent o = (ConditionEvidenceComponent) other_;
         return compareDeep(code, o.code, true) && compareDeep(detail, o.detail, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof ConditionEvidenceComponent))
+        if (!(other_ instanceof ConditionEvidenceComponent))
           return false;
-        ConditionEvidenceComponent o = (ConditionEvidenceComponent) other;
+        ConditionEvidenceComponent o = (ConditionEvidenceComponent) other_;
         return true;
       }
 
@@ -2355,12 +2355,12 @@ public class Condition extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Condition))
+        if (!(other_ instanceof Condition))
           return false;
-        Condition o = (Condition) other;
+        Condition o = (Condition) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(clinicalStatus, o.clinicalStatus, true)
            && compareDeep(verificationStatus, o.verificationStatus, true) && compareDeep(category, o.category, true)
            && compareDeep(severity, o.severity, true) && compareDeep(code, o.code, true) && compareDeep(bodySite, o.bodySite, true)
@@ -2371,12 +2371,12 @@ public class Condition extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Condition))
+        if (!(other_ instanceof Condition))
           return false;
-        Condition o = (Condition) other;
+        Condition o = (Condition) other_;
         return compareValues(clinicalStatus, o.clinicalStatus, true) && compareValues(verificationStatus, o.verificationStatus, true)
            && compareValues(assertedDate, o.assertedDate, true);
       }

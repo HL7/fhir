@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -835,23 +835,23 @@ public class SearchParameter extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SearchParameterComponentComponent))
+        if (!(other_ instanceof SearchParameterComponentComponent))
           return false;
-        SearchParameterComponentComponent o = (SearchParameterComponentComponent) other;
+        SearchParameterComponentComponent o = (SearchParameterComponentComponent) other_;
         return compareDeep(definition, o.definition, true) && compareDeep(expression, o.expression, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SearchParameterComponentComponent))
+        if (!(other_ instanceof SearchParameterComponentComponent))
           return false;
-        SearchParameterComponentComponent o = (SearchParameterComponentComponent) other;
+        SearchParameterComponentComponent o = (SearchParameterComponentComponent) other_;
         return compareValues(expression, o.expression, true);
       }
 
@@ -2664,12 +2664,12 @@ public class SearchParameter extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof SearchParameter))
+        if (!(other_ instanceof SearchParameter))
           return false;
-        SearchParameter o = (SearchParameter) other;
+        SearchParameter o = (SearchParameter) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(code, o.code, true) && compareDeep(base, o.base, true)
            && compareDeep(type, o.type, true) && compareDeep(derivedFrom, o.derivedFrom, true) && compareDeep(expression, o.expression, true)
            && compareDeep(xpath, o.xpath, true) && compareDeep(xpathUsage, o.xpathUsage, true) && compareDeep(target, o.target, true)
@@ -2678,12 +2678,12 @@ public class SearchParameter extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof SearchParameter))
+        if (!(other_ instanceof SearchParameter))
           return false;
-        SearchParameter o = (SearchParameter) other;
+        SearchParameter o = (SearchParameter) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(code, o.code, true) && compareValues(base, o.base, true)
            && compareValues(type, o.type, true) && compareValues(derivedFrom, o.derivedFrom, true) && compareValues(expression, o.expression, true)
            && compareValues(xpath, o.xpath, true) && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true)

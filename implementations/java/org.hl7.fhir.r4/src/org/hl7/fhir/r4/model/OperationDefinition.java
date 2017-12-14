@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1011,12 +1011,12 @@ public class OperationDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OperationDefinitionParameterComponent))
+        if (!(other_ instanceof OperationDefinitionParameterComponent))
           return false;
-        OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other;
+        OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other_;
         return compareDeep(name, o.name, true) && compareDeep(use, o.use, true) && compareDeep(min, o.min, true)
            && compareDeep(max, o.max, true) && compareDeep(documentation, o.documentation, true) && compareDeep(type, o.type, true)
            && compareDeep(targetProfile, o.targetProfile, true) && compareDeep(searchType, o.searchType, true)
@@ -1024,12 +1024,12 @@ public class OperationDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OperationDefinitionParameterComponent))
+        if (!(other_ instanceof OperationDefinitionParameterComponent))
           return false;
-        OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other;
+        OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other_;
         return compareValues(name, o.name, true) && compareValues(use, o.use, true) && compareValues(min, o.min, true)
            && compareValues(max, o.max, true) && compareValues(documentation, o.documentation, true) && compareValues(type, o.type, true)
            && compareValues(targetProfile, o.targetProfile, true) && compareValues(searchType, o.searchType, true)
@@ -1276,22 +1276,22 @@ public class OperationDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OperationDefinitionParameterBindingComponent))
+        if (!(other_ instanceof OperationDefinitionParameterBindingComponent))
           return false;
-        OperationDefinitionParameterBindingComponent o = (OperationDefinitionParameterBindingComponent) other;
+        OperationDefinitionParameterBindingComponent o = (OperationDefinitionParameterBindingComponent) other_;
         return compareDeep(strength, o.strength, true) && compareDeep(valueSet, o.valueSet, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OperationDefinitionParameterBindingComponent))
+        if (!(other_ instanceof OperationDefinitionParameterBindingComponent))
           return false;
-        OperationDefinitionParameterBindingComponent o = (OperationDefinitionParameterBindingComponent) other;
+        OperationDefinitionParameterBindingComponent o = (OperationDefinitionParameterBindingComponent) other_;
         return compareValues(strength, o.strength, true);
       }
 
@@ -1537,23 +1537,23 @@ public class OperationDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OperationDefinitionOverloadComponent))
+        if (!(other_ instanceof OperationDefinitionOverloadComponent))
           return false;
-        OperationDefinitionOverloadComponent o = (OperationDefinitionOverloadComponent) other;
+        OperationDefinitionOverloadComponent o = (OperationDefinitionOverloadComponent) other_;
         return compareDeep(parameterName, o.parameterName, true) && compareDeep(comment, o.comment, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OperationDefinitionOverloadComponent))
+        if (!(other_ instanceof OperationDefinitionOverloadComponent))
           return false;
-        OperationDefinitionOverloadComponent o = (OperationDefinitionOverloadComponent) other;
+        OperationDefinitionOverloadComponent o = (OperationDefinitionOverloadComponent) other_;
         return compareValues(parameterName, o.parameterName, true) && compareValues(comment, o.comment, true)
           ;
       }
@@ -3367,12 +3367,12 @@ public class OperationDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof OperationDefinition))
+        if (!(other_ instanceof OperationDefinition))
           return false;
-        OperationDefinition o = (OperationDefinition) other;
+        OperationDefinition o = (OperationDefinition) other_;
         return compareDeep(kind, o.kind, true) && compareDeep(purpose, o.purpose, true) && compareDeep(affectsState, o.affectsState, true)
            && compareDeep(code, o.code, true) && compareDeep(comment, o.comment, true) && compareDeep(base, o.base, true)
            && compareDeep(resource, o.resource, true) && compareDeep(system, o.system, true) && compareDeep(type, o.type, true)
@@ -3381,12 +3381,12 @@ public class OperationDefinition extends MetadataResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof OperationDefinition))
+        if (!(other_ instanceof OperationDefinition))
           return false;
-        OperationDefinition o = (OperationDefinition) other;
+        OperationDefinition o = (OperationDefinition) other_;
         return compareValues(kind, o.kind, true) && compareValues(purpose, o.purpose, true) && compareValues(affectsState, o.affectsState, true)
            && compareValues(code, o.code, true) && compareValues(comment, o.comment, true) && compareValues(resource, o.resource, true)
            && compareValues(system, o.system, true) && compareValues(type, o.type, true) && compareValues(instance, o.instance, true)

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1849,12 +1849,12 @@ public class Media extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Media))
+        if (!(other_ instanceof Media))
           return false;
-        Media o = (Media) other;
+        Media o = (Media) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true)
            && compareDeep(status, o.status, true) && compareDeep(category, o.category, true) && compareDeep(modality, o.modality, true)
            && compareDeep(view, o.view, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
@@ -1866,12 +1866,12 @@ public class Media extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Media))
+        if (!(other_ instanceof Media))
           return false;
-        Media o = (Media) other;
+        Media o = (Media) other_;
         return compareValues(status, o.status, true) && compareValues(issued, o.issued, true) && compareValues(deviceName, o.deviceName, true)
            && compareValues(height, o.height, true) && compareValues(width, o.width, true) && compareValues(frames, o.frames, true)
            && compareValues(duration, o.duration, true);

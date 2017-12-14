@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1309,12 +1309,12 @@ public class AuditEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AuditEventAgentComponent))
+        if (!(other_ instanceof AuditEventAgentComponent))
           return false;
-        AuditEventAgentComponent o = (AuditEventAgentComponent) other;
+        AuditEventAgentComponent o = (AuditEventAgentComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(role, o.role, true) && compareDeep(reference, o.reference, true)
            && compareDeep(userId, o.userId, true) && compareDeep(altId, o.altId, true) && compareDeep(name, o.name, true)
            && compareDeep(requestor, o.requestor, true) && compareDeep(location, o.location, true) && compareDeep(policy, o.policy, true)
@@ -1323,12 +1323,12 @@ public class AuditEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AuditEventAgentComponent))
+        if (!(other_ instanceof AuditEventAgentComponent))
           return false;
-        AuditEventAgentComponent o = (AuditEventAgentComponent) other;
+        AuditEventAgentComponent o = (AuditEventAgentComponent) other_;
         return compareValues(altId, o.altId, true) && compareValues(name, o.name, true) && compareValues(requestor, o.requestor, true)
            && compareValues(policy, o.policy, true);
       }
@@ -1563,22 +1563,22 @@ public class AuditEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AuditEventAgentNetworkComponent))
+        if (!(other_ instanceof AuditEventAgentNetworkComponent))
           return false;
-        AuditEventAgentNetworkComponent o = (AuditEventAgentNetworkComponent) other;
+        AuditEventAgentNetworkComponent o = (AuditEventAgentNetworkComponent) other_;
         return compareDeep(address, o.address, true) && compareDeep(type, o.type, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AuditEventAgentNetworkComponent))
+        if (!(other_ instanceof AuditEventAgentNetworkComponent))
           return false;
-        AuditEventAgentNetworkComponent o = (AuditEventAgentNetworkComponent) other;
+        AuditEventAgentNetworkComponent o = (AuditEventAgentNetworkComponent) other_;
         return compareValues(address, o.address, true) && compareValues(type, o.type, true);
       }
 
@@ -1871,23 +1871,23 @@ public class AuditEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AuditEventSourceComponent))
+        if (!(other_ instanceof AuditEventSourceComponent))
           return false;
-        AuditEventSourceComponent o = (AuditEventSourceComponent) other;
+        AuditEventSourceComponent o = (AuditEventSourceComponent) other_;
         return compareDeep(site, o.site, true) && compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AuditEventSourceComponent))
+        if (!(other_ instanceof AuditEventSourceComponent))
           return false;
-        AuditEventSourceComponent o = (AuditEventSourceComponent) other;
+        AuditEventSourceComponent o = (AuditEventSourceComponent) other_;
         return compareValues(site, o.site, true);
       }
 
@@ -2597,12 +2597,12 @@ public class AuditEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AuditEventEntityComponent))
+        if (!(other_ instanceof AuditEventEntityComponent))
           return false;
-        AuditEventEntityComponent o = (AuditEventEntityComponent) other;
+        AuditEventEntityComponent o = (AuditEventEntityComponent) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(reference, o.reference, true)
            && compareDeep(type, o.type, true) && compareDeep(role, o.role, true) && compareDeep(lifecycle, o.lifecycle, true)
            && compareDeep(securityLabel, o.securityLabel, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
@@ -2610,12 +2610,12 @@ public class AuditEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AuditEventEntityComponent))
+        if (!(other_ instanceof AuditEventEntityComponent))
           return false;
-        AuditEventEntityComponent o = (AuditEventEntityComponent) other;
+        AuditEventEntityComponent o = (AuditEventEntityComponent) other_;
         return compareValues(name, o.name, true) && compareValues(description, o.description, true) && compareValues(query, o.query, true)
           ;
       }
@@ -2857,22 +2857,22 @@ public class AuditEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AuditEventEntityDetailComponent))
+        if (!(other_ instanceof AuditEventEntityDetailComponent))
           return false;
-        AuditEventEntityDetailComponent o = (AuditEventEntityDetailComponent) other;
+        AuditEventEntityDetailComponent o = (AuditEventEntityDetailComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(value, o.value, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AuditEventEntityDetailComponent))
+        if (!(other_ instanceof AuditEventEntityDetailComponent))
           return false;
-        AuditEventEntityDetailComponent o = (AuditEventEntityDetailComponent) other;
+        AuditEventEntityDetailComponent o = (AuditEventEntityDetailComponent) other_;
         return compareValues(type, o.type, true);
       }
 
@@ -3714,12 +3714,12 @@ public class AuditEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof AuditEvent))
+        if (!(other_ instanceof AuditEvent))
           return false;
-        AuditEvent o = (AuditEvent) other;
+        AuditEvent o = (AuditEvent) other_;
         return compareDeep(type, o.type, true) && compareDeep(subtype, o.subtype, true) && compareDeep(action, o.action, true)
            && compareDeep(period, o.period, true) && compareDeep(recorded, o.recorded, true) && compareDeep(outcome, o.outcome, true)
            && compareDeep(outcomeDesc, o.outcomeDesc, true) && compareDeep(purposeOfEvent, o.purposeOfEvent, true)
@@ -3728,12 +3728,12 @@ public class AuditEvent extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof AuditEvent))
+        if (!(other_ instanceof AuditEvent))
           return false;
-        AuditEvent o = (AuditEvent) other;
+        AuditEvent o = (AuditEvent) other_;
         return compareValues(action, o.action, true) && compareValues(recorded, o.recorded, true) && compareValues(outcome, o.outcome, true)
            && compareValues(outcomeDesc, o.outcomeDesc, true);
       }

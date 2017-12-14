@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -355,22 +355,22 @@ public class Linkage extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof LinkageItemComponent))
+        if (!(other_ instanceof LinkageItemComponent))
           return false;
-        LinkageItemComponent o = (LinkageItemComponent) other;
+        LinkageItemComponent o = (LinkageItemComponent) other_;
         return compareDeep(type, o.type, true) && compareDeep(resource, o.resource, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof LinkageItemComponent))
+        if (!(other_ instanceof LinkageItemComponent))
           return false;
-        LinkageItemComponent o = (LinkageItemComponent) other;
+        LinkageItemComponent o = (LinkageItemComponent) other_;
         return compareValues(type, o.type, true);
       }
 
@@ -677,23 +677,23 @@ public class Linkage extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Linkage))
+        if (!(other_ instanceof Linkage))
           return false;
-        Linkage o = (Linkage) other;
+        Linkage o = (Linkage) other_;
         return compareDeep(active, o.active, true) && compareDeep(author, o.author, true) && compareDeep(item, o.item, true)
           ;
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Linkage))
+        if (!(other_ instanceof Linkage))
           return false;
-        Linkage o = (Linkage) other;
+        Linkage o = (Linkage) other_;
         return compareValues(active, o.active, true);
       }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -644,24 +644,24 @@ public class Signature extends Type implements ICompositeType {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof Signature))
+        if (!(other_ instanceof Signature))
           return false;
-        Signature o = (Signature) other;
+        Signature o = (Signature) other_;
         return compareDeep(type, o.type, true) && compareDeep(when, o.when, true) && compareDeep(who, o.who, true)
            && compareDeep(onBehalfOf, o.onBehalfOf, true) && compareDeep(targetFormat, o.targetFormat, true)
            && compareDeep(sigFormat, o.sigFormat, true) && compareDeep(blob, o.blob, true);
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof Signature))
+        if (!(other_ instanceof Signature))
           return false;
-        Signature o = (Signature) other;
+        Signature o = (Signature) other_;
         return compareValues(when, o.when, true) && compareValues(targetFormat, o.targetFormat, true) && compareValues(sigFormat, o.sigFormat, true)
            && compareValues(blob, o.blob, true);
       }

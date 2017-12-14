@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 07:38+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -1303,12 +1303,12 @@ public class DeviceUseStatement extends DomainResource {
       }
 
       @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
           return false;
-        if (!(other instanceof DeviceUseStatement))
+        if (!(other_ instanceof DeviceUseStatement))
           return false;
-        DeviceUseStatement o = (DeviceUseStatement) other;
+        DeviceUseStatement o = (DeviceUseStatement) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(status, o.status, true)
            && compareDeep(subject, o.subject, true) && compareDeep(derivedFrom, o.derivedFrom, true) && compareDeep(timing, o.timing, true)
            && compareDeep(recordedOn, o.recordedOn, true) && compareDeep(source, o.source, true) && compareDeep(device, o.device, true)
@@ -1317,12 +1317,12 @@ public class DeviceUseStatement extends DomainResource {
       }
 
       @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
           return false;
-        if (!(other instanceof DeviceUseStatement))
+        if (!(other_ instanceof DeviceUseStatement))
           return false;
-        DeviceUseStatement o = (DeviceUseStatement) other;
+        DeviceUseStatement o = (DeviceUseStatement) other_;
         return compareValues(status, o.status, true) && compareValues(recordedOn, o.recordedOn, true);
       }
 
