@@ -241,7 +241,7 @@
  -- Row 24 -----------------------------------
   Element = ProductPlan.coverage.benefit.item.benefitValue
   Card. = 0..1
-  Type = Money
+  Type = Quantity
   Short Name = Value of the specific benefit
 
  -- Row 25 -----------------------------------
@@ -316,7 +316,7 @@
  -- Row 37 -----------------------------------
   Element = ProductPlan.plan.category.benefit.cost.value
   Card. = 0..1
-  Type = Money
+  Type = Quantity
   Short Name = The actual cost value
 
  -- Row 38 -----------------------------------
@@ -422,5 +422,11 @@
   Identity = example
   Description = A general product plan example
   Filename = productplan-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = general ONC
+  Identity = example-onc
+  Description = A general product plan example with benefit detail
+  Filename = productplan-example-onc.xml
 
 === Sheet Examples =====================================

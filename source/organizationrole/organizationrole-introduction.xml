@@ -4,9 +4,21 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-PractitionerRole covers the recording of the location and types of services that Practitioners are able to provide
-for an organization.
+OrganizationRole describes the role an organization plays at an organization, including the services they provide,
+the location(s) where they provide services, and their availability, electronic endpoints, and other relevant information.
 </p>
+OrganizationRole addresses the need to define a non-hierarchical relationship between two or more organizations. For example:
+•One organization may provide services to another organization
+•Two or more organizations may form a partnership or joint venture
+•An organization may be a member of another organization, but not owned by it (e.g. a hospital is a member the American Hospital Association, a hospital is a member of a health information exchange network)
+
+OrganizationRole is similar in form and function to practitionerRole. Instead of references to practitioner and organization (as in practitionerRole), organizationRole includes references to a participatingOrg and a primaryOrg. The participating organization provides “services” to the primary organization (much like a practitioner provides services to an organization). Using the three examples above:
+•The participating organization provides services to the primary organization
+•The joint venture is considered the primary organization, and partners within the joint venture are considered participating organizations
+•An association is the primary organization, and its members are participating organizations.
+
+As with practitionerRole, organizationRole provides the link between an organization and a health insurance provider network.
+
 <p>
 The role, specialty, Location telecom and HealthcareService properties can be repeated if required in other instances
 of the PractitionerRole. Some systems record a collection of service values for a single location, others record the 
@@ -21,13 +33,6 @@ single service and the list of locations it is available. Both are acceptable op
 	Qualifications (from the Practitioner resource) do not imply a Role, but might be considered when an Organization 
   allocates practitioners to roles within their organization, and could provide useful information (such as expiry information)
   which could need to be tracked in some situations to ensure they continue to be eligible for a specific role.
-</p>
-<p>
-  The <a href="careteam.html">CareTeam</a> resource is also often used to provide details of a role that a practitioner is
-  allocated to perform, but is usually scoped to a much finer granularity of care, and often within the specific context
-  of a <a href="patient.html">Patient</a>, or functional role (e.g. Crisis planning team). In contrast the PractitionerRole
-  is used in a more general sense to cover all the places that the practitioner is allocated to work (and specific details
-  relevant to that role - such as a specific contact number, or electronic services endpoint).
 </p>
 </div>
 

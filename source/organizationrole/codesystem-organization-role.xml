@@ -11,34 +11,40 @@
   <concept>
     <code value="provider"/>
     <display value="Provider"/>
-    <!-- Need to have definitions written <definition value=""/> -->
   </concept>
   <concept>
     <code value="agency"/>
     <display value="Agency"/>
+    <definition value="An organization such as a public health agency, community/social services provider, etc."/>
   </concept>
   <concept>
     <code value="research"/>
     <display value="Research"/>
+    <definition value="An organization providing research-related services such as conducting research, recruiting research participants, analyzing data, etc"/>
   </concept>
   <concept>
     <code value="payer"/>
     <display value="Payer"/>
+    <definition value="An organization providing reimbursement, payment, or related services"/>
   </concept>
   <concept>
     <code value="diagnostics"/>
     <display value="Diagnostics"/>
+    <definition value="An organization providing diagnostic testing/laboratory services"/>
   </concept>
   <concept>
     <code value="supplier"/>
     <display value="Supplier"/>
+    <definition value="An organization that provides medical supplies (e.g. medical devices, equipment, pharmaceutical products, etc.)"/>
   </concept>
   <concept>
     <code value="HIE/HIO"/>
     <display value="HIE/HIO"/>
+    <definition value="An organization that facilitates electronic clinical data exchange between entities"/>
   </concept>
   <concept>
     <code value="member"/>
     <display value="Member"/>
+    <definition value="A type of non-ownership relationship between entities (encompassess partnerships, collaboration, joint ventures, etc.)"/>
   </concept>
 </CodeSystem>
