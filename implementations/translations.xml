@@ -614,6 +614,9 @@
 		<translation lang="es">DefinicionDeEspecimen</translation>
 		<translation lang="zh">观察定义</translation>
 	</item>
+	<item id="OccupationalData">
+		<translation lang="en">OccupationalData</translation>
+	</item>
 	<item id="OperationDefinition">
 		<translation lang="en">OperationDefinition</translation>
 		<translation lang="fr">DéfinitionOpération</translation>

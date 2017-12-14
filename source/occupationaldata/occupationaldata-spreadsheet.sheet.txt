@@ -1,0 +1,391 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = HistoryOfEmploymentStatus
+  Binding = code list
+  Reference = #history-of-employment-status
+  Definition = 74165-2 History of Employment Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+  Conformance = required
+  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
+
+ -- Row 2 -----------------------------------
+  Binding Name = EmploymentStatus
+  Binding = Unbound
+  Definition = Employment Status urn:oid:2.16.840.1.114222.4.11.7129 DYNAMIC
+
+ -- Row 3 -----------------------------------
+  Binding Name = RetirementStatus
+  Binding = code list
+  Reference = #retirement-status
+  Definition = 87510-4 Retirement Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+  Conformance = required
+  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
+
+ -- Row 4 -----------------------------------
+  Binding Name = YesNoUnknown
+  Binding = Unbound
+  Definition = Yes No Unknown (YNU) (urn:oid:2.16.840.1.114222.4.11.888)
+
+ -- Row 5 -----------------------------------
+  Binding Name = HazardousDutyWork
+  Binding = code list
+  Reference = #hazadardous-duty-work
+  Definition = 87511-2 Hazardous Duty Work (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+  Conformance = required
+  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
+
+ -- Row 6 -----------------------------------
+  Binding Name = HazardousDutyWorkValue
+  Binding = Unbound
+  Definition = Hazardous Duty Work Value
+
+ -- Row 7 -----------------------------------
+  Binding Name = UsualOccupation
+  Binding = code list
+  Reference = #usual-occupation
+  Definition = 21843-8 Usual Occupation (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+  Conformance = required
+  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
+
+ -- Row 8 -----------------------------------
+  Binding Name = OccupationCDCCensus2010
+  Binding = value set
+  Reference = valueset-occupation-cdc-census-2010
+  Definition = Occupation CDC Census 2010 (urn:oid:2.16.840.1.114222.4.11.7186)
+  Conformance = example
+  Uri = urn:oid:2.16.840.1.114222.4.11.7186
+  Oid = 2.16.840.1.114222.4.11.7186
+
+ -- Row 9 -----------------------------------
+  Binding Name = OccupationSubjectRelatedSubjectClassCode
+  Binding = code list
+  Reference = #occ-rel-subj-class-code
+  Definition = Occupation Subject Related Subject Class Code
+  Conformance = required
+
+ -- Row 10 -----------------------------------
+  Binding Name = FamilyMemberValueSet
+  Binding = Unbound
+  Definition = Family Member Value Set (urn:oid:2.16.840.1.113883.1.11.19579)
+
+ -- Row 11 -----------------------------------
+  Binding Name = UsualOccupationDuration
+  Binding = Unbound
+  Definition = 74163-7 Usual Occupation Duration (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+
+ -- Row 12 -----------------------------------
+  Binding Name = UsualIndustry
+  Binding = Unbound
+  Definition = 21844-6 Usual Industry (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+
+ -- Row 13 -----------------------------------
+  Binding Name = IndustryCDCCensus2010
+  Binding = Unbound
+  Definition = Industry CDC Census 2010 (urn:oid:2.16.840.1.114222.4.11.7187)
+
+ -- Row 14 -----------------------------------
+  Binding Name = HistoryOfOccupation
+  Binding = Unbound
+  Definition = 11341-5 History of Occupation (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+
+=== Sheet history-of-employment-status =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://loinc.org
+  Id = 1
+  Code = 74165-2
+  Display = History of employment status NIOSH
+  Definition = History of employment status NIOSH
+
+=== Sheet retirement-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = 87510-4
+  Display = Retirement Status
+  Definition = Retirement Status
+
+=== Sheet hazadardous-duty-work =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = 87511-2
+  Display = Hazardous Duty Work
+  Definition = Hazardous Duty Work
+
+=== Sheet usual-occupation =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://loinc.org
+  Id = 1
+  Code = 21843-8
+  Display = History of Usual occupation
+  Definition = History of Usual occupation
+
+=== Sheet occ-rel-subj-class-code =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = PRS
+  Display = Person
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = OccupationalData
+  Type = DomainResource
+  Short Name = Patient’s or family member\'s work information
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = OccupationalData.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Unique identifier for the occupational data record
+  Definition = Business identifier assigned to the occupational data record.
+  RIM Mapping = id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = OccupationalData.status
+  Card. = 1..1
+  Is Modifier = y
+  Summary = y
+  Type = code
+  Binding = PublicationStatus
+  Short Name = draft | active | retired | unknown
+  Definition = The status of this {{title}}. Enables tracking the life-cycle of the content.
+  Comments = Allows filtering of {{title}}s that are appropriate for use vs. not.  \nThis is labeled as \"Is Modifier\" because applications should not use a retired {{title}} without due consideration
+  Workflow Mapping = Definition.status
+  RIM Mapping = .status
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = OccupationalData.subject
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Patient)
+  Short Name = Who the occupational data is collected about
+  Workflow Mapping = Event.subject
+  RIM Mapping = .participation[typeCode=SBJ].role
+  OpenEHR mapping = Subject of Care
+  w5 = who.focus
+
+ -- Row 5 -----------------------------------
+  Element = OccupationalData.date
+  Card. = 1..1
+  Summary = y
+  Type = dateTime
+  Short Name = Occupational Data author time
+
+ -- Row 6 -----------------------------------
+  Element = OccupationalData.author
+  Card. = 1..*
+  Summary = y
+  Type = Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)
+  Short Name = Occupational Data author
+
+ -- Row 7 -----------------------------------
+  Element = OccupationalData.employmentStatus
+  Card. = 0..1
+  Short Name = Employment status
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+
+ -- Row 8 -----------------------------------
+  Element = OccupationalData.employmentStatus.code
+  Card. = 1..1
+  Type = code
+  Binding = HistoryOfEmploymentStatus
+  Short Name = 74165-2
+  RIM Mapping = code
+
+ -- Row 9 -----------------------------------
+  Element = OccupationalData.employmentStatus.effective[x]
+  Card. = 1..1
+  Type = dateTime | Period
+  Short Name = Employment status effective time
+  RIM Mapping = effectiveTime
+
+ -- Row 10 -----------------------------------
+  Element = OccupationalData.employmentStatus.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = EmploymentStatus
+  Short Name = Employment status value
+  RIM Mapping = value
+
+ -- Row 11 -----------------------------------
+  Element = OccupationalData.retirementStatus
+  Card. = 0..1
+  Short Name = Retirement status
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+
+ -- Row 12 -----------------------------------
+  Element = OccupationalData.retirementStatus.code
+  Card. = 1..1
+  Type = code
+  Binding = RetirementStatus
+  Short Name = 87510-4
+  RIM Mapping = code
+
+ -- Row 13 -----------------------------------
+  Element = OccupationalData.retirementStatus.effective[x]
+  Card. = 1..1
+  Type = dateTime | Period
+  Short Name = Retirement status effective time
+  RIM Mapping = effectiveTime
+
+ -- Row 14 -----------------------------------
+  Element = OccupationalData.retirementStatus.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = YesNoUnknown
+  Short Name = Retirement status value
+  RIM Mapping = value
+
+ -- Row 15 -----------------------------------
+  Element = OccupationalData.combatZoneHazardousDuty
+  Card. = 0..*
+  Short Name = Combat Zone Hazardous Duty
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+
+ -- Row 16 -----------------------------------
+  Element = OccupationalData.combatZoneHazardousDuty.code
+  Card. = 1..*
+  Type = code
+  Binding = HazardousDutyWork
+  Short Name = 87511-2
+  RIM Mapping = code
+
+ -- Row 17 -----------------------------------
+  Element = OccupationalData.combatZoneHazardousDuty.effective[x]
+  Card. = 1..1
+  Type = dateTime | Period
+  Short Name = Combat Zone Hazardous Duty effective time
+  RIM Mapping = effectiveTime
+
+ -- Row 18 -----------------------------------
+  Element = OccupationalData.combatZoneHazardousDuty.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = HazardousDutyWorkValue
+  Short Name = Combat Zone Hazardous Duty value
+  RIM Mapping = value
+
+ -- Row 19 -----------------------------------
+  Element = OccupationalData.usualOccupation
+  Card. = 0..1
+  Short Name = Usual Occupation
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+
+ -- Row 20 -----------------------------------
+  Element = OccupationalData.usualOccupation.code
+  Card. = 1..1
+  Type = code
+  Binding = UsualOccupation
+  Short Name = 21843-8
+  RIM Mapping = code
+
+ -- Row 21 -----------------------------------
+  Element = OccupationalData.usualOccupation.effective[x]
+  Card. = 1..1
+  Type = dateTime | Period
+  Short Name = Usual Occupation effective time
+  RIM Mapping = effectiveTime
+
+ -- Row 22 -----------------------------------
+  Element = OccupationalData.usualOccupation.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = OccupationCDCCensus2010
+  Short Name = Usual Occupation value
+  RIM Mapping = value
+
+ -- Row 23 -----------------------------------
+  Element = OccupationalData.usualOccupation.duration
+  Card. = 0..1
+  Short Name = Usual Occupation duration
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+
+ -- Row 24 -----------------------------------
+  Element = OccupationalData.usualOccupation.duration.code
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = UsualOccupationDuration
+  Short Name = Usual Occupation duration code
+  RIM Mapping = code
+
+ -- Row 25 -----------------------------------
+  Element = OccupationalData.usualOccupation.duration.value
+  Card. = 1..1
+  Type = Period
+  Short Name = Usual Occupation duration value
+  RIM Mapping = value
+
+ -- Row 26 -----------------------------------
+  Element = OccupationalData.usualOccupation.industry
+  Card. = 0..1
+  Short Name = Usual Occupation industry
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+
+ -- Row 27 -----------------------------------
+  Element = OccupationalData.usualOccupation.industry.code
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = UsualIndustry
+  Short Name = Usual Occupation industry code
+  RIM Mapping = code
+
+ -- Row 28 -----------------------------------
+  Element = OccupationalData.usualOccupation.industry.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = IndustryCDCCensus2010
+  Short Name = Usual Occupation industry value
+  RIM Mapping = value
+
+ -- Row 29 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation
+  Card. = 0..1
+  Short Name = Past Or Present Occupation
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+
+ -- Row 30 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.code
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = HistoryOfOccupation
+  Short Name = Past Or Present Occupation code
+  RIM Mapping = code
+
+ -- Row 31 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.effective[x]
+  Card. = 1..1
+  Type = dateTime | Period
+  Short Name = Past Or Present Occupation effective time
+  RIM Mapping = effectiveTime
+
+ -- Row 32 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = OccupationCDCCensus2010
+  Short Name = Past Or Present Occupation value
+  RIM Mapping = value
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = OccupationalData.subject
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

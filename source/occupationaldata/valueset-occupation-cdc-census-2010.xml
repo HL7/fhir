@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="occupation-cdc-census-2010"/>
+  <text>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>2010 Occupation coding system used by CDC (NIOSH &amp; NCHS) for coding occupation text. Occupation describes a set of activities or tasks that individuals are paid to perform or, if unpaid, define a person’s contribution to a household/family business/community.</p>
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ValueSet/valueset-occupation-cdc-census-2010"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.114222.4.11.7186"/>
+	</identifier>
+  <name value="Occupation CDC Census 2010"/>
+  <status value="active"/>
+  <publisher value="CDC PHIN VADS"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://phinvads.cdc.gov/vads/SearchHome.action"/>
+    </telecom>
+  </contact>
+  <description value="Occupation coding system used by CDC (NIOSH &amp; NCHS) for coding occupation text"/>
+  <compose>
+    <include>
+      <system value="urn:oid:2.16.840.1.114222.4.5.314"/>
+    </include>
+  </compose>
+</ValueSet>

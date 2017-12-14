@@ -20,11 +20,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8880</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
-  <RefModeR1C1/>
+  <WindowHeight>16360</WindowHeight>
+  <WindowWidth>27900</WindowWidth>
+  <WindowTopX>400</WindowTopX>
+  <WindowTopY>840</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -310,21 +309,30 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s90">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R105C30"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="108" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.400000000000006"
-   ss:DefaultRowHeight="25.95">
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="109" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65"
+   ss:DefaultRowHeight="26">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="237"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="69.599999999999994"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.400000000000006"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="70"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74"/>
    <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.6"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.4"/>
+   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="58"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92"/>
    <Column ss:Index="36" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -4228,6 +4236,26 @@
     <Cell ss:Index="14"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell ss:Index="16"><Data ss:Type="String">balanced</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s90"><Data ss:Type="String">OccupationalData.status</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">corrected, amended</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4245,7 +4273,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>73</TopRowBottomPane>
+   <TopRowBottomPane>103</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4262,7 +4290,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>83</ActiveRow>
+     <ActiveRow>109</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
