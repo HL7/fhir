@@ -663,8 +663,10 @@ Identifier. Tokens are also used against other fields where exact matches are re
 booleans, and <a href="datatypes.html#ContactPoint">ContactPoints</a>. In these cases, the URI portion is not used.
 </p>
 <p>
-For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features),
-but not case sensitive. To use subsumption based logic, use the modifiers below, or list
+For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features).
+Match is case sensitive unless the underlying semantics for the context indicate that the token should be interpreted case-insensitively 
+(see, e.g. <a href="codesystem-definitions.html#CodeSystem.caseSensitive">CodeSystem.caseSensitive</a>). 
+To use subsumption based logic, use the modifiers below, or list
 all the codes in the hierarchy. The syntax for the value is one of the following:
 </p>
 <ul>
