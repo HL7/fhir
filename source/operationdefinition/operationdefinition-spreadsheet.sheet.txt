@@ -134,12 +134,13 @@
   Workflow Mapping = Definition.purpose
 
  -- Row 15 -----------------------------------
-  Element = OperationDefinition.idempotent
+  Element = OperationDefinition.affectsState
   Card. = 0..1
   Summary = Y
   Type = boolean
   Short Name = Whether content is unchanged by the operation
-  Definition = Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST
+  Definition = Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST
+  Comments = Side effects such as producing audit trail entries do not count as \'changing state/content\'
 
  -- Row 16 -----------------------------------
   Element = OperationDefinition.code

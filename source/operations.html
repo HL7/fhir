@@ -50,7 +50,7 @@ Operations are executed using a URL derived from the FHIR endpoint, where the na
  POST http://fhir.someserver.org/fhir/Patient/1/$everything
 </pre>
 <p>
-When an operation is idempotent, and the parameters are all primitive data types with no extensions
+When an operation has affectsState = false, and the parameters are all primitive data types with no extensions
 (as is the case with the example above), it may be invoked using GET as well.
 </p>
 <p>
@@ -181,7 +181,7 @@ with respect to <a href="http.html#mime-type">content types</a>.
 </p>
 <p>
 If all the parameters for the operation are <a href="datatypes.html#primitive">primitive types</a>, and the operation
-is <i>idempotent</i> (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification
+has <code>affectsState</code> = false (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification
 definition of idempotent</a>), the operation may be invoked by performing an HTTP GET operation where
 all of the values of the parameters are appended to the URL in the search portion of the URL (e.g. after the '?' character).
 Servers SHALL support this method of invocation. E.g.
