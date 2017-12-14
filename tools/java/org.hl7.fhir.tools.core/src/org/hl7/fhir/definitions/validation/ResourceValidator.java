@@ -691,8 +691,11 @@ public class ResourceValidator extends BaseValidator {
     }
 		
 		if (e.hasBinding()) {
-		  rule(errors, IssueType.STRUCTURE, path, e.typeCode().equals("code") || e.typeCode().equals("id") || e.typeCode().contains("Coding") 
-				  || e.typeCode().contains("CodeableConcept") || e.typeCode().equals("uri"), "Can only specify bindings for coded data types");
+		  boolean ok = false;
+		  for (TypeRef tr : e.getTypes()) {
+		    ok = ok || Utilities.existsInList(tr.getName(), "code", "id", "Coding", "CodeableConcept", "uri", "Quantity");
+		  }
+		  rule(errors, IssueType.STRUCTURE, path, ok, "Can only specify bindings for coded data types (not ("+e.typeCode()+")");
 		  if (e.getBinding().getValueSet() != null && e.getBinding().getValueSet().getName() == null)
 		    throw new Error("unnamed value set on "+e.getBinding().getName());
 			BindingSpecification cd = e.getBinding();

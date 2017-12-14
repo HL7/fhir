@@ -144,7 +144,10 @@ public class TableGenerator extends BaseGenerator {
         cc.getPieces().add(gen.new Piece(prefix+"terminologies.html#"+b.getStrength().toCode(), b.getStrength().getDisplay(),  b.getStrength().getDefinition()));
         cc.getPieces().add(gen.new Piece(null, " but limited to ", null));
         ValueSet vs = b.getMaxValueSet();
-        cc.getPieces().add(gen.new Piece(vs.getUserString("path"), vs.getName(), null));
+        if (vs == null)
+          cc.getPieces().add(gen.new Piece(b.getMaxReference(), b.getMaxReference(), null));
+        else
+          cc.getPieces().add(gen.new Piece(vs.getUserString("path"), vs.getName(), null));
       }  else
         cc.getPieces().add(gen.new Piece(prefix+"terminologies.html#"+b.getStrength().toCode(), b.getStrength().getDisplay(),  b.getStrength().getDefinition()));
       cc.getPieces().add(gen.new Piece(null, ")", null));

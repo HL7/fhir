@@ -5,7 +5,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>
-        This value set includes all common UCUM codes used for Age - that it is, all commonly used units which have the same canonical unit as "a" (year)
+        This value set includes all common UCUM codes used for Duraction - that it is, all commonly used units which have the same canonical unit as "a" (year)
       </p>
       <p> 
         The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
@@ -13,7 +13,7 @@
     
     </div>
   </text>
-  <name value="Common UCUM Codes for Age"/>
+  <name value="Common UCUM Codes for Duration"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -28,8 +28,12 @@
     <include>
       <system value="http://unitsofmeasure.org"/>
       <concept>
-        <code value="min"/>
-        <display value="minutes"/>
+        <code value="ms"/>
+        <display value="milliseconds"/>
+      </concept>
+      <concept>
+        <code value="sec"/>
+        <display value="seconds"/>
       </concept>
       <concept>
         <code value="h"/>
@@ -51,6 +55,14 @@
         <code value="a"/>
         <display value="years"/>
       </concept>
+<!--
+This is the correct filter, but includes all sorts of units that would not be used for age such as /U, mg/kg/s
+      <filter>
+        <property value="canonical"/>
+        <op value="="/>
+        <value value="a"/>
+      </filter>
+-->       
     </include>
   </compose>
 </ValueSet>

@@ -1289,6 +1289,13 @@ public class SpreadsheetParser {
       cd.setV2Map(sheet.getColumn(row, "v2"));
       cd.setV3Map(checkV3Mapping(sheet.getColumn(row, "v3")));
 
+      String max = sheet.getColumn(row, "Max");
+      if (!Utilities.noString(max))
+        if (max.startsWith("http:")) {
+          cd.setMaxReference(max); // will sort this out later
+        } else
+          cd.setMaxValueSet(loadValueSet(max));
+      
 			bindings.put(cd.getName(), cd);
 	    if (cd.getValueSet() != null) {
 	      ValueSet vs = cd.getValueSet();

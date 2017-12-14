@@ -1,6 +1,13 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = DurationUnits
+  Binding = value set
+  Reference = valueset-duration-units
+  Definition = Appropriate units for Duration
+  Conformance = extensible
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -15,5 +22,6 @@
  -- Row 1 -----------------------------------
   Element = Duration
   Type = Quantity
+  Binding = DurationUnits
   Short Name = A length of time
   RIM Mapping = PQ, IVL<PQ> depending on the values

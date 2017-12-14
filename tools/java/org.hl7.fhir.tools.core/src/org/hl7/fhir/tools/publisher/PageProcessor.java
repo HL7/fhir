@@ -105,6 +105,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.parsers.OIDRegistry;
@@ -772,6 +773,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genResourceTable(definitions.getResourceByName(com[1]), genlevel(level))+s3;
       } else if (com[0].equals("dtextras")) {
         src = s1+produceDataTypeExtras(com[1])+s3;
+      } else if (com[0].equals("tx")) {
+        src = s1+produceDataTypeTx(com[1])+s3;
       } else if (com[0].equals("extension-diff")) {
         StructureDefinition ed = workerContext.fetchResource(StructureDefinition.class, com[1]);
         src = s1+generateExtensionTable(ed, "extension-"+com[1], "false", genlevel(level))+s3;
@@ -1166,6 +1169,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String produceDataTypeTx(String dtname) throws Exception {
+    
+    TypeDefn dt = definitions.getElementDefn(dtname);
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    
+    TerminologyNotesGenerator tgen = new TerminologyNotesGenerator(bs, this); 
+    tgen.setNoHeader(true);
+    tgen.generate("", dt);
+    tgen.close();
+    return new String(bs.toByteArray());
+
   }
 
   private String getNormativeList(String genlevel, String name) {
@@ -4908,6 +4924,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+dtR2R3Transform(com[1])+s3;
       } else if (com[0].equals("normative-pages")) {
         src = s1+getNormativeList(genlevel(level), com[1])+s3;
+      } else if (com[0].equals("tx")) {
+        src = s1+produceDataTypeTx(com[1])+s3;
       } else if (com[0].equals("normative")) {
         src = s1+s3;
       } else if (com[0].equals("diff-analysis")) {
@@ -5812,7 +5830,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String opStandardsStatusNotice(String n, StandardsStatus opStatus, StandardsStatus resStatus, String pack, String prefix) {
     if (resStatus == StandardsStatus.NORMATIVE && opStatus == StandardsStatus.TRIAL_USE)
       return "<p style=\"border: 1px black solid; background-color: #ffe6e6; padding: 5px\">\r\n" + 
-        "Normative Candidate Note: Though the resource is a candidate for normative for R4, this operation is not included. It's status will remain 'Trail Use' while more experience is gathered.\r\n" + 
+        "Normative Candidate Note: Though the resource is a candidate for normative for R4, this operation is not included. It's status will remain 'Trial Use' while more experience is gathered.\r\n" + 
         "</p>\r\n";
     if (resStatus == StandardsStatus.NORMATIVE && opStatus == null)
     

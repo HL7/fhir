@@ -85,7 +85,8 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
   
   
 	char c = 'A';
-	private Map<BindingSpecification, List<CDUsage>> txusages = new HashMap<BindingSpecification, List<CDUsage>>(); 
+	private Map<BindingSpecification, List<CDUsage>> txusages = new HashMap<BindingSpecification, List<CDUsage>>();
+  private boolean noHeader; 
 	
 	public TerminologyNotesGenerator(OutputStream out, PageProcessor page) throws UnsupportedEncodingException {
 		super(out, "UTF-8");
@@ -159,7 +160,10 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 			return;
 		
 		Collections.sort(cds, new MyCompare());
-		write("<h3>\r\nTerminology Bindings\r\n</h3>\r\n");
+		if (noHeader)
+	    write("<p>\r\n<b>Terminology Bindings</b>\r\n</p>\r\n");
+		else
+		  write("<h3>\r\nTerminology Bindings\r\n</h3>\r\n");
 		// 1. new form
     write("<table class=\"grid\">\r\n");
     write(" <tr><th>Path</th><th>Definition</th><th>Type</th><th>Reference</th></tr>\r\n");
@@ -186,8 +190,12 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       else { 
         if (cd.hasMax()) {
           ValueSet vs = cd.getMaxValueSet();
-          String pp = (String) vs.getUserData("path");
-          write("<td><a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>, but limited to <a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a></td>");
+          if (vs == null) {
+            write("<td><a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>, but limited to <a href=\""+cd.getMaxReference()+"\">"+cd.getMaxReference()+"</a></td>");
+          } else {
+            String pp = (String) vs.getUserData("path");
+            write("<td><a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>, but limited to <a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a></td>");
+          }
         } else
           write("<td><a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a></td>");
         write("<td valign=\"top\">");
@@ -421,6 +429,11 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 		for (ElementDefn c : e.getElements()) {
 			scan(c, path+"."+c.getName());
 		}		
-	}  
+	}
+
+  public void setNoHeader(boolean noHeader) {
+    this.noHeader = noHeader;
+    
+  }  
 	
 }

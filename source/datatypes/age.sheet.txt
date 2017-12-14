@@ -6,6 +6,7 @@
   Binding = value set
   Reference = valueset-age-units
   Definition = Appropriate units for Age
+  Conformance = extensible
 
 === Sheet Invariants =====================================
 
@@ -21,9 +22,6 @@
  -- Row 1 -----------------------------------
   Element = Age
   Type = Quantity
+  Binding = AgeUnits
   Short Name = A duration of time during which an organism (or a process) has existed
   RIM Mapping = PQ
-
- -- Row 2 -----------------------------------
-  Element = !Age.code
-  Binding = AgeUnits

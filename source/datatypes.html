@@ -472,6 +472,7 @@ the specified <code>mimeType</code> and/or <code>language</code> is available fo
 The context of use may frequently make rules about the kind of attachment
 (and therefore, the kind of mime types) that can be used.
 </p>
+[%tx Attachment%]
 </div>
 
 <p>
@@ -691,6 +692,7 @@ this is and therefore what kind of unit can be used. The context
 of use may additionally require a <code>code</code> from a particular <code>system</code>.
 The context of use may also restrict the values for the <code>value</code> or <code>range</code>.
 </p>
+[%tx Quantity%]
 </div>
 <p>
 Quantity is used in the following places: [%dtusage Quantity%]
@@ -715,7 +717,7 @@ of the Quantity data type:
 
  <tr>
    <td>Age<a name="Age"> </a></td>
-   <td>[%dt.constraints Age%]</td>
+   <td>[%dt.constraints Age%] [%tx Age%]</td>
    <td><a href="age.profile.xml.html">XML</a>, <a href="age.profile.json.html">JSON</a></td>
  </tr>
  <tr>
@@ -735,7 +737,7 @@ of the Quantity data type:
 
  <tr>
    <td>Distance<a name="Distance"> </a></td>
-   <td>[%dt.constraints Distance%]</td>
+   <td>[%dt.constraints Distance%][%tx Distance%]</td>
    <td><a href="distance.profile.xml.html">XML</a>, <a href="distance.profile.json.html">JSON</a></td>
  </tr>
  <tr>
@@ -745,7 +747,7 @@ of the Quantity data type:
 
  <tr>
    <td>Duration<a name="Duration"> </a></td>
-   <td>[%dt.constraints Duration%]</td>
+   <td>[%dt.constraints Duration%] [%tx Duration%]</td>
    <td><a href="duration.profile.xml.html">XML</a>, <a href="duration.profile.json.html">JSON</a></td>
  </tr>
  <tr>
@@ -1030,6 +1032,11 @@ categories due to variations in common usage.
 The <code>assigner</code> is used to indicate what registry/state/facility/etc. assigned the identifier.
 As a <a href="references.html">Reference</a>, the assigner can include just a text description in the <code>display</code>.
 </p>
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%tx Identifier%]
+</div>
 <p>
 Identifier is used in the following places: [%dtusage Identifier%]
 </p>
@@ -1114,6 +1121,10 @@ E.g. Searching either Carreno or Quinones should match a family name of "Carreno
 HL7 affiliates may make more specific recommendations about how search should work
 in their specific culture.
 </p>
+<div class="use">
+<p><b>Constraints</b></p>
+[%tx HumanName%]
+</div>
 <p>
 HumanName is used in the following places: [%dtusage HumanName%]
 </p>
@@ -1151,6 +1162,7 @@ of the two is present.
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Address%]
+[%tx Address%]
 </div>
 
 <p>
@@ -1188,6 +1200,7 @@ follow the order in which the contacts are represented in the instance.
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints ContactPoint%]
+[%tx ContactPoint%]
 </div>
 
 <p>
@@ -1299,6 +1312,7 @@ Note that these constraints still allow for non-sensical timing specifications s
 Implementers must take care to ensure that their configuration and data collection designs do not lead to these non-interpretable timing specifications.
 The elements <code>dayOfWeek</code>, <code>timeOfDay</code>, and <code>when</code> are particularly likely to be at issue here.
 </p>
+[%tx Timing%]
 </div>
 <p>
 Timing is used in the following places: [%dtusage Timing%]

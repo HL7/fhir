@@ -178,7 +178,7 @@ public class BindingsParser {
           if (max.startsWith("http:")) {
             cd.setMaxReference(max); // will sort this out later
           } else
-            cd.setMaxValueSet(loadValueSet(max, sheet.getColumn(row, "Committee").toLowerCase()));
+            cd.setMaxValueSet(loadValueSet(max, sheet.getColumn(row, "Max").toLowerCase()));
       } else if (cd.getBinding() == BindingMethod.Special) {
         cd.setValueSet(new ValueSet());
         cd.getValueSet().setId(ref.substring(1));
