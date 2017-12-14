@@ -206,6 +206,14 @@
   Expression = (type in (\'boolean\' | \'decimal\' | \'integer\' | \'string\' | \'text\' | \'url\')) or maxLength.empty()
   Severity = error
 
+ -- Row 11 -----------------------------------
+  Id = 11
+  Context = Questionnaire.item
+  English = If one or more option is present, initial[x] must be missing
+  XPath = not(f:option) or not(count(f:*[starts-with(local-name(.), \'initial\')]|)
+  Expression = option.empty() or initial.empty()
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -533,6 +541,16 @@
   RIM Mapping = N/A - MIF rather than RIM level
 
  -- Row 41 -----------------------------------
+  Element = Questionnaire.item.option.initialSelected
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether option is selected by default
+  Definition = Indicates whether the option value is selected when the list of options is initially shown
+  Comments = Use this instead of initia[v] if options is present
+  RIM Mapping = N/A - MIF rather than RIM level
+  Default Value = False
+
+ -- Row 42 -----------------------------------
   Element = Questionnaire.item.initial[x]
   Card. = 0..1
   Inv. = 8
@@ -545,7 +563,7 @@
   RIM Mapping = N/A - MIF rather than RIM level
   Committee Notes = GF#11003
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Questionnaire.item.item
   Card. = 0..*
   Inv. = 1
