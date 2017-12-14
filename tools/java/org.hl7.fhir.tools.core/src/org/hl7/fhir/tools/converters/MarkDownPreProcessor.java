@@ -57,6 +57,8 @@ public class MarkDownPreProcessor {
               url = p.getUserData("filename")+suffix;
           } else if (definitions.hasResource(linkText)) {
             url = linkText.toLowerCase()+".html#";
+          } else if (definitions.hasResource(paths[0])) {
+            url = paths[0].toLowerCase()+"-definitions.html#"+linkText;
           } else if (definitions.hasElementDefn(linkText)) {
             url = definitions.getSrcFile(linkText)+".html#"+linkText;
           } else if (definitions.hasPrimitiveType(linkText)) {
@@ -69,7 +71,8 @@ public class MarkDownPreProcessor {
             validationErrors.add(
                 new ValidationMessage(Source.Publisher, IssueType.BUSINESSRULE, -1, -1, location, "Unresolved logical URL '"+linkText+"'", IssueSeverity.WARNING));
             //        throw new Exception("Unresolved logical URL "+url);
-          }
+          } else 
+            url = "??";
         }
         text = left+"["+linkText+"]("+url+")"+right;
       }

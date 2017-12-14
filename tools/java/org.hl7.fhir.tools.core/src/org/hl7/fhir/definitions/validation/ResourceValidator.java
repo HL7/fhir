@@ -639,7 +639,7 @@ public class ResourceValidator extends BaseValidator {
 
     if (e.getName().equals("comment")) {
       warning(errors, IssueType.STRUCTURE, path, isOkComment(path), "MnM must have confirmed this should not be an Annotation");
-      warning(errors, IssueType.STRUCTURE, path, e.typeCode().equals("string"), "The type of 'comment' must be 'string'");
+      warning(errors, IssueType.STRUCTURE, path, Utilities.existsInList(e.typeCode(), "string" ,"markdown"), "The type of 'comment' must be 'string' or 'markdown'");
       warning(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0, "The min cardinality of 'comment' must be 0");
       warning(errors, IssueType.STRUCTURE, path, e.getMaxCardinality() == 1, "The max cardinality of 'comment' must be 1");
     }
