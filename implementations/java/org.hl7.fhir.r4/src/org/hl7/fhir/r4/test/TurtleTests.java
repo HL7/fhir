@@ -2605,12 +2605,6 @@ public class TurtleTests {
     new Turtle().parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), "publish", "namingsystem-example.ttl")));
   }
   @Test
-  public void test_namingsystem_example_replaced() throws FileNotFoundException, IOException, Exception {
-    if (!TestingUtilities.silent)
-      System.out.println("namingsystem-example-replaced.ttl");
-    new Turtle().parse(TextFile.fileToString(Utilities.path(TestingUtilities.home(), "publish", "namingsystem-example-replaced.ttl")));
-  }
-  @Test
   public void test_namingsystem_example_id() throws FileNotFoundException, IOException, Exception {
     if (!TestingUtilities.silent)
       System.out.println("namingsystem-example-id.ttl");
