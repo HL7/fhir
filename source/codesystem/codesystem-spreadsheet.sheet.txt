@@ -475,30 +475,6 @@
   Definition = The value of this property
 
  -- Row 45 -----------------------------------
-  Element = CodeSystem.concept.alternate
-  Card. = 0..*
-  Short Name = Alternate code to use for the concept
-  Definition = Alternate code that can be used to represent this concept
-  Comments = Most concepts are represented by a single code. However some code systems define multiple codes for a concept for various reasons. The alternate codes may be used to represent the concept under some conditions
-
- -- Row 46 -----------------------------------
-  Element = CodeSystem.concept.alternate.kind
-  Card. = 1..1
-  Type = Coding
-  Binding = AlternativeCodeKind
-  Short Name = Type of use for the code
-  Definition = Indicates the type of use for which the code is defined
-  Comments = The base value set defines common structural reasons for alternative codes, but many code systems define their own additional alternative codes
-
- -- Row 47 -----------------------------------
-  Element = CodeSystem.concept.alternate.code
-  Card. = 1..1
-  Type = code
-  Binding = !
-  Short Name = Actual alternate code
-  Definition = An alternative code that can be used to identify the concept
-
- -- Row 48 -----------------------------------
   Element = CodeSystem.concept.concept
   Card. = 0..*
   Type = @CodeSystem.concept

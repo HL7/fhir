@@ -509,13 +509,6 @@
   XPath = not(exists(f:implementation)) or (f:kind/@value != \'capability\')
   Expression = implementation.empty() or kind != \'capability\'
 
- -- Row 11 -----------------------------------
-  Id = 16
-  Context = CapabilityStatement.messaging
-  English = A Capability Statement messaging element SHALL have either supportedMessage or event element, but not both.
-  XPath = exists(f:supportedMessage) != exists(f:event)
-  Expression = supportedMessage.empty() != event.empty()
-
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -702,15 +695,6 @@
   Definition = A list of implementation guides that the server does (or should) support in their entirety.
 
  -- Row 30 -----------------------------------
-  Element = CapabilityStatement.profile
-  Card. = 0..*
-  Summary = y
-  Type = Reference(StructureDefinition)
-  Short Name = Profiles for use cases supported
-  Definition = A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses).
-  Comments = Supported profiles are different than the profiles that apply to a particular resource in rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile).  Typically, supported profiles cross resource types to describe a network of related resources, so they are listed here rather than by resource. However, they do not need to describe more than one resource.
-
- -- Row 31 -----------------------------------
   Element = CapabilityStatement.rest
   Card. = 0..*
   Summary = Y
@@ -720,7 +704,7 @@
   Definition = A definition of the restful capabilities of the solution, if any.
   Comments = Multiple repetitions allow definition of both client and/or server behaviors or possibly behaviors under different configuration settings (for software or requirements statements).
 
- -- Row 32 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = CapabilityStatement.rest.mode
   Card. = 1..1
   Summary = Y
@@ -729,14 +713,14 @@
   Short Name = client | server
   Definition = Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations.
 
- -- Row 33 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = CapabilityStatement.rest.documentation
   Card. = 0..1
   Type = string
   Short Name = General description of implementation
   Definition = Information about the system\'s restful capabilities that apply across all applications, such as security.
 
- -- Row 34 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = CapabilityStatement.rest.security
   Card. = 0..1
   Summary = Y
@@ -744,7 +728,7 @@
   Short Name = Information about security of implementation
   Definition = Information about security implementation from an interface perspective - what a client needs to know.
 
- -- Row 35 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = CapabilityStatement.rest.security.cors
   Card. = 0..1
   Summary = Y
@@ -753,7 +737,7 @@
   Definition = Server adds CORS headers when responding to requests - this enables javascript applications to use the server.
   Comments = The easiest CORS headers to add are Access-Control-Allow-Origin: * & Access-Control-Request-Method: GET, POST, PUT, DELETE. All servers SHOULD support CORS.
 
- -- Row 36 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = CapabilityStatement.rest.security.service
   Card. = 0..*
   Summary = Y
@@ -762,21 +746,21 @@
   Short Name = OAuth | SMART-on-FHIR | NTLM | Basic | Kerberos | Certificates
   Definition = Types of security services that are supported/required by the system.
 
- -- Row 37 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = CapabilityStatement.rest.security.description
   Card. = 0..1
   Type = string
   Short Name = General description of how security works
   Definition = General description of how security works
 
- -- Row 38 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = CapabilityStatement.rest.security.certificate
   Card. = 0..*
   UML = 590;240
   Short Name = Certificates associated with security profiles
   Definition = Certificates associated with security profiles
 
- -- Row 39 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = CapabilityStatement.rest.security.certificate.type
   Card. = 0..1
   Type = code
@@ -784,14 +768,14 @@
   Short Name = Mime type for certificates
   Definition = Mime type for a certificate
 
- -- Row 40 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = CapabilityStatement.rest.security.certificate.blob
   Card. = 0..1
   Type = base64Binary
   Short Name = Actual certificate
   Definition = Actual certificate
 
- -- Row 41 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = CapabilityStatement.rest.resource
   Card. = 0..*
   Summary = Y
@@ -800,7 +784,7 @@
   Definition = A specification of the restful capabilities of the solution for a specific resource type
   Comments = Max of one repetition per resource type
 
- -- Row 42 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = CapabilityStatement.rest.resource.type
   Card. = 1..1
   Summary = Y
@@ -809,7 +793,7 @@
   Short Name = A resource type that is supported
   Definition = A type of resource exposed via the restful interface
 
- -- Row 43 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = CapabilityStatement.rest.resource.profile
   Card. = 0..1
   Summary = y
@@ -817,6 +801,15 @@
   Short Name = Base System profile for all uses of resource
   Definition = A specification of the profile that describes the solution\'s overall support for the resource, including any constraints on cardinality, bindings, lengths or other limitations. See further discussion in [Using Profiles](profiling.html#profile-uses).
   Comments = The profile applies to all  resources of this type - i.e. it is the superset of what is supported by the system.
+
+ -- Row 43 -----------------------------------
+  Element = CapabilityStatement.rest.resource.supportedProfile
+  Card. = 0..*
+  Summary = y
+  Type = Reference(StructureDefinition)
+  Short Name = Profiles for use cases supported
+  Definition = A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles](profiling.html#profile-uses).
+  Comments = Supported profiles are different than the profile that applies to a particular resource in .rest.resource.profile. The resource profile is a general statement of what features of the resource are supported overall by the system - the sum total of the facilities it supports. A supported profile is a deeper statement about the functionality of the data and services provided by the server (or used by the client). A typical case is a laboratory system that produces a set of different reports - this is the list of types of data that it publishes. A key aspect of declaring profiles here is the question of how the client converts knowledge that the server publishes this data into working with the data; the client can inspect individual resources to determine whether they conform to a particular profile, but how does it find the ones that does? It does so by searching using the _profile parameter, so any resources listed here must be valid values for the _profile resource (using the identifier in the target profile)
 
  -- Row 44 -----------------------------------
   Element = CapabilityStatement.rest.resource.documentation
@@ -1133,74 +1126,6 @@
   Definition = Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.
 
  -- Row 82 -----------------------------------
-  Element = CapabilityStatement.messaging.event
-  Card. = 0..*
-  Summary = Y
-  UML = 550;0
-  Short Name = Declare support for this event
-  Definition = A description of the solution\'s support for an event at this end-point.
-  Comments = The same event may be listed up to two times - once as sender and once as receiver.
-
- -- Row 83 -----------------------------------
-  Element = CapabilityStatement.messaging.event.code
-  Card. = 1..1
-  Summary = Y
-  Type = Coding
-  Binding = MessageEvent
-  Short Name = Event type
-  Definition = A coded identifier of a supported messaging event
-
- -- Row 84 -----------------------------------
-  Element = CapabilityStatement.messaging.event.category
-  Card. = 0..1
-  Type = code
-  Binding = MessageSignificanceCategory
-  Short Name = Consequence | Currency | Notification
-  Definition = The impact of the content of the message
-
- -- Row 85 -----------------------------------
-  Element = CapabilityStatement.messaging.event.mode
-  Card. = 1..1
-  Summary = Y
-  Type = code
-  Binding = EventCapabilityMode
-  Short Name = sender | receiver
-  Definition = The mode of this event declaration - whether an application is a sender or receiver
-
- -- Row 86 -----------------------------------
-  Element = CapabilityStatement.messaging.event.focus
-  Card. = 1..1
-  Summary = Y
-  Type = code
-  Binding = ResourceType
-  Short Name = Resource that\'s focus of message
-  Definition = A resource associated with the event.  This is the resource that defines the event.
-  Comments = This SHALL be provided if the event type supports multiple different resource types.
-
- -- Row 87 -----------------------------------
-  Element = CapabilityStatement.messaging.event.request
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(StructureDefinition)
-  Short Name = Profile that describes the request
-  Definition = Information about the request for this event
-
- -- Row 88 -----------------------------------
-  Element = CapabilityStatement.messaging.event.response
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(StructureDefinition)
-  Short Name = Profile that describes the response
-  Definition = Information about the response for this event
-
- -- Row 89 -----------------------------------
-  Element = CapabilityStatement.messaging.event.documentation
-  Card. = 0..1
-  Type = string
-  Short Name = Endpoint-specific event documentation
-  Definition = Guidance on how this event is handled, such as internal system trigger points, business rules, etc.
-
- -- Row 90 -----------------------------------
   Element = CapabilityStatement.document
   Card. = 0..*
   Summary = Y
@@ -1209,7 +1134,7 @@
   Short Name = Document definition
   Definition = A document definition
 
- -- Row 91 -----------------------------------
+ -- Row 83 -----------------------------------
   Element = CapabilityStatement.document.mode
   Card. = 1..1
   Summary = Y
@@ -1218,14 +1143,14 @@
   Short Name = producer | consumer
   Definition = Mode of this document declaration - whether an application is a producer or consumer
 
- -- Row 92 -----------------------------------
+ -- Row 84 -----------------------------------
   Element = CapabilityStatement.document.documentation
   Card. = 0..1
   Type = string
   Short Name = Description of document support
   Definition = A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.
 
- -- Row 93 -----------------------------------
+ -- Row 85 -----------------------------------
   Element = CapabilityStatement.document.profile
   Card. = 1..1
   Summary = Y
@@ -1255,39 +1180,33 @@
   Path = CapabilityStatement.rest.resource.type
 
  -- Row 4 -----------------------------------
-  Name = event
-  Type = token
-  Description = Event code in a capability statement
-  Path = CapabilityStatement.messaging.event.code
-
- -- Row 5 -----------------------------------
   Name = mode
   Type = token
   Description = Mode - restful (server/client) or messaging (sender/receiver)
   Path = CapabilityStatement.rest.mode
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = resource-profile
   Type = reference
   Description = A profile id invoked in a capability statement
   Path = CapabilityStatement.rest.resource.profile
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = format
   Type = token
   Path = CapabilityStatement.format
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = security-service
   Type = token
   Path = CapabilityStatement.rest.security.service
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = supported-profile
   Type = reference
-  Path = CapabilityStatement.profile
+  Path = CapabilityStatement.rest.resource.supportedProfile
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = guide
   Type = uri
   Path = CapabilityStatement.implementationGuide

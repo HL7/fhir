@@ -173,7 +173,7 @@ import org.hl7.fhir.r4.utils.StructureMapUtilities;
     getExtension().add(ex);    
   }
   
-  }
+
 
 
   public boolean hasExtension(String url) {
@@ -181,7 +181,8 @@ import org.hl7.fhir.r4.utils.StructureMapUtilities;
       if (url.equals(e.getUrl()))
         return true;
     return false;
-  
+    }
+    
 ----
 
 -- CodeType.implements --

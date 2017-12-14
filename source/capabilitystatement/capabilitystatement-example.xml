@@ -80,10 +80,6 @@
 	<patchFormat value="application/json-patch+json"/>
 	<!--  this system supports the US Lab implementation guide  -->
 	<implementationGuide value="http://hl7.org/fhir/us/lab"/>
-	<!--  this system supports the Genetics family history profile -->
-	<profile>
-		<reference value="http://hl7.org/fhir/us/core/StructureDefinition/familymemberhistory-genetic"/>
-	</profile>
 	<!--  in a real capability statement, it's unlikely that a single capability statement 
     would declare capability for REST, messaging and documents, though it is legal. 
     This example does so in order to show all the parts of a capability statement  -->
@@ -112,14 +108,18 @@
 		<!--  zero or more of these - declaration of support for a resource  -->
 		<resource>
 			<type value="Patient"/>
-			<!--  let's assume that HL7 has stood up a profile registry at http://fhir.hl7.org/fhir 
+			<!--  let's assume that HL7 has stood up a profile registry at http://registry.fhir.org
         - it's likely to have a registry, though this is not decided, nor is a URL decided. 
         This application simply uses a profile registered directly with HL7. For the simplest 
         case of a FHIR REST Server, just delete this profile reference. Profile references do 
         not need to be a UUID, though a profile registry could insist that they are  -->
 			<profile>
-				<reference value="http://fhir.hl7.org/base/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
+				<reference value="http://registry.fhir.org/r4/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
 			</profile>
+      <!--  this system supports a specific profile for animals -->
+      <supportedProfile>
+        <reference value="http://registry.fhir.org/r4/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347"/>
+      </supportedProfile>
 			<documentation value="This server does not let the clients create identities."/>
 			<interaction>
 				<code value="read"/>
@@ -185,25 +185,12 @@
 		</endpoint>
 		<reliableCache value="30"/>
 		<documentation value="ADT A08 equivalent for external system notifications"/>
-		<event>
-			<code>
-				<system value="http://hl7.org/fhir/message-events"/>
-				<code value="admin-notify"/>
-			</code>
-			<category value="Consequence"/>
-			<!--  this a receiver - i.e. answers. Not neccessariy a server (though this is)  -->
-			<mode value="receiver"/>
-			<focus value="Patient"/>
-			<!--  specify a profile for the request person. Very often there's no 
-        point profiling the response, it's not interesting.  In this case, we just   -->
-			<request>
-				<reference value="StructureDefinition/Patient"/>
-			</request>
-			<response>
-				<reference value="StructureDefinition/MessageHeader"/>
-			</response>
-			<documentation value="Notification of an update to a patient resource. changing the links is not supported"/>
-		</event>
+    <supportedMessage>
+      <mode value="receiver"/>
+      <definition>
+         <reference value="MessageDefinition/example"/>
+      </definition>
+    </supportedMessage>
 	</messaging>
 	<!--  a document capability statement  -->
 	<document>
