@@ -106,8 +106,8 @@ For implementer convenience, the specification itself publishes its base definit
 <h3>Two uses of Profiles</h3>
 <p>
 The <a href="capabilitystatement.html">CapabilityStatement</a> resource describes two different uses for profiles on resources:
-Resource Profiles and System Profiles. Resource Profiles are specified using the <i>CapabilityStatement.rest.resource.profile</i> element
-and System Profiles are specified using the <i>CapabilityStatement.profile</i> element.
+Resource Profiles and Supported Profiles. Resource Profiles are specified using the <i>CapabilityStatement.rest.resource.profile</i> element
+and Supported Profiles are specified using the <i>CapabilityStatement.rest.resource.supportedProfile</i> element.
 </p>
 <h4>CapabilityStatement.rest.resource.profile</h4>
 <p>
@@ -115,7 +115,7 @@ These profiles describe the general features that are supported by the system fo
 resource. Typically, this is the superset of all the different use-cases implemented by the system.
 This is a resource-level perspective of a system's functionality.
 </p>
-<h4>CapabilityStatement.profile</h4>
+<h4>CapabilityStatement.rest.resource.supportedProfile</h4>
 <p>
 These profiles describe the information handled/produced by the system on a per use case basis.
 Some examples of the uses for these kind of profiles:
@@ -126,17 +126,15 @@ Some examples of the uses for these kind of profiles:
  <li>A medications formulary that handles several different levels of sophistication in its medication representations</li>
 </ul>
 <p>
-Typically, these profiles are a series of variations on the same set of resources - different use cases leading to handling
-the resources that represent them differently. These use cases described above all pertain to system that produce and publish
-data, but the same concept applies to systems that consume data. For instance:
+These profiles represent different use cases leading to handling the one resources differently. For instance:
 </p>
 <ul>
  <li>An expert service that provides analysis on several different sets of data conforming to a particular pattern - tests x,y and z with particular codes and units</li>
 </ul>
 <p>
 For a producer system and a consumer system to exchange data successfully based on
-one of these supported system profiles, it's not enough to know that the
-systems happen to have system profiles that overlap for the use case
+one of these supported profiles, it's not enough to know that the
+systems happen to have profiles that overlap for the use case
 of interest; the consumer must be able to filter the total set of resources
 made available by the producer system and deal only with the ones relevant
 to the use case.
