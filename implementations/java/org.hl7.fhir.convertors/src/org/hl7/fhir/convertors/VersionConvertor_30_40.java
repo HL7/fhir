@@ -14131,7 +14131,7 @@ public class VersionConvertor_30_40 {
       return null;
     org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResourceComponent tgt = new org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResourceComponent();
     copyElement(src, tgt);
-    if (src.hasExample())
+    if (src.hasExample() && src.getExample())
       tgt.setExample(src.getExample());
     if (src.hasName())
       tgt.setName(src.getName());
