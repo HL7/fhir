@@ -154,7 +154,7 @@
  -- Row 17 -----------------------------------
   Element = OperationDefinition.comment
   Card. = 0..1
-  Type = string
+  Type = markdown
   Short Name = Additional information about use
   Definition = Additional information about how to use this operation or named query
 
