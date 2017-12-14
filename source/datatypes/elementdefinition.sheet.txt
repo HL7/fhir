@@ -223,7 +223,7 @@
  -- Row 4 -----------------------------------
   Id = 4
   Context = ElementDefinition.type
-  English = Aggregation may only be specified if one of the allowed types for the element is a resource
+  English = Aggregation may only be specified if one of the allowed types for the element is a reference
   XPath = not(exists(f:aggregation)) or exists(f:code[@value = \'Reference\'])
   Expression = aggregation.empty() or (code = \'Reference\')
 
@@ -303,6 +303,13 @@
   English = sliceName must be composed of proper tokens separated by \"/\"
   XPath = not(exists(f:sliceName/@value)) or matches(f:sliceName/@value, \'^[a-zA-Z0-9\\\\/\\\\-\\\\_]+$\')
   Expression = sliceName.empty() or sliceName.matches(\'^[a-zA-Z0-9\\\\/\\\\-\\\\_]+$\')
+
+ -- Row 16 -----------------------------------
+  Id = 17
+  Context = ElementDefinition.type
+  English = targetProfie is only allowed if the type is reference
+  XPath = not(exists(f:targetProfile)) or (f:code/@value = \'Reference\')
+  Expression = code=\'Reference\' or targetProfile.empty()
 
 === Sheet Data Elements =====================================
 
