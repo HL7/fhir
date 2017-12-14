@@ -9084,7 +9084,7 @@ public class VersionConvertor_10_40 {
     tgt.setDescription(src.getDescription());
     tgt.setPurpose(src.getRequirements());
     if (src.hasIdempotent())
-      tgt.setIdempotent(src.getIdempotent());
+      tgt.setAffectsState(!src.getIdempotent());
     tgt.setCode(src.getCode());
     tgt.setComment(src.getNotes());
     tgt.setBase(convertReference(src.getBase()));
@@ -9117,7 +9117,7 @@ public class VersionConvertor_10_40 {
       tgt.addContact(convertOperationDefinitionContactComponent(t));
     tgt.setDescription(src.getDescription());
     tgt.setRequirements(src.getPurpose());
-    tgt.setIdempotent(src.getIdempotent());
+    tgt.setIdempotent(!src.getAffectsState());
     tgt.setCode(src.getCode());
     tgt.setNotes(src.getComment());
     if (src.hasBase())

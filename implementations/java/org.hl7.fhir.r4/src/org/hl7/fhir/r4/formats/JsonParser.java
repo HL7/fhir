@@ -14392,16 +14392,16 @@ public class JsonParser extends JsonParserBase {
       res.setPurposeElement(parseMarkdown(json.get("purpose").getAsString()));
     if (json.has("_purpose"))
       parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
-    if (json.has("idempotent"))
-      res.setIdempotentElement(parseBoolean(json.get("idempotent").getAsBoolean()));
-    if (json.has("_idempotent"))
-      parseElementProperties(json.getAsJsonObject("_idempotent"), res.getIdempotentElement());
+    if (json.has("affectsState"))
+      res.setAffectsStateElement(parseBoolean(json.get("affectsState").getAsBoolean()));
+    if (json.has("_affectsState"))
+      parseElementProperties(json.getAsJsonObject("_affectsState"), res.getAffectsStateElement());
     if (json.has("code"))
       res.setCodeElement(parseCode(json.get("code").getAsString()));
     if (json.has("_code"))
       parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
     if (json.has("comment"))
-      res.setCommentElement(parseString(json.get("comment").getAsString()));
+      res.setCommentElement(parseMarkdown(json.get("comment").getAsString()));
     if (json.has("_comment"))
       parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
     if (json.has("base"))
@@ -37761,9 +37761,9 @@ public class JsonParser extends JsonParserBase {
         composeMarkdownCore("purpose", element.getPurposeElement(), false);
         composeMarkdownExtras("purpose", element.getPurposeElement(), false);
       }
-      if (element.hasIdempotentElement()) {
-        composeBooleanCore("idempotent", element.getIdempotentElement(), false);
-        composeBooleanExtras("idempotent", element.getIdempotentElement(), false);
+      if (element.hasAffectsStateElement()) {
+        composeBooleanCore("affectsState", element.getAffectsStateElement(), false);
+        composeBooleanExtras("affectsState", element.getAffectsStateElement(), false);
       }
       if (element.hasCodeElement()) {
         composeCodeCore("code", element.getCodeElement(), false);

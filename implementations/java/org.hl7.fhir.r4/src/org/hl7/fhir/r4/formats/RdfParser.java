@@ -9583,8 +9583,8 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "OperationDefinition", "jurisdiction", element.getJurisdiction().get(i), i);
     if (element.hasPurposeElement())
       composeMarkdown(t, "OperationDefinition", "purpose", element.getPurposeElement(), -1);
-    if (element.hasIdempotentElement())
-      composeBoolean(t, "OperationDefinition", "idempotent", element.getIdempotentElement(), -1);
+    if (element.hasAffectsStateElement())
+      composeBoolean(t, "OperationDefinition", "affectsState", element.getAffectsStateElement(), -1);
     if (element.hasCodeElement())
       composeCode(t, "OperationDefinition", "code", element.getCodeElement(), -1);
     if (element.hasCommentElement())

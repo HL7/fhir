@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 8, 2017 08:39+1100 for FHIR v3.1.0
+// Generated on Thu, Dec 14, 2017 22:41+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
  */
 @ResourceDef(name="OperationDefinition", profile="http://hl7.org/fhir/Profile/OperationDefinition")
-@ChildOrder(names={"url", "version", "name", "status", "kind", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "idempotent", "code", "comment", "base", "resource", "system", "type", "instance", "parameter", "overload"})
+@ChildOrder(names={"url", "version", "name", "status", "kind", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "affectsState", "code", "comment", "base", "resource", "system", "type", "instance", "parameter", "overload"})
 public class OperationDefinition extends MetadataResource {
 
     public enum OperationKind {
@@ -1556,7 +1556,7 @@ public class OperationDefinition extends MetadataResource {
     /**
      * Whether this is an operation or a named query.
      */
-    @Child(name = "kind", type = {CodeType.class}, order=0, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "kind", type = {CodeType.class}, order=0, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="operation | query", formalDefinition="Whether this is an operation or a named query." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/operation-kind")
     protected Enumeration<OperationKind> kind;
@@ -1569,11 +1569,11 @@ public class OperationDefinition extends MetadataResource {
     protected MarkdownType purpose;
 
     /**
-     * Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
+     * Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
      */
-    @Child(name = "idempotent", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Whether content is unchanged by the operation", formalDefinition="Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST." )
-    protected BooleanType idempotent;
+    @Child(name = "affectsState", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Whether content is unchanged by the operation", formalDefinition="Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST." )
+    protected BooleanType affectsState;
 
     /**
      * The name used to invoke the operation.
@@ -1585,9 +1585,9 @@ public class OperationDefinition extends MetadataResource {
     /**
      * Additional information about how to use this operation or named query.
      */
-    @Child(name = "comment", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "comment", type = {MarkdownType.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Additional information about use", formalDefinition="Additional information about how to use this operation or named query." )
-    protected StringType comment;
+    protected MarkdownType comment;
 
     /**
      * Indicates that this operation definition is a constraining profile on the base.
@@ -1644,7 +1644,7 @@ public class OperationDefinition extends MetadataResource {
     @Description(shortDefinition="Define overloaded variants for when  generating code", formalDefinition="Defines an appropriate combination of parameters to use when invoking this operation, to help code generators when generating overloaded parameter sets for this operation." )
     protected List<OperationDefinitionOverloadComponent> overload;
 
-    private static final long serialVersionUID = 1292377899L;
+    private static final long serialVersionUID = -1592997361L;
 
   /**
    * Constructor
@@ -2301,47 +2301,47 @@ public class OperationDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #idempotent} (Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.). This is the underlying object with id, value and extensions. The accessor "getIdempotent" gives direct access to the value
+     * @return {@link #affectsState} (Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.). This is the underlying object with id, value and extensions. The accessor "getAffectsState" gives direct access to the value
      */
-    public BooleanType getIdempotentElement() { 
-      if (this.idempotent == null)
+    public BooleanType getAffectsStateElement() { 
+      if (this.affectsState == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OperationDefinition.idempotent");
+          throw new Error("Attempt to auto-create OperationDefinition.affectsState");
         else if (Configuration.doAutoCreate())
-          this.idempotent = new BooleanType(); // bb
-      return this.idempotent;
+          this.affectsState = new BooleanType(); // bb
+      return this.affectsState;
     }
 
-    public boolean hasIdempotentElement() { 
-      return this.idempotent != null && !this.idempotent.isEmpty();
+    public boolean hasAffectsStateElement() { 
+      return this.affectsState != null && !this.affectsState.isEmpty();
     }
 
-    public boolean hasIdempotent() { 
-      return this.idempotent != null && !this.idempotent.isEmpty();
+    public boolean hasAffectsState() { 
+      return this.affectsState != null && !this.affectsState.isEmpty();
     }
 
     /**
-     * @param value {@link #idempotent} (Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.). This is the underlying object with id, value and extensions. The accessor "getIdempotent" gives direct access to the value
+     * @param value {@link #affectsState} (Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.). This is the underlying object with id, value and extensions. The accessor "getAffectsState" gives direct access to the value
      */
-    public OperationDefinition setIdempotentElement(BooleanType value) { 
-      this.idempotent = value;
+    public OperationDefinition setAffectsStateElement(BooleanType value) { 
+      this.affectsState = value;
       return this;
     }
 
     /**
-     * @return Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
+     * @return Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
      */
-    public boolean getIdempotent() { 
-      return this.idempotent == null || this.idempotent.isEmpty() ? false : this.idempotent.getValue();
+    public boolean getAffectsState() { 
+      return this.affectsState == null || this.affectsState.isEmpty() ? false : this.affectsState.getValue();
     }
 
     /**
-     * @param value Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
+     * @param value Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
      */
-    public OperationDefinition setIdempotent(boolean value) { 
-        if (this.idempotent == null)
-          this.idempotent = new BooleanType();
-        this.idempotent.setValue(value);
+    public OperationDefinition setAffectsState(boolean value) { 
+        if (this.affectsState == null)
+          this.affectsState = new BooleanType();
+        this.affectsState.setValue(value);
       return this;
     }
 
@@ -2393,12 +2393,12 @@ public class OperationDefinition extends MetadataResource {
     /**
      * @return {@link #comment} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getCommentElement() { 
+    public MarkdownType getCommentElement() { 
       if (this.comment == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.comment");
         else if (Configuration.doAutoCreate())
-          this.comment = new StringType(); // bb
+          this.comment = new MarkdownType(); // bb
       return this.comment;
     }
 
@@ -2413,7 +2413,7 @@ public class OperationDefinition extends MetadataResource {
     /**
      * @param value {@link #comment} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public OperationDefinition setCommentElement(StringType value) { 
+    public OperationDefinition setCommentElement(MarkdownType value) { 
       this.comment = value;
       return this;
     }
@@ -2429,11 +2429,11 @@ public class OperationDefinition extends MetadataResource {
      * @param value Additional information about how to use this operation or named query.
      */
     public OperationDefinition setComment(String value) { 
-      if (Utilities.noString(value))
+      if (value == null)
         this.comment = null;
       else {
         if (this.comment == null)
-          this.comment = new StringType();
+          this.comment = new MarkdownType();
         this.comment.setValue(value);
       }
       return this;
@@ -2800,9 +2800,9 @@ public class OperationDefinition extends MetadataResource {
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate operation definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the operation definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         children.add(new Property("purpose", "markdown", "Explaination of why this operation definition is needed and why it has been designed as it has.", 0, 1, purpose));
-        children.add(new Property("idempotent", "boolean", "Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.", 0, 1, idempotent));
+        children.add(new Property("affectsState", "boolean", "Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.", 0, 1, affectsState));
         children.add(new Property("code", "code", "The name used to invoke the operation.", 0, 1, code));
-        children.add(new Property("comment", "string", "Additional information about how to use this operation or named query.", 0, 1, comment));
+        children.add(new Property("comment", "markdown", "Additional information about how to use this operation or named query.", 0, 1, comment));
         children.add(new Property("base", "Reference(OperationDefinition)", "Indicates that this operation definition is a constraining profile on the base.", 0, 1, base));
         children.add(new Property("resource", "code", "The types on which this operation can be executed.", 0, java.lang.Integer.MAX_VALUE, resource));
         children.add(new Property("system", "boolean", "Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).", 0, 1, system));
@@ -2828,9 +2828,9 @@ public class OperationDefinition extends MetadataResource {
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate operation definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the operation definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explaination of why this operation definition is needed and why it has been designed as it has.", 0, 1, purpose);
-        case 1680468793: /*idempotent*/  return new Property("idempotent", "boolean", "Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.", 0, 1, idempotent);
+        case -14805197: /*affectsState*/  return new Property("affectsState", "boolean", "Operations that have affects state = false (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.", 0, 1, affectsState);
         case 3059181: /*code*/  return new Property("code", "code", "The name used to invoke the operation.", 0, 1, code);
-        case 950398559: /*comment*/  return new Property("comment", "string", "Additional information about how to use this operation or named query.", 0, 1, comment);
+        case 950398559: /*comment*/  return new Property("comment", "markdown", "Additional information about how to use this operation or named query.", 0, 1, comment);
         case 3016401: /*base*/  return new Property("base", "Reference(OperationDefinition)", "Indicates that this operation definition is a constraining profile on the base.", 0, 1, base);
         case -341064690: /*resource*/  return new Property("resource", "code", "The types on which this operation can be executed.", 0, java.lang.Integer.MAX_VALUE, resource);
         case -887328209: /*system*/  return new Property("system", "boolean", "Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).", 0, 1, system);
@@ -2859,9 +2859,9 @@ public class OperationDefinition extends MetadataResource {
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // UsageContext
         case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
-        case 1680468793: /*idempotent*/ return this.idempotent == null ? new Base[0] : new Base[] {this.idempotent}; // BooleanType
+        case -14805197: /*affectsState*/ return this.affectsState == null ? new Base[0] : new Base[] {this.affectsState}; // BooleanType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
-        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // StringType
+        case 950398559: /*comment*/ return this.comment == null ? new Base[0] : new Base[] {this.comment}; // MarkdownType
         case 3016401: /*base*/ return this.base == null ? new Base[0] : new Base[] {this.base}; // Reference
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : this.resource.toArray(new Base[this.resource.size()]); // CodeType
         case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // BooleanType
@@ -2918,14 +2918,14 @@ public class OperationDefinition extends MetadataResource {
         case -220463842: // purpose
           this.purpose = castToMarkdown(value); // MarkdownType
           return value;
-        case 1680468793: // idempotent
-          this.idempotent = castToBoolean(value); // BooleanType
+        case -14805197: // affectsState
+          this.affectsState = castToBoolean(value); // BooleanType
           return value;
         case 3059181: // code
           this.code = castToCode(value); // CodeType
           return value;
         case 950398559: // comment
-          this.comment = castToString(value); // StringType
+          this.comment = castToMarkdown(value); // MarkdownType
           return value;
         case 3016401: // base
           this.base = castToReference(value); // Reference
@@ -2983,12 +2983,12 @@ public class OperationDefinition extends MetadataResource {
           this.getJurisdiction().add(castToCodeableConcept(value));
         } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
-        } else if (name.equals("idempotent")) {
-          this.idempotent = castToBoolean(value); // BooleanType
+        } else if (name.equals("affectsState")) {
+          this.affectsState = castToBoolean(value); // BooleanType
         } else if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
         } else if (name.equals("comment")) {
-          this.comment = castToString(value); // StringType
+          this.comment = castToMarkdown(value); // MarkdownType
         } else if (name.equals("base")) {
           this.base = castToReference(value); // Reference
         } else if (name.equals("resource")) {
@@ -3024,7 +3024,7 @@ public class OperationDefinition extends MetadataResource {
         case -669707736:  return addUseContext(); 
         case -507075711:  return addJurisdiction(); 
         case -220463842:  return getPurposeElement();
-        case 1680468793:  return getIdempotentElement();
+        case -14805197:  return getAffectsStateElement();
         case 3059181:  return getCodeElement();
         case 950398559:  return getCommentElement();
         case 3016401:  return getBase(); 
@@ -3055,9 +3055,9 @@ public class OperationDefinition extends MetadataResource {
         case -669707736: /*useContext*/ return new String[] {"UsageContext"};
         case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
         case -220463842: /*purpose*/ return new String[] {"markdown"};
-        case 1680468793: /*idempotent*/ return new String[] {"boolean"};
+        case -14805197: /*affectsState*/ return new String[] {"boolean"};
         case 3059181: /*code*/ return new String[] {"code"};
-        case 950398559: /*comment*/ return new String[] {"string"};
+        case 950398559: /*comment*/ return new String[] {"markdown"};
         case 3016401: /*base*/ return new String[] {"Reference"};
         case -341064690: /*resource*/ return new String[] {"code"};
         case -887328209: /*system*/ return new String[] {"boolean"};
@@ -3111,8 +3111,8 @@ public class OperationDefinition extends MetadataResource {
         else if (name.equals("purpose")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.purpose");
         }
-        else if (name.equals("idempotent")) {
-          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.idempotent");
+        else if (name.equals("affectsState")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.affectsState");
         }
         else if (name.equals("code")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.code");
@@ -3179,7 +3179,7 @@ public class OperationDefinition extends MetadataResource {
             dst.jurisdiction.add(i.copy());
         };
         dst.purpose = purpose == null ? null : purpose.copy();
-        dst.idempotent = idempotent == null ? null : idempotent.copy();
+        dst.affectsState = affectsState == null ? null : affectsState.copy();
         dst.code = code == null ? null : code.copy();
         dst.comment = comment == null ? null : comment.copy();
         dst.base = base == null ? null : base.copy();
@@ -3215,7 +3215,7 @@ public class OperationDefinition extends MetadataResource {
         if (!(other instanceof OperationDefinition))
           return false;
         OperationDefinition o = (OperationDefinition) other;
-        return compareDeep(kind, o.kind, true) && compareDeep(purpose, o.purpose, true) && compareDeep(idempotent, o.idempotent, true)
+        return compareDeep(kind, o.kind, true) && compareDeep(purpose, o.purpose, true) && compareDeep(affectsState, o.affectsState, true)
            && compareDeep(code, o.code, true) && compareDeep(comment, o.comment, true) && compareDeep(base, o.base, true)
            && compareDeep(resource, o.resource, true) && compareDeep(system, o.system, true) && compareDeep(type, o.type, true)
            && compareDeep(instance, o.instance, true) && compareDeep(parameter, o.parameter, true) && compareDeep(overload, o.overload, true)
@@ -3229,14 +3229,14 @@ public class OperationDefinition extends MetadataResource {
         if (!(other instanceof OperationDefinition))
           return false;
         OperationDefinition o = (OperationDefinition) other;
-        return compareValues(kind, o.kind, true) && compareValues(purpose, o.purpose, true) && compareValues(idempotent, o.idempotent, true)
+        return compareValues(kind, o.kind, true) && compareValues(purpose, o.purpose, true) && compareValues(affectsState, o.affectsState, true)
            && compareValues(code, o.code, true) && compareValues(comment, o.comment, true) && compareValues(resource, o.resource, true)
            && compareValues(system, o.system, true) && compareValues(type, o.type, true) && compareValues(instance, o.instance, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, purpose, idempotent
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, purpose, affectsState
           , code, comment, base, resource, system, type, instance, parameter, overload
           );
       }
@@ -3365,6 +3365,26 @@ public class OperationDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>context-type</b>
+   * <p>
+   * Description: <b>A type of use context assigned to the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.useContext.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context-type", path="OperationDefinition.useContext.code", description="A type of use context assigned to the operation definition", type="token" )
+  public static final String SP_CONTEXT_TYPE = "context-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context-type</b>
+   * <p>
+   * Description: <b>A type of use context assigned to the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.useContext.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT_TYPE);
 
  /**
    * Search parameter: <b>type</b>

@@ -17343,7 +17343,7 @@ public class VersionConvertor_30_40 {
     if (src.hasPurpose())
       tgt.setPurpose(src.getPurpose());
     if (src.hasIdempotent())
-      tgt.setIdempotent(src.getIdempotent());
+      tgt.setAffectsState(!src.getIdempotent());
     if (src.hasCode())
       tgt.setCode(src.getCode());
     if (src.hasComment())
@@ -17396,8 +17396,8 @@ public class VersionConvertor_30_40 {
       tgt.addJurisdiction(convertCodeableConcept(t));
     if (src.hasPurpose())
       tgt.setPurpose(src.getPurpose());
-    if (src.hasIdempotent())
-      tgt.setIdempotent(src.getIdempotent());
+    if (src.hasAffectsState())
+      tgt.setIdempotent(!src.getAffectsState());
     if (src.hasCode())
       tgt.setCode(src.getCode());
     if (src.hasComment())

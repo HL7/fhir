@@ -12945,12 +12945,12 @@ public class XmlParser extends XmlParserBase {
         res.getJurisdiction().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("purpose")) {
         res.setPurposeElement(parseMarkdown(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("idempotent")) {
-        res.setIdempotentElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("affectsState")) {
+        res.setAffectsStateElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.setCodeElement(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("comment")) {
-        res.setCommentElement(parseString(xpp));
+        res.setCommentElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("base")) {
         res.setBase(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("resource")) {
@@ -33308,8 +33308,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPurposeElement()) {
         composeMarkdown("purpose", element.getPurposeElement());
       }
-      if (element.hasIdempotentElement()) {
-        composeBoolean("idempotent", element.getIdempotentElement());
+      if (element.hasAffectsStateElement()) {
+        composeBoolean("affectsState", element.getAffectsStateElement());
       }
       if (element.hasCodeElement()) {
         composeCode("code", element.getCodeElement());

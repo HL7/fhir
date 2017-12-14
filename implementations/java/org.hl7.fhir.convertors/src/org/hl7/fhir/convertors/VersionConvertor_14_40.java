@@ -4626,7 +4626,7 @@ public class VersionConvertor_14_40 {
     if (src.hasRequirements())
       tgt.setPurpose(src.getRequirements());
     if (src.hasIdempotent())
-      tgt.setIdempotent(src.getIdempotent());
+      tgt.setAffectsState(!src.getIdempotent());
     tgt.setCode(src.getCode());
     if (src.hasComment())
       tgt.setComment(src.getComment());
@@ -4670,8 +4670,8 @@ public class VersionConvertor_14_40 {
       tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasPurpose())
       tgt.setRequirements(src.getPurpose());
-    if (src.hasIdempotent())
-      tgt.setIdempotent(src.getIdempotent());
+    if (src.hasAffectsState())
+      tgt.setIdempotent(!src.getAffectsState());
     tgt.setCode(src.getCode());
     if (src.hasComment())
       tgt.setComment(src.getComment());
