@@ -650,7 +650,7 @@
  -- Row 1 -----------------------------------
   Name = expand
   Use = Resource | Instance
-  Documentation = The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation.   If the operation is not called at the instance level, one of the in parameters identifier, context or valueset must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message.
+  Documentation = The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation.   If the operation is not called at the instance level, one of the in parameters constraint, context or valueset must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message.
   Type = operation
   Example.Request = $expand-request.txt
   Example.Response = $expand-response.txt
@@ -797,7 +797,7 @@
  -- Row 19 -----------------------------------
   Name = validate-code
   Use = Resource | Instance
-  Documentation = Validate that a coded value is in the set of codes allowed by a value set.   If the operation is not called at the instance level, one of the in parameters \"identifier\" or \"valueset\" must be provided.  One (and only one) of the in parameters (code, coding, codeableConcept) must be provided.  The operation returns a result (true / false), an error message, and the recommended display for the code
+  Documentation = Validate that a coded value is in the set of codes allowed by a value set.   If the operation is not called at the instance level, one of the in parameters \"constraint\" or \"valueset\" must be provided.  One (and only one) of the in parameters (code, coding, codeableConcept) must be provided.  The operation returns a result (true / false), an error message, and the recommended display for the code
   Type = operation
   Example.Request = $validate-code-request.txt
   Example.Response = $validate-code-response.txt
