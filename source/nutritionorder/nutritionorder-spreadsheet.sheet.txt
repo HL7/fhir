@@ -161,6 +161,7 @@
   Definition = A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
   Comments = Referenced by an Order Request (workflow)
   Workflow Mapping = Request
+  v2 Mapping = ORC / ODS
   RIM Mapping = SupplyRequest
   w5 = clinical.careprovision
 
@@ -172,6 +173,7 @@
   Definition = Identifiers assigned to this order by the order sender or by the order receiver
   Comments = The Identifier.type element can be to indicate filler vs. placer if needed.  This is explained in further detail [here](servicerequest.html#notes)
   Workflow Mapping = Request.identifier
+  v2 Mapping = ORC-2/ORC-3
   RIM Mapping = .id
   w5 = id
 
@@ -186,6 +188,7 @@
   Definition = The workflow status of the nutrition order/request.
   Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Request.status
+  v2 Mapping = ORC-1
   RIM Mapping = .statusCode
   Committee Notes = [#3720]
   w5 = status
@@ -198,6 +201,7 @@
   Short Name = The person who requires the diet, formula or nutritional supplement
   Definition = The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.
   Workflow Mapping = Request.subject
+  v2 Mapping = PID
   RIM Mapping = .participation[typeCode=SBJ].role
   Committee Notes = 2/4/2015 EH: [#3707] change subject to patient
   w5 = who.focus
@@ -209,6 +213,7 @@
   Short Name = The encounter associated with this nutrition order
   Definition = An encounter that provides additional information about the healthcare context in which this request is made
   Workflow Mapping = Request.context
+  v2 Mapping = PV1
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
 
@@ -220,6 +225,7 @@
   Short Name = Date and time the nutrition order was requested
   Definition = The date and time that this nutrition order was requested.
   Workflow Mapping = Request.authoredOn
+  v2 Mapping = ORC-9
   RIM Mapping = author.time
   w5 = when.recorded
 
@@ -231,6 +237,7 @@
   Short Name = Who ordered the diet, formula or nutritional supplement
   Definition = The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
   Workflow Mapping = Request.requester
+  v2 Mapping = ORC-12
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
@@ -252,6 +259,7 @@
   Short Name = Order-specific modifier about the type of food that should be given
   Definition = This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.
   Comments = Information on a patient\'s food preferences that inform healthcare personnel about the food that the patient should receive or consume.
+  v2 Mapping = ODS-1 Value = \"P\",ODS-3
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=NutritionModificationType]
   Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
 
@@ -281,6 +289,7 @@
   Type = Timing|Period
   Short Name = Frequency to offer nutrition item
   Definition = The frequency at which the diet, oral supplement or enteral formula should be given
+  v2 Mapping = ODS-2
   Committee Notes = (not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval) Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule 2/4/2015 EH: [#3996] deprecate
 
  -- Row 13 -----------------------------------
@@ -298,6 +307,7 @@
   Inv. = 1
   Short Name = Oral diet components
   Definition = Diet given orally in contrast to enteral (tube) feeding.
+  v2 Mapping = ODS-1 Value = \"D\"
   RIM Mapping = oralDiet .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=OralDietSupplyType]
 
  -- Row 15 -----------------------------------
@@ -309,6 +319,7 @@
   Short Name = Type of oral diet or diet restrictions that describe what can be consumed orally
   Definition = The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-3
   RIM Mapping = .code
   Committee Notes = renamed from .code to .type for consistency
   w5 = what
@@ -321,6 +332,7 @@
   Short Name = Scheduled frequency of diet
   Definition = The time period and frequency at which the diet should be given.  The diet should be given for the combination of all schedules if more than one schedule is present.
   Workflow Mapping = Request.occurrence[x]
+  v2 Mapping = ODS-2, TQ1-7/8
   RIM Mapping = .expectedUseTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type  #8181
 
@@ -331,6 +343,7 @@
   Short Name = Required  nutrient modifications
   Definition = Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-4
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind
 
  -- Row 18 -----------------------------------
@@ -341,6 +354,7 @@
   Short Name = Type of nutrient that is being modified
   Definition = The nutrient that is being modified such as carbohydrate or sodium.
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-4
   RIM Mapping = .code
   w5 = what
 
@@ -350,6 +364,7 @@
   Type = SimpleQuantity
   Short Name = Quantity of the specified nutrient
   Definition = The quantity of the specified nutrient to include in diet.
+  v2 Mapping = ODS-4
   RIM Mapping = .quantity
   Committee Notes = 2/4/2015 EH: [#4004] remove choice from .nutient.amount
 
@@ -359,6 +374,7 @@
   UML = down
   Short Name = Required  texture modifications
   Definition = Class that describes any texture modifications required for the patient to safely consume various types of solid foods.
+  v2 Mapping = ODS-4
   RIM Mapping = .inboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=DietTextureModificationType]
 
  -- Row 21 -----------------------------------
@@ -370,6 +386,7 @@
   Definition = Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.
   Comments = Coupled with the foodType (Meat)
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-4
   RIM Mapping = .code
 
  -- Row 22 -----------------------------------
@@ -381,6 +398,7 @@
   Definition = The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types.
   Comments = Coupled with the textureModifier; could be (All Foods)
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-4
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code
 
  -- Row 23 -----------------------------------
@@ -391,6 +409,7 @@
   Short Name = The required consistency of fluids and liquids provided to the patient
   Definition = The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-4
   RIM Mapping = .code  (Not differentiated from dietTextureModificationType in HL7 v3)
 
  -- Row 24 -----------------------------------
@@ -402,6 +421,7 @@
   Definition = Free text or additional instructions or information pertaining to the oral diet.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
   Workflow Mapping = Request.note, Request.supportingInfo
+  v2 Mapping = ODS-4
   RIM Mapping = .text
 
  -- Row 25 -----------------------------------
@@ -411,6 +431,7 @@
   Inv. = 1
   Short Name = Supplement components
   Definition = Oral nutritional products given in order to add further nutritional value to the patient\'s diet.
+  v2 Mapping = ODS-1 Value = \"P\"
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=SUPPLEMENT]
 
  -- Row 26 -----------------------------------
@@ -422,6 +443,7 @@
   Short Name = Type of supplement product requested
   Definition = The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-3
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalSupplementType)
   w5 = what
 
@@ -432,6 +454,7 @@
   Short Name = Product or brand name of the nutritional supplement
   Definition = The product or brand name of the nutritional supplement such as \"Acme Protein Shake\".
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-3
   RIM Mapping = .id
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
@@ -443,6 +466,7 @@
   Short Name = Scheduled frequency of supplement
   Definition = The time period and frequency at which the supplement(s) should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present.
   Workflow Mapping = Request.occurrence[x]
+  v2 Mapping = ODS-2,TQ1-7/8
   RIM Mapping = .effectiveTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type.  #8181
 
@@ -452,6 +476,7 @@
   Type = SimpleQuantity
   Short Name = Amount of the nutritional supplement
   Definition = The amount of the nutritional supplement to be given
+  v2 Mapping = TQ1-2
   RIM Mapping = .quantity
 
  -- Row 30 -----------------------------------
@@ -463,6 +488,7 @@
   Definition = Free text or additional instructions or information pertaining to the oral supplement.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
   Workflow Mapping = Request.note, Request.supportingInfo
+  v2 Mapping = ODS-4
   RIM Mapping = .text
   Committee Notes = 2/28/2015:  pre-applied #5675
 
@@ -473,6 +499,7 @@
   Inv. = 1
   Short Name = Enteral formula components
   Definition = Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.
+  v2 Mapping = ODS-1 Value coded for enteral
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=FORMULA]
 
  -- Row 32 -----------------------------------
@@ -484,6 +511,7 @@
   Short Name = Type of enteral or infant formula
   Definition = The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-3
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalFormulaType)
   w5 = what
 
@@ -494,6 +522,7 @@
   Short Name = Product or brand name of the enteral or infant formula
   Definition = The product or brand name of the enteral or infant formula product such as \"ACME Adult Standard Formula\".
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-4
   RIM Mapping = .id
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
@@ -505,6 +534,7 @@
   Short Name = Type of modular component to add to the feeding
   Definition = Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula.
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-3
   RIM Mapping = N/A (not differentiated from NutritionalFormulaType in HL7 v3)
   w5 = what
 
@@ -515,6 +545,7 @@
   Short Name = Product or brand name of the modular additive
   Definition = The product or brand name of the type of modular component to be added to the formula.
   Workflow Mapping = Request.code
+  v2 Mapping = ODS-4
   RIM Mapping = N/A
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
@@ -524,6 +555,7 @@
   Type = SimpleQuantity
   Short Name = Amount of energy per specified volume that is required
   Definition = The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL.
+  v2 Mapping = TQ1-2
   RIM Mapping = .quantity (caloricDensity)
 
  -- Row 37 -----------------------------------
@@ -533,6 +565,7 @@
   Binding = EnteralRouteOfAdministration
   Short Name = How the formula should enter the patient\'s gastrointestinal tract
   Definition = The route or physiological path of administration into the patient\'s gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube.
+  v2 Mapping = ODS-4
   RIM Mapping = .routeCode
 
  -- Row 38 -----------------------------------
@@ -542,6 +575,7 @@
   Short Name = Formula feeding instruction as structured data
   Definition = Formula administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours.
   Comments = See implementation notes below for further discussion on how to order continuous vs bolus enteral feeding using this resource.
+  v2 Mapping = ODS-4
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SBADM, moodCode=RQO]
   Committee Notes = #6100, 6111
 
@@ -553,6 +587,7 @@
   Short Name = Scheduled frequency of enteral feeding
   Definition = The time period and frequency at which the enteral formula should be delivered to the patient
   Workflow Mapping = Request.occurrence[x]
+  v2 Mapping = ODS-2,TQ1-7/8
   RIM Mapping = .effectiveUseTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type, #6101,#6100, 6111
 
@@ -562,6 +597,7 @@
   Type = SimpleQuantity
   Short Name = The volume of formula to provide
   Definition = The volume of formula to provide to the patient per the specified administration schedule.
+  v2 Mapping = TQ1-2
   RIM Mapping = .doseQuantity
   Committee Notes = #6100, 6111
 
@@ -572,6 +608,7 @@
   Short Name = Speed with which the formula is provided per period of time
   Definition = The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.
   Comments = Ratio is used when the quantity value in the denominator is not \"1\", otherwise use Quantity. For example, the Ratio datatype is used for \"200 mL/4 hrs\" versus the Quantity datatype for \"50 mL/hr\".
+  v2 Mapping = ODS-4
   RIM Mapping = .rateQuantity
   Committee Notes = 4/15/2015 EH:  #6100,# 6111
 
@@ -581,6 +618,7 @@
   Type = Ratio
   Short Name = Change in the rate of administration over a given time
   Definition = The change in the rate of administration over a given time, e.g. increase by 10 mL/hour every 4 hours.
+  v2 Mapping = ODS-4
   RIM Mapping = N/A
   Committee Notes = 4/15/2015 EH:  #6111
 
@@ -590,6 +628,7 @@
   Type = SimpleQuantity
   Short Name = Upper limit on formula volume per unit of time
   Definition = The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours.
+  v2 Mapping = ODS-4
   RIM Mapping = .maxDoseQuantity
 
  -- Row 44 -----------------------------------
@@ -601,6 +640,7 @@
   Definition = Free text formula administration, feeding instructions or additional instructions or information.
   Comments = Free text dosage instructions can be used for cases where the instructions are too complex to code.
   Workflow Mapping = Request.note, Request.supportingInfo
+  v2 Mapping = ODS-4
   RIM Mapping = N/A
   Committee Notes = 8177, 6102
 

@@ -252,6 +252,7 @@
  -- Row 7 -----------------------------------
   Element = Task.status
   Card. = 1..1
+  Is Modifier = Y
   Summary = Y
   Type = code
   Binding = TaskStatus

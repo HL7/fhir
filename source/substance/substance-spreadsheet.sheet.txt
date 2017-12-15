@@ -78,6 +78,7 @@
  -- Row 3 -----------------------------------
   Element = Substance.status
   Card. = 0..1
+  Is Modifier = Y
   Summary = Y
   Type = code
   Binding = FHIRSubstanceStatus
