@@ -20,11 +20,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12540</WindowHeight>
-  <WindowWidth>24440</WindowWidth>
-  <WindowTopX>1840</WindowTopX>
-  <WindowTopY>1440</WindowTopY>
+  <WindowHeight>8688</WindowHeight>
+  <WindowWidth>20160</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -69,12 +70,13 @@
  </Styles>
  <Worksheet ss:Name="compartments">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="64.8"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="110" ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="131"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="209"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="109.8" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0"
+    ss:Width="130.80000000000001"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="208.79999999999998"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="253.79999999999998"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Title</Data></Cell>
@@ -137,13 +139,13 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="129" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s65" ss:DefaultColumnWidth="65"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="130" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s65" ss:DefaultColumnWidth="64.8"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="158"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="157.80000000000001"/>
    <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="198"/>
-   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="98"/>
-   <Column ss:StyleID="s65" ss:Width="149"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="97.800000000000011"/>
+   <Column ss:StyleID="s65" ss:Width="148.80000000000001"/>
    <Column ss:StyleID="s65" ss:Width="198"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s66">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
@@ -757,6 +759,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OccupationalData</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicinalProduct</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">

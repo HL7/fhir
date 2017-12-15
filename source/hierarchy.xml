@@ -306,6 +306,7 @@ signatures.html
       <page type="resource" resource="MedicationDispense"/>
       <page type="resource" resource="MedicationStatement"/>
       <page type="resource" resource="Medication"/>
+      <page type="resource" resource="MedicinalProduct"/>
       <page type="resource" resource="Immunization"/>
       <page type="resource" resource="ImmunizationEvaluation"/>
      <page type="resource" resource="ImmunizationRecommendation"/>
