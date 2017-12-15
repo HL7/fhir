@@ -249,7 +249,7 @@
   Context = StructureDefinition.differential
   English = No slicing on the root element
   XPath = not(f:element[1]/f:slicing)
-  Expression = element.first().slicing.empty()
+  Expression = element.where(path.contains(\'.\').not()).slicing.empty()
 
 === Sheet Data Elements =====================================
 

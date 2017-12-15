@@ -4544,7 +4544,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.differential</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">No slicing on the root element</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().slicing.empty()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">element.where(path.contains('.').not()).slicing.empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:element[1]/f:slicing)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4816,7 +4816,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>18</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
