@@ -315,28 +315,6 @@
   <entry>
     <resource>
       <NamingSystem>
-        <id value="tx-icd-10-de"/>
-        <name value="ICD-10 International (WHO) (German Variant)"/>
-        <status value="draft"/>
-        <kind value="codesystem"/>
-        <publisher value="HL7, Inc"/>
-        <date value="2015-08-21"/>
-        <uniqueId>
-          <type value="uri"/>
-          <value value="http://hl7.org/fhir/sid/icd-10-de"/>
-          <preferred value="true"/>
-        </uniqueId>
-        <uniqueId>
-          <type value="uri"/>
-          <value value="1.2.276.0.76.5.409"/>
-          <preferred value="false"/>
-        </uniqueId>
-      </NamingSystem>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <NamingSystem>
         <id value="tx-icd-10-nl"/>
         <name value="ICD-10 International (WHO) (Dutch Variant)"/>
         <status value="draft"/>

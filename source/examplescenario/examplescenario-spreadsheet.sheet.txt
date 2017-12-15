@@ -53,6 +53,7 @@
 
  -- Row 6 -----------------------------------
   Element = ExampleScenario.title
+  Card. = 0..1
   Short Name = Name of example
   Definition = The name of the example as showin in the title page
   To Do = See Metadata resources inheritance: e.g.valueset
@@ -91,13 +92,14 @@
 
  -- Row 16 -----------------------------------
   Element = ExampleScenario.description
+  Card. = 0..1
   Short Name = Description of behaviour of the workflow example
   Definition = Description of behaviour of the workflow example
 
  -- Row 17 -----------------------------------
   Element = ExampleScenario.purpose
-  Short Name = What is the example supposed to resolve
-  Definition = What is the example supposed to resolve
+  Short Name = The purpose of the example, e.g. to illustrate a scenario
+  Definition = What is the example scenario resource created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario
 
  -- Row 18 -----------------------------------
   Element = ExampleScenario.actor
@@ -216,13 +218,14 @@
 
  -- Row 34 -----------------------------------
   Element = ExampleScenario.process
-  Card. = 0..1
+  Card. = 1..1
   Short Name = Each major process - a group of operations
   Definition = Each major process - a group of operations
 
  -- Row 35 -----------------------------------
   Element = ExampleScenario.process.title
   Card. = 1..1
+  Summary = y
   Type = string
   Short Name = The diagram title of the group of operations
   Definition = The diagram title of the group of operations
