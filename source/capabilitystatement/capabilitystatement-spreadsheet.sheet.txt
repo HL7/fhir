@@ -385,7 +385,7 @@
   Id = 1
   Code = not-supported
   Display = Not Supported
-  Definition = No support for conditional deletes.
+  Definition = No support for conditional reads
 
  -- Row 2 -----------------------------------
   Id = 2

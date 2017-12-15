@@ -24,7 +24,7 @@
   Card. = 0..1
   Type = id
   Short Name = Version specific identifier
-  Definition = The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted
+  Definition = The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted
   Comments = The server assigns this value, and ignores what the client specifies, except in the case that the server is imposing version integrity on updates/deletes
 
  -- Row 3 -----------------------------------
@@ -58,7 +58,7 @@
   Binding = SecurityLabels
   Short Name = Security Labels applied to this resource
   Definition = Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure
-  Comments = The security labels can be updated without changing the stated version of the resource  The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored
+  Comments = The security labels can be updated without changing the stated version of the resource. The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored
 
  -- Row 7 -----------------------------------
   Element = Meta.tag
@@ -67,4 +67,4 @@
   Binding = Tags
   Short Name = Tags applied to this resource
   Definition = Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource
-  Comments = The tags can be updated without changing the stated version of the resource.  The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored
+  Comments = The tags can be updated without changing the stated version of the resource. The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored
