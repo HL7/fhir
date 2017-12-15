@@ -32,7 +32,7 @@ using this basic pattern:
 <pre class="json">
 {
   "url": the identity of this structure definition,
-  "kind": (datatype | resource),
+  "kind": (primitive-type | complex-type | resource | logical),
   "type": the type being constrained (if it's a constraint)
   "baseDefinition": the structure definition from which this is derived
 }
@@ -47,7 +47,7 @@ This list shows a number of examples, with links to real examples for each:
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/Quantity",
   "name": "Quantity",
-  "kind": "datatype",
+  "kind": "complex-type",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Element"
 }
 </pre>
@@ -59,7 +59,7 @@ This list shows a number of examples, with links to real examples for each:
   "resourceType": "StructureDefinition",
   "url": "http://hl7.org/fhir/StructureDefinition/Money",
   "name": "Money",
-  "kind": "datatype",
+  "kind": "complex-type",
   "type": "Quantity",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Quantity"
 }
@@ -122,7 +122,7 @@ This list shows a number of examples, with links to real examples for each:
   "resourceType": "StructureDefinition",
   "url": "http://example.org/fhir/StructureDefinition/race",
   "name": "Race codes used by institution (a subset of meaningful use codes)",
-  "kind": "datatype",
+  "kind": "complex-type",
   "type": "Extension",
   "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
 }
