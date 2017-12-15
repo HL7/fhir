@@ -5016,7 +5016,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">ProductPlan.address</Data></Cell>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text</Data></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s120"><Data ss:Type="String">address-city</Data></Cell>

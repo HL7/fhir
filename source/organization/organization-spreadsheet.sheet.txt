@@ -341,7 +341,7 @@
  -- Row 8 -----------------------------------
   Name = address
   Type = string
-  Description = A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text
+  Description = A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text
   Path = Organization.address
 
  -- Row 9 -----------------------------------
