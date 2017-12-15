@@ -825,7 +825,7 @@
  -- Row 23 -----------------------------------
   Name = validate-code.code
   Use = in
-  Documentation = The code that is to be validated. If a code is provided, a system must be provided
+  Documentation = The code that is to be validated. If a code is provided, a system or a context must be provided (if a context is provided, then the server SHALL ensure that the code is not ambiguous without a system)
   Type = code
   Min = 0
   Max = 1
