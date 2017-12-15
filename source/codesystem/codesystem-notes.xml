@@ -153,7 +153,7 @@ Concept A is considered to be subsumed by Concept B if it comes under Concept B 
 </p>
 <p>
 Where a CodeSystem does not declare its hierarchy meaning directly, then
-the code system documentation must be consulted manually to determinw how subsumption is determined. If there is no definition, none of the
+the code system documentation must be consulted manually to determine how subsumption is determined. If there is no definition, none of the
 subsumption based features can be used with the code system.
 </p>
 <p>
