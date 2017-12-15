@@ -169,7 +169,7 @@
   Context = StructureDefinition
   English = In any snapshot or differential, no label, code or requirements on the an element without a \".\" in the path (e.g. the first element)
   XPath = not(exists(f:snapshot/f:element[not(contains(f:path/@value, \'.\')) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, \'.\')) and (f:label or f:code or f:requirements)]))
-  Expression = children().element.first().label.empty() and children().element.first().code.empty() and children().element.first().requirements.empty()
+  Expression = children().element.where(path.contains(\'.\').not()).label.empty() and children().element.where(path.contains(\'.\').not()).code.empty() and children().element.where(path.contains(\'.\').not()).requirements.empty()
 
  -- Row 11 -----------------------------------
   Id = 11
