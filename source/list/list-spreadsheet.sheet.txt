@@ -205,7 +205,7 @@
   Card. = 0..1
   Aliases = Author
   Summary = Y
-  Type = Reference(Practitioner|Patient|Device)
+  Type = Reference(Practitioner|PractitionerRole|Patient|Device)
   Short Name = Who and/or what defined the list contents (aka Author)
   Definition = The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list
   Requirements = Allows follow-up as well as context
