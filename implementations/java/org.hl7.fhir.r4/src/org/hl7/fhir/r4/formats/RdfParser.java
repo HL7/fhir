@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -2111,8 +2111,6 @@ public class RdfParser extends RdfParserBase {
       composeCode(t, "CapabilityStatement", "patchFormat", element.getPatchFormat().get(i), i);
     for (int i = 0; i < element.getImplementationGuide().size(); i++)
       composeUri(t, "CapabilityStatement", "implementationGuide", element.getImplementationGuide().get(i), i);
-    for (int i = 0; i < element.getProfile().size(); i++)
-      composeReference(t, "CapabilityStatement", "profile", element.getProfile().get(i), i);
     for (int i = 0; i < element.getRest().size(); i++)
       composeCapabilityStatementCapabilityStatementRestComponent(t, "CapabilityStatement", "rest", element.getRest().get(i), i);
     for (int i = 0; i < element.getMessaging().size(); i++)
@@ -2233,6 +2231,8 @@ public class RdfParser extends RdfParserBase {
       composeCode(t, "CapabilityStatement", "type", element.getTypeElement(), -1);
     if (element.hasProfile())
       composeReference(t, "CapabilityStatement", "profile", element.getProfile(), -1);
+    for (int i = 0; i < element.getSupportedProfile().size(); i++)
+      composeReference(t, "CapabilityStatement", "supportedProfile", element.getSupportedProfile().get(i), i);
     if (element.hasDocumentationElement())
       composeMarkdown(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
     for (int i = 0; i < element.getInteraction().size(); i++)
@@ -2349,8 +2349,6 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
     for (int i = 0; i < element.getSupportedMessage().size(); i++)
       composeCapabilityStatementCapabilityStatementMessagingSupportedMessageComponent(t, "CapabilityStatement", "supportedMessage", element.getSupportedMessage().get(i), i);
-    for (int i = 0; i < element.getEvent().size(); i++)
-      composeCapabilityStatementCapabilityStatementMessagingEventComponent(t, "CapabilityStatement", "event", element.getEvent().get(i), i);
   }
 
   protected void composeCapabilityStatementCapabilityStatementMessagingEndpointComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementMessagingEndpointComponent element, int index) {
@@ -2383,32 +2381,6 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "CapabilityStatement", "mode", element.getModeElement(), -1);
     if (element.hasDefinition())
       composeReference(t, "CapabilityStatement", "definition", element.getDefinition(), -1);
-  }
-
-  protected void composeCapabilityStatementCapabilityStatementMessagingEventComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementMessagingEventComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "event", name, element, index);
-    if (element.hasCode())
-      composeCoding(t, "CapabilityStatement", "code", element.getCode(), -1);
-    if (element.hasCategoryElement())
-      composeEnum(t, "CapabilityStatement", "category", element.getCategoryElement(), -1);
-    if (element.hasModeElement())
-      composeEnum(t, "CapabilityStatement", "mode", element.getModeElement(), -1);
-    if (element.hasFocusElement())
-      composeCode(t, "CapabilityStatement", "focus", element.getFocusElement(), -1);
-    if (element.hasRequest())
-      composeReference(t, "CapabilityStatement", "request", element.getRequest(), -1);
-    if (element.hasResponse())
-      composeReference(t, "CapabilityStatement", "response", element.getResponse(), -1);
-    if (element.hasDocumentationElement())
-      composeString(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
   }
 
   protected void composeCapabilityStatementCapabilityStatementDocumentComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementDocumentComponent element, int index) {
@@ -3425,6 +3397,8 @@ public class RdfParser extends RdfParserBase {
       composeBoolean(t, "CodeSystem", "versionNeeded", element.getVersionNeededElement(), -1);
     if (element.hasContentElement())
       composeEnum(t, "CodeSystem", "content", element.getContentElement(), -1);
+    if (element.hasSupplements())
+      composeReference(t, "CodeSystem", "supplements", element.getSupplements(), -1);
     if (element.hasCountElement())
       composeUnsignedInt(t, "CodeSystem", "count", element.getCountElement(), -1);
     for (int i = 0; i < element.getFilter().size(); i++)
@@ -3495,8 +3469,6 @@ public class RdfParser extends RdfParserBase {
       composeCodeSystemConceptDefinitionDesignationComponent(t, "CodeSystem", "designation", element.getDesignation().get(i), i);
     for (int i = 0; i < element.getProperty().size(); i++)
       composeCodeSystemConceptPropertyComponent(t, "CodeSystem", "property", element.getProperty().get(i), i);
-    for (int i = 0; i < element.getAlternate().size(); i++)
-      composeCodeSystemConceptDefinitionAlternateComponent(t, "CodeSystem", "alternate", element.getAlternate().get(i), i);
     for (int i = 0; i < element.getConcept().size(); i++)
       composeCodeSystemConceptDefinitionComponent(t, "CodeSystem", "concept", element.getConcept().get(i), i);
   }
@@ -3533,22 +3505,6 @@ public class RdfParser extends RdfParserBase {
       composeCode(t, "CodeSystem", "code", element.getCodeElement(), -1);
     if (element.hasValue())
       composeType(t, "CodeSystem", "value", element.getValue(), -1);
-  }
-
-  protected void composeCodeSystemConceptDefinitionAlternateComponent(Complex parent, String parentType, String name, CodeSystem.ConceptDefinitionAlternateComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "alternate", name, element, index);
-    if (element.hasKind())
-      composeCoding(t, "CodeSystem", "kind", element.getKind(), -1);
-    if (element.hasCodeElement())
-      composeCode(t, "CodeSystem", "code", element.getCodeElement(), -1);
   }
 
   protected void composeCommunication(Complex parent, String parentType, String name, Communication element, int index) {
@@ -13073,6 +13029,8 @@ public class RdfParser extends RdfParserBase {
       composeTerminologyCapabilitiesTerminologyCapabilitiesCodeSystemComponent(t, "TerminologyCapabilities", "codeSystem", element.getCodeSystem().get(i), i);
     if (element.hasExpansion())
       composeTerminologyCapabilitiesTerminologyCapabilitiesExpansionComponent(t, "TerminologyCapabilities", "expansion", element.getExpansion(), -1);
+    if (element.hasCodeSearchElement())
+      composeEnum(t, "TerminologyCapabilities", "codeSearch", element.getCodeSearchElement(), -1);
     if (element.hasValidateCode())
       composeTerminologyCapabilitiesTerminologyCapabilitiesValidateCodeComponent(t, "TerminologyCapabilities", "validateCode", element.getValidateCode(), -1);
     if (element.hasTranslation())

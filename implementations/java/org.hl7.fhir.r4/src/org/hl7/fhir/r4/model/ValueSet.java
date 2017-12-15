@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 09:09+1100 for FHIR v3.1.0
+// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -3697,7 +3697,7 @@ public class ValueSet extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -3717,7 +3717,7 @@ public class ValueSet extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ValueSet setUrlElement(UriType value) { 
       this.url = value;
@@ -3725,14 +3725,14 @@ public class ValueSet extends MetadataResource {
     }
 
     /**
-     * @return An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).
+     * @return An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).
+     * @param value An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).
      */
     public ValueSet setUrl(String value) { 
       if (Utilities.noString(value))
@@ -4579,7 +4579,7 @@ public class ValueSet extends MetadataResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url));
         children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the value set. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
@@ -4603,7 +4603,7 @@ public class ValueSet extends MetadataResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this value set when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this value set is (or will be) published. The URL SHOULD include the major version of the value set. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url);
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the value set. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
@@ -4989,26 +4989,6 @@ public class ValueSet extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>reference</b>
-   * <p>
-   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.compose.include.system</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="uri" )
-  public static final String SP_REFERENCE = "reference";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>reference</b>
-   * <p>
-   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ValueSet.compose.include.system</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam REFERENCE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_REFERENCE);
-
- /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>External identifier for the value set</b><br>
@@ -5027,6 +5007,26 @@ public class ValueSet extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>This special parameter searches for codes in the value set. See additional notes on the ValueSet resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.expansion.contains, ValueSet.compose.include.concept.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="ValueSet.expansion.contains | ValueSet.compose.include.concept.code", description="This special parameter searches for codes in the value set. See additional notes on the ValueSet resource", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>This special parameter searches for codes in the value set. See additional notes on the ValueSet resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.expansion.contains, ValueSet.compose.include.concept.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>jurisdiction</b>
@@ -5049,26 +5049,6 @@ public class ValueSet extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
 
  /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="ValueSet.name", description="Computationally friendly name of the value set", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Computationally friendly name of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
    * Search parameter: <b>description</b>
    * <p>
    * Description: <b>The description of the value set</b><br>
@@ -5087,26 +5067,6 @@ public class ValueSet extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.publisher</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the value set</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ValueSet.publisher</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
    * Search parameter: <b>title</b>
@@ -5169,26 +5129,6 @@ public class ValueSet extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>The current status of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="ValueSet.status", description="The current status of the value set", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>The current status of the value set</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ValueSet.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
    * Search parameter: <b>expansion</b>
    * <p>
    * Description: <b>Uniquely identifies this expansion</b><br>
@@ -5207,6 +5147,86 @@ public class ValueSet extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam EXPANSION = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_EXPANSION);
+
+ /**
+   * Search parameter: <b>reference</b>
+   * <p>
+   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.compose.include.system</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="reference", path="ValueSet.compose.include.system", description="A code system included or excluded in the value set or an imported value set", type="uri" )
+  public static final String SP_REFERENCE = "reference";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>reference</b>
+   * <p>
+   * Description: <b>A code system included or excluded in the value set or an imported value set</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ValueSet.compose.include.system</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam REFERENCE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_REFERENCE);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="ValueSet.name", description="Computationally friendly name of the value set", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Computationally friendly name of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="ValueSet.publisher", description="Name of the publisher of the value set", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the value set</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ValueSet.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The current status of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="ValueSet.status", description="The current status of the value set", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The current status of the value set</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ValueSet.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

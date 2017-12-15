@@ -48,6 +48,8 @@ import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Timing.EventTiming;
 import org.hl7.fhir.r4.model.UsageContext;
+import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent;
+import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
 import org.hl7.fhir.exceptions.FHIRException;
 
 public class VersionConvertor_14_40 {
@@ -3232,8 +3234,8 @@ public class VersionConvertor_14_40 {
     tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getFormat())
       tgt.addFormat(t.getValue());
-    for (org.hl7.fhir.dstu2016may.model.Reference t : src.getProfile())
-      tgt.addProfile(convertReference(t));
+//    for (org.hl7.fhir.dstu2016may.model.Reference t : src.getProfile())
+//      tgt.addProfile(convertReference(t));
     for (org.hl7.fhir.dstu2016may.model.Conformance.ConformanceRestComponent t : src.getRest())
       tgt.addRest(convertConformanceRestComponent(t));
     for (org.hl7.fhir.dstu2016may.model.Conformance.ConformanceMessagingComponent t : src.getMessaging())
@@ -3281,8 +3283,10 @@ public class VersionConvertor_14_40 {
     tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.r4.model.CodeType t : src.getFormat())
       tgt.addFormat(t.getValue());
-    for (org.hl7.fhir.r4.model.Reference t : src.getProfile())
-      tgt.addProfile(convertReference(t));
+    for (CapabilityStatementRestComponent r : src.getRest())
+      for (CapabilityStatementRestResourceComponent rr : r.getResource())
+        for (org.hl7.fhir.r4.model.Reference t : rr.getSupportedProfile())
+          tgt.addProfile(convertReference(t));
     for (org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent t : src.getRest())
       tgt.addRest(convertConformanceRestComponent(t));
     for (org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingComponent t : src.getMessaging())
@@ -3819,8 +3823,6 @@ public class VersionConvertor_14_40 {
       tgt.setReliableCache(src.getReliableCache());
     if (src.hasDocumentation())
       tgt.setDocumentation(src.getDocumentation());
-    for (org.hl7.fhir.dstu2016may.model.Conformance.ConformanceMessagingEventComponent t : src.getEvent())
-      tgt.addEvent(convertConformanceMessagingEventComponent(t));
     return tgt;
   }
 
@@ -3835,8 +3837,6 @@ public class VersionConvertor_14_40 {
       tgt.setReliableCache(src.getReliableCache());
     if (src.hasDocumentation())
       tgt.setDocumentation(src.getDocumentation());
-    for (org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingEventComponent t : src.getEvent())
-      tgt.addEvent(convertConformanceMessagingEventComponent(t));
     return tgt;
   }
 
@@ -3858,60 +3858,6 @@ public class VersionConvertor_14_40 {
     tgt.setProtocol(convertCoding(src.getProtocol()));
     tgt.setAddress(src.getAddress());
     return tgt;
-  }
-
-  public static org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingEventComponent convertConformanceMessagingEventComponent(org.hl7.fhir.dstu2016may.model.Conformance.ConformanceMessagingEventComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingEventComponent tgt = new org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingEventComponent();
-    copyElement(src, tgt);
-    tgt.setCode(convertCoding(src.getCode()));
-    tgt.setCategory(convertMessageSignificanceCategory(src.getCategory()));
-    tgt.setMode(convertConformanceEventMode(src.getMode()));
-    tgt.setFocus(src.getFocus());
-    tgt.setRequest(convertReference(src.getRequest()));
-    tgt.setResponse(convertReference(src.getResponse()));
-    if (src.hasDocumentation())
-      tgt.setDocumentation(src.getDocumentation());
-    return tgt;
-  }
-
-  public static org.hl7.fhir.dstu2016may.model.Conformance.ConformanceMessagingEventComponent convertConformanceMessagingEventComponent(org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementMessagingEventComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2016may.model.Conformance.ConformanceMessagingEventComponent tgt = new org.hl7.fhir.dstu2016may.model.Conformance.ConformanceMessagingEventComponent();
-    copyElement(src, tgt);
-    tgt.setCode(convertCoding(src.getCode()));
-    tgt.setCategory(convertMessageSignificanceCategory(src.getCategory()));
-    tgt.setMode(convertConformanceEventMode(src.getMode()));
-    tgt.setFocus(src.getFocus());
-    tgt.setRequest(convertReference(src.getRequest()));
-    tgt.setResponse(convertReference(src.getResponse()));
-    if (src.hasDocumentation())
-      tgt.setDocumentation(src.getDocumentation());
-    return tgt;
-  }
-
-  private static org.hl7.fhir.r4.model.CapabilityStatement.MessageSignificanceCategory convertMessageSignificanceCategory(org.hl7.fhir.dstu2016may.model.Conformance.MessageSignificanceCategory src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case CONSEQUENCE: return org.hl7.fhir.r4.model.CapabilityStatement.MessageSignificanceCategory.CONSEQUENCE;
-    case CURRENCY: return org.hl7.fhir.r4.model.CapabilityStatement.MessageSignificanceCategory.CURRENCY;
-    case NOTIFICATION: return org.hl7.fhir.r4.model.CapabilityStatement.MessageSignificanceCategory.NOTIFICATION;
-    default: return org.hl7.fhir.r4.model.CapabilityStatement.MessageSignificanceCategory.NULL;
-    }
-  }
-
-  private static org.hl7.fhir.dstu2016may.model.Conformance.MessageSignificanceCategory convertMessageSignificanceCategory(org.hl7.fhir.r4.model.CapabilityStatement.MessageSignificanceCategory src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case CONSEQUENCE: return org.hl7.fhir.dstu2016may.model.Conformance.MessageSignificanceCategory.CONSEQUENCE;
-    case CURRENCY: return org.hl7.fhir.dstu2016may.model.Conformance.MessageSignificanceCategory.CURRENCY;
-    case NOTIFICATION: return org.hl7.fhir.dstu2016may.model.Conformance.MessageSignificanceCategory.NOTIFICATION;
-    default: return org.hl7.fhir.dstu2016may.model.Conformance.MessageSignificanceCategory.NULL;
-    }
   }
 
   private static org.hl7.fhir.r4.model.CapabilityStatement.EventCapabilityMode convertConformanceEventMode(org.hl7.fhir.dstu2016may.model.Conformance.ConformanceEventMode src) throws FHIRException {
