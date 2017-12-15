@@ -200,7 +200,8 @@ However, the search with parameter <code>_id</code> returns a bundle with the re
 resource itself. Additional parameters can be added which may provide
 additional functionality on top of this base read equivalence (e.g. <a href="#include"><code>_include</code></a>).
 Note that although the _id parameter has a type of token, because servers SHALL use exact match with it, there is
-no system for the _id parameter.
+no system for the _id parameter. Note that matches on <code>_id</code>
+are always case sensitive. 
 </p>
 <a name="lastUpdated"> </a>
 <p>
@@ -656,7 +657,7 @@ Canonical URL, and interpreting that portion as a search on the version.
 <a name="token"> </a>
 <h4>token</h4>
 <p>
-A token type is a parameter that provides an exact match search, either on a string of characters, potentially
+A token type is a parameter that provides an close to exact match search on a string of characters, potentially
 scoped by a URI. It is mostly used against a code or identifier data type where the value may have a
 URI that scopes its meaning, where the search is performed against the  pair from a Coding or an
 Identifier. Tokens are also used against other fields where exact matches are required - uris,
@@ -665,7 +666,20 @@ booleans, and <a href="datatypes.html#ContactPoint">ContactPoints</a>. In these 
 <p>
 For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features).
 Match is case sensitive unless the underlying semantics for the context indicate that the token should be interpreted case-insensitively 
-(see, e.g. <a href="codesystem-definitions.html#CodeSystem.caseSensitive">CodeSystem.caseSensitive</a>). 
+(see, e.g. <a href="codesystem-definitions.html#CodeSystem.caseSensitive">CodeSystem.caseSensitive</a>). Note that matches on <code>_id</code>
+are always case sensitive. If the underlying data type is <code><a href="datatypes.html#string">string</a></code>
+then the search is not case sensitive.
+</p>
+<p>
+<b>Note</b>: There are many challenging issues around case senstivity and token searches. Some 
+code systems are case sensitive (e.g. UCUM) while others are known not to be. For many code
+systems, it's ambiguous. Other kinds of values are also ambiguous. When in doubt, servers
+SHOULD treat tokens in a case-insensitive manner, on the grounds that including undesired
+data has less safety implications than excluding desired behavior. Clients SHOULD always 
+use the correct case when possible, and allow for the server to perform case-insensitive
+matching. 
+</p>
+<p>
 To use subsumption based logic, use the modifiers below, or list
 all the codes in the hierarchy. The syntax for the value is one of the following:
 </p>
