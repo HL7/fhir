@@ -359,7 +359,7 @@
   <entry>
     <resource>
       <NamingSystem>
-        <id value="tx-icd-10-us"/>
+        <id value="tx-icd-10-cm"/>
         <name value="ICD-10 International (WHO) (US Variant)"/>
         <status value="draft"/>
         <kind value="codesystem"/>
@@ -367,7 +367,7 @@
         <date value="2015-08-21"/>
         <uniqueId>
           <type value="uri"/>
-          <value value="http://hl7.org/fhir/sid/icd-10-us"/>
+          <value value="http://hl7.org/fhir/sid/icd-10-cm"/>
           <preferred value="true"/>
         </uniqueId>
       </NamingSystem>
