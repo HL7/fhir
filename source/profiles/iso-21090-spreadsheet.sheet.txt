@@ -182,49 +182,49 @@
   System = http://hl7.org/fhir/v3/AddressUse
   Code = BAD
   Display = bad address
-  Definition = Description: A flag indicating that the address is bad, in fact, useless.
+  Definition = A flag indicating that the address is bad, in fact, useless.
 
  -- Row 2 -----------------------------------
   System = http://hl7.org/fhir/v3/AddressUse
   Code = CONF
   Display = confidential address
-  Definition = Description: Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses. Lloyd to supply more complete description.
+  Definition = Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses. Lloyd to supply more complete description.
 
  -- Row 3 -----------------------------------
   System = http://hl7.org/fhir/v3/AddressUse
   Code = HP
   Display = primary home
-  Definition = Description: The primary home, to reach a person after business hours.
+  Definition = The primary home, to reach a person after business hours.
 
  -- Row 4 -----------------------------------
   System = http://hl7.org/fhir/v3/AddressUse
   Code = HV
   Display = vacation home
-  Definition = Description: A vacation home, to reach a person while on vacation.
+  Definition = A vacation home, to reach a person while on vacation.
 
  -- Row 5 -----------------------------------
   System = http://hl7.org/fhir/v3/AddressUse
   Code = DIR
   Display = direct
-  Definition = Description: Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a \'private line\'.
+  Definition = Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a \'private line\'.
 
  -- Row 6 -----------------------------------
   System = http://hl7.org/fhir/v3/AddressUse
   Code = PUB
   Display = public
-  Definition = Description: Indicates a work place address or telecommunication address that is a \'standard\' address which may reach a reception service, mail-room, or other intermediary prior to the target entity.
+  Definition = Indicates a work place address or telecommunication address that is a \'standard\' address which may reach a reception service, mail-room, or other intermediary prior to the target entity.
 
  -- Row 7 -----------------------------------
   System = http://hl7.org/fhir/v3/AddressUse
   Code = PHYS
   Display = physical visit address
-  Definition = Description: Used primarily to visit an address.
+  Definition = Used primarily to visit an address.
 
  -- Row 8 -----------------------------------
   System = http://hl7.org/fhir/v3/AddressUse
   Code = PST
   Display = postal address
-  Definition = Description: Used to send mail.
+  Definition = Used to send mail.
 
 === Sheet name-v3-representation =====================================
 
