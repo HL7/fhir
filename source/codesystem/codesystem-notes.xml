@@ -194,7 +194,7 @@ The following filters are defined for all code systems:
    <td>in</td>
    <td>[string,string...]</td>
    <td>Includes all codes that have a property value equal to one of the specified strings, where [property] is the code for any <a href="#properties">defined property</a></td>
-   <td>The values cannot include ",", since it is being used as a delimited</td>
+   <td>The values cannot include ",", since it is being used as a delimiter</td>
  </tr>
 </table>
 

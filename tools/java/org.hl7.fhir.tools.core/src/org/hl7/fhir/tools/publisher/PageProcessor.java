@@ -359,7 +359,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   public final static String WEB_PUB_NOTICE =
       "<p style=\"background-color: gold; border:1px solid maroon; padding: 5px; max-width: 790px;\">\r\n"+
-       " This is the Current officially released version of FHIR, which is <a href=\"timelines.html\">STU3</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
+       " This is the Current officially released version of FHIR, which is <a href=\"history.html\">STU3</a>. <br/>For a full list of available versions, see the <a href=\"http://hl7.org/fhir/directory.html\">Directory of published versions</a>.\r\n"+
       "</p>\r\n";
 
   public final static String CI_PUB_NOTICE =
@@ -5738,21 +5738,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String getDraftNote(ResourceDefn resource) {
     if ("draft".equals(resource.getStatus()))
-      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This resource is <a href=\"timelines.html#levels\">marked as a draft</a>.</p>";
+      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This resource is <a href=\"history.html#levels\">marked as a draft</a>.</p>";
     else
       return "";
   }
 
   public String getDraftNote(StructureDefinition definition) {
     if ("draft".equals(definition.getStatus().toCode()))
-      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This artefact is <a href=\"timelines.html#levels\">marked as a draft</a>.</p>";
+      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This artefact is <a href=\"history.html#levels\">marked as a draft</a>.</p>";
     else
       return "";
   }
 
   private String getDraftNote(Profile pack, String prefix) {
     if ("draft".equals(pack.metadata("publication.status")))
-      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This profile is <a href=\""+prefix+"timelines.html#levels\">marked as a draft</a>.</p>";
+      return "<p style=\"background-color: salmon; border:1px solid maroon; padding: 5px;\">This profile is <a href=\""+prefix+"history.html#levels\">marked as a draft</a>.</p>";
     else
       return "";
   }
