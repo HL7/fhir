@@ -1,60 +1,89 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-  <div>
-  <a name="scope"> </a>
-<h2>Scope and Usage</h2>
-<p><strong>This resource is a request resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>.</p>
-<p><em>ServiceRequest</em> is a record of a request for a procedure or diagnostic or other service to be planned, proposed, or performed, as distinguished by the <code>ServiceRequest.intent</code> field value, with or on a patient. The procedure will lead to either a <a href="procedure.html">Procedure</a> or <a href="diagnosticreport.html">DiagnosticReport</a>, that in turn may reference one or more <a href="observation.html">Observations</a>, that summarizes the performance of the procedures and associated documentation such as observations, images, findings that are relevant to the treatment/management of the subject. This resource may be used to share relevant information required to support a referral or a transfer of care request from one
+	<div>
+		<a name="scope"> </a>
+		<h2>Scope and Usage</h2>
+		<a name="dstu"> </a>
+		<blockquote class="stu-note">
+			<p>
+				<b>STU Note:</b> In terms of scope and usage, the Patient Care and Orders and Observations workgroups wish to
+draw the attention of reviewers and implementers to the following issues:
+</p>
+			<ol>
+				<li>
+ReferralRequest and ProcedureRequest have been merged into ServiceRequest since their content was nearly identical and no clear distinction was identified for managing the transfer of care responsibility from one practitioner/organization to another (Note that for STU3 DiagnosticRequest and ProcedureRequest were merged).  We are seeking input on:
+
+				<ul>
+					<li> How to represent whether a transfer of care is being requested</li>
+					<li> Which elements if any in the ServiceRequest resource may not be applicable for a referral.</li>
+				</ul>
+				</li>
+				<li>The following elements have been added to this resource:
+				<ul>
+					<li>
+						<a href="servicerequest-definitions.html#ServiceRequest.orderDetail">orderDetail</a>
+					</li>
+					<li>
+						<a href="servicerequest-definitions.html#ServiceRequest.patientInstruction">patientInstruction</a>
+					</li>
+					<li>
+						<a href="servicerequest-definitions.html#ServiceRequest.insurance">insurance</a>
+					</li>
+				</ul>
+				</li>
+				<li>Based on the workflow <a href="request.html">request</a> pattern changes, the following have been updated:
+				<ul>
+					<li>
+						The <code>definition</code> element was renamed to <a href="servicerequest-definitions.html#ServiceRequest.instantiates">instantiates</a>
+					</li>
+					<li>
+						The <code>requester</code> collapsed into a single element (<code>requester.agent</code> and <code>request.onBehalfOf</code> elements removed) and a reference to <a href="practitionerrole.html">PractitionerRole</a> added to the choices of reference targets
+					</li>
+					<li>
+						Additional reference targets added to the <code>performer</code>, and <code>reasonReference</code> elements.
+					</li>
+					<li>
+						Added a  <a href="extension-statusreason.html">statusReason</a> standard extension - We would like implementer input on whether extension should be promoted to an inline element.
+					</li>
+				</ul></li>
+			</ol>
+		</blockquote>
+		<p>
+			<strong>This resource is a request resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>.</p>
+		<p>
+			<em>ServiceRequest</em> is a record of a request for a procedure or diagnostic or other service to be planned, proposed, or performed, as distinguished by the <code>ServiceRequest.intent</code> field value, with or on a patient. The procedure will lead to either a <a href="procedure.html">Procedure</a> or <a href="diagnosticreport.html">DiagnosticReport</a>, that in turn may reference one or more <a href="observation.html">Observations</a>, that summarizes the performance of the procedures and associated documentation such as observations, images, findings that are relevant to the treatment/management of the subject. This resource may be used to share relevant information required to support a referral or a transfer of care request from one
 practitioner or organization to another when a patient is required to be referred to another provider for a
 consultation
 /second opinion and/or for short term or longer term management of one or more health issues or problems.
 </p>
-<p>
+		<p>
 Examples include:
 </p>
-
-<ul>
-<li>  diagnostic tests/studies</li>
-<li>  endoscopic procedures</li>
-<li>  counseling</li>
-<li>  biopsies</li>
-<li>  therapies (e.g., physio-, social-, psychological-)</li>
-<li>  (exploratory) surgeries or procedures</li>
-<li>  exercises</li>
-<li>  specialist consultation and assessments</li>
-<li>  community services</li>
-<li>  nursing services</li>
-<li>  pharmacist medication review</li>
-<li>  and other clinical interventions.</li>
-</ul>
-
-
-<p>
+		<ul>
+			<li>  diagnostic tests/studies</li>
+			<li>  endoscopic procedures</li>
+			<li>  counseling</li>
+			<li>  biopsies</li>
+			<li>  therapies (e.g., physio-, social-, psychological-)</li>
+			<li>  (exploratory) surgeries or procedures</li>
+			<li>  exercises</li>
+			<li>  specialist consultation and assessments</li>
+			<li>  community services</li>
+			<li>  nursing services</li>
+			<li>  pharmacist medication review</li>
+			<li>  and other clinical interventions.</li>
+		</ul>
+		<p>
   Procedures may be performed by a healthcare professional, a friend or relative or in some cases by the patient themselves.
 </p>
-<p>The principal intention of <em>ServiceRequest</em> is to support ordering procedures for one patient (which includes non-human patients in veterinary medicine). However, in many contexts, healthcare related processes include performing diagnostic investigations on groups of subjects, devices involved in the provision of healthcare, and even environmental locations such as ducts, bodies of water, etc. <em>ServiceRequest</em> supports all these usages.  The service request may represent an order that is entered by a practitioner in a CPOE system as well as a proposal made by a clinical decision support (CDS) system based on a patient's clinical record and context of care. Planned procedures referenced by a <a href="careplan.html">CarePlan</a> may also be represented by this resource. </p>
-<p>The general work flow that this resource facilitates is that a clinical system creates a service request. The service request is then accessed by or exchanged with a system, perhaps via intermediaries, that represents an organization (e.g., diagnostic or imaging service, surgical team, physical therapy department) that can perform the procedure. The organization receiving the service request will, after it accepts the request, update the request as the work is performed, and then finally issue a report that references the requests that it fulfilled.</p>
-<p>The <em>ServiceRequest</em> resource allows requesting only a single procedure. If a workflow requires requesting multiple procedures simultaneously, this is done using multiple instances of this resource. These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to the <a href="request.html">Request pattern</a></p>
-
-<a name="dstu"> </a>
-<blockquote class="stu-note">
-<p>
-<b>STU Note:</b> In terms of scope and usage, the Patient Care and Orders and Observations workgroups wish to
-draw the attention of reviewers and implementers to the following issues:
-</p>
-<p>
-ReferralRequest and ServiceRequest have been merged since their content was nearly identical and no clear distinction was identified for managing the transfer of care responsibility from one practitioner/organization to another.  We are seeking input on:
-</p>
-<ol>
-  <li> How to represent whether a transfer of care is being requested</li>
-    <li> Which elements if any in the ServiceRequest resource may not be applicable for a referral.</li>
-    </ol>
-</blockquote>
-</div>
-<div>
-  <a name="bnr"> </a>
-
- <h2>Boundaries and Relationships</h2>
-
-      <p><em>ServiceRequest</em> and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a <em>ServiceRequest</em> would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist.  For example, upon receiving a CommuninicationRequest a practitioner might initiate a <em>ServiceRequest</em>.</p>
-</div>
+		<p>The principal intention of <em>ServiceRequest</em> is to support ordering procedures for one patient (which includes non-human patients in veterinary medicine). However, in many contexts, healthcare related processes include performing diagnostic investigations on groups of subjects, devices involved in the provision of healthcare, and even environmental locations such as ducts, bodies of water, etc. <em>ServiceRequest</em> supports all these usages.  The service request may represent an order that is entered by a practitioner in a CPOE system as well as a proposal made by a clinical decision support (CDS) system based on a patient's clinical record and context of care. Planned procedures referenced by a <a href="careplan.html">CarePlan</a> may also be represented by this resource. </p>
+		<p>The general work flow that this resource facilitates is that a clinical system creates a service request. The service request is then accessed by or exchanged with a system, perhaps via intermediaries, that represents an organization (e.g., diagnostic or imaging service, surgical team, physical therapy department) that can perform the procedure. The organization receiving the service request will, after it accepts the request, update the request as the work is performed, and then finally issue a report that references the requests that it fulfilled.</p>
+		<p>The <em>ServiceRequest</em> resource allows requesting only a single procedure. If a workflow requires requesting multiple procedures simultaneously, this is done using multiple instances of this resource. These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to the <a href="request.html">Request pattern</a>
+		</p>
+	</div>
+	<div>
+		<a name="bnr"> </a>
+		<h2>Boundaries and Relationships</h2>
+		<p>
+			<em>ServiceRequest</em> and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a <em>ServiceRequest</em> would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist.  For example, upon receiving a CommuninicationRequest a practitioner might initiate a <em>ServiceRequest</em>.</p>
+	</div>
 </div>
