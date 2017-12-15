@@ -231,13 +231,14 @@ actual membership will depend on the particular edition used when it is expanded
 service SHALL use the latest version available for its default edition (or the international edition, if no other edition is the default).
 </p>
 <p>
-For the second part of the URL (the query part), the 4 possible values are:
+For the second part of the URL (the query part), the 5 possible values are:
 </p>
 <ul>
   <li>?fhir_vs - all Concept IDs in the edition/version. If the base URI is http://snomed.info/sct, this means all possible SNOMED CT concepts</li>
   <li>?fhir_vs=isa/[sctid] - all concept IDs that are subsumed by the specified Concept.</li>
   <li>?fhir_vs=refset - all concept ids that correspond to real references sets defined in the specified SNOMED CT edition</li>
   <li>?fhir_vs=refset/[sctid] - all concept IDs in the specified reference set</li>
+  <li>?fhir_vs=ecl:[ecl] - all concept IDs that meet the supplied expression</li>
 </ul>
 
 <p>
@@ -332,7 +333,37 @@ A value set with a url that follows the pattern "[edition/version]?fhir_vs=refse
   &lt;/compose&gt;
 &lt;/ValueSet&gt;
 </pre>
+<p>
+A value set with a url that follows the pattern "[edition/version]?fhir_vs=ecl:[ecl]" follows this template:
+</p>
+<pre class="xml" id="e3" fragment="ValueSet">
+&lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+     [Some HTML that describes this value set as all concepts in the reference set identified by conceptid]
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;url value=&quot;[edition/version]?fhir_vs=refset/[sctid]&quot;/&gt;
+  &lt;version value=&quot;[edition/version]&quot;/&gt;
+  &lt;name value=&quot;SNOMED CT Reference Set [conceptid]&quot;/&gt;
+  &lt;description value=&quot;All SNOMED CT concepts in the reference set [concept id or preferred description]&quot;/&gt;
+  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
+  &lt;status value=&quot;active&quot;/&gt;
+  &lt;compose&gt;
+    &lt;include&gt;
+      &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+      &lt;filter&gt;
+        &lt;property value=&quot;constraint&quot;/&gt;
+        &lt;op value=&quot;=&quot;/&gt;
+        &lt;value value=&quot;[ecl]&quot;/&gt;
+      &lt;/filter&gt;
+    &lt;/include&gt;
+  &lt;/compose&gt;
+&lt;/ValueSet&gt;
+</pre>
 
+  
 <a name="implicit-cm"> </a>
 <h3>Implicit Concept Maps</h3>
 
