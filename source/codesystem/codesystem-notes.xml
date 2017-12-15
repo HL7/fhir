@@ -30,7 +30,7 @@ Where the terminology does not clearly define what string should be used to iden
 <h2>Properties</h2>
 <p>
 Each code system can have one or more properties. Each concept defined by the code system
-may have one more values for each property defined by the code system. Typical uses for
+may have one or more values for each property defined by the code system. Typical uses for
 properties include:
 </p>
 <ul>
