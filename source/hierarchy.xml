@@ -117,7 +117,7 @@ signatures.html
       <page type="resource" resource="Basic"/>
       <page type="resource" resource="Binary"/>
       <page type="resource" resource="Bundle"/>
-      <page type="resource" resource="Media"/>
+      
 
       <page type="resource" resource="Questionnaire"/>
       <page type="resource" resource="QuestionnaireResponse"/>
@@ -290,6 +290,7 @@ signatures.html
 
     <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
       <page type="resource" resource="Observation"/>
+      <page type="resource" resource="Media"/>
       <page type="resource" resource="DiagnosticReport"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingManifest"/>

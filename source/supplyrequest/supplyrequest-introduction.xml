@@ -2,23 +2,33 @@
 	<div>
 		<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
+		<blockquote class="stu-note">
+			<p>
+				<b>STU Note:</b> In terms of scope and usage, the  Orders and Observations workgroups wish to
+draw the attention of reviewers and implementers to the following issues and changes
+</p>
+			<ol>
+				<li>We are seeking input from the implementation community on whether to combine SupplyRequest and  <a href="devicerequest.html">DeviceRequest</a> for R4.
+ </li>
+				<li>The <a href="supplyrequest-definitions.html#parameters">parameters</a> element  was added to SupplyRequest for representing custom details for ordering devices.
+</li>
+			</ol>
+		</blockquote>
 		<p>
 			<strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html">
 					<em>request</em> resources</a>.</strong>
 		</p>
 		<p>
 The scope of the SupplyRequest resource is for recording the request of supplies used in the healthcare process.  This includes supplies specifically
-used in the treatment of patients as well as supply movement within an institution (transport a set of supplies from 
+used in the treatment of patients as well as supply movement within an institution (transport a set of supplies from
 materials management to a service unit (nurse station).  This resource does not include the provisioning of transportation
 services.
 </p>
-<p>
-The SupplyRequest resource allows requesting only a single item. 
-If a workflow requires requesting multiple items simultaneously, this is done using multiple instances of this resource. 
+		<p>
+The SupplyRequest resource allows requesting only a single item.
+If a workflow requires requesting multiple items simultaneously, this is done using multiple instances of this resource.
 These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to <a href="request.html#compound">the Request pattern</a>
-</p>
-
-
+		</p>
 	</div>
 	<div>
 		<a name="bnr"> </a>

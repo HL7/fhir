@@ -3,6 +3,12 @@
 		<h2>
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
+		<a name="dstu"> </a>
+		<blockquote class="stu-note">
+			<p>
+				<b>STU Note:</b> The Orders and Observations workgroups wants to make the balloter aware that there are several approved change requests for this profile, but they have not been applied in time for this ballot.  
+</p>
+		</blockquote>
 		<p>Vital signs will be one of the first areas where there is a need for a single, global vocabulary to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vital Signs profile sets  minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient that include the primary vital signs plus additional measurements such as height, weight and BMI. Support for basic mandatory searching of resources is defined below in the <a href="#Quick_Start">Quick Start</a> section. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vital sign observation.</p>
 		<p>These requirements were originally developed, balloted, and published in FHIR DSTU2 as part of the ONC sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project and were subsequently updated to define the minimum mandatory conformance requirements needed for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations.</p>
 	</div>
@@ -17,7 +23,9 @@
 			<li>Query for vital signs of a particular patient</li>
 		</ul>
 		<h5>Mandatory Data Elements and Terminology</h5>
-		<p>The following data-elements are mandatory (i.e. data SHALL be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content"><strong>Profile Definitions</strong></a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
+		<p>The following data-elements are mandatory (i.e. data SHALL be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content">
+				<strong>Profile Definitions</strong>
+			</a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<p>
 			<strong>Each Observation must have:</strong>
 		</p>
@@ -37,16 +45,13 @@
 				</ul>
 			</li>
 		</ol>
-</div>
-<div>
-<a name="vitals-table"> </a>
-<h2>Formal View of Profile Content</h2>
-
-<p>
-	<a href="vitalsigns.html">Vital Signs Profile</a> : Link to the formal  definition views for the vital signs listed in this table.
+	</div>
+	<div>
+		<a name="vitals-table"> </a>
+		<h2>Formal View of Profile Content</h2>
+		<p>
+			<a href="vitalsigns.html">Vital Signs Profile</a> : Link to the formal  definition views for the vital signs listed in this table.
 </p>
-
-
 		<ul>
 			<li>The table below represents a minimum set of vital sign concepts, the required codes ("magic values"), and UCUM units of measure codes used for representing vital signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
 			<li>The first column of this table links to the formal views of the individual profile for each vital sign.</li>
@@ -59,9 +64,8 @@
 				Other profiles may make rules about which vital sign must be present or must be present as part of a panel or expand the list to include other vital signs. For implementers using LOINC, optional qualifier codes are provided in the notes below.
 			</li>
 		</ul>
-<p></p>
+		<p/>
 		<table class="grid">
-
 			<thead>
 				<tr>
 					<th>Profile Name</th>
@@ -225,13 +229,14 @@
 						<a href="bp.html">Diastolic blood pressure</a>
 					</td>
 					<td>8462-4</td>
-				<td><em>Diastolic blood pressure</em> - Observation.component code for a blood pressure Observation</td>
+					<td>
+						<em>Diastolic blood pressure</em> - Observation.component code for a blood pressure Observation</td>
 					<td>mm[Hg]</td>
 					<td>
 						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>
 					</td>
 				</tr>
-<!--				<tr>
+				<!--				<tr>
 					<td>
 						<a href="mbp.html">Mean blood pressure</a>
 					</td>
@@ -242,9 +247,10 @@
 						<a href="observation-example-mbp.html">Mean Blood Pressure Example</a>
 					</td>
 				</tr>
--->			</tbody>
+-->
+			</tbody>
 		</table>
-		<p></p>
+		<p/>
 	</div>
 	<div>
 		<a name="Quick_Start"> </a>

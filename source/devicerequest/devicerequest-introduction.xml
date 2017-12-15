@@ -2,16 +2,28 @@
 	<div style="color:#01538B;">
 		<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
-	    <p>
-				<strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong>
-	    </p>
-	    <p>
+		<a name="dstu"> </a>
+		<blockquote class="stu-note">
+			<p>
+				<b>STU Note:</b> In terms of scope and usage, the  Orders and Observations workgroups wish to
+draw the attention of reviewers and implementers to the following issue:
+</p>
+			<ol>
+				<li>
+ We are seeking input from the implementation community on whether to combine DeviceRequest and  <a href="visionprescription.html">VisionPrescription</a> for R4.  The <a href="devicerequest-definitions.html#parameters">parameters</a> element  was added to DeviceRequest for representing custom details for ordering devices.  With this change,  VisionPrescription significantly overlaps  DeviceRequest. To illustrate this, the <a href="devicerequest-left-lens.html">devicerequest-left-lens</a> and <a href="devicerequest-right-lens.html">devicerequest-right-lens</a> examples are based on the <a href="visionprescription-example.html">general glasses example</a> in VisionPrescription.   
+</li>
+			</ol>
+		</blockquote>
+		<p>
+			<strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong>
+		</p>
+		<p>
         This resource describes the request for the use of a device by a patient. The device may be any
         pertinent device specified in the Device resource. Examples of devices that may be requested
         include wheelchair, hearing aids, or an insulin pump. The request may lead to the dispensing
         of the device to the patient or for use by the patient.
         </p>
-        <p>
+		<p>
         The device use request may represent an order or a prescription entered by a practitioner in a CPOE
         system or a proposal made by a clinical decision support (CDS) system based
         on a patient's clinical record and context of care.

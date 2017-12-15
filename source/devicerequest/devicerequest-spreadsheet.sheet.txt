@@ -511,4 +511,16 @@
   Description = Insulin Pump request
   Filename = devicerequest-example-insulinpump.xml
 
+ -- Row 3 -----------------------------------
+  Name = Right lens
+  Identity = right-lens
+  Description = Right Lens prescription using the parameters element
+  Filename = devicerequest-right-lens.xml
+
+ -- Row 4 -----------------------------------
+  Name = Left lens
+  Identity = left-lens
+  Description = Left Lens prescription using the parameters element
+  Filename = devicerequest-left-lens.xml
+
 === Sheet Examples =====================================

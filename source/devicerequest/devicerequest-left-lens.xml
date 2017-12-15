@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/devicerequest.xsd">
+	<id value="left-lens"/>
+	<identifier>
+		<system value="http://www.happysight.com/prescription"/>
+		<value value="15013R"/>
+	</identifier>
+	<!-- insert contents here -->
+	<groupIdentifier>
+		<system value="http://acme.org"/>
+		<value value="15013"/>
+	</groupIdentifier>
+	<status value="completed"/>
+	<intent>
+		<coding>
+			<code value="original-order"/>
+		</coding>
+	</intent>
+	<codeCodeableConcept>
+		<coding>
+			<system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
+			<code value="lens"/>
+		</coding>
+	</codeCodeableConcept>
+	<parameter>
+		<code>
+			<text value="eye"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="left"/>
+		</valueCodeableConcept>
+	</parameter>
+	<parameter>
+		<code>
+			<text value="sphere"/>
+		</code>
+		<valueQuantity>
+			<value value="-1.00"/>
+		</valueQuantity>
+	</parameter>
+	<parameter>
+		<code>
+			<text value="cylinder"/>
+		</code>
+		<valueQuantity>
+			<value value="-0.50"/>
+		</valueQuantity>
+	</parameter>
+	<parameter>
+		<code>
+			<text value="axis"/>
+		</code>
+		<valueQuantity>
+			<value value="180"/>
+		</valueQuantity>
+	</parameter>
+	<parameter>
+		<code>
+			<text value="prism"/>
+		</code>
+		<valueQuantity>
+			<value value="0.5"/>
+		</valueQuantity>
+	</parameter>
+	<parameter>
+		<code>
+			<text value="base"/>
+		</code>
+		<valueCodeableConcept>
+			<text value="up"/>
+		</valueCodeableConcept>
+	</parameter>
+	<parameter>
+		<code>
+			<text value="add"/>
+		</code>
+		<valueQuantity>
+			<value value="2.00"/>
+		</valueQuantity>
+	</parameter>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<occurrenceDateTime value="2014-06-15"/>
+	<requester>
+		<reference value="Practitioner/example"/>
+	</requester>
+</DeviceRequest>

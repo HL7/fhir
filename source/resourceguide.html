@@ -237,6 +237,8 @@ recording the following kinds of data:
 and many more things beside. Note that 'everything is an observation', but implementations should not
 use Observation where <a href="condition.html">Condition</a> is more appropriate.
 </p>
+ <p>The<code>Media</code>resource represents multimedia observations stored as images, videos, or sound recordings, with metadata that can be used to link it into the rest of the healthcare record as represented in resources</p>
+
 <p>
 <code>ServiceRequest</code> and <code>DiagnosticReport</code> support the overall diagnostic process.
 A DiagnosticReport connects the process of 'reporting', linking process identifiers, visual
@@ -256,6 +258,7 @@ diagnostic images).
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="observation.html">Observation</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="media.html">Media</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="diagnosticreport.html">DiagnosticReport</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
 <tr><td><a href="servicerequest.html">ServiceRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
 <tr><td><a href="specimen.html">Specimen</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
@@ -530,7 +533,6 @@ be done for many reasons - maintaining a list of work to do, of patients of inte
 Basic support structure Resources with general usefulness:
 </p>
 <ul>
- <li><code>Media</code> stores an image, video, or sound recording, with metadata that can be used to link it into the rest of the healthcare record as represented in resources</li>
  <li><code>Binary</code> is a container for content of any type, to include content that is in some format other than a FHIR resource </li>
  <li><code>Bundle</code> acts as an envelope for a set of other resources as they are gathered together for exchange. Bundles may be long lived (documents) or very short lived (search results)</li>
  <li><code>Basic</code> is a general container that can be used to represent data for which a specific resource doesn't yet exist (general extension point)</li>
@@ -538,7 +540,6 @@ Basic support structure Resources with general usefulness:
 
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
-<tr><td><a href="media.html">Media</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="binary.html">Binary</a></td><td><a href="#">Unrelated</a></td><td>Entity</td><td></td></tr>
 <tr><td><a href="bundle.html">Bundle</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
 <tr><td><a href="basic.html">Basic</a></td><td><a href="#unrelated">Unrelated</a></td><td>InfrastructureRoot</td><td></td></tr>
