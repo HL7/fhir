@@ -23,7 +23,7 @@
   Short Name = Identity of the terminology system
   Definition = The identification of the code system that defines the meaning of the symbol in the code.
   Requirements = Need to be unambiguous about the source of the definition of the symbol
-  Comments = The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7\'s list of FHIR defined special URIs or it should de-reference to some definition that establish the system clearly and unambiguously
+  Comments = The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7\'s list of FHIR defined special URIs or it should reference to some definition that establishes the system clearly and unambiguously
   v2 Mapping = C*E.3
   RIM Mapping = ./codeSystem
   ORIM Mapping = fhir:Coding.system rdfs:subPropertyOf dt:CDCoding.codeSystem
