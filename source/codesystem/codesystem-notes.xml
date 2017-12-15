@@ -80,7 +80,7 @@ Properties are defined using the following elements:
  <tr>
   <td>type</td>
   <td>code | Coding | string | integer | boolean | dateTime</td>
-  <td>The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to anotherr defined concept)</td>
+  <td>The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept)</td>
  </tr>
 </table>
 <p>
