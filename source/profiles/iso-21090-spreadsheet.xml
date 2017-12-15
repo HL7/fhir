@@ -4981,7 +4981,7 @@
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">streetAddressLine</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Description: A street address line is frequently used instead of breaking out build number, street name, street type, etc. An address generally has only a delivery address line or a street address line, but not both.</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">A street address line is frequently used instead of breaking out building number, street name, street type, etc. An address generally has only a delivery address line or a street address line, but not both.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -8570,7 +8570,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">bad address</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">Description: A flag indicating that the address is bad, in fact, useless.</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">A flag indicating that the address is bad, in fact, useless.</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s158"/>
@@ -8581,7 +8581,7 @@
     <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">confidential address</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Description: Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses. Lloyd to supply more complete description.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">Indicates that the address is considered sensitive and should only be shared or published in accordance with organizational controls governing patient demographic information with increased sensitivity. Uses of Addresses. Lloyd to supply more complete description.</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s161"/>
@@ -8592,7 +8592,7 @@
     <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">primary home</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Description: The primary home, to reach a person after business hours.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">The primary home, to reach a person after business hours.</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s161"/>
@@ -8603,7 +8603,7 @@
     <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">vacation home</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Description: A vacation home, to reach a person while on vacation.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">A vacation home, to reach a person while on vacation.</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s161"/>
@@ -8614,7 +8614,7 @@
     <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">direct</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Description: Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">Indicates a work place address or telecommunication address that reaches the individual or organization directly without intermediaries. For phones, often referred to as a 'private line'.</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s161"/>
@@ -8625,7 +8625,7 @@
     <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">public</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Description: Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">Indicates a work place address or telecommunication address that is a 'standard' address which may reach a reception service, mail-room, or other intermediary prior to the target entity.</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s161"/>
@@ -8636,7 +8636,7 @@
     <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">physical visit address</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Description: Used primarily to visit an address.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">Used primarily to visit an address.</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s161"/>
@@ -8647,7 +8647,7 @@
     <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/v3/AddressUse</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"><Data ss:Type="String">postal address</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">Description: Used to send mail.</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">Used to send mail.</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s161"/>
