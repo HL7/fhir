@@ -881,7 +881,7 @@
  -- Row 30 -----------------------------------
   Name = validate-code.abstract
   Use = in
-  Documentation = if true, then an abstract code is allowed to be used in the context of the code that is being validated. Typically, abstract codes are allowed to be used in value set specifications (e.g. any code that is subsumed by an abstract code). If false (which is the default value), then only concrete codes as defined by the value set are allowed
+  Documentation = if true, then an abstract code is allowed to be used in the context of the code that is being validated. Typically, abstract codes are allowed to be used in value set specifications (e.g. any code that is subsumed by an abstract code), but not in an actual recrod. If false (which is the default value), then only concrete codes as defined by the code systemt are allowed
   Type = boolean
   Min = 0
   Max = 1

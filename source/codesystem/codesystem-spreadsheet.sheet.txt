@@ -707,6 +707,120 @@
   Max = 1
 
  -- Row 24 -----------------------------------
+  Name = validate-code
+  Use = Resource | Instance
+  Documentation = Validate that a coded value is in the code system.   If the operation is not called at the instance level, one of the parameters \"url\" or \"codeSystem\" must be provided.  One (and only one) of the in parameters (code, coding, codeableConcept) must be provided.  The operation returns a result (true / false), an error message, and the recommended display for the code
+  Type = operation
+  Example.Request = $validate-code-request.txt
+  Example.Response = $validate-code-response.txt
+  Title = Value Set based Validation
+  Idempotent = True
+
+ -- Row 25 -----------------------------------
+  Name = validate-code.url
+  Use = in
+  Documentation = CodeSystem URL. The server must know the code system (e.g. it is defined explicitly in the server\'scode systems, or it is known implicitly by the server
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 26 -----------------------------------
+  Name = validate-code.codeSystem
+  Use = in
+  Documentation = The codeSystem is provided directly as part of the request. Servers may choose not to accept code systems in this fashion. This parameter is used when the client wants the server to check against a code system that is not stored on the server
+  Type = CodeSystem
+  Min = 0
+  Max = 1
+
+ -- Row 27 -----------------------------------
+  Name = validate-code.code
+  Use = in
+  Documentation = The code that is to be validated
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 28 -----------------------------------
+  Name = validate-code.version
+  Use = in
+  Documentation = The version of the code system, if one was provided in the source data
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 29 -----------------------------------
+  Name = validate-code.display
+  Use = in
+  Documentation = The display associated with the code, if provided. If a display is provided a code must be provided. If no display is provided, the server cannot validate the display value, but may choose to return a recommended display name in an extension in the outcome. Whether displays are case sensitive is code system dependent
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 30 -----------------------------------
+  Name = validate-code.coding
+  Use = in
+  Documentation = A coding to validate. The system must match the specified code system
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 31 -----------------------------------
+  Name = validate-code.codeableConcept
+  Use = in
+  Documentation = A full codeableConcept to validate. The server returns true if one of the coding values is in the code system, and may also validate that the codings are not in conflict with each other if more than one is present
+  Type = CodeableConcept
+  Min = 0
+  Max = 1
+
+ -- Row 32 -----------------------------------
+  Name = validate-code.date
+  Use = in
+  Documentation = The date for which the validation should be checked. Normally, this is the current conditions (which is the default values) but under some circumstances, systems need to validate that a correct code was used at some point in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.
+  Type = dateTime
+  Min = 0
+  Max = 1
+
+ -- Row 33 -----------------------------------
+  Name = validate-code.abstract
+  Use = in
+  Documentation = if true, then an abstract code is allowed to be used in the context of the code that is being validated. Typically, abstract codes are allowed to be used in value set specifications (e.g. any code that is subsumed by an abstract code), but not in an actual recrod. If false (which is the default value), then only concrete codes as defined by the code system are allowed
+  Type = boolean
+  Min = 0
+  Max = 1
+
+ -- Row 34 -----------------------------------
+  Name = validate-code.displayLanguage
+  Use = in
+  Documentation = Specifies the language to be used for description when validating the display property
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 35 -----------------------------------
+  Name = validate-code.result
+  Use = out
+  Documentation = True if the concept details supplied are valid
+  Type = boolean
+  Min = 1
+  Max = 1
+
+ -- Row 36 -----------------------------------
+  Name = validate-code.message
+  Use = out
+  Documentation = Error details, if result = false. If this is provided when result = true, the message carries hints and warnings
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 37 -----------------------------------
+  Name = validate-code.display
+  Use = out
+  Documentation = A valid display for the concept if the system wishes to display this to a user
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 38 -----------------------------------
   Name = subsumes
   Use = Resource | Instance
   Documentation = Test the subsumption relationship between code/Coding A and code/Coding B given the semantics of subsumption in the underlying code system (see hierarchyMeaning)
@@ -716,7 +830,7 @@
   Title = Subsumption Testing
   Idempotent = True
 
- -- Row 25 -----------------------------------
+ -- Row 39 -----------------------------------
   Name = subsumes.codeA
   Use = in
   Documentation = The \"A\" code that is to be tested. If a code is provided, a system must be provided
@@ -724,7 +838,7 @@
   Min = 0
   Max = 1
 
- -- Row 26 -----------------------------------
+ -- Row 40 -----------------------------------
   Name = subsumes.codeB
   Use = in
   Documentation = The \"B\" code that is to be tested. If a code is provided, a system must be provided
@@ -732,7 +846,7 @@
   Min = 0
   Max = 1
 
- -- Row 27 -----------------------------------
+ -- Row 41 -----------------------------------
   Name = subsumes.system
   Use = in
   Documentation = The code system in which subsumption testing is to be performed. This must be provided unless the operation is invoked on a code system instance
@@ -740,7 +854,7 @@
   Min = 0
   Max = 1
 
- -- Row 28 -----------------------------------
+ -- Row 42 -----------------------------------
   Name = subsumes.version
   Use = in
   Documentation = The version of the code system, if one was provided in the source data
@@ -748,7 +862,7 @@
   Min = 0
   Max = 1
 
- -- Row 29 -----------------------------------
+ -- Row 43 -----------------------------------
   Name = subsumes.codingA
   Use = in
   Documentation = The \"A\" Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established
@@ -756,7 +870,7 @@
   Min = 0
   Max = 1
 
- -- Row 30 -----------------------------------
+ -- Row 44 -----------------------------------
   Name = subsumes.codingB
   Use = in
   Documentation = The \"B\" Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established
@@ -764,7 +878,7 @@
   Min = 0
   Max = 1
 
- -- Row 31 -----------------------------------
+ -- Row 45 -----------------------------------
   Name = subsumes.outcome
   Use = out
   Documentation = The subsumption relationship between code/Coding \"A\" and code/Coding \"B\". There are 4 possible codes to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to determine the relationship between the codes/Codings, then it returns an error (i.e. an OperationOutcome)
@@ -772,7 +886,7 @@
   Min = 1
   Max = 1
 
- -- Row 32 -----------------------------------
+ -- Row 46 -----------------------------------
   Name = compose
   Use = Resource | Instance
   Documentation = Given a set of properties, return one or more possible matching codes\n\nThis operation takes a set of properties, and examines the code system looking for codes in the code system that match a set of known properties. \n\nWhen looking for matches, there are 3 possible types of match:\n* a complete match - a code that represents all the provided properties correctly\n* a partial match - a code that represents some of the provided properties correctly, and not others \n* a possible match - a code that may represent the provided properties closely, but may capture less or more precise informationfor some of the properties\n\nThe $compose operation can be called in one of 2 modes:\n* By a human, looking for the best match for a set of properties. In this mode, the server returns a list of complete, possible or partial matches (possibly with comments), so that the user can choose (or not) the most appropriate code\n* By a machine (typically in a system interface performing a transformation). In this mode, the server returns only a list of complete and partial matches, but no possible matches. The machine can choose a code from the list (or not) based on what properties are not coded\n\nThese modes are differentiated by the \'exact\' parameter, so the client can indicate whether it only wants exact matches (including partial matches) or whether potential matches based on text matching are desired\n \nThe compose operation is still preliminary. The interface can be expected to change as more experience is gained from implementations.
@@ -783,7 +897,7 @@
   Idempotent = True
   Standards-Status = trial-use
 
- -- Row 33 -----------------------------------
+ -- Row 47 -----------------------------------
   Name = compose.system
   Use = in
   Documentation = The system in which composition is to be performed. This must be provided unless the operation is invoked on a code system instance
@@ -791,7 +905,7 @@
   Min = 0
   Max = 1
 
- -- Row 34 -----------------------------------
+ -- Row 48 -----------------------------------
   Name = compose.version
   Use = in
   Documentation = The version of the system for the inferencing to be performed
@@ -799,7 +913,7 @@
   Min = 0
   Max = 1
 
- -- Row 35 -----------------------------------
+ -- Row 49 -----------------------------------
   Name = compose.property
   Use = in
   Documentation = One or more properties that contain information to be composed into the code
@@ -807,42 +921,42 @@
   Min = 0
   Max = *
 
- -- Row 36 -----------------------------------
+ -- Row 50 -----------------------------------
   Name = compose.property.code
   Documentation = Identifies the property provided
   Type = code
   Min = 1
   Max = 1
 
- -- Row 37 -----------------------------------
+ -- Row 51 -----------------------------------
   Name = compose.property.value
   Documentation = The value of the property provided
   Type = code | Coding | string | integer | boolean | dateTime
   Min = 0
   Max = 1
 
- -- Row 38 -----------------------------------
+ -- Row 52 -----------------------------------
   Name = compose.property.subproperty
   Documentation = Nested Properties (mainly used for SNOMED CT composition, for relationship Groups)
   Type = Tuple
   Min = 0
   Max = *
 
- -- Row 39 -----------------------------------
+ -- Row 53 -----------------------------------
   Name = compose.property.subproperty.code
   Documentation = Identifies the sub-property provided
   Type = code
   Min = 1
   Max = 1
 
- -- Row 40 -----------------------------------
+ -- Row 54 -----------------------------------
   Name = compose.property.subproperty.value
   Documentation = The value of the sub-property provided
   Type = code | Coding | string | integer | boolean | dateTime
   Min = 1
   Max = 1
 
- -- Row 41 -----------------------------------
+ -- Row 55 -----------------------------------
   Name = compose.exact
   Use = in
   Documentation = Whether the operation is being used by a human, or a machine. If the operation is being used by a human, the terminology server can return a list of possible matches, with commentary. For a machine, the server returns sure matches, or none at all
@@ -850,7 +964,7 @@
   Min = 1
   Max = 1
 
- -- Row 42 -----------------------------------
+ -- Row 56 -----------------------------------
   Name = compose.compositional
   Use = in
   Documentation = Post-coordinated expressions are allowed to be returned in the matching codes (mainly for SNOMED CT). Default = false
@@ -858,7 +972,7 @@
   Min = 0
   Max = 1
 
- -- Row 43 -----------------------------------
+ -- Row 57 -----------------------------------
   Name = compose.match
   Use = out
   Documentation = Concepts returned by the server as a result of the inferencing operation
@@ -866,56 +980,56 @@
   Min = 0
   Max = *
 
- -- Row 44 -----------------------------------
+ -- Row 58 -----------------------------------
   Name = compose.match.code
   Documentation = A code that matches the properties provided
   Type = Coding
   Min = 1
   Max = 1
 
- -- Row 45 -----------------------------------
+ -- Row 59 -----------------------------------
   Name = compose.match.unmatched
   Documentation = One or more properties that contain properties that could not be matched into the code
   Type = Tuple
   Min = 0
   Max = *
 
- -- Row 46 -----------------------------------
+ -- Row 60 -----------------------------------
   Name = compose.match.unmatched.code
   Documentation = Identifies the property provided
   Type = code
   Min = 1
   Max = 1
 
- -- Row 47 -----------------------------------
+ -- Row 61 -----------------------------------
   Name = compose.match.unmatched.value
   Documentation = The value of the property provided
   Type = code | Coding | string | integer | boolean | dateTime
   Min = 1
   Max = 1
 
- -- Row 48 -----------------------------------
+ -- Row 62 -----------------------------------
   Name = compose.match.unmatched.property
   Documentation = Nested Properties (mainly used for SNOMED CT composition, for relationship Groups)
   Type = Tuple
   Min = 0
   Max = *
 
- -- Row 49 -----------------------------------
+ -- Row 63 -----------------------------------
   Name = compose.match.unmatched.property.code
   Documentation = Identifies the sub-property provided
   Type = code
   Min = 1
   Max = 1
 
- -- Row 50 -----------------------------------
+ -- Row 64 -----------------------------------
   Name = compose.match.unmatched.property.value
   Documentation = The value of the sub-property provided
   Type = code | Coding | string | integer | boolean | dateTime
   Min = 1
   Max = 1
 
- -- Row 51 -----------------------------------
+ -- Row 65 -----------------------------------
   Name = compose.match.comment
   Documentation = Information about the quality of the match, if operation is for a human
   Type = string
