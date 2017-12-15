@@ -1,16 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SubstanceSpecification xmlns="http://hl7.org/fhir">
    <id value="example"/>
-   <substanceId>
+   <!--numberOfMoieties value="2"/>
+   <identifier>
       <system value="http://substanceidOID"/>
       <value value="POYFG4531Y (Artificial ID)"/>
-   </substanceId>
+   </identifier>
    <substanceType>
       <coding>
          <system value="http://substancetypeOID"/>
          <code value="Chemical"/>
       </coding>
    </substanceType>
+   <moiety>
+      <moietyRole>
+         <coding>
+            <system value="http://moietyroleOID"/>
+            <code value="SaltMolecule"/>
+         </coding>
+      </moietyRole>
+      <moietyId>
+         <system value="http://moietyidOID"/>
+         <value value="HJFGTE8954 (Artificial ID); [QTT17582CB (UNII)]"/>
+      </moietyId>
+      <moietyName value="Hydrochloric acid"/>
+      <stereochemistry>
+         <coding>
+            <system value="http://stereochemistryOID"/>
+            <code value="Achiral"/>
+         </coding>
+      </stereochemistry>
+      <opticalActivity>
+         <coding>
+            <system value="http://opticalactivityOID"/>
+            <code value="N/A"/>
+         </coding>
+      </opticalActivity>
+      <molecularFormula value="HCl"/>
+      <amount>
+         <amountType>
+            <coding>
+               <system value="http://amounttypeOID"/>
+               <code value="MoleRatiotoParent"/>
+            </coding>
+         </amountType>
+         <average>
+            <value value="1"/>
+            <unit value="1"/>
+         </average>
+         <nonNumericValue value="Mole Ratio to Ponatinib"/>
+      </amount>
+   </moiety>
+   <moiety>
+      <moietyRole>
+         <coding>
+            <system value="http://moietyroleOID"/>
+            <code value="Parentsubstance"/>
+         </coding>
+      </moietyRole>
+      <moietyId>
+         <system value="http://moietyidOID"/>
+         <value value="PONG785632B (Artificial ID); [QTT17582CB (UNII)]"/>
+      </moietyId>
+      <moietyName value="Ponatinib"/>
+      <stereochemistry>
+         <coding>
+            <system value="http://stereochemistryOID"/>
+            <code value="Achiral"/>
+         </coding>
+      </stereochemistry>
+      <opticalActivity>
+         <coding>
+            <system value="http://opticalactivityOID"/>
+            <code value="N/A"/>
+         </coding>
+      </opticalActivity>
+      <molecularFormula value="C29H27F3N6O"/>
+      <amount>
+         <amountType>
+            <coding>
+               <system value="http://amounttypeOID"/>
+               <code value="MoleRatiotoAcid"/>
+            </coding>
+         </amountType>
+         <average>
+            <value value="1"/>
+            <unit value="1"/>
+         </average>
+         <nonNumericValue value="Mol Ratio Ponatinib/ Ponatinib hydrochloride (1:1)"/>
+      </amount>
+   </moiety>
    <referenceInformation>
       <substanceClassification>
          <domain>
@@ -106,87 +185,6 @@
          </referenceSourceDocumentType>
       </referenceSourceDocument>
    </referenceSource>
-   <stoichiometric>
-      <numberOfMoieties value="2"/>
-      <moiety>
-         <moietyRole>
-            <coding>
-               <system value="http://moietyroleOID"/>
-               <code value="SaltMolecule"/>
-            </coding>
-         </moietyRole>
-         <moietyId>
-            <system value="http://moietyidOID"/>
-            <value value="HJFGTE8954 (Artificial ID); [QTT17582CB (UNII)]"/>
-         </moietyId>
-         <moietyName value="Hydrochloric acid"/>
-         <stereochemistry>
-            <coding>
-               <system value="http://stereochemistryOID"/>
-               <code value="Achiral"/>
-            </coding>
-         </stereochemistry>
-         <opticalActivity>
-            <coding>
-               <system value="http://opticalactivityOID"/>
-               <code value="N/A"/>
-            </coding>
-         </opticalActivity>
-         <molecularFormula value="HCl"/>
-         <amount>
-            <amountType>
-               <coding>
-                  <system value="http://amounttypeOID"/>
-                  <code value="MoleRatiotoParent"/>
-               </coding>
-            </amountType>
-            <average>
-               <value value="1"/>
-               <unit value="1"/>
-            </average>
-            <nonNumericValue value="Mole Ratio to Ponatinib"/>
-         </amount>
-      </moiety>
-      <moiety>
-         <moietyRole>
-            <coding>
-               <system value="http://moietyroleOID"/>
-               <code value="Parentsubstance"/>
-            </coding>
-         </moietyRole>
-         <moietyId>
-            <system value="http://moietyidOID"/>
-            <value value="PONG785632B (Artificial ID); [QTT17582CB (UNII)]"/>
-         </moietyId>
-         <moietyName value="Ponatinib"/>
-         <stereochemistry>
-            <coding>
-               <system value="http://stereochemistryOID"/>
-               <code value="Achiral"/>
-            </coding>
-         </stereochemistry>
-         <opticalActivity>
-            <coding>
-               <system value="http://opticalactivityOID"/>
-               <code value="N/A"/>
-            </coding>
-         </opticalActivity>
-         <molecularFormula value="C29H27F3N6O"/>
-         <amount>
-            <amountType>
-               <coding>
-                  <system value="http://amounttypeOID"/>
-                  <code value="MoleRatiotoAcid"/>
-               </coding>
-            </amountType>
-            <average>
-               <value value="1"/>
-               <unit value="1"/>
-            </average>
-            <nonNumericValue value="Mol Ratio Ponatinib/ Ponatinib hydrochloride (1:1)"/>
-         </amount>
-      </moiety>
-   </stoichiometric>
    <structure>
       <stereochemistry>
          <coding>
@@ -467,5 +465,5 @@
          </referenceSourceClass>
          <referenceSourceId value="CBG345267C (Artificial ID)"/>
       </referenceSource>
-   </substanceName>
+   </substanceName-->
 </SubstanceSpecification>

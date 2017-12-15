@@ -253,7 +253,9 @@ signatures.html
       <page type="resource" resource="DeviceComponent"/>
       <page type="resource" resource="DeviceMetric"/>
       <page type="resource" resource="Substance"/>
-
+      <page type="resource" resource="SubstanceSpecification"/>
+      <page type="resource" resource="SubstancePolymer"/>
+      <page type="resource" resource="SubstanceReferenceInformation"/>
       <page type="resource" resource="Person"/>
       <page type="resource" resource="Linkage"/>
       <page type="resource" resource="Communication"/>
@@ -308,6 +310,12 @@ signatures.html
       <page type="resource" resource="MedicationStatement"/>
       <page type="resource" resource="Medication"/>
       <page type="resource" resource="MedicinalProduct"/>
+      <page type="resource" resource="MedicinalProductAuthorization"/>
+      <page type="resource" resource="MedicinalProductClinicals"/>
+      <page type="resource" resource="MedicinalProductIngredient"/>
+      <page type="resource" resource="MedicinalProductPackaged"/>
+      <page type="resource" resource="MedicinalProductPharmaceutical"/>
+      <page type="resource" resource="MedicinalProductDeviceSpec"/>
       <page type="resource" resource="Immunization"/>
       <page type="resource" resource="ImmunizationEvaluation"/>
      <page type="resource" resource="ImmunizationRecommendation"/>
