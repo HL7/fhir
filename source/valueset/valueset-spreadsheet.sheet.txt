@@ -541,27 +541,21 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = !system
-  Type = uri
-  Description = The system for any codes defined by this value set
-  Path = ValueSet.codeSystem.system
-
- -- Row 2 -----------------------------------
-  Name = !code
-  Type = token
-  Description = A code defined in the value set
-  Path = ValueSet.codeSystem.concept.code
-
- -- Row 3 -----------------------------------
   Name = reference
   Type = uri
   Description = A code system included or excluded in the value set or an imported value set
   Path = ValueSet.compose.include.system
 
- -- Row 4 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = expansion
   Type = uri
   Path = ValueSet.expansion.identifier
+
+ -- Row 3 -----------------------------------
+  Name = code
+  Type = token
+  Description = This special parameter searches for codes in the value set. See additional notes on the ValueSet resource
+  Path = ValueSet.expansion.contains | ValueSet.compose.include.concept.code
 
 === Sheet Profiles =====================================
 

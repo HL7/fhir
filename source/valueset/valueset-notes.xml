@@ -181,5 +181,14 @@ be the same). If expansions are shared, users need to be aware of how expansion 
 server specific) work.  
 </p>
 
+<h3>Searching for codes in value sets</h3>
+<p>
+The search parameters defined on ValueSet include the <code>code</code> parameter. This is intended
+to allow a consumer to find all the value sets that include a particular code. However, fully
+evaluating this search parameter is extremely onerous for a server. Further, whether a code is 
+in a value set depends on the context in which expansions are performed (see <a href="expansionprofile.html">ExpansionProfile</a>).
+For this reason, the degree to which the search parameter is supported can be declared in the <a href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSearch">Terminology Capability</a>
+statement. 
+</p>
 
 </div>

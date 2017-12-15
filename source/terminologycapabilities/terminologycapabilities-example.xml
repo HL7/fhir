@@ -35,4 +35,5 @@
 		</telecom>
 	</contact>
 	<description value="This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
+  <codeSearch value="explicit"/>
 </TerminologyCapabilities>
