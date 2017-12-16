@@ -36,7 +36,7 @@
 	<concept>
 		<code value="10"/>
 		<display value="De-Identify (Anononymize) - Lifecycle Event"/>
-		<definition value="occurs when an agent causes the system to scrub record entry content to reduce the association between a set of identifying data and the data subject in a way that may or may not be reversible"/>
+		<definition value="occurs when an agent causes the system to scrub record entry content to reduce the association between a set of identifying data and the data subject in a way that might or might not be reversible"/>
 	</concept>
 	<concept>
 		<code value="17"/>

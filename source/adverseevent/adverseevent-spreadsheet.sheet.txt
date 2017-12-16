@@ -404,7 +404,7 @@
   Type = CodeableConcept
   Binding = AdverseEventSeverity
   Short Name = Mild | Moderate | Severe
-  Definition = Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.serious - a severe rash may not be serious, but a mild heart problem is.
+  Definition = Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.serious - a severe rash might not be serious, but a mild heart problem is.
 
  -- Row 12 -----------------------------------
   Element = AdverseEvent.outcome

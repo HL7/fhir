@@ -177,7 +177,7 @@ this can occur:
 <li>The <a href="questionnaire.html">Questionnaire.item.definition</a> allows a particular question in a questionnaire to be linked 
 to a data element definition deemed to correspond to that question.  This mechanism supports
 population of questionnaire instances on the basis of known data elements. The intent is that a server will populate anything
-it recognizes by data elements. However servers may not know all the data elements, and won't populate ones that they don't know.
+it recognizes by data elements. However servers might not know all the data elements, and won't populate ones that they don't know.
 </li>
 </ul>
 

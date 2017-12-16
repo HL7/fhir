@@ -26,7 +26,7 @@
 			<code value="702668005"/>
 			<display value="MDRD"/>
 		</coding>
-	</method><!--  The MDRD equation does require race (African American or non-African American), which also may not be readily available. For this reason, eGFR values for both African Americans and non-African Americans are reported. so use component elements here --><component>
+	</method><!--  The MDRD equation does require race (African American or non-African American), which also might not be readily available. For this reason, eGFR values for both African Americans and non-African Americans are reported. so use component elements here --><component>
 		<code><!--  Kind of observation = eGFR for AA  --><coding>
 				<system value="http://loinc.org"/>
 				<code value="48643-1"/>

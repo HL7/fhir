@@ -78,7 +78,7 @@
     executed as part of the fulfillment process for the parent order.  For example, a lab order might spawn child orders
     to draw the specimen, treat the specimen, run several tests and to create the report.  Each "child" Request would use 
     <code>Request.basedOn</code> to reference the original Request.  In this case, there's a relationship between the
-    statuses of the base Request and the fulfilling Requests, but they transition separately and may not transition in
+    statuses of the base Request and the fulfilling Requests, but they transition separately and might not transition in
     the same manner.  For example, if the original lab order were updated to "suspended", the initial blood draw request might
     be complete.  The other requests might change to either "suspended" or even "aborted" and a subsequent update of the
     lab order back to active might require spawning additional fulfilling orders, perhaps to draw a new specimen.

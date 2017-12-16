@@ -16,7 +16,7 @@
   <concept>
     <code value="bu"/>
     <display value="Building"/>
-    <definition value="Any Building or structure. This may contain rooms, corridors, wings, etc. It may not have walls, or a roof, but is considered a defined/allocated space."/>
+    <definition value="Any Building or structure. This may contain rooms, corridors, wings, etc. It might not have walls, or a roof, but is considered a defined/allocated space."/>
   </concept>
   <concept>
     <code value="wi"/>

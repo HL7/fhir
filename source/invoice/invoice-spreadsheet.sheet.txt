@@ -233,7 +233,7 @@
   Type = Reference(Account)
   Short Name = Account that is being balanced
   Definition = Account which is supposed to be balanced with this Invoice
-  Comments = Systems posting the ChargeItems may not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate
+  Comments = Systems posting the ChargeItems might not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate
 
  -- Row 14 -----------------------------------
   Element = Invoice.lineItem
@@ -277,7 +277,7 @@
   Summary = N
   Type = code
   Binding = InvoicePriceComponentType
-  Short Name = base | surcharge | discount | deduction | tax | informational
+  Short Name = base | surcharge | deduction | discount | tax | informational
   Definition = This code identifies the type of the component
   Workflow Mapping = Event.code
   v2 Mapping = FT1.7

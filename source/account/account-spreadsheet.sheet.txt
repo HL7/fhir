@@ -65,7 +65,7 @@
   Summary = y
   Type = Identifier
   Short Name = Account number
-  Definition = Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number)
+  Definition = Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number)
   RIM Mapping = .id
   w5 = id
 
@@ -112,7 +112,7 @@
   Type = Reference(Patient|Device|Practitioner|Location|HealthcareService|Organization)
   Short Name = What is account tied to?
   Definition = Identifies the patient, device, practitioner, location or other object the account is associated with
-  Comments = Accounts can be applied to non patients for tracking other non patient related activities, such as group services (patients not tracked, and costs charged to another body), or may not be allocated.
+  Comments = Accounts can be applied to non patients for tracking other non patient related activities, such as group services (patients not tracked, and costs charged to another body), or might not be allocated.
   RIM Mapping = .subject
   w5 = who.focus
 

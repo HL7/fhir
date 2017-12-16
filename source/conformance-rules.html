@@ -22,7 +22,7 @@ The FHIR specification describes a set of <a href="resource.html">resources</a>,
 and several different frameworks for exchanging resources between different systems.
 Because of its general nature and wide applicability, the rules made in this
 specification are generally fairly loose. As a consequence, this specification
-allows that different applications may not be able to interoperate because of
+allows that different applications might not be able to interoperate because of
 how they use optional features. As a consequence, applications claiming
 conformance to this specification make the claim in respect of a specific
 exchange framework, and in regard to specific details about their usage of
@@ -70,7 +70,7 @@ instance has limited utility.  System capabilities that cannot be described by a
 
 <a name="conflang"> </a>
 <h3>Conformance Language</h3>
-<p>This specification uses the conformance verbs SHALL, SHOULD, and MAY as defined in RFC 2119 . Unlike RFC 2119, however, this specification allows that different applications may not be able to interoperate because of how they use optional features. In particular:</p>
+<p>This specification uses the conformance verbs SHALL, SHOULD, and MAY as defined in RFC 2119 . Unlike RFC 2119, however, this specification allows that different applications might not be able to interoperate because of how they use optional features. In particular:</p>
 
 <ol><li>SHALL: an absolute requirement for all implementations</li>
 <li>SHALL NOT: an absolute prohibition against inclusion for all implementations</li>
@@ -179,7 +179,7 @@ Is-Modifier elements SHALL be represented in the narrative summary of the resour
 </p>
 <p>
 If the value of a modifier element is not explicit in the instance, or known by the context,
-the resource may not be able to be safely understood. Wherever possible, elements labeled
+the resource might not be able to be safely understood. Wherever possible, elements labeled
 "Is-Modifier = true" also have a minimum cardinality of 1, or a default value, in order to
 introduce certainty in their handling. However, sometimes this is not possible - much legacy
 data is not well described. Implementations producing resources SHOULD ensure that

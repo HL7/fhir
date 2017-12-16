@@ -5,7 +5,7 @@
 <h3>Introduction</h3>
 
 <p>This project is to create a Measure Report FHIR Profile to represent aggregate measure scores and to allow for drill down into the data that is used to determine the measure scores.  This specification aims to focus on the needs of the international implementer community and not focus solely on US quality reporting needs. The Measure Report FHIR Profile should be compatible with the new harmonized Health Quality Improvement specifications.</p>
-<p>The project aims to target implementers who may not use QRDA for exchanging data on measure reports.</p>
+<p>The project aims to target implementers who might not use QRDA for exchanging data on measure reports.</p>
 <p>This profile also aims to accomplish the following:</p>
 
 <ul>

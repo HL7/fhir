@@ -191,7 +191,7 @@
   Id = 4
   Code = exactly-one
   Display = Exactly One
-  Definition = The end user must choose one and only one of the selectable actions in the group. The user may not choose none of the actions in the group
+  Definition = The end user must choose one and only one of the selectable actions in the group. The user SHALL not choose none of the actions in the group
 
  -- Row 5 -----------------------------------
   Id = 5
@@ -211,7 +211,7 @@
   Id = 1
   Code = must
   Display = Must
-  Definition = An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action
+  Definition = An action with this behavior must be included in the actions processed by the end user; the end user SHALL not choose not to include this action
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -635,7 +635,7 @@
   Card. = 0..1
   Type = string
   Short Name = Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system
-  Definition = A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically
+  Definition = A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically
   Workflow Mapping = Definition.description
 
  -- Row 42 -----------------------------------

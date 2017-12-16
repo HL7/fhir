@@ -1974,7 +1974,7 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">Many laboratory and radiology procedure codes embed the specimen/organ system in the test ordeer name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">Many laboratory and radiology procedure codes embed the specimen/organ system in the test ordeer name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen might not be recorded separately from the test code.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.code</Data><NamedCell
@@ -1987,7 +1987,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">ProcedureRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureCode&quot;,&quot;class&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What procedure to perform&quot;,&quot;The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Procedure.procedureCode&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">ProcedureRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequests&quot;,&quot;what&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What’s being requested/ordered&quot;,&quot;A code that identifies a particular procedure, or panel of investigations, that have been requested&quot;,&quot;&quot;,&quot;Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.&quot;,&quot;&quot;,&quot;.code&quot;,&quot;OBX-4&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s118"><Data ss:Type="String">ProcedureRequest.code,&quot;&quot;,&quot;1..1&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequests&quot;,&quot;what&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;What’s being requested/ordered&quot;,&quot;A code that identifies a particular procedure, or panel of investigations, that have been requested&quot;,&quot;&quot;,&quot;Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen might not be recorded separately from the test code.&quot;,&quot;&quot;,&quot;.code&quot;,&quot;OBX-4&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.serviceRequested (for RR changed element name to code, reduced cardinality to single line item ( combine items with Task)  udpated value set to to procedure codes, for PR added alias 'service request')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2914,7 +2914,7 @@
     <Cell ss:StyleID="s102"><Data ss:Type="String">Key events in the history of the request.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s102"><Data ss:Type="String">This may not include provenances for all versions of the request – only those deemed “relevant” or important.&#13;This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude&#13;All Provenances should have some historical version of this Request as their subject.</Data><NamedCell
+    <Cell ss:StyleID="s102"><Data ss:Type="String">This might not include provenances for all versions of the request – only those deemed “relevant” or important.&#13;This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude&#13;All Provenances should have some historical version of this Request as their subject.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">.inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]</Data><NamedCell
@@ -2924,7 +2924,7 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Request.relevantHistory</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="27"><Data ss:Type="String">ProcedureRequest.relevantHistory,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Provenance)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Request provenance&quot;,&quot;Key events in the history of the request.&quot;,&quot;&quot;,&quot;&quot;This may not include provenances for all versions of the request – only those deemed “relevant” or important.</Data><NamedCell
+    <Cell ss:Index="27"><Data ss:Type="String">ProcedureRequest.relevantHistory,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Provenance)&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Request provenance&quot;,&quot;Key events in the history of the request.&quot;,&quot;&quot;,&quot;&quot;This might not include provenances for all versions of the request – only those deemed “relevant” or important.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.relevantHistory ()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

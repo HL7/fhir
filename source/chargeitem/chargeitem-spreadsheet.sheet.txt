@@ -295,7 +295,7 @@
   Type = Reference(Organization)
   Short Name = Organization requesting the charged service
   Definition = The organization performing the service
-  Comments = The rendered Service may not be associated with a Request. It has to be made clear, ob which Organization\'s Request, the services have been rendered. (In many cases, this may just be the Department associated with the Encounter.location)
+  Comments = The rendered Service might not be associated with a Request. It has to be made clear, ob which Organization\'s Request, the services have been rendered. (In many cases, this may just be the Department associated with the Encounter.location)
   v2 Mapping = N/A
   RIM Mapping = .scoper
 
@@ -402,7 +402,7 @@
   Type = Reference(Account)
   Short Name = Account to place this charge
   Definition = Account into which this ChargeItems belongs
-  Comments = Systems posting the ChargeItems may not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate
+  Comments = Systems posting the ChargeItems might not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate
 
  -- Row 25 -----------------------------------
   Element = ChargeItem.note

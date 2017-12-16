@@ -3336,7 +3336,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">urn:oid:2.16.840.1.113883.3.1937.98.5.8</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"><Data ss:Type="String">Retired</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">A previously active design is discontinued from use. It should no longer be used for future designs, but for historical purposes may be used to process data previously recorded using this design. A newer design may or may not exist. The design is published in the retired state</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">A previously active design is discontinued from use. It should no longer be used for future designs, but for historical purposes may be used to process data previously recorded using this design. A newer design might or might not exist. The design is published in the retired state</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s139"/>

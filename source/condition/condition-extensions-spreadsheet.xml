@@ -1187,7 +1187,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">A consequence of the Condition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">A result of the condition. The &quot;Cause of death&quot; for a patient is typically captured as an Observation.  The &quot;outcome&quot; doesn't imply causality.  Some outcomes may not be assessable until the condition.clinicalStatus is no longer active.</Data><NamedCell
+    <Cell ss:StyleID="s94"><Data ss:Type="String">A result of the condition. The &quot;Cause of death&quot; for a patient is typically captured as an Observation.  The &quot;outcome&quot; doesn't imply causality.  Some outcomes might not be assessable until the condition.clinicalStatus is no longer active.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>

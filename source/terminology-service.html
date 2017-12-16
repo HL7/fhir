@@ -1134,7 +1134,7 @@ If there’s new entries in the closure table, the server returns a 200 OK with:
 <h4>Re-running Closure operation</h4>
 <p>
 Given the way that the closure operation functions, it’s possible for a client to lose a response from
-the server before it is committed to safe storage (or the client may not have particularly safe storage).
+the server before it is committed to safe storage (or the client might not have particularly safe storage).
 For this reason, when a client is starting up, it should check that there has been no missing operations.
 It can do this by passing the last version (from the Concept Map response) it is sure it processed in the request:
 </p>

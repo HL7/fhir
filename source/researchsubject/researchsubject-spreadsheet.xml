@@ -6204,7 +6204,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s144"/>
     <Cell ss:StyleID="s146"><Data ss:Type="String">On-study-observation</Data></Cell>
-    <Cell ss:StyleID="s144"><Data ss:Type="String">The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and may not exist in all studies.  A synonym for this is &quot;short-term follow-up&quot;.</Data></Cell>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and might not exist in all studies.  A synonym for this is &quot;short-term follow-up&quot;.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s145"/>

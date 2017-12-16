@@ -26,7 +26,7 @@ Each source concept may have multiple targets:
 </ul>
 <p>
 There SHOULD be at least one target for each element, but some incomplete concept maps 
-may not have a target for each concept. 
+might not have a target for each concept. 
 </p>
 
 </div> 

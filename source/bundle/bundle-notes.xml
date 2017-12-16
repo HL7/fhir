@@ -136,7 +136,7 @@ identity. Where a resource is not assigned a persistent identity that can be use
 in the bundle, a UUID should be used (urn:uuid:...).
 </p>
 <p>
-For transactions and batches, entries may not have fullURLs when the entry.request.method = POST, 
+For transactions and batches, entries SHALL not have fullURLs when the entry.request.method = POST, 
 and the resource has no identity. Note that even in this case, there may still be a fullURL in a 
 transaction on a POST so that relationships between resources can be represented (see <a href="http.html#transaction">Transactions</a>).
 </p>

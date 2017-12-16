@@ -5,7 +5,7 @@
   <name value="GoalStatusReason"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="Example codes indicating the reason for a current status.  Note that these are in no way complete and may not even be appropriate for some uses."/>
+  <description value="Example codes indicating the reason for a current status.  Note that these are in no way complete and might not even be appropriate for some uses."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/goal-status-reason"/>
   <content value="complete"/>

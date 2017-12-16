@@ -298,7 +298,7 @@
   Type = boolean
   Short Name = Indicates whether the nutrition item is  currently in effect
   Definition = Indicates whether the nutrition item is  currently in effect for the patient.
-  Committee Notes = Per WGM Mon Q3 - may not need if status provides same info 2/4/2015 EH: [#3996] deprecate
+  Committee Notes = Per WGM Mon Q3 - might not need if status provides same info 2/4/2015 EH: [#3996] deprecate
 
  -- Row 14 -----------------------------------
   Element = NutritionOrder.oralDiet

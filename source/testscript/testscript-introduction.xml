@@ -22,7 +22,7 @@ The purpose of the TestScript is to encode in an executable representation tests
   <li>determine whether a given FHIR server adheres to the FHIR specification and</li>
   <li>determine whether two or more FHIR servers implement capabilities in a compatible or interoperable manner.</li>
 </ol>
-It may not be possible to fully automate the latter goal (especially with regards to business rules that might ride on top of different implementations), however the tests should be able to determine whether two servers support the operations, value sets, profiles, and extensions to exchange Bundles of Resources (such as returned from the <a href="operation-patient-everything.html">Patient $everything operation</a>).
+It might not be possible to fully automate the latter goal (especially with regards to business rules that might ride on top of different implementations), however the tests should be able to determine whether two servers support the operations, value sets, profiles, and extensions to exchange Bundles of Resources (such as returned from the <a href="operation-patient-everything.html">Patient $everything operation</a>).
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
 <p>

@@ -21,7 +21,7 @@ When the literal identity is an HTTP address, this address can generally
 be used to retrieve or manipulate the resource. Note that 
 implementations SHOULD NOT assume that the identity of a resource is always resolvable 
 to a literal server - it may be temporarily unavailable, or not available by policy (e.g. firewalls) or in some 
-cases, it may not actually exist (e.g. use of resource outside a RESTful environment). 
+cases, it might not actually exist (e.g. use of resource outside a RESTful environment). 
 Resources reference each other by their identity. These references are allowed to be absolute 
 or relative (see <a href="references.html">Resource References</a> for further discussion).
 Copying or moving resources from one server to another means that resources acquire a new identity. For further details, 

@@ -144,7 +144,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">A sequence of Unicode characters</Data></Cell>
-    <Cell><Data ss:Type="String">Note that FHIR strings may not exceed 1MB in size</Data></Cell>
+    <Cell><Data ss:Type="String">Note that FHIR strings SHALL not exceed 1MB in size</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">\s*(\S|\s)*</Data></Cell>

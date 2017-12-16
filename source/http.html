@@ -386,7 +386,7 @@ This requests that only a subset of the resource content be returned,
 as specified in the <code>_summary</code> parameter, which can have the values
 <a href="search.html#summary"><code>true</code>, <code>false</code>, <code>text</code> &amp; <code>data</code></a>.
 Note that a resource that only contains a subset of the data is
-not suitable for use as a base to update the resource, and may not
+not suitable for use as a base to update the resource, and might not
 be suitable for other uses. The same applies to the <a href="search.html#elements">_elements</a> parameter - both
 that it should be supported, and the subset implications. Servers SHOULD define a <code>Resource.meta.tag</code> with
 the <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> as a <a href="resource.html#simple-tags">Simple Tag</a>
@@ -450,7 +450,7 @@ there is no support for updating past versions - see notes on the <a href="#hist
 </p>
 <p>
 A server SHOULD accept the resource as submitted when it accepts the update, and return the same
-content when it is subsequently read. However systems may not be able to do this; see
+content when it is subsequently read. However systems might not be able to do this; see
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion.
 Also, see <a href="updates.html">Variations between Submitted data and Retrieved data</a> for additional discussion
 around update behavior. Note that <code>update</code> generally updates the whole content of the resource. For partial
@@ -737,7 +737,7 @@ refrain from doing so (see <a href="resource.html#meta">metadata description</a>
 </p>
 <p>
 A server SHOULD otherwise accept the resource as submitted when it accepts the create, and return the same
-content when it is subsequently read. However some systems may not be able to do this; see
+content when it is subsequently read. However some systems might not be able to do this; see
 the note on <a href="#transactional-integrity">transactional integrity</a> for discussion.
 </p>
 <p>
@@ -1099,7 +1099,7 @@ Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification
 
 <p><b>Conditional References</b></p>
 <p>
-When constructing the bundle, the client may not know the logical id of a resource, but it may
+When constructing the bundle, the client might not know the logical id of a resource, but it may
 know identifying information - e.g. an identifier. This situation arises commonly when building
 transactions from v2 messages. The client could resolve that identifier to a logical id using
 a search, but that would mean that the resolution to a logical id does not occur within the
@@ -1176,7 +1176,7 @@ A server may choose to accept bundle types other than <code>batch</code> or <cod
 Bundles of type <code>history</code> inherently have the same structure as a <code>transaction</code>, and
 can be treated as either a transaction or batch, so servers SHOULD accept a history Bundle - this makes it
 possible to replicate data from one server to another easily using a pub/sub model. Note, however, that
-the original transaction boundaries may not be represented in a history list, and
+the original transaction boundaries might not be represented in a history list, and
 a resource may occur more than once in a history list, so
 servers processing history bundles must have some strategy to manage this.
 </p>

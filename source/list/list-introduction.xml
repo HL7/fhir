@@ -29,7 +29,7 @@ produce a larger set of records as it would both be non-curated (potentially con
 duplicate or out-of-date records) and current - generated based on information as of
 "now" rather than the last time a human manually revised the List resource instance. Which
 mechanism is most appropriate for data retrieval will vary by use-case. In some cases, systems
-may not have an appropriate curated List to query.
+might not have an appropriate curated List to query.
 </p>
 <p>
 Note that the presence of an item in a List resource SHALL NOT change the meaning of any information that would be 

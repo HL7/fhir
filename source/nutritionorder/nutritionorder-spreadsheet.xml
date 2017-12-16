@@ -1470,7 +1470,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Per WGM Mon Q3 - may not need if status provides same info 2/4/2015 EH: [#3996] deprecate</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Per WGM Mon Q3 - might not need if status provides same info 2/4/2015 EH: [#3996] deprecate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="93.9375">

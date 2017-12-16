@@ -290,7 +290,7 @@
   Short Name = Primary result interpreter
   Definition = The practitioner or organization that is responsible for the report\'s conclusions and interpretations
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
-  Comments = May not be the same entity that takes responsibility for the clinical report.
+  Comments = Might not be the same entity that takes responsibility for the clinical report.
   Workflow Mapping = Event.performer
   v2 Mapping = OBR-32, PRT-8 (where this PRT-4-Participation = \"PI\")
   RIM Mapping = .participation[typeCode=PRF]

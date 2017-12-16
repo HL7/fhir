@@ -756,7 +756,7 @@
   Type = =CareTeam
   Short Name = Care Team members
   Definition = The members of the team who provided the overall service as well as their role and whether responsible and qualifications.
-  Requirements = Role and Responsible may not be required when there is only a single provider listed.
+  Requirements = Role and Responsible might not be required when there is only a single provider listed.
 
  -- Row 47 -----------------------------------
   Element = ExplanationOfBenefit.careTeam.sequence
@@ -1012,7 +1012,7 @@
   Type = =CareTeam
   Short Name = Care Team members
   Definition = The members of the team who provided the overall service as well as their role and whether responsible and qualifications.
-  Requirements = Role and Responsible may not be required when there is only a single provider listed.
+  Requirements = Role and Responsible might not be required when there is only a single provider listed.
 
  -- Row 82 -----------------------------------
   Element = !ExplanationOfBenefit.item.careTeam.provider

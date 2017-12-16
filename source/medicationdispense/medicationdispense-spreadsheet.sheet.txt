@@ -188,7 +188,7 @@
   Id = 2
   Code = frr02
   Display = Stale-dated order
-  Definition = Order has not been fulfilled within a reasonable amount of time, and may not be current.
+  Definition = Order has not been fulfilled within a reasonable amount of time, and might not be current.
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -541,7 +541,7 @@
   V3 Dispense Mapping = CombinedMedicationDispense.SupplyEvent.destination
   v2 Mapping = RXD-13 Dispense-to Location; RXD-30 Dispense to Pharmacy; RXD-31 Dispense to Pharmacy Address
   RIM Mapping = .participation[typeCode=DST].role
-  Committee Notes = for inpatient setting this is core, but this may not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?
+  Committee Notes = for inpatient setting this is core, but this might not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?
 
  -- Row 21 -----------------------------------
   Element = MedicationDispense.receiver
@@ -582,7 +582,7 @@
   Definition = Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.
   V3 Dispense Mapping = CombinedMedicationDispense.substitutionMade
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]
-  Committee Notes = Significant discssion around this topic.  May not have it right yet. What about the attribution?
+  Committee Notes = Significant discssion around this topic.  Might not have it right yet. What about the attribution?
 
  -- Row 25 -----------------------------------
   Element = MedicationDispense.substitution.wasSubstituted
@@ -649,7 +649,7 @@
   Type = Reference(Provenance)
   Short Name = A list of releveant lifecycle events
   Definition = A summary of the events of interest that have occurred, such as when the dispense was verified.
-  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)
+  Comments = This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 
 === Sheet Search =====================================

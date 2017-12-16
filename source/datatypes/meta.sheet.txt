@@ -16,7 +16,7 @@
   Element = Meta
   Type = Element
   Short Name = Metadata about a resource
-  Definition = The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource
+  Definition = The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource
   RIM Mapping = N/A
 
  -- Row 2 -----------------------------------

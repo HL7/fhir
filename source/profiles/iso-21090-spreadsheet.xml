@@ -7940,7 +7940,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">http://hl7.org/fhir/v3/ProbabilityDistributionType</Data></Cell>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">beta</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">The beta-distribution is used for data that is bounded on both sides and may or may not be skewed (e.g., occurs when probabilities are estimated.) Two parameters a and b are available to adjust the curve. The mean m and variance s2 relate as follows: m = a/ (a + b) and s2 = ab/((a + b)2 (a + b + 1)).</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The beta-distribution is used for data that is bounded on both sides and might or might not be skewed (e.g., occurs when probabilities are estimated.) Two parameters a and b are available to adjust the curve. The mean m and variance s2 relate as follows: m = a/ (a + b) and s2 = ab/((a + b)2 (a + b + 1)).</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s158"/>

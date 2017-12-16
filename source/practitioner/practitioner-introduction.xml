@@ -50,7 +50,7 @@ resource, use the <a href="relatedperson.html">RelatedPerson</a> resource.
 </p>
 <p>
   Practitioners are also often grouped into <a href="careteam.html">CareTeams</a> independently of roles, where the CareTeam
-  defines what specific role that they are fulfilling within the team, and may or may not have actual practitioner role resources
+  defines what specific role that they are fulfilling within the team, and might or might not have actual practitioner role resources
   created for the practitioner (and in the care team context, the organization the practitioner is representing)
 </p>
 </div>

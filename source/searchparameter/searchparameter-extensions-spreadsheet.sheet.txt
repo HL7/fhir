@@ -52,7 +52,7 @@
   System = urn:oid:2.16.840.1.113883.3.1937.98.5.8
   Code = retired
   Display = Retired
-  Definition = A previously active design is discontinued from use. It should no longer be used for future designs, but for historical purposes may be used to process data previously recorded using this design. A newer design may or may not exist. The design is published in the retired state
+  Definition = A previously active design is discontinued from use. It should no longer be used for future designs, but for historical purposes may be used to process data previously recorded using this design. A newer design might or might not exist. The design is published in the retired state
 
  -- Row 8 -----------------------------------
   System = urn:oid:2.16.840.1.113883.3.1937.98.5.8

@@ -78,7 +78,7 @@
   Short Name = Name of a human - parts and usage
   Definition = A human\'s name with the ability to identify parts and usage
   Requirements = Need to be able to record names, along with notes about their use
-  Comments = Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts may or may not be imbued with some implicit meaning; various cultures associate different importance with the name parts and the degree to which systems must care about name parts around the world varies widely.
+  Comments = Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts might or might not be imbued with some implicit meaning; various cultures associate different importance with the name parts and the degree to which systems must care about name parts around the world varies widely.
   v2 Mapping = XPN
   RIM Mapping = EN (actually, PN)
   ServD Mapping = ProviderName

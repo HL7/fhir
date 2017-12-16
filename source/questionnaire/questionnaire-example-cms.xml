@@ -465,7 +465,7 @@ Rate the degree of symptom control for the condition listed in Column 1 using th
 3 - Symptoms poorly controlled; patient needs frequent adjustment in treatment and dose monitoring
 4 - Symptoms poorly controlled; history of re-hospitalizations
 Note that in Column 2 the rating for symptom control of each diagnosis should not be used to determine the
-sequencing of the diagnoses listed in Column 1. These are separate items and sequencing may not coincide.
+sequencing of the diagnoses listed in Column 1. These are separate items and sequencing might not coincide.
 Sequencing of diagnoses should reflect the seriousness of each condition and support the disciplines and services
 provided.
 Column 3: (OPTIONAL) If a V-code is assigned to any row in Column 2, in place of a case mix diagnosis, it may be
@@ -490,7 +490,7 @@ ICD-9-C M and symptom
 control rating for each
 condition.
 Note that the sequencing of
-these ratings may not match
+these ratings might not match
 the sequencing of the
 diagnoses
 Complete if a V-code is

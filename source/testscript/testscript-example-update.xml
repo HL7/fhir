@@ -155,7 +155,7 @@
 		</action>
 		<action>
 			<assert>
-				<description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server may not support versioning."/>
+				<description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server might not support versioning."/>
 				<headerField value="Last-Modified"/>
 				<operator value="notEmpty"/>
 				<warningOnly value="true"/>

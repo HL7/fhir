@@ -137,7 +137,7 @@
   Short Name = A contact detail for the individual
   Definition = A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
   Requirements = People have (primary) ways to contact them in some way such as phone, email.
-  Comments = A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address may not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner\'s phone)
+  Comments = A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address might not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner\'s phone)
   v2 Mapping = PID-13, PID-14, PID-40
   RIM Mapping = telecom
   CDA Mapping = .telecom
@@ -151,7 +151,7 @@
   Short Name = male | female | other | unknown
   Definition = Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
   Requirements = Needed for identification of the individual, in combination with (at least) name and birth date. Gender of individual drives many clinical processes.
-  Comments = The gender may not match the biological sex as determined by genetics, or the individual\'s preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific gender aspect of interest (anatomical, chromosonal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosonal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overrideable error, not a \"hard\" error.
+  Comments = The gender might not match the biological sex as determined by genetics, or the individual\'s preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific gender aspect of interest (anatomical, chromosonal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosonal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overrideable error, not a \"hard\" error.
   v2 Mapping = PID-8
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender
   CDA Mapping = .patient.administrativeGenderCode
@@ -361,7 +361,7 @@
   Short Name = E.g. Dog, Cow
   Definition = Identifies the high level taxonomic categorization of the kind of animal
   Requirements = Need to know what kind of animal
-  Comments = If the patient is non-human, at least a species SHALL be specified. Species SHALL be a widely recognised taxonomic classification.  It may or may not be Linnaean taxonomy and may or may not be at the level of species. If the level is finer than species--such as a breed code--the code system used SHALL allow inference of the species.  (The common example is that the word \"Hereford\" does not allow inference of the species Bos taurus, because there is a Hereford pig breed, but the SNOMED CT code for \"Hereford Cattle Breed\" does.)
+  Comments = If the patient is non-human, at least a species SHALL be specified. Species SHALL be a widely recognised taxonomic classification.  It might or might not be Linnaean taxonomy and might or might not be at the level of species. If the level is finer than species--such as a breed code--the code system used SHALL allow inference of the species.  (The common example is that the word \"Hereford\" does not allow inference of the species Bos taurus, because there is a Hereford pig breed, but the SNOMED CT code for \"Hereford Cattle Breed\" does.)
   v2 Mapping = PID-35
   RIM Mapping = code
   CDA Mapping = n/a
@@ -504,7 +504,7 @@
   Short Name = Link to another patient resource that concerns the same actual person
   Definition = Link to another patient resource that concerns the same actual patient
   Requirements = There are multiple usecases: \n\n* Duplicate patient records due to the clerical errors associated with the difficulties of identifying humans consistently, and * Distribution of patient information across multiple servers
-  Comments = There is no assumption that linked patient records have mutual links. \n\nThis element is labelled as a modifier because it may not be the main Patient resource, and the referenced patient should be used instead of this Patient record. This is when the link.type value is \'replaced-by\'
+  Comments = There is no assumption that linked patient records have mutual links. \n\nThis element is labelled as a modifier because it might not be the main Patient resource, and the referenced patient should be used instead of this Patient record. This is when the link.type value is \'replaced-by\'
   RIM Mapping = outboundLink
   CDA Mapping = n/a
 

@@ -61,7 +61,7 @@ Statuses of "arrived", "triaged" or "in progress" could be considered the start 
 presence of the hospitalization sub-component entered.
 </p>
 <p>
-The "on leave" status may or may not be a part of the admission, for example if the patient 
+The "on leave" status might or might not be a part of the admission, for example if the patient 
 was permitted to go home for a weekend or some other form of external event.<br/>
 The location is also likely to be filled in with a location status of "present".<br/>
 For other examples such as an outpatient visit (day procedure - colonoscopy), the patient could also be 

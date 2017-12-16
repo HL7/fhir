@@ -4570,7 +4570,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">Provides a rendered version of the value intended for human display. &#160;For example, a sensitive identifier (e.g. social security number)&#160;partially obscured by asterisks;&#160;a drivers licence&#160;number with dashes inserted; a date formatted as MMM dd, yyyy;&#160;etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Allows determination of appropriate display to be performed by a server where formatting rules may not be known by or may be too complex to be performed by a client.</Data><NamedCell
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Allows determination of appropriate display to be performed by a server where formatting rules might not be known by or may be too complex to be performed by a client.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">In some cases, this extension may be present and the value won't be present. &#160;For example if the recipient only has permission to see a partially masked view of a value. &#160;The rendering may be realm-specific. &#160;(E.g. the use of ',' vs. '.' when rendering numbers.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

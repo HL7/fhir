@@ -340,7 +340,7 @@
   Type = string
   Short Name = Chained names supported
   Definition = Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type
-  Comments = Systems are not required to list all the chain names they support, but if they don\'t list them, clients may not know to use them
+  Comments = Systems are not required to list all the chain names they support, but if they don\'t list them, clients might not know to use them
 
  -- Row 25 -----------------------------------
   Element = SearchParameter.component

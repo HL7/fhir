@@ -105,7 +105,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  <tr>
    <td>decimal<a name="decimal"> </a></td>
    <td>Rational numbers that have a decimal representation. See below about the precision of the number</td>
-   <td>xs:decimal, except that <b>decimals may not use exponents, and leading 0 digits are not allowed</b></td>
+   <td>xs:decimal, except that <b>decimals SHALL not use exponents, and leading 0 digits are not allowed</b></td>
    <td>A JSON number, except that <b>exponents are not allowed</b></td>
  </tr>
  <tr>
@@ -542,7 +542,7 @@ accessible to systems that don't understand the code expression.
 </p>
 
 <p>
-In some cases, the <code>system</code> may not be known - only the code is known.
+In some cases, the <code>system</code> might not be known - only the code is known.
 In this case, no useful processing of the code may be performed unless
 the system can be safely inferred by the context.
 This practice should be avoided where possible, as
@@ -1014,7 +1014,7 @@ then the <code>system</code> SHALL be "<code>urn:ietf:rfc:3986</code>", and the 
 (OIDs and UUIDs using urn:oid: and urn:uuid: - see <a href="datatypes-mappings.html#ii">note on the V3 mapping</a> and the <a href="datatypes-examples.html#Identifier">examples</a>).
 </p>
 <p>
-In some cases, the system may not be known - only the value is known (e.g. a simple device that scans a barcode),
+In some cases, the system might not be known - only the value is known (e.g. a simple device that scans a barcode),
 or the system is known implicitly (simple exchange in a limited context, often driven by barcode readers).
 In this case, no useful matching may be performed using the value unless the system can be safely inferred by the
 context. Applications should provide a <code>system</code> wherever possible, as information sharing in a wider context
@@ -1056,7 +1056,7 @@ A name of a human with text, parts and usage information.
 Names may be changed or repudiated.  People may have different names in different
 contexts. Names may be divided into parts of different type that have variable
 significance depending on context, though the division into parts is not always
-significant. With personal names, the different parts may or may not be imbued with
+significant. With personal names, the different parts might or might not be imbued with
 some implicit meaning; various cultures associate different importance with the
 name parts and the degree to which systems SHALL care about name parts around the
 world varies widely.

@@ -35,7 +35,7 @@ Non-patient specific communication use cases may include:
 This resource is a record of a communication that has occurred. It does not represent the actual flow of communication.
 While <a href="auditevent.html">AuditEvent</a> can track electronic disclosures of information, it cannot track conversations,
 phone calls, letters and other interactions that are not system-to-system.  And even for system-to-system communications, the
-specific end recipients may not be known.  As well, <a href="auditevent.html">AuditEvents</a> are not considered to be "part"
+specific end recipients might not be known.  As well, <a href="auditevent.html">AuditEvents</a> are not considered to be "part"
 of the patient record, while <b>Communication</b> instances are.  The <b>Communication</b> resource is not used as a general
 audit mechanism to track every disclosure of every record.  Rather, it is used when a clinician or other user wants to ensure
 a record of a particular communication is itself maintained as part of the reviewable health record.
@@ -49,7 +49,7 @@ once.
 
 <p><b>Communication and Encounter</b></p>
 <p>
-The Communication is about the transfer of information (which may or may not occur as part of an encounter), while Encounter 
+The Communication is about the transfer of information (which might or might not occur as part of an encounter), while Encounter 
 is about the coming together (in person or virtually) of a Patient with a Practitioner.  Communication does not deal with 
 the duration of a call, it represents the fact that information was transferred at a particular point in time.
 </p>

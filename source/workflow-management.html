@@ -72,7 +72,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <ul>
                     <li>This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
                     <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
-                    <li>May not apply if there's a queue server</li>
+                    <li>Might not apply if there's a queue server</li>
                 </ul>
             </li>
         </ul>
@@ -134,10 +134,10 @@ in order to support consistent definitions for schema and UML derived code.
                 Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)
                 <ul>
                     <li>This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
-                    <li>May not apply if there's a queue server</li>
+                    <li>Might not apply if there's a queue server</li>
                 </ul>
             </li>
-            <li>Placer may not know immediately when filler system has retrieved the request</li>
+            <li>Placer might not know immediately when filler system has retrieved the request</li>
         </ul>
         <h4>Usage Recommendations</h4>
         <ul>
@@ -225,7 +225,7 @@ in order to support consistent definitions for schema and UML derived code.
                 Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)
                 <ul>
                     <li>This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
-                    <li>May not apply if there's a queue server</li>
+                    <li>Might not apply if there's a queue server</li>
                 </ul>
             </li>
         </ul>
@@ -265,7 +265,7 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <h4>Steps</h4>
         <ol>
-            <li>Placer sends message to filler with a MessageHeader, where the "data" element points to the Task resource, also contained in the message. The message may or may not contain any other relevant resources (e.g. the actual request resource), or
+            <li>Placer sends message to filler with a MessageHeader, where the "data" element points to the Task resource, also contained in the message. The message might or might not contain any other relevant resources (e.g. the actual request resource), or
                 an "event" code saying "please fulfill"</li>
             <li>Filler system sends a response containing the same Task resource, indicating receipt of the message and, optionally, an indication of their intention to fulfill the request</li>
             <li>Filler system may send incremental messages to the placer showing progress (e.g. specimen collected, preliminary results, final results) by including an updated Task resource</li>

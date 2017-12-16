@@ -15,7 +15,7 @@ context of FHIR.  The set of extensions in this profile will continue to grow ov
 For ease of reading, the extensions have been organized based on the underlying data type in the ISO specification.  The applicable FHIR data type(s) are also identified.
 </p>
 <p>
-<b>NOTE:</b> FHIR uses a different architecture than HL7 v3, so some capabilities may not make sense in the FHIR context or may need
+<b>NOTE:</b> FHIR uses a different architecture than HL7 v3, so some capabilities might not make sense in the FHIR context or may need
 to be used in a different manner.  Where necessary, guidance is included in this profile on any differences in usage.
 </p>
 

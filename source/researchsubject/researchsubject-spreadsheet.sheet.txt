@@ -66,7 +66,7 @@
   Id = 9
   Code = on-study-observation
   Display = On-study-observation
-  Definition = The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and may not exist in all studies.  A synonym for this is \"short-term follow-up\".
+  Definition = The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and might not exist in all studies.  A synonym for this is \"short-term follow-up\".
   v3 = active
 
  -- Row 10 -----------------------------------

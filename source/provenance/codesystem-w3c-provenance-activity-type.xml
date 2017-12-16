@@ -81,7 +81,7 @@
 	<concept>
 		<code value="Quotation"/>
 		<display value="wasQuotedFrom"/>
-		<definition value="The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author. A quotation relation is a kind of derivation relation, for which an entity was derived from a preceding entity by copying, or 'quoting', some or all of it."/> 
+		<definition value="The repeat of (some or all of) an entity, such as text or image, by someone who might or might not be its original author. A quotation relation is a kind of derivation relation, for which an entity was derived from a preceding entity by copying, or 'quoting', some or all of it."/> 
 	</concept>
 	<concept>
 		<code value="Primary-Source"/>

@@ -2221,7 +2221,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -11628,7 +11628,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="s154"><Data ss:Type="String">Exactly One</Data></Cell>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">The end user must choose one and only one of the selectable actions in the group. The user may not choose none of the actions in the group</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">The end user must choose one and only one of the selectable actions in the group. The user SHALL not choose none of the actions in the group</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s144"/>
@@ -12225,7 +12225,7 @@
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Must</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">An action with this behavior must be included in the actions processed by the end user; the end user SHALL not choose not to include this action</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s142"/>

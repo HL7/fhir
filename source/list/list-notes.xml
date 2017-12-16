@@ -17,7 +17,7 @@ family history or other information typically handled via <b>List</b>, they have
 <p>
 Querying directly against the clinical resource endpoints will provide an un-curated view of information.  
 A server may contain records that were part of various clinical documents, referrals and other submission
-sources that may not necessarily be considered wholly accurate or current, but which must be retained "as is"
+sources that might not necessarily be considered wholly accurate or current, but which must be retained "as is"
 to provide a record of what data was received or seen by a clinician at a particular point in time.  
 </p>
 <p>
@@ -90,7 +90,7 @@ will not be maintained after creation.
 <p>
 A change list may include deleted items. Some examples of change lists are 
 a reconciled list of allergies, a discharge medication list and a list 
-with new, updated and deleted items in it - though these may not be lists that 
+with new, updated and deleted items in it - though these might not be lists that 
 include changes (this is an implementation decision). In order to ensure that 
 the list is safe to process, any item where the flag implies that the 
 item has actually been deleted SHALL have the deleted element set to true. 

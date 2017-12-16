@@ -114,7 +114,7 @@
   UML = down
   Short Name = A code system supported by the server
   Definition = Identifies a code system that is supported by the server. If there is a no code system URL, then this declares the general assumptions a client can make about support for any CodeSystem resource
-  Comments = The code system - identified by it\'s system URL - may also be declared explicitly as a Code System Resource at /CodeSystem, but it may not be
+  Comments = The code system - identified by it\'s system URL - may also be declared explicitly as a Code System Resource at /CodeSystem, but it might not be
 
  -- Row 18 -----------------------------------
   Element = TerminologyCapabilities.codeSystem.uri
@@ -127,7 +127,7 @@
   Card. = 0..*
   Short Name = Version of Code System supported
   Definition = For the code system, a list of versions that are supported by the server
-  Comments = Language translations may not be available for all codes
+  Comments = Language translations might not be available for all codes
 
  -- Row 20 -----------------------------------
   Element = TerminologyCapabilities.codeSystem.version.code

@@ -172,7 +172,7 @@
   <concept>
     <code value="NMDINS"/>
     <display value="Named Insured"/>
-    <definition value="A party to an insurance policy under which the insurer agrees to indemnify for losses, provides benefits for, or renders services. A named insured may be either a person, non-person living subject, or an organization, or a group of persons, non-person living subject that is the named insured under a comprehensive automobile, disability, or property and casualty policy.  The named insured and may or may not be the policy holder."/>
+    <definition value="A party to an insurance policy under which the insurer agrees to indemnify for losses, provides benefits for, or renders services. A named insured may be either a person, non-person living subject, or an organization, or a group of persons, non-person living subject that is the named insured under a comprehensive automobile, disability, or property and casualty policy.  The named insured and might or might not be the policy holder."/>
   </concept>
   <concept>
     <code value="NOK"/>
@@ -207,7 +207,7 @@
   <concept>
     <code value="RECIP"/>
     <display value="Recipient"/>
-    <definition value="An entity that may, should receive, or has received information or an object, which may not have been primarily addressed to it. For example, the staff of a provider, a clearinghouse, or other intermediary."/>
+    <definition value="An entity that may, should receive, or has received information or an object, which might not have been primarily addressed to it. For example, the staff of a provider, a clearinghouse, or other intermediary."/>
   </concept>
   <concept>
     <code value="RESPRSN"/>

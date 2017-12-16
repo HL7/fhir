@@ -95,7 +95,7 @@
   Short Name = male | female | other | unknown
   Definition = Administrative Gender
   Requirements = Needed for identification of the person, in combination with (at least) name and birth date. Gender of person drives many clinical processes.
-  Comments = The gender may not match the biological sex as determined by genetics, or the individual\'s preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F
+  Comments = The gender might not match the biological sex as determined by genetics, or the individual\'s preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F
   v2 Mapping = PID-8
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender
   Committee Notes = \'gender\' is still the administrative gender, but this is reflected in its description rather than its name.

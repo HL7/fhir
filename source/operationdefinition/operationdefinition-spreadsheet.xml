@@ -1753,7 +1753,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">The parameters for the operation/query</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Query Definitions only have one output parameter, named &quot;result&quot;. This may not be described, but can be to allow a profile to be defined</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Query Definitions only have one output parameter, named &quot;result&quot;. This might not be described, but can be to allow a profile to be defined</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2143,7 +2143,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The parts of a nested Parameter</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Query Definitions only have one output parameter, named &quot;result&quot;. This may not be described, but can be to allow a profile to be defined</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Query Definitions only have one output parameter, named &quot;result&quot;. This might not be described, but can be to allow a profile to be defined</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>

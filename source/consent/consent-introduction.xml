@@ -27,7 +27,7 @@ signatures of one or both of the parties to the content of an encoded representa
 is deemed to constitute a legally binding Consent Directive.  Some domains accept a notary’s electronic 
 signature over the wet or electronic signature of a party to the Consent Directive as the additional 
 identity proofing required to make an encoded Consent Directive legally binding.  Other domains may 
-only accept a wet signature, or may not require the parties’ signatures at all.
+only accept a wet signature, or might not require the parties’ signatures at all.
 </p>
 <p>
 Whatever the criteria are for making an encoded FHIR Consent Directive legally binding, anything less 

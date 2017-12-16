@@ -254,7 +254,7 @@ The following kinds of changes may be made to the specification:
     In addition, some other kinds corrections may be judged not to create any expectation of change to a conformant application</li>
 </ul>
 <p>
-Note that the following are, by definition, considered non-breaking changes, even though some implementations (including the reference implementations) may not be able to handle some consequences of these changes without error:</p>
+Note that the following are, by definition, considered non-breaking changes, even though some implementations (including the reference implementations) might not be able to handle some consequences of these changes without error:</p>
 <ul>
  <li>Creation of new resources</li>
  <li>Adding new optional elements in an existing resource</li>
@@ -409,7 +409,7 @@ error code.
     <tr>
       <td>Operations</td>
       <td>
-      New operations may be defined but operations may not be removed or renamed.  Existing parameters will not be removed or renamed, nor may their type
+      New operations may be defined but operations SHALL not be removed or renamed.  Existing parameters will not be removed or renamed, nor may their type
       or lower cardinality be changed.  Upper cardinality may be changed from 1 to *.  (Systems should ignore unexpected repetitions.)
       Additional optional parameters may be introduced; e.g. Operation signatures cannot change; instead, additional operation variants will be defined.
       </td>

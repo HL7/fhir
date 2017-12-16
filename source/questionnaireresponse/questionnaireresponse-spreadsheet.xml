@@ -1312,7 +1312,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Clinicians need to be able to check the date that the information in the questionnaire was collected, to derive the context of the answers.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.&#10;&#10;This element is optional to allow for systems that may not know the value, however it SHOULD be populated if possible.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">May be different from the lastUpdateTime of the resource itself, because that reflects when the data was known to the server, not when the data was captured.&#10;&#10;This element is optional to allow for systems that might not know the value, however it SHOULD be populated if possible.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.participation[typeCode=AUT].time</Data><NamedCell
@@ -1461,7 +1461,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Items can repeat in the answers, so a direct 1..1 correspondence by position may not exist - requiring correspondence by identifier.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Items can repeat in the answers, so a direct 1..1 correspondence by position might not exist - requiring correspondence by identifier.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -7469,7 +7469,7 @@
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Proposed</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time might not be set yet.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s147"/>
@@ -8139,7 +8139,7 @@
     <Cell ss:StyleID="s125"/>
     <Cell ss:StyleID="s159"/>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Information Only</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">The participant is excluded from the appointment, and may not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">The code for this value could be better, see what we get out of STU comments.</Data></Cell>

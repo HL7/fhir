@@ -133,7 +133,7 @@
         <code value="terminated"/>
         <display value="Terminated"/>
         <definition
-            value="Contract reaches its expiry date. It may or may not be renewed or renegotiated. Usage: Normal end of contract period. Precedence Order = 12. Comparable FHIR and v.3 status codes: Obsoleted."
+            value="Contract reaches its expiry date. It might or might not be renewed or renegotiated. Usage: Normal end of contract period. Precedence Order = 12. Comparable FHIR and v.3 status codes: Obsoleted."
         />
     </concept>
 </CodeSystem>

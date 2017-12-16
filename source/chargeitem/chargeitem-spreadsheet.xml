@@ -1499,7 +1499,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">The organization performing the service</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16" ss:StyleID="s95"><Data ss:Type="String">The rendered Service may not be associated with a Request. It has to be made clear, ob which Organization's Request, the services have been rendered. (In many cases, this may just be the Department associated with the Encounter.location)</Data><NamedCell
+    <Cell ss:Index="16" ss:StyleID="s95"><Data ss:Type="String">The rendered Service might not be associated with a Request. It has to be made clear, ob which Organization's Request, the services have been rendered. (In many cases, this may just be the Department associated with the Encounter.location)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">.scoper</Data><NamedCell
@@ -1828,7 +1828,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Account into which this ChargeItems belongs</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="16"><Data ss:Type="String">Systems posting the ChargeItems may not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate</Data><NamedCell
+    <Cell ss:Index="16"><Data ss:Type="String">Systems posting the ChargeItems might not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="71.25">

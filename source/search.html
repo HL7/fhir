@@ -464,7 +464,7 @@ Date parameters may be used with the following data types:
  <tr><td><a href="datatypes.html#dateTime">dateTime</a></td><td>The range of the value as defined above; e.g. For example, the
    date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013</td></tr>
  <tr><td><a href="datatypes.html#instant">instant</a></td><td>An instant is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0</td></tr>
- <tr><td><a href="datatypes.html#Period">Period</a></td><td>Explicit, though the upper or lower bound may not actually be specified in resources.</td></tr>
+ <tr><td><a href="datatypes.html#Period">Period</a></td><td>Explicit, though the upper or lower bound might not actually be specified in resources.</td></tr>
  <tr><td><a href="datatypes.html#Timing">Timing</a></td><td>the specified scheduling details are ignored and only the outer limits matter. For instance, a schedule that specifies every second day between
    31-Jan 2013 and 24-Mar 2013 includes 1-Feb 2013, even though that is on an odd day that is not specified by the period. This is
    to keep the server load processing queries reasonable.</td></tr>
@@ -1502,7 +1502,7 @@ search results:
 <p>
 In the case of returning container resources, the server SHALL populate the entry.search.mode
 element, as shown, so that the client can pick apart matches and includes (since the usual approach of doing it
-by type may not work).
+by type might not work).
 </p>
 <p>
 If the return type is the contained resource, this must be done slightly

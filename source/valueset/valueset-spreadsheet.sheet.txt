@@ -261,7 +261,7 @@
   Type = string
   Short Name = Specific version of the code system referred to
   Definition = The version of the code system that the codes are selected from
-  Comments = This is used when selecting the descendants of a concept - they may change between versions. If no version is specified, then the exact contents of the value set may not be known until a context of use binds it to a particular version
+  Comments = This is used when selecting the descendants of a concept - they may change between versions. If no version is specified, then the exact contents of the value set might not be known until a context of use binds it to a particular version
   RIM Mapping = N/A
 
  -- Row 25 -----------------------------------
@@ -281,7 +281,7 @@
   Type = =ConceptReference
   Short Name = A concept defined in the system
   Definition = Specifies a concept to be included or excluded.
-  Comments = The list of concepts is considered ordered, though the order may not have any particular significance. Typically, the order of an expansion follows that defined in the compose element
+  Comments = The list of concepts is considered ordered, though the order might not have any particular significance. Typically, the order of an expansion follows that defined in the compose element
   RIM Mapping = N/A
 
  -- Row 27 -----------------------------------
@@ -386,7 +386,7 @@
   Type = uri
   Short Name = Select only contents included in this value set
   Definition = Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url
-  Comments = The value set URI is either a logical reference to a defined value set such as a [SNOMED CT reference set]{snomedct.html#implicit}, or a direct reference to a value set definition using ValueSet.url. The reference may not refer to an actual FHIR ValueSet resource; in this case, whatever is referred to is an implicit definition of a value set that needs to be clear about how versions are resolved
+  Comments = The value set URI is either a logical reference to a defined value set such as a [SNOMED CT reference set]{snomedct.html#implicit}, or a direct reference to a value set definition using ValueSet.url. The reference might not refer to an actual FHIR ValueSet resource; in this case, whatever is referred to is an implicit definition of a value set that needs to be clear about how versions are resolved
   RIM Mapping = N/A
 
  -- Row 38 -----------------------------------

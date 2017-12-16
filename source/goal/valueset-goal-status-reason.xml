@@ -14,7 +14,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/"/>
     </telecom>
   </contact>
-  <description value="Example codes indicating the reason for a current status.  Note that these are in no way complete and may not even be appropriate for some uses."/>
+  <description value="Example codes indicating the reason for a current status.  Note that these are in no way complete and might not even be appropriate for some uses."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/goal-status-reason"/>

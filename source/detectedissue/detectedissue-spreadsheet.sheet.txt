@@ -215,7 +215,7 @@
   Type = dateTime
   Short Name = Date committed
   Definition = Indicates when the mitigating action was documented
-  Comments = This may not be the same as when the mitigating step was actually taken
+  Comments = This might not be the same as when the mitigating step was actually taken
   RIM Mapping = .effectiveTime
 
  -- Row 15 -----------------------------------

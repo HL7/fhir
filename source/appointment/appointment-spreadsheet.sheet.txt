@@ -69,7 +69,7 @@
   Id = 1
   Code = proposed
   Display = Proposed
-  Definition = None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.
+  Definition = None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time might not be set yet.
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -158,7 +158,7 @@
   Id = 3
   Code = information-only
   Display = Information Only
-  Definition = The participant is excluded from the appointment, and may not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient\'s test).
+  Definition = The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient\'s test).
 
 === Sheet Invariants =====================================
 
@@ -410,8 +410,8 @@
   Element = Appointment.patientInstruction
   Card. = 0..1
   Type = string
-  Short Name = Instructions for the patient
-  Definition = While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment.
+  Short Name = Detailed information and instructions for the patient
+  Definition = While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).
   v2 Mapping = NTE-3
   RIM Mapping = .subjectOf.observation[@moodCode = \'EVN\'][code = \'annotation\'].value
   iCal Mapping = DESCRIPTION (for patient use)

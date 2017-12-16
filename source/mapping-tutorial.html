@@ -247,7 +247,7 @@ rule_a23b : for source.a23 first as a make target.a23 = a  // Only use the first
 rule_a23b : for source.a23 last as a make target.a23 = a  // Only use the last one
 </pre>
 <p>
-Leaving the outcome to the transform engine is not recommended; it may not always
+Leaving the outcome to the transform engine is not recommended; it might not always
 know whether a property is confined to a single value, and exactly what happens is
 unpredictable. However there are some circumstances where the appropriate action
 is to defer resolution, so this is allowed.

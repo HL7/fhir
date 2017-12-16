@@ -226,7 +226,7 @@
   UML = 400;0
   Short Name = Parameters for the operation/query
   Definition = The parameters for the operation/query
-  Comments = Query Definitions only have one output parameter, named \"result\". This may not be described, but can be to allow a profile to be defined
+  Comments = Query Definitions only have one output parameter, named \"result\". This might not be described, but can be to allow a profile to be defined
 
  -- Row 26 -----------------------------------
   Element = OperationDefinition.parameter.name
@@ -327,7 +327,7 @@
   Type = @OperationDefinition.parameter
   Short Name = Parts of a nested Parameter
   Definition = The parts of a nested Parameter
-  Comments = Query Definitions only have one output parameter, named \"result\". This may not be described, but can be to allow a profile to be defined
+  Comments = Query Definitions only have one output parameter, named \"result\". This might not be described, but can be to allow a profile to be defined
 
  -- Row 38 -----------------------------------
   Element = OperationDefinition.overload

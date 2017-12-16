@@ -676,7 +676,7 @@
  -- Row 6 -----------------------------------
   Name = populate.content
   Use = in
-  Documentation = Resources containing information to be used to help populate the [[[QuestionnaireResponse]]].  These may be FHIR resources or may be binaries containing FHIR documents, CDA documents or other source materials.  Servers may not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
+  Documentation = Resources containing information to be used to help populate the [[[QuestionnaireResponse]]].  These may be FHIR resources or may be binaries containing FHIR documents, CDA documents or other source materials.  Servers might not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
   Type = Reference(Any)
   Min = 0
   Max = *
@@ -743,7 +743,7 @@
  -- Row 14 -----------------------------------
   Name = populatehtml.content
   Use = in
-  Documentation = Resources containing information to be used to help populate the generated HTML form.  These may be FHIR resources or may be binaries containing FHIR documents, CDA documents or other source materials.  Servers may not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
+  Documentation = Resources containing information to be used to help populate the generated HTML form.  These may be FHIR resources or may be binaries containing FHIR documents, CDA documents or other source materials.  Servers might not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
   Type = Reference(Any)
   Min = 0
   Max = *
@@ -810,7 +810,7 @@
  -- Row 22 -----------------------------------
   Name = populatelink.content
   Use = in
-  Documentation = Resources containing information to be used to help populate the generated HTML form.  These may be FHIR resources or may be binaries containing FHIR documents, CDA documents or other source materials.  Servers may not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
+  Documentation = Resources containing information to be used to help populate the generated HTML form.  These may be FHIR resources or may be binaries containing FHIR documents, CDA documents or other source materials.  Servers might not support all possible source materials and may ignore materials they do not recognize.  (They MAY provide warnings if ignoring submitted resources.)
   Type = Reference(Any)
   Min = 0
   Max = *
