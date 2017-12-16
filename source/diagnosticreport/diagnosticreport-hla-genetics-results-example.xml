@@ -62,7 +62,7 @@ ServiceRequest/123  (report is based on this request)
 				<extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-results-allele-database">
 					<valueCodeableConcept>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 						</coding>
 						<text value="IMGT/HLA 3.23"/>
@@ -164,7 +164,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00001"/>
 						</coding>
@@ -203,7 +203,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00001"/>
 						</coding>
@@ -242,7 +242,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00002"/>
 						</coding>
@@ -281,7 +281,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00002"/>
 						</coding>
@@ -320,7 +320,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00162"/>
 						</coding>
@@ -359,7 +359,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00162"/>
 						</coding>
@@ -398,7 +398,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00381"/>
 						</coding>
@@ -437,7 +437,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00381"/>
 						</coding>
@@ -476,7 +476,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00401"/>
 						</coding>
@@ -515,7 +515,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00401"/>
 						</coding>
@@ -554,7 +554,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00413"/>
 						</coding>
@@ -593,7 +593,7 @@ ServiceRequest/123  (report is based on this request)
 				<referenceSeq>
 					<referenceSeqId>
 						<coding>
-							<system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
+							<system value="http://www.ebi.ac.uk/ipd/imgt/hla"/>
 							<version value="3.23"/>
 							<code value="HLA00413"/>
 						</coding>
