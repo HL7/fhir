@@ -576,6 +576,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     int level = ig == null ? file.contains(File.separator) ? 1 : 0 : ig.isCore() ? 0 : 1;
     boolean even = false;
     String name = file.substring(0,file.lastIndexOf("."));
+    String searchAdditions = "";
 
     while (src.contains("<%") || src.contains("[%"))
     {
@@ -822,6 +823,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getFmmShortFromlevel(genlevel(level), fmm)+npr+s3;
       } else if (com[0].equals("normative-pages")) {
         src = s1+getNormativeList(genlevel(level), com[1])+s3;
+      } else if (s2.startsWith("search-additions\r\n")) {
+        searchAdditions = s2.substring(16).trim();
+        src = s1+s3;
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -5466,6 +5470,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       String s3 = src.substring(i2+2);
 
       String[] com = s2.split(" ");
+      String searchAdditions = "";
       if (com[0].equals("resheader"))
         src = s1+resHeader(name, resource.getName(), com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("aresheader"))
@@ -5565,10 +5570,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+name+s3;
       else if (com[0].equals("cname"))
         src = s1+resource.getName()+s3;
-      else if (com[0].equals("search"))
-        src = s1+getSearch(resource)+s3;
+      else if (com[0].equals("search-additions")) {
+        searchAdditions = s2.substring(16).trim();
+        src = s1+s3;
+      } else if (com[0].equals("search"))
+        src = s1+getSearch(resource, searchAdditions )+s3;
       else if (com[0].equals("asearch"))
-        src = s1+getAbstractSearch(resource)+s3;
+        src = s1+getAbstractSearch(resource, searchAdditions)+s3;
       else if (com[0].equals("version"))
         src = s1+ini.getStringProperty("FHIR", "version")+s3;
       else if (com[0].equals("gendate"))
@@ -6095,7 +6103,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
   */
 
-  private String getSearch(ResourceDefn resource) {
+  private String getSearch(ResourceDefn resource, String searchAdditions) {
     if (resource.getSearchParams().size() == 0)
       return "";
     else {
@@ -6117,6 +6125,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
                 .append(Utilities.escapeXml(p.getDescription())).append("</td><td>").append(p.getExpression()).append(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "")
                 .append("</td><td>").append(presentOthers(p)).append("</td></tr>\r\n");
       }
+      b.append(searchAdditions);
       b.append("</table>\r\n");
       return b.toString();
     }
@@ -6130,7 +6139,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  private String getAbstractSearch(ResourceDefn resource) {
+  private String getAbstractSearch(ResourceDefn resource, String searchAdditions) {
     if (resource.getSearchParams().size() == 0)
       return "";
     else {
@@ -6147,6 +6156,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         b.append("<tr><td>").append(p.getCode()).append("</td><td><a href=\"search.html#").append(p.getType()).append("\">").append(p.getType())
                 .append("</a></td><td>").append(Utilities.escapeXml(p.getDescription())).append("</td><td>").append(presentPaths(p.getPaths())).append(p.getType() == SearchType.reference ? p.getTargetTypesAsText() : "").append("</td></tr>\r\n");
       }
+      b.append(searchAdditions);
       b.append("</table>\r\n");
       return b.toString();
     }
