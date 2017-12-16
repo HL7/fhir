@@ -16,14 +16,46 @@ Usage: java -jar org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-out
 
 Or, you can use the java class directly in the jar. Quick Doco:
 
-Class org.hl7.fhir.tools.validator.Validator
-methods:
-  void setSource(string) - see above
-  void setDefinitions(string) - see above
-  void process(); - actually perform the validation (may throw Exception)
-  String getOutcome(); - the outcome as an OperationOutcome resource represented as a string
-  
-  
+Class org.hl7.fhir.r4.validation.ValidationEngine
+
+The following resource formats are supported: XML, JSON, Turtle
+The following versions are supported: 1.4.0, 1.6.0, and current
+
+Note: the validation engine is intended to be threadsafe
+To Use:
+ 
+ / Initialize
+   ValidationEngine validator = new ValidationEngine(src);
+     - this must refer to the igpack.zip for the version of the spec against which you want to validate
+      it can be a url or a file reference. It can nominate the igpack.zip directly, 
+      or it can name the container alone (e.g. just the spec URL).
+      The validation engine does not cache igpack.zip. the user must manage that if desired 
+
+    validator.connectToTSServer(txServer);
+      - this is optional; in the absence of a terminology service, snomed, loinc etc will not be validated
+      
+    validator.loadIg(src);
+      - call this any number of times for the Implementation Guide(s) of interest. This is a reference
+        to the igpack.zip for the implementation guide - same rules as above
+        the version of the IGPack must match that of the spec 
+        Alternatively it can point to a local folder that contains conformance resources.
+         
+    validator.loadQuestionnaire(src)
+      - url or filename of a questionnaire to load. Any loaded questionnaires will be used while validating
+      
+    validator.setNative(doNative);
+      - whether to do xml/json/rdf schema validation as well
+
+   You only need to do this initialization once. You can validate as many times as you like
+   
+ 2. validate
+    validator.validate(src, profiles);
+      - source (as stream, byte[]), or url or filename of a resource to validate. 
+        Also validate against any profiles (as canonical URLS, equivalent to listing them in Resource.meta.profile)
+        
+        if the source is provided as byte[] or stream, you need to provide a format too, though you can 
+        leave that as null, and the validator will guess
+   
 License:
 The validator itself is covered the license below. The java includes files with many other 
 open source licenses. TODO: chase them down and put them in here....
