@@ -72,7 +72,7 @@
  -- Row 10 -----------------------------------
   Element = MedicinalProduct.marketingAuthorization
   Card. = 0..1
-  Type = string
+  Type = Reference(MedicinalProductAuthorization)
   Short Name = Product regulatory authorization
 
  -- Row 11 -----------------------------------

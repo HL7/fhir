@@ -24,10 +24,162 @@
  -- Row 2 -----------------------------------
   Element = MedicinalProductAuthorization.identifier
   Card. = 0..1
-  Aliases = MPID
   Type = Identifier
-  Short Name = Business identifier for the marketing authorization
-  Definition = The identifier(s) of this Marketing Authorization that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
+  Short Name = Business identifier for the marketing authorization, as assigned by a regulator
+
+ -- Row 3 -----------------------------------
+  Element = MedicinalProductAuthorization.country
+  Card. = 1..*
+  Type = CodeableConcept
+  Short Name = The country in which the marketing authorization has been granted
+
+ -- Row 4 -----------------------------------
+  Element = MedicinalProductAuthorization.legalStatusOfSupply
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The legal status of supply of the medicinal product as classified by the regulator
+
+ -- Row 5 -----------------------------------
+  Element = MedicinalProductAuthorization.status
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The status of the marketing authorization
+
+ -- Row 6 -----------------------------------
+  Element = MedicinalProductAuthorization.statusDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = The date at which the given status has become applicable
+
+ -- Row 7 -----------------------------------
+  Element = MedicinalProductAuthorization.restoreDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date when a suspended the marketing or the marketing authorization of the product is anticipated to be restored
+
+ -- Row 8 -----------------------------------
+  Element = MedicinalProductAuthorization.validityPeriod
+  Card. = 1..1
+  Type = Period
+  Short Name = The beginning of the time period in which the marketing authorization is in the specific status shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format
+
+ -- Row 9 -----------------------------------
+  Element = MedicinalProductAuthorization.dataExclusivityPeriod
+  Card. = 0..1
+  Type = Period
+  Short Name = A period of time after authorization before generic product applicatiosn can be submitted
+
+ -- Row 10 -----------------------------------
+  Element = MedicinalProductAuthorization.dateOfFirstAuthorization
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date when the first authorization was granted by a Medicines Regulatory Agency
+
+ -- Row 11 -----------------------------------
+  Element = MedicinalProductAuthorization.internationalBirthDate
+  Card. = 1..1
+  Type = dateTime
+  Short Name = Date of first marketing authorization for a company\'s new medicinal product in any country in the World
+
+ -- Row 12 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization
+  Card. = 0..*
+  UML = 750;160
+  Type = Backbone Element
+  Short Name = Authorization in areas within a country
+
+ -- Row 13 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization.country
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = Country of authorization
+
+ -- Row 14 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization.jurisdiction
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Jurisdiction within a country
+
+ -- Row 15 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization.number
+  Card. = 0..1
+  Type = Identifier
+  Short Name = The assigned number for the marketing authorization
+
+ -- Row 16 -----------------------------------
+  Element = MedicinalProductAuthorization.jurisdictionalAuthorization.legalStatusOfSupply
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The legal status of supply in a jurisdiction or region
+
+ -- Row 17 -----------------------------------
+  Element = MedicinalProductAuthorization.holder
+  Card. = 1..1
+  Type = Reference(Organization)
+  Short Name = Marketing Authorization Holder
+
+ -- Row 18 -----------------------------------
+  Element = MedicinalProductAuthorization.regulator
+  Card. = 1..1
+  Type = Reference(Organization)
+  Short Name = Medicines Regulatory Agency
+
+ -- Row 19 -----------------------------------
+  Element = MedicinalProductAuthorization.procedure
+  Card. = 1..1
+  UML = 680;0
+  Type = Backbone Element
+  Short Name = The regulatory procedure for granting or amending a marketing authorization
+
+ -- Row 20 -----------------------------------
+  Element = MedicinalProductAuthorization.procedure.number
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Identifier for this procedure
+
+ -- Row 21 -----------------------------------
+  Element = MedicinalProductAuthorization.procedure.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = Type of procedure
+
+ -- Row 22 -----------------------------------
+  Element = MedicinalProductAuthorization.procedure.date
+  Card. = 0..1
+  Type = Period
+  Short Name = Date of procedure
+
+ -- Row 23 -----------------------------------
+  Element = MedicinalProductAuthorization.procedure.application
+  Card. = 0..*
+  UML = 900;0
+  Type = Backbone Element
+  Short Name = Applcations submitted to obtain a marketing authorization
+
+ -- Row 24 -----------------------------------
+  Element = MedicinalProductAuthorization.procedure.application.number
+  Card. = 1..1
+  Type = Identifier
+  Short Name = A unique identifier for the specific instance of an application shall be provided in text. The application identifier/number is usually assigned by a Medicines Regulatory Agency
+
+ -- Row 25 -----------------------------------
+  Element = MedicinalProductAuthorization.procedure.application.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of the application
+
+ -- Row 26 -----------------------------------
+  Element = MedicinalProductAuthorization.procedure.application.date
+  Card. = 1..1
+  Type = dateTime
+  Short Name = Date that that application was made
+
+ -- Row 27 -----------------------------------
+  Element = MedicinalProductAuthorization.marketingStatus
+  Card. = 0..*
+  UML = 0;0
+  Type = string
+  Short Name = Marketing status of the medicinal product, in contrast to marketing authorizaton
 
 === Sheet Search =====================================
 
