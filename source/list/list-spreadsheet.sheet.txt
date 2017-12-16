@@ -61,7 +61,7 @@
   Id = 3
   Code = changes
   Display = Change List
-  Definition = A list that indicates where changes have been made or recommended
+  Definition = A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter
 
 === Sheet list-status =====================================
 
