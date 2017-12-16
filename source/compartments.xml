@@ -766,7 +766,7 @@
     <Cell><Data ss:Type="String">!MedicinalProductAuthorization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!MedicinalProductClinicals</Data></Cell>
+    <Cell><Data ss:Type="String">MedicinalProductClinicals</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!MedicinalProductIngredient</Data></Cell>
@@ -815,7 +815,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>130</ActiveRow>
+     <ActiveRow>132</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

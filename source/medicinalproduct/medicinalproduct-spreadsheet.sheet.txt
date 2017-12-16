@@ -90,7 +90,7 @@
  -- Row 13 -----------------------------------
   Element = MedicinalProduct.clinicalParticulars
   Card. = 0..*
-  Type = string
+  Type = Reference(MedicinalProductClinicals)
   Short Name = Clinical particulars, indications etc
 
  -- Row 14 -----------------------------------
