@@ -20,9 +20,9 @@
   Summary = y
   Type = uri
   Short Name = Logical URI to reference this {{title}} (globally unique)
-  Definition = An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this {{title}} is (or will be) published. The URL SHOULD include the major version of the {{title}}. For more information see [Technical and Business Versions](resource.html#versions).
+  Definition = An absolute URI that is used to identify this {{title}} when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this {{title}} is (or will be) published.
   Requirements = Allows the {{title}} to be referenced by a single globally unique identifier
-  Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.
+  Comments = Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.\n\nThe URL SHOULD include the major version of the {{title}}. For more information see [Technical and Business Versions](resource.html#versions).
   w5 = id
 
  -- Row 3 -----------------------------------
