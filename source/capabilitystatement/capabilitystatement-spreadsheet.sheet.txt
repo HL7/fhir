@@ -932,6 +932,7 @@
   UML = right
   Short Name = Search parameters supported by implementation
   Definition = Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
+  Comments = The search parameters should include the control search parameters such as _sort, _count, etc that also apply to this resource (though many will be listed at [[[CapabilityStatement.rest.searchParam]]]). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [[[SearchParameter]]] definitions
 
  -- Row 59 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchParam.name
@@ -1031,7 +1032,7 @@
   Type = @CapabilityStatement.rest.resource.searchParam
   Short Name = Search parameters for searching all resources
   Definition = Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
-  Comments = Typically, the only search parameters supported for all searchse are those that apply to all resources - tags, profiles, text search etc.
+  Comments = Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc that also apply to this resource (though many will be listed at [[[CapabilityStatement.rest.searchParam]]]). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [[[SearchParameter]]] definitions
 
  -- Row 71 -----------------------------------
   Element = CapabilityStatement.rest.operation
