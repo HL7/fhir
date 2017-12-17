@@ -78,6 +78,28 @@ Some Operations with primitive input types and a single Resource output paramete
 In this case, the response is simply the resource that is the return value, with no Parameters resource. These kinds of usage are discussed further below.
 </p>
 
+<a name="executing"> </a>
+<h4>Operations with no parameters</h4>
+<p>
+Executing operations without any parameters is a special case. For an operation that doesn't cause 
+any state change, the operation is invoked in a straight forward fashion:
+</p>
+<pre class="http">
+GET [base]/Composition/example/$document
+</pre>
+<p>
+For operations that call state changes, they most be invoked by a POST. There is no parameters 
+resource in this case because a parameters resource cannot be empty. So the operation is invoked
+with a POST with an empty body:
+</p>
+<pre class="http">
+POST [base]/Claim/example/$submit
+Content-Length: 0
+
+
+</pre>
+
+
 <a name="defined"> </a>
 <h3>FHIR defined Operations</h3>
 <p>
