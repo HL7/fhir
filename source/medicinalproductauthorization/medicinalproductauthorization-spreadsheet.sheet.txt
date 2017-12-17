@@ -178,7 +178,7 @@
   Element = MedicinalProductAuthorization.marketingStatus
   Card. = 0..*
   UML = 0;0
-  Type = string
+  Type = MarketingStatus
   Short Name = Marketing status of the medicinal product, in contrast to marketing authorizaton
 
 === Sheet Search =====================================

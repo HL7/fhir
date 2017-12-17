@@ -12,7 +12,7 @@
   <actuality value="actual"/>
 
   <!-- high level categorision. The "event" below will say more -->
-  <category value="ProductUseError"/>
+  <!--category value="ProductUseError"/-->
   
   <!-- more precise details of the event -->
   <event>

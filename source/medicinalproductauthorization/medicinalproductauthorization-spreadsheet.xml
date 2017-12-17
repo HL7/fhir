@@ -701,14 +701,14 @@
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultColumnWidth="433.2"
-   ss:DefaultRowHeight="14.4">
+   ss:DefaultRowHeight="14.55">
    <Column ss:StyleID="s68" ss:Width="316.8"/>
    <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0"
     ss:Width="46.800000000000004"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="28.2"/>
    <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0"
     ss:Width="40.200000000000003"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="99.6"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="165.6"/>
    <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0"
     ss:Width="37.200000000000003"/>
    <Column ss:StyleID="s68" ss:Hidden="1" ss:AutoFitWidth="0" ss:Width="58.8"/>
@@ -725,7 +725,7 @@
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="579"/>
    <Column ss:Index="21" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="165.6"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="239.4"/>
-   <Row ss:Height="43.199999999999996" ss:StyleID="s69">
+   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996" ss:StyleID="s69">
     <Cell ss:StyleID="s70"><Data ss:Type="String">Element</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Format is ResourceName.componentName.componentName</Font>       </ss:Data></Comment><NamedCell
@@ -821,7 +821,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Not published</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductAuthorization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s77"><Data ss:Type="String">DomainResource</Data><NamedCell
@@ -835,7 +835,7 @@
     <Cell ss:Index="22"><Data ss:Type="String">280;0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
@@ -845,7 +845,7 @@
     <Cell ss:Index="14"><Data ss:Type="String">Business identifier for the marketing authorization, as assigned by a regulator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.country</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -865,7 +865,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The country in which the marketing authorization has been granted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.legalStatusOfSupply</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -885,7 +885,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The legal status of supply of the medicinal product as classified by the regulator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -905,7 +905,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The status of the marketing authorization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.statusDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -925,7 +925,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The date at which the given status has become applicable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.restoreDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -945,7 +945,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The date when a suspended the marketing or the marketing authorization of the product is anticipated to be restored</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="41.4" ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:Height="41.55" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.validityPeriod</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -965,7 +965,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The beginning of the time period in which the marketing authorization is in the specific status shall be specified A complete date consisting of day, month and year shall be specified using the ISO 8601 date format</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.dataExclusivityPeriod</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -985,7 +985,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">A period of time after authorization before generic product applicatiosn can be submitted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.dateOfFirstAuthorization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1005,7 +1005,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The date when the first authorization was granted by a Medicines Regulatory Agency</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="27.6" ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:Height="27.45" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.internationalBirthDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1025,7 +1025,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Date of first marketing authorization for a company's new medicinal product in any country in the World</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductAuthorization.jurisdictionalAuthorization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1047,7 +1047,7 @@
     <Cell ss:Index="22"><Data ss:Type="String">750;160</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.jurisdictionalAuthorization.country</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1067,7 +1067,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Country of authorization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.jurisdictionalAuthorization.jurisdiction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1087,7 +1087,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Jurisdiction within a country</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.jurisdictionalAuthorization.number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1107,7 +1107,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The assigned number for the marketing authorization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="27.6" ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:Height="27.45" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.jurisdictionalAuthorization.legalStatusOfSupply</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1127,7 +1127,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The legal status of supply in a jurisdiction or region</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="27.6" ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:Height="27.45" ss:StyleID="Default">
     <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductAuthorization.holder</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1147,7 +1147,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Marketing Authorization Holder</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="27.6" ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:Height="27.45" ss:StyleID="Default">
     <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductAuthorization.regulator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1167,7 +1167,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Medicines Regulatory Agency</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductAuthorization.procedure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1189,7 +1189,7 @@
     <Cell ss:Index="22"><Data ss:Type="String">680;0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.procedure.number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1209,7 +1209,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Identifier for this procedure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.procedure.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1229,7 +1229,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Type of procedure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.procedure.date</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1249,7 +1249,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Date of procedure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductAuthorization.procedure.application</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1271,7 +1271,7 @@
     <Cell ss:Index="22"><Data ss:Type="String">900;0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="27.6" ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:Height="27.45" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.procedure.application.number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1291,7 +1291,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">A unique identifier for the specific instance of an application shall be provided in text. The application identifier/number is usually assigned by a Medicines Regulatory Agency</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.procedure.application.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1311,7 +1311,7 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">The type of the application</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s77"><Data ss:Type="String">MedicinalProductAuthorization.procedure.application.date</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1331,14 +1331,14 @@
     <Cell ss:StyleID="s77"><Data ss:Type="String">Date that that application was made</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:StyleID="Default">
+   <Row ss:AutoFitHeight="0" ss:StyleID="Default">
     <Cell ss:StyleID="s76"><Data ss:Type="String">MedicinalProductAuthorization.marketingStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s68"><Data ss:Type="String">string</Data><NamedCell
+    <Cell ss:StyleID="s68"><Data ss:Type="String">MarketingStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s68"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1360,6 +1360,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -1371,7 +1372,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>23</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1385,11 +1386,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

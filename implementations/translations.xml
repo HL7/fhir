@@ -568,6 +568,9 @@
 	<item id="MedicinalProductPharmaceutical">
 		<translation lang="en">MedicinalProductPharmaceutical</translation>
 	</item>
+    <item id="MedicinalProductDeviceSpec">
+        <translation lang="en">MedicinalProductDeviceSpec</translation>
+    </item>
 	<item id="MessageDefinition">
 		<translation lang="en">MessageDefinition</translation>
 		<translation lang="it">DefinizioneMessaggio</translation>
@@ -902,9 +905,15 @@
 		<translation lang="it">Sostanza</translation>
 		<translation lang="es">Sustancia</translation>
 	</item>
+    <item id="SubstanceReferenceInformation">
+        <translation lang="en">SubstanceReferenceInformation</translation>
+    </item>
 	<item id="SubstanceSpecification">
 		<translation lang="en">SubstanceSpecification</translation>
 	</item>
+    <item id="SubstancePolymer">
+        <translation lang="en">SubstancePolymer</translation>
+    </item>
 	<item id="SupplyDelivery">
 		<translation lang="en">SupplyDelivery</translation>
 		<translation lang="zh">供应交付</translation>

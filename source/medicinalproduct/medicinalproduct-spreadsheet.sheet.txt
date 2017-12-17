@@ -78,13 +78,13 @@
  -- Row 11 -----------------------------------
   Element = MedicinalProduct.packagedMedicinalProduct
   Card. = 0..*
-  Type = string
+  Type = Reference(MedicinalProductPackaged)
   Short Name = Package representation for the product
 
  -- Row 12 -----------------------------------
   Element = MedicinalProduct.pharmaceuticalProduct
   Card. = 0..*
-  Type = string
+  Type = Reference(MedicinalProductPharmaceutical)
   Short Name = Pharmaceutical aspects of product
 
  -- Row 13 -----------------------------------

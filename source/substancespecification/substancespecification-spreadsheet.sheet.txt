@@ -145,7 +145,7 @@
  -- Row 22 -----------------------------------
   Element = SubstanceSpecification.referenceInformation
   Card. = 0..1
-  Type = string
+  Type = Reference(SubstanceReferenceInformation)
   Short Name = General information detailing this substance
 
  -- Row 23 -----------------------------------
@@ -250,7 +250,7 @@
  -- Row 39 -----------------------------------
   Element = SubstanceSpecification.structure.referenceSource
   Card. = 0..*
-  Type = string
+  Type = Reference(DocumentReference)
   Short Name = Supporting literature
 
  -- Row 40 -----------------------------------
@@ -392,7 +392,7 @@
  -- Row 62 -----------------------------------
   Element = SubstanceSpecification.polymer
   Card. = 0..1
-  Type = string
+  Type = Reference(SubstancePolymer)
   Short Name = Data items specific to polymers
 
 === Sheet Search =====================================
