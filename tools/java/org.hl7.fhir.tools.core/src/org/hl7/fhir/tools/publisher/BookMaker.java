@@ -82,7 +82,7 @@ public class BookMaker {
     addTOC(body);   
     addContent(body);
     addReferenceIds(body);
-    new XhtmlComposer().compose(new FileOutputStream(target+"fhir-book.html"), doc); 
+    new XhtmlComposer(XhtmlComposer.HTML).compose(new FileOutputStream(target+"fhir-book.html"), doc); 
   }
 
   private void checkCrossLinks() {
@@ -134,7 +134,7 @@ public class BookMaker {
 						  if (!found)
 							try {
 								if (new File("c:\\temp\\source.html").exists())
-								  new XhtmlComposer().compose(new FileOutputStream("c:\\temp\\source.html"), pages.get(parts[0]));
+								  new XhtmlComposer(XhtmlComposer.HTML).compose(new FileOutputStream("c:\\temp\\source.html"), pages.get(parts[0]));
 							} catch (Exception e) {
 								e.printStackTrace();
 							}

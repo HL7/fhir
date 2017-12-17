@@ -330,7 +330,7 @@ public class SpecDifferenceEvaluator {
     else {
       start();
       compare(orig, rev);
-      return new XhtmlComposer().setPretty(true).compose(tbl)+"\r\n<p>See the <a href=\"diff.html\">Full Difference</a> for further information</p>\r\n";
+      return new XhtmlComposer(false, true).compose(tbl)+"\r\n<p>See the <a href=\"diff.html\">Full Difference</a> for further information</p>\r\n";
     }
   }
   
@@ -376,7 +376,7 @@ public class SpecDifferenceEvaluator {
         markDeleted(orig.getName(), true);
     }
     
-    return new XhtmlComposer().setPretty(true).compose(tbl);
+    return new XhtmlComposer(false, true).compose(tbl);
   }
   
   private Object checkRename(String s) {

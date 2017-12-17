@@ -792,7 +792,7 @@ public class SourceParser {
       ap.putMetadata("date", sd.getDateElement().asStringValue());
       ap.putMetadata("title", sd.getTitle());
       ap.putMetadata("status", sd.getStatus().toCode());
-      ap.putMetadata("description", new XhtmlComposer().compose(sd.getText().getDiv()));
+      ap.putMetadata("description", new XhtmlComposer(XhtmlComposer.HTML).compose(sd.getText().getDiv()));
       ap.setTitle(sd.getTitle());
       new ProfileUtilities(page.getWorkerContext(), null, null).setIds(sd, false);
       ap.getProfiles().add(new ConstraintStructure(sd, definitions.getUsageIG(ap.getCategory(), "Parsing "+ap.getSource()), wg == null ? wg(sd) : wg, fmm(sd), sd.getExperimental()));

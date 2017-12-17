@@ -2848,7 +2848,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 //    saveAsPureHtml(cm, new FileOutputStream(Utilities.path(page.getFolders().dstDir, "html", n)), true);
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-status-map.html");
     Map<String, String> others = new HashMap<String, String>();
-    others.put("status-map", new XhtmlComposer().compose(cm.getText().getDiv()));
+    others.put("status-map", new XhtmlComposer(XhtmlComposer.HTML).compose(cm.getText().getDiv()));
     TextFile.stringToFile(insertSectionNumbers(page.processPageIncludes(n, src, "conceptmap-instance", others, null, null, "Profile", null, rd, rd.getWg()), st, n, 0, null), page.getFolders().dstDir + n);
     page.getHTMLChecker().registerFile(n, cm.getTitle(), HTMLLinkChecker.XHTML_TYPE, true);
     cloneToXhtml(Utilities.changeFileExt(n, ""), cm.getTitle(), true, "conceptmap-instance", "Profile", null, ((ResourceDefn) cm.getUserData("resource-definition")).getWg());
@@ -4123,7 +4123,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getWorkerContext().cacheResource(opd);
     }
     // now, we create an html page from the narrative
-    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer().compose(opd.getText().getDiv()));
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer(XhtmlComposer.HTML).compose(opd.getText().getDiv()));
     html = page.processPageIncludes(dir+"operation-" + name + ".html", html, "resource-instance:OperationDefinition", null, null, null, "Operation Definition", ig, resource, resource.getWg());
     TextFile.stringToFile(html, page.getFolders().dstDir + dir+"operation-" + name + ".html");
     page.getHTMLChecker().registerFile(dir+"operation-" + name + ".html", "Operation " + op.getName(), HTMLLinkChecker.XHTML_TYPE, true);
@@ -4334,7 +4334,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         }
         if (wantSave)
           new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(file), res);
-        narrative = new XhtmlComposer().compose(res.getText().getDiv());
+        narrative = new XhtmlComposer(XhtmlComposer.HTML).compose(res.getText().getDiv());
       } else {
         if (rt.equals("Bundle")) {
           List<Element> entries = new ArrayList<Element>();
@@ -4388,7 +4388,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       XhtmlNode xhtml = new XhtmlNode(NodeType.Element, "div");
       xhtml.addTag("p").setAttribute("style", "color: maroon").addText("Error processing narrative: " + ex.getMessage());
       xhtml.addTag("p").setAttribute("style", "color: maroon").addText(errors.toString());
-      narrative = new XhtmlComposer().compose(xhtml);
+      narrative = new XhtmlComposer(XhtmlComposer.HTML).compose(xhtml);
     }
 
     if (rt.equals("ValueSet")) {
@@ -4493,7 +4493,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       return "";
     XhtmlNode node = new XhtmlParser().parseFragment(narrative);
     checkExampleLinks(path, node);
-    return new XhtmlComposer().compose(node);
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(node);
   }
 
   private void checkExampleLinks(String path, XhtmlNode node) throws Exception {
@@ -4660,8 +4660,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       work.getAttributes().putAll(resource.getText().getDiv().getAttributes());
       work.getChildNodes().addAll(resource.getText().getDiv().getChildNodes());
     }
-    XhtmlComposer xml = new XhtmlComposer();
-    xml.setPretty(isPretty);
+    XhtmlComposer xml = new XhtmlComposer(XhtmlComposer.HTML, isPretty);
     xml.compose(stream, html);
     stream.close();
   }
@@ -5442,7 +5441,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       insertSectionNumbersInNode(doc, st, link, level, new BooleanHolder(), null);
       if (doch != null)
         doch.doc = doc;
-      return new XhtmlComposer().compose(doc);
+      return new XhtmlComposer(XhtmlComposer.HTML).compose(doc);
     } catch (Exception e) {
       System.out.println(e.getMessage());
       //TextFile.stringToFile(src, "c:\\temp\\dump.html");
@@ -5569,7 +5568,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void processFragment(String filename, XhtmlNode node, String type, String clss, String id) throws Exception {
     if ("xml".equals(clss)) {
-      String xml = new XhtmlComposer().setXmlOnly(true).compose(node);
+      String xml = new XhtmlComposer(XhtmlComposer.XML).compose(node);
       Fragment f = new Fragment();
       f.setType(type);
       f.setXml(Utilities.unescapeXml(xml));
@@ -5579,7 +5578,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       fragments.add(f);
     }
     if ("json".equals(clss)) {
-      String xml = new XhtmlComposer().setXmlOnly(true).compose(node);
+      String xml = new XhtmlComposer(XhtmlComposer.XML).compose(node);
       Fragment f = new Fragment();
       f.setType(type);
       f.setXml(xml);
@@ -6109,7 +6108,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     cloneToXhtml(n, cm.getName(), false, "conceptmap-instance", "Concept Map", null, wg("vocab"));
 
     // now, we create an html page from the narrative
-    String narrative = new XhtmlComposer().setXmlOnly(true).compose(cm.getText().getDiv());
+    String narrative = new XhtmlComposer(XhtmlComposer.HTML).compose(cm.getText().getDiv());
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", narrative);
     html = page.processPageIncludes(Utilities.changeFileExt(filename, ".html"), html, "conceptmap-instance", null, null, null, "Concept Map", null, null, wg("vocab"));
     TextFile.stringToFile(html, page.getFolders().dstDir + Utilities.changeFileExt(filename, ".html"));

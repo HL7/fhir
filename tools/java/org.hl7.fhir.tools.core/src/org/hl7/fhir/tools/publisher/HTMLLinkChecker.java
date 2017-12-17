@@ -136,7 +136,7 @@ public class HTMLLinkChecker implements FileNotifier {
         checkLinks(doc, e);
         stripDivs(doc);
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        new XhtmlComposer().compose(stream, doc);
+        new XhtmlComposer(XhtmlComposer.HTML).compose(stream, doc);
         e.bytes = stream.toByteArray();
         if (e.bytes == null || e.bytes.length == 0)
           throw new Exception("File is empty");

@@ -423,7 +423,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String treeForDt(String dt) throws Exception {
     DataTypeTableGenerator gen = new DataTypeTableGenerator(folders.dstDir, this, dt, false);
-    return new XhtmlComposer().compose(gen.generate(definitions.getElementDefn(dt)));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(definitions.getElementDefn(dt)));
   }
 
   private String xmlForDt(String dt, String pn) throws Exception {
@@ -973,7 +973,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("txdesc"))
         src = s1 + generateDesc((ValueSet) resource) + s3;
       else if (com[0].equals("vsdesc"))
-        src = s1 + (resource != null ? new XhtmlComposer().compose(((ValueSet) resource).getText().getDiv()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
+        src = s1 + (resource != null ? new XhtmlComposer(XhtmlComposer.HTML).compose(((ValueSet) resource).getText().getDiv()) :  generateVSDesc(Utilities.fileTitle(file))) + s3;
       else if (com[0].equals("txusage"))
         src = s1 + generateValueSetUsage((ValueSet) resource, genlevel(level), true) + s3;
       else if (com[0].equals("vsusage"))
@@ -1463,7 +1463,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     DomainResource dr = (DomainResource) res;
     if (!dr.hasText() || !dr.getText().hasDiv())
       new NarrativeGenerator("", "", workerContext, this).setHeaderLevelContext(headerLevelContext).generate(dr);
-    return new XhtmlComposer().compose(dr.getText().getDiv());
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(dr.getText().getDiv());
   }
 
   private String genMappingsTable() {
@@ -1687,7 +1687,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String genCompModel(StructureDefinition sd, String name, String base, String prefix) throws Exception {
     if (sd == null)
       return "<p style=\"color: maroon\">No "+name+" could be generated</p>\r\n";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false, false));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false, false));
   }
 
   private String genCmpMessages(ProfileComparison cmp) {
@@ -2498,7 +2498,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return renderCodeSystemWithLangs(langs, vs, "../../");  
     }
 
-    return new XhtmlComposer().compose(vs.getText().getDiv());
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(vs.getText().getDiv());
   }
 
   private String genV3ValueSet(String name) throws Exception {
@@ -2512,7 +2512,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(new FileOutputStream(folders.dstDir+"v3"+File.separator+name+File.separator+"v3-"+name+".canonical.json"), vs);
     jsonToXhtml(Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json"), Utilities.path(folders.dstDir, "v3", name, "v3-"+name+".json.html"), vs.getName(), vs.getDescription(), 2, r2Json(vs), "v3:vs:"+name, "ValueSet", null, null, definitions.getWorkgroups().get("vocab"));
 
-    return ""; // use generic value set mechanism instead... new XhtmlComposer().compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
+    return ""; // use generic value set mechanism instead... new XhtmlComposer(XhtmlComposer.HTML).compose(vs.getText().getDiv()).replace("href=\"v3/", "href=\"../");
   }
 
   private String genV2TableVer(String name) throws Exception {
@@ -2538,7 +2538,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         return renderCodeSystemWithLangs(langs, cs, "../../../");  
       }
     }
-    return new XhtmlComposer().compose(vs.getText().getDiv());
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(vs.getText().getDiv());
   }
 
   private String genV2Table(String name) throws Exception {
@@ -2563,7 +2563,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
     }
 
-    return new XhtmlComposer().compose(vs.getText().getDiv());
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(vs.getText().getDiv());
   }
 
   private String renderCodeSystemWithLangs(Set<String> langs, CodeSystem cs, String prefix) throws Exception {
@@ -2581,13 +2581,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("<div id=\"tabs-all\">\r\n");
     cs.setText(null);
     new NarrativeGenerator(prefix, null, workerContext).generate(null, cs, false, "*");
-    b.append(new XhtmlComposer().compose(cs.getText().getDiv()));
+    b.append(new XhtmlComposer(XhtmlComposer.HTML).compose(cs.getText().getDiv()));
     b.append("</div>\r\n");
     
     b.append("<div id=\"tabs-en\">\r\n");
     cs.setText(null);
     new NarrativeGenerator(prefix, null, workerContext).generate(null, cs, false, "en");
-    b.append(new XhtmlComposer().compose(cs.getText().getDiv()));
+    b.append(new XhtmlComposer(XhtmlComposer.HTML).compose(cs.getText().getDiv()));
     b.append("</div>\r\n");
     
     for (String l : sorted(langs)) {
@@ -2597,7 +2597,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         b.append(processMarkdown("RenderingCodeSystem", workerContext.translator().translate("render-cs", "Definition", l)+": "+desc, prefix));
       cs.setText(null);
       new NarrativeGenerator(prefix, null, workerContext).generate(null, cs, false, l);
-      b.append(new XhtmlComposer().compose(cs.getText().getDiv()));
+      b.append(new XhtmlComposer(XhtmlComposer.HTML).compose(cs.getText().getDiv()));
       b.append("</div>\r\n");
     }
     b.append("</div>\r\n");
@@ -2934,7 +2934,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String genIgToc(ImplementationGuideDefn ig) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false);
-    return new XhtmlComposer().compose(gen.generate(ig.genToc(gen), "../", 0));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(ig.genToc(gen), "../", 0));
   }
 
   private String generateToc() throws Exception {
@@ -2984,7 +2984,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }
       }
     }
-    return new XhtmlComposer().compose(gen.generate(model, "", 0));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(model, "", 0));
   }
 
   private String getNormativePackageForPage(String page) {
@@ -3302,7 +3302,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String genResourceTable(ResourceDefn res, String prefix) throws Exception {
     ElementDefn e = res.getRoot();
     ResourceTableGenerator gen = new ResourceTableGenerator(folders.dstDir, this, res.getName()+"-definitions.html", false);
-    return new XhtmlComposer().compose(gen.generate(e, prefix));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(e, prefix));
   }
 
   private String genResourceConstraints(ResourceDefn res, String prefix) throws Exception {
@@ -4657,7 +4657,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       exp.setText(null);
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
       new NarrativeGenerator("", "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(exp);
-      return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer().compose(exp.getText().getDiv())+VS_INC_END;
+      return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(exp.getText().getDiv())+VS_INC_END;
     } catch (Exception e) {
       return "<hr/>\r\n"+VS_INC_START+"<!--2-->"+processExpansionError(e.getMessage())+VS_INC_END;
     }
@@ -4703,7 +4703,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (langs.size() > 0) 
       return renderCodeSystemWithLangs(langs, cs, "");  
     else if (cs.hasText() && cs.getText().hasDiv())
-      return new XhtmlComposer().compose(cs.getText().getDiv());
+      return new XhtmlComposer(XhtmlComposer.HTML).compose(cs.getText().getDiv());
     else
       return "not done yet";
   }
@@ -4716,7 +4716,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     vs1.setText(null);
     ImplementationGuideDefn ig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
     new NarrativeGenerator(prefix, "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(null, vs1, null, false);
-    return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer().compose(vs1.getText().getDiv())+VS_INC_END;
+    return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(vs1.getText().getDiv())+VS_INC_END;
   }
 
   private String expandV3ValueSet(String name) throws Exception {
@@ -4767,9 +4767,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     throw new Error("Fix this");
 //    BindingSpecification cd = definitions.getBindingByName(fileTitle);
 //    if (cd == null)
-//      return new XhtmlComposer().compose(definitions.getExtraValuesets().get(fileTitle).getText().getDiv());
+//      return new XhtmlComposer(XhtmlComposer.HTML).compose(definitions.getExtraValuesets().get(fileTitle).getText().getDiv());
 //    else if (cd.getReferredValueSet().hasText() && cd.getReferredValueSet().getText().hasDiv())
-//      return new XhtmlComposer().compose(cd.getReferredValueSet().getText().getDiv());
+//      return new XhtmlComposer(XhtmlComposer.HTML).compose(cd.getReferredValueSet().getText().getDiv());
 //    else
 //      return cd.getReferredValueSet().getDescription();
   }
@@ -5682,7 +5682,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String genDependencyGraph(ResourceDefn resource, String prefix) throws Exception {    
     ElementDefn e = resource.getRoot();
     ResourceDependencyGenerator gen = new ResourceDependencyGenerator(folders.dstDir, this, resource.getName()+"-definitions.html", false, resource.getFmmLevel(), resource.getStatus());
-    return "<p>Dependency Graph for "+resource.getName()+" FMM level "+resource.getFmmLevel()+"</p>" + new XhtmlComposer().compose(gen.generate(e, prefix));
+    return "<p>Dependency Graph for "+resource.getName()+" FMM level "+resource.getFmmLevel()+"</p>" + new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(e, prefix));
 
   }
 
@@ -6823,7 +6823,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
                 if (s.equals("Scope and Usage")) {
                   scope = x;
                   if (r != null)
-                    r.setRequirements(new XhtmlComposer().composePlainText(x));
+                    r.setRequirements(new XhtmlComposer(XhtmlComposer.HTML).composePlainText(x));
                 } else {
                   log("file \""+filename+"\": 'Scope and Usage' must come first", LogMessageType.Error);
                   return;
@@ -7549,7 +7549,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String generateExtensionTable(StructureDefinition ed, String filename, String full, String prefix) throws Exception {
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateExtensionTable(filename, ed, folders.dstDir, false, full.equals("true"), prefix, prefix));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateExtensionTable(filename, ed, folders.dstDir, false, full.equals("true"), prefix, prefix));
   }
 
 
@@ -7756,7 +7756,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String generateProfileStructureTable(ConstraintStructure profile, boolean diff, String filename, String baseName, String prefix) throws Exception {
     String fn = filename.contains(".") ? filename.substring(0, filename.indexOf('.')) : filename;
     String deffile = fn+"-definitions.html";
-    return new XhtmlComposer().compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, prefix, false, false));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, prefix, false, false));
   }
 
   private boolean isAggregationEndpoint(String name) {
@@ -8669,7 +8669,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
 
       new NarrativeGenerator(prefix, base, workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(null, exp, vs, false);
-      return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer().compose(exp.getText().getDiv())+VS_INC_END;
+      return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(exp.getText().getDiv())+VS_INC_END;
     } catch (Exception e) {
       e.printStackTrace();
       return "<hr/>\r\n"+VS_INC_START+"<!--5-->"+processExpansionError(e instanceof NullPointerException ? "NullPointerException" : e.getMessage())+" "+Utilities.escapeXml(stack(e))+VS_INC_END;

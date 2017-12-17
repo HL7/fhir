@@ -117,7 +117,7 @@ public class Profile {
     putMetadata("date", c.getDateElement().asStringValue());
     putMetadata("title", c.getTitle());
     putMetadata("status", c.getStatus().toCode());
-    putMetadata("description", new XhtmlComposer().compose(c.getText().getDiv()));
+    putMetadata("description", new XhtmlComposer(XhtmlComposer.HTML).compose(c.getText().getDiv()));
     title = c.getTitle();
     this.source = source;
   }

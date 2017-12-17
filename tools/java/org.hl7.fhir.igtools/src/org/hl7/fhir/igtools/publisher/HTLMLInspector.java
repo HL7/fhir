@@ -179,7 +179,7 @@ public class HTLMLInspector {
   private void saveFile(LoadedFile lf) throws IOException {
     new File(lf.getFilename()).delete();
     FileOutputStream f = new FileOutputStream(lf.getFilename());
-    new XhtmlComposer().composeDocument(f, lf.getXhtml());
+    new XhtmlComposer(XhtmlComposer.HTML).composeDocument(f, lf.getXhtml());
     f.close();
   }
 

@@ -3408,7 +3408,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     if (igpkp.wantGen(r, "html")) {
       XhtmlNode xhtml = getXhtml(r);
-      String html = xhtml == null ? "" : new XhtmlComposer().compose(xhtml);
+      String html = xhtml == null ? "" : new XhtmlComposer(XhtmlComposer.XML).compose(xhtml);
       fragment(r.getElement().fhirType()+"-"+r.getId()+"-html", html, f.getOutputNames(), r, vars, null);
     }
     //  NarrativeGenerator gen = new NarrativeGenerator(null, null, context);
@@ -3513,7 +3513,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         exp.getValueset().setCompose(null);
         exp.getValueset().setText(null);
         gen.generate(null, exp.getValueset(), false);
-        String html = new XhtmlComposer().compose(exp.getValueset().getText().getDiv());
+        String html = new XhtmlComposer(XhtmlComposer.XML).compose(exp.getValueset().getText().getDiv());
         fragment("ValueSet-"+vs.getId()+"-expansion", html, f.getOutputNames(), r, vars, null);
         
       } else if (exp.getError() != null)

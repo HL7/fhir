@@ -89,7 +89,7 @@ public class MappingsGenerator {
         else if (definitions.getMapTypes().containsKey(map.getUri())) {   
           XhtmlNode pre = definitions.getMapTypes().get(map.getUri()).getPreamble();
           if (pre != null)
-            s.append(new XhtmlComposer().compose(pre));
+            s.append(new XhtmlComposer(XhtmlComposer.HTML).compose(pre));
         }
 
         s.append("<table class=\"grid\">\r\n");
@@ -124,7 +124,7 @@ public class MappingsGenerator {
         else if (definitions.getMapTypes().containsKey(map.getUri())) {  
           XhtmlNode pre = definitions.getMapTypes().get(map.getUri()).getPreamble();
           if (pre != null)
-            s.append(new XhtmlComposer().compose(pre));
+            s.append(new XhtmlComposer(XhtmlComposer.HTML).compose(pre));
         }
 
         s.append("<table class=\"grid\">\r\n");
@@ -198,7 +198,7 @@ public class MappingsGenerator {
 			
 			XhtmlNode pre = definitions.getMapTypes().get(m).getPreamble();
 			if (pre != null)
-			  s.append(new XhtmlComposer().compose(pre));
+			  s.append(new XhtmlComposer(XhtmlComposer.HTML).compose(pre));
 			s.append("<table class=\"grid\">\r\n");
       genElement(s, 0, resource.getRoot(), m, ROOT_ONLY, true, definitions.getMapTypes().get(m).isSparse());
 			genInherited(s, resource, m);

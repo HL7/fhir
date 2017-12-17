@@ -84,7 +84,7 @@ public class StructureMapRenderer extends BaseRenderer {
   }
 
   public String content() throws IOException {
-    return new XhtmlComposer().compose(analysis.getSummary());
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(analysis.getSummary());
   }
 
 

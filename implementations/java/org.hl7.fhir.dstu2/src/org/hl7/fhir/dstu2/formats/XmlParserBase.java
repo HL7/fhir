@@ -350,12 +350,10 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 			xml.comment(xhtmlMessage, false);
 			xml.exit(XhtmlComposer.XHTML_NS, name);
 		} else {
-			XhtmlComposer comp = new XhtmlComposer();
+			XhtmlComposer comp = new XhtmlComposer(true, htmlPretty);
 			// name is also found in the html and should the same
 			// ? check that
 			boolean oldPretty = xml.isPretty();
-			xml.setPretty(htmlPretty);
-			comp.setXmlOnly(true);
 			if (html.getNodeType() != NodeType.Text)
 				xml.namespace(XhtmlComposer.XHTML_NS, null);
 			comp.compose(xml, html);
