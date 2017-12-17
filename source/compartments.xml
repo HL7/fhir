@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8376</WindowHeight>
-  <WindowWidth>15360</WindowWidth>
+  <WindowHeight>8688</WindowHeight>
+  <WindowWidth>20160</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -769,7 +769,7 @@
     <Cell><Data ss:Type="String">MedicinalProductClinicals</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!MedicinalProductIngredient</Data></Cell>
+    <Cell><Data ss:Type="String">MedicinalProductIngredient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">!MedicinalProductPackaged</Data></Cell>
@@ -815,7 +815,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>131</ActiveRow>
+     <ActiveRow>132</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
