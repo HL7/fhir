@@ -78,7 +78,7 @@ public class XhtmlComposer {
   public String compose(XhtmlNode node) throws IOException  {
     StringWriter sdst = new StringWriter();
     dst = sdst;
-    writeNode("", node);
+    writeNode("", node, null);
     return sdst.toString();
   }
 
@@ -94,11 +94,11 @@ public class XhtmlComposer {
     // headers....
 //    dst.append("<html>" + (isPretty() ? "\r\n" : ""));
     for (XhtmlNode c : doc.getChildNodes())
-      writeNode("  ", c);
+      writeNode("  ", c, null);
 //    dst.append("</html>" + (isPretty() ? "\r\n" : ""));
   }
 
-  private void writeNode(String indent, XhtmlNode node) throws IOException  {
+  private void writeNode(String indent, XhtmlNode node, String parentName) throws IOException  {
     if (node.getNodeType() == NodeType.Comment)
       writeComment(indent, node);
     else if (node.getNodeType() == NodeType.DocType)
@@ -110,14 +110,14 @@ public class XhtmlComposer {
     else if (node.getNodeType() == NodeType.Document)
       writeDocument(indent, node);
     else if (node.getNodeType() == NodeType.Text)
-      writeText(node);
+      writeText(node, !"script".equals(parentName));
     else if (node.getNodeType() == null)
       throw new IOException("Null node type");
     else
       throw new IOException("Unknown node type: "+node.getNodeType().toString());
   }
 
-  private void writeText(XhtmlNode node) throws IOException  {
+  private void writeText(XhtmlNode node, boolean escapeQuotes) throws IOException  {
     for (char c : node.getContent().toCharArray())
     {
       if (c == '&')
@@ -126,7 +126,7 @@ public class XhtmlComposer {
         dst.append("&lt;");
       else if (c == '>')
         dst.append("&gt;");
-      else if (c == '"')
+      else if (escapeQuotes && c == '"')
         dst.append("&quot;");
       else if (xmlOnly) {
         dst.append(c);
@@ -203,7 +203,7 @@ public class XhtmlComposer {
 
 
     for (XhtmlNode c : node.getChildNodes())
-      writeNode(indent + "  ", c);
+      writeNode(indent + "  ", c, node.getName());
     if (act)
       dst.append("</" + node.getName() + ">" + (isPretty() ? "\r\n" : ""));
     else if (node.getChildNodes().get(node.getChildNodes().size() - 1).getNodeType() == NodeType.Text)
@@ -216,7 +216,7 @@ public class XhtmlComposer {
   private void writeDocument(String indent, XhtmlNode node) throws IOException  {
     indent = "";
     for (XhtmlNode c : node.getChildNodes())
-      writeNode(indent, c);
+      writeNode(indent, c, node.getName());
   }
 
 
@@ -323,7 +323,7 @@ public class XhtmlComposer {
     stream.write(bom);
     dst = new OutputStreamWriter(stream, "UTF-8");
     dst.append("<html><head><link rel=\"stylesheet\" href=\"fhir.css\"/></head><body>\r\n");
-    writeNode("", x);
+    writeNode("", x, null);
     dst.append("</body></html>\r\n");
     dst.flush();
   }
@@ -332,7 +332,7 @@ public class XhtmlComposer {
     byte[] bom = new byte[] { (byte)0xEF, (byte)0xBB, (byte)0xBF };
     f.write(bom);
     dst = new OutputStreamWriter(f, "UTF-8");
-    writeNode("", xhtml);
+    writeNode("", xhtml, null);
     dst.flush();
     dst.close();
   }
