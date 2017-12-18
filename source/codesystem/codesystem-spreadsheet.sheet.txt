@@ -155,7 +155,7 @@
  -- Row 2 -----------------------------------
   Element = CodeSystem.url
   Short Name = & (Coding.system)
-  Definition = & This is used in [Coding]{datatypes.html#Coding}.system
+  Definition = & This is used in [Coding](datatypes.html#Coding).system
 
  -- Row 3 -----------------------------------
   Element = CodeSystem.identifier
@@ -164,7 +164,7 @@
  -- Row 4 -----------------------------------
   Element = CodeSystem.version
   Short Name = & (Coding.version)
-  Definition = & This is used in [Coding]{datatypes.html#Coding}.version
+  Definition = & This is used in [Coding](datatypes.html#Coding).version
 
  -- Row 5 -----------------------------------
   Element = CodeSystem.name

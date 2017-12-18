@@ -160,7 +160,7 @@
   Binding = GuideDependencyType
   Short Name = reference | inclusion
   Definition = How the dependency is represented when the guide is published
-  Comments = For information about processing included guides, see [Including Guides]{ImplementationGuideInput.html#include}
+  Comments = For information about processing included guides, see [Including Guides](ImplementationGuideInput.html#include)
 
  -- Row 17 -----------------------------------
   Element = ImplementationGuideInput.dependency.uri

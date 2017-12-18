@@ -386,7 +386,7 @@
   Type = uri
   Short Name = Select only contents included in this value set
   Definition = Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url
-  Comments = The value set URI is either a logical reference to a defined value set such as a [SNOMED CT reference set]{snomedct.html#implicit}, or a direct reference to a value set definition using ValueSet.url. The reference might not refer to an actual FHIR ValueSet resource; in this case, whatever is referred to is an implicit definition of a value set that needs to be clear about how versions are resolved
+  Comments = The value set URI is either a logical reference to a defined value set such as a [SNOMED CT reference set](snomedct.html#implicit), or a direct reference to a value set definition using ValueSet.url. The reference might not refer to an actual FHIR ValueSet resource; in this case, whatever is referred to is an implicit definition of a value set that needs to be clear about how versions are resolved
   RIM Mapping = N/A
 
  -- Row 38 -----------------------------------

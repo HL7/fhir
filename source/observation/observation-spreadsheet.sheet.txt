@@ -455,7 +455,7 @@
   Workflow Mapping = Event.performer
   v2 Mapping = OBX.15 / (Practitioner)  OBX-16,  PRT-5:PRT-4=\'RO\' /  (Device)  OBX-18 , PRT-10:PRT-4=\'EQUIP\' / (Organization)  OBX-23,  PRT-8:PRT-4=\'PO\'
   RIM Mapping = participation[typeCode=PRF]
-  Committee Notes = [#3688]{#3689]
+  Committee Notes = [#3688, #3689]
   w5 = who.actor
 
  -- Row 13 -----------------------------------
