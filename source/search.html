@@ -882,6 +882,12 @@ only include references of type <a href="patient.html"><code>Patient</code></a>.
 the patient search parameter, there is no need to specify ":Patient" as a modifier, or "Patient/"
 in the search value, as this must always be true.
 </p>
+<p>
+The reference search parameter is mostly used for resource elements of type Reference. 
+However, it is also be used to search resource elements of type Resource - i.e. where 
+one resource is directly nested within another - see the <a href="bundle.html#search">Bundle 
+search parameters</a> 'message' and 'composition' as an example of this.
+</p>
 
 <a name="chaining"> </a>
 <h4>Chained parameters</h4>
