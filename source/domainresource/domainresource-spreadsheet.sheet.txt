@@ -20,9 +20,9 @@
  -- Row 3 -----------------------------------
   Id = 3
   Context = DomainResource
-  English = If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource
-  XPath = not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat(\'#\', $id))]))
-  Expression = contained.where((\'#\'+id in %resource.descendants().reference).not()).empty()
+  English = If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource
+  XPath = not(exists(for $contained in f:contained return $contained[not(parent::*/descendant::f:reference/@value=concat(\'#\', $contained/*/id/@value) or descendant::reference[@value=\'#\'])]))
+  Expression = contained.all((\'#\'+id in %resource.descendants().reference) or descendants().where(reference = \'#\').exists())
 
  -- Row 4 -----------------------------------
   Id = 4
