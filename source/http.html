@@ -1389,8 +1389,8 @@ Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification
 <a name="paging"> </a>
 <h3>Paging</h3>
 <p>
-If servers provide paging for the results of a <a href="#search">search</a> or <a href="#history">history</a> interaction,
-they SHALL conform to this method (adapted from <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed
+Servers SHOULD support paging for the results of a <a href="#search">search</a> or <a href="#history">history</a> interaction,
+and if they do, they SHALL conform to this method (adapted from <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed
 Paging and Archiving)</a> for sending continuation links to the client when returning a <a href="bundle.html">Bundle</a>
 (e.g. with <code>history</code> and <code>search</code>). If the server does not do this then there is no way to continue paging.
 </p>
@@ -1436,15 +1436,17 @@ This example shows the third page of a search result:
 </pre>
 
 <p>
-The server need not use a stateful paging method as shown in this example - it is at
-the discretion of the server how to best ensure that the continuation retains
-integrity in the context of ongoing changes to the resources. An alternative approach
-is to use version specific references to the records on the boundaries, but this is
-subject to continuity failures when records are updated.
+The links are opaque to the client, have no dictated structure, and only the 
+server understands them. The client must use the server supplied links in order 
+to traverse the pages.
+A server MAY add additional state tracking parameters to the links, as shown in the example above, 
+though the server need not use a stateful paging method as shown in this example - it is at the 
+discretion of the server how to best ensure that the continuation retains integrity in the 
+context of ongoing changes to the resources. An alternative approach is to use version 
+specific references to the records on the boundaries, but this is subject to continuity 
+failures when records are updated.
 </p>
 <p>
-A server MAY add additional state tracking parameters to the links, as shown in the example above.
-The client must use the server supplied links in order to traverse the pages.
 A server MAY inform the client of the total number of resources returned by the interaction for which the results are paged
 using  the <a href="bundle-definitions.html#Bundle.total">Bundle.total</a>.
 </p>

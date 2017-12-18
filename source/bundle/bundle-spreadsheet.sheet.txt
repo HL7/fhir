@@ -329,7 +329,7 @@
   Card. = 1..1
   Type = code
   Binding = HTTPVerb
-  Short Name = GET | POST | PUT | DELETE
+  Short Name = GET | POST | PUT | DELETE | PATCH
   Definition = The HTTP verb for this entry in either a change history, or a transaction/ transaction response
 
  -- Row 18 -----------------------------------

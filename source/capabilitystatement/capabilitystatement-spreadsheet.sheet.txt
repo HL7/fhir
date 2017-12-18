@@ -505,9 +505,9 @@
  -- Row 10 -----------------------------------
   Id = 15
   Context = CapabilityStatement
-  English = Capability Statements of kind \'instance\' do not have implementation elements.
-  XPath = not(exists(f:implementation)) or (f:kind/@value != \'capability\')
-  Expression = implementation.empty() or kind != \'capability\'
+  English = Capability Statements cannot have implementation elements unless kind is \'instance\'
+  XPath = not(exists(f:implementation)) or (f:kind/@value == instance\')
+  Expression = implementation.empty() or kind = \'instance\'
 
 === Sheet Data Elements =====================================
 
@@ -573,6 +573,7 @@
   Element = CapabilityStatement.kind
   Card. = 1..1
   Summary = Y
+  Inv. = 15
   Type = code
   Binding = CapabilityStatementKind
   Short Name = instance | capability | requirements
@@ -627,7 +628,7 @@
   Card. = 0..1
   Summary = y
   UML = 0;200
-  Inv. = 2
+  Inv. = 2,15
   Short Name = If this describes a specific instance
   Definition = Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.
 
