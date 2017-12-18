@@ -582,6 +582,16 @@
   Description = A code that corresponds to one of its items in the questionnaire
   Path = Questionnaire.item.code
 
+ -- Row 2 -----------------------------------
+  Name = definition
+  Type = uri
+  Path = Questionnaire.item.definition
+
+ -- Row 3 -----------------------------------
+  Name = subject-type
+  Type = token
+  Path = Questionnaire.subjectType
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
