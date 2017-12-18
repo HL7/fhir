@@ -275,7 +275,7 @@ context.element { : type {min..max}} {default [value]} { list-option } as variab
 </pre>
 <ul>
  <li><b>context</b>: A variable that is the context in which this rule applies. Variables are not prefixed, and must be declared elsewhere in the map ('as variable' below, or in the input source variables)</li>
- <li><b>element</b>: An optional name of a child element of the context. If this is not provided, the source is the context. If this is provided, the rule will apply once for each element on the context that matches this name. If the element name contains spaces (possible in some contexts), it can be quoted using &quot; </li>
+ <li><b>element</b>: An optional name of a child element of the context. If this is not provided, the source is the context. If this is provided, the rule will apply once for each element on the context that matches this name. If the element name contains spaces (possible in some contexts) or other non-valid identifier characters, it can be quoted using &quot; </li>
  <li><b>type</b>: A type may be specified. If a type is specified, only elements that have the specified type are selected as part of the source</li>
  <li><b>min..max</b>: Specified cardinality. If a cardinality is specified, and the input document does not conform to the cardinality, the mapping engine raises an exception instead of completing the transformation</li>
  <li><b>default</b>: A default value, used if there is no source value found. If there's a default value on an item that can repeat, it will only be used once</li>
