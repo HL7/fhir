@@ -49,7 +49,7 @@
  -- Row 7 -----------------------------------
   Element = EntryDefinition.classification
   Card. = 0..*
-  Type = Identifier
+  Type = CodeableConcept
   Short Name = Classification (category or class) of the item entry
   Definition = Classes of devices, or ATC for medication
 

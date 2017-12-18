@@ -664,7 +664,7 @@ public class SourceParser {
     sheet = xml.getSheets().get("resources");
     for (int row = 0; row < sheet.rows.size(); row++) {
       String mn = sheet.getColumn(row, "Resource");
-      if (!mn.startsWith("!")) {
+      if (!Utilities.noString(mn) && !mn.startsWith("!")) {
         ResourceDefn r = definitions.getResourceByName(mn);
         for (Compartment c : definitions.getCompartments()) {
           c.getResources().put(r,  sheet.getColumn(row, c.getName()));

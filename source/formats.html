@@ -266,19 +266,37 @@ set name, and a symbol that denotes the strength of the binding:
 This specification defines the following ways to represent resources when they are exchanged:
 </p>
 <ul>
- <li><a href="xml.html">XML</a></li>
  <li><a href="json.html">JSON</a></li>
+ <li><a href="xml.html">XML</a></li>
  <li><a href="rdf.html">RDF (Turtle)</a></li>
 </ul>
 
 <p>
-Clients and servers can choose what syntax(s) to implement. In
-the interests of interoperability, servers SHOULD support all formats (though support for RDF
-should best wait until it is more fully developed).
 Systems SHALL declare which format(s) they support in their <a href="capabilitystatement.html">Capability Statement</a>.
 If a server receives a request for its Capability Statement in
 a format it does not otherwise support, it SHALL return a <code>415</code> Unsupported Media Type.
 </p>
+<p>
+Clients and servers can choose what syntax(s) to implement. In the interests of interoperability, 
+servers SHOULD support both the XML and JSON formats, which have the same functionality, for 
+different technical stacks. The RDF format has quite different benefits - primarily around data
+analysis rather than exchange.  
+</p>
+
+<a name="bulk"> </a>
+<h4>Bulk Data Formats</h4>
+<p>
+The XML and JSON formats are designed to support typical system process
+based data exchange uses. FHIR is also used to exchange large amounts 
+of data- 1000s of records, or more (up to billions). The formats above
+can be used for this, but more suitable formats exist. This specification
+documents the following formats:
+</p>
+<ul>
+ <li><a href="nd-json.html">ND-Json</a> (New line delimited JSON)</li>
+ <li>Google Protobuf (under consideration)</li>
+ <li>Apache Parquet/Avro (bulk data formats under consideration)</li>
+</ul> 
 
 </div>
 
