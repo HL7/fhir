@@ -1361,8 +1361,8 @@ search parameter.
 Each <code>_include</code> parameter specifies a search parameter to join on:
 </p>
 <pre>
- GET [base]/MedicationRequest?_include=MedicationRequest:patient&amp;criteria...
- GET [base]/MedicationRequest?_revinclude=Provenance:target&amp;criteria...
+ GET [base]/MedicationRequest?_include=MedicationRequest:patient
+ GET [base]/MedicationRequest?_revinclude=Provenance:target
 </pre>
 <p>
 The first search requests all matching MedicationRequests, to include
