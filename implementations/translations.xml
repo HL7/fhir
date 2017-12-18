@@ -479,6 +479,9 @@
 	<item id="Invoice">
 		<translation lang="en">Invoice</translation>
 	</item>
+	<item id="ItemInstance">
+		<translation lang="en">ItemInstance</translation>
+	</item>
 	<item id="Library">
 		<translation lang="en">Library</translation>
 		<translation lang="es">Librería</translation>
