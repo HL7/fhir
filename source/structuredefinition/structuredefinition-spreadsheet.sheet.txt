@@ -441,7 +441,7 @@
   Element = StructureDefinition.type
   Card. = 1..1
   Summary = Y
-  Inv. = 4,11
+  Inv. = 11
   Type = code
   Binding = FHIRDefinedTypeExt
   Short Name = Type defined or constrained by this structure
@@ -462,7 +462,6 @@
   Element = StructureDefinition.derivation
   Card. = 0..1
   Summary = y
-  Inv. = 12
   Type = code
   Binding = TypeDerivationRule
   Short Name = specialization | constraint - How relates to base definition
