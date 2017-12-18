@@ -255,6 +255,14 @@ public class TypeParser {
     res.add("SampledData");
     res.add("Signature");
     res.add("Timing");
+    res.add("Dosage");
+    res.add("ContactDetail"); 
+    res.add("Contributor"); 
+    res.add("DataRequirement"); 
+    res.add("ParameterDefinition");
+    res.add("RelatedArtifact"); 
+    res.add("TriggerDefinition"); 
+    res.add("UsageContext");
 
     res.add("Meta");
     return res;

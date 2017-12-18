@@ -1009,7 +1009,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           if (e.typeCode().equals("*")) {
             for (String t : new String[] {"boolean", "integer", "decimal", "base64Binary", "instant", "string", "uri", "date", "dateTime", 
                 "time", "code", "oid", "id", "unsignedInt", "positiveInt", "markdown", "Annotation", "Attachment", "Identifier", "CodeableConcept", "Coding", 
-                "Quantity", "Range", "Period", "Ratio", "SampledData", "Signature", "HumanName", "Address", "ContactPoint", "Timing", "Reference", "Meta"}) {
+                "Quantity", "Range", "Period", "Ratio", "SampledData", "Signature", "HumanName", "Address", "ContactPoint", "Timing", "Reference", "Meta", 
+                "Dosage", "ContactDetail", "Contributor", "DataRequirement", "ParameterDefinition", "RelatedArtifact", "TriggerDefinition", "UsageContext"}) {
               String tn = n + Utilities.capitalize(t);
               write(indent+"    case "+propId(tn)+": /*"+tn+"*/ ");
               write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
@@ -1277,6 +1278,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       t.add(new TypeRef("Timing"));
       t.add(new TypeRef("Reference"));
       t.add(new TypeRef("Meta"));
+      t.add(new TypeRef("Dosage"));
+      t.add(new TypeRef("ContactDetail")); 
+      t.add(new TypeRef("Contributor")); 
+      t.add(new TypeRef("DataRequirement")); 
+      t.add(new TypeRef("ParameterDefinition"));
+      t.add(new TypeRef("RelatedArtifact")); 
+      t.add(new TypeRef("TriggerDefinition")); 
+      t.add(new TypeRef("UsageContext"));
+
       return t;
     }
     else
