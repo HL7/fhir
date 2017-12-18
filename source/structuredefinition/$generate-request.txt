@@ -1,0 +1,2 @@
+GET /fhir/StructureDefinition/daf-patient/$generate
+Accept: application/json+fhir

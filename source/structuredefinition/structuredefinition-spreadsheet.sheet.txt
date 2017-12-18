@@ -251,6 +251,14 @@
   XPath = not(f:element[1]/f:slicing)
   Expression = element.where(path.contains(\'.\').not()).slicing.empty()
 
+ -- Row 21 -----------------------------------
+  Id = 10
+  Requirements = binding is required
+  Context = StructureDefinition.snapshot.element
+  English = provide either a binding reference or a description (or both)
+  XPath = not(exists(f:binding)) or (exists(f:binding/f:valueSetUri) or exists(f:binding/f:valueSetReference)) or exists(f:binding/f:description)
+  Expression = binding.empty() or binding.valueSet.exists() or binding.description.exists()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -668,5 +676,40 @@
   Use = out
   Documentation = The questionnaire form generated based on the StructureDefinition.
   Type = Questionnaire
+  Min = 1
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = generate
+  Use = Resource | Instance
+  Documentation = Generates a [[[StructureDefinition]]] instance  with  a snapshot, based on a differential in a specified [[[StructureDefinition]]].   If the operation is not called at the instance level, either *definition* or *url* \'in\' parameters must be provided. If more than one is specified, servers may raise an error or may resolve with the parameter of their choice. If called at the instance level, these parameters will be ignored.
+  Type = operation
+  Example.Request = $generate-request.txt
+  Example.Response = $generate-response.txt
+  Title = Generate Snapshot
+
+ -- Row 8 -----------------------------------
+  Name = generate.definition
+  Use = in
+  Documentation = The [[[StructureDefinition]]] is provided directly as part of the request. Servers may choose not to accept profiles in this fashion
+  Type = StructureDefinition
+  Search Type = token
+  Min = 0
+  Max = 1
+
+ -- Row 9 -----------------------------------
+  Name = generate.url
+  Use = in
+  Documentation = The profile\'s canonical URL (i.e. \'StructureDefinition.url\'). The server must know the structure definition, or be able to retrieve it from other known repositories.
+  Type = string
+  Search Type = token
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = questionnaire.return
+  Use = out
+  Documentation = The structure definition with a snapshot
+  Type = StructureDefinition
   Min = 1
   Max = 1
