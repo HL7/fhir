@@ -19,14 +19,6 @@
   Uri = http://hl7.org/fhir/defined-types
 
  -- Row 3 -----------------------------------
-  Binding Name = ContentType
-  Binding = code list
-  Reference = #content-type
-  Definition = The content or mime type.
-  Description = The content type or mime type to be specified in Accept or Content-Type header.
-  Conformance = required
-
- -- Row 4 -----------------------------------
   Binding Name = AssertionDirectionType
   Binding = code list
   Reference = #assert-direction-codes
@@ -34,7 +26,7 @@
   Description = The direction to use for assertions.
   Conformance = required
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = AssertionOperatorType
   Binding = code list
   Reference = #assert-operator-codes
@@ -42,7 +34,7 @@
   Description = The type of operator to use for assertions.
   Conformance = required
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = AssertionResponseTypes
   Binding = code list
   Reference = #assert-response-code-types
@@ -50,7 +42,7 @@
   Description = The response code to expect in the response.
   Conformance = required
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = TestScriptProfileOriginType
   Binding = value set
   Reference = valueset-testscript-profile-origin-types
@@ -58,7 +50,7 @@
   Description = The type of origin profile the test system supports.
   Conformance = extensible
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = TestScriptProfileDestinationType
   Binding = value set
   Reference = valueset-testscript-profile-destination-types
@@ -66,39 +58,13 @@
   Description = The type of destination profile the test system supports.
   Conformance = extensible
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = TestScriptRequestMethodCode
   Binding = code list
   Reference = #http-operations
   Definition = The allowable request method or HTTP operation codes.
   Description = The allowable request method or HTTP operation codes.
   Conformance = required
-
-=== Sheet content-type =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = xml
-  Display = xml
-  Definition = XML content-type corresponding to the application/fhir+xml mime-type.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = json
-  Display = json
-  Definition = JSON content-type corresponding to the application/fhir+json mime-type.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = ttl
-  Display = ttl
-  Definition = RDF content-type corresponding to the text/turtle mime-type.
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = none
-  Display = none
-  Definition = Prevent the use of the corresponding http header.
 
 === Sheet assert-direction-codes =====================================
 
@@ -854,21 +820,21 @@
   Element = TestScript.setup.action.operation.accept
   Card. = 0..1
   Type = code
-  Binding = ContentType
-  Short Name = xml | json | ttl | none
-  Definition = The content-type or mime-type to use for RESTful operation in the \'Accept\' header.
-  Comments = If this is specified, then test engine shall set the \'Accept\' header to the corresponding value.    If \'xml\' is specified, then \'Accept\' header of \'application/fhir+xml\' will be set.  If \'json\' is specified, then \'application/fhir+json\' will be used.    If you\'d like to explicitly set the \'Accept\' to some other value then use the \'requestHeader\' element.
-  Missing Meaning = xml
+  Binding = MimeType
+  Short Name = Mime type to accept in the payload of the response, with charset etc.
+  Definition = The mime-type to use for RESTful operation in the \'Accept\' header.
+  Comments = If this is specified, then test engine shall set the \'Accept\' header to the corresponding value.  If you\'d like to explicitly set the \'Accept\' to some other value then use the \'requestHeader\' element.
+  Example = application/fhir+xml
 
  -- Row 69 -----------------------------------
   Element = TestScript.setup.action.operation.contentType
   Card. = 0..1
   Type = code
-  Binding = ContentType
-  Short Name = xml | json | ttl | none
-  Definition = The content-type or mime-type to use for RESTful operation in the \'Content-Type\' header.
-  Comments = If this is specified, then test engine shall set the \'Content-Type\' header to the corresponding value.    If \'xml\' is specified, then \'Content-Type\' header of \'application/fhir+xml\' will be set.    If \'json\' is specified, then \'application/fhir+json\' will be used.    If you\'d like to explicitly set the \'Content-Type\' to some other value then use the \'requestHeader\' element.
-  Missing Meaning = xml
+  Binding = MimeType
+  Short Name = Mime type of the request payload contents, with charset etc.
+  Definition = The mime-type to use for RESTful operation in the \'Content-Type\' header.
+  Comments = If this is specified, then test engine shall set the \'Content-Type\' header to the corresponding value.  If you\'d like to explicitly set the \'Content-Type\' to some other value then use the \'requestHeader\' element.
+  Example = application/fhir+xml
 
  -- Row 70 -----------------------------------
   Element = TestScript.setup.action.operation.destination
@@ -1025,11 +991,11 @@
   Element = TestScript.setup.action.assert.contentType
   Card. = 0..1
   Type = code
-  Binding = ContentType
-  Short Name = xml | json | ttl | none
-  Definition = The content-type or mime-type to use for RESTful operation in the \'Content-Type\' header.
-  Comments = If this is specified, then test engine shall confirm that the content-type of the last operation\'s headers is set to this value.  If \"assert.sourceId\" element is specified, then the evaluation will be done against the headers mapped to that sourceId (and not the last operation\'s headers).    If \'xml\' is specified, then \'Content-Type\' header of \'application/fhir+xml\' will be confirmed. If \'json\' is specified, then \'application/fhir+json\' will be used. If you\'d like to have more control over the string, then use \'assert.headerField\' instead.
-  Missing Meaning = xml
+  Binding = MimeType
+  Short Name = Mime type to compare against the \'Content-Type\' header
+  Definition = The mime-type contents to compare against the request or response message \'Content-Type\' header.
+  Comments = If this is specified, then test engine shall confirm that the content-type of the last operation\'s headers is set to this value.  If \"assert.sourceId\" element is specified, then the evaluation will be done against the headers mapped to that sourceId (and not the last operation\'s headers).  If you\'d like to have more control over the string, then use \'assert.headerField\' instead.
+  Example = application/fhir+xml
 
  -- Row 90 -----------------------------------
   Element = TestScript.setup.action.assert.expression
