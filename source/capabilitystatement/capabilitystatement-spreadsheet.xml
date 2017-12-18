@@ -2987,7 +2987,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Definition of an resource operation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Definition of an operation or a named query together with its parameters and their meaning and type</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Operations linked from Capability.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.&#10;&#10;If an operation that is listed in multiple Capability.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource</Data><NamedCell
@@ -4466,7 +4466,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>61</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4474,6 +4474,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4481,8 +4482,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>66</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>64</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

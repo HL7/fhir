@@ -973,7 +973,7 @@
   Summary = Y
   UML = right
   Short Name = Definition of an resource operation
-  Definition = Definition of an operation or a named query together with its parameters and their meaning and type
+  Definition = Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters
   Comments = Operations linked from Capability.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.\n\nIf an operation that is listed in multiple Capability.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource
 
  -- Row 64 -----------------------------------
