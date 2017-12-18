@@ -615,8 +615,8 @@
   Element = ElementDefinition.type.profile
   Card. = 0..1
   Type = uri
-  Short Name = Profile (StructureDefinition) to apply (or IG)
-  Definition = Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide
+  Short Name = Profile (StructureDefinition or IG) that applies
+  Definition = Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
 
@@ -624,8 +624,8 @@
   Element = ElementDefinition.type.targetProfile
   Card. = 0..1
   Type = uri
-  Short Name = Profile (StructureDefinition) to apply to reference target (or IG)
-  Definition = Identifies a profile structure or implementation Guide that SHALL hold for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide
+  Short Name = Profile (StructureDefinition or IG) that applies to the Reference target
+  Definition = Used when the type is \"Reference\", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
 
