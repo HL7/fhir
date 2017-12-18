@@ -1,0 +1,145 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MedicinalProductDeviceSpec
+  Type = DomainResource
+  Short Name = Todo
+  Committee Notes = This should be a Datatype but I could not get it to build as one
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = MedicinalProductDeviceSpec.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Todo
+
+ -- Row 3 -----------------------------------
+  Element = MedicinalProductDeviceSpec.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 4 -----------------------------------
+  Element = MedicinalProductDeviceSpec.tradeName
+  Card. = 0..1
+  Type = string
+  Short Name = Todo
+
+ -- Row 5 -----------------------------------
+  Element = MedicinalProductDeviceSpec.quantity
+  Card. = 1..1
+  Type = Quantity
+  Short Name = Todo
+
+ -- Row 6 -----------------------------------
+  Element = MedicinalProductDeviceSpec.listingNumber
+  Card. = 0..1
+  Type = string
+  Short Name = Todo
+
+ -- Row 7 -----------------------------------
+  Element = MedicinalProductDeviceSpec.modelNumber
+  Card. = 0..1
+  Type = string
+  Short Name = Todo
+
+ -- Row 8 -----------------------------------
+  Element = MedicinalProductDeviceSpec.sterilityIndicator
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 9 -----------------------------------
+  Element = MedicinalProductDeviceSpec.sterilisationRequirement
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 10 -----------------------------------
+  Element = MedicinalProductDeviceSpec.usage
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 11 -----------------------------------
+  Element = MedicinalProductDeviceSpec.nomenclature
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 12 -----------------------------------
+  Element = MedicinalProductDeviceSpec.shelfLife
+  Card. = 0..*
+  Type = string
+  Short Name = Todo
+
+ -- Row 13 -----------------------------------
+  Element = MedicinalProductDeviceSpec.physicalCharacteristics
+  Card. = 0..1
+  Type = string
+  Short Name = Todo
+
+ -- Row 14 -----------------------------------
+  Element = MedicinalProductDeviceSpec.otherCharacteristics
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 15 -----------------------------------
+  Element = MedicinalProductDeviceSpec.batchIdentifier
+  Card. = 0..*
+  Type = Identifier
+  Short Name = Todo
+
+ -- Row 16 -----------------------------------
+  Element = MedicinalProductDeviceSpec.manufacturer
+  Card. = 0..*
+  UML = 400;200
+  Type = Reference(Organization)
+  Short Name = Todo
+
+ -- Row 17 -----------------------------------
+  Element = MedicinalProductDeviceSpec.material
+  Card. = 0..*
+  UML = 400;75
+  Type = Backbone Element
+  Short Name = Todo
+
+ -- Row 18 -----------------------------------
+  Element = MedicinalProductDeviceSpec.material.substance
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 19 -----------------------------------
+  Element = MedicinalProductDeviceSpec.material.alternate
+  Card. = 0..1
+  Type = boolean
+  Short Name = Todo
+
+ -- Row 20 -----------------------------------
+  Element = MedicinalProductDeviceSpec.material.allergenicIndicator
+  Card. = 0..1
+  Type = boolean
+  Short Name = Todo
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

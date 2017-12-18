@@ -1,0 +1,191 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = SubstancePolymer
+  UML = 350;0
+  Type = DomainResource
+  Short Name = Todo
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = SubstancePolymer.class
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 3 -----------------------------------
+  Element = SubstancePolymer.geometry
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 4 -----------------------------------
+  Element = SubstancePolymer.copolymerConnectivity
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 5 -----------------------------------
+  Element = SubstancePolymer.modification
+  Card. = 0..*
+  Type = string
+  Short Name = Todo
+
+ -- Row 6 -----------------------------------
+  Element = SubstancePolymer.monomerSet
+  Card. = 0..*
+  UML = 600;130
+  Type = Backbone Element
+  Short Name = Todo
+
+ -- Row 7 -----------------------------------
+  Element = SubstancePolymer.monomerSet.ratioType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 8 -----------------------------------
+  Element = SubstancePolymer.monomerSet.startingMaterial
+  Card. = 0..*
+  UML = 595;250
+  Type = Backbone Element
+  Short Name = Todo
+
+ -- Row 9 -----------------------------------
+  Element = SubstancePolymer.monomerSet.startingMaterial.material
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 10 -----------------------------------
+  Element = SubstancePolymer.monomerSet.startingMaterial.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 11 -----------------------------------
+  Element = SubstancePolymer.monomerSet.startingMaterial.isDefining
+  Card. = 0..1
+  Type = boolean
+  Short Name = Todo
+
+ -- Row 12 -----------------------------------
+  Element = SubstancePolymer.monomerSet.startingMaterial.amount
+  Card. = 0..1
+  Type = SubstanceAmount
+  Short Name = Todo
+
+ -- Row 13 -----------------------------------
+  Element = SubstancePolymer.repeat
+  Card. = 0..*
+  UML = 354;130
+  Type = Backbone Element
+  Short Name = Todo
+
+ -- Row 14 -----------------------------------
+  Element = SubstancePolymer.repeat.numberOfUnits
+  Card. = 0..1
+  Type = integer
+  Short Name = Todo
+
+ -- Row 15 -----------------------------------
+  Element = SubstancePolymer.repeat.averageMolecularFormula
+  Card. = 0..1
+  Type = string
+  Short Name = Todo
+
+ -- Row 16 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnitAmountType
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 17 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit
+  Card. = 0..*
+  UML = 340;260
+  Type = Backbone Element
+  Short Name = Todo
+
+ -- Row 18 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.orientationOfPolymerisation
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 19 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.repeatUnit
+  Card. = 0..1
+  Type = string
+  Short Name = Todo
+
+ -- Row 20 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.amount
+  Card. = 0..1
+  Type = SubstanceAmount
+  Short Name = Todo
+
+ -- Row 21 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation
+  Card. = 0..*
+  UML = 353;400
+  Type = Backbone Element
+  Short Name = Todo
+
+ -- Row 22 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.degree
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 23 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.degreeOfPolymerisation.amount
+  Card. = 0..1
+  Type = SubstanceAmount
+  Short Name = Todo
+
+ -- Row 24 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.structuralRepresentation
+  Card. = 0..*
+  UML = 100;100
+  Type = Backbone Element
+  Short Name = Todo
+
+ -- Row 25 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.structuralRepresentation.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Todo
+
+ -- Row 26 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.structuralRepresentation.representation
+  Card. = 0..1
+  Type = string
+  Short Name = Todo
+
+ -- Row 27 -----------------------------------
+  Element = SubstancePolymer.repeat.repeatUnit.structuralRepresentation.attachment
+  Card. = 0..1
+  Type = Attachment
+  Short Name = Todo
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
