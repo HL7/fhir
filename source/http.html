@@ -478,11 +478,12 @@ updates, see <a href="#patch"><code>patch</code></a> below.
 </p>
 <p>
 If the interaction is successful, the server SHALL return either a <code>200</code> OK HTTP status code 
-if the resource was updated, or a <code>201</code> Created status code if the resource was created, with 
-a <code>Last-Modified</code> header, and an <code>ETag</code> header which contains the new <code>versionId</code> 
-of the resource. If the resource was created (i.e. the interaction resulted in a <code>201</code> Created), the server SHOULD
-return a <code>Location</code> header (this is for HTTP conformance; it's not otherwise needed).
-The body of response is as described in <a href="http.html#return">Managing Return Content</a>.
+if the resource was updated, or a <code>201</code> Created status code if the resource was created (or brought 
+back to life/re-created), with a <code>Last-Modified</code> header, and an <code>ETag</code> header which 
+contains the new <code>versionId</code> of the resource. If the resource was created (i.e. the interaction 
+resulted in a <code>201</code> Created), the server SHOULD return a <code>Location</code> header (this 
+is for HTTP conformance; it's not otherwise needed). The body of response is as described 
+in <a href="http.html#return">Managing Return Content</a>.
 </p>
 <p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting updates, but are not required to do so. The impact of this on digital signatures may need to be considered.
