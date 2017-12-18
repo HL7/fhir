@@ -382,7 +382,7 @@ The following rules apply when using the $process-message operation synchronousl
 </ul>
 <p>
 When a message is received, a receiver can determine from the content of the message header whether it's a new message to process, or a response to a message that has already been sent.
-Note that asynchronous messaging is less reliable than synchronous messaging; more can go wrong.
+Note that asynchronous messaging can be harder to implement due to the amount of complexity opposed to synchronous messaging; more can go wrong.
 This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
 </p>
 
