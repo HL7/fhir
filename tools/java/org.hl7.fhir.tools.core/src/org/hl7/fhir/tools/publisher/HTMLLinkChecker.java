@@ -5,7 +5,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.utilities.FileNotifier;
@@ -155,7 +160,7 @@ public class HTMLLinkChecker implements FileNotifier {
       if (!src.contains("<!--!ns!-->") && !src.contains("<!-- !ns! -->"))
         reportError(filename, "File "+filename+" has no normative marker");
       if (src.contains("may not") || src.contains("May not"))
-        if (!filename.contains("v2\\") && !filename.contains("v3\\") && !filename.contains("dicom") && !src.contains("http://hl7.org/fhir/v3/") && !Utilities.existsInList(filename, "terminologies-valuesets.html"))
+        if (!filename.contains("v2"+File.separator) && !filename.contains("v3"+File.separator) && !filename.contains("dicom") && !src.contains("http://hl7.org/fhir/v3/") && !Utilities.existsInList(filename, "terminologies-valuesets.html"))
           reportError(filename, "File "+filename+" contains the prohibited words 'may not' - use 'might not' or 'SHALL not', or if the content is external, talk to FHIR product Director");
     } catch (Exception e) {
       reportError(filename, "File "+filename+" has no normative marker (Exception = "+e.getMessage()+")");
