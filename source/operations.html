@@ -51,7 +51,7 @@ Operations are executed using a URL derived from the FHIR endpoint, where the na
 </pre>
 <p>
 When an operation has affectsState = false, and the parameters are all primitive data types with no extensions
-(as is the case with the example above), it may be invoked using GET as well.
+(as is the case with the example above), it may be invoked using GET as well. (Note: A HEAD request can also be used - see <a href="http.html#head">Support for HEAD</a>).
 </p>
 <p>
 Operations can be invoked on four types of FHIR endpoints:

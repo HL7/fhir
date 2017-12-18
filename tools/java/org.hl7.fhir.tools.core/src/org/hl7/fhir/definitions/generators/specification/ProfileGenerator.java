@@ -1058,9 +1058,9 @@ public class ProfileGenerator {
       if (!definitions.hasResource(p.getType()) && !p.getType().equals("Resource") && !p.getType().equals("DomainResource"))
         throw new Exception("unknown resource type "+p.getType());
       sp.setType(getSearchParamType(spd.getType()));
-      if (shared)
+      if (shared) {
         sp.setDescription("Multiple Resources: \r\n\r\n* ["+rn+"]("+rn.toLowerCase()+".html): " + spd.getDescription()+"\r\n");
-      else
+      } else
         sp.setDescription(preProcessMarkdown(spd.getDescription(), "Search Description"));
       if (!Utilities.noString(spd.getExpression())) 
         sp.setExpression(spd.getExpression());
@@ -1080,7 +1080,8 @@ public class ProfileGenerator {
     } else {
       if (sp.getType() != getSearchParamType(spd.getType()))
         throw new FHIRException("Type mismatch on common parameter: expected "+sp.getType().toCode()+" but found "+getSearchParamType(spd.getType()).toCode());
-      sp.setDescription(sp.getDescription()+"* ["+rn+"]("+rn.toLowerCase()+".html): " + spd.getDescription()+"\r\n");
+      if (!sp.getDescription().contains("["+rn+"]("+rn.toLowerCase()+".html)"))
+        sp.setDescription(sp.getDescription()+"* ["+rn+"]("+rn.toLowerCase()+".html): " + spd.getDescription()+"\r\n");
       if (!Utilities.noString(spd.getExpression())) 
         sp.setExpression(sp.getExpression()+" | "+spd.getExpression());
       String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
