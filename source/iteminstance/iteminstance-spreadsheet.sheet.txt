@@ -1,0 +1,100 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ItemInstance
+  Type = DomainResource
+  Short Name = A physical instance of an item
+  Definition = A physical, countable instance of an item, for example one box or one unit
+  v2 Mapping = CE/CNE/CWE
+  RIM Mapping = CD
+  ORIM Mapping = fhir:CodeableConcept rdfs:subClassOf dt:CD
+  w5 = administrative.device
+
+ -- Row 2 -----------------------------------
+  Element = ItemInstance.count
+  Card. = 1..1
+  Type = integer
+  Short Name = The count of items
+  Definition = The quantity or amount of instances. For example if several units are being counted for inventory, this quantity can be more than one, provided they are not unique. Seriallized items are considered unique and as such would have a quantity max 1. This element is required and its presence asserts that the reource refers to a physical item
+
+ -- Row 3 -----------------------------------
+  Element = ItemInstance.location
+  Card. = 0..1
+  Type = Reference (Location)
+  Short Name = The physical location of the item
+  Definition = The location where the item is phisically located
+
+ -- Row 4 -----------------------------------
+  Element = ItemInstance.subject
+  Card. = 0..1
+  Type = Reference(Patient )
+  Short Name = The patient that the item is affixed to
+  Definition = The patient that the item is associated with (implanted in, given to)
+
+ -- Row 5 -----------------------------------
+  Element = ItemInstance.manufactureDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The manufacture or preparation date and time
+  Definition = The manufacture or preparation date and time. Times are necessary for several examples - for example biologically derived products, prepared or coumpounded medication, rapidly decaying isotopes
+
+ -- Row 6 -----------------------------------
+  Element = ItemInstance.expiryDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The expiry or preparation date and time
+  Definition = The expiry or preparation date and time
+
+ -- Row 7 -----------------------------------
+  Element = ItemInstance.currentSWVersion
+  Card. = 0..1
+  Type = string
+  Short Name = The Software version associated with the device
+  Definition = The Software version associated with the device, typically only used for devices with embedded software or firmware
+
+ -- Row 8 -----------------------------------
+  Element = ItemInstance.lotNumber
+  Card. = 0..1
+  Type = string
+  Short Name = The lot or batch number
+  Definition = The lot or batch number
+
+ -- Row 9 -----------------------------------
+  Element = ItemInstance.serialNumber
+  Card. = 0..1
+  Type = string
+  Short Name = The serial number if available
+  Definition = The serial number if available
+
+ -- Row 10 -----------------------------------
+  Element = ItemInstance.carrierAIDC
+  Card. = 0..1
+  Type = string
+  Short Name = The machine-readable AIDC string in base64 encoding
+  Definition = The machine-readable AIDC string in base64 encoding. Can correspond to the UDI pattern in devices
+
+ -- Row 11 -----------------------------------
+  Element = ItemInstance.carrierHRF
+  Card. = 0..1
+  Type = string
+  Short Name = The human-readable barcode string
+  Definition = The human-readable barcode string. Can correspond to the UDI pattern in devices
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The identifier of the patient who has devices assigned to
+  Path = ItemInstance.subject
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
