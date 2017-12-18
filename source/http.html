@@ -477,9 +477,12 @@ around update behavior. Note that <code>update</code> generally updates the whol
 updates, see <a href="#patch"><code>patch</code></a> below.
 </p>
 <p>
-If the interaction is successful, the server SHALL return either a <code>200</code> OK HTTP status code if the resource was updated, or a <code>201</code> Created status code if the resource was created,
-with a <code>Last-Modified</code> header, and an <code>ETag</code> header which contains the new <code>versionId</code> of the resource. If the resource was created (i.e. the interaction resulted in a <code>201</code> Created), the server SHOULD
+If the interaction is successful, the server SHALL return either a <code>200</code> OK HTTP status code 
+if the resource was updated, or a <code>201</code> Created status code if the resource was created, with 
+a <code>Last-Modified</code> header, and an <code>ETag</code> header which contains the new <code>versionId</code> 
+of the resource. If the resource was created (i.e. the interaction resulted in a <code>201</code> Created), the server SHOULD
 return a <code>Location</code> header (this is for HTTP conformance; it's not otherwise needed).
+The body of response is as described in <a href="http.html#return">Managing Return Content</a>.
 </p>
 <p>
 Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting updates, but are not required to do so. The impact of this on digital signatures may need to be considered.
@@ -770,8 +773,10 @@ the created resource version:
 </pre>
 <p>
 where <code>[id]</code> and <code>[vid]</code> are the newly created id and version id for the resource version.
-
+</p>
+<p>
 Servers SHOULD return an <code>ETag</code> header with the <code>versionId</code> (if versioning is supported) and a <code>Last-Modified</code> header.
+The body of response is as described in <a href="http.html#return">Managing Return Content</a>.
 </p>
 <p>
 When the resource syntax or data is incorrect or invalid, and cannot be used to create a new resource, the server returns a <code>400</code> Bad Request HTTP status code.
