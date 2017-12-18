@@ -479,7 +479,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       long revNumber = 0;
       for (Status stat : status)
         revNumber = (revNumber < stat.getRevisionNumber()) ? stat.getRevisionNumber() : revNumber;
-        return Long.toString(revNumber);
+      return Long.toString(revNumber);
     } catch (ClientException e) {
       System.out.println("Warning @ Unable to read the SVN version number: " + e.getMessage() );
       return "????";

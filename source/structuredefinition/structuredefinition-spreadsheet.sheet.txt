@@ -216,16 +216,16 @@
   Requirements = element ids need to be unique
   Context = StructureDefinition
   English = All element definitions must have unique ids (snapshot)
-  XPath = count(*/f:element)=count(*/f:element/@id)
-  Expression = snapshot.element.id.trace(\'ids\').isDistinct()
+  XPath = count(f:snapshot/f:element)=count(f:snapshot/f:element/@id) and (count(f:snapshot/f:element)=count(distinct-values(f:snapshot/f:element/@id)))
+  Expression = snapshot.element.all(id) and snapshot.element.id.trace(\'ids\').isDistinct()
 
  -- Row 17 -----------------------------------
   Id = 17
   Requirements = element ids need to be unique
   Context = StructureDefinition
   English = All element definitions must have unique ids (diff)
-  XPath = count(*/f:element)=count(*/f:element/@id)
-  Expression = differential.element.id.trace(\'ids\').isDistinct()
+  XPath = count(f:differential/f:element)=count(f:differential/f:element/@id) and (count(f:differential/f:element)=count(distinct-values(f:differential/f:element/@id)))
+  Expression = differential.element.all(id) and differential.element.id.trace(\'ids\').isDistinct()
 
  -- Row 18 -----------------------------------
   Id = 18

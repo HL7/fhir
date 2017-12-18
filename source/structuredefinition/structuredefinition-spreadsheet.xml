@@ -100,7 +100,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4267,7 +4267,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4503,8 +4502,8 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">All element definitions must have unique ids (snapshot)</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">snapshot.element.id.trace('ids').isDistinct()</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">count(*/f:element)=count(*/f:element/@id)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String"> snapshot.element.all(id) and snapshot.element.id.trace('ids').isDistinct()</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">count(f:snapshot/f:element)=count(f:snapshot/f:element/@id) and (count(f:snapshot/f:element)=count(distinct-values(f:snapshot/f:element/@id)))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43.3125">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">17</Data><NamedCell
@@ -4513,8 +4512,8 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">All element definitions must have unique ids (diff)</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">differential.element.id.trace('ids').isDistinct()</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">count(*/f:element)=count(*/f:element/@id)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">differential.element.all(id) and differential.element.id.trace('ids').isDistinct()</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">count(f:differential/f:element)=count(f:differential/f:element/@id) and (count(f:differential/f:element)=count(distinct-values(f:differential/f:element/@id)))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.6875">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">18</Data><NamedCell
@@ -4795,6 +4794,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4816,7 +4816,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>22</ActiveRow>
+     <ActiveRow>17</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
