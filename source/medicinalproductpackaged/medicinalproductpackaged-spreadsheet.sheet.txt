@@ -81,7 +81,7 @@
   Element = MedicinalProductPackaged.packageItem.quantity
   Card. = 1..1
   Type = Quantity
-  Short Name = The quantity of this package in the medicinal product, at the current level of packaging. The outermost is always 1.
+  Short Name = The quantity of this package in the medicinal product, at the current level of packaging. The outermost is always 1
 
  -- Row 12 -----------------------------------
   Element = MedicinalProductPackaged.packageItem.material
