@@ -1,0 +1,537 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = need
+  Binding = code list
+  Reference = #need
+  Definition = The frequency with which the target must be validated
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = status
+  Binding = code list
+  Reference = #status
+  Definition = The validation status of the target
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = validation-type
+  Binding = code list
+  Reference = #validation-type
+  Definition = What the target is validated against
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = validation-process
+  Binding = code list
+  Reference = #validation-process
+  Definition = The primary process by which the target is validated
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = failure-action
+  Binding = code list
+  Reference = #failure-action
+  Definition = The result if validation fails
+  Conformance = required
+
+ -- Row 6 -----------------------------------
+  Binding Name = primary-source-type
+  Binding = code list
+  Reference = #primary-source-type
+  Definition = Type of the validation primary source
+  Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = validation-status
+  Binding = code list
+  Reference = #validation-status
+  Definition = Status of the validation of the target against the primary source
+  Conformance = required
+
+ -- Row 8 -----------------------------------
+  Binding Name = can-push-updates
+  Binding = code list
+  Reference = #can-push-updates
+  Definition = Ability of the primary source to push updates/alerts
+  Conformance = required
+
+ -- Row 9 -----------------------------------
+  Binding Name = push-type-available
+  Binding = code list
+  Reference = #push-type-available
+  Definition = Type of alerts/updates the primary source can send
+  Conformance = required
+
+=== Sheet need =====================================
+
+ -- Row 1 -----------------------------------
+  Code = none
+  Display = None
+
+ -- Row 2 -----------------------------------
+  Code = initial
+  Display = Initial
+
+ -- Row 3 -----------------------------------
+  Code = periodic
+  Display = Periodic
+
+=== Sheet status =====================================
+
+ -- Row 1 -----------------------------------
+  Code = attested
+  Display = Attested
+
+ -- Row 2 -----------------------------------
+  Code = validated
+  Display = Validated
+
+ -- Row 3 -----------------------------------
+  Code = in-process
+  Display = In process
+
+ -- Row 4 -----------------------------------
+  Code = req-revalid
+  Display = Requires revalidation
+
+ -- Row 5 -----------------------------------
+  Code = val-fail
+  Display = Validation failed
+
+ -- Row 6 -----------------------------------
+  Code = reval-fail
+  Display = Re-Validation failed
+
+=== Sheet validation-type =====================================
+
+ -- Row 1 -----------------------------------
+  Code = nothing
+  Display = Nothing
+
+ -- Row 2 -----------------------------------
+  Code = primary
+  Display = Primary Source
+
+ -- Row 3 -----------------------------------
+  Code = multiple
+  Display = Multiple Sources
+
+=== Sheet validation-process =====================================
+
+ -- Row 1 -----------------------------------
+  Code = edit-check
+  Display = edit check
+
+ -- Row 2 -----------------------------------
+  Code = valueset
+  Display = value set
+
+ -- Row 3 -----------------------------------
+  Code = primary
+  Display = primary source
+
+ -- Row 4 -----------------------------------
+  Code = multi
+  Display = multiple sources
+
+ -- Row 5 -----------------------------------
+  Code = standalone
+  Display = standalone
+
+ -- Row 6 -----------------------------------
+  Code = in-context
+  Display = in context
+
+=== Sheet failure-action =====================================
+
+ -- Row 1 -----------------------------------
+  Code = fatal
+  Display = Fatal
+
+ -- Row 2 -----------------------------------
+  Code = warn
+  Display = Warning
+
+ -- Row 3 -----------------------------------
+  Code = rec-only
+  Display = Record only
+
+ -- Row 4 -----------------------------------
+  Code = none
+  Display = None
+
+=== Sheet primary-source-type =====================================
+
+ -- Row 1 -----------------------------------
+  Code = lic-board
+  Display = License Board
+
+ -- Row 2 -----------------------------------
+  Code = prim
+  Display = Primary Education
+
+ -- Row 3 -----------------------------------
+  Code = cont-ed
+  Display = Continuing Education
+
+ -- Row 4 -----------------------------------
+  Code = post-serv
+  Display = Postal Service
+
+ -- Row 5 -----------------------------------
+  Code = rel-own
+  Display = Relationship owner
+
+ -- Row 6 -----------------------------------
+  Code = reg-auth
+  Display = Registration Authority
+
+ -- Row 7 -----------------------------------
+  Code = legal
+  Display = Legal source
+
+ -- Row 8 -----------------------------------
+  Code = issuer
+  Display = Issuing source
+
+ -- Row 9 -----------------------------------
+  Code = auth-source
+  Display = Authoritative source
+
+=== Sheet validation-status =====================================
+
+ -- Row 1 -----------------------------------
+  Code = successful
+  Display = Successful
+
+ -- Row 2 -----------------------------------
+  Code = failed
+  Display = Failed
+
+ -- Row 3 -----------------------------------
+  Code = unknown
+  Display = Unknown
+  Definition = The validations status has not been determined yet
+
+=== Sheet can-push-updates =====================================
+
+ -- Row 1 -----------------------------------
+  Code = yes
+  Display = Yes
+
+ -- Row 2 -----------------------------------
+  Code = no
+  Display = No
+
+ -- Row 3 -----------------------------------
+  Code = undetermined
+  Display = Undetermined
+
+=== Sheet push-type-available =====================================
+
+ -- Row 1 -----------------------------------
+  Code = specific
+  Display = Specific requested changes
+
+ -- Row 2 -----------------------------------
+  Code = any
+  Display = Any changes
+
+ -- Row 3 -----------------------------------
+  Code = source
+  Display = As defined by source
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = VerificationResult
+  Type = DomainResource
+  Short Name = Describes validation requirements, source(s), status and dates for one or more elements
+  w5 = administrative.entity
+
+ -- Row 2 -----------------------------------
+  Element = VerificationResult.target
+  Card. = 0..*
+  Summary = Y
+  Type = Reference
+  Short Name = A resource that was validated
+
+ -- Row 3 -----------------------------------
+  Element = VerificationResult.targetLocation
+  Card. = 0..*
+  Summary = Y
+  Type = string
+  Short Name = The fhirpath location(s) within the resource that was validated
+
+ -- Row 4 -----------------------------------
+  Element = VerificationResult.need
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = need
+  Short Name = none | initial | periodic
+  Definition = The frequency with which the target must be validated (none; initial; periodic)
+
+ -- Row 5 -----------------------------------
+  Element = VerificationResult.status
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = status
+  Short Name = attested | validated | in-process | req-revalid | val-fail | reval-fail
+  Definition = The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed)
+
+ -- Row 6 -----------------------------------
+  Element = VerificationResult.statusDate
+  Card. = 1..1
+  Summary = y
+  Type = dateTime
+  Short Name = When the validation status was updated
+  Definition = When the validation status was updated
+
+ -- Row 7 -----------------------------------
+  Element = VerificationResult.validationType
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = validation-type
+  Short Name = nothing | primary | multiple
+  Definition = What the target is validated against (nothing; primary source; multiple sources)
+
+ -- Row 8 -----------------------------------
+  Element = VerificationResult.validationProcess
+  Card. = 1..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = validation-process
+  Short Name = The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context)
+  Definition = The primary process by which the target is validated (edit check; value set; primary source; multiple sources; standalone; in context)
+
+ -- Row 9 -----------------------------------
+  Element = VerificationResult.frequency
+  Card. = 0..1
+  Type = Timing
+  Short Name = Frequency of revalidation
+  Definition = Frequency of revalidation
+
+ -- Row 10 -----------------------------------
+  Element = VerificationResult.lastPerformed
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date/time validation was last completed (incl. failed validations)
+  Definition = The date/time validation was last completed (incl. failed validations)
+
+ -- Row 11 -----------------------------------
+  Element = VerificationResult.nextScheduled
+  Card. = 0..1
+  Type = date
+  Short Name = The date when target is next validated, if appropriate
+  Definition = The date when target is next validated, if appropriate
+
+ -- Row 12 -----------------------------------
+  Element = VerificationResult.failureAction
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = failure-action
+  Short Name = fatal | warn | rec-only | none
+  Definition = The result if validation fails (fatal; warning; record only; none)
+
+ -- Row 13 -----------------------------------
+  Element = VerificationResult.primarySource
+  Card. = 0..*
+  Short Name = Information about the primary source(s) involved in validation
+  Definition = Information about the primary source(s) involved in validation
+
+ -- Row 14 -----------------------------------
+  Element = VerificationResult.primarySource.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = URI of the primary source for validation
+  Definition = URI of the primary source for validation
+
+ -- Row 15 -----------------------------------
+  Element = VerificationResult.primarySource.organization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Name = Reference to the primary source
+  Definition = Reference to the primary source
+
+ -- Row 16 -----------------------------------
+  Element = VerificationResult.primarySource.type
+  Card. = 1..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = primary-source-type
+  Short Name = Type of primary source (License Board; Primary Education; Continuing Education; Postal Service; Relationship owner; Registration Authority; legal source; issuing source; authoritative source)
+  Definition = Type of primary source (License Board; Primary Education; Continuing Education; Postal Service; Relationship owner; Registration Authority; legal source; issuing source; authoritative source)
+
+ -- Row 17 -----------------------------------
+  Element = VerificationResult.primarySource.validationProcess
+  Card. = 1..*
+  Summary = y
+  Type = CodeableConcept
+  Short Name = Method for communicating with the primary source (manual; API; Push)
+  Definition = Method for communicating with the primary source (manual; API; Push)
+
+ -- Row 18 -----------------------------------
+  Element = VerificationResult.primarySource.validationStatus
+  Card. = 0..1
+  Type = code
+  Binding = validation-status
+  Short Name = successful | failed | unknown
+  Definition = Status of the validation of the target against the primary source (successful; failed; unknown)
+
+ -- Row 19 -----------------------------------
+  Element = VerificationResult.primarySource.validationDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = When the target was validated against the primary source
+  Definition = When the target was validated against the primary source
+
+ -- Row 20 -----------------------------------
+  Element = VerificationResult.primarySource.canPushUpdates
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = can-push-updates
+  Short Name = yes | no | undetermined
+  Definition = Ability of the primary source to push updates/alerts (yes; no; undetermined)
+
+ -- Row 21 -----------------------------------
+  Element = VerificationResult.primarySource.pushTypeAvailable
+  Card. = 0..*
+  Type = code
+  Binding = push-type-available
+  Short Name = specific | any | source
+  Definition = Type of alerts/updates the primary source can send (specific requested changes; any changes; as defined by source)
+
+ -- Row 22 -----------------------------------
+  Element = VerificationResult.attestation
+  Card. = 0..1
+  Short Name = Information about the entity attesting to information
+  Definition = Information about the entity attesting to information
+
+ -- Row 23 -----------------------------------
+  Element = VerificationResult.attestation.source
+  Card. = 1..1
+  Summary = y
+  Type = Reference(Practitioner)
+  Short Name = The individual attesting to information
+  Definition = The individual attesting to information
+
+ -- Row 24 -----------------------------------
+  Element = VerificationResult.attestation.organization
+  Card. = 1..1
+  Summary = y
+  Type = Reference(Organization)
+  Short Name = The organization attesting to information
+  Definition = The organization attesting to information
+
+ -- Row 25 -----------------------------------
+  Element = VerificationResult.attestation.method
+  Card. = 1..1
+  Summary = y
+  Type = CodeableConcept
+  Short Name = Who is providing the attested information (owner; authorized representative; authorized intermediary; non-authorized source)
+  Definition = Who is providing the attested information (owner; authorized representative; authorized intermediary; non-authorized source)
+
+ -- Row 26 -----------------------------------
+  Element = VerificationResult.attestation.date
+  Card. = 1..1
+  Summary = y
+  Type = date
+  Short Name = The date the information was attested to
+  Definition = The date the information was attested to
+
+ -- Row 27 -----------------------------------
+  Element = VerificationResult.attestation.sourceIdentityCertificate
+  Card. = 0..1
+  Type = string
+  Short Name = A digital identity certificate associated with the attestation source
+  Definition = A digital identity certificate associated with the attestation source
+
+ -- Row 28 -----------------------------------
+  Element = VerificationResult.attestation.proxyIdentityCertificate
+  Card. = 0..1
+  Type = string
+  Short Name = A digital identity certificate associated with the proxy entity submitting attested information on behalf of the attestation source
+  Definition = A digital identity certificate associated with the proxy entity submitting attested information on behalf of the attestation source
+
+ -- Row 29 -----------------------------------
+  Element = !VerificationResult.attestation.sourceSignedAttestation
+  Card. = 0..1
+  Type = signature
+  Short Name = Signed assertion by the attestation source that they have attested to the information
+  Definition = Signed assertion by the attestation source that they have attested to the information
+
+ -- Row 30 -----------------------------------
+  Element = !VerificationResult.attestation.proxySignedAttestation
+  Card. = 0..1
+  Type = signature
+  Short Name = Signed assertion by the proxy entity indicating that they have the right to submit attested information on behalf of the attestation source
+  Definition = Signed assertion by the proxy entity indicating that they have the right to submit attested information on behalf of the attestation source
+
+ -- Row 31 -----------------------------------
+  Element = VerificationResult.validator
+  Card. = 0..*
+  Short Name = Information about the entity validating information
+  Definition = Information about the entity validating information
+
+ -- Row 32 -----------------------------------
+  Element = VerificationResult.validator.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = URI of the validator
+  Definition = URI of the validator
+
+ -- Row 33 -----------------------------------
+  Element = VerificationResult.validator.organization
+  Card. = 1..1
+  Type = Reference(Organization)
+  Short Name = Reference to the organization validating information
+  Definition = Reference to the organization validating information
+
+ -- Row 34 -----------------------------------
+  Element = VerificationResult.validator.identityCertificate
+  Card. = 0..1
+  Type = string
+  Short Name = A digital identity certificate associated with the validator
+  Definition = A digital identity certificate associated with the validator
+
+ -- Row 35 -----------------------------------
+  Element = !VerificationResult.validator.signedAttestation
+  Card. = 0..1
+  Type = signature
+  Short Name = Signed assertion by the validator that they have validated the information
+  Definition = Signed assertion by the validator that they have validated the information
+
+ -- Row 36 -----------------------------------
+  Element = VerificationResult.validator.dateValidated
+  Card. = 1..1
+  Type = date
+  Short Name = Date on which the validator last validated the information
+  Definition = Date on which the validator last validated the information
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = target
+  Type = reference
+  Path = VerificationResult.target
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = general
+  Identity = example
+  Description = A general verification result example
+  Filename = verificationresult-example.xml
+
+=== Sheet Examples =====================================
