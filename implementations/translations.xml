@@ -966,6 +966,9 @@
 		<translation lang="fr">EnsembleValeurs</translation>
 		<translation lang="es">ConjuntoValores / ConjuntoDeValores</translation>
 	</item>
+	<item id="VerificationResult">
+		<translation lang="en">VerificationResult</translation>
+	</item>
 	<item id="VisionClaim">
 		<translation lang="en">VisionClaim</translation>
 		<translation lang="fr">DemandeSoinsVision</translation>

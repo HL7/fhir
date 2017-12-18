@@ -272,6 +272,7 @@ signatures.html
 	    <page type="resource" resource="ProductPlan"/>
 	    <!-- <page type="resource" resource="Network"/> -->
 	    <page type="resource" resource="OrganizationRole"/>
+	    <page type="resource" resource="VerificationResult"/>
     </page>
 
     <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">

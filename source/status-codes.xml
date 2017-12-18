@@ -20,10 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16360</WindowHeight>
-  <WindowWidth>27900</WindowWidth>
-  <WindowTopX>400</WindowTopX>
-  <WindowTopY>840</WindowTopY>
+  <WindowHeight>7116</WindowHeight>
+  <WindowWidth>17820</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -309,7 +310,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s90">
+  <Style ss:ID="s89">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
@@ -324,15 +325,15 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R105C30"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="109" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65"
-   ss:DefaultRowHeight="26">
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="111" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="64.8"
+   ss:DefaultRowHeight="25.95">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="237"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="70"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="70.2"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="73.8"/>
    <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="58"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92"/>
+   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="58.2"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="91.8"/>
    <Column ss:Index="36" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -4237,7 +4238,7 @@
     <Cell ss:Index="16"><Data ss:Type="String">balanced</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s90"><Data ss:Type="String">OccupationalData.status</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">OccupationalData.status</Data></Cell>
     <Cell ss:Index="3" ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -4255,6 +4256,20 @@
     <Cell ss:StyleID="s71"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell><Data ss:Type="String">unknown</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">VerificationResult.status</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">attested</Data></Cell>
+    <Cell ss:Index="10"><Data ss:Type="String">validated</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">in-process</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">val-fail, reval-fail</Data></Cell>
+    <Cell><Data ss:Type="String">req-revalid</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">VerificationResult.primarySource.validationStatus</Data></Cell>
+    <Cell ss:Index="12"><Data ss:Type="String">successful</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:Index="19"><Data ss:Type="String">unknown</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4275,7 +4290,7 @@
    <SplitHorizontal>4</SplitHorizontal>
    <TopRowBottomPane>103</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4283,6 +4298,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4290,7 +4306,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>109</ActiveRow>
+     <ActiveRow>110</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
