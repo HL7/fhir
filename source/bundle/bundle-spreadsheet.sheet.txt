@@ -104,24 +104,30 @@
   Definition = HTTP GET
 
  -- Row 2 -----------------------------------
+  Id = 6
+  Code = HEAD
+  Display = HEAD
+  Definition = HTTP HEAD
+
+ -- Row 3 -----------------------------------
   Id = 2
   Code = POST
   Display = POST
   Definition = HTTP POST
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Id = 3
   Code = PUT
   Display = PUT
   Definition = HTTP PUT
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Id = 4
   Code = DELETE
   Display = DELETE
   Definition = HTTP DELETE
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Id = 5
   Code = PATCH
   Display = PATCH
@@ -329,7 +335,7 @@
   Card. = 1..1
   Type = code
   Binding = HTTPVerb
-  Short Name = GET | POST | PUT | DELETE | PATCH
+  Short Name = GET | HEAD | POST | PUT | DELETE | PATCH
   Definition = The HTTP verb for this entry in either a change history, or a transaction/ transaction response
 
  -- Row 18 -----------------------------------
