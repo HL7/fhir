@@ -17,7 +17,7 @@
   Element = MedicinalProductPackaged
   UML = 0;250
   Type = DomainResource
-  Short Name = Todo
+  Short Name = A medicinal product in a container or package
   w5 = clinical.medication
 
  -- Row 2 -----------------------------------
@@ -25,174 +25,155 @@
   Card. = 1..1
   Aliases = PCID
   Type = Identifier
-  Short Name = Todo
+  Short Name = Unique identifier
 
  -- Row 3 -----------------------------------
   Element = MedicinalProductPackaged.description
   Card. = 0..1
   Type = string
-  Short Name = Todo
+  Short Name = Textual description
 
  -- Row 4 -----------------------------------
   Element = MedicinalProductPackaged.marketingStatus
   Card. = 0..*
   Type = MarketingStatus
-  Short Name = Todo
+  Short Name = Marketing information
 
  -- Row 5 -----------------------------------
   Element = MedicinalProductPackaged.batchIdentifier
   Card. = 0..*
   UML = 60;380
   Type = Backbone Element
-  Short Name = Todo
+  Short Name = Batch numbering
 
  -- Row 6 -----------------------------------
-  Element = MedicinalProductPackaged.batchIdentifier.baid1
+  Element = MedicinalProductPackaged.batchIdentifier.outerPackaging
   Card. = 1..1
   Type = Identifier
-  Short Name = Todo
+  Short Name = A number appearing on the outer packaging of a specific batch
 
  -- Row 7 -----------------------------------
-  Element = MedicinalProductPackaged.batchIdentifier.baid2
+  Element = MedicinalProductPackaged.batchIdentifier.immediatePackaging
   Card. = 0..1
   Type = Identifier
-  Short Name = Todo
+  Short Name = A number appearing on the immediate packaging (and not the outer packaging)
 
  -- Row 8 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer
+  Element = MedicinalProductPackaged.packageItem
   Card. = 1..*
   UML = 400;200
   Type = Backbone Element
-  Short Name = Todo
+  Short Name = A packaging item, as a contained for medicine, possibly with other packaging items within
 
  -- Row 9 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.type
-  Card. = 1..1
-  Type = CodeableConcept
-  Short Name = Todo
-
- -- Row 10 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.quantity
-  Card. = 1..1
-  Type = Quantity
-  Short Name = Todo
-
- -- Row 11 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.material
-  Card. = 0..*
-  Type = CodeableConcept
-  Short Name = Todo
-
- -- Row 12 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.alternateMaterial
-  Card. = 0..*
-  Type = CodeableConcept
-  Short Name = Todo
-
- -- Row 13 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.dataCarrierIdentifier
+  Element = MedicinalProductPackaged.packageItem.identifier
   Card. = 0..*
   Type = Identifier
-  Short Name = Todo
+  Short Name = Including possibly Data Carrier Identifier
+
+ -- Row 10 -----------------------------------
+  Element = MedicinalProductPackaged.packageItem.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The physical type of the container of the medicine
+
+ -- Row 11 -----------------------------------
+  Element = MedicinalProductPackaged.packageItem.quantity
+  Card. = 1..1
+  Type = Quantity
+  Short Name = The quantity of this package in the medicinal product, at the current level of packaging. The outermost is always 1.
+
+ -- Row 12 -----------------------------------
+  Element = MedicinalProductPackaged.packageItem.material
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Material type of the package item
+
+ -- Row 13 -----------------------------------
+  Element = MedicinalProductPackaged.packageItem.alternateMaterial
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = A possible alternate material for the packaging
 
  -- Row 14 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.manufacturer
+  Element = MedicinalProductPackaged.packageItem.manufacturer
   Card. = 0..*
   UML = 400;200
   Type = Reference(Organization)
-  Short Name = Todo
+  Short Name = Manufacturer of this Package Item
 
  -- Row 15 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.device
+  Element = MedicinalProductPackaged.packageItem.device
   Card. = 0..*
   Type = Reference(MedicinalProductDeviceSpec)
-  Short Name = Todo
+  Short Name = A device accompanying a medicinal product
 
  -- Row 16 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem
+  Element = MedicinalProductPackaged.packageItem.manufacturedItem
   Card. = 0..*
   UML = 285;420
   Type = Backbone Element
-  Short Name = Todo
+  Short Name = The manufactured item as contained in the packaged medicinal product
 
  -- Row 17 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.manufacturedDoseForm
+  Element = MedicinalProductPackaged.packageItem.manufacturedItem.manufacturedDoseForm
   Card. = 1..1
   Type = CodeableConcept
-  Short Name = Todo
+  Short Name = Dose form as manufactured and before any transformation into the pharmaceutical product
 
  -- Row 18 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.unitOfPresentation
+  Element = MedicinalProductPackaged.packageItem.manufacturedItem.unitOfPresentation
   Card. = 0..1
   Type = CodeableConcept
-  Short Name = Todo
+  Short Name = The “real world” units in which the quantity of the manufactured item is described
 
  -- Row 19 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.quantity
+  Element = MedicinalProductPackaged.packageItem.manufacturedItem.quantity
   Card. = 1..1
   Type = Quantity
-  Short Name = Todo
+  Short Name = The quantity or \"count number\" of the manufactured item
 
  -- Row 20 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.ingredient
+  Element = MedicinalProductPackaged.packageItem.manufacturedItem.xManufacturer
   Card. = 0..*
-  Type = Reference(MedicinalProductIngredient)
-  Short Name = Todo
+  Type = Reference(Organization)
+  Short Name = Manufacturer of the item (Note that this should be named \"manufacturer\" but it currently causes technical issues)
 
  -- Row 21 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.manufacturedItem.physicalCharacteristics
-  Card. = 0..1
-  Type = ProdCharacteristic
-  Short Name = Todo
+  Element = MedicinalProductPackaged.packageItem.manufacturedItem.ingredient
+  Card. = 0..*
+  Type = Reference(MedicinalProductIngredient)
+  Short Name = Ingredient
 
  -- Row 22 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.otherCharacteristics
-  Card. = 0..*
-  Type = CodeableConcept
-  Short Name = Todo
-
- -- Row 23 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.packageComponent
-  Card. = 0..*
-  UML = 300;50
-  Type = Backbone Element
-  Short Name = Todo
-
- -- Row 24 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.packageComponent.type
-  Card. = 1..1
-  Type = CodeableConcept
-  Short Name = Todo
-
- -- Row 25 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.packageComponent.material
-  Card. = 0..*
-  Type = CodeableConcept
-  Short Name = Todo
-
- -- Row 26 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.packageComponent.alternateMaterial
-  Card. = 0..*
-  Type = CodeableConcept
-  Short Name = Todo
-
- -- Row 27 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.packageItemContainer
-  Card. = 0..*
-  Type = @MedicinalProductPackaged.packageItemContainer
-  Short Name = Todo
-
- -- Row 28 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.physicalCharacteristics
+  Element = MedicinalProductPackaged.packageItem.manufacturedItem.physicalCharacteristics
   Card. = 0..1
   Type = ProdCharacteristic
-  Short Name = Todo
+  Short Name = Dimensions, color etc
 
- -- Row 29 -----------------------------------
-  Element = MedicinalProductPackaged.packageItemContainer.shelfLifeStorage
+ -- Row 23 -----------------------------------
+  Element = MedicinalProductPackaged.packageItem.otherCharacteristics
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Other codeable characteristics
+
+ -- Row 24 -----------------------------------
+  Element = MedicinalProductPackaged.packageItem.packageItem
+  Card. = 0..*
+  Type = @MedicinalProductPackaged.packageItem
+  Short Name = Allows containers within containers
+
+ -- Row 25 -----------------------------------
+  Element = MedicinalProductPackaged.packageItem.physicalCharacteristics
+  Card. = 0..1
+  Type = ProdCharacteristic
+  Short Name = Dimensions, color etc
+
+ -- Row 26 -----------------------------------
+  Element = MedicinalProductPackaged.packageItem.shelfLifeStorage
   Card. = 0..*
   Type = ProductShelfLife
-  Short Name = Todo
+  Short Name = Shelf Life and storage information
 
 === Sheet Search =====================================
 

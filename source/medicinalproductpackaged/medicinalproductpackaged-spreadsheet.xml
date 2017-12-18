@@ -662,7 +662,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R14C24"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="30" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="29" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="51.6" ss:DefaultRowHeight="14.55">
    <Column ss:AutoFitWidth="0" ss:Width="416.4"/>
    <Column ss:AutoFitWidth="0" ss:Width="32.4"/>
@@ -754,7 +754,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">A medicinal product in a container or package</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="s72"><Data ss:Type="String">0;250</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -777,7 +777,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Unique identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="26.25">
@@ -797,7 +797,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Textual description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="26.25">
@@ -817,7 +817,7 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Marketing information</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -836,13 +836,13 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Batch numbering</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="s64"><Data ss:Type="String">60;380</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="13.2">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.batchIdentifier.baid1</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.batchIdentifier.outerPackaging</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data><NamedCell
@@ -857,12 +857,12 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">A number appearing on the outer packaging of a specific batch</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="39">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.batchIdentifier.baid2</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.batchIdentifier.immediatePackaging</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data><NamedCell
@@ -877,12 +877,12 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">A number appearing on the immediate packaging (and not the outer packaging)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="17.55">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer</Data><NamedCell
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItem</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..*</Data><NamedCell
@@ -897,13 +897,34 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">A packaging item, as a contained for medicine, possibly with other packaging items within</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="22" ss:StyleID="s64"><Data ss:Type="String">400;200</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="39">
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItem.identifier</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Identifier</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Including possibly Data Carrier Identifier</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="22" ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29.549999999999997">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.type</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItem.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data><NamedCell
@@ -919,11 +940,11 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">The physical type of the container of the medicine</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31.200000000000003">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.quantity</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItem.quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data><NamedCell
@@ -939,11 +960,11 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">The quantity of this package in the medicinal product, at the current level of packaging. The outermost is always 1.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="31.799999999999997">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.material</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItem.material</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell
@@ -959,11 +980,11 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Material type of the package item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29.25">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.alternateMaterial</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItem.alternateMaterial</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell
@@ -979,32 +1000,11 @@
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
+    <Cell ss:StyleID="s71"><Data ss:Type="String">A possible alternate material for the packaging</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.dataCarrierIdentifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Identifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34.199999999999996">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.manufacturer</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItem.manufacturer</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1016,11 +1016,11 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Manufacturer of this Package Item</Data></Cell>
     <Cell ss:Index="22" ss:StyleID="s64"><Data ss:Type="String">400;200</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="25.2">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.device</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItem.device</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1033,11 +1033,11 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">A device accompanying a medicinal product</Data></Cell>
     <Cell ss:Index="22" ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="102.44999999999999">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.manufacturedItem</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItem.manufacturedItem</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1050,11 +1050,11 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The manufactured item as contained in the packaged medicinal product </Data></Cell>
     <Cell ss:Index="22" ss:StyleID="s74"><Data ss:Type="String">285;420</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="65.55">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.manufacturedItem.manufacturedDoseForm</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">MedicinalProductPackaged.packageItem.manufacturedItem.manufacturedDoseForm</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1067,10 +1067,10 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Dose form as manufactured and before any transformation into the pharmaceutical product</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.manufacturedItem.unitOfPresentation</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">MedicinalProductPackaged.packageItem.manufacturedItem.unitOfPresentation</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1083,10 +1083,10 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The “real world” units in which the quantity of the manufactured item is described</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="69">
-    <Cell ss:StyleID="s64"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.manufacturedItem.quantity</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">MedicinalProductPackaged.packageItem.manufacturedItem.quantity</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">1..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1099,10 +1099,26 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The quantity or &quot;count number&quot; of the manufactured item</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="69">
+    <Cell ss:StyleID="s64"><Data ss:Type="String">MedicinalProductPackaged.packageItem.manufacturedItem.xManufacturer</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Reference(Organization)</Data></Cell>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"/>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Manufacturer of the item (Note that this should be named &quot;manufacturer&quot; but it currently causes technical issues)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57.45">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.manufacturedItem.ingredient</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItem.manufacturedItem.ingredient</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1115,10 +1131,10 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Ingredient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57.45">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.manufacturedItem.physicalCharacteristics</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItem.manufacturedItem.physicalCharacteristics</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1131,10 +1147,10 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Dimensions, color etc</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="53.550000000000004" ss:StyleID="s75">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.otherCharacteristics</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItem.otherCharacteristics</Data></Cell>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s70"/>
@@ -1147,47 +1163,14 @@
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
     <Cell ss:StyleID="s70"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="26.55">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.packageComponent</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Backbone Element</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s74"><Data ss:Type="String">300;50</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Other codeable characteristics</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="51.75">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.packageComponent.type</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="64.8">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.packageComponent.material</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItem.packageItem</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String" x:Ticked="1">@MedicinalProductPackaged.packageItem</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
@@ -1196,44 +1179,11 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="116.25">
-    <Cell ss:StyleID="s71"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.packageComponent.alternateMaterial</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
-    <Cell ss:Index="22" ss:StyleID="s73"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="51.75">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.packageItemContainer</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String" x:Ticked="1">@MedicinalProductPackaged.packageItemContainer</Data></Cell>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Allows containers within containers</Data></Cell>
     <Cell ss:Index="22" ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="51.75">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.physicalCharacteristics</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItem.physicalCharacteristics</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1246,11 +1196,11 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">Dimensions, color etc</Data></Cell>
     <Cell ss:Index="22" ss:StyleID="s74"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="51.75">
-    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItemContainer.shelfLifeStorage</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">MedicinalProductPackaged.packageItem.shelfLifeStorage</Data></Cell>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s71"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s64"/>
@@ -1263,8 +1213,14 @@
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
     <Cell ss:StyleID="s64"/>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">Todo</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">Shelf Life and storage information</Data></Cell>
     <Cell ss:Index="22" ss:StyleID="s74"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="14" ss:StyleID="s71"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="14" ss:StyleID="s71"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1285,9 +1241,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>25</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1295,7 +1251,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1303,9 +1258,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>13</ActiveCol>
-     <RangeSelection>R3C14:R30C14</RangeSelection>
+     <ActiveRow>23</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
