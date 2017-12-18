@@ -1,0 +1,46 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ProductShelfLife
+  UML = 0;200
+  Type = Structure
+  Short Name = The shelf-life and storage information for a medicinal product item or container can be described using the this class
+  Definition = The shelf-life and storage information for a medicinal product item or container can be described using the this class
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = ProductShelfLife.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Unique identifier for the packaged Medicinal Product
+
+ -- Row 3 -----------------------------------
+  Element = ProductShelfLife.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
+
+ -- Row 4 -----------------------------------
+  Element = ProductShelfLife.period
+  Card. = 1..1
+  Type = Quantity
+  Short Name = The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
+
+ -- Row 5 -----------------------------------
+  Element = ProductShelfLife.specialPrecautionsForStorage
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified

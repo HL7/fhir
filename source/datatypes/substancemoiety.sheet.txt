@@ -1,0 +1,63 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+ -- Row 2 -----------------------------------
+
+ -- Row 3 -----------------------------------
+
+ -- Row 4 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = SubstanceMoiety
+  UML = 50;520
+  Type = Structure
+  Short Name = Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID
+  w5 = clinical.medication
+
+ -- Row 2 -----------------------------------
+  Element = SubstanceMoiety.role
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The role of the moiety should be specified if there is a specific role the moiety is playing
+
+ -- Row 3 -----------------------------------
+  Element = SubstanceMoiety.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = The unique identifier assigned to the substance representing the moiety based on the ISO 11238 substance controlled vocabulary
+
+ -- Row 4 -----------------------------------
+  Element = SubstanceMoiety.name
+  Card. = 0..1
+  Type = string
+  Short Name = The name of the moiety shall be provided
+
+ -- Row 5 -----------------------------------
+  Element = SubstanceMoiety.stereochemistry
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Stereochemistry shall be captured as described in 4.7.1
+
+ -- Row 6 -----------------------------------
+  Element = SubstanceMoiety.opticalActivity
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = Optical activity shall be captured as described in 4.7.2
+
+ -- Row 7 -----------------------------------
+  Element = SubstanceMoiety.molecularFormula
+  Card. = 0..1
+  Type = string
+  Short Name = Molecular formula shall be captured as described in 4.7.3
+
+ -- Row 8 -----------------------------------
+  Element = SubstanceMoiety.amount
+  Card. = 0..1
+  Type = SubstanceAmount
+  Short Name = Used to capture quantitative values for a variety of elements. If only limits are given, the arithmetic mean would be the average. If only a single definite value for a given element is given, it would be captured in this field
