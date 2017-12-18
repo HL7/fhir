@@ -366,7 +366,7 @@
  -- Row 1 -----------------------------------
   Code = instance
   Display = Instance
-  Definition = The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
+  Definition = The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by /metadata for a FHIR server end-point.
 
  -- Row 2 -----------------------------------
   Code = capability
