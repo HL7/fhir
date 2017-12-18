@@ -313,7 +313,8 @@ the character encoding to UTF-8 using the <code>charset</code> parameter of the 
 Requests MAY also specify this <code>charset</code> parameter in the <code>Accept</code> header and/or use the <code>Accept-Charset</code> header.
 </p>
 <p>
-Note: the <code>_format</code> parameter does not override the <code>content-type</code> header.
+Note: the <code>_format</code> parameter does not override the <code>Content-Type</code> header for the 
+type of the body of a POST request.
 </p>
 <p>
 The content type <code>application/x-www-form-urlencoded</code> is also accepted for posting <code>search</code> requests.
@@ -329,7 +330,19 @@ the requested mime type, using the XML or JSON formats described in this specifi
 as the best representation for the named mime type (though see the <a href="binary.html#rest">note on the
 Binary resource</a>).
 </p>
-
+<p>
+Clients that wish to request for pretty-printed resources (either in JSON or XML) can
+use the _pretty parameter:
+</p>
+<pre>
+GET [base]/Patient/example?_pretty=true
+</pre>
+<p>
+Value values are <code>true</code> and <code>false</code>. Since pretty printed
+or not makes no difference to the content, this is only of interest for development
+tools, and servers do not need to support this parameter.
+</p>
+ 
 <a name="versioning"> </a>
 <h3>Support for Versions</h3>
 <p>
