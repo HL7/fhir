@@ -978,7 +978,9 @@ server is expected to respond only with results which match both values.
 If, instead, the search is to find patients that speak either
 language, then this is a single parameter with multiple values, separated by a <code>,</code>.
 For example, <code>/Patient?language=FR,NL</code>. This is known as an OR search parameter,
-since the server is expected to respond with results which match either value.
+since the server is expected to respond with results which match either value. Every search parameter 
+may be used with comma-separated values in this fashion; this includes the use of search parameters 
+with modifiers, such as `?code:text=this,that.
 </p>
 <p>
 AND parameters and OR parameters may also be combined, for example:
