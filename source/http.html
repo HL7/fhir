@@ -149,7 +149,7 @@ by the logical identity associated with <code>[xx]</code>. In this case, the FHI
 patient or user centric view of a record, where authentication/authorization is
 explicitly granted to the URL, on the grounds that some identifiable user is associated
 with the logical identity. It is not necessary to explicitly embed the patient id in the
-URL - implementations can associate an FHIR end-point with a particular patient or
+URL - implementations can associate a FHIR end-point with a particular patient or
 provider by using an OAuth login. See <a href="compartmentdefinition.html">Compartments</a> for the logical underpinning.
 </p>
 <p><b>Identity</b></p>
@@ -294,7 +294,7 @@ of the HTTP specification.
 </p>
 <p>
 Note: between FHIR DSTU2 and STU3, the correct mime type was changed from <code>application/xml+fhir</code> and <code>application/json+fhir</code> to <code>application/fhir+xml</code> and <code>application/fhir+json</code>.
-Servers MAY also support the older mime types, and are encouraged to do so to smooth the transtion process.
+Servers MAY also support the older mime types, and are encouraged to do so to smooth the transition process.
 </p>
 <p>
 In order to support various implementation limitations, servers SHOULD support the optional <code>_format</code> parameter to
@@ -800,13 +800,13 @@ on how many matches are found:
 </p>
 <ul>
  <li><b>No matches</b>: The server processes the create as above</li>
- <li><b>One Match</b>: The server ignore the post and returns <code>200</code> OK</li>
+ <li><b>One Match</b>: The server ignores the post and returns <code>200</code> OK</li>
  <li><b>Multiple matches</b>: The server returns a <code>412</code> Precondition Failed error indicating the client's criteria were not selective enough</li>
 </ul>
 <p>
 This variant can be used to avoid the risk of two clients
 creating duplicate resources for the same record. For example, a client posting a new lab result might specify
-<code>If-None-Exist: identifier=http://my-lab-system|123</code> to ensure it is does not create a duplicate record.
+<code>If-None-Exist: identifier=http://my-lab-system|123</code> to ensure it does not create a duplicate record.
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is
@@ -859,7 +859,7 @@ issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-s
 <a href="valueset-search-entry-mode.html">Bundle.entry.search.mode</a> of <code>outcome</code>.
 </p>
 <p>
-If the search fails (cannot be executed, not that there is no matches), the return value is
+If the search fails (cannot be executed, not that there are no matches), the return value is
 a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
