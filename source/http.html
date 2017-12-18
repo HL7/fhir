@@ -308,9 +308,10 @@ and <code>text/turtle</code> SHALL be interpreted to mean the <a href="rdf.html"
 </p>
 <p>
 FHIR uses UTF-8 for all request and response bodies. Since the HTTP specification (section 3.7.1)
-defines a default character encoding of ISO-8859-1, requests and responses SHALL explicitly set
-the character encoding to UTF-8 using the <code>charset</code> parameter of the MIME-type in the <code>Content-Type</code> header.
-Requests MAY also specify this <code>charset</code> parameter in the <code>Accept</code> header and/or use the <code>Accept-Charset</code> header.
+defines a default character encoding of ISO-8859-1, requests and responses SHOULD explicitly set
+the character encoding to UTF-8 using the <code>charset</code> parameter of the MIME-type in the <code>Content-Type</code> header
+for XML and Turtle, and MAY do this for JSON and ND-JSON. Requests MAY also specify this <code>charset</code> parameter in 
+the <code>Accept</code> header and/or use the <code>Accept-Charset</code> header.
 </p>
 <p>
 Note: the <code>_format</code> parameter does not override the <code>Content-Type</code> header for the 
@@ -412,6 +413,9 @@ that it should be supported, and the subset implications. Servers SHOULD define 
 the <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> as a <a href="resource.html#simple-tags">Simple Tag</a>
 to explicitly mark such resources.
 </p>
+<p>
+A HEAD request can also be used - <a href="#head">see below</a>.
+</p>
 
 <a name="vread"> </a>
 <h3>vread</h3>
@@ -443,6 +447,9 @@ is made for a previous version of a resource, and the server does not support ac
 previous versions (either generally, or for this particular resource), it should
 return a <code>404</code> Not Found error, with an operation outcome explaining that
 history is not supported for the underlying resource type or instance.
+</p>
+<p>
+A HEAD request can also be used - <a href="#head">see below</a>.
 </p>
 
 <a name="update"> </a>
@@ -865,6 +872,9 @@ this is not the main usage.
 </p>
 </blockquote>
 <p>
+A HEAD request can also be used - <a href="#head">see below</a>.
+</p>
+<p>
 Searches are processed as specified for the <a href="search.html">Search handling mechanism</a>.
 </p>
 <p>
@@ -1251,6 +1261,9 @@ history, as do updates to the resources that result from interactions outside th
 RESTful interface.
 </p>
 <p>
+A HEAD request can also be used - <a href="#head">see below</a>.
+</p>
+<p>
 A <code>create</code> interaction is represented in a history interaction in the following way:
 </p>
 <pre class="xml">
@@ -1527,7 +1540,17 @@ Notes:
  <li><b>Todo</b>: decide whether to add ‘supports asynchronous’ flag to the CapabilityStatement resource (and at what granlarity?)</li>
 </ul>
 
+<a name="head"/>
+<h3>Support for HEAD</h3>
 
+<p>
+Anywhere that a GET request can be used, a HEAD request is also allowed. HEAD requests are treated as 
+specified in HTTP: same response as a GET, but with no body.
+</p>
+<p>
+Servers that do not support HEAD MUST respond in accordance with the HTTP specification, 
+for example using a 405 ("method not allowed") or a 501 ("not implemented").
+</p>
 
 <h3>Intermediaries</h3>
 <p>
