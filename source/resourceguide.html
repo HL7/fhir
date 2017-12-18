@@ -155,6 +155,7 @@ the event they are concerned with passes.
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="allergyintolerance.html">AllergyIntolerance</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td>This has a <a href="lifecycle.html#current">Current List</a></td></tr>
 <tr><td><a href="condition.html">Condition</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td>This has a <a href="lifecycle.html#current">Current List</a></td></tr>
+<tr><td><a href="occupationaldata.html">OccupationalData</a></td><td><a href="#ongoing">Ongoing</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="procedure.html">Procedure</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
 <tr><td><a href="familymemberhistory.html">FamilyMemberHistory</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="clinicalimpression.html">ClinicalImpression</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
@@ -333,12 +334,16 @@ patient records across the provision of healthcare (e.g. "master patient indexes
 Person resources are not referred directly from other resources; their use is for
 dedicated person registries.
 </p>
-
+<p>
+The <code>BiologicallyDerivedProduct</code> resource is used to describe a material substance originating from a biological entity intended to be transplanted or infused
+into another (possibly the same) biological entity.
+</p>
 
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="location.html">Location</a></td><td><a href="#unrelated">Unrelated</a></td><td>Role</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a></td></tr>
 <tr><td><a href="substance.html">Substance</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
+<tr><td><a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
 <tr><td><a href="person.html">Person</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
 </table>
 

@@ -20,10 +20,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7116</WindowHeight>
-  <WindowWidth>17820</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowHeight>17040</WindowHeight>
+  <WindowWidth>28040</WindowWidth>
+  <WindowTopX>380</WindowTopX>
+  <WindowTopY>460</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -325,15 +325,15 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R3C1:R105C30"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="111" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="64.8"
-   ss:DefaultRowHeight="25.95">
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="112" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65"
+   ss:DefaultRowHeight="26">
    <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="237"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="70.2"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="73.8"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="70"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74"/>
    <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="58.2"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="91.8"/>
+   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="58"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92"/>
    <Column ss:Index="36" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -4271,6 +4271,24 @@
     <Cell ss:Index="14"><Data ss:Type="String">failed</Data></Cell>
     <Cell ss:Index="19"><Data ss:Type="String">unknown</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s89"><Data ss:Type="String">BiologicallyDerivedProduct.status</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">available</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:Index="18" ss:StyleID="s71"/>
+    <Cell ss:Index="26"><Data ss:Type="String">unavailable</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4288,7 +4306,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>103</TopRowBottomPane>
+   <TopRowBottomPane>104</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4306,8 +4324,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>110</ActiveRow>
+     <ActiveRow>111</ActiveRow>
      <ActiveCol>0</ActiveCol>
+     <RangeSelection>R112</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

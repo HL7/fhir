@@ -105,6 +105,9 @@
 		<translation lang="es">Binario</translation>
 		<translation lang="zh">二进制资源</translation>
 	</item>
+	<item id="BiologicallyDerivedProduct">
+		<translation lang="en">BiologicallyDerivedProduct</translation>
+	</item>
 	<item id="BodyStructure">
 		<translation lang="en">BodyStructure</translation>
 		<translation lang="es">EstructuraDelCuerpo</translation>
