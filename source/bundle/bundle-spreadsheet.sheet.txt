@@ -121,6 +121,12 @@
   Display = DELETE
   Definition = HTTP DELETE
 
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = PATCH
+  Display = PATCH
+  Definition = HTTP PATCH
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
