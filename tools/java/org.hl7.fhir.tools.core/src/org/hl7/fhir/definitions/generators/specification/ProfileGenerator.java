@@ -1082,7 +1082,7 @@ public class ProfileGenerator {
         throw new FHIRException("Type mismatch on common parameter: expected "+sp.getType().toCode()+" but found "+getSearchParamType(spd.getType()).toCode());
       if (!sp.getDescription().contains("["+rn+"]("+rn.toLowerCase()+".html)"))
         sp.setDescription(sp.getDescription()+"* ["+rn+"]("+rn.toLowerCase()+".html): " + spd.getDescription()+"\r\n");
-      if (!Utilities.noString(spd.getExpression())) 
+      if (!Utilities.noString(spd.getExpression()) && !sp.getExpression().contains(spd.getExpression())) 
         sp.setExpression(sp.getExpression()+" | "+spd.getExpression());
       String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
       if (xpath != null) {
