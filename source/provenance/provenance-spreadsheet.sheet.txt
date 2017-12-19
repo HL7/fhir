@@ -321,7 +321,7 @@
  -- Row 5 -----------------------------------
   Name = agent
   Type = reference
-  Path = Provenance.agent.who[x]
+  Path = Provenance.agent.whoReference
 
  -- Row 6 -----------------------------------
   Name = !userid

@@ -199,7 +199,7 @@
   Name = status
   Type = token
   Description = The status of the user session
-  Path = UserSession.status
+  Path = UserSession.status.code
 
  -- Row 5 -----------------------------------
   Name = user
