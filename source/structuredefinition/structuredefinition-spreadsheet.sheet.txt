@@ -706,7 +706,7 @@
   Max = 1
 
  -- Row 10 -----------------------------------
-  Name = questionnaire.return
+  Name = generate.return
   Use = out
   Documentation = The structure definition with a snapshot
   Type = StructureDefinition
