@@ -1,41 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Media xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/media.xsd">
-  <id value="example"/>
-
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Diagram for Patient Henry Levin (MRN 12345):<br/><img alt="diagram" src="#11"/></div>
-  </text>
-
-  <status value="completed"/>
-
-
-
-  <modality>
-    <coding>
-      <system value="http://hl7.org/fhir/media-subtype"/>
-      <code value="diagram"/>
-    </coding>
-  </modality>
-
-  <subject>
-    <reference value="Patient/xcda"/>
-  </subject>
-  <operator>
-    <reference value="Practitioner/xcda-author"/>
-  </operator>
-
-  <device>
-    <display value="Acme Camera"/>
-  </device>
-  <height value="145"/>
-  <width value="126"/>
-  <!-- frames - 1 is the default value, but it can still be specified -->
-  <frames value="1"/>
-
-  <content id="a1">
-    <contentType value="image/gif"/>
-    <data value="R0lGODlhfgCRAPcAAAAAAIAAAACAAICAAAAAgIAA
+<Media xmlns="http://hl7.org/fhir">
+	<id value="example"/>
+	<status value="completed"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/CodeSystem/media-category"/>
+			<code value="image"/>
+			<display value="Image"/>
+		</coding>
+	</category>
+	<modality>
+		<coding>
+			<system value="http://hl7.org/fhir/media-subtype"/>
+			<code value="diagram"/>
+		</coding>
+	</modality>
+	<subject>
+		<reference value="Patient/xcda"/>
+	</subject>
+	<createdDateTime value="2017-12-17"/>
+	<issued value="2017-12-17T14:56:18Z"/>
+	<operator>
+		<reference value="Practitioner/xcda-author"/>
+	</operator>
+	<device>
+		<display value="Acme Camera"/>
+	</device>
+	<height value="145"/>
+	<width value="126"/>
+	<!-- frames - 1 is the default value, but it can still be specified -->
+	<frames value="1"/>
+	<content id="a1">
+		<contentType value="image/gif"/>
+		<data value="R0lGODlhfgCRAPcAAAAAAIAAAACAAICAAAAAgIAA
 	  gACAgICAgMDAwP8AAAD/AP//AAAA//8A/wD/////
 	  /wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 	  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -128,7 +125,7 @@
 	  FUlYPVl01HrsI8JYPSdpoCXhEG2YUVzrqT2mzpkS
 	  KVRAG955u3SJdhITZ766KosyNjQOnZAt6F3d7oQJ
 	  +inaJNPrHUXt3fCOt7ylSe962/ve+M63vvkYEAA7"/>
-    <!-- the date this image was created -->
-    <creation value="2009-09-03"/>
-  </content>
+		<!-- the date this image was created -->
+		<creation value="2009-09-03"/>
+	</content>
 </Media>

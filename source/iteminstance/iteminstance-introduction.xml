@@ -1,12 +1,35 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="bnc"></a>
+<a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p>
+<p><strong>
 This resource has not yet undergone proper review by the appropriate Workgroups. At this time, is  considered only as a draft resource proposal for potential submission
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+</strong></p>
+<p>
+Different resources have different ways to handle “physical instances”
 </p>
+<ul>
+	<li>Lack of clear support and guidance for instance has caused traceability to be a problem in implementations: Standards-guided implementations do not consider “instances” or do so inconsistently.</li>
+	<li>In border cases (medication containing devices), this can cause issues.
+</li>
+	<li>Inconsistency can also require extensions and further divergence. E.g. for adopting the EU Serialization directive, need to add “serial number” to the medication. What and where is that extension?
+</li>
+</ul>
+
+ <p>
+ If the resources that represent physical entities were split into a "kind" resource and an "instance" resource, this resource would represent the instance that would be referenced by the "kind" resource. For example,  Device would be split into Device ( representing the kind or type of Device ) + ItemInstance ( representing the instance of  a Device ).
+
+</p> 
+<p>Resources impacted:</p>
+<ul>
+	<li>Substance</li>
+	<li>Medication</li>
+	<li>Device</li>
+</ul>
+
+
 
 </div>
 

@@ -1,24 +1,50 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
-<a name="bnc"></a>
-<h2>Scope and Usage</h2>
-<p>
-Todo
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+	<div>
+		<a name="bnc"> </a>
+		<h2>Scope and Usage</h2>
+		
+		<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups. </strong>
+		<p>
+A material substance originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity.
 </p>
-</div>
+		<p>
+Examples include:
+</p>
+		<ul>
+			<li>hematopoietic stem cells (bone marrow, peripheral blood, or cord blood extraction)
+</li>
+			<li>blood (whole, extracted cells, plasma, etc)
+</li>
+			<li>organs
+</li>
+			<li>tissues (porcine valves, skin, bovine cardiac tissue, etc.)
+</li>
+			<li>manipulated cells (e.g. CAR T-cells)
 
-<!-- (recommended): 
+</li>
+		</ul>
+		<p>
+The workflow using this resource (e.g., request, administration) should be discussed and implemented in a consistent way as other similar resources are handled (e.g., device, medication)
+</p>
+	</div>
+
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
-</p>
-</div>
--->
+This resource relates to these other resource:</p>
 
-<!-- (optional):
+<ul>
+	<li>ProcedureRequest (for collection)</li>
+	<li>Patient ("receiver" and "source")</li>
+	<li>Practitioner (who collected product)</li>
+	<li>Substance (product processing)</li>
+	<li>DiagnosticReport (containing HLA-typing)</li>
+	<li>BiologicallyDerivedProduct ("parent" product for multi-day collections)</li>
+	<li>Procedure (one for collection and one for transplantation, will need to add BiologicallyDerivedProduct to the "usedReference")</li>
+</ul>
+</div>
+
+	<!-- (optional):
 <div>
 <h2>Background and Context</h2>
 <p>
@@ -26,5 +52,4 @@ Provides additional detail on exactly how the resource is to be used
 </p>
 </div>
 -->
-
 </div>
