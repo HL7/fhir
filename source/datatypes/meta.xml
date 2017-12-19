@@ -16,7 +16,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>14140</WindowHeight>
+  <WindowHeight>14010</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -534,27 +534,27 @@
   </Names>
   <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="97" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s62" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="227.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77.5"/>
-   <Column ss:StyleID="s62" ss:Width="29.5"/>
-   <Column ss:StyleID="s62" ss:Width="35"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="29"/>
+   <Column ss:StyleID="s63" ss:Width="227.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="77.25"/>
+   <Column ss:StyleID="s62" ss:Width="29.25"/>
+   <Column ss:StyleID="s62" ss:Width="35.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="27"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="107"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="81"/>
-   <Column ss:StyleID="s62" ss:Width="51.5" ss:Span="1"/>
-   <Column ss:Index="12" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="80.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="120.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.5"/>
+   <Column ss:StyleID="s62" ss:Width="51.75" ss:Span="1"/>
+   <Column ss:Index="12" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="80.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="120.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="161.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="114"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="120"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="135"/>
-   <Column ss:Index="20" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="104"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="50.5"/>
+   <Column ss:Index="20" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="104.25"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="50.25"/>
    <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="66"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s64">
     <Cell ss:StyleID="s65"><Data ss:Type="String">Element</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -745,6 +745,37 @@
     <Cell><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell ss:StyleID="s82"><Data ss:Type="String">Meta.source</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">uri</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="String">Identifies where the resource comes from</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">In the provenance resource, this corresponds to Provenance.entity.what[x]. The exact use of the source (and the implied Provenance.entity.role) is left to implementer discretion. Only one nominated source is allowed; for additional provenance details, a full Provenance resource should be used</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s82"><Data ss:Type="String">Meta.profile</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -775,37 +806,6 @@
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">n</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s82"><Data ss:Type="String">Meta.source</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">uri</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s74"><Data ss:Type="String">Identifies where the resource comes from</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Identifies the system that is the source of the information in this resource</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">Many resources will have multiple systems that contribute to it's source over multiple versions. The choice of source in such cases is left to the discretion of the implementing systems</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s82"><Data ss:Type="String">Meta.security</Data><NamedCell
@@ -3116,7 +3116,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3124,14 +3124,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3148,12 +3149,12 @@
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s94" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:StyleID="s94" ss:AutoFitWidth="0" ss:Width="116"/>
-   <Column ss:StyleID="s94" ss:Width="56"/>
+   <Column ss:Index="2" ss:StyleID="s94" ss:AutoFitWidth="0" ss:Width="116.25"/>
+   <Column ss:StyleID="s94" ss:Width="56.25"/>
    <Column ss:StyleID="s94" ss:Width="165"/>
-   <Column ss:StyleID="s94" ss:AutoFitWidth="0" ss:Width="204.5"/>
-   <Column ss:StyleID="s94" ss:AutoFitWidth="0" ss:Width="198.5"/>
-   <Column ss:StyleID="s94" ss:AutoFitWidth="0" ss:Width="188.5"/>
+   <Column ss:StyleID="s94" ss:AutoFitWidth="0" ss:Width="204.75"/>
+   <Column ss:StyleID="s94" ss:AutoFitWidth="0" ss:Width="198.75"/>
+   <Column ss:StyleID="s94" ss:AutoFitWidth="0" ss:Width="188.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75" ss:StyleID="s64">
     <Cell ss:StyleID="s95"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -3675,18 +3676,18 @@
   </Names>
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s105" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s105" ss:Width="114.5"/>
-   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="275"/>
+   <Column ss:StyleID="s105" ss:Width="114.75"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Column ss:StyleID="s105" ss:Width="51"/>
    <Column ss:StyleID="s105" ss:Width="45"/>
-   <Column ss:StyleID="s105" ss:Width="146.5"/>
-   <Column ss:StyleID="s105" ss:Width="173"/>
-   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="98"/>
-   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="89"/>
+   <Column ss:StyleID="s105" ss:Width="146.25"/>
+   <Column ss:StyleID="s105" ss:Width="173.25"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="98.25"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="89.25"/>
    <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="114"/>
-   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="173"/>
-   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="165.5" ss:Span="1"/>
-   <Column ss:Index="13" ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="107"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="173.25"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="165.75" ss:Span="1"/>
+   <Column ss:Index="13" ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="107.25"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s95"><Data ss:Type="String">Binding Name</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
