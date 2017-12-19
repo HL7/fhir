@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="notes"> </a>
+<a name="notes"></a>
 
 <h2>
 Notes:
@@ -101,7 +101,7 @@ as expert systems provide improved narrative reporting in high volume reports, s
 data to areas that have classically been narrative based, and the nature of the imaging and laboratory procedures are
 merging. As a consequence the patterns described above are only examples of how a diagnostic report can be used.
 </p>
-	<a name="genetics"> </a>
+	<a name="genetics"></a>
 	<h3>Genetic Observations</h3>
 	<p>Genetic reporting makes heavy use of the DiagnosticReport and Observation resources.  A set of profiles have been defined for representing genetic results that can be found <a href="observation-genetic.html">here</a>.</p>
   <blockquote class="stu-note">

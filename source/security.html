@@ -45,7 +45,7 @@ list</a> for prompt consideration.
 Implementers should track the developing IHE <a href="http://wiki.ihe.net/index.php/Internet_User_Authorization">IUA Profile</a> for additional security considerations.
 </p>
 
-<a name="general"> </a>
+<a name="general"></a>
 <h2>General Considerations</h2>
 <p>
 A production FHIR system will need some kind of security sub-system that administers 
@@ -76,7 +76,7 @@ or either the client or server interacts with the security system independently.
 differently, but the same logical layout applies. The FHIR specification assumes that a security 
 system exists, and that it may be deployed in front of or behind the FHIR API. 
 </p>
-<a name="access-control"> </a>
+<a name="access-control"></a>
 <p>
 The security system includes the following subsystems:
 </p>
@@ -113,7 +113,7 @@ some other kind of profiled REST interface.
 -->
 
 
-<a name="http"> </a>
+<a name="http"></a>
 <h2>
 Communications
 </h2>
@@ -135,7 +135,7 @@ To support browser-based client applications, servers SHOULD
 implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the <a href="http.html">REST operations</a>.  
 </p>
 
-<a name="authentication"> </a>
+<a name="authentication"></a>
 <h2>Authentication</h2>
 <p>
 Other than testing systems, FHIR servers should authenticate the clients. 
@@ -154,7 +154,7 @@ the development of interoperable implementations of these specifications by othe
 </p>
 <!-- note about using OAuth and delegating user authority -->
 
-<a name="binding"> </a>
+<a name="binding"></a>
 <h2>
 Authorization/Access Control
 </h2>
@@ -228,7 +228,7 @@ They include the following:
 <li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) (<a href="operationoutcome-example-break-the-glass.html">example</a>). </li>
 </ul>
 
-<a name="AccessDenied"> </a>
+<a name="AccessDenied"></a>
 <h3>
 Access Denied Response Handling
 </h3>
@@ -252,7 +252,7 @@ Typical methods of handling Access Denied used are:
 <b>Return a 401 “Unauthorized”</b> – This communicates that user authentication was attempted and failed to be authenticated. 
 </p>
 
-<a name="audit"> </a>
+<a name="audit"></a>
 <h2>Audit Logging</h2>
 <p>
 FHIR provides an <a href="auditevent.html">AuditEvent</a> resource suitable for use by 
@@ -275,7 +275,7 @@ the logs by careful avoidance of search parameters (e.g. by using POST), the log
 still contain a rich set of information about the clinical records.  
 </p>
 
-<a name="signatures"> </a>
+<a name="signatures"></a>
 <h2>
 Digital Signatures
 </h2>
@@ -296,7 +296,7 @@ the <a href="http://wiki.ihe.net/index.php?title=Document_Digital_Signature">IHE
 Neither of these definitions prohibits the use of other ways of using digital signatures.
 </p>
 <blockquote class="stu-note">
-<a name="dstu"> </a>
+<a name="dstu"></a>
 <p>
 <b>STU Note:</b> the use of signatures with RESTful interfaces is a poorly understood area, and we would welcome reports of implementation experience. 
 See <a href="http://wiki.hl7.org/index.php?title=FHIR_Digital_Signature_Working_Page">discussion on use of Digital Signature in FHIR</a>
@@ -306,7 +306,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </p>
 </blockquote>
 
-<a name="attachments"> </a>
+<a name="attachments"></a>
 <h2>Attachments</h2>
 <p>
 Several FHIR resources include attachments. Attachments can either be references to content found elsewhere or included inline encoded in base64.
@@ -314,14 +314,14 @@ Attachments represent security risks in a way that FHIR resources do not, since 
 always use caution when handling resources.
 </p>
 
-<a name="labels"> </a>
+<a name="labels"></a>
 <h2>Security Labels</h2>
 
 <p>
 See <a href="security-labels.html">Security Labels</a>.
 </p>
 
-<a name="narrative"> </a>
+<a name="narrative"></a>
 <h2>Narrative</h2>
 
 <p>
@@ -342,7 +342,7 @@ However, care is still needed when displaying the narrative:
 Also note that the inclusion of an external reference to an image can allow the server that hosts the image to track 
 when the resource is displayed. This may be a feature or a problem depending on the context.
 </p>
-<a name="stylesheets"> </a>
+<a name="stylesheets"></a>
 <p>
 In addition to narrative, <a href="documents.html">Documents</a> may also contain 
 stylesheets. Unlike with CDA, the stylesheets are simple CSS stylesheets, not 

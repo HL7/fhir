@@ -40,7 +40,7 @@ contexts of use. Typically, these adaptations specify:
 Note that because of the nature of the healthcare ecosystem, there may be multiple
 overlapping sets of adaptations - by healthcare domain, by country, by institution, and/or by vendor/implementation.
 </p>
-<a name="glossary"> </a>
+<a name="glossary"></a>
 <h3>Glossary</h3>
 <p>
 FHIR defines a cascade of artifacts for this purpose:
@@ -73,7 +73,7 @@ The term "profile" is a general one that is used about either a "package" or an 
 or any of the conformance resources found in one.
 </p>
 
-<a name="conf-res"> </a>
+<a name="conf-res"></a>
 <h3>Conformance Resources</h3>
 
 <p>
@@ -102,7 +102,7 @@ following the basic concepts for extension that are described in <a href="extens
 For implementer convenience, the specification itself publishes its base definitions using these same resources.
 </p>
 
-<a name="profile-uses"> </a>
+<a name="profile-uses"></a>
 <h3>Two uses of Profiles</h3>
 <p>
 The <a href="capabilitystatement.html">CapabilityStatement</a> resource describes two different uses for profiles on resources:
@@ -167,7 +167,7 @@ to conform to the declared profiles SHOULD be published in this form.
 </p>
 
 <blockquote class="stu-note">
-<a name="dstu"> </a>
+<a name="dstu"></a>
 <p>
 <b>STU Note:</b> there are many uninvestigated issues associated with this use of profiles.
 HL7 is actively seeking feedback from users who experiment in this area, and users
@@ -178,7 +178,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </p>
 </blockquote>
 
-<a name="api"> </a>
+<a name="api"></a>
 <h3>Extending and Restricting the API</h3>
 <p>
 A CapabilityStatement resource lists the REST interactions (read, update, search, etc.) that a server provides or that a client uses, along with
@@ -210,7 +210,7 @@ the appointment resources using a vCard based format. vCard defines its own mime
 safely be used in addition to those defined in this specification.
 </p>
 
-<a name="resources"> </a>
+<a name="resources"></a>
 <h3>Extending and Restricting Resources</h3>
 
 <p>
@@ -219,7 +219,7 @@ Extending and restricting resources (collectively known as 'profiling a resource
 how the elements in a resource are used, and where extensions are used in a resource.
 </p>
 
-<a name="cardinality"> </a>
+<a name="cardinality"></a>
 <h3>Changing Cardinality</h3>
 
 <p>
@@ -328,7 +328,7 @@ are frequently re-used in multiple places within a single definition, and this r
 is easier with a flat structure.
 </p>
 
-<a name="snapshot"> </a>
+<a name="snapshot"></a>
 <h3>Differential vs Snapshot</h3>
 
 <p>
@@ -373,7 +373,7 @@ the implementation tooling. StructureDefinition resources used in operational
 systems should always have the snapshot view populated.
 </p>
 
-<a name="slicing"> </a>
+<a name="slicing"></a>
 <h3>Slicing</h3>
 <p>
 One common feature of constraining Structure Definitions is to take an element that may occur more than once (e.g. in a list),
@@ -431,7 +431,7 @@ in the target resource can be used to determine which slice that target refers t
 This element is called the "discriminator".
 </p>
 
-<a name="discriminator"> </a>
+<a name="discriminator"></a>
 <h3>Discriminator</h3>
 <p>
 In the general case, systems processing resources using a structure definition
@@ -557,7 +557,7 @@ The <a href="profiling-examples.html">examples of slicing and discriminators</a>
 Note that extensions are always sliced by the <code>url</code> element, though they may be resliced on additional elements where required.
 </p>
 
-<a name="default-slice"> </a>
+<a name="default-slice"></a>
 <h3>Default Slice</h3>
 <p>
 There is a special slice, called the default slice. This allows
@@ -579,7 +579,7 @@ default slice makes no rules about the identifer.system (which is the slicing di
 but fixes the cardinality of type to 1..1 in the @default slice.
 </p>
 
-<a name="reslicing"> </a>
+<a name="reslicing"></a>
 <h3>Re-profiling and Re-slicing</h3>
 <p>
 Profiles can be based on other profiles, and apply further constraints to those already
@@ -633,7 +633,7 @@ profile C defines the slice "example/example1", then this is deemed to be "examp
 This pattern applies to @default too: @default/@default.
 </p>
 
-<a name="extensions"> </a>
+<a name="extensions"></a>
 <h3>Extension Definitions</h3>
 <p>
 An extension definition defines the URL that identifies the extension
@@ -671,7 +671,7 @@ of an extension should usually be 0.
 </p>
 
 
-<a name="binding"> </a>
+<a name="binding"></a>
 <h3>Binding Definitions</h3>
 
 <p>
@@ -692,7 +692,7 @@ Bindings have a property that defines how the strongly implementations are requi
 set of codes. See <a href="terminologies.html#strength">Binding Strength</a>.
 </p>
 
-<a name="tx"> </a>
+<a name="tx"></a>
 <h3>Mixing Custom and Standard Terminologies</h3>
 <p>
 <a href="codesystem.html">CodeSystem</a> resources can be used to carry definitions of local
@@ -713,7 +713,7 @@ specification, following these rules:
 Note that local codes are not as interoperable as standard published code systems (e.g. LOINC, SNOMED CT, so it is preferable to use standard code systems.
 </p>
 
-<a name="binding-strength"> </a>
+<a name="binding-strength"></a>
 <h3>Changing Binding Strength in Profiles</h3>
 
 <p>
@@ -733,8 +733,8 @@ Note that a constraining profile may leave the binding strength the same and cha
 constraining profile does, it cannot make codes valid that are invalid in the base structure/profile.
 </p>
 
-<a name="mustSupport"> </a>
-<a name="mustsupport"> </a>
+<a name="mustSupport"></a>
+<a name="mustsupport"></a>
 <h3>Must Support</h3>
 <p>
 One property that can be declared on profiles that is not declared on the resource or data type definitions is "Must Support".
@@ -765,7 +765,7 @@ the important elements to make use of the resource), nor is it automatically mus
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
 
-<a name="search"> </a>
+<a name="search"></a>
 <h3>Search Criteria</h3>
 <p>
 The final thing implementations can do is to define search criteria in addition to those defined in the specification itself.
@@ -781,7 +781,7 @@ Search criteria fall into one of four categories:
 Additional Search Parameters can be defined using the <a href="searchparameter.html">SearchParameter</a> resource.
 </p>
 
-<a name="presentation"> </a>
+<a name="presentation"></a>
 <h3>Presenting Profiles</h3>
 
 <p>
@@ -810,7 +810,7 @@ When this specification describes a profile, the profile is presented in 5 diffe
 <h4>JSON Template</h4>
 <p>Not one yet</p>
 
-<a name="mixing"> </a>
+<a name="mixing"></a>
 <h3>Supporting Multiple Profiles</h3>
 
 <p>

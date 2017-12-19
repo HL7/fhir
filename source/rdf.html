@@ -18,7 +18,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <%fmtheader rdf%>
 
-<a name="root"> </a>
+<a name="root"></a>
 <h2>Resource Description Framework (RDF) Representation </h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
@@ -54,7 +54,7 @@ This page describes:
  <li><a href="#jsonld">Experimental JSON-LD format</a></li>
 </ul>
 
-<a name="instance"> </a>
+<a name="instance"></a>
 <h3>Turtle Format for Resources</h3>
 <p>
 A FHIR resource is represented by a series of RDF triples. The Turtle
@@ -104,7 +104,7 @@ Using this format:
  <li>The MIME-type for this format is <code>text/turtle</code>. Other MIME types: <code>application/json-ld</code> for the json-ld variant, and <code>text/shex</code> for the SHEX (RDF schemas)</li>
 </ul>
 
-<a name="resource"> </a>
+<a name="resource"></a>
 
 <h4>Representing resources</h4>
 <p>
@@ -137,7 +137,7 @@ Lists are never sparse; it is an error if there are missing items in the repeat 
 Note: this means that the rdf:list structure is not used.
 </p>
 
-<a name="primitive"> </a>
+<a name="primitive"></a>
 
 <h4>Representing Primitive Elements</h4>
 <p>
@@ -171,7 +171,7 @@ Note that the correct schema type for a date/dateTime must be determined by insp
 The fhir:value property can never be empty. Either the relationship is absent, or it is present with at least one character of content. XHTML is represented as an escaped xs:string.
 </p>
 
-<a name="reference"> </a>
+<a name="reference"></a>
 <h4>Representing References</h4>
 <p>
 A <a href="references.html#Reference">Reference</a> element is representing using the same
@@ -208,7 +208,7 @@ can be injected by a post-processor that knows how to
 convert the raw references into RDF-suitable references.
 </p>
 
-<a name="concept"> </a>
+<a name="concept"></a>
 <h4>Representing Concepts</h4>
 <p>
 The same logic applies to the <a href="datatypes.html#Coding">Coding</a> data type.
@@ -262,7 +262,7 @@ but many don't. Again, these assertions can be made by
 the serialiser, or injected by a post-processor.
 </p>
 
-<a name="schema"> </a>
+<a name="schema"></a>
 <h4>Schema</h4>
 
 <p>
@@ -270,8 +270,8 @@ FHIR uses ShEx for representing the turtle schema.
 See <a href="fhir.shex">fhir.shex</a> for definitions.
 </p>
 
-<a name="json-ld"> </a>
-<a name="jsonld"> </a>
+<a name="json-ld"></a>
+<a name="jsonld"></a>
 <h4>Experimental JSON-LD format</h4>
 <p>
 As a by-product of the RDF format, a JSON-LD format is defined to represent exactly the
@@ -300,7 +300,7 @@ about the JSON-LD format:
    be used.
  </li>
 </ul>
-<a name="dstu0"> </a>
+<a name="dstu0"></a>
 <blockquote class="stu-note">
   <p>
     <b>STU Note:</b>
@@ -317,7 +317,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </p>
 </blockquote>
 
-<a name="class"> </a>
+<a name="class"></a>
 <h3>RDF Representation of FHIR</h3>
 <p>
 In addition to the basic representation of FHIR resources in
@@ -334,7 +334,7 @@ and definitions is also published, for the following purposes:
 The RDF definitions are published as a series of turtle files: <a href="rim.ttl">RIM</a> and <a href="fhir.ttl">FHIR</a>. Note: these are out of sync with the serialization above; this will be fixed in the lead up to the Montreal connectathon.
 </p>
 
-<a name="api"> </a>
+<a name="api"></a>
 <h3>Using RDF with the REST API</h3>
 <p>
 TODO

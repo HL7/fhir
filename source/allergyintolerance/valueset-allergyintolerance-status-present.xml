@@ -39,7 +39,7 @@
           
           <td>unconfirmed
             
-            <a name="unconfirmed"> </a>
+            <a name="unconfirmed"></a>
           
           </td>
           
@@ -53,7 +53,7 @@
           
           <td>confirmed
             
-            <a name="confirmed"> </a>
+            <a name="confirmed"></a>
           
           </td>
           
@@ -67,7 +67,7 @@
           
           <td>resolved
             
-            <a name="resolved"> </a>
+            <a name="resolved"></a>
           
           </td>
           

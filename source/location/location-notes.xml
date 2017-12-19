@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
-<a name="notes"> </a>
+<a name="notes"></a>
 <h2>Notes</h2>
 <ul>
 <li>Multiple Organizations or Practitioners may provide services at a Location. These references are not kept in Location, but can be found
@@ -12,7 +12,7 @@ using the Location.partOf element.</li>
 see <a href="http://www.opengeospatial.org/standards/kml">Google/OGS's KML</a>.</li>
 </ul>
 
-<a name="loc-mode"> </a>
+<a name="loc-mode"></a>
 <h3>Location Mode</h3>
 <p>The Location.mode element can be used to indicate whether a Location resource represents a specific (potentially identifiable) Location ('instance'), 
 or a class of Locations ('kind'). Especially Resources capturing orders, resource scheduling, plans and definitions may refer to Locations in 'kind' mode. 
@@ -35,7 +35,7 @@ Some of Location's data elements are only relevant when mode is 'instance' and s
 <li>Location.managingOrganization</li>
 </ul>
 
-<a name="example"> </a>
+<a name="example"></a>
 	<h2>Example Location Hierarchy</h2>
 	<p>
 		An example location hierarchy should help give some guidance as to one example
@@ -75,7 +75,7 @@ Mobile Services (kind)
 		<i>Note: Wards/departments are not part of this structure - these would form part of the Organizational Hierarchy.</i>
 	</p>
   
-<a name="positional"> </a>
+<a name="positional"></a>
     <h3>Positional Searching</h3>
     <p>
         Searching for locations often require that a facility is within a specified distance of a particular point.

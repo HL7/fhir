@@ -50,7 +50,7 @@ table th {
       <li><a href="#history">Appendix 1: From DSTU2 Genomics to STU3</a></li>
     </ol>
 
-<a name="background"> </a>
+<a name="background"></a>
   <h2>Background</h2>
   <p>
     Rapid advances in sequencing technologies, clinical genetics tests for whole
@@ -90,7 +90,7 @@ table th {
     Extending Observations rather than creating a new, dedicated FHIR genetics data resource is consistent with the FHIR community mandate because it only adds new resources to an existing resource library when there is a compelling case to do so. We provide the case to add a Sequence resource in this specification.
   </p>
 
-<a name="overview"> </a>
+<a name="overview"></a>
   <h2>Overview</h2>
   <p>
     STU3 moves beyond FHIR DSTU2 Standard Genetics profile on Observation allowing increased granularity and less ambiguity by creating a new resource to be called <strong>Sequence</strong>. This resource will be used to hold clinically relevant sequence data in a manner that is both efficient and versatile integrating new and as yet undefined types of genomic and other -omics data that will soon be commonly entered into health records for clinical use.   Sequence will be leveraged by other FHIR resources, including Observation.  This is consistent with how all FHIR resources are designed and used.
@@ -118,7 +118,7 @@ table th {
     These tools are simple to implement, will optimize payload sizes, and help developers avoid redundant retrieval of data.  <a href="#history">Appendix 1</a> of this document shows how DSTU 2.0 can be mapped to the new additions to the resource.
   </p>
 
-<a name="sequence"> </a>
+<a name="sequence"></a>
   <h2>Sequence Resource</h2>
 
   <h3>Structure Diagram</h3>
@@ -260,7 +260,7 @@ Source: <a href="sequence-complex-variant.xml.html">XML</a>, <a href="sequence-c
 </p>
 
 
-<a name="observation-genetics"> </a>
+<a name="observation-genetics"></a>
 <h2>Observation-genetics Profile</h2>
 
 <h3>Structure Diagram</h3>
@@ -364,7 +364,7 @@ Source: <a href="observation-example-genetics-3.xml.html">XML</a>, <a href="obse
 </ul>
 </p>
 
-<a name="diagnosticreport-genetics"> </a>
+<a name="diagnosticreport-genetics"></a>
 <h2>DiagnosticReport-genetics Profile</h2>
 
 <h3>Structure Diagram</h3>
@@ -428,7 +428,7 @@ Source: <a href="diagnosticreport-genetics-example-2-familyhistory.xml.html">XML
 Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.html">XML</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.json.html">JSON</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.ttl.html">Turtle</a>.
 </p>
 
-<a name="servicerequest-genetics"> </a>
+<a name="servicerequest-genetics"></a>
 <h2>ServiceRequest-genetics profile</h2>
 
 <h3>Structure Diagram</h3>
@@ -449,7 +449,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   <a href="servicerequest-genetics-example-1.html">Here</a> is a diagnostic request for testing 185delAG variant. The mother of the patient received results from a mutation panel (eg. MyRisk from Myriad) and she has a BRCA1 185delAG mutation. The clinician the would like to request to test the patient only for an 185delAG mutation. In this case, the diagnostic request for the patient will specify the sequence variant - 185delAG.
 </p>
 
-<a name="hla"> </a>
+<a name="hla"></a>
 <h2>HLA genotyping results Profile</h2>
 <p>
   Human leukocyte antigen (HLA) genotyping is fundamental for research and clinical practice in immunogenetics and histocompatibility. Pointers to external locations refer to registered methods, raw NGS reads, and reference standards can be conveyed in this profile. Information about allele assignment including ambiguous results and the allele database used for assignments is stored in extensions.
@@ -664,7 +664,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
 
 <img src="genomics-image25.png" alt="Phasing" style="width:624px;height:396px;"/>
 
-<a name="resource_vs_profiles"> </a>
+<a name="resource_vs_profiles"></a>
 <h2>Relationship among Sequence resource and genetics profiles</h2>
 
 <img src="genomics-image20.png" alt="" style="width:624.00px; height:428.00px;"/>
@@ -705,7 +705,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   Sequence is used for raw sequencing data while genetic-profile-based Observation resource is used for reporting interpretative genetic information (eg. DNA/amino acid variant detected in the patient). Although both Sequence and Observation-genetics profiles contain variant info, they are used differently: Sequence.variant is used for encoding the sequence block; the Observation-genetics profile is mainly used for a variants test result or interpretations of raw data in Sequence resource.
 </p>
 
-<a name="PGx-example"> </a>
+<a name="PGx-example"></a>
 <h3>Usage example</h3>
 
 <p>
@@ -762,7 +762,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
 
 <img src="genomics-image23.png" alt="" style="width: 624.00px; height: 428.00px;"/>
 
-<a name="dam"> </a>
+<a name="dam"></a>
 <h2>HL7 Domain Analysis Use Cases</h2>
 
 <p>
@@ -929,7 +929,7 @@ GET /Observation?
 
 <img alt="" src="genomics-image07.png" style="width: 624.00px; height: 364.00px;"/>
 
-<a name="other_examples"> </a>
+<a name="other_examples"></a>
 <h2>Other Genomics Use Cases</h2>
 
 <p>
@@ -1219,7 +1219,7 @@ Get /Specimen?
 
 <h3>Sequence Test Metrics</h3>
 
-<a name="apps"> </a>
+<a name="apps"></a>
 <h2>Clinical Genomic Apps</h2>
 
 <p>
@@ -1240,7 +1240,7 @@ Get /Specimen?
 
 <img alt="" src="genomics-image31.png" style="width: 542.46px; height: 312.63px;"/>
 
-<a name="history"> </a>
+<a name="history"></a>
 <h2>Appendix 1: From DSTU2 Genomics to STU3</h2>
 
 <p>

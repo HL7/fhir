@@ -3,7 +3,7 @@
 		<h2>
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
-		<a name="dstu"> </a>
+		<a name="dstu"></a>
 		<blockquote class="stu-note">
 			<p>
 				<b>STU Note:</b> The Orders and Observations workgroups wants to make the balloter aware that there are several approved change requests for this profile, but they have not been applied in time for this ballot.  
@@ -13,7 +13,7 @@
 		<p>These requirements were originally developed, balloted, and published in FHIR DSTU2 as part of the ONC sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project and were subsequently updated to define the minimum mandatory conformance requirements needed for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations.</p>
 	</div>
 	<div>
-		<a name="bnc"> </a>
+		<a name="bnc"></a>
 		<h2>Scope and Usage</h2>
 		<p>
 			<strong>Example Usage Scenarios:</strong>
@@ -47,7 +47,7 @@
 		</ol>
 	</div>
 	<div>
-		<a name="vitals-table"> </a>
+		<a name="vitals-table"></a>
 		<h2>Formal View of Profile Content</h2>
 		<p>
 			<a href="vitalsigns.html">Vital Signs Profile</a> : Link to the formal  definition views for the vital signs listed in this table.
@@ -253,7 +253,7 @@
 		<p/>
 	</div>
 	<div>
-		<a name="Quick_Start"> </a>
+		<a name="Quick_Start"></a>
 		<h2>Quick Start</h2>
 		<p>Below is an overview of required search and read operations</p>
 		<p>

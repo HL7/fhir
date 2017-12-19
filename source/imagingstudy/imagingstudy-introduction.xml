@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"> </a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
 ImagingStudy provides information on a DICOM imaging study, and the series and imaging objects in 
@@ -32,7 +32,7 @@ will reference a particular DICOM study, but this is not required.
 </div>
 
 <div>
-<a name="bnr"> </a>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p> 
 ImagingStudy is used for DICOM imaging and associated information. Use <a href="media.html">Media</a> to 

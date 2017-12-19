@@ -16,16 +16,16 @@ in order to support consistent definitions for schema and UML derived code.
 <div class="col-12">
 <table class="cols"><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a> &amp; <a _target="blank" href="[%wg cqi%]">[%wgt cqi%]</a> </td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
-<a name="root"> </a>
+<a name="root"></a>
 <h2>Clinical Reasoning</h2>
 
-<a name="intro"> </a>
+<a name="intro"></a>
 <h3>Introduction</h3>
 <p>The Clinical Reasoning module provides resources and operations to enable the representation, distribution, and evaluation of clinical knowledge artifacts such as clinical decision support rules, quality measures, order sets, and protocols. In addition, the module describes how expression languages can be used throughout the specification to provide dynamic capabilities.</p>
 
 <p>Clinical Reasoning involves the ability to represent and encode clinical knowledge in a very broad sense so that it can be integrated into clinical systems. This encoding may be as simple as controlling whether or not a particular section of an order set appears based on the conditions that a patient has, or it may be as complex as representing the care pathway for a patient with multiple conditions.</p>
 
-<a name="scope"> </a>
+<a name="scope"></a>
 <h4>Scope</h4>
 <p>The Clinical Reasoning module focuses on enabling two primary use cases:</p>
 
@@ -64,7 +64,7 @@ in order to support consistent definitions for schema and UML derived code.
 	</tbody>
 </table>
 
-<a name="audience"> </a>
+<a name="audience"></a>
 <h4>Audience</h4>
 <p>From the perspective of a Knowledge Author, this module describes an approach to representing knowledge artifacts within FHIR.</p>
 
@@ -74,10 +74,10 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>And finally, from the perspective of a Knowledge Evaluation Service Consumer, this module defines the expected available operations and behavior of a knowledge evaluation service.</p>
 
-<a name="index"> </a>
+<a name="index"></a>
 <h3>Index</h3>
 
-<a name="index-resources"> </a>
+<a name="index-resources"></a>
 <h4>Resources</h4>
 
 <table class="grid">
@@ -97,7 +97,7 @@ in order to support consistent definitions for schema and UML derived code.
 	</tbody>
 </table>
 
-<a name="index-extensions"> </a>
+<a name="index-extensions"></a>
 <h4>Extensions</h4>
 
 <table class="grid">
@@ -116,7 +116,7 @@ in order to support consistent definitions for schema and UML derived code.
 	</tbody>
 </table>
 
-<a name="index-profiles"> </a>
+<a name="index-profiles"></a>
 <h4>Profiles</h4>
 
 <table class="grid">
@@ -131,7 +131,7 @@ in order to support consistent definitions for schema and UML derived code.
 	</tbody>
 </table>
 
-<a name="index-services"> </a>
+<a name="index-services"></a>
 <h4>Services</h4>
 
 <table class="grid">
@@ -150,7 +150,7 @@ in order to support consistent definitions for schema and UML derived code.
   </tbody>
 </table>
 
-<a name="secpriv"> </a>
+<a name="secpriv"></a>
 <h3>Security and Privacy</h3>
 
 <p>Because Knowledge Artifacts are typically patient-independent, many of the resources in the clinical reasoning module have no patient security and privacy concerns beyond the normal sensitivity that should be paid in any electronic healthcare system environment. However, the evaluation use case, including decision support guidance request/response, as well as quality measure evaluation have significant patient security and privacy concerns.</p>
@@ -165,7 +165,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.</p>
 
-<a name="uses"> </a>
+<a name="uses"></a>
 <h3>Common use Cases</h3>
 
 <table class="grid">
@@ -192,7 +192,7 @@ in order to support consistent definitions for schema and UML derived code.
 	</tbody>
 </table>
 
-<a name="roadmap"> </a>
+<a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
 
 <p>The resources defined for the Clinical Reasoning module are the result of the combined efforts of multiple communities working on the shared goal of harmonized standards and specifications for clinical decision support and quality measurement artifacts. The current state of the module reflects changes incorporated both from previous ballots on the FHIR-specific material, as well as content derived from several other balloted specifications in the CDS and CQM domains. The content at this point is capable of supporting the two primary use cases of sharing and evaluation in both domains and for a broad variety of artifacts.</p>
@@ -201,7 +201,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>The goals of the module over the next year are to provide a stable basis for implementation of the sharing use case, as well as unification with the CDS Hooks specification in support of the evaluation use case. The Clinical Quality Framework Initiative will use these resources as the basis for implementation projects, targeting an FMM level of 3 or 4 for all module resources within a year.</p>
 
-<a name="crm-feedback"> </a>
+<a name="crm-feedback"></a>
 <blockquote class="stu-note">
 <p>
 <b>STU Note:</b> We are actively seeking comments on all areas of the module, with particular focus on supporting the following scenarios:
@@ -220,7 +220,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </p>
 </blockquote>
 
-<a name="background"> </a>
+<a name="background"></a>
 <h3>Background</h3>
 
 <p>The FHIR Clinical Reasoning module is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure and Service Oriented Architecture HL7 Work Groups.</p>
@@ -247,7 +247,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 
 <p>This module continues the harmonization of quality domain specifications by defining an approach to using a FHIR server as a component of a knowledge system in both the Knowledge Repository and Knowledge Evaluation Service roles.</p>
 
-<a name="related-specifications"> </a>
+<a name="related-specifications"></a>
 <h3>Related Specifications</h3>
 
 <p>The approach and representations within this guide are derived from and intended to be consistent with the following specifications:</p>
@@ -259,7 +259,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 	<li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=334">HL7 Version 3 Implementation Guide: Decision Support Service, Release 1</a></li>
 </ul>
 
-<a name="copyright-information"> </a>
+<a name="copyright-information"></a>
 <h3>Copyright Information</h3>
 
 <p>This material includes SNOMED Clinical Terms &reg; (SNOMED CT&reg;), which are used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT was originally created by the College of American Pathologists. "SNOMED &reg;" and "SNOMED CT &reg;" are registered trademarks of the IHTSDO.</p>
@@ -270,7 +270,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 
 <p>This material contains quality measure content developed by the National Committee for Quality Assurance (NCQA). The measure content is copyright (c) 2008-2017 National Committee for Quality Assurance and used in accordance with the NCQA license terms for non-commercial use.</p>
 
-<a name="acknowledgements"> </a>
+<a name="acknowledgements"></a>
 <h3>Acknowledgements</h3>
 
 <p>The guidance in this module is the work of a joint project between the HL7 Clinical Quality Information and  Clinical Decision Support Work Groups with the co-sponsorship of the FHIR Infrastructure, Implementable Technology Specifications, and Service Oriented Architecture Work Groups.</p>

@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"> </a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.   It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow pattern for <a href="workflow.html#event"><em>event</em> resources</a>.</strong></p>
 <p>
@@ -13,7 +13,7 @@ services.
 </div>
 
 <div>
-<a name="bnr"> </a>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
 This resource overlaps with others such as <a href="device.html">Device</a> and <a href="medication.html">Medication</a>.

@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-  <a name="statemachine"> </a>
+  <a name="statemachine"></a>
   <h2>State Machine</h2>
   <p>
     The following diagram shows the "typical" state machine diagram for resources following the Definition

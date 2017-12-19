@@ -3,7 +3,7 @@
 	<!-- insert xhtml content here -->
 	<div>
 
-	<a name="status"> </a>
+	<a name="status"></a>
 	<h2>Status Management</h2>
 		<h3>History and Period</h3>
 		<p>
@@ -87,7 +87,7 @@
 	</div>
 
 	<div>
-<a name="examples"> </a>
+<a name="examples"></a>
 		<h2>Example Scenarios</h2>
 		<p>
 			A General Practitioner wants to review how well his patient is managing his diabetes over time from information

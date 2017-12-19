@@ -61,7 +61,7 @@ public enum StandardsStatus {
   public String getColor() {
     switch (this) {
     case DRAFT : 
-      return "#000000";  
+      return "#efefef";  
     case NORMATIVE  : 
       return "#e6ffe6";
     case TRIAL_USE : 
@@ -69,7 +69,23 @@ public enum StandardsStatus {
     case INFORMATIVE:
       return "#ffffe6";
     case EXTERNAL:
-      return "#000000";
+      return "#e6f2ff";
+    }
+    return "?";
+  }
+
+  public String getColorSvg() {
+    switch (this) {
+    case DRAFT : 
+      return "#efefef";  
+    case NORMATIVE  : 
+      return "#eaffea";
+    case TRIAL_USE : 
+      return "#ffeaea";  
+    case INFORMATIVE:
+      return "#ffffea";
+    case EXTERNAL:
+      return "#eaf6ff";
     }
     return "?";
   }

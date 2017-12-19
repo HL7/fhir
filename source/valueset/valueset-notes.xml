@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="compositions"> </a>
+<a name="compositions"></a>
 <h2>Composition Rules</h2>
 
 <p>
@@ -61,7 +61,7 @@ specified in the value set would go in <a href="datatypes.html#CodeableConcept">
 perhaps appended to the UI label for the matching data element.
 </p>
  
-<a name="multiples"> </a>
+<a name="multiples"></a>
 <h2>Value Sets with multiple code systems</h2> 
 <p>
 Value sets may select codes from multiple code systems - either 
@@ -76,7 +76,7 @@ confusing, overlapping, and inconsistent definitions. Creating value sets that c
 code systems should be done with care to avoid creating definitional confusion.
 </p>
 
-<a name="csnote"> </a>
+<a name="csnote"></a>
 <h3>Code systems Note</h3>
 <p>
 Each <a href="codesystem.html">Code System</a> defines which filters can be 
@@ -97,7 +97,7 @@ This specification also defines filters for various published code systems:
  <li><a href="ndfrt.html#filters">NDF-RT Filters</a></li>
 </ul>
 
-<a name="expansion"> </a>
+<a name="expansion"></a>
 <h2>Value Set Expansion</h2>
 <p>
 A value set can be "expanded", where the definition of the value set is 

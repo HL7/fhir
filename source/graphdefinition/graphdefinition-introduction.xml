@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"> </a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
 The GraphDefinition resource provides a formal computable definition of a graph of resources - that is, a coherent set of resources that form 
@@ -17,7 +17,7 @@ The GraphDefinition resource can be used to:
 </div>
 
 <div>
-<a name="bnr"> </a>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
 There is a close relationship between <a href="structuredefinition.html">Profiles</a> and 

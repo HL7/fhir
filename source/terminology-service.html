@@ -135,7 +135,7 @@ related functionality such as summation, or structured search, but these service
 outside the scope of the FHIR terminology service.
 </p>
 
-<a name="all"> </a>
+<a name="all"></a>
 <h4>Operations across all value sets</h4>
 <p>
 For some of the operations below, it can be useful to perform them across all value sets known to the system.
@@ -365,7 +365,7 @@ HTTP/1.1 200 OK
 </pre>
 </div>
 
-<a name="standard-props"> </a>
+<a name="standard-props"></a>
 <h4>Standard Properties</h4>
 <p>
 The following properties are defined for all code systems:
@@ -845,7 +845,7 @@ HTTP/1.1 200 OK
 
 </div>
 
-<a name="closure"> </a>
+<a name="closure"></a>
 <h3>Maintaining a Closure Table</h3>
 
 <p>
@@ -921,7 +921,7 @@ The closure table can be resynchronized by passing an additional "version" param
 version in one of the delta responses. This is a request to replay all the mapping changes since that delta was sent.
 </p>
 
-<a name="closure-init"> </a>
+<a name="closure-init"></a>
 <h4>Initializing a Closure Table</h4>
 
 <p>
@@ -981,7 +981,7 @@ If there is an error (usually involving the closure name) the server returns a H
 What closure names are valid is at the discretion of the server.
 </p>
 
-<a name="closure-add"> </a>
+<a name="closure-add"></a>
 <h4>Adding to a Closure Table</h4>
 <p>
 When the consumer (client) encounters a new code, it POSTs the following to [base]/ConceptMap/$closure:
@@ -1130,7 +1130,7 @@ If there’s new entries in the closure table, the server returns a 200 OK with:
  <li>The combination of the system and code is the key to the closure table; if the server encounters two different codes that have the same meaning (e.g. syntactical variation), it should create an "equals" relationship between them</li>
 </ul>
 
-<a name="closure-rerun"> </a>
+<a name="closure-rerun"></a>
 <h4>Re-running Closure operation</h4>
 <p>
 Given the way that the closure operation functions, it’s possible for a client to lose a response from
@@ -1163,7 +1163,7 @@ Notes:
  <li>These examples use a serially incrementing sequential integer, but this is not required, and clients should not assume that there is any meaning or order in the version. Just recall the last version, and treat it as a magic value. There is, however, one special value: ‘0’. Passing a last version of 0 should be understood as resyncing the entire closure table</li>
 </ul>
 
-<a name="closure-use"> </a>
+<a name="closure-use"></a>
 <h4>Making use of the Closure Table</h4>
 
 <p>

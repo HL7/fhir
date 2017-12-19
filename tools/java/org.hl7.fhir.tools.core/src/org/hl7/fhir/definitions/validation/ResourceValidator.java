@@ -147,7 +147,7 @@ public class ResourceValidator extends BaseValidator {
 
   public void checkStucture(List<ValidationMessage> errors, String name, ElementDefn structure) throws Exception {
     rule(errors, IssueType.STRUCTURE, structure.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
-    checkElement(errors, structure.getName(), structure, null, null, true, false, hasSummary(structure), new ArrayList<String>(), true);
+    checkElement(errors, structure.getName(), structure, null, null, true, false, hasSummary(structure), new ArrayList<String>(), true, structure.getStandardsStatus());
   }
   
   private boolean hasSummary(ElementDefn structure) {
@@ -228,7 +228,7 @@ public class ResourceValidator extends BaseValidator {
       warning(errors, IssueType.BUSINESSRULE, rd.getName()+".$"+op.getName(), hasOpExample(op.getExamples(), true), "Operation must have an example response");
     }
     List<String> vsWarns = new ArrayList<String>();
-    int vsWarnings = checkElement(errors, rd.getName(), rd.getRoot(), rd, null, s == null || !s.equalsIgnoreCase("n/a"), false, hasSummary(rd.getRoot()), vsWarns, true);
+    int vsWarnings = checkElement(errors, rd.getName(), rd.getRoot(), rd, null, s == null || !s.equalsIgnoreCase("n/a"), false, hasSummary(rd.getRoot()), vsWarns, true, rd.getStatus());
     
     if (!resourceIsTechnical(name)) { // these are exempt because identification is tightly managed
       ElementDefn id = rd.getRoot().getElementByName(definitions, "identifier", true, false);
@@ -573,7 +573,7 @@ public class ResourceValidator extends BaseValidator {
   
 	//todo: check that primitives *in datatypes* don't repeat
 	
-	private int checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping, boolean optionalParent, boolean hasSummary, List<String> vsWarns, boolean parentInSummary) throws Exception {
+	private int checkElement(List<ValidationMessage> errors, String path, ElementDefn e, ResourceDefn parent, String parentName, boolean needsRimMapping, boolean optionalParent, boolean hasSummary, List<String> vsWarns, boolean parentInSummary, StandardsStatus status) throws Exception {
 //	  for (TypeRef t : e.getTypes()) {
 //  	  if (!typeCounter.containsKey(t.getName()))
 //	      typeCounter.put(t.getName(), 1);
@@ -591,7 +591,14 @@ public class ResourceValidator extends BaseValidator {
 	  rule(errors, IssueType.STRUCTURE, path, e.unbounded() || e.getMaxCardinality() == 1,	"Max Cardinality must be 1 or unbounded");
 		rule(errors, IssueType.STRUCTURE, path, e.getMinCardinality() == 0 || e.getMinCardinality() == 1, "Min Cardinality must be 0 or 1");
 		rule(errors, IssueType.STRUCTURE, path, !e.getName().equals("div") || e.typeCode().equals("xhtml"), "Any element named 'div' must have a type of 'xhtml'");
-		
+
+		if (status == StandardsStatus.NORMATIVE && e.getStandardsStatus() == null && e.getTypes().size() == 1) {
+		  if (definitions.hasElementDefn(e.typeCode())) {
+		    TypeDefn t = definitions.getElementDefn(e.typeCode());
+		    if (t != null && t.getStandardsStatus() != StandardsStatus.NORMATIVE)
+		      e.setStandardsStatus(t.getStandardsStatus());
+		  }
+		}
     if (!hasSummary)
       e.setSummaryItem(true);
     else if (parentInSummary) {
@@ -747,7 +754,7 @@ public class ResourceValidator extends BaseValidator {
     }
     
     for (ElementDefn c : e.getElements()) {
-      vsWarnings = vsWarnings + checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping, optionalParent, hasSummary, vsWarns, parentInSummary && hasSummary(e));
+      vsWarnings = vsWarnings + checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping, optionalParent, hasSummary, vsWarns, parentInSummary && hasSummary(e), status);
     }
 		return vsWarnings;
 	}

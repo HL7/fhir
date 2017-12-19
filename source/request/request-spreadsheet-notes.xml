@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-  <a name="statemachine"> </a>
+  <a name="statemachine"></a>
   <h2>State Machine</h2>
   <p>
     The following diagram shows the "typical" state machine diagram for resources following the Request
@@ -17,7 +17,7 @@
     <a href="task.html">Task</a> resource.
   </p>
 
-  <a name="fulfillment"> </a>
+  <a name="fulfillment"></a>
   <h2>Fulfillment/Execution information</h2>
   <p>
     Request resources describe what activity is desired/authorized.  They don't describe what activity has actually
@@ -29,7 +29,7 @@
     that have a focus of this request.
   </p>
 
-  <a name="updating"> </a>
+  <a name="updating"></a>
   <h2>Updating requests</h2>
   <p>
     FHIR does not impose any business rules on what sorts of changes may be made to a request.  A generic FHIR server
@@ -40,7 +40,7 @@
     <a href="operationoutcome.html">OperationOutcome</a> responses detailing constraints if those rules are violated.
   </p>
   
-  <a name="compound"> </a>
+  <a name="compound"></a>
   <h2>Compound Requests</h2>
   <p>
     There are three different ways to define "compound" requests in FHIR:
@@ -51,7 +51,7 @@
     <li>RequestGroup</li>
   </ul>
   
-  <a name="requisitionid"> </a>
+  <a name="requisitionid"></a>
   <h3>Shared requisition id</h3>
   <p>
     The <code>Request.requisitionId</code> element allows multiple requests to be linked as having been created as part 
@@ -71,7 +71,7 @@
     "simultaneous/requisition-based ordering" such as payment rules to know that the requests were ordered at the same time.
   </p>
 
-  <a name="basedon"> </a>
+  <a name="basedon"></a>
   <h3>"Based on" chain</h3>
   <p>
     In this case "components" of a parent request are not treated as components, but rather as separate orders that are
@@ -90,7 +90,7 @@
     "completed" or "cancelled" or some other terminal state.
   </p>
 
-  <a name="requestgroup"> </a>
+  <a name="requestgroup"></a>
   <h3>RequestGroup</h3>
   <p>
     This approach makes use of the <a href="requestgroup.html">RequestGroup</a> resource which allows the assertion of complex

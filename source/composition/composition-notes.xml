@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 
-<a name="notes"> </a>
+<a name="notes"></a>
 <h2>
 Notes:
 </h2>
@@ -18,7 +18,7 @@ Notes:
 </ul>  
 
 <blockquote class="stu-note">
-<a name="dstu"> </a>
+<a name="dstu"></a>
 <p>
 <b>STU Note:</b> Feedback is welcome on two issues related to Composition:
 </p>

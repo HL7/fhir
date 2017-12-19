@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="bnc"> </a>
+<a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>
 This resource allows the assertion of linkages between multiple resource instances (generally of the same type) that are referring to the same underlying business objects.  For example, multiple Condition records that refer to the same underlying problem/issue for a Patient; multiple AllergyIntolerance records that refer to the same reaction susceptibility; multiple Patient, Practioner and/or RelatedPerson records that refer to the same human being or animal.

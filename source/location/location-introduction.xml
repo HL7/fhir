@@ -2,7 +2,7 @@
 
 	<div>
 		
-<a name="scope"> </a>
+<a name="scope"></a>
 	<h2>Scope and Usage</h2>
 <p>
 A Location includes both incidental locations (a place which is used for healthcare without prior designation or authorization) and 
@@ -28,7 +28,7 @@ freezers to full hospital buildings or parking garages.
   </p>
 </div>
 <div>
-<a name="bnr"> </a>
+<a name="bnr"></a>
 	<h2>Boundaries and Relationships</h2>
   <p>
     Locations and Organizations are very closely related resources and can often be mixed/matched/confused.<br/>

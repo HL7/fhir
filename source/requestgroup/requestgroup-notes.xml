@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-  <a name="usage"> </a>
+  <a name="usage"></a>
   <h2>Usage</h2>
   <p>
     The RequestGroup resource is used when there are temporal, co-occurrence or other dependencies between

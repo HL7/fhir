@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="notes"> </a>
+<a name="notes"></a>
 <h2>
 Notes:
 </h2>
@@ -41,9 +41,9 @@ Notes:
    does not attempt to describe service based use of resources. The various service specifications will need to describe this usage in their own way.</li>
 </ul>  
 
-<a name="profiles"> </a>
+<a name="profiles"></a>
 <h3>Supporting Profiles</h3>
-<a name="tags"> </a>
+<a name="tags"></a>
 <p>
 A CapabilityStatement declares two different kinds of profiles for the functionality it describes. 
 For a discussion of the use of these two types of resources, see <a href="profiling.html">two uses for profiles</a>.

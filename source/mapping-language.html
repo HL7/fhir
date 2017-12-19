@@ -45,7 +45,7 @@ A map has 6 parts:
  <li>A series of transformation rules in each group</li>
 </ul>
 
-<a name="execution"> </a>
+<a name="execution"></a>
 <h3>Executing Maps</h3>
 
 <p>
@@ -80,7 +80,7 @@ order to manage the map execution process.
 </p>
 
 
-<a name="syntax"> </a>
+<a name="syntax"></a>
 <h3>General Syntax Notes</h3>
 <p>
 Mapping files are always plain text in unicode. Whitespace is any unicode whitespace, and the particular whitespace used
@@ -98,7 +98,7 @@ All names defined by the map language - group, rule and variable names - must be
 and must start with a letter. The special boolean values 'true' and 'false' are not allowed as variable names.
 </p>
 
-<a name="metadata"> </a>
+<a name="metadata"></a>
 <h3>Metadata</h3>
 
 <p>
@@ -116,7 +116,7 @@ the map uniquely, and then a human readable name for the map.
 <i>todo: add additional metadata?</i>
 </p>
 
-<a name="typing"> </a>
+<a name="typing"></a>
 <h3>Structure Definition References</h3>
 
 <p>
@@ -164,7 +164,7 @@ indicate any structure definitions can still be used, but the type features of t
 and such maps typically require special development to integrate the execution of the map into an application.
 </p>
 
-<a name="imports"> </a>
+<a name="imports"></a>
 <h3>Map Imports</h3>
 <p>
 This section references additional maps that are used by this map:
@@ -181,7 +181,7 @@ The [url] may contain a "*" as a wildcard character to include any matching maps
 that are available to the mapping engine.
 </p>
 
-<a name="groups"> </a>
+<a name="groups"></a>
 <h3>Groups</h3>
 <p>
 Each Mapping source contains one or more groups of rules. Each group
@@ -228,7 +228,7 @@ source to target. There are 2 variants:
 In both these cases, the group SHALL have 2 parameters, a source, and a target, in that order, and both SHALL have specified types for the inputs.
 </p>
 
-<a name="rules"> </a>
+<a name="rules"></a>
 <h3>Transform Rules</h3>
 
 <p>
@@ -392,7 +392,7 @@ referenced by the uses (see above) statements. The name must be unique within th
 of these maps.
 </p>
 
-<a name="simple"> </a>
+<a name="simple"></a>
 <h3>Simple Form + Implicit Type Dependencies</h3>
 <p>
 If no dependent rules are specified, and if the is only one source and target, and
@@ -419,12 +419,12 @@ and tgt.element:
  src.element</li>
 </ul>
 
-<a name="grammar"> </a>
+<a name="grammar"></a>
 <h3>Formal Grammar</h3>
 
 <p>todo</p>
 
-<a name="api"> </a>
+<a name="api"></a>
 <h3>Mapping Support API</h3>
 
 <p>todo</p>

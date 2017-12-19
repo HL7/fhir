@@ -45,7 +45,7 @@ resources required.
  <li><a href="message-response-link.xml.html">Example Response Message</a> </li>
 </ul>
 
-<a name="basic"> </a>
+<a name="basic"></a>
 
 <h2>Basic Messaging Assumptions</h2>
 
@@ -107,8 +107,8 @@ must be determined by the content, context, or use case.
  <tr><td>Notification</td><td>A message of currency MAY have one or more receivers specified.</td></tr>
 </table>
 
-<a name="synchronous"> </a>
-<a name="patterns"> </a>
+<a name="synchronous"></a>
+<a name="patterns"></a>
 <h3>Message Exchange Patterns</h3>
 <p>
 Each FHIR request message has one or more response messages. There must be at least
@@ -172,7 +172,7 @@ The meaning of these will depend on the message event.
 </p>
 
 
-<a name="reliable"> </a>
+<a name="reliable"></a>
 <h3>Absence of Reliable Messaging</h3>
 <p>
 Some of the message delivery mechanisms mentioned above are reliable delivery
@@ -282,7 +282,7 @@ the basis for context linking outside the immediate message exchange protocol de
 here.
 </p>
 
-<a name="conf"> </a>
+<a name="conf"></a>
 
 <h2>Capability Statement</h2>
 <p>
@@ -295,7 +295,7 @@ are required to be bundled (receiver), and any rules about the
 information content of the individual resources.
 </p>
 
-<a name="process"> </a>
+<a name="process"></a>
 <h2>$process-message</h2>
 <p>
 The simplest way to handle messages where there are also <a href="http.html">RESTful interactions</a>
@@ -386,7 +386,7 @@ Note that asynchronous messaging can be harder to implement due to the amount of
 This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
 </p>
 
-<a name="endpoints"> </a>
+<a name="endpoints"></a>
 <h2>Relationship between Messaging and REST</h2>
 
 <p>
@@ -427,7 +427,7 @@ in this fashion does not represent the actual occurrence of any event, nor can i
 any logic associated with the actual event.</b> It is just for managing a set of message header resources.
 </p>
 
-<a name="rest"> </a>
+<a name="rest"></a>
 <h3>Asynchronous Messaging using the RESTful API</h3>
 
 <p>
@@ -475,8 +475,8 @@ attack).
 
 
 
-<a name="Events"> </a>
-<a name="events"> </a>
+<a name="Events"></a>
+<a name="events"></a>
 <h2>Event List</h2>
 
 <p>
@@ -497,7 +497,7 @@ In this table, the request and response columns list the focus resource for the 
 Additional events may be defined using the <a href="messagedefinition.html">MessageDefinition</a> resource.
 </p>
 
-<a name="operations"> </a>
+<a name="operations"></a>
 <h2>Invoking Operations via Messages</h2>
 
 <p>
@@ -566,7 +566,7 @@ The only operations that can be executed in this way are defined to be executed
 at the System or Resource level for a particular resource.
 </p>
 
-<a name="search"> </a>
+<a name="search"></a>
 <h3>Invoking Search via Messages</h3>
 <p>
 In the same way that a defined operation can be invoked, a regular search operation

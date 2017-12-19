@@ -64,7 +64,7 @@ provide the details.
 Refer to the <a href="valueset.html#detailed-metadata">Code systems with detailed metadata</a> section of <a href="valueset.html">ValueSet</a> resource
 for additional discussion of the relationship between DataElement and code systems.
 </p>
-	<a name="standardization"> </a>
+	<a name="standardization"></a>
 	<h3>Standardization through governance and registries</h3>
 	<p>
 As noted in the introduction, one of the main purposes for the use of data elements is 'standardization' - gaining consistent
@@ -181,7 +181,7 @@ it recognizes by data elements. However servers might not know all the data elem
 </li>
 </ul>
 
-<a name="dstu"> </a>
+<a name="dstu"></a>
 <blockquote class="stu-note">
 <p>
 <b>STU Note:</b> The FHIR Infrastructure work group is considering rolling the DataElement resource into the <a href="structuredefinition.html">StructureDefinition</a> 

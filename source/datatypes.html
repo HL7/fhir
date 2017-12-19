@@ -13,8 +13,9 @@
 <%dtheader base%>
 
 <h1>Data Types</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative infrastructure%]
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
+
+[%mostlynormative infrastructure%]
 
 <p>
 The FHIR specification defines a set of data types that are used for the
@@ -40,13 +41,13 @@ This page describes the general purpose data types.
 Legend: White = abstract type. Light blue = concrete types. Light Pink = Profile on Type.
 </p>
 
-<a name="primitive"> </a>
+<a name="primitive"></a>
 <h2>Primitive Types</h2>
 
 
 [%diagram datatypes/primitives.diagram 3dt%]
 
-<a name="imports"> </a>
+<a name="imports"></a>
 <p>
 The following table describes the primitive types that are used in this specification. Primitive types are those with only a value, and no additional elements as children (though, like
 all types, they have <a href="extensibility.html">extensions</a>). See also the <a href="datatypes-examples.html#primitives">Examples</a>.
@@ -64,7 +65,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <th>JSON representation</th>
  </tr>
  <tr>
-   <td>boolean<a name="boolean"> </a></td>
+   <td>boolean<a name="boolean"></a></td>
    <td>true | false</td>
    <td>xs:boolean, except that <b>0 and 1 are not valid values</b></td>
    <td>JSON boolean (true or false)</td>
@@ -75,7 +76,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <!-- leading 0s -->
  <tr>
-   <td>integer<a name="integer"> </a></td>
+   <td>integer<a name="integer"></a></td>
    <td>A signed 32-bit integer (for larger values, use decimal)</td>
    <td>xs:int, except that <b>leading 0 digits are not allowed</b></td>
    <td>JSON number (with no decimal point)</td>
@@ -85,7 +86,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: [0]|[-+]?[1-9][0-9]*</td>
  </tr>
  <tr>
-   <td>string<a name="string"> </a></td>
+   <td>string<a name="string"></a></td>
    <td>A sequence of Unicode characters</td>
    <td>xs:string</td>
    <td>JSON String</td>
@@ -103,7 +104,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: \s*(\S|\s)*  (can't put size limit in the regex - too large)</td>
  </tr>
  <tr>
-   <td>decimal<a name="decimal"> </a></td>
+   <td>decimal<a name="decimal"></a></td>
    <td>Rational numbers that have a decimal representation. See below about the precision of the number</td>
    <td>xs:decimal, except that <b>decimals SHALL not use exponents, and leading 0 digits are not allowed</b></td>
    <td>A JSON number, except that <b>exponents are not allowed</b></td>
@@ -113,7 +114,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: -?([0]|([1-9][0-9]*))(\.[0-9]+)?</td>
  </tr>
  <tr>
-   <td>uri<a name="uri"> </a></td>
+   <td>uri<a name="uri"></a></td>
    <td>A Uniform Resource Identifier Reference (<a href="http://tools.ietf.org/html/rfc3986">RFC 3986</a>). Note: URIs are case sensitive. For UUID (urn:uuid:53fefa32-fcbb-4ff8-8a92-55ee120877b7) use all lowercase</td>
     <td>xs:anyURI</td>
    <td>A JSON string - a URI</td>
@@ -128,7 +129,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
        This data type can be <a href="terminologies.html#uri">bound to a value set</a></td>
  </tr>
  <tr>
-   <td>base64Binary<a name="base64Binary"> </a><a name="base64binary"> </a></td>
+   <td>base64Binary<a name="base64Binary"></a><a name="base64binary"></a></td>
    <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)</td>
    <td>xs:base64Binary</td>
    <td>A JSON string - base64 content</td>
@@ -142,7 +143,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid"><i>Todo: is it possible to impose an upper absolute limit on a base64Binary (for denial of service reasons, like on string)?</i></td>
  </tr>
  <tr>
-   <td>instant<a name="instant"> </a></td>
+   <td>instant<a name="instant"></a></td>
    <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL be known at least to the second and SHALL includes a time zone. Note: This is intended for precisely observed times (typically system logs etc.), and not human-reported times - for them, use date and dateTime. <code>instant</code> is a more constrained dateTime</td>
    <td>xs:dateTime</td>
    <td>A JSON string - an xs:dateTime</td>
@@ -156,7 +157,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</td>
  </tr>
  <tr>
-   <td>date<a name="date"> </a></td>
+   <td>date<a name="date"></a></td>
    <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates</td>
    <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
    <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
@@ -166,7 +167,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</td>
  </tr>
  <tr>
-   <td>dateTime<a name="dateTime"> </a><a name="datetime"> </a></td>
+   <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
    <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g. 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
     If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
    <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
@@ -177,7 +178,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: ([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</td>
  </tr>
  <tr>
-   <td>time<a name="time"> </a></td>
+   <td>time<a name="time"></a></td>
    <td>A time during the day, in the format hh:mm:ss. There is no date specified. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored. 
    <b>The time "24:00" SHALL not be used. A time zone SHALL not be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
    <td>xs:time</td>
@@ -188,7 +189,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: ([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?</td>
  </tr>
  <tr>
-   <td>code<a name="code"> </a></td>
+   <td>code<a name="code"></a></td>
    <td>Indicates that the value is taken from a set of controlled strings defined elsewhere (see <a href="terminologies.html">Using codes</a> 
        for further discussion). Technically, a code is restricted to a string which has at least one character and no leading or trailing 
        whitespace, and where there is no whitespace other than single spaces in the contents</td>
@@ -201,7 +202,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
        This data type can be <a href="terminologies.html#code">bound to a value set</a>.</td>
  </tr>
  <tr>
-   <td>oid<a name="oid"> </a></td>
+   <td>oid<a name="oid"></a></td>
    <td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>); e.g. urn:oid:1.2.3.4.5</td>
    <td>xs:anyURI</td>
    <td>JSON string - uri</td>
@@ -211,7 +212,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: urn:oid:[0-2](\.[1-9]\d*)+</td>
  </tr>
  <tr>
-   <td>id<a name="id"> </a></td>
+   <td>id<a name="id"></a></td>
    <td>Any combination of upper or lower case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)</td>
    <td>xs:string</td>
    <td>JSON string</td>
@@ -221,7 +222,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: [%id_regex%]</td>
  </tr>
  <tr>
-   <td>markdown<a name="markdown"> </a></td>
+   <td>markdown<a name="markdown"></a></td>
    <td>A string that may contain markdown syntax for optional processing by a markdown presentation engine</td>
    <td>xs:string</td>
    <td>JSON string</td>
@@ -231,7 +232,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: \s*(\S|\s)*  (can't put size limit in the regex - too large)</td>
  </tr>
  <tr>
-   <td>unsignedInt<a name="unsignedInt"> </a></td>
+   <td>unsignedInt<a name="unsignedInt"></a></td>
    <td>Any non-negative integer (e.g. >= 0)</td>
    <td>xs:nonNegativeInteger </td>
    <td>JSON number</td>
@@ -241,7 +242,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td colspan="3" style="border-top: 0px silver solid">Regex: [0]|([1-9][0-9]*)</td>
  </tr>
  <tr>
-   <td>positiveInt<a name="positiveInt"> </a></td>
+   <td>positiveInt<a name="positiveInt"></a></td>
    <td>Any positive integer (e.g. >= 1)</td>
    <td>xs:positiveInteger</td>
    <td>JSON number</td>
@@ -261,7 +262,7 @@ Notes:
  <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is needed</li>
  <li>Leap second are allowed in the datetime, instant and time types. Note, though, that many systems and libraries do not support leap seconds. Applications reading times SHOULD accept and handle leap seconds gracefully, and applications producing them MAY choose to avoid encoding leap seconds</li>
  <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li> 
- <li>The precision of the decimal value has significance:<a name="precision"> </a>
+ <li>The precision of the decimal value has significance:<a name="precision"></a>
     <ul>
       <li>e.g. 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>
       <li>Implementations SHALL handle decimal values in ways that preserve and respect the precision of the value as represented for presentation purposes</li>
@@ -290,7 +291,7 @@ Notes:
  </li>
 </ul>
 <blockquote class="stu-note">
-<a name="dstu"> </a>
+<a name="dstu"></a>
 <p>
 <b>STU Note:</b> It is likely that FHIR will change to require/recommend <a href="http://commonmark.org/">CommonMark</a> in Release 4. 
 </p>
@@ -400,7 +401,7 @@ id: [%dtusage id%]
 -->
 <hr/>
 
-<a name="Types"> </a><a name="complex"> </a>
+<a name="Types"></a><a name="complex"></a>
 <h2>Complex Types</h2>
 
 <p>
@@ -420,8 +421,8 @@ values are.
 
 [%diagram datatypes/types2.diagram 5dt%]
 
-<a name="Attachment"> </a>
-<a name="attachment"> </a>
+<a name="Attachment"></a>
+<a name="attachment"></a>
 <h2 style="margin-bottom: 1px">
 Attachment
 </h2>
@@ -479,9 +480,9 @@ The context of use may frequently make rules about the kind of attachment
 Attachment is used in the following places: [%dtusage Attachment%]
 </p>
 
-<a name="Coding"> </a>
-<a name="coding"> </a>
-<a name="codesystem"> </a>
+<a name="Coding"></a>
+<a name="coding"></a>
+<a name="codesystem"></a>
 <h2 style="margin-bottom: 1px">Coding</h2>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="datatypes-examples.html#Coding">Examples</a>, <a href="datatypes-definitions.html#Coding">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Coding">Mappings</a>, <a href="datatypes-extras.html#Coding">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Coding">R2 Conversions</a>.
@@ -601,8 +602,8 @@ in extensions, which are usually intended to be defined for a well-controlled co
 </p>
 </blockquote>
 
-<a name="CodeableConcept"> </a>
-<a name="codeableconcept"> </a>
+<a name="CodeableConcept"></a>
+<a name="codeableconcept"></a>
 <h2 style="margin-bottom: 1px">
 CodeableConcept
 </h2>
@@ -648,8 +649,8 @@ particular context by <a href="terminologies.html">binding</a> the element to a 
 CodeableConcept is used in the following places: [%dtusage CodeableConcept%]
 </p>
 
-<a name="Quantity"> </a>
-<a name="quantity"> </a>
+<a name="Quantity"></a>
+<a name="quantity"></a>
 <h2 style="margin-bottom: 1px">
 Quantity
 </h2>
@@ -698,7 +699,7 @@ The context of use may also restrict the values for the <code>value</code> or <c
 Quantity is used in the following places: [%dtusage Quantity%]
 </p>
 
-<a name="QuantityVariations"> </a>
+<a name="QuantityVariations"></a>
 <h3>
 Defined Variations on Quantity
 </h3>
@@ -716,7 +717,7 @@ of the Quantity data type:
  </tr>
 
  <tr>
-   <td>Age<a name="Age"> </a></td>
+   <td>Age<a name="Age"></a></td>
    <td>[%dt.constraints Age%] [%tx Age%]</td>
    <td><a href="age.profile.xml.html">XML</a>, <a href="age.profile.json.html">JSON</a></td>
  </tr>
@@ -726,7 +727,7 @@ of the Quantity data type:
  </tr>
 
  <tr>
-   <td>Count<a name="Count"> </a></td>
+   <td>Count<a name="Count"></a></td>
    <td>[%dt.constraints Count%]</td>
    <td><a href="count.profile.xml.html">XML</a>, <a href="count.profile.json.html">JSON</a></td>
  </tr>
@@ -736,7 +737,7 @@ of the Quantity data type:
  </tr>
 
  <tr>
-   <td>Distance<a name="Distance"> </a></td>
+   <td>Distance<a name="Distance"></a></td>
    <td>[%dt.constraints Distance%][%tx Distance%]</td>
    <td><a href="distance.profile.xml.html">XML</a>, <a href="distance.profile.json.html">JSON</a></td>
  </tr>
@@ -746,7 +747,7 @@ of the Quantity data type:
  </tr>
 
  <tr>
-   <td>Duration<a name="Duration"> </a></td>
+   <td>Duration<a name="Duration"></a></td>
    <td>[%dt.constraints Duration%] [%tx Duration%]</td>
    <td><a href="duration.profile.xml.html">XML</a>, <a href="duration.profile.json.html">JSON</a></td>
  </tr>
@@ -766,7 +767,7 @@ of the Quantity data type:
 
 
  <tr>
-   <td>Money<a name="Money"> </a></td>
+   <td>Money<a name="Money"></a></td>
    <td>[%dt.constraints Money%]</td>
    <td><a href="money.profile.xml.html">XML</a>, <a href="money.profile.json.html">JSON</a></td>
  </tr>
@@ -783,7 +784,7 @@ of the Quantity data type:
    <td><b>Formal Definitions</b></td>
  </tr>
  <tr>
-   <td>Simple Quantity<a name="SimpleQuantity"> </a></td>
+   <td>Simple Quantity<a name="SimpleQuantity"></a></td>
    <td>[%dt.constraints SimpleQuantity%]</td>
    <td><a href="simplequantity.profile.xml.html">XML</a>, <a href="simplequantity.profile.json.html">JSON</a></td>
  </tr>
@@ -800,8 +801,8 @@ just rules applied where the Quantity type is used.
 
 
 
-<a name="Range"> </a>
-<a name="range"> </a>
+<a name="Range"></a>
+<a name="range"></a>
 <h2 style="margin-bottom: 1px">
 Range
 </h2>
@@ -837,8 +838,8 @@ includes 1.50, and 2.50 but not 1.49 or 2.51.
 Range is used in the following places: [%dtusage Range%]
 </p>
 
-<a name="Ratio"> </a>
-<a name="ratio"> </a>
+<a name="Ratio"></a>
+<a name="ratio"></a>
 <h2 style="margin-bottom: 1px">
 Ratio
 </h2>
@@ -883,8 +884,8 @@ Ratio is used in the following places: [%dtusage Ratio%]
 </p>
 
 
-<a name="Period"> </a>
-<a name="period"> </a>
+<a name="Period"></a>
+<a name="period"></a>
 <h2 style="margin-bottom: 1px">
 Period
 </h2>
@@ -922,11 +923,12 @@ the end of the 27th of May.
 Period is used in the following places: [%dtusage Period%]
 </p>
 
-<a name="SampledData"> </a>
-<a name="sampleddata"> </a>
+<a name="SampledData"></a>
+<a name="sampleddata"></a>
 <h2 style="margin-bottom: 1px">
 SampledData
 </h2>
+[%StandardsStatus trial-use DataType n/a%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="datatypes-examples.html#SampledData">Examples</a>, <a href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a href="datatypes-mappings.html#SampledData">Mappings</a>, <a href="datatypes-extras.html#SampledData">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#SampledData">R2 Conversions</a>.
 </p>
@@ -957,8 +959,8 @@ SampledData is used in the following places: [%dtusage SampledData%]
 </p>
 
 
-<a name="Identifier"> </a>
-<a name="identifier"> </a>
+<a name="Identifier"></a>
+<a name="identifier"></a>
 <h2 style="margin-bottom: 1px">
 Identifier
 </h2>
@@ -1041,8 +1043,8 @@ As a <a href="references.html">Reference</a>, the assigner can include just a te
 Identifier is used in the following places: [%dtusage Identifier%]
 </p>
 
-<a name="HumanName"> </a>
-<a name="humanname"> </a>
+<a name="HumanName"></a>
+<a name="humanname"></a>
 <h2 style="margin-bottom: 1px">
 HumanName
 </h2>
@@ -1135,8 +1137,8 @@ HumanName is used in the following places: [%dtusage HumanName%]
 </div>
 -->
 
-<a name="Address"> </a>
-<a name="address"> </a>
+<a name="Address"></a>
+<a name="address"></a>
 <h2 style="margin-bottom: 1px">
 Address
 </h2>
@@ -1170,8 +1172,8 @@ Address is used in the following places: [%dtusage Address%]
 </p>
 
 
-<a name="ContactPoint"> </a>
-<a name="contactpoint"> </a>
+<a name="ContactPoint"></a>
+<a name="contactpoint"></a>
 <h2 style="margin-bottom: 1px">
 ContactPoint
 </h2>
@@ -1207,8 +1209,8 @@ follow the order in which the contacts are represented in the instance.
 ContactPoint is used in the following places: [%dtusage ContactPoint%]
 </p>
 
-<a name="Timing"> </a>
-<a name="timing"> </a>
+<a name="Timing"></a>
+<a name="timing"></a>
 <h2 style="margin-bottom: 1px">
 Timing
 </h2>
@@ -1320,11 +1322,12 @@ Timing is used in the following places: [%dtusage Timing%]
 
 
 
-<a name="Signature"> </a>
-<a name="signature"> </a>
+<a name="Signature"></a>
+<a name="signature"></a>
 <h2 style="margin-bottom: 1px">
 Signature
 </h2>
+[%StandardsStatus trial-use DataType n/a%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="datatypes-examples.html#Signature">Examples</a>, <a href="datatypes-definitions.html#Signature">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Signature">Mappings</a>, <a href="datatypes-extras.html#Signature">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Signature">R2 Conversions</a>.
 </p>
@@ -1400,8 +1403,8 @@ For example, some environments may choose a different hashing algorithm, policy 
 Signature is used in the following places: [%dtusage Signature%]
 </p>
 
-<a name="Annotation"> </a>
-<a name="annotation"> </a>
+<a name="Annotation"></a>
+<a name="annotation"></a>
 <h2 style="margin-bottom: 1px">
 Annotation
 </h2>
@@ -1432,7 +1435,7 @@ Annotations <b>SHOULD NOT</b> be used to communicate "modifying" information tha
 Annotation is used in the following places: [%dtusage Annotation%]
 </p>
 
-<a name="open"> </a>
+<a name="open"></a>
 <h2>Open Type Element</h2>
 <p>
 Some elements do not have a specified type. The type is represented by the wildcard symbol "*". In these cases, the element type may be one of the following:
@@ -1489,7 +1492,7 @@ The element name ends with "[x]", and this is replaced with the Title cased name
 Open references are used in the following places: [%dtusage *%]
 </p>
 
-<a name="other"> </a>
+<a name="other"></a>
 <h2>Other Types</h2>
 <p>
 The following types are defined as part of the data types, but are documented elsewhere in the specification:

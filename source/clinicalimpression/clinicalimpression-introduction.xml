@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"> </a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
 Performing a clinical assessment is a fundamental part of a clinician's workflow, performed repeatedly throughout the day. 
@@ -21,14 +21,14 @@ impression that this impression follows on from.
  <p>An impression is a clinical summation of information and/or an opinion formed, which is the outcome of the clinical assessment process.  The ClinicalImpression may lead to a statement of a Condition about a patient.</p>
   
   <p>In FHIR, an assessment is typically an instrument or tool used to collect information about a patient.</p>
-<a name="dstu"> </a>
+<a name="dstu"></a>
 <blockquote class="stu-note">
 <p>
 <b>STU Note:</b> Unlike many other resources, there is little prior art with regard to exchanging records of 
 clinical assessments. For this reason, this resource should be regarded as particularly 
 prone to ongoing revision. In terms of scope and usage, the Patient Care workgroup wishes to
 draw the attention of reviewers and implementers to the following issues: 
-<a name="dstu"> </a>
+<a name="dstu"></a>
 </p>
 <ul>
  <li>When is an existing clinical impression revised, rather than a new one created (that references the existing one)? How does that affect the status? what's the interplay between the status of the diagnosis and the status of the impression? (e.g. for a 'provisional' impression, which bit is provisional?)</li>
@@ -46,7 +46,7 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </div>
 
 <div>
-<a name="bnr"> </a>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
 There is another related clinical concept often called an "assessment": assessment Tools such as Apgar (also known as "Assessment Scales").
@@ -58,7 +58,7 @@ during the assessment process.
 </div>
 
 <div>
-<a name="bnc"> </a>
+<a name="bnc"></a>
 <h2>Background and Context</h2>
 <p>
 An important background to understanding this resource is <a href="http://wiki.hl7.org/index.php?title=Clinical_Assessment">the FHIR wiki page for clinical assessment</a>. In particular,

@@ -12,7 +12,7 @@
 
 <%fmtheader json%>
 
-<a name="json"> </a>
+<a name="json"></a>
 <h2>JSON Representation of Resources</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
@@ -72,7 +72,7 @@ Applications declare their behavior with regard to unknown elements using
 <a href="capabilitystatement-definitions.html#CapabilityStatement.acceptUnknown">CapabilityStatement.acceptUnknown</a>.
 </p>
 
-<a name="xml"> </a>
+<a name="xml"></a>
 
 <h3>Comparison with XML</h3>
 <p>
@@ -103,7 +103,7 @@ provide XML &lt;--&gt; JSON conversion functionality that accommodates these FHI
 </p>
 
 
-<a name="repeat"> </a>
+<a name="repeat"></a>
 <h3>JSON Representation for repeating elements</h3>
 
 <p>
@@ -143,7 +143,7 @@ done by using an array type. Note that:
 }
 </pre>
 
-<a name="primitive"> </a>
+<a name="primitive"></a>
 <h3>JSON representation of primitive elements</h3>
 <p>
 FHIR elements with primitive data types are represented in two parts:
@@ -169,7 +169,7 @@ as a JSON boolean, and all other types are represented as a JSON string which ha
  "deceased" : false,
  "count" : 23
 </pre>
-<a name="decimal"> </a>
+<a name="decimal"></a>
 <div class="warning">
 <blockquote>
 <p>When using a JavaScript JSON.parse() implementation, note that JavaScript natively supports only one numeric datatype, which is a floating point number.
@@ -179,7 +179,7 @@ is widely regarded as critical for correct presentation of clinical measurements
 (e.g. <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) to meet these requirements.</p>
 </blockquote>
 </div>
-<a name="null"> </a>
+<a name="null"></a>
 <p>
 If the value has an id attribute, or extensions, then this is represented as follows:
 </p>
@@ -241,7 +241,7 @@ rarely used with primitive data types.
 </p>
 </blockquote>
 
-<a name="complex"> </a>
+<a name="complex"></a>
 
 <h3>JSON representation of Elements, and Complex Data types</h3>
 
@@ -285,7 +285,7 @@ converted to JSON member values, in the same manner as described for primitives.
   as an escaped string in the value property in JSON. The xhtml's root element needs to be a &lt;div&gt; in the xhtml namespace</li>
 </ul>
 
-<a name="resources"> </a>
+<a name="resources"></a>
 
 <h3>JSON representation of Resources</h3>
 <p>
@@ -322,8 +322,8 @@ specification do so).
 There is <a href="json-edge-cases.json">a sample file</a> with many edge cases to help test JSON parsers.
 </p>
 
-<a name="sig"> </a>
-<a name="canonical"> </a>
+<a name="sig"></a>
+<a name="canonical"></a>
 
 <h3>Canonical JSON</h3>
 <p>

@@ -16,12 +16,14 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 
@@ -217,7 +219,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("height", Double.toString(size.y));
     xml.enter("svg");
     shadowFilter(xml);
-    drawClass(xml, resource.getRoot(), true, resource, false, resource.getName(), null);
+    drawClass(xml, resource.getRoot(), true, resource, false, resource.getName(), null, resource.getStatus());
     countDuplicateLinks();
     for (Link l : links) {
       drawLink(xml, l);
@@ -638,7 +640,7 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("width", Double.toString(item.width));
     xml.attribute("height", Double.toString(item.height));
     xml.attribute("filter", "url(#shadow"+id+")");
-    xml.attribute("style", "fill:#f0f8ff;stroke:black;stroke-width:1");
+    xml.attribute("style", "fill:"+StandardsStatus.NORMATIVE.getColorSvg()+";stroke:black;stroke-width:1");
     xml.element("rect", null);    
 
     xml.attribute("x", Double.toString(item.left + item.width / 2));
@@ -662,14 +664,14 @@ public class SvgGenerator extends BaseGenerator {
         DefinedCode cd = definitions.getPrimitives().get(cn);
         ElementDefn fake = fakes.get(cn);
         if (cd instanceof DefinedStringPattern)
-          links.add(new Link(classes.get(fakes.get(((DefinedStringPattern) cd).getBase())), drawClass(xml, fake, false, null, true, null, cd), null, null, PointKind.unknown, null, null));        
+          links.add(new Link(classes.get(fakes.get(((DefinedStringPattern) cd).getBase())), drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), null, null, PointKind.unknown, null, null));        
         else
-          links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd), null, null, PointKind.unknown, null, null));        
+          links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), null, null, PointKind.unknown, null, null));        
       } else if (definitions.getConstraints().containsKey(cn)) {
         ProfiledType cd = definitions.getConstraints().get(cn);
         ElementDefn fake = fakes.get(cn);
         ClassItem parent = classes.get(definitions.getElementDefn(cd.getBaseType()));
-        links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, null), null, null, PointKind.unknown, null, null));        
+        links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, null, StandardsStatus.NORMATIVE), null, null, PointKind.unknown, null, null));        
       } else if (!onlyElement) {
         ElementDefn e = definitions.getElementDefn(cn);
         ClassItem parent = item;
@@ -677,19 +679,22 @@ public class SvgGenerator extends BaseGenerator {
           parent = classes.get(definitions.getElementDefn(e.typeCode()));
         if (parent == null)
           parent = item;
-        links.add(new Link(parent, drawClass(xml, e, false, null, true, cn, null), null, null, PointKind.unknown, null, null));
+        links.add(new Link(parent, drawClass(xml, e, false, null, true, cn, null, e.getStandardsStatus()), null, null, PointKind.unknown, null, null));
       }
     }
     xml.exit("g");
     return item;
   }
 
-  private ClassItem drawClass(XMLWriter xml, ElementDefn e, boolean isRoot, ResourceDefn resource, boolean link, String path, DefinedCode primitive) throws Exception {
+  private ClassItem drawClass(XMLWriter xml, ElementDefn e, boolean isRoot, ResourceDefn resource, boolean link, String path, DefinedCode primitive, StandardsStatus status) throws Exception {
     ClassItem item = classes.get(e);
     String tn = e.getName();
     if (!definitions.hasPrimitiveType(tn))
       tn = Utilities.capitalize(tn);
+    ResourceDefn r = definitions.hasResource(tn) ? definitions.getResourceByName(tn) : null;
+//    TypeDefn t = definitions.hasElementDefn(tn) ? definitions.getElementDefn(tn) : null;
       
+//    System.out.println("svg: "+tn+" => r: "+(r == null ? "nf" : r.getStatus() == null ? "null" : r.getStatus().toString())+", e: "+(e == null ? "nf" : e.getStandardsStatus() == null ? "null" : e.getStandardsStatus().toString()));
     xml.enter("g");
     xml.attribute("x", Double.toString(item.left));
     xml.attribute("y", Double.toString(item.top));
@@ -698,12 +703,23 @@ public class SvgGenerator extends BaseGenerator {
     xml.attribute("width", Double.toString(item.width));
     xml.attribute("height", Double.toString(item.height));
     xml.attribute("filter", "url(#shadow"+id+")");
-    if (e.getName().equals("SimpleQuantity"))
-      xml.attribute("style", "fill:#f8ddf8;stroke:black;stroke-width:1");
-    else if (e.getName().equals("Element"))
-      xml.attribute("style", "fill:#ffffff;stroke:black;stroke-width:1");
-    else
-      xml.attribute("style", "fill:#f0f8ff;stroke:black;stroke-width:1");
+    if (isRoot && r != null) {
+      xml.attribute("style", "fill:"+r.getStatus().getColorSvg()+";stroke:black;stroke-width:1");
+      status = r.getStatus();
+    } else if (e == null || e.getStandardsStatus() == null )
+      xml.attribute("style", "fill:"+status.getColorSvg()+";stroke:black;stroke-width:1");
+    else {
+      xml.attribute("style", "fill:"+e.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:1");
+      status = e.getStandardsStatus();
+    }
+//    else if (t == null)
+//      xml.attribute("style", "fill:"+StandardsStatus.DRAFT.getColorSvg()+";stroke:black;stroke-width:1");
+//    else if (t.getStandardsStatus() == null)
+//      xml.attribute("style", "fill:"+StandardsStatus.DRAFT.getColorSvg()+";stroke:black;stroke-width:1");
+//    else if (t.getStandardsStatus() == null)
+//      xml.attribute("style", "fill:"+StandardsStatus.DRAFT.getColorSvg()+";stroke:black;stroke-width:1");
+//    else
+//      xml.attribute("style", "fill:"+t.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:1");
     xml.element("rect", null);    
 
     xml.attribute("x1", Double.toString(item.left));
@@ -773,7 +789,7 @@ public class SvgGenerator extends BaseGenerator {
       for (ElementDefn c : e.getElements()) {  
         if (!isAttribute(c)) {
           if (Utilities.noString(c.typeCode()) || !c.typeCode().startsWith("@")) {
-            links.add(new Link(item, drawClass(xml, c, false, resource, false, path+"."+c.getName(), null), c.getName(), c.describeCardinality(), PointKind.unknown, baseUrl(path)+path+"."+c.getName(), c.getEnhancedDefinition()));        
+            links.add(new Link(item, drawClass(xml, c, false, resource, false, path+"."+c.getName(), null, status), c.getName(), c.describeCardinality(), PointKind.unknown, baseUrl(path)+path+"."+c.getName(), c.getEnhancedDefinition()));        
           } else {
             ClassItem target = getItemForPath(resource, c.typeCode().substring(1));
             links.add(new Link(item, target, c.getName(), c.describeCardinality(), PointKind.unknown, baseUrl(path)+path+"."+c.getName(), c.getEnhancedDefinition()));                  

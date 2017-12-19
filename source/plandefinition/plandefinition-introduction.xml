@@ -2,7 +2,7 @@
 
 
 <div>
-<a name="bnc"> </a>
+<a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 

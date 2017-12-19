@@ -1,9 +1,9 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="typical"> </a>
+<a name="typical"></a>
 	<h2>Typical Status Transition Examples:</h2>
 
-<a name="status-flow"> </a>
+<a name="status-flow"></a>
 	<h3>Typical flow of statuses for an appointment:</h3>
 	<table  class="grid">
 		<tr>
@@ -154,7 +154,7 @@
 		</tr>
 	</table>
 
-<a name="reject-flow"> </a>
+<a name="reject-flow"></a>
 	<h3>Flow for the rejection/cancellation of an appointment</h3>
 	<table  class="grid">
 		<tr>
@@ -231,7 +231,7 @@
 		</tr>
 	</table>
 
-<a name="negotiate-flow"> </a>
+<a name="negotiate-flow"></a>
 	<h3>Flow for re-negotiation:</h3>
 	<table  class="grid">
 		<tr>
@@ -344,7 +344,7 @@
 		</tr>
 	</table>
 	
-<a name="noshow-flow"> </a>
+<a name="noshow-flow"></a>
 	<h3>Flow for a patient no-show:</h3>
 	<table  class="grid">
 		<tr>
@@ -387,7 +387,7 @@
 		</tr>
 	</table>	
 	
-<a name="notes"> </a>
+<a name="notes"></a>
 	<h2>Notes:</h2>
 	<ul>
 		<li>Placer/Filler (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>)</li>
@@ -409,7 +409,7 @@
 		</p>
 	</ul>
 <blockquote class="stu-note">
-<a name="dstu"> </a>
+<a name="dstu"></a>
 <p>
 <b>STU Note:</b> Implementer feedback is sought on the values for Appointment.priority and how interoperable they are.
 Using an extension to record a CodeableConcept for named values may be tested at a future Connectathon.

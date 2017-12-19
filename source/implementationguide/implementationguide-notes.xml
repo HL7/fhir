@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="default"> </a>
+<a name="default"></a>
 <h3>Default Profiles</h3>
 <p>
 An implementation guide can define default profiles using <code>ImplementationGuide.global</code>- these are profiles that apply to any resource that
@@ -14,7 +14,7 @@ reference to a particular resource type.
 Note that a resource can conform to the default profile by conforming to any profile derived from it. 
 </p>
 
-<a name="compatibility"> </a>
+<a name="compatibility"></a>
 <h3>Compatibility list</h3>
 <p>
 This table declares the compatibility between the various resources as determined

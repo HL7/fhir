@@ -27,7 +27,7 @@ describes:
  <li><a href="#error">Entered in Error</a>: information about how erroneous entry is handled for the resources</li>
 </ul>
 
-<a name="status"> </a>
+<a name="status"></a>
 <h3>Resource Status</h3>
 
 <p>Many FHIR resources have a status element that represents the lifecycle state of the resource or the clinical process represented by the resource. Work groups can specify status values appropriate to the individual resource. Although consistency between resources is not the primary objective, it is helpful to users and developers to have well-crafted value sets that cover all possible states (since the value sets are typically required and non-extensible).</p>
@@ -40,7 +40,7 @@ describes:
 	<li>Clinical status life cycle</li>
 </ul>
 
-<a name="clinical"> </a>
+<a name="clinical"></a>
 <h3>Clinical Workflow Process Life Cycle</h3>
 
 <p>Describes the lifecycle states of complex activities common in healthcare. Typically, these states follow a chronological life cycle that leads from initiation to the conclusion of the action.
@@ -63,7 +63,7 @@ A characteristic (but non-exhaustive) set of states for the clinical workflow pr
  <li>Procedure.status: <%sclist Procedure.status%></li>
 </ul>
 
-<a name="order"> </a>
+<a name="order"></a>
 
 <h3>Request/Order Life Cycle</h3>
 
@@ -89,7 +89,7 @@ A characteristic (but non-exhaustive) set of states for the clinical workflow pr
  <li>ServiceRequest.status: <%sclist ServiceRequest.status%></li>
 </ul>
 
-<a name="entity"> </a>
+<a name="entity"></a>
 <h3>Entity Availability Life Cycle</h3>
 
 <p>The entity availability life cycle indicates if the resource, or the entity described by the resource, is ready for use, not yet ready for use, or has been retired from use. A characteristic (but non-exhaustive) set of states for the entity availability life cycle include: </p>
@@ -118,7 +118,7 @@ A characteristic (but non-exhaustive) set of states for the clinical workflow pr
 </ul>
 <p></p>
 
-<a name="cstatus"> </a>
+<a name="cstatus"></a>
 
 <h3>Clinical Status Life Cycle</h3>
 <p>Clinical status is somewhat different than the previous status values, since it does not deal with workflow or lifecycle. Instead, it indicates how evidence is affecting a clinical interpretation. Here are two examples:</p>
@@ -130,7 +130,7 @@ A characteristic (but non-exhaustive) set of states for the clinical workflow pr
 
 <hr/>
 
-<a name="current"> </a>
+<a name="current"></a>
 <h3>Current Resource Lists</h3>
 
 <p>
@@ -182,7 +182,7 @@ available, though doing so assists clients in their audit/integrity tasks. See
 <p>
 In a document, current lists are determined by the code on a Composition section.
 </p>
-<a name="lists"> </a>
+<a name="lists"></a>
 <p>
 FHIR defines the following names for functional lists:
 </p>
@@ -223,7 +223,7 @@ FHIR defines the following names for functional lists:
 </table>
 
 <hr/>
-<a name="error"> </a>
+<a name="error"></a>
 <h3>Entered in Error Summary</h3>
 
 <p>

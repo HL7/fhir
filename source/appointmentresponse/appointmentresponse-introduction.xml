@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 	<div>
-		<a name="scope"> </a>
+		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p> 
 		Appointment resources are used to provide information about 
@@ -18,7 +18,7 @@
 		them to be relevant in the community healthcare space, and also ease exposure to other
 		appointment / calendar standards widely used outside of Healthcare.
 		</p>
-		<a name="basic-workflow"> </a>
+		<a name="basic-workflow"></a>
 		<h3>The basic workflow to create an appointment</h3>
 		<ul>
 			<li>

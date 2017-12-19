@@ -15,7 +15,7 @@ See below for further discussion</li>
 <li>The Contact for a Patient has an element <i>organization</i>, this is for use with guardians or business related contacts where just the organization is relevant.</li>
 </ul>
 
-<a name="ids"> </a>
+<a name="ids"></a>
 <h2>Patient id's and Patient resource id's</h2>
 <p>A Patient record's Resource Id can never change. For this reason the identifiers with 
 which humans are concerned (often called MRN - Medical Record Number, or UR - Unit Record) should not 
@@ -26,7 +26,7 @@ multiple numbers because of mergers of patient record systems over time.
 </p>
 
 
-<a name="links"> </a>
+<a name="links"></a>
 <h2>Linking Patients</h2>
 <p>The <i>link</i> element is used to assert that patient resources refer to the same patient. This element is used
 to support the following scenarios where multiple patient records exist:</p>
@@ -54,7 +54,7 @@ being more complete or more authorative than another. In such cases, links of ty
 other patient records. It is not a requirement that such links are bilateral. 
 </p>
 
-<a name="linking"> </a>
+<a name="linking"></a>
 <h2>Patient vs. Person vs. Patient.Link vs. Linkage</h2>
 <p>
 The Person resource on the surface appears to be very similar to the Patient resource, and the usage for it is very similar
@@ -83,7 +83,7 @@ Not detecting/checking for a potential linkage could mean that related clinical 
 query to potentially locate other patient resources to consider, or use _revInclude)
 </p>
 
-<a name="contact"> </a>
+<a name="contact"></a>
 <h2>Patient.contact vs. RelatedPerson</h2>
 <p>
 The contact element on the Patient Resource should be used for storing people to contact information.
@@ -95,7 +95,7 @@ This includes cases where these related people are actually contributing to the 
 <p>It is not expected that these records will be used for recording the primary care provider; this information should be stored in
 the Patient.generalPractitioner field.</p>
 
-<a name="gender"> </a>
+<a name="gender"></a>
 <h2>Patient Gender</h2>
 
 <p>
@@ -115,7 +115,7 @@ Other related Observations may describe the Karyotypic/Genetic, Gonadal, Ductal,
 For veterinary use the animal component also includes the genderStatus which indicates sterility information.
 </p>
 
-<a name="maternity"> </a>
+<a name="maternity"></a>
 <h2>Mother and newborn relationships</h2>
 <p>
 There are several ways to represent the relationship between a mother and a child.
@@ -176,7 +176,7 @@ The Patient/RelatedPerson structure should also be created for ongoing usage, as
 &lt;/Encounter&gt;
 </pre>
 	
-<a name="merge"> </a>
+<a name="merge"></a>
 <h2>Merging records</h2>
 <p>
 This specification does not specify merge functionality: if multiple patient records are found to be 
@@ -189,7 +189,7 @@ does not mandate that FHIR servers migrate information between such records on f
  <li>Servers are allowed to implement merging/record migration even though it is not mandated. </li>
 </ul>
 <blockquote class="stu-note">
-<a name="dstu"> </a>
+<a name="dstu"></a>
 <p>
 <b>STU Note:</b>   We are seeking input from the implementer community on what effect linking/merging/unlinking should have on 
 other functionality such as the GET operation (where the result is the old version of the Patient), searching, reverse includes, etc.; e.g., should observation resources from all linked/merged patients be returned when querying for one of them?<br/>
@@ -201,7 +201,7 @@ Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedbac
 </p>
 </blockquote>
 
-<a name="match"> </a>
+<a name="match"></a>
 <h2>Patient Matching using an MPI</h2>
 <p>
 A Master Patient Index (<a href="http://en.wikipedia.org/wiki/Enterprise_master_patient_index">MPI</a>)

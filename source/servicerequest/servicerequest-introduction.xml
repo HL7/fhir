@@ -1,8 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
-		<a name="scope"> </a>
+		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<a name="dstu"> </a>
+		<a name="dstu"></a>
 		<blockquote class="stu-note">
 			<p>
 				<b>STU Note:</b> In terms of scope and usage, the Patient Care and Orders and Observations workgroups wish to
@@ -81,7 +81,7 @@ Examples include:
 		</p>
 	</div>
 	<div>
-		<a name="bnr"> </a>
+		<a name="bnr"></a>
 		<h2>Boundaries and Relationships</h2>
 		<p>
 			<em>ServiceRequest</em> and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a <em>ServiceRequest</em> would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist.  For example, upon receiving a CommuninicationRequest a practitioner might initiate a <em>ServiceRequest</em>.</p>

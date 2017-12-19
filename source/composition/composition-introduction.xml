@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"> </a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p> 
 A Composition is the basic structure from which <a href="documents.html">FHIR Documents</a> - 
@@ -21,7 +21,7 @@ to make more granular updates with individual provenance statements.
 </div>
 
 <div>
-<a name="bnr"> </a>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
 Composition is a structure for grouping information for purposes of persistence and attestability.  There
@@ -72,9 +72,9 @@ system, or as specified by any applicable profiles.
 </div>
 
 <div>
-<a name="bnc"> </a>
+<a name="bnc"></a>
 <h2>Background and Context</h2>
-<a name="status"> </a>
+<a name="status"></a>
 <h3>Composition Status Codes</h3>
 <p>
 Every composition has a status element, which describes the status of the content of the composition, taken from this list of codes:
@@ -104,7 +104,7 @@ have no provision for removing erroneous information from a patient's record, an
 this is not safe. 
 </p>
 
-<a name="cda"> </a>
+<a name="cda"></a>
 <h3>Note for CDA aware readers</h3>
 
 <p>

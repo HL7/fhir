@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="notes"> </a>
+<a name="notes"></a>
 <h2>Notes</h2>
 <ul>
  <li>The value of the <code>system</code>, <code>version</code> and <code>code</code> elements are the same as used by the <a href="datatypes.html#Coding">Coding</a> data type</li>
@@ -9,7 +9,7 @@
  <li>There should be only one <code>element</code> for each source concept. If there is more than one, the <code>target</code> statements are cumulative across them</li>
 </ul>
 
-<a name="groups"> </a>
+<a name="groups"></a>
 <h2>Grouping Mappings</h2>
 <p>
 The concept mappings in <code>element</code> are arranged into groups that share common source/target systems.
@@ -24,7 +24,7 @@ that contain no target system may only contained 'unmatched' concepts. There is 
 the meaning of an <code>unmatched</code> target whether or not there is a stated target system.
 </p>
 
-<a name="implicit"> </a>
+<a name="implicit"></a>
 <h2>Implicit Code Systems</h2>
 
 <p>

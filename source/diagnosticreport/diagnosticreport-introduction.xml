@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"> </a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.   It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow pattern for <a href="workflow.html#event"><em>event</em> resources</a>.</strong></p>
 <p>
@@ -28,7 +28,7 @@ The DiagnosticReport resource does not yet provide full support for detailed str
 </div>
 
 <div>
-<a name="bnc"> </a>
+<a name="bnc"></a>
 <h2>Background and Context</h2>
 <!--p>
 The DiagnosticReport resource has the following aspects:
@@ -62,7 +62,7 @@ The results are assembled in "groups" which are nested structures of Observation
 
 </div>
 <div>
-<a name="bnr"> </a>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
 Note that many diagnostic processes are procedures that generate observations and diagnostic reports. In many cases, such an observation does not require an explicit representation of the procedure used to create the observation, but where there are details of interest about how the diagnostic procedure was performed, the <a href="procedure.html">Procedure</a> resource is used to describe the activity.

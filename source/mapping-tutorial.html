@@ -19,7 +19,7 @@
 <p>
 This tutorial introduces the FHIR <a href="mapping-language.html">mapping language</a>.
 </p>
-<a name="step1"> </a>
+<a name="step1"></a>
 <h3>Step #1: Simplest possible transform</h3>
 <p>
 To start with, we're going to consider a very simple case: mapping between two structures
@@ -103,7 +103,7 @@ are strongly typed, and the mapping groups have explicit types, then a short han
 How this works is described <a href="#step10">described below</a>.
 </p>
 
-<a name="step2"> </a>
+<a name="step2"></a>
 <h3>Step #2: Fields with different names</h3>
 <p>
 Now consider the case where the elements have different names:
@@ -129,7 +129,7 @@ This relationship is a simple variation of the last:
 Note that the choice of variable name is purely arbitrary. It does not need to be the same as the element name.
 </p>
 
-<a name="step3"> </a>
+<a name="step3"></a>
 <h3>Step #3: Length restriction</h3>
 <p>
 Still sticking with very simple mappings, let's consider the case where there is a length restriction on the target model that is shorter than the one on the source
@@ -161,7 +161,7 @@ should - validate the outputs after the transforms, but the transform engine its
 (e.g. it does not assume that it's the final step in the process).
 </p>
 
-<a name="step4"> </a>
+<a name="step4"></a>
 <h3>Step #4: Type Conversion in Primitives</h3>
 <p>
 Now for the case where there is a simple type conversion between the primitive types on the left and right, in this case from a string to an integer.
@@ -195,7 +195,7 @@ the implementation layer makes these types available to the mapping language usi
 primitive types. The mapping language uses the FHIRPath syntax for primitive constants.
 </p>
 
-<a name="step5"> </a>
+<a name="step5"></a>
 <h3>Step #5: Managing lists, part 1</h3>
 <p>
 Back to the simple case where source.a22 is copied to target.a22, but in this case, a22 can repeat (in both source and target):
@@ -221,7 +221,7 @@ The transform rule simply asserts that a22 maps to a22. The engine will apply th
 This will create one a22 in TRight for each a22 in TLeft.
 </p>
 
-<a name="step6"> </a>
+<a name="step6"></a>
 <h3>Step #6: Managing lists, part 2</h3>
 <p>
 A more difficult case is where the source allows multiple repeats, but the target doesn't:
@@ -253,7 +253,7 @@ unpredictable. However there are some circumstances where the appropriate action
 is to defer resolution, so this is allowed.
 </p>
 
-<a name="step7"> </a>
+<a name="step7"></a>
 <h3>Step #7: Simple Nesting</h3>
 <p>
 Most transformations involve nested content. Let's start with a simple case, where element aa contains ab:
@@ -308,7 +308,7 @@ contexts - they are only valid within the group or rule that defines them, and a
 dependent rules or groups.
 </p>
 
-<a name="step8"> </a>
+<a name="step8"></a>
 <h3>Step #8: Translation</h3>
 <p>
 A common translation pattern is to perform a translation e.g. from one set of codes to another
@@ -337,7 +337,7 @@ operation on the terminology server to translate the code using a specified conc
 put the code value of the return translation in target.d.
 </p>
 
-<a name="step9"> </a>
+<a name="step9"></a>
 <h3>Step #9: Co-dependency in translation</h3>
 <p>
 Another common translation is where the target mapping for one element depends on the
@@ -364,7 +364,7 @@ rule_i1 : for source.i as i where m &lt; 2 make target.j = i
 rule_i2 : for source.i as i where m >= 2 make target.k = i
 </pre>
 
-<a name="step10"> </a>
+<a name="step10"></a>
 <h3>Step #10: Using Types</h3>
 <p>
 Many/most trees are fully and strongly typed. In these cases, the mapping language can make use of the
@@ -433,7 +433,7 @@ Not only is this group the default for (TLeftInner:TRightInner), if the engine h
 It is an error if the engine locates more than one group of rules claiming to be the correct group for a type pair of a single source type.
 </p>
 
-<a name="step11"> </a>
+<a name="step11"></a>
 <h3>Step #11: Reworking Structure #1</h3>
 <p>
 It's now time to start maving away from relatively simple cases to some of the harder ones to
@@ -469,7 +469,7 @@ ef_b1: for source.f as s_f make target.e as t_e { first } then {
 }
 </pre>
 
-<a name="step12"> </a>
+<a name="step12"></a>
 <h3>Step #12: Reworking Structure #2</h3>
 <p>
 The second example for reworking structure moves cardinality around the hierarchy.
@@ -510,7 +510,7 @@ aza : for src.az1 as s_az1 then {
 }
 </pre>
 
-<a name="step13"> </a>
+<a name="step13"></a>
 <h3>Step #13: Multiple structures #1</h3>
 <p>
 Simple mappings, such as we've dealt with so far, where the source and target
@@ -564,7 +564,7 @@ also passed back to the host application for it to determine how to represent th
 </p>
 
 
-<a name="step14"> </a>
+<a name="step14"></a>
 <h3>Step #14: Multiple structures #2</h3>
 <p>
 For our second example, we're going to look at the reverse: where  multiple input structures create a single input structure.
@@ -592,7 +592,7 @@ identified by source.ptr, and create a variable for it
 f2: [todo]
 </pre>
 
-<a name="step15"> </a>
+<a name="step15"></a>
 <h3>Step #15: Grouping</h3>
 
 <pre>

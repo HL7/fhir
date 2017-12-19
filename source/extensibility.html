@@ -15,7 +15,7 @@
 
 <%extheader base%>
 
-<a name="root"> </a>
+<a name="root"></a>
 <h1>Extensibility</h1>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative infrastructure%]
@@ -51,8 +51,8 @@ strict governance applied to the definition and use of extensions. Although
 any implementer can define and use extensions, there is a set of requirements
 that must be met as part of their use and definition.
 </p>
-<a name="Extension"> </a>
-<a name="extension"> </a>
+<a name="Extension"></a>
+<a name="extension"></a>
 <h2>Extension Element</h2>
 <p>
 Every element in a resource or data type includes an optional "extension" child element that may
@@ -278,9 +278,9 @@ or in JSON:
 </pre>
 </div>
 
-<a name="mustUnderstand"> </a>
-<a name="isModifier"> </a>
-<a name="modifierExtension"> </a>
+<a name="mustUnderstand"></a>
+<a name="isModifier"></a>
+<a name="modifierExtension"></a>
 <h2>Modifier Extensions</h2>
 <p>
 There are some cases where the information provided in an extension modifies the meaning
@@ -318,7 +318,7 @@ because the impact of the modifier element is expected to be known by applicatio
 Any modifierExtension defined outside an extension cannot be placed in another extension.
 </p>
 <blockquote class="stu-note">
-<a name="dstu"> </a>
+<a name="dstu"></a>
 <p>
 <b>STU Note:</b> Is this a problem? Input from implementers identifying places where modifier
 extensions might be needed inside other extensions is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
@@ -485,7 +485,7 @@ to meet the data rules. This would be both a bad idea, and a modifier
 extension, which is not allowed on data types.
 </p>
 
-<a name="exchange"> </a>
+<a name="exchange"></a>
 <h2>Exchanging Extensions</h2>
 
 <p>

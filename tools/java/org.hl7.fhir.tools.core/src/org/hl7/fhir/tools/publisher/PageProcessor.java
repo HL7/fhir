@@ -805,6 +805,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (com[0].equals("fmmna")) {
         String fmm = "N/A";
         src = s1+getFmmFromlevel(genlevel(level), fmm)+s3;
+      } else if (com[0].equals("mostlynormative")) {
+        String p = null;
+        String wt = workingTitle; 
+        if (com.length >= 2) {
+          if (!com[1].equals("%check"))
+            p = com[1]; 
+          else if ("Normative".equals(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS))) {
+            p = resource.getUserString("ballot.package");
+            wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).getName();
+          }
+        }
+        src = s1+(p == null ? "" : getMostlyNormativeNote(genlevel(level), p, wt, file))+s3;
+      } else if (com[0].equals("mixednormative")) {
+        String p = null;
+        String wt = workingTitle; 
+        if (com.length >= 2) {
+          if (!com[1].equals("%check"))
+            p = com[1]; 
+          else if ("Normative".equals(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS))) {
+            p = resource.getUserString("ballot.package");
+            wt = ((MetadataResource) resource).fhirType()+" "+((MetadataResource) resource).getName();
+          }
+        }
+        src = s1+(p == null ? "" : getMixedNormativeNote(genlevel(level), p, wt, file))+s3;
       } else if (com[0].equals("normative")) {
         String p = null;
         String wt = workingTitle; 
@@ -826,6 +850,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (s2.startsWith("search-additions\r\n")) {
         searchAdditions = s2.substring(16).trim();
         src = s1+s3;
+      } else if (com[0].equals("StandardsStatus")) {
+        src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1175,6 +1201,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return src;
   }
 
+  private String getStandardsStatusNote(String prefix, String value, String type, String pack) throws FHIRException {
+    StandardsStatus ss = StandardsStatus.fromCode(value);
+    switch (ss) {
+    case TRIAL_USE:
+      return "<p style=\"border: 1px black solid; background-color: "+ss.getColor()+"; padding: 5px\">\r\n" + 
+      "Normative Candidate Note: This "+type.replace("_", " ")+" is not normative - it is still undergoing Trial Use while more experience is gathered.\r\n" + 
+      "</p>\r\n";
+    case NORMATIVE:
+
+      return "<p style=\"border: 1px black solid; background-color: "+ss.getColor()+"; padding: 5px\">\r\n" + 
+      "Normative Candidate Note: This "+type.replace("_", " ")+" is candidate normative content as part of the overall resource for R4 in the <a href=\""+prefix+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+      "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
+      "</p>\r\n";
+    }
+    throw new Error("Not done yet");
+  }
+
   private String produceDataTypeTx(String dtname) throws Exception {
     
     TypeDefn dt = definitions.getElementDefn(dtname);
@@ -1227,6 +1270,20 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
         "Normative Candidate Note: Some of the content on this page (marked clearly) is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
         "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made.\r\n" + 
+        "</p>\r\n" + 
+        "";
+  }
+
+  private String getMostlyNormativeNote(String genlevel, String pack, String title, String filename) throws Exception {
+    if (!filename.contains("-definitions") && !filename.contains("-operations")) {
+      Map<String, String> map = normativePackages.get(pack);
+      if (map == null)
+        throw new Exception("Unable to find infrastructure package '"+pack+"'");
+      map.put(filename, title);
+    }
+    return "<p style=\"border: 1px black solid; background-color: #e6ffe6; padding: 5px\">\r\n" + 
+        "Normative Candidate Note: Most of the content on this page is candidate normative content for R4 in the <a href=\""+genlevel+"ballot-intro.html#"+pack+"\">"+Utilities.capitalize(pack)+" Package</a>.\r\n" + 
+        "Once normative, it will lose it's Maturity Level, and breaking changes will no longer be made. The few parts of this page that are not normative are clearly marked\r\n" + 
         "</p>\r\n" + 
         "";
   }
@@ -4932,6 +4989,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+produceDataTypeTx(com[1])+s3;
       } else if (com[0].equals("normative")) {
         src = s1+s3;
+      } else if (com[0].equals("mostlynormative")) {
+        src = s1+s3;
+      } else if (com[0].equals("mixednormative")) {
+        src = s1+s3;
+      } else if (com[0].equals("StandardsStatus")) {
+        src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();

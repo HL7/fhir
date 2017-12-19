@@ -41,7 +41,7 @@ as a collection of data elements (<a href="dataelements.xml">XML</a> or <a href=
 ElementDefinition is used in [%dtusage ElementDefinition%]
 </p>
 
-<a name="definition"> </a>
+<a name="definition"></a>
 <h2 style="margin-bottom: 1px">
 Content
 </h2>
@@ -56,7 +56,7 @@ Content
 
 <p>&nbsp;</p>
 
-<a name="path"> </a>
+<a name="path"></a>
 <h2>Use of ElementDefinition.path</h2>
 
 <p>
@@ -94,7 +94,7 @@ StructureDefinitions with <a href="structuredefinition-definitions.html#Structur
 base resource definition from which they derive (e.g. in the FHIR specification).
 </p>
 
-<a name="id"> </a>
+<a name="id"></a>
 <h2>ElementDefinition.id</h2>
 <p>
 In addition to the path, every ElementDefinition SHALL have a populated <a href="element.html#table">id</a>, and the <code>id</code> SHALL
@@ -110,7 +110,7 @@ Note that in a profile with no slices, this id will match the path exactly and e
 be used as the target of external references into the definition, where necessary.
 </p>
 
-<a name="interpretation"> </a>
+<a name="interpretation"></a>
 <h2>Interpretation of ElementDefinition in different contexts</h2>
 
 <p>The data type <code>ElementDefinition</code> is used in <a href="structuredefinition.html">StructureDefinition</a>. The way its elements are to be used and interpreted depends on the context:</p>
@@ -175,7 +175,7 @@ The use of Path and type depends more deeply on the context where the ElementDef
 There are additional notes about the use of <code>ElementDefinition</code> when defining Extensions on the <a href="defining-extensions.html#ed">Defining Extensions</a> page.
 </p>
 
-<a name="slicing"> </a>
+<a name="slicing"></a>
 <h3>Rules about Slicing</h3>
 <p>
 For a description of slicing, see <a href="profiling.html#slicing">Slicing</a>
@@ -194,7 +194,7 @@ For a description of slicing, see <a href="profiling.html#slicing">Slicing</a>
  <li></li>
 </ul>
 
-<a name="min-max"> </a>
+<a name="min-max"></a>
 <h3>Rules about min and max</h3>
 
 <ul>
@@ -203,7 +203,7 @@ For a description of slicing, see <a href="profiling.html#slicing">Slicing</a>
  <li>In <code>StructureDefinition.snapshot</code>: min and max are always required</li>
 </ul>
 
-<a name="missing"> </a>
+<a name="missing"></a>
 <h3>Missing Elements</h3>
 <p>
 Most elements have a minimum cardinality of 0, which means that they may be missing from a resource when it is exchanged between systems.

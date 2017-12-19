@@ -1,9 +1,9 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"> </a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
-		<a name="dstu"> </a>
+		<a name="dstu"></a>
 		<blockquote class="stu-note">
 			<p>
 				<b>STU Note:</b> The Orders and Observations workgroups wants to make the balloter aware than observations that require the attachment data types are represented by the Media resource instead of Observation.  There have been several significant change the the Media resource in order to align it with <a href="observation.html">Observation</a> and the workflow <a href="event.html">event</a> pattern including:</p>
@@ -24,7 +24,7 @@ The Media resource contains photos, videos, and audio recordings. It is used wit
 </div>
 
 <div>
-<a name="bnr"> </a>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 
 <p>

@@ -20,7 +20,7 @@ to be used in a different manner.  Where necessary, guidance is included in this
 </p>
 
 <div>
-<a name="any"> </a>
+<a name="any"></a>
 <h3>Any (ANY)</h3>
 <p>These extensions may apply to any of the FHIR data types (complex or primitive).  It can also appear on any resource element.</p>
 <h4><a href="extension-iso21090-nullflavor.html">nullFlavor</a></h4>
@@ -41,7 +41,7 @@ This approach is preferred over referencing the full null flavor specification. 
 </div>
 
 <div>
-<a name="entityname"> </a>
+<a name="entityname"></a>
 <h3>Entity Name (EN)</h3>
 <p>These extensions apply to the <a href="datatypes.html#humanname">HumanName</a> data type.</p>
 <ul>
@@ -67,7 +67,7 @@ most of the human name issues (see <a href="extension-humanname-own-name.html">o
 </div>
 
 <div>
-<a name="address"> </a>
+<a name="address"></a>
 <h3>Address (AD)</h3>
 <p>These extensions provide support for various additional properties of the <a href="datatypes.html#address">Address</a> data type.  There are kinds of properties:</p>
 <ul>

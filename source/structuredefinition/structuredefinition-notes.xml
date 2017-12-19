@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<a name="interpretation"> </a>
+<a name="interpretation"></a>
 
 <h2>Interpretation Notes:</h2>
 
@@ -151,7 +151,7 @@ mapping:
 
 [%mappings-table%]
 
-<a name="logical"> </a>
+<a name="logical"></a>
 <h3>Logical Models</h3>
 <p>
 StructureDefinitions are used to define the basic structures of FHIR: data types, resources, extensions, and profiles.

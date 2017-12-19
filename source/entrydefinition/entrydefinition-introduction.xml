@@ -3,7 +3,7 @@
 <!-- content goes here -->
 
 <div>
-<a name="scope"> </a>
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
 This resource is an administrative resource for using definitional resources in the scope of a catalog.
@@ -17,7 +17,7 @@ This resource contains additional information about each catalog entry, in the s
 </div>
 
 <div>
-<a name="bnr"> </a>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
  This resource is used in a Catalog which is a profile on Composition (link) and contains reference to a definitional resource, such as 
 <ul>

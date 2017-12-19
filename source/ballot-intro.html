@@ -28,6 +28,38 @@ Note that the R4 version of FHIR will have content with different ballot status:
 Mostly, each page has a single status, show clearly at the top of the page. However, in a very few cases, 
 some content on a page that is marked as normative is specifically marked as 'trial use'. 
 </p>
+
+<a name="mixed"></a>
+<h3>Mixed Normative content</h3>
+<p>
+Some Normative resources contain a few elements labelled as 'Trial Use' <i>even though the resource itself
+is labelled 'Normative'</i>. While HL7 prefers to avoid this outcome, there are a number of resources 
+where the overall functionality of the resource is clearly ready to be labelled as 'normative' while
+some very specific elements are known not to have the requisite level of implementation experience 
+sa the rest of the resource. E.g. <a href="bundle-definitions.html#Bundle.signature">Bundle.signature</a>.
+</p>
+<p>
+Where a Normative resource contains elemnts marked as trial-use, these elements are clearly marked
+in the resource definitions. Implementers should be aware that future versions of the FHIR specification
+may change these parts of the resources (in addition to the other changes allowed under the 
+<a href="versions.html#change">inter-version compatibility rules</a>. While HL7 will carefully
+consider the consequences of breaking change to these elements, implementers should be aware that
+reading/using these elements has the potential to cause breaking change to their applications later.
+</p>
+<p>
+Note that this same status will arise as a matter of process when new elements are introduced into 
+normative resources in future versions - they will undergo a period of trial use as appropriate. 
+</p>
+<p>
+Note: it is also possible that some resources in the future will be labelled as 'trial use', but
+contain some elements labelled as 'normative'. There is no resource like this in this ballot, 
+though all Trial Use resources contain normative content from <a href="resource.html">Resource</a> 
+and <a href="domainresource.html">DomainResource</a>, and the <a href="datatypes.html">Data types</a>.
+</p>
+
+
+
+<a name="process"></a>
 <h3>The FHIR R4 Ballot Process</h3>
 
 <p>
@@ -180,25 +212,25 @@ Thanks for taking the time to review the FHIR specification.  We appreciate any 
 <h3>Normative Ballot Packages</h3>
 
 <h4>Infrastructure</h4>
-<a name="infrastructure"> </a>
+<a name="infrastructure"></a>
 <p>Abstract base types, data types, formats, the RESTful API, and content and typing rules</p>
 
 [%normative-pages infrastructure%]
 
 <h4>Terminology and Conformance</h4>
-<a name="conformance"> </a>
+<a name="conformance"></a>
 <p>The terminology infrastructure, and the base resources that specify content</p>
 
 [%normative-pages conformance%]
 
 <h4>Patient</h4>
-<a name="patient"> </a>
+<a name="patient"></a>
 <p>The Patient resource, and related content</p>
 
 [%normative-pages patient%]
 
 <h4>Observation</h4>
-<a name="observation"> </a>
+<a name="observation"></a>
 <p>The Observation resource, and related content</p>
 
 [%normative-pages observation%]

@@ -1,6 +1,6 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
-		<a name="scope"> </a>
+		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
 			AdverseEvent is an event resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event</a>
@@ -19,7 +19,7 @@
 		</p>
 	</div>
 	<div>
-		<a name="bnr"> </a>
+		<a name="bnr"></a>
 		<h2>Boundaries and Relationships</h2>
 		<p>
 			The AdverseEvent resource is designed to represent events that have a harmful impact on a subject, or had the potential to cause harm to a subject but were avoided.  In the course of medical care there are many actions that may impact how a subject responds to a particular treatment impacting patient safety.  Therefore the AdverseEvent resource may reference multiple other resources to represent the context or details of an adverse event including but not limited to  Observation, Condition, MedicationAdminsitration, Immunization, Procedure, or ResearchStudy.  

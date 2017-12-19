@@ -16,7 +16,7 @@
 
 <h2>HL7 Version 2</h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
-<a name="HL7 v2"> </a>
+<a name="HL7 v2"></a>
 <p>
 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> was HL7's first information exchange standard and is one of its most
 widely adopted, being prominent in in-patient settings throughout the world, though also
@@ -118,7 +118,7 @@ The FHIR mappings provided give a starting point for consideration, but mappings
 on an implementation by implementation basis.
 </p>
 <p>
-<b>Extensions:</b><a name="HL7 v2-extensions"> </a>While some HL7 v2 elements will map to FHIR core, a large percentage
+<b>Extensions:</b><a name="HL7 v2-extensions"></a>While some HL7 v2 elements will map to FHIR core, a large percentage
 will not.  Where a HL7 v2 element is not supported by core, an extension will be needed to share the information.
 Where there is interest, HL7 may choose to publish and maintain extensions for HL7 v2 elements that are not supported
 as part of the core FHIR specification.  The FHIR extension registry <!-- Todo: Link --> should be searched prior
@@ -130,7 +130,7 @@ not based on the name of the Z-segment itself (given that Z-segments with the sa
 exist) (e.g. http://hl7.org/ZAC).
 </p>
 <p>
-<b>Resource identification:</b><a name="HL7 v2-identification"> </a>HL7 v2 messages will often reference objects that
+<b>Resource identification:</b><a name="HL7 v2-identification"></a>HL7 v2 messages will often reference objects that
 have already been referred to in previous messages.  When converting the messages to FHIR, these references
 will need to point to the same resource URI.  Given that not all HL7 v2 message objects have identifiers in the
 message, this can be somewhat problematic.  An approach to handling this issue exists for FHIR <a href="http.html#transaction">transactions</a>.
@@ -138,7 +138,7 @@ However, the ramifications of using this approach in a messaging environment hav
 Implementers will need to explore their own strategies as part of early adoption.
 </p>
 <p>
-<b>Merging references and resources:</b><a name="HL7 v2-merging"> </a> HL7 v2 message instances may well reference the
+<b>Merging references and resources:</b><a name="HL7 v2-merging"></a> HL7 v2 message instances may well reference the
 same "object" numerous times.  For example, a message containing a patient's medication history is likely to
 include references to the same clinicians and clinics/hospitals many times.  While in some cases, the data
 captured for a given object might be identical in all uses, in other cases the information might vary.  For
@@ -163,7 +163,7 @@ information needed/available.  This creates two challenges:
   represent it using multiple resources.</li>
 </ol>
 <p>
-<b>Identified vs. Contained resources:</b><a name="HL7 v2-contained"> </a> Each HL7 v2 message will be mapped to
+<b>Identified vs. Contained resources:</b><a name="HL7 v2-contained"></a> Each HL7 v2 message will be mapped to
 multiple resource instances - often 10s or even 100s of resource instances.  To maintain consistency
 with the HL7 v2 messaging paradigm, all resource data will typically be sent over the wire as part of the
 FHIR message rather than being sent by reference as would be typical in a RESTful implementation.
@@ -180,14 +180,14 @@ contained resource, whereas an XCN of <code>|12345^Smith^John|</code> generally 
 process will need to be aware of the scope and management processes around the identifier.
 </p>
 <p>
-<b>Generating human-readable content:</b><a name="HL7 v2-humanReadable"> </a> FHIR requires that every
+<b>Generating human-readable content:</b><a name="HL7 v2-humanReadable"></a> FHIR requires that every
 resource have a human readable <a href="narrative.html">narrative</a> that contains all information
 relevant to human decision-making.  When converting from HL7 v2, developers (likely with guidance from
 clinicians) will need to determine what information from the message should be rendered and how
 to generate this content.
 </p>
 <p>
-<b>Nulls and update modes:</b><a name="HL7 v2-updateMode"> </a>In HL7 v2, "action" codes can determine
+<b>Nulls and update modes:</b><a name="HL7 v2-updateMode"></a>In HL7 v2, "action" codes can determine
 whether particular segments represent information to be added, updated or deleted.  Fields can be
 populated with "null" (two consecutive double-quotes with no other characters) to note a field is
 to be deleted.  An omitted element or repetition is generally interpreted as "retain existing data

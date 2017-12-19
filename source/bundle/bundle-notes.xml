@@ -11,7 +11,7 @@
   <li>Bundles have both .id and .identifier - see <a href="resource.html#id">Resource Identities</a> for further information</li>  
 </ul>
 
-<a name="using"> </a>
+<a name="using"></a>
 
 <h3>Using Bundles</h3>
 
@@ -20,7 +20,7 @@ The content and rules for using a Bundle depend on the <a href="bundle-definitio
 Note that all bundle types use resource identity resolution as described below.
 </p>
 
-<a name="document"> </a>
+<a name="document"></a>
 <h4>Document</h4>
 
 <p>
@@ -32,7 +32,7 @@ for further information.
 
 <p><a href="document-example-dischargesummary.html">Example</a></p>
 
-<a name="message"> </a>
+<a name="message"></a>
 <h4>Message</h4>
 
 <p>
@@ -44,7 +44,7 @@ for further information.
 
 <p>Example <a href="message-request-link.html">Request</a> and <a href="message-response-link.html">Response</a></p>
 
-<a name="searchset"> </a>
+<a name="searchset"></a>
 <h4>Search Results</h4>
 
 <p>
@@ -68,7 +68,7 @@ information:
 
 <p><a href="bundle-example.html">Example</a></p>
 
-<a name="history"> </a>
+<a name="history"></a>
 <h4>History</h4>
 
 <p>
@@ -86,7 +86,7 @@ and that may be returned by following the "next" <a href="bundle-definitions.htm
 
 <p>Example to do</p>
 
-<a name="transaction"> </a>
+<a name="transaction"></a>
 <h4>Transaction / Batch</h4>
 
 <p>
@@ -103,7 +103,7 @@ infer whether this is a create or an update from the resource identity supplied.
 
 <p><a href="bundle-transaction.html">Example</a></p>
 
-<a name="transaction-response"> </a>
+<a name="transaction-response"></a>
 <h4>Transaction/batch Response</h4>
 
 <p>
@@ -115,7 +115,7 @@ the outcome of the HTTP operation that the server performed for the entry.
 
 <p><a href="bundle-response.html">Example</a></p>
 
-<a name="collection"> </a>
+<a name="collection"></a>
 <h4>Collection</h4>
 
 <p>
@@ -126,7 +126,7 @@ Each entry element SHALL contain a resource.
 
 <p><a href="diagnosticreport-examples.html">Example</a></p>
 
-<a name="bundle-unique"> </a>
+<a name="bundle-unique"></a>
 <h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
 
 <p>
@@ -188,8 +188,8 @@ In some bundles, a given resource can only appear once:
 
 
 
-<a name="resolving"> </a>
-<a name="references"> </a>
+<a name="resolving"></a>
+<a name="references"></a>
 <h3>Resolving references in Bundles</h3>
 
 <p>
@@ -322,7 +322,7 @@ Here is an example Bundle the demonstrates these rules:
 </div>
 
 <!--</p>
-<a name="bundle-refs"> </a>
+<a name="bundle-refs"></a>
 <h3>Resolving references to Resources in Bundles</h3>
 <p>
 When processing bundles, applications should always search the resources in the

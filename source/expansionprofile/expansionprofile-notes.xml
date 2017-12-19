@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
-<a name="overrides"> </a>
+<a name="overrides"></a>
 <h3>Overriding Versions</h3>
 <p>
 The ExpansionProfile resources allows a client to specify a particular version to use for a given code system,
@@ -19,7 +19,7 @@ Clients setting the <code>ExpansionProfile.fixedVersion.mode</code> to override 
 action is not unsafe in their context.
 </p>
 
-<a name="overrides"> </a>
+<a name="overrides"></a>
 <h3>Excluding Codes</h3>
 <p>
 Some fields in the ExpansionProfile can result in the return of an expansion that contains 

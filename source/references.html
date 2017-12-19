@@ -13,11 +13,11 @@
 
 <%refheader base%>
 
-<a name="Reference"> </a>
-<a name="reference"> </a>
-<a name="Resource"> </a>
-<a name="references"> </a>
-<a name="Identification"> </a>
+<a name="Reference"></a>
+<a name="reference"></a>
+<a name="Resource"></a>
+<a name="references"></a>
+<a name="Identification"></a>
 <h2>Resource References</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative infrastructure%]
@@ -79,7 +79,7 @@ At least one of <code>reference</code>, <code>identifier</code> and <code>displa
 </p>
 </div>
 
-<a name="literal"> </a>
+<a name="literal"></a>
 <h3>Literal References</h3>
 
 <p>
@@ -96,7 +96,7 @@ contains a url that is either
 Notes:
 </p>
 <ul>
- <a name="regex"> </a>
+ <a name="regex"></a>
  <li>Using absolute URLs provides a stable, scalable approach suitable for a cloud/web context, while using relative/logical references provides a
    flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="managing.html">"Managing Resource Identity"</a> for further discussion)</li>
  <li>Absolute URLs do not need to point to a <a href="http.html">FHIR RESTful server</a>, though this is the preferred approach.
@@ -126,7 +126,7 @@ Notes:
 </pre>
 </div>
 
-<a name="logical"> </a>
+<a name="logical"></a>
 <h3>Logical References</h3>
 
 <p>
@@ -195,7 +195,7 @@ Applications converting a logical reference to a literal reference may choose to
 logical reference present, or remove it.
 </p>
 
-<a name="display"> </a>
+<a name="display"></a>
 <h3>Reference Description</h3>
 
 <p>
@@ -223,7 +223,7 @@ to the Resource.text of the referenced resource.  The purpose is to identify wha
 being referenced, not to more fully describe it.
 </p>
 
-<a name="canonical"> </a>
+<a name="canonical"></a>
 <h3>Canonical URLs</h3>
 <p>
 Many resource types have a defined element "url" which is the canonical URL that always identifies the
@@ -273,7 +273,7 @@ appropriate arrangements regarding the currency of their local copy of the artif
 </p>
 
 
-<a name="contained"> </a>
+<a name="contained"></a>
 <h3>Contained Resources</h3>
 <p>
 In some circumstances, the content referred to in the resource reference does not have an independent
@@ -406,7 +406,7 @@ For a resource that references the container, the reference is "#", like this:
 </pre>
 
 <blockquote class="stu-note">
-<a name="dstu2"> </a>
+<a name="dstu2"></a>
 <p>
 There is no way to search for contained resources that reference their container. Is this a problem?
 </p>

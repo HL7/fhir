@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="bnc"> </a>
+<a name="bnc"></a>
 <h2>Scope and Usage</h2>
 
 <p>The Library resource is a general purpose container for clinical knowledge assets. These assets may be defined using a non-FHIR representation, such as a shareable library of clinical logic, written in Clinical Quality Language (CQL), or the XML Schema for an information model, or they may be defined using FHIR resources such as the description of a protocol represented by a PlanDefinition resource. In addition to representing the metadata of the library, the resource has elements for tracking dependencies, as well as for representing the parameters and data requirements for any expression functionality provided by the library.</p>

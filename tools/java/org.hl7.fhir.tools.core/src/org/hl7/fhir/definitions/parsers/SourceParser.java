@@ -89,6 +89,7 @@ import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
@@ -200,17 +201,17 @@ public class SourceParser {
       definitions.getDeletedResources().add(n);
 
     for (String n : ini.getPropertyNames("infrastructure"))
-      loadCompositeType(n, definitions.getInfrastructure(), "5", StandardsStatus.NORMATIVE);
+      loadCompositeType(n, definitions.getInfrastructure(), "5");
 
     for (String n : ini.getPropertyNames("types"))
-      loadCompositeType(n, definitions.getTypes(), "5", StandardsStatus.NORMATIVE);	
+      loadCompositeType(n, definitions.getTypes(), "5");	
     for (String n : ini.getPropertyNames("structures"))
-      loadCompositeType(n, definitions.getStructures(), "5", StandardsStatus.NORMATIVE);
+      loadCompositeType(n, definitions.getStructures(), "5");
 
     String[] shared = ini.getPropertyNames("shared"); 
     if(shared != null)
       for (String n : shared )
-        definitions.getShared().add(loadCompositeType(n, definitions.getStructures(), "2", StandardsStatus.TRIAL_USE));
+        definitions.getShared().add(loadCompositeType(n, definitions.getStructures(), "2"));
 
     String[] logical = ini.getPropertyNames("logical"); 
     if(logical != null)
@@ -886,11 +887,13 @@ public class SourceParser {
     }
   }
 
-  private String loadCompositeType(String n, Map<String, org.hl7.fhir.definitions.model.TypeDefn> map, String fmm, StandardsStatus status) throws Exception {
+  private String loadCompositeType(String n, Map<String, org.hl7.fhir.definitions.model.TypeDefn> map, String fmm) throws Exception {
     TypeParser tp = new TypeParser();
     List<TypeRef> ts = tp.parse(n, false, null, context, true);
     definitions.getKnownTypes().addAll(ts);
 
+    StandardsStatus status = loadStatus(n);
+    
     try {
       TypeRef t = ts.get(0);
       File csv = new CSFile(dtDir + t.getName().toLowerCase() + ".xml");
@@ -946,6 +949,16 @@ public class SourceParser {
       throw new Exception("Unable to load "+n+": "+e.getMessage(), e);
     }
   }
+
+  private StandardsStatus loadStatus(String n) throws FHIRException {
+    String ns = ini.getStringProperty("ballot-status", n);
+    if (Utilities.noString(ns))
+      throw new FHIRException("Data types must be registered in the [ballot-status] section of fhir.ini ("+n+")");
+    return StandardsStatus.fromCode(ns);
+  }
+
+
+
 
   private ResourceDefn loadResource(String n, Map<String, ResourceDefn> map, boolean isAbstract, boolean isTemplate) throws Exception {
     String folder = n;

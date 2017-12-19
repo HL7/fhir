@@ -34,7 +34,7 @@ Different Endpoint connection types may have different capabilities, protocols o
 Endpoint.url may require manipulation. For the details on use of imaging-related Endpoint connection types, 
 See below for details.
 </p>
-<a name="endpoint"> </a>
+<a name="endpoint"></a>
 <h4>WADO-RS</h4>
 <p>
 An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rsi</code>, system <code>http://hl7.org/fhir/endpoint-connection-type</code>, 

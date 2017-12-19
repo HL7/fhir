@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
-		<a name="scope"> </a>
+		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
 A record of a clinical assessment of an allergy or intolerance; a propensity, or a potential risk 
@@ -32,7 +32,7 @@ Presently open issues for this resource:
 		</ul>
 	</div>
 	<div>
-		<a name="bnr"> </a>
+		<a name="bnr"></a>
 		<h2>Boundaries and Relationships</h2>
 		<p>
 This resource is used to provide a single place within the health record to document a range of clinical statements about adverse reactions to substances/products, including:
@@ -144,7 +144,7 @@ Provides additional detail on exactly how the resource is to be used
 </p>
 </div>
 -->
-<a name="dstu0"> </a>
+<a name="dstu0"></a>
 <blockquote class="stu-note">
 <p>
 <b>STU Note:</b>Requests have been received (GF#10369) to add codes to the extension-allergyintolerance-certainty value set (reaction-event-certainty), which is a required binding.  The requested codes include "unknown", "ruled out" and "possible".  

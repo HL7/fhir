@@ -11,7 +11,7 @@ The GraphDefinition resource can be used to:
  <li>Document rules about the relationship between a set of resources e.g. must all resources concern the same patient?</li>
 </ul>
 
-<a name="summary"> </a>
+<a name="summary"></a>
 <h4>Summarize a set of profiles on resources</h4>
 <p>
 FHIR resources are relatively granular. In many/most cases, many resources 
@@ -33,7 +33,7 @@ the kind of summary this represents. (Todo: make this an actual graph definition
 and clone into the main spec)
 </p>
 
-<a name="fetch"> </a>
+<a name="fetch"></a>
 <h4>Fetching a graph of resources</h4>
 <p>
 As another example of using many resources, to completely represent a medication dispense, 
@@ -98,7 +98,7 @@ Server may also allow clients also pass in their own graph definition using the 
   GET [base]/MedicationDispense/example/$graph?definition=Patient{managingOrganization:Organization{endpoint:Endpoint}}
 </pre>
 
-<a name="document"> </a>
+<a name="document"></a>
 <h4>Building a document</h4>
 <p>
 A very similar issue applies when building a document using the <a href="composition-operations.html#document">$document operation</a>. 
@@ -122,7 +122,7 @@ servers may allow a client to pass in a definition directly (as shown above) usi
 the parameter <code>definition</code>.
 </p>
 
-<a name="rules"> </a>
+<a name="rules"></a>
 <h4>Document Relationship rules</h4>
 <p>
 One important question about the use of resources is cross-resource consistency. 
@@ -161,7 +161,7 @@ can specify one of the following consistencies:
 Todo: how would this be validated? - where is the graph referred to?
 </p>
 
-<a name="text"> </a>
+<a name="text"></a>
 <h4>Text Representation</h4>
 <p>
 For convenience, a graph definition may be represented using a text short hand form, loosely based

@@ -17,7 +17,7 @@
 <h1>Using Codes in Resources</h1>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative infrastructure%]
-<a name="bindings"> </a>
+<a name="bindings"></a>
 <p>
 Many elements in the FHIR resources have a <b>coded value</b>: some fixed string
 (a sequence of characters) assigned elsewhere that identifies some defined "concept". The
@@ -52,13 +52,13 @@ including the separation between code systems and value sets.
 
 <table class="grid">
  <tr><td colspan="2">When codes are carried in resources, one of 4 different data types is used:</td></tr>
- <tr><td><a href="datatypes.html#code">code</a><a name="code"> </a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
- <tr><td><a href="datatypes.html#Coding">Coding</a><a name="Coding"> </a></td><td>A data type that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
- <tr><td><a href="datatypes.html#CodeableConcept"><a name="CodeableConcept"> </a>CodeableConcept</a></td><td>A type that represents a concept by plain text and/or one or more <i>Coding</i> elements</td></tr>
+ <tr><td><a href="datatypes.html#code">code</a><a name="code"></a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
+ <tr><td><a href="datatypes.html#Coding">Coding</a><a name="Coding"></a></td><td>A data type that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
+ <tr><td><a href="datatypes.html#CodeableConcept"><a name="CodeableConcept"></a>CodeableConcept</a></td><td>A type that represents a concept by plain text and/or one or more <i>Coding</i> elements</td></tr>
  <tr><td colspan="2">In addition, the following data types also carry coded values, or content that can be treated as a code and bound to a valueset:</td></tr>
- <tr><td><a href="datatypes.html#Quantity">Quantity</a><a name="Quantity"> </a></td><td>The instance has <i>system</i> and <i>code</i> elements for carrying a code for the type of unit, and these can be bound to a value set</td></tr>
- <tr><td><a href="datatypes.html#string">string</a><a name="string"> </a></td><td>The instance carries a string. In some cases applications may wish to control the set of valid strings for a particular element, so the string value can be treated as a coded element (like <code>code</code>)</td></tr>
- <tr><td><a href="datatypes.html#uri">uri</a><a name="uri"> </a></td><td>Like <code>string</code>, URIs can be treated as a coded element</td></tr>
+ <tr><td><a href="datatypes.html#Quantity">Quantity</a><a name="Quantity"></a></td><td>The instance has <i>system</i> and <i>code</i> elements for carrying a code for the type of unit, and these can be bound to a value set</td></tr>
+ <tr><td><a href="datatypes.html#string">string</a><a name="string"></a></td><td>The instance carries a string. In some cases applications may wish to control the set of valid strings for a particular element, so the string value can be treated as a coded element (like <code>code</code>)</td></tr>
+ <tr><td><a href="datatypes.html#uri">uri</a><a name="uri"></a></td><td>Like <code>string</code>, URIs can be treated as a coded element</td></tr>
 </table>
 <p>
 Notes:
@@ -69,7 +69,7 @@ see the FHIR wiki for <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to
  <li><a href="#strings">see below</a> for more information about binding the types <a href="datatypes.html#string">string</a> and <a href="datatypes.html#uri">uri</a> to a value set.</li>
 </ul>
 
-<a name="valuesets"> </a>
+<a name="valuesets"></a>
 <h2>Coded Values, Systems, and Value Sets</h2>
 <p>
 The set of coded values that is allowed in an element is known as a <a href="valueset.html">"value set"</a>. Anywhere these four data types are used, the
@@ -105,7 +105,7 @@ about the concept. Where the mechanism is known, and defined by the code system,
 described in this specification.
 </p>
 
-<a name="system"> </a>
+<a name="system"></a>
 <h2>Choosing a system</h2>
 
 <p>
@@ -153,7 +153,7 @@ correct URL for the <code>system</code> value is <i>ValueSet.codeSystem.system</
 </p>
 
 
-<a name="binding"> </a>
+<a name="binding"></a>
 <h2>Controlling the use of Coded Values</h2>
 
 <p>
@@ -169,7 +169,7 @@ When an element is bound to a value set, the binding has these properties:
 In the FHIR declarative datatypes, a binding is always represented using an <a href="elementdefinition-definitions.html#ElementDefinition.binding">ElementDefinition.binding</a>.
 </p>
 
-<a name="references"> </a>
+<a name="references"></a>
 
 <h3>Value Set References</h3>
 <p>
@@ -186,7 +186,7 @@ There are a number of places in the specification where value sets are reference
 There are two types of value set references in this list, direct and logical.
 </p>
 
-<a name="direct"> </a>
+<a name="direct"></a>
 <h4>Direct Value Set references</h4>
 <p>
 A direct value set reference has the type <a href="references.html#Reference">Reference</a>,
@@ -224,7 +224,7 @@ to be fragile over time because web URLs - including RESTful API URLS - are easi
 reassigned. For this reason, systems are encouraged to use logical value set references.
 </p>
 
-<a name="logical"> </a>
+<a name="logical"></a>
 <h4>Logical Value Set references</h4>
 <p>
 A logical value set reference has the type <a href="datatypes.html#uri">uri</a>,
@@ -310,7 +310,7 @@ versions for the value set, the system using the value set should pick the lates
 of the value set and use that. Note that this applies to all <a href="references.html#canonical">conformance resources</a>.
 </p>
 
-<a name="unbound"> </a>
+<a name="unbound"></a>
 <h4>Unbound</h4>
 <p>
 Note that as a matter of ongoing development, a few elements that have coded data types are not bound to
@@ -318,7 +318,7 @@ any value set at all. Bindings are to be provided for these elements.
 </p>
 
 
-<a name="strength"> </a>
+<a name="strength"></a>
 
 <h2>Binding Strengths</h2>
 <p>
@@ -338,9 +338,9 @@ binding strength, as discussed below.  Generally it is expected that jurisdictio
 will work together to choose actual working value sets.
 </p>
 
-<a name="required"> </a>
-<a name="simple"> </a>
-<a name="code"> </a>
+<a name="required"></a>
+<a name="simple"></a>
+<a name="code"></a>
 <h3>Required</h3>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set.</i>
@@ -380,7 +380,7 @@ When an element is bound to a required value set, <a href="profiling.html">deriv
 may state rules on which codes can be used, but cannot select new or additional codes for these elements.
 </p>
 
-<a name="extensible"> </a>
+<a name="extensible"></a>
 <h3>Extensible</h3>
 <p>
 <i>To be conformant, codes in this element SHALL be from the specified value set if any of the codes within the value set
@@ -411,7 +411,7 @@ may state rules on which codes can be used, but cannot select new or additional 
 unless no codes with appropriate meanings are found in the base value set.
 </p>
 
-<a name="preferred"> </a>
+<a name="preferred"></a>
 <h3>Preferred</h3>
 <p>
 <i>Instances are encouraged to draw from the specified codes for interoperability purposes but
@@ -433,7 +433,7 @@ When an element is bound to a preferred value set, <a href="profiling.html">deri
 may bind the element to any value set they choose.
 </p>
 
-<a name="example"> </a>
+<a name="example"></a>
 <h4>Example Bindings</h4>
 <p>
 <i>Instances are not expected or even encouraged to draw from the specified value set.  The value set merely
@@ -459,7 +459,7 @@ When an element is bound to an example value set, <a href="profiling.html">deriv
 may bind the element to any value set they choose.
 </p>
 
-<a name="other"> </a>
+<a name="other"></a>
 <h2>Other notes</h2>
 
 <ul>
@@ -471,7 +471,7 @@ codes by their properties, along with a non-version specific reference to an
 underlying code system, in which case the list of valid concepts may change over time.
 </li>
 </ul>
-<a name="strings"> </a>
+<a name="strings"></a>
 <h3>Binding String Values</h3>
 <p>
 In a few special cases, humans customarily use codes directly for elements that have type "string". A typical case is codes for states,

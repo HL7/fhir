@@ -12,7 +12,7 @@
 
 <div class="col-12">
 
-<a name="root"> </a>
+<a name="root"></a>
 <h2>Using GraphQL with FHIR</h2>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 <p>
@@ -25,7 +25,7 @@ documentation, see <a href="http://graphql.org">http://graphql.org</a>.
 Note: this page is a draft. For ongoing discussion, see <a href="https://chat.fhir.org/#narrow/stream/implementers/subject/GraphQL">chat.fhir.org</a>.
 </p>
 
-<a name="status"> </a>
+<a name="status"></a>
 <h3>Status of GraphQL</h3>
 <p>
 Implementers should note that GraphQL is not a formal standard, and no standards path has been dscribed for it. 
@@ -34,7 +34,7 @@ by <a href="http://facebook.com">Facebook</a>, and licensed under a standard BSD
 language is still under development.
 </p>
 
-<a name="invoking"> </a>
+<a name="invoking"></a>
 <h3>Invoking GraphQL</h3>
 <p>
 For reasons of consistency with other aspects of FHIR, the standard end points for graphQL are
@@ -58,7 +58,7 @@ GraphQL can be invoked by get with a query parameter, or a POST with the graphQL
 The mime type of the response is application/json. Other formats are not described by the specification. The mimetype is *not* application/fhir+json - the response is not a FHIR resource, though it may look like one closely.
 </p>
 
-<a name="conformance"> </a>
+<a name="conformance"></a>
 <h3>Conformance</h3>
 
 <p>
@@ -81,7 +81,7 @@ defined here. Also, these rules do not prevent servers providing additional end-
 mutations that provide additional functionality. 
 </p>
 
-<a name="errors"> </a>
+<a name="errors"></a>
 <h4>Error Handling</h4>
 
 <p>
@@ -94,7 +94,7 @@ With regard to handling errors, FHIR GraphQL servers:
  <li>SHALL return an error when fields that are not valid or not supported are used, or when queries, mutations, arguments, types, and directives that are not recognized or supported are encountered</li>
 </ul>
 
-<a name="fields"> </a>
+<a name="fields"></a>
 <h3>Field Selection</h3>
 
 <p>
@@ -147,7 +147,7 @@ results in
 Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={birthDate,_birthDate{extension{valueDateTime}}}">http://test.fhir.org/r3/Patient/example/$graphql?query={birthDate,_birthDate{extension{valueDateTime}}}</a> (note: examples are only informative).
 </p>
 
-<a name="arguments"> </a>
+<a name="arguments"></a>
 <h4>Field Arguments</h4>
 
 <p>
@@ -197,10 +197,10 @@ will result in
  }
 </pre>
 
-<a name="additional"> </a>
+<a name="additional"></a>
 <h4>Additional Selectors</h4>
 
-<a name="references"> </a>
+<a name="references"></a>
 <h5>Resource references</h5>
 
 <p>
@@ -260,7 +260,7 @@ Example: <a href="http://test.fhir.org/r3/Observation/example/$graphql?query={id
 Clients can use either approach - type selection as a parameter, of using a fragment type condition - the first is shorter while the second aligns with the GraphQL schema more explicitly.
 </p>
 
-<a name="searching"> </a>
+<a name="searching"></a>
 <h3>Searching resources</h3>
 
 <p>
@@ -413,7 +413,7 @@ Notes:
 <li>The client can not change the parameters for the search (and should not specify them) when providing a cursor. The value of the token is opaque to the client, and only understood by the server</li>
 </ul>
 
-<a name="list"> </a>
+<a name="list"></a>
 <h5>List vs Connection Searches</h5>
 
 <p>
@@ -428,7 +428,7 @@ The specification defines the 2 forms of searches to meet differing requirements
 In general, clients should use the simple search, for efficiency purposes, where appropriate (e.g. where the user is not going see a 'next' button). This particularly applies when doing reverse reference resolution.
 </p>
 
-<a name="reverse"> </a>
+<a name="reverse"></a>
 <h5>Reverse References</h5>
 
 <p>
@@ -470,7 +470,7 @@ The "connection" based search option is also supported, as described above, with
 Example: <a href="http://test.fhir.org/r3/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}">http://test.fhir.org/r3/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}</a> (note: examples are only informative).
 </p>
 
-<a name="operations"> </a>
+<a name="operations"></a>
 <h3>Operations</h3>
 
 <p>
@@ -486,7 +486,7 @@ Example: <a href="http://test.fhir.org/r3/ValueSet/doc-typecodes/$validate-code?
 The graphQL is executed on the output of the operation. If the operation fails, and returns an operation outcome, then the graphQL is not executed.
 </p>
 
-<a name="flattening"> </a>
+<a name="flattening"></a>
 <h3>Data Flattening Directives</h3>
 
 <p>
@@ -714,7 +714,7 @@ Examples:
 </pre>
 
 
-<a name="mutations"> </a>
+<a name="mutations"></a>
 <h3>Mutations</h3>
 
 <p>

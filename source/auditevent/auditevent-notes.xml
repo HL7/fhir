@@ -44,7 +44,7 @@ Audit Event Actions for RESTful operations:
  <tr><td>transaction, operation, conformance, validate, search, search-type, search-system</td><td>E</td></tr>
 </table>
 
-<a name="operationoutcome"> </a>
+<a name="operationoutcome"></a>
 <h3>Encoding a FHIR operation outcome</h3>
 <p>FHIR interactions can result in a rich description of the outcome using 
 the <a href="operationoutcome.html">OperationOutcome</a>. 

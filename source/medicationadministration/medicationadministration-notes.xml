@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here  -->
- <a name="issues"> </a>
+ <a name="issues"></a>
    <h2><b>Known Issues</b></h2>
     <table border="1" cellpadding="1" cellspacing="2" frame="box">
         <tr>

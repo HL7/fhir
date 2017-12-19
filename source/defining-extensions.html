@@ -15,7 +15,7 @@
 
 <%extheader defining%>
 
-<a name="root"> </a>
+<a name="root"></a>
 <h2>Defining Extensions</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative infrastructure%]
@@ -45,7 +45,7 @@ Before defining a new extension, attempt to reuse existing extensions defined in
 to add as part of the core specification.
 </p>
 
-<a name="core"> </a>
+<a name="core"></a>
 <h3>Core Elements</h3>
 <p>
 Elements are included as part of FHIR resources and data types principally on the basis of
@@ -63,7 +63,7 @@ with vetting the specification through a ballot process, it may still be necessa
 even for elements that are likely to be supported as part of the core specification in a future release.
 </p>
 
-<a name="context"> </a>
+<a name="context"></a>
 <h3>Context</h3>
 <p>
 Extensions are always defined against some particular context - the type of element
@@ -106,7 +106,7 @@ regards to particular element values of the target that make its use appropriate
 Extensions SHALL only be used on a target for which they are defined.
 </p>
 
-<a name="cardinality"> </a>
+<a name="cardinality"></a>
 <h3>Cardinality</h3>
 <p>
 The cardinality constraints asserted by the extension definition itself
@@ -145,7 +145,7 @@ extension may make the maximum cardinality any value up to the specified maximum
 Example: <a href="extension-patient-disability.html">Patient Disability</a>.
 </p>
 
-<a name="ed"> </a>
+<a name="ed"></a>
 <h3>Use of ElementDefinition in Extension Definitions</h3>
 <p>
 An extension is a wrapper for an identifying url and either a value or other extensions. As such,
@@ -184,7 +184,7 @@ Note: Extensions are always sliced by their <code>url</code> property. Re-slicin
 additional properties is allowed (see <a href="profiling.html#slicing">Profiling/Slicing</a>).
 </p>
 
-<a name="registration"> </a>
+<a name="registration"></a>
 <h3>Publishing Extension Definitions</h3>
 <p>
 As well as defining the base element structure for resources, HL7 also publishes extensions, including as <a href="extensibility-registry.html">part of this specification</a>.

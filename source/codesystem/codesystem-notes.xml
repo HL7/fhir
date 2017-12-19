@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 
-<a name="versioning"> </a>
+<a name="versioning"></a>
 <h3>Versioning Code Systems</h3>
 <p>
 Most code systems evolve over time, due to corrections, clarifications, and changes to approach or underlying knowledge or reality.
@@ -26,7 +26,7 @@ Where the terminology does not clearly define what string should be used to iden
 </p>
 
 
-<a name="properties"> </a>
+<a name="properties"></a>
 <h2>Properties</h2>
 <p>
 Each code system can have one or more properties. Each concept defined by the code system
@@ -93,7 +93,7 @@ by the FHIR specification.
 </p>
 
 
-<a name="status"> </a>
+<a name="status"></a>
 <h2>Concept Status</h2>
 
 <p>
@@ -132,7 +132,7 @@ basic property URIs are defined:
    the normal use of the code system (though may be used for filters etc). This is also known as 'Abstract'</td></tr>
 </table>
 
-<a name="hierarchy"> </a>
+<a name="hierarchy"></a>
 <h3>Concept Hierarchy</h3>
 <p>
 Typically, Code systems are presented hierachically, using nested <code>concept</code> properties, where the 
@@ -145,7 +145,7 @@ then the <a href="extension-codesystem-subsumes.html">subsumes extension</a> mus
 The parent and child properties above are mostly only used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation.
 </p>
 
-<a name="subsumption"> </a>
+<a name="subsumption"></a>
 <h3>Subsumption Testing</h3>
 <p>
 The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in terms of the CodeSystem hierarchy (i.e. <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>).
@@ -168,7 +168,7 @@ Subsumption based logic arises explicitly or implicitly in the following places 
  <li><a href="valueset-operations.html#validate-code">ValueSet $validate-code operation</a></li>
 </ul>
 
-<a name="filters"> </a>
+<a name="filters"></a>
 <h3>Filters</h3>
 
 <p>
@@ -198,7 +198,7 @@ The following filters are defined for all code systems:
  </tr>
 </table>
 
-<a name="detailed-metadata"> </a>
+<a name="detailed-metadata"></a>
 <h3>Code systems with detailed metadata</h3>
 <p>
 Sometimes code systems may be used to represent more complex information than just

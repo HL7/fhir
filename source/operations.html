@@ -10,7 +10,7 @@
 
 <div class="col-12">
 
-<a name="base"> </a>
+<a name="base"></a>
 <h2>Extended Operations on the RESTful API</h2>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative infrastructure%]
@@ -40,7 +40,7 @@ Operations have the following general properties:
  <li>Operations may be performed on a specific resource, a resource type, or a whole system</li>
 </ul>
 
-<a name="executing"> </a>
+<a name="executing"></a>
 <h3>Executing an Operation</h3>
 
 <p>
@@ -78,7 +78,7 @@ Some Operations with primitive input types and a single Resource output paramete
 In this case, the response is simply the resource that is the return value, with no Parameters resource. These kinds of usage are discussed further below.
 </p>
 
-<a name="executing"> </a>
+<a name="executing"></a>
 <h4>Operations with no parameters</h4>
 <p>
 Executing operations without any parameters is a special case. For an operation that doesn't cause 
@@ -100,13 +100,13 @@ Content-Length: 0
 </pre>
 
 
-<a name="defined"> </a>
+<a name="defined"></a>
 <h3>FHIR defined Operations</h3>
 <p>
 See <a href="operationslist.html">the list of defined operations</a>.
 </p>
 
-<a name="extensibility"> </a>
+<a name="extensibility"></a>
 <h3>Implementation Defined Operations</h3>
 <p>
 Implementations are able to define their own operations in addition to
@@ -121,7 +121,7 @@ with the RESTful API, provided that their addressing scheme does not clash with 
 defined here.
 </p>
 
-<a name="defining"> </a>
+<a name="defining"></a>
 <h3>Defining an Operation</h3>
 
 <p>
@@ -155,7 +155,7 @@ The resource <a href="operationdefinition.html">Operation Definition</a> is used
 of the Operation.
 </p>
 
-<a name="extending"> </a>
+<a name="extending"></a>
 <h3>Extending an Operation</h3>
 <p>
 Implementations are able to extend an operation by defining new named parameters.
@@ -168,8 +168,8 @@ underlying definition.
 Note that the FHIR specification will never define any parameter names starting with "x-".
 </p>
 
-<a name="executing"> </a>
-<a name="synchronous"> </a>
+<a name="executing"></a>
+<a name="synchronous"></a>
 
 <h3>Executing an Operation Synchronously</h3>
 
@@ -188,7 +188,7 @@ The URL for an operation end-point depends on its context:
  <li>resource instance: the URL is [base]/[type]/[id]/$[name]</li>
 </ul>
 
-<a name="request"> </a>
+<a name="request"></a>
 <h4>Operation Request</h4>
 
 <p>
@@ -228,7 +228,7 @@ Servers MAY choose to support submission of the parameters represented in <a hre
 which can be useful when testing an operation using HTML forms.
 </p>
 
-<a name="response"> </a>
+<a name="response"></a>
 
 <h4>Operation Response</h4>
 
@@ -263,7 +263,7 @@ resources that are not persisted are returned in the response,
 they will have no <code>id</code> property.
 </p>
 
-<a name="asynchronous"> </a>
+<a name="asynchronous"></a>
 
 <h3>Executing an Operation Asynchronously</h3>
 
