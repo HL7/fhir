@@ -555,7 +555,7 @@
   Name = code
   Type = token
   Description = This special parameter searches for codes in the value set. See additional notes on the ValueSet resource
-  Path = ValueSet.expansion.contains | ValueSet.compose.include.concept.code
+  Path = ValueSet.expansion.contains.code | ValueSet.compose.include.concept.code
 
 === Sheet Profiles =====================================
 
