@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -166,7 +166,7 @@ public class ListResource extends DomainResource {
          */
         SNAPSHOT, 
         /**
-         * A list that indicates where changes have been made or recommended
+         * A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter
          */
         CHANGES, 
         /**
@@ -207,7 +207,7 @@ public class ListResource extends DomainResource {
           switch (this) {
             case WORKING: return "This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes";
             case SNAPSHOT: return "This list was prepared as a snapshot. It should not be assumed to be current";
-            case CHANGES: return "A list that indicates where changes have been made or recommended";
+            case CHANGES: return "A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter";
             default: return "?";
           }
         }
@@ -700,7 +700,7 @@ public class ListResource extends DomainResource {
     /**
      * The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.
      */
-    @Child(name = "source", type = {Practitioner.class, Patient.class, Device.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "source", type = {Practitioner.class, PractitionerRole.class, Patient.class, Device.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who and/or what defined the list contents (aka Author)", formalDefinition="The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list." )
     protected Reference source;
 
@@ -1308,7 +1308,7 @@ public class ListResource extends DomainResource {
         children.add(new Property("subject", "Reference(Patient|Group|Device|Location)", "The common subject (or patient) of the resources that are in the list, if there is one.", 0, 1, subject));
         children.add(new Property("encounter", "Reference(Encounter)", "The encounter that is the context in which this list was created.", 0, 1, encounter));
         children.add(new Property("date", "dateTime", "The date that the list was prepared.", 0, 1, date));
-        children.add(new Property("source", "Reference(Practitioner|Patient|Device)", "The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.", 0, 1, source));
+        children.add(new Property("source", "Reference(Practitioner|PractitionerRole|Patient|Device)", "The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.", 0, 1, source));
         children.add(new Property("orderedBy", "CodeableConcept", "What order applies to the items in the list.", 0, 1, orderedBy));
         children.add(new Property("note", "Annotation", "Comments that apply to the overall list.", 0, java.lang.Integer.MAX_VALUE, note));
         children.add(new Property("entry", "", "Entries in this list.", 0, java.lang.Integer.MAX_VALUE, entry));
@@ -1326,7 +1326,7 @@ public class ListResource extends DomainResource {
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Group|Device|Location)", "The common subject (or patient) of the resources that are in the list, if there is one.", 0, 1, subject);
         case 1524132147: /*encounter*/  return new Property("encounter", "Reference(Encounter)", "The encounter that is the context in which this list was created.", 0, 1, encounter);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date that the list was prepared.", 0, 1, date);
-        case -896505829: /*source*/  return new Property("source", "Reference(Practitioner|Patient|Device)", "The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.", 0, 1, source);
+        case -896505829: /*source*/  return new Property("source", "Reference(Practitioner|PractitionerRole|Patient|Device)", "The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list.", 0, 1, source);
         case -391079516: /*orderedBy*/  return new Property("orderedBy", "CodeableConcept", "What order applies to the items in the list.", 0, 1, orderedBy);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Comments that apply to the overall list.", 0, java.lang.Integer.MAX_VALUE, note);
         case 96667762: /*entry*/  return new Property("entry", "", "Entries in this list.", 0, java.lang.Integer.MAX_VALUE, entry);
@@ -1796,7 +1796,7 @@ public class ListResource extends DomainResource {
    * Path: <b>List.source</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source", path="List.source", description="Who and/or what defined the list contents (aka Author)", type="reference", target={Device.class, Patient.class, Practitioner.class } )
+  @SearchParamDefinition(name="source", path="List.source", description="Who and/or what defined the list contents (aka Author)", type="reference", target={Device.class, Patient.class, Practitioner.class, PractitionerRole.class } )
   public static final String SP_SOURCE = "source";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source</b>

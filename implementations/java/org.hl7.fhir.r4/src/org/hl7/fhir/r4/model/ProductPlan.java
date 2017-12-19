@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -982,11 +982,11 @@ public class ProductPlan extends DomainResource {
         /**
          * Value of the specific benefit.
          */
-        @Child(name = "benefitValue", type = {Money.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "benefitValue", type = {Quantity.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Value of the specific benefit", formalDefinition="Value of the specific benefit." )
-        protected Money benefitValue;
+        protected Quantity benefitValue;
 
-        private static final long serialVersionUID = 1267068946L;
+        private static final long serialVersionUID = 1339622901L;
 
     /**
      * Constructor
@@ -1030,12 +1030,12 @@ public class ProductPlan extends DomainResource {
         /**
          * @return {@link #benefitValue} (Value of the specific benefit.)
          */
-        public Money getBenefitValue() { 
+        public Quantity getBenefitValue() { 
           if (this.benefitValue == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProductPlanCoverageBenefitItemComponent.benefitValue");
             else if (Configuration.doAutoCreate())
-              this.benefitValue = new Money(); // cc
+              this.benefitValue = new Quantity(); // cc
           return this.benefitValue;
         }
 
@@ -1046,7 +1046,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #benefitValue} (Value of the specific benefit.)
          */
-        public ProductPlanCoverageBenefitItemComponent setBenefitValue(Money value) { 
+        public ProductPlanCoverageBenefitItemComponent setBenefitValue(Quantity value) { 
           this.benefitValue = value;
           return this;
         }
@@ -1054,14 +1054,14 @@ public class ProductPlan extends DomainResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("code", "CodeableConcept", "Coded Details of the specific benefit (days; visits).", 0, 1, code));
-          children.add(new Property("benefitValue", "Money", "Value of the specific benefit.", 0, 1, benefitValue));
+          children.add(new Property("benefitValue", "Quantity", "Value of the specific benefit.", 0, 1, benefitValue));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Coded Details of the specific benefit (days; visits).", 0, 1, code);
-          case 130822938: /*benefitValue*/  return new Property("benefitValue", "Money", "Value of the specific benefit.", 0, 1, benefitValue);
+          case 130822938: /*benefitValue*/  return new Property("benefitValue", "Quantity", "Value of the specific benefit.", 0, 1, benefitValue);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -1071,7 +1071,7 @@ public class ProductPlan extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case 130822938: /*benefitValue*/ return this.benefitValue == null ? new Base[0] : new Base[] {this.benefitValue}; // Money
+        case 130822938: /*benefitValue*/ return this.benefitValue == null ? new Base[0] : new Base[] {this.benefitValue}; // Quantity
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1084,7 +1084,7 @@ public class ProductPlan extends DomainResource {
           this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 130822938: // benefitValue
-          this.benefitValue = castToMoney(value); // Money
+          this.benefitValue = castToQuantity(value); // Quantity
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1096,7 +1096,7 @@ public class ProductPlan extends DomainResource {
         if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("benefitValue")) {
-          this.benefitValue = castToMoney(value); // Money
+          this.benefitValue = castToQuantity(value); // Quantity
         } else
           return super.setProperty(name, value);
         return value;
@@ -1116,7 +1116,7 @@ public class ProductPlan extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case 130822938: /*benefitValue*/ return new String[] {"Money"};
+        case 130822938: /*benefitValue*/ return new String[] {"Quantity"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1129,7 +1129,7 @@ public class ProductPlan extends DomainResource {
           return this.code;
         }
         else if (name.equals("benefitValue")) {
-          this.benefitValue = new Money();
+          this.benefitValue = new Quantity();
           return this.benefitValue;
         }
         else
@@ -2014,11 +2014,11 @@ public class ProductPlan extends DomainResource {
         /**
          * The actual cost value.
          */
-        @Child(name = "value", type = {Money.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {Quantity.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The actual cost value", formalDefinition="The actual cost value." )
-        protected Money value;
+        protected Quantity value;
 
-        private static final long serialVersionUID = 1699136013L;
+        private static final long serialVersionUID = -1047196778L;
 
     /**
      * Constructor
@@ -2176,12 +2176,12 @@ public class ProductPlan extends DomainResource {
         /**
          * @return {@link #value} (The actual cost value.)
          */
-        public Money getValue() { 
+        public Quantity getValue() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProductPlanPlanCategoryBenefitCostComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new Money(); // cc
+              this.value = new Quantity(); // cc
           return this.value;
         }
 
@@ -2192,7 +2192,7 @@ public class ProductPlan extends DomainResource {
         /**
          * @param value {@link #value} (The actual cost value.)
          */
-        public ProductPlanPlanCategoryBenefitCostComponent setValue(Money value) { 
+        public ProductPlanPlanCategoryBenefitCostComponent setValue(Quantity value) { 
           this.value = value;
           return this;
         }
@@ -2202,7 +2202,7 @@ public class ProductPlan extends DomainResource {
           children.add(new Property("type", "CodeableConcept", "Type of cost (copay; individual cap; family cap; coinsurance; deductible).", 0, 1, type));
           children.add(new Property("applicability", "Coding", "Whether the cost applies to in-network or out-of-network providers (in-network; out-of-network; other).", 0, java.lang.Integer.MAX_VALUE, applicability));
           children.add(new Property("qualifiers", "string", "Additional information about the cost, such as information about funding sources (e.g. HSA, HRA, FSA, RRA).", 0, java.lang.Integer.MAX_VALUE, qualifiers));
-          children.add(new Property("value", "Money", "The actual cost value.", 0, 1, value));
+          children.add(new Property("value", "Quantity", "The actual cost value.", 0, 1, value));
         }
 
         @Override
@@ -2211,7 +2211,7 @@ public class ProductPlan extends DomainResource {
           case 3575610: /*type*/  return new Property("type", "CodeableConcept", "Type of cost (copay; individual cap; family cap; coinsurance; deductible).", 0, 1, type);
           case -1526770491: /*applicability*/  return new Property("applicability", "Coding", "Whether the cost applies to in-network or out-of-network providers (in-network; out-of-network; other).", 0, java.lang.Integer.MAX_VALUE, applicability);
           case -31447799: /*qualifiers*/  return new Property("qualifiers", "string", "Additional information about the cost, such as information about funding sources (e.g. HSA, HRA, FSA, RRA).", 0, java.lang.Integer.MAX_VALUE, qualifiers);
-          case 111972721: /*value*/  return new Property("value", "Money", "The actual cost value.", 0, 1, value);
+          case 111972721: /*value*/  return new Property("value", "Quantity", "The actual cost value.", 0, 1, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2223,7 +2223,7 @@ public class ProductPlan extends DomainResource {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -1526770491: /*applicability*/ return this.applicability == null ? new Base[0] : this.applicability.toArray(new Base[this.applicability.size()]); // Coding
         case -31447799: /*qualifiers*/ return this.qualifiers == null ? new Base[0] : this.qualifiers.toArray(new Base[this.qualifiers.size()]); // StringType
-        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Money
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Quantity
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2242,7 +2242,7 @@ public class ProductPlan extends DomainResource {
           this.getQualifiers().add(castToString(value)); // StringType
           return value;
         case 111972721: // value
-          this.value = castToMoney(value); // Money
+          this.value = castToQuantity(value); // Quantity
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2258,7 +2258,7 @@ public class ProductPlan extends DomainResource {
         } else if (name.equals("qualifiers")) {
           this.getQualifiers().add(castToString(value));
         } else if (name.equals("value")) {
-          this.value = castToMoney(value); // Money
+          this.value = castToQuantity(value); // Quantity
         } else
           return super.setProperty(name, value);
         return value;
@@ -2282,7 +2282,7 @@ public class ProductPlan extends DomainResource {
         case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case -1526770491: /*applicability*/ return new String[] {"Coding"};
         case -31447799: /*qualifiers*/ return new String[] {"string"};
-        case 111972721: /*value*/ return new String[] {"Money"};
+        case 111972721: /*value*/ return new String[] {"Quantity"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2301,7 +2301,7 @@ public class ProductPlan extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type ProductPlan.qualifiers");
         }
         else if (name.equals("value")) {
-          this.value = new Money();
+          this.value = new Quantity();
           return this.value;
         }
         else
@@ -3562,17 +3562,17 @@ public class ProductPlan extends DomainResource {
  /**
    * Search parameter: <b>address</b>
    * <p>
-   * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text</b><br>
+   * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text</b><br>
    * Type: <b>string</b><br>
    * Path: <b>ProductPlan.address</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="address", path="ProductPlan.address", description="A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text", type="string" )
+  @SearchParamDefinition(name="address", path="ProductPlan.address", description="A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text", type="string" )
   public static final String SP_ADDRESS = "address";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>address</b>
    * <p>
-   * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text</b><br>
+   * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text</b><br>
    * Type: <b>string</b><br>
    * Path: <b>ProductPlan.address</b><br>
    * </p>

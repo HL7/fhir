@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -58,7 +58,7 @@ public class Provenance extends DomainResource {
          */
         REVISION, 
         /**
-         * The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author.
+         * The repeat of (some or all of) an entity, such as text or image, by someone who might or might not be its original author.
          */
         QUOTATION, 
         /**
@@ -115,7 +115,7 @@ public class Provenance extends DomainResource {
           switch (this) {
             case DERIVATION: return "A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a preexisting entity.";
             case REVISION: return "A derivation for which the resulting entity is a revised version of some original.";
-            case QUOTATION: return "The repeat of (some or all of) an entity, such as text or image, by someone who may or may not be its original author.";
+            case QUOTATION: return "The repeat of (some or all of) an entity, such as text or image, by someone who might or might not be its original author.";
             case SOURCE: return "A primary source for a topic refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight.";
             case REMOVAL: return "A derivation for which the entity is removed from accessibility usually through the use of the Delete operation.";
             default: return "?";

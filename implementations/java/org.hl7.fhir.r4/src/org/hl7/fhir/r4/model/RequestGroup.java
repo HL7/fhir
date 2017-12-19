@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -968,7 +968,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          */
         ALLORNONE, 
         /**
-         * The end user must choose one and only one of the selectable actions in the group. The user may not choose none of the actions in the group
+         * The end user must choose one and only one of the selectable actions in the group. The user SHALL not choose none of the actions in the group
          */
         EXACTLYONE, 
         /**
@@ -1030,7 +1030,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
             case ANY: return "Any number of the actions in the group may be chosen, from zero to all";
             case ALL: return "All the actions in the group must be selected as a single unit";
             case ALLORNONE: return "All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected";
-            case EXACTLYONE: return "The end user must choose one and only one of the selectable actions in the group. The user may not choose none of the actions in the group";
+            case EXACTLYONE: return "The end user must choose one and only one of the selectable actions in the group. The user SHALL not choose none of the actions in the group";
             case ATMOSTONE: return "The end user may choose zero or at most one of the actions in the group";
             case ONEORMORE: return "The end user must choose a minimum of one, and as many additional as desired";
             default: return "?";
@@ -1112,7 +1112,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
     public enum ActionRequiredBehavior {
         /**
-         * An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action
+         * An action with this behavior must be included in the actions processed by the end user; the end user SHALL not choose not to include this action
          */
         MUST, 
         /**
@@ -1159,7 +1159,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
         public String getDefinition() {
           switch (this) {
-            case MUST: return "An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action";
+            case MUST: return "An action with this behavior must be included in the actions processed by the end user; the end user SHALL not choose not to include this action";
             case COULD: return "An action with this behavior may be included in the set of actions processed by the end user";
             case MUSTUNLESSDOCUMENTED: return "An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included";
             default: return "?";
@@ -1426,10 +1426,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         protected StringType description;
 
         /**
-         * A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
+         * A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.
          */
         @Child(name = "textEquivalent", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system", formalDefinition="A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically." )
+        @Description(shortDefinition="Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system", formalDefinition="A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically." )
         protected StringType textEquivalent;
 
         /**
@@ -1703,7 +1703,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @return {@link #textEquivalent} (A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
+         * @return {@link #textEquivalent} (A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
          */
         public StringType getTextEquivalentElement() { 
           if (this.textEquivalent == null)
@@ -1723,7 +1723,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @param value {@link #textEquivalent} (A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
+         * @param value {@link #textEquivalent} (A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
          */
         public RequestGroupActionComponent setTextEquivalentElement(StringType value) { 
           this.textEquivalent = value;
@@ -1731,14 +1731,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @return A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
+         * @return A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.
          */
         public String getTextEquivalent() { 
           return this.textEquivalent == null ? null : this.textEquivalent.getValue();
         }
 
         /**
-         * @param value A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
+         * @param value A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.
          */
         public RequestGroupActionComponent setTextEquivalent(String value) { 
           if (Utilities.noString(value))
@@ -2489,7 +2489,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           children.add(new Property("prefix", "string", "A user-visible prefix for the action.", 0, 1, prefix));
           children.add(new Property("title", "string", "The title of the action displayed to a user.", 0, 1, title));
           children.add(new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, 1, description));
-          children.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.", 0, 1, textEquivalent));
+          children.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.", 0, 1, textEquivalent));
           children.add(new Property("code", "CodeableConcept", "A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.", 0, java.lang.Integer.MAX_VALUE, code));
           children.add(new Property("documentation", "RelatedArtifact", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
           children.add(new Property("condition", "", "An expression that describes applicability criteria, or start/stop conditions for the action.", 0, java.lang.Integer.MAX_VALUE, condition));
@@ -2512,7 +2512,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           case -980110702: /*prefix*/  return new Property("prefix", "string", "A user-visible prefix for the action.", 0, 1, prefix);
           case 110371416: /*title*/  return new Property("title", "string", "The title of the action displayed to a user.", 0, 1, title);
           case -1724546052: /*description*/  return new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, 1, description);
-          case -900391049: /*textEquivalent*/  return new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.", 0, 1, textEquivalent);
+          case -900391049: /*textEquivalent*/  return new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically.", 0, 1, textEquivalent);
           case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.", 0, java.lang.Integer.MAX_VALUE, code);
           case 1587405498: /*documentation*/  return new Property("documentation", "RelatedArtifact", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation);
           case -861311717: /*condition*/  return new Property("condition", "", "An expression that describes applicability criteria, or start/stop conditions for the action.", 0, java.lang.Integer.MAX_VALUE, condition);

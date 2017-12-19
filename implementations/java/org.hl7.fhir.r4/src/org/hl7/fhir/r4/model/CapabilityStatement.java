@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -52,7 +52,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
     public enum CapabilityStatementKind {
         /**
-         * The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.
+         * The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by /metadata for a FHIR server end-point.
          */
         INSTANCE, 
         /**
@@ -99,7 +99,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         public String getDefinition() {
           switch (this) {
-            case INSTANCE: return "The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by OPTIONS for a FHIR server end-point.";
+            case INSTANCE: return "The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by /metadata for a FHIR server end-point.";
             case CAPABILITY: return "The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.";
             case REQUIREMENTS: return "The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.";
             default: return "?";
@@ -688,7 +688,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
     public enum ConditionalReadStatus {
         /**
-         * No support for conditional deletes.
+         * No support for conditional reads
          */
         NOTSUPPORTED, 
         /**
@@ -743,7 +743,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
         public String getDefinition() {
           switch (this) {
-            case NOTSUPPORTED: return "No support for conditional deletes.";
+            case NOTSUPPORTED: return "No support for conditional reads";
             case MODIFIEDSINCE: return "Conditional reads are supported, but only with the If-Modified-Since HTTP Header.";
             case NOTMATCH: return "Conditional reads are supported, but only with the If-None-Match HTTP Header.";
             case FULLSUPPORT: return "Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers.";
@@ -3412,10 +3412,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         protected List<CapabilityStatementRestResourceSearchParamComponent> searchParam;
 
         /**
-         * Definition of an operation or a named query together with its parameters and their meaning and type.
+         * Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters.
          */
         @Child(name = "operation", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Definition of an resource operation", formalDefinition="Definition of an operation or a named query together with its parameters and their meaning and type." )
+        @Description(shortDefinition="Definition of an resource operation", formalDefinition="Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters." )
         protected List<CapabilityStatementRestResourceOperationComponent> operation;
 
         private static final long serialVersionUID = -660455437L;
@@ -4265,7 +4265,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
 
         /**
-         * @return {@link #operation} (Definition of an operation or a named query together with its parameters and their meaning and type.)
+         * @return {@link #operation} (Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters.)
          */
         public List<CapabilityStatementRestResourceOperationComponent> getOperation() { 
           if (this.operation == null)
@@ -4335,7 +4335,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           children.add(new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude));
           children.add(new Property("searchRevInclude", "string", "A list of _revinclude (reverse include) values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchRevInclude));
           children.add(new Property("searchParam", "", "Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
-          children.add(new Property("operation", "", "Definition of an operation or a named query together with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
+          children.add(new Property("operation", "", "Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters.", 0, java.lang.Integer.MAX_VALUE, operation));
         }
 
         @Override
@@ -4357,7 +4357,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           case -1035904544: /*searchInclude*/  return new Property("searchInclude", "string", "A list of _include values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchInclude);
           case -2123884979: /*searchRevInclude*/  return new Property("searchRevInclude", "string", "A list of _revinclude (reverse include) values supported by the server.", 0, java.lang.Integer.MAX_VALUE, searchRevInclude);
           case -553645115: /*searchParam*/  return new Property("searchParam", "", "Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam);
-          case 1662702951: /*operation*/  return new Property("operation", "", "Definition of an operation or a named query together with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation);
+          case 1662702951: /*operation*/  return new Property("operation", "", "Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters.", 0, java.lang.Integer.MAX_VALUE, operation);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -5366,7 +5366,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          */
         protected OperationDefinition definitionTarget;
 
-        private static final long serialVersionUID = 122107272L;
+        /**
+         * Documentation that describes anything special about the operation behaviour, possibly detailing different behaviour for system, type and instance-level invocation of the operation.
+         */
+        @Child(name = "documentation", type = {MarkdownType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Specific details about operation behavior", formalDefinition="Documentation that describes anything special about the operation behaviour, possibly detailing different behaviour for system, type and instance-level invocation of the operation." )
+        protected MarkdownType documentation;
+
+        private static final long serialVersionUID = -4003589L;
 
     /**
      * Constructor
@@ -5473,10 +5480,60 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return this;
         }
 
+        /**
+         * @return {@link #documentation} (Documentation that describes anything special about the operation behaviour, possibly detailing different behaviour for system, type and instance-level invocation of the operation.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
+         */
+        public MarkdownType getDocumentationElement() { 
+          if (this.documentation == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CapabilityStatementRestResourceOperationComponent.documentation");
+            else if (Configuration.doAutoCreate())
+              this.documentation = new MarkdownType(); // bb
+          return this.documentation;
+        }
+
+        public boolean hasDocumentationElement() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        public boolean hasDocumentation() { 
+          return this.documentation != null && !this.documentation.isEmpty();
+        }
+
+        /**
+         * @param value {@link #documentation} (Documentation that describes anything special about the operation behaviour, possibly detailing different behaviour for system, type and instance-level invocation of the operation.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
+         */
+        public CapabilityStatementRestResourceOperationComponent setDocumentationElement(MarkdownType value) { 
+          this.documentation = value;
+          return this;
+        }
+
+        /**
+         * @return Documentation that describes anything special about the operation behaviour, possibly detailing different behaviour for system, type and instance-level invocation of the operation.
+         */
+        public String getDocumentation() { 
+          return this.documentation == null ? null : this.documentation.getValue();
+        }
+
+        /**
+         * @param value Documentation that describes anything special about the operation behaviour, possibly detailing different behaviour for system, type and instance-level invocation of the operation.
+         */
+        public CapabilityStatementRestResourceOperationComponent setDocumentation(String value) { 
+          if (value == null)
+            this.documentation = null;
+          else {
+            if (this.documentation == null)
+              this.documentation = new MarkdownType();
+            this.documentation.setValue(value);
+          }
+          return this;
+        }
+
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("name", "string", "The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.", 0, 1, name));
           children.add(new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, 1, definition));
+          children.add(new Property("documentation", "markdown", "Documentation that describes anything special about the operation behaviour, possibly detailing different behaviour for system, type and instance-level invocation of the operation.", 0, 1, documentation));
         }
 
         @Override
@@ -5484,6 +5541,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           switch (_hash) {
           case 3373707: /*name*/  return new Property("name", "string", "The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called.", 0, 1, name);
           case -1014418093: /*definition*/  return new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, 1, definition);
+          case 1587405498: /*documentation*/  return new Property("documentation", "markdown", "Documentation that describes anything special about the operation behaviour, possibly detailing different behaviour for system, type and instance-level invocation of the operation.", 0, 1, documentation);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -5494,6 +5552,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // Reference
+        case 1587405498: /*documentation*/ return this.documentation == null ? new Base[0] : new Base[] {this.documentation}; // MarkdownType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -5508,6 +5567,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1014418093: // definition
           this.definition = castToReference(value); // Reference
           return value;
+        case 1587405498: // documentation
+          this.documentation = castToMarkdown(value); // MarkdownType
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -5519,6 +5581,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.name = castToString(value); // StringType
         } else if (name.equals("definition")) {
           this.definition = castToReference(value); // Reference
+        } else if (name.equals("documentation")) {
+          this.documentation = castToMarkdown(value); // MarkdownType
         } else
           return super.setProperty(name, value);
         return value;
@@ -5529,6 +5593,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case 3373707:  return getNameElement();
         case -1014418093:  return getDefinition(); 
+        case 1587405498:  return getDocumentationElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -5539,6 +5604,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         switch (hash) {
         case 3373707: /*name*/ return new String[] {"string"};
         case -1014418093: /*definition*/ return new String[] {"Reference"};
+        case 1587405498: /*documentation*/ return new String[] {"markdown"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -5553,6 +5619,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.definition = new Reference();
           return this.definition;
         }
+        else if (name.equals("documentation")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.documentation");
+        }
         else
           return super.addChild(name);
       }
@@ -5562,6 +5631,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
         dst.definition = definition == null ? null : definition.copy();
+        dst.documentation = documentation == null ? null : documentation.copy();
         return dst;
       }
 
@@ -5572,7 +5642,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         if (!(other_ instanceof CapabilityStatementRestResourceOperationComponent))
           return false;
         CapabilityStatementRestResourceOperationComponent o = (CapabilityStatementRestResourceOperationComponent) other_;
-        return compareDeep(name, o.name, true) && compareDeep(definition, o.definition, true);
+        return compareDeep(name, o.name, true) && compareDeep(definition, o.definition, true) && compareDeep(documentation, o.documentation, true)
+          ;
       }
 
       @Override
@@ -5582,11 +5653,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         if (!(other_ instanceof CapabilityStatementRestResourceOperationComponent))
           return false;
         CapabilityStatementRestResourceOperationComponent o = (CapabilityStatementRestResourceOperationComponent) other_;
-        return compareValues(name, o.name, true);
+        return compareValues(name, o.name, true) && compareValues(documentation, o.documentation, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, definition);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, definition, documentation
+          );
       }
 
   public String fhirType() {
@@ -7179,7 +7251,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published. The URL SHOULD include the major version of the capability statement. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -7199,7 +7271,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published. The URL SHOULD include the major version of the capability statement. For more information see [Technical and Business Versions](resource.html#versions).). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public CapabilityStatement setUrlElement(UriType value) { 
       this.url = value;
@@ -7207,14 +7279,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published. The URL SHOULD include the major version of the capability statement. For more information see [Technical and Business Versions](resource.html#versions).
+     * @return An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published. The URL SHOULD include the major version of the capability statement. For more information see [Technical and Business Versions](resource.html#versions).
+     * @param value An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published.
      */
     public CapabilityStatement setUrl(String value) { 
       if (Utilities.noString(value))
@@ -8452,7 +8524,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published. The URL SHOULD include the major version of the capability statement. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published.", 0, 1, url));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
         children.add(new Property("title", "string", "A short, descriptive, user-friendly title for the capability statement.", 0, 1, title));
@@ -8483,7 +8555,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHALL be a URI, SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published. The URL SHOULD include the major version of the capability statement. For more information see [Technical and Business Versions](resource.html#versions).", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this capability statement is (or will be) published.", 0, 1, url);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
         case 110371416: /*title*/  return new Property("title", "string", "A short, descriptive, user-friendly title for the capability statement.", 0, 1, title);

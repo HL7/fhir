@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -84,7 +84,7 @@ responding, withdrawal, non-compliance and/or adverse event.
          */
         ONSTUDYINTERVENTION, 
         /**
-         * The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and may not exist in all studies.  A synonym for this is "short-term follow-up".
+         * The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and might not exist in all studies.  A synonym for this is "short-term follow-up".
          */
         ONSTUDYOBSERVATION, 
         /**
@@ -187,7 +187,7 @@ responding, withdrawal, non-compliance and/or adverse event.
             case OFFSTUDY: return "A person that has ended their participation on a study either because their treatment/observation is complete or through not\nresponding, withdrawal, non-compliance and/or adverse event.";
             case ONSTUDY: return "A person that is enrolled or registered on a study.";
             case ONSTUDYINTERVENTION: return "The person is receiving the treatment or participating in an activity (e.g. yoga, diet, etc.) that the study is evaluating.";
-            case ONSTUDYOBSERVATION: return "The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and may not exist in all studies.  A synonym for this is \"short-term follow-up\".";
+            case ONSTUDYOBSERVATION: return "The subject is being evaluated via tests and assessments according to the study calendar, but is not receiving any intervention. Note that this state is study-dependent and might not exist in all studies.  A synonym for this is \"short-term follow-up\".";
             case PENDINGONSTUDY: return "A person is pre-registered for a study.";
             case POTENTIALCANDIDATE: return "A person that is potentially eligible for participation in the study.";
             case SCREENING: return "A person who is being evaluated for eligibility for a study.";

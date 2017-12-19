@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -43,16 +43,16 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
+ * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
  */
 @DatatypeDef(name="Meta")
 public class Meta extends Type implements IBaseMetaType {
 
     /**
-     * The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.
+     * The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.
      */
     @Child(name = "versionId", type = {IdType.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Version specific identifier", formalDefinition="The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted." )
+    @Description(shortDefinition="Version specific identifier", formalDefinition="The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted." )
     protected IdType versionId;
 
     /**
@@ -63,18 +63,18 @@ public class Meta extends Type implements IBaseMetaType {
     protected InstantType lastUpdated;
 
     /**
-     * A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].
+     * A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.
      */
-    @Child(name = "profile", type = {UriType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Profiles this resource claims to conform to", formalDefinition="A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]." )
-    protected List<UriType> profile;
+    @Child(name = "source", type = {UriType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Identifies where the resource comes from", formalDefinition="A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc." )
+    protected UriType source;
 
     /**
-     * Identifies the system that is the source of the information in this resource.
+     * A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].
      */
-    @Child(name = "source", type = {UriType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Identifies where the resource comes from", formalDefinition="Identifies the system that is the source of the information in this resource." )
-    protected UriType source;
+    @Child(name = "profile", type = {UriType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Profiles this resource claims to conform to", formalDefinition="A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]." )
+    protected List<UriType> profile;
 
     /**
      * Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.
@@ -92,7 +92,7 @@ public class Meta extends Type implements IBaseMetaType {
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/common-tags")
     protected List<Coding> tag;
 
-    private static final long serialVersionUID = 1173354488L;
+    private static final long serialVersionUID = -1110160638L;
 
   /**
    * Constructor
@@ -102,7 +102,7 @@ public class Meta extends Type implements IBaseMetaType {
     }
 
     /**
-     * @return {@link #versionId} (The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
+     * @return {@link #versionId} (The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
      */
     public IdType getVersionIdElement() { 
       if (this.versionId == null)
@@ -122,7 +122,7 @@ public class Meta extends Type implements IBaseMetaType {
     }
 
     /**
-     * @param value {@link #versionId} (The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
+     * @param value {@link #versionId} (The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
      */
     public Meta setVersionIdElement(IdType value) { 
       this.versionId = value;
@@ -130,14 +130,14 @@ public class Meta extends Type implements IBaseMetaType {
     }
 
     /**
-     * @return The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.
+     * @return The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.
      */
     public String getVersionId() { 
       return this.versionId == null ? null : this.versionId.getValue();
     }
 
     /**
-     * @param value The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.
+     * @param value The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.
      */
     public Meta setVersionId(String value) { 
       if (Utilities.noString(value))
@@ -195,6 +195,55 @@ public class Meta extends Type implements IBaseMetaType {
         if (this.lastUpdated == null)
           this.lastUpdated = new InstantType();
         this.lastUpdated.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #source} (A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
+     */
+    public UriType getSourceElement() { 
+      if (this.source == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Meta.source");
+        else if (Configuration.doAutoCreate())
+          this.source = new UriType(); // bb
+      return this.source;
+    }
+
+    public boolean hasSourceElement() { 
+      return this.source != null && !this.source.isEmpty();
+    }
+
+    public boolean hasSource() { 
+      return this.source != null && !this.source.isEmpty();
+    }
+
+    /**
+     * @param value {@link #source} (A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
+     */
+    public Meta setSourceElement(UriType value) { 
+      this.source = value;
+      return this;
+    }
+
+    /**
+     * @return A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.
+     */
+    public String getSource() { 
+      return this.source == null ? null : this.source.getValue();
+    }
+
+    /**
+     * @param value A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.
+     */
+    public Meta setSource(String value) { 
+      if (Utilities.noString(value))
+        this.source = null;
+      else {
+        if (this.source == null)
+          this.source = new UriType();
+        this.source.setValue(value);
       }
       return this;
     }
@@ -258,55 +307,6 @@ public class Meta extends Type implements IBaseMetaType {
         if (v.equals(value)) // uri
           return true;
       return false;
-    }
-
-    /**
-     * @return {@link #source} (Identifies the system that is the source of the information in this resource.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
-     */
-    public UriType getSourceElement() { 
-      if (this.source == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Meta.source");
-        else if (Configuration.doAutoCreate())
-          this.source = new UriType(); // bb
-      return this.source;
-    }
-
-    public boolean hasSourceElement() { 
-      return this.source != null && !this.source.isEmpty();
-    }
-
-    public boolean hasSource() { 
-      return this.source != null && !this.source.isEmpty();
-    }
-
-    /**
-     * @param value {@link #source} (Identifies the system that is the source of the information in this resource.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
-     */
-    public Meta setSourceElement(UriType value) { 
-      this.source = value;
-      return this;
-    }
-
-    /**
-     * @return Identifies the system that is the source of the information in this resource.
-     */
-    public String getSource() { 
-      return this.source == null ? null : this.source.getValue();
-    }
-
-    /**
-     * @param value Identifies the system that is the source of the information in this resource.
-     */
-    public Meta setSource(String value) { 
-      if (Utilities.noString(value))
-        this.source = null;
-      else {
-        if (this.source == null)
-          this.source = new UriType();
-        this.source.setValue(value);
-      }
-      return this;
     }
 
     /**
@@ -466,10 +466,10 @@ public class Meta extends Type implements IBaseMetaType {
   }
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("versionId", "id", "The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.", 0, 1, versionId));
+        children.add(new Property("versionId", "id", "The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.", 0, 1, versionId));
         children.add(new Property("lastUpdated", "instant", "When the resource last changed - e.g. when the version changed.", 0, 1, lastUpdated));
+        children.add(new Property("source", "uri", "A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.", 0, 1, source));
         children.add(new Property("profile", "uri", "A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].", 0, java.lang.Integer.MAX_VALUE, profile));
-        children.add(new Property("source", "uri", "Identifies the system that is the source of the information in this resource.", 0, 1, source));
         children.add(new Property("security", "Coding", "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.", 0, java.lang.Integer.MAX_VALUE, security));
         children.add(new Property("tag", "Coding", "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.", 0, java.lang.Integer.MAX_VALUE, tag));
       }
@@ -477,10 +477,10 @@ public class Meta extends Type implements IBaseMetaType {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1407102957: /*versionId*/  return new Property("versionId", "id", "The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.", 0, 1, versionId);
+        case -1407102957: /*versionId*/  return new Property("versionId", "id", "The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.", 0, 1, versionId);
         case 1649733957: /*lastUpdated*/  return new Property("lastUpdated", "instant", "When the resource last changed - e.g. when the version changed.", 0, 1, lastUpdated);
+        case -896505829: /*source*/  return new Property("source", "uri", "A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.", 0, 1, source);
         case -309425751: /*profile*/  return new Property("profile", "uri", "A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].", 0, java.lang.Integer.MAX_VALUE, profile);
-        case -896505829: /*source*/  return new Property("source", "uri", "Identifies the system that is the source of the information in this resource.", 0, 1, source);
         case 949122880: /*security*/  return new Property("security", "Coding", "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.", 0, java.lang.Integer.MAX_VALUE, security);
         case 114586: /*tag*/  return new Property("tag", "Coding", "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.", 0, java.lang.Integer.MAX_VALUE, tag);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -493,8 +493,8 @@ public class Meta extends Type implements IBaseMetaType {
         switch (hash) {
         case -1407102957: /*versionId*/ return this.versionId == null ? new Base[0] : new Base[] {this.versionId}; // IdType
         case 1649733957: /*lastUpdated*/ return this.lastUpdated == null ? new Base[0] : new Base[] {this.lastUpdated}; // InstantType
-        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : this.profile.toArray(new Base[this.profile.size()]); // UriType
         case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // UriType
+        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : this.profile.toArray(new Base[this.profile.size()]); // UriType
         case 949122880: /*security*/ return this.security == null ? new Base[0] : this.security.toArray(new Base[this.security.size()]); // Coding
         case 114586: /*tag*/ return this.tag == null ? new Base[0] : this.tag.toArray(new Base[this.tag.size()]); // Coding
         default: return super.getProperty(hash, name, checkValid);
@@ -511,11 +511,11 @@ public class Meta extends Type implements IBaseMetaType {
         case 1649733957: // lastUpdated
           this.lastUpdated = castToInstant(value); // InstantType
           return value;
-        case -309425751: // profile
-          this.getProfile().add(castToUri(value)); // UriType
-          return value;
         case -896505829: // source
           this.source = castToUri(value); // UriType
+          return value;
+        case -309425751: // profile
+          this.getProfile().add(castToUri(value)); // UriType
           return value;
         case 949122880: // security
           this.getSecurity().add(castToCoding(value)); // Coding
@@ -534,10 +534,10 @@ public class Meta extends Type implements IBaseMetaType {
           this.versionId = castToId(value); // IdType
         } else if (name.equals("lastUpdated")) {
           this.lastUpdated = castToInstant(value); // InstantType
-        } else if (name.equals("profile")) {
-          this.getProfile().add(castToUri(value));
         } else if (name.equals("source")) {
           this.source = castToUri(value); // UriType
+        } else if (name.equals("profile")) {
+          this.getProfile().add(castToUri(value));
         } else if (name.equals("security")) {
           this.getSecurity().add(castToCoding(value));
         } else if (name.equals("tag")) {
@@ -552,8 +552,8 @@ public class Meta extends Type implements IBaseMetaType {
         switch (hash) {
         case -1407102957:  return getVersionIdElement();
         case 1649733957:  return getLastUpdatedElement();
-        case -309425751:  return addProfileElement();
         case -896505829:  return getSourceElement();
+        case -309425751:  return addProfileElement();
         case 949122880:  return addSecurity(); 
         case 114586:  return addTag(); 
         default: return super.makeProperty(hash, name);
@@ -566,8 +566,8 @@ public class Meta extends Type implements IBaseMetaType {
         switch (hash) {
         case -1407102957: /*versionId*/ return new String[] {"id"};
         case 1649733957: /*lastUpdated*/ return new String[] {"instant"};
-        case -309425751: /*profile*/ return new String[] {"uri"};
         case -896505829: /*source*/ return new String[] {"uri"};
+        case -309425751: /*profile*/ return new String[] {"uri"};
         case 949122880: /*security*/ return new String[] {"Coding"};
         case 114586: /*tag*/ return new String[] {"Coding"};
         default: return super.getTypesForProperty(hash, name);
@@ -583,11 +583,11 @@ public class Meta extends Type implements IBaseMetaType {
         else if (name.equals("lastUpdated")) {
           throw new FHIRException("Cannot call addChild on a primitive type Meta.lastUpdated");
         }
-        else if (name.equals("profile")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Meta.profile");
-        }
         else if (name.equals("source")) {
           throw new FHIRException("Cannot call addChild on a primitive type Meta.source");
+        }
+        else if (name.equals("profile")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Meta.profile");
         }
         else if (name.equals("security")) {
           return addSecurity();
@@ -609,12 +609,12 @@ public class Meta extends Type implements IBaseMetaType {
         copyValues(dst);
         dst.versionId = versionId == null ? null : versionId.copy();
         dst.lastUpdated = lastUpdated == null ? null : lastUpdated.copy();
+        dst.source = source == null ? null : source.copy();
         if (profile != null) {
           dst.profile = new ArrayList<UriType>();
           for (UriType i : profile)
             dst.profile.add(i.copy());
         };
-        dst.source = source == null ? null : source.copy();
         if (security != null) {
           dst.security = new ArrayList<Coding>();
           for (Coding i : security)
@@ -640,7 +640,7 @@ public class Meta extends Type implements IBaseMetaType {
           return false;
         Meta o = (Meta) other_;
         return compareDeep(versionId, o.versionId, true) && compareDeep(lastUpdated, o.lastUpdated, true)
-           && compareDeep(profile, o.profile, true) && compareDeep(source, o.source, true) && compareDeep(security, o.security, true)
+           && compareDeep(source, o.source, true) && compareDeep(profile, o.profile, true) && compareDeep(security, o.security, true)
            && compareDeep(tag, o.tag, true);
       }
 
@@ -652,12 +652,12 @@ public class Meta extends Type implements IBaseMetaType {
           return false;
         Meta o = (Meta) other_;
         return compareValues(versionId, o.versionId, true) && compareValues(lastUpdated, o.lastUpdated, true)
-           && compareValues(profile, o.profile, true) && compareValues(source, o.source, true);
+           && compareValues(source, o.source, true) && compareValues(profile, o.profile, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(versionId, lastUpdated, profile
-          , source, security, tag);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(versionId, lastUpdated, source
+          , profile, security, tag);
       }
 
 

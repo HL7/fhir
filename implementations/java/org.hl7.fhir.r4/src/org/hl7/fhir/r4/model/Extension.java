@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -202,6 +202,14 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
         case -1406282469: /*valueTiming*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
         case 1755241690: /*valueReference*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
         case -765920490: /*valueMeta*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
+        case -1858636920: /*valueDosage*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
+        case -1125200224: /*valueContactDetail*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
+        case 1281021610: /*valueContributor*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
+        case 1710554248: /*valueDataRequirement*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
+        case 1387478187: /*valueParameterDefinition*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
+        case 1748214124: /*valueRelatedArtifact*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
+        case 976830394: /*valueTriggerDefinition*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
+        case 588000479: /*valueUsageContext*/  return new Property("value[x]", "*", "Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list).", 0, 1, value);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -398,6 +406,38 @@ public class Extension extends BaseExtension implements IBaseExtension<Extension
         }
         else if (name.equals("valueMeta")) {
           this.value = new Meta();
+          return this.value;
+        }
+        else if (name.equals("valueDosage")) {
+          this.value = new Dosage();
+          return this.value;
+        }
+        else if (name.equals("valueContactDetail")) {
+          this.value = new ContactDetail();
+          return this.value;
+        }
+        else if (name.equals("valueContributor")) {
+          this.value = new Contributor();
+          return this.value;
+        }
+        else if (name.equals("valueDataRequirement")) {
+          this.value = new DataRequirement();
+          return this.value;
+        }
+        else if (name.equals("valueParameterDefinition")) {
+          this.value = new ParameterDefinition();
+          return this.value;
+        }
+        else if (name.equals("valueRelatedArtifact")) {
+          this.value = new RelatedArtifact();
+          return this.value;
+        }
+        else if (name.equals("valueTriggerDefinition")) {
+          this.value = new TriggerDefinition();
+          return this.value;
+        }
+        else if (name.equals("valueUsageContext")) {
+          this.value = new UsageContext();
           return this.value;
         }
         else

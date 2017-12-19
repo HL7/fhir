@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -321,9 +321,9 @@ public class EntryDefinition extends DomainResource {
     /**
      * Classes of devices, or ATC for medication.
      */
-    @Child(name = "classification", type = {Identifier.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "classification", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Classification (category or class) of the item entry", formalDefinition="Classes of devices, or ATC for medication." )
-    protected List<Identifier> classification;
+    protected List<CodeableConcept> classification;
 
     /**
      * Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.
@@ -367,7 +367,7 @@ public class EntryDefinition extends DomainResource {
     @Description(shortDefinition="An item that this catalog entry is related to", formalDefinition="Used for example, to point to a substance, or to a device used to administer a medication." )
     protected List<EntryDefinitionRelatedEntryComponent> relatedEntry;
 
-    private static final long serialVersionUID = -63454268L;
+    private static final long serialVersionUID = 1643677246L;
 
   /**
    * Constructor
@@ -552,16 +552,16 @@ public class EntryDefinition extends DomainResource {
     /**
      * @return {@link #classification} (Classes of devices, or ATC for medication.)
      */
-    public List<Identifier> getClassification() { 
+    public List<CodeableConcept> getClassification() { 
       if (this.classification == null)
-        this.classification = new ArrayList<Identifier>();
+        this.classification = new ArrayList<CodeableConcept>();
       return this.classification;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public EntryDefinition setClassification(List<Identifier> theClassification) { 
+    public EntryDefinition setClassification(List<CodeableConcept> theClassification) { 
       this.classification = theClassification;
       return this;
     }
@@ -569,25 +569,25 @@ public class EntryDefinition extends DomainResource {
     public boolean hasClassification() { 
       if (this.classification == null)
         return false;
-      for (Identifier item : this.classification)
+      for (CodeableConcept item : this.classification)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Identifier addClassification() { //3
-      Identifier t = new Identifier();
+    public CodeableConcept addClassification() { //3
+      CodeableConcept t = new CodeableConcept();
       if (this.classification == null)
-        this.classification = new ArrayList<Identifier>();
+        this.classification = new ArrayList<CodeableConcept>();
       this.classification.add(t);
       return t;
     }
 
-    public EntryDefinition addClassification(Identifier t) { //3
+    public EntryDefinition addClassification(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.classification == null)
-        this.classification = new ArrayList<Identifier>();
+        this.classification = new ArrayList<CodeableConcept>();
       this.classification.add(t);
       return this;
     }
@@ -595,7 +595,7 @@ public class EntryDefinition extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #classification}, creating it if it does not already exist
      */
-    public Identifier getClassificationFirstRep() { 
+    public CodeableConcept getClassificationFirstRep() { 
       if (getClassification().isEmpty()) {
         addClassification();
       }
@@ -865,7 +865,7 @@ public class EntryDefinition extends DomainResource {
         children.add(new Property("referencedItem", "Reference(Medication|Device|Organization|Practitioner|HealthcareService|ActivityDefinition|PlanDefinition|SpecimenDefinition|ObservationDefinition|Binary)", "Content of the catalog.", 0, 1, referencedItem));
         children.add(new Property("identifier", "Identifier", "Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code.", 0, 1, identifier));
         children.add(new Property("additionalIdentifier", "Identifier", "Used in supporting related concepts, e.g. NDC to RxNorm.", 0, java.lang.Integer.MAX_VALUE, additionalIdentifier));
-        children.add(new Property("classification", "Identifier", "Classes of devices, or ATC for medication.", 0, java.lang.Integer.MAX_VALUE, classification));
+        children.add(new Property("classification", "CodeableConcept", "Classes of devices, or ATC for medication.", 0, java.lang.Integer.MAX_VALUE, classification));
         children.add(new Property("status", "CodeableConcept", "Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.", 0, 1, status));
         children.add(new Property("validityPeriod", "Period", "The time period in which this catalog entry is expected to be active.", 0, 1, validityPeriod));
         children.add(new Property("lastUpdated", "dateTime", "Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated.", 0, 1, lastUpdated));
@@ -882,7 +882,7 @@ public class EntryDefinition extends DomainResource {
         case -1896630996: /*referencedItem*/  return new Property("referencedItem", "Reference(Medication|Device|Organization|Practitioner|HealthcareService|ActivityDefinition|PlanDefinition|SpecimenDefinition|ObservationDefinition|Binary)", "Content of the catalog.", 0, 1, referencedItem);
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code.", 0, 1, identifier);
         case 1195162672: /*additionalIdentifier*/  return new Property("additionalIdentifier", "Identifier", "Used in supporting related concepts, e.g. NDC to RxNorm.", 0, java.lang.Integer.MAX_VALUE, additionalIdentifier);
-        case 382350310: /*classification*/  return new Property("classification", "Identifier", "Classes of devices, or ATC for medication.", 0, java.lang.Integer.MAX_VALUE, classification);
+        case 382350310: /*classification*/  return new Property("classification", "CodeableConcept", "Classes of devices, or ATC for medication.", 0, java.lang.Integer.MAX_VALUE, classification);
         case -892481550: /*status*/  return new Property("status", "CodeableConcept", "Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.", 0, 1, status);
         case -1434195053: /*validityPeriod*/  return new Property("validityPeriod", "Period", "The time period in which this catalog entry is expected to be active.", 0, 1, validityPeriod);
         case 1649733957: /*lastUpdated*/  return new Property("lastUpdated", "dateTime", "Typically date of issue is different from the beginning of the validity. This can be used to see when an item was last updated.", 0, 1, lastUpdated);
@@ -902,7 +902,7 @@ public class EntryDefinition extends DomainResource {
         case -1896630996: /*referencedItem*/ return this.referencedItem == null ? new Base[0] : new Base[] {this.referencedItem}; // Reference
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case 1195162672: /*additionalIdentifier*/ return this.additionalIdentifier == null ? new Base[0] : this.additionalIdentifier.toArray(new Base[this.additionalIdentifier.size()]); // Identifier
-        case 382350310: /*classification*/ return this.classification == null ? new Base[0] : this.classification.toArray(new Base[this.classification.size()]); // Identifier
+        case 382350310: /*classification*/ return this.classification == null ? new Base[0] : this.classification.toArray(new Base[this.classification.size()]); // CodeableConcept
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeableConcept
         case -1434195053: /*validityPeriod*/ return this.validityPeriod == null ? new Base[0] : new Base[] {this.validityPeriod}; // Period
         case 1649733957: /*lastUpdated*/ return this.lastUpdated == null ? new Base[0] : new Base[] {this.lastUpdated}; // DateTimeType
@@ -933,7 +933,7 @@ public class EntryDefinition extends DomainResource {
           this.getAdditionalIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case 382350310: // classification
-          this.getClassification().add(castToIdentifier(value)); // Identifier
+          this.getClassification().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -892481550: // status
           this.status = castToCodeableConcept(value); // CodeableConcept
@@ -971,7 +971,7 @@ public class EntryDefinition extends DomainResource {
         } else if (name.equals("additionalIdentifier")) {
           this.getAdditionalIdentifier().add(castToIdentifier(value));
         } else if (name.equals("classification")) {
-          this.getClassification().add(castToIdentifier(value));
+          this.getClassification().add(castToCodeableConcept(value));
         } else if (name.equals("status")) {
           this.status = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("validityPeriod")) {
@@ -1017,7 +1017,7 @@ public class EntryDefinition extends DomainResource {
         case -1896630996: /*referencedItem*/ return new String[] {"Reference"};
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case 1195162672: /*additionalIdentifier*/ return new String[] {"Identifier"};
-        case 382350310: /*classification*/ return new String[] {"Identifier"};
+        case 382350310: /*classification*/ return new String[] {"CodeableConcept"};
         case -892481550: /*status*/ return new String[] {"CodeableConcept"};
         case -1434195053: /*validityPeriod*/ return new String[] {"Period"};
         case 1649733957: /*lastUpdated*/ return new String[] {"dateTime"};
@@ -1095,8 +1095,8 @@ public class EntryDefinition extends DomainResource {
             dst.additionalIdentifier.add(i.copy());
         };
         if (classification != null) {
-          dst.classification = new ArrayList<Identifier>();
-          for (Identifier i : classification)
+          dst.classification = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : classification)
             dst.classification.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();

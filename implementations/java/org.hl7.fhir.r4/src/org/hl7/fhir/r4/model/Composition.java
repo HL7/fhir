@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -586,7 +586,7 @@ public class Composition extends DomainResource {
          */
         SNAPSHOT, 
         /**
-         * A list that indicates where changes have been made or recommended
+         * A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter
          */
         CHANGES, 
         /**
@@ -627,7 +627,7 @@ public class Composition extends DomainResource {
           switch (this) {
             case WORKING: return "This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes";
             case SNAPSHOT: return "This list was prepared as a snapshot. It should not be assumed to be current";
-            case CHANGES: return "A list that indicates where changes have been made or recommended";
+            case CHANGES: return "A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter";
             default: return "?";
           }
         }

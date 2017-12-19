@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -588,10 +588,10 @@ public class RdfParser extends RdfParserBase {
       composeId(t, "Meta", "versionId", element.getVersionIdElement(), -1);
     if (element.hasLastUpdatedElement())
       composeInstant(t, "Meta", "lastUpdated", element.getLastUpdatedElement(), -1);
-    for (int i = 0; i < element.getProfile().size(); i++)
-      composeUri(t, "Meta", "profile", element.getProfile().get(i), i);
     if (element.hasSourceElement())
       composeUri(t, "Meta", "source", element.getSourceElement(), -1);
+    for (int i = 0; i < element.getProfile().size(); i++)
+      composeUri(t, "Meta", "profile", element.getProfile().get(i), i);
     for (int i = 0; i < element.getSecurity().size(); i++)
       composeCoding(t, "Meta", "security", element.getSecurity().get(i), i);
     for (int i = 0; i < element.getTag().size(); i++)
@@ -808,6 +808,26 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "RelatedArtifact", "resource", element.getResource(), -1);
   }
 
+  protected void composeProductShelfLife(Complex parent, String parentType, String name, ProductShelfLife element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "ProductShelfLife", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "ProductShelfLife", "identifier", element.getIdentifier(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "ProductShelfLife", "type", element.getType(), -1);
+    if (element.hasPeriod())
+      composeQuantity(t, "ProductShelfLife", "period", element.getPeriod(), -1);
+    for (int i = 0; i < element.getSpecialPrecautionsForStorage().size(); i++)
+      composeCodeableConcept(t, "ProductShelfLife", "specialPrecautionsForStorage", element.getSpecialPrecautionsForStorage().get(i), i);
+  }
+
   protected void composeContactDetail(Complex parent, String parentType, String name, ContactDetail element, int index) {
     if (element == null) 
       return;
@@ -870,6 +890,64 @@ public class RdfParser extends RdfParserBase {
       composePositiveInt(t, "ContactPoint", "rank", element.getRankElement(), -1);
     if (element.hasPeriod())
       composePeriod(t, "ContactPoint", "period", element.getPeriod(), -1);
+  }
+
+  protected void composeMarketingStatus(Complex parent, String parentType, String name, MarketingStatus element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "MarketingStatus", name, element, index);
+    if (element.hasCountry())
+      composeCodeableConcept(t, "MarketingStatus", "country", element.getCountry(), -1);
+    if (element.hasJurisdiction())
+      composeCodeableConcept(t, "MarketingStatus", "jurisdiction", element.getJurisdiction(), -1);
+    if (element.hasStatus())
+      composeCodeableConcept(t, "MarketingStatus", "status", element.getStatus(), -1);
+    if (element.hasDateRange())
+      composePeriod(t, "MarketingStatus", "dateRange", element.getDateRange(), -1);
+    if (element.hasRestoreDateElement())
+      composeDateTime(t, "MarketingStatus", "restoreDate", element.getRestoreDateElement(), -1);
+  }
+
+  protected void composeSubstanceAmount(Complex parent, String parentType, String name, SubstanceAmount element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "SubstanceAmount", name, element, index);
+    if (element.hasAmount())
+      composeType(t, "SubstanceAmount", "amount", element.getAmount(), -1);
+    if (element.hasAmountType())
+      composeCodeableConcept(t, "SubstanceAmount", "amountType", element.getAmountType(), -1);
+    if (element.hasAmountTextElement())
+      composeString(t, "SubstanceAmount", "amountText", element.getAmountTextElement(), -1);
+    if (element.hasReferenceRange())
+      composeSubstanceAmountSubstanceAmountReferenceRangeComponent(t, "SubstanceAmount", "referenceRange", element.getReferenceRange(), -1);
+  }
+
+  protected void composeSubstanceAmountSubstanceAmountReferenceRangeComponent(Complex parent, String parentType, String name, SubstanceAmount.SubstanceAmountReferenceRangeComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "referenceRange", name, element, index);
+    if (element.hasLowLimit())
+      composeQuantity(t, "SubstanceAmount", "lowLimit", element.getLowLimit(), -1);
+    if (element.hasHighLimit())
+      composeQuantity(t, "SubstanceAmount", "highLimit", element.getHighLimit(), -1);
   }
 
   protected void composeUsageContext(Complex parent, String parentType, String name, UsageContext element, int index) {
@@ -1178,6 +1256,66 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ElementDefinition", "map", element.getMapElement(), -1);
     if (element.hasCommentElement())
       composeString(t, "ElementDefinition", "comment", element.getCommentElement(), -1);
+  }
+
+  protected void composeSubstanceMoiety(Complex parent, String parentType, String name, SubstanceMoiety element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "SubstanceMoiety", name, element, index);
+    if (element.hasRole())
+      composeCodeableConcept(t, "SubstanceMoiety", "role", element.getRole(), -1);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "SubstanceMoiety", "identifier", element.getIdentifier(), -1);
+    if (element.hasNameElement())
+      composeString(t, "SubstanceMoiety", "name", element.getNameElement(), -1);
+    if (element.hasStereochemistry())
+      composeCodeableConcept(t, "SubstanceMoiety", "stereochemistry", element.getStereochemistry(), -1);
+    if (element.hasOpticalActivity())
+      composeCodeableConcept(t, "SubstanceMoiety", "opticalActivity", element.getOpticalActivity(), -1);
+    if (element.hasMolecularFormulaElement())
+      composeString(t, "SubstanceMoiety", "molecularFormula", element.getMolecularFormulaElement(), -1);
+    if (element.hasAmount())
+      composeSubstanceAmount(t, "SubstanceMoiety", "amount", element.getAmount(), -1);
+  }
+
+  protected void composeProdCharacteristic(Complex parent, String parentType, String name, ProdCharacteristic element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "ProdCharacteristic", name, element, index);
+    if (element.hasHeight())
+      composeQuantity(t, "ProdCharacteristic", "height", element.getHeight(), -1);
+    if (element.hasWidth())
+      composeQuantity(t, "ProdCharacteristic", "width", element.getWidth(), -1);
+    if (element.hasDepth())
+      composeQuantity(t, "ProdCharacteristic", "depth", element.getDepth(), -1);
+    if (element.hasWeight())
+      composeQuantity(t, "ProdCharacteristic", "weight", element.getWeight(), -1);
+    if (element.hasNominalVolume())
+      composeQuantity(t, "ProdCharacteristic", "nominalVolume", element.getNominalVolume(), -1);
+    if (element.hasExternalDiameter())
+      composeQuantity(t, "ProdCharacteristic", "externalDiameter", element.getExternalDiameter(), -1);
+    if (element.hasShapeElement())
+      composeString(t, "ProdCharacteristic", "shape", element.getShapeElement(), -1);
+    for (int i = 0; i < element.getColor().size(); i++)
+      composeString(t, "ProdCharacteristic", "color", element.getColor().get(i), i);
+    for (int i = 0; i < element.getImprint().size(); i++)
+      composeString(t, "ProdCharacteristic", "imprint", element.getImprint().get(i), i);
+    for (int i = 0; i < element.getImage().size(); i++)
+      composeAttachment(t, "ProdCharacteristic", "image", element.getImage().get(i), i);
+    if (element.hasScoring())
+      composeCodeableConcept(t, "ProdCharacteristic", "scoring", element.getScoring(), -1);
   }
 
   protected void composeParameterDefinition(Complex parent, String parentType, String name, ParameterDefinition element, int index) {
@@ -1899,6 +2037,114 @@ public class RdfParser extends RdfParserBase {
       composeBase64Binary(t, "Binary", "content", element.getContentElement(), -1);
   }
 
+  protected void composeBiologicallyDerivedProduct(Complex parent, String parentType, String name, BiologicallyDerivedProduct element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "BiologicallyDerivedProduct", name, element, index);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "BiologicallyDerivedProduct", "identifier", element.getIdentifier().get(i), i);
+    if (element.hasProductCategoryElement())
+      composeEnum(t, "BiologicallyDerivedProduct", "productCategory", element.getProductCategoryElement(), -1);
+    if (element.hasProductCode())
+      composeCodeableConcept(t, "BiologicallyDerivedProduct", "productCode", element.getProductCode(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "BiologicallyDerivedProduct", "status", element.getStatusElement(), -1);
+    for (int i = 0; i < element.getRequest().size(); i++)
+      composeReference(t, "BiologicallyDerivedProduct", "request", element.getRequest().get(i), i);
+    if (element.hasQuantityElement())
+      composeInteger(t, "BiologicallyDerivedProduct", "quantity", element.getQuantityElement(), -1);
+    if (element.hasParent())
+      composeReference(t, "BiologicallyDerivedProduct", "parent", element.getParent(), -1);
+    if (element.hasCollection())
+      composeBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponent(t, "BiologicallyDerivedProduct", "collection", element.getCollection(), -1);
+    for (int i = 0; i < element.getProcessing().size(); i++)
+      composeBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponent(t, "BiologicallyDerivedProduct", "processing", element.getProcessing().get(i), i);
+    if (element.hasManipulation())
+      composeBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponent(t, "BiologicallyDerivedProduct", "manipulation", element.getManipulation(), -1);
+    for (int i = 0; i < element.getStorage().size(); i++)
+      composeBiologicallyDerivedProductBiologicallyDerivedProductStorageComponent(t, "BiologicallyDerivedProduct", "storage", element.getStorage().get(i), i);
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponent(Complex parent, String parentType, String name, BiologicallyDerivedProduct.BiologicallyDerivedProductCollectionComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "collection", name, element, index);
+    if (element.hasCollector())
+      composeReference(t, "BiologicallyDerivedProduct", "collector", element.getCollector(), -1);
+    if (element.hasSource())
+      composeReference(t, "BiologicallyDerivedProduct", "source", element.getSource(), -1);
+    if (element.hasCollected())
+      composeType(t, "BiologicallyDerivedProduct", "collected", element.getCollected(), -1);
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponent(Complex parent, String parentType, String name, BiologicallyDerivedProduct.BiologicallyDerivedProductProcessingComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "processing", name, element, index);
+    if (element.hasDescriptionElement())
+      composeString(t, "BiologicallyDerivedProduct", "description", element.getDescriptionElement(), -1);
+    if (element.hasProcedure())
+      composeCodeableConcept(t, "BiologicallyDerivedProduct", "procedure", element.getProcedure(), -1);
+    if (element.hasAdditive())
+      composeReference(t, "BiologicallyDerivedProduct", "additive", element.getAdditive(), -1);
+    if (element.hasTime())
+      composeType(t, "BiologicallyDerivedProduct", "time", element.getTime(), -1);
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponent(Complex parent, String parentType, String name, BiologicallyDerivedProduct.BiologicallyDerivedProductManipulationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "manipulation", name, element, index);
+    if (element.hasDescriptionElement())
+      composeString(t, "BiologicallyDerivedProduct", "description", element.getDescriptionElement(), -1);
+    if (element.hasTime())
+      composeType(t, "BiologicallyDerivedProduct", "time", element.getTime(), -1);
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductStorageComponent(Complex parent, String parentType, String name, BiologicallyDerivedProduct.BiologicallyDerivedProductStorageComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "storage", name, element, index);
+    if (element.hasDescriptionElement())
+      composeString(t, "BiologicallyDerivedProduct", "description", element.getDescriptionElement(), -1);
+    if (element.hasTemperatureElement())
+      composeDecimal(t, "BiologicallyDerivedProduct", "temperature", element.getTemperatureElement(), -1);
+    if (element.hasScaleElement())
+      composeEnum(t, "BiologicallyDerivedProduct", "scale", element.getScaleElement(), -1);
+    if (element.hasDuration())
+      composePeriod(t, "BiologicallyDerivedProduct", "duration", element.getDuration(), -1);
+  }
+
   protected void composeBodyStructure(Complex parent, String parentType, String name, BodyStructure element, int index) {
     if (element == null) 
       return;
@@ -2313,6 +2559,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "CapabilityStatement", "name", element.getNameElement(), -1);
     if (element.hasDefinition())
       composeReference(t, "CapabilityStatement", "definition", element.getDefinition(), -1);
+    if (element.hasDocumentationElement())
+      composeMarkdown(t, "CapabilityStatement", "documentation", element.getDocumentationElement(), -1);
   }
 
   protected void composeCapabilityStatementSystemInteractionComponent(Complex parent, String parentType, String name, CapabilityStatement.SystemInteractionComponent element, int index) {
@@ -5676,7 +5924,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getAdditionalIdentifier().size(); i++)
       composeIdentifier(t, "EntryDefinition", "additionalIdentifier", element.getAdditionalIdentifier().get(i), i);
     for (int i = 0; i < element.getClassification().size(); i++)
-      composeIdentifier(t, "EntryDefinition", "classification", element.getClassification().get(i), i);
+      composeCodeableConcept(t, "EntryDefinition", "classification", element.getClassification().get(i), i);
     if (element.hasStatus())
       composeCodeableConcept(t, "EntryDefinition", "status", element.getStatus(), -1);
     if (element.hasValidityPeriod())
@@ -8043,6 +8291,38 @@ public class RdfParser extends RdfParserBase {
       composeDecimal(t, "Invoice", "amount", element.getAmountElement(), -1);
   }
 
+  protected void composeItemInstance(Complex parent, String parentType, String name, ItemInstance element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "ItemInstance", name, element, index);
+    if (element.hasCountElement())
+      composeInteger(t, "ItemInstance", "count", element.getCountElement(), -1);
+    if (element.hasLocation())
+      composeReference(t, "ItemInstance", "location", element.getLocation(), -1);
+    if (element.hasSubject())
+      composeReference(t, "ItemInstance", "subject", element.getSubject(), -1);
+    if (element.hasManufactureDateElement())
+      composeDateTime(t, "ItemInstance", "manufactureDate", element.getManufactureDateElement(), -1);
+    if (element.hasExpiryDateElement())
+      composeDateTime(t, "ItemInstance", "expiryDate", element.getExpiryDateElement(), -1);
+    if (element.hasCurrentSWVersionElement())
+      composeString(t, "ItemInstance", "currentSWVersion", element.getCurrentSWVersionElement(), -1);
+    if (element.hasLotNumberElement())
+      composeString(t, "ItemInstance", "lotNumber", element.getLotNumberElement(), -1);
+    if (element.hasSerialNumberElement())
+      composeString(t, "ItemInstance", "serialNumber", element.getSerialNumberElement(), -1);
+    if (element.hasCarrierAIDCElement())
+      composeString(t, "ItemInstance", "carrierAIDC", element.getCarrierAIDCElement(), -1);
+    if (element.hasCarrierHRFElement())
+      composeString(t, "ItemInstance", "carrierHRF", element.getCarrierHRFElement(), -1);
+  }
+
   protected void composeLibrary(Complex parent, String parentType, String name, Library element, int index) {
     if (element == null) 
       return;
@@ -9027,6 +9307,676 @@ public class RdfParser extends RdfParserBase {
       composeDosage(t, "MedicationStatement", "dosage", element.getDosage().get(i), i);
   }
 
+  protected void composeMedicinalProduct(Complex parent, String parentType, String name, MedicinalProduct element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "MedicinalProduct", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "MedicinalProduct", "identifier", element.getIdentifier(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicinalProduct", "type", element.getType(), -1);
+    if (element.hasCombinedPharmaceuticalDoseForm())
+      composeCodeableConcept(t, "MedicinalProduct", "combinedPharmaceuticalDoseForm", element.getCombinedPharmaceuticalDoseForm(), -1);
+    if (element.hasAdditionalMonitoringIndicator())
+      composeCodeableConcept(t, "MedicinalProduct", "additionalMonitoringIndicator", element.getAdditionalMonitoringIndicator(), -1);
+    for (int i = 0; i < element.getSpecialMeasures().size(); i++)
+      composeString(t, "MedicinalProduct", "specialMeasures", element.getSpecialMeasures().get(i), i);
+    if (element.hasPaediatricUseIndicator())
+      composeCodeableConcept(t, "MedicinalProduct", "paediatricUseIndicator", element.getPaediatricUseIndicator(), -1);
+    if (element.hasOrphanDesignationStatus())
+      composeCodeableConcept(t, "MedicinalProduct", "orphanDesignationStatus", element.getOrphanDesignationStatus(), -1);
+    for (int i = 0; i < element.getProductClassification().size(); i++)
+      composeCodeableConcept(t, "MedicinalProduct", "productClassification", element.getProductClassification().get(i), i);
+    if (element.hasMarketingAuthorization())
+      composeReference(t, "MedicinalProduct", "marketingAuthorization", element.getMarketingAuthorization(), -1);
+    for (int i = 0; i < element.getPackagedMedicinalProduct().size(); i++)
+      composeReference(t, "MedicinalProduct", "packagedMedicinalProduct", element.getPackagedMedicinalProduct().get(i), i);
+    for (int i = 0; i < element.getPharmaceuticalProduct().size(); i++)
+      composeReference(t, "MedicinalProduct", "pharmaceuticalProduct", element.getPharmaceuticalProduct().get(i), i);
+    for (int i = 0; i < element.getClinicalParticulars().size(); i++)
+      composeReference(t, "MedicinalProduct", "clinicalParticulars", element.getClinicalParticulars().get(i), i);
+    for (int i = 0; i < element.getAttachedDocument().size(); i++)
+      composeReference(t, "MedicinalProduct", "attachedDocument", element.getAttachedDocument().get(i), i);
+    for (int i = 0; i < element.getMasterFile().size(); i++)
+      composeReference(t, "MedicinalProduct", "masterFile", element.getMasterFile().get(i), i);
+    for (int i = 0; i < element.getName().size(); i++)
+      composeMedicinalProductMedicinalProductNameComponent(t, "MedicinalProduct", "name", element.getName().get(i), i);
+    for (int i = 0; i < element.getCrossReference().size(); i++)
+      composeIdentifier(t, "MedicinalProduct", "crossReference", element.getCrossReference().get(i), i);
+    for (int i = 0; i < element.getManufacturingBusinessOperation().size(); i++)
+      composeMedicinalProductMedicinalProductManufacturingBusinessOperationComponent(t, "MedicinalProduct", "manufacturingBusinessOperation", element.getManufacturingBusinessOperation().get(i), i);
+  }
+
+  protected void composeMedicinalProductMedicinalProductNameComponent(Complex parent, String parentType, String name, MedicinalProduct.MedicinalProductNameComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "name", name, element, index);
+    if (element.hasFullNameElement())
+      composeString(t, "MedicinalProduct", "fullName", element.getFullNameElement(), -1);
+    for (int i = 0; i < element.getNamePart().size(); i++)
+      composeMedicinalProductMedicinalProductNameNamePartComponent(t, "MedicinalProduct", "namePart", element.getNamePart().get(i), i);
+    for (int i = 0; i < element.getCountryLanguage().size(); i++)
+      composeMedicinalProductMedicinalProductNameCountryLanguageComponent(t, "MedicinalProduct", "countryLanguage", element.getCountryLanguage().get(i), i);
+  }
+
+  protected void composeMedicinalProductMedicinalProductNameNamePartComponent(Complex parent, String parentType, String name, MedicinalProduct.MedicinalProductNameNamePartComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "namePart", name, element, index);
+    if (element.hasPartElement())
+      composeString(t, "MedicinalProduct", "part", element.getPartElement(), -1);
+    if (element.hasType())
+      composeCoding(t, "MedicinalProduct", "type", element.getType(), -1);
+  }
+
+  protected void composeMedicinalProductMedicinalProductNameCountryLanguageComponent(Complex parent, String parentType, String name, MedicinalProduct.MedicinalProductNameCountryLanguageComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "countryLanguage", name, element, index);
+    if (element.hasCountry())
+      composeCodeableConcept(t, "MedicinalProduct", "country", element.getCountry(), -1);
+    if (element.hasJurisdiction())
+      composeCodeableConcept(t, "MedicinalProduct", "jurisdiction", element.getJurisdiction(), -1);
+    if (element.hasLanguage())
+      composeCodeableConcept(t, "MedicinalProduct", "language", element.getLanguage(), -1);
+  }
+
+  protected void composeMedicinalProductMedicinalProductManufacturingBusinessOperationComponent(Complex parent, String parentType, String name, MedicinalProduct.MedicinalProductManufacturingBusinessOperationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "manufacturingBusinessOperation", name, element, index);
+    if (element.hasOperationType())
+      composeCodeableConcept(t, "MedicinalProduct", "operationType", element.getOperationType(), -1);
+    if (element.hasAuthorisationReferenceNumber())
+      composeIdentifier(t, "MedicinalProduct", "authorisationReferenceNumber", element.getAuthorisationReferenceNumber(), -1);
+    if (element.hasEffectiveDateElement())
+      composeDateTime(t, "MedicinalProduct", "effectiveDate", element.getEffectiveDateElement(), -1);
+    if (element.hasConfidentialityIndicator())
+      composeCodeableConcept(t, "MedicinalProduct", "confidentialityIndicator", element.getConfidentialityIndicator(), -1);
+    for (int i = 0; i < element.getManufacturer().size(); i++)
+      composeReference(t, "MedicinalProduct", "manufacturer", element.getManufacturer().get(i), i);
+    if (element.hasRegulator())
+      composeReference(t, "MedicinalProduct", "regulator", element.getRegulator(), -1);
+  }
+
+  protected void composeMedicinalProductAuthorization(Complex parent, String parentType, String name, MedicinalProductAuthorization element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "MedicinalProductAuthorization", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "MedicinalProductAuthorization", "identifier", element.getIdentifier(), -1);
+    for (int i = 0; i < element.getCountry().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductAuthorization", "country", element.getCountry().get(i), i);
+    if (element.hasLegalStatusOfSupply())
+      composeCodeableConcept(t, "MedicinalProductAuthorization", "legalStatusOfSupply", element.getLegalStatusOfSupply(), -1);
+    if (element.hasStatus())
+      composeCodeableConcept(t, "MedicinalProductAuthorization", "status", element.getStatus(), -1);
+    if (element.hasStatusDateElement())
+      composeDateTime(t, "MedicinalProductAuthorization", "statusDate", element.getStatusDateElement(), -1);
+    if (element.hasRestoreDateElement())
+      composeDateTime(t, "MedicinalProductAuthorization", "restoreDate", element.getRestoreDateElement(), -1);
+    if (element.hasValidityPeriod())
+      composePeriod(t, "MedicinalProductAuthorization", "validityPeriod", element.getValidityPeriod(), -1);
+    if (element.hasDataExclusivityPeriod())
+      composePeriod(t, "MedicinalProductAuthorization", "dataExclusivityPeriod", element.getDataExclusivityPeriod(), -1);
+    if (element.hasDateOfFirstAuthorizationElement())
+      composeDateTime(t, "MedicinalProductAuthorization", "dateOfFirstAuthorization", element.getDateOfFirstAuthorizationElement(), -1);
+    if (element.hasInternationalBirthDateElement())
+      composeDateTime(t, "MedicinalProductAuthorization", "internationalBirthDate", element.getInternationalBirthDateElement(), -1);
+    for (int i = 0; i < element.getJurisdictionalAuthorization().size(); i++)
+      composeMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponent(t, "MedicinalProductAuthorization", "jurisdictionalAuthorization", element.getJurisdictionalAuthorization().get(i), i);
+    if (element.hasHolder())
+      composeReference(t, "MedicinalProductAuthorization", "holder", element.getHolder(), -1);
+    if (element.hasRegulator())
+      composeReference(t, "MedicinalProductAuthorization", "regulator", element.getRegulator(), -1);
+    if (element.hasProcedure())
+      composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponent(t, "MedicinalProductAuthorization", "procedure", element.getProcedure(), -1);
+    for (int i = 0; i < element.getMarketingStatus().size(); i++)
+      composeMarketingStatus(t, "MedicinalProductAuthorization", "marketingStatus", element.getMarketingStatus().get(i), i);
+  }
+
+  protected void composeMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponent(Complex parent, String parentType, String name, MedicinalProductAuthorization.MedicinalProductAuthorizationJurisdictionalAuthorizationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "jurisdictionalAuthorization", name, element, index);
+    if (element.hasCountry())
+      composeCodeableConcept(t, "MedicinalProductAuthorization", "country", element.getCountry(), -1);
+    if (element.hasJurisdiction())
+      composeCodeableConcept(t, "MedicinalProductAuthorization", "jurisdiction", element.getJurisdiction(), -1);
+    if (element.hasNumber())
+      composeIdentifier(t, "MedicinalProductAuthorization", "number", element.getNumber(), -1);
+    if (element.hasLegalStatusOfSupply())
+      composeCodeableConcept(t, "MedicinalProductAuthorization", "legalStatusOfSupply", element.getLegalStatusOfSupply(), -1);
+  }
+
+  protected void composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponent(Complex parent, String parentType, String name, MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "procedure", name, element, index);
+    if (element.hasNumber())
+      composeIdentifier(t, "MedicinalProductAuthorization", "number", element.getNumber(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicinalProductAuthorization", "type", element.getType(), -1);
+    if (element.hasDate())
+      composePeriod(t, "MedicinalProductAuthorization", "date", element.getDate(), -1);
+    for (int i = 0; i < element.getApplication().size(); i++)
+      composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponent(t, "MedicinalProductAuthorization", "application", element.getApplication().get(i), i);
+  }
+
+  protected void composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponent(Complex parent, String parentType, String name, MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureApplicationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "application", name, element, index);
+    if (element.hasNumber())
+      composeIdentifier(t, "MedicinalProductAuthorization", "number", element.getNumber(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicinalProductAuthorization", "type", element.getType(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "MedicinalProductAuthorization", "date", element.getDateElement(), -1);
+  }
+
+  protected void composeMedicinalProductClinicals(Complex parent, String parentType, String name, MedicinalProductClinicals element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "MedicinalProductClinicals", name, element, index);
+    for (int i = 0; i < element.getUndesirableEffects().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(t, "MedicinalProductClinicals", "undesirableEffects", element.getUndesirableEffects().get(i), i);
+    for (int i = 0; i < element.getTherapeuticIndication().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(t, "MedicinalProductClinicals", "therapeuticIndication", element.getTherapeuticIndication().get(i), i);
+    for (int i = 0; i < element.getContraindication().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(t, "MedicinalProductClinicals", "contraindication", element.getContraindication().get(i), i);
+    for (int i = 0; i < element.getInteractions().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(t, "MedicinalProductClinicals", "interactions", element.getInteractions().get(i), i);
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(Complex parent, String parentType, String name, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "undesirableEffects", name, element, index);
+    if (element.hasSymptomConditionEffect())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "symptomConditionEffect", element.getSymptomConditionEffect(), -1);
+    if (element.hasClassification())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "classification", element.getClassification(), -1);
+    if (element.hasFrequencyOfOccurrence())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "frequencyOfOccurrence", element.getFrequencyOfOccurrence(), -1);
+    for (int i = 0; i < element.getPopulation().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(t, "MedicinalProductClinicals", "population", element.getPopulation().get(i), i);
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(Complex parent, String parentType, String name, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "population", name, element, index);
+    if (element.hasAge())
+      composeType(t, "MedicinalProductClinicals", "age", element.getAge(), -1);
+    if (element.hasGender())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "gender", element.getGender(), -1);
+    if (element.hasRace())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "race", element.getRace(), -1);
+    if (element.hasPhysiologicalCondition())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "physiologicalCondition", element.getPhysiologicalCondition(), -1);
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(Complex parent, String parentType, String name, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "therapeuticIndication", name, element, index);
+    if (element.hasDiseaseSymptomProcedure())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "diseaseSymptomProcedure", element.getDiseaseSymptomProcedure(), -1);
+    if (element.hasDiseaseStatus())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "diseaseStatus", element.getDiseaseStatus(), -1);
+    for (int i = 0; i < element.getComorbidity().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductClinicals", "comorbidity", element.getComorbidity().get(i), i);
+    if (element.hasIntendedEffect())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "intendedEffect", element.getIntendedEffect(), -1);
+    if (element.hasDuration())
+      composeQuantity(t, "MedicinalProductClinicals", "duration", element.getDuration(), -1);
+    for (int i = 0; i < element.getUndesirableEffects().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(t, "MedicinalProductClinicals", "undesirableEffects", element.getUndesirableEffects().get(i), i);
+    for (int i = 0; i < element.getOtherTherapy().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(t, "MedicinalProductClinicals", "otherTherapy", element.getOtherTherapy().get(i), i);
+    for (int i = 0; i < element.getPopulation().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(t, "MedicinalProductClinicals", "population", element.getPopulation().get(i), i);
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(Complex parent, String parentType, String name, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "otherTherapy", name, element, index);
+    if (element.hasTherapyRelationshipType())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "therapyRelationshipType", element.getTherapyRelationshipType(), -1);
+    if (element.hasMedication())
+      composeType(t, "MedicinalProductClinicals", "medication", element.getMedication(), -1);
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(Complex parent, String parentType, String name, MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "contraindication", name, element, index);
+    if (element.hasDisease())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "disease", element.getDisease(), -1);
+    if (element.hasDiseaseStatus())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "diseaseStatus", element.getDiseaseStatus(), -1);
+    for (int i = 0; i < element.getComorbidity().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductClinicals", "comorbidity", element.getComorbidity().get(i), i);
+    for (int i = 0; i < element.getTherapeuticIndication().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(t, "MedicinalProductClinicals", "therapeuticIndication", element.getTherapeuticIndication().get(i), i);
+    for (int i = 0; i < element.getOtherTherapy().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(t, "MedicinalProductClinicals", "otherTherapy", element.getOtherTherapy().get(i), i);
+    for (int i = 0; i < element.getPopulation().size(); i++)
+      composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(t, "MedicinalProductClinicals", "population", element.getPopulation().get(i), i);
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(Complex parent, String parentType, String name, MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "interactions", name, element, index);
+    for (int i = 0; i < element.getInteractant().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductClinicals", "interactant", element.getInteractant().get(i), i);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "type", element.getType(), -1);
+    if (element.hasEffect())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "effect", element.getEffect(), -1);
+    if (element.hasIncidence())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "incidence", element.getIncidence(), -1);
+    if (element.hasManagement())
+      composeCodeableConcept(t, "MedicinalProductClinicals", "management", element.getManagement(), -1);
+  }
+
+  protected void composeMedicinalProductDeviceSpec(Complex parent, String parentType, String name, MedicinalProductDeviceSpec element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "MedicinalProductDeviceSpec", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "MedicinalProductDeviceSpec", "identifier", element.getIdentifier(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicinalProductDeviceSpec", "type", element.getType(), -1);
+    if (element.hasTradeNameElement())
+      composeString(t, "MedicinalProductDeviceSpec", "tradeName", element.getTradeNameElement(), -1);
+    if (element.hasQuantity())
+      composeQuantity(t, "MedicinalProductDeviceSpec", "quantity", element.getQuantity(), -1);
+    if (element.hasListingNumberElement())
+      composeString(t, "MedicinalProductDeviceSpec", "listingNumber", element.getListingNumberElement(), -1);
+    if (element.hasModelNumberElement())
+      composeString(t, "MedicinalProductDeviceSpec", "modelNumber", element.getModelNumberElement(), -1);
+    if (element.hasSterilityIndicator())
+      composeCodeableConcept(t, "MedicinalProductDeviceSpec", "sterilityIndicator", element.getSterilityIndicator(), -1);
+    if (element.hasSterilisationRequirement())
+      composeCodeableConcept(t, "MedicinalProductDeviceSpec", "sterilisationRequirement", element.getSterilisationRequirement(), -1);
+    if (element.hasUsage())
+      composeCodeableConcept(t, "MedicinalProductDeviceSpec", "usage", element.getUsage(), -1);
+    for (int i = 0; i < element.getNomenclature().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductDeviceSpec", "nomenclature", element.getNomenclature().get(i), i);
+    for (int i = 0; i < element.getShelfLife().size(); i++)
+      composeProductShelfLife(t, "MedicinalProductDeviceSpec", "shelfLife", element.getShelfLife().get(i), i);
+    if (element.hasPhysicalCharacteristics())
+      composeProdCharacteristic(t, "MedicinalProductDeviceSpec", "physicalCharacteristics", element.getPhysicalCharacteristics(), -1);
+    for (int i = 0; i < element.getOtherCharacteristics().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductDeviceSpec", "otherCharacteristics", element.getOtherCharacteristics().get(i), i);
+    for (int i = 0; i < element.getBatchIdentifier().size(); i++)
+      composeIdentifier(t, "MedicinalProductDeviceSpec", "batchIdentifier", element.getBatchIdentifier().get(i), i);
+    for (int i = 0; i < element.getManufacturer().size(); i++)
+      composeReference(t, "MedicinalProductDeviceSpec", "manufacturer", element.getManufacturer().get(i), i);
+    for (int i = 0; i < element.getMaterial().size(); i++)
+      composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(t, "MedicinalProductDeviceSpec", "material", element.getMaterial().get(i), i);
+  }
+
+  protected void composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(Complex parent, String parentType, String name, MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "material", name, element, index);
+    if (element.hasSubstance())
+      composeCodeableConcept(t, "MedicinalProductDeviceSpec", "substance", element.getSubstance(), -1);
+    if (element.hasAlternateElement())
+      composeBoolean(t, "MedicinalProductDeviceSpec", "alternate", element.getAlternateElement(), -1);
+    if (element.hasAllergenicIndicatorElement())
+      composeBoolean(t, "MedicinalProductDeviceSpec", "allergenicIndicator", element.getAllergenicIndicatorElement(), -1);
+  }
+
+  protected void composeMedicinalProductIngredient(Complex parent, String parentType, String name, MedicinalProductIngredient element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "MedicinalProductIngredient", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "MedicinalProductIngredient", "identifier", element.getIdentifier(), -1);
+    if (element.hasRole())
+      composeCodeableConcept(t, "MedicinalProductIngredient", "role", element.getRole(), -1);
+    if (element.hasAllergenicIndicatorElement())
+      composeBoolean(t, "MedicinalProductIngredient", "allergenicIndicator", element.getAllergenicIndicatorElement(), -1);
+    for (int i = 0; i < element.getManufacturer().size(); i++)
+      composeReference(t, "MedicinalProductIngredient", "manufacturer", element.getManufacturer().get(i), i);
+    for (int i = 0; i < element.getSpecifiedSubstance().size(); i++)
+      composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponent(t, "MedicinalProductIngredient", "specifiedSubstance", element.getSpecifiedSubstance().get(i), i);
+    if (element.hasSubstance())
+      composeMedicinalProductIngredientMedicinalProductIngredientSubstanceComponent(t, "MedicinalProductIngredient", "substance", element.getSubstance(), -1);
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponent(Complex parent, String parentType, String name, MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "specifiedSubstance", name, element, index);
+    if (element.hasCode())
+      composeCodeableConcept(t, "MedicinalProductIngredient", "code", element.getCode(), -1);
+    if (element.hasGroup())
+      composeCodeableConcept(t, "MedicinalProductIngredient", "group", element.getGroup(), -1);
+    if (element.hasConfidentiality())
+      composeCodeableConcept(t, "MedicinalProductIngredient", "confidentiality", element.getConfidentiality(), -1);
+    for (int i = 0; i < element.getStrength().size(); i++)
+      composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponent(t, "MedicinalProductIngredient", "strength", element.getStrength().get(i), i);
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponent(Complex parent, String parentType, String name, MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "strength", name, element, index);
+    if (element.hasPresentation())
+      composeRatio(t, "MedicinalProductIngredient", "presentation", element.getPresentation(), -1);
+    if (element.hasConcentration())
+      composeRatio(t, "MedicinalProductIngredient", "concentration", element.getConcentration(), -1);
+    if (element.hasMeasurementPointElement())
+      composeString(t, "MedicinalProductIngredient", "measurementPoint", element.getMeasurementPointElement(), -1);
+    for (int i = 0; i < element.getCountry().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductIngredient", "country", element.getCountry().get(i), i);
+    for (int i = 0; i < element.getReferenceStrength().size(); i++)
+      composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent(t, "MedicinalProductIngredient", "referenceStrength", element.getReferenceStrength().get(i), i);
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent(Complex parent, String parentType, String name, MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "referenceStrength", name, element, index);
+    if (element.hasSubstance())
+      composeCodeableConcept(t, "MedicinalProductIngredient", "substance", element.getSubstance(), -1);
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSubstanceComponent(Complex parent, String parentType, String name, MedicinalProductIngredient.MedicinalProductIngredientSubstanceComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "substance", name, element, index);
+    if (element.hasCode())
+      composeCodeableConcept(t, "MedicinalProductIngredient", "code", element.getCode(), -1);
+    for (int i = 0; i < element.getStrength().size(); i++)
+      composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponent(t, "MedicinalProductIngredient", "strength", element.getStrength().get(i), i);
+  }
+
+  protected void composeMedicinalProductPackaged(Complex parent, String parentType, String name, MedicinalProductPackaged element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "MedicinalProductPackaged", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "MedicinalProductPackaged", "identifier", element.getIdentifier(), -1);
+    if (element.hasDescriptionElement())
+      composeString(t, "MedicinalProductPackaged", "description", element.getDescriptionElement(), -1);
+    for (int i = 0; i < element.getMarketingStatus().size(); i++)
+      composeMarketingStatus(t, "MedicinalProductPackaged", "marketingStatus", element.getMarketingStatus().get(i), i);
+    for (int i = 0; i < element.getBatchIdentifier().size(); i++)
+      composeMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponent(t, "MedicinalProductPackaged", "batchIdentifier", element.getBatchIdentifier().get(i), i);
+    for (int i = 0; i < element.getPackageItem().size(); i++)
+      composeMedicinalProductPackagedMedicinalProductPackagedPackageItemComponent(t, "MedicinalProductPackaged", "packageItem", element.getPackageItem().get(i), i);
+  }
+
+  protected void composeMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponent(Complex parent, String parentType, String name, MedicinalProductPackaged.MedicinalProductPackagedBatchIdentifierComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "batchIdentifier", name, element, index);
+    if (element.hasOuterPackaging())
+      composeIdentifier(t, "MedicinalProductPackaged", "outerPackaging", element.getOuterPackaging(), -1);
+    if (element.hasImmediatePackaging())
+      composeIdentifier(t, "MedicinalProductPackaged", "immediatePackaging", element.getImmediatePackaging(), -1);
+  }
+
+  protected void composeMedicinalProductPackagedMedicinalProductPackagedPackageItemComponent(Complex parent, String parentType, String name, MedicinalProductPackaged.MedicinalProductPackagedPackageItemComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "packageItem", name, element, index);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "MedicinalProductPackaged", "identifier", element.getIdentifier().get(i), i);
+    if (element.hasType())
+      composeCodeableConcept(t, "MedicinalProductPackaged", "type", element.getType(), -1);
+    if (element.hasQuantity())
+      composeQuantity(t, "MedicinalProductPackaged", "quantity", element.getQuantity(), -1);
+    for (int i = 0; i < element.getMaterial().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductPackaged", "material", element.getMaterial().get(i), i);
+    for (int i = 0; i < element.getAlternateMaterial().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductPackaged", "alternateMaterial", element.getAlternateMaterial().get(i), i);
+    for (int i = 0; i < element.getManufacturer().size(); i++)
+      composeReference(t, "MedicinalProductPackaged", "manufacturer", element.getManufacturer().get(i), i);
+    for (int i = 0; i < element.getDevice().size(); i++)
+      composeReference(t, "MedicinalProductPackaged", "device", element.getDevice().get(i), i);
+    for (int i = 0; i < element.getManufacturedItem().size(); i++)
+      composeMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponent(t, "MedicinalProductPackaged", "manufacturedItem", element.getManufacturedItem().get(i), i);
+    for (int i = 0; i < element.getOtherCharacteristics().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductPackaged", "otherCharacteristics", element.getOtherCharacteristics().get(i), i);
+    for (int i = 0; i < element.getPackageItem().size(); i++)
+      composeMedicinalProductPackagedMedicinalProductPackagedPackageItemComponent(t, "MedicinalProductPackaged", "packageItem", element.getPackageItem().get(i), i);
+    if (element.hasPhysicalCharacteristics())
+      composeProdCharacteristic(t, "MedicinalProductPackaged", "physicalCharacteristics", element.getPhysicalCharacteristics(), -1);
+    for (int i = 0; i < element.getShelfLifeStorage().size(); i++)
+      composeProductShelfLife(t, "MedicinalProductPackaged", "shelfLifeStorage", element.getShelfLifeStorage().get(i), i);
+  }
+
+  protected void composeMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponent(Complex parent, String parentType, String name, MedicinalProductPackaged.MedicinalProductPackagedPackageItemManufacturedItemComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "manufacturedItem", name, element, index);
+    if (element.hasManufacturedDoseForm())
+      composeCodeableConcept(t, "MedicinalProductPackaged", "manufacturedDoseForm", element.getManufacturedDoseForm(), -1);
+    if (element.hasUnitOfPresentation())
+      composeCodeableConcept(t, "MedicinalProductPackaged", "unitOfPresentation", element.getUnitOfPresentation(), -1);
+    if (element.hasQuantity())
+      composeQuantity(t, "MedicinalProductPackaged", "quantity", element.getQuantity(), -1);
+    for (int i = 0; i < element.getXManufacturer().size(); i++)
+      composeReference(t, "MedicinalProductPackaged", "xManufacturer", element.getXManufacturer().get(i), i);
+    for (int i = 0; i < element.getIngredient().size(); i++)
+      composeReference(t, "MedicinalProductPackaged", "ingredient", element.getIngredient().get(i), i);
+    if (element.hasPhysicalCharacteristics())
+      composeProdCharacteristic(t, "MedicinalProductPackaged", "physicalCharacteristics", element.getPhysicalCharacteristics(), -1);
+  }
+
+  protected void composeMedicinalProductPharmaceutical(Complex parent, String parentType, String name, MedicinalProductPharmaceutical element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "MedicinalProductPharmaceutical", name, element, index);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "MedicinalProductPharmaceutical", "identifier", element.getIdentifier().get(i), i);
+    if (element.hasAdministrableDoseForm())
+      composeCodeableConcept(t, "MedicinalProductPharmaceutical", "administrableDoseForm", element.getAdministrableDoseForm(), -1);
+    if (element.hasUnitOfPresentation())
+      composeCodeableConcept(t, "MedicinalProductPharmaceutical", "unitOfPresentation", element.getUnitOfPresentation(), -1);
+    for (int i = 0; i < element.getRouteOfAdministration().size(); i++)
+      composeCodeableConcept(t, "MedicinalProductPharmaceutical", "routeOfAdministration", element.getRouteOfAdministration().get(i), i);
+    for (int i = 0; i < element.getIngredient().size(); i++)
+      composeReference(t, "MedicinalProductPharmaceutical", "ingredient", element.getIngredient().get(i), i);
+    for (int i = 0; i < element.getDevice().size(); i++)
+      composeString(t, "MedicinalProductPharmaceutical", "device", element.getDevice().get(i), i);
+    for (int i = 0; i < element.getCharacteristics().size(); i++)
+      composeMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponent(t, "MedicinalProductPharmaceutical", "characteristics", element.getCharacteristics().get(i), i);
+  }
+
+  protected void composeMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponent(Complex parent, String parentType, String name, MedicinalProductPharmaceutical.MedicinalProductPharmaceuticalCharacteristicsComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "characteristics", name, element, index);
+    if (element.hasCode())
+      composeCodeableConcept(t, "MedicinalProductPharmaceutical", "code", element.getCode(), -1);
+    if (element.hasStatus())
+      composeCodeableConcept(t, "MedicinalProductPharmaceutical", "status", element.getStatus(), -1);
+  }
+
   protected void composeMessageDefinition(Complex parent, String parentType, String name, MessageDefinition element, int index) {
     if (element == null) 
       return;
@@ -9623,6 +10573,164 @@ public class RdfParser extends RdfParserBase {
       composeRange(t, "ObservationDefinition", "gestationalAge", element.getGestationalAge(), -1);
     if (element.hasConditionElement())
       composeString(t, "ObservationDefinition", "condition", element.getConditionElement(), -1);
+  }
+
+  protected void composeOccupationalData(Complex parent, String parentType, String name, OccupationalData element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "OccupationalData", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "OccupationalData", "identifier", element.getIdentifier(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "OccupationalData", "status", element.getStatusElement(), -1);
+    if (element.hasSubject())
+      composeReference(t, "OccupationalData", "subject", element.getSubject(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "OccupationalData", "date", element.getDateElement(), -1);
+    for (int i = 0; i < element.getAuthor().size(); i++)
+      composeReference(t, "OccupationalData", "author", element.getAuthor().get(i), i);
+    if (element.hasEmploymentStatus())
+      composeOccupationalDataOccupationalDataEmploymentStatusComponent(t, "OccupationalData", "employmentStatus", element.getEmploymentStatus(), -1);
+    if (element.hasRetirementStatus())
+      composeOccupationalDataOccupationalDataRetirementStatusComponent(t, "OccupationalData", "retirementStatus", element.getRetirementStatus(), -1);
+    for (int i = 0; i < element.getCombatZoneHazardousDuty().size(); i++)
+      composeOccupationalDataOccupationalDataCombatZoneHazardousDutyComponent(t, "OccupationalData", "combatZoneHazardousDuty", element.getCombatZoneHazardousDuty().get(i), i);
+    if (element.hasUsualOccupation())
+      composeOccupationalDataOccupationalDataUsualOccupationComponent(t, "OccupationalData", "usualOccupation", element.getUsualOccupation(), -1);
+    if (element.hasPastOrPresentOccupation())
+      composeOccupationalDataOccupationalDataPastOrPresentOccupationComponent(t, "OccupationalData", "pastOrPresentOccupation", element.getPastOrPresentOccupation(), -1);
+  }
+
+  protected void composeOccupationalDataOccupationalDataEmploymentStatusComponent(Complex parent, String parentType, String name, OccupationalData.OccupationalDataEmploymentStatusComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "employmentStatus", name, element, index);
+    if (element.hasCodeElement())
+      composeEnum(t, "OccupationalData", "code", element.getCodeElement(), -1);
+    if (element.hasEffective())
+      composeType(t, "OccupationalData", "effective", element.getEffective(), -1);
+    if (element.hasValue())
+      composeCodeableConcept(t, "OccupationalData", "value", element.getValue(), -1);
+  }
+
+  protected void composeOccupationalDataOccupationalDataRetirementStatusComponent(Complex parent, String parentType, String name, OccupationalData.OccupationalDataRetirementStatusComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "retirementStatus", name, element, index);
+    if (element.hasCodeElement())
+      composeEnum(t, "OccupationalData", "code", element.getCodeElement(), -1);
+    if (element.hasEffective())
+      composeType(t, "OccupationalData", "effective", element.getEffective(), -1);
+    if (element.hasValue())
+      composeCodeableConcept(t, "OccupationalData", "value", element.getValue(), -1);
+  }
+
+  protected void composeOccupationalDataOccupationalDataCombatZoneHazardousDutyComponent(Complex parent, String parentType, String name, OccupationalData.OccupationalDataCombatZoneHazardousDutyComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "combatZoneHazardousDuty", name, element, index);
+    for (int i = 0; i < element.getCode().size(); i++)
+      composeEnum(t, "OccupationalData", "code", element.getCode().get(i), i);
+    if (element.hasEffective())
+      composeType(t, "OccupationalData", "effective", element.getEffective(), -1);
+    if (element.hasValue())
+      composeCodeableConcept(t, "OccupationalData", "value", element.getValue(), -1);
+  }
+
+  protected void composeOccupationalDataOccupationalDataUsualOccupationComponent(Complex parent, String parentType, String name, OccupationalData.OccupationalDataUsualOccupationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "usualOccupation", name, element, index);
+    if (element.hasCodeElement())
+      composeEnum(t, "OccupationalData", "code", element.getCodeElement(), -1);
+    if (element.hasEffective())
+      composeType(t, "OccupationalData", "effective", element.getEffective(), -1);
+    if (element.hasValue())
+      composeCodeableConcept(t, "OccupationalData", "value", element.getValue(), -1);
+    if (element.hasDuration())
+      composeOccupationalDataOccupationalDataUsualOccupationDurationComponent(t, "OccupationalData", "duration", element.getDuration(), -1);
+    if (element.hasIndustry())
+      composeOccupationalDataOccupationalDataUsualOccupationIndustryComponent(t, "OccupationalData", "industry", element.getIndustry(), -1);
+  }
+
+  protected void composeOccupationalDataOccupationalDataUsualOccupationDurationComponent(Complex parent, String parentType, String name, OccupationalData.OccupationalDataUsualOccupationDurationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "duration", name, element, index);
+    if (element.hasCode())
+      composeCodeableConcept(t, "OccupationalData", "code", element.getCode(), -1);
+    if (element.hasValue())
+      composePeriod(t, "OccupationalData", "value", element.getValue(), -1);
+  }
+
+  protected void composeOccupationalDataOccupationalDataUsualOccupationIndustryComponent(Complex parent, String parentType, String name, OccupationalData.OccupationalDataUsualOccupationIndustryComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "industry", name, element, index);
+    if (element.hasCode())
+      composeCodeableConcept(t, "OccupationalData", "code", element.getCode(), -1);
+    if (element.hasValue())
+      composeCodeableConcept(t, "OccupationalData", "value", element.getValue(), -1);
+  }
+
+  protected void composeOccupationalDataOccupationalDataPastOrPresentOccupationComponent(Complex parent, String parentType, String name, OccupationalData.OccupationalDataPastOrPresentOccupationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "pastOrPresentOccupation", name, element, index);
+    if (element.hasCode())
+      composeCodeableConcept(t, "OccupationalData", "code", element.getCode(), -1);
+    if (element.hasEffective())
+      composeType(t, "OccupationalData", "effective", element.getEffective(), -1);
+    if (element.hasValue())
+      composeCodeableConcept(t, "OccupationalData", "value", element.getValue(), -1);
   }
 
   protected void composeOperationDefinition(Complex parent, String parentType, String name, OperationDefinition element, int index) {
@@ -10886,7 +11994,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasCode())
       composeCodeableConcept(t, "ProductPlan", "code", element.getCode(), -1);
     if (element.hasBenefitValue())
-      composeMoney(t, "ProductPlan", "benefitValue", element.getBenefitValue(), -1);
+      composeQuantity(t, "ProductPlan", "benefitValue", element.getBenefitValue(), -1);
   }
 
   protected void composeProductPlanProductPlanPlanComponent(Complex parent, String parentType, String name, ProductPlan.ProductPlanPlanComponent element, int index) {
@@ -10958,7 +12066,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getQualifiers().size(); i++)
       composeString(t, "ProductPlan", "qualifiers", element.getQualifiers().get(i), i);
     if (element.hasValue())
-      composeMoney(t, "ProductPlan", "value", element.getValue(), -1);
+      composeQuantity(t, "ProductPlan", "value", element.getValue(), -1);
   }
 
   protected void composeProvenance(Complex parent, String parentType, String name, Provenance element, int index) {
@@ -12759,6 +13867,520 @@ public class RdfParser extends RdfParserBase {
       composeType(t, "Substance", "substance", element.getSubstance(), -1);
   }
 
+  protected void composeSubstancePolymer(Complex parent, String parentType, String name, SubstancePolymer element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "SubstancePolymer", name, element, index);
+    if (element.hasClass_())
+      composeCodeableConcept(t, "SubstancePolymer", "class", element.getClass_(), -1);
+    if (element.hasGeometry())
+      composeCodeableConcept(t, "SubstancePolymer", "geometry", element.getGeometry(), -1);
+    for (int i = 0; i < element.getCopolymerConnectivity().size(); i++)
+      composeCodeableConcept(t, "SubstancePolymer", "copolymerConnectivity", element.getCopolymerConnectivity().get(i), i);
+    for (int i = 0; i < element.getModification().size(); i++)
+      composeString(t, "SubstancePolymer", "modification", element.getModification().get(i), i);
+    for (int i = 0; i < element.getMonomerSet().size(); i++)
+      composeSubstancePolymerSubstancePolymerMonomerSetComponent(t, "SubstancePolymer", "monomerSet", element.getMonomerSet().get(i), i);
+    for (int i = 0; i < element.getRepeat().size(); i++)
+      composeSubstancePolymerSubstancePolymerRepeatComponent(t, "SubstancePolymer", "repeat", element.getRepeat().get(i), i);
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerMonomerSetComponent(Complex parent, String parentType, String name, SubstancePolymer.SubstancePolymerMonomerSetComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "monomerSet", name, element, index);
+    if (element.hasRatioType())
+      composeCodeableConcept(t, "SubstancePolymer", "ratioType", element.getRatioType(), -1);
+    for (int i = 0; i < element.getStartingMaterial().size(); i++)
+      composeSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponent(t, "SubstancePolymer", "startingMaterial", element.getStartingMaterial().get(i), i);
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponent(Complex parent, String parentType, String name, SubstancePolymer.SubstancePolymerMonomerSetStartingMaterialComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "startingMaterial", name, element, index);
+    if (element.hasMaterial())
+      composeCodeableConcept(t, "SubstancePolymer", "material", element.getMaterial(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "SubstancePolymer", "type", element.getType(), -1);
+    if (element.hasIsDefiningElement())
+      composeBoolean(t, "SubstancePolymer", "isDefining", element.getIsDefiningElement(), -1);
+    if (element.hasAmount())
+      composeSubstanceAmount(t, "SubstancePolymer", "amount", element.getAmount(), -1);
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatComponent(Complex parent, String parentType, String name, SubstancePolymer.SubstancePolymerRepeatComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "repeat", name, element, index);
+    if (element.hasNumberOfUnitsElement())
+      composeInteger(t, "SubstancePolymer", "numberOfUnits", element.getNumberOfUnitsElement(), -1);
+    if (element.hasAverageMolecularFormulaElement())
+      composeString(t, "SubstancePolymer", "averageMolecularFormula", element.getAverageMolecularFormulaElement(), -1);
+    if (element.hasRepeatUnitAmountType())
+      composeCodeableConcept(t, "SubstancePolymer", "repeatUnitAmountType", element.getRepeatUnitAmountType(), -1);
+    for (int i = 0; i < element.getRepeatUnit().size(); i++)
+      composeSubstancePolymerSubstancePolymerRepeatRepeatUnitComponent(t, "SubstancePolymer", "repeatUnit", element.getRepeatUnit().get(i), i);
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatRepeatUnitComponent(Complex parent, String parentType, String name, SubstancePolymer.SubstancePolymerRepeatRepeatUnitComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "repeatUnit", name, element, index);
+    if (element.hasOrientationOfPolymerisation())
+      composeCodeableConcept(t, "SubstancePolymer", "orientationOfPolymerisation", element.getOrientationOfPolymerisation(), -1);
+    if (element.hasRepeatUnitElement())
+      composeString(t, "SubstancePolymer", "repeatUnit", element.getRepeatUnitElement(), -1);
+    if (element.hasAmount())
+      composeSubstanceAmount(t, "SubstancePolymer", "amount", element.getAmount(), -1);
+    for (int i = 0; i < element.getDegreeOfPolymerisation().size(); i++)
+      composeSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent(t, "SubstancePolymer", "degreeOfPolymerisation", element.getDegreeOfPolymerisation().get(i), i);
+    for (int i = 0; i < element.getStructuralRepresentation().size(); i++)
+      composeSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent(t, "SubstancePolymer", "structuralRepresentation", element.getStructuralRepresentation().get(i), i);
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent(Complex parent, String parentType, String name, SubstancePolymer.SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "degreeOfPolymerisation", name, element, index);
+    if (element.hasDegree())
+      composeCodeableConcept(t, "SubstancePolymer", "degree", element.getDegree(), -1);
+    if (element.hasAmount())
+      composeSubstanceAmount(t, "SubstancePolymer", "amount", element.getAmount(), -1);
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent(Complex parent, String parentType, String name, SubstancePolymer.SubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "structuralRepresentation", name, element, index);
+    if (element.hasType())
+      composeCodeableConcept(t, "SubstancePolymer", "type", element.getType(), -1);
+    if (element.hasRepresentationElement())
+      composeString(t, "SubstancePolymer", "representation", element.getRepresentationElement(), -1);
+    if (element.hasAttachment())
+      composeAttachment(t, "SubstancePolymer", "attachment", element.getAttachment(), -1);
+  }
+
+  protected void composeSubstanceReferenceInformation(Complex parent, String parentType, String name, SubstanceReferenceInformation element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "SubstanceReferenceInformation", name, element, index);
+    if (element.hasCommentElement())
+      composeString(t, "SubstanceReferenceInformation", "comment", element.getCommentElement(), -1);
+    for (int i = 0; i < element.getGene().size(); i++)
+      composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(t, "SubstanceReferenceInformation", "gene", element.getGene().get(i), i);
+//    for (int i = 0; i < element.getGene().size(); i++)
+//      composeSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponent(t, "SubstanceReferenceInformation", "geneElement", element.getGene().get(i), i);
+    for (int i = 0; i < element.getClassification().size(); i++)
+      composeSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponent(t, "SubstanceReferenceInformation", "classification", element.getClassification().get(i), i);
+    for (int i = 0; i < element.getRelationship().size(); i++)
+      composeSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponent(t, "SubstanceReferenceInformation", "relationship", element.getRelationship().get(i), i);
+    for (int i = 0; i < element.getTarget().size(); i++)
+      composeSubstanceReferenceInformationSubstanceReferenceInformationTargetComponent(t, "SubstanceReferenceInformation", "target", element.getTarget().get(i), i);
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(Complex parent, String parentType, String name, SubstanceReferenceInformation.SubstanceReferenceInformationGeneComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "gene", name, element, index);
+    if (element.hasGeneSequenceOrigin())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "geneSequenceOrigin", element.getGeneSequenceOrigin(), -1);
+    if (element.hasGene())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "gene", element.getGene(), -1);
+    for (int i = 0; i < element.getSource().size(); i++)
+      composeReference(t, "SubstanceReferenceInformation", "source", element.getSource().get(i), i);
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponent(Complex parent, String parentType, String name, SubstanceReferenceInformation.SubstanceReferenceInformationGeneElementComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "geneElement", name, element, index);
+    if (element.hasType())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "type", element.getType(), -1);
+    if (element.hasElement())
+      composeIdentifier(t, "SubstanceReferenceInformation", "element", element.getElement(), -1);
+    for (int i = 0; i < element.getSource().size(); i++)
+      composeReference(t, "SubstanceReferenceInformation", "source", element.getSource().get(i), i);
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponent(Complex parent, String parentType, String name, SubstanceReferenceInformation.SubstanceReferenceInformationClassificationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "classification", name, element, index);
+    if (element.hasDomain())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "domain", element.getDomain(), -1);
+    if (element.hasClassification())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "classification", element.getClassification(), -1);
+    for (int i = 0; i < element.getSubtype().size(); i++)
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "subtype", element.getSubtype().get(i), i);
+    for (int i = 0; i < element.getSource().size(); i++)
+      composeReference(t, "SubstanceReferenceInformation", "source", element.getSource().get(i), i);
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponent(Complex parent, String parentType, String name, SubstanceReferenceInformation.SubstanceReferenceInformationRelationshipComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "relationship", name, element, index);
+    if (element.hasSubstance())
+      composeType(t, "SubstanceReferenceInformation", "substance", element.getSubstance(), -1);
+    if (element.hasRelationship())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "relationship", element.getRelationship(), -1);
+    if (element.hasInteraction())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "interaction", element.getInteraction(), -1);
+    if (element.hasIsDefiningElement())
+      composeBoolean(t, "SubstanceReferenceInformation", "isDefining", element.getIsDefiningElement(), -1);
+    if (element.hasAmount())
+      composeType(t, "SubstanceReferenceInformation", "amount", element.getAmount(), -1);
+    if (element.hasAmountType())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "amountType", element.getAmountType(), -1);
+    if (element.hasAmountTextElement())
+      composeString(t, "SubstanceReferenceInformation", "amountText", element.getAmountTextElement(), -1);
+    for (int i = 0; i < element.getSource().size(); i++)
+      composeReference(t, "SubstanceReferenceInformation", "source", element.getSource().get(i), i);
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationTargetComponent(Complex parent, String parentType, String name, SubstanceReferenceInformation.SubstanceReferenceInformationTargetComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "target", name, element, index);
+    if (element.hasTarget())
+      composeIdentifier(t, "SubstanceReferenceInformation", "target", element.getTarget(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "type", element.getType(), -1);
+    if (element.hasInteraction())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "interaction", element.getInteraction(), -1);
+    if (element.hasOrganism())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "organism", element.getOrganism(), -1);
+    if (element.hasOrganismType())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "organismType", element.getOrganismType(), -1);
+    for (int i = 0; i < element.getSource().size(); i++)
+      composeReference(t, "SubstanceReferenceInformation", "source", element.getSource().get(i), i);
+    if (element.hasAmount())
+      composeType(t, "SubstanceReferenceInformation", "amount", element.getAmount(), -1);
+    if (element.hasAmountType())
+      composeCodeableConcept(t, "SubstanceReferenceInformation", "amountType", element.getAmountType(), -1);
+  }
+
+  protected void composeSubstanceSpecification(Complex parent, String parentType, String name, SubstanceSpecification element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "SubstanceSpecification", name, element, index);
+    if (element.hasCommentElement())
+      composeString(t, "SubstanceSpecification", "comment", element.getCommentElement(), -1);
+    if (element.hasStoichiometricElement())
+      composeBoolean(t, "SubstanceSpecification", "stoichiometric", element.getStoichiometricElement(), -1);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "SubstanceSpecification", "identifier", element.getIdentifier(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "SubstanceSpecification", "type", element.getType(), -1);
+    for (int i = 0; i < element.getReferenceSource().size(); i++)
+      composeString(t, "SubstanceSpecification", "referenceSource", element.getReferenceSource().get(i), i);
+    for (int i = 0; i < element.getMoiety().size(); i++)
+      composeSubstanceSpecificationSubstanceSpecificationMoietyComponent(t, "SubstanceSpecification", "moiety", element.getMoiety().get(i), i);
+    for (int i = 0; i < element.getProperty().size(); i++)
+      composeSubstanceSpecificationSubstanceSpecificationPropertyComponent(t, "SubstanceSpecification", "property", element.getProperty().get(i), i);
+    if (element.hasReferenceInformation())
+      composeReference(t, "SubstanceSpecification", "referenceInformation", element.getReferenceInformation(), -1);
+    if (element.hasStructure())
+      composeSubstanceSpecificationSubstanceSpecificationStructureComponent(t, "SubstanceSpecification", "structure", element.getStructure(), -1);
+    for (int i = 0; i < element.getSubstanceCode().size(); i++)
+      composeSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponent(t, "SubstanceSpecification", "substanceCode", element.getSubstanceCode().get(i), i);
+    for (int i = 0; i < element.getSubstanceName().size(); i++)
+      composeSubstanceSpecificationSubstanceSpecificationSubstanceNameComponent(t, "SubstanceSpecification", "substanceName", element.getSubstanceName().get(i), i);
+    for (int i = 0; i < element.getMolecularWeight().size(); i++)
+      composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(t, "SubstanceSpecification", "molecularWeight", element.getMolecularWeight().get(i), i);
+    if (element.hasPolymer())
+      composeReference(t, "SubstanceSpecification", "polymer", element.getPolymer(), -1);
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationMoietyComponent(Complex parent, String parentType, String name, SubstanceSpecification.SubstanceSpecificationMoietyComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "moiety", name, element, index);
+    if (element.hasRole())
+      composeCodeableConcept(t, "SubstanceSpecification", "role", element.getRole(), -1);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "SubstanceSpecification", "identifier", element.getIdentifier(), -1);
+    if (element.hasNameElement())
+      composeString(t, "SubstanceSpecification", "name", element.getNameElement(), -1);
+    if (element.hasStereochemistry())
+      composeCodeableConcept(t, "SubstanceSpecification", "stereochemistry", element.getStereochemistry(), -1);
+    if (element.hasOpticalActivity())
+      composeCodeableConcept(t, "SubstanceSpecification", "opticalActivity", element.getOpticalActivity(), -1);
+    if (element.hasMolecularFormulaElement())
+      composeString(t, "SubstanceSpecification", "molecularFormula", element.getMolecularFormulaElement(), -1);
+    if (element.hasAmountElement())
+      composeString(t, "SubstanceSpecification", "amount", element.getAmountElement(), -1);
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationPropertyComponent(Complex parent, String parentType, String name, SubstanceSpecification.SubstanceSpecificationPropertyComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "property", name, element, index);
+    if (element.hasType())
+      composeCodeableConcept(t, "SubstanceSpecification", "type", element.getType(), -1);
+    if (element.hasName())
+      composeCodeableConcept(t, "SubstanceSpecification", "name", element.getName(), -1);
+    if (element.hasParametersElement())
+      composeString(t, "SubstanceSpecification", "parameters", element.getParametersElement(), -1);
+    if (element.hasSubstanceId())
+      composeIdentifier(t, "SubstanceSpecification", "substanceId", element.getSubstanceId(), -1);
+    if (element.hasSubstanceNameElement())
+      composeString(t, "SubstanceSpecification", "substanceName", element.getSubstanceNameElement(), -1);
+    if (element.hasAmountElement())
+      composeString(t, "SubstanceSpecification", "amount", element.getAmountElement(), -1);
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureComponent(Complex parent, String parentType, String name, SubstanceSpecification.SubstanceSpecificationStructureComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "structure", name, element, index);
+    if (element.hasStereochemistry())
+      composeCodeableConcept(t, "SubstanceSpecification", "stereochemistry", element.getStereochemistry(), -1);
+    if (element.hasOpticalActivity())
+      composeCodeableConcept(t, "SubstanceSpecification", "opticalActivity", element.getOpticalActivity(), -1);
+    if (element.hasMolecularFormulaElement())
+      composeString(t, "SubstanceSpecification", "molecularFormula", element.getMolecularFormulaElement(), -1);
+    if (element.hasMolecularFormulaByMoietyElement())
+      composeString(t, "SubstanceSpecification", "molecularFormulaByMoiety", element.getMolecularFormulaByMoietyElement(), -1);
+    for (int i = 0; i < element.getIsotope().size(); i++)
+      composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponent(t, "SubstanceSpecification", "isotope", element.getIsotope().get(i), i);
+    if (element.hasMolecularWeight())
+      composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(t, "SubstanceSpecification", "molecularWeight", element.getMolecularWeight(), -1);
+    for (int i = 0; i < element.getReferenceSource().size(); i++)
+      composeReference(t, "SubstanceSpecification", "referenceSource", element.getReferenceSource().get(i), i);
+    for (int i = 0; i < element.getStructuralRepresentation().size(); i++)
+      composeSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponent(t, "SubstanceSpecification", "structuralRepresentation", element.getStructuralRepresentation().get(i), i);
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponent(Complex parent, String parentType, String name, SubstanceSpecification.SubstanceSpecificationStructureIsotopeComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "isotope", name, element, index);
+    if (element.hasNuclideId())
+      composeIdentifier(t, "SubstanceSpecification", "nuclideId", element.getNuclideId(), -1);
+    if (element.hasNuclideName())
+      composeCodeableConcept(t, "SubstanceSpecification", "nuclideName", element.getNuclideName(), -1);
+    if (element.hasSubstitutionType())
+      composeCodeableConcept(t, "SubstanceSpecification", "substitutionType", element.getSubstitutionType(), -1);
+    if (element.hasNuclideHalfLife())
+      composeQuantity(t, "SubstanceSpecification", "nuclideHalfLife", element.getNuclideHalfLife(), -1);
+    if (element.hasAmountElement())
+      composeString(t, "SubstanceSpecification", "amount", element.getAmountElement(), -1);
+    if (element.hasMolecularWeight())
+      composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(t, "SubstanceSpecification", "molecularWeight", element.getMolecularWeight(), -1);
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(Complex parent, String parentType, String name, SubstanceSpecification.SubstanceSpecificationStructureIsotopeMolecularWeightComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "molecularWeight", name, element, index);
+    if (element.hasMethod())
+      composeCodeableConcept(t, "SubstanceSpecification", "method", element.getMethod(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "SubstanceSpecification", "type", element.getType(), -1);
+    if (element.hasAmountElement())
+      composeString(t, "SubstanceSpecification", "amount", element.getAmountElement(), -1);
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponent(Complex parent, String parentType, String name, SubstanceSpecification.SubstanceSpecificationStructureStructuralRepresentationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "structuralRepresentation", name, element, index);
+    if (element.hasType())
+      composeCodeableConcept(t, "SubstanceSpecification", "type", element.getType(), -1);
+    if (element.hasRepresentationElement())
+      composeString(t, "SubstanceSpecification", "representation", element.getRepresentationElement(), -1);
+    if (element.hasAttachment())
+      composeAttachment(t, "SubstanceSpecification", "attachment", element.getAttachment(), -1);
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponent(Complex parent, String parentType, String name, SubstanceSpecification.SubstanceSpecificationSubstanceCodeComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "substanceCode", name, element, index);
+    if (element.hasCode())
+      composeCodeableConcept(t, "SubstanceSpecification", "code", element.getCode(), -1);
+    if (element.hasStatus())
+      composeCodeableConcept(t, "SubstanceSpecification", "status", element.getStatus(), -1);
+    if (element.hasStatusDateElement())
+      composeDateTime(t, "SubstanceSpecification", "statusDate", element.getStatusDateElement(), -1);
+    if (element.hasCommentElement())
+      composeString(t, "SubstanceSpecification", "comment", element.getCommentElement(), -1);
+    for (int i = 0; i < element.getReferenceSource().size(); i++)
+      composeString(t, "SubstanceSpecification", "referenceSource", element.getReferenceSource().get(i), i);
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationSubstanceNameComponent(Complex parent, String parentType, String name, SubstanceSpecification.SubstanceSpecificationSubstanceNameComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "substanceName", name, element, index);
+    if (element.hasNameElement())
+      composeString(t, "SubstanceSpecification", "name", element.getNameElement(), -1);
+    if (element.hasType())
+      composeCodeableConcept(t, "SubstanceSpecification", "type", element.getType(), -1);
+    for (int i = 0; i < element.getLanguage().size(); i++)
+      composeCodeableConcept(t, "SubstanceSpecification", "language", element.getLanguage().get(i), i);
+    for (int i = 0; i < element.getDomain().size(); i++)
+      composeCodeableConcept(t, "SubstanceSpecification", "domain", element.getDomain().get(i), i);
+    for (int i = 0; i < element.getJurisdiction().size(); i++)
+      composeCodeableConcept(t, "SubstanceSpecification", "jurisdiction", element.getJurisdiction().get(i), i);
+    for (int i = 0; i < element.getOfficialName().size(); i++)
+      composeSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponent(t, "SubstanceSpecification", "officialName", element.getOfficialName().get(i), i);
+    for (int i = 0; i < element.getReferenceSource().size(); i++)
+      composeString(t, "SubstanceSpecification", "referenceSource", element.getReferenceSource().get(i), i);
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponent(Complex parent, String parentType, String name, SubstanceSpecification.SubstanceSpecificationSubstanceNameOfficialNameComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "officialName", name, element, index);
+    if (element.hasAuthority())
+      composeCodeableConcept(t, "SubstanceSpecification", "authority", element.getAuthority(), -1);
+    if (element.hasStatus())
+      composeCodeableConcept(t, "SubstanceSpecification", "status", element.getStatus(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "SubstanceSpecification", "date", element.getDateElement(), -1);
+  }
+
   protected void composeSupplyDelivery(Complex parent, String parentType, String name, SupplyDelivery element, int index) {
     if (element == null) 
       return;
@@ -14189,6 +15811,118 @@ public class RdfParser extends RdfParserBase {
       composeValueSetValueSetExpansionContainsComponent(t, "ValueSet", "contains", element.getContains().get(i), i);
   }
 
+  protected void composeVerificationResult(Complex parent, String parentType, String name, VerificationResult element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "VerificationResult", name, element, index);
+    for (int i = 0; i < element.getTarget().size(); i++)
+      composeReference(t, "VerificationResult", "target", element.getTarget().get(i), i);
+    for (int i = 0; i < element.getTargetLocation().size(); i++)
+      composeString(t, "VerificationResult", "targetLocation", element.getTargetLocation().get(i), i);
+    if (element.hasNeedElement())
+      composeEnum(t, "VerificationResult", "need", element.getNeedElement(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "VerificationResult", "status", element.getStatusElement(), -1);
+    if (element.hasStatusDateElement())
+      composeDateTime(t, "VerificationResult", "statusDate", element.getStatusDateElement(), -1);
+    if (element.hasValidationTypeElement())
+      composeEnum(t, "VerificationResult", "validationType", element.getValidationTypeElement(), -1);
+    for (int i = 0; i < element.getValidationProcess().size(); i++)
+      composeCodeableConcept(t, "VerificationResult", "validationProcess", element.getValidationProcess().get(i), i);
+    if (element.hasFrequency())
+      composeTiming(t, "VerificationResult", "frequency", element.getFrequency(), -1);
+    if (element.hasLastPerformedElement())
+      composeDateTime(t, "VerificationResult", "lastPerformed", element.getLastPerformedElement(), -1);
+    if (element.hasNextScheduledElement())
+      composeDate(t, "VerificationResult", "nextScheduled", element.getNextScheduledElement(), -1);
+    if (element.hasFailureActionElement())
+      composeEnum(t, "VerificationResult", "failureAction", element.getFailureActionElement(), -1);
+    for (int i = 0; i < element.getPrimarySource().size(); i++)
+      composeVerificationResultVerificationResultPrimarySourceComponent(t, "VerificationResult", "primarySource", element.getPrimarySource().get(i), i);
+    if (element.hasAttestation())
+      composeVerificationResultVerificationResultAttestationComponent(t, "VerificationResult", "attestation", element.getAttestation(), -1);
+    for (int i = 0; i < element.getValidator().size(); i++)
+      composeVerificationResultVerificationResultValidatorComponent(t, "VerificationResult", "validator", element.getValidator().get(i), i);
+  }
+
+  protected void composeVerificationResultVerificationResultPrimarySourceComponent(Complex parent, String parentType, String name, VerificationResult.VerificationResultPrimarySourceComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "primarySource", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "VerificationResult", "identifier", element.getIdentifier(), -1);
+    if (element.hasOrganization())
+      composeReference(t, "VerificationResult", "organization", element.getOrganization(), -1);
+    for (int i = 0; i < element.getType().size(); i++)
+      composeCodeableConcept(t, "VerificationResult", "type", element.getType().get(i), i);
+    for (int i = 0; i < element.getValidationProcess().size(); i++)
+      composeCodeableConcept(t, "VerificationResult", "validationProcess", element.getValidationProcess().get(i), i);
+    if (element.hasValidationStatusElement())
+      composeEnum(t, "VerificationResult", "validationStatus", element.getValidationStatusElement(), -1);
+    if (element.hasValidationDateElement())
+      composeDateTime(t, "VerificationResult", "validationDate", element.getValidationDateElement(), -1);
+    if (element.hasCanPushUpdatesElement())
+      composeEnum(t, "VerificationResult", "canPushUpdates", element.getCanPushUpdatesElement(), -1);
+    for (int i = 0; i < element.getPushTypeAvailable().size(); i++)
+      composeEnum(t, "VerificationResult", "pushTypeAvailable", element.getPushTypeAvailable().get(i), i);
+  }
+
+  protected void composeVerificationResultVerificationResultAttestationComponent(Complex parent, String parentType, String name, VerificationResult.VerificationResultAttestationComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "attestation", name, element, index);
+    if (element.hasSource())
+      composeReference(t, "VerificationResult", "source", element.getSource(), -1);
+    if (element.hasOrganization())
+      composeReference(t, "VerificationResult", "organization", element.getOrganization(), -1);
+    if (element.hasMethod())
+      composeCodeableConcept(t, "VerificationResult", "method", element.getMethod(), -1);
+    if (element.hasDateElement())
+      composeDate(t, "VerificationResult", "date", element.getDateElement(), -1);
+    if (element.hasSourceIdentityCertificateElement())
+      composeString(t, "VerificationResult", "sourceIdentityCertificate", element.getSourceIdentityCertificateElement(), -1);
+    if (element.hasProxyIdentityCertificateElement())
+      composeString(t, "VerificationResult", "proxyIdentityCertificate", element.getProxyIdentityCertificateElement(), -1);
+  }
+
+  protected void composeVerificationResultVerificationResultValidatorComponent(Complex parent, String parentType, String name, VerificationResult.VerificationResultValidatorComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "validator", name, element, index);
+    if (element.hasIdentifier())
+      composeIdentifier(t, "VerificationResult", "identifier", element.getIdentifier(), -1);
+    if (element.hasOrganization())
+      composeReference(t, "VerificationResult", "organization", element.getOrganization(), -1);
+    if (element.hasIdentityCertificateElement())
+      composeString(t, "VerificationResult", "identityCertificate", element.getIdentityCertificateElement(), -1);
+    if (element.hasDateValidatedElement())
+      composeDate(t, "VerificationResult", "dateValidated", element.getDateValidatedElement(), -1);
+  }
+
   protected void composeVisionPrescription(Complex parent, String parentType, String name, VisionPrescription element, int index) {
     if (element == null) 
       return;
@@ -14281,6 +16015,8 @@ public class RdfParser extends RdfParserBase {
       composeBasic(parent, null, "Basic", (Basic)resource, -1);
     else if (resource instanceof Binary)
       composeBinary(parent, null, "Binary", (Binary)resource, -1);
+    else if (resource instanceof BiologicallyDerivedProduct)
+      composeBiologicallyDerivedProduct(parent, null, "BiologicallyDerivedProduct", (BiologicallyDerivedProduct)resource, -1);
     else if (resource instanceof BodyStructure)
       composeBodyStructure(parent, null, "BodyStructure", (BodyStructure)resource, -1);
     else if (resource instanceof Bundle)
@@ -14391,6 +16127,8 @@ public class RdfParser extends RdfParserBase {
       composeImplementationGuideOutput(parent, null, "ImplementationGuideOutput", (ImplementationGuideOutput)resource, -1);
     else if (resource instanceof Invoice)
       composeInvoice(parent, null, "Invoice", (Invoice)resource, -1);
+    else if (resource instanceof ItemInstance)
+      composeItemInstance(parent, null, "ItemInstance", (ItemInstance)resource, -1);
     else if (resource instanceof Library)
       composeLibrary(parent, null, "Library", (Library)resource, -1);
     else if (resource instanceof Linkage)
@@ -14415,6 +16153,20 @@ public class RdfParser extends RdfParserBase {
       composeMedicationRequest(parent, null, "MedicationRequest", (MedicationRequest)resource, -1);
     else if (resource instanceof MedicationStatement)
       composeMedicationStatement(parent, null, "MedicationStatement", (MedicationStatement)resource, -1);
+    else if (resource instanceof MedicinalProduct)
+      composeMedicinalProduct(parent, null, "MedicinalProduct", (MedicinalProduct)resource, -1);
+    else if (resource instanceof MedicinalProductAuthorization)
+      composeMedicinalProductAuthorization(parent, null, "MedicinalProductAuthorization", (MedicinalProductAuthorization)resource, -1);
+    else if (resource instanceof MedicinalProductClinicals)
+      composeMedicinalProductClinicals(parent, null, "MedicinalProductClinicals", (MedicinalProductClinicals)resource, -1);
+    else if (resource instanceof MedicinalProductDeviceSpec)
+      composeMedicinalProductDeviceSpec(parent, null, "MedicinalProductDeviceSpec", (MedicinalProductDeviceSpec)resource, -1);
+    else if (resource instanceof MedicinalProductIngredient)
+      composeMedicinalProductIngredient(parent, null, "MedicinalProductIngredient", (MedicinalProductIngredient)resource, -1);
+    else if (resource instanceof MedicinalProductPackaged)
+      composeMedicinalProductPackaged(parent, null, "MedicinalProductPackaged", (MedicinalProductPackaged)resource, -1);
+    else if (resource instanceof MedicinalProductPharmaceutical)
+      composeMedicinalProductPharmaceutical(parent, null, "MedicinalProductPharmaceutical", (MedicinalProductPharmaceutical)resource, -1);
     else if (resource instanceof MessageDefinition)
       composeMessageDefinition(parent, null, "MessageDefinition", (MessageDefinition)resource, -1);
     else if (resource instanceof MessageHeader)
@@ -14427,6 +16179,8 @@ public class RdfParser extends RdfParserBase {
       composeObservation(parent, null, "Observation", (Observation)resource, -1);
     else if (resource instanceof ObservationDefinition)
       composeObservationDefinition(parent, null, "ObservationDefinition", (ObservationDefinition)resource, -1);
+    else if (resource instanceof OccupationalData)
+      composeOccupationalData(parent, null, "OccupationalData", (OccupationalData)resource, -1);
     else if (resource instanceof OperationDefinition)
       composeOperationDefinition(parent, null, "OperationDefinition", (OperationDefinition)resource, -1);
     else if (resource instanceof OperationOutcome)
@@ -14497,6 +16251,12 @@ public class RdfParser extends RdfParserBase {
       composeSubscription(parent, null, "Subscription", (Subscription)resource, -1);
     else if (resource instanceof Substance)
       composeSubstance(parent, null, "Substance", (Substance)resource, -1);
+    else if (resource instanceof SubstancePolymer)
+      composeSubstancePolymer(parent, null, "SubstancePolymer", (SubstancePolymer)resource, -1);
+    else if (resource instanceof SubstanceReferenceInformation)
+      composeSubstanceReferenceInformation(parent, null, "SubstanceReferenceInformation", (SubstanceReferenceInformation)resource, -1);
+    else if (resource instanceof SubstanceSpecification)
+      composeSubstanceSpecification(parent, null, "SubstanceSpecification", (SubstanceSpecification)resource, -1);
     else if (resource instanceof SupplyDelivery)
       composeSupplyDelivery(parent, null, "SupplyDelivery", (SupplyDelivery)resource, -1);
     else if (resource instanceof SupplyRequest)
@@ -14513,6 +16273,8 @@ public class RdfParser extends RdfParserBase {
       composeUserSession(parent, null, "UserSession", (UserSession)resource, -1);
     else if (resource instanceof ValueSet)
       composeValueSet(parent, null, "ValueSet", (ValueSet)resource, -1);
+    else if (resource instanceof VerificationResult)
+      composeVerificationResult(parent, null, "VerificationResult", (VerificationResult)resource, -1);
     else if (resource instanceof VisionPrescription)
       composeVisionPrescription(parent, null, "VisionPrescription", (VisionPrescription)resource, -1);
     else
@@ -14608,18 +16370,28 @@ public class RdfParser extends RdfParserBase {
       composeDosage(parent, parentType, name, (Dosage)value, index);
     else if (value instanceof RelatedArtifact)
       composeRelatedArtifact(parent, parentType, name, (RelatedArtifact)value, index);
+    else if (value instanceof ProductShelfLife)
+      composeProductShelfLife(parent, parentType, name, (ProductShelfLife)value, index);
     else if (value instanceof ContactDetail)
       composeContactDetail(parent, parentType, name, (ContactDetail)value, index);
     else if (value instanceof HumanName)
       composeHumanName(parent, parentType, name, (HumanName)value, index);
     else if (value instanceof ContactPoint)
       composeContactPoint(parent, parentType, name, (ContactPoint)value, index);
+    else if (value instanceof MarketingStatus)
+      composeMarketingStatus(parent, parentType, name, (MarketingStatus)value, index);
+    else if (value instanceof SubstanceAmount)
+      composeSubstanceAmount(parent, parentType, name, (SubstanceAmount)value, index);
     else if (value instanceof UsageContext)
       composeUsageContext(parent, parentType, name, (UsageContext)value, index);
     else if (value instanceof Timing)
       composeTiming(parent, parentType, name, (Timing)value, index);
     else if (value instanceof ElementDefinition)
       composeElementDefinition(parent, parentType, name, (ElementDefinition)value, index);
+    else if (value instanceof SubstanceMoiety)
+      composeSubstanceMoiety(parent, parentType, name, (SubstanceMoiety)value, index);
+    else if (value instanceof ProdCharacteristic)
+      composeProdCharacteristic(parent, parentType, name, (ProdCharacteristic)value, index);
     else if (value instanceof ParameterDefinition)
       composeParameterDefinition(parent, parentType, name, (ParameterDefinition)value, index);
     else

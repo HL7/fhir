@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -50,6 +50,8 @@ public class ResourceFactory extends Factory {
             return new MessageDefinition();
         if ("Goal".equals(name))
             return new Goal();
+        if ("MedicinalProductPackaged".equals(name))
+            return new MedicinalProductPackaged();
         if ("Endpoint".equals(name))
             return new Endpoint();
         if ("EnrollmentRequest".equals(name))
@@ -68,6 +70,8 @@ public class ResourceFactory extends Factory {
             return new EntryDefinition();
         if ("Subscription".equals(name))
             return new Subscription();
+        if ("MedicinalProductClinicals".equals(name))
+            return new MedicinalProductClinicals();
         if ("DocumentReference".equals(name))
             return new DocumentReference();
         if ("GraphDefinition".equals(name))
@@ -80,6 +84,8 @@ public class ResourceFactory extends Factory {
             return new MeasureReport();
         if ("PractitionerRole".equals(name))
             return new PractitionerRole();
+        if ("SubstanceReferenceInformation".equals(name))
+            return new SubstanceReferenceInformation();
         if ("ServiceRequest".equals(name))
             return new ServiceRequest();
         if ("RelatedPerson".equals(name))
@@ -88,6 +94,8 @@ public class ResourceFactory extends Factory {
             return new SupplyRequest();
         if ("Practitioner".equals(name))
             return new Practitioner();
+        if ("VerificationResult".equals(name))
+            return new VerificationResult();
         if ("ExpansionProfile".equals(name))
             return new ExpansionProfile();
         if ("BodyStructure".equals(name))
@@ -124,6 +132,8 @@ public class ResourceFactory extends Factory {
             return new Encounter();
         if ("Substance".equals(name))
             return new Substance();
+        if ("SubstanceSpecification".equals(name))
+            return new SubstanceSpecification();
         if ("SearchParameter".equals(name))
             return new SearchParameter();
         if ("ServiceDefinition".equals(name))
@@ -156,6 +166,8 @@ public class ResourceFactory extends Factory {
             return new Questionnaire();
         if ("ExplanationOfBenefit".equals(name))
             return new ExplanationOfBenefit();
+        if ("MedicinalProductPharmaceutical".equals(name))
+            return new MedicinalProductPharmaceutical();
         if ("ResearchStudy".equals(name))
             return new ResearchStudy();
         if ("Specimen".equals(name))
@@ -168,6 +180,8 @@ public class ResourceFactory extends Factory {
             return new StructureDefinition();
         if ("EpisodeOfCare".equals(name))
             return new EpisodeOfCare();
+        if ("MedicinalProductDeviceSpec".equals(name))
+            return new MedicinalProductDeviceSpec();
         if ("OperationOutcome".equals(name))
             return new OperationOutcome();
         if ("UserSession".equals(name))
@@ -186,6 +200,8 @@ public class ResourceFactory extends Factory {
             return new Immunization();
         if ("MedicationRequest".equals(name))
             return new MedicationRequest();
+        if ("BiologicallyDerivedProduct".equals(name))
+            return new BiologicallyDerivedProduct();
         if ("Device".equals(name))
             return new Device();
         if ("VisionPrescription".equals(name))
@@ -196,6 +212,8 @@ public class ResourceFactory extends Factory {
             return new EligibilityResponse();
         if ("OrganizationRole".equals(name))
             return new OrganizationRole();
+        if ("MedicinalProduct".equals(name))
+            return new MedicinalProduct();
         if ("Sequence".equals(name))
             return new Sequence();
         if ("DeviceMetric".equals(name))
@@ -226,10 +244,14 @@ public class ResourceFactory extends Factory {
             return new MedicationStatement();
         if ("CommunicationRequest".equals(name))
             return new CommunicationRequest();
+        if ("ItemInstance".equals(name))
+            return new ItemInstance();
         if ("TestScript".equals(name))
             return new TestScript();
         if ("Basic".equals(name))
             return new Basic();
+        if ("SubstancePolymer".equals(name))
+            return new SubstancePolymer();
         if ("TestReport".equals(name))
             return new TestReport();
         if ("ClaimResponse".equals(name))
@@ -238,6 +260,8 @@ public class ResourceFactory extends Factory {
             return new EligibilityRequest();
         if ("ProcessRequest".equals(name))
             return new ProcessRequest();
+        if ("OccupationalData".equals(name))
+            return new OccupationalData();
         if ("MedicationDispense".equals(name))
             return new MedicationDispense();
         if ("DiagnosticReport".equals(name))
@@ -266,6 +290,8 @@ public class ResourceFactory extends Factory {
             return new CompartmentDefinition();
         if ("ProductPlan".equals(name))
             return new ProductPlan();
+        if ("MedicinalProductIngredient".equals(name))
+            return new MedicinalProductIngredient();
         if ("Patient".equals(name))
             return new Patient();
         if ("Coverage".equals(name))
@@ -286,6 +312,8 @@ public class ResourceFactory extends Factory {
             return new ClinicalImpression();
         if ("PlanDefinition".equals(name))
             return new PlanDefinition();
+        if ("MedicinalProductAuthorization".equals(name))
+            return new MedicinalProductAuthorization();
         if ("Claim".equals(name))
             return new Claim();
         if ("Location".equals(name))
@@ -315,6 +343,8 @@ public class ResourceFactory extends Factory {
             return new UuidType();
         if ("Identifier".equals(name))
             return new Identifier();
+        if ("SubstanceAmount".equals(name))
+            return new SubstanceAmount();
         if ("Narrative".equals(name))
             return new Narrative();
         if ("Coding".equals(name))
@@ -337,6 +367,8 @@ public class ResourceFactory extends Factory {
             return new Range();
         if ("RelatedArtifact".equals(name))
             return new RelatedArtifact();
+        if ("ProductShelfLife".equals(name))
+            return new ProductShelfLife();
         if ("base64Binary".equals(name))
             return new Base64BinaryType();
         if ("UsageContext".equals(name))
@@ -345,6 +377,8 @@ public class ResourceFactory extends Factory {
             return new Timing();
         if ("decimal".equals(name))
             return new DecimalType();
+        if ("ProdCharacteristic".equals(name))
+            return new ProdCharacteristic();
         if ("CodeableConcept".equals(name))
             return new CodeableConcept();
         if ("ParameterDefinition".equals(name))
@@ -367,10 +401,14 @@ public class ResourceFactory extends Factory {
             return new HumanName();
         if ("ContactPoint".equals(name))
             return new ContactPoint();
+        if ("MarketingStatus".equals(name))
+            return new MarketingStatus();
         if ("markdown".equals(name))
             return new MarkdownType();
         if ("Ratio".equals(name))
             return new Ratio();
+        if ("SubstanceMoiety".equals(name))
+            return new SubstanceMoiety();
         if ("Age".equals(name))
             return new Age();
         if ("Reference".equals(name))
@@ -416,6 +454,7 @@ public class ResourceFactory extends Factory {
         case -632949857: return new AuditEvent();
         case 63955982: return new Basic();
         case 1989867553: return new Binary();
+        case -310041824: return new BiologicallyDerivedProduct();
         case -202769967: return new BodyStructure();
         case 2000952482: return new Bundle();
         case -871422185: return new CapabilityStatement();
@@ -485,10 +524,12 @@ public class ResourceFactory extends Factory {
         case 30400416: return new ImplementationGuideInput();
         case 1120766955: return new ImplementationGuideOutput();
         case -670115059: return new Invoice();
+        case 1347880168: return new ItemInstance();
         case 1830861979: return new Library();
         case 1841735333: return new Linkage();
         case 2368702: return new ListResource();
         case 1965687765: return new Location();
+        case -926250600: return new MarketingStatus();
         case -1691992770: return new Measure();
         case 1681397778: return new MeasureReport();
         case 74219460: return new Media();
@@ -497,6 +538,13 @@ public class ResourceFactory extends Factory {
         case -408244884: return new MedicationDispense();
         case 1627523232: return new MedicationRequest();
         case -2097348800: return new MedicationStatement();
+        case -1349298375: return new MedicinalProduct();
+        case -29557312: return new MedicinalProductAuthorization();
+        case -1801833337: return new MedicinalProductClinicals();
+        case 417312586: return new MedicinalProductDeviceSpec();
+        case -570248726: return new MedicinalProductIngredient();
+        case -500906185: return new MedicinalProductPackaged();
+        case -1034780964: return new MedicinalProductPharmaceutical();
         case -2037697382: return new MessageDefinition();
         case -1087398572: return new MessageHeader();
         case 2394661: return new Meta();
@@ -506,6 +554,7 @@ public class ResourceFactory extends Factory {
         case 1247831734: return new NutritionOrder();
         case 1790214156: return new Observation();
         case 673706623: return new ObservationDefinition();
+        case 1902488480: return new OccupationalData();
         case -2140710406: return new OperationDefinition();
         case -526550005: return new OperationOutcome();
         case 1343242579: return new Organization();
@@ -523,7 +572,9 @@ public class ResourceFactory extends Factory {
         case 908763827: return new Procedure();
         case 8777024: return new ProcessRequest();
         case 325021616: return new ProcessResponse();
+        case 458000626: return new ProdCharacteristic();
         case 176120984: return new ProductPlan();
+        case 1209602103: return new ProductShelfLife();
         case 2093211201: return new Provenance();
         case -1220360021: return new Quantity();
         case -218088061: return new Questionnaire();
@@ -552,6 +603,11 @@ public class ResourceFactory extends Factory {
         case 1958247177: return new StructureMap();
         case 505523517: return new Subscription();
         case -1760959152: return new Substance();
+        case 1549526472: return new SubstanceAmount();
+        case 1894729395: return new SubstanceMoiety();
+        case 1272939294: return new SubstancePolymer();
+        case 159007313: return new SubstanceReferenceInformation();
+        case 1472900499: return new SubstanceSpecification();
         case 383030819: return new SupplyDelivery();
         case 665843328: return new SupplyRequest();
         case 2599333: return new Task();
@@ -563,6 +619,7 @@ public class ResourceFactory extends Factory {
         case 1071332590: return new UsageContext();
         case -943977429: return new UserSession();
         case -1345530543: return new ValueSet();
+        case 957089336: return new VerificationResult();
         case -555387838: return new VisionPrescription();
         case -1216012752: return new Base64BinaryType();
         case 64711720: return new BooleanType();

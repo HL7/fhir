@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -50,7 +50,7 @@ public class Appointment extends DomainResource {
 
     public enum AppointmentStatus {
         /**
-         * None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.
+         * None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time might not be set yet.
          */
         PROPOSED, 
         /**
@@ -137,7 +137,7 @@ public class Appointment extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
-            case PROPOSED: return "None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.";
+            case PROPOSED: return "None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time might not be set yet.";
             case PENDING: return "Some or all of the participant(s) have not finalized their acceptance of the appointment request.";
             case BOOKED: return "All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified.";
             case ARRIVED: return "Some of the patients have arrived.";
@@ -246,7 +246,7 @@ public class Appointment extends DomainResource {
          */
         OPTIONAL, 
         /**
-         * The participant is excluded from the appointment, and may not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).
+         * The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).
          */
         INFORMATIONONLY, 
         /**
@@ -287,7 +287,7 @@ public class Appointment extends DomainResource {
           switch (this) {
             case REQUIRED: return "The participant is required to attend the appointment.";
             case OPTIONAL: return "The participant may optionally attend the appointment.";
-            case INFORMATIONONLY: return "The participant is excluded from the appointment, and may not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).";
+            case INFORMATIONONLY: return "The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).";
             default: return "?";
           }
         }

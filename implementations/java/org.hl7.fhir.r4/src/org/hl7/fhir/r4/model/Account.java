@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -711,10 +711,10 @@ A coverage may only be resposible for specific types of charges, and the sequenc
   }
 
     /**
-     * Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number).
+     * Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number).
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Account number", formalDefinition="Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number)." )
+    @Description(shortDefinition="Account number", formalDefinition="Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number)." )
     protected List<Identifier> identifier;
 
     /**
@@ -822,7 +822,7 @@ This period may be different to the coveragePeriod which is the duration of time
     }
 
     /**
-     * @return {@link #identifier} (Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number).)
+     * @return {@link #identifier} (Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number).)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -1330,7 +1330,7 @@ This period may be different to the coveragePeriod which is the duration of time
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("identifier", "Identifier", "Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        children.add(new Property("identifier", "Identifier", "Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number).", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("status", "code", "Indicates whether the account is presently used/usable or not.", 0, 1, status));
         children.add(new Property("type", "CodeableConcept", "Categorizes the account for reporting and searching purposes.", 0, 1, type));
         children.add(new Property("name", "string", "Name used for the account when displaying it to humans in reports, etc.", 0, 1, name));
@@ -1347,7 +1347,7 @@ This period may be different to the coveragePeriod which is the duration of time
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number).", 0, java.lang.Integer.MAX_VALUE, identifier);
+        case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number).", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -892481550: /*status*/  return new Property("status", "code", "Indicates whether the account is presently used/usable or not.", 0, 1, status);
         case 3575610: /*type*/  return new Property("type", "CodeableConcept", "Categorizes the account for reporting and searching purposes.", 0, 1, type);
         case 3373707: /*name*/  return new Property("name", "string", "Name used for the account when displaying it to humans in reports, etc.", 0, 1, name);

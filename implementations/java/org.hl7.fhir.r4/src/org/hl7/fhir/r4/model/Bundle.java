@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -367,6 +367,10 @@ public class Bundle extends Resource implements IBaseBundle {
          */
         GET, 
         /**
+         * HTTP HEAD
+         */
+        HEAD, 
+        /**
          * HTTP POST
          */
         POST, 
@@ -379,6 +383,10 @@ public class Bundle extends Resource implements IBaseBundle {
          */
         DELETE, 
         /**
+         * HTTP PATCH
+         */
+        PATCH, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -387,12 +395,16 @@ public class Bundle extends Resource implements IBaseBundle {
                 return null;
         if ("GET".equals(codeString))
           return GET;
+        if ("HEAD".equals(codeString))
+          return HEAD;
         if ("POST".equals(codeString))
           return POST;
         if ("PUT".equals(codeString))
           return PUT;
         if ("DELETE".equals(codeString))
           return DELETE;
+        if ("PATCH".equals(codeString))
+          return PATCH;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -401,36 +413,44 @@ public class Bundle extends Resource implements IBaseBundle {
         public String toCode() {
           switch (this) {
             case GET: return "GET";
+            case HEAD: return "HEAD";
             case POST: return "POST";
             case PUT: return "PUT";
             case DELETE: return "DELETE";
+            case PATCH: return "PATCH";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
             case GET: return "http://hl7.org/fhir/http-verb";
+            case HEAD: return "http://hl7.org/fhir/http-verb";
             case POST: return "http://hl7.org/fhir/http-verb";
             case PUT: return "http://hl7.org/fhir/http-verb";
             case DELETE: return "http://hl7.org/fhir/http-verb";
+            case PATCH: return "http://hl7.org/fhir/http-verb";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
             case GET: return "HTTP GET";
+            case HEAD: return "HTTP HEAD";
             case POST: return "HTTP POST";
             case PUT: return "HTTP PUT";
             case DELETE: return "HTTP DELETE";
+            case PATCH: return "HTTP PATCH";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
             case GET: return "GET";
+            case HEAD: return "HEAD";
             case POST: return "POST";
             case PUT: return "PUT";
             case DELETE: return "DELETE";
+            case PATCH: return "PATCH";
             default: return "?";
           }
         }
@@ -443,12 +463,16 @@ public class Bundle extends Resource implements IBaseBundle {
                 return null;
         if ("GET".equals(codeString))
           return HTTPVerb.GET;
+        if ("HEAD".equals(codeString))
+          return HTTPVerb.HEAD;
         if ("POST".equals(codeString))
           return HTTPVerb.POST;
         if ("PUT".equals(codeString))
           return HTTPVerb.PUT;
         if ("DELETE".equals(codeString))
           return HTTPVerb.DELETE;
+        if ("PATCH".equals(codeString))
+          return HTTPVerb.PATCH;
         throw new IllegalArgumentException("Unknown HTTPVerb code '"+codeString+"'");
         }
         public Enumeration<HTTPVerb> fromType(Base code) throws FHIRException {
@@ -461,23 +485,31 @@ public class Bundle extends Resource implements IBaseBundle {
             return null;
         if ("GET".equals(codeString))
           return new Enumeration<HTTPVerb>(this, HTTPVerb.GET);
+        if ("HEAD".equals(codeString))
+          return new Enumeration<HTTPVerb>(this, HTTPVerb.HEAD);
         if ("POST".equals(codeString))
           return new Enumeration<HTTPVerb>(this, HTTPVerb.POST);
         if ("PUT".equals(codeString))
           return new Enumeration<HTTPVerb>(this, HTTPVerb.PUT);
         if ("DELETE".equals(codeString))
           return new Enumeration<HTTPVerb>(this, HTTPVerb.DELETE);
+        if ("PATCH".equals(codeString))
+          return new Enumeration<HTTPVerb>(this, HTTPVerb.PATCH);
         throw new FHIRException("Unknown HTTPVerb code '"+codeString+"'");
         }
     public String toCode(HTTPVerb code) {
       if (code == HTTPVerb.GET)
         return "GET";
+      if (code == HTTPVerb.HEAD)
+        return "HEAD";
       if (code == HTTPVerb.POST)
         return "POST";
       if (code == HTTPVerb.PUT)
         return "PUT";
       if (code == HTTPVerb.DELETE)
         return "DELETE";
+      if (code == HTTPVerb.PATCH)
+        return "PATCH";
       return "?";
       }
     public String toSystem(HTTPVerb code) {
@@ -1494,7 +1526,7 @@ public class Bundle extends Resource implements IBaseBundle {
          * The HTTP verb for this entry in either a change history, or a transaction/ transaction response.
          */
         @Child(name = "method", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="GET | POST | PUT | DELETE", formalDefinition="The HTTP verb for this entry in either a change history, or a transaction/ transaction response." )
+        @Description(shortDefinition="GET | HEAD | POST | PUT | DELETE | PATCH", formalDefinition="The HTTP verb for this entry in either a change history, or a transaction/ transaction response." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/http-verb")
         protected Enumeration<HTTPVerb> method;
 

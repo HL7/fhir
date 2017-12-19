@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import java.util.*;
 
@@ -56,10 +56,10 @@ public abstract class Resource extends BaseResource implements IAnyResource {
     protected IdType id;
 
     /**
-     * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
+     * The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
      */
     @Child(name = "meta", type = {Meta.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Metadata about the resource", formalDefinition="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource." )
+    @Description(shortDefinition="Metadata about the resource", formalDefinition="The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource." )
     protected Meta meta;
 
     /**
@@ -136,7 +136,7 @@ public abstract class Resource extends BaseResource implements IAnyResource {
     }
 
     /**
-     * @return {@link #meta} (The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.)
+     * @return {@link #meta} (The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.)
      */
     public Meta getMeta() { 
       if (this.meta == null)
@@ -152,7 +152,7 @@ public abstract class Resource extends BaseResource implements IAnyResource {
     }
 
     /**
-     * @param value {@link #meta} (The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.)
+     * @param value {@link #meta} (The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.)
      */
     public Resource setMeta(Meta value) { 
       this.meta = value;
@@ -259,7 +259,7 @@ public abstract class Resource extends BaseResource implements IAnyResource {
 
       protected void listChildren(List<Property> children) {
         children.add(new Property("id", "id", "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.", 0, 1, id));
-        children.add(new Property("meta", "Meta", "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.", 0, 1, meta));
+        children.add(new Property("meta", "Meta", "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 0, 1, meta));
         children.add(new Property("implicitRules", "uri", "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.", 0, 1, implicitRules));
         children.add(new Property("language", "code", "The base language in which the resource is written.", 0, 1, language));
       }
@@ -268,7 +268,7 @@ public abstract class Resource extends BaseResource implements IAnyResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case 3355: /*id*/  return new Property("id", "id", "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.", 0, 1, id);
-        case 3347973: /*meta*/  return new Property("meta", "Meta", "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.", 0, 1, meta);
+        case 3347973: /*meta*/  return new Property("meta", "Meta", "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.", 0, 1, meta);
         case -961826286: /*implicitRules*/  return new Property("implicitRules", "uri", "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.", 0, 1, implicitRules);
         case -1613589672: /*language*/  return new Property("language", "code", "The base language in which the resource is written.", 0, 1, language);
         default: return super.getNamedProperty(_hash, _name, _checkValid);

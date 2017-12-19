@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Fri, Dec 15, 2017 14:12+1100 for FHIR v3.1.0
+// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -616,6 +616,10 @@ public class JsonParser extends JsonParserBase {
       res.setLastUpdatedElement(parseInstant(json.get("lastUpdated").getAsString()));
     if (json.has("_lastUpdated"))
       parseElementProperties(json.getAsJsonObject("_lastUpdated"), res.getLastUpdatedElement());
+    if (json.has("source"))
+      res.setSourceElement(parseUri(json.get("source").getAsString()));
+    if (json.has("_source"))
+      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
     if (json.has("profile")) {
       JsonArray array = json.getAsJsonArray("profile");
       for (int i = 0; i < array.size(); i++) {
@@ -631,10 +635,6 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getProfile().get(i));
       }
     };
-    if (json.has("source"))
-      res.setSourceElement(parseUri(json.get("source").getAsString()));
-    if (json.has("_source"))
-      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
     if (json.has("security")) {
       JsonArray array = json.getAsJsonArray("security");
       for (int i = 0; i < array.size(); i++) {
@@ -956,6 +956,28 @@ public class JsonParser extends JsonParserBase {
       res.setResource(parseReference(json.getAsJsonObject("resource")));
   }
 
+  protected ProductShelfLife parseProductShelfLife(JsonObject json) throws IOException, FHIRFormatError {
+    ProductShelfLife res = new ProductShelfLife();
+    parseProductShelfLifeProperties(json, res);
+    return res;
+  }
+
+  protected void parseProductShelfLifeProperties(JsonObject json, ProductShelfLife res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("period"))
+      res.setPeriod(parseQuantity(json.getAsJsonObject("period")));
+    if (json.has("specialPrecautionsForStorage")) {
+      JsonArray array = json.getAsJsonArray("specialPrecautionsForStorage");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSpecialPrecautionsForStorage().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+  }
+
   protected ContactDetail parseContactDetail(JsonObject json) throws IOException, FHIRFormatError {
     ContactDetail res = new ContactDetail();
     parseContactDetailProperties(json, res);
@@ -1071,6 +1093,63 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_rank"), res.getRankElement());
     if (json.has("period"))
       res.setPeriod(parsePeriod(json.getAsJsonObject("period")));
+  }
+
+  protected MarketingStatus parseMarketingStatus(JsonObject json) throws IOException, FHIRFormatError {
+    MarketingStatus res = new MarketingStatus();
+    parseMarketingStatusProperties(json, res);
+    return res;
+  }
+
+  protected void parseMarketingStatusProperties(JsonObject json, MarketingStatus res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    if (json.has("country"))
+      res.setCountry(parseCodeableConcept(json.getAsJsonObject("country")));
+    if (json.has("jurisdiction"))
+      res.setJurisdiction(parseCodeableConcept(json.getAsJsonObject("jurisdiction")));
+    if (json.has("status"))
+      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+    if (json.has("dateRange"))
+      res.setDateRange(parsePeriod(json.getAsJsonObject("dateRange")));
+    if (json.has("restoreDate"))
+      res.setRestoreDateElement(parseDateTime(json.get("restoreDate").getAsString()));
+    if (json.has("_restoreDate"))
+      parseElementProperties(json.getAsJsonObject("_restoreDate"), res.getRestoreDateElement());
+  }
+
+  protected SubstanceAmount parseSubstanceAmount(JsonObject json) throws IOException, FHIRFormatError {
+    SubstanceAmount res = new SubstanceAmount();
+    parseSubstanceAmountProperties(json, res);
+    return res;
+  }
+
+  protected void parseSubstanceAmountProperties(JsonObject json, SubstanceAmount res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    Type amount = parseType("amount", json);
+    if (amount != null)
+      res.setAmount(amount);
+    if (json.has("amountType"))
+      res.setAmountType(parseCodeableConcept(json.getAsJsonObject("amountType")));
+    if (json.has("amountText"))
+      res.setAmountTextElement(parseString(json.get("amountText").getAsString()));
+    if (json.has("_amountText"))
+      parseElementProperties(json.getAsJsonObject("_amountText"), res.getAmountTextElement());
+    if (json.has("referenceRange"))
+      res.setReferenceRange(parseSubstanceAmountSubstanceAmountReferenceRangeComponent(json.getAsJsonObject("referenceRange"), res));
+  }
+
+  protected SubstanceAmount.SubstanceAmountReferenceRangeComponent parseSubstanceAmountSubstanceAmountReferenceRangeComponent(JsonObject json, SubstanceAmount owner) throws IOException, FHIRFormatError {
+    SubstanceAmount.SubstanceAmountReferenceRangeComponent res = new SubstanceAmount.SubstanceAmountReferenceRangeComponent();
+    parseSubstanceAmountSubstanceAmountReferenceRangeComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceAmountSubstanceAmountReferenceRangeComponentProperties(JsonObject json, SubstanceAmount owner, SubstanceAmount.SubstanceAmountReferenceRangeComponent res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    if (json.has("lowLimit"))
+      res.setLowLimit(parseQuantity(json.getAsJsonObject("lowLimit")));
+    if (json.has("highLimit"))
+      res.setHighLimit(parseQuantity(json.getAsJsonObject("highLimit")));
   }
 
   protected UsageContext parseUsageContext(JsonObject json) throws IOException, FHIRFormatError {
@@ -1598,6 +1677,98 @@ public class JsonParser extends JsonParserBase {
       res.setCommentElement(parseString(json.get("comment").getAsString()));
     if (json.has("_comment"))
       parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
+  }
+
+  protected SubstanceMoiety parseSubstanceMoiety(JsonObject json) throws IOException, FHIRFormatError {
+    SubstanceMoiety res = new SubstanceMoiety();
+    parseSubstanceMoietyProperties(json, res);
+    return res;
+  }
+
+  protected void parseSubstanceMoietyProperties(JsonObject json, SubstanceMoiety res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    if (json.has("role"))
+      res.setRole(parseCodeableConcept(json.getAsJsonObject("role")));
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("stereochemistry"))
+      res.setStereochemistry(parseCodeableConcept(json.getAsJsonObject("stereochemistry")));
+    if (json.has("opticalActivity"))
+      res.setOpticalActivity(parseCodeableConcept(json.getAsJsonObject("opticalActivity")));
+    if (json.has("molecularFormula"))
+      res.setMolecularFormulaElement(parseString(json.get("molecularFormula").getAsString()));
+    if (json.has("_molecularFormula"))
+      parseElementProperties(json.getAsJsonObject("_molecularFormula"), res.getMolecularFormulaElement());
+    if (json.has("amount"))
+      res.setAmount(parseSubstanceAmount(json.getAsJsonObject("amount")));
+  }
+
+  protected ProdCharacteristic parseProdCharacteristic(JsonObject json) throws IOException, FHIRFormatError {
+    ProdCharacteristic res = new ProdCharacteristic();
+    parseProdCharacteristicProperties(json, res);
+    return res;
+  }
+
+  protected void parseProdCharacteristicProperties(JsonObject json, ProdCharacteristic res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    if (json.has("height"))
+      res.setHeight(parseQuantity(json.getAsJsonObject("height")));
+    if (json.has("width"))
+      res.setWidth(parseQuantity(json.getAsJsonObject("width")));
+    if (json.has("depth"))
+      res.setDepth(parseQuantity(json.getAsJsonObject("depth")));
+    if (json.has("weight"))
+      res.setWeight(parseQuantity(json.getAsJsonObject("weight")));
+    if (json.has("nominalVolume"))
+      res.setNominalVolume(parseQuantity(json.getAsJsonObject("nominalVolume")));
+    if (json.has("externalDiameter"))
+      res.setExternalDiameter(parseQuantity(json.getAsJsonObject("externalDiameter")));
+    if (json.has("shape"))
+      res.setShapeElement(parseString(json.get("shape").getAsString()));
+    if (json.has("_shape"))
+      parseElementProperties(json.getAsJsonObject("_shape"), res.getShapeElement());
+    if (json.has("color")) {
+      JsonArray array = json.getAsJsonArray("color");
+      for (int i = 0; i < array.size(); i++) {
+        res.getColor().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_color")) {
+      JsonArray array = json.getAsJsonArray("_color");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getColor().size())
+          res.getColor().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getColor().get(i));
+      }
+    };
+    if (json.has("imprint")) {
+      JsonArray array = json.getAsJsonArray("imprint");
+      for (int i = 0; i < array.size(); i++) {
+        res.getImprint().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_imprint")) {
+      JsonArray array = json.getAsJsonArray("_imprint");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getImprint().size())
+          res.getImprint().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getImprint().get(i));
+      }
+    };
+    if (json.has("image")) {
+      JsonArray array = json.getAsJsonArray("image");
+      for (int i = 0; i < array.size(); i++) {
+        res.getImage().add(parseAttachment(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("scoring"))
+      res.setScoring(parseCodeableConcept(json.getAsJsonObject("scoring")));
   }
 
   protected ParameterDefinition parseParameterDefinition(JsonObject json) throws IOException, FHIRFormatError {
@@ -2686,6 +2857,139 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_content"), res.getContentElement());
   }
 
+  protected BiologicallyDerivedProduct parseBiologicallyDerivedProduct(JsonObject json) throws IOException, FHIRFormatError {
+    BiologicallyDerivedProduct res = new BiologicallyDerivedProduct();
+    parseBiologicallyDerivedProductProperties(json, res);
+    return res;
+  }
+
+  protected void parseBiologicallyDerivedProductProperties(JsonObject json, BiologicallyDerivedProduct res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("productCategory"))
+      res.setProductCategoryElement(parseEnumeration(json.get("productCategory").getAsString(), BiologicallyDerivedProduct.BiologicallyDerivedProductCategory.NULL, new BiologicallyDerivedProduct.BiologicallyDerivedProductCategoryEnumFactory()));
+    if (json.has("_productCategory"))
+      parseElementProperties(json.getAsJsonObject("_productCategory"), res.getProductCategoryElement());
+    if (json.has("productCode"))
+      res.setProductCode(parseCodeableConcept(json.getAsJsonObject("productCode")));
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), BiologicallyDerivedProduct.BiologicallyDerivedProductStatus.NULL, new BiologicallyDerivedProduct.BiologicallyDerivedProductStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("request")) {
+      JsonArray array = json.getAsJsonArray("request");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRequest().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("quantity"))
+      res.setQuantityElement(parseInteger(json.get("quantity").getAsLong()));
+    if (json.has("_quantity"))
+      parseElementProperties(json.getAsJsonObject("_quantity"), res.getQuantityElement());
+    if (json.has("parent"))
+      res.setParent(parseReference(json.getAsJsonObject("parent")));
+    if (json.has("collection"))
+      res.setCollection(parseBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponent(json.getAsJsonObject("collection"), res));
+    if (json.has("processing")) {
+      JsonArray array = json.getAsJsonArray("processing");
+      for (int i = 0; i < array.size(); i++) {
+        res.getProcessing().add(parseBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("manipulation"))
+      res.setManipulation(parseBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponent(json.getAsJsonObject("manipulation"), res));
+    if (json.has("storage")) {
+      JsonArray array = json.getAsJsonArray("storage");
+      for (int i = 0; i < array.size(); i++) {
+        res.getStorage().add(parseBiologicallyDerivedProductBiologicallyDerivedProductStorageComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected BiologicallyDerivedProduct.BiologicallyDerivedProductCollectionComponent parseBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponent(JsonObject json, BiologicallyDerivedProduct owner) throws IOException, FHIRFormatError {
+    BiologicallyDerivedProduct.BiologicallyDerivedProductCollectionComponent res = new BiologicallyDerivedProduct.BiologicallyDerivedProductCollectionComponent();
+    parseBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponentProperties(JsonObject json, BiologicallyDerivedProduct owner, BiologicallyDerivedProduct.BiologicallyDerivedProductCollectionComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("collector"))
+      res.setCollector(parseReference(json.getAsJsonObject("collector")));
+    if (json.has("source"))
+      res.setSource(parseReference(json.getAsJsonObject("source")));
+    Type collected = parseType("collected", json);
+    if (collected != null)
+      res.setCollected(collected);
+  }
+
+  protected BiologicallyDerivedProduct.BiologicallyDerivedProductProcessingComponent parseBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponent(JsonObject json, BiologicallyDerivedProduct owner) throws IOException, FHIRFormatError {
+    BiologicallyDerivedProduct.BiologicallyDerivedProductProcessingComponent res = new BiologicallyDerivedProduct.BiologicallyDerivedProductProcessingComponent();
+    parseBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponentProperties(JsonObject json, BiologicallyDerivedProduct owner, BiologicallyDerivedProduct.BiologicallyDerivedProductProcessingComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("procedure"))
+      res.setProcedure(parseCodeableConcept(json.getAsJsonObject("procedure")));
+    if (json.has("additive"))
+      res.setAdditive(parseReference(json.getAsJsonObject("additive")));
+    Type time = parseType("time", json);
+    if (time != null)
+      res.setTime(time);
+  }
+
+  protected BiologicallyDerivedProduct.BiologicallyDerivedProductManipulationComponent parseBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponent(JsonObject json, BiologicallyDerivedProduct owner) throws IOException, FHIRFormatError {
+    BiologicallyDerivedProduct.BiologicallyDerivedProductManipulationComponent res = new BiologicallyDerivedProduct.BiologicallyDerivedProductManipulationComponent();
+    parseBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponentProperties(JsonObject json, BiologicallyDerivedProduct owner, BiologicallyDerivedProduct.BiologicallyDerivedProductManipulationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    Type time = parseType("time", json);
+    if (time != null)
+      res.setTime(time);
+  }
+
+  protected BiologicallyDerivedProduct.BiologicallyDerivedProductStorageComponent parseBiologicallyDerivedProductBiologicallyDerivedProductStorageComponent(JsonObject json, BiologicallyDerivedProduct owner) throws IOException, FHIRFormatError {
+    BiologicallyDerivedProduct.BiologicallyDerivedProductStorageComponent res = new BiologicallyDerivedProduct.BiologicallyDerivedProductStorageComponent();
+    parseBiologicallyDerivedProductBiologicallyDerivedProductStorageComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseBiologicallyDerivedProductBiologicallyDerivedProductStorageComponentProperties(JsonObject json, BiologicallyDerivedProduct owner, BiologicallyDerivedProduct.BiologicallyDerivedProductStorageComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("temperature"))
+      res.setTemperatureElement(parseDecimal(json.get("temperature").getAsBigDecimal()));
+    if (json.has("_temperature"))
+      parseElementProperties(json.getAsJsonObject("_temperature"), res.getTemperatureElement());
+    if (json.has("scale"))
+      res.setScaleElement(parseEnumeration(json.get("scale").getAsString(), BiologicallyDerivedProduct.BiologicallyDerivedProductStorageScale.NULL, new BiologicallyDerivedProduct.BiologicallyDerivedProductStorageScaleEnumFactory()));
+    if (json.has("_scale"))
+      parseElementProperties(json.getAsJsonObject("_scale"), res.getScaleElement());
+    if (json.has("duration"))
+      res.setDuration(parsePeriod(json.getAsJsonObject("duration")));
+  }
+
   protected BodyStructure parseBodyStructure(JsonObject json) throws IOException, FHIRFormatError {
     BodyStructure res = new BodyStructure();
     parseBodyStructureProperties(json, res);
@@ -3380,6 +3684,10 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
     if (json.has("definition"))
       res.setDefinition(parseReference(json.getAsJsonObject("definition")));
+    if (json.has("documentation"))
+      res.setDocumentationElement(parseMarkdown(json.get("documentation").getAsString()));
+    if (json.has("_documentation"))
+      parseElementProperties(json.getAsJsonObject("_documentation"), res.getDocumentationElement());
   }
 
   protected CapabilityStatement.SystemInteractionComponent parseCapabilityStatementSystemInteractionComponent(JsonObject json, CapabilityStatement owner) throws IOException, FHIRFormatError {
@@ -8427,7 +8735,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("classification")) {
       JsonArray array = json.getAsJsonArray("classification");
       for (int i = 0; i < array.size(); i++) {
-        res.getClassification().add(parseIdentifier(array.get(i).getAsJsonObject()));
+        res.getClassification().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("status"))
@@ -12136,6 +12444,52 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_amount"), res.getAmountElement());
   }
 
+  protected ItemInstance parseItemInstance(JsonObject json) throws IOException, FHIRFormatError {
+    ItemInstance res = new ItemInstance();
+    parseItemInstanceProperties(json, res);
+    return res;
+  }
+
+  protected void parseItemInstanceProperties(JsonObject json, ItemInstance res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("count"))
+      res.setCountElement(parseInteger(json.get("count").getAsLong()));
+    if (json.has("_count"))
+      parseElementProperties(json.getAsJsonObject("_count"), res.getCountElement());
+    if (json.has("location"))
+      res.setLocation(parseReference(json.getAsJsonObject("location")));
+    if (json.has("subject"))
+      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("manufactureDate"))
+      res.setManufactureDateElement(parseDateTime(json.get("manufactureDate").getAsString()));
+    if (json.has("_manufactureDate"))
+      parseElementProperties(json.getAsJsonObject("_manufactureDate"), res.getManufactureDateElement());
+    if (json.has("expiryDate"))
+      res.setExpiryDateElement(parseDateTime(json.get("expiryDate").getAsString()));
+    if (json.has("_expiryDate"))
+      parseElementProperties(json.getAsJsonObject("_expiryDate"), res.getExpiryDateElement());
+    if (json.has("currentSWVersion"))
+      res.setCurrentSWVersionElement(parseString(json.get("currentSWVersion").getAsString()));
+    if (json.has("_currentSWVersion"))
+      parseElementProperties(json.getAsJsonObject("_currentSWVersion"), res.getCurrentSWVersionElement());
+    if (json.has("lotNumber"))
+      res.setLotNumberElement(parseString(json.get("lotNumber").getAsString()));
+    if (json.has("_lotNumber"))
+      parseElementProperties(json.getAsJsonObject("_lotNumber"), res.getLotNumberElement());
+    if (json.has("serialNumber"))
+      res.setSerialNumberElement(parseString(json.get("serialNumber").getAsString()));
+    if (json.has("_serialNumber"))
+      parseElementProperties(json.getAsJsonObject("_serialNumber"), res.getSerialNumberElement());
+    if (json.has("carrierAIDC"))
+      res.setCarrierAIDCElement(parseString(json.get("carrierAIDC").getAsString()));
+    if (json.has("_carrierAIDC"))
+      parseElementProperties(json.getAsJsonObject("_carrierAIDC"), res.getCarrierAIDCElement());
+    if (json.has("carrierHRF"))
+      res.setCarrierHRFElement(parseString(json.get("carrierHRF").getAsString()));
+    if (json.has("_carrierHRF"))
+      parseElementProperties(json.getAsJsonObject("_carrierHRF"), res.getCarrierHRFElement());
+  }
+
   protected Library parseLibrary(JsonObject json) throws IOException, FHIRFormatError {
     Library res = new Library();
     parseLibraryProperties(json, res);
@@ -13661,6 +14015,918 @@ public class JsonParser extends JsonParserBase {
     };
   }
 
+  protected MedicinalProduct parseMedicinalProduct(JsonObject json) throws IOException, FHIRFormatError {
+    MedicinalProduct res = new MedicinalProduct();
+    parseMedicinalProductProperties(json, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductProperties(JsonObject json, MedicinalProduct res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("combinedPharmaceuticalDoseForm"))
+      res.setCombinedPharmaceuticalDoseForm(parseCodeableConcept(json.getAsJsonObject("combinedPharmaceuticalDoseForm")));
+    if (json.has("additionalMonitoringIndicator"))
+      res.setAdditionalMonitoringIndicator(parseCodeableConcept(json.getAsJsonObject("additionalMonitoringIndicator")));
+    if (json.has("specialMeasures")) {
+      JsonArray array = json.getAsJsonArray("specialMeasures");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSpecialMeasures().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_specialMeasures")) {
+      JsonArray array = json.getAsJsonArray("_specialMeasures");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getSpecialMeasures().size())
+          res.getSpecialMeasures().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getSpecialMeasures().get(i));
+      }
+    };
+    if (json.has("paediatricUseIndicator"))
+      res.setPaediatricUseIndicator(parseCodeableConcept(json.getAsJsonObject("paediatricUseIndicator")));
+    if (json.has("orphanDesignationStatus"))
+      res.setOrphanDesignationStatus(parseCodeableConcept(json.getAsJsonObject("orphanDesignationStatus")));
+    if (json.has("productClassification")) {
+      JsonArray array = json.getAsJsonArray("productClassification");
+      for (int i = 0; i < array.size(); i++) {
+        res.getProductClassification().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("marketingAuthorization"))
+      res.setMarketingAuthorization(parseReference(json.getAsJsonObject("marketingAuthorization")));
+    if (json.has("packagedMedicinalProduct")) {
+      JsonArray array = json.getAsJsonArray("packagedMedicinalProduct");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPackagedMedicinalProduct().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("pharmaceuticalProduct")) {
+      JsonArray array = json.getAsJsonArray("pharmaceuticalProduct");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPharmaceuticalProduct().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("clinicalParticulars")) {
+      JsonArray array = json.getAsJsonArray("clinicalParticulars");
+      for (int i = 0; i < array.size(); i++) {
+        res.getClinicalParticulars().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("attachedDocument")) {
+      JsonArray array = json.getAsJsonArray("attachedDocument");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAttachedDocument().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("masterFile")) {
+      JsonArray array = json.getAsJsonArray("masterFile");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMasterFile().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("name")) {
+      JsonArray array = json.getAsJsonArray("name");
+      for (int i = 0; i < array.size(); i++) {
+        res.getName().add(parseMedicinalProductMedicinalProductNameComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("crossReference")) {
+      JsonArray array = json.getAsJsonArray("crossReference");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCrossReference().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("manufacturingBusinessOperation")) {
+      JsonArray array = json.getAsJsonArray("manufacturingBusinessOperation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getManufacturingBusinessOperation().add(parseMedicinalProductMedicinalProductManufacturingBusinessOperationComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected MedicinalProduct.MedicinalProductNameComponent parseMedicinalProductMedicinalProductNameComponent(JsonObject json, MedicinalProduct owner) throws IOException, FHIRFormatError {
+    MedicinalProduct.MedicinalProductNameComponent res = new MedicinalProduct.MedicinalProductNameComponent();
+    parseMedicinalProductMedicinalProductNameComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductMedicinalProductNameComponentProperties(JsonObject json, MedicinalProduct owner, MedicinalProduct.MedicinalProductNameComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("fullName"))
+      res.setFullNameElement(parseString(json.get("fullName").getAsString()));
+    if (json.has("_fullName"))
+      parseElementProperties(json.getAsJsonObject("_fullName"), res.getFullNameElement());
+    if (json.has("namePart")) {
+      JsonArray array = json.getAsJsonArray("namePart");
+      for (int i = 0; i < array.size(); i++) {
+        res.getNamePart().add(parseMedicinalProductMedicinalProductNameNamePartComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("countryLanguage")) {
+      JsonArray array = json.getAsJsonArray("countryLanguage");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCountryLanguage().add(parseMedicinalProductMedicinalProductNameCountryLanguageComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected MedicinalProduct.MedicinalProductNameNamePartComponent parseMedicinalProductMedicinalProductNameNamePartComponent(JsonObject json, MedicinalProduct owner) throws IOException, FHIRFormatError {
+    MedicinalProduct.MedicinalProductNameNamePartComponent res = new MedicinalProduct.MedicinalProductNameNamePartComponent();
+    parseMedicinalProductMedicinalProductNameNamePartComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductMedicinalProductNameNamePartComponentProperties(JsonObject json, MedicinalProduct owner, MedicinalProduct.MedicinalProductNameNamePartComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("part"))
+      res.setPartElement(parseString(json.get("part").getAsString()));
+    if (json.has("_part"))
+      parseElementProperties(json.getAsJsonObject("_part"), res.getPartElement());
+    if (json.has("type"))
+      res.setType(parseCoding(json.getAsJsonObject("type")));
+  }
+
+  protected MedicinalProduct.MedicinalProductNameCountryLanguageComponent parseMedicinalProductMedicinalProductNameCountryLanguageComponent(JsonObject json, MedicinalProduct owner) throws IOException, FHIRFormatError {
+    MedicinalProduct.MedicinalProductNameCountryLanguageComponent res = new MedicinalProduct.MedicinalProductNameCountryLanguageComponent();
+    parseMedicinalProductMedicinalProductNameCountryLanguageComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductMedicinalProductNameCountryLanguageComponentProperties(JsonObject json, MedicinalProduct owner, MedicinalProduct.MedicinalProductNameCountryLanguageComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("country"))
+      res.setCountry(parseCodeableConcept(json.getAsJsonObject("country")));
+    if (json.has("jurisdiction"))
+      res.setJurisdiction(parseCodeableConcept(json.getAsJsonObject("jurisdiction")));
+    if (json.has("language"))
+      res.setLanguage(parseCodeableConcept(json.getAsJsonObject("language")));
+  }
+
+  protected MedicinalProduct.MedicinalProductManufacturingBusinessOperationComponent parseMedicinalProductMedicinalProductManufacturingBusinessOperationComponent(JsonObject json, MedicinalProduct owner) throws IOException, FHIRFormatError {
+    MedicinalProduct.MedicinalProductManufacturingBusinessOperationComponent res = new MedicinalProduct.MedicinalProductManufacturingBusinessOperationComponent();
+    parseMedicinalProductMedicinalProductManufacturingBusinessOperationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductMedicinalProductManufacturingBusinessOperationComponentProperties(JsonObject json, MedicinalProduct owner, MedicinalProduct.MedicinalProductManufacturingBusinessOperationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("operationType"))
+      res.setOperationType(parseCodeableConcept(json.getAsJsonObject("operationType")));
+    if (json.has("authorisationReferenceNumber"))
+      res.setAuthorisationReferenceNumber(parseIdentifier(json.getAsJsonObject("authorisationReferenceNumber")));
+    if (json.has("effectiveDate"))
+      res.setEffectiveDateElement(parseDateTime(json.get("effectiveDate").getAsString()));
+    if (json.has("_effectiveDate"))
+      parseElementProperties(json.getAsJsonObject("_effectiveDate"), res.getEffectiveDateElement());
+    if (json.has("confidentialityIndicator"))
+      res.setConfidentialityIndicator(parseCodeableConcept(json.getAsJsonObject("confidentialityIndicator")));
+    if (json.has("manufacturer")) {
+      JsonArray array = json.getAsJsonArray("manufacturer");
+      for (int i = 0; i < array.size(); i++) {
+        res.getManufacturer().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("regulator"))
+      res.setRegulator(parseReference(json.getAsJsonObject("regulator")));
+  }
+
+  protected MedicinalProductAuthorization parseMedicinalProductAuthorization(JsonObject json) throws IOException, FHIRFormatError {
+    MedicinalProductAuthorization res = new MedicinalProductAuthorization();
+    parseMedicinalProductAuthorizationProperties(json, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductAuthorizationProperties(JsonObject json, MedicinalProductAuthorization res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("country")) {
+      JsonArray array = json.getAsJsonArray("country");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCountry().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("legalStatusOfSupply"))
+      res.setLegalStatusOfSupply(parseCodeableConcept(json.getAsJsonObject("legalStatusOfSupply")));
+    if (json.has("status"))
+      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+    if (json.has("statusDate"))
+      res.setStatusDateElement(parseDateTime(json.get("statusDate").getAsString()));
+    if (json.has("_statusDate"))
+      parseElementProperties(json.getAsJsonObject("_statusDate"), res.getStatusDateElement());
+    if (json.has("restoreDate"))
+      res.setRestoreDateElement(parseDateTime(json.get("restoreDate").getAsString()));
+    if (json.has("_restoreDate"))
+      parseElementProperties(json.getAsJsonObject("_restoreDate"), res.getRestoreDateElement());
+    if (json.has("validityPeriod"))
+      res.setValidityPeriod(parsePeriod(json.getAsJsonObject("validityPeriod")));
+    if (json.has("dataExclusivityPeriod"))
+      res.setDataExclusivityPeriod(parsePeriod(json.getAsJsonObject("dataExclusivityPeriod")));
+    if (json.has("dateOfFirstAuthorization"))
+      res.setDateOfFirstAuthorizationElement(parseDateTime(json.get("dateOfFirstAuthorization").getAsString()));
+    if (json.has("_dateOfFirstAuthorization"))
+      parseElementProperties(json.getAsJsonObject("_dateOfFirstAuthorization"), res.getDateOfFirstAuthorizationElement());
+    if (json.has("internationalBirthDate"))
+      res.setInternationalBirthDateElement(parseDateTime(json.get("internationalBirthDate").getAsString()));
+    if (json.has("_internationalBirthDate"))
+      parseElementProperties(json.getAsJsonObject("_internationalBirthDate"), res.getInternationalBirthDateElement());
+    if (json.has("jurisdictionalAuthorization")) {
+      JsonArray array = json.getAsJsonArray("jurisdictionalAuthorization");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdictionalAuthorization().add(parseMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("holder"))
+      res.setHolder(parseReference(json.getAsJsonObject("holder")));
+    if (json.has("regulator"))
+      res.setRegulator(parseReference(json.getAsJsonObject("regulator")));
+    if (json.has("procedure"))
+      res.setProcedure(parseMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponent(json.getAsJsonObject("procedure"), res));
+    if (json.has("marketingStatus")) {
+      JsonArray array = json.getAsJsonArray("marketingStatus");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMarketingStatus().add(parseMarketingStatus(array.get(i).getAsJsonObject()));
+      }
+    };
+  }
+
+  protected MedicinalProductAuthorization.MedicinalProductAuthorizationJurisdictionalAuthorizationComponent parseMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponent(JsonObject json, MedicinalProductAuthorization owner) throws IOException, FHIRFormatError {
+    MedicinalProductAuthorization.MedicinalProductAuthorizationJurisdictionalAuthorizationComponent res = new MedicinalProductAuthorization.MedicinalProductAuthorizationJurisdictionalAuthorizationComponent();
+    parseMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponentProperties(JsonObject json, MedicinalProductAuthorization owner, MedicinalProductAuthorization.MedicinalProductAuthorizationJurisdictionalAuthorizationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("country"))
+      res.setCountry(parseCodeableConcept(json.getAsJsonObject("country")));
+    if (json.has("jurisdiction"))
+      res.setJurisdiction(parseCodeableConcept(json.getAsJsonObject("jurisdiction")));
+    if (json.has("number"))
+      res.setNumber(parseIdentifier(json.getAsJsonObject("number")));
+    if (json.has("legalStatusOfSupply"))
+      res.setLegalStatusOfSupply(parseCodeableConcept(json.getAsJsonObject("legalStatusOfSupply")));
+  }
+
+  protected MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureComponent parseMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponent(JsonObject json, MedicinalProductAuthorization owner) throws IOException, FHIRFormatError {
+    MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureComponent res = new MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureComponent();
+    parseMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponentProperties(JsonObject json, MedicinalProductAuthorization owner, MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("number"))
+      res.setNumber(parseIdentifier(json.getAsJsonObject("number")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("date"))
+      res.setDate(parsePeriod(json.getAsJsonObject("date")));
+    if (json.has("application")) {
+      JsonArray array = json.getAsJsonArray("application");
+      for (int i = 0; i < array.size(); i++) {
+        res.getApplication().add(parseMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureApplicationComponent parseMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponent(JsonObject json, MedicinalProductAuthorization owner) throws IOException, FHIRFormatError {
+    MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureApplicationComponent res = new MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureApplicationComponent();
+    parseMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponentProperties(JsonObject json, MedicinalProductAuthorization owner, MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureApplicationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("number"))
+      res.setNumber(parseIdentifier(json.getAsJsonObject("number")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
+  }
+
+  protected MedicinalProductClinicals parseMedicinalProductClinicals(JsonObject json) throws IOException, FHIRFormatError {
+    MedicinalProductClinicals res = new MedicinalProductClinicals();
+    parseMedicinalProductClinicalsProperties(json, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductClinicalsProperties(JsonObject json, MedicinalProductClinicals res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("undesirableEffects")) {
+      JsonArray array = json.getAsJsonArray("undesirableEffects");
+      for (int i = 0; i < array.size(); i++) {
+        res.getUndesirableEffects().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("therapeuticIndication")) {
+      JsonArray array = json.getAsJsonArray("therapeuticIndication");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTherapeuticIndication().add(parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("contraindication")) {
+      JsonArray array = json.getAsJsonArray("contraindication");
+      for (int i = 0; i < array.size(); i++) {
+        res.getContraindication().add(parseMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("interactions")) {
+      JsonArray array = json.getAsJsonArray("interactions");
+      for (int i = 0; i < array.size(); i++) {
+        res.getInteractions().add(parseMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
+    MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent();
+    parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("symptomConditionEffect"))
+      res.setSymptomConditionEffect(parseCodeableConcept(json.getAsJsonObject("symptomConditionEffect")));
+    if (json.has("classification"))
+      res.setClassification(parseCodeableConcept(json.getAsJsonObject("classification")));
+    if (json.has("frequencyOfOccurrence"))
+      res.setFrequencyOfOccurrence(parseCodeableConcept(json.getAsJsonObject("frequencyOfOccurrence")));
+    if (json.has("population")) {
+      JsonArray array = json.getAsJsonArray("population");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPopulation().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
+    MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent();
+    parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    Type age = parseType("age", json);
+    if (age != null)
+      res.setAge(age);
+    if (json.has("gender"))
+      res.setGender(parseCodeableConcept(json.getAsJsonObject("gender")));
+    if (json.has("race"))
+      res.setRace(parseCodeableConcept(json.getAsJsonObject("race")));
+    if (json.has("physiologicalCondition"))
+      res.setPhysiologicalCondition(parseCodeableConcept(json.getAsJsonObject("physiologicalCondition")));
+  }
+
+  protected MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
+    MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent();
+    parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("diseaseSymptomProcedure"))
+      res.setDiseaseSymptomProcedure(parseCodeableConcept(json.getAsJsonObject("diseaseSymptomProcedure")));
+    if (json.has("diseaseStatus"))
+      res.setDiseaseStatus(parseCodeableConcept(json.getAsJsonObject("diseaseStatus")));
+    if (json.has("comorbidity")) {
+      JsonArray array = json.getAsJsonArray("comorbidity");
+      for (int i = 0; i < array.size(); i++) {
+        res.getComorbidity().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("intendedEffect"))
+      res.setIntendedEffect(parseCodeableConcept(json.getAsJsonObject("intendedEffect")));
+    if (json.has("duration"))
+      res.setDuration(parseQuantity(json.getAsJsonObject("duration")));
+    if (json.has("undesirableEffects")) {
+      JsonArray array = json.getAsJsonArray("undesirableEffects");
+      for (int i = 0; i < array.size(); i++) {
+        res.getUndesirableEffects().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("otherTherapy")) {
+      JsonArray array = json.getAsJsonArray("otherTherapy");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOtherTherapy().add(parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("population")) {
+      JsonArray array = json.getAsJsonArray("population");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPopulation().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
+    MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent();
+    parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("therapyRelationshipType"))
+      res.setTherapyRelationshipType(parseCodeableConcept(json.getAsJsonObject("therapyRelationshipType")));
+    Type medication = parseType("medication", json);
+    if (medication != null)
+      res.setMedication(medication);
+  }
+
+  protected MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent parseMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
+    MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent();
+    parseMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("disease"))
+      res.setDisease(parseCodeableConcept(json.getAsJsonObject("disease")));
+    if (json.has("diseaseStatus"))
+      res.setDiseaseStatus(parseCodeableConcept(json.getAsJsonObject("diseaseStatus")));
+    if (json.has("comorbidity")) {
+      JsonArray array = json.getAsJsonArray("comorbidity");
+      for (int i = 0; i < array.size(); i++) {
+        res.getComorbidity().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("therapeuticIndication")) {
+      JsonArray array = json.getAsJsonArray("therapeuticIndication");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTherapeuticIndication().add(parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("otherTherapy")) {
+      JsonArray array = json.getAsJsonArray("otherTherapy");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOtherTherapy().add(parseMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("population")) {
+      JsonArray array = json.getAsJsonArray("population");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPopulation().add(parseMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent parseMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(JsonObject json, MedicinalProductClinicals owner) throws IOException, FHIRFormatError {
+    MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent res = new MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent();
+    parseMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponentProperties(JsonObject json, MedicinalProductClinicals owner, MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("interactant")) {
+      JsonArray array = json.getAsJsonArray("interactant");
+      for (int i = 0; i < array.size(); i++) {
+        res.getInteractant().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("effect"))
+      res.setEffect(parseCodeableConcept(json.getAsJsonObject("effect")));
+    if (json.has("incidence"))
+      res.setIncidence(parseCodeableConcept(json.getAsJsonObject("incidence")));
+    if (json.has("management"))
+      res.setManagement(parseCodeableConcept(json.getAsJsonObject("management")));
+  }
+
+  protected MedicinalProductDeviceSpec parseMedicinalProductDeviceSpec(JsonObject json) throws IOException, FHIRFormatError {
+    MedicinalProductDeviceSpec res = new MedicinalProductDeviceSpec();
+    parseMedicinalProductDeviceSpecProperties(json, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductDeviceSpecProperties(JsonObject json, MedicinalProductDeviceSpec res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("tradeName"))
+      res.setTradeNameElement(parseString(json.get("tradeName").getAsString()));
+    if (json.has("_tradeName"))
+      parseElementProperties(json.getAsJsonObject("_tradeName"), res.getTradeNameElement());
+    if (json.has("quantity"))
+      res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
+    if (json.has("listingNumber"))
+      res.setListingNumberElement(parseString(json.get("listingNumber").getAsString()));
+    if (json.has("_listingNumber"))
+      parseElementProperties(json.getAsJsonObject("_listingNumber"), res.getListingNumberElement());
+    if (json.has("modelNumber"))
+      res.setModelNumberElement(parseString(json.get("modelNumber").getAsString()));
+    if (json.has("_modelNumber"))
+      parseElementProperties(json.getAsJsonObject("_modelNumber"), res.getModelNumberElement());
+    if (json.has("sterilityIndicator"))
+      res.setSterilityIndicator(parseCodeableConcept(json.getAsJsonObject("sterilityIndicator")));
+    if (json.has("sterilisationRequirement"))
+      res.setSterilisationRequirement(parseCodeableConcept(json.getAsJsonObject("sterilisationRequirement")));
+    if (json.has("usage"))
+      res.setUsage(parseCodeableConcept(json.getAsJsonObject("usage")));
+    if (json.has("nomenclature")) {
+      JsonArray array = json.getAsJsonArray("nomenclature");
+      for (int i = 0; i < array.size(); i++) {
+        res.getNomenclature().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("shelfLife")) {
+      JsonArray array = json.getAsJsonArray("shelfLife");
+      for (int i = 0; i < array.size(); i++) {
+        res.getShelfLife().add(parseProductShelfLife(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("physicalCharacteristics"))
+      res.setPhysicalCharacteristics(parseProdCharacteristic(json.getAsJsonObject("physicalCharacteristics")));
+    if (json.has("otherCharacteristics")) {
+      JsonArray array = json.getAsJsonArray("otherCharacteristics");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOtherCharacteristics().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("batchIdentifier")) {
+      JsonArray array = json.getAsJsonArray("batchIdentifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getBatchIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("manufacturer")) {
+      JsonArray array = json.getAsJsonArray("manufacturer");
+      for (int i = 0; i < array.size(); i++) {
+        res.getManufacturer().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("material")) {
+      JsonArray array = json.getAsJsonArray("material");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMaterial().add(parseMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent parseMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(JsonObject json, MedicinalProductDeviceSpec owner) throws IOException, FHIRFormatError {
+    MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent res = new MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent();
+    parseMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponentProperties(JsonObject json, MedicinalProductDeviceSpec owner, MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("substance"))
+      res.setSubstance(parseCodeableConcept(json.getAsJsonObject("substance")));
+    if (json.has("alternate"))
+      res.setAlternateElement(parseBoolean(json.get("alternate").getAsBoolean()));
+    if (json.has("_alternate"))
+      parseElementProperties(json.getAsJsonObject("_alternate"), res.getAlternateElement());
+    if (json.has("allergenicIndicator"))
+      res.setAllergenicIndicatorElement(parseBoolean(json.get("allergenicIndicator").getAsBoolean()));
+    if (json.has("_allergenicIndicator"))
+      parseElementProperties(json.getAsJsonObject("_allergenicIndicator"), res.getAllergenicIndicatorElement());
+  }
+
+  protected MedicinalProductIngredient parseMedicinalProductIngredient(JsonObject json) throws IOException, FHIRFormatError {
+    MedicinalProductIngredient res = new MedicinalProductIngredient();
+    parseMedicinalProductIngredientProperties(json, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductIngredientProperties(JsonObject json, MedicinalProductIngredient res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("role"))
+      res.setRole(parseCodeableConcept(json.getAsJsonObject("role")));
+    if (json.has("allergenicIndicator"))
+      res.setAllergenicIndicatorElement(parseBoolean(json.get("allergenicIndicator").getAsBoolean()));
+    if (json.has("_allergenicIndicator"))
+      parseElementProperties(json.getAsJsonObject("_allergenicIndicator"), res.getAllergenicIndicatorElement());
+    if (json.has("manufacturer")) {
+      JsonArray array = json.getAsJsonArray("manufacturer");
+      for (int i = 0; i < array.size(); i++) {
+        res.getManufacturer().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("specifiedSubstance")) {
+      JsonArray array = json.getAsJsonArray("specifiedSubstance");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSpecifiedSubstance().add(parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("substance"))
+      res.setSubstance(parseMedicinalProductIngredientMedicinalProductIngredientSubstanceComponent(json.getAsJsonObject("substance"), res));
+  }
+
+  protected MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceComponent parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponent(JsonObject json, MedicinalProductIngredient owner) throws IOException, FHIRFormatError {
+    MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceComponent res = new MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceComponent();
+    parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponentProperties(JsonObject json, MedicinalProductIngredient owner, MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("group"))
+      res.setGroup(parseCodeableConcept(json.getAsJsonObject("group")));
+    if (json.has("confidentiality"))
+      res.setConfidentiality(parseCodeableConcept(json.getAsJsonObject("confidentiality")));
+    if (json.has("strength")) {
+      JsonArray array = json.getAsJsonArray("strength");
+      for (int i = 0; i < array.size(); i++) {
+        res.getStrength().add(parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthComponent parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponent(JsonObject json, MedicinalProductIngredient owner) throws IOException, FHIRFormatError {
+    MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthComponent res = new MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthComponent();
+    parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponentProperties(JsonObject json, MedicinalProductIngredient owner, MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("presentation"))
+      res.setPresentation(parseRatio(json.getAsJsonObject("presentation")));
+    if (json.has("concentration"))
+      res.setConcentration(parseRatio(json.getAsJsonObject("concentration")));
+    if (json.has("measurementPoint"))
+      res.setMeasurementPointElement(parseString(json.get("measurementPoint").getAsString()));
+    if (json.has("_measurementPoint"))
+      parseElementProperties(json.getAsJsonObject("_measurementPoint"), res.getMeasurementPointElement());
+    if (json.has("country")) {
+      JsonArray array = json.getAsJsonArray("country");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCountry().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("referenceStrength")) {
+      JsonArray array = json.getAsJsonArray("referenceStrength");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReferenceStrength().add(parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent(JsonObject json, MedicinalProductIngredient owner) throws IOException, FHIRFormatError {
+    MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent res = new MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent();
+    parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponentProperties(JsonObject json, MedicinalProductIngredient owner, MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("substance"))
+      res.setSubstance(parseCodeableConcept(json.getAsJsonObject("substance")));
+  }
+
+  protected MedicinalProductIngredient.MedicinalProductIngredientSubstanceComponent parseMedicinalProductIngredientMedicinalProductIngredientSubstanceComponent(JsonObject json, MedicinalProductIngredient owner) throws IOException, FHIRFormatError {
+    MedicinalProductIngredient.MedicinalProductIngredientSubstanceComponent res = new MedicinalProductIngredient.MedicinalProductIngredientSubstanceComponent();
+    parseMedicinalProductIngredientMedicinalProductIngredientSubstanceComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductIngredientMedicinalProductIngredientSubstanceComponentProperties(JsonObject json, MedicinalProductIngredient owner, MedicinalProductIngredient.MedicinalProductIngredientSubstanceComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("strength")) {
+      JsonArray array = json.getAsJsonArray("strength");
+      for (int i = 0; i < array.size(); i++) {
+        res.getStrength().add(parseMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected MedicinalProductPackaged parseMedicinalProductPackaged(JsonObject json) throws IOException, FHIRFormatError {
+    MedicinalProductPackaged res = new MedicinalProductPackaged();
+    parseMedicinalProductPackagedProperties(json, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductPackagedProperties(JsonObject json, MedicinalProductPackaged res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("description"))
+      res.setDescriptionElement(parseString(json.get("description").getAsString()));
+    if (json.has("_description"))
+      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("marketingStatus")) {
+      JsonArray array = json.getAsJsonArray("marketingStatus");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMarketingStatus().add(parseMarketingStatus(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("batchIdentifier")) {
+      JsonArray array = json.getAsJsonArray("batchIdentifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getBatchIdentifier().add(parseMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("packageItem")) {
+      JsonArray array = json.getAsJsonArray("packageItem");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPackageItem().add(parseMedicinalProductPackagedMedicinalProductPackagedPackageItemComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected MedicinalProductPackaged.MedicinalProductPackagedBatchIdentifierComponent parseMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponent(JsonObject json, MedicinalProductPackaged owner) throws IOException, FHIRFormatError {
+    MedicinalProductPackaged.MedicinalProductPackagedBatchIdentifierComponent res = new MedicinalProductPackaged.MedicinalProductPackagedBatchIdentifierComponent();
+    parseMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponentProperties(JsonObject json, MedicinalProductPackaged owner, MedicinalProductPackaged.MedicinalProductPackagedBatchIdentifierComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("outerPackaging"))
+      res.setOuterPackaging(parseIdentifier(json.getAsJsonObject("outerPackaging")));
+    if (json.has("immediatePackaging"))
+      res.setImmediatePackaging(parseIdentifier(json.getAsJsonObject("immediatePackaging")));
+  }
+
+  protected MedicinalProductPackaged.MedicinalProductPackagedPackageItemComponent parseMedicinalProductPackagedMedicinalProductPackagedPackageItemComponent(JsonObject json, MedicinalProductPackaged owner) throws IOException, FHIRFormatError {
+    MedicinalProductPackaged.MedicinalProductPackagedPackageItemComponent res = new MedicinalProductPackaged.MedicinalProductPackagedPackageItemComponent();
+    parseMedicinalProductPackagedMedicinalProductPackagedPackageItemComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductPackagedMedicinalProductPackagedPackageItemComponentProperties(JsonObject json, MedicinalProductPackaged owner, MedicinalProductPackaged.MedicinalProductPackagedPackageItemComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("quantity"))
+      res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
+    if (json.has("material")) {
+      JsonArray array = json.getAsJsonArray("material");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMaterial().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("alternateMaterial")) {
+      JsonArray array = json.getAsJsonArray("alternateMaterial");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAlternateMaterial().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("manufacturer")) {
+      JsonArray array = json.getAsJsonArray("manufacturer");
+      for (int i = 0; i < array.size(); i++) {
+        res.getManufacturer().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("device")) {
+      JsonArray array = json.getAsJsonArray("device");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDevice().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("manufacturedItem")) {
+      JsonArray array = json.getAsJsonArray("manufacturedItem");
+      for (int i = 0; i < array.size(); i++) {
+        res.getManufacturedItem().add(parseMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("otherCharacteristics")) {
+      JsonArray array = json.getAsJsonArray("otherCharacteristics");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOtherCharacteristics().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("packageItem")) {
+      JsonArray array = json.getAsJsonArray("packageItem");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPackageItem().add(parseMedicinalProductPackagedMedicinalProductPackagedPackageItemComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("physicalCharacteristics"))
+      res.setPhysicalCharacteristics(parseProdCharacteristic(json.getAsJsonObject("physicalCharacteristics")));
+    if (json.has("shelfLifeStorage")) {
+      JsonArray array = json.getAsJsonArray("shelfLifeStorage");
+      for (int i = 0; i < array.size(); i++) {
+        res.getShelfLifeStorage().add(parseProductShelfLife(array.get(i).getAsJsonObject()));
+      }
+    };
+  }
+
+  protected MedicinalProductPackaged.MedicinalProductPackagedPackageItemManufacturedItemComponent parseMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponent(JsonObject json, MedicinalProductPackaged owner) throws IOException, FHIRFormatError {
+    MedicinalProductPackaged.MedicinalProductPackagedPackageItemManufacturedItemComponent res = new MedicinalProductPackaged.MedicinalProductPackagedPackageItemManufacturedItemComponent();
+    parseMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponentProperties(JsonObject json, MedicinalProductPackaged owner, MedicinalProductPackaged.MedicinalProductPackagedPackageItemManufacturedItemComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("manufacturedDoseForm"))
+      res.setManufacturedDoseForm(parseCodeableConcept(json.getAsJsonObject("manufacturedDoseForm")));
+    if (json.has("unitOfPresentation"))
+      res.setUnitOfPresentation(parseCodeableConcept(json.getAsJsonObject("unitOfPresentation")));
+    if (json.has("quantity"))
+      res.setQuantity(parseQuantity(json.getAsJsonObject("quantity")));
+    if (json.has("xManufacturer")) {
+      JsonArray array = json.getAsJsonArray("xManufacturer");
+      for (int i = 0; i < array.size(); i++) {
+        res.getXManufacturer().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("ingredient")) {
+      JsonArray array = json.getAsJsonArray("ingredient");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIngredient().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("physicalCharacteristics"))
+      res.setPhysicalCharacteristics(parseProdCharacteristic(json.getAsJsonObject("physicalCharacteristics")));
+  }
+
+  protected MedicinalProductPharmaceutical parseMedicinalProductPharmaceutical(JsonObject json) throws IOException, FHIRFormatError {
+    MedicinalProductPharmaceutical res = new MedicinalProductPharmaceutical();
+    parseMedicinalProductPharmaceuticalProperties(json, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductPharmaceuticalProperties(JsonObject json, MedicinalProductPharmaceutical res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("administrableDoseForm"))
+      res.setAdministrableDoseForm(parseCodeableConcept(json.getAsJsonObject("administrableDoseForm")));
+    if (json.has("unitOfPresentation"))
+      res.setUnitOfPresentation(parseCodeableConcept(json.getAsJsonObject("unitOfPresentation")));
+    if (json.has("routeOfAdministration")) {
+      JsonArray array = json.getAsJsonArray("routeOfAdministration");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRouteOfAdministration().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("ingredient")) {
+      JsonArray array = json.getAsJsonArray("ingredient");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIngredient().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("device")) {
+      JsonArray array = json.getAsJsonArray("device");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDevice().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_device")) {
+      JsonArray array = json.getAsJsonArray("_device");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getDevice().size())
+          res.getDevice().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getDevice().get(i));
+      }
+    };
+    if (json.has("characteristics")) {
+      JsonArray array = json.getAsJsonArray("characteristics");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCharacteristics().add(parseMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected MedicinalProductPharmaceutical.MedicinalProductPharmaceuticalCharacteristicsComponent parseMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponent(JsonObject json, MedicinalProductPharmaceutical owner) throws IOException, FHIRFormatError {
+    MedicinalProductPharmaceutical.MedicinalProductPharmaceuticalCharacteristicsComponent res = new MedicinalProductPharmaceutical.MedicinalProductPharmaceuticalCharacteristicsComponent();
+    parseMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponentProperties(JsonObject json, MedicinalProductPharmaceutical owner, MedicinalProductPharmaceutical.MedicinalProductPharmaceuticalCharacteristicsComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("status"))
+      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+  }
+
   protected MessageDefinition parseMessageDefinition(JsonObject json) throws IOException, FHIRFormatError {
     MessageDefinition res = new MessageDefinition();
     parseMessageDefinitionProperties(json, res);
@@ -14497,6 +15763,184 @@ public class JsonParser extends JsonParserBase {
       res.setConditionElement(parseString(json.get("condition").getAsString()));
     if (json.has("_condition"))
       parseElementProperties(json.getAsJsonObject("_condition"), res.getConditionElement());
+  }
+
+  protected OccupationalData parseOccupationalData(JsonObject json) throws IOException, FHIRFormatError {
+    OccupationalData res = new OccupationalData();
+    parseOccupationalDataProperties(json, res);
+    return res;
+  }
+
+  protected void parseOccupationalDataProperties(JsonObject json, OccupationalData res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("subject"))
+      res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
+    if (json.has("author")) {
+      JsonArray array = json.getAsJsonArray("author");
+      for (int i = 0; i < array.size(); i++) {
+        res.getAuthor().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("employmentStatus"))
+      res.setEmploymentStatus(parseOccupationalDataOccupationalDataEmploymentStatusComponent(json.getAsJsonObject("employmentStatus"), res));
+    if (json.has("retirementStatus"))
+      res.setRetirementStatus(parseOccupationalDataOccupationalDataRetirementStatusComponent(json.getAsJsonObject("retirementStatus"), res));
+    if (json.has("combatZoneHazardousDuty")) {
+      JsonArray array = json.getAsJsonArray("combatZoneHazardousDuty");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCombatZoneHazardousDuty().add(parseOccupationalDataOccupationalDataCombatZoneHazardousDutyComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("usualOccupation"))
+      res.setUsualOccupation(parseOccupationalDataOccupationalDataUsualOccupationComponent(json.getAsJsonObject("usualOccupation"), res));
+    if (json.has("pastOrPresentOccupation"))
+      res.setPastOrPresentOccupation(parseOccupationalDataOccupationalDataPastOrPresentOccupationComponent(json.getAsJsonObject("pastOrPresentOccupation"), res));
+  }
+
+  protected OccupationalData.OccupationalDataEmploymentStatusComponent parseOccupationalDataOccupationalDataEmploymentStatusComponent(JsonObject json, OccupationalData owner) throws IOException, FHIRFormatError {
+    OccupationalData.OccupationalDataEmploymentStatusComponent res = new OccupationalData.OccupationalDataEmploymentStatusComponent();
+    parseOccupationalDataOccupationalDataEmploymentStatusComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseOccupationalDataOccupationalDataEmploymentStatusComponentProperties(JsonObject json, OccupationalData owner, OccupationalData.OccupationalDataEmploymentStatusComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCodeElement(parseEnumeration(json.get("code").getAsString(), OccupationalData.HistoryOfEmploymentStatus.NULL, new OccupationalData.HistoryOfEmploymentStatusEnumFactory()));
+    if (json.has("_code"))
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
+    Type effective = parseType("effective", json);
+    if (effective != null)
+      res.setEffective(effective);
+    if (json.has("value"))
+      res.setValue(parseCodeableConcept(json.getAsJsonObject("value")));
+  }
+
+  protected OccupationalData.OccupationalDataRetirementStatusComponent parseOccupationalDataOccupationalDataRetirementStatusComponent(JsonObject json, OccupationalData owner) throws IOException, FHIRFormatError {
+    OccupationalData.OccupationalDataRetirementStatusComponent res = new OccupationalData.OccupationalDataRetirementStatusComponent();
+    parseOccupationalDataOccupationalDataRetirementStatusComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseOccupationalDataOccupationalDataRetirementStatusComponentProperties(JsonObject json, OccupationalData owner, OccupationalData.OccupationalDataRetirementStatusComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCodeElement(parseEnumeration(json.get("code").getAsString(), OccupationalData.RetirementStatus.NULL, new OccupationalData.RetirementStatusEnumFactory()));
+    if (json.has("_code"))
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
+    Type effective = parseType("effective", json);
+    if (effective != null)
+      res.setEffective(effective);
+    if (json.has("value"))
+      res.setValue(parseCodeableConcept(json.getAsJsonObject("value")));
+  }
+
+  protected OccupationalData.OccupationalDataCombatZoneHazardousDutyComponent parseOccupationalDataOccupationalDataCombatZoneHazardousDutyComponent(JsonObject json, OccupationalData owner) throws IOException, FHIRFormatError {
+    OccupationalData.OccupationalDataCombatZoneHazardousDutyComponent res = new OccupationalData.OccupationalDataCombatZoneHazardousDutyComponent();
+    parseOccupationalDataOccupationalDataCombatZoneHazardousDutyComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseOccupationalDataOccupationalDataCombatZoneHazardousDutyComponentProperties(JsonObject json, OccupationalData owner, OccupationalData.OccupationalDataCombatZoneHazardousDutyComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code")) {
+      JsonArray array = json.getAsJsonArray("code");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCode().add(parseEnumeration(array.get(i).getAsString(), OccupationalData.HazardousDutyWork.NULL, new OccupationalData.HazardousDutyWorkEnumFactory()));
+      }
+    };
+    if (json.has("_code")) {
+      JsonArray array = json.getAsJsonArray("_code");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getCode().size())
+          res.getCode().add(parseEnumeration(null, OccupationalData.HazardousDutyWork.NULL, new OccupationalData.HazardousDutyWorkEnumFactory()));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getCode().get(i));
+      }
+    };
+    Type effective = parseType("effective", json);
+    if (effective != null)
+      res.setEffective(effective);
+    if (json.has("value"))
+      res.setValue(parseCodeableConcept(json.getAsJsonObject("value")));
+  }
+
+  protected OccupationalData.OccupationalDataUsualOccupationComponent parseOccupationalDataOccupationalDataUsualOccupationComponent(JsonObject json, OccupationalData owner) throws IOException, FHIRFormatError {
+    OccupationalData.OccupationalDataUsualOccupationComponent res = new OccupationalData.OccupationalDataUsualOccupationComponent();
+    parseOccupationalDataOccupationalDataUsualOccupationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseOccupationalDataOccupationalDataUsualOccupationComponentProperties(JsonObject json, OccupationalData owner, OccupationalData.OccupationalDataUsualOccupationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCodeElement(parseEnumeration(json.get("code").getAsString(), OccupationalData.UsualOccupation.NULL, new OccupationalData.UsualOccupationEnumFactory()));
+    if (json.has("_code"))
+      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
+    Type effective = parseType("effective", json);
+    if (effective != null)
+      res.setEffective(effective);
+    if (json.has("value"))
+      res.setValue(parseCodeableConcept(json.getAsJsonObject("value")));
+    if (json.has("duration"))
+      res.setDuration(parseOccupationalDataOccupationalDataUsualOccupationDurationComponent(json.getAsJsonObject("duration"), owner));
+    if (json.has("industry"))
+      res.setIndustry(parseOccupationalDataOccupationalDataUsualOccupationIndustryComponent(json.getAsJsonObject("industry"), owner));
+  }
+
+  protected OccupationalData.OccupationalDataUsualOccupationDurationComponent parseOccupationalDataOccupationalDataUsualOccupationDurationComponent(JsonObject json, OccupationalData owner) throws IOException, FHIRFormatError {
+    OccupationalData.OccupationalDataUsualOccupationDurationComponent res = new OccupationalData.OccupationalDataUsualOccupationDurationComponent();
+    parseOccupationalDataOccupationalDataUsualOccupationDurationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseOccupationalDataOccupationalDataUsualOccupationDurationComponentProperties(JsonObject json, OccupationalData owner, OccupationalData.OccupationalDataUsualOccupationDurationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("value"))
+      res.setValue(parsePeriod(json.getAsJsonObject("value")));
+  }
+
+  protected OccupationalData.OccupationalDataUsualOccupationIndustryComponent parseOccupationalDataOccupationalDataUsualOccupationIndustryComponent(JsonObject json, OccupationalData owner) throws IOException, FHIRFormatError {
+    OccupationalData.OccupationalDataUsualOccupationIndustryComponent res = new OccupationalData.OccupationalDataUsualOccupationIndustryComponent();
+    parseOccupationalDataOccupationalDataUsualOccupationIndustryComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseOccupationalDataOccupationalDataUsualOccupationIndustryComponentProperties(JsonObject json, OccupationalData owner, OccupationalData.OccupationalDataUsualOccupationIndustryComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("value"))
+      res.setValue(parseCodeableConcept(json.getAsJsonObject("value")));
+  }
+
+  protected OccupationalData.OccupationalDataPastOrPresentOccupationComponent parseOccupationalDataOccupationalDataPastOrPresentOccupationComponent(JsonObject json, OccupationalData owner) throws IOException, FHIRFormatError {
+    OccupationalData.OccupationalDataPastOrPresentOccupationComponent res = new OccupationalData.OccupationalDataPastOrPresentOccupationComponent();
+    parseOccupationalDataOccupationalDataPastOrPresentOccupationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseOccupationalDataOccupationalDataPastOrPresentOccupationComponentProperties(JsonObject json, OccupationalData owner, OccupationalData.OccupationalDataPastOrPresentOccupationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    Type effective = parseType("effective", json);
+    if (effective != null)
+      res.setEffective(effective);
+    if (json.has("value"))
+      res.setValue(parseCodeableConcept(json.getAsJsonObject("value")));
   }
 
   protected OperationDefinition parseOperationDefinition(JsonObject json) throws IOException, FHIRFormatError {
@@ -16534,7 +17978,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
     if (json.has("benefitValue"))
-      res.setBenefitValue(parseMoney(json.getAsJsonObject("benefitValue")));
+      res.setBenefitValue(parseQuantity(json.getAsJsonObject("benefitValue")));
   }
 
   protected ProductPlan.ProductPlanPlanComponent parseProductPlanProductPlanPlanComponent(JsonObject json, ProductPlan owner) throws IOException, FHIRFormatError {
@@ -16629,7 +18073,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("value"))
-      res.setValue(parseMoney(json.getAsJsonObject("value")));
+      res.setValue(parseQuantity(json.getAsJsonObject("value")));
   }
 
   protected Provenance parseProvenance(JsonObject json) throws IOException, FHIRFormatError {
@@ -19647,6 +21091,699 @@ public class JsonParser extends JsonParserBase {
       res.setSubstance(substance);
   }
 
+  protected SubstancePolymer parseSubstancePolymer(JsonObject json) throws IOException, FHIRFormatError {
+    SubstancePolymer res = new SubstancePolymer();
+    parseSubstancePolymerProperties(json, res);
+    return res;
+  }
+
+  protected void parseSubstancePolymerProperties(JsonObject json, SubstancePolymer res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("class"))
+      res.setClass_(parseCodeableConcept(json.getAsJsonObject("class")));
+    if (json.has("geometry"))
+      res.setGeometry(parseCodeableConcept(json.getAsJsonObject("geometry")));
+    if (json.has("copolymerConnectivity")) {
+      JsonArray array = json.getAsJsonArray("copolymerConnectivity");
+      for (int i = 0; i < array.size(); i++) {
+        res.getCopolymerConnectivity().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("modification")) {
+      JsonArray array = json.getAsJsonArray("modification");
+      for (int i = 0; i < array.size(); i++) {
+        res.getModification().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_modification")) {
+      JsonArray array = json.getAsJsonArray("_modification");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getModification().size())
+          res.getModification().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getModification().get(i));
+      }
+    };
+    if (json.has("monomerSet")) {
+      JsonArray array = json.getAsJsonArray("monomerSet");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMonomerSet().add(parseSubstancePolymerSubstancePolymerMonomerSetComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("repeat")) {
+      JsonArray array = json.getAsJsonArray("repeat");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRepeat().add(parseSubstancePolymerSubstancePolymerRepeatComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected SubstancePolymer.SubstancePolymerMonomerSetComponent parseSubstancePolymerSubstancePolymerMonomerSetComponent(JsonObject json, SubstancePolymer owner) throws IOException, FHIRFormatError {
+    SubstancePolymer.SubstancePolymerMonomerSetComponent res = new SubstancePolymer.SubstancePolymerMonomerSetComponent();
+    parseSubstancePolymerSubstancePolymerMonomerSetComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstancePolymerSubstancePolymerMonomerSetComponentProperties(JsonObject json, SubstancePolymer owner, SubstancePolymer.SubstancePolymerMonomerSetComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("ratioType"))
+      res.setRatioType(parseCodeableConcept(json.getAsJsonObject("ratioType")));
+    if (json.has("startingMaterial")) {
+      JsonArray array = json.getAsJsonArray("startingMaterial");
+      for (int i = 0; i < array.size(); i++) {
+        res.getStartingMaterial().add(parseSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected SubstancePolymer.SubstancePolymerMonomerSetStartingMaterialComponent parseSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponent(JsonObject json, SubstancePolymer owner) throws IOException, FHIRFormatError {
+    SubstancePolymer.SubstancePolymerMonomerSetStartingMaterialComponent res = new SubstancePolymer.SubstancePolymerMonomerSetStartingMaterialComponent();
+    parseSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponentProperties(JsonObject json, SubstancePolymer owner, SubstancePolymer.SubstancePolymerMonomerSetStartingMaterialComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("material"))
+      res.setMaterial(parseCodeableConcept(json.getAsJsonObject("material")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("isDefining"))
+      res.setIsDefiningElement(parseBoolean(json.get("isDefining").getAsBoolean()));
+    if (json.has("_isDefining"))
+      parseElementProperties(json.getAsJsonObject("_isDefining"), res.getIsDefiningElement());
+    if (json.has("amount"))
+      res.setAmount(parseSubstanceAmount(json.getAsJsonObject("amount")));
+  }
+
+  protected SubstancePolymer.SubstancePolymerRepeatComponent parseSubstancePolymerSubstancePolymerRepeatComponent(JsonObject json, SubstancePolymer owner) throws IOException, FHIRFormatError {
+    SubstancePolymer.SubstancePolymerRepeatComponent res = new SubstancePolymer.SubstancePolymerRepeatComponent();
+    parseSubstancePolymerSubstancePolymerRepeatComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstancePolymerSubstancePolymerRepeatComponentProperties(JsonObject json, SubstancePolymer owner, SubstancePolymer.SubstancePolymerRepeatComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("numberOfUnits"))
+      res.setNumberOfUnitsElement(parseInteger(json.get("numberOfUnits").getAsLong()));
+    if (json.has("_numberOfUnits"))
+      parseElementProperties(json.getAsJsonObject("_numberOfUnits"), res.getNumberOfUnitsElement());
+    if (json.has("averageMolecularFormula"))
+      res.setAverageMolecularFormulaElement(parseString(json.get("averageMolecularFormula").getAsString()));
+    if (json.has("_averageMolecularFormula"))
+      parseElementProperties(json.getAsJsonObject("_averageMolecularFormula"), res.getAverageMolecularFormulaElement());
+    if (json.has("repeatUnitAmountType"))
+      res.setRepeatUnitAmountType(parseCodeableConcept(json.getAsJsonObject("repeatUnitAmountType")));
+    if (json.has("repeatUnit")) {
+      JsonArray array = json.getAsJsonArray("repeatUnit");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRepeatUnit().add(parseSubstancePolymerSubstancePolymerRepeatRepeatUnitComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected SubstancePolymer.SubstancePolymerRepeatRepeatUnitComponent parseSubstancePolymerSubstancePolymerRepeatRepeatUnitComponent(JsonObject json, SubstancePolymer owner) throws IOException, FHIRFormatError {
+    SubstancePolymer.SubstancePolymerRepeatRepeatUnitComponent res = new SubstancePolymer.SubstancePolymerRepeatRepeatUnitComponent();
+    parseSubstancePolymerSubstancePolymerRepeatRepeatUnitComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstancePolymerSubstancePolymerRepeatRepeatUnitComponentProperties(JsonObject json, SubstancePolymer owner, SubstancePolymer.SubstancePolymerRepeatRepeatUnitComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("orientationOfPolymerisation"))
+      res.setOrientationOfPolymerisation(parseCodeableConcept(json.getAsJsonObject("orientationOfPolymerisation")));
+    if (json.has("repeatUnit"))
+      res.setRepeatUnitElement(parseString(json.get("repeatUnit").getAsString()));
+    if (json.has("_repeatUnit"))
+      parseElementProperties(json.getAsJsonObject("_repeatUnit"), res.getRepeatUnitElement());
+    if (json.has("amount"))
+      res.setAmount(parseSubstanceAmount(json.getAsJsonObject("amount")));
+    if (json.has("degreeOfPolymerisation")) {
+      JsonArray array = json.getAsJsonArray("degreeOfPolymerisation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDegreeOfPolymerisation().add(parseSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("structuralRepresentation")) {
+      JsonArray array = json.getAsJsonArray("structuralRepresentation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getStructuralRepresentation().add(parseSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected SubstancePolymer.SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent parseSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent(JsonObject json, SubstancePolymer owner) throws IOException, FHIRFormatError {
+    SubstancePolymer.SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent res = new SubstancePolymer.SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent();
+    parseSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponentProperties(JsonObject json, SubstancePolymer owner, SubstancePolymer.SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("degree"))
+      res.setDegree(parseCodeableConcept(json.getAsJsonObject("degree")));
+    if (json.has("amount"))
+      res.setAmount(parseSubstanceAmount(json.getAsJsonObject("amount")));
+  }
+
+  protected SubstancePolymer.SubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent parseSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent(JsonObject json, SubstancePolymer owner) throws IOException, FHIRFormatError {
+    SubstancePolymer.SubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent res = new SubstancePolymer.SubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent();
+    parseSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponentProperties(JsonObject json, SubstancePolymer owner, SubstancePolymer.SubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("representation"))
+      res.setRepresentationElement(parseString(json.get("representation").getAsString()));
+    if (json.has("_representation"))
+      parseElementProperties(json.getAsJsonObject("_representation"), res.getRepresentationElement());
+    if (json.has("attachment"))
+      res.setAttachment(parseAttachment(json.getAsJsonObject("attachment")));
+  }
+
+  protected SubstanceReferenceInformation parseSubstanceReferenceInformation(JsonObject json) throws IOException, FHIRFormatError {
+    SubstanceReferenceInformation res = new SubstanceReferenceInformation();
+    parseSubstanceReferenceInformationProperties(json, res);
+    return res;
+  }
+
+  protected void parseSubstanceReferenceInformationProperties(JsonObject json, SubstanceReferenceInformation res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("comment"))
+      res.setCommentElement(parseString(json.get("comment").getAsString()));
+    if (json.has("_comment"))
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
+    if (json.has("gene")) {
+      JsonArray array = json.getAsJsonArray("gene");
+      for (int i = 0; i < array.size(); i++) {
+        res.getGene().add(parseSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("geneElement")) {
+      JsonArray array = json.getAsJsonArray("geneElement");
+      for (int i = 0; i < array.size(); i++) {
+        res.getGeneElement().add(parseSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("classification")) {
+      JsonArray array = json.getAsJsonArray("classification");
+      for (int i = 0; i < array.size(); i++) {
+        res.getClassification().add(parseSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("relationship")) {
+      JsonArray array = json.getAsJsonArray("relationship");
+      for (int i = 0; i < array.size(); i++) {
+        res.getRelationship().add(parseSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("target")) {
+      JsonArray array = json.getAsJsonArray("target");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTarget().add(parseSubstanceReferenceInformationSubstanceReferenceInformationTargetComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected SubstanceReferenceInformation.SubstanceReferenceInformationGeneComponent parseSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(JsonObject json, SubstanceReferenceInformation owner) throws IOException, FHIRFormatError {
+    SubstanceReferenceInformation.SubstanceReferenceInformationGeneComponent res = new SubstanceReferenceInformation.SubstanceReferenceInformationGeneComponent();
+    parseSubstanceReferenceInformationSubstanceReferenceInformationGeneComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceReferenceInformationSubstanceReferenceInformationGeneComponentProperties(JsonObject json, SubstanceReferenceInformation owner, SubstanceReferenceInformation.SubstanceReferenceInformationGeneComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("geneSequenceOrigin"))
+      res.setGeneSequenceOrigin(parseCodeableConcept(json.getAsJsonObject("geneSequenceOrigin")));
+    if (json.has("gene"))
+      res.setGene(parseCodeableConcept(json.getAsJsonObject("gene")));
+    if (json.has("source")) {
+      JsonArray array = json.getAsJsonArray("source");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSource().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+  }
+
+  protected SubstanceReferenceInformation.SubstanceReferenceInformationGeneElementComponent parseSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponent(JsonObject json, SubstanceReferenceInformation owner) throws IOException, FHIRFormatError {
+    SubstanceReferenceInformation.SubstanceReferenceInformationGeneElementComponent res = new SubstanceReferenceInformation.SubstanceReferenceInformationGeneElementComponent();
+    parseSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponentProperties(JsonObject json, SubstanceReferenceInformation owner, SubstanceReferenceInformation.SubstanceReferenceInformationGeneElementComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("element"))
+      res.setElement(parseIdentifier(json.getAsJsonObject("element")));
+    if (json.has("source")) {
+      JsonArray array = json.getAsJsonArray("source");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSource().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+  }
+
+  protected SubstanceReferenceInformation.SubstanceReferenceInformationClassificationComponent parseSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponent(JsonObject json, SubstanceReferenceInformation owner) throws IOException, FHIRFormatError {
+    SubstanceReferenceInformation.SubstanceReferenceInformationClassificationComponent res = new SubstanceReferenceInformation.SubstanceReferenceInformationClassificationComponent();
+    parseSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponentProperties(JsonObject json, SubstanceReferenceInformation owner, SubstanceReferenceInformation.SubstanceReferenceInformationClassificationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("domain"))
+      res.setDomain(parseCodeableConcept(json.getAsJsonObject("domain")));
+    if (json.has("classification"))
+      res.setClassification(parseCodeableConcept(json.getAsJsonObject("classification")));
+    if (json.has("subtype")) {
+      JsonArray array = json.getAsJsonArray("subtype");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSubtype().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("source")) {
+      JsonArray array = json.getAsJsonArray("source");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSource().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+  }
+
+  protected SubstanceReferenceInformation.SubstanceReferenceInformationRelationshipComponent parseSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponent(JsonObject json, SubstanceReferenceInformation owner) throws IOException, FHIRFormatError {
+    SubstanceReferenceInformation.SubstanceReferenceInformationRelationshipComponent res = new SubstanceReferenceInformation.SubstanceReferenceInformationRelationshipComponent();
+    parseSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponentProperties(JsonObject json, SubstanceReferenceInformation owner, SubstanceReferenceInformation.SubstanceReferenceInformationRelationshipComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    Type substance = parseType("substance", json);
+    if (substance != null)
+      res.setSubstance(substance);
+    if (json.has("relationship"))
+      res.setRelationship(parseCodeableConcept(json.getAsJsonObject("relationship")));
+    if (json.has("interaction"))
+      res.setInteraction(parseCodeableConcept(json.getAsJsonObject("interaction")));
+    if (json.has("isDefining"))
+      res.setIsDefiningElement(parseBoolean(json.get("isDefining").getAsBoolean()));
+    if (json.has("_isDefining"))
+      parseElementProperties(json.getAsJsonObject("_isDefining"), res.getIsDefiningElement());
+    Type amount = parseType("amount", json);
+    if (amount != null)
+      res.setAmount(amount);
+    if (json.has("amountType"))
+      res.setAmountType(parseCodeableConcept(json.getAsJsonObject("amountType")));
+    if (json.has("amountText"))
+      res.setAmountTextElement(parseString(json.get("amountText").getAsString()));
+    if (json.has("_amountText"))
+      parseElementProperties(json.getAsJsonObject("_amountText"), res.getAmountTextElement());
+    if (json.has("source")) {
+      JsonArray array = json.getAsJsonArray("source");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSource().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+  }
+
+  protected SubstanceReferenceInformation.SubstanceReferenceInformationTargetComponent parseSubstanceReferenceInformationSubstanceReferenceInformationTargetComponent(JsonObject json, SubstanceReferenceInformation owner) throws IOException, FHIRFormatError {
+    SubstanceReferenceInformation.SubstanceReferenceInformationTargetComponent res = new SubstanceReferenceInformation.SubstanceReferenceInformationTargetComponent();
+    parseSubstanceReferenceInformationSubstanceReferenceInformationTargetComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceReferenceInformationSubstanceReferenceInformationTargetComponentProperties(JsonObject json, SubstanceReferenceInformation owner, SubstanceReferenceInformation.SubstanceReferenceInformationTargetComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("target"))
+      res.setTarget(parseIdentifier(json.getAsJsonObject("target")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("interaction"))
+      res.setInteraction(parseCodeableConcept(json.getAsJsonObject("interaction")));
+    if (json.has("organism"))
+      res.setOrganism(parseCodeableConcept(json.getAsJsonObject("organism")));
+    if (json.has("organismType"))
+      res.setOrganismType(parseCodeableConcept(json.getAsJsonObject("organismType")));
+    if (json.has("source")) {
+      JsonArray array = json.getAsJsonArray("source");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSource().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    Type amount = parseType("amount", json);
+    if (amount != null)
+      res.setAmount(amount);
+    if (json.has("amountType"))
+      res.setAmountType(parseCodeableConcept(json.getAsJsonObject("amountType")));
+  }
+
+  protected SubstanceSpecification parseSubstanceSpecification(JsonObject json) throws IOException, FHIRFormatError {
+    SubstanceSpecification res = new SubstanceSpecification();
+    parseSubstanceSpecificationProperties(json, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationProperties(JsonObject json, SubstanceSpecification res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("comment"))
+      res.setCommentElement(parseString(json.get("comment").getAsString()));
+    if (json.has("_comment"))
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
+    if (json.has("stoichiometric"))
+      res.setStoichiometricElement(parseBoolean(json.get("stoichiometric").getAsBoolean()));
+    if (json.has("_stoichiometric"))
+      parseElementProperties(json.getAsJsonObject("_stoichiometric"), res.getStoichiometricElement());
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("referenceSource")) {
+      JsonArray array = json.getAsJsonArray("referenceSource");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReferenceSource().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_referenceSource")) {
+      JsonArray array = json.getAsJsonArray("_referenceSource");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getReferenceSource().size())
+          res.getReferenceSource().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getReferenceSource().get(i));
+      }
+    };
+    if (json.has("moiety")) {
+      JsonArray array = json.getAsJsonArray("moiety");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMoiety().add(parseSubstanceSpecificationSubstanceSpecificationMoietyComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("property")) {
+      JsonArray array = json.getAsJsonArray("property");
+      for (int i = 0; i < array.size(); i++) {
+        res.getProperty().add(parseSubstanceSpecificationSubstanceSpecificationPropertyComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("referenceInformation"))
+      res.setReferenceInformation(parseReference(json.getAsJsonObject("referenceInformation")));
+    if (json.has("structure"))
+      res.setStructure(parseSubstanceSpecificationSubstanceSpecificationStructureComponent(json.getAsJsonObject("structure"), res));
+    if (json.has("substanceCode")) {
+      JsonArray array = json.getAsJsonArray("substanceCode");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSubstanceCode().add(parseSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("substanceName")) {
+      JsonArray array = json.getAsJsonArray("substanceName");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSubstanceName().add(parseSubstanceSpecificationSubstanceSpecificationSubstanceNameComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("molecularWeight")) {
+      JsonArray array = json.getAsJsonArray("molecularWeight");
+      for (int i = 0; i < array.size(); i++) {
+        res.getMolecularWeight().add(parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("polymer"))
+      res.setPolymer(parseReference(json.getAsJsonObject("polymer")));
+  }
+
+  protected SubstanceSpecification.SubstanceSpecificationMoietyComponent parseSubstanceSpecificationSubstanceSpecificationMoietyComponent(JsonObject json, SubstanceSpecification owner) throws IOException, FHIRFormatError {
+    SubstanceSpecification.SubstanceSpecificationMoietyComponent res = new SubstanceSpecification.SubstanceSpecificationMoietyComponent();
+    parseSubstanceSpecificationSubstanceSpecificationMoietyComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationSubstanceSpecificationMoietyComponentProperties(JsonObject json, SubstanceSpecification owner, SubstanceSpecification.SubstanceSpecificationMoietyComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("role"))
+      res.setRole(parseCodeableConcept(json.getAsJsonObject("role")));
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("stereochemistry"))
+      res.setStereochemistry(parseCodeableConcept(json.getAsJsonObject("stereochemistry")));
+    if (json.has("opticalActivity"))
+      res.setOpticalActivity(parseCodeableConcept(json.getAsJsonObject("opticalActivity")));
+    if (json.has("molecularFormula"))
+      res.setMolecularFormulaElement(parseString(json.get("molecularFormula").getAsString()));
+    if (json.has("_molecularFormula"))
+      parseElementProperties(json.getAsJsonObject("_molecularFormula"), res.getMolecularFormulaElement());
+    if (json.has("amount"))
+      res.setAmountElement(parseString(json.get("amount").getAsString()));
+    if (json.has("_amount"))
+      parseElementProperties(json.getAsJsonObject("_amount"), res.getAmountElement());
+  }
+
+  protected SubstanceSpecification.SubstanceSpecificationPropertyComponent parseSubstanceSpecificationSubstanceSpecificationPropertyComponent(JsonObject json, SubstanceSpecification owner) throws IOException, FHIRFormatError {
+    SubstanceSpecification.SubstanceSpecificationPropertyComponent res = new SubstanceSpecification.SubstanceSpecificationPropertyComponent();
+    parseSubstanceSpecificationSubstanceSpecificationPropertyComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationSubstanceSpecificationPropertyComponentProperties(JsonObject json, SubstanceSpecification owner, SubstanceSpecification.SubstanceSpecificationPropertyComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("name"))
+      res.setName(parseCodeableConcept(json.getAsJsonObject("name")));
+    if (json.has("parameters"))
+      res.setParametersElement(parseString(json.get("parameters").getAsString()));
+    if (json.has("_parameters"))
+      parseElementProperties(json.getAsJsonObject("_parameters"), res.getParametersElement());
+    if (json.has("substanceId"))
+      res.setSubstanceId(parseIdentifier(json.getAsJsonObject("substanceId")));
+    if (json.has("substanceName"))
+      res.setSubstanceNameElement(parseString(json.get("substanceName").getAsString()));
+    if (json.has("_substanceName"))
+      parseElementProperties(json.getAsJsonObject("_substanceName"), res.getSubstanceNameElement());
+    if (json.has("amount"))
+      res.setAmountElement(parseString(json.get("amount").getAsString()));
+    if (json.has("_amount"))
+      parseElementProperties(json.getAsJsonObject("_amount"), res.getAmountElement());
+  }
+
+  protected SubstanceSpecification.SubstanceSpecificationStructureComponent parseSubstanceSpecificationSubstanceSpecificationStructureComponent(JsonObject json, SubstanceSpecification owner) throws IOException, FHIRFormatError {
+    SubstanceSpecification.SubstanceSpecificationStructureComponent res = new SubstanceSpecification.SubstanceSpecificationStructureComponent();
+    parseSubstanceSpecificationSubstanceSpecificationStructureComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationSubstanceSpecificationStructureComponentProperties(JsonObject json, SubstanceSpecification owner, SubstanceSpecification.SubstanceSpecificationStructureComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("stereochemistry"))
+      res.setStereochemistry(parseCodeableConcept(json.getAsJsonObject("stereochemistry")));
+    if (json.has("opticalActivity"))
+      res.setOpticalActivity(parseCodeableConcept(json.getAsJsonObject("opticalActivity")));
+    if (json.has("molecularFormula"))
+      res.setMolecularFormulaElement(parseString(json.get("molecularFormula").getAsString()));
+    if (json.has("_molecularFormula"))
+      parseElementProperties(json.getAsJsonObject("_molecularFormula"), res.getMolecularFormulaElement());
+    if (json.has("molecularFormulaByMoiety"))
+      res.setMolecularFormulaByMoietyElement(parseString(json.get("molecularFormulaByMoiety").getAsString()));
+    if (json.has("_molecularFormulaByMoiety"))
+      parseElementProperties(json.getAsJsonObject("_molecularFormulaByMoiety"), res.getMolecularFormulaByMoietyElement());
+    if (json.has("isotope")) {
+      JsonArray array = json.getAsJsonArray("isotope");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIsotope().add(parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("molecularWeight"))
+      res.setMolecularWeight(parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(json.getAsJsonObject("molecularWeight"), owner));
+    if (json.has("referenceSource")) {
+      JsonArray array = json.getAsJsonArray("referenceSource");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReferenceSource().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("structuralRepresentation")) {
+      JsonArray array = json.getAsJsonArray("structuralRepresentation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getStructuralRepresentation().add(parseSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+  }
+
+  protected SubstanceSpecification.SubstanceSpecificationStructureIsotopeComponent parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponent(JsonObject json, SubstanceSpecification owner) throws IOException, FHIRFormatError {
+    SubstanceSpecification.SubstanceSpecificationStructureIsotopeComponent res = new SubstanceSpecification.SubstanceSpecificationStructureIsotopeComponent();
+    parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponentProperties(JsonObject json, SubstanceSpecification owner, SubstanceSpecification.SubstanceSpecificationStructureIsotopeComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("nuclideId"))
+      res.setNuclideId(parseIdentifier(json.getAsJsonObject("nuclideId")));
+    if (json.has("nuclideName"))
+      res.setNuclideName(parseCodeableConcept(json.getAsJsonObject("nuclideName")));
+    if (json.has("substitutionType"))
+      res.setSubstitutionType(parseCodeableConcept(json.getAsJsonObject("substitutionType")));
+    if (json.has("nuclideHalfLife"))
+      res.setNuclideHalfLife(parseQuantity(json.getAsJsonObject("nuclideHalfLife")));
+    if (json.has("amount"))
+      res.setAmountElement(parseString(json.get("amount").getAsString()));
+    if (json.has("_amount"))
+      parseElementProperties(json.getAsJsonObject("_amount"), res.getAmountElement());
+    if (json.has("molecularWeight"))
+      res.setMolecularWeight(parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(json.getAsJsonObject("molecularWeight"), owner));
+  }
+
+  protected SubstanceSpecification.SubstanceSpecificationStructureIsotopeMolecularWeightComponent parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(JsonObject json, SubstanceSpecification owner) throws IOException, FHIRFormatError {
+    SubstanceSpecification.SubstanceSpecificationStructureIsotopeMolecularWeightComponent res = new SubstanceSpecification.SubstanceSpecificationStructureIsotopeMolecularWeightComponent();
+    parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponentProperties(JsonObject json, SubstanceSpecification owner, SubstanceSpecification.SubstanceSpecificationStructureIsotopeMolecularWeightComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("method"))
+      res.setMethod(parseCodeableConcept(json.getAsJsonObject("method")));
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("amount"))
+      res.setAmountElement(parseString(json.get("amount").getAsString()));
+    if (json.has("_amount"))
+      parseElementProperties(json.getAsJsonObject("_amount"), res.getAmountElement());
+  }
+
+  protected SubstanceSpecification.SubstanceSpecificationStructureStructuralRepresentationComponent parseSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponent(JsonObject json, SubstanceSpecification owner) throws IOException, FHIRFormatError {
+    SubstanceSpecification.SubstanceSpecificationStructureStructuralRepresentationComponent res = new SubstanceSpecification.SubstanceSpecificationStructureStructuralRepresentationComponent();
+    parseSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponentProperties(JsonObject json, SubstanceSpecification owner, SubstanceSpecification.SubstanceSpecificationStructureStructuralRepresentationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("representation"))
+      res.setRepresentationElement(parseString(json.get("representation").getAsString()));
+    if (json.has("_representation"))
+      parseElementProperties(json.getAsJsonObject("_representation"), res.getRepresentationElement());
+    if (json.has("attachment"))
+      res.setAttachment(parseAttachment(json.getAsJsonObject("attachment")));
+  }
+
+  protected SubstanceSpecification.SubstanceSpecificationSubstanceCodeComponent parseSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponent(JsonObject json, SubstanceSpecification owner) throws IOException, FHIRFormatError {
+    SubstanceSpecification.SubstanceSpecificationSubstanceCodeComponent res = new SubstanceSpecification.SubstanceSpecificationSubstanceCodeComponent();
+    parseSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponentProperties(JsonObject json, SubstanceSpecification owner, SubstanceSpecification.SubstanceSpecificationSubstanceCodeComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("code"))
+      res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("status"))
+      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+    if (json.has("statusDate"))
+      res.setStatusDateElement(parseDateTime(json.get("statusDate").getAsString()));
+    if (json.has("_statusDate"))
+      parseElementProperties(json.getAsJsonObject("_statusDate"), res.getStatusDateElement());
+    if (json.has("comment"))
+      res.setCommentElement(parseString(json.get("comment").getAsString()));
+    if (json.has("_comment"))
+      parseElementProperties(json.getAsJsonObject("_comment"), res.getCommentElement());
+    if (json.has("referenceSource")) {
+      JsonArray array = json.getAsJsonArray("referenceSource");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReferenceSource().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_referenceSource")) {
+      JsonArray array = json.getAsJsonArray("_referenceSource");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getReferenceSource().size())
+          res.getReferenceSource().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getReferenceSource().get(i));
+      }
+    };
+  }
+
+  protected SubstanceSpecification.SubstanceSpecificationSubstanceNameComponent parseSubstanceSpecificationSubstanceSpecificationSubstanceNameComponent(JsonObject json, SubstanceSpecification owner) throws IOException, FHIRFormatError {
+    SubstanceSpecification.SubstanceSpecificationSubstanceNameComponent res = new SubstanceSpecification.SubstanceSpecificationSubstanceNameComponent();
+    parseSubstanceSpecificationSubstanceSpecificationSubstanceNameComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationSubstanceSpecificationSubstanceNameComponentProperties(JsonObject json, SubstanceSpecification owner, SubstanceSpecification.SubstanceSpecificationSubstanceNameComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("name"))
+      res.setNameElement(parseString(json.get("name").getAsString()));
+    if (json.has("_name"))
+      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    if (json.has("language")) {
+      JsonArray array = json.getAsJsonArray("language");
+      for (int i = 0; i < array.size(); i++) {
+        res.getLanguage().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("domain")) {
+      JsonArray array = json.getAsJsonArray("domain");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDomain().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("jurisdiction")) {
+      JsonArray array = json.getAsJsonArray("jurisdiction");
+      for (int i = 0; i < array.size(); i++) {
+        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("officialName")) {
+      JsonArray array = json.getAsJsonArray("officialName");
+      for (int i = 0; i < array.size(); i++) {
+        res.getOfficialName().add(parseSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
+    if (json.has("referenceSource")) {
+      JsonArray array = json.getAsJsonArray("referenceSource");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReferenceSource().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_referenceSource")) {
+      JsonArray array = json.getAsJsonArray("_referenceSource");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getReferenceSource().size())
+          res.getReferenceSource().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getReferenceSource().get(i));
+      }
+    };
+  }
+
+  protected SubstanceSpecification.SubstanceSpecificationSubstanceNameOfficialNameComponent parseSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponent(JsonObject json, SubstanceSpecification owner) throws IOException, FHIRFormatError {
+    SubstanceSpecification.SubstanceSpecificationSubstanceNameOfficialNameComponent res = new SubstanceSpecification.SubstanceSpecificationSubstanceNameOfficialNameComponent();
+    parseSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponentProperties(JsonObject json, SubstanceSpecification owner, SubstanceSpecification.SubstanceSpecificationSubstanceNameOfficialNameComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("authority"))
+      res.setAuthority(parseCodeableConcept(json.getAsJsonObject("authority")));
+    if (json.has("status"))
+      res.setStatus(parseCodeableConcept(json.getAsJsonObject("status")));
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
+  }
+
   protected SupplyDelivery parseSupplyDelivery(JsonObject json) throws IOException, FHIRFormatError {
     SupplyDelivery res = new SupplyDelivery();
     parseSupplyDeliveryProperties(json, res);
@@ -21647,6 +23784,190 @@ public class JsonParser extends JsonParserBase {
     };
   }
 
+  protected VerificationResult parseVerificationResult(JsonObject json) throws IOException, FHIRFormatError {
+    VerificationResult res = new VerificationResult();
+    parseVerificationResultProperties(json, res);
+    return res;
+  }
+
+  protected void parseVerificationResultProperties(JsonObject json, VerificationResult res) throws IOException, FHIRFormatError {
+    parseDomainResourceProperties(json, res);
+    if (json.has("target")) {
+      JsonArray array = json.getAsJsonArray("target");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTarget().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("targetLocation")) {
+      JsonArray array = json.getAsJsonArray("targetLocation");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTargetLocation().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_targetLocation")) {
+      JsonArray array = json.getAsJsonArray("_targetLocation");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getTargetLocation().size())
+          res.getTargetLocation().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getTargetLocation().get(i));
+      }
+    };
+    if (json.has("need"))
+      res.setNeedElement(parseEnumeration(json.get("need").getAsString(), VerificationResult.Need.NULL, new VerificationResult.NeedEnumFactory()));
+    if (json.has("_need"))
+      parseElementProperties(json.getAsJsonObject("_need"), res.getNeedElement());
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), VerificationResult.Status.NULL, new VerificationResult.StatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
+    if (json.has("statusDate"))
+      res.setStatusDateElement(parseDateTime(json.get("statusDate").getAsString()));
+    if (json.has("_statusDate"))
+      parseElementProperties(json.getAsJsonObject("_statusDate"), res.getStatusDateElement());
+    if (json.has("validationType"))
+      res.setValidationTypeElement(parseEnumeration(json.get("validationType").getAsString(), VerificationResult.ValidationType.NULL, new VerificationResult.ValidationTypeEnumFactory()));
+    if (json.has("_validationType"))
+      parseElementProperties(json.getAsJsonObject("_validationType"), res.getValidationTypeElement());
+    if (json.has("validationProcess")) {
+      JsonArray array = json.getAsJsonArray("validationProcess");
+      for (int i = 0; i < array.size(); i++) {
+        res.getValidationProcess().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("frequency"))
+      res.setFrequency(parseTiming(json.getAsJsonObject("frequency")));
+    if (json.has("lastPerformed"))
+      res.setLastPerformedElement(parseDateTime(json.get("lastPerformed").getAsString()));
+    if (json.has("_lastPerformed"))
+      parseElementProperties(json.getAsJsonObject("_lastPerformed"), res.getLastPerformedElement());
+    if (json.has("nextScheduled"))
+      res.setNextScheduledElement(parseDate(json.get("nextScheduled").getAsString()));
+    if (json.has("_nextScheduled"))
+      parseElementProperties(json.getAsJsonObject("_nextScheduled"), res.getNextScheduledElement());
+    if (json.has("failureAction"))
+      res.setFailureActionElement(parseEnumeration(json.get("failureAction").getAsString(), VerificationResult.FailureAction.NULL, new VerificationResult.FailureActionEnumFactory()));
+    if (json.has("_failureAction"))
+      parseElementProperties(json.getAsJsonObject("_failureAction"), res.getFailureActionElement());
+    if (json.has("primarySource")) {
+      JsonArray array = json.getAsJsonArray("primarySource");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPrimarySource().add(parseVerificationResultVerificationResultPrimarySourceComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("attestation"))
+      res.setAttestation(parseVerificationResultVerificationResultAttestationComponent(json.getAsJsonObject("attestation"), res));
+    if (json.has("validator")) {
+      JsonArray array = json.getAsJsonArray("validator");
+      for (int i = 0; i < array.size(); i++) {
+        res.getValidator().add(parseVerificationResultVerificationResultValidatorComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+  }
+
+  protected VerificationResult.VerificationResultPrimarySourceComponent parseVerificationResultVerificationResultPrimarySourceComponent(JsonObject json, VerificationResult owner) throws IOException, FHIRFormatError {
+    VerificationResult.VerificationResultPrimarySourceComponent res = new VerificationResult.VerificationResultPrimarySourceComponent();
+    parseVerificationResultVerificationResultPrimarySourceComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseVerificationResultVerificationResultPrimarySourceComponentProperties(JsonObject json, VerificationResult owner, VerificationResult.VerificationResultPrimarySourceComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("organization"))
+      res.setOrganization(parseReference(json.getAsJsonObject("organization")));
+    if (json.has("type")) {
+      JsonArray array = json.getAsJsonArray("type");
+      for (int i = 0; i < array.size(); i++) {
+        res.getType().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("validationProcess")) {
+      JsonArray array = json.getAsJsonArray("validationProcess");
+      for (int i = 0; i < array.size(); i++) {
+        res.getValidationProcess().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("validationStatus"))
+      res.setValidationStatusElement(parseEnumeration(json.get("validationStatus").getAsString(), VerificationResult.ValidationStatus.NULL, new VerificationResult.ValidationStatusEnumFactory()));
+    if (json.has("_validationStatus"))
+      parseElementProperties(json.getAsJsonObject("_validationStatus"), res.getValidationStatusElement());
+    if (json.has("validationDate"))
+      res.setValidationDateElement(parseDateTime(json.get("validationDate").getAsString()));
+    if (json.has("_validationDate"))
+      parseElementProperties(json.getAsJsonObject("_validationDate"), res.getValidationDateElement());
+    if (json.has("canPushUpdates"))
+      res.setCanPushUpdatesElement(parseEnumeration(json.get("canPushUpdates").getAsString(), VerificationResult.CanPushUpdates.NULL, new VerificationResult.CanPushUpdatesEnumFactory()));
+    if (json.has("_canPushUpdates"))
+      parseElementProperties(json.getAsJsonObject("_canPushUpdates"), res.getCanPushUpdatesElement());
+    if (json.has("pushTypeAvailable")) {
+      JsonArray array = json.getAsJsonArray("pushTypeAvailable");
+      for (int i = 0; i < array.size(); i++) {
+        res.getPushTypeAvailable().add(parseEnumeration(array.get(i).getAsString(), VerificationResult.PushTypeAvailable.NULL, new VerificationResult.PushTypeAvailableEnumFactory()));
+      }
+    };
+    if (json.has("_pushTypeAvailable")) {
+      JsonArray array = json.getAsJsonArray("_pushTypeAvailable");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getPushTypeAvailable().size())
+          res.getPushTypeAvailable().add(parseEnumeration(null, VerificationResult.PushTypeAvailable.NULL, new VerificationResult.PushTypeAvailableEnumFactory()));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getPushTypeAvailable().get(i));
+      }
+    };
+  }
+
+  protected VerificationResult.VerificationResultAttestationComponent parseVerificationResultVerificationResultAttestationComponent(JsonObject json, VerificationResult owner) throws IOException, FHIRFormatError {
+    VerificationResult.VerificationResultAttestationComponent res = new VerificationResult.VerificationResultAttestationComponent();
+    parseVerificationResultVerificationResultAttestationComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseVerificationResultVerificationResultAttestationComponentProperties(JsonObject json, VerificationResult owner, VerificationResult.VerificationResultAttestationComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("source"))
+      res.setSource(parseReference(json.getAsJsonObject("source")));
+    if (json.has("organization"))
+      res.setOrganization(parseReference(json.getAsJsonObject("organization")));
+    if (json.has("method"))
+      res.setMethod(parseCodeableConcept(json.getAsJsonObject("method")));
+    if (json.has("date"))
+      res.setDateElement(parseDate(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
+    if (json.has("sourceIdentityCertificate"))
+      res.setSourceIdentityCertificateElement(parseString(json.get("sourceIdentityCertificate").getAsString()));
+    if (json.has("_sourceIdentityCertificate"))
+      parseElementProperties(json.getAsJsonObject("_sourceIdentityCertificate"), res.getSourceIdentityCertificateElement());
+    if (json.has("proxyIdentityCertificate"))
+      res.setProxyIdentityCertificateElement(parseString(json.get("proxyIdentityCertificate").getAsString()));
+    if (json.has("_proxyIdentityCertificate"))
+      parseElementProperties(json.getAsJsonObject("_proxyIdentityCertificate"), res.getProxyIdentityCertificateElement());
+  }
+
+  protected VerificationResult.VerificationResultValidatorComponent parseVerificationResultVerificationResultValidatorComponent(JsonObject json, VerificationResult owner) throws IOException, FHIRFormatError {
+    VerificationResult.VerificationResultValidatorComponent res = new VerificationResult.VerificationResultValidatorComponent();
+    parseVerificationResultVerificationResultValidatorComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseVerificationResultVerificationResultValidatorComponentProperties(JsonObject json, VerificationResult owner, VerificationResult.VerificationResultValidatorComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    if (json.has("identifier"))
+      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("organization"))
+      res.setOrganization(parseReference(json.getAsJsonObject("organization")));
+    if (json.has("identityCertificate"))
+      res.setIdentityCertificateElement(parseString(json.get("identityCertificate").getAsString()));
+    if (json.has("_identityCertificate"))
+      parseElementProperties(json.getAsJsonObject("_identityCertificate"), res.getIdentityCertificateElement());
+    if (json.has("dateValidated"))
+      res.setDateValidatedElement(parseDate(json.get("dateValidated").getAsString()));
+    if (json.has("_dateValidated"))
+      parseElementProperties(json.getAsJsonObject("_dateValidated"), res.getDateValidatedElement());
+  }
+
   protected VisionPrescription parseVisionPrescription(JsonObject json) throws IOException, FHIRFormatError {
     VisionPrescription res = new VisionPrescription();
     parseVisionPrescriptionProperties(json, res);
@@ -21779,6 +24100,8 @@ public class JsonParser extends JsonParserBase {
       return parseBasic(json);
     else if (t.equals("Binary"))
       return parseBinary(json);
+    else if (t.equals("BiologicallyDerivedProduct"))
+      return parseBiologicallyDerivedProduct(json);
     else if (t.equals("BodyStructure"))
       return parseBodyStructure(json);
     else if (t.equals("Bundle"))
@@ -21889,6 +24212,8 @@ public class JsonParser extends JsonParserBase {
       return parseImplementationGuideOutput(json);
     else if (t.equals("Invoice"))
       return parseInvoice(json);
+    else if (t.equals("ItemInstance"))
+      return parseItemInstance(json);
     else if (t.equals("Library"))
       return parseLibrary(json);
     else if (t.equals("Linkage"))
@@ -21913,6 +24238,20 @@ public class JsonParser extends JsonParserBase {
       return parseMedicationRequest(json);
     else if (t.equals("MedicationStatement"))
       return parseMedicationStatement(json);
+    else if (t.equals("MedicinalProduct"))
+      return parseMedicinalProduct(json);
+    else if (t.equals("MedicinalProductAuthorization"))
+      return parseMedicinalProductAuthorization(json);
+    else if (t.equals("MedicinalProductClinicals"))
+      return parseMedicinalProductClinicals(json);
+    else if (t.equals("MedicinalProductDeviceSpec"))
+      return parseMedicinalProductDeviceSpec(json);
+    else if (t.equals("MedicinalProductIngredient"))
+      return parseMedicinalProductIngredient(json);
+    else if (t.equals("MedicinalProductPackaged"))
+      return parseMedicinalProductPackaged(json);
+    else if (t.equals("MedicinalProductPharmaceutical"))
+      return parseMedicinalProductPharmaceutical(json);
     else if (t.equals("MessageDefinition"))
       return parseMessageDefinition(json);
     else if (t.equals("MessageHeader"))
@@ -21925,6 +24264,8 @@ public class JsonParser extends JsonParserBase {
       return parseObservation(json);
     else if (t.equals("ObservationDefinition"))
       return parseObservationDefinition(json);
+    else if (t.equals("OccupationalData"))
+      return parseOccupationalData(json);
     else if (t.equals("OperationDefinition"))
       return parseOperationDefinition(json);
     else if (t.equals("OperationOutcome"))
@@ -21995,6 +24336,12 @@ public class JsonParser extends JsonParserBase {
       return parseSubscription(json);
     else if (t.equals("Substance"))
       return parseSubstance(json);
+    else if (t.equals("SubstancePolymer"))
+      return parseSubstancePolymer(json);
+    else if (t.equals("SubstanceReferenceInformation"))
+      return parseSubstanceReferenceInformation(json);
+    else if (t.equals("SubstanceSpecification"))
+      return parseSubstanceSpecification(json);
     else if (t.equals("SupplyDelivery"))
       return parseSupplyDelivery(json);
     else if (t.equals("SupplyRequest"))
@@ -22011,6 +24358,8 @@ public class JsonParser extends JsonParserBase {
       return parseUserSession(json);
     else if (t.equals("ValueSet"))
       return parseValueSet(json);
+    else if (t.equals("VerificationResult"))
+      return parseVerificationResult(json);
     else if (t.equals("VisionPrescription"))
       return parseVisionPrescription(json);
     else if (t.equals("Binary"))
@@ -22073,18 +24422,28 @@ public class JsonParser extends JsonParserBase {
       return parseDosage(json.getAsJsonObject(prefix+"Dosage"));
     else if (json.has(prefix+"RelatedArtifact"))
       return parseRelatedArtifact(json.getAsJsonObject(prefix+"RelatedArtifact"));
+    else if (json.has(prefix+"ProductShelfLife"))
+      return parseProductShelfLife(json.getAsJsonObject(prefix+"ProductShelfLife"));
     else if (json.has(prefix+"ContactDetail"))
       return parseContactDetail(json.getAsJsonObject(prefix+"ContactDetail"));
     else if (json.has(prefix+"HumanName"))
       return parseHumanName(json.getAsJsonObject(prefix+"HumanName"));
     else if (json.has(prefix+"ContactPoint"))
       return parseContactPoint(json.getAsJsonObject(prefix+"ContactPoint"));
+    else if (json.has(prefix+"MarketingStatus"))
+      return parseMarketingStatus(json.getAsJsonObject(prefix+"MarketingStatus"));
+    else if (json.has(prefix+"SubstanceAmount"))
+      return parseSubstanceAmount(json.getAsJsonObject(prefix+"SubstanceAmount"));
     else if (json.has(prefix+"UsageContext"))
       return parseUsageContext(json.getAsJsonObject(prefix+"UsageContext"));
     else if (json.has(prefix+"Timing"))
       return parseTiming(json.getAsJsonObject(prefix+"Timing"));
     else if (json.has(prefix+"ElementDefinition"))
       return parseElementDefinition(json.getAsJsonObject(prefix+"ElementDefinition"));
+    else if (json.has(prefix+"SubstanceMoiety"))
+      return parseSubstanceMoiety(json.getAsJsonObject(prefix+"SubstanceMoiety"));
+    else if (json.has(prefix+"ProdCharacteristic"))
+      return parseProdCharacteristic(json.getAsJsonObject(prefix+"ProdCharacteristic"));
     else if (json.has(prefix+"ParameterDefinition"))
       return parseParameterDefinition(json.getAsJsonObject(prefix+"ParameterDefinition"));
     else if (json.has(prefix+"Date") || json.has("_"+prefix+"Date")) {
@@ -22247,18 +24606,28 @@ public class JsonParser extends JsonParserBase {
       return parseDosage(json);
     else if (type.equals("RelatedArtifact"))
       return parseRelatedArtifact(json);
+    else if (type.equals("ProductShelfLife"))
+      return parseProductShelfLife(json);
     else if (type.equals("ContactDetail"))
       return parseContactDetail(json);
     else if (type.equals("HumanName"))
       return parseHumanName(json);
     else if (type.equals("ContactPoint"))
       return parseContactPoint(json);
+    else if (type.equals("MarketingStatus"))
+      return parseMarketingStatus(json);
+    else if (type.equals("SubstanceAmount"))
+      return parseSubstanceAmount(json);
     else if (type.equals("UsageContext"))
       return parseUsageContext(json);
     else if (type.equals("Timing"))
       return parseTiming(json);
     else if (type.equals("ElementDefinition"))
       return parseElementDefinition(json);
+    else if (type.equals("SubstanceMoiety"))
+      return parseSubstanceMoiety(json);
+    else if (type.equals("ProdCharacteristic"))
+      return parseProdCharacteristic(json);
     else if (type.equals("ParameterDefinition"))
       return parseParameterDefinition(json);
     throw new FHIRFormatError("Unknown Type "+type);
@@ -22319,17 +24688,27 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"RelatedArtifact"))
       return true;
+    if (json.has(prefix+"ProductShelfLife"))
+      return true;
     if (json.has(prefix+"ContactDetail"))
       return true;
     if (json.has(prefix+"HumanName"))
       return true;
     if (json.has(prefix+"ContactPoint"))
       return true;
+    if (json.has(prefix+"MarketingStatus"))
+      return true;
+    if (json.has(prefix+"SubstanceAmount"))
+      return true;
     if (json.has(prefix+"UsageContext"))
       return true;
     if (json.has(prefix+"Timing"))
       return true;
     if (json.has(prefix+"ElementDefinition"))
+      return true;
+    if (json.has(prefix+"SubstanceMoiety"))
+      return true;
+    if (json.has(prefix+"ProdCharacteristic"))
       return true;
     if (json.has(prefix+"ParameterDefinition"))
       return true;
@@ -22352,6 +24731,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Basic"))
       return true;
     if (json.has(prefix+"Binary"))
+      return true;
+    if (json.has(prefix+"BiologicallyDerivedProduct"))
       return true;
     if (json.has(prefix+"BodyStructure"))
       return true;
@@ -22463,6 +24844,8 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"Invoice"))
       return true;
+    if (json.has(prefix+"ItemInstance"))
+      return true;
     if (json.has(prefix+"Library"))
       return true;
     if (json.has(prefix+"Linkage"))
@@ -22487,6 +24870,20 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"MedicationStatement"))
       return true;
+    if (json.has(prefix+"MedicinalProduct"))
+      return true;
+    if (json.has(prefix+"MedicinalProductAuthorization"))
+      return true;
+    if (json.has(prefix+"MedicinalProductClinicals"))
+      return true;
+    if (json.has(prefix+"MedicinalProductDeviceSpec"))
+      return true;
+    if (json.has(prefix+"MedicinalProductIngredient"))
+      return true;
+    if (json.has(prefix+"MedicinalProductPackaged"))
+      return true;
+    if (json.has(prefix+"MedicinalProductPharmaceutical"))
+      return true;
     if (json.has(prefix+"MessageDefinition"))
       return true;
     if (json.has(prefix+"MessageHeader"))
@@ -22498,6 +24895,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"Observation"))
       return true;
     if (json.has(prefix+"ObservationDefinition"))
+      return true;
+    if (json.has(prefix+"OccupationalData"))
       return true;
     if (json.has(prefix+"OperationDefinition"))
       return true;
@@ -22569,6 +24968,12 @@ public class JsonParser extends JsonParserBase {
       return true;
     if (json.has(prefix+"Substance"))
       return true;
+    if (json.has(prefix+"SubstancePolymer"))
+      return true;
+    if (json.has(prefix+"SubstanceReferenceInformation"))
+      return true;
+    if (json.has(prefix+"SubstanceSpecification"))
+      return true;
     if (json.has(prefix+"SupplyDelivery"))
       return true;
     if (json.has(prefix+"SupplyRequest"))
@@ -22584,6 +24989,8 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"UserSession"))
       return true;
     if (json.has(prefix+"ValueSet"))
+      return true;
+    if (json.has(prefix+"VerificationResult"))
       return true;
     if (json.has(prefix+"VisionPrescription"))
       return true;
@@ -23470,6 +25877,10 @@ public class JsonParser extends JsonParserBase {
         composeInstantCore("lastUpdated", element.getLastUpdatedElement(), false);
         composeInstantExtras("lastUpdated", element.getLastUpdatedElement(), false);
       }
+      if (element.hasSourceElement()) {
+        composeUriCore("source", element.getSourceElement(), false);
+        composeUriExtras("source", element.getSourceElement(), false);
+      }
       if (element.hasProfile()) {
         openArray("profile");
         for (UriType e : element.getProfile()) 
@@ -23482,10 +25893,6 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
-      if (element.hasSourceElement()) {
-        composeUriCore("source", element.getSourceElement(), false);
-        composeUriExtras("source", element.getSourceElement(), false);
-      }
       if (element.hasSecurity()) {
         openArray("security");
         for (Coding e : element.getSecurity()) 
@@ -23828,6 +26235,33 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
+  protected void composeProductShelfLife(String name, ProductShelfLife element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeProductShelfLifeInner(element);
+      close();
+    }
+  }
+
+  protected void composeProductShelfLifeInner(ProductShelfLife element) throws IOException {
+      composeElement(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasPeriod()) {
+        composeQuantity("period", element.getPeriod());
+      }
+      if (element.hasSpecialPrecautionsForStorage()) {
+        openArray("specialPrecautionsForStorage");
+        for (CodeableConcept e : element.getSpecialPrecautionsForStorage()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+  }
+
   protected void composeContactDetail(String name, ContactDetail element) throws IOException {
     if (element != null) {
       open(name);
@@ -23941,6 +26375,77 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasPeriod()) {
         composePeriod("period", element.getPeriod());
+      }
+  }
+
+  protected void composeMarketingStatus(String name, MarketingStatus element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMarketingStatusInner(element);
+      close();
+    }
+  }
+
+  protected void composeMarketingStatusInner(MarketingStatus element) throws IOException {
+      composeElement(element);
+      if (element.hasCountry()) {
+        composeCodeableConcept("country", element.getCountry());
+      }
+      if (element.hasJurisdiction()) {
+        composeCodeableConcept("jurisdiction", element.getJurisdiction());
+      }
+      if (element.hasStatus()) {
+        composeCodeableConcept("status", element.getStatus());
+      }
+      if (element.hasDateRange()) {
+        composePeriod("dateRange", element.getDateRange());
+      }
+      if (element.hasRestoreDateElement()) {
+        composeDateTimeCore("restoreDate", element.getRestoreDateElement(), false);
+        composeDateTimeExtras("restoreDate", element.getRestoreDateElement(), false);
+      }
+  }
+
+  protected void composeSubstanceAmount(String name, SubstanceAmount element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceAmountInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceAmountInner(SubstanceAmount element) throws IOException {
+      composeElement(element);
+      if (element.hasAmount()) {
+        composeType("amount", element.getAmount());
+      }
+      if (element.hasAmountType()) {
+        composeCodeableConcept("amountType", element.getAmountType());
+      }
+      if (element.hasAmountTextElement()) {
+        composeStringCore("amountText", element.getAmountTextElement(), false);
+        composeStringExtras("amountText", element.getAmountTextElement(), false);
+      }
+      if (element.hasReferenceRange()) {
+        composeSubstanceAmountSubstanceAmountReferenceRangeComponent("referenceRange", element.getReferenceRange());
+      }
+  }
+
+  protected void composeSubstanceAmountSubstanceAmountReferenceRangeComponent(String name, SubstanceAmount.SubstanceAmountReferenceRangeComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceAmountSubstanceAmountReferenceRangeComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceAmountSubstanceAmountReferenceRangeComponentInner(SubstanceAmount.SubstanceAmountReferenceRangeComponent element) throws IOException {
+      composeElement(element);
+      if (element.hasLowLimit()) {
+        composeQuantity("lowLimit", element.getLowLimit());
+      }
+      if (element.hasHighLimit()) {
+        composeQuantity("highLimit", element.getHighLimit());
       }
   }
 
@@ -24474,6 +26979,108 @@ public class JsonParser extends JsonParserBase {
       if (element.hasCommentElement()) {
         composeStringCore("comment", element.getCommentElement(), false);
         composeStringExtras("comment", element.getCommentElement(), false);
+      }
+  }
+
+  protected void composeSubstanceMoiety(String name, SubstanceMoiety element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceMoietyInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceMoietyInner(SubstanceMoiety element) throws IOException {
+      composeElement(element);
+      if (element.hasRole()) {
+        composeCodeableConcept("role", element.getRole());
+      }
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasStereochemistry()) {
+        composeCodeableConcept("stereochemistry", element.getStereochemistry());
+      }
+      if (element.hasOpticalActivity()) {
+        composeCodeableConcept("opticalActivity", element.getOpticalActivity());
+      }
+      if (element.hasMolecularFormulaElement()) {
+        composeStringCore("molecularFormula", element.getMolecularFormulaElement(), false);
+        composeStringExtras("molecularFormula", element.getMolecularFormulaElement(), false);
+      }
+      if (element.hasAmount()) {
+        composeSubstanceAmount("amount", element.getAmount());
+      }
+  }
+
+  protected void composeProdCharacteristic(String name, ProdCharacteristic element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeProdCharacteristicInner(element);
+      close();
+    }
+  }
+
+  protected void composeProdCharacteristicInner(ProdCharacteristic element) throws IOException {
+      composeElement(element);
+      if (element.hasHeight()) {
+        composeQuantity("height", element.getHeight());
+      }
+      if (element.hasWidth()) {
+        composeQuantity("width", element.getWidth());
+      }
+      if (element.hasDepth()) {
+        composeQuantity("depth", element.getDepth());
+      }
+      if (element.hasWeight()) {
+        composeQuantity("weight", element.getWeight());
+      }
+      if (element.hasNominalVolume()) {
+        composeQuantity("nominalVolume", element.getNominalVolume());
+      }
+      if (element.hasExternalDiameter()) {
+        composeQuantity("externalDiameter", element.getExternalDiameter());
+      }
+      if (element.hasShapeElement()) {
+        composeStringCore("shape", element.getShapeElement(), false);
+        composeStringExtras("shape", element.getShapeElement(), false);
+      }
+      if (element.hasColor()) {
+        openArray("color");
+        for (StringType e : element.getColor()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getColor())) {
+          openArray("_color");
+          for (StringType e : element.getColor()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasImprint()) {
+        openArray("imprint");
+        for (StringType e : element.getImprint()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getImprint())) {
+          openArray("_imprint");
+          for (StringType e : element.getImprint()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasImage()) {
+        openArray("image");
+        for (Attachment e : element.getImage()) 
+          composeAttachment(null, e);
+        closeArray();
+      };
+      if (element.hasScoring()) {
+        composeCodeableConcept("scoring", element.getScoring());
       }
   }
 
@@ -25664,6 +28271,157 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
+  protected void composeBiologicallyDerivedProduct(String name, BiologicallyDerivedProduct element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeBiologicallyDerivedProductInner(element);
+    }
+  }
+
+  protected void composeBiologicallyDerivedProductInner(BiologicallyDerivedProduct element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.hasProductCategoryElement()) {
+        composeEnumerationCore("productCategory", element.getProductCategoryElement(), new BiologicallyDerivedProduct.BiologicallyDerivedProductCategoryEnumFactory(), false);
+        composeEnumerationExtras("productCategory", element.getProductCategoryElement(), new BiologicallyDerivedProduct.BiologicallyDerivedProductCategoryEnumFactory(), false);
+      }
+      if (element.hasProductCode()) {
+        composeCodeableConcept("productCode", element.getProductCode());
+      }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new BiologicallyDerivedProduct.BiologicallyDerivedProductStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new BiologicallyDerivedProduct.BiologicallyDerivedProductStatusEnumFactory(), false);
+      }
+      if (element.hasRequest()) {
+        openArray("request");
+        for (Reference e : element.getRequest()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasQuantityElement()) {
+        composeIntegerCore("quantity", element.getQuantityElement(), false);
+        composeIntegerExtras("quantity", element.getQuantityElement(), false);
+      }
+      if (element.hasParent()) {
+        composeReference("parent", element.getParent());
+      }
+      if (element.hasCollection()) {
+        composeBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponent("collection", element.getCollection());
+      }
+      if (element.hasProcessing()) {
+        openArray("processing");
+        for (BiologicallyDerivedProduct.BiologicallyDerivedProductProcessingComponent e : element.getProcessing()) 
+          composeBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponent(null, e);
+        closeArray();
+      };
+      if (element.hasManipulation()) {
+        composeBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponent("manipulation", element.getManipulation());
+      }
+      if (element.hasStorage()) {
+        openArray("storage");
+        for (BiologicallyDerivedProduct.BiologicallyDerivedProductStorageComponent e : element.getStorage()) 
+          composeBiologicallyDerivedProductBiologicallyDerivedProductStorageComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponent(String name, BiologicallyDerivedProduct.BiologicallyDerivedProductCollectionComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductCollectionComponentInner(BiologicallyDerivedProduct.BiologicallyDerivedProductCollectionComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCollector()) {
+        composeReference("collector", element.getCollector());
+      }
+      if (element.hasSource()) {
+        composeReference("source", element.getSource());
+      }
+      if (element.hasCollected()) {
+        composeType("collected", element.getCollected());
+      }
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponent(String name, BiologicallyDerivedProduct.BiologicallyDerivedProductProcessingComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductProcessingComponentInner(BiologicallyDerivedProduct.BiologicallyDerivedProductProcessingComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasProcedure()) {
+        composeCodeableConcept("procedure", element.getProcedure());
+      }
+      if (element.hasAdditive()) {
+        composeReference("additive", element.getAdditive());
+      }
+      if (element.hasTime()) {
+        composeType("time", element.getTime());
+      }
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponent(String name, BiologicallyDerivedProduct.BiologicallyDerivedProductManipulationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductManipulationComponentInner(BiologicallyDerivedProduct.BiologicallyDerivedProductManipulationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasTime()) {
+        composeType("time", element.getTime());
+      }
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductStorageComponent(String name, BiologicallyDerivedProduct.BiologicallyDerivedProductStorageComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeBiologicallyDerivedProductBiologicallyDerivedProductStorageComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeBiologicallyDerivedProductBiologicallyDerivedProductStorageComponentInner(BiologicallyDerivedProduct.BiologicallyDerivedProductStorageComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasTemperatureElement()) {
+        composeDecimalCore("temperature", element.getTemperatureElement(), false);
+        composeDecimalExtras("temperature", element.getTemperatureElement(), false);
+      }
+      if (element.hasScaleElement()) {
+        composeEnumerationCore("scale", element.getScaleElement(), new BiologicallyDerivedProduct.BiologicallyDerivedProductStorageScaleEnumFactory(), false);
+        composeEnumerationExtras("scale", element.getScaleElement(), new BiologicallyDerivedProduct.BiologicallyDerivedProductStorageScaleEnumFactory(), false);
+      }
+      if (element.hasDuration()) {
+        composePeriod("duration", element.getDuration());
+      }
+  }
+
   protected void composeBodyStructure(String name, BodyStructure element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -26383,6 +29141,10 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasDefinition()) {
         composeReference("definition", element.getDefinition());
+      }
+      if (element.hasDocumentationElement()) {
+        composeMarkdownCore("documentation", element.getDocumentationElement(), false);
+        composeMarkdownExtras("documentation", element.getDocumentationElement(), false);
       }
   }
 
@@ -31912,8 +34674,8 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasClassification()) {
         openArray("classification");
-        for (Identifier e : element.getClassification()) 
-          composeIdentifier(null, e);
+        for (CodeableConcept e : element.getClassification()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasStatus()) {
@@ -35887,6 +38649,55 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
+  protected void composeItemInstance(String name, ItemInstance element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeItemInstanceInner(element);
+    }
+  }
+
+  protected void composeItemInstanceInner(ItemInstance element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasCountElement()) {
+        composeIntegerCore("count", element.getCountElement(), false);
+        composeIntegerExtras("count", element.getCountElement(), false);
+      }
+      if (element.hasLocation()) {
+        composeReference("location", element.getLocation());
+      }
+      if (element.hasSubject()) {
+        composeReference("subject", element.getSubject());
+      }
+      if (element.hasManufactureDateElement()) {
+        composeDateTimeCore("manufactureDate", element.getManufactureDateElement(), false);
+        composeDateTimeExtras("manufactureDate", element.getManufactureDateElement(), false);
+      }
+      if (element.hasExpiryDateElement()) {
+        composeDateTimeCore("expiryDate", element.getExpiryDateElement(), false);
+        composeDateTimeExtras("expiryDate", element.getExpiryDateElement(), false);
+      }
+      if (element.hasCurrentSWVersionElement()) {
+        composeStringCore("currentSWVersion", element.getCurrentSWVersionElement(), false);
+        composeStringExtras("currentSWVersion", element.getCurrentSWVersionElement(), false);
+      }
+      if (element.hasLotNumberElement()) {
+        composeStringCore("lotNumber", element.getLotNumberElement(), false);
+        composeStringExtras("lotNumber", element.getLotNumberElement(), false);
+      }
+      if (element.hasSerialNumberElement()) {
+        composeStringCore("serialNumber", element.getSerialNumberElement(), false);
+        composeStringExtras("serialNumber", element.getSerialNumberElement(), false);
+      }
+      if (element.hasCarrierAIDCElement()) {
+        composeStringCore("carrierAIDC", element.getCarrierAIDCElement(), false);
+        composeStringExtras("carrierAIDC", element.getCarrierAIDCElement(), false);
+      }
+      if (element.hasCarrierHRFElement()) {
+        composeStringCore("carrierHRF", element.getCarrierHRFElement(), false);
+        composeStringExtras("carrierHRF", element.getCarrierHRFElement(), false);
+      }
+  }
+
   protected void composeLibrary(String name, Library element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -37550,6 +40361,1044 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
+  protected void composeMedicinalProduct(String name, MedicinalProduct element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeMedicinalProductInner(element);
+    }
+  }
+
+  protected void composeMedicinalProductInner(MedicinalProduct element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasCombinedPharmaceuticalDoseForm()) {
+        composeCodeableConcept("combinedPharmaceuticalDoseForm", element.getCombinedPharmaceuticalDoseForm());
+      }
+      if (element.hasAdditionalMonitoringIndicator()) {
+        composeCodeableConcept("additionalMonitoringIndicator", element.getAdditionalMonitoringIndicator());
+      }
+      if (element.hasSpecialMeasures()) {
+        openArray("specialMeasures");
+        for (StringType e : element.getSpecialMeasures()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getSpecialMeasures())) {
+          openArray("_specialMeasures");
+          for (StringType e : element.getSpecialMeasures()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasPaediatricUseIndicator()) {
+        composeCodeableConcept("paediatricUseIndicator", element.getPaediatricUseIndicator());
+      }
+      if (element.hasOrphanDesignationStatus()) {
+        composeCodeableConcept("orphanDesignationStatus", element.getOrphanDesignationStatus());
+      }
+      if (element.hasProductClassification()) {
+        openArray("productClassification");
+        for (CodeableConcept e : element.getProductClassification()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasMarketingAuthorization()) {
+        composeReference("marketingAuthorization", element.getMarketingAuthorization());
+      }
+      if (element.hasPackagedMedicinalProduct()) {
+        openArray("packagedMedicinalProduct");
+        for (Reference e : element.getPackagedMedicinalProduct()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasPharmaceuticalProduct()) {
+        openArray("pharmaceuticalProduct");
+        for (Reference e : element.getPharmaceuticalProduct()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasClinicalParticulars()) {
+        openArray("clinicalParticulars");
+        for (Reference e : element.getClinicalParticulars()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasAttachedDocument()) {
+        openArray("attachedDocument");
+        for (Reference e : element.getAttachedDocument()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasMasterFile()) {
+        openArray("masterFile");
+        for (Reference e : element.getMasterFile()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasName()) {
+        openArray("name");
+        for (MedicinalProduct.MedicinalProductNameComponent e : element.getName()) 
+          composeMedicinalProductMedicinalProductNameComponent(null, e);
+        closeArray();
+      };
+      if (element.hasCrossReference()) {
+        openArray("crossReference");
+        for (Identifier e : element.getCrossReference()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.hasManufacturingBusinessOperation()) {
+        openArray("manufacturingBusinessOperation");
+        for (MedicinalProduct.MedicinalProductManufacturingBusinessOperationComponent e : element.getManufacturingBusinessOperation()) 
+          composeMedicinalProductMedicinalProductManufacturingBusinessOperationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductMedicinalProductNameComponent(String name, MedicinalProduct.MedicinalProductNameComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductMedicinalProductNameComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductMedicinalProductNameComponentInner(MedicinalProduct.MedicinalProductNameComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasFullNameElement()) {
+        composeStringCore("fullName", element.getFullNameElement(), false);
+        composeStringExtras("fullName", element.getFullNameElement(), false);
+      }
+      if (element.hasNamePart()) {
+        openArray("namePart");
+        for (MedicinalProduct.MedicinalProductNameNamePartComponent e : element.getNamePart()) 
+          composeMedicinalProductMedicinalProductNameNamePartComponent(null, e);
+        closeArray();
+      };
+      if (element.hasCountryLanguage()) {
+        openArray("countryLanguage");
+        for (MedicinalProduct.MedicinalProductNameCountryLanguageComponent e : element.getCountryLanguage()) 
+          composeMedicinalProductMedicinalProductNameCountryLanguageComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductMedicinalProductNameNamePartComponent(String name, MedicinalProduct.MedicinalProductNameNamePartComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductMedicinalProductNameNamePartComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductMedicinalProductNameNamePartComponentInner(MedicinalProduct.MedicinalProductNameNamePartComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasPartElement()) {
+        composeStringCore("part", element.getPartElement(), false);
+        composeStringExtras("part", element.getPartElement(), false);
+      }
+      if (element.hasType()) {
+        composeCoding("type", element.getType());
+      }
+  }
+
+  protected void composeMedicinalProductMedicinalProductNameCountryLanguageComponent(String name, MedicinalProduct.MedicinalProductNameCountryLanguageComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductMedicinalProductNameCountryLanguageComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductMedicinalProductNameCountryLanguageComponentInner(MedicinalProduct.MedicinalProductNameCountryLanguageComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCountry()) {
+        composeCodeableConcept("country", element.getCountry());
+      }
+      if (element.hasJurisdiction()) {
+        composeCodeableConcept("jurisdiction", element.getJurisdiction());
+      }
+      if (element.hasLanguage()) {
+        composeCodeableConcept("language", element.getLanguage());
+      }
+  }
+
+  protected void composeMedicinalProductMedicinalProductManufacturingBusinessOperationComponent(String name, MedicinalProduct.MedicinalProductManufacturingBusinessOperationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductMedicinalProductManufacturingBusinessOperationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductMedicinalProductManufacturingBusinessOperationComponentInner(MedicinalProduct.MedicinalProductManufacturingBusinessOperationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasOperationType()) {
+        composeCodeableConcept("operationType", element.getOperationType());
+      }
+      if (element.hasAuthorisationReferenceNumber()) {
+        composeIdentifier("authorisationReferenceNumber", element.getAuthorisationReferenceNumber());
+      }
+      if (element.hasEffectiveDateElement()) {
+        composeDateTimeCore("effectiveDate", element.getEffectiveDateElement(), false);
+        composeDateTimeExtras("effectiveDate", element.getEffectiveDateElement(), false);
+      }
+      if (element.hasConfidentialityIndicator()) {
+        composeCodeableConcept("confidentialityIndicator", element.getConfidentialityIndicator());
+      }
+      if (element.hasManufacturer()) {
+        openArray("manufacturer");
+        for (Reference e : element.getManufacturer()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasRegulator()) {
+        composeReference("regulator", element.getRegulator());
+      }
+  }
+
+  protected void composeMedicinalProductAuthorization(String name, MedicinalProductAuthorization element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeMedicinalProductAuthorizationInner(element);
+    }
+  }
+
+  protected void composeMedicinalProductAuthorizationInner(MedicinalProductAuthorization element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasCountry()) {
+        openArray("country");
+        for (CodeableConcept e : element.getCountry()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasLegalStatusOfSupply()) {
+        composeCodeableConcept("legalStatusOfSupply", element.getLegalStatusOfSupply());
+      }
+      if (element.hasStatus()) {
+        composeCodeableConcept("status", element.getStatus());
+      }
+      if (element.hasStatusDateElement()) {
+        composeDateTimeCore("statusDate", element.getStatusDateElement(), false);
+        composeDateTimeExtras("statusDate", element.getStatusDateElement(), false);
+      }
+      if (element.hasRestoreDateElement()) {
+        composeDateTimeCore("restoreDate", element.getRestoreDateElement(), false);
+        composeDateTimeExtras("restoreDate", element.getRestoreDateElement(), false);
+      }
+      if (element.hasValidityPeriod()) {
+        composePeriod("validityPeriod", element.getValidityPeriod());
+      }
+      if (element.hasDataExclusivityPeriod()) {
+        composePeriod("dataExclusivityPeriod", element.getDataExclusivityPeriod());
+      }
+      if (element.hasDateOfFirstAuthorizationElement()) {
+        composeDateTimeCore("dateOfFirstAuthorization", element.getDateOfFirstAuthorizationElement(), false);
+        composeDateTimeExtras("dateOfFirstAuthorization", element.getDateOfFirstAuthorizationElement(), false);
+      }
+      if (element.hasInternationalBirthDateElement()) {
+        composeDateTimeCore("internationalBirthDate", element.getInternationalBirthDateElement(), false);
+        composeDateTimeExtras("internationalBirthDate", element.getInternationalBirthDateElement(), false);
+      }
+      if (element.hasJurisdictionalAuthorization()) {
+        openArray("jurisdictionalAuthorization");
+        for (MedicinalProductAuthorization.MedicinalProductAuthorizationJurisdictionalAuthorizationComponent e : element.getJurisdictionalAuthorization()) 
+          composeMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponent(null, e);
+        closeArray();
+      };
+      if (element.hasHolder()) {
+        composeReference("holder", element.getHolder());
+      }
+      if (element.hasRegulator()) {
+        composeReference("regulator", element.getRegulator());
+      }
+      if (element.hasProcedure()) {
+        composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponent("procedure", element.getProcedure());
+      }
+      if (element.hasMarketingStatus()) {
+        openArray("marketingStatus");
+        for (MarketingStatus e : element.getMarketingStatus()) 
+          composeMarketingStatus(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponent(String name, MedicinalProductAuthorization.MedicinalProductAuthorizationJurisdictionalAuthorizationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductAuthorizationMedicinalProductAuthorizationJurisdictionalAuthorizationComponentInner(MedicinalProductAuthorization.MedicinalProductAuthorizationJurisdictionalAuthorizationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCountry()) {
+        composeCodeableConcept("country", element.getCountry());
+      }
+      if (element.hasJurisdiction()) {
+        composeCodeableConcept("jurisdiction", element.getJurisdiction());
+      }
+      if (element.hasNumber()) {
+        composeIdentifier("number", element.getNumber());
+      }
+      if (element.hasLegalStatusOfSupply()) {
+        composeCodeableConcept("legalStatusOfSupply", element.getLegalStatusOfSupply());
+      }
+  }
+
+  protected void composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponent(String name, MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureComponentInner(MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasNumber()) {
+        composeIdentifier("number", element.getNumber());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasDate()) {
+        composePeriod("date", element.getDate());
+      }
+      if (element.hasApplication()) {
+        openArray("application");
+        for (MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureApplicationComponent e : element.getApplication()) 
+          composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponent(String name, MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureApplicationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductAuthorizationMedicinalProductAuthorizationProcedureApplicationComponentInner(MedicinalProductAuthorization.MedicinalProductAuthorizationProcedureApplicationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasNumber()) {
+        composeIdentifier("number", element.getNumber());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
+  }
+
+  protected void composeMedicinalProductClinicals(String name, MedicinalProductClinicals element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeMedicinalProductClinicalsInner(element);
+    }
+  }
+
+  protected void composeMedicinalProductClinicalsInner(MedicinalProductClinicals element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasUndesirableEffects()) {
+        openArray("undesirableEffects");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent e : element.getUndesirableEffects()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(null, e);
+        closeArray();
+      };
+      if (element.hasTherapeuticIndication()) {
+        openArray("therapeuticIndication");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent e : element.getTherapeuticIndication()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(null, e);
+        closeArray();
+      };
+      if (element.hasContraindication()) {
+        openArray("contraindication");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent e : element.getContraindication()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(null, e);
+        closeArray();
+      };
+      if (element.hasInteractions()) {
+        openArray("interactions");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent e : element.getInteractions()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasSymptomConditionEffect()) {
+        composeCodeableConcept("symptomConditionEffect", element.getSymptomConditionEffect());
+      }
+      if (element.hasClassification()) {
+        composeCodeableConcept("classification", element.getClassification());
+      }
+      if (element.hasFrequencyOfOccurrence()) {
+        composeCodeableConcept("frequencyOfOccurrence", element.getFrequencyOfOccurrence());
+      }
+      if (element.hasPopulation()) {
+        openArray("population");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent e : element.getPopulation()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasAge()) {
+        composeType("age", element.getAge());
+      }
+      if (element.hasGender()) {
+        composeCodeableConcept("gender", element.getGender());
+      }
+      if (element.hasRace()) {
+        composeCodeableConcept("race", element.getRace());
+      }
+      if (element.hasPhysiologicalCondition()) {
+        composeCodeableConcept("physiologicalCondition", element.getPhysiologicalCondition());
+      }
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasDiseaseSymptomProcedure()) {
+        composeCodeableConcept("diseaseSymptomProcedure", element.getDiseaseSymptomProcedure());
+      }
+      if (element.hasDiseaseStatus()) {
+        composeCodeableConcept("diseaseStatus", element.getDiseaseStatus());
+      }
+      if (element.hasComorbidity()) {
+        openArray("comorbidity");
+        for (CodeableConcept e : element.getComorbidity()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasIntendedEffect()) {
+        composeCodeableConcept("intendedEffect", element.getIntendedEffect());
+      }
+      if (element.hasDuration()) {
+        composeQuantity("duration", element.getDuration());
+      }
+      if (element.hasUndesirableEffects()) {
+        openArray("undesirableEffects");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsComponent e : element.getUndesirableEffects()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsComponent(null, e);
+        closeArray();
+      };
+      if (element.hasOtherTherapy()) {
+        openArray("otherTherapy");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent e : element.getOtherTherapy()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(null, e);
+        closeArray();
+      };
+      if (element.hasPopulation()) {
+        openArray("population");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent e : element.getPopulation()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasTherapyRelationshipType()) {
+        composeCodeableConcept("therapyRelationshipType", element.getTherapyRelationshipType());
+      }
+      if (element.hasMedication()) {
+        composeType("medication", element.getMedication());
+      }
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsContraindicationComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsContraindicationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasDisease()) {
+        composeCodeableConcept("disease", element.getDisease());
+      }
+      if (element.hasDiseaseStatus()) {
+        composeCodeableConcept("diseaseStatus", element.getDiseaseStatus());
+      }
+      if (element.hasComorbidity()) {
+        openArray("comorbidity");
+        for (CodeableConcept e : element.getComorbidity()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasTherapeuticIndication()) {
+        openArray("therapeuticIndication");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationComponent e : element.getTherapeuticIndication()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationComponent(null, e);
+        closeArray();
+      };
+      if (element.hasOtherTherapy()) {
+        openArray("otherTherapy");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent e : element.getOtherTherapy()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsTherapeuticIndicationOtherTherapyComponent(null, e);
+        closeArray();
+      };
+      if (element.hasPopulation()) {
+        openArray("population");
+        for (MedicinalProductClinicals.MedicinalProductClinicalsUndesirableEffectsPopulationComponent e : element.getPopulation()) 
+          composeMedicinalProductClinicalsMedicinalProductClinicalsUndesirableEffectsPopulationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponent(String name, MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductClinicalsMedicinalProductClinicalsInteractionsComponentInner(MedicinalProductClinicals.MedicinalProductClinicalsInteractionsComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasInteractant()) {
+        openArray("interactant");
+        for (CodeableConcept e : element.getInteractant()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasEffect()) {
+        composeCodeableConcept("effect", element.getEffect());
+      }
+      if (element.hasIncidence()) {
+        composeCodeableConcept("incidence", element.getIncidence());
+      }
+      if (element.hasManagement()) {
+        composeCodeableConcept("management", element.getManagement());
+      }
+  }
+
+  protected void composeMedicinalProductDeviceSpec(String name, MedicinalProductDeviceSpec element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeMedicinalProductDeviceSpecInner(element);
+    }
+  }
+
+  protected void composeMedicinalProductDeviceSpecInner(MedicinalProductDeviceSpec element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasTradeNameElement()) {
+        composeStringCore("tradeName", element.getTradeNameElement(), false);
+        composeStringExtras("tradeName", element.getTradeNameElement(), false);
+      }
+      if (element.hasQuantity()) {
+        composeQuantity("quantity", element.getQuantity());
+      }
+      if (element.hasListingNumberElement()) {
+        composeStringCore("listingNumber", element.getListingNumberElement(), false);
+        composeStringExtras("listingNumber", element.getListingNumberElement(), false);
+      }
+      if (element.hasModelNumberElement()) {
+        composeStringCore("modelNumber", element.getModelNumberElement(), false);
+        composeStringExtras("modelNumber", element.getModelNumberElement(), false);
+      }
+      if (element.hasSterilityIndicator()) {
+        composeCodeableConcept("sterilityIndicator", element.getSterilityIndicator());
+      }
+      if (element.hasSterilisationRequirement()) {
+        composeCodeableConcept("sterilisationRequirement", element.getSterilisationRequirement());
+      }
+      if (element.hasUsage()) {
+        composeCodeableConcept("usage", element.getUsage());
+      }
+      if (element.hasNomenclature()) {
+        openArray("nomenclature");
+        for (CodeableConcept e : element.getNomenclature()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasShelfLife()) {
+        openArray("shelfLife");
+        for (ProductShelfLife e : element.getShelfLife()) 
+          composeProductShelfLife(null, e);
+        closeArray();
+      };
+      if (element.hasPhysicalCharacteristics()) {
+        composeProdCharacteristic("physicalCharacteristics", element.getPhysicalCharacteristics());
+      }
+      if (element.hasOtherCharacteristics()) {
+        openArray("otherCharacteristics");
+        for (CodeableConcept e : element.getOtherCharacteristics()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasBatchIdentifier()) {
+        openArray("batchIdentifier");
+        for (Identifier e : element.getBatchIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.hasManufacturer()) {
+        openArray("manufacturer");
+        for (Reference e : element.getManufacturer()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasMaterial()) {
+        openArray("material");
+        for (MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent e : element.getMaterial()) 
+          composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponent(String name, MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductDeviceSpecMedicinalProductDeviceSpecMaterialComponentInner(MedicinalProductDeviceSpec.MedicinalProductDeviceSpecMaterialComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasSubstance()) {
+        composeCodeableConcept("substance", element.getSubstance());
+      }
+      if (element.hasAlternateElement()) {
+        composeBooleanCore("alternate", element.getAlternateElement(), false);
+        composeBooleanExtras("alternate", element.getAlternateElement(), false);
+      }
+      if (element.hasAllergenicIndicatorElement()) {
+        composeBooleanCore("allergenicIndicator", element.getAllergenicIndicatorElement(), false);
+        composeBooleanExtras("allergenicIndicator", element.getAllergenicIndicatorElement(), false);
+      }
+  }
+
+  protected void composeMedicinalProductIngredient(String name, MedicinalProductIngredient element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeMedicinalProductIngredientInner(element);
+    }
+  }
+
+  protected void composeMedicinalProductIngredientInner(MedicinalProductIngredient element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasRole()) {
+        composeCodeableConcept("role", element.getRole());
+      }
+      if (element.hasAllergenicIndicatorElement()) {
+        composeBooleanCore("allergenicIndicator", element.getAllergenicIndicatorElement(), false);
+        composeBooleanExtras("allergenicIndicator", element.getAllergenicIndicatorElement(), false);
+      }
+      if (element.hasManufacturer()) {
+        openArray("manufacturer");
+        for (Reference e : element.getManufacturer()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasSpecifiedSubstance()) {
+        openArray("specifiedSubstance");
+        for (MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceComponent e : element.getSpecifiedSubstance()) 
+          composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponent(null, e);
+        closeArray();
+      };
+      if (element.hasSubstance()) {
+        composeMedicinalProductIngredientMedicinalProductIngredientSubstanceComponent("substance", element.getSubstance());
+      }
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponent(String name, MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceComponentInner(MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasGroup()) {
+        composeCodeableConcept("group", element.getGroup());
+      }
+      if (element.hasConfidentiality()) {
+        composeCodeableConcept("confidentiality", element.getConfidentiality());
+      }
+      if (element.hasStrength()) {
+        openArray("strength");
+        for (MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthComponent e : element.getStrength()) 
+          composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponent(String name, MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponentInner(MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasPresentation()) {
+        composeRatio("presentation", element.getPresentation());
+      }
+      if (element.hasConcentration()) {
+        composeRatio("concentration", element.getConcentration());
+      }
+      if (element.hasMeasurementPointElement()) {
+        composeStringCore("measurementPoint", element.getMeasurementPointElement(), false);
+        composeStringExtras("measurementPoint", element.getMeasurementPointElement(), false);
+      }
+      if (element.hasCountry()) {
+        openArray("country");
+        for (CodeableConcept e : element.getCountry()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasReferenceStrength()) {
+        openArray("referenceStrength");
+        for (MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent e : element.getReferenceStrength()) 
+          composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent(String name, MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponentInner(MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthReferenceStrengthComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasSubstance()) {
+        composeCodeableConcept("substance", element.getSubstance());
+      }
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSubstanceComponent(String name, MedicinalProductIngredient.MedicinalProductIngredientSubstanceComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductIngredientMedicinalProductIngredientSubstanceComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductIngredientMedicinalProductIngredientSubstanceComponentInner(MedicinalProductIngredient.MedicinalProductIngredientSubstanceComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasStrength()) {
+        openArray("strength");
+        for (MedicinalProductIngredient.MedicinalProductIngredientSpecifiedSubstanceStrengthComponent e : element.getStrength()) 
+          composeMedicinalProductIngredientMedicinalProductIngredientSpecifiedSubstanceStrengthComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductPackaged(String name, MedicinalProductPackaged element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeMedicinalProductPackagedInner(element);
+    }
+  }
+
+  protected void composeMedicinalProductPackagedInner(MedicinalProductPackaged element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasDescriptionElement()) {
+        composeStringCore("description", element.getDescriptionElement(), false);
+        composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasMarketingStatus()) {
+        openArray("marketingStatus");
+        for (MarketingStatus e : element.getMarketingStatus()) 
+          composeMarketingStatus(null, e);
+        closeArray();
+      };
+      if (element.hasBatchIdentifier()) {
+        openArray("batchIdentifier");
+        for (MedicinalProductPackaged.MedicinalProductPackagedBatchIdentifierComponent e : element.getBatchIdentifier()) 
+          composeMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponent(null, e);
+        closeArray();
+      };
+      if (element.hasPackageItem()) {
+        openArray("packageItem");
+        for (MedicinalProductPackaged.MedicinalProductPackagedPackageItemComponent e : element.getPackageItem()) 
+          composeMedicinalProductPackagedMedicinalProductPackagedPackageItemComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponent(String name, MedicinalProductPackaged.MedicinalProductPackagedBatchIdentifierComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductPackagedMedicinalProductPackagedBatchIdentifierComponentInner(MedicinalProductPackaged.MedicinalProductPackagedBatchIdentifierComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasOuterPackaging()) {
+        composeIdentifier("outerPackaging", element.getOuterPackaging());
+      }
+      if (element.hasImmediatePackaging()) {
+        composeIdentifier("immediatePackaging", element.getImmediatePackaging());
+      }
+  }
+
+  protected void composeMedicinalProductPackagedMedicinalProductPackagedPackageItemComponent(String name, MedicinalProductPackaged.MedicinalProductPackagedPackageItemComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductPackagedMedicinalProductPackagedPackageItemComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductPackagedMedicinalProductPackagedPackageItemComponentInner(MedicinalProductPackaged.MedicinalProductPackagedPackageItemComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasIdentifier()) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasQuantity()) {
+        composeQuantity("quantity", element.getQuantity());
+      }
+      if (element.hasMaterial()) {
+        openArray("material");
+        for (CodeableConcept e : element.getMaterial()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasAlternateMaterial()) {
+        openArray("alternateMaterial");
+        for (CodeableConcept e : element.getAlternateMaterial()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasManufacturer()) {
+        openArray("manufacturer");
+        for (Reference e : element.getManufacturer()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasDevice()) {
+        openArray("device");
+        for (Reference e : element.getDevice()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasManufacturedItem()) {
+        openArray("manufacturedItem");
+        for (MedicinalProductPackaged.MedicinalProductPackagedPackageItemManufacturedItemComponent e : element.getManufacturedItem()) 
+          composeMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponent(null, e);
+        closeArray();
+      };
+      if (element.hasOtherCharacteristics()) {
+        openArray("otherCharacteristics");
+        for (CodeableConcept e : element.getOtherCharacteristics()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasPackageItem()) {
+        openArray("packageItem");
+        for (MedicinalProductPackaged.MedicinalProductPackagedPackageItemComponent e : element.getPackageItem()) 
+          composeMedicinalProductPackagedMedicinalProductPackagedPackageItemComponent(null, e);
+        closeArray();
+      };
+      if (element.hasPhysicalCharacteristics()) {
+        composeProdCharacteristic("physicalCharacteristics", element.getPhysicalCharacteristics());
+      }
+      if (element.hasShelfLifeStorage()) {
+        openArray("shelfLifeStorage");
+        for (ProductShelfLife e : element.getShelfLifeStorage()) 
+          composeProductShelfLife(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponent(String name, MedicinalProductPackaged.MedicinalProductPackagedPackageItemManufacturedItemComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductPackagedMedicinalProductPackagedPackageItemManufacturedItemComponentInner(MedicinalProductPackaged.MedicinalProductPackagedPackageItemManufacturedItemComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasManufacturedDoseForm()) {
+        composeCodeableConcept("manufacturedDoseForm", element.getManufacturedDoseForm());
+      }
+      if (element.hasUnitOfPresentation()) {
+        composeCodeableConcept("unitOfPresentation", element.getUnitOfPresentation());
+      }
+      if (element.hasQuantity()) {
+        composeQuantity("quantity", element.getQuantity());
+      }
+      if (element.hasXManufacturer()) {
+        openArray("xManufacturer");
+        for (Reference e : element.getXManufacturer()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasIngredient()) {
+        openArray("ingredient");
+        for (Reference e : element.getIngredient()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasPhysicalCharacteristics()) {
+        composeProdCharacteristic("physicalCharacteristics", element.getPhysicalCharacteristics());
+      }
+  }
+
+  protected void composeMedicinalProductPharmaceutical(String name, MedicinalProductPharmaceutical element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeMedicinalProductPharmaceuticalInner(element);
+    }
+  }
+
+  protected void composeMedicinalProductPharmaceuticalInner(MedicinalProductPharmaceutical element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
+      if (element.hasAdministrableDoseForm()) {
+        composeCodeableConcept("administrableDoseForm", element.getAdministrableDoseForm());
+      }
+      if (element.hasUnitOfPresentation()) {
+        composeCodeableConcept("unitOfPresentation", element.getUnitOfPresentation());
+      }
+      if (element.hasRouteOfAdministration()) {
+        openArray("routeOfAdministration");
+        for (CodeableConcept e : element.getRouteOfAdministration()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasIngredient()) {
+        openArray("ingredient");
+        for (Reference e : element.getIngredient()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasDevice()) {
+        openArray("device");
+        for (StringType e : element.getDevice()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getDevice())) {
+          openArray("_device");
+          for (StringType e : element.getDevice()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasCharacteristics()) {
+        openArray("characteristics");
+        for (MedicinalProductPharmaceutical.MedicinalProductPharmaceuticalCharacteristicsComponent e : element.getCharacteristics()) 
+          composeMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponent(String name, MedicinalProductPharmaceutical.MedicinalProductPharmaceuticalCharacteristicsComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeMedicinalProductPharmaceuticalMedicinalProductPharmaceuticalCharacteristicsComponentInner(MedicinalProductPharmaceutical.MedicinalProductPharmaceuticalCharacteristicsComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasStatus()) {
+        composeCodeableConcept("status", element.getStatus());
+      }
+  }
+
   protected void composeMessageDefinition(String name, MessageDefinition element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -38486,6 +42335,214 @@ public class JsonParser extends JsonParserBase {
       if (element.hasConditionElement()) {
         composeStringCore("condition", element.getConditionElement(), false);
         composeStringExtras("condition", element.getConditionElement(), false);
+      }
+  }
+
+  protected void composeOccupationalData(String name, OccupationalData element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeOccupationalDataInner(element);
+    }
+  }
+
+  protected void composeOccupationalDataInner(OccupationalData element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
+      }
+      if (element.hasSubject()) {
+        composeReference("subject", element.getSubject());
+      }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
+      if (element.hasAuthor()) {
+        openArray("author");
+        for (Reference e : element.getAuthor()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasEmploymentStatus()) {
+        composeOccupationalDataOccupationalDataEmploymentStatusComponent("employmentStatus", element.getEmploymentStatus());
+      }
+      if (element.hasRetirementStatus()) {
+        composeOccupationalDataOccupationalDataRetirementStatusComponent("retirementStatus", element.getRetirementStatus());
+      }
+      if (element.hasCombatZoneHazardousDuty()) {
+        openArray("combatZoneHazardousDuty");
+        for (OccupationalData.OccupationalDataCombatZoneHazardousDutyComponent e : element.getCombatZoneHazardousDuty()) 
+          composeOccupationalDataOccupationalDataCombatZoneHazardousDutyComponent(null, e);
+        closeArray();
+      };
+      if (element.hasUsualOccupation()) {
+        composeOccupationalDataOccupationalDataUsualOccupationComponent("usualOccupation", element.getUsualOccupation());
+      }
+      if (element.hasPastOrPresentOccupation()) {
+        composeOccupationalDataOccupationalDataPastOrPresentOccupationComponent("pastOrPresentOccupation", element.getPastOrPresentOccupation());
+      }
+  }
+
+  protected void composeOccupationalDataOccupationalDataEmploymentStatusComponent(String name, OccupationalData.OccupationalDataEmploymentStatusComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeOccupationalDataOccupationalDataEmploymentStatusComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeOccupationalDataOccupationalDataEmploymentStatusComponentInner(OccupationalData.OccupationalDataEmploymentStatusComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCodeElement()) {
+        composeEnumerationCore("code", element.getCodeElement(), new OccupationalData.HistoryOfEmploymentStatusEnumFactory(), false);
+        composeEnumerationExtras("code", element.getCodeElement(), new OccupationalData.HistoryOfEmploymentStatusEnumFactory(), false);
+      }
+      if (element.hasEffective()) {
+        composeType("effective", element.getEffective());
+      }
+      if (element.hasValue()) {
+        composeCodeableConcept("value", element.getValue());
+      }
+  }
+
+  protected void composeOccupationalDataOccupationalDataRetirementStatusComponent(String name, OccupationalData.OccupationalDataRetirementStatusComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeOccupationalDataOccupationalDataRetirementStatusComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeOccupationalDataOccupationalDataRetirementStatusComponentInner(OccupationalData.OccupationalDataRetirementStatusComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCodeElement()) {
+        composeEnumerationCore("code", element.getCodeElement(), new OccupationalData.RetirementStatusEnumFactory(), false);
+        composeEnumerationExtras("code", element.getCodeElement(), new OccupationalData.RetirementStatusEnumFactory(), false);
+      }
+      if (element.hasEffective()) {
+        composeType("effective", element.getEffective());
+      }
+      if (element.hasValue()) {
+        composeCodeableConcept("value", element.getValue());
+      }
+  }
+
+  protected void composeOccupationalDataOccupationalDataCombatZoneHazardousDutyComponent(String name, OccupationalData.OccupationalDataCombatZoneHazardousDutyComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeOccupationalDataOccupationalDataCombatZoneHazardousDutyComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeOccupationalDataOccupationalDataCombatZoneHazardousDutyComponentInner(OccupationalData.OccupationalDataCombatZoneHazardousDutyComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCode()) {
+        openArray("code");
+        for (Enumeration<OccupationalData.HazardousDutyWork> e : element.getCode()) 
+          composeEnumerationCore(null, e, new OccupationalData.HazardousDutyWorkEnumFactory(), true);
+        closeArray();
+        if (anyHasExtras(element.getCode())) {
+          openArray("_code");
+          for (Enumeration<OccupationalData.HazardousDutyWork> e : element.getCode()) 
+            composeEnumerationExtras(null, e, new OccupationalData.HazardousDutyWorkEnumFactory(), true);
+          closeArray();
+        }
+      };
+      if (element.hasEffective()) {
+        composeType("effective", element.getEffective());
+      }
+      if (element.hasValue()) {
+        composeCodeableConcept("value", element.getValue());
+      }
+  }
+
+  protected void composeOccupationalDataOccupationalDataUsualOccupationComponent(String name, OccupationalData.OccupationalDataUsualOccupationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeOccupationalDataOccupationalDataUsualOccupationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeOccupationalDataOccupationalDataUsualOccupationComponentInner(OccupationalData.OccupationalDataUsualOccupationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCodeElement()) {
+        composeEnumerationCore("code", element.getCodeElement(), new OccupationalData.UsualOccupationEnumFactory(), false);
+        composeEnumerationExtras("code", element.getCodeElement(), new OccupationalData.UsualOccupationEnumFactory(), false);
+      }
+      if (element.hasEffective()) {
+        composeType("effective", element.getEffective());
+      }
+      if (element.hasValue()) {
+        composeCodeableConcept("value", element.getValue());
+      }
+      if (element.hasDuration()) {
+        composeOccupationalDataOccupationalDataUsualOccupationDurationComponent("duration", element.getDuration());
+      }
+      if (element.hasIndustry()) {
+        composeOccupationalDataOccupationalDataUsualOccupationIndustryComponent("industry", element.getIndustry());
+      }
+  }
+
+  protected void composeOccupationalDataOccupationalDataUsualOccupationDurationComponent(String name, OccupationalData.OccupationalDataUsualOccupationDurationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeOccupationalDataOccupationalDataUsualOccupationDurationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeOccupationalDataOccupationalDataUsualOccupationDurationComponentInner(OccupationalData.OccupationalDataUsualOccupationDurationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasValue()) {
+        composePeriod("value", element.getValue());
+      }
+  }
+
+  protected void composeOccupationalDataOccupationalDataUsualOccupationIndustryComponent(String name, OccupationalData.OccupationalDataUsualOccupationIndustryComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeOccupationalDataOccupationalDataUsualOccupationIndustryComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeOccupationalDataOccupationalDataUsualOccupationIndustryComponentInner(OccupationalData.OccupationalDataUsualOccupationIndustryComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasValue()) {
+        composeCodeableConcept("value", element.getValue());
+      }
+  }
+
+  protected void composeOccupationalDataOccupationalDataPastOrPresentOccupationComponent(String name, OccupationalData.OccupationalDataPastOrPresentOccupationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeOccupationalDataOccupationalDataPastOrPresentOccupationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeOccupationalDataOccupationalDataPastOrPresentOccupationComponentInner(OccupationalData.OccupationalDataPastOrPresentOccupationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasEffective()) {
+        composeType("effective", element.getEffective());
+      }
+      if (element.hasValue()) {
+        composeCodeableConcept("value", element.getValue());
       }
   }
 
@@ -40663,7 +44720,7 @@ public class JsonParser extends JsonParserBase {
         composeCodeableConcept("code", element.getCode());
       }
       if (element.hasBenefitValue()) {
-        composeMoney("benefitValue", element.getBenefitValue());
+        composeQuantity("benefitValue", element.getBenefitValue());
       }
   }
 
@@ -40769,7 +44826,7 @@ public class JsonParser extends JsonParserBase {
         }
       };
       if (element.hasValue()) {
-        composeMoney("value", element.getValue());
+        composeQuantity("value", element.getValue());
       }
   }
 
@@ -43932,6 +47989,787 @@ public class JsonParser extends JsonParserBase {
       }
   }
 
+  protected void composeSubstancePolymer(String name, SubstancePolymer element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeSubstancePolymerInner(element);
+    }
+  }
+
+  protected void composeSubstancePolymerInner(SubstancePolymer element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasClass_()) {
+        composeCodeableConcept("class", element.getClass_());
+      }
+      if (element.hasGeometry()) {
+        composeCodeableConcept("geometry", element.getGeometry());
+      }
+      if (element.hasCopolymerConnectivity()) {
+        openArray("copolymerConnectivity");
+        for (CodeableConcept e : element.getCopolymerConnectivity()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasModification()) {
+        openArray("modification");
+        for (StringType e : element.getModification()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getModification())) {
+          openArray("_modification");
+          for (StringType e : element.getModification()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasMonomerSet()) {
+        openArray("monomerSet");
+        for (SubstancePolymer.SubstancePolymerMonomerSetComponent e : element.getMonomerSet()) 
+          composeSubstancePolymerSubstancePolymerMonomerSetComponent(null, e);
+        closeArray();
+      };
+      if (element.hasRepeat()) {
+        openArray("repeat");
+        for (SubstancePolymer.SubstancePolymerRepeatComponent e : element.getRepeat()) 
+          composeSubstancePolymerSubstancePolymerRepeatComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerMonomerSetComponent(String name, SubstancePolymer.SubstancePolymerMonomerSetComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstancePolymerSubstancePolymerMonomerSetComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerMonomerSetComponentInner(SubstancePolymer.SubstancePolymerMonomerSetComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasRatioType()) {
+        composeCodeableConcept("ratioType", element.getRatioType());
+      }
+      if (element.hasStartingMaterial()) {
+        openArray("startingMaterial");
+        for (SubstancePolymer.SubstancePolymerMonomerSetStartingMaterialComponent e : element.getStartingMaterial()) 
+          composeSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponent(String name, SubstancePolymer.SubstancePolymerMonomerSetStartingMaterialComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerMonomerSetStartingMaterialComponentInner(SubstancePolymer.SubstancePolymerMonomerSetStartingMaterialComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasMaterial()) {
+        composeCodeableConcept("material", element.getMaterial());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasIsDefiningElement()) {
+        composeBooleanCore("isDefining", element.getIsDefiningElement(), false);
+        composeBooleanExtras("isDefining", element.getIsDefiningElement(), false);
+      }
+      if (element.hasAmount()) {
+        composeSubstanceAmount("amount", element.getAmount());
+      }
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatComponent(String name, SubstancePolymer.SubstancePolymerRepeatComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstancePolymerSubstancePolymerRepeatComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatComponentInner(SubstancePolymer.SubstancePolymerRepeatComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasNumberOfUnitsElement()) {
+        composeIntegerCore("numberOfUnits", element.getNumberOfUnitsElement(), false);
+        composeIntegerExtras("numberOfUnits", element.getNumberOfUnitsElement(), false);
+      }
+      if (element.hasAverageMolecularFormulaElement()) {
+        composeStringCore("averageMolecularFormula", element.getAverageMolecularFormulaElement(), false);
+        composeStringExtras("averageMolecularFormula", element.getAverageMolecularFormulaElement(), false);
+      }
+      if (element.hasRepeatUnitAmountType()) {
+        composeCodeableConcept("repeatUnitAmountType", element.getRepeatUnitAmountType());
+      }
+      if (element.hasRepeatUnit()) {
+        openArray("repeatUnit");
+        for (SubstancePolymer.SubstancePolymerRepeatRepeatUnitComponent e : element.getRepeatUnit()) 
+          composeSubstancePolymerSubstancePolymerRepeatRepeatUnitComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatRepeatUnitComponent(String name, SubstancePolymer.SubstancePolymerRepeatRepeatUnitComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstancePolymerSubstancePolymerRepeatRepeatUnitComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatRepeatUnitComponentInner(SubstancePolymer.SubstancePolymerRepeatRepeatUnitComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasOrientationOfPolymerisation()) {
+        composeCodeableConcept("orientationOfPolymerisation", element.getOrientationOfPolymerisation());
+      }
+      if (element.hasRepeatUnitElement()) {
+        composeStringCore("repeatUnit", element.getRepeatUnitElement(), false);
+        composeStringExtras("repeatUnit", element.getRepeatUnitElement(), false);
+      }
+      if (element.hasAmount()) {
+        composeSubstanceAmount("amount", element.getAmount());
+      }
+      if (element.hasDegreeOfPolymerisation()) {
+        openArray("degreeOfPolymerisation");
+        for (SubstancePolymer.SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent e : element.getDegreeOfPolymerisation()) 
+          composeSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent(null, e);
+        closeArray();
+      };
+      if (element.hasStructuralRepresentation()) {
+        openArray("structuralRepresentation");
+        for (SubstancePolymer.SubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent e : element.getStructuralRepresentation()) 
+          composeSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent(String name, SubstancePolymer.SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponentInner(SubstancePolymer.SubstancePolymerRepeatRepeatUnitDegreeOfPolymerisationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasDegree()) {
+        composeCodeableConcept("degree", element.getDegree());
+      }
+      if (element.hasAmount()) {
+        composeSubstanceAmount("amount", element.getAmount());
+      }
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent(String name, SubstancePolymer.SubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstancePolymerSubstancePolymerRepeatRepeatUnitStructuralRepresentationComponentInner(SubstancePolymer.SubstancePolymerRepeatRepeatUnitStructuralRepresentationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasRepresentationElement()) {
+        composeStringCore("representation", element.getRepresentationElement(), false);
+        composeStringExtras("representation", element.getRepresentationElement(), false);
+      }
+      if (element.hasAttachment()) {
+        composeAttachment("attachment", element.getAttachment());
+      }
+  }
+
+  protected void composeSubstanceReferenceInformation(String name, SubstanceReferenceInformation element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeSubstanceReferenceInformationInner(element);
+    }
+  }
+
+  protected void composeSubstanceReferenceInformationInner(SubstanceReferenceInformation element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasCommentElement()) {
+        composeStringCore("comment", element.getCommentElement(), false);
+        composeStringExtras("comment", element.getCommentElement(), false);
+      }
+      if (element.hasGene()) {
+        openArray("gene");
+        for (SubstanceReferenceInformation.SubstanceReferenceInformationGeneComponent e : element.getGene()) 
+          composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(null, e);
+        closeArray();
+      };
+      if (element.hasGeneElement()) {
+        openArray("geneElement");
+        for (SubstanceReferenceInformation.SubstanceReferenceInformationGeneElementComponent e : element.getGeneElement()) 
+          composeSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponent(null, e);
+        closeArray();
+      };
+      if (element.hasClassification()) {
+        openArray("classification");
+        for (SubstanceReferenceInformation.SubstanceReferenceInformationClassificationComponent e : element.getClassification()) 
+          composeSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponent(null, e);
+        closeArray();
+      };
+      if (element.hasRelationship()) {
+        openArray("relationship");
+        for (SubstanceReferenceInformation.SubstanceReferenceInformationRelationshipComponent e : element.getRelationship()) 
+          composeSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponent(null, e);
+        closeArray();
+      };
+      if (element.hasTarget()) {
+        openArray("target");
+        for (SubstanceReferenceInformation.SubstanceReferenceInformationTargetComponent e : element.getTarget()) 
+          composeSubstanceReferenceInformationSubstanceReferenceInformationTargetComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(String name, SubstanceReferenceInformation.SubstanceReferenceInformationGeneComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponentInner(SubstanceReferenceInformation.SubstanceReferenceInformationGeneComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasGeneSequenceOrigin()) {
+        composeCodeableConcept("geneSequenceOrigin", element.getGeneSequenceOrigin());
+      }
+      if (element.hasGene()) {
+        composeCodeableConcept("gene", element.getGene());
+      }
+      if (element.hasSource()) {
+        openArray("source");
+        for (Reference e : element.getSource()) 
+          composeReference(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponent(String name, SubstanceReferenceInformation.SubstanceReferenceInformationGeneElementComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationGeneElementComponentInner(SubstanceReferenceInformation.SubstanceReferenceInformationGeneElementComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasElement()) {
+        composeIdentifier("element", element.getElement());
+      }
+      if (element.hasSource()) {
+        openArray("source");
+        for (Reference e : element.getSource()) 
+          composeReference(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponent(String name, SubstanceReferenceInformation.SubstanceReferenceInformationClassificationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponentInner(SubstanceReferenceInformation.SubstanceReferenceInformationClassificationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasDomain()) {
+        composeCodeableConcept("domain", element.getDomain());
+      }
+      if (element.hasClassification()) {
+        composeCodeableConcept("classification", element.getClassification());
+      }
+      if (element.hasSubtype()) {
+        openArray("subtype");
+        for (CodeableConcept e : element.getSubtype()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasSource()) {
+        openArray("source");
+        for (Reference e : element.getSource()) 
+          composeReference(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponent(String name, SubstanceReferenceInformation.SubstanceReferenceInformationRelationshipComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationRelationshipComponentInner(SubstanceReferenceInformation.SubstanceReferenceInformationRelationshipComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasSubstance()) {
+        composeType("substance", element.getSubstance());
+      }
+      if (element.hasRelationship()) {
+        composeCodeableConcept("relationship", element.getRelationship());
+      }
+      if (element.hasInteraction()) {
+        composeCodeableConcept("interaction", element.getInteraction());
+      }
+      if (element.hasIsDefiningElement()) {
+        composeBooleanCore("isDefining", element.getIsDefiningElement(), false);
+        composeBooleanExtras("isDefining", element.getIsDefiningElement(), false);
+      }
+      if (element.hasAmount()) {
+        composeType("amount", element.getAmount());
+      }
+      if (element.hasAmountType()) {
+        composeCodeableConcept("amountType", element.getAmountType());
+      }
+      if (element.hasAmountTextElement()) {
+        composeStringCore("amountText", element.getAmountTextElement(), false);
+        composeStringExtras("amountText", element.getAmountTextElement(), false);
+      }
+      if (element.hasSource()) {
+        openArray("source");
+        for (Reference e : element.getSource()) 
+          composeReference(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationTargetComponent(String name, SubstanceReferenceInformation.SubstanceReferenceInformationTargetComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceReferenceInformationSubstanceReferenceInformationTargetComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceReferenceInformationSubstanceReferenceInformationTargetComponentInner(SubstanceReferenceInformation.SubstanceReferenceInformationTargetComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasTarget()) {
+        composeIdentifier("target", element.getTarget());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasInteraction()) {
+        composeCodeableConcept("interaction", element.getInteraction());
+      }
+      if (element.hasOrganism()) {
+        composeCodeableConcept("organism", element.getOrganism());
+      }
+      if (element.hasOrganismType()) {
+        composeCodeableConcept("organismType", element.getOrganismType());
+      }
+      if (element.hasSource()) {
+        openArray("source");
+        for (Reference e : element.getSource()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasAmount()) {
+        composeType("amount", element.getAmount());
+      }
+      if (element.hasAmountType()) {
+        composeCodeableConcept("amountType", element.getAmountType());
+      }
+  }
+
+  protected void composeSubstanceSpecification(String name, SubstanceSpecification element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeSubstanceSpecificationInner(element);
+    }
+  }
+
+  protected void composeSubstanceSpecificationInner(SubstanceSpecification element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasCommentElement()) {
+        composeStringCore("comment", element.getCommentElement(), false);
+        composeStringExtras("comment", element.getCommentElement(), false);
+      }
+      if (element.hasStoichiometricElement()) {
+        composeBooleanCore("stoichiometric", element.getStoichiometricElement(), false);
+        composeBooleanExtras("stoichiometric", element.getStoichiometricElement(), false);
+      }
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasReferenceSource()) {
+        openArray("referenceSource");
+        for (StringType e : element.getReferenceSource()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getReferenceSource())) {
+          openArray("_referenceSource");
+          for (StringType e : element.getReferenceSource()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasMoiety()) {
+        openArray("moiety");
+        for (SubstanceSpecification.SubstanceSpecificationMoietyComponent e : element.getMoiety()) 
+          composeSubstanceSpecificationSubstanceSpecificationMoietyComponent(null, e);
+        closeArray();
+      };
+      if (element.hasProperty()) {
+        openArray("property");
+        for (SubstanceSpecification.SubstanceSpecificationPropertyComponent e : element.getProperty()) 
+          composeSubstanceSpecificationSubstanceSpecificationPropertyComponent(null, e);
+        closeArray();
+      };
+      if (element.hasReferenceInformation()) {
+        composeReference("referenceInformation", element.getReferenceInformation());
+      }
+      if (element.hasStructure()) {
+        composeSubstanceSpecificationSubstanceSpecificationStructureComponent("structure", element.getStructure());
+      }
+      if (element.hasSubstanceCode()) {
+        openArray("substanceCode");
+        for (SubstanceSpecification.SubstanceSpecificationSubstanceCodeComponent e : element.getSubstanceCode()) 
+          composeSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponent(null, e);
+        closeArray();
+      };
+      if (element.hasSubstanceName()) {
+        openArray("substanceName");
+        for (SubstanceSpecification.SubstanceSpecificationSubstanceNameComponent e : element.getSubstanceName()) 
+          composeSubstanceSpecificationSubstanceSpecificationSubstanceNameComponent(null, e);
+        closeArray();
+      };
+      if (element.hasMolecularWeight()) {
+        openArray("molecularWeight");
+        for (SubstanceSpecification.SubstanceSpecificationStructureIsotopeMolecularWeightComponent e : element.getMolecularWeight()) 
+          composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(null, e);
+        closeArray();
+      };
+      if (element.hasPolymer()) {
+        composeReference("polymer", element.getPolymer());
+      }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationMoietyComponent(String name, SubstanceSpecification.SubstanceSpecificationMoietyComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceSpecificationSubstanceSpecificationMoietyComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationMoietyComponentInner(SubstanceSpecification.SubstanceSpecificationMoietyComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasRole()) {
+        composeCodeableConcept("role", element.getRole());
+      }
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasStereochemistry()) {
+        composeCodeableConcept("stereochemistry", element.getStereochemistry());
+      }
+      if (element.hasOpticalActivity()) {
+        composeCodeableConcept("opticalActivity", element.getOpticalActivity());
+      }
+      if (element.hasMolecularFormulaElement()) {
+        composeStringCore("molecularFormula", element.getMolecularFormulaElement(), false);
+        composeStringExtras("molecularFormula", element.getMolecularFormulaElement(), false);
+      }
+      if (element.hasAmountElement()) {
+        composeStringCore("amount", element.getAmountElement(), false);
+        composeStringExtras("amount", element.getAmountElement(), false);
+      }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationPropertyComponent(String name, SubstanceSpecification.SubstanceSpecificationPropertyComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceSpecificationSubstanceSpecificationPropertyComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationPropertyComponentInner(SubstanceSpecification.SubstanceSpecificationPropertyComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasName()) {
+        composeCodeableConcept("name", element.getName());
+      }
+      if (element.hasParametersElement()) {
+        composeStringCore("parameters", element.getParametersElement(), false);
+        composeStringExtras("parameters", element.getParametersElement(), false);
+      }
+      if (element.hasSubstanceId()) {
+        composeIdentifier("substanceId", element.getSubstanceId());
+      }
+      if (element.hasSubstanceNameElement()) {
+        composeStringCore("substanceName", element.getSubstanceNameElement(), false);
+        composeStringExtras("substanceName", element.getSubstanceNameElement(), false);
+      }
+      if (element.hasAmountElement()) {
+        composeStringCore("amount", element.getAmountElement(), false);
+        composeStringExtras("amount", element.getAmountElement(), false);
+      }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureComponent(String name, SubstanceSpecification.SubstanceSpecificationStructureComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceSpecificationSubstanceSpecificationStructureComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureComponentInner(SubstanceSpecification.SubstanceSpecificationStructureComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasStereochemistry()) {
+        composeCodeableConcept("stereochemistry", element.getStereochemistry());
+      }
+      if (element.hasOpticalActivity()) {
+        composeCodeableConcept("opticalActivity", element.getOpticalActivity());
+      }
+      if (element.hasMolecularFormulaElement()) {
+        composeStringCore("molecularFormula", element.getMolecularFormulaElement(), false);
+        composeStringExtras("molecularFormula", element.getMolecularFormulaElement(), false);
+      }
+      if (element.hasMolecularFormulaByMoietyElement()) {
+        composeStringCore("molecularFormulaByMoiety", element.getMolecularFormulaByMoietyElement(), false);
+        composeStringExtras("molecularFormulaByMoiety", element.getMolecularFormulaByMoietyElement(), false);
+      }
+      if (element.hasIsotope()) {
+        openArray("isotope");
+        for (SubstanceSpecification.SubstanceSpecificationStructureIsotopeComponent e : element.getIsotope()) 
+          composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponent(null, e);
+        closeArray();
+      };
+      if (element.hasMolecularWeight()) {
+        composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent("molecularWeight", element.getMolecularWeight());
+      }
+      if (element.hasReferenceSource()) {
+        openArray("referenceSource");
+        for (Reference e : element.getReferenceSource()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasStructuralRepresentation()) {
+        openArray("structuralRepresentation");
+        for (SubstanceSpecification.SubstanceSpecificationStructureStructuralRepresentationComponent e : element.getStructuralRepresentation()) 
+          composeSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponent(String name, SubstanceSpecification.SubstanceSpecificationStructureIsotopeComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeComponentInner(SubstanceSpecification.SubstanceSpecificationStructureIsotopeComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasNuclideId()) {
+        composeIdentifier("nuclideId", element.getNuclideId());
+      }
+      if (element.hasNuclideName()) {
+        composeCodeableConcept("nuclideName", element.getNuclideName());
+      }
+      if (element.hasSubstitutionType()) {
+        composeCodeableConcept("substitutionType", element.getSubstitutionType());
+      }
+      if (element.hasNuclideHalfLife()) {
+        composeQuantity("nuclideHalfLife", element.getNuclideHalfLife());
+      }
+      if (element.hasAmountElement()) {
+        composeStringCore("amount", element.getAmountElement(), false);
+        composeStringExtras("amount", element.getAmountElement(), false);
+      }
+      if (element.hasMolecularWeight()) {
+        composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent("molecularWeight", element.getMolecularWeight());
+      }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponent(String name, SubstanceSpecification.SubstanceSpecificationStructureIsotopeMolecularWeightComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureIsotopeMolecularWeightComponentInner(SubstanceSpecification.SubstanceSpecificationStructureIsotopeMolecularWeightComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasMethod()) {
+        composeCodeableConcept("method", element.getMethod());
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasAmountElement()) {
+        composeStringCore("amount", element.getAmountElement(), false);
+        composeStringExtras("amount", element.getAmountElement(), false);
+      }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponent(String name, SubstanceSpecification.SubstanceSpecificationStructureStructuralRepresentationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationStructureStructuralRepresentationComponentInner(SubstanceSpecification.SubstanceSpecificationStructureStructuralRepresentationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasRepresentationElement()) {
+        composeStringCore("representation", element.getRepresentationElement(), false);
+        composeStringExtras("representation", element.getRepresentationElement(), false);
+      }
+      if (element.hasAttachment()) {
+        composeAttachment("attachment", element.getAttachment());
+      }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponent(String name, SubstanceSpecification.SubstanceSpecificationSubstanceCodeComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationSubstanceCodeComponentInner(SubstanceSpecification.SubstanceSpecificationSubstanceCodeComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasCode()) {
+        composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasStatus()) {
+        composeCodeableConcept("status", element.getStatus());
+      }
+      if (element.hasStatusDateElement()) {
+        composeDateTimeCore("statusDate", element.getStatusDateElement(), false);
+        composeDateTimeExtras("statusDate", element.getStatusDateElement(), false);
+      }
+      if (element.hasCommentElement()) {
+        composeStringCore("comment", element.getCommentElement(), false);
+        composeStringExtras("comment", element.getCommentElement(), false);
+      }
+      if (element.hasReferenceSource()) {
+        openArray("referenceSource");
+        for (StringType e : element.getReferenceSource()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getReferenceSource())) {
+          openArray("_referenceSource");
+          for (StringType e : element.getReferenceSource()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationSubstanceNameComponent(String name, SubstanceSpecification.SubstanceSpecificationSubstanceNameComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceSpecificationSubstanceSpecificationSubstanceNameComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationSubstanceNameComponentInner(SubstanceSpecification.SubstanceSpecificationSubstanceNameComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasNameElement()) {
+        composeStringCore("name", element.getNameElement(), false);
+        composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasLanguage()) {
+        openArray("language");
+        for (CodeableConcept e : element.getLanguage()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasDomain()) {
+        openArray("domain");
+        for (CodeableConcept e : element.getDomain()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasJurisdiction()) {
+        openArray("jurisdiction");
+        for (CodeableConcept e : element.getJurisdiction()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasOfficialName()) {
+        openArray("officialName");
+        for (SubstanceSpecification.SubstanceSpecificationSubstanceNameOfficialNameComponent e : element.getOfficialName()) 
+          composeSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponent(null, e);
+        closeArray();
+      };
+      if (element.hasReferenceSource()) {
+        openArray("referenceSource");
+        for (StringType e : element.getReferenceSource()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getReferenceSource())) {
+          openArray("_referenceSource");
+          for (StringType e : element.getReferenceSource()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponent(String name, SubstanceSpecification.SubstanceSpecificationSubstanceNameOfficialNameComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeSubstanceSpecificationSubstanceSpecificationSubstanceNameOfficialNameComponentInner(SubstanceSpecification.SubstanceSpecificationSubstanceNameOfficialNameComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasAuthority()) {
+        composeCodeableConcept("authority", element.getAuthority());
+      }
+      if (element.hasStatus()) {
+        composeCodeableConcept("status", element.getStatus());
+      }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
+  }
+
   protected void composeSupplyDelivery(String name, SupplyDelivery element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -46105,6 +50943,200 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
+  protected void composeVerificationResult(String name, VerificationResult element) throws IOException {
+    if (element != null) {
+      prop("resourceType", name);
+      composeVerificationResultInner(element);
+    }
+  }
+
+  protected void composeVerificationResultInner(VerificationResult element) throws IOException {
+      composeDomainResourceElements(element);
+      if (element.hasTarget()) {
+        openArray("target");
+        for (Reference e : element.getTarget()) 
+          composeReference(null, e);
+        closeArray();
+      };
+      if (element.hasTargetLocation()) {
+        openArray("targetLocation");
+        for (StringType e : element.getTargetLocation()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getTargetLocation())) {
+          openArray("_targetLocation");
+          for (StringType e : element.getTargetLocation()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
+      if (element.hasNeedElement()) {
+        composeEnumerationCore("need", element.getNeedElement(), new VerificationResult.NeedEnumFactory(), false);
+        composeEnumerationExtras("need", element.getNeedElement(), new VerificationResult.NeedEnumFactory(), false);
+      }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new VerificationResult.StatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new VerificationResult.StatusEnumFactory(), false);
+      }
+      if (element.hasStatusDateElement()) {
+        composeDateTimeCore("statusDate", element.getStatusDateElement(), false);
+        composeDateTimeExtras("statusDate", element.getStatusDateElement(), false);
+      }
+      if (element.hasValidationTypeElement()) {
+        composeEnumerationCore("validationType", element.getValidationTypeElement(), new VerificationResult.ValidationTypeEnumFactory(), false);
+        composeEnumerationExtras("validationType", element.getValidationTypeElement(), new VerificationResult.ValidationTypeEnumFactory(), false);
+      }
+      if (element.hasValidationProcess()) {
+        openArray("validationProcess");
+        for (CodeableConcept e : element.getValidationProcess()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasFrequency()) {
+        composeTiming("frequency", element.getFrequency());
+      }
+      if (element.hasLastPerformedElement()) {
+        composeDateTimeCore("lastPerformed", element.getLastPerformedElement(), false);
+        composeDateTimeExtras("lastPerformed", element.getLastPerformedElement(), false);
+      }
+      if (element.hasNextScheduledElement()) {
+        composeDateCore("nextScheduled", element.getNextScheduledElement(), false);
+        composeDateExtras("nextScheduled", element.getNextScheduledElement(), false);
+      }
+      if (element.hasFailureActionElement()) {
+        composeEnumerationCore("failureAction", element.getFailureActionElement(), new VerificationResult.FailureActionEnumFactory(), false);
+        composeEnumerationExtras("failureAction", element.getFailureActionElement(), new VerificationResult.FailureActionEnumFactory(), false);
+      }
+      if (element.hasPrimarySource()) {
+        openArray("primarySource");
+        for (VerificationResult.VerificationResultPrimarySourceComponent e : element.getPrimarySource()) 
+          composeVerificationResultVerificationResultPrimarySourceComponent(null, e);
+        closeArray();
+      };
+      if (element.hasAttestation()) {
+        composeVerificationResultVerificationResultAttestationComponent("attestation", element.getAttestation());
+      }
+      if (element.hasValidator()) {
+        openArray("validator");
+        for (VerificationResult.VerificationResultValidatorComponent e : element.getValidator()) 
+          composeVerificationResultVerificationResultValidatorComponent(null, e);
+        closeArray();
+      };
+  }
+
+  protected void composeVerificationResultVerificationResultPrimarySourceComponent(String name, VerificationResult.VerificationResultPrimarySourceComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeVerificationResultVerificationResultPrimarySourceComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeVerificationResultVerificationResultPrimarySourceComponentInner(VerificationResult.VerificationResultPrimarySourceComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasOrganization()) {
+        composeReference("organization", element.getOrganization());
+      }
+      if (element.hasType()) {
+        openArray("type");
+        for (CodeableConcept e : element.getType()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasValidationProcess()) {
+        openArray("validationProcess");
+        for (CodeableConcept e : element.getValidationProcess()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasValidationStatusElement()) {
+        composeEnumerationCore("validationStatus", element.getValidationStatusElement(), new VerificationResult.ValidationStatusEnumFactory(), false);
+        composeEnumerationExtras("validationStatus", element.getValidationStatusElement(), new VerificationResult.ValidationStatusEnumFactory(), false);
+      }
+      if (element.hasValidationDateElement()) {
+        composeDateTimeCore("validationDate", element.getValidationDateElement(), false);
+        composeDateTimeExtras("validationDate", element.getValidationDateElement(), false);
+      }
+      if (element.hasCanPushUpdatesElement()) {
+        composeEnumerationCore("canPushUpdates", element.getCanPushUpdatesElement(), new VerificationResult.CanPushUpdatesEnumFactory(), false);
+        composeEnumerationExtras("canPushUpdates", element.getCanPushUpdatesElement(), new VerificationResult.CanPushUpdatesEnumFactory(), false);
+      }
+      if (element.hasPushTypeAvailable()) {
+        openArray("pushTypeAvailable");
+        for (Enumeration<VerificationResult.PushTypeAvailable> e : element.getPushTypeAvailable()) 
+          composeEnumerationCore(null, e, new VerificationResult.PushTypeAvailableEnumFactory(), true);
+        closeArray();
+        if (anyHasExtras(element.getPushTypeAvailable())) {
+          openArray("_pushTypeAvailable");
+          for (Enumeration<VerificationResult.PushTypeAvailable> e : element.getPushTypeAvailable()) 
+            composeEnumerationExtras(null, e, new VerificationResult.PushTypeAvailableEnumFactory(), true);
+          closeArray();
+        }
+      };
+  }
+
+  protected void composeVerificationResultVerificationResultAttestationComponent(String name, VerificationResult.VerificationResultAttestationComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeVerificationResultVerificationResultAttestationComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeVerificationResultVerificationResultAttestationComponentInner(VerificationResult.VerificationResultAttestationComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasSource()) {
+        composeReference("source", element.getSource());
+      }
+      if (element.hasOrganization()) {
+        composeReference("organization", element.getOrganization());
+      }
+      if (element.hasMethod()) {
+        composeCodeableConcept("method", element.getMethod());
+      }
+      if (element.hasDateElement()) {
+        composeDateCore("date", element.getDateElement(), false);
+        composeDateExtras("date", element.getDateElement(), false);
+      }
+      if (element.hasSourceIdentityCertificateElement()) {
+        composeStringCore("sourceIdentityCertificate", element.getSourceIdentityCertificateElement(), false);
+        composeStringExtras("sourceIdentityCertificate", element.getSourceIdentityCertificateElement(), false);
+      }
+      if (element.hasProxyIdentityCertificateElement()) {
+        composeStringCore("proxyIdentityCertificate", element.getProxyIdentityCertificateElement(), false);
+        composeStringExtras("proxyIdentityCertificate", element.getProxyIdentityCertificateElement(), false);
+      }
+  }
+
+  protected void composeVerificationResultVerificationResultValidatorComponent(String name, VerificationResult.VerificationResultValidatorComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeVerificationResultVerificationResultValidatorComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeVerificationResultVerificationResultValidatorComponentInner(VerificationResult.VerificationResultValidatorComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasIdentifier()) {
+        composeIdentifier("identifier", element.getIdentifier());
+      }
+      if (element.hasOrganization()) {
+        composeReference("organization", element.getOrganization());
+      }
+      if (element.hasIdentityCertificateElement()) {
+        composeStringCore("identityCertificate", element.getIdentityCertificateElement(), false);
+        composeStringExtras("identityCertificate", element.getIdentityCertificateElement(), false);
+      }
+      if (element.hasDateValidatedElement()) {
+        composeDateCore("dateValidated", element.getDateValidatedElement(), false);
+        composeDateExtras("dateValidated", element.getDateValidatedElement(), false);
+      }
+  }
+
   protected void composeVisionPrescription(String name, VisionPrescription element) throws IOException {
     if (element != null) {
       prop("resourceType", name);
@@ -46242,6 +51274,8 @@ public class JsonParser extends JsonParserBase {
       composeBasic("Basic", (Basic)resource);
     else if (resource instanceof Binary)
       composeBinary("Binary", (Binary)resource);
+    else if (resource instanceof BiologicallyDerivedProduct)
+      composeBiologicallyDerivedProduct("BiologicallyDerivedProduct", (BiologicallyDerivedProduct)resource);
     else if (resource instanceof BodyStructure)
       composeBodyStructure("BodyStructure", (BodyStructure)resource);
     else if (resource instanceof Bundle)
@@ -46352,6 +51386,8 @@ public class JsonParser extends JsonParserBase {
       composeImplementationGuideOutput("ImplementationGuideOutput", (ImplementationGuideOutput)resource);
     else if (resource instanceof Invoice)
       composeInvoice("Invoice", (Invoice)resource);
+    else if (resource instanceof ItemInstance)
+      composeItemInstance("ItemInstance", (ItemInstance)resource);
     else if (resource instanceof Library)
       composeLibrary("Library", (Library)resource);
     else if (resource instanceof Linkage)
@@ -46376,6 +51412,20 @@ public class JsonParser extends JsonParserBase {
       composeMedicationRequest("MedicationRequest", (MedicationRequest)resource);
     else if (resource instanceof MedicationStatement)
       composeMedicationStatement("MedicationStatement", (MedicationStatement)resource);
+    else if (resource instanceof MedicinalProduct)
+      composeMedicinalProduct("MedicinalProduct", (MedicinalProduct)resource);
+    else if (resource instanceof MedicinalProductAuthorization)
+      composeMedicinalProductAuthorization("MedicinalProductAuthorization", (MedicinalProductAuthorization)resource);
+    else if (resource instanceof MedicinalProductClinicals)
+      composeMedicinalProductClinicals("MedicinalProductClinicals", (MedicinalProductClinicals)resource);
+    else if (resource instanceof MedicinalProductDeviceSpec)
+      composeMedicinalProductDeviceSpec("MedicinalProductDeviceSpec", (MedicinalProductDeviceSpec)resource);
+    else if (resource instanceof MedicinalProductIngredient)
+      composeMedicinalProductIngredient("MedicinalProductIngredient", (MedicinalProductIngredient)resource);
+    else if (resource instanceof MedicinalProductPackaged)
+      composeMedicinalProductPackaged("MedicinalProductPackaged", (MedicinalProductPackaged)resource);
+    else if (resource instanceof MedicinalProductPharmaceutical)
+      composeMedicinalProductPharmaceutical("MedicinalProductPharmaceutical", (MedicinalProductPharmaceutical)resource);
     else if (resource instanceof MessageDefinition)
       composeMessageDefinition("MessageDefinition", (MessageDefinition)resource);
     else if (resource instanceof MessageHeader)
@@ -46388,6 +51438,8 @@ public class JsonParser extends JsonParserBase {
       composeObservation("Observation", (Observation)resource);
     else if (resource instanceof ObservationDefinition)
       composeObservationDefinition("ObservationDefinition", (ObservationDefinition)resource);
+    else if (resource instanceof OccupationalData)
+      composeOccupationalData("OccupationalData", (OccupationalData)resource);
     else if (resource instanceof OperationDefinition)
       composeOperationDefinition("OperationDefinition", (OperationDefinition)resource);
     else if (resource instanceof OperationOutcome)
@@ -46458,6 +51510,12 @@ public class JsonParser extends JsonParserBase {
       composeSubscription("Subscription", (Subscription)resource);
     else if (resource instanceof Substance)
       composeSubstance("Substance", (Substance)resource);
+    else if (resource instanceof SubstancePolymer)
+      composeSubstancePolymer("SubstancePolymer", (SubstancePolymer)resource);
+    else if (resource instanceof SubstanceReferenceInformation)
+      composeSubstanceReferenceInformation("SubstanceReferenceInformation", (SubstanceReferenceInformation)resource);
+    else if (resource instanceof SubstanceSpecification)
+      composeSubstanceSpecification("SubstanceSpecification", (SubstanceSpecification)resource);
     else if (resource instanceof SupplyDelivery)
       composeSupplyDelivery("SupplyDelivery", (SupplyDelivery)resource);
     else if (resource instanceof SupplyRequest)
@@ -46474,6 +51532,8 @@ public class JsonParser extends JsonParserBase {
       composeUserSession("UserSession", (UserSession)resource);
     else if (resource instanceof ValueSet)
       composeValueSet("ValueSet", (ValueSet)resource);
+    else if (resource instanceof VerificationResult)
+      composeVerificationResult("VerificationResult", (VerificationResult)resource);
     else if (resource instanceof VisionPrescription)
       composeVisionPrescription("VisionPrescription", (VisionPrescription)resource);
     else if (resource instanceof Binary)
@@ -46503,6 +51563,8 @@ public class JsonParser extends JsonParserBase {
       composeBasic(name, (Basic)resource);
     else if (resource instanceof Binary)
       composeBinary(name, (Binary)resource);
+    else if (resource instanceof BiologicallyDerivedProduct)
+      composeBiologicallyDerivedProduct(name, (BiologicallyDerivedProduct)resource);
     else if (resource instanceof BodyStructure)
       composeBodyStructure(name, (BodyStructure)resource);
     else if (resource instanceof Bundle)
@@ -46613,6 +51675,8 @@ public class JsonParser extends JsonParserBase {
       composeImplementationGuideOutput(name, (ImplementationGuideOutput)resource);
     else if (resource instanceof Invoice)
       composeInvoice(name, (Invoice)resource);
+    else if (resource instanceof ItemInstance)
+      composeItemInstance(name, (ItemInstance)resource);
     else if (resource instanceof Library)
       composeLibrary(name, (Library)resource);
     else if (resource instanceof Linkage)
@@ -46637,6 +51701,20 @@ public class JsonParser extends JsonParserBase {
       composeMedicationRequest(name, (MedicationRequest)resource);
     else if (resource instanceof MedicationStatement)
       composeMedicationStatement(name, (MedicationStatement)resource);
+    else if (resource instanceof MedicinalProduct)
+      composeMedicinalProduct(name, (MedicinalProduct)resource);
+    else if (resource instanceof MedicinalProductAuthorization)
+      composeMedicinalProductAuthorization(name, (MedicinalProductAuthorization)resource);
+    else if (resource instanceof MedicinalProductClinicals)
+      composeMedicinalProductClinicals(name, (MedicinalProductClinicals)resource);
+    else if (resource instanceof MedicinalProductDeviceSpec)
+      composeMedicinalProductDeviceSpec(name, (MedicinalProductDeviceSpec)resource);
+    else if (resource instanceof MedicinalProductIngredient)
+      composeMedicinalProductIngredient(name, (MedicinalProductIngredient)resource);
+    else if (resource instanceof MedicinalProductPackaged)
+      composeMedicinalProductPackaged(name, (MedicinalProductPackaged)resource);
+    else if (resource instanceof MedicinalProductPharmaceutical)
+      composeMedicinalProductPharmaceutical(name, (MedicinalProductPharmaceutical)resource);
     else if (resource instanceof MessageDefinition)
       composeMessageDefinition(name, (MessageDefinition)resource);
     else if (resource instanceof MessageHeader)
@@ -46649,6 +51727,8 @@ public class JsonParser extends JsonParserBase {
       composeObservation(name, (Observation)resource);
     else if (resource instanceof ObservationDefinition)
       composeObservationDefinition(name, (ObservationDefinition)resource);
+    else if (resource instanceof OccupationalData)
+      composeOccupationalData(name, (OccupationalData)resource);
     else if (resource instanceof OperationDefinition)
       composeOperationDefinition(name, (OperationDefinition)resource);
     else if (resource instanceof OperationOutcome)
@@ -46719,6 +51799,12 @@ public class JsonParser extends JsonParserBase {
       composeSubscription(name, (Subscription)resource);
     else if (resource instanceof Substance)
       composeSubstance(name, (Substance)resource);
+    else if (resource instanceof SubstancePolymer)
+      composeSubstancePolymer(name, (SubstancePolymer)resource);
+    else if (resource instanceof SubstanceReferenceInformation)
+      composeSubstanceReferenceInformation(name, (SubstanceReferenceInformation)resource);
+    else if (resource instanceof SubstanceSpecification)
+      composeSubstanceSpecification(name, (SubstanceSpecification)resource);
     else if (resource instanceof SupplyDelivery)
       composeSupplyDelivery(name, (SupplyDelivery)resource);
     else if (resource instanceof SupplyRequest)
@@ -46735,6 +51821,8 @@ public class JsonParser extends JsonParserBase {
       composeUserSession(name, (UserSession)resource);
     else if (resource instanceof ValueSet)
       composeValueSet(name, (ValueSet)resource);
+    else if (resource instanceof VerificationResult)
+      composeVerificationResult(name, (VerificationResult)resource);
     else if (resource instanceof VisionPrescription)
       composeVisionPrescription(name, (VisionPrescription)resource);
     else if (resource instanceof Binary)
@@ -46800,18 +51888,28 @@ public class JsonParser extends JsonParserBase {
        composeDosage(prefix+"Dosage", (Dosage) type);
     else if (type instanceof RelatedArtifact)
        composeRelatedArtifact(prefix+"RelatedArtifact", (RelatedArtifact) type);
+    else if (type instanceof ProductShelfLife)
+       composeProductShelfLife(prefix+"ProductShelfLife", (ProductShelfLife) type);
     else if (type instanceof ContactDetail)
        composeContactDetail(prefix+"ContactDetail", (ContactDetail) type);
     else if (type instanceof HumanName)
        composeHumanName(prefix+"HumanName", (HumanName) type);
     else if (type instanceof ContactPoint)
        composeContactPoint(prefix+"ContactPoint", (ContactPoint) type);
+    else if (type instanceof MarketingStatus)
+       composeMarketingStatus(prefix+"MarketingStatus", (MarketingStatus) type);
+    else if (type instanceof SubstanceAmount)
+       composeSubstanceAmount(prefix+"SubstanceAmount", (SubstanceAmount) type);
     else if (type instanceof UsageContext)
        composeUsageContext(prefix+"UsageContext", (UsageContext) type);
     else if (type instanceof Timing)
        composeTiming(prefix+"Timing", (Timing) type);
     else if (type instanceof ElementDefinition)
        composeElementDefinition(prefix+"ElementDefinition", (ElementDefinition) type);
+    else if (type instanceof SubstanceMoiety)
+       composeSubstanceMoiety(prefix+"SubstanceMoiety", (SubstanceMoiety) type);
+    else if (type instanceof ProdCharacteristic)
+       composeProdCharacteristic(prefix+"ProdCharacteristic", (ProdCharacteristic) type);
     else if (type instanceof ParameterDefinition)
        composeParameterDefinition(prefix+"ParameterDefinition", (ParameterDefinition) type);
     else if (type instanceof CodeType) {
@@ -46943,18 +52041,28 @@ public class JsonParser extends JsonParserBase {
        composeDosageInner((Dosage) type);
     else if (type instanceof RelatedArtifact)
        composeRelatedArtifactInner((RelatedArtifact) type);
+    else if (type instanceof ProductShelfLife)
+       composeProductShelfLifeInner((ProductShelfLife) type);
     else if (type instanceof ContactDetail)
        composeContactDetailInner((ContactDetail) type);
     else if (type instanceof HumanName)
        composeHumanNameInner((HumanName) type);
     else if (type instanceof ContactPoint)
        composeContactPointInner((ContactPoint) type);
+    else if (type instanceof MarketingStatus)
+       composeMarketingStatusInner((MarketingStatus) type);
+    else if (type instanceof SubstanceAmount)
+       composeSubstanceAmountInner((SubstanceAmount) type);
     else if (type instanceof UsageContext)
        composeUsageContextInner((UsageContext) type);
     else if (type instanceof Timing)
        composeTimingInner((Timing) type);
     else if (type instanceof ElementDefinition)
        composeElementDefinitionInner((ElementDefinition) type);
+    else if (type instanceof SubstanceMoiety)
+       composeSubstanceMoietyInner((SubstanceMoiety) type);
+    else if (type instanceof ProdCharacteristic)
+       composeProdCharacteristicInner((ProdCharacteristic) type);
     else if (type instanceof ParameterDefinition)
        composeParameterDefinitionInner((ParameterDefinition) type);
     else
