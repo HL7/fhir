@@ -208,7 +208,7 @@
   Element = ValueSet.compose
   Card. = 0..1
   Aliases = Content Logical Definition
-  UML = 40;290
+  UML = 40;310
   Inv. = 5
   Short Name = Definition of the content of the value set (CLD)
   Definition = A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the \"Content Logical Definition\" (CLD)
@@ -236,7 +236,7 @@
   Element = ValueSet.compose.include
   Card. = 1..*
   Summary = y
-  UML = 40;390
+  UML = 40;430
   Type = =ConceptSet
   Short Name = Include one or more codes from a code system or other value set(s)
   Definition = Include one or more codes from a code system or other value set(s)

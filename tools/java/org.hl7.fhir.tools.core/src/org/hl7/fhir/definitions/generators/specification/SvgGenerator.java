@@ -692,9 +692,7 @@ public class SvgGenerator extends BaseGenerator {
     if (!definitions.hasPrimitiveType(tn))
       tn = Utilities.capitalize(tn);
     ResourceDefn r = definitions.hasResource(tn) ? definitions.getResourceByName(tn) : null;
-//    TypeDefn t = definitions.hasElementDefn(tn) ? definitions.getElementDefn(tn) : null;
-      
-//    System.out.println("svg: "+tn+" => r: "+(r == null ? "nf" : r.getStatus() == null ? "null" : r.getStatus().toString())+", e: "+(e == null ? "nf" : e.getStandardsStatus() == null ? "null" : e.getStandardsStatus().toString()));
+
     xml.enter("g");
     xml.attribute("x", Double.toString(item.left));
     xml.attribute("y", Double.toString(item.top));
@@ -712,14 +710,6 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("style", "fill:"+e.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:1");
       status = e.getStandardsStatus();
     }
-//    else if (t == null)
-//      xml.attribute("style", "fill:"+StandardsStatus.DRAFT.getColorSvg()+";stroke:black;stroke-width:1");
-//    else if (t.getStandardsStatus() == null)
-//      xml.attribute("style", "fill:"+StandardsStatus.DRAFT.getColorSvg()+";stroke:black;stroke-width:1");
-//    else if (t.getStandardsStatus() == null)
-//      xml.attribute("style", "fill:"+StandardsStatus.DRAFT.getColorSvg()+";stroke:black;stroke-width:1");
-//    else
-//      xml.attribute("style", "fill:"+t.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:1");
     xml.element("rect", null);    
 
     xml.attribute("x1", Double.toString(item.left));
@@ -779,7 +769,7 @@ public class SvgGenerator extends BaseGenerator {
         for (ElementDefn c : e.getElements()) {
           if (isAttribute(c)) {
             i++;
-            addAttribute(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT * i, c, path);
+            addAttribute(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT * i, c, path, LINE_HEIGHT, item.width);
             String[] texts = textForAttribute(c);
             i = i + texts.length - 1;
           }
@@ -839,7 +829,7 @@ public class SvgGenerator extends BaseGenerator {
     LineStatus ls = new LineStatus();
     XMLWriter xml = new XMLWriter(new ByteArrayOutputStream(), "UTF-8"); // this is a dummary
     xml.start();
-    addAttribute(xml, 0, 0, e, "Element.id", ls);
+    addAttribute(xml, 0, 0, e, "Element.id", ls, 0, 0);
     ls.close();
     return ls.list.toArray(new String[] {});
   }
@@ -939,12 +929,20 @@ public class SvgGenerator extends BaseGenerator {
       }
     }   
   }
-  private void addAttribute(XMLWriter xml, double left, double top, ElementDefn e, String path) throws Exception  {
+  private void addAttribute(XMLWriter xml, double left, double top, ElementDefn e, String path, double height, double width) throws Exception  {
     LineStatus ls = new LineStatus();
-    addAttribute(xml, left, top, e, path, ls);
+    addAttribute(xml, left, top, e, path, ls, height, width);
   }
   
-  private void addAttribute(XMLWriter xml, double left, double top, ElementDefn e, String path, LineStatus ls) throws Exception  {
+  private void addAttribute(XMLWriter xml, double left, double top, ElementDefn e, String path, LineStatus ls, double height, double width) throws Exception  {
+    if (e.getStandardsStatus() != null) {
+      xml.attribute("x", Double.toString(left+1));
+      xml.attribute("y", Double.toString(top-height+GAP_HEIGHT));
+      xml.attribute("width", Double.toString(width-2));
+      xml.attribute("height", Double.toString(height));
+      xml.attribute("style", "fill:"+e.getStandardsStatus().getColorSvg()+";stroke:black;stroke-width:0");
+      xml.element("rect", null);    
+    }
     xml.attribute("x", Double.toString(left + LEFT_MARGIN + (ls.line == 0 ? 0 : WRAP_INDENT)));
     xml.attribute("y", Double.toString(top + LINE_HEIGHT * ls.line));
     xml.attribute("fill", "black");

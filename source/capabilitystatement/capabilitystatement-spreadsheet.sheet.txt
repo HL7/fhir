@@ -822,7 +822,7 @@
  -- Row 45 -----------------------------------
   Element = CapabilityStatement.rest.resource.interaction
   Card. = 0..*
-  UML = -20;560
+  UML = -20;470
   Type = =ResourceInteraction
   Short Name = What operations are supported?
   Definition = Identifies a restful operation supported by the solution
@@ -930,7 +930,7 @@
  -- Row 58 -----------------------------------
   Element = CapabilityStatement.rest.resource.searchParam
   Card. = 0..*
-  UML = right
+  UML = left
   Short Name = Search parameters supported by implementation
   Definition = Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
   Comments = The search parameters should include the control search parameters such as _sort, _count, etc that also apply to this resource (though many will be listed at [[[CapabilityStatement.rest.searchParam]]]). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [[[SearchParameter]]] definitions
@@ -1004,7 +1004,7 @@
  -- Row 67 -----------------------------------
   Element = CapabilityStatement.rest.interaction
   Card. = 0..*
-  UML = -20;430
+  UML = 550;490
   Type = =SystemInteraction
   Short Name = What operations are supported?
   Definition = A specification of restful operations supported by the system
@@ -1036,7 +1036,7 @@
  -- Row 71 -----------------------------------
   Element = CapabilityStatement.rest.searchParam
   Card. = 0..*
-  UML = right
+  UML = left
   Type = @CapabilityStatement.rest.resource.searchParam
   Short Name = Search parameters for searching all resources
   Definition = Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.
@@ -1074,7 +1074,7 @@
   Element = CapabilityStatement.messaging.endpoint
   Card. = 0..*
   Aliases = 3
-  UML = 570;160
+  UML = 570;0
   Short Name = Where messages should be sent
   Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
 

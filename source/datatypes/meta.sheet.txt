@@ -36,20 +36,20 @@
   Comments = This value is always populated except when the resource is first being created. The server / resource manager sets this value; what a client provides is irrelevant
 
  -- Row 4 -----------------------------------
+  Element = Meta.source
+  Card. = 0..1
+  Type = uri
+  Short Name = Identifies where the resource comes from
+  Definition = A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc
+  Comments = In the provenance resource, this corresponds to Provenance.entity.what[x]. The exact use of the source (and the implied Provenance.entity.role) is left to implementer discretion. Only one nominated source is allowed; for additional provenance details, a full Provenance resource should be used
+
+ -- Row 5 -----------------------------------
   Element = Meta.profile
   Card. = 0..*
   Type = uri
   Short Name = Profiles this resource claims to conform to
   Definition = A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]]
   Comments = It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over time.  The list of profile URLs is a set
-
- -- Row 5 -----------------------------------
-  Element = Meta.source
-  Card. = 0..1
-  Type = uri
-  Short Name = Identifies where the resource comes from
-  Definition = Identifies the system that is the source of the information in this resource
-  Comments = Many resources will have multiple systems that contribute to it\'s source over multiple versions. The choice of source in such cases is left to the discretion of the implementing systems
 
  -- Row 6 -----------------------------------
   Element = Meta.security
