@@ -351,7 +351,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-//  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r3";
+//  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r4";
   public final static String DEF_TS_SERVER = "http://local.fhir.org:964/r4";
 
   public final static String WEB_PUB_NAME = "STU3";

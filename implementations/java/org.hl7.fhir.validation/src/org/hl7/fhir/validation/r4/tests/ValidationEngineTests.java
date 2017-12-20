@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class ValidationEngineTests {
 
-  private static final String DEF_TX = "http://tx.fhir.org/r3";
+  private static final String DEF_TX = "http://tx.fhir.org/r4";
   
   public static boolean inbuild;
 
@@ -189,7 +189,7 @@ public class ValidationEngineTests {
 //    if (!TestingUtilities.silent)
 //      System.out.println("  .. load FHIR from C:\\temp\\igpack\\igpack.zip");
 //    ve.loadDefinitions("C:\\temp\\igpack");
-//    ve.connectToTSServer("http://tx.fhir.org/r3");
+//    ve.connectToTSServer("http://tx.fhir.org/r4");
 //    if (!TestingUtilities.silent)
 //      System.out.println("  .. load IG from C:\\temp\\telus");
 //    ve.loadIg("C:\\temp\\telus");

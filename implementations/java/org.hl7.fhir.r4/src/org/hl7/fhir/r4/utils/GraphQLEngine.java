@@ -863,7 +863,7 @@ public class GraphQLEngine {
 //  result = "*Connection";
 //}
 //
-//  // http://test.fhir.org/r3/Patient?_format==text/xhtml&search-id==77c97e03-8a6c-415f-a63d-11c80cf73f&&active==true&_sort==_id&search-offset==50&_count==50
+//  // http://test.fhir.org/r4/Patient?_format==text/xhtml&search-id==77c97e03-8a6c-415f-a63d-11c80cf73f&&active==true&_sort==_id&search-offset==50&_count==50
 //
 //function GraphQLSearchWrapper.getPropertyValue(propName: string): Property;
 //var

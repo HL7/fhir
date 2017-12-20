@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
+// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -2455,6 +2455,11 @@ public class VerificationResult extends DomainResource {
     @Child(name = "target", type = {Reference.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="A resource that was validated", formalDefinition="A resource that was validated." )
     protected List<Reference> target;
+    /**
+     * The actual objects that are the target of the reference (A resource that was validated.)
+     */
+    protected List<Resource> targetTarget;
+
 
     /**
      * The fhirpath location(s) within the resource that was validated.
@@ -2552,7 +2557,7 @@ public class VerificationResult extends DomainResource {
     @Description(shortDefinition="Information about the entity validating information", formalDefinition="Information about the entity validating information." )
     protected List<VerificationResultValidatorComponent> validator;
 
-    private static final long serialVersionUID = 1705290869L;
+    private static final long serialVersionUID = -1525388753L;
 
   /**
    * Constructor
@@ -2624,6 +2629,16 @@ public class VerificationResult extends DomainResource {
         addTarget();
       }
       return getTarget().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getTargetTarget() { 
+      if (this.targetTarget == null)
+        this.targetTarget = new ArrayList<Resource>();
+      return this.targetTarget;
     }
 
     /**
@@ -3219,7 +3234,7 @@ public class VerificationResult extends DomainResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("target", "Reference", "A resource that was validated.", 0, java.lang.Integer.MAX_VALUE, target));
+        children.add(new Property("target", "Reference(Any)", "A resource that was validated.", 0, java.lang.Integer.MAX_VALUE, target));
         children.add(new Property("targetLocation", "string", "The fhirpath location(s) within the resource that was validated.", 0, java.lang.Integer.MAX_VALUE, targetLocation));
         children.add(new Property("need", "code", "The frequency with which the target must be validated (none; initial; periodic).", 0, 1, need));
         children.add(new Property("status", "code", "The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed).", 0, 1, status));
@@ -3238,7 +3253,7 @@ public class VerificationResult extends DomainResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case -880905839: /*target*/  return new Property("target", "Reference", "A resource that was validated.", 0, java.lang.Integer.MAX_VALUE, target);
+        case -880905839: /*target*/  return new Property("target", "Reference(Any)", "A resource that was validated.", 0, java.lang.Integer.MAX_VALUE, target);
         case 308958310: /*targetLocation*/  return new Property("targetLocation", "string", "The fhirpath location(s) within the resource that was validated.", 0, java.lang.Integer.MAX_VALUE, targetLocation);
         case 3377302: /*need*/  return new Property("need", "code", "The frequency with which the target must be validated (none; initial; periodic).", 0, 1, need);
         case -892481550: /*status*/  return new Property("status", "code", "The validation status of the target (attested; validated; in process; requires revalidation; validation failed; revalidation failed).", 0, 1, status);

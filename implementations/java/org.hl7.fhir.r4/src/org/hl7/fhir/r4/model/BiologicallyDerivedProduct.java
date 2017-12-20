@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
+// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1766,6 +1766,11 @@ public class BiologicallyDerivedProduct extends DomainResource {
     protected Reference parent;
 
     /**
+     * The actual object that is the target of the reference (Parent product (if any).)
+     */
+    protected Resource parentTarget;
+
+    /**
      * How this product was collected.
      */
     @Child(name = "collection", type = {}, order=7, min=0, max=1, modifier=false, summary=false)
@@ -1793,7 +1798,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
     @Description(shortDefinition="Product storage", formalDefinition="Product storage." )
     protected List<BiologicallyDerivedProductStorageComponent> storage;
 
-    private static final long serialVersionUID = -481871944L;
+    private static final long serialVersionUID = 1638250261L;
 
   /**
    * Constructor
@@ -2122,6 +2127,21 @@ public class BiologicallyDerivedProduct extends DomainResource {
     }
 
     /**
+     * @return {@link #parent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Parent product (if any).)
+     */
+    public Resource getParentTarget() { 
+      return this.parentTarget;
+    }
+
+    /**
+     * @param value {@link #parent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Parent product (if any).)
+     */
+    public BiologicallyDerivedProduct setParentTarget(Resource value) { 
+      this.parentTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #collection} (How this product was collected.)
      */
     public BiologicallyDerivedProductCollectionComponent getCollection() { 
@@ -2283,7 +2303,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
         children.add(new Property("status", "code", "Whether the product is currently available.", 0, 1, status));
         children.add(new Property("request", "Reference(ServiceRequest)", "Procedure request to obtain this biologically derived product.", 0, java.lang.Integer.MAX_VALUE, request));
         children.add(new Property("quantity", "integer", "Number of discrete units within this product.", 0, 1, quantity));
-        children.add(new Property("parent", "Reference", "Parent product (if any).", 0, 1, parent));
+        children.add(new Property("parent", "Reference(Any)", "Parent product (if any).", 0, 1, parent));
         children.add(new Property("collection", "", "How this product was collected.", 0, 1, collection));
         children.add(new Property("processing", "", "Any processing of the product during collection.", 0, java.lang.Integer.MAX_VALUE, processing));
         children.add(new Property("manipulation", "", "Any manipulation of product post-collection.", 0, 1, manipulation));
@@ -2299,7 +2319,7 @@ public class BiologicallyDerivedProduct extends DomainResource {
         case -892481550: /*status*/  return new Property("status", "code", "Whether the product is currently available.", 0, 1, status);
         case 1095692943: /*request*/  return new Property("request", "Reference(ServiceRequest)", "Procedure request to obtain this biologically derived product.", 0, java.lang.Integer.MAX_VALUE, request);
         case -1285004149: /*quantity*/  return new Property("quantity", "integer", "Number of discrete units within this product.", 0, 1, quantity);
-        case -995424086: /*parent*/  return new Property("parent", "Reference", "Parent product (if any).", 0, 1, parent);
+        case -995424086: /*parent*/  return new Property("parent", "Reference(Any)", "Parent product (if any).", 0, 1, parent);
         case -1741312354: /*collection*/  return new Property("collection", "", "How this product was collected.", 0, 1, collection);
         case 422194963: /*processing*/  return new Property("processing", "", "Any processing of the product during collection.", 0, java.lang.Integer.MAX_VALUE, processing);
         case -696214627: /*manipulation*/  return new Property("manipulation", "", "Any manipulation of product post-collection.", 0, 1, manipulation);

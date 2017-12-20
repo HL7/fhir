@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
+// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -5013,17 +5013,17 @@ public class ValueSet extends MetadataResource {
    * <p>
    * Description: <b>This special parameter searches for codes in the value set. See additional notes on the ValueSet resource</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ValueSet.expansion.contains, ValueSet.compose.include.concept.code</b><br>
+   * Path: <b>ValueSet.expansion.contains.code, ValueSet.compose.include.concept.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="ValueSet.expansion.contains | ValueSet.compose.include.concept.code", description="This special parameter searches for codes in the value set. See additional notes on the ValueSet resource", type="token" )
+  @SearchParamDefinition(name="code", path="ValueSet.expansion.contains.code | ValueSet.compose.include.concept.code", description="This special parameter searches for codes in the value set. See additional notes on the ValueSet resource", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
    * Description: <b>This special parameter searches for codes in the value set. See additional notes on the ValueSet resource</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ValueSet.expansion.contains, ValueSet.compose.include.concept.code</b><br>
+   * Path: <b>ValueSet.expansion.contains.code, ValueSet.compose.include.concept.code</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);

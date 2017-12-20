@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
+// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1840,17 +1840,17 @@ public class Provenance extends DomainResource {
    * <p>
    * Description: <b>Who participated</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Provenance.agent.who[x]</b><br>
+   * Path: <b>Provenance.agent.whoReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent", path="Provenance.agent.who", description="Who participated", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="agent", path="Provenance.agent.who.as(Reference)", description="Who participated", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
   public static final String SP_AGENT = "agent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>agent</b>
    * <p>
    * Description: <b>Who participated</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Provenance.agent.who[x]</b><br>
+   * Path: <b>Provenance.agent.whoReference</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
+// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -173,7 +173,12 @@ public class Linkage extends DomainResource {
         @Description(shortDefinition="Resource being linked", formalDefinition="The resource instance being linked as part of the group." )
         protected Reference resource;
 
-        private static final long serialVersionUID = 527428511L;
+        /**
+         * The actual object that is the target of the reference (The resource instance being linked as part of the group.)
+         */
+        protected Resource resourceTarget;
+
+        private static final long serialVersionUID = -209332008L;
 
     /**
      * Constructor
@@ -260,17 +265,32 @@ public class Linkage extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource instance being linked as part of the group.)
+         */
+        public Resource getResourceTarget() { 
+          return this.resourceTarget;
+        }
+
+        /**
+         * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource instance being linked as part of the group.)
+         */
+        public LinkageItemComponent setResourceTarget(Resource value) { 
+          this.resourceTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("type", "code", "Distinguishes which item is \"source of truth\" (if any) and which items are no longer considered to be current representations.", 0, 1, type));
-          children.add(new Property("resource", "Reference", "The resource instance being linked as part of the group.", 0, 1, resource));
+          children.add(new Property("resource", "Reference(Any)", "The resource instance being linked as part of the group.", 0, 1, resource));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3575610: /*type*/  return new Property("type", "code", "Distinguishes which item is \"source of truth\" (if any) and which items are no longer considered to be current representations.", 0, 1, type);
-          case -341064690: /*resource*/  return new Property("resource", "Reference", "The resource instance being linked as part of the group.", 0, 1, resource);
+          case -341064690: /*resource*/  return new Property("resource", "Reference(Any)", "The resource instance being linked as part of the group.", 0, 1, resource);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 

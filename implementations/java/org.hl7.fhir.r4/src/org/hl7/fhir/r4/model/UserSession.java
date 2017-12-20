@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Dec 19, 2017 22:39+1100 for FHIR v3.1.0
+// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1545,17 +1545,17 @@ public class UserSession extends DomainResource {
    * <p>
    * Description: <b>The status of the user session</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>UserSession.status</b><br>
+   * Path: <b>UserSession.status.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="UserSession.status", description="The status of the user session", type="token" )
+  @SearchParamDefinition(name="status", path="UserSession.status.code", description="The status of the user session", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
    * Description: <b>The status of the user session</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>UserSession.status</b><br>
+   * Path: <b>UserSession.status.code</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
