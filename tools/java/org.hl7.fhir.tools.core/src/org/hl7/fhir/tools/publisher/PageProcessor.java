@@ -351,8 +351,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     this.tsServer = tsServer;
   }
 
-  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r3";
-//  public final static String DEF_TS_SERVER = "http://local.fhir.org:960/r3";
+//  public final static String DEF_TS_SERVER = "http://tx.fhir.org/r3";
+  public final static String DEF_TS_SERVER = "http://local.fhir.org:964/r4";
 
   public final static String WEB_PUB_NAME = "STU3";
   public final static String CI_PUB_NAME = "Current Build";
@@ -790,11 +790,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+dtR2R3Transform(com[1])+s3;
       } else if (com[0].equals("fmm-style")) {
         String fmm = resource == null ? "N/A" :  ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
-        String ss = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS);
-        if ("External".equals(ss))
-          src = s1+"colse"+s3;
-        else
-          src = s1+(ss != null && ss.equals("Normative") ? "colsn" : (fmm == null || "0".equals(fmm) ? "colsd" : "cols"))+s3;
+        StandardsStatus ss = StandardsStatus.fromCode(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS));
+        src = s1+fmmBarColorStyle(ss, fmm)+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         String ss = ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS);
@@ -1184,6 +1181,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getProfileContext((MetadataResource) resource, genlevel(level))+s3;
       else if (com[0].equals("res-list-maturity"))
         src = s1+buildResListByMaturity()+s3;
+      else if (com[0].equals("res-list-ballot"))
+        src = s1+buildResListByBallot()+s3;
       else if (com[0].equals("res-list-committee"))
         src = s1+buildResListByCommittee()+s3;
       else if (com[0].equals("wglist"))
@@ -1306,12 +1305,46 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           String r = rn.substring(2);
           ResourceDefn rd = definitions.getResourceByName(r);
           if (rd.getNormativePackage() != null)
-            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" style=\"\">N</a></li>\r\n");
+            b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" class=\"normative-flag\">N</a></li>\r\n");
           else
             b.append("  <li><a title=\"[%resdesc "+r+"%]\" href=\""+r.toLowerCase()+".html\">"+r+"</a></li>\r\n");
         }
       }
       b.append("</ul>\r\n");
+    }
+    return b.toString();
+  }
+
+  private String buildResListByBallot() throws FHIRException {
+    List<String> res = new ArrayList<String>();
+    for (ResourceDefn rd : definitions.getBaseResources().values())
+      res.add(rd.getName());
+    for (ResourceDefn rd : definitions.getResources().values())
+      res.add(rd.getName());
+    Collections.sort(res);
+    
+    StringBuilder b = new StringBuilder();
+    StandardsStatus[] values = StandardsStatus.values();
+    for (int i = values.length - 1; i >= 0; i--) {
+      StandardsStatus next = values[i];
+      boolean first = true;
+      for (String rn : res) {
+        ResourceDefn rd = definitions.getResourceByName(rn);
+        if (rd.getStatus() == next) {
+          if (first) {
+            b.append("<p><b>");
+            b.append(next.toDisplay());
+            b.append("</b></p>\r\n<ul style=\"width: 70%; -moz-column-count: 4; -moz-column-gap: 10px; -webkit-column-count: 4; -webkit-column-gap: 10px; column-count: 4; column-gap: 10px\">\r\n");
+            first = false;
+          }
+          if (rd.getNormativePackage() != null)
+            b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a> <a href=\"ballot-intro.html#"+rd.getNormativePackage()+"\" class=\"normative-flag\">N</a></li>\r\n");
+          else
+            b.append("  <li><a title=\"[%resdesc "+rn+"%]\" href=\""+rn.toLowerCase()+".html\">"+rn+"</a></li>\r\n");
+        }
+      }
+      if (!first)
+        b.append("</ul>\r\n");
     }
     return b.toString();
   }
@@ -3357,9 +3390,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genResourceTable(ResourceDefn res, String prefix) throws Exception {
-    ElementDefn e = res.getRoot();
     ResourceTableGenerator gen = new ResourceTableGenerator(folders.dstDir, this, res.getName()+"-definitions.html", false);
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(e, prefix));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(res, prefix));
   }
 
   private String genResourceConstraints(ResourceDefn res, String prefix) throws Exception {
@@ -5220,6 +5252,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genR2MapsSummary() + s3;
       else if (com[0].equals("res-list-maturity"))
         src = s1+buildResListByMaturity()+s3;
+      else if (com[0].equals("res-list-ballot"))
+        src = s1+buildResListByBallot()+s3;
       else if (com[0].equals("res-list-committee"))
         src = s1+buildResListByCommittee()+s3;
       else if (com[0].equals("wglist"))
@@ -5764,13 +5798,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (resource.getNormativePackage() != null)
       return "colsn";
     else {
-    switch (resource.getStatus()) {
-    case DRAFT: return "colsd";
-    case TRIAL_USE: return "0".equals(resource.getFmmLevel()) ? "colsd" : "cols"; 
-    case NORMATIVE: return "colsn";
-    default:
-      return "colsd";
+    return fmmBarColorStyle(resource.getStatus(), resource.getFmmLevel());
     }
+  }
+
+  public String fmmBarColorStyle(StandardsStatus status, String fmm) {
+    if (status == null)
+      return "cols";
+    switch (status) {
+    case DRAFT: return "colsd";
+    case TRIAL_USE: return "0".equals(fmm) ? "colsd" : "colstu"; 
+    case NORMATIVE: return "colsn";
+    case INFORMATIVE: return "colsi";
+    case EXTERNAL: return "colse";
+    default:
+      return "colsi";
     }
   }
 
@@ -7120,7 +7162,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String fmm = profile.getFmm();
         if (Utilities.noString(fmm))
             fmm = pack.getFmmLevel();
-        src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
+        src = s1+"colsi"+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = profile.getFmm();
         if (Utilities.noString(fmm))
@@ -7581,12 +7623,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String wg = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_WORKGROUP);
         src = s1+(wg == null || !definitions.getWorkgroups().containsKey(wg) ?  "(No assigned work group)" : "<a _target=\"blank\" href=\""+definitions.getWorkgroups().get(wg).getUrl()+"\">"+definitions.getWorkgroups().get(wg).getName()+"</a> Work Group")+s3;
       } else if (com[0].equals("fmm-style"))  {
-        String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
-        String ss = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS);
-        if ("External".equals(ss))
-          src = s1+"colse"+s3;
-        else
-          src = s1+(fmm == null || "0".equals(fmm) ? "colsd" : "cols")+s3;
+        String fmm = ed == null ? "N/A" :  ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
+        StandardsStatus ss = StandardsStatus.fromCode(ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS));
+        src = s1+fmmBarColorStyle(ss, fmm)+s3;
       } else if (com[0].equals("fmm")) {
         String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
         String ss = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_BALLOT_STATUS);

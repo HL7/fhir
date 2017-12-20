@@ -383,6 +383,7 @@ public class SourceParser {
     lm.getResource().setFmmLevel(ini.getStringProperty("fmm", n.toLowerCase()));
     if (lm.getResource().getFmmLevel() == null)
       lm.getResource().setFmmLevel("1");
+    lm.getResource().setStatus(StandardsStatus.INFORMATIVE);
     return lm;
   }
 
@@ -984,7 +985,7 @@ public class SourceParser {
     for (EventDefn e : sparser.getEvents())
       processEvent(e, root.getRoot());
 
-    if (ini.getBooleanProperty("draft-resources", root.getName()))
+    if (ini.getBooleanProperty("draft-resources", root.getName()) || "draft".equals(ini.getStringProperty("ballot-status", root.getName())))
       root.setStatus(StandardsStatus.DRAFT);
     else if (ini.getBooleanProperty("normative-resources", root.getName()))
       root.setStatus(StandardsStatus.NORMATIVE);

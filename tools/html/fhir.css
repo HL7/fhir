@@ -72,16 +72,16 @@ tr {
 	text-align: left;
 }
 
-table.cols {
+table.colstu {
 	width: 100%;
 }
 
-table.cols td {
+table.colstu td {
   border: 1px grey solid;
 	border-spacing: 0;
 	padding: 5px;
 	border-collapse: collapse;
-	background-color: #ffffe6;
+	background-color: #fff5e6;
 }
 
 table.colsd {
@@ -93,7 +93,7 @@ table.colsd td {
 	border-spacing: 0;
 	padding: 5px;
 	border-collapse: collapse;
-	background-color: #fdd4ce;
+	background-color: #efefef;
 }
 
 table.colsn {
@@ -118,6 +118,18 @@ table.colse td {
 	padding: 5px;
 	border-collapse: collapse;
 	background-color: #e6e6e6;
+}
+
+table.colsi {
+	width: 100%;
+}
+
+table.colsi td {
+  border: 1px grey solid;
+	border-spacing: 0;
+	padding: 5px;
+	border-collapse: collapse;
+	background-color: #ffffe6;
 }
 
 

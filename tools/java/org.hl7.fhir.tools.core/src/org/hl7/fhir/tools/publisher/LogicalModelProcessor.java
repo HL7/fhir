@@ -70,7 +70,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
       if ("External".equals(ss))
         return "colse";
       else
-        return (fmm == null || "0".equals(fmm) ? "colsd" : "cols");
+        return "colsi";
     } else if (com[0].equals("fmm")) {
       String fmm = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_FMM_LEVEL);
       String ss = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_BALLOT_STATUS);
@@ -87,7 +87,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
       if ("External".equals(ss))
         return "colse";
       else
-        return (fmm == null || "0".equals(fmm) ? "colsd" : "cols");
+        return "colsi";
     } else if (com[0].equals("wgt")) {
       String fmm = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_FMM_LEVEL);
       String ss = ToolingExtensions.readStringExtension(definition, ToolingExtensions.EXT_BALLOT_STATUS);

@@ -416,7 +416,7 @@
  -- Row 8 -----------------------------------
   Element = MedicationDispense.context
   Card. = 0..1
-  Type = Reference (Encounter | EpisodeOfCare)
+  Type = Reference(Encounter | EpisodeOfCare)
   Short Name = Encounter / Episode associated with event
   Definition = The encounter or episode of care that establishes the context for this event.
   Workflow Mapping = Event.context
@@ -461,7 +461,7 @@
  -- Row 13 -----------------------------------
   Element = MedicationDispense.location
   Card. = 0..1
-  Type = Reference (Location)
+  Type = Reference(Location)
   Short Name = Where the dispense occurred
   Definition = The principal physical locaiton where the dispense was performed
   RIM Mapping = .participation[typeCode=LOC].role
@@ -627,7 +627,7 @@
   Element = MedicationDispense.detectedIssue
   Card. = 0..*
   Aliases = Contraindication; Drug Utilization Review (DUR); Alert
-  Type = Reference (DetectedIssue)
+  Type = Reference(DetectedIssue)
   Short Name = Clinical issue with action
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
   Comments = This element can include a detected issue that has been identified either by a decision support system or by a clinician and may include information on the steps that were taken to address the issue.

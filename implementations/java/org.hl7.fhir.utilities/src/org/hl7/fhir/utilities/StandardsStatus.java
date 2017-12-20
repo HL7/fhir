@@ -4,7 +4,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 
 public enum StandardsStatus {
 
-  DRAFT, TRIAL_USE, NORMATIVE, INFORMATIVE, EXTERNAL;
+  EXTERNAL, INFORMATIVE, DRAFT, TRIAL_USE, NORMATIVE;
 
   public String toDisplay() {
     switch (this) {
@@ -65,11 +65,11 @@ public enum StandardsStatus {
     case NORMATIVE  : 
       return "#e6ffe6";
     case TRIAL_USE : 
-      return "#ffe6e6";  
+      return "#fff5e6";  
     case INFORMATIVE:
       return "#ffffe6";
     case EXTERNAL:
-      return "#e6f2ff";
+      return "#e6ffff";
     }
     return "?";
   }
@@ -77,15 +77,15 @@ public enum StandardsStatus {
   public String getColorSvg() {
     switch (this) {
     case DRAFT : 
-      return "#efefef";  
+      return "#f6f6f6";  
     case NORMATIVE  : 
-      return "#eaffea";
+      return "#ecffec";
     case TRIAL_USE : 
-      return "#ffeaea";  
+      return "#fff9ec";  
     case INFORMATIVE:
-      return "#ffffea";
+      return "#ffffec";
     case EXTERNAL:
-      return "#eaf6ff";
+      return "#ecffff";
     }
     return "?";
   }

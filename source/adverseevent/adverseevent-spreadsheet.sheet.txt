@@ -425,7 +425,7 @@
  -- Row 14 -----------------------------------
   Element = AdverseEvent.eventParticipant
   Card. = 0..1
-  Type = Reference (Practitioner|Device)
+  Type = Reference(Practitioner|Device)
   Short Name = Who  was involved in the adverse event or the potential adverse event
   Definition = Parties that may or should contribute or have contributed information to the Act. Such information includes information leading to the decision to perform the Act and how to perform the Act (e.g. consultant), information that the Act itself seeks to reveal (e.g. informant of clinical history), or information about what Act was performed (e.g. informant witness).
 
@@ -477,7 +477,7 @@
  -- Row 21 -----------------------------------
   Element = AdverseEvent.suspectEntity.causality.author
   Card. = 0..1
-  Type = Reference (Practitioner|PractitionerRole)
+  Type = Reference(Practitioner|PractitionerRole)
   Short Name = AdverseEvent.suspectEntity.causalityAuthor
 
  -- Row 22 -----------------------------------

@@ -1105,7 +1105,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Reference (Practitioner|Device)</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Practitioner|Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Who  was involved in the adverse event or the potential adverse event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1194,7 +1194,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Reference (Practitioner|PractitionerRole)</Data><NamedCell
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Practitioner|PractitionerRole)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">AdverseEvent.suspectEntity.causalityAuthor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

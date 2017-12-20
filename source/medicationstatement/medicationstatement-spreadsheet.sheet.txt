@@ -226,7 +226,7 @@
   Element = MedicationStatement.partOf
   Card. = 0..*
   Summary = y
-  Type = Reference (MedicationAdministration |MedicationDispense |MedicationStatement | Procedure | Observation )
+  Type = Reference(MedicationAdministration |MedicationDispense |MedicationStatement | Procedure | Observation )
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step.
   Requirements = This should not be used when indicating which resource a MedicationStatement has been derived from.  If that is the use case, then MedicationStatement.derivedFrom should be used.
@@ -297,7 +297,7 @@
   Element = MedicationStatement.context
   Card. = 0..1
   Summary = y
-  Type = Reference (Encounter | EpisodeOfCare)
+  Type = Reference(Encounter | EpisodeOfCare)
   Short Name = Encounter / Episode associated with MedicationStatement
   Definition = The encounter or episode of care that establishes the context for this MedicationStatement.
   Workflow Mapping = Event.context

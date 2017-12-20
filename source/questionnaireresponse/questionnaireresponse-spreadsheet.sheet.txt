@@ -113,7 +113,7 @@
   Card. = 0..1
   Aliases = Form
   Summary = y
-  Type = Reference (Questionnaire)
+  Type = Reference(Questionnaire)
   Short Name = Form being answered
   Definition = The Questionnaire that defines and organizes the questions for which answers are being provided
   Requirements = Needed to allow editing of the questionnaire response in a manner that enforces the constraints of the original form.

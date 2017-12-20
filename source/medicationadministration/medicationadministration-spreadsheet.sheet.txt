@@ -209,7 +209,7 @@
   Element = MedicationAdministration.partOf
   Card. = 0..*
   Summary = y
-  Type = Reference (MedicationAdministration | Procedure)
+  Type = Reference(MedicationAdministration | Procedure)
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step.
   Workflow Mapping = Event.partOf

@@ -154,7 +154,7 @@
  -- Row 6 -----------------------------------
   Element = BiologicallyDerivedProduct.request
   Card. = 0..*
-  Type = Reference (ServiceRequest)
+  Type = Reference(ServiceRequest)
   Short Name = Procedure request
   Definition = Procedure request to obtain this biologically derived product
 
@@ -168,7 +168,7 @@
  -- Row 8 -----------------------------------
   Element = BiologicallyDerivedProduct.parent
   Card. = 0..1
-  Type = Reference
+  Type = Reference(Any)
   Short Name = BiologicallyDerivedProduct parent
   Definition = Parent product (if any)
   Comments = For products that have multiple collections
@@ -183,14 +183,14 @@
  -- Row 10 -----------------------------------
   Element = BiologicallyDerivedProduct.collection.collector
   Card. = 0..1
-  Type = Reference (Practitioner|PractitionerRole|Patient|RelatedPerson)
+  Type = Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)
   Short Name = HealthCare Professional performing collection
   Definition = HealthCare Professional performing collection
 
  -- Row 11 -----------------------------------
   Element = BiologicallyDerivedProduct.collection.source
   Card. = 0..1
-  Type = Reference (Patient | Organization)
+  Type = Reference(Patient | Organization)
   Short Name = Person or entity providing product
   Definition = Person or entity providing product
 
@@ -226,7 +226,7 @@
  -- Row 16 -----------------------------------
   Element = BiologicallyDerivedProduct.processing.additive
   Card. = 0..1
-  Type = Reference (Substance)
+  Type = Reference(Substance)
   Short Name = Substance added during processing
   Definition = Substance added during processing
 

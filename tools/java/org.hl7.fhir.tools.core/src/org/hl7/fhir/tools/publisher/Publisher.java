@@ -853,7 +853,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
         ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
         r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-        r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot(), ""));
+        r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
     }
 
     for (ResourceDefn r : page.getDefinitions().getResources().values()) {
@@ -864,7 +864,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot(), ""));
+      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
     }
 
     for (ResourceDefn r : page.getDefinitions().getResourceTemplates().values()) {
@@ -872,7 +872,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       r.setProfile(new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(r.getConformancePack(), r, "core", true));
       ResourceTableGenerator rtg = new ResourceTableGenerator(page.getFolders().dstDir, page, null, true);
       r.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r.getRoot(), ""));
+      r.getProfile().getText().getDiv().getChildNodes().add(rtg.generate(r, ""));
       if (page.getProfiles().containsKey(r.getProfile().getUrl()))
         throw new Exception("Duplicate Profile URL "+r.getProfile().getUrl());
       page.getProfiles().put(r.getProfile().getUrl(), r.getProfile());

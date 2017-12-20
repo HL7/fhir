@@ -85,7 +85,7 @@
  -- Row 6 -----------------------------------
   Element = Linkage.item.resource
   Card. = 1..1
-  Type = Reference
+  Type = Reference(Any)
   Short Name = Resource being linked
   Definition = The resource instance being linked as part of the group
 

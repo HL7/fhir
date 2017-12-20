@@ -11,6 +11,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.PageProcessor;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Cell;
@@ -41,7 +42,7 @@ public class TableGenerator extends BaseGenerator {
   protected boolean dictLinks() {
     return pageName != null;
   }
-  protected Row genElement(ElementDefn e, HierarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix, RenderMode mode, boolean isRoot) throws Exception {
+  protected Row genElement(ElementDefn e, HierarchicalTableGenerator gen, boolean resource, String path, boolean isProfile, String prefix, RenderMode mode, boolean isRoot, StandardsStatus rootStatus) throws Exception {
     Row row = gen.new Row();
 
     row.setAnchor(path);
@@ -57,7 +58,9 @@ public class TableGenerator extends BaseGenerator {
       gc.addStyledText("This element is included in summaries", "Σ", null, null, prefix+"elementdefinition-definitions.html#ElementDefinition.isSummary", false);
     if (!e.getInvariants().isEmpty() || !e.getStatedInvariants().isEmpty()) 
       gc.addStyledText("This element has or is affected by some invariants", "I", null, null, prefix+"conformance-rules.html#constraints", false);
-    if (e.getStandardsStatus() != null)
+    if (rootStatus != null)
+      gc.addStyledText("Ballot Status = "+rootStatus.toDisplay(), rootStatus.getAbbrev(), "black", rootStatus.getColor(), prefix+"versions.html#std-process", true);
+    else if (e.getStandardsStatus() != null)
       gc.addStyledText("Ballot Status = "+e.getStandardsStatus().toDisplay(), e.getStandardsStatus().getAbbrev(), "black", e.getStandardsStatus().getColor(), prefix+"versions.html#std-process", true);
     if (resource) {
       row.getCells().add(gen.new Cell()); 
@@ -248,7 +251,7 @@ public class TableGenerator extends BaseGenerator {
       }
     } else
       for (ElementDefn c : e.getElements())
-        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, mode, false));
+        row.getSubRows().add(genElement(c, gen, false, path+'.'+c.getName(), isProfile, prefix, mode, false, null));
     return row;
   }
 

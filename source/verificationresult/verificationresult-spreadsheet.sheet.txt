@@ -257,7 +257,7 @@
   Element = VerificationResult.target
   Card. = 0..*
   Summary = Y
-  Type = Reference
+  Type = Reference(Any)
   Short Name = A resource that was validated
 
  -- Row 3 -----------------------------------

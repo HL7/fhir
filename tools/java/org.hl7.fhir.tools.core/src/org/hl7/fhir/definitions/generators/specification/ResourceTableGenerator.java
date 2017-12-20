@@ -1,6 +1,7 @@
 package org.hl7.fhir.definitions.generators.specification;
 
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
@@ -12,13 +13,14 @@ public class ResourceTableGenerator extends TableGenerator {
     super(dest, page, pageName == null ? null : pageName.toLowerCase(), inlineGraphics);
   }
 
-  public XhtmlNode generate(ElementDefn e, String prefix) throws Exception {
+  public XhtmlNode generate(ResourceDefn r, String prefix) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics);
+    ElementDefn e = r.getRoot();
     RenderMode mode = e.typeCode().equals("Logical") && hasLogicalMapping(e) ? RenderMode.LOGICAL : RenderMode.RESOURCE;
     TableModel model = gen.initNormalTable(prefix, mode == RenderMode.LOGICAL);
 
     
-    model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode, true));
+    model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode, true, r.getStatus()));
     
     return gen.generate(model, prefix, 0);
   }

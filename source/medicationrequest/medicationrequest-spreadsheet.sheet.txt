@@ -466,7 +466,7 @@
  -- Row 13 -----------------------------------
   Element = MedicationRequest.performer
   Card. = 0..1
-  Type = Reference (Practitioner | PractitionerRole | Organization | Patient | Device |RelatedPerson |CareTeam)
+  Type = Reference(Practitioner | PractitionerRole | Organization | Patient | Device |RelatedPerson |CareTeam)
   Short Name = Intended performer of administration
   Definition = The specified desired performer of the medication treatment (e.g. the performer of the medication administration).
   Workflow Mapping = Request.performer
@@ -565,7 +565,7 @@
  -- Row 22 -----------------------------------
   Element = MedicationRequest.insurance
   Card. = 0..*
-  Type = Reference (Coverage | ClaimResponse)
+  Type = Reference(Coverage | ClaimResponse)
   Short Name = Associated insurance coverage
   Definition = Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be in delivering the requested service.
   Workflow Mapping = Request.insurance
@@ -697,7 +697,7 @@
   Element = MedicationRequest.detectedIssue
   Card. = 0..*
   Aliases = Contraindication; Drug Utilization Review (DUR); Alert
-  Type = Reference (DetectedIssue)
+  Type = Reference(DetectedIssue)
   Short Name = Clinical Issue with action
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
   Comments = This element can include a detected issue that has been identified either by a decision support system or by a clinician and may include information on the steps that were taken to address the issue.

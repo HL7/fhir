@@ -153,7 +153,7 @@
   Card. = 0..*
   Aliases = container
   Summary = Y
-  Type = Reference (Procedure | Observation | MedicationAdministration)
+  Type = Reference(Procedure | Observation | MedicationAdministration)
   Short Name = Part of referenced event
   Definition = A larger event of which this particular procedure is a component or step
   Comments = The MedicationAdministration has a partOf reference to Procedure, but this is not a circular reference.  For a surgical procedure, the anesthesia related medicationAdministration is part of the procedure.  For an IV medication administration,  the procedure to insert the IV port is part of the medication administration.
@@ -307,7 +307,7 @@
  -- Row 17 -----------------------------------
   Element = Procedure.performer.onBehalfOf
   Card. = 0..1
-  Type = Reference (Organization)
+  Type = Reference(Organization)
   Short Name = Organization the device or practitioner was acting for
   Definition = The organization the device or practitioner was acting on behalf of
   Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when performing the action
