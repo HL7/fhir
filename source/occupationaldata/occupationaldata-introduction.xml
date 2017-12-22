@@ -1,30 +1,92 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+    
+    <div>
+        <a name="bnc"/>
+        <h2>Scope and Usage</h2>
+        <strong>Note that this content is preliminary and has not yet undergone proper review by the
+            appropriate Workgroups. </strong>
+        <p> The OccupationalData (i.e. Occupational Data for Health, ODH) FHIR resource covers information about a
+            patient’s work or a patient's family member's work. ODH is designed for the social
+            history section of a medical record, to facilitate clinical care in most/all disciplines
+            and delivery environments. ODH also can be used to support public health reporting,
+            population health activities, clinical decision support, and similar value-based care.
+            ODH is not designed to support billing activities. The scope of the work information
+            includes: </p>
+        <ul>
+            <li>Subject (patient or related person)</li>
+            <li>Employment status</li>
+            <li>Retirement date(s)</li>
+            <li>Combat Zone Work</li>
+            <li>Usual Occupation, which includes:<ul>
+                    <li>Usual Industry</li>
+                    <li>Usual Occupation</li>
+                    <li>Start Date</li>
+                    <li>Duration</li>
+                </ul></li>
+            <li>Past or Present Occupation, which includes:<ul>
+                    <li>Past or Present Industry</li>
+                    <li>Employment Type</li>
+                    <li>Work Schedule, including:<ul>
+                            <li>Weekly Work Days</li>
+                            <li>Daily Work Hours</li>
+                        </ul></li>
+                    <li>Job Duties</li>
+                    <li>Occupational Hazards</li>
+                    <li>Employer details (e.g., name, address)</li>
+                </ul></li>
+        </ul>
+        <p> This resource is expected to be implemented by clinical systems of all settings. Since a
+            likely mechanism for collecting work information would be by patient data entry, the
+            resource may be implemented by Personal Health Record systems. Systems supporting
+            quality metrics and population health may also implement this resource. </p>
+        <!--<p> Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. </p>-->
+        <p>Example Scenarios</p>
+        <ul>
+            <li>Diabetes management affected by rotating shift</li>
+            <li>Population prevention and testing activities due to potential for increased
+                substance exposure or take-home exposure (e.g. lead) associated with occupation
+                (e.g. house painter)</li>
+            <li>Stress factors associated with retirement status</li>
+            <li>Long shifts associated with judgement</li>
+            <li>Recognition of asthma related to the workplace environment</li>
+            <li>Recognition of cancer related to exposure to an occupational hazard during a
+                previous job</li>
+        </ul>
+    </div>
 
-<div>
-<a name="bnc"></a>
-<h2>Scope and Usage</h2>
-<p>
-Todo
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-</p>
-</div>
+    <!-- (recommended): -->
+    <div>
+        <h2>Boundaries and Relationships</h2>
+        <p> This resource is expected to be referenced within FHIR profiles to incorporate patient’s
+            work information. Such profiles may include those related to: </p>
+        <ul>
+            <li>Quality measures</li>
+            <li>Public health reporting (e.g. vital records, cancer, case reporting)</li>
+            <li>Encounter summaries</li>
+        </ul>
+        <p> This resource refers to the following other resources: </p>
+        <ul>
+            <li>The Observation Resource for the actual observations</li>
+            <li>The RelatedPerson Resource for work or occupations related to the patient’s
+                family</li>
+            <li>The Organization Resource for Employer name and address information</li>
+            <li>The Author extension for documentation of the person that recorded the patient’s
+                work information </li>
+        </ul>
+    </div>
+    <!-- -->
 
-<!-- (recommended): 
-<div>
-<h2>Boundaries and Relationships</h2>
-<p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
-</p>
-</div>
--->
-
-<!-- (optional):
-<div>
-<h2>Background and Context</h2>
-<p>
-Provides additional detail on exactly how the resource is to be used
-</p>
-</div>
--->
+    <!-- (optional): -->
+    <div>
+        <h2>Background and Context</h2>
+        <p> The majority of adults in the U.S. spend more than half their waking hours at work.
+            Therefore health and work are inextricably inter-related. For example, the management of
+            chronic conditions requires taking the patient’s work environment into consideration.
+            Furthermore, the recognition of new conditions related to previously unknown workplace
+            hazards has often come from astute clinicians, which requires knowledge of the patients’
+            work-setting. ONC has indicated recognition of the value of work information for health
+            care.</p>
+    </div>
+    <!-- -->
 
 </div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="job-employment-type-odh"/>
+  <text>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>A Patient's employment type as defined by compensation and sector</p>
+    </div>
+  </text>
+  <url value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7597"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.114222.4.11.7597"/>
+  </identifier>
+  <name value="Job Employment Type (ODH)"/>
+  <status value="active"/>
+  <publisher value="CDC PHIN VADS"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://phinvads.cdc.gov/vads/SearchHome.action"/>
+    </telecom>
+  </contact>
+  <description value="A Patient's employment type as defined by compensation and sector"/>
+</ValueSet>

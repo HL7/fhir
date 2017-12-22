@@ -2,133 +2,190 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = HistoryOfEmploymentStatus
-  Binding = code list
-  Reference = #history-of-employment-status
-  Definition = 74165-2 History of Employment Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
-  Conformance = required
-  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
+  Binding Name = EmploymentStatus
+  Binding = value set
+  Reference = valueset-employment-status-odh
+  Definition = Reflects the amount of supervisory or management responsibilities for an individual’s occupation.  In the military, this is the person’s rank or rating.
+  Description = Employment Status
+  Conformance = example
+  Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7129
+  Oid = 2.16.840.1.114222.4.11.7129
 
  -- Row 2 -----------------------------------
-  Binding Name = EmploymentStatus
-  Binding = Unbound
-  Definition = Employment Status urn:oid:2.16.840.1.114222.4.11.7129 DYNAMIC
-
- -- Row 3 -----------------------------------
-  Binding Name = RetirementStatus
-  Binding = code list
-  Reference = #retirement-status
-  Definition = 87510-4 Retirement Status (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
-  Conformance = required
-  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
-
- -- Row 4 -----------------------------------
-  Binding Name = YesNoUnknown
-  Binding = Unbound
-  Definition = Yes No Unknown (YNU) (urn:oid:2.16.840.1.114222.4.11.888)
-
- -- Row 5 -----------------------------------
-  Binding Name = HazardousDutyWork
-  Binding = code list
-  Reference = #hazadardous-duty-work
-  Definition = 87511-2 Hazardous Duty Work (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
-  Conformance = required
-  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
-
- -- Row 6 -----------------------------------
-  Binding Name = HazardousDutyWorkValue
-  Binding = Unbound
-  Definition = Hazardous Duty Work Value
-
- -- Row 7 -----------------------------------
-  Binding Name = UsualOccupation
-  Binding = code list
-  Reference = #usual-occupation
-  Definition = 21843-8 Usual Occupation (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
-  Conformance = required
-  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
-
- -- Row 8 -----------------------------------
   Binding Name = OccupationCDCCensus2010
   Binding = value set
   Reference = valueset-occupation-cdc-census-2010
-  Definition = Occupation CDC Census 2010 (urn:oid:2.16.840.1.114222.4.11.7186)
+  Definition = A set of activities or tasks that individuals are paid to perform or, if unpaid, define a person’s contribution to a household/family business/community. The same occupation can exist in different industry sectors (e.g., the occupation “secretary” can be found in the construction industry or a funeral home business).
+  Description = 2010 Occupation coding system used by CDC (NIOSH & NCHS) for coding occupation text. Occupation describes a set of activities or tasks that individuals are paid to perform or, if unpaid, define a person’s contribution to a household/family business/community. This code system includes 2010 U.S. Census Bureau occupation codes with modifications made by CDC for unpaid workers and military occupations. The 2010 Census occupation categories are based on the 2010 BLS Standard Occupational Classification (SOC) system. The PH_Industry_CDC_Census2010 code system should be used in conjunction with this occupation code system when coding both industry and occupation. For more information and instructions on using this coding system, see the instruction manual for CDC-Census I&O coding at: http://www.cdc.gov/niosh/topics/coding/
   Conformance = example
-  Uri = urn:oid:2.16.840.1.114222.4.11.7186
+  Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186
   Oid = 2.16.840.1.114222.4.11.7186
 
- -- Row 9 -----------------------------------
-  Binding Name = OccupationSubjectRelatedSubjectClassCode
+ -- Row 3 -----------------------------------
+  Binding Name = IndustryCDCCensus2010
+  Binding = value set
+  Reference = valueset-industry-cdc-census-2010
+  Definition = The type(s) of business (industry) associated with the patient\'s past and present occupation(s). According to CDC, \"industry\" is described as an economic or business sector comprised of businesses or enterprises concerned with the output of a specified category of products or services (e.g., the construction industry or the agriculture industry).
+  Description = 2010 Industry coding system used by CDC (NIOSH & NCHS) for coding industry text. Industry describes an economic/business sector comprised of businesses/ enterprises concerned with the output of a specified category of products or services (e.g., the construction industry or the agriculture industry). This industry code system includes 2007 U.S. Census Bureau industry codes and three additional codes developed by CDC for unpaid workers. The 2010 Census industry categories are based on the 2007 North American Industry Classification System (NAICS). The PH_Occupation_CDC_Census2010 code system should be used in conjunction with this industry code system when coding both industry and occupation. For more information and instructions on using this coding system, see the instruction manual for CDC-Census I&O coding at: http://www.cdc.gov/niosh/topics/coding/
+  Conformance = example
+  Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187
+  Oid = 2.16.840.1.114222.4.11.7187
+
+ -- Row 4 -----------------------------------
+  Binding Name = EmploymentType
+  Binding = value set
+  Reference = valueset-job-employment-type-odh
+  Definition = A patient\'s employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.).
+  Description = A Patient\'s employment type as defined by compensation and sector
+  Conformance = example
+  Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7597
+  Oid = 2.16.840.1.114222.4.11.7597
+
+ -- Row 5 -----------------------------------
+  Binding Name = SupervisoryLevel
   Binding = code list
-  Reference = #occ-rel-subj-class-code
-  Definition = Occupation Subject Related Subject Class Code
-  Conformance = required
+  Reference = #supervisory-level
+  Definition = Reflects the amount of supervisory or management responsibilities for an individual’s occupation.  In the military, this is the person’s rank or rating.
+  Description = Supervisory Level
+  Conformance = example
+  Oid = 2.16.840.1.113883.10.20.22.4.224
+
+ -- Row 6 -----------------------------------
+  Binding Name = WorkSchedule
+  Binding = value set
+  Reference = valueset-work-schedule-odh
+  Definition = Describes an individual\'s typical arrangement of working hours for an occupation. For example, work schedule may capture that an individual typically works a regular day shift, evening shift, or night shift. It can also specify if an individual has an irregular schedule such as a rotating shift, split shift, etc. In healthcare settings, knowledge of a patient\'s typical work schedule may assist in diagnosis of healthcare issues related to irregular work hours or sleep patterns. It may also assist in determining appropriate treatment and prevention plans that will coordinate with the patient\'s work schedule.
+  Description = Work Schedule
+  Conformance = example
+  Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7130
+  Oid = 2.16.840.1.114222.4.11.7130
+
+=== Sheet supervisory-level =====================================
+
+ -- Row 1 -----------------------------------
+  Code = E-1
+  Display = E-1 - Enlisted Military Personnel 1
+  Definition = US Military Enlisted paygrade E-1
+
+ -- Row 2 -----------------------------------
+  Code = E-2
+  Display = E-2 - Enlisted Military Personnel 2
+  Definition = US Military Enlisted paygrade E-2
+
+ -- Row 3 -----------------------------------
+  Code = E-3
+  Display = E-3 - Enlisted Military Personnel 3
+  Definition = US Military Enlisted paygrade E-3
+
+ -- Row 4 -----------------------------------
+  Code = E-4
+  Display = E-4 - Enlisted Military Personnel 4
+  Definition = US Military Enlisted paygrade E-4
+
+ -- Row 5 -----------------------------------
+  Code = E-5
+  Display = E-5 - Enlisted Military Personnel 5
+  Definition = US Military Enlisted paygrade E-5
+
+ -- Row 6 -----------------------------------
+  Code = E-6
+  Display = E-6 - Enlisted Military Personnel 6
+  Definition = US Military Enlisted paygrade E-6
+
+ -- Row 7 -----------------------------------
+  Code = E-7
+  Display = E-7 - Enlisted Military Personnel 7
+  Definition = US Military Enlisted paygrade E-7
+
+ -- Row 8 -----------------------------------
+  Code = E-8
+  Display = E-8 - Enlisted Military Personnel 8
+  Definition = US Military Enlisted paygrade E-8
+
+ -- Row 9 -----------------------------------
+  Code = E-9
+  Display = E-9 - Enlisted Military Personnel 9
+  Definition = US Military Enlisted paygrade E-9
 
  -- Row 10 -----------------------------------
-  Binding Name = FamilyMemberValueSet
-  Binding = Unbound
-  Definition = Family Member Value Set (urn:oid:2.16.840.1.113883.1.11.19579)
+  Code = O-1
+  Display = O-1 - Commissioned Officer 1
+  Definition = US Military Commissioned Officer paygrade O-1
 
  -- Row 11 -----------------------------------
-  Binding Name = UsualOccupationDuration
-  Binding = Unbound
-  Definition = 74163-7 Usual Occupation Duration (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+  Code = O-2
+  Display = O-2 - Commissioned Officer 2
+  Definition = US Military Commissioned Officer paygrade O-2
 
  -- Row 12 -----------------------------------
-  Binding Name = UsualIndustry
-  Binding = Unbound
-  Definition = 21844-6 Usual Industry (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+  Code = O-3
+  Display = O-3 - Commissioned Officer 3
+  Definition = US Military Commissioned Officer paygrade  O-3
 
  -- Row 13 -----------------------------------
-  Binding Name = IndustryCDCCensus2010
-  Binding = Unbound
-  Definition = Industry CDC Census 2010 (urn:oid:2.16.840.1.114222.4.11.7187)
+  Code = O-4
+  Display = O-4 - Commissioned Officer 4
+  Definition = US Military Commissioned Officer paygrade O-4
 
  -- Row 14 -----------------------------------
-  Binding Name = HistoryOfOccupation
-  Binding = Unbound
-  Definition = 11341-5 History of Occupation (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1)
+  Code = O-5
+  Display = O-5 - Commissioned Officer 5
+  Definition = US Military Commissioned Officer paygrade O-5
 
-=== Sheet history-of-employment-status =====================================
+ -- Row 15 -----------------------------------
+  Code = O-6
+  Display = O-6 - Commissioned Officer 6
+  Definition = US Military Commissioned Officer paygrade O-6
 
- -- Row 1 -----------------------------------
-  System = http://loinc.org
-  Id = 1
-  Code = 74165-2
-  Display = History of employment status NIOSH
-  Definition = History of employment status NIOSH
+ -- Row 16 -----------------------------------
+  Code = O-7
+  Display = O-7 - Commissioned Officer 7
+  Definition = US Military Commissioned Officer paygrade O-7
 
-=== Sheet retirement-status =====================================
+ -- Row 17 -----------------------------------
+  Code = O-8
+  Display = O-8 - Commissioned Officer 8
+  Definition = US Military Commissioned Officer paygrade O-8
 
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = 87510-4
-  Display = Retirement Status
-  Definition = Retirement Status
+ -- Row 18 -----------------------------------
+  Code = O-9
+  Display = O-9 - Commissioned Officer 9
+  Definition = US Military Commissioned Officer paygrade O-9
 
-=== Sheet hazadardous-duty-work =====================================
+ -- Row 19 -----------------------------------
+  Code = O-10
+  Display = O-10 - Commissioned Officer 10
+  Definition = US Military Commissioned Officer paygrade O-10
 
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = 87511-2
-  Display = Hazardous Duty Work
-  Definition = Hazardous Duty Work
+ -- Row 20 -----------------------------------
+  Code = W-1
+  Display = W-1 - Warrant Officer 1
+  Definition = Warrant Officer paygrade W-1
 
-=== Sheet usual-occupation =====================================
+ -- Row 21 -----------------------------------
+  Code = W-2
+  Display = W-2 - Warrant Officer 2
+  Definition = Warrant Officer paygrade W-2
 
- -- Row 1 -----------------------------------
-  System = http://loinc.org
-  Id = 1
-  Code = 21843-8
-  Display = History of Usual occupation
-  Definition = History of Usual occupation
+ -- Row 22 -----------------------------------
+  Code = W-3
+  Display = W-3 - Warrant Officer 3
+  Definition = Warrant Officer paygrade W-3
 
-=== Sheet occ-rel-subj-class-code =====================================
+ -- Row 23 -----------------------------------
+  Code = W-4
+  Display = W-4 - Warrant Officer 4
+  Definition = Warrant Officer paygrade W-4
 
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = PRS
-  Display = Person
+ -- Row 24 -----------------------------------
+  Code = W-5
+  Display = W-5 - Warrant Officer 5
+  Definition = Warrant Officer paygrade W-5
+
+ -- Row 25 -----------------------------------
+  Code = C-3
+  Display = C-3 - 1st Line Supervisor
+  Definition = oversees work and provides direction, does not have hiring/firing or budget authority; synonym: foreman.
 
 === Sheet Invariants =====================================
 
@@ -168,7 +225,7 @@
   Element = OccupationalData.subject
   Card. = 0..1
   Summary = y
-  Type = Reference(Patient)
+  Type = Reference(Patient | RelatedPerson)
   Short Name = Who the occupational data is collected about
   Workflow Mapping = Event.subject
   RIM Mapping = .participation[typeCode=SBJ].role
@@ -177,205 +234,194 @@
 
  -- Row 5 -----------------------------------
   Element = OccupationalData.date
-  Card. = 1..1
-  Summary = y
+  Card. = 0..1
   Type = dateTime
   Short Name = Occupational Data author time
 
  -- Row 6 -----------------------------------
   Element = OccupationalData.author
-  Card. = 1..*
-  Summary = y
+  Card. = 0..*
   Type = Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)
   Short Name = Occupational Data author
 
  -- Row 7 -----------------------------------
   Element = OccupationalData.employmentStatus
   Card. = 0..1
+  Summary = y
   Short Name = Employment status
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
 
  -- Row 8 -----------------------------------
   Element = OccupationalData.employmentStatus.code
   Card. = 1..1
-  Type = code
-  Binding = HistoryOfEmploymentStatus
-  Short Name = 74165-2
-  RIM Mapping = code
+  Summary = y
+  Type = CodeableConcept
+  Binding = EmploymentStatus
+  Short Name = Employment status code
+  RIM Mapping = value
 
  -- Row 9 -----------------------------------
   Element = OccupationalData.employmentStatus.effective[x]
   Card. = 1..1
+  Summary = y
   Type = dateTime | Period
   Short Name = Employment status effective time
   RIM Mapping = effectiveTime
 
  -- Row 10 -----------------------------------
-  Element = OccupationalData.employmentStatus.value
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = EmploymentStatus
-  Short Name = Employment status value
-  RIM Mapping = value
+  Element = OccupationalData.retirementDate
+  Card. = 0..*
+  Summary = y
+  Type = dateTime
+  Short Name = Retirement date
+  RIM Mapping = effectiveTime
 
  -- Row 11 -----------------------------------
-  Element = OccupationalData.retirementStatus
-  Card. = 0..1
-  Short Name = Retirement status
-  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
+  Element = OccupationalData.combatZoneWork
+  Card. = 0..*
+  Summary = y
+  Type = Period
+  Short Name = Combat Zone Work period
+  RIM Mapping = effectiveTime
 
  -- Row 12 -----------------------------------
-  Element = OccupationalData.retirementStatus.code
-  Card. = 1..1
-  Type = code
-  Binding = RetirementStatus
-  Short Name = 87510-4
-  RIM Mapping = code
-
- -- Row 13 -----------------------------------
-  Element = OccupationalData.retirementStatus.effective[x]
-  Card. = 1..1
-  Type = dateTime | Period
-  Short Name = Retirement status effective time
-  RIM Mapping = effectiveTime
-
- -- Row 14 -----------------------------------
-  Element = OccupationalData.retirementStatus.value
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = YesNoUnknown
-  Short Name = Retirement status value
-  RIM Mapping = value
-
- -- Row 15 -----------------------------------
-  Element = OccupationalData.combatZoneHazardousDuty
-  Card. = 0..*
-  Short Name = Combat Zone Hazardous Duty
-  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
-
- -- Row 16 -----------------------------------
-  Element = OccupationalData.combatZoneHazardousDuty.code
-  Card. = 1..*
-  Type = code
-  Binding = HazardousDutyWork
-  Short Name = 87511-2
-  RIM Mapping = code
-
- -- Row 17 -----------------------------------
-  Element = OccupationalData.combatZoneHazardousDuty.effective[x]
-  Card. = 1..1
-  Type = dateTime | Period
-  Short Name = Combat Zone Hazardous Duty effective time
-  RIM Mapping = effectiveTime
-
- -- Row 18 -----------------------------------
-  Element = OccupationalData.combatZoneHazardousDuty.value
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = HazardousDutyWorkValue
-  Short Name = Combat Zone Hazardous Duty value
-  RIM Mapping = value
-
- -- Row 19 -----------------------------------
   Element = OccupationalData.usualOccupation
   Card. = 0..1
+  Summary = y
   Short Name = Usual Occupation
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
 
- -- Row 20 -----------------------------------
-  Element = OccupationalData.usualOccupation.code
+ -- Row 13 -----------------------------------
+  Element = OccupationalData.usualOccupation.occupationCode
   Card. = 1..1
-  Type = code
-  Binding = UsualOccupation
-  Short Name = 21843-8
-  RIM Mapping = code
-
- -- Row 21 -----------------------------------
-  Element = OccupationalData.usualOccupation.effective[x]
-  Card. = 1..1
-  Type = dateTime | Period
-  Short Name = Usual Occupation effective time
-  RIM Mapping = effectiveTime
-
- -- Row 22 -----------------------------------
-  Element = OccupationalData.usualOccupation.value
-  Card. = 1..1
+  Summary = y
   Type = CodeableConcept
   Binding = OccupationCDCCensus2010
-  Short Name = Usual Occupation value
+  Short Name = Usual Occupation code
   RIM Mapping = value
 
- -- Row 23 -----------------------------------
-  Element = OccupationalData.usualOccupation.duration
-  Card. = 0..1
-  Short Name = Usual Occupation duration
-  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
-
- -- Row 24 -----------------------------------
-  Element = OccupationalData.usualOccupation.duration.code
+ -- Row 14 -----------------------------------
+  Element = OccupationalData.usualOccupation.industryCode
   Card. = 1..1
-  Type = CodeableConcept
-  Binding = UsualOccupationDuration
-  Short Name = Usual Occupation duration code
-  RIM Mapping = code
-
- -- Row 25 -----------------------------------
-  Element = OccupationalData.usualOccupation.duration.value
-  Card. = 1..1
-  Type = Period
-  Short Name = Usual Occupation duration value
-  RIM Mapping = value
-
- -- Row 26 -----------------------------------
-  Element = OccupationalData.usualOccupation.industry
-  Card. = 0..1
-  Short Name = Usual Occupation industry
-  RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
-
- -- Row 27 -----------------------------------
-  Element = OccupationalData.usualOccupation.industry.code
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = UsualIndustry
-  Short Name = Usual Occupation industry code
-  RIM Mapping = code
-
- -- Row 28 -----------------------------------
-  Element = OccupationalData.usualOccupation.industry.value
-  Card. = 1..1
+  Summary = y
   Type = CodeableConcept
   Binding = IndustryCDCCensus2010
-  Short Name = Usual Occupation industry value
+  Short Name = Usual Occupation industry
   RIM Mapping = value
 
- -- Row 29 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation
+ -- Row 15 -----------------------------------
+  Element = OccupationalData.usualOccupation.start
   Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Name = Usual Occupation start time
+  RIM Mapping = effectiveTime
+
+ -- Row 16 -----------------------------------
+  Element = OccupationalData.usualOccupation.duration
+  Card. = 0..1
+  Summary = y
+  Type = Duration
+  Short Name = Usual Occupation duration
+  RIM Mapping = effectiveTime
+
+ -- Row 17 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation
+  Card. = 0..*
+  Summary = y
   Short Name = Past Or Present Occupation
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
 
- -- Row 30 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.code
+ -- Row 18 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.occupationCode
   Card. = 1..1
+  Summary = y
   Type = CodeableConcept
-  Binding = HistoryOfOccupation
+  Binding = OccupationCDCCensus2010
   Short Name = Past Or Present Occupation code
-  RIM Mapping = code
+  RIM Mapping = value
 
- -- Row 31 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.effective[x]
+ -- Row 19 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.industryCode
   Card. = 1..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = IndustryCDCCensus2010
+  Short Name = Past Or Present Occupation industry
+  RIM Mapping = value
+
+ -- Row 20 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.effective[x]
+  Card. = 0..1
+  Summary = y
   Type = dateTime | Period
   Short Name = Past Or Present Occupation effective time
   RIM Mapping = effectiveTime
 
- -- Row 32 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.value
-  Card. = 1..1
+ -- Row 21 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.employer
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Organization)
+  Short Name = Past Or Present Occupation employer
+
+ -- Row 22 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.employmentType
+  Card. = 0..1
+  Summary = y
   Type = CodeableConcept
-  Binding = OccupationCDCCensus2010
-  Short Name = Past Or Present Occupation value
-  RIM Mapping = value
+  Binding = EmploymentType
+  Short Name = Past Or Present Occupation employment type
+
+ -- Row 23 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.supervisoryLevel
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = SupervisoryLevel
+  Short Name = Past Or Present Occupation supervisory level
+
+ -- Row 24 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.jobDuties
+  Card. = 0..*
+  Summary = y
+  Type = string
+  Short Name = Past Or Present Occupation job duties
+
+ -- Row 25 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.occupationalHazards
+  Card. = 0..*
+  Summary = y
+  Type = string
+  Short Name = Past Or Present Occupation occupational hazards
+
+ -- Row 26 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.workSchedule
+  Card. = 0..1
+  Summary = y
+  Short Name = Past Or Present Occupation work schedule
+
+ -- Row 27 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.workSchedule.code
+  Card. = 1..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = WorkSchedule
+  Short Name = Past Or Present Occupation work schedule code
+
+ -- Row 28 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.workSchedule.weeklyWorkDays
+  Card. = 0..1
+  Summary = y
+  Type = decimal
+  Short Name = Past Or Present Occupation work schedule weekly work days
+
+ -- Row 29 -----------------------------------
+  Element = OccupationalData.pastOrPresentOccupation.workSchedule.dailyWorkHours
+  Card. = 0..1
+  Summary = y
+  Type = decimal
+  Short Name = Past Or Present Occupation work schedule daily work hours
 
 === Sheet Search =====================================
 
