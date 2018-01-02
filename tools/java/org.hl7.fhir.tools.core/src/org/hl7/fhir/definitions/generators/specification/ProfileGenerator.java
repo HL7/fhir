@@ -1841,7 +1841,7 @@ public class ProfileGenerator {
       produceOpParam(op.getName(), opd.getParameter(), p, null);
     }
     NarrativeGenerator gen = new NarrativeGenerator("", "", context);
-    gen.generate(opd);
+    gen.generate(opd, null);
     return opd;
   }
 

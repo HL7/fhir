@@ -423,7 +423,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String treeForDt(String dt) throws Exception {
     DataTypeTableGenerator gen = new DataTypeTableGenerator(folders.dstDir, this, dt, false);
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(definitions.getElementDefn(dt)));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(definitions.getElementDefn(dt), null));
   }
 
   private String xmlForDt(String dt, String pn) throws Exception {
@@ -1552,7 +1552,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "";
     DomainResource dr = (DomainResource) res;
     if (!dr.hasText() || !dr.getText().hasDiv())
-      new NarrativeGenerator("", "", workerContext, this).setHeaderLevelContext(headerLevelContext).generate(dr);
+      new NarrativeGenerator("", "", workerContext, this).setHeaderLevelContext(headerLevelContext).generate(dr, null);
     return new XhtmlComposer(XhtmlComposer.HTML).compose(dr.getText().getDiv());
   }
 
@@ -1777,7 +1777,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String genCompModel(StructureDefinition sd, String name, String base, String prefix) throws Exception {
     if (sd == null)
       return "<p style=\"color: maroon\">No "+name+" could be generated</p>\r\n";
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false, false));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable("??", sd, false, folders.dstDir, false, base, true, prefix, prefix, false, false, null));
   }
 
   private String genCmpMessages(ProfileComparison cmp) {
@@ -3024,7 +3024,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String genIgToc(ImplementationGuideDefn ig) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(folders.dstDir, false);
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(ig.genToc(gen), "../", 0));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(ig.genToc(gen), "../", 0, null));
   }
 
   private String generateToc() throws Exception {
@@ -3074,7 +3074,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }
       }
     }
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(model, "", 0));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(gen.generate(model, "", 0, null));
   }
 
   private String getNormativePackageForPage(String page) {
@@ -4745,7 +4745,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       exp.setCompose(null);
       exp.setText(null);
       exp.setDescription("Value Set Contents (Expansion) for "+vs.getName()+" at "+Config.DATE_FORMAT().format(new Date()));
-      new NarrativeGenerator("", "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(exp);
+      new NarrativeGenerator("", "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(exp, null);
       return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(exp.getText().getDiv())+VS_INC_END;
     } catch (Exception e) {
       return "<hr/>\r\n"+VS_INC_START+"<!--2-->"+processExpansionError(e.getMessage())+VS_INC_END;
@@ -7651,7 +7651,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String generateExtensionTable(StructureDefinition ed, String filename, String full, String prefix) throws Exception {
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateExtensionTable(filename, ed, folders.dstDir, false, full.equals("true"), prefix, prefix));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateExtensionTable(filename, ed, folders.dstDir, false, full.equals("true"), prefix, prefix, null));
   }
 
 
@@ -7858,7 +7858,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String generateProfileStructureTable(ConstraintStructure profile, boolean diff, String filename, String baseName, String prefix) throws Exception {
     String fn = filename.contains(".") ? filename.substring(0, filename.indexOf('.')) : filename;
     String deffile = fn+"-definitions.html";
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, prefix, false, false));
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(new ProfileUtilities(workerContext, null, this).generateTable(deffile, profile.getResource(), diff, folders.dstDir, false, baseName, !diff, prefix, prefix, false, false, null));
   }
 
   private boolean isAggregationEndpoint(String name) {

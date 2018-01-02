@@ -60,7 +60,7 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
     
     model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode, true));
     
-    return gen.generate(model, prefix, 0);
+    return gen.generate(model, prefix, 0, null);
   }
 
   protected boolean dictLinks() {

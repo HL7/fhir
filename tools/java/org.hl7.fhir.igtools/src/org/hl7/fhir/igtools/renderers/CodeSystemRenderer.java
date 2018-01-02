@@ -80,14 +80,14 @@ public class CodeSystemRenderer extends BaseRenderer {
     return "?? illegal status";
   }
 
-  public String content() throws EOperationOutcome, FHIRException, IOException, org.hl7.fhir.exceptions.FHIRException  {
+  public String content(Set<String> outputTracker) throws EOperationOutcome, FHIRException, IOException, org.hl7.fhir.exceptions.FHIRException  {
 //    if (cs.hasText() && cs.getText().hasDiv())
 //      return new XhtmlComposer().compose(cs.getText().getDiv());
 //    else {
       CodeSystem csc = cs.copy();
       csc.setId(cs.getId()); // because that's not copied
       csc.setText(null);
-      new NarrativeGenerator(prefix, prefix, context).generate(csc);
+      new NarrativeGenerator(prefix, prefix, context).generate(csc, outputTracker);
       return new XhtmlComposer(XhtmlComposer.HTML).compose(csc.getText().getDiv());
 //    }
   }

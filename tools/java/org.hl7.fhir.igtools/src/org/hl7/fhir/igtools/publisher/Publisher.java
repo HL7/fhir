@@ -440,9 +440,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           boolean regen = false;
           gen.setDefinitionsTarget(igpkp.getDefinitionsName(r));
           if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv()))
-            regen = gen.generate((DomainResource) r.getResource());
+            regen = gen.generate((DomainResource) r.getResource(), otherFilesRun);
           if (r.getResource() instanceof Bundle)
-            regen = gen.generate((Bundle) r.getResource(), false);
+            regen = gen.generate((Bundle) r.getResource(), false, otherFilesRun);
           if (regen)
             r.setElement(convertToElement(r.getResource()));
         } else {
@@ -3473,7 +3473,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(fr, "summary"))
       fragment("CodeSystem-"+cs.getId()+"-summary", csr.summary(igpkp.wantGen(fr, "xml"), igpkp.wantGen(fr, "json"), igpkp.wantGen(fr, "ttl")), f.getOutputNames(), fr, vars, null);
     if (igpkp.wantGen(fr, "content"))
-      fragment("CodeSystem-"+cs.getId()+"-content", csr.content(), f.getOutputNames(), fr, vars, null);
+      fragment("CodeSystem-"+cs.getId()+"-content", csr.content(otherFilesRun), f.getOutputNames(), fr, vars, null);
     if (igpkp.wantGen(fr, "xref"))
       fragment("CodeSystem-"+cs.getId()+"-xref", csr.xref(), f.getOutputNames(), fr, vars, null);
   }
@@ -3495,7 +3495,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       fragment("ValueSet-"+vs.getId()+"-summary", vsr.summary(r, igpkp.wantGen(r, "xml"), igpkp.wantGen(r, "json"), igpkp.wantGen(r, "ttl")), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "cld"))
       try {
-        fragment("ValueSet-"+vs.getId()+"-cld", vsr.cld(), f.getOutputNames(), r, vars, null);
+        fragment("ValueSet-"+vs.getId()+"-cld", vsr.cld(otherFilesRun), f.getOutputNames(), r, vars, null);
       } catch (Exception e) {
         fragmentError(vs.getId()+"-cld", e.getMessage(), f.getOutputNames());
       }
@@ -3574,11 +3574,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "header"))
       fragment("StructureDefinition-"+sd.getId()+"-header", sdr.header(), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "diff"))
-      fragment("StructureDefinition-"+sd.getId()+"-diff", sdr.diff(igpkp.getDefinitionsName(r)), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-diff", sdr.diff(igpkp.getDefinitionsName(r), otherFilesRun), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "snapshot"))
-      fragment("StructureDefinition-"+sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitionsName(r)), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-snapshot", sdr.snapshot(igpkp.getDefinitionsName(r), otherFilesRun), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "grid"))
-      fragment("StructureDefinition-"+sd.getId()+"-grid", sdr.grid(igpkp.getDefinitionsName(r)), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-grid", sdr.grid(igpkp.getDefinitionsName(r), otherFilesRun), f.getOutputNames(), r, vars, null);
     if (igpkp.wantGen(r, "pseudo-xml"))
       fragmentError("StructureDefinition-"+sd.getId()+"-pseudo-xml", "yet to be done: Xml template", f.getOutputNames());
     if (igpkp.wantGen(r, "pseudo-json"))
@@ -3602,9 +3602,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (igpkp.wantGen(r, "xref"))
       fragmentError("StructureDefinition-"+sd.getId()+"-sd-xref", "Yet to be done: xref", f.getOutputNames());
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && igpkp.wantGen(r, "span"))
-      fragment("StructureDefinition-"+sd.getId()+"-span", sdr.span(true, igpkp.getCanonical()), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-span", sdr.span(true, igpkp.getCanonical(), otherFilesRun), f.getOutputNames(), r, vars, null);
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && igpkp.wantGen(r, "spanall"))
-      fragment("StructureDefinition-"+sd.getId()+"-spanall", sdr.span(true, igpkp.getCanonical()), f.getOutputNames(), r, vars, null);
+      fragment("StructureDefinition-"+sd.getId()+"-spanall", sdr.span(true, igpkp.getCanonical(), otherFilesRun), f.getOutputNames(), r, vars, null);
 
     if (igpkp.wantGen(r, "example-list"))
       fragment("StructureDefinition-example-list-"+sd.getId(), sdr.exampleList(fileList), f.getOutputNames(), r, vars, null);

@@ -1133,7 +1133,7 @@ public class ProfileUtilities {
   }
 
 
-  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath) throws IOException, FHIRException {
+  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath, Set<String> outputTracker) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable(corePath, false);
 
@@ -1198,7 +1198,7 @@ public class ProfileUtilities {
     r.getCells().add(c);
 
 
-    return gen.generate(model, corePath, 0);
+    return gen.generate(model, corePath, 0, outputTracker);
     }
 
   private ElementDefinition getUrlFor(StructureDefinition ed, ElementDefinition c) {
@@ -1396,7 +1396,7 @@ public class ProfileUtilities {
     return piece;
   }
 
-  public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath) throws IOException, FHIRException {
+  public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath, Set<String> outputTracker) throws IOException, FHIRException {
     assert(diff != snapshot);// check it's ok to get rid of one of these
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable(corePath, false);
@@ -1404,7 +1404,7 @@ public class ProfileUtilities {
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     profiles.add(profile);
     genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath);
-    return gen.generate(model, corePath, 0);
+    return gen.generate(model, corePath, 0, outputTracker);
   }
 
   private void genElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath) throws IOException {

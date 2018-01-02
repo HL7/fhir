@@ -492,7 +492,8 @@ public class ValidationEngine {
     return validate(location, source.getBytes(), format, profiles);
   }
 
-  private boolean handleSources(List<String> sources, List<String> refs) throws IOException {
+  // Public to allow reporting of results in alternate ways
+  public boolean handleSources(List<String> sources, List<String> refs) throws IOException {
     boolean asBundle = sources.size() > 1;
     for (String source : sources) {
       if (handleSource(source, refs)) {
@@ -641,7 +642,7 @@ public class ValidationEngine {
     else
       throw new Error("Not supported yet");
   
-    new NarrativeGenerator("",  "", context).generate((DomainResource) res);
+    new NarrativeGenerator("",  "", context).generate((DomainResource) res, null);
     return (DomainResource) res;
   }
   

@@ -42,6 +42,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.output.ByteArrayOutputStream;
@@ -268,24 +269,24 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String destDir;
   private ProfileKnowledgeProvider pkp;
   
-  public boolean generate(Bundle b, boolean evenIfAlreadyHasNarrative) throws EOperationOutcome, FHIRException, IOException {
+  public boolean generate(Bundle b, boolean evenIfAlreadyHasNarrative, Set<String> outputTracker) throws EOperationOutcome, FHIRException, IOException {
     boolean res = false;
     this.bundle = b;
     for (BundleEntryComponent be : b.getEntry()) {
       if (be.hasResource() && be.getResource() instanceof DomainResource) {
         DomainResource dr = (DomainResource) be.getResource();
         if (evenIfAlreadyHasNarrative || !dr.getText().hasDiv())
-          res = generate(new ResourceContext(b, dr), dr) || res;
+          res = generate(new ResourceContext(b, dr), dr, outputTracker) || res;
       }
     }
     return res;
   }
 
-  public boolean generate(DomainResource r) throws EOperationOutcome, FHIRException, IOException {
-    return generate(null, r);
+  public boolean generate(DomainResource r, Set<String> outputTracker) throws EOperationOutcome, FHIRException, IOException {
+    return generate(null, r, outputTracker);
   }
   
-  public boolean generate(ResourceContext rcontext, DomainResource r) throws EOperationOutcome, FHIRException, IOException {
+  public boolean generate(ResourceContext rcontext, DomainResource r, Set<String> outputTracker) throws EOperationOutcome, FHIRException, IOException {
     if (rcontext == null)
       rcontext = new ResourceContext(null, r);
     
@@ -304,7 +305,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (r instanceof OperationDefinition) {
       return generate(rcontext, (OperationDefinition) r);   // Maintainer = Grahame
     } else if (r instanceof StructureDefinition) {
-      return generate(rcontext, (StructureDefinition) r);   // Maintainer = Grahame
+      return generate(rcontext, (StructureDefinition) r, outputTracker);   // Maintainer = Grahame
     } else if (r instanceof ImplementationGuide) {
       return generate(rcontext, (ImplementationGuide) r);   // Maintainer = Lloyd (until Grahame wants to take over . . . :))
     } else if (r instanceof DiagnosticReport) {
@@ -3903,10 +3904,10 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  return null;
   }
 
-  public boolean generate(ResourceContext rcontext, StructureDefinition sd) throws EOperationOutcome, FHIRException, IOException {
+  public boolean generate(ResourceContext rcontext, StructureDefinition sd, Set<String> outputTracker) throws EOperationOutcome, FHIRException, IOException {
     ProfileUtilities pu = new ProfileUtilities(context, null, pkp);
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
-    x.getChildNodes().add(pu.generateTable(definitionsTarget, sd, true, destDir, false, sd.getId(), false, corePath, "", false, false));
+    x.getChildNodes().add(pu.generateTable(definitionsTarget, sd, true, destDir, false, sd.getId(), false, corePath, "", false, false, outputTracker));
     inject(sd, x, NarrativeStatus.GENERATED);
     return true;
   }

@@ -1134,7 +1134,7 @@ public class ProfileUtilities {
   }
 
 
-  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath) throws IOException, FHIRException {
+  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath, Set<String> outputTracker) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable(corePath, false);
 
@@ -1200,7 +1200,7 @@ public class ProfileUtilities {
 
 
     try {
-		return gen.generate(model, corePath, 0);
+		return gen.generate(model, corePath, 0, outputTracker);
 	} catch (org.hl7.fhir.exceptions.FHIRException e) {
 		throw new FHIRException(e.getMessage(), e);
 	}
@@ -1395,7 +1395,7 @@ public class ProfileUtilities {
     return piece;
   }
 
-  public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath, boolean logicalModel) throws IOException, FHIRException {
+  public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath, boolean logicalModel, Set<String> outputTracker) throws IOException, FHIRException {
     assert(diff != snapshot);// check it's ok to get rid of one of these
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     TableModel model = gen.initNormalTable(corePath, false);
@@ -1404,7 +1404,7 @@ public class ProfileUtilities {
     profiles.add(profile);
     genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, true, logicalModel);
     try {
-		return gen.generate(model, corePath, 0);
+		return gen.generate(model, corePath, 0, outputTracker);
 	} catch (org.hl7.fhir.exceptions.FHIRException e) {
 		throw new FHIRException(e.getMessage(), e);
 	}

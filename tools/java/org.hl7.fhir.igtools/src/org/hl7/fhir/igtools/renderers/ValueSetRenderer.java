@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.model.ElementDefinition;
@@ -69,12 +70,12 @@ public class ValueSetRenderer extends BaseRenderer {
     return b.toString();
   }
 
-  public String cld() throws EOperationOutcome, FHIRException, IOException, org.hl7.fhir.exceptions.FHIRException  {
+  public String cld(Set<String> outputTracker) throws EOperationOutcome, FHIRException, IOException, org.hl7.fhir.exceptions.FHIRException  {
     if (vs.hasText() && vs.getText().hasDiv())
       return new XhtmlComposer(XhtmlComposer.HTML).compose(vs.getText().getDiv());
     ValueSet vsc = vs.copy();
     vsc.setText(null);
-    new NarrativeGenerator("", "", context).generate(vsc);
+    new NarrativeGenerator("", "", context).generate(vsc, outputTracker);
 
     return new XhtmlComposer(XhtmlComposer.HTML).compose(vsc.getText().getDiv());
   }

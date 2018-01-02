@@ -93,7 +93,7 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
  *  * generateExtensionsTable: generate the HTML for a hierarchical table presentation of the extensions
  *  * generateTable: generate  the HTML for a hierarchical table presentation of a structure
  *  * generateSpanningTable: generate the HTML for a table presentation of a network of structures, starting at a nominated point
- *  * summarise: describe the contents of a profile
+ *  * summarize: describe the contents of a profile
  *  
  * note to maintainers: Do not make modifications to the snapshot generation without first changing the snapshot generation test cases to demonstrate the grounds for your change
  *  
@@ -698,11 +698,11 @@ public class ProfileUtilities extends TranslatingUtilities {
             ElementDefinitionSlicingComponent dSlice = diffMatches.get(0).getSlicing();
             ElementDefinitionSlicingComponent bSlice = currentBase.getSlicing();
             if (dSlice.hasOrderedElement() && bSlice.hasOrderedElement() && !orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()))
-              throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - order @ "+path+" ("+contextName+")");
+              throw new DefinitionException("Slicing rules on differential ("+summarizeSlicing(dSlice)+") do not match those on base ("+summarizeSlicing(bSlice)+") - order @ "+path+" ("+contextName+")");
             if (!discriminatorMatches(dSlice.getDiscriminator(), bSlice.getDiscriminator()))
-             throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - disciminator @ "+path+" ("+contextName+")");
+             throw new DefinitionException("Slicing rules on differential ("+summarizeSlicing(dSlice)+") do not match those on base ("+summarizeSlicing(bSlice)+") - disciminator @ "+path+" ("+contextName+")");
             if (!ruleMatches(dSlice.getRules(), bSlice.getRules()))
-             throw new DefinitionException("Slicing rules on differential ("+summariseSlicing(dSlice)+") do not match those on base ("+summariseSlicing(bSlice)+") - rule @ "+path+" ("+contextName+")");
+             throw new DefinitionException("Slicing rules on differential ("+summarizeSlicing(dSlice)+") do not match those on base ("+summarizeSlicing(bSlice)+") - rule @ "+path+" ("+contextName+")");
           }
           ElementDefinition outcome = updateURLs(url, currentBase.copy());
           outcome.setPath(fixedPathDest(contextPathDst, outcome.getPath(), redirector));
@@ -946,7 +946,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
-  private String summariseSlicing(ElementDefinitionSlicingComponent slice) {
+  private String summarizeSlicing(ElementDefinitionSlicingComponent slice) {
     StringBuilder b = new StringBuilder();
     boolean first = true;
     for (ElementDefinitionSlicingDiscriminatorComponent d : slice.getDiscriminator()) {
@@ -1659,7 +1659,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     return !p.contains(".");
   }
 
-  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath, String imagePath) throws IOException, FHIRException {
+  public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath, String imagePath, Set<String> outputTracker) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     gen.setTranslator(getTranslator());
     TableModel model = gen.initNormalTable(corePath, false);
@@ -1739,7 +1739,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     r.getCells().add(c);
     
     try {
-      return gen.generate(model, corePath, 0);
+      return gen.generate(model, corePath, 0, outputTracker);
   	} catch (org.hl7.fhir.exceptions.FHIRException e) {
   		throw new FHIRException(e.getMessage(), e);
   	}
@@ -1885,10 +1885,13 @@ public class ProfileUtilities extends TranslatingUtilities {
         ref = pkp.getLinkForProfile(profile, t.getProfile());
         if (ref != null) {
           String[] parts = ref.split("\\|");
-          if (parts[0].startsWith("http:") || parts[0].startsWith("https:"))
+          if (parts[0].startsWith("http:") || parts[0].startsWith("https:")) {
+//            c.addPiece(checkForNoChange(t, gen.new Piece(parts[0], "<" + parts[1] + ">", t.getCode()))); Lloyd
             c.addPiece(checkForNoChange(t, gen.new Piece(parts[0], parts[1], t.getCode())));
-          else
+          } else {
+//            c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+parts[0], "<" + parts[1] + ">", t.getCode())));
             c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+parts[0], parts[1], t.getCode())));
+          }
         } else
           c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+ref, t.getCode(), null)));
       } else if (pkp.hasLinkFor(t.getCode())) {
@@ -2027,7 +2030,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     return piece;
   }
 
-  public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath, String imagePath, boolean logicalModel, boolean allInvariants) throws IOException, FHIRException {
+  public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath, String imagePath, boolean logicalModel, boolean allInvariants, Set<String> outputTracker) throws IOException, FHIRException {
     assert(diff != snapshot);// check it's ok to get rid of one of these
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     gen.setTranslator(getTranslator());
@@ -2039,14 +2042,14 @@ public class ProfileUtilities extends TranslatingUtilities {
       throw new FHIRException((diff ? "Differential" : "Snapshot") + " is empty generating heirarchical table for "+profile.getUrl());
     genElement(defFile == null ? null : defFile+"#", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, imagePath, true, logicalModel, profile.getDerivation() == TypeDerivationRule.CONSTRAINT && usesMustSupport(list), allInvariants);
     try {
-      return gen.generate(model, imagePath, 0);
+      return gen.generate(model, imagePath, 0, outputTracker);
   	} catch (org.hl7.fhir.exceptions.FHIRException e) {
   		throw new FHIRException(e.getMessage(), e);
   	}
   }
 
 
-  public XhtmlNode generateGrid(String defFile, StructureDefinition profile, String imageFolder, boolean inlineGraphics, String profileBaseFileName, String corePath, String imagePath) throws IOException, FHIRException {
+  public XhtmlNode generateGrid(String defFile, StructureDefinition profile, String imageFolder, boolean inlineGraphics, String profileBaseFileName, String corePath, String imagePath, Set<String> outputTracker) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
     gen.setTranslator(getTranslator());
     TableModel model = gen.initGridTable(corePath);
@@ -2055,7 +2058,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     profiles.add(profile);
     genGridElement(defFile == null ? null : defFile+"#", gen, model.getRows(), list.get(0), list, profiles, true, profileBaseFileName, null, corePath, imagePath, true, profile.getDerivation() == TypeDerivationRule.CONSTRAINT && usesMustSupport(list));
     try {
-      return gen.generate(model, imagePath, 1);
+      return gen.generate(model, imagePath, 1, outputTracker);
     } catch (org.hl7.fhir.exceptions.FHIRException e) {
       throw new FHIRException(e.getMessage(), e);
     }
@@ -2082,6 +2085,12 @@ public class ProfileUtilities extends TranslatingUtilities {
       Row row = gen.new Row();
       row.setAnchor(element.getPath());
       row.setColor(getRowColor(element, isConstraintMode));
+      if (element.hasSlicing())
+        row.setLineColor(1);
+      else if (element.hasSliceName())
+        row.setLineColor(2);
+      else
+        row.setLineColor(0);
       boolean hasDef = element != null;
       boolean ext = false;
       if (s.equals("extension")) {
@@ -2209,6 +2218,12 @@ public class ProfileUtilities extends TranslatingUtilities {
       Row row = gen.new Row();
       row.setAnchor(element.getPath());
       row.setColor(getRowColor(element, isConstraintMode));
+      if (element.hasSlicing())
+        row.setLineColor(1);
+      else if (element.hasSliceName())
+        row.setLineColor(2);
+      else
+        row.setLineColor(0);
       boolean hasDef = element != null;
       String ref = defPath == null ? null : defPath + element.getId();
       UnusedTracker used = new UnusedTracker();
@@ -3161,12 +3176,12 @@ public class ProfileUtilities extends TranslatingUtilities {
     if (!checkFirst || !sd.hasDifferential() || hasMissingIds(sd.getDifferential().getElement())) {
       if (!sd.hasDifferential())
         sd.setDifferential(new StructureDefinitionDifferentialComponent());
-      generateIds(sd.getDifferential().getElement(), sd.getName());
+      generateIds(sd.getDifferential().getElement(), sd.getUrl());
     }
     if (!checkFirst || !sd.hasSnapshot() || hasMissingIds(sd.getSnapshot().getElement())) {
       if (!sd.hasSnapshot())
         sd.setSnapshot(new StructureDefinitionSnapshotComponent());
-      generateIds(sd.getSnapshot().getElement(), sd.getName());
+      generateIds(sd.getSnapshot().getElement(), sd.getUrl());
     }
   }
 
@@ -3185,6 +3200,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       return;
     
     Map<String, String> idMap = new HashMap<String, String>();
+    List<String> idList = new ArrayList<String>();
     
     List<String> paths = new ArrayList<String>();
     // first pass, update the element ids
@@ -3216,6 +3232,9 @@ public class ProfileUtilities extends TranslatingUtilities {
       String bs = b.toString();
       idMap.put(ed.hasId() ? ed.getId() : ed.getPath(), bs);
       ed.setId(bs);
+      if (idList.contains(bs))
+        throw new DefinitionException("Same id on multiple elements "+bs+" in "+name);
+      idList.add(bs);
       paths.add(t);
       if (ed.hasContentReference()) {
         String s = ed.getContentReference().substring(1);
@@ -3568,7 +3587,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     
   }
 
-  public XhtmlNode generateSpanningTable(StructureDefinition profile, String imageFolder, boolean onlyConstraints, String constraintPrefix) throws IOException, FHIRException {
+  public XhtmlNode generateSpanningTable(StructureDefinition profile, String imageFolder, boolean onlyConstraints, String constraintPrefix, Set<String> outputTracker) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, false);
     gen.setTranslator(getTranslator());
     TableModel model = initSpanningTable(gen, "", false);
@@ -3576,7 +3595,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     SpanEntry span = buildSpanningTable("(focus)", "", profile, processed, onlyConstraints, constraintPrefix);
     
     genSpanEntry(gen, model.getRows(), span);
-    return gen.generate(model, "", 0);
+    return gen.generate(model, "", 0, outputTracker);
   }
 
   private SpanEntry buildSpanningTable(String name, String cardinality, StructureDefinition profile, Set<String> processed, boolean onlyConstraints, String constraintPrefix) throws IOException {
@@ -3677,7 +3696,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           }
           b.append(tail(ed.getBase().getPath()));
           b.append("=");
-          b.append(summarise(ed.getFixed()));
+          b.append(summarize(ed.getFixed()));
         }
       }
       if (open)
@@ -3689,17 +3708,17 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
-  private String summarise(Type value) throws IOException {
+  private String summarize(Type value) throws IOException {
     if (value instanceof Coding)
-      return summariseCoding((Coding) value);
+      return summarizeCoding((Coding) value);
     else if (value instanceof CodeableConcept)
-      return summariseCodeableConcept((CodeableConcept) value);
+      return summarizeCodeableConcept((CodeableConcept) value);
     else
       return buildJson(value);
   }
 
 
-  private String summariseCoding(Coding value) {
+  private String summarizeCoding(Coding value) {
     String uri = value.getSystem();
     String system = NarrativeGenerator.describeSystem(uri);
     if (Utilities.isURL(system)) {
@@ -3710,9 +3729,9 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
-  private String summariseCodeableConcept(CodeableConcept value) {
+  private String summarizeCodeableConcept(CodeableConcept value) {
     if (value.hasCoding())
-      return summariseCoding(value.getCodingFirstRep());
+      return summarizeCoding(value.getCodingFirstRep());
     else
       return value.getText();
   }

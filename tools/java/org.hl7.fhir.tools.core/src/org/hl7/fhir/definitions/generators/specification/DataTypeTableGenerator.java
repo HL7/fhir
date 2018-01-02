@@ -1,5 +1,7 @@
 package org.hl7.fhir.definitions.generators.specification;
 
+import java.util.Set;
+
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
@@ -11,13 +13,13 @@ public class DataTypeTableGenerator extends TableGenerator {
     super(dest, page, page.getDefinitions().getSrcFile(pageName)+"-definitions.html", inlineGraphics);
   }
 
-  public XhtmlNode generate(ElementDefn e) throws Exception {
+  public XhtmlNode generate(ElementDefn e, Set<String> outputTracker) throws Exception {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(dest, inlineGraphics);
     TableModel model = gen.initNormalTable("", false);
     
     model.getRows().add(genElement(e, gen, false, e.getName(), false, "", RenderMode.DATATYPE, true, e.getStandardsStatus()));
     
-    return gen.generate(model, "", 0);
+    return gen.generate(model, "", 0, outputTracker);
   }
 
  

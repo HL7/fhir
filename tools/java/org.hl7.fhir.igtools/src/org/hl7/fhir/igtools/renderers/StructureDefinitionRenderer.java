@@ -325,25 +325,25 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return path.contains(".") ? path.substring(0, path.lastIndexOf('.')) : path;
   }
 
-  public String diff(String defnFile) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
+  public String diff(String defnFile, Set<String> outputTracker) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     if (sd.getDifferential().getElement().isEmpty())
       return "";
     else
-      return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateTable(defnFile, sd, true, destDir, false, sd.getId(), false, prefix, "", false, false));
+      return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateTable(defnFile, sd, true, destDir, false, sd.getId(), false, prefix, "", false, false, outputTracker));
   }
 
-  public String snapshot(String defnFile) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
+  public String snapshot(String defnFile, Set<String> outputTracker) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     if (sd.getSnapshot().getElement().isEmpty())
       return "";
     else
-      return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateTable(defnFile, sd, false, destDir, false, sd.getId(), true, prefix, "", false, false));
+      return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateTable(defnFile, sd, false, destDir, false, sd.getId(), true, prefix, "", false, false, outputTracker));
   }
 
-  public String grid(String defnFile) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
+  public String grid(String defnFile, Set<String> outputTracker) throws IOException, FHIRException, org.hl7.fhir.exceptions.FHIRException {
     if (sd.getSnapshot().getElement().isEmpty())
       return "";
     else
-      return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateGrid(defnFile, sd, destDir, false, sd.getId(), prefix, ""));
+      return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateGrid(defnFile, sd, destDir, false, sd.getId(), prefix, "", outputTracker));
   }
 
   public String tx() {
@@ -1022,8 +1022,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return b.toString();
   }
 
-  public String span(boolean onlyConstraints, String canonical) throws IOException, FHIRException {
-    return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateSpanningTable(sd, destDir, onlyConstraints, canonical));
+  public String span(boolean onlyConstraints, String canonical, Set<String> outputTracker) throws IOException, FHIRException {
+    return new XhtmlComposer(XhtmlComposer.HTML).compose(utils.generateSpanningTable(sd, destDir, onlyConstraints, canonical, outputTracker));
   }
 
   public String pseudoJson() throws Exception {

@@ -22,7 +22,7 @@ public class ResourceTableGenerator extends TableGenerator {
     
     model.getRows().add(genElement(e, gen, true, e.getName(), false, prefix, mode, true, r.getStatus()));
     
-    return gen.generate(model, prefix, 0);
+    return gen.generate(model, prefix, 0, null);
   }
 
   private boolean hasLogicalMapping(ElementDefn e) {
