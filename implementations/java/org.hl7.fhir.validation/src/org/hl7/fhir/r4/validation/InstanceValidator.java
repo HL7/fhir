@@ -1291,7 +1291,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (type.equalsIgnoreCase("string") && e.hasPrimitiveValue()) {
       if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue() == null || e.primitiveValue().length() > 0, "@value cannot be empty")) {
         warning(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue() == null || e.primitiveValue().trim().equals(e.primitiveValue()), "value should not start or finish with whitespace");
-        rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
+        if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().length() <= 1048576, "value is longer than permitted maximum length of 1 MB (1048576 bytes)")) {
+          rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
+        }
       }
     }
     if (type.equals("dateTime")) {
@@ -1592,6 +1594,24 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ok, "Invalid Resource target type. Found " + ft + ", but expected one of (" + b.toString() + ")");
       }
     }
+    if (we == null) {
+    	// Ensure that reference was not defined as being "bundled" or "contained"
+        boolean missingRef = false;
+        for (TypeRefComponent type : container.getType()) {
+        	if (!missingRef && type.getCode().equals("Reference")) {
+        		if (type.hasAggregation()) {
+        			for (Enumeration<AggregationMode> mode : type.getAggregation()) {
+        				if (mode.getValue().equals(AggregationMode.CONTAINED) || mode.getValue().equals(AggregationMode.BUNDLED)) {
+        					missingRef = true;
+        					break;
+        				}
+        			}
+        		}
+        	}
+        }
+        rule(errors, IssueType.REQUIRED, -1, -1, path, !missingRef, "Bundled or contained reference not found within the bundle/resource " + ref);
+    }
+
     if (pol == ReferenceValidationPolicy.CHECK_VALID) {
       // todo....
     }
@@ -2904,40 +2924,73 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private void checkAllInterlinked(List<ValidationMessage> errors, List<Element> entries, NodeStack stack, Element bundle) {
-    List<Element> visitedResources = new ArrayList<Element>();
+    Map<String, Element> visitedResources = new HashMap<String, Element>();
     HashMap<Element,Element> candidateEntries = new HashMap<Element,Element>();
     List<Element> candidateResources = new ArrayList<Element>();
     for (Element entry: entries) {
       candidateEntries.put(entry.getNamedChild("resource"), entry);
       candidateResources.add(entry.getNamedChild("resource"));
     }
-    followResourceLinks(entries.get(0), visitedResources, candidateEntries, candidateResources, true, errors, stack);
+    // Find resources that are pointed to as stylesheet links
+    List<String> sheets = new ArrayList();
+    List<Element> links = bundle.getChildren("link");
+    for (Element link : links) {
+      if (link.getChildValue("relation").equals("stylesheet")) {
+        sheets.add(link.getChildValue("url"));
+      }
+    }
+    
+    if (!sheets.isEmpty()) {
+      for (Element r : candidateResources) {
+        String url = r.getChildValue("fullUrl");
+        if (sheets.contains(url))
+          visitedResources.put(url, r);
+      }
+    }
+    
     List<Element> unusedResources = new ArrayList<Element>();
-    unusedResources.addAll(candidateResources);
-    unusedResources.removeAll(visitedResources);
+    boolean reverseLinksFound = false;
+    do {
+      followResourceLinks(entries.get(0), visitedResources, candidateEntries, candidateResources, errors, stack);
+      unusedResources.clear();
+      unusedResources.addAll(candidateResources);
+      unusedResources.removeAll(visitedResources.values());
+      for (Element unusedResource: unusedResources) {
+        List<String> references = findReferences(unusedResource);
+        for (String reference: references) {
+          if (visitedResources.containsKey(reference)) {
+            visitedResources.put(reference, unusedResource);
+            reverseLinksFound = true;
+          }
+        }
+      }
+    } while (reverseLinksFound);
+    // Lloyd Todo - Loop above four lines to check if the remaining unused resources point *to* any of the visitedResources and if so, add those to the visitedList until nothing more is added.  Any that are still left over are errors
+
     int i = 0;
     for (Element entry : entries) {
-      // TODO: Need to add support for tracking Bundle.link entries so that embedded stylesheets won't trigger this
-      warning(errors, IssueType.INFORMATIONAL, entry.line(), entry.col(), stack.addToLiteralPath("entry", Integer.toString(i)), !unusedResources.contains(entry.getNamedChild("resource")), "Entry isn't reachable by traversing from first Bundle entry");
+      rule(errors, IssueType.INFORMATIONAL, entry.line(), entry.col(), stack.addToLiteralPath("entry", Integer.toString(i)), !unusedResources.contains(entry.getNamedChild("resource")), "Entry isn't reachable by traversing from first Bundle entry");
       i++;
     }
-    // Todo - check if the remaining resources point *to* the elements in the referenced set.  Any that are still left over are errors
   }
 
-  private void followResourceLinks(Element entry, List<Element> visitedResources, HashMap<Element, Element> candidateEntries, List<Element> candidateResources, boolean referenced, List<ValidationMessage> errors, NodeStack stack) {
+  private void followResourceLinks(Element entry, Map<String, Element> visitedResources, Map<Element, Element> candidateEntries, List<Element> candidateResources, List<ValidationMessage> errors, NodeStack stack) {
+    followResourceLinks(entry, visitedResources, candidateEntries, candidateResources, errors, stack, 0);
+  }
+
+  private void followResourceLinks(Element entry, Map<String, Element> visitedResources, Map<Element, Element> candidateEntries, List<Element> candidateResources, List<ValidationMessage> errors, NodeStack stack, int depth) {
     Element resource = entry.getNamedChild("resource");
-    if (visitedResources.contains(resource))
+    if (visitedResources.containsValue(resource))
       return;
 
-    if (referenced)
-      visitedResources.add(resource);
+    visitedResources.put(entry.getNamedChildValue("fullUrl"), resource);
 
     List<String> references = findReferences(resource);
     for (String reference: references) {
       // We don't want errors when just retrieving the element as they will be caught (with better path info) in subsequent processing
       Element r = getFromBundle(stack.getElement(), reference, entry.getChildValue("fullUrl"), new ArrayList<ValidationMessage>(), stack.addToLiteralPath("entry[" + candidateResources.indexOf(resource) + "]"));
-      if (r!=null && !visitedResources.contains(r)) {
-        followResourceLinks(candidateEntries.get(r), visitedResources, candidateEntries, candidateResources, referenced, errors, stack);
+      if (r!=null && !visitedResources.containsValue(r)) {
+        followResourceLinks(candidateEntries.get(r), visitedResources, candidateEntries, candidateResources, errors, stack, depth+1);
       }
     }
   }
@@ -3076,8 +3129,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             if (nameMatches(ei.name, tail(ed.getPath())))
               try {
                 match = sliceMatches(hostContext, ei.element, ei.path, slicer, ed, profile, errors, stack);
-                if (match)
+                if (match) {
                   ei.slice = slicer;
+  
+                  // Since a defined slice was found, this is not an additional (undefined) slice.
+                  ei.additionalSlice = false;
+                } else if (ei.slice == null) {
+                  // if the specified slice is undefined, keep track of the fact this is an additional (undefined) slice, but only if a slice wasn't found previously
+                  ei.additionalSlice = true;
+                }
               } catch (FHIRException e) {
                 rule(errors, IssueType.PROCESSING, ei.line(), ei.col(), ei.path, false, e.getMessage());
                 unsupportedSlicing = true;
@@ -3111,16 +3171,16 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, ei.definition != null, "Element is unknown or does not match any slice (url=\"" + ei.element.getNamedChildValue("url") + "\")" + (profile==null ? "" : " for profile " + profile.getUrl()));
       else if (!unsupportedSlicing)*/
       if (!unsupportedSlicing)
-        if (ei.slice!=null && (ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN) || ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN)))
-          hint(errors, IssueType.INFORMATIONAL, ei.line(), ei.col(), ei.path, (ei.definition != null),
-              "Element " + ei.element.getName() + " is unknown or does not match any slice " + sliceInfo + (profile==null ? "" : " for profile " + profile.getUrl()));
-        else
-          if (ei.slice!=null && (ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN) || ei.slice.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN)))
-            rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition != null),
-                "Element " + ei.element.getName() + " is unknown or does not match any slice " + sliceInfo + (profile==null ? "" : " for profile " + profile.getUrl()));
-          else
-            hint(errors, IssueType.NOTSUPPORTED, ei.line(), ei.col(), ei.path, (ei.definition != null),
-                "Could not verify slice for profile " + profile.getUrl());
+        if (ei.additionalSlice && ei.definition != null) {
+          if (ei.definition.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPEN) ||
+              ei.definition.getSlicing().getRules().equals(ElementDefinition.SlicingRules.OPENATEND) && true /* TODO: replace "true" with condition to check that this element is at "end" */) {
+            hint(errors, IssueType.INFORMATIONAL, ei.line(), ei.col(), ei.path, false, "This element does not match any known slice" + (profile == null ? "" : " for the profile " + profile.getUrl()));
+          } else if (ei.definition.getSlicing().getRules().equals(ElementDefinition.SlicingRules.CLOSED)) {
+            rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, false, "This element does not match any known slice" + (profile == null ? "" : " for profile " + profile.getUrl() + " and slicing is CLOSED"));
+          }
+        } else {
+          hint(errors, IssueType.NOTSUPPORTED, ei.line(), ei.col(), ei.path, (ei.definition != null), "Could not verify slice for profile " + profile.getUrl());
+        }
       // TODO: Should get the order of elements correct when parsing elements that are XML attributes vs. elements
       boolean isXmlAttr = false;
       if (ei.definition!=null)
@@ -3727,6 +3787,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     public int count;
     public ElementDefinition definition;
     public ElementDefinition slice;
+    public boolean additionalSlice; // If true, indicates that this element is an additional slice
     private Element element;
     private String name;
     private String path;

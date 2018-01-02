@@ -3,25 +3,13 @@
   "outcomes": [
     {
       "hash": "|http://build.fhir.org/codesystem-usage-context-type|null|venue|Clinical Venue",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "venue",
-        "definition": null,
-        "display": "Clinical Venue"
-      }
+      "severity": "error",
+      "message": "Unknown Code venue in http://hl7.org/fhir/ValueSet/usage-context-type"
     },
     {
       "hash": "|http://example.org/CodeSystem/contexttype|null|species|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "species",
-        "definition": null,
-        "display": "Species"
-      }
+      "severity": "error",
+      "message": "Unknown Code species in http://hl7.org/fhir/ValueSet/usage-context-type"
     },
     {
       "hash": "|http://example.org/fhir/CodeSystem/indications|null|disease-or-histology|null",
@@ -40,14 +28,8 @@
     },
     {
       "hash": "|http://example.org/fhir/CodeSystem/use-contexts|null|species|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "species",
-        "definition": null,
-        "display": "Species"
-      }
+      "severity": "error",
+      "message": "Unknown Code species in http://hl7.org/fhir/ValueSet/usage-context-type"
     }
   ]
 }

@@ -103,7 +103,6 @@ https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNMatt
 https://acme.org/identifiers
 urn:iso:std:iso:3166
 http://example.com
-http://tools.ietf.org/html/bcp47
 http://hl7.org/fhir/service-uscls
 http://www.ama-assn.org/go/cpt
 http://snomed.info
