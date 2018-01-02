@@ -2898,25 +2898,26 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (entries.size() == 0) {
       rule(errors, IssueType.INVALID, stack.getLiteralPath(), !(type.equals("document") || type.equals("message")), "Documents or Messages must contain at least one entry");
     } else {
+      // Get the first entry, the MessageHeader
       Element firstEntry = entries.get(0);
-      NodeStack firstStack = stack.push(firstEntry, 0, null, null);
+      // Get the stack of the first entry
+      NodeStack firstStack = stack.push(firstEntry, 1, null, null);
+      
       String fullUrl = firstEntry.getNamedChildValue("fullUrl");
 
       if (type.equals("document")) {
         Element resource = firstEntry.getNamedChild("resource");
-        NodeStack localStack = firstStack.push(resource, -1, null, null);
         String id = resource.getNamedChildValue("id");
         if (rule(errors, IssueType.INVALID, firstEntry.line(), firstEntry.col(), stack.addToLiteralPath("entry", ":0"), resource != null, "No resource on first entry")) {
-          validateDocument(errors, entries, resource, localStack.push(resource, -1, null, null), fullUrl, id);
+          validateDocument(errors, entries, resource, firstStack.push(resource, -1, null, null), fullUrl, id);
         }
         checkAllInterlinked(errors, entries, stack, bundle);
       }
       if (type.equals("message")) {
         Element resource = firstEntry.getNamedChild("resource");
-        NodeStack localStack = firstStack.push(resource, -1, null, null);
         String id = resource.getNamedChildValue("id");
         if (rule(errors, IssueType.INVALID, firstEntry.line(), firstEntry.col(), stack.addToLiteralPath("entry", ":0"), resource != null, "No resource on first entry")) {
-          validateMessage(errors, entries, resource, localStack.push(resource, -1, null, null), fullUrl, id);
+          validateMessage(errors, entries, resource, firstStack.push(resource, -1, null, null), fullUrl, id);
         }
         checkAllInterlinked(errors, entries, stack, bundle);
       }
@@ -2969,7 +2970,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     int i = 0;
     for (Element entry : entries) {
-      rule(errors, IssueType.INFORMATIONAL, entry.line(), entry.col(), stack.addToLiteralPath("entry", Integer.toString(i)), !unusedResources.contains(entry.getNamedChild("resource")), "Entry isn't reachable by traversing from first Bundle entry");
+      rule(errors, IssueType.INFORMATIONAL, entry.line(), entry.col(), stack.addToLiteralPath("entry" + '[' + (i+1) + ']'), !unusedResources.contains(entry.getNamedChild("resource")), "Entry isn't reachable by traversing from first Bundle entry");
       i++;
     }
   }
