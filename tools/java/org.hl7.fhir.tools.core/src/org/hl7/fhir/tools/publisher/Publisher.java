@@ -1024,7 +1024,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       t.setProfile(profile);
       DataTypeTableGenerator dtg = new DataTypeTableGenerator(page.getFolders().dstDir, page, t.getName(), true);
       t.getProfile().getText().setDiv(new XhtmlNode(NodeType.Element, "div"));
-      t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t));
+      t.getProfile().getText().getDiv().getChildNodes().add(dtg.generate(t, null));
     } catch (Exception e) {
       throw new Exception("Error generating profile for '"+t.getName()+"': "+e.getMessage(), e);
     }
@@ -1468,7 +1468,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
     }
     NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-    gen.generate(cpd);
+    gen.generate(cpd, null);
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "compartmentdefinition-" + c.getName().toLowerCase() + ".xml");
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cpd);
     s.close();
@@ -1600,7 +1600,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     if (register) {
       NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-      gen.generate(cpbs);
+      gen.generate(cpbs, null);
       FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "capabilitystatement-" + name + ".xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cpbs);
       s.close();
@@ -2829,7 +2829,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceConceptMap(ConceptMap cm, ResourceDefn rd, SectionTracker st) throws Exception {
-    new NarrativeGenerator("", "", page.getWorkerContext()).generate(cm);
+    new NarrativeGenerator("", "", page.getWorkerContext()).generate(cm, null);
     String n = cm.getUserString("path");
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(n, ".xml"));
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cm);
@@ -4329,7 +4329,7 @@ public class Publisher implements URIResolver, SectionNumberer {
             wantSave = updateVersion(((CapabilityStatement) res).getText().getDiv());
         }
         if (!res.hasText() || !res.getText().hasDiv()) {
-          gen.generate(res);
+          gen.generate(res, null);
           wantSave = true;
         }
         if (wantSave)
@@ -5824,7 +5824,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
         if (vs.getText() == null || vs.getText().getDiv() == null || vs.getText().getDiv().allChildrenAreText()
             && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))
-          new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs);
+          new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs, null);
 
         page.getVsValidator().validate(page.getValidationErrors(), name, vs, true, false);
 
@@ -5900,9 +5900,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (!vs.hasText() || (vs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(vs.getText().getDiv().allText()) || !vs.getText().getDiv().allText().matches(".*\\w.*")))) {
       if (ig != null)
-        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs);
+        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs, null);
       else
-        new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs);
+        new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(vs, null);
     }
     page.getVsValidator().validate(page.getValidationErrors(), n, vs, true, false);
 
@@ -5971,9 +5971,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (cs.getText().getDiv().allChildrenAreText()
         && (Utilities.noString(cs.getText().getDiv().allText()) || !cs.getText().getDiv().allText().matches(".*\\w.*"))) {
       if (ig != null && !ig.isCore())
-        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).generate(cs);
+        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).generate(cs, null);
       else
-        new NarrativeGenerator("", "", page.getWorkerContext()).generate(cs);
+        new NarrativeGenerator("", "", page.getWorkerContext()).generate(cs, null);
     }
     page.getVsValidator().validate(page.getValidationErrors(), n, cs, true, false);
 
@@ -6085,7 +6085,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void generateConceptMap(ConceptMap cm) throws Exception {
     String filename = cm.getUserString("path");
     NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNoteEmpty(PageProcessor.TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(PageProcessor.TOO_MANY_CODES_TEXT_NOT_EMPTY);
-    gen.generate(cm);
+    gen.generate(cm, null);
 
     IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
     FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + Utilities.changeFileExt(filename, ".json"));
