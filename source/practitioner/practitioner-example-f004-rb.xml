@@ -48,7 +48,7 @@
 
 	<communication>
         <coding>
-            <system value="urn:oid:2.16.840.1.113883.6.121"/>
+            <system value="urn:ietf:bcp:47"/>
             <!-- List of ISO 639-1 language codes (ISO 3066) -->
             <code value="nl"/>
             <display value="Netherlands"/>

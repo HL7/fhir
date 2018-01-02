@@ -867,7 +867,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
 
   private ValidationResult verifyCodeInExpansion(ValueSet vs, String system,String code, String display) {
-    ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code);
+    ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code, system);
     if (cc == null)
       return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getUrl());
     if (display == null)
@@ -884,18 +884,18 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     if (vs.getExpansion().hasExtension("http://hl7.org/fhir/StructureDefinition/valueset-toocostly")) {
       throw new FHIRException("Unable to validate core - value set is too costly to expand"); 
     } else {
-      ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code);
+      ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code, null);
       if (cc == null)
         return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getUrl());
       return null;
     }
   }
 
-  private ValueSetExpansionContainsComponent findCode(List<ValueSetExpansionContainsComponent> contains, String code) {
+  private ValueSetExpansionContainsComponent findCode(List<ValueSetExpansionContainsComponent> contains, String code, String system) {
     for (ValueSetExpansionContainsComponent cc : contains) {
-      if (code.equals(cc.getCode()))
+      if (code.equals(cc.getCode()) && (system == null || cc.getSystem().equals(system)))
         return cc;
-      ValueSetExpansionContainsComponent c = findCode(cc.getContains(), code);
+      ValueSetExpansionContainsComponent c = findCode(cc.getContains(), code, system);
       if (c != null)
         return c;
     }

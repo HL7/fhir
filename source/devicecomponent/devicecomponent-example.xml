@@ -35,7 +35,7 @@
 	<measurementPrinciple value="optical"/>
 	<languageCode>
 		<coding>
-			<system value="http://tools.ietf.org/html/bcp47"/>
+			<system value="urn:ietf:bcp:47"/>
 			<code value="en-US"/>
 		</coding>
 	</languageCode>
