@@ -9,13 +9,6 @@
   Conformance = example
 
  -- Row 2 -----------------------------------
-  Binding Name = status
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/publication-status
-  Definition = ProductPlan status
-  Conformance = required
-
- -- Row 3 -----------------------------------
   Binding Name = ContactPartyType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/contactentity-type
@@ -63,8 +56,8 @@
   Is Modifier = y
   Summary = Y
   Type = code
-  Binding = status
-  Short Name = Whether the organization\'s record is still in active use
+  Binding = PublicationStatus
+  Short Name = draft | active | retired | unknown
   Definition = Whether the organization\'s record is still in active use
   Requirements = Need a flag to indicate a record is no longer to be used and should generally be hidden for the user in the UI.
   Comments = Default is active.
