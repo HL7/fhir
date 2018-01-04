@@ -3194,7 +3194,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
       rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.index >= last) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element '"+ei.name+"' is out of order");
       if (ei.slice != null && ei.index == last && ei.slice.getSlicing().getOrdered())
-        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.sliceindex >= lastSlice) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element  '"+ei.name+"' is out of order in ordered slice");
+        rule(errors, IssueType.INVALID, ei.line(), ei.col(), ei.path, (ei.definition == null) || (ei.sliceindex >= lastSlice) || isXmlAttr, "As specified by profile " + profile.getUrl() + ", Element '"+ei.name+"' is out of order in ordered slice");
       if (ei.definition == null || !isXmlAttr)
         last = ei.index;
       if (ei.slice != null)
@@ -3221,7 +3221,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               }
             }
           }
-        String location = "Profile " + profile.getUrl() + ", Element '" + stack.getLiteralPath() + "." + tail(ed.getPath()) + (ed.hasSliceName()? "[" + ed.getSliceName() + (ed.hasLabel() ? " ("+ed.getLabel()+")" : "")+"]": "");
+        String location = "Profile " + profile.getUrl() + ", Element '" + stack.getLiteralPath() + "." + tail(ed.getPath()) + (ed.hasSliceName()? "[" + ed.getSliceName() + (ed.hasLabel() ? " ("+ed.getLabel()+")" : "")+"]": "") + "'";
         if (ed.getMin() > 0) {
           if (problematicPaths.contains(ed.getPath()))
             hint(errors, IssueType.NOTSUPPORTED, element.line(), element.col(), stack.getLiteralPath(), count >= ed.getMin(),
