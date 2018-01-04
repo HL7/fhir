@@ -49,6 +49,102 @@
 		<reference value="Organization/2"/>
 	</payor>
 
+	<!-- The repeating 'class' element is proposed to replace the 'grouping' element -->
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level"/>
+			<code value="group"/>
+		</type>
+		<value value="CB135"/>
+		<name value="Corporate Baker's Inc. Local #35"/>
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level"/>
+			<code value="subgroup"/>
+		</type>
+		<value value="123"/>
+		<name value="Trainee Part-time Benefits"/>
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level"/>
+			<code value="plan"/>
+		</type>
+		<value value="B37FC"/>
+		<name value="Full Coverage: Medical, Dental, Pharmacy, Vision, EHC"/>
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level"/>
+			<code value="subplan"/>
+		</type>
+		<value value="P7"/>
+		<name value="Includes afterlife benefits"/>
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level"/>
+			<code value="class"/>
+		</type>
+		<value value="SILVER"/>
+		<name value="Silver: Family Plan spouse only"/>
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level"/>
+			<code value="subclass"/>
+		</type>
+		<value value="Tier2"/>
+		<name value="Low deductable, max $20 copay"/>
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level"/>
+			<code value="sequence"/>
+		</type>
+		<value value="9"/>
+	</class>
+
+	<!-- the follow RX class values would be used when pharmacy claims under this coverage are sent to a pharmacy claim only processor -->
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level-rx"/>
+			<code value="rxid"/>
+		</type>
+		<value value="MDF12345"/> <!-- member id used when submitting pharmacy claims -->
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level-rx"/>
+			<code value="rxbin"/>
+		</type>
+		<value value="987654"/> <!-- the pharmacy processor BIN number used when submitting pharmacy claims -->
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level-rx"/>
+			<code value="rxgroup"/>
+		</type>
+		<value value="M35PT"/> <!-- group used when submitting pharmacy claims -->
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-level-rx"/>
+			<code value="rxpcn"/>
+		</type>
+		<value value="234516"/> <!-- the PCN number used when submitting pharmacy claims -->
+	</class>
+
 	<grouping>
 		<group value="CBI35"/>
 		<groupDisplay value="Corporate Baker's Inc. Local #35"/>

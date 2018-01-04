@@ -86,6 +86,7 @@ http://hl7.org/fhir/animal-breed
 http:/acme.ped/apgarcolor
 https://www.ncbi.nlm.nih.gov/nuccore
 http://hl7.org/fhir/patient-contact-relationship
+http://hl7.org/fhir/coverage-level-rx
 https://www.aphis.usda.gov
 http://nema.org/examples/gender
 https://acme.org/codes
