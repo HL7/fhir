@@ -440,9 +440,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           boolean regen = false;
           gen.setDefinitionsTarget(igpkp.getDefinitionsName(r));
           if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv()))
-            regen = gen.generate((DomainResource) r.getResource(), otherFilesRun);
+            regen = gen.generate((DomainResource) r.getResource(), otherFilesStartup);
           if (r.getResource() instanceof Bundle)
-            regen = gen.generate((Bundle) r.getResource(), false, otherFilesRun);
+            regen = gen.generate((Bundle) r.getResource(), false, otherFilesStartup);
           if (regen)
             r.setElement(convertToElement(r.getResource()));
         } else {
