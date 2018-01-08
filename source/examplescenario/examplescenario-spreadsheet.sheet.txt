@@ -52,7 +52,7 @@
   To Do = & A name should be provided unless the value set is a contained resource (e.g. an anonymous value set in a profile). Most registries will require a name
 
  -- Row 6 -----------------------------------
-  Element = ExampleScenario.title
+  Element = !ExampleScenario.title
   Card. = 0..1
   Short Name = Name of example
   Definition = The name of the example as showin in the title page
@@ -91,7 +91,7 @@
   Comments = & Frequently, the copyright differs between the value set and the codes that are included. The copyright statement should clearly differentiate between these when required
 
  -- Row 16 -----------------------------------
-  Element = ExampleScenario.description
+  Element = !ExampleScenario.description
   Card. = 0..1
   Short Name = Description of behaviour of the workflow example
   Definition = Description of behaviour of the workflow example
@@ -218,7 +218,7 @@
 
  -- Row 34 -----------------------------------
   Element = ExampleScenario.process
-  Card. = 1..1
+  Card. = 0..*
   Short Name = Each major process - a group of operations
   Definition = Each major process - a group of operations
 

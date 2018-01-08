@@ -2,10 +2,8 @@
 <ExampleScenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/examplescenario.xsd">
 	<id value="example"/>
 
-	<title value="Mobile Medication Administration"/> 
 	<status value="draft"/>
 
-	<description value="This scenario demonstrates the process of getting the relevant medication instructions for a patient visit and reporting the results of administration. The scenario is as follows: After the prescription is issued, the institution schedules each individual administration event in the Medication Administration Record (MAR). When preparing for a visit, the nurse queries the MAR for the scheduled administrations, obtaining a bundle of records. The nurse then performs the care activities and registers the results in the device. Upon synchronization of the device and the institution, the results of administration are uploaded to the EHR, thus updating the MAR." />
 	<purpose value="Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."/>
 
 	<!-- First define actors--> 
@@ -149,7 +147,7 @@
 
 	<process>
 		<title value="Mobile Medication Administration"/>
-		<description value="Mobile Medication Administration" />
+		<description value="This scenario demonstrates the process of getting the relevant medication instructions for a patient visit and reporting the results of administration. The scenario is as follows: After the prescription is issued, the institution schedules each individual administration event in the Medication Administration Record (MAR). When preparing for a visit, the nurse queries the MAR for the scheduled administrations, obtaining a bundle of records. The nurse then performs the care activities and registers the results in the device. Upon synchronization of the device and the institution, the results of administration are uploaded to the EHR, thus updating the MAR." />
 		<preConditions value="Medication administration requests are in the EHR / MAR, scheduled for each individual intake."/>
 		<postConditions value="Medication administration Reports are submitted, EHR is updated."/>
 
