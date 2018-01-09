@@ -19,13 +19,13 @@
 <h3>Summary</h3>
 
 <table class="grid">
- <tr><td>Source</td><td>SNOMED CT is owned, maintained and distributed by <a href="http://www.ihtsdo.org/">IHTSDO</a>.
-     IHTSDO is an international organization with countries as members.
-     IHTSDO publishes the international release of SNOMED CT (which is used in FHIR international standards and resources).
-     Each of the IHTSDO member countries may also distribute their own SNOMED CT edition, which contains the international release plus local extension content and derivatives.
+ <tr><td>Source</td><td>SNOMED CT is owned, maintained and distributed by <a href="http://www.snomed.org/">SNOMED International</a>.
+     SNOMED International is an international organization with countries as members.
+     SNOMED International publishes the international release of SNOMED CT (which is used in FHIR international standards and resources).
+     Each of the SNOMED International member countries may also distribute their own SNOMED CT edition, which contains the international release plus local extension content and derivatives.
     </td></tr>
  <tr><td>System</td><td>The URI <a href="http://snomed.info/sct">http://snomed.info/sct</a> identifies the SNOMED CT code system.</td></tr>
- <tr><td>Version</td><td>Where a version is used, it should be a full URI that represents the specific distribution  (International Release, or National Release and version),
+ <tr><td>Version</td><td>Where a version is used, it should be a URI that represents the specific distribution  (International Release, or National Release and version),
  following the <a href="http://snomed.org/uristandard">SNOMED CT URI Specification</a> (see note below)</td></tr>
  <tr><td>Code</td><td>The following SNOMED CT artifacts are valid in the <i>code</i> element for the http://snomed.info/sct namespace:
    <a href="http://www.snomed.org/gl?t=glsct_st_ConceptId">Concept IDs</a>,
@@ -48,7 +48,7 @@ resource. See also the <a href="snomedct-usage.html">SNOMED CT Usage Summary</a>
 <!-- add note about usage of SNOMED 3 legacy codes - should be replaced with SNOMED CT identifiers, may change in future versions of FHIR -->
 
 <p>
-Note: The <a href="http://snomed.org/gl">IHTSDO glossary</a> explains some of these SNOMED CT specific terms.
+Note: The <a href="http://snomed.org/gl">SNOMED International glossary</a> explains some of these SNOMED CT specific terms.
 </p>
 
 <h3>Version Issues</h3>
@@ -70,14 +70,14 @@ day of the month). Note that many implementations are in the habit of
 simple using the date of release in the form YYYYMMDD (e.g. "20140531"),
 and assuming that the distribution is known. However this is not always
 safe, so implementations that populate the <i>version</i> element
-SHOULD use the full URI form.
+SHOULD use the URI form.
 </p>
 
 <h3>Copyright/License Issues</h3>
 
 <p>
 This specification includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the 
-International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these 
+SNOMED International. Implementers of these 
 specifications must have the appropriate SNOMED CT Affiliate license - for more information contact 
 <a href="http://www.snomed.org/snomed-ct/get-snomed-ct">http://www.snomed.org/snomed-ct/get-snomed-ct</a> or 
 <a href="mailto:info@snomed.org">info@snomed.org</a>.
@@ -86,7 +86,7 @@ specifications must have the appropriate SNOMED CT Affiliate license - for more 
 <h3>RDF</h3>
 
 <p>
-The IHTSDO URI specifications uses the namespace http://snomed.info/sct for the code system,
+The SNOMED International URI specifications uses the namespace http://snomed.info/sct for the code system,
 and the URI http://snomed.info/id for the individual concepts in the code system. This means
 that when a SNOMED CT concept is converted from the system::code pair, where the system is
 http://snomed.info/sct, to the <a href="rdf.html">RDF ontological form</a>, the representation is
@@ -115,7 +115,7 @@ automatically become properties. For example, laterality:
 </table>
 <p>
 Note that when a <a href="codesystem-operations.html#lookup">$lookup</a> operation is performed on a SNOMED CT concept,
-servers SHALL return the full URI for the edition and version being used (see above) in the <code>version</code> property.
+servers SHALL return the URI for the edition and version being used (see above) in the <code>version</code> property.
 Other properties are at the discretion of the server and the client.
 </p>
 
@@ -222,7 +222,7 @@ by a value set reference, which is a literal reference).
 A SNOMED CT implicit value set URL has two parts:
 </p>
 <ul>
-  <li>the base URL is either "http://snomed.info/sct", or the URI for the edition version, in the format specified by the IHTSDO the <a href="http://snomed.org/uristandard.pdf">SNOMED CT URI Specification</a></li>
+  <li>the base URL is either "http://snomed.info/sct", or the URI for the edition version, in the format specified by the SNOMED International the <a href="http://snomed.org/uristandard.pdf">SNOMED CT URI Specification</a></li>
   <li>a query portion that specifies the scope of the content</li>
 </ul>
 <p>
@@ -256,7 +256,7 @@ A value set with a URL that follows the pattern "[edition/version]?fhir_vs=isa/[
   &lt;version value=&quot;[edition/version]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Concept [conceptid] and descendants&quot;/&gt;
   &lt;description value=&quot;All SNOMED CT concepts for [concept id or preferred description]&quot;/&gt;
-  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
+  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
   &lt;compose&gt;
     &lt;include&gt;
@@ -286,7 +286,7 @@ The value set with a url that follows the pattern "[edition/version]?fhir_vs=ref
   &lt;version value=&quot;[edition/version]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Reference Sets&quot;/&gt;
   &lt;description value=&quot;All SNOMED CT concepts associated with a reference set&quot;/&gt;
-  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
+  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
   &lt;compose&gt;
     &lt;include&gt;
@@ -319,7 +319,7 @@ A value set with a url that follows the pattern "[edition/version]?fhir_vs=refse
   &lt;version value=&quot;[edition/version]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Reference Set [conceptid]&quot;/&gt;
   &lt;description value=&quot;All SNOMED CT concepts in the reference set [concept id or preferred description]&quot;/&gt;
-  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
+  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
   &lt;compose&gt;
     &lt;include&gt;
@@ -348,7 +348,7 @@ A value set with a url that follows the pattern "[edition/version]?fhir_vs=ecl:[
   &lt;version value=&quot;[edition/version]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Reference Set [conceptid]&quot;/&gt;
   &lt;description value=&quot;All SNOMED CT concepts in the reference set [concept id or preferred description]&quot;/&gt;
-  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
+  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
   &lt;compose&gt;
     &lt;include&gt;
@@ -399,7 +399,7 @@ Canonical references to concept maps are allowed to reference these concept maps
 A SNOMED CT implicit concept map URL has two parts:
 </p>
 <ul>
-  <li>the base URL is either "http://snomed.info/sct", or the URI for the edition version, in the format specified by the IHTSDO the <a href="http://snomed.org/uristandard.pdf">SNOMED CT URI Specification</a></li>
+  <li>the base URL is either "http://snomed.info/sct", or the URI for the edition version, in the format specified by the SNOMED International the <a href="http://snomed.org/uristandard.pdf">SNOMED CT URI Specification</a></li>
   <li>a query portion that specifies the scope of the content</li>
 </ul>
 <p>
@@ -429,7 +429,7 @@ A concept map with a URL that follows the pattern "[edition/version]?fhir_cm=[sc
   &lt;version value=&quot;[edition/version]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT [name] Concept Map&quot;/&gt;
   &lt;description value=&quot;The concept map implicitly defined by the [name] Association Reference Set&quot;/&gt;
-  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
+  &lt;copyright value=&quot;This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (SNOMED International), and distributed by agreement between SNOMED International and HL7. Implementer use of SNOMED CT is not covered by this agreement&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
 
   &lt;sourceUri value=&quot;[edition/version]?fhir_vs&quot;/&gt;
@@ -456,7 +456,7 @@ A concept map with a URL that follows the pattern "[edition/version]?fhir_cm=[sc
 <a href="https://confluence.ihtsdotools.org/display/DOCRELFMT/4.2.8.+Simple+Map+Reference+Set">Simple Map Reference Sets</a>
 (reference sets which are descendants of 900000000000496009 "Simple map") also define an implicit concept map. However,
 at this time, these cannot be converted to Concept Maps because there is no source for the target code system. Another
-reference set has been proposed to IHTSDO, and this section will be revisited once it is adopted.
+reference set has been proposed to SNOMED International, and this section will be revisited once it is adopted.
 </p>
 
 
