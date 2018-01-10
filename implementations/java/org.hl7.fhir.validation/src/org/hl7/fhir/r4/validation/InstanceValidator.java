@@ -384,11 +384,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       switch (bpWarnings) {
       case Error:
         rule(errors, invalid, line, col, literalPath, test, message);
+        break;
       case Warning:
         warning(errors, invalid, line, col, literalPath, test, message);
+        break;
       case Hint:
         hint(errors, invalid, line, col, literalPath, test, message);
+        break;
       default: // do nothing
+			break;
       }
     }
   }
@@ -411,9 +415,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   @Override
   public org.hl7.fhir.r4.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, InputStream stream, FhirFormat format, ValidationProfileSet profiles) throws FHIRException, IOException {
     ParserBase parser = Manager.makeParser(context, format);
-    if (parser instanceof XmlParser) 
+    if (parser instanceof XmlParser)
       ((XmlParser) parser).setAllowXsiLocation(allowXsiLocation);
-    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+    parser.setupValidation(ValidationPolicy.EVERYTHING, errors);
     long t = System.nanoTime();
     Element e = parser.parse(stream);
     loadTime = System.nanoTime() - t;
@@ -464,11 +468,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   @Override
   public org.hl7.fhir.r4.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, org.w3c.dom.Element element, ValidationProfileSet profiles) throws FHIRException, IOException {
     XmlParser parser = new XmlParser(context);
-    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+    parser.setupValidation(ValidationPolicy.EVERYTHING, errors);
     long t = System.nanoTime();
     Element e = parser.parse(element);
     loadTime = System.nanoTime() - t;
-    if (e != null) 
+    if (e != null)
       validate(appContext, errors, e, profiles);
     return e;
   }
@@ -491,7 +495,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   @Override
   public org.hl7.fhir.r4.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, Document document, ValidationProfileSet profiles) throws FHIRException, IOException {
     XmlParser parser = new XmlParser(context);
-    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+    parser.setupValidation(ValidationPolicy.EVERYTHING, errors);
     long t = System.nanoTime();
     Element e = parser.parse(document);
     loadTime = System.nanoTime() - t;
@@ -518,7 +522,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   @Override
   public org.hl7.fhir.r4.elementmodel.Element validate(Object appContext, List<ValidationMessage> errors, JsonObject object, ValidationProfileSet profiles) throws FHIRException, IOException {
     JsonParser parser = new JsonParser(context);
-    parser.setupValidation(ValidationPolicy.EVERYTHING, errors); 
+    parser.setupValidation(ValidationPolicy.EVERYTHING, errors);
     long t = System.nanoTime();
     Element e = parser.parse(object);
     loadTime = System.nanoTime() - t;
@@ -548,7 +552,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       }
     } while (processedResource);
   }
-  
+
   @Override
   public void validate(Object appContext, List<ValidationMessage> errors, Element element, String profile) throws FHIRException, IOException {
     validate(appContext, errors, element, new ValidationProfileSet(profile, true));
@@ -595,7 +599,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       }
     }
   }
-  
+
   private boolean check(String v1, String v2) {
     return v1 == null ? Utilities.noString(v1) : v1.equals(v2);
   }
@@ -637,7 +641,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       t = System.nanoTime();
       ValidationResult s = context.validateCode(system, code, display);
       txTime = txTime + (System.nanoTime() - t);
-      if (s == null) 
+      if (s == null)
         return true;
       if (s.isOk()) {
         if (s.getMessage() != null)
@@ -672,7 +676,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       try {
         if (context.fetchResourceWithException(ValueSet.class, system) != null) {
           rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Invalid System URI: "+system+" - cannot use a value set URI as a system");
-          // Lloyd: This error used to prohibit checking for downstream issues, but there are some cases where that checking needs to occur.  Please talk to me before changing the code back. 
+          // Lloyd: This error used to prohibit checking for downstream issues, but there are some cases where that checking needs to occur.  Please talk to me before changing the code back.
         }
         return true;
       }
@@ -712,7 +716,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               if (!cc.hasCoding()) {
                 if (binding.getStrength() == BindingStrength.REQUIRED)
                   rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "No code provided, and a code is required from the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl());
-                else if (binding.getStrength() == BindingStrength.EXTENSIBLE) 
+                else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
                   warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "No code provided, and a code should be provided from the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl());
               } else {
                 long t = System.nanoTime();
@@ -739,7 +743,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                         if (binding.getStrength() == BindingStrength.REQUIRED)
                           warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " and a code from this value set is required (class = "+vr.getErrorClass().toString()+")");
                         else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
-                          if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+                          if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet"))
                             checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), cc);
                           else
                             warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " and a code should come from this value set unless it has no suitable code (class = "+vr.getErrorClass().toString()+")");
@@ -749,7 +753,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                         if (binding.getStrength() == BindingStrength.REQUIRED)
                           rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required) (codes = "+ccSummary(cc)+")");
                         else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
-                          if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+                          if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet"))
                             checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), cc);
                           else
                             warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code) (codes = "+ccSummary(cc)+")");
@@ -832,7 +836,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         ValidationResult vr = context.validateCode(null, value, null, valueset);
         txTime = txTime + (System.nanoTime() - t);
         if (!vr.isOk()) {
-          if (vr.getErrorClass() != null && vr.getErrorClass().isInfrastructure()) 
+          if (vr.getErrorClass() != null && vr.getErrorClass().isInfrastructure())
             warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The code provided could not be validated against the maximum value set " + describeReference(maxVSUrl) + " (" + valueset.getUrl()+"), (error = "+vr.getMessage()+")");
           else
             rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The code provided is not in the maximum value set " + describeReference(maxVSUrl) + " (" + valueset.getUrl()+"), and a code from this value set is required) (code = "+value+"), (error = "+vr.getMessage()+")");
@@ -845,7 +849,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private String ccSummary(CodeableConcept cc) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-    for (Coding c : cc.getCoding()) 
+    for (Coding c : cc.getCoding())
       b.append(c.getSystem()+"#"+c.getCode());
     return b.toString();
   }
@@ -886,9 +890,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                         hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided could not be validated in the absence of a terminology server");
                       else if (vr.getErrorClass() != null && !vr.getErrorClass().isInfrastructure()) {
                         if (binding.getStrength() == BindingStrength.REQUIRED)
-                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)"); 
+                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)");
                         else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
-                          if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+                          if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet"))
                             checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), c);
                           else
                             warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
@@ -897,7 +901,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                       } else if (binding.getStrength() == BindingStrength.REQUIRED)
                         rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The Coding provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is required from this value set)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
                       else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
-                        if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+                        if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet"))
                           checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), c);
                         else
                           warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The Coding provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
@@ -988,11 +992,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       // check the type of the extension:
       Set<String> allowedTypes = listExtensionTypes(ex);
       String actualType = getExtensionType(element);
-      if (actualType == null) 
+      if (actualType == null)
         rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", allowedTypes.isEmpty(), "The Extension '" + url + "' definition is for a complex extension, so it cannot contain a value");
-      else 
-        rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", allowedTypes.contains(actualType), "The Extension '" + url + "' definition allows for the types "+allowedTypes.toString()+" but found type "+actualType);      
-      
+      else
+        rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path + "[url='" + url + "']", allowedTypes.contains(actualType), "The Extension '" + url + "' definition allows for the types "+allowedTypes.toString()+" but found type "+actualType);
+
       // 3. is the content of the extension valid?
       validateElement(hostContext, errors, ex, ex.getSnapshot().getElement().get(0), null, null, resource, element, "Extension", stack, false);
 
@@ -1255,8 +1259,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       regex = context.getExtensionString("http://hl7.org/fhir/StructureDefinition/regex");
     if (regex!=null)
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().matches(regex), "Element value '" + e.primitiveValue() + "' does not meet regex '" + regex + "'");
-    
-    if (type.equals("boolean")) { 
+
+    if (type.equals("boolean")) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, "true".equals(e.primitiveValue()) || "false".equals(e.primitiveValue()), "boolean values must be 'true' or 'false'");
     }
     if (type.equals("uri") || type.equals("oid") || type.equals("uuid") ) {
@@ -1264,13 +1268,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.primitiveValue().startsWith("uuid:"), "URI values cannot start with uuid:");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().equals(e.primitiveValue().trim().replace(" ", "")), "URI values cannot have whitespace");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
-      
-      
+
+
       if (type.equals("oid")) {
-        if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().startsWith("urn:oid:"), "OIDs must start with urn:oid:")) 
-          rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.isOid(e.primitiveValue().substring(8)), "OIDs must be valid");        
+        if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().startsWith("urn:oid:"), "OIDs must start with urn:oid:"))
+          rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.isOid(e.primitiveValue().substring(8)), "OIDs must be valid");
       }
-      if (type.equals("uuid")) { 
+      if (type.equals("uuid")) {
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().startsWith("urn:uuid:"), "UUIDs must start with urn:uuid:");
         try {
           UUID.fromString(e.primitiveValue().substring(8));
@@ -1278,15 +1282,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "UUIDs must be valid ("+ex.getMessage()+")");
         }
       }
-      
-      // now, do we check the URI target? 
+
+      // now, do we check the URI target?
       if (fetcher != null) {
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, fetcher.resolveURL(appContext, path, e.primitiveValue()), "URL value '"+e.primitiveValue()+"' does not resolve");
       }
     }
     if (type.equals("id")) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, FormatUtilities.isValidId(e.primitiveValue()), "id value '"+e.primitiveValue()+"' is not valid");
-     
+
     }
     if (type.equalsIgnoreCase("string") && e.hasPrimitiveValue()) {
       if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue() == null || e.primitiveValue().length() > 0, "@value cannot be empty")) {
@@ -1338,14 +1342,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       } catch (IllegalArgumentException ex) {
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, false, "The value (snip) is not a valid Base64 value: "+ex.getMessage());
       }
-      
+
     }
     if (type.equals("integer") || type.equals("unsignedInt") || type.equals("positiveInt")) {
       if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.isInteger(e.primitiveValue()), "The value '" + e.primitiveValue() + "' is not a valid integer")) {
         Integer v = new Integer(e.getValue()).intValue();
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxValueIntegerType() || !context.getMaxValueIntegerType().hasValue() || (context.getMaxValueIntegerType().getValue() >= v), "value is greater than permitted maximum value of " + (context.hasMaxValueIntegerType() ? context.getMaxValueIntegerType() : ""));
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMinValueIntegerType() || !context.getMinValueIntegerType().hasValue() || (context.getMinValueIntegerType().getValue() <= v), "value is less than permitted minimum value of " + (context.hasMinValueIntegerType() ? context.getMinValueIntegerType() : ""));
-        if (type.equals("unsignedInt")) 
+        if (type.equals("unsignedInt"))
           rule(errors, IssueType.INVALID, e.line(), e.col(), path, v >= 0, "value is less than permitted minimum value of 0");
         if (type.equals("positiveInt"))
           rule(errors, IssueType.INVALID, e.line(), e.col(), path, v > 0, "value is less than permitted minimum value of 1");
@@ -1365,7 +1369,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             head = head.substring(1);
           }
           rule(errors, IssueType.INVALID, e.line(), e.col(), path, i <= 1, "The value '" + e.primitiveValue() + "' is not a valid decimal (leading 0s)");
-        }        
+        }
       }
     }
     if (type.equals("instant")) {
@@ -1397,12 +1401,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         // check that the namespace is there and correct.
         String ns = xhtml.getNsDecl();
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, FormatUtilities.XHTML_NS.equals(ns), "Wrong namespace on the XHTML ('"+ns+"')");
-        // check that inner namespaces are all correct 
+        // check that inner namespaces are all correct
         checkInnerNS(errors, e, path, xhtml.getChildNodes());
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, "div".equals(xhtml.getName()), "Wrong name on the XHTML ('"+ns+"') - must start with div");
         // check that no illegal elements and attributes have been used
         checkInnerNames(errors, e, path, xhtml.getChildNodes());
-      } 
+      }
     }
 
     if (context.hasFixed())
@@ -1414,7 +1418,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private void checkInnerNames(List<ValidationMessage> errors, Element e, String path, List<XhtmlNode> list) {
     for (XhtmlNode node : list) {
       if (node.getNodeType() == NodeType.Element) {
-        rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.existsInList(node.getName(), 
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, Utilities.existsInList(node.getName(),
             "p", "br", "div", "h1", "h2", "h3", "h4", "h5", "h6", "a", "span", "b", "em", "i", "strong",
             "small", "big", "tt", "small", "dfn", "q", "var", "abbr", "acronym", "cite", "blockquote", "hr", "address", "bdo", "kbd", "q", "sub", "sup",
             "ul", "ol", "li", "dl", "dt", "dd", "pre", "table", "caption", "colgroup", "col", "thead", "tr", "tfoot", "tbody", "th", "td",
@@ -1422,7 +1426,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
             ), "Illegal element name in the XHTML ('"+node.getName()+"')");
         for (String an : node.getAttributes().keySet()) {
-          boolean ok = an.startsWith("xmlns") || Utilities.existsInList(an, 
+          boolean ok = an.startsWith("xmlns") || Utilities.existsInList(an,
               "title", "style", "class", "id", "lang", "xml:lang", "dir", "accesskey", "tabindex",
               // tables
               "span", "width", "align", "valign", "char", "charoff", "abbr", "axis", "headers", "scope", "rowspan", "colspan") ||
@@ -1438,7 +1442,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         }
         checkInnerNames(errors, e, path, node.getChildNodes());
       }
-    }	
+    }
   }
 
   private void checkInnerNS(List<ValidationMessage> errors, Element e, String path, List<XhtmlNode> list) {
@@ -1448,7 +1452,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, ns == null || FormatUtilities.XHTML_NS.equals(ns), "Wrong namespace on the XHTML ('"+ns+"')");
         checkInnerNS(errors, e, path, node.getChildNodes());
       }
-    }	
+    }
   }
 
   private void checkPrimitiveBinding(List<ValidationMessage> errors, String path, String type, ElementDefinition elementContext, Element element, StructureDefinition profile) {
@@ -1479,7 +1483,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           else if (binding.getStrength() == BindingStrength.REQUIRED)
             rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is required from this value set)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
           else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
-            if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+            if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet"))
               checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), value);
             else
               warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code should come from this value set unless it has no suitable code)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
@@ -1514,7 +1518,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private void checkReference(ValidatorHostContext hostContext, List<ValidationMessage> errors, String path, Element element, StructureDefinition profile, ElementDefinition container, String parentType, NodeStack stack) throws FHIRException, IOException {
     Reference reference = ObjectConverter.readAsReference(element);
-    
+
     String ref = reference.getReference();
     if (Utilities.noString(ref)) {
       if (Utilities.noString(reference.getIdentifier().getSystem()) && Utilities.noString(reference.getIdentifier().getValue())) {
@@ -1557,7 +1561,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
         for (TypeRefComponent type : container.getType()) {
           if (!ok && type.getCode().equals("Reference")) {
-            // we validate as much as we can. First, can we infer a type from the profile? 
+            // we validate as much as we can. First, can we infer a type from the profile?
             if (!type.hasTargetProfile() || type.getTargetProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
               ok = true;
             else {
@@ -1616,11 +1620,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       // todo....
     }
   }
-  
+
   private void doResourceProfile(ValidatorHostContext hostContext, Element resource, String profile, List<ValidationMessage> errors, NodeStack stack, String path, Element element) throws FHIRException, IOException {
     ResourceProfiles resourceProfiles = addResourceProfile(errors, resource, profile, path, element, stack);
     if (resourceProfiles.isProcessed()) {
-      start(hostContext, errors, resource, resource, null, stack);  
+      start(hostContext, errors, resource, resource, null, stack);
     }
   }
 
@@ -1679,7 +1683,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         return true;
       if (codeinExpansion(c, system, code))
         return true;
-    }    
+    }
     return false;
   }
 
@@ -1722,13 +1726,13 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   public BestPracticeWarningLevel getBasePracticeWarningLevel() {
     return bpWarnings;
-  }  
+  }
 
   private String getBaseType(StructureDefinition profile, String pr)  {
     StructureDefinition p = resolveProfile(profile, pr);
     if (p == null)
       return null;
-    else 
+    else
       return p.getType();
   }
 
@@ -1775,7 +1779,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     for (Element we : contained) {
       if (id.equals(we.getNamedChildValue("id")))
         return we;
-    }   
+    }
     return null;
   }
 
@@ -1786,7 +1790,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition element, String discriminator, StructureDefinition profile) throws DefinitionException, FHIRLexerException {
     if ("value".equals(discriminator) && element.hasFixed())
       return element;
-    
+
     ExpressionNode expr = fpe.parse(discriminator);
     long t2 = System.nanoTime();
     ElementDefinition ed = fpe.evaluateDefinition(expr, profile, element);
@@ -1794,7 +1798,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     return ed;
   }
 
- 
+
   private Element getExtensionByUrl(List<Element> extensions, String urlSimple) {
     for (Element e : extensions) {
       if (urlSimple.equals(e.getNamedChildValue("url")))
@@ -1879,7 +1883,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     warning(errors, IssueType.REQUIRED, -1, -1, path, match!=null || !targetUrl.startsWith("urn"), "URN reference is not locally contained within the bundle " + ref);
     return match;
-  }  
+  }
 
   private StructureDefinition getProfileForType(String type) {
     if (logical != null)
@@ -1908,7 +1912,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         String url = focus.getChildValue("reference");
         if (Utilities.noString(url))
           throw new FHIRException("No reference resolving discriminator "+discriminator+" from "+element.getProperty().getName());
-        // Note that we use the passed in stack here. This might be a problem if the discriminator is deep enough? 
+        // Note that we use the passed in stack here. This might be a problem if the discriminator is deep enough?
         Element target = resolve(appContext, url, stack, errors, p);
         if (target == null)
           throw new FHIRException("Unable to find resource "+url+" at "+d+" resolving discriminator "+discriminator+" from "+element.getProperty().getName());
@@ -2138,7 +2142,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private Element resolveInBundle(List<Element> entries, String ref, String fullUrl, String type, String id) {
     if (Utilities.isAbsoluteUrl(ref)) {
-      // if the reference is absolute, then you resolve by fullUrl. No other thinking is required. 
+      // if the reference is absolute, then you resolve by fullUrl. No other thinking is required.
       for (Element entry : entries) {
         String fu = entry.getNamedChildValue("fullUrl");
         if (ref.equals(fu))
@@ -2249,7 +2253,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   /**
-   * 
+   *
    * @param element
    *          - the candidate that might be in the slice
    * @param path
@@ -2258,12 +2262,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
    *          - the definition of how slicing is determined
    * @param ed
    *          - the slice for which to test membership
-   * @param errors 
-   * @param stack 
+   * @param errors
+   * @param stack
    * @return
-   * @throws DefinitionException 
-   * @throws DefinitionException 
-   * @throws IOException 
+   * @throws DefinitionException
+   * @throws DefinitionException
+   * @throws IOException
    * @throws FHIRException
    */
   private boolean sliceMatches(ValidatorHostContext hostContext, Element element, String path, ElementDefinition slicer, ElementDefinition ed, StructureDefinition profile, List<ValidationMessage> errors, NodeStack stack) throws DefinitionException, FHIRException, IOException {
@@ -2273,14 +2277,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     ExpressionNode n = (ExpressionNode) ed.getUserData("slice.expression.cache");
     if (n == null) {
       long t = System.nanoTime();
-      // GG: this approach is flawed because it treats discriminators individually rather than collectively 
+      // GG: this approach is flawed because it treats discriminators individually rather than collectively
       StringBuilder expression = new StringBuilder("true");
       for (ElementDefinitionSlicingDiscriminatorComponent s : slicer.getSlicing().getDiscriminator()) {
         String discriminator = s.getPath();
         if (s.getType() == DiscriminatorType.PROFILE)
           throw new FHIRException("Validating against slices with discriminators based on profiles is not yet supported by the FHIRPath engine: " + discriminator);
         // Todo: Fix this once FHIRPath (and this engine) supports a boolean function that test profile conformance
-        
+
         ElementDefinition criteriaElement = getCriteriaForDiscriminator(path, ed, discriminator, profile);
         if (s.getType() == DiscriminatorType.TYPE) {
           String type = null;
@@ -2400,7 +2404,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         expression.append(((IntegerType)fixed).asStringValue());
       } else if (fixed instanceof BooleanType) {
         expression.append(((BooleanType)fixed).asStringValue());
-      } else  
+      } else
         throw new DefinitionException("Unsupported fixed value type for discriminator(" + discriminator + ") for slice " + ed.getId() + ": " + fixed.getClass().getName());
       expression.append(")");
     }
@@ -2414,7 +2418,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     ResourceProfiles resourceProfiles = getResourceProfiles(element, stack);
     if (!resourceProfiles.isProcessed())
       checkDeclaredProfiles(resourceProfiles, errors, resource, element, stack);
-    
+
     if (!resourceProfiles.isProcessed()) {
       resourceProfiles.setProcessed();
       if (!resourceProfiles.hasProfiles() &&
@@ -2422,7 +2426,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided"))) {
         // Don't need to validate against the resource if there's a profile because the profile snapshot will include the relevant parts of the resources
         validateElement(hostContext, errors, defn, defn.getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
-      } 
+      }
 
       // specific known special validations
       if (element.getType().equals("Bundle"))
@@ -2434,7 +2438,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
     for (ProfileUsage profileUsage : resourceProfiles.uncheckedProfiles()) {
       profileUsage.setChecked();
-// todo: re-enable this when I can deal with the impact...   (GG)   
+// todo: re-enable this when I can deal with the impact...   (GG)
 //      if (!profileUsage.getProfile().getType().equals(resource.fhirType()))
 //        throw new FHIRException("Profile type mismatch - resource is "+resource.fhirType()+", and profile is for "+profileUsage.getProfile().getType());
       validateElement(hostContext, errors, profileUsage.getProfile(), profileUsage.getProfile().getSnapshot().getElement().get(0), null, null, resource, element, element.getName(), stack, false);
@@ -2449,7 +2453,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       sdTime = sdTime + (System.nanoTime() - t);
       if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire could not be resolved, so no validation can be performed against the base questionnaire")) {
         boolean inProgress = "in-progress".equals(element.getNamedChildValue("status"));
-        validateQuestionannaireResponseItems(qsrc, qsrc.getItem(), errors, element, stack, inProgress);        
+        validateQuestionannaireResponseItems(qsrc, qsrc.getItem(), errors, element, stack, inProgress);
       }
     }
   }
@@ -2470,50 +2474,50 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     for (Element answer : answers) {
       NodeStack ns = stack.push(answer, -1, null, null);
       switch (qItem.getType()) {
-      case GROUP: 
-        rule(errors, IssueType.STRUCTURE, answer.line(), answer.col(), stack.getLiteralPath(), false, "Items of type group should not have answers"); 
+      case GROUP:
+        rule(errors, IssueType.STRUCTURE, answer.line(), answer.col(), stack.getLiteralPath(), false, "Items of type group should not have answers");
         break;
       case DISPLAY:  // nothing
         break;
-      case BOOLEAN:       
+      case BOOLEAN:
         validateQuestionnaireResponseItemType(errors, answer, ns, "boolean");
         break;
-      case DECIMAL:       
+      case DECIMAL:
         validateQuestionnaireResponseItemType(errors, answer, ns, "decimal");
         break;
-      case INTEGER:       
+      case INTEGER:
         validateQuestionnaireResponseItemType(errors, answer, ns, "integer");
         break;
-      case DATE:          
+      case DATE:
         validateQuestionnaireResponseItemType(errors, answer, ns, "date");
         break;
-      case DATETIME:      
+      case DATETIME:
         validateQuestionnaireResponseItemType(errors, answer, ns, "dateTime");
         break;
-      case TIME:          
+      case TIME:
         validateQuestionnaireResponseItemType(errors, answer, ns, "time");
         break;
-      case STRING:        
+      case STRING:
         validateQuestionnaireResponseItemType(errors, answer, ns, "string");
         break;
-      case TEXT:          
+      case TEXT:
         validateQuestionnaireResponseItemType(errors, answer, ns, "text");
         break;
-      case URL:           
+      case URL:
         validateQuestionnaireResponseItemType(errors, answer, ns, "uri");
         break;
-      case ATTACHMENT:    
+      case ATTACHMENT:
         validateQuestionnaireResponseItemType(errors, answer, ns, "Attachment");
         break;
-      case REFERENCE:     
+      case REFERENCE:
         validateQuestionnaireResponseItemType(errors, answer, ns, "Reference");
         break;
-      case QUANTITY:   
+      case QUANTITY:
         if (validateQuestionnaireResponseItemType(errors, answer, ns, "Quantity").equals("Quantity"))
           if (qItem.hasExtension("???"))
             validateQuestionnaireResponseItemQuantity(errors, answer, ns);
         break;
-      case CHOICE:     
+      case CHOICE:
         String itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
         if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem, false);
         else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
@@ -2521,7 +2525,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
         else if (itemType.equals("string")) checkOption(errors, answer, ns, qsrc, qItem, "string");
         break;
-      case OPENCHOICE: 
+      case OPENCHOICE:
         itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
         if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem, true);
         else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
@@ -2529,6 +2533,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
         else if (itemType.equals("string")) checkOption(errors, answer, ns, qsrc, qItem, "string", true);
         break;
+			case QUESTION:
+			case NULL:
+				// no validation
+				break;
       }
       validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, answer, stack, inProgress);
     }
@@ -2619,7 +2627,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       CommaSeparatedStringBuilder l = new CommaSeparatedStringBuilder();
       for (String s : types)  {
         l.append(s);
-        if (values.get(0).getName().equals("value"+Utilities.capitalize(s))) 
+        if (values.get(0).getName().equals("value"+Utilities.capitalize(s)))
           return(s);
       }
       if (types.length == 1)
@@ -2902,7 +2910,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       Element firstEntry = entries.get(0);
       // Get the stack of the first entry
       NodeStack firstStack = stack.push(firstEntry, 1, null, null);
-      
+
       String fullUrl = firstEntry.getNamedChildValue("fullUrl");
 
       if (type.equals("document")) {
@@ -2940,7 +2948,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         sheets.add(link.getChildValue("url"));
       }
     }
-    
+
     if (!sheets.isEmpty()) {
       for (Element r : candidateResources) {
         String url = r.getChildValue("fullUrl");
@@ -2948,7 +2956,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           visitedResources.put(url, r);
       }
     }
-    
+
     List<Element> unusedResources = new ArrayList<Element>();
     boolean reverseLinksFound = false;
     do {
@@ -3018,9 +3026,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     try {
       reference = ref.getNamedChildValue("reference");
     } catch (Error e) {
-      
+
     }
-        
+
     if (ref != null && !Utilities.noString(reference)) {
       Element target = resolveInBundle(entries, reference, fullUrl, type, id);
       rule(errors, IssueType.INVALID, ref.line(), ref.col(), stack.addToLiteralPath("reference"), target != null, "Unable to resolve the target of the reference in the bundle (" + name + ")");
@@ -3033,7 +3041,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     StructureDefinition profile = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
     sdTime = sdTime + (System.nanoTime() - t);
     // special case: resource wrapper is reset if we're crossing a bundle boundary, but not otherwise
-    if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY || element.getSpecial() == SpecialElement.BUNDLE_OUTCOME || element.getSpecial() == SpecialElement.PARAMETER ) 
+    if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY || element.getSpecial() == SpecialElement.BUNDLE_OUTCOME || element.getSpecial() == SpecialElement.PARAMETER )
       resource = element;
     if (rule(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), profile != null, "No profile found for contained resource of type '" + resourceName + "'"))
       validateResource(hostContext.forContained(element), errors, resource, element, profile, null, idstatus, stack, false);
@@ -3132,7 +3140,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                 match = sliceMatches(hostContext, ei.element, ei.path, slicer, ed, profile, errors, stack);
                 if (match) {
                   ei.slice = slicer;
-  
+
                   // Since a defined slice was found, this is not an additional (undefined) slice.
                   ei.additionalSlice = false;
                 } else if (ei.slice == null) {
@@ -3248,8 +3256,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       if (ei.definition != null) {
         String type = null;
         ElementDefinition typeDefn = null;
-        
-        String usesMustSupport = profile.getUserString("usesMustSupport"); 
+
+        String usesMustSupport = profile.getUserString("usesMustSupport");
         if (usesMustSupport == null) {
           usesMustSupport = "N";
           for (ElementDefinition pe: profile.getSnapshot().getElement()) {
@@ -3268,14 +3276,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             else
               ei.element.setUserData("elementSupported", "N");
         }
-        
+
         if (ei.definition.getType().size() == 1 && !ei.definition.getType().get(0).getCode().equals("*") && !ei.definition.getType().get(0).getCode().equals("Element")
             && !ei.definition.getType().get(0).getCode().equals("BackboneElement")) {
           type = ei.definition.getType().get(0).getCode();
           // Excluding reference is a kludge to get around versioning issues
           if (ei.definition.getType().get(0).hasProfile() && !type.equals("Reference"))
             profiles.add(ei.definition.getType().get(0).getProfile());
-          
+
         } else if (ei.definition.getType().size() == 1 && ei.definition.getType().get(0).getCode().equals("*")) {
           String prefix = tail(ei.definition.getPath());
           assert prefix.endsWith("[x]");
@@ -3302,7 +3310,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             TypeRefComponent trc = ei.definition.getType().get(0);
             if (trc.getCode().equals("Reference"))
               type = "Reference";
-            else 
+            else
               rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), stack.getLiteralPath(), false,
                   "The element " + ei.name + " is illegal. Valid types at this point are " + describeTypes(ei.definition.getType()));
           }
@@ -3374,7 +3382,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                   goodProfiles.put(typeProfile, profileErrors);
               }
               if (goodProfiles.size()==1) {
-                errors.addAll(goodProfiles.get(0));
+                errors.addAll(goodProfiles.values().iterator().next());
               } else if (goodProfiles.size()==0) {
                 rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + StringUtils.join("; ", profiles));
                 for (List<ValidationMessage> messages : badProfiles) {
