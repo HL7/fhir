@@ -641,8 +641,6 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
         bi.setRGB(12+(i*16), 0, green.getRGB());
       else if (indent == CONTINUE_SLICE)
         bi.setRGB(12+(i*16), 0, gold.getRGB());
-      else
-        i = i;
     }
     if (hasChildren) {
       if (lineColor==0)
