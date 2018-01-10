@@ -1833,8 +1833,8 @@ public class ProfileUtilities extends TranslatingUtilities {
     case BUNDLED : return "b";
     case CONTAINED : return "c";
     case REFERENCED: return "r";
+	 default: return "?";
     }
-    return "?";
   }
 
 
