@@ -377,11 +377,16 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
         b.append(myResourceType);
       }
 
-      if (b.length() > 0) {
+      if (b.length() > 0 && isNotBlank(myUnqualifiedId)) {
         b.append('/');
       }
 
-      b.append(myUnqualifiedId);
+      if (isNotBlank(myUnqualifiedId)) {
+        b.append(myUnqualifiedId);
+      } else if (isNotBlank(myUnqualifiedVersionId)) {
+        b.append('/');
+      }
+
       if (isNotBlank(myUnqualifiedVersionId)) {
         b.append('/');
         b.append("_history");
