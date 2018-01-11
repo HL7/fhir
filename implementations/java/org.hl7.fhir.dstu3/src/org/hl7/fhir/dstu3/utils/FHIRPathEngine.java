@@ -1214,6 +1214,7 @@ public class FHIRPathEngine {
       return result;
     case Concatenate:
       result = new TypeDetails(CollectionStatus.SINGLETON, "");
+      return result;
     case Plus:
       result = new TypeDetails(CollectionStatus.SINGLETON);
       if (left.hasType(worker, "integer") && right.hasType(worker, "integer"))
@@ -1795,7 +1796,7 @@ public class FHIRPathEngine {
   }
 
   private TypeDetails executeType(String type, ExpressionNode exp, boolean atEntry) throws PathEngineException, DefinitionException {
-    if (atEntry && Character.isUpperCase(exp.getName().charAt(0)) && tail(type).equals(exp.getName())) // special case for start up
+    if (atEntry && Character.isUpperCase(exp.getName().charAt(0)) && hashTail(type).equals(exp.getName())) // special case for start up
       return new TypeDetails(CollectionStatus.SINGLETON, type);
     TypeDetails result = new TypeDetails(null);
     getChildTypesByName(type, exp.getName(), result);
@@ -1803,7 +1804,7 @@ public class FHIRPathEngine {
   }
 
 
-  private String tail(String type) {
+  private String hashTail(String type) {
     return type.contains("#") ? "" : type.substring(type.lastIndexOf("/")+1);
   }
 
@@ -2436,22 +2437,28 @@ public class FHIRPathEngine {
         String s = convertToString(item);
         if (item.fhirType().equals("Reference")) {
           Property p = item.getChildByName("reference");
-          if (p.hasValues())
+          if (p != null && p.hasValues())
             s = convertToString(p.getValues().get(0));
+          else
+            s = null; // a reference without any valid actual reference (just identifier or display, but we can't resolve it)
         }
+        if (s != null) {
         Base res = null;
         if (s.startsWith("#")) {
           String id = s.substring(1);
           Property p = context.resource.getChildByName("contained");
           for (Base c : p.getValues()) {
-            if (id.equals(c.getIdBase()))
+              if (id.equals(c.getIdBase())) {
               res = c;
+                break;
+              }
           }
         } else
          res = hostServices.resolveReference(context.appInfo, s);
         if (res != null)
           result.add(res);
       }
+    }
     }
     return result;
   }

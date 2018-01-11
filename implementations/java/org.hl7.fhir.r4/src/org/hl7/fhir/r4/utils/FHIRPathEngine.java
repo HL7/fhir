@@ -1221,8 +1221,7 @@ public class FHIRPathEngine {
       return result;
     case Concatenate:
       result = new TypeDetails(CollectionStatus.SINGLETON, "");
-		// TODO GG: shouldn't this return?
-		//return result;
+      return result;
     case Plus:
       result = new TypeDetails(CollectionStatus.SINGLETON);
       if (left.hasType(worker, "integer") && right.hasType(worker, "integer"))
@@ -2241,8 +2240,34 @@ public class FHIRPathEngine {
   }
 
 
-  private List<Base> funcReplace(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
-    throw new Error("not Implemented yet");
+  private List<Base> funcReplace(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException, PathEngineException {
+    List<Base> result = new ArrayList<Base>();
+
+    if (focus.size() == 1) {
+      String f = convertToString(focus.get(0));
+
+      if (!Utilities.noString(f)) {
+
+        if (exp.getParameters().size() != 2) {
+
+          String t = convertToString(execute(context, focus, exp.getParameters().get(0), true));
+          String r = convertToString(execute(context, focus, exp.getParameters().get(1), true));
+
+          String n = f.replace(t, r);
+          result.add(new StringType(n));
+        }
+        else {
+          throw new PathEngineException(String.format("funcReplace() : checking for 2 arguments (pattern, substitution) but found %d items", exp.getParameters().size()));
+        }
+      }
+      else {
+        throw new PathEngineException(String.format("funcReplace() : checking for 1 string item but found empty item"));
+      }
+    }
+    else {
+      throw new PathEngineException(String.format("funcReplace() : checking for 1 string item but found %d items", focus.size()));
+    }
+    return result;
   }
 
 
