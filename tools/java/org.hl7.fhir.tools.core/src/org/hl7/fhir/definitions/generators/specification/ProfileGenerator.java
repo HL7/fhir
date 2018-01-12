@@ -1037,9 +1037,9 @@ public class ProfileGenerator {
     spd.setCommonId(sp.getId());
     if (created) {
       sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
-      if (context.getSearchParameters().containsKey(sp.getUrl()))
+      if (context.getSearchParameter(sp.getUrl()) != null)
         throw new Exception("Duplicated Search Parameter "+sp.getUrl());
-      context.getSearchParameters().put(sp.getUrl(), sp);
+      context.cacheResource(sp);
       spd.setResource(sp);
       definitions.addNs(sp.getUrl(), "Search Parameter: "+sp.getName(), rn.toLowerCase()+".html#search");
       sp.setStatus(p.getStatus());

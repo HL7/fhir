@@ -58,6 +58,7 @@ public abstract class ParserBase extends FormatUtilities implements IParser {
   	return parse(bi);
   }
 
+
   public Type parseType(String input, String typeName) throws FHIRFormatError, IOException {
     return parseType(input.getBytes("UTF-8"), typeName);
   }

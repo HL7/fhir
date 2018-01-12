@@ -927,9 +927,9 @@ public class SpreadsheetParser {
         sp.setUrl("http://hl7.org/fhir/SearchParameter/"+sp.getId());
         if (definitions != null)
           definitions.addNs(sp.getUrl(), "Search Parameter " +sp.getName(), pack.getId()+".html#search");
-        if (context.getSearchParameters().containsKey(sp.getUrl()))
+        if (context.getSearchParameter(sp.getUrl()) != null)
           throw new Exception("Duplicated Search Parameter "+sp.getUrl());
-        context.getSearchParameters().put(sp.getUrl(), sp);
+        context.cacheResource(sp);
         pack.getSearchParameters().add(sp);
       }
     }

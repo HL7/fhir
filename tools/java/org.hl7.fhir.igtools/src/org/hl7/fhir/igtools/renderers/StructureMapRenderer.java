@@ -28,7 +28,7 @@ public class StructureMapRenderer extends BaseRenderer {
     super(context, prefix, igp, maps, markdownEngine);
     this.map = map;
     this.destDir = destDir;
-    utils = new StructureMapUtilities(context, null, null, igp);
+    utils = new StructureMapUtilities(context, null, igp);
     analysis = (StructureMapAnalysis) map.getUserData("analysis");
   }
 

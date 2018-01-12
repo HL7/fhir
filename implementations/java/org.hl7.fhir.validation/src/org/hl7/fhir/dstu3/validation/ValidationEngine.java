@@ -166,6 +166,10 @@ public class ValidationEngine {
     }
   }
   
+  public ValidationEngine(String src) throws Exception {
+    loadDefinitions(src);
+  }
+  
   public ValidationEngine(String src, String txsrvr) throws Exception {
     loadDefinitions(src);
     connectToTSServer(txsrvr);
@@ -596,4 +600,14 @@ public class ValidationEngine {
     return sd;
   }
   
+  public void seeResource(Resource r) throws Exception {
+    context.cacheResource(r);
+  }
+
+  public void dropResource(String type, String id, String url, String bver) throws FHIRException {
+    context.dropResource(type, id, url);
+    
+  }
+  
+
 }

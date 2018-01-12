@@ -1220,7 +1220,7 @@ public class FHIRPathEngine {
         result.addType("decimal");
       return result;
     case Concatenate:
-      result = new TypeDetails(CollectionStatus.SINGLETON, "");
+      result = new TypeDetails(CollectionStatus.SINGLETON, "string");
       return result;
     case Plus:
       result = new TypeDetails(CollectionStatus.SINGLETON);

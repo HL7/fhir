@@ -242,10 +242,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 			valueSets.put(url, vs);
 	}
 
-	private void seeCodeSystem(String url, CodeSystem cs) throws DefinitionException {
-		codeSystems.put(cs.getUrl(), cs);
-	}
-
 	public void seeProfile(String url, StructureDefinition p) throws FHIRException {
     if (Utilities.noString(url))
       url = p.getUrl();
@@ -622,10 +618,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     }
   }
 
-  public void dropResource(Resource r) throws FHIRException {
-   throw new FHIRException("Not done yet");
-    
-  }
 
   public Map<String, byte[]> getBinaries() {
     return binaries;

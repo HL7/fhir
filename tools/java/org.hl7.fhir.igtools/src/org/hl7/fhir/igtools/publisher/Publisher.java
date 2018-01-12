@@ -2,12 +2,14 @@ package org.hl7.fhir.igtools.publisher;
 
 import java.awt.EventQueue;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.InputStream;
@@ -1664,7 +1666,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void executeTransforms() throws FHIRException, Exception {
     if ("true".equals(ostr(configuration, "do-transforms"))) {
       MappingServices services = new MappingServices(context, igpkp.getCanonical());
-      StructureMapUtilities utils = new StructureMapUtilities(context, context.getTransforms(), services, igpkp);
+      StructureMapUtilities utils = new StructureMapUtilities(context, services, igpkp);
 
       // ok, our first task is to generate the profiles
       for (FetchedFile f : changeList) {
@@ -3946,6 +3948,40 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         self.setDestDir(getNamedParam(args, "-destination"));
       } else if(!hasParam(args, "-ig") && args.length == 1 && new File(args[0]).exists()) {
         self.setConfigFile(args[0]);
+      } else if (hasParam(args, "-prompt")) {
+        IniFile ini = new IniFile("publisher.ini");
+        String last = ini.getStringProperty("execute", "path");
+        boolean ok = false;
+        if (Utilities.noString(last)) {
+          while (!ok) {
+            System.out.print("Enter path of IG: ");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            last = reader.readLine();
+            if (new File(last).exists())
+              ok = true;
+            else
+              System.out.println("Can't find "+last);
+          } 
+        } else {
+          while (!ok) {
+            System.out.print("Enter path of IG ["+last+"]: ");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String nlast = reader.readLine();
+            if (Utilities.noString(nlast))
+              nlast = last;
+            if (new File(nlast).exists()) {
+              ok = true;
+              last = nlast;
+            } else
+              System.out.println("Can't find "+nlast);
+          }
+        }
+        ini.setStringProperty("execute", "path", last, null);
+        ini.save();
+        if (new File(last).isDirectory())
+          self.setConfigFile(Utilities.path(last, "ig.json"));
+        else
+          self.setConfigFile(last);
       } else {
         self.setConfigFile(determineActualIG(getNamedParam(args, "-ig")));
         if (Utilities.noString(self.getConfigFile()))

@@ -130,13 +130,9 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
 
   public BuildWorkerContext(Definitions definitions, FHIRToolingClient client, Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles, String folder) throws UcumException, ParserConfigurationException, SAXException, IOException {
-    super();
+    super(codeSystems, valueSets, maps, profiles);
     this.definitions = definitions;
     this.txServer = client;
-    this.codeSystems = codeSystems;
-    this.valueSets = valueSets;
-    this.maps = maps;
-    this.structures = profiles;
     this.cacheValidation = true;
     setExpansionProfile(buildExpansionProfile());
     this.setTranslator(new TranslatorXml(Utilities.path(folder, "implementations", "translations.xml")));
@@ -166,7 +162,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     } else {
       if (url.contains("#"))
         url = url.substring(0, url.indexOf("#"));
-      StructureDefinition res = structures.get(url);
+      StructureDefinition res = getStructure(url);
       if (res == null)
         return null;
       if (res.getSnapshot() == null || res.getSnapshot().getElement().isEmpty())
@@ -187,7 +183,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   public boolean isResource(String name) {
     if (resourceNames.contains(name))
       return true;
-    StructureDefinition sd = structures.get("http://hl7.org/fhir/StructureDefinition/" + name);
+    StructureDefinition sd = getStructure("http://hl7.org/fhir/StructureDefinition/" + name);
     return sd != null && (sd.getBaseDefinition().endsWith("Resource") || sd.getBaseDefinition().endsWith("DomainResource"));
   }
 
@@ -197,13 +193,9 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   public StructureDefinition getTypeStructure(TypeRefComponent type) {
     if (type.hasProfile())
-      return structures.get(type.getProfile());
+      return getStructure(type.getProfile());
     else
-      return structures.get(type.getCode());
-  }
-
-  public Map<String, SearchParameter> getSearchParameters() {
-    return searchParameters;
+      return getStructure(type.getCode());
   }
 
   @Override
@@ -249,7 +241,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   @Override
   public List<ConceptMap> findMapsForSource(String url) {
     List<ConceptMap> res = new ArrayList<ConceptMap>();
-    for (ConceptMap map : maps.values())
+    for (ConceptMap map : listMaps())
       if (((Reference) map.getSource()).getReference().equals(url)) 
         res.add(map);
     return res;
@@ -306,8 +298,9 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         return locateLoinc(code);
       } catch (Exception e) {
       }     
-    if (codeSystems.containsKey(system))
-      return findCodeInConcept(codeSystems.get(system).getConcept(), code);
+    CodeSystem cs = fetchCodeSystem(system);
+    if (cs != null)
+      return findCodeInConcept(cs.getConcept(), code);
     return null;
   }
 
@@ -478,8 +471,9 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         return verifyLoinc(code, display);
       if (system.equals("http://unitsofmeasure.org"))
         return verifyUcum(code, display);
-      if (codeSystems.containsKey(system) && codeSystems.get(system) != null) {
-        return verifyCode(codeSystems.get(system), code, display);
+      CodeSystem cs = fetchCodeSystem(system);
+      if (cs != null) {
+        return verifyCode(cs, code, display);
       }
       if (system.startsWith("http://example.org"))
         return new ValidationResult(new ConceptDefinitionComponent());
@@ -769,7 +763,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     
     if (new File(Utilities.path(validationCachePath, "noy-supported.txt")).exists())
       for (String s : TextFile.fileToString(Utilities.path(validationCachePath, "not-supported.txt")).split("\\r?\\n"))
-        nonSupportedCodeSystems.add(s);
+        addNonSupportedCodeSystems(s);
     
     String[] files = dir.list();
     for (String f : files) {
@@ -806,10 +800,11 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         }
         t.put(s, new ValidationResult(sev, m, def));
       }
-      validationCache.put(json.get("url").getAsString(), t);
+      cacheVS(json, t);
     }
     
   }
+
 
   private void saveValidationCache() throws IOException {
     if (noTerminologyServer)
@@ -821,10 +816,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     else
       dir.mkdir();
 
-    String sl = null;
-    for (String s : nonSupportedCodeSystems)
-      sl = sl == null ? s : sl + "\r\n" + s;
-    TextFile.stringToFile(sl, Utilities.path(validationCachePath, "not-supported.txt"));
+    TextFile.stringToFile(listNonSupportedSystems(), Utilities.path(validationCachePath, "not-supported.txt"));
 
     for (String s : validationCache.keySet()) {
       String fn = Utilities.path(validationCachePath, makeFileName(s)+".json");
@@ -876,6 +868,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     }
   }
 
+
   private List<String> sorted(Set<String> keySet) {
     List<String> results = new ArrayList<String>();
     results.addAll(keySet);
@@ -910,18 +903,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   @Override
   public List<StructureDefinition> allStructures() {
     List<StructureDefinition> result = new ArrayList<StructureDefinition>();
-    result.addAll(structures.values());
-    return result;
-  }
-
-  @Override
-  public List<MetadataResource> allConformanceResources() {
-    List<MetadataResource> result = new ArrayList<MetadataResource>();
-    result.addAll(structures.values());
-    result.addAll(valueSets.values());
-    result.addAll(codeSystems.values());
-    result.addAll(maps.values());
-    result.addAll(transforms.values());
+    result.addAll(listStructures());
     return result;
   }
 
@@ -972,7 +954,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   public List<StructureDefinition> getExtensionDefinitions() {
     List<StructureDefinition> res = new ArrayList<StructureDefinition>();
-    for (StructureDefinition sd : structures.values()) {
+    for (StructureDefinition sd : listStructures()) {
       if (sd.getType().equals("Extension") && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
         res.add(sd);
     }
@@ -981,7 +963,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   public List<StructureDefinition> getProfiles() {
     List<StructureDefinition> res = new ArrayList<StructureDefinition>();
-    for (StructureDefinition sd : structures.values()) {
+    for (StructureDefinition sd : listStructures()) {
       if (!sd.getType().equals("Extension") && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
         res.add(sd);
     }

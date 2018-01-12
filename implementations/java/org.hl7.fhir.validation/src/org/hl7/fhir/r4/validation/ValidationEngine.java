@@ -187,6 +187,10 @@ public class ValidationEngine {
     connectToTSServer(txsrvr);
   }
   
+  public ValidationEngine(String src) throws Exception {
+    loadDefinitions(src);
+  }
+  
   private void loadDefinitions(String src) throws Exception {
     Map<String, byte[]> source = loadIgSource(src, "igpack.zip");   
     if (version == null)
@@ -358,7 +362,7 @@ public class ValidationEngine {
     } catch (Exception e) {
   }
       try {
-      new StructureMapUtilities(context, null, null, null).parse(TextFile.fileToString(path));
+      new StructureMapUtilities(context, null, null).parse(TextFile.fileToString(path));
         return FhirFormat.TEXT;
       } catch (Exception e) {
       }
@@ -621,7 +625,7 @@ public class ValidationEngine {
     StructureMapUtilities scu = new StructureMapUtilities(context);
 
     org.hl7.fhir.r4.elementmodel.Element src = Manager.parse(context, new ByteArrayInputStream(source), cntType); 
-    StructureMap map = scu.getLibrary().get(mapUri);
+    StructureMap map = context.getTransform(mapUri);
     if (map == null)
       throw new Error("Unable to find map "+mapUri);
     
@@ -665,6 +669,15 @@ public class ValidationEngine {
     
     new ProfileUtilities(context, null, null).generateSnapshot(base, sd, sd.getUrl(), sd.getName());
     return sd;
+  }
+
+  public void seeResource(Resource r) throws FHIRException {
+    context.cacheResource(r);
+  }
+
+  public void dropResource(String type, String id, String url, String bver) {
+    context.dropResource(type, id, url, bver);
+    
   }
   
 }

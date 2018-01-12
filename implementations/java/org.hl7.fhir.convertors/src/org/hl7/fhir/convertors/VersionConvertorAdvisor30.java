@@ -9,7 +9,7 @@ public interface VersionConvertorAdvisor30 {
   org.hl7.fhir.dstu2.model.Resource convert(org.hl7.fhir.dstu3.model.Resource resource) throws FHIRException;
 
   // called when an r2 value set has a codeSystem in it
-  void handleCodeSystem(org.hl7.fhir.dstu3.model.CodeSystem tgtcs, org.hl7.fhir.dstu3.model.ValueSet source);
+  void handleCodeSystem(org.hl7.fhir.dstu3.model.CodeSystem tgtcs, org.hl7.fhir.dstu3.model.ValueSet source) throws FHIRException;
 
-  org.hl7.fhir.dstu3.model.CodeSystem getCodeSystem(org.hl7.fhir.dstu3.model.ValueSet src);
+  org.hl7.fhir.dstu3.model.CodeSystem getCodeSystem(org.hl7.fhir.dstu3.model.ValueSet src) throws FHIRException;
 }

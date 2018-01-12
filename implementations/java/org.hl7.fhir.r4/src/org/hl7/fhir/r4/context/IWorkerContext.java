@@ -15,6 +15,7 @@ import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureMap;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionComponent;
@@ -389,4 +390,6 @@ public interface IWorkerContext {
   public boolean isNoTerminologyServer();
 
   public TranslationServices translator();
+  public List<StructureMap> listTransforms();
+  public StructureMap getTransform(String url);
 }

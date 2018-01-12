@@ -2669,6 +2669,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       page.log("....definitions", LogMessageType.Process);
       zip = new ZipGenerator(page.getFolders().dstDir + "definitions.xml.zip");
+      zip.addFileName("version.info", page.getFolders().dstDir + "version.info", false);
       zip.addFileName("profiles-types.xml", page.getFolders().dstDir + "profiles-types.xml", false);
       zip.addFileName("profiles-resources.xml", page.getFolders().dstDir + "profiles-resources.xml", false);
       zip.addFileName("profiles-others.xml", page.getFolders().dstDir + "profiles-others.xml", false);
@@ -2683,6 +2684,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.close();
 
       zip = new ZipGenerator(page.getFolders().dstDir + "definitions.json.zip");
+      zip.addFileName("version.info", page.getFolders().dstDir + "version.info", false);
       zip.addFileName("profiles-types.json", page.getFolders().dstDir + "profiles-types.json", false);
       zip.addFileName("profiles-resources.json", page.getFolders().dstDir + "profiles-resources.json", false);
       zip.addFileName("profiles-others.json", page.getFolders().dstDir + "profiles-others.json", false);
