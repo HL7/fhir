@@ -905,10 +905,18 @@ public class IgSpreadsheetParser {
 
     if (source.startsWith("{")) {
       JsonParser json = new JsonParser();
-      return json.parseType(source, type);
+      try {
+        return json.parseType(source, type);
+      } catch (Exception e2) {
+        throw new Exception("Unable to parse json string: " + source); 
+      }
     } else if (source.startsWith("<")) {
       XmlParser xml = new XmlParser();
-      return xml.parseType(source, type);
+      try {
+        return xml.parseType(source, type);
+      } catch (Exception e2) {
+        throw new Exception("Unable to parse xml string: " + source); 
+      }
     } else {
       source = source.trim();
       if (source.startsWith("\"") && source.endsWith("\""))

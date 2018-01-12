@@ -2958,8 +2958,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
 
     List<Element> unusedResources = new ArrayList<Element>();
-    boolean reverseLinksFound = false;
+    boolean reverseLinksFound;
     do {
+      reverseLinksFound = false;
       followResourceLinks(entries.get(0), visitedResources, candidateEntries, candidateResources, errors, stack);
       unusedResources.clear();
       unusedResources.addAll(candidateResources);
