@@ -19,11 +19,11 @@ public class NativeHostServiceTester {
     svc.seeResource(TextFile.fileToBytes("C:\\work\\fhirserver\\resources\\dicom\\CID_2.xml"));
     System.out.println("added: "+svc.status());
     
-    svc.dropResource("ValueSet", "dicm-2-AnatomicModifier", "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_2.html", "20160314");
+    svc.dropResource("ValueSet", "dicm-2-AnatomicModifier");
     System.out.println("removed: "+svc.status());
 
     System.out.println("validate:");
-    byte[] res = svc.validateResource("my-loc", TextFile.fileToBytes("C:\\work\\fhirserver\\resources\\r3\\patient-group.xml"), "XML");
+    byte[] res = svc.validateResource("my-loc", TextFile.fileToBytes("C:\\work\\fhirserver\\resources\\r3\\patient-group.xml"), "XML", "any-extensions id-optional");
     System.out.println(new String(res));
     
     System.out.println("convert:");

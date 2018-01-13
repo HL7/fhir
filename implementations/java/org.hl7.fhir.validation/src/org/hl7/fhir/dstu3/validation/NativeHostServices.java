@@ -9,6 +9,9 @@ import org.hl7.fhir.convertors.VersionConvertor_10_30;
 import org.hl7.fhir.convertors.VersionConvertor_14_30;
 import org.hl7.fhir.convertors.VersionConvertor_30_40;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.BestPracticeWarningLevel;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.CheckDisplayOption;
+import org.hl7.fhir.dstu3.utils.IResourceValidator.IdStatus;
 import org.hl7.fhir.dstu3.validation.ValidationEngine;
 
 /**
@@ -37,13 +40,34 @@ import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.Utilities;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
+/**
+ * This class allows you to host the java validator in another service, and use the services it has in a wider context. The way it works is 
+
+- put the jar in your class path
+- Find the class org.hl7.fhir.r4.validation.NativeHostServices or org.hl7.fhir.dstu3.validation.NativeHostServices
+- call init(path) where path refers to one of the definitions files from the main build (e.g. definitions.xml.zip) - required, do only once, do before anything else
+- call load(path) where path refers to the igpack.zip produced by the ig publisher (do this once for each IG you care about)
+- call connectToTxSvc(url) where the url is your terminology service of choice (can be http://tx.fhir.org/r4 or /r3)
+
+now the jar is ready for action. There's 3 functions you can call (all are thread safe):
+- validate - given a resource, validate it against all known rules
+- convert - given a resource in a different version convert it to this version (if possible)
+- unconvert - given a resource, convert it to a different version (if possible)
+
+also, call "status" to get a json object that describes the internals of the jar (e.g. for server status)
+
+The interface is optimised for JNI. 
+ * @author Grahame Grieve
+ *
+ */
 public class NativeHostServices {
-  public class NH_10_30_Advisor implements VersionConvertorAdvisor30 {
+  private class NH_10_30_Advisor implements VersionConvertorAdvisor30 {
 
     @Override
     public boolean ignoreEntry(BundleEntryComponent src) {
@@ -57,37 +81,69 @@ public class NativeHostServices {
 
     @Override
     public void handleCodeSystem(CodeSystem tgtcs, ValueSet source) throws FHIRException {
-      throw new FHIRException("Not handled yet");      
+      throw new FHIRException("Code systems cannot be handled at this time"); // what to do? need thread local storage? 
     }
 
     @Override
     public CodeSystem getCodeSystem(ValueSet src) throws FHIRException {
-      throw new FHIRException("Not handled yet");      
+      throw new FHIRException("Code systems cannot be handled at this time"); // what to do? need thread local storage? 
     }
 
   }
 
-  ValidationEngine validator;
-  int validationCount = 0;
-  int resourceCount = 0;
-  int convertCount = 0;
-  int unConvertCount = 0;
-  int exceptionCount = 0;
-  String lastException = null;
+  private ValidationEngine validator;
+  private int validationCount = 0;
+  private int resourceCount = 0;
+  private int convertCount = 0;
+  private int unConvertCount = 0;
+  private int exceptionCount = 0;
+  private String lastException = null;
+
   private VersionConvertorAdvisor30 conv_10_30_advisor = new NH_10_30_Advisor();
 
+  /**
+   * Create an instance of the service
+   */
   public NativeHostServices()  {
     super();
   } 
 
+  /**
+   * Initialize the service and prepare it for use
+   * 
+   * @param pack - the filename of a pack from the main build - either definitions.xml.zip, definitions.json.zip, or igpack.zip 
+   * @throws Exception
+   */
   public void init(String pack) throws Exception {
     validator = new ValidationEngine(pack);
+    validator.getContext().setAllowLoadingDuplicates(true);
   }
 
+  /** 
+   * Load an IG so that the validator knows all about it.
+   * 
+   * @param pack - the filename (or URL) of a validator.pack produced by the IGPublisher
+   * 
+   * @throws Exception
+   */
+  public void load(String pack) throws Exception {
+    validator.loadIg(pack);
+  }
+
+  /** 
+   * Set up the validator with a terminology service 
+   * 
+   * @param txServer - the URL of the terminology service (http://tx.fhir.org/r3 default)
+   * @throws Exception
+   */
   public void connectToTxSvc(String txServer) throws Exception {
     validator.connectToTSServer(txServer);
   }
-  
+
+  /**
+   * get back a JSON object with information about the process.
+   * @return
+   */
   public String status() {
     JsonObject json = new JsonObject();
     json.addProperty("custom-resource-count", resourceCount);
@@ -102,6 +158,21 @@ public class NativeHostServices {
     return gson.toJson(json);
   }
 
+  /**
+   * Call when the host process encounters one of the following:
+   *  - (for validation):
+   *    - profile
+   *    - extension definition
+   *    - value set
+   *    - code system
+   * 
+   *  - (for conversion):
+   *    - structure map 
+   *    - concept map
+   *  
+   * @param source
+   * @throws Exception
+   */
   public void seeResource(byte[] source) throws Exception {
     try {
       Resource r = new XmlParser().parse(source);
@@ -114,9 +185,17 @@ public class NativeHostServices {
     }
   }
 
-  public void dropResource(String type, String id, String url, String bver) throws Exception  {
+  /**
+   * forget a resource that was previously seen (using @seeResource)
+   * 
+   * @param type - the resource type
+   * @param id - the resource id 
+   * 
+   * @throws Exception
+   */
+  public void dropResource(String type, String id) throws Exception  {
     try {
-      validator.dropResource(type, id, url, bver);
+      validator.dropResource(type, id);
       resourceCount--;
     } catch (Exception e) {
       exceptionCount++;
@@ -125,14 +204,84 @@ public class NativeHostServices {
     }
   }
 
-  public byte[] validateResource(String location, byte[] source, String cntType) throws Exception {
-    OperationOutcome oo = validator.validate(location, source, FhirFormat.valueOf(cntType), null);
+  /**
+   * Validate a resource. 
+   * 
+   * Possible options:
+   *   - id-optional : no resource id is required (default) 
+   *   - id-required : a resource id is required
+   *   - id-prohibited : no resource id is allowed
+   *   - any-extensions : allow extensions other than those defined by the encountered structure definitions
+   *   - bp-ignore : ignore best practice recommendations (default)
+   *   - bp-hint : treat best practice recommendations as a hint
+   *   - bp-warning : treat best practice recommendations as a warning 
+   *   - bp-error : treat best practice recommendations as an error
+   *   - display-ignore : ignore Coding.display and do not validate it (default)
+   *   - display-check : check Coding.display - must be correct
+   *   - display-case-space : check Coding.display but allow case and whitespace variation
+   *   - display-case : check Coding.display but allow case variation
+   *   - display-space : check Coding.display but allow whitespace variation
+   *    
+   * @param location - a text description of the context of validation (for human consumres to help locate the problem - echoed into error messages)
+   * @param source - the bytes to validate
+   * @param cntType - the format of the content. one of XML, JSON, TURTLE
+   * @param options - a list of space separated options 
+   * @return
+   * @throws Exception
+   */
+  public byte[] validateResource(String location, byte[] source, String cntType, String options) throws Exception {
+    IdStatus resourceIdRule = IdStatus.OPTIONAL;
+    boolean anyExtensionsAllowed = false;
+    BestPracticeWarningLevel bpWarnings = BestPracticeWarningLevel.Ignore;
+    CheckDisplayOption displayOption = CheckDisplayOption.Ignore;
+    for (String s : options.split(" ")) {
+      if ("id-optional".equalsIgnoreCase(s))
+        resourceIdRule = IdStatus.OPTIONAL;
+      else if ("id-required".equalsIgnoreCase(s))
+        resourceIdRule = IdStatus.REQUIRED;
+      else if ("id-prohibited".equalsIgnoreCase(s))
+        resourceIdRule = IdStatus.PROHIBITED;
+      else if ("any-extensions".equalsIgnoreCase(s))
+        anyExtensionsAllowed = true;
+      else if ("bp-ignore".equalsIgnoreCase(s))
+        bpWarnings = BestPracticeWarningLevel.Ignore;
+      else if ("bp-hint".equalsIgnoreCase(s))
+        bpWarnings = BestPracticeWarningLevel.Hint;
+      else if ("bp-warning".equalsIgnoreCase(s))
+        bpWarnings = BestPracticeWarningLevel.Warning;
+      else if ("bp-error".equalsIgnoreCase(s))
+        bpWarnings = BestPracticeWarningLevel.Error;
+      else if ("display-ignore".equalsIgnoreCase(s))
+        displayOption = CheckDisplayOption.Ignore;
+      else if ("display-check".equalsIgnoreCase(s))
+        displayOption = CheckDisplayOption.Check;
+      else if ("display-case-space".equalsIgnoreCase(s))
+        displayOption = CheckDisplayOption.CheckCaseAndSpace;
+      else if ("display-case".equalsIgnoreCase(s))
+        displayOption = CheckDisplayOption.CheckCase;
+      else if ("display-space".equalsIgnoreCase(s))
+        displayOption = CheckDisplayOption.CheckSpace;
+      else if (!Utilities.noString(s))
+        throw new Exception("Unknown option "+s);
+    }
+      
+    OperationOutcome oo = validator.validate(location, source, FhirFormat.valueOf(cntType), null, resourceIdRule, anyExtensionsAllowed, bpWarnings, displayOption);
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     new XmlParser().compose(bs, oo);
     validationCount++;
     return bs.toByteArray();
   }
 
+  /**
+   * Convert a resource to R3 from the specified version
+   * 
+   * @param r - the source of the resource to convert from
+   * @param fmt  - the format of the content. one of XML, JSON, TURTLE
+   * @param version - the version of the content. one of r2, r4
+   * @return - the converted resource (or an exception if can't be converted)
+   * @throws FHIRException
+   * @throws IOException
+   */
   public byte[] convertResource(byte[] r, String fmt, String version) throws FHIRException, IOException  {
     if ("3.2".equals(version) || "3.2.0".equals(version) || "r4".equals(version)) {
       org.hl7.fhir.r4.formats.ParserBase p4 = org.hl7.fhir.r4.formats.FormatUtilities.makeParser(fmt);
@@ -160,6 +309,16 @@ public class NativeHostServices {
       throw new FHIRException("Unsupported version "+version);
   }
 
+  /**
+   * Convert a resource from R3 to the specified version
+   * 
+   * @param r - the source of the resource to convert from
+   * @param fmt  - the format of the content. one of XML, JSON, TURTLE
+   * @param version - the version to convert to. one of r2, r4
+   * @return - the converted resource (or an exception if can't be converted)
+   * @throws FHIRException
+   * @throws IOException
+   */
   public byte[] unConvertResource(byte[] r, String fmt, String version) throws FHIRException, IOException  {
     if ("3.2".equals(version) || "3.2.0".equals(version) || "r4".equals(version)) {
       org.hl7.fhir.dstu3.formats.ParserBase p3 = org.hl7.fhir.dstu3.formats.FormatUtilities.makeParser(fmt);

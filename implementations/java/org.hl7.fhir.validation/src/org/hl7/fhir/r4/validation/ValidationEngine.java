@@ -72,6 +72,9 @@ import org.hl7.fhir.r4.model.ResourceFactory;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureMap;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.r4.utils.IResourceValidator.BestPracticeWarningLevel;
+import org.hl7.fhir.r4.utils.IResourceValidator.CheckDisplayOption;
+import org.hl7.fhir.r4.utils.IResourceValidator.IdStatus;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.OperationOutcomeUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
@@ -491,7 +494,7 @@ public class ValidationEngine {
     else
       return results.getEntryFirstRep().getResource();
   }
-
+  
   public OperationOutcome validateString(String location, String source, FhirFormat format, List<String> profiles) throws Exception {
     return validate(location, source.getBytes(), format, profiles);
   }
@@ -559,6 +562,27 @@ public class ValidationEngine {
     return messagesToOutcome(messages);
   }
 
+  public OperationOutcome validate(String location, byte[] source, FhirFormat cntType, List<String> profiles, IdStatus resourceIdRule, boolean anyExtensionsAllowed, BestPracticeWarningLevel bpWarnings, CheckDisplayOption displayOption) throws Exception {
+    List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
+    if (doNative) {
+      if (cntType == FhirFormat.JSON)
+        validateJsonSchema(location, messages);
+      if (cntType == FhirFormat.XML)
+        validateXmlSchema(location, messages);
+      if (cntType == FhirFormat.TURTLE)
+        validateSHEX(location, messages);
+    }
+    InstanceValidator validator = new InstanceValidator(context, null);
+    validator.setResourceIdRule(resourceIdRule);
+    validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
+    validator.setBestPracticeWarningLevel(bpWarnings);
+    validator.setCheckDisplay(displayOption);   
+    validator.setNoInvariantChecks(isNoInvariantChecks());
+    validator.validate(null, messages, new ByteArrayInputStream(source), cntType, new ValidationProfileSet(profiles, true));
+    return messagesToOutcome(messages);
+  }
+  
+  
   private void validateSHEX(String location, List<ValidationMessage> messages) {
     messages.add(new ValidationMessage(Source.InstanceValidator, IssueType.INFORMATIONAL, location, "SHEX Validation is not done yet", IssueSeverity.INFORMATION));
 	}
@@ -675,9 +699,9 @@ public class ValidationEngine {
     context.cacheResource(r);
   }
 
-  public void dropResource(String type, String id, String url, String bver) {
-    context.dropResource(type, id, url, bver);
+  public void dropResource(String type, String id) {
+    context.dropResource(type, id);
     
   }
-  
+
 }

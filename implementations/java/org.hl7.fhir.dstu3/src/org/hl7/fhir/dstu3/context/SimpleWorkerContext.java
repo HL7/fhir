@@ -86,7 +86,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	private List<NamingSystem> systems = new ArrayList<NamingSystem>();
 	private Questionnaire questionnaire;
 	private Map<String, byte[]> binaries = new HashMap<String, byte[]>();
-  private boolean allowLoadingDuplicates;
   private String version;
   private String revision;
   private String date;
@@ -623,13 +622,6 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     return binaries;
   }
 
-  public boolean isAllowLoadingDuplicates() {
-    return allowLoadingDuplicates;
-  }
-
-  public void setAllowLoadingDuplicates(boolean allowLoadingDuplicates) {
-    this.allowLoadingDuplicates = allowLoadingDuplicates;
-  }
 
   @Override
   public boolean prependLinks() {

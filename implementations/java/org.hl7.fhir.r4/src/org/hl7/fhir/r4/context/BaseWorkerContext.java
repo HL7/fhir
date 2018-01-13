@@ -1186,13 +1186,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
 
 
   public void dropResource(Resource r) throws FHIRException {
-    if (r instanceof MetadataResource)
-      dropResource(r.fhirType(), r.getId(), ((MetadataResource) r).getUrl(), ((MetadataResource) r).getVersion());   
-    else
-      dropResource(r.fhirType(), r.getId(), null, null);   
+    dropResource(r.fhirType(), r.getId());   
   }
 
-  public void dropResource(String fhirType, String id, String url, String bver) {
+  public void dropResource(String fhirType, String id) {
     synchronized (lock) {
 
       Map<String, Resource> map = allResourcesById.get(fhirType);
@@ -1204,19 +1201,19 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         map.remove(id);
 
       if (fhirType.equals("StructureDefinition"))
-        dropMetadataResource(structures, id, url, bver);
+        dropMetadataResource(structures, id);
       else if (fhirType.equals("ValueSet"))
-        dropMetadataResource(valueSets, id, url, bver);
+        dropMetadataResource(valueSets, id);
       else if (fhirType.equals("CodeSystem"))
-        dropMetadataResource(codeSystems, id, url, bver);
+        dropMetadataResource(codeSystems, id);
       else if (fhirType.equals("OperationDefinition"))
-        dropMetadataResource(operations, id, url, bver);
+        dropMetadataResource(operations, id);
       else if (fhirType.equals("Questionnaire"))
-        dropMetadataResource(questionnaires, id, url, bver);
+        dropMetadataResource(questionnaires, id);
       else if (fhirType.equals("ConceptMap"))
-        dropMetadataResource(maps, id, url, bver);
+        dropMetadataResource(maps, id);
       else if (fhirType.equals("StructureMap"))
-        dropMetadataResource(transforms, id, url, bver);
+        dropMetadataResource(transforms, id);
       else if (fhirType.equals("NamingSystem"))
         for (int i = systems.size()-1; i >= 0; i--) {
           if (systems.get(i).getId().equals(id))
@@ -1225,15 +1222,16 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
 
-
-  private void dropMetadataResource(Map map, String id, String url, String bver) {
-    if (map.containsKey(id))
+  private <T extends MetadataResource> void dropMetadataResource(Map<String, T> map, String id) {
+    T res = map.get(id);
+    if (res != null) {
       map.remove(id);
-    if (map.containsKey(url))
-      map.remove(url);
-    if (bver != null)
-      if (map.containsKey(url+"|"+bver))
-        map.remove(url+"|"+bver);
+      if (map.containsKey(res.getUrl()))
+        map.remove(res.getUrl());
+      if (res.getVersion() != null)
+        if (map.containsKey(res.getUrl()+"|"+res.getVersion()))
+          map.remove(res.getUrl()+"|"+res.getVersion());
+    }
   }
 
   @Override

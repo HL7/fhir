@@ -40,6 +40,7 @@ import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -96,6 +97,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected FHIRToolingClient txServer;
   private Bundle bndCodeSystems;
   private boolean canRunWithoutTerminology;
+  protected boolean allowLoadingDuplicates;
   protected boolean noTerminologyServer;
   protected String cache;
   private int expandCodesLimit = 1000;
@@ -142,9 +144,11 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     extensionDefinitions.put(ed.getUrl(), ed);
   }
 
-  public void dropExtensionDefinition(String id, String url) {
+  public void dropExtensionDefinition(String id) {
+    StructureDefinition sd = extensionDefinitions.get(id);
     extensionDefinitions.remove(id);
-    extensionDefinitions.remove(url);
+    if (sd!= null)
+      extensionDefinitions.remove(sd.getUrl());
   }
 
   public void seeQuestionnaire(String url, Questionnaire theQuestionnaire) throws Exception {
@@ -162,29 +166,33 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   public void seeValueSet(String url, ValueSet vs) throws Exception {
-    if (valueSets.containsKey(vs.getUrl()))
+    if (valueSets.containsKey(vs.getUrl()) && !allowLoadingDuplicates)
       throw new Exception("Duplicate value set "+vs.getUrl());
     valueSets.put(vs.getId(), vs);
     valueSets.put(url, vs);
     valueSets.put(vs.getUrl(), vs);
   }
 
-  public void dropValueSet(String id, String url) {
+  public void dropValueSet(String id) {
+    ValueSet vs = valueSets.get(id);
     valueSets.remove(id);
-    valueSets.remove(url);
+    if (vs != null)
+      valueSets.remove(vs.getUrl());
   }
 
   public void seeCodeSystem(String url, CodeSystem cs) throws FHIRException {
-    if (codeSystems.containsKey(cs.getUrl()))
-      throw new FHIRException("Duplicate value set "+cs.getUrl());
+    if (codeSystems.containsKey(cs.getUrl()) && !allowLoadingDuplicates)
+      throw new FHIRException("Duplicate code system "+cs.getUrl());
     codeSystems.put(cs.getId(), cs);
     codeSystems.put(url, cs);
     codeSystems.put(cs.getUrl(), cs);
   }
 
-  public void dropCodeSystem(String id, String url) {
+  public void dropCodeSystem(String id) {
+    CodeSystem cs = codeSystems.get(id);
     codeSystems.remove(id);
-    codeSystems.remove(url);
+    if (cs != null)
+      codeSystems.remove(cs.getUrl());
   }
 
   public void seeProfile(String url, StructureDefinition p) throws Exception {
@@ -195,9 +203,11 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     profiles.put(p.getUrl(), p);
   }
 
-  public void dropProfile(String id, String url) {
+  public void dropProfile(String id) {
+    StructureDefinition sd = profiles.get(id);
     profiles.remove(id);
-    profiles.remove(url);
+    if (sd!= null)
+      profiles.remove(sd.getUrl());
   }
 
   @Override
@@ -931,24 +941,31 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       seeCodeSystem(((CodeSystem) r).getUrl(), (CodeSystem) r);
     else if (r instanceof StructureDefinition) {
       StructureDefinition sd = (StructureDefinition) r;
-      if (sd.getBaseDefinition().equals("http://hl7.org/fhir/StructureDefinition/Extension"))
+      if ("http://hl7.org/fhir/StructureDefinition/Extension".equals(sd.getBaseDefinition()))
         seeExtensionDefinition(sd.getUrl(), sd);
-      else
+      else if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) 
         seeProfile(sd.getUrl(), sd);
     }
   }
 
-  public void dropResource(String type, String id, String url) throws FHIRException {
+  public void dropResource(String type, String id) throws FHIRException {
     if (type.equals("ValueSet"))
-      dropValueSet(id, url);   
+      dropValueSet(id);   
     if (type.equals("CodeSystem"))
-      dropCodeSystem(id, url);   
+      dropCodeSystem(id);   
     if (type.equals("StructureDefinition")) {
-      dropProfile(id, url);   
-      dropExtensionDefinition(id, url);
+      dropProfile(id);   
+      dropExtensionDefinition(id);
     }
   }
 
+  public boolean isAllowLoadingDuplicates() {
+    return allowLoadingDuplicates;
+  }
+
+  public void setAllowLoadingDuplicates(boolean allowLoadingDuplicates) {
+    this.allowLoadingDuplicates = allowLoadingDuplicates;
+  }
 
 
 }
