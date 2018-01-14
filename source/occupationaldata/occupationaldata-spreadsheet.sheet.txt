@@ -5,7 +5,7 @@
   Binding Name = EmploymentStatus
   Binding = value set
   Reference = valueset-employment-status-odh
-  Definition = Reflects the amount of supervisory or management responsibilities for an individual’s occupation.  In the military, this is the person’s rank or rating.
+  Definition = A value set consisting of codes pertaining to a person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.
   Description = Employment Status
   Conformance = example
   Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7129
@@ -15,8 +15,8 @@
   Binding Name = OccupationCDCCensus2010
   Binding = value set
   Reference = valueset-occupation-cdc-census-2010
-  Definition = A set of activities or tasks that individuals are paid to perform or, if unpaid, define a person’s contribution to a household/family business/community. The same occupation can exist in different industry sectors (e.g., the occupation “secretary” can be found in the construction industry or a funeral home business).
-  Description = 2010 Occupation coding system used by CDC (NIOSH & NCHS) for coding occupation text. Occupation describes a set of activities or tasks that individuals are paid to perform or, if unpaid, define a person’s contribution to a household/family business/community. This code system includes 2010 U.S. Census Bureau occupation codes with modifications made by CDC for unpaid workers and military occupations. The 2010 Census occupation categories are based on the 2010 BLS Standard Occupational Classification (SOC) system. The PH_Industry_CDC_Census2010 code system should be used in conjunction with this occupation code system when coding both industry and occupation. For more information and instructions on using this coding system, see the instruction manual for CDC-Census I&O coding at: http://www.cdc.gov/niosh/topics/coding/
+  Definition = A value set consisting of all codes from the 2010 Occupation coding system used by CDC (NIOSH & NCHS) for coding a person\'s type of work. Occupation describes a set of activities or tasks that an individual is paid to perform or, if unpaid, define the person’s contribution to a household/family business/community. This code system includes 2010 U.S. Census Bureau occupation codes with modifications made by CDC for unpaid workers and military occupations. The 2010 Census occupation categories are based on the 2010 BLS Standard Occupational Classification (SOC) system. The PH_Industry_CDC_Census2010 code system should be used in conjunction with this occupation code system when coding both industry and occupation.
+  Description = 2010 Occupation coding system used by CDC (NIOSH & NCHS) for coding a person\'s type of work. Occupation describes a set of activities or tasks that an individual is paid to perform or, if unpaid, define the person’s contribution to a household/family business/community. This code system includes 2010 U.S. Census Bureau occupation codes with modifications made by CDC for unpaid workers and military occupations. The 2010 Census occupation categories are based on the 2010 BLS Standard Occupational Classification (SOC) system. The PH_Industry_CDC_Census2010 code system should be used in conjunction with this occupation code system when coding both industry and occupation.
   Conformance = example
   Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186
   Oid = 2.16.840.1.114222.4.11.7186
@@ -25,167 +25,41 @@
   Binding Name = IndustryCDCCensus2010
   Binding = value set
   Reference = valueset-industry-cdc-census-2010
-  Definition = The type(s) of business (industry) associated with the patient\'s past and present occupation(s). According to CDC, \"industry\" is described as an economic or business sector comprised of businesses or enterprises concerned with the output of a specified category of products or services (e.g., the construction industry or the agriculture industry).
-  Description = 2010 Industry coding system used by CDC (NIOSH & NCHS) for coding industry text. Industry describes an economic/business sector comprised of businesses/ enterprises concerned with the output of a specified category of products or services (e.g., the construction industry or the agriculture industry). This industry code system includes 2007 U.S. Census Bureau industry codes and three additional codes developed by CDC for unpaid workers. The 2010 Census industry categories are based on the 2007 North American Industry Classification System (NAICS). The PH_Occupation_CDC_Census2010 code system should be used in conjunction with this industry code system when coding both industry and occupation. For more information and instructions on using this coding system, see the instruction manual for CDC-Census I&O coding at: http://www.cdc.gov/niosh/topics/coding/
+  Definition = A value set consisting of all codes from the 2010 Industry coding system used by CDC (NIOSH & NCHS) for coding the type of business in which a person works. Industry describes an economic or business sector comprised of businesses or enterprises concerned with the output of a specified category of products or services (e.g., the construction industry or the agriculture industry). This industry code system includes 2007 U.S. Census Bureau industry codes and additional codes developed by CDC for unpaid workers. The 2010 Census industry categories are based on the 2007 North American Industry Classification System (NAICS). The PH_Occupation_CDC_Census2010 code system should be used in conjunction with this industry code system when coding both industry and occupation.
+  Description = 2010 Industry coding system used by CDC (NIOSH & NCHS) for coding the type of business in which a person works. Industry describes an economic or business sector comprised of businesses or enterprises concerned with the output of a specified category of products or services (e.g., the construction industry or the agriculture industry). This industry code system includes 2007 U.S. Census Bureau industry codes and additional codes developed by CDC for unpaid workers. The 2010 Census industry categories are based on the 2007 North American Industry Classification System (NAICS). The PH_Occupation_CDC_Census2010 code system should be used in conjunction with this industry code system when coding both industry and occupation.
   Conformance = example
   Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187
   Oid = 2.16.840.1.114222.4.11.7187
 
  -- Row 4 -----------------------------------
-  Binding Name = EmploymentType
+  Binding Name = WorkClassification
   Binding = value set
-  Reference = valueset-job-employment-type-odh
-  Definition = A patient\'s employment type as defined by compensation and sector (e.g. paid vs. unpaid, self-employed vs. not self-employed, government vs. private, etc.).
-  Description = A Patient\'s employment type as defined by compensation and sector
+  Reference = valueset-work-classification-odh
+  Definition = A value set consisting of codes pertaining to the classification of a person\'s job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).
+  Description = A person\'s classification of work as defined by compensation and sector.
   Conformance = example
   Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7597
   Oid = 2.16.840.1.114222.4.11.7597
 
  -- Row 5 -----------------------------------
   Binding Name = SupervisoryLevel
-  Binding = code list
-  Reference = #supervisory-level
-  Definition = Reflects the amount of supervisory or management responsibilities for an individual’s occupation.  In the military, this is the person’s rank or rating.
-  Description = Supervisory Level
+  Binding = value set
+  Reference = valueset-supervisory-level-odh-us
+  Definition = A value set consisting of codes which reflect the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  This set of codes reflects US usage - other jurisdictions will have different needs.
+  Description = Supervisory Level (US)
   Conformance = example
-  Oid = 2.16.840.1.113883.10.20.22.4.224
+  Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7613
+  Oid = 2.16.840.1.114222.4.11.7613
 
  -- Row 6 -----------------------------------
   Binding Name = WorkSchedule
   Binding = value set
   Reference = valueset-work-schedule-odh
-  Definition = Describes an individual\'s typical arrangement of working hours for an occupation. For example, work schedule may capture that an individual typically works a regular day shift, evening shift, or night shift. It can also specify if an individual has an irregular schedule such as a rotating shift, split shift, etc. In healthcare settings, knowledge of a patient\'s typical work schedule may assist in diagnosis of healthcare issues related to irregular work hours or sleep patterns. It may also assist in determining appropriate treatment and prevention plans that will coordinate with the patient\'s work schedule.
+  Definition = A value set consisting of codes which describe a person\'s typical arrangement of working hours for one job.
   Description = Work Schedule
   Conformance = example
   Uri = https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7130
   Oid = 2.16.840.1.114222.4.11.7130
-
-=== Sheet supervisory-level =====================================
-
- -- Row 1 -----------------------------------
-  Code = E-1
-  Display = E-1 - Enlisted Military Personnel 1
-  Definition = US Military Enlisted paygrade E-1
-
- -- Row 2 -----------------------------------
-  Code = E-2
-  Display = E-2 - Enlisted Military Personnel 2
-  Definition = US Military Enlisted paygrade E-2
-
- -- Row 3 -----------------------------------
-  Code = E-3
-  Display = E-3 - Enlisted Military Personnel 3
-  Definition = US Military Enlisted paygrade E-3
-
- -- Row 4 -----------------------------------
-  Code = E-4
-  Display = E-4 - Enlisted Military Personnel 4
-  Definition = US Military Enlisted paygrade E-4
-
- -- Row 5 -----------------------------------
-  Code = E-5
-  Display = E-5 - Enlisted Military Personnel 5
-  Definition = US Military Enlisted paygrade E-5
-
- -- Row 6 -----------------------------------
-  Code = E-6
-  Display = E-6 - Enlisted Military Personnel 6
-  Definition = US Military Enlisted paygrade E-6
-
- -- Row 7 -----------------------------------
-  Code = E-7
-  Display = E-7 - Enlisted Military Personnel 7
-  Definition = US Military Enlisted paygrade E-7
-
- -- Row 8 -----------------------------------
-  Code = E-8
-  Display = E-8 - Enlisted Military Personnel 8
-  Definition = US Military Enlisted paygrade E-8
-
- -- Row 9 -----------------------------------
-  Code = E-9
-  Display = E-9 - Enlisted Military Personnel 9
-  Definition = US Military Enlisted paygrade E-9
-
- -- Row 10 -----------------------------------
-  Code = O-1
-  Display = O-1 - Commissioned Officer 1
-  Definition = US Military Commissioned Officer paygrade O-1
-
- -- Row 11 -----------------------------------
-  Code = O-2
-  Display = O-2 - Commissioned Officer 2
-  Definition = US Military Commissioned Officer paygrade O-2
-
- -- Row 12 -----------------------------------
-  Code = O-3
-  Display = O-3 - Commissioned Officer 3
-  Definition = US Military Commissioned Officer paygrade  O-3
-
- -- Row 13 -----------------------------------
-  Code = O-4
-  Display = O-4 - Commissioned Officer 4
-  Definition = US Military Commissioned Officer paygrade O-4
-
- -- Row 14 -----------------------------------
-  Code = O-5
-  Display = O-5 - Commissioned Officer 5
-  Definition = US Military Commissioned Officer paygrade O-5
-
- -- Row 15 -----------------------------------
-  Code = O-6
-  Display = O-6 - Commissioned Officer 6
-  Definition = US Military Commissioned Officer paygrade O-6
-
- -- Row 16 -----------------------------------
-  Code = O-7
-  Display = O-7 - Commissioned Officer 7
-  Definition = US Military Commissioned Officer paygrade O-7
-
- -- Row 17 -----------------------------------
-  Code = O-8
-  Display = O-8 - Commissioned Officer 8
-  Definition = US Military Commissioned Officer paygrade O-8
-
- -- Row 18 -----------------------------------
-  Code = O-9
-  Display = O-9 - Commissioned Officer 9
-  Definition = US Military Commissioned Officer paygrade O-9
-
- -- Row 19 -----------------------------------
-  Code = O-10
-  Display = O-10 - Commissioned Officer 10
-  Definition = US Military Commissioned Officer paygrade O-10
-
- -- Row 20 -----------------------------------
-  Code = W-1
-  Display = W-1 - Warrant Officer 1
-  Definition = Warrant Officer paygrade W-1
-
- -- Row 21 -----------------------------------
-  Code = W-2
-  Display = W-2 - Warrant Officer 2
-  Definition = Warrant Officer paygrade W-2
-
- -- Row 22 -----------------------------------
-  Code = W-3
-  Display = W-3 - Warrant Officer 3
-  Definition = Warrant Officer paygrade W-3
-
- -- Row 23 -----------------------------------
-  Code = W-4
-  Display = W-4 - Warrant Officer 4
-  Definition = Warrant Officer paygrade W-4
-
- -- Row 24 -----------------------------------
-  Code = W-5
-  Display = W-5 - Warrant Officer 5
-  Definition = Warrant Officer paygrade W-5
-
- -- Row 25 -----------------------------------
-  Code = C-3
-  Display = C-3 - 1st Line Supervisor
-  Definition = oversees work and provides direction, does not have hiring/firing or budget authority; synonym: foreman.
 
 === Sheet Invariants =====================================
 
@@ -194,7 +68,8 @@
  -- Row 1 -----------------------------------
   Element = OccupationalData
   Type = DomainResource
-  Short Name = Patient’s or family member\'s work information
+  Short Name = Patient’s or family member\'s work information (ODH)
+  Definition = A person\'s work information, structured to facilitate individual, population, and public health use; not intended to support billing.
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
   w5 = clinical.general
 
@@ -202,7 +77,7 @@
   Element = OccupationalData.identifier
   Card. = 0..1
   Type = Identifier
-  Short Name = Unique identifier for the occupational data record
+  Short Name = Unique identifier for the occupational data (ODH) record
   Definition = Business identifier assigned to the occupational data record.
   RIM Mapping = id
   w5 = id
@@ -226,7 +101,8 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Patient | RelatedPerson)
-  Short Name = Who the occupational data is collected about
+  Short Name = Who the occupational data (ODH) is collected about
+  Definition = The occupational data record is about this person (e.g., the patient, a parent of a minor child).
   Workflow Mapping = Event.subject
   RIM Mapping = .participation[typeCode=SBJ].role
   OpenEHR mapping = Subject of Care
@@ -236,19 +112,22 @@
   Element = OccupationalData.date
   Card. = 0..1
   Type = dateTime
-  Short Name = Occupational Data author time
+  Short Name = Occupational Data (ODH) author time
+  Definition = The date of creation or updating of the occupational data record.
 
  -- Row 6 -----------------------------------
   Element = OccupationalData.author
   Card. = 0..*
   Type = Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)
-  Short Name = Occupational Data author
+  Short Name = Occupational Data (ODH) author
+  Definition = The person who created or last updated the occupational data record.
 
  -- Row 7 -----------------------------------
   Element = OccupationalData.employmentStatus
   Card. = 0..1
   Summary = y
   Short Name = Employment status
+  Definition = A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
 
  -- Row 8 -----------------------------------
@@ -258,6 +137,7 @@
   Type = CodeableConcept
   Binding = EmploymentStatus
   Short Name = Employment status code
+  Definition = A code that represents a person’s current economic relationship to a job.
   RIM Mapping = value
 
  -- Row 9 -----------------------------------
@@ -266,6 +146,7 @@
   Summary = y
   Type = dateTime | Period
   Short Name = Employment status effective time
+  Definition = The start and end dates for a person\'s current economic relationship to a job.
   RIM Mapping = effectiveTime
 
  -- Row 10 -----------------------------------
@@ -274,6 +155,7 @@
   Summary = y
   Type = dateTime
   Short Name = Retirement date
+  Definition = A person\'s self-identified retirement date.  A person may retire multiple times.
   RIM Mapping = effectiveTime
 
  -- Row 11 -----------------------------------
@@ -282,156 +164,206 @@
   Summary = y
   Type = Period
   Short Name = Combat Zone Work period
+  Definition = The start and end dates for the period of time a person\'s work is or was in a combat zone. In addition to military personnel, civilians also may work or have worked in a combat zone.
   RIM Mapping = effectiveTime
 
  -- Row 12 -----------------------------------
-  Element = OccupationalData.usualOccupation
+  Element = OccupationalData.usualWork
   Card. = 0..1
   Summary = y
-  Short Name = Usual Occupation
+  Short Name = OccupationalData.pastOrPresentJob.occupation
+  Definition = The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time.
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
 
  -- Row 13 -----------------------------------
-  Element = OccupationalData.usualOccupation.occupationCode
+  Element = OccupationalData.usualWork.occupation
   Card. = 1..1
   Summary = y
   Type = CodeableConcept
   Binding = OccupationCDCCensus2010
-  Short Name = Usual Occupation code
+  Short Name = Usual Work code
+  Definition = A code that represents the type of work a person has held for the longest amount of time during his or her life.
   RIM Mapping = value
 
  -- Row 14 -----------------------------------
-  Element = OccupationalData.usualOccupation.industryCode
+  Element = OccupationalData.usualWork.industry
   Card. = 1..1
   Summary = y
   Type = CodeableConcept
   Binding = IndustryCDCCensus2010
-  Short Name = Usual Occupation industry
+  Short Name = Usual Work industry
+  Definition = A code that represents the type of business a person has worked in for the longest total time while in the usual occupation.
   RIM Mapping = value
 
  -- Row 15 -----------------------------------
-  Element = OccupationalData.usualOccupation.start
+  Element = OccupationalData.usualWork.start
   Card. = 0..1
   Summary = y
   Type = dateTime
-  Short Name = Usual Occupation start time
+  Short Name = Usual Work start time
+  Definition = The date when a person first started working in their usual occupation.
   RIM Mapping = effectiveTime
 
  -- Row 16 -----------------------------------
-  Element = OccupationalData.usualOccupation.duration
+  Element = OccupationalData.usualWork.duration
   Card. = 0..1
   Summary = y
   Type = Duration
-  Short Name = Usual Occupation duration
+  Short Name = Usual Work duration
+  Definition = Total of all periods of time a person has spent in the usual occupation, not including intermittent period(s) where the person was not working in that occupation.
   RIM Mapping = effectiveTime
 
  -- Row 17 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation
+  Element = OccupationalData.pastOrPresentJob
   Card. = 0..*
   Summary = y
-  Short Name = Past Or Present Occupation
+  Short Name = Past Or Present Job
+  Definition = The type of work done by a person during a current or past job. A job is defined by the sum of all the data related to the occupation. A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
 
  -- Row 18 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.occupationCode
+  Element = OccupationalData.pastOrPresentJob.occupation
   Card. = 1..1
   Summary = y
   Type = CodeableConcept
   Binding = OccupationCDCCensus2010
-  Short Name = Past Or Present Occupation code
+  Short Name = Past Or Present Job occupation
+  Definition = A code that represents the type of work done by a person at one job.
   RIM Mapping = value
 
  -- Row 19 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.industryCode
+  Element = OccupationalData.pastOrPresentJob.industry
   Card. = 1..1
   Summary = y
   Type = CodeableConcept
   Binding = IndustryCDCCensus2010
-  Short Name = Past Or Present Occupation industry
+  Short Name = Past Or Present Job industry
+  Definition = A code that represents the type of business associated with a person\'s Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.
   RIM Mapping = value
 
  -- Row 20 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.effective[x]
+  Element = OccupationalData.pastOrPresentJob.effective[x]
   Card. = 0..1
   Summary = y
   Type = dateTime | Period
-  Short Name = Past Or Present Occupation effective time
+  Short Name = Past Or Present Job effective time
+  Definition = The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.
   RIM Mapping = effectiveTime
 
  -- Row 21 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.employer
+  Element = OccupationalData.pastOrPresentJob.employer
   Card. = 0..1
   Summary = y
   Type = Reference(Organization)
-  Short Name = Past Or Present Occupation employer
+  Short Name = Past Or Present Job employer
+  Definition = The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person\'s military home base; the person\'s Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.
 
  -- Row 22 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.employmentType
+  Element = OccupationalData.pastOrPresentJob.workClassification
   Card. = 0..1
   Summary = y
   Type = CodeableConcept
-  Binding = EmploymentType
-  Short Name = Past Or Present Occupation employment type
+  Binding = WorkClassification
+  Short Name = Past Or Present Job employment type
+  Definition = The classification of a person\'s job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).
 
  -- Row 23 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.supervisoryLevel
+  Element = OccupationalData.pastOrPresentJob.supervisoryLevel
   Card. = 0..1
   Summary = y
   Type = CodeableConcept
   Binding = SupervisoryLevel
-  Short Name = Past Or Present Occupation supervisory level
+  Short Name = Past Or Present Job supervisory level
+  Definition = Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job.
 
  -- Row 24 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.jobDuties
+  Element = OccupationalData.pastOrPresentJob.jobDuty
   Card. = 0..*
   Summary = y
   Type = string
-  Short Name = Past Or Present Occupation job duties
+  Short Name = Past Or Present Job job duties
+  Definition = The regular actions performed at a single job.
 
  -- Row 25 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.occupationalHazards
+  Element = OccupationalData.pastOrPresentJob.occupationalHazard
   Card. = 0..*
   Summary = y
   Type = string
-  Short Name = Past Or Present Occupation occupational hazards
+  Short Name = Past Or Present Job occupational hazards
+  Definition = A hazard that is specific to a person\'s work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual\'s physical or mental health (e.g., biological, chemical, physical, psychological, radiological).
 
  -- Row 26 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.workSchedule
+  Element = OccupationalData.pastOrPresentJob.workSchedule
   Card. = 0..1
   Summary = y
-  Short Name = Past Or Present Occupation work schedule
+  Short Name = Past Or Present Job work schedule
+  Definition = Describes a person\'s typical arrangement of working hours for one job.
 
  -- Row 27 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.workSchedule.code
+  Element = OccupationalData.pastOrPresentJob.workSchedule.code
   Card. = 1..1
   Summary = y
   Type = CodeableConcept
   Binding = WorkSchedule
-  Short Name = Past Or Present Occupation work schedule code
+  Short Name = Past Or Present Job work schedule code
+  Definition = A code that represents a person\'s typical arrangement of working hours for one job.
 
  -- Row 28 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.workSchedule.weeklyWorkDays
+  Element = OccupationalData.pastOrPresentJob.workSchedule.weeklyWorkDays
   Card. = 0..1
   Summary = y
   Type = decimal
-  Short Name = Past Or Present Occupation work schedule weekly work days
+  Short Name = Past Or Present Job work schedule weekly work days
+  Definition = The typical number of days worked in a week by a person at one job.
 
  -- Row 29 -----------------------------------
-  Element = OccupationalData.pastOrPresentOccupation.workSchedule.dailyWorkHours
+  Element = OccupationalData.pastOrPresentJob.workSchedule.dailyWorkHours
   Card. = 0..1
   Summary = y
   Type = decimal
-  Short Name = Past Or Present Occupation work schedule daily work hours
+  Short Name = Past Or Present Job work schedule daily work hours
+  Definition = The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
   Name = subject
   Type = reference
+  Description = The subject that the occupational data record is about
   Path = OccupationalData.subject
+
+ -- Row 2 -----------------------------------
+  Name = date
+  Type = date
+  Description = Obtained date/time. If the obtained element is a period, a date that falls in the period
+  Path = OccupationalData.date
+
+ -- Row 3 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the occupational data record
+  Path = OccupationalData.status
+
+ -- Row 4 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = A business identifier for a particular occupational data record
+  Path = OccupationalData.identifier
+
+ -- Row 5 -----------------------------------
+  Name = author
+  Type = reference
+  Description = The person who authored the occupational data record
+  Path = OccupationalData.author
 
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Occupational Data Example
+  Filename = occupationaldata-example.xml
 
 === Sheet Examples =====================================

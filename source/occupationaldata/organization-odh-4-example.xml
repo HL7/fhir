@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+    <id value="odh-4-example"/> 
+    <text> 
+        <status value="generated"/> 
+        <div xmlns="http://www.w3.org/1999/xhtml">
+           Smilin' Sue's Station
+            <br/>  
+            369 Beauty Blvd.
+            <br/>  
+            Anytown, OH 56789
+            <br/>  
+            USA
+        </div> 
+    </text> 
+    <name value="Smilin' Sue's Station"/> 
+    <address> 
+        <line value="369 Beauty Blvd."/> 
+        <city value="Anytown"/> 
+        <state value="OH"/> 
+        <postalCode value="56789"/> 
+        <country value="USA"/> 
+    </address> 
+</Organization> 

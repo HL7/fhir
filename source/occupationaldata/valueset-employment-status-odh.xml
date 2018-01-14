@@ -1,12 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="employment-status-odh"/>
-  <text>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Employment Status (ODH)</p>
-    </div>
-  </text>
-  <url value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7129"/>
+  <url value="http://hl7.org/fhir/ValueSet/employment-status-odh"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.114222.4.11.7129"/>
@@ -17,8 +12,13 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://phinvads.cdc.gov/vads/SearchHome.action"/>
+      <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7129"/>
     </telecom>
   </contact>
-  <description value="Employment Status (ODH)"/>
+  <description value="A value set consisting of codes pertaining to a person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work."/>
+  <compose>
+    <include>
+      <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7129"/>
+    </include>
+  </compose>
 </ValueSet>

@@ -1,12 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <id value="work-schedule-odh"/>
-  <text>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>Work Schedule (ODH)</p>
-    </div>
-  </text>
-  <url value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7130"/>
+  <url value="http://hl7.org/fhir/ValueSet/work-schedule-odh"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.114222.4.11.7130"/>
@@ -17,8 +12,13 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="https://phinvads.cdc.gov/vads/SearchHome.action"/>
+      <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7130"/>
     </telecom>
   </contact>
-  <description value="Work Schedule (ODH)"/>
+  <description value="A value set consisting of codes which describe a person's typical arrangement of working hours for one job."/>
+  <compose>
+    <include>
+      <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7130"/>
+    </include>
+  </compose>
 </ValueSet>

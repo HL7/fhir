@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/organization.xsd">
+    <id value="odh-2-example"/> 
+    <text> 
+        <status value="generated"/> 
+        <div xmlns="http://www.w3.org/1999/xhtml">
+           Big County
+            <br/>  
+            2468 High St.
+            <br/>  
+            Somewhere, CA 55555
+            <br/>  
+            USA
+        </div> 
+    </text> 
+    <name value="Big County"/> 
+    <address> 
+        <line value="2468 High St."/> 
+        <city value="Somewhere"/> 
+        <state value="CA"/> 
+        <postalCode value="55555"/> 
+        <country value="USA"/> 
+    </address> 
+</Organization> 

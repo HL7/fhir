@@ -1,17 +1,486 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OccupationalData xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/OccupationalData.xsd">
+<OccupationalData xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/occupationaldata.xsd">
   <id value="example"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Acme.org ID: 1234
+      <br/>Status: active
+      <br/>Subject: Peter James Chalmers ("Jim")
+      <br/>Date: 2/5/2012 9:10 AM EST
+      <br/>Author: Dr Adam Careful
+      <br/>Employment Status: Employed
+      <br/>Employment Period: 4/1/1980 - present
+      <br/>Combat Zone Work: 2/15/1983 - 5/30/1983
+      </p>
+      <p><b>Usual Work</b></p>
+      <p>Occupation: Patrol officer
+      <br/>Industry: City police department
+      <br/>Start Date: 1986
+      <br/>Duration: 31 years
+      </p>
+      <p><b>Past or Present Job</b></p>
+      <p style="margin-left: 20px"><b>Current Job</b>
+        <br/>Occupation: Patrol officer (category: Police and sheriff's patrol officers)
+        <br/>Industry: City police department (category: Justice, public order, and safety activities)
+      <br/>Work Period: 4/2/1989 - present
+      <br/>Employer: City of Anytown
+      <br/>Employer Address: 1234 Main St., Anytown, OH 56789
+      <br/>Work Classification: Paid work, local government
+      <br/>Supervisory Level:
+      </p>
+      <p style="margin-left: 20px"><b>Past Job #1</b>
+        <br/>Occupation: Sheriff's patrol officer (category: Police and sheriff's patrol officers)
+        <br/>Industry: County sheriff's office (category: Justice, public order, and safety activities)
+      <br/>Work Period: 9/14/1986 - 4/1/1989
+      <br/>Employer: Big County
+      <br/>Employer Address: 2468 High St., Somewhere, CA 55555
+      <br/>Work Classification: Paid work, local government
+      <br/>Supervisory Level:
+      </p>
+      <p style="margin-left: 20px"><b>Past Job #2</b>
+        <br/>Occupation: Police cadet (category: Police and sheriff's patrol officers)
+        <br/>Industry: County sheriff's office (category: Justice, public order, and safety activities)
+        <br/>Work Period: 6/8/1986 - 9/13/1986
+        <br/>Employer: Big County
+        <br/>Employer Address: 2468 High St., Somewhere, CA 55555
+        <br/>Work Classification: Paid work, local government
+        <br/>Supervisory Level:
+      </p>
+      <p style="margin-left: 20px"><b>Past Job #3</b>
+        <br/>Occupation: Rifleman (category: General Infantry)
+        <br/>Industry: US Marines
+        <br/>Work Period: 10/27/1985 - 6/7/1986
+        <br/>Employer: Camp Lejeune
+        <br/>Employer Address: Camp Lejeune, NC 28547
+        <br/>Work Classification: Paid work, national armed forces
+        <br/>Supervisory Level: E-4
+      </p>
+      <p style="margin-left: 20px"><b>Past Job #4</b>
+        <br/>Occupation: Rifleman (category: General Infantry)
+        <br/>Industry: US Marines
+        <br/>Work Period: 9/18/1983 - 10/26/1985
+        <br/>Employer: Camp Lejeune
+        <br/>Employer Address: Camp Lejeune, NC 28547
+        <br/>Work Classification: Paid work, national armed forces
+        <br/>Supervisory Level: E-3
+      </p>
+      <p style="margin-left: 20px"><b>Past Job #5</b>
+        <br/>Occupation: Rifleman (category: General Infantry)
+        <br/>Industry: US Marines
+        <br/>Work Period: 1/16/1983 - 8/17/1983
+        <br/>Employer: Camp Lejeune
+        <br/>Employer Address: Camp Lejeune, NC 28547
+        <br/>Work Classification: Paid work, national armed forces
+        <br/>Supervisory Level: E-2
+      </p>
+      <p style="margin-left: 20px"><b>Past Job #6</b>
+        <br/>Occupation: Basic Marine (category: General, Not Occupationally Qualified)
+        <br/>Industry: US Marines
+        <br/>Work Period: 6/6/1982 - 1/15/1983
+        <br/>Employer: Camp Lejeune
+        <br/>Employer Address: Camp Lejeune, NC 28547
+        <br/>Work Classification: Paid work, national armed forces
+        <br/>Supervisory Level: E-1
+      </p>
+      <p style="margin-left: 20px"><b>Past Job #7</b>
+        <br/>Occupation: Fast food worker (category: Combined food preparation and serving workers, including fast food)
+        <br/>Industry: Fast food restaurant (category: Restaurants and other food services)
+        <br/>Work Period: 4/1/1980 - 6/5/1982
+        <br/>Employer: Smilin' Sue's Station
+        <br/>Employer Address: 369 Beauty Blvd., Anytown, OH 56789
+        <br/>Work Classification: Paid work, not self-employed
+        <br/>Supervisory Level:
+      </p>
+    </div>
   </text>
+  <identifier> 
+    <system value="https://acme.org/identifiers"/> 
+    <value value="1234"/> 
+  </identifier> 
   <status value="active"/>
-  <date value="2017-12-12T09:10:14Z"/>
+  <subject> 
+    <reference value="Patient/example"/> 
+  </subject> 
+  <date value="2012-05-02T14:10:00Z"/>
   <author>
-    <reference value="Practitioner/odh-author"/>
-    <display value="Harold Hippocrates, MD"/>
+    <reference value="Practitioner/example"/>
   </author>
-
-  <!-- insert contents here -->
-
+  <employmentStatus>
+    <code>
+      <coding> 
+        <system value="http://snomed.info/sct"/> 
+        <code value="224363007"/> 
+        <display value="Employed"/> 
+      </coding>       
+    </code>
+    <effectivePeriod>
+      <start value="1980-04-01"/>
+    </effectivePeriod>
+  </employmentStatus>
+  <!-- <retirementDate value="[dateTime]"/> 0..* Retirement date -->
+  <combatZoneWork>
+    <start value="1983-02-15"/>
+    <end value="1983-05-30"/>    
+  </combatZoneWork>
+  <usualWork>
+    <occupation>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.314"/> 
+        <!-- <code value="3850"/> -->
+        <display value="Police and sheriff's patrol officers"/> 
+      </coding>
+      <text value="Patrol officer"/>
+    </occupation>
+    <industry>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.315"/> 
+        <!-- <code value="9470"/> --> 
+        <display value="Justice, public order, and safety activities"/> 
+      </coding>
+      <text value="City police department"/>
+    </industry>
+    <start value="1986"/>
+    <duration>
+      <value value="31"/> 
+      <unit value="years"/> 
+      <system value="http://unitsofmeasure.org"/> 
+      <code value="a"/>       
+    </duration>
+  </usualWork>
+  <pastOrPresentJob>
+    <!-- current job -->
+    <occupation>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.314"/> 
+        <!-- <code value="3850"/> --> 
+        <display value="Police and sheriff's patrol officers"/> 
+      </coding>
+      <text value="Patrol officer"/>      
+    </occupation>
+    <industry>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.315"/> 
+        <!-- <code value="9470"/> --> 
+        <display value="Justice, public order, and safety activities"/> 
+      </coding>
+      <text value="City police department"/>      
+    </industry>
+    <effectivePeriod>
+      <start value="1989-04-02"/>      
+    </effectivePeriod>
+      <employer>
+        <reference value="Organization/odh-1-example"/>         
+      </employer>
+      <workClassification>
+        <coding> 
+          <system value="http://snomed.info/sct"/>
+          <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
+          <code value="452491000124108"/> 
+          <display value="Paid work in local government"/> 
+        </coding>
+        <text value="Paid work, local government"/>              
+      </workClassification>
+      <supervisoryLevel> <!-- no supervisory level data -->
+        <coding> 
+          <system value="urn:oid:2.16.840.1.113883.10.20.22.4.224"/> 
+        </coding>
+      </supervisoryLevel>
+      <!-- <jobDuty value="[string]"/> 0..* Past Or Present Job job duties -->
+      <!-- <occupationalHazard value="[string]"/> 0..* Past Or Present Job occupational hazards -->
+      <!-- <workSchedule> 0..1 Past Or Present Job work schedule -->
+      <!-- <code> 1..1 CodeableConcept Past Or Present Job work schedule code </code> -->
+        <!-- <weeklyWorkDays value="[decimal]"/> 0..1 Past Or Present Job work schedule weekly work days -->
+        <!-- <dailyWorkHours value="[decimal]"/> 0..1 Past Or Present Job work schedule daily work hours -->
+      <!-- </workSchedule> -->
+  </pastOrPresentJob>
+  <pastOrPresentJob>
+    <!-- past job #1 -->
+    <occupation>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.314"/> 
+        <!-- <code value="3850"/> --> 
+        <display value="Police and sheriff's patrol officers"/> 
+      </coding>
+      <text value="Sheriff's patrol officer"/>      
+    </occupation>
+    <industry>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.315"/> 
+        <!-- <code value="9470"/> --> 
+        <display value="Justice, public order, and safety activities"/> 
+      </coding>
+      <text value="County sheriff's office"/>      
+    </industry>
+    <effectivePeriod>
+      <start value="1986-09-14"/>      
+      <end value="1989-04-01"/>      
+    </effectivePeriod>
+    <employer>
+      <reference value="Organization/odh-2-example"/>         
+    </employer>
+    <workClassification>
+      <coding> 
+        <system value="http://snomed.info/sct"/>
+        <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
+        <code value="452491000124108"/> 
+        <display value="Paid work in local government"/> 
+      </coding>
+      <text value="Paid work, local government"/>              
+    </workClassification>
+    <supervisoryLevel> <!-- no supervisory level data -->
+      <coding> 
+        <system value="urn:oid:2.16.840.1.113883.10.20.22.4.224"/> 
+      </coding>
+    </supervisoryLevel>
+  </pastOrPresentJob>
+  <pastOrPresentJob>
+    <!-- past job #2 -->
+    <occupation>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.314"/> 
+        <!-- <code value="3850"/> --> 
+        <display value="Police and sheriff's patrol officers"/> 
+      </coding>
+      <text value="Police cadet"/>      
+    </occupation>
+    <industry>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.315"/> 
+        <!-- <code value="9470"/> --> 
+        <display value="Justice, public order, and safety activities"/> 
+      </coding>
+      <text value="County sheriff's office"/>      
+    </industry>
+    <effectivePeriod>
+      <start value="1986-06-08"/>      
+      <end value="1986-09-13"/>      
+    </effectivePeriod>
+    <employer>
+      <reference value="Organization/odh-2-example"/>         
+    </employer>
+    <workClassification>
+      <coding> 
+        <system value="http://snomed.info/sct"/>
+        <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
+        <code value="452491000124108"/> 
+        <display value="Paid work in local government"/> 
+      </coding>
+      <text value="Paid work, local government"/>              
+    </workClassification>
+    <supervisoryLevel> <!-- no supervisory level data -->
+      <coding> 
+        <system value="urn:oid:2.16.840.1.113883.10.20.22.4.224"/> 
+      </coding>
+    </supervisoryLevel>
+  </pastOrPresentJob>
+  <pastOrPresentJob>
+    <!-- past job #3 -->
+    <occupation>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.314"/> 
+        <!-- <code value="9830"/> -->
+        <display value="Military, rank not specified"/> 
+      </coding>
+      <text value="Rifleman (category: General Infantry)"/>      
+    </occupation>
+    <industry>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.315"/> 
+        <!-- <code value="9770"/> --> 
+        <display value="U. S. Marines"/> 
+      </coding>
+      <text value="US Marines"/>      
+    </industry>
+    <effectivePeriod>
+      <start value="1985-10-27"/>      
+      <end value="1986-06-07"/>      
+    </effectivePeriod>
+    <employer>
+      <reference value="Organization/odh-3-example"/>         
+    </employer>
+    <workClassification>
+      <coding> 
+        <system value="http://snomed.info/sct"/>
+        <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
+        <code value="452121000124102"/> 
+        <display value="Paid work in United States armed forces "/> 
+      </coding>
+      <text value="Paid work, national armed forces"/>              
+    </workClassification>
+    <supervisoryLevel>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.113883.10.20.22.4.224"/>
+        <code value="E-4"/>
+        <display value="US Military Enlisted paygrade E-4"/>
+      </coding>
+    </supervisoryLevel>
+  </pastOrPresentJob>
+  <pastOrPresentJob>
+    <!-- past job #4 -->
+    <occupation>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.314"/> 
+        <!-- <code value="9830"/> -->
+        <display value="Military, rank not specified"/> 
+      </coding>
+      <text value="Rifleman (category: General Infantry)"/>      
+    </occupation>
+    <industry>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.315"/> 
+        <!-- <code value="9770"/> --> 
+        <display value="U. S. Marines"/> 
+      </coding>
+      <text value="US Marines"/>      
+    </industry>
+    <effectivePeriod>
+      <start value="1983-09-18"/>      
+      <end value="1985-10-26"/>      
+    </effectivePeriod>
+    <employer>
+      <reference value="Organization/odh-3-example"/>         
+    </employer>
+    <workClassification>
+      <coding> 
+        <system value="http://snomed.info/sct"/>
+        <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
+        <code value="452121000124102"/> 
+        <display value="Paid work in United States armed forces "/> 
+      </coding>
+      <text value="Paid work, national armed forces"/>              
+    </workClassification>
+    <supervisoryLevel>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.113883.10.20.22.4.224"/>
+        <code value="E-3"/>
+        <display value="US Military Enlisted paygrade E-3"/>
+      </coding>
+    </supervisoryLevel>
+  </pastOrPresentJob>
+  <pastOrPresentJob>
+    <!-- past job #5 -->
+    <occupation>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.314"/> 
+        <!-- <code value="9830"/> -->
+        <display value="Military, rank not specified"/> 
+      </coding>
+      <text value="Rifleman (category: General Infantry)"/>      
+    </occupation>
+    <industry>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.315"/> 
+        <!-- <code value="9770"/> --> 
+        <display value="U. S. Marines"/> 
+      </coding>
+      <text value="US Marines"/>      
+    </industry>
+    <effectivePeriod>
+      <start value="1983-01-16"/>      
+      <end value="1983-08-17"/>      
+    </effectivePeriod>
+    <employer>
+      <reference value="Organization/odh-3-example"/>         
+    </employer>
+    <workClassification>
+      <coding> 
+        <system value="http://snomed.info/sct"/>
+        <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
+        <code value="452121000124102"/> 
+        <display value="Paid work in United States armed forces "/> 
+      </coding>
+      <text value="Paid work, national armed forces"/>              
+    </workClassification>
+    <supervisoryLevel>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.113883.10.20.22.4.224"/>
+        <code value="E-2"/>
+        <display value="US Military Enlisted paygrade E-2"/>
+      </coding>
+    </supervisoryLevel>
+  </pastOrPresentJob>
+  <pastOrPresentJob>
+    <!-- past job #6 -->
+    <occupation>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.314"/> 
+        <!-- <code value="9830"/> -->
+        <display value="Military, rank not specified"/> 
+      </coding>
+      <text value="Basic Marine (category: General, Not Occupationally Qualified)"/>
+    </occupation>
+    <industry>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.315"/> 
+        <!-- <code value="9770"/> --> 
+        <display value="U. S. Marines"/> 
+      </coding>
+      <text value="US Marines"/>      
+    </industry>
+    <effectivePeriod>
+      <start value="1982-06-06"/>      
+      <end value="1983-01-15"/>      
+    </effectivePeriod>
+    <employer>
+      <reference value="Organization/odh-3-example"/>         
+    </employer>
+    <workClassification>
+      <coding> 
+        <system value="http://snomed.info/sct"/>
+        <version value="http://snomed.info/sct/731000124108"/> <!-- SNOMED CT US Edition -->
+        <code value="452121000124102"/> 
+        <display value="Paid work in United States armed forces "/> 
+      </coding>
+      <text value="Paid work, national armed forces"/>              
+    </workClassification>
+    <supervisoryLevel>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.113883.10.20.22.4.224"/>
+        <code value="E-1"/>
+        <display value="US Military Enlisted paygrade E-1"/>
+      </coding>
+    </supervisoryLevel>
+  </pastOrPresentJob>
+  <pastOrPresentJob>
+    <!-- past job #7 -->
+    <occupation>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.314"/> 
+        <!-- <code value="4050"/> -->
+        <display value="Combined food preparation and serving workers, including fast food"/> 
+      </coding>
+      <text value="Fast food worker"/>      
+    </occupation>
+    <industry>
+      <coding> 
+        <system value="urn:oid:2.16.840.1.114222.4.5.315"/> 
+        <!-- <code value="8680"/> -->
+        <display value="Restaurants and other food services"/> 
+      </coding>
+      <text value="Fast food restaurant"/>      
+    </industry>
+    <effectivePeriod>
+      <start value="1980-04-01"/>      
+      <end value="1982-06-05"/>      
+    </effectivePeriod>
+    <employer>
+      <reference value="Organization/odh-4-example"/>         
+    </employer>
+    <workClassification>
+      <coding> 
+        <system value="http://snomed.info/sct"/>
+        <version value="http://snomed.info/sct/731000124108"/>
+        <code value="452141000124109"/> 
+        <display value="Paid work not self-employed"/> 
+      </coding>
+      <text value="Paid work, not self-employed"/>              
+    </workClassification>
+    <supervisoryLevel> <!-- no supervisory level data -->
+      <coding> 
+        <system value="urn:oid:2.16.840.1.113883.10.20.22.4.224"/> 
+      </coding>
+    </supervisoryLevel>
+  </pastOrPresentJob>  
 </OccupationalData>
+

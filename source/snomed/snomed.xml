@@ -11145,6 +11145,12 @@
     <display value="Health profession"/>
     <display value="Healthcare professional (occupation)"/>
   </concept>
+  <concept id="224363007" display="In work">
+    <display value="In work"/>
+    <display value="In employment"/>
+    <display value="Employed"/>
+    <display value="Employed (finding)"/>
+  </concept>
   <concept id="224542009" display="Coronary care nurse">
     <display value="Coronary care nurse"/>
     <display value="CCU - Coronary care nurse"/>

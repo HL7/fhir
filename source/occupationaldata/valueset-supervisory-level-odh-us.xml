@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+  <id value="supervisory-level-odh-us"/>
+  <url value="http://hl7.org/fhir/ValueSet/supervisory-level-odh-us"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.114222.4.11.7613"/>
+  </identifier>
+  <name value="Supervisory Level (ODH) (US)"/>
+  <status value="active"/>
+  <publisher value="CDC PHIN VADS"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7613"/>
+    </telecom>
+  </contact>
+  <description value="A value set consisting of all codes from the Supervisory Level code system, which reflect the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  This set of codes reflects US usage - other jurisdictions will have different needs."/>
+  <compose>
+    <include>
+      <system value="urn:oid:2.16.840.1.113883.10.20.22.4.224"/>
+    </include>
+  </compose>
+</ValueSet>
