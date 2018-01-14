@@ -1,5 +1,6 @@
 package org.hl7.fhir.r4.conformance;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -361,6 +362,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       e.clearUserData(GENERATED_IN_SNAPSHOT);
     
     // we actually delegate the work to a subroutine so we can re-enter it with a different cursors
+
     processPaths("", derived.getSnapshot(), base.getSnapshot(), derived.getDifferential(), baseCursor, diffCursor, base.getSnapshot().getElement().size()-1, 
         derived.getDifferential().hasElement() ? derived.getDifferential().getElement().size()-1 : -1, url, derived.getId(), null, null, false, base.getUrl(), null, false, null);
     if (!derived.getSnapshot().getElementFirstRep().getType().isEmpty())
@@ -797,18 +799,31 @@ public class ProfileUtilities extends TranslatingUtilities {
                           throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") and multiple types ("+typeCode(outcome.getType())+") in profile "+profileName);
                       }
                     TypeRefComponent t = outcome.getType().get(0);
-                    StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
-                    //                if (t.getCode().equals("Extension") && t.hasProfile() && !t.getProfile().contains(":")) {
-                    // lloydfix                  dt = 
-                    //                }
-                    if (dt == null)
-                      throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
-                    contextName = dt.getUrl();
-                    int start = diffCursor;
-                    while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
-                      diffCursor++;
-                    processPaths(indent+"  ", result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
-                        diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false, null);
+                    if (t.getCode().equals("BackboneElement")) {
+                      int baseStart = base.getElement().indexOf(currentBase)+1;
+                      int baseMax = baseStart + 1;
+                      while (baseMax < base.getElement().size() && base.getElement().get(baseMax).getPath().startsWith(currentBase.getPath()+"."))
+                       baseMax++;
+                      int start = diffCursor;
+                      while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
+                        diffCursor++;
+                      processPaths(indent+"  ", result, base, differential, baseStart, start-1, baseMax-1,
+                          diffCursor - 1, url, profileName+pathTail(diffMatches, 0), base.getElement().get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false, null);
+                      
+                    } else {
+                      StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
+                      //                if (t.getCode().equals("Extension") && t.hasProfile() && !t.getProfile().contains(":")) {
+                      // lloydfix                  dt = 
+                      //                }
+                      if (dt == null)
+                        throw new DefinitionException(diffMatches.get(0).getPath()+" has children ("+differential.getElement().get(diffCursor).getPath()+") for type "+typeCode(outcome.getType())+" in profile "+profileName+", but can't find type");
+                      contextName = dt.getUrl();
+                      int start = diffCursor;
+                      while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
+                        diffCursor++;
+                      processPaths(indent+"  ", result, dt.getSnapshot(), differential, 1 /* starting again on the data type, but skip the root */, start-1, dt.getSnapshot().getElement().size()-1,
+                          diffCursor - 1, url, profileName+pathTail(diffMatches, 0), diffMatches.get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false, null);
+                    }
                   } else if (outcome.getType().get(0).getCode().equals("Extension")) {
                     // Force URL to appear if we're dealing with an extension.  (This is a kludge - may need to drill down in other cases where we're slicing and the type has a profile declaration that could be setting the fixed value)
                     StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
@@ -3775,6 +3790,8 @@ public class ProfileUtilities extends TranslatingUtilities {
 
 
   public static ElementDefinitionSlicingDiscriminatorComponent interpretR2Discriminator(String discriminator, boolean isExists) {
+    if (discriminator.endsWith("@pattern"))
+      return makeDiscriminator(DiscriminatorType.PATTERN, discriminator.length() == 8 ? "" : discriminator.substring(discriminator.length()-9)); 
     if (discriminator.endsWith("@profile"))
       return makeDiscriminator(DiscriminatorType.PROFILE, discriminator.length() == 8 ? "" : discriminator.substring(discriminator.length()-9)); 
     if (discriminator.endsWith("@type")) 
