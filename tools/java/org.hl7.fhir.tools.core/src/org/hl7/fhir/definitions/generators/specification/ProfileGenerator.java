@@ -113,6 +113,7 @@ import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
@@ -242,6 +243,7 @@ public class ProfileGenerator {
     p.setType(type.getCode());
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
+    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
 
     
     ToolResourceUtilities.updateUsage(p, "core");
@@ -383,6 +385,7 @@ public class ProfileGenerator {
     p.setType("xhtml");
     p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
+    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
 
     
     ToolResourceUtilities.updateUsage(p, "core");
@@ -505,6 +508,7 @@ public class ProfileGenerator {
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
     p.setFhirVersion(version);
+    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
@@ -627,6 +631,7 @@ public class ProfileGenerator {
     }
     p.setType(t.getName());
     p.setFhirVersion(version);
+    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, t.getStandardsStatus().toDisplay());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(t.getName());
@@ -680,6 +685,7 @@ public class ProfileGenerator {
     p.setUserData("filename", pt.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+pt.getName());
     p.setFhirVersion(version);
+    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(pt.getName());
@@ -824,6 +830,7 @@ public class ProfileGenerator {
     p.setUserData("path", r.getName().toLowerCase()+".html");
     p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
+    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, r.getStatus().toDisplay());
 
     if (r.getFmmLevel() != null)
       ToolingExtensions.addIntegerExtension(p, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(r.getFmmLevel()));
@@ -916,6 +923,7 @@ public class ProfileGenerator {
     p.setUserData("path", ((usage == null || usage.isCore()) ? "" : usage.getCode()+File.separator)+id+".html");
     p.setTitle(pack.metadata("display"));
     p.setFhirVersion(version);
+    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, resource.getStatus().toDisplay());
 
     if (pack.hasMetadata("summary-"+profile.getTitle()))
       ToolingExtensions.addMarkdownExtension(p, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary", pack.metadata("summary-"+profile.getTitle()));
@@ -1910,6 +1918,7 @@ public class ProfileGenerator {
     p.setUserData("path", igd.getPrefix()+ r.getName().toLowerCase()+".html");
     p.setTitle(r.getName());
     p.setFhirVersion(version);
+    ToolingExtensions.setStringExtension(p, ToolingExtensions.EXT_BALLOT_STATUS, r.getStatus().toDisplay());
 
     ToolResourceUtilities.updateUsage(p, igd.getCode());
     p.setName(r.getRoot().getName());
