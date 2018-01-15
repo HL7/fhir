@@ -181,7 +181,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = OccupationCDCCensus2010
-  Short Name = Usual Work code
+  Short Name = Usual Work occupation
   Definition = A code that represents the type of work a person has held for the longest amount of time during his or her life.
   RIM Mapping = value
 
