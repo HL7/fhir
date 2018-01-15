@@ -726,6 +726,13 @@ public class ProfileUtilities extends TranslatingUtilities {
             int ndl = findEndOfElement(differential, ndc);
             processPaths(indent+"  ", result, base, differential, baseCursor+1, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, 0), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true, null);
 //            throw new Error("Not done yet");
+          } else if (currentBase.getType().get(0).getCode().equals("BackboneElement") && diffMatches.size() > 0 && diffMatches.get(0).hasSliceName()) {
+            // We need to copy children of the backbone element before we start messing around with slices
+            int nbl = findEndOfElement(base, baseCursor);
+            for (int i = baseCursor+1; i<=nbl; i++) {
+              outcome = updateURLs(url, base.getElement().get(i).copy());
+              result.getElement().add(outcome);
+            }
           }
 
           // now, we have two lists, base and diff. we're going to work through base, looking for matches in diff.
@@ -808,7 +815,7 @@ public class ProfileUtilities extends TranslatingUtilities {
                       while (differential.getElement().size() > diffCursor && pathStartsWith(differential.getElement().get(diffCursor).getPath(), diffMatches.get(0).getPath()+"."))
                         diffCursor++;
                       processPaths(indent+"  ", result, base, differential, baseStart, start-1, baseMax-1,
-                          diffCursor - 1, url, profileName+pathTail(diffMatches, 0), base.getElement().get(0).getPath(), outcome.getPath(), trimDifferential, contextName, resultPathBase, false, null);
+                          diffCursor - 1, url, profileName+pathTail(diffMatches, 0), base.getElement().get(0).getPath(), base.getElement().get(0).getPath(), trimDifferential, contextName, resultPathBase, false, null);
                       
                     } else {
                       StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
