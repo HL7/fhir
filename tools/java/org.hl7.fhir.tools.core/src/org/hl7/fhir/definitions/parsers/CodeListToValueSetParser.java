@@ -24,7 +24,7 @@ import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.TabDelimitedSpreadSheet;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
+import org.hl7.fhir.utilities.xls.XLSXmlParser.Sheet;
 
 public class CodeListToValueSetParser {
 

@@ -26,7 +26,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-package org.hl7.fhir.utilities;
+package org.hl7.fhir.utilities.xls;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -38,6 +38,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;

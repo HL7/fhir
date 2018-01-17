@@ -56,8 +56,9 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.TabDelimitedSpreadSheet;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.XLSXmlParser;
-import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
+import org.hl7.fhir.utilities.xls.XLSXmlNormaliser;
+import org.hl7.fhir.utilities.xls.XLSXmlParser;
+import org.hl7.fhir.utilities.xls.XLSXmlParser.Sheet;
 
 public class BindingsParser {
 
@@ -94,6 +95,7 @@ public class BindingsParser {
     //		results.add(n);
 
     xls = new XLSXmlParser(file, filename);
+    new XLSXmlNormaliser(filename).go();
     Sheet sheet = xls.getSheets().get("Bindings");
 
     tabfmt.sheet("Bindings");

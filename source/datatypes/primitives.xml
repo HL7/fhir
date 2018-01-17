@@ -1,10 +1,4 @@
-<?xml version="1.0"?>
-<?mso-application progid="Excel.Sheet"?>
-<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
- xmlns:o="urn:schemas-microsoft-com:office:office"
- xmlns:x="urn:schemas-microsoft-com:office:excel"
- xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
- xmlns:html="http://www.w3.org/TR/REC-html40">
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
@@ -16,10 +10,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12795</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
-  <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  
+  
+  
+  
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -28,7 +22,7 @@
   <Style ss:ID="Default" ss:Name="Normal">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -39,21 +33,21 @@
   <Style ss:ID="s65">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
   </Style>
   <Style ss:ID="s66">
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
   </Style>
   <Style ss:ID="s67">
    <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
+   <Font ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -66,22 +60,21 @@
   </Style>
   <Style ss:ID="s71">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Imports">
   <Names>
    <NamedRange ss:Name="boolean" ss:RefersTo="=Imports!R2C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="11" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="66.75"/>
-   <Column ss:AutoFitWidth="0" ss:Width="177"/>
-   <Column ss:AutoFitWidth="0" ss:Width="362.25"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="117" ss:Span="1"/>
-   <Column ss:Index="6" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="181.5"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="183.75"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Span="1"/>
+  <Table ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="11" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:Width="67.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="177.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="362.0"/>
+   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s62" ss:Width="117.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s62" ss:Width="181.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="184.0"/>
+   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s62"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Data Type</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
@@ -94,7 +87,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">boolean</Data><NamedCell ss:Name="boolean"/></Cell>
-    <Cell><Data ss:Type="String">Value of &quot;true&quot; or &quot;false&quot;</Data></Cell>
+    <Cell><Data ss:Type="String">Value of "true" or "false"</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">boolean</Data></Cell>
     <Cell><Data ss:Type="String">boolean</Data></Cell>
     <Cell><Data ss:Type="String"> true|false</Data></Cell>
@@ -161,11 +154,9 @@
     <Cell ss:Index="8"><Data ss:Type="String">URL</Data></Cell>
     <Cell><Data ss:Type="String">n/a</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="59.25" ss:StyleID="s62">
+   <Row ss:AutoFitHeight="0" ss:Height="59" ss:StyleID="s62">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s66"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font
-        html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s66"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</Data></Cell>
@@ -173,18 +164,16 @@
     <Cell><Data ss:Type="String">TS</Data></Cell>
     <Cell><Data ss:Type="String">DT</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="109.5" ss:StyleID="s62">
+   <Row ss:AutoFitHeight="0" ss:Height="110" ss:StyleID="s62">
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s67"><ss:Data ss:Type="String"
-      xmlns="http://www.w3.org/TR/REC-html40">       <Font html:Color="#000000">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.  </Font><Font>       </Font><B>        <Font
-        html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s67"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String">       <Font html:Color="#000000">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.  </Font><Font>       </Font><B>        <Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date, xs:dateTime</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">TS</Data></Cell>
     <Cell><Data ss:Type="String">DTM</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="100.5" ss:StyleID="s68">
+   <Row ss:AutoFitHeight="0" ss:Height="101" ss:StyleID="s68">
     <Cell><Data ss:Type="String">time</Data></Cell>
     <Cell><Data ss:Type="String">A time during the day, with no date specified </Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s69"><Data ss:Type="String">time</Data></Cell>
@@ -212,8 +201,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     
+     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -229,13 +218,12 @@
    <NamedRange ss:Name="oid" ss:RefersTo="=Patterns!R3C1"/>
    <NamedRange ss:Name="uuid" ss:RefersTo="=Patterns!R4C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="8" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s71" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="74.25"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="233.25"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="142.5" ss:Span="3"/>
-   <Column ss:Index="7" ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="199.5"/>
-   <Column ss:StyleID="s71" ss:AutoFitWidth="0" ss:Width="108"/>
+  <Table ss:DefaultRowHeight="15" ss:ExpandedColumnCount="8" ss:ExpandedRowCount="8" ss:StyleID="s71" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s71" ss:Width="74.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s71" ss:Width="233.0"/>
+   <Column ss:AutoFitWidth="0" ss:Span="3" ss:StyleID="s71" ss:Width="142.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="7" ss:StyleID="s71" ss:Width="199.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s71" ss:Width="108.0"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Data Type</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
@@ -254,7 +242,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">[^\s]+(\s[^\s]+)*</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14.25">
+   <Row ss:AutoFitHeight="0" ss:Height="14">
     <Cell><Data ss:Type="String">oid</Data><NamedCell ss:Name="oid"/></Cell>
     <Cell><Data ss:Type="String">An OID represented as a URI</Data></Cell>
     <Cell><Data ss:Type="String">RFC 3001. See also ISO/IEC 8824:1990 €</Data></Cell>
@@ -263,7 +251,7 @@
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">urn:oid:(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))*</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="47.25">
+   <Row ss:AutoFitHeight="0" ss:Height="47">
     <Cell><Data ss:Type="String">uuid</Data><NamedCell ss:Name="uuid"/></Cell>
     <Cell><Data ss:Type="String">A UUID, represented as a URI</Data></Cell>
     <Cell><Data ss:Type="String">See The Open Group, CDE 1.1 Remote Procedure Call specification, Appendix A.</Data></Cell>
@@ -274,7 +262,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">id</Data><NamedCell ss:Name="id"/></Cell>
-    <Cell><Data ss:Type="String">Any combination of letters, numerals, &quot;-&quot; and &quot;.&quot;, with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.</Data></Cell>
+    <Cell><Data ss:Type="String">Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.</Data></Cell>
     <Cell><Data ss:Type="String">RFC 4122</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">xs:string+</Data></Cell>
@@ -323,12 +311,12 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     
+     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
-</Workbook>
+<!--canonicalized--></Workbook>

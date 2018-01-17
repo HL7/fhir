@@ -131,9 +131,10 @@ import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.utilities.XLSXmlParser;
-import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
+import org.hl7.fhir.utilities.xls.XLSXmlNormaliser;
+import org.hl7.fhir.utilities.xls.XLSXmlParser;
+import org.hl7.fhir.utilities.xls.XLSXmlParser.Sheet;
 
 import com.trilead.ssh2.crypto.Base64;
 
@@ -174,10 +175,11 @@ public class SpreadsheetParser {
   private ResourceDefn template;
   private String templateTitle;
 
-	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
+	public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, Definitions definitions, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
 	  this.usageContext = usageContext;
 		this.name = name;
-  	xls = new XLSXmlParser(in, name);
+  	xls = new XLSXmlParser(in, filename);
+    new XLSXmlNormaliser(filename).go();
 		this.definitions = definitions;
 		this.workgroups = definitions.getWorkgroups();
 		this.mappings = definitions.getMapTypes();
@@ -207,11 +209,12 @@ public class SpreadsheetParser {
 		this.maps = maps;
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, ImplementationGuideDefn ig, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, WorkGroup committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps, Map<String, WorkGroup> workgroups) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     this.registry = registry;
-    xls = new XLSXmlParser(in, name);
+    xls = new XLSXmlParser(in, filename);
+    new XLSXmlNormaliser(filename).go();
     this.definitions = null;
     this.workgroups = workgroups;
     this.mappings = mappings;
