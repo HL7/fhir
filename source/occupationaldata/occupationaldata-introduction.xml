@@ -7,32 +7,33 @@
             appropriate Workgroups. </strong>
         <p> The OccupationalData (i.e. Occupational Data for Health, ODH) FHIR resource covers information about a
             patient’s work or a patient's family member's work. ODH is designed for the social
-            history section of a medical record, to facilitate clinical care in most/all disciplines
+            history section of a medical record, to facilitate clinical care in most, if not all disciplines
             and delivery environments. ODH also can be used to support public health reporting,
             population health activities, clinical decision support, and similar value-based care.
             ODH is not designed to support billing activities. The scope of the work information
             includes: </p>
         <ul>
             <li>Subject (patient or related person)</li>
-            <li>Employment status</li>
-            <li>Retirement date(s)</li>
+            <li>Employment Status</li>
+            <li>Retirement Date(s)</li>
             <li>Combat Zone Work</li>
-            <li>Usual Occupation, which includes:<ul>
-                    <li>Usual Industry</li>
+            <li>Usual Work, which includes:<ul>
                     <li>Usual Occupation</li>
+                    <li>Usual Industry</li>
                     <li>Start Date</li>
                     <li>Duration</li>
                 </ul></li>
-            <li>Past or Present Occupation, which includes:<ul>
+            <li>Past or Present Job, which includes:<ul>
+                    <li>Past or Present Occupation</li>
                     <li>Past or Present Industry</li>
-                    <li>Employment Type</li>
-                    <li>Work Schedule, including:<ul>
+                    <li>Work Classification</li>
+                    <li>Work Schedule, with:<ul>
                             <li>Weekly Work Days</li>
                             <li>Daily Work Hours</li>
                         </ul></li>
                     <li>Job Duties</li>
                     <li>Occupational Hazards</li>
-                    <li>Employer details (e.g., name, address)</li>
+                    <li>Employer Details (e.g., name, address)</li>
                 </ul></li>
         </ul>
         <p> This resource is expected to be implemented by clinical systems of all settings. Since a
@@ -83,8 +84,8 @@
             Therefore health and work are inextricably inter-related. For example, the management of
             chronic conditions requires taking the patient’s work environment into consideration.
             Furthermore, the recognition of new conditions related to previously unknown workplace
-            hazards has often come from astute clinicians, which requires knowledge of the patients’
-            work-setting. ONC has indicated recognition of the value of work information for health
+            hazards has often come from astute clinicians, which requires knowledge of the patient's
+            work setting. ONC has indicated recognition of the value of work information for health
             care.</p>
     </div>
     <!-- -->

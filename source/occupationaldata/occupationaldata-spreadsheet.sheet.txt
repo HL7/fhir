@@ -171,7 +171,7 @@
   Element = OccupationalData.usualWork
   Card. = 0..1
   Summary = y
-  Short Name = OccupationalData.pastOrPresentJob.occupation
+  Short Name = Usual Work
   Definition = The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time.
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=\"Risk Assessment\"]
 
@@ -264,7 +264,7 @@
   Summary = y
   Type = CodeableConcept
   Binding = WorkClassification
-  Short Name = Past Or Present Job employment type
+  Short Name = Past Or Present Job work classification
   Definition = The classification of a person\'s job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).
 
  -- Row 23 -----------------------------------
@@ -281,15 +281,15 @@
   Card. = 0..*
   Summary = y
   Type = string
-  Short Name = Past Or Present Job job duties
-  Definition = The regular actions performed at a single job.
+  Short Name = Past Or Present Job job duty
+  Definition = A regular action performed at a single job.
 
  -- Row 25 -----------------------------------
   Element = OccupationalData.pastOrPresentJob.occupationalHazard
   Card. = 0..*
   Summary = y
   Type = string
-  Short Name = Past Or Present Job occupational hazards
+  Short Name = Past Or Present Job occupational hazard
   Definition = A hazard that is specific to a person\'s work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual\'s physical or mental health (e.g., biological, chemical, physical, psychological, radiological).
 
  -- Row 26 -----------------------------------
