@@ -36,8 +36,6 @@ import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
   
 */
 
-// Generated on Mon, Apr 24, 2017 09:30+1000 for FHIR v3.1.0
-
 
 public class VersionConvertor_30_40 {
 
@@ -12409,6 +12407,142 @@ public class VersionConvertor_30_40 {
       tgt.setDuring(convertPeriod(src.getDuring()));
     return tgt;
   }
+  
+  public static org.hl7.fhir.r4.model.Immunization convertImmunization(org.hl7.fhir.dstu3.model.Immunization src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.r4.model.Immunization tgt = new org.hl7.fhir.r4.model.Immunization();
+    copyDomainResource(src, tgt);
+    for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
+      tgt.addIdentifier(convertIdentifier(t));
+    if (src.hasStatus())
+      tgt.setStatus(convertImmunizationStatus(src.getStatus()));
+    if (src.hasVaccineCode())
+      tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
+    if (src.hasPatient())
+      tgt.setPatient(convertReference(src.getPatient()));
+    if (src.hasEncounter())
+      tgt.setEncounter(convertReference(src.getEncounter()));
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPrimarySource())
+      tgt.setPrimarySource(src.getPrimarySource());
+    if (src.hasReportOrigin())
+      tgt.setReportOrigin(convertCodeableConcept(src.getReportOrigin()));
+    if (src.hasLocation())
+      tgt.setLocation(convertReference(src.getLocation()));
+    if (src.hasManufacturer())
+      tgt.setManufacturer(convertReference(src.getManufacturer()));
+    if (src.hasLotNumber())
+      tgt.setLotNumber(src.getLotNumber());
+    if (src.hasExpirationDate())
+      tgt.setExpirationDate(src.getExpirationDate());
+    if (src.hasSite())
+      tgt.setSite(convertCodeableConcept(src.getSite()));
+    if (src.hasRoute())
+      tgt.setRoute(convertCodeableConcept(src.getRoute()));
+    if (src.hasDoseQuantity())
+      tgt.setDoseQuantity(convertSimpleQuantity(src.getDoseQuantity()));
+    for (org.hl7.fhir.dstu3.model.Immunization.ImmunizationPractitionerComponent t : src.getPractitioner())
+      tgt.addPractitioner(convertImmunizationPractitionerComponent(t));
+    for (org.hl7.fhir.dstu3.model.Annotation t : src.getNote())
+      tgt.addNote(convertAnnotation(t));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getExplanation().getReason())
+      tgt.addReason(convertCodeableConcept(t));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getExplanation().getReasonNotGiven())
+      tgt.addReason(convertCodeableConcept(t));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.Immunization convertImmunization(org.hl7.fhir.r4.model.Immunization src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu3.model.Immunization tgt = new org.hl7.fhir.dstu3.model.Immunization();
+    copyDomainResource(src, tgt);
+    for (org.hl7.fhir.r4.model.Identifier t : src.getIdentifier())
+      tgt.addIdentifier(convertIdentifier(t));
+    if (src.hasStatus())
+      tgt.setStatus(convertImmunizationStatus(src.getStatus()));
+    if (src.hasVaccineCode())
+      tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
+    if (src.hasPatient())
+      tgt.setPatient(convertReference(src.getPatient()));
+    if (src.hasEncounter())
+      tgt.setEncounter(convertReference(src.getEncounter()));
+    if (src.hasDate())
+      tgt.setDate(src.getDate());
+    if (src.hasPrimarySource())
+      tgt.setPrimarySource(src.getPrimarySource());
+    if (src.hasReportOrigin())
+      tgt.setReportOrigin(convertCodeableConcept(src.getReportOrigin()));
+    if (src.hasLocation())
+      tgt.setLocation(convertReference(src.getLocation()));
+    if (src.hasManufacturer())
+      tgt.setManufacturer(convertReference(src.getManufacturer()));
+    if (src.hasLotNumber())
+      tgt.setLotNumber(src.getLotNumber());
+    if (src.hasExpirationDate())
+      tgt.setExpirationDate(src.getExpirationDate());
+    if (src.hasSite())
+      tgt.setSite(convertCodeableConcept(src.getSite()));
+    if (src.hasRoute())
+      tgt.setRoute(convertCodeableConcept(src.getRoute()));
+    if (src.hasDoseQuantity())
+      tgt.setDoseQuantity(convertSimpleQuantity(src.getDoseQuantity()));
+    for (org.hl7.fhir.r4.model.Immunization.ImmunizationPractitionerComponent t : src.getPractitioner())
+      tgt.addPractitioner(convertImmunizationPractitionerComponent(t));
+    for (org.hl7.fhir.r4.model.Annotation t : src.getNote())
+      tgt.addNote(convertAnnotation(t));
+    for (org.hl7.fhir.r4.model.CodeableConcept t : src.getReason())
+      tgt.getExplanation().addReason(convertCodeableConcept(t));
+    return tgt;
+  }
+
+  private static org.hl7.fhir.r4.model.Immunization.ImmunizationStatus convertImmunizationStatus(org.hl7.fhir.dstu3.model.Immunization.ImmunizationStatus src) throws FHIRException {
+    if (src == null)
+      return null;
+    switch (src) {
+    case COMPLETED: return org.hl7.fhir.r4.model.Immunization.ImmunizationStatus.COMPLETED;
+    case ENTEREDINERROR: return org.hl7.fhir.r4.model.Immunization.ImmunizationStatus.ENTEREDINERROR;
+    default: return org.hl7.fhir.r4.model.Immunization.ImmunizationStatus.NULL;
+  }
+}
+
+  private static org.hl7.fhir.dstu3.model.Immunization.ImmunizationStatus convertImmunizationStatus(org.hl7.fhir.r4.model.Immunization.ImmunizationStatus src) throws FHIRException {
+    if (src == null)
+      return null;
+    switch (src) {
+    case COMPLETED: return org.hl7.fhir.dstu3.model.Immunization.ImmunizationStatus.COMPLETED;
+    case ENTEREDINERROR: return org.hl7.fhir.dstu3.model.Immunization.ImmunizationStatus.ENTEREDINERROR;
+    default: return org.hl7.fhir.dstu3.model.Immunization.ImmunizationStatus.NULL;
+  }
+}
+
+  public static org.hl7.fhir.r4.model.Immunization.ImmunizationPractitionerComponent convertImmunizationPractitionerComponent(org.hl7.fhir.dstu3.model.Immunization.ImmunizationPractitionerComponent src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.r4.model.Immunization.ImmunizationPractitionerComponent tgt = new org.hl7.fhir.r4.model.Immunization.ImmunizationPractitionerComponent();
+    copyElement(src, tgt);
+    if (src.hasRole())
+      tgt.setRole(convertCodeableConcept(src.getRole()));
+    if (src.hasActor())
+      tgt.setActor(convertReference(src.getActor()));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.Immunization.ImmunizationPractitionerComponent convertImmunizationPractitionerComponent(org.hl7.fhir.r4.model.Immunization.ImmunizationPractitionerComponent src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.dstu3.model.Immunization.ImmunizationPractitionerComponent tgt = new org.hl7.fhir.dstu3.model.Immunization.ImmunizationPractitionerComponent();
+    copyElement(src, tgt);
+    if (src.hasRole())
+      tgt.setRole(convertCodeableConcept(src.getRole()));
+    if (src.hasActor())
+      tgt.setActor(convertReference(src.getActor()));
+    return tgt;
+  }
+
+  
 
   public static org.hl7.fhir.r4.model.ImplementationGuide convertImplementationGuide(org.hl7.fhir.dstu3.model.ImplementationGuide src) throws FHIRException {
     if (src == null)
@@ -21963,6 +22097,8 @@ public class VersionConvertor_30_40 {
       return convertGroup((org.hl7.fhir.dstu3.model.Group) src);
     if (src instanceof org.hl7.fhir.dstu3.model.HealthcareService)
       return convertHealthcareService((org.hl7.fhir.dstu3.model.HealthcareService) src);
+    if (src instanceof org.hl7.fhir.dstu3.model.Immunization)
+      return convertImmunization((org.hl7.fhir.dstu3.model.Immunization) src);
     if (src instanceof org.hl7.fhir.dstu3.model.ImplementationGuide)
       return convertImplementationGuide((org.hl7.fhir.dstu3.model.ImplementationGuide) src);
     if (src instanceof org.hl7.fhir.dstu3.model.Linkage)
@@ -22135,6 +22271,8 @@ public class VersionConvertor_30_40 {
       return convertGroup((org.hl7.fhir.r4.model.Group) src);
     if (src instanceof org.hl7.fhir.r4.model.HealthcareService)
       return convertHealthcareService((org.hl7.fhir.r4.model.HealthcareService) src);
+    if (src instanceof org.hl7.fhir.r4.model.Immunization)
+      return convertImmunization((org.hl7.fhir.r4.model.Immunization) src);
     if (src instanceof org.hl7.fhir.r4.model.ImplementationGuide)
       return convertImplementationGuide((org.hl7.fhir.r4.model.ImplementationGuide) src);
     if (src instanceof org.hl7.fhir.r4.model.Linkage)
