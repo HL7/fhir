@@ -1353,8 +1353,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           throw new Exception("Missing source reference on "+res.getName());
         if (!bndIds.contains(res.getSourceReference().getReference())) {
           FetchedFile f = fetcher.fetch(res.getSource(), igf);
-          needToBuild = noteFile(res, f) || needToBuild;
-          determineType(f);
+          boolean rchanged = noteFile(res, f);
+          needToBuild = rchanged || needToBuild;
+          if (rchanged) 
+            loadAsElementModel(f, f.addResource());
           if (res.hasExampleFor() && res.getExampleFor().hasReference()) {
             if (f.getResources().size()!=1)
               throw new Exception("Can't have an exampleFor unless the file has exactly one resource");
@@ -1512,14 +1514,21 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     FetchedFile f = fetcher.fetch(new Reference().setReference("Bundle/"+be.getAsString()), igf);
     boolean changed = noteFile("Bundle/"+be.getAsString(), f);
     if (changed) {
-      f.setBundle((Bundle) parse(f));
-      for (BundleEntryComponent b : f.getBundle().getEntry()) {
+      f.setBundle(new FetchedResource());
+      loadAsElementModel(f, f.getBundle());
+      List<Element> entries = new ArrayList<Element>();
+      f.getBundle().getElement().getNamedChildren("entry", entries);
+      for (Element bnde : entries) {
+        Element res = bnde.getNamedChild("resource"); 
         FetchedResource r = f.addResource();
-        r.setResource(b.getResource());
-        r.setId(b.getResource().getId());
-        r.setElement(convertToElement(r.getResource()));
-        for (UriType p : b.getResource().getMeta().getProfile())
-          r.getProfiles().add(p.asStringValue());
+        r.setElement(res);
+        r.setId(res.getIdBase());
+        List<Element> profiles = new ArrayList<Element>();
+        Element meta = res.getNamedChild("meta");
+        if (meta != null)
+          meta.getNamedChildren("profile", profiles);
+        for (Element p : profiles)
+          r.getProfiles().add(p.primitiveValue());
         r.setTitle(r.getElement().getChildValue("name"));
         igpkp.findConfiguration(f, r);
       }
@@ -1547,7 +1556,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     dlog(LogCategory.PROGRESS, "load "+f.getPath());
     boolean changed = noteFile(f.getPath(), f);
     if (changed) {
-      determineType(f);
+      loadAsElementModel(f, f.addResource());
     }
     ImplementationGuidePackageComponent pck = publishedIg.getPackageFirstRep();
     for (FetchedResource r : f.getResources()) {
@@ -1578,8 +1587,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (changed) {
       f.getValuesetsToLoad().clear();
       dlog(LogCategory.PROGRESS, "load "+f.getPath());
-      f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details"), knownValueSetIds).parse(f));
-      for (BundleEntryComponent b : f.getBundle().getEntry()) {
+      Bundle bnd = new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details"), knownValueSetIds).parse(f);
+      f.setBundle(new FetchedResource());
+      f.getBundle().setResource(bnd);
+      for (BundleEntryComponent b : bnd.getEntry()) {
         FetchedResource r = f.addResource();
         r.setResource(b.getResource());
         r.setId(b.getResource().getId());
@@ -1597,7 +1608,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         FetchedFile fv = fetcher.fetchFlexible(vr);
         boolean vrchanged = noteFile("sp-ValueSet/"+vr, fv);
         if (vrchanged) {
-          determineType(fv);
+          loadAsElementModel(fv, fv.addResource());
           checkImplicitResourceIdentity(id, fv);
         }
         knownValueSetIds.add(id);
@@ -1609,7 +1620,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             fv = fetcher.fetchFlexible(cr);
             crchanged = noteFile("sp-CodeSystem/"+vr, fv);
             if (crchanged) {
-              determineType(fv);
+              loadAsElementModel(fv, fv.addResource());
               checkImplicitResourceIdentity(id, fv);
             }
           }
@@ -1783,88 +1794,84 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 //  	}
   }
 
-  private void determineType(FetchedFile file) throws Exception {
-    if (file.getResources().isEmpty()) {
-      file.getErrors().clear();
-      Element e = null;
-      FetchedResource r = null;
+  private void loadAsElementModel(FetchedFile file, FetchedResource r) throws Exception {
+    file.getErrors().clear();
+    Element e = null;
 
-      r = file.addResource();
-      try {        
-        if (file.getContentType().contains("json"))
-          e = loadFromJson(file);
-        else if (file.getContentType().contains("xml"))
-          e = loadFromXml(file);
-        else
-          throw new Exception("Unable to determine file type for "+file.getName());
-      } catch (Exception ex) {
-        throw new Exception("Unable to parse "+file.getName()+": " +ex.getMessage(), ex);
-      }
-      try {
-        boolean altered = false;
+    try {        
+      if (file.getContentType().contains("json"))
+        e = loadFromJson(file);
+      else if (file.getContentType().contains("xml"))
+        e = loadFromXml(file);
+      else
+        throw new Exception("Unable to determine file type for "+file.getName());
+    } catch (Exception ex) {
+      throw new Exception("Unable to parse "+file.getName()+": " +ex.getMessage(), ex);
+    }
+    try {
+      boolean altered = false;
 
-        String id = e.getChildValue("id");
-        if (Utilities.noString(id)) {
-          if (e.hasChild("url")) {
-            String url = e.getChildValue("url");
-            String prefix = Utilities.pathURL(igpkp.getCanonical(), e.fhirType())+"/";
-            if (url.startsWith(prefix)) {
-              id = e.getChildValue("url").substring(prefix.length());
-              e.setChildValue("id", id);
-              altered = true;
-            } 
-            if (Utilities.noString(id)) {
-              throw new Exception("Resource has no id in "+file.getPath());
-            }
+      String id = e.getChildValue("id");
+      if (Utilities.noString(id)) {
+        if (e.hasChild("url")) {
+          String url = e.getChildValue("url");
+          String prefix = Utilities.pathURL(igpkp.getCanonical(), e.fhirType())+"/";
+          if (url.startsWith(prefix)) {
+            id = e.getChildValue("url").substring(prefix.length());
+            e.setChildValue("id", id);
+            altered = true;
+          } 
+          if (Utilities.noString(id)) {
+            throw new Exception("Resource has no id in "+file.getPath());
           }
         }
-        r.setElement(e).setId(id);
-        igpkp.findConfiguration(file, r);
-        
-        String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
-        if (ver == null)
-          ver = version; // fall back to global version
-        
-        // version check: for some conformance resources, they may be saved in a different vrsion from that stated for the IG. 
-        // so we might need to convert them prior to loading. Note that this is different to the conversion below - we need to 
-        // convert to the current version. Here, we need to convert to the stated version. Note that we need to do this after
-        // the first load above because above, we didn't have enough data to get the configuration, but we do now. 
-        if (!ver.equals(version)) {
-//          System.out.println("Need to do version conversion on "+r.getElement().fhirType()+" from "+ver+" to "+version);
-          if (file.getContentType().contains("json"))
-            e = loadFromJsonWithVersionChange(file, ver, version);
-          else if (file.getContentType().contains("xml"))
-            e = loadFromXmlWithVersionChange(file, ver, version);
-          else
-            throw new Exception("Unable to determine file type for "+file.getName());
-          r.setElement(e);
-        }
-        
-        r.setTitle(e.getChildValue("name"));
-        Element m = e.getNamedChild("meta");
-        if (m != null) {
-          List<Element> profiles = m.getChildrenByName("profile");
-          for (Element p : profiles)
-            r.getProfiles().add(p.getValue());
-        }
-        if ("1.0.1".equals(ver)) {
-          file.getErrors().clear();
-          org.hl7.fhir.dstu2.model.Resource res2 = null;
-          if (file.getContentType().contains("json"))
-            res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
-          else if (file.getContentType().contains("xml"))
-            res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
-          org.hl7.fhir.r4.model.Resource res = new VersionConvertor_10_40(null).convertResource(res2);
-          e = convertToElement(res);
-          r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
-          r.setResource(res);
-        }
-        if (altered || (ver.equals(Constants.VERSION) && r.getResource() == null))
-          r.setResource(new ObjectConverter(context).convert(r.getElement()));
-        
-      } catch ( Exception ex ) {
-        throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
       }
+      r.setElement(e).setId(id);
+      igpkp.findConfiguration(file, r);
+
+      String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
+      if (ver == null)
+        ver = version; // fall back to global version
+
+      // version check: for some conformance resources, they may be saved in a different vrsion from that stated for the IG. 
+      // so we might need to convert them prior to loading. Note that this is different to the conversion below - we need to 
+      // convert to the current version. Here, we need to convert to the stated version. Note that we need to do this after
+      // the first load above because above, we didn't have enough data to get the configuration, but we do now. 
+      if (!ver.equals(version)) {
+        //          System.out.println("Need to do version conversion on "+r.getElement().fhirType()+" from "+ver+" to "+version);
+        if (file.getContentType().contains("json"))
+          e = loadFromJsonWithVersionChange(file, ver, version);
+        else if (file.getContentType().contains("xml"))
+          e = loadFromXmlWithVersionChange(file, ver, version);
+        else
+          throw new Exception("Unable to determine file type for "+file.getName());
+        r.setElement(e);
+      }
+
+      r.setTitle(e.getChildValue("name"));
+      Element m = e.getNamedChild("meta");
+      if (m != null) {
+        List<Element> profiles = m.getChildrenByName("profile");
+        for (Element p : profiles)
+          r.getProfiles().add(p.getValue());
+      }
+      if ("1.0.1".equals(ver)) {
+        file.getErrors().clear();
+        org.hl7.fhir.dstu2.model.Resource res2 = null;
+        if (file.getContentType().contains("json"))
+          res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
+        else if (file.getContentType().contains("xml"))
+          res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
+        org.hl7.fhir.r4.model.Resource res = new VersionConvertor_10_40(null).convertResource(res2);
+        e = convertToElement(res);
+        r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
+        r.setResource(res);
+      }
+      if (altered || (ver.equals(Constants.VERSION) && r.getResource() == null))
+        r.setResource(new ObjectConverter(context).convert(r.getElement()));
+
+    } catch ( Exception ex ) {
+      throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
     }
   }
 

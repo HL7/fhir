@@ -30,7 +30,7 @@ public class FetchedFile {
   private List<FetchedFile> dependencies;
   private List<FetchedResource> resources = new ArrayList<FetchedResource>();
   private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-  private Bundle bundle;
+  private FetchedResource bundle;
   private Map<String, String> valuesetsToLoad = new HashMap<String, String>();
   private boolean folder;
   private List<String> files; // if it's a folder
@@ -111,10 +111,10 @@ public class FetchedFile {
   public List<ValidationMessage> getErrors() {
     return errors;
   }
-  public Bundle getBundle() {
+  public FetchedResource getBundle() {
     return bundle;
   }
-  public void setBundle(Bundle bundle) {
+  public void setBundle(FetchedResource bundle) {
     this.bundle = bundle;
   }
   public Map<String, String> getValuesetsToLoad() {
