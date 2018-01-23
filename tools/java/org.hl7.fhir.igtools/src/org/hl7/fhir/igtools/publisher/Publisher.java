@@ -2421,7 +2421,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generateExpansions();
     generateValidationPack(df.getCanonicalPath());
     // Create an IG-specific named igpack to make is easy to grab the igpacks for multiple igs without the names colliding (Talk to Lloyd before removing this)
-    FileUtils.copyFile(new File(Utilities.path(outputDir, "validator.pack")),new File(Utilities.path(outputDir, sourceIg.getId() + "_validator.pack")));
+    FileUtils.copyFile(new File(Utilities.path(outputDir, "validator.pack")),new File(Utilities.path(outputDir, "validator-" + sourceIg.getId() + ".pack")));
     generateCsvZip();
     generateExcelZip();
     generateRegistryUploadZip(df.getCanonicalPath());
