@@ -16,7 +16,14 @@ in order to support consistent definitions for schema and UML derived code.
     [%file newnavbar%]
 
     <div class="col-12">
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+        <table class="colstu">
+            <tr>
+                <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
+                <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td>
+                <td id="ballot"><a href="versions.html#levels">Ballot Status</a>:
+                    <!--!ns!--><a href="versions.html#std-process">Trial Use</a></td>
+            </tr>
+        </table>
 
         <!-- Tabs for navigation -->
         <ul class="nav nav-tabs">
@@ -32,9 +39,9 @@ in order to support consistent definitions for schema and UML derived code.
         <h2>Workflow Execution and Communication Patterns</h2>
 
         <p>
-            As described in previous sections, many FHIR resources can be used within workflows without using FHIR to manage the execution of the workflows. When we want to manage workflow execution with FHIR, there are several mechanisms available. In addition
-            to managing workflow with FHIR, there are also cases where management of workflow execution is not necessary, and supporting workflow becomes simply the use of the <a href="workflow.html#respatterns">resource patterns</a> in an
-            ad-hoc fashion. In deciding how best to interoperate around workflow with FHIR, there are several considerations:
+            As described in previous sections, many FHIR resources can be used within workflows without using FHIR to manage the execution of the workflows. When we want to manage workflow execution with FHIR, there are several mechanisms available. In addition to
+            managing workflow with FHIR, there are also cases where management of workflow execution is not necessary, and supporting workflow becomes simply the use of the <a href="workflow.html#respatterns">resource patterns</a> in an ad-hoc
+            fashion. In deciding how best to interoperate around workflow with FHIR, there are several considerations:
         </p>
         <ul>
             <li>Is sharing of the state of the workflow necessary among the participants?</li>
@@ -83,7 +90,7 @@ in order to support consistent definitions for schema and UML derived code.
 
         <h3>Workflow State</h3>
         <p>
-            One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the workflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a> resource. The <a href="task.html#statemachine">Task state machine</a>, which is also presented here, shows the use of <a href="task-definitions.html#Task.status">Task.status</a> to represent the general infrastructure state of the Task resource.
+            One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the workflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a>            resource. The <a href="task.html#statemachine">Task state machine</a>, which is also presented here, shows the use of <a href="task-definitions.html#Task.status">Task.status</a> to represent the general infrastructure state of the Task resource.
         </p>
 
         <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource" />
@@ -111,7 +118,7 @@ in order to support consistent definitions for schema and UML derived code.
                     <a href="task-definitions.html#Task.businessStatus">Task.businessStatus</a>
                 </th>
 
-<!--
+                <!--
                <th>
                     <a href="task-operations.html">Task operation</a>
                 </th>
@@ -119,8 +126,8 @@ in order to support consistent definitions for schema and UML derived code.
             </tr>
             <tr>
                 <td>
-                    Provider orders a blood test for a patient. A <a href="servicerequest.html">ServiceRequest</a> resource is created to represent the order, and a <a href="task.html">Task</a> resource is created to represent the request to the
-                    lab. <a href="task-definitions.html#Task.basedOn">Task.basedOn</a> points to the ServiceRequest instance.
+                    Provider orders a blood test for a patient. A <a href="servicerequest.html">ServiceRequest</a> resource is created to represent the order, and a <a href="task.html">Task</a> resource is created to represent the request to the lab.
+                    <a href="task-definitions.html#Task.basedOn">Task.basedOn</a> points to the ServiceRequest instance.
                 </td>
                 <td>
                     Requested
@@ -131,9 +138,11 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Ordered
                 </td>
+                <!--
                 <td>
                     N/A
                 </td>
+-->
             </tr>
             <tr>
                 <td>
@@ -148,9 +157,11 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Accepted
                 </td>
+                <!--
                 <td>
                     N/A
                 </td>
+-->
             </tr>
             <tr>
                 <td>
@@ -165,7 +176,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Specimen available
                 </td>
-<!--
+                <!--
                 <td>
                     <a href="task-operations.html#start">Start Task</a>
                 </td>
@@ -184,7 +195,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Preliminary results
                 </td>
-<!--
+                <!--
                 <td>
                     <a href="task-operations.html#set-output">Set Task Output</a>
                 </td>
@@ -203,7 +214,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Final results
                 </td>
-<!--
+                <!--
                 <td>
                     <a href="task-operations.html#finish">Finish Task</a>
                 </td>
@@ -227,14 +238,14 @@ in order to support consistent definitions for schema and UML derived code.
                 <th>
                     <a href="task-definitions.html#Task.businessStatus">Task.businessStatus</a>
                 </th>
-<!--
+                <!--
                 <th>
                     <a href="task-operations.html">Task operation</a>
                 </th>
 -->
             </tr>
             <tr>
-                <td>Provider A is seeing a patient with a specific complaint. Based on the exam, Provider A refers the patient to a specialist at clinic B. It is an urgent referral, requesting to see the specialist within 4 days. A <a href="servicerequest.html">ServiceRequest</a> resource is created to represent the referral order, and a <a href="task.html">Task</a> resource is created with <a href="task-definitions.html#Task.priority">Task.priority</a> set to Urgent, and <a href="task-definitions.html#Task.restriction.period">Task.restriction.period.end</a> set to 4 days in the future.
+                <td>Provider A is seeing a patient with a specific complaint. Based on the exam, Provider A refers the patient to a specialist at clinic B. It is an urgent referral, requesting to see the specialist within 4 days. A <a href="servicerequest.html">ServiceRequest</a>                    resource is created to represent the referral order, and a <a href="task.html">Task</a> resource is created with <a href="task-definitions.html#Task.priority">Task.priority</a> set to Urgent, and <a href="task-definitions.html#Task.restriction.period">Task.restriction.period.end</a>                    set to 4 days in the future.
                 </td>
                 <td>
                     Requested
@@ -245,9 +256,11 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Referred
                 </td>
+                <!--
                 <td>
                     N/A
                 </td>
+-->
             </tr>
             <tr>
                 <td>
@@ -262,9 +275,11 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Pending
                 </td>
+                <!--
                 <td>
                     N/A
                 </td>
+-->
             </tr>
             <tr>
                 <td>
@@ -279,9 +294,11 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Declined
                 </td>
+                <!--
                 <td>
                     N/A
                 </td>
+-->
             </tr>
             <tr>
                 <td>
@@ -296,9 +313,11 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Referred
                 </td>
+                <!--
                 <td>
                     N/A
                 </td>
+-->
             </tr>
             <tr>
                 <td>
@@ -313,9 +332,11 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Accepted
                 </td>
+                <!--
                 <td>
                     N/A
                 </td>
+-->
             </tr>
             <tr>
                 <td>
@@ -330,7 +351,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Scheduled
                 </td>
-<!--
+                <!--
                 <td>
                     <a href="task-operations.html#start">Start Task</a>
                 </td>
@@ -349,7 +370,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Cancel requested
                 </td>
-<!--
+                <!--
                 <td>
                     <a href="task-operations.html#suspend">Suspend Task</a>
                 </td>
@@ -368,7 +389,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Cancelled as requested
                 </td>
-<!--
+                <!--
                 <td>
                     <a href="task-operations.html#resume">Resume Task</a> followed by <a href="task-operations.html#fail">Fail Task</a>
                 </td>
@@ -388,9 +409,11 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Referred
                 </td>
+                <!--
                 <td>
                     N/A
                 </td>
+-->
             </tr>
             <tr>
                 <td>
@@ -405,9 +428,11 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Accepted
                 </td>
+                <!--
                 <td>
                     N/A
                 </td>
+-->
             </tr>
             <tr>
                 <td>
@@ -422,7 +447,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Scheduled
                 </td>
-<!--
+                <!--
                 <td>
                     <a href="task-operations.html#start">Start Task</a>
                 </td>
@@ -442,7 +467,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Preliminary notes
                 </td>
-<!--
+                <!--
                 <td>
                     <a href="task-operations.html#set-output">Set Task Output</a>
                 </td>
@@ -461,7 +486,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Final notes
                 </td>
-<!--
+                <!--
                 <td>
                     <a href="task-operations.html#finish">Finish Task</a>
                 </td>
