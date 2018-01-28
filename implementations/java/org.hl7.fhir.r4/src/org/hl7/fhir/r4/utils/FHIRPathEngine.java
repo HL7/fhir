@@ -875,6 +875,7 @@ public class FHIRPathEngine {
     case HasValue: return checkParamCount(lexer, location, exp, 0);
     case Alias: return checkParamCount(lexer, location, exp, 1);
     case AliasAs: return checkParamCount(lexer, location, exp, 1);
+    case HtmlChecks: return checkParamCount(lexer, location, exp, 0);
     case Custom: return checkParamCount(lexer, location, exp, details.getMinParameters(), details.getMaxParameters());
     }
     return false;
@@ -2000,6 +2001,8 @@ public class FHIRPathEngine {
     }
     case HasValue : 
       return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
+    case HtmlChecks : 
+      return new TypeDetails(CollectionStatus.SINGLETON, "boolean");
     case Alias : 
       checkParamTypes(exp.getFunction().toCode(), paramTypes, new TypeDetails(CollectionStatus.SINGLETON, "string")); 
       return anything(CollectionStatus.SINGLETON); 
@@ -2120,6 +2123,7 @@ public class FHIRPathEngine {
     case HasValue : return funcHasValue(context, focus, exp);
     case AliasAs : return funcAliasAs(context, focus, exp);
     case Alias : return funcAlias(context, focus, exp);
+    case HtmlChecks : return funcHtmlChecks(context, focus, exp);
     case Custom: { 
       List<List<Base>> params = new ArrayList<List<Base>>();
       for (ExpressionNode p : exp.getParameters()) 
@@ -2145,9 +2149,14 @@ public class FHIRPathEngine {
     Base b = context.getAlias(name);
     if (b != null)
       res.add(b);
-    return res;
-    
+    return res;    
   }
+
+  private List<Base> funcHtmlChecks(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
+    // todo: actually check the HTML
+    return makeBoolean(true);    
+  }
+
 
   private List<Base> funcAll(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {
     if (exp.getParameters().size() == 1) {
