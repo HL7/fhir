@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+
+<!-- template-example-xml.html -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<%file newheader%>
+</head>
+<body>
+<%file newnavbar%>
+
+<div class="col-12">
+
+<h1>JSON Schema for [%title%]</h1>
+<table class="colsi"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>: Informative</td><!--!ns!--><td><%complinks%></td></tr></table>
+
+<p>
+This is a representation of the json schema for <%title%>, which is just a part of the <a href="fhir.schema.json.zip">full JSON Schema</a>.
+</p>
+
+
+<pre>
+<%json-schema%>
+</pre>
+
+
+</div>
+
+<%file newfooter%>
+    
+</body>
+</html>
