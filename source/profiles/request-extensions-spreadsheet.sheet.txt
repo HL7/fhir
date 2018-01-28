@@ -1,0 +1,21 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = PerformerFunction
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/performer-function
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = EventReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-cause
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = StatusReason
+  Binding = unbound
+  Definition = Codes identifying the reason for the current state of an event
+
+=== Sheet Search =====================================
