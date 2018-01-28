@@ -4025,6 +4025,11 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       for (Profile ap : resource.getConformancePackages())
         produceConformancePackage(resource, ap, st);
+      src = TextFile.fileToString(page.getFolders().srcDir + "template-json-schema.html");
+      TextFile.stringToFile(
+          insertSectionNumbers(page.processResourceIncludes(n, resource, xml, json, ttl, tx, dict, src, mappings, mappingsList, "res-schema", n + ".schema.json.html", null, values, resource.getWg(), null), st, n + ".schema.json.html", 0, null),
+          page.getFolders().dstDir + n + ".schema.json.html");
+      page.getHTMLChecker().registerFile(n + ".schema.json.html", "Json Schema for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
 
       if (!resource.getOperations().isEmpty()) {
         src = TextFile.fileToString(page.getFolders().srcDir + "template-operations.html");

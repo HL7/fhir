@@ -5762,6 +5762,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+otherValues.get(com[0])+s3;
       else if (com[0].equals("lmexamples"))
         src = s1+genExampleList(examples)+s3; 
+      else if (com[0].equals("json-schema"))
+        src = s1+jsonSchema(resource.getName())+s3; 
       else if (com[0].equals("dependency-graph"))
         src = s1+genDependencyGraph(resource, genlevel(level))+s3; 
       else if (com[0].equals("resurl")) {
@@ -5774,6 +5776,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     }
     return src;
+  }
+
+  private String jsonSchema(String name) throws FileNotFoundException, IOException {
+    return Utilities.escapeXml(TextFile.fileToString(folders.tmpResDir+name+".schema.json"));
   }
 
   private String genDependencyGraph(ResourceDefn resource, String prefix) throws Exception {    

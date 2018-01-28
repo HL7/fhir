@@ -76,9 +76,13 @@ public class SchemaGenerator {
 //	  schema.addProperty("id", "http://hl7.org/fhir/json-schema/fhir");
 //	  schema.addProperty("$ref", "#/definitions/ResourceList");
 	  schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
-	  schema.add("definitions", new JsonObject());
 
     List<String> names = new ArrayList<String>();
+    names.addAll(definitions.getResources().keySet());
+    names.addAll(definitions.getBaseResources().keySet());
+    addAllResourcesChoice(definitions, schema, names);
+    names.clear();
+
     names.addAll(definitions.getPrimitives().keySet());
     Collections.sort(names);
 	  for (String n : names) {
@@ -91,7 +95,7 @@ public class SchemaGenerator {
         TypeDefn root = definitions.getElementDefn(tr.getName());
         if (!isBackboneElement(root.getName())) {
         JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, null);
-        save(s, xsdDir+root.getName().replace(".",  "_")+".schema.json");
+        save(s, tmpResDir+root.getName().replace(".",  "_")+".schema.json");
         new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, schema);
         }
       }
@@ -100,19 +104,18 @@ public class SchemaGenerator {
     names.clear();
     names.addAll(definitions.getResources().keySet());
 	  names.addAll(definitions.getBaseResources().keySet());
-	
-    Collections.sort(names);
-    for (String name : names) {
-      ResourceDefn root = definitions.getResourceByName(name);
-      if (!root.isAbstract()) {
-        JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, null);
-        save(s, xsdDir+root.getName().replace(".",  "_")+".schema.json");
-        new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, schema);
-      }
+
+	  Collections.sort(names);
+	  for (String name : names) {
+	    ResourceDefn root = definitions.getResourceByName(name);
+	    JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, null);
+	    save(s, tmpResDir+root.getName().replace(".",  "_")+".schema.json");
+	    if (!root.isAbstract()) {
+	      new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, schema);
+	    }
 	  }
 
-    addAllResourcesChoice(definitions, schema, names);
-  	save(generateAllResourceChoice(names), xsdDir+"ResourceList.schema.json");
+//  	save(generateAllResourceChoice(names), xsdDir+"ResourceList.schema.json");
     save(schema, xsdDir+"fhir.schema.json");
 
 	  dir = new CSFile(xsdDir);
@@ -128,43 +131,57 @@ public class SchemaGenerator {
   }
 
   private void addAllResourcesChoice(Definitions definitions, JsonObject schema, List<String> names) throws FHIRException {
-    JsonObject jDefinitions = schema.getAsJsonObject("definitions");
+    JsonObject d = new JsonObject();
+    schema.add("discriminator", d);
+    d.addProperty("propertyName", "resourceType");
+    JsonObject m = new JsonObject();
+    d.add("mapping", m);
+    JsonArray oneOf = new JsonArray();
+    schema.add("oneOf", oneOf);
+
+    JsonObject jDefinitions = new JsonObject();
+    schema.add("definitions", jDefinitions);
     JsonObject rlist = new JsonObject();
     jDefinitions.add("ResourceList", rlist);
-    JsonArray oneOf = new JsonArray();
-    rlist.add("oneOf", oneOf);
+    JsonArray oneOf2 = new JsonArray();
+    rlist.add("oneOf", oneOf2);
+
     for (String n : names) {
       if (!definitions.getResourceByName(n).isAbstract()) {
         JsonObject ref = new JsonObject();
         ref.addProperty("$ref", "#/definitions/"+n);
         oneOf.add(ref);
+        ref = new JsonObject();
+        ref.addProperty("$ref", "#/definitions/"+n);
+        oneOf2.add(ref);
+        m.addProperty(n, "#/definitions/"+n);
       }
-    }
+    }    
   }
   
-  private JsonObject generateAllResourceChoice(List<String> names) {
-		JsonObject definitions;
-		JsonObject schema;
-		
-		schema = new JsonObject();
-		schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
-		schema.addProperty("id", "http://hl7.org/fhir/json-schema/ResourceList");
-		schema.addProperty("$ref", "#/definitions/ResourceList");
-		schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
-		definitions = new JsonObject();
-		schema.add("definitions", definitions);
-		
-		JsonObject rlist = new JsonObject();
-		definitions.add("ResourceList", rlist);
-		JsonArray oneOf = new JsonArray();
-		rlist.add("oneOf", oneOf);
-		for (String n : names) {
-			JsonObject ref = new JsonObject();
-			ref.addProperty("$ref", n.replace(".",  "_")+".schema.json#/definitions/"+n);
-			oneOf.add(ref);
-		}
-		return schema;
-  }
+//  private JsonObject generateAllResourceChoice(List<String> names) {
+//		JsonObject definitions;
+//		JsonObject schema;
+//		
+//		schema = new JsonObject();
+//		schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
+//		schema.addProperty("id", "http://hl7.org/fhir/json-schema/ResourceList");
+//		schema.addProperty("$ref", "#/definitions/ResourceList");
+//		schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
+//		definitions = new JsonObject();
+//		schema.add("definitions", definitions);
+//		
+//		JsonObject rlist = new JsonObject();
+//		definitions.add("ResourceList", rlist);
+//		JsonArray oneOf = new JsonArray();
+//		rlist.add("oneOf", oneOf);
+//		for (String n : names) {
+//			JsonObject ref = new JsonObject();
+//			ref.addProperty("$ref", n.replace(".",  "_")+".schema.json#/definitions/"+n);
+//			oneOf.add(ref);
+//		}
+//		return schema;
+//  }
 
   private void save(JsonObject s, String filename) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
