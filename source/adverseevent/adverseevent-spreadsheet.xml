@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Rik Smithies</LastAuthor>
+  <LastAuthor>Miller,Michelle M</LastAuthor>
   <LastPrinted>2017-01-21T02:43:06Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-04-10T17:26:28Z</LastSaved>
+  <LastSaved>2018-01-28T17:12:33Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,7 +17,6 @@
   
   <TabRatio>837</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -724,13 +723,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -742,18 +734,18 @@
   </Names>
   <Table ss:DefaultColumnWidth="433.0" ss:DefaultRowHeight="14.4375" ss:ExpandedColumnCount="24" ss:ExpandedRowCount="38" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="285.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="46.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="61.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="28.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="40.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="58.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="226.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="133.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="70.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="85.0"/>
-   <Column ss:AutoFitWidth="0" ss:Hidden="1" ss:StyleID="s69" ss:Width="37.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="71.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="133.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="70.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="85.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="15" ss:StyleID="s69" ss:Width="579.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="29" ss:StyleID="s70">
     <Cell ss:StyleID="s71"><Data ss:Type="String">Element</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Format is ResourceName.componentName.componentName</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -828,13 +820,24 @@
    <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell><Data ss:Type="String">AdverseEvent.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">patient</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Patient|Group|Practitioner|RelatedPerson)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">who</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Subject impacted by event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.  </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">This subject or group impacted by the event.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17"><Data ss:Type="String">If AdverseEvent.resultingCondition differs among members of the group, then use Patient as the subject.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="24"><Data ss:Type="String">GF#13890</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">GF#13890, GF#13893</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:Height="75">
+    <Cell><Data ss:Type="String">AdverseEvent.context</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">encounter</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference (Encounter|EpisodeOfCare)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">context</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Encounter or episode of care that establishes the context for this AdverseEvent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">The encounter or episode of care that establishes the context for this AdverseEvent.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="17"><Data ss:Type="String">This will typically be the encounter the AdverseEvent occurred within.  For example, if a medication administration was considered an adverse event because it resulted in a rash, then the encounter when the medication administration was given is the context.  If the patient reports the AdverseEvent during a second encounter, that second encounter is not the context.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">GF#14458</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43" ss:StyleID="s77">
     <Cell><Data ss:Type="String">AdverseEvent.date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -891,18 +894,12 @@
     <Cell><Data ss:Type="String">Information on who recorded the adverse event.  May be the patient or a practitioner.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="72">
-    <Cell><Data ss:Type="String">AdverseEvent.eventParticipant</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">AdverseEvent.contributor</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Practitioner|Device)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Who  was involved in the adverse event or the potential adverse event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Parties that may or should contribute or have contributed information to the Act. Such information includes information leading to the decision to perform the Act and how to perform the Act (e.g. consultant), information that the Act itself seeks to reveal (e.g. informant of clinical history), or information about what Act was performed (e.g. informant witness).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="14" ss:StyleID="s78">
-    <Cell><Data ss:Type="String">AdverseEvent.description</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Description of the adverse event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Describes the adverse event in text</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Parties that may or should contribute or have contributed information to the adverse event, which can consist of one or more activities.  Such information includes information leading to the decision to perform the activity and how to perform the activity (e.g. consultant), information that the activity itself seeks to reveal (e.g. informant of clinical history), or information about what activity was performed (e.g. informant witness).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">GF#13894</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
     <Cell><Data ss:Type="String">AdverseEvent.suspectEntity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -958,8 +955,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell><Data ss:Type="String">AdverseEvent.subjectMedicalHistory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Reference(Condition|Observation|AllergyIntolerance|FamilyMemberHistory|Immunization|Procedure)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Reference(Condition|Observation|AllergyIntolerance|FamilyMemberHistory|Immunization|Procedure|Media|DocumentReference)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">AdverseEvent.subjectMedicalHistory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">GF#14151</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
     <Cell><Data ss:Type="String">AdverseEvent.referenceDocument</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1019,9 +1017,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>23</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1033,9 +1031,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     
     </Pane>
     <Pane>
      <Number>0</Number>
+     
      
     </Pane>
    </Panes>
@@ -1538,8 +1538,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1769,8 +1767,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2370,7 +2366,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2648,7 +2643,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2912,8 +2906,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3691,8 +3683,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4270,13 +4260,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4935,8 +4918,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     <RangeSelection>R2C1:R15C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5526,12 +5507,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -6127,8 +6102,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     <RangeSelection>R2C1:R7C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6170,11 +6143,7 @@
     <Cell ss:StyleID="s111"/>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Certain</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">i) Event or laboratory test abnormality, with plausible time relationship to drug intake
-ii) Cannot be explained by disease or other drugs
-iii) Response to withdrawal plausible (pharmacologically, pathologically)
-iv) Event definitive pharmacologically or phenomenologically (i.e. an objective and specific medical disorder or a recognized pharmacological phenomenon)
-v) Re-challenge satisfactory, if necessary</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">i) Event or laboratory test abnormality, with plausible time relationship to drug intake ii) Cannot be explained by disease or other drugs iii) Response to withdrawal plausible (pharmacologically, pathologically) iv) Event definitive pharmacologically or phenomenologically (i.e. an objective and specific medical disorder or a recognized pharmacological phenomenon) v) Re-challenge satisfactory, if necessary</Data></Cell>
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s112"/>
     <Cell ss:StyleID="s131"/>
@@ -6185,10 +6154,7 @@ v) Re-challenge satisfactory, if necessary</Data></Cell>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Probably/Likely</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality, with reasonable time relationship to drug intake
-ii) Unlikely to be attributed to disease or other drugs
-iii) Response to withdrawal clinically reasonable
-iv) Re-challenge not required</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality, with reasonable time relationship to drug intake ii) Unlikely to be attributed to disease or other drugs iii) Response to withdrawal clinically reasonable iv) Re-challenge not required</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s134"/>
@@ -6199,9 +6165,7 @@ iv) Re-challenge not required</Data></Cell>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Possible</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality, with reasonable time relationship to drug intake
-ii) Could also be explained by disease or other drugs
-iii) Information on drug withdrawal may be lacking or unclear</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality, with reasonable time relationship to drug intake ii) Could also be explained by disease or other drugs iii) Information on drug withdrawal may be lacking or unclear</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s134"/>
@@ -6212,8 +6176,7 @@ iii) Information on drug withdrawal may be lacking or unclear</Data></Cell>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Unlikely</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible)
-ii) Disease or other drugs provide plausible explanations</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible) ii) Disease or other drugs provide plausible explanations</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s134"/>
@@ -6224,9 +6187,7 @@ ii) Disease or other drugs provide plausible explanations</Data></Cell>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Conditional/Classified</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality
-ii) More data for proper assessment needed, or
-iii) Additional data under examination</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Event or laboratory test abnormality ii) More data for proper assessment needed, or iii) Additional data under examination</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s134"/>
@@ -6237,9 +6198,7 @@ iii) Additional data under examination</Data></Cell>
     <Cell ss:StyleID="s100"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Unassessable/Unclassifiable</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Report suggesting an adverse reaction
-ii) Cannot be judged because information is insufficient or contradictory
-iii) Data cannot be supplemented or verified</Data></Cell>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">i) Report suggesting an adverse reaction ii) Cannot be judged because information is insufficient or contradictory iii) Data cannot be supplemented or verified</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s134"/>
@@ -6747,11 +6706,9 @@ iii) Data cannot be supplemented or verified</Data></Cell>
     </Pane>
     <Pane>
      <Number>2</Number>
-     
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7332,13 +7289,6 @@ iii) Data cannot be supplemented or verified</Data></Cell>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     <RangeSelection>R2C1:R4C1</RangeSelection>
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -7914,12 +7864,6 @@ iii) Data cannot be supplemented or verified</Data></Cell>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

@@ -243,37 +243,37 @@
   Id = 1
   Code = Certain
   Display = Certain
-  Definition = i) Event or laboratory test abnormality, with plausible time relationship to drug intake\nii) Cannot be explained by disease or other drugs\niii) Response to withdrawal plausible (pharmacologically, pathologically)\niv) Event definitive pharmacologically or phenomenologically (i.e. an objective and specific medical disorder or a recognized pharmacological phenomenon)\nv) Re-challenge satisfactory, if necessary
+  Definition = i) Event or laboratory test abnormality, with plausible time relationship to drug intake ii) Cannot be explained by disease or other drugs iii) Response to withdrawal plausible (pharmacologically, pathologically) iv) Event definitive pharmacologically or phenomenologically (i.e. an objective and specific medical disorder or a recognized pharmacological phenomenon) v) Re-challenge satisfactory, if necessary
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = Probably-Likely
   Display = Probably/Likely
-  Definition = i) Event or laboratory test abnormality, with reasonable time relationship to drug intake\nii) Unlikely to be attributed to disease or other drugs\niii) Response to withdrawal clinically reasonable\niv) Re-challenge not required
+  Definition = i) Event or laboratory test abnormality, with reasonable time relationship to drug intake ii) Unlikely to be attributed to disease or other drugs iii) Response to withdrawal clinically reasonable iv) Re-challenge not required
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = Possible
   Display = Possible
-  Definition = i) Event or laboratory test abnormality, with reasonable time relationship to drug intake\nii) Could also be explained by disease or other drugs\niii) Information on drug withdrawal may be lacking or unclear
+  Definition = i) Event or laboratory test abnormality, with reasonable time relationship to drug intake ii) Could also be explained by disease or other drugs iii) Information on drug withdrawal may be lacking or unclear
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = Unlikely
   Display = Unlikely
-  Definition = i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible)\nii) Disease or other drugs provide plausible explanations
+  Definition = i) Event or laboratory test abnormality, with a time to drug intake that makes a relationship improbable (but not impossible) ii) Disease or other drugs provide plausible explanations
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = Conditional-Classified
   Display = Conditional/Classified
-  Definition = i) Event or laboratory test abnormality\nii) More data for proper assessment needed, or\niii) Additional data under examination
+  Definition = i) Event or laboratory test abnormality ii) More data for proper assessment needed, or iii) Additional data under examination
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = Unassessable-Unclassifiable
   Display = Unassessable/Unclassifiable
-  Definition = i) Report suggesting an adverse reaction\nii) Cannot be judged because information is insufficient or contradictory\niii) Data cannot be supplemented or verified
+  Definition = i) Report suggesting an adverse reaction ii) Cannot be judged because information is insufficient or contradictory iii) Data cannot be supplemented or verified
 
 === Sheet adverse-event-causality-method =====================================
 
@@ -359,16 +359,27 @@
 
  -- Row 6 -----------------------------------
   Element = AdverseEvent.subject
-  Card. = 0..1
+  Card. = 1..1
   Aliases = patient
   Type = Reference(Patient|Group|Practitioner|RelatedPerson)
   Short Name = Subject impacted by event
-  Definition = This subject or group impacted by the event.  With a prospective adverse event, there will be no subject as the adverse event was prevented.
+  Definition = This subject or group impacted by the event.
   Comments = If AdverseEvent.resultingCondition differs among members of the group, then use Patient as the subject.
-  Committee Notes = GF#13890
+  Committee Notes = GF#13890, GF#13893
   w5 = who
 
  -- Row 7 -----------------------------------
+  Element = AdverseEvent.context
+  Card. = 0..1
+  Aliases = encounter
+  Type = Reference (Encounter|EpisodeOfCare)
+  Short Name = Encounter or episode of care that establishes the context for this AdverseEvent
+  Definition = The encounter or episode of care that establishes the context for this AdverseEvent.
+  Comments = This will typically be the encounter the AdverseEvent occurred within.  For example, if a medication administration was considered an adverse event because it resulted in a rash, then the encounter when the medication administration was given is the context.  If the patient reports the AdverseEvent during a second encounter, that second encounter is not the context.
+  Committee Notes = GF#14458
+  w5 = context
+
+ -- Row 8 -----------------------------------
   Element = AdverseEvent.date
   Card. = 0..1
   Type = dateTime
@@ -376,21 +387,21 @@
   Definition = The date (and perhaps time) when the adverse event occurred
   w5 = when.init
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = AdverseEvent.resultingCondition
   Card. = 0..*
   Type = Reference(Condition)
   Short Name = Effect on the subject due to this event
   Definition = Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical)
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = AdverseEvent.location
   Card. = 0..1
   Type = Reference(Location)
   Short Name = Location where adverse event occurred
   Definition = The information about where the adverse event occurred.
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = AdverseEvent.seriousness
   Card. = 0..1
   Type = CodeableConcept
@@ -398,7 +409,7 @@
   Short Name = Seriousness of the event
   Definition = Assessment whether this event was of real importance
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = AdverseEvent.severity
   Card. = 0..1
   Type = CodeableConcept
@@ -406,7 +417,7 @@
   Short Name = Mild | Moderate | Severe
   Definition = Describes the severity of the adverse event, in relation to the subject. Contrast to AdverseEvent.serious - a severe rash might not be serious, but a mild heart problem is.
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = AdverseEvent.outcome
   Card. = 0..1
   Type = CodeableConcept
@@ -414,7 +425,7 @@
   Short Name = resolved | recovering | ongoing | resolvedWithSequelae | fatal | unknown
   Definition = Describes the type of outcome from the adverse event
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = AdverseEvent.recorder
   Card. = 0..1
   Type = Reference(Patient|Practitioner|RelatedPerson)
@@ -422,19 +433,13 @@
   Definition = Information on who recorded the adverse event.  May be the patient or a practitioner.
   w5 = who.author
 
- -- Row 14 -----------------------------------
-  Element = AdverseEvent.eventParticipant
-  Card. = 0..1
+ -- Row 15 -----------------------------------
+  Element = AdverseEvent.contributor
+  Card. = 0..*
   Type = Reference(Practitioner|Device)
   Short Name = Who  was involved in the adverse event or the potential adverse event
-  Definition = Parties that may or should contribute or have contributed information to the Act. Such information includes information leading to the decision to perform the Act and how to perform the Act (e.g. consultant), information that the Act itself seeks to reveal (e.g. informant of clinical history), or information about what Act was performed (e.g. informant witness).
-
- -- Row 15 -----------------------------------
-  Element = AdverseEvent.description
-  Card. = 0..1
-  Type = string
-  Short Name = Description of the adverse event
-  Definition = Describes the adverse event in text
+  Definition = Parties that may or should contribute or have contributed information to the adverse event, which can consist of one or more activities.  Such information includes information leading to the decision to perform the activity and how to perform the activity (e.g. consultant), information that the activity itself seeks to reveal (e.g. informant of clinical history), or information about what activity was performed (e.g. informant witness).
+  Committee Notes = GF#13894
 
  -- Row 16 -----------------------------------
   Element = AdverseEvent.suspectEntity
@@ -490,8 +495,9 @@
  -- Row 23 -----------------------------------
   Element = AdverseEvent.subjectMedicalHistory
   Card. = 0..*
-  Type = Reference(Condition|Observation|AllergyIntolerance|FamilyMemberHistory|Immunization|Procedure)
+  Type = Reference(Condition|Observation|AllergyIntolerance|FamilyMemberHistory|Immunization|Procedure|Media|DocumentReference)
   Short Name = AdverseEvent.subjectMedicalHistory
+  Committee Notes = GF#14151
 
  -- Row 24 -----------------------------------
   Element = AdverseEvent.referenceDocument

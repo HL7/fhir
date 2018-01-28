@@ -22,6 +22,7 @@
       <code value="304386008"/>
       <display value="O/E - itchy rash"/>
     </coding>
+	<text value="This was a mild rash on the left forearm"/>
   </event>
   
   <!-- the patient that actually had the adverse event -->
@@ -55,7 +56,7 @@
     <reference value="Practitioner/example"/>
   </recorder>
   
-  <description value="This was a mild rash on the left forearm"/>
+
 
   <!-- may have been for cream to treat sunburn on that arm, reference to that medication -->
   <suspectEntity>

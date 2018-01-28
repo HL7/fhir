@@ -212,11 +212,12 @@
  -- Row 15 -----------------------------------
   Element = ClinicalImpression.investigation.item
   Card. = 0..*
-  Type = Reference(Observation| QuestionnaireResponse | FamilyMemberHistory | DiagnosticReport|RiskAssessment | ImagingStudy)
+  Type = Reference(Observation| QuestionnaireResponse | FamilyMemberHistory | DiagnosticReport|RiskAssessment | ImagingStudy|Media)
   Short Name = Record of a specific investigation
   Definition = A record of a specific investigation that was undertaken
   Comments = Most investigations are observations of one kind of or another but some other specific types of data collection resources can also be used
   v2 Mapping = OBX-21
+  Committee Notes = GF#14150
 
  -- Row 16 -----------------------------------
   Element = ClinicalImpression.protocol
@@ -241,22 +242,32 @@
   Definition = Specific findings or diagnoses that was considered likely or relevant to ongoing treatment
 
  -- Row 19 -----------------------------------
-  Element = ClinicalImpression.finding.item[x]
-  Card. = 1..1
-  Type = CodeableConcept | Reference(Condition | Observation)
+  Element = ClinicalImpression.finding.itemCodeableConcept
+  Card. = 0..1
+  Type = CodeableConcept
   Binding = ConditionKind
   Short Name = What was found
-  Definition = Specific text, code or reference for finding or diagnosis, which may include ruled-out or resolved conditions
+  Definition = Specific text or code for finding or diagnosis, which may include ruled-out or resolved conditions
   v2 Mapping = OBX
+  Committee Notes = GF#14150
 
  -- Row 20 -----------------------------------
+  Element = ClinicalImpression.finding.itemReference
+  Card. = 0..1
+  Type = Reference(Condition | Observation | Media)
+  Short Name = What was found
+  Definition = Specific reference for finding or diagnosis, which may include ruled-out or resolved conditions
+  v2 Mapping = OBX
+  Committee Notes = GF#14150
+
+ -- Row 21 -----------------------------------
   Element = ClinicalImpression.finding.basis
   Card. = 0..1
   Type = string
   Short Name = Which investigations support finding
   Definition = Which investigations support finding or diagnosis
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ClinicalImpression.prognosisCodeableConcept
   Card. = 0..*
   Type = CodeableConcept
@@ -265,14 +276,14 @@
   Definition = Estimate of likely outcome
   v2 Mapping = PRB-22
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ClinicalImpression.prognosisReference
   Card. = 0..*
   Type = Reference(RiskAssessment)
   Short Name = RiskAssessment expressing likely outcome
   Definition = RiskAssessment expressing likely outcome
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = !ClinicalImpression.plan
   Card. = 0..*
   Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|ServiceRequest|ProcessRequest|VisionPrescription)
@@ -280,7 +291,7 @@
   Definition = Plan of action after assessment
   Committee Notes = Removed per GF#11167
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ClinicalImpression.action
   Card. = 0..*
   Type = Reference(ServiceRequest | Procedure | MedicationRequest | Appointment)
@@ -288,7 +299,7 @@
   Definition = Action taken as part of assessment procedure
   Comments = Actions recommended as a result of the impression should not be captured using the \'action\' element.
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ClinicalImpression.note
   Card. = 0..*
   Type = Annotation
@@ -317,16 +328,12 @@
  -- Row 4 -----------------------------------
   Name = finding-code
   Type = token
-  Path = ClinicalImpression.finding.item[x]
-  Expression = ClinicalImpression.finding.item.as(CodeableConcept)
-  XPath = f:ClinicalImpression/f:finding/f:itemCodeableConcept
+  Path = ClinicalImpression.finding.itemCodeableConcept
 
  -- Row 5 -----------------------------------
   Name = finding-ref
   Type = reference
-  Path = ClinicalImpression.finding.item[x]
-  Expression = ClinicalImpression.finding.item.as(Reference)
-  XPath = f:ClinicalImpression/f:finding/f:itemReference
+  Path = ClinicalImpression.finding.itemReference
 
  -- Row 6 -----------------------------------
   Name = action
