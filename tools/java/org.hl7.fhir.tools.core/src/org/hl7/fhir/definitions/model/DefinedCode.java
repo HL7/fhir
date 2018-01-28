@@ -72,8 +72,9 @@ public class DefinedCode {
 	public String getCode() {
 		return code;
 	}
-	public void setCode(String code) {
+	public DefinedCode setCode(String code) {
 		this.code = code;
+		return this;
 	}
 	public boolean getAbstract() {
 		return abstract_;
@@ -84,8 +85,9 @@ public class DefinedCode {
 	public String getDefinition() {
 		return definition;
 	}
-	public void setDefinition(String definition) {
+	public DefinedCode setDefinition(String definition) {
 		this.definition = definition;
+		return this;
 	}
 	public boolean hasDefinition() {
 		return definition != null && !definition.equals("");

@@ -38,6 +38,7 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeDefn;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.CSFile;
@@ -77,29 +78,40 @@ public class SchemaGenerator {
 	  schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
 	  schema.add("definitions", new JsonObject());
 
+    List<String> names = new ArrayList<String>();
+    names.addAll(definitions.getPrimitives().keySet());
+    Collections.sort(names);
+	  for (String n : names) {
+      new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(definitions.getPrimitives().get(n), version, genDate, schema);	    
+	  }
+    new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(new DefinedCode().setCode("xhtml").setDefinition("xhtml - escaped html (see specfication)"), version, genDate, schema);
+
 	  for (TypeRef tr : definitions.getKnownTypes()) {
 	    if (!definitions.getPrimitives().containsKey(tr.getName()) && !definitions.getConstraints().containsKey(tr.getName())) {
         TypeDefn root = definitions.getElementDefn(tr.getName());
+        if (!isBackboneElement(root.getName())) {
         JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, null);
         save(s, xsdDir+root.getName().replace(".",  "_")+".schema.json");
         new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root, version, genDate, schema);
+        }
       }
     }
 
-    List<String> names = new ArrayList<String>();
+    names.clear();
     names.addAll(definitions.getResources().keySet());
 	  names.addAll(definitions.getBaseResources().keySet());
 	
-    names.add("Parameters");
     Collections.sort(names);
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
-      JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, null);
-      save(s, xsdDir+root.getName().replace(".",  "_")+".schema.json");
-      new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, schema);
+      if (!root.isAbstract()) {
+        JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, null);
+        save(s, xsdDir+root.getName().replace(".",  "_")+".schema.json");
+        new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, schema);
+      }
 	  }
 
-    addAllResourcesChoice(schema, names);
+    addAllResourcesChoice(definitions, schema, names);
   	save(generateAllResourceChoice(names), xsdDir+"ResourceList.schema.json");
     save(schema, xsdDir+"fhir.schema.json");
 
@@ -111,16 +123,22 @@ public class SchemaGenerator {
     }
   }
 
-  private void addAllResourcesChoice(JsonObject schema, List<String> names) {
-    JsonObject definitions = schema.getAsJsonObject("definitions");
+  private boolean isBackboneElement(String name) {
+    return Utilities.existsInList(name, "BackboneElement");
+  }
+
+  private void addAllResourcesChoice(Definitions definitions, JsonObject schema, List<String> names) throws FHIRException {
+    JsonObject jDefinitions = schema.getAsJsonObject("definitions");
     JsonObject rlist = new JsonObject();
-    definitions.add("ResourceList", rlist);
+    jDefinitions.add("ResourceList", rlist);
     JsonArray oneOf = new JsonArray();
     rlist.add("oneOf", oneOf);
     for (String n : names) {
-      JsonObject ref = new JsonObject();
-      ref.addProperty("$ref", "#/definitions/"+n);
-      oneOf.add(ref);
+      if (!definitions.getResourceByName(n).isAbstract()) {
+        JsonObject ref = new JsonObject();
+        ref.addProperty("$ref", "#/definitions/"+n);
+        oneOf.add(ref);
+      }
     }
   }
   
