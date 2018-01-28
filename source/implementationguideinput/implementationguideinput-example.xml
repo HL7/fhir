@@ -31,14 +31,13 @@
 	</jurisdiction>
 	<copyright value="Published by ONC under the standard FHIR license (CC0)"/>
 	<fhirVersion value="1.0.0"/>
-	<dependency>
-		<type value="reference"/>
-		<!-- when there's a uscore realm implemenation guide, DAF will use it -->
-		<uri value="http://hl7.org/fhir/ImplementationGuide/uscore"/>
-	</dependency>
+	<dependsOn>
+    <reference value="http://hl7.org/fhir/ImplementationGuide/uscore"/>
+	</dependsOn>
 	<package>
 		<name value="test"/>
 		<description value="Base package (not broken up into multiple packages)"/>
+  </package>
 		<resource>
       <reference>
         <reference value="Patient/test"/>
@@ -49,7 +48,6 @@
         <reference value="StructureDefinition/daf-patient"/>
 			</exampleReference>
 		</resource>
-	</package>
 	<global>
 		<!-- all patients have to conform to daf-patient -->
 		<type value="Patient"/>
@@ -62,14 +60,9 @@
 	<page>
 		<sourceUri value="patient-example.html"/>
 		<title value="Example Patient Page"/>
-		<kind value="page"/>
 		<page>
 			<sourceUri value="list.html"/>
 			<title value="Value Set Page"/>
-			<kind value="list"/>
-			<type value="ValueSet"/>
-			<package value="test"/>
-			<format value="text/html"/>
 		</page>
 	</page>
 </ImplementationGuideInput>

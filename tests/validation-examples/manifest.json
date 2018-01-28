@@ -277,6 +277,15 @@
           "errorCount": 1
         }
       },
+      "string-extensions-and-constraints-example.xml" : {
+        "use-test" : true,
+        "allowed-extension-domain" : "http://hl7.org/fhir/ccda/StructureDefinition/",
+        "errorCount": 0,
+        "profile" : {
+          "source" : "string-extensions-and-constraints-profile.xml", 
+          "errorCount": 4          
+        }
+      },
       "uk-nhs-pat.xml" : {
         "version" : "1.0.2",
         "use-test" : false,

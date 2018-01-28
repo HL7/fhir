@@ -934,6 +934,10 @@ public class ProfileUtilities extends TranslatingUtilities {
       res.setBinding(usage.getBinding().copy());
     for (ElementDefinitionConstraintComponent c : usage.getConstraint())
       res.addConstraint(c);
+    for (Extension e : usage.getExtension()) {
+      if (!res.hasExtension(e.getUrl()))
+        res.addExtension(e.copy());
+    }
     
     return res;
   }
@@ -1544,11 +1548,11 @@ public class ProfileUtilities extends TranslatingUtilities {
         dest.setBinding(null);
         
       // finally, we copy any extensions from source to dest
-      for (Extension ex : base.getExtension()) {
+      for (Extension ex : derived.getExtension()) {
         StructureDefinition sd  = context.fetchResource(StructureDefinition.class, ex.getUrl());
         if (sd == null || sd.getSnapshot() == null || sd.getSnapshot().getElementFirstRep().getMax().equals("1"))
           ToolingExtensions.removeExtension(dest, ex.getUrl());
-        dest.addExtension(ex);
+        dest.addExtension(ex.copy());
       }
     }
   }

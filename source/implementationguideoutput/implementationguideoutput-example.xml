@@ -31,11 +31,9 @@
 	</jurisdiction>
 	<copyright value="Published by ONC under the standard FHIR license (CC0)"/>
 	<fhirVersion value="1.0.0"/>
-	<dependency>
-		<type value="reference"/>
-		<!-- when there's a uscore realm implemenation guide, DAF will use it -->
-		<uri value="http://hl7.org/fhir/ImplementationGuide/uscore"/>
-	</dependency>
+	<dependsOn>
+    <reference value="http://hl7.org/fhir/ImplementationGuide/uscore"/>
+	</dependsOn>
 	<resource>
 		<reference>
       <reference value="Patient/test"/>

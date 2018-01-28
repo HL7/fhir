@@ -34,14 +34,15 @@
  28. Test children of a polymorphic type
  29. Test recursion on elements that are deeper than children of the root and have a different name (Parameters.parameter.part)
  30. Profile and derived profile both slice a backbone element
+ 31. Propagate extensions from differential to snapshot
 -->
   <contained>
-    <!-- fixture for #1: no change in the differential -->
     <StructureDefinition>
       <id value="t1"/>
       <url value="urn:uuid:c7e52962-c322-4417-bd95-fb0dfc40fd62"/>
       <name value="t1"/>
       <status value="draft"/>
+      <description value="fixture for #1: no change in the differential"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -50,12 +51,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #2: no change in the differential, but a value set -->
     <StructureDefinition>
       <id value="t2"/>
       <url value="urn:uuid:4b8c9c27-9d93-4f66-84f1-c7ca98687792"/>
       <name value="t2"/>
       <status value="draft"/>
+      <description value="fixture for #2: no change in the differential, but a value set"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="ValueSet"/>
@@ -64,12 +65,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #3: change a cardinality -->
     <StructureDefinition>
       <id value="t3"/>
       <url value="urn:uuid:b3f56cfa-98a3-422c-9584-738e09881ac9"/>
       <name value="t3"/>
       <status value="draft"/>
+      <description value="fixture for #3: change a cardinality"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -84,12 +85,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #4: test appending documentation -->
     <StructureDefinition>
       <id value="t4"/>
       <url value="urn:uuid:71e0a5a6-95bf-4e04-aa6a-4af0ebef3f29"/>
       <name value="t4"/>
       <status value="draft"/>
+      <description value="fixture for #4: test appending documentation"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -104,12 +105,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #5: type narrowing #1 -->
     <StructureDefinition>
       <id value="t5"/>
       <url value="urn:uuid:5dfe34b3-58ed-43bd-a677-1612246a8f1b"/>
       <name value="t5"/>
       <status value="draft"/>
+      <description value="fixture for #5: type narrowing #1"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -126,12 +127,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #6: type narrowing #2 - this renames  the type element -->
     <StructureDefinition>
       <id value="t6"/>
       <url value="urn:uuid:977f7fee-448e-4090-8c3a-441b3b3cca7a"/>
       <name value="t6"/>
       <status value="draft"/>
+      <description value="fixture for #6: type narrowing #2 - this renames  the type element"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -148,12 +149,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #7: type mapping resolution -->
     <StructureDefinition>
       <id value="t7"/>
       <url value="urn:uuid:7a1d096b-bb61-40f7-880a-8cc4ba0329b9"/>
       <name value="t7"/>
       <status value="draft"/>
+      <description value="fixture for #7: type mapping resolution"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -171,12 +172,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #8: walking into a type -->
     <StructureDefinition>
       <id value="t8"/>
       <url value="urn:uuid:d2cb3b87-8f73-46fd-821c-cf39f0512757"/>
       <name value="t8"/>
       <status value="draft"/>
+      <description value="fixture for #8: walking into a type"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -195,12 +196,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #9: walking into a type (sparsely) -->
     <StructureDefinition>
       <id value="t9"/>
       <url value="urn:uuid:d03a45b9-fc35-43c8-9f93-890487cf7076"/>
       <name value="t9"/>
       <status value="draft"/>
+      <description value="fixture for #9: walking into a type (sparsely)"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -215,12 +216,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #10: Simple slicing -->
     <StructureDefinition>
       <id value="t10"/>
       <url value="urn:uuid:772b9182-39d3-45fd-b01c-e09df0a5cf6c"/>
       <name value="t10"/>
       <status value="draft"/>
+      <description value="fixture for #10: Simple slicing"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -258,12 +259,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #11: slicing on extensions -->
     <StructureDefinition>
       <id value="t11"/>
       <url value="urn:uuid:f119d7d3-81e3-4432-8c68-11baafa5f986"/>
       <name value="t11"/>
       <status value="draft"/>
+      <description value="fixture for #11: slicing on extensions"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -303,12 +304,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #12: slicing on extensions, no set up of slicing -->
     <StructureDefinition>
       <id value="t12"/>
       <url value="urn:uuid:01e790b6-b67b-4173-9b2b-31a0fb8c3180"/>
       <name value="t12"/>
       <status value="draft"/>
+      <description value="fixture for #12: slicing on extensions, no set up of slicing"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -336,12 +337,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #12a: slicing on extensions, no set up of slicing, single slice -->
     <StructureDefinition>
       <id value="t12a"/>
       <url value="urn:uuid:37c463da-eac0-4b17-b15d-a3e524d9ebdf"/>
       <name value="t12a"/>
       <status value="draft"/>
+      <description value="fixture for #12a: slicing on extensions, no set up of slicing, single slice"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -361,12 +362,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #13: complex slicing -->
     <StructureDefinition>
       <id value="t13"/>
       <url value="urn:uuid:4f21d695-b60f-4c4f-8412-15d12d18fa5e"/>
       <name value="t13"/>
       <status value="draft"/>
+      <description value="fixture for #13: complex slicing"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -433,12 +434,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #14: see task 8742 -->
     <StructureDefinition>
       <id value="t14"/>
       <url value="urn:uuid:17a816a1-0196-4eb4-86c3-2f6e05944598"/>
       <name value="t14"/>
       <status value="draft"/>
+      <description value="fixture for #14: see task 8742"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -476,12 +477,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #15: complex extensions with children -->
     <StructureDefinition>
       <id value="t15"/>
       <url value="urn:uuid:78efa570-6e30-410d-ac5a-16ea423d13d4"/>
       <name value="t15"/>
       <status value="draft"/>
+      <description value="fixture for #15: complex extensions with children"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -531,12 +532,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #16: extending a complex extension's children in derived profile -->
     <StructureDefinition>
       <id value="t16"/>
       <url value="urn:uuid:b94f9d67-5ad1-44df-850d-33a933800f40"/>
       <name value="t16"/>
       <status value="draft"/>
+      <description value="fixture for #16: extending a complex extension's children in derived profile"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -595,12 +596,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #17: use a modifier extension instead -->
     <StructureDefinition>
       <id value="t17"/>
       <url value="urn:uuid:1313b735-ddb1-4bd4-aa8e-a3156d2919a8"/>
       <name value="t17"/>
       <status value="draft"/>
+      <description value="fixture for #17: use a modifier extension instead"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -641,12 +642,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #18: use a modifier extension, with no set up-->
     <StructureDefinition>
       <id value="t18"/>
       <url value="urn:uuid:14b4442c-ef9f-4630-bb44-681b65f758ac"/>
       <name value="t18"/>
       <status value="draft"/>
+      <description value="fixture for #18: use a modifier extension, with no set up"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -675,12 +676,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #19: use a modifier extension, with no set up, and only one slice-->
     <StructureDefinition>
       <id value="t19"/>
       <url value="urn:uuid:6d245aa4-fa65-44e7-8177-cb15b09854f4"/>
       <name value="t19"/>
       <status value="draft"/>
+      <description value="fixture for #19: use a modifier extension, with no set up, and only one slice"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -700,12 +701,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #20: Slicing a backbone element -->
     <StructureDefinition>
       <id value="t20"/>
       <url value="urn:uuid:29645106-1e27-4820-996c-d48c1e932329"/>
       <name value="t20"/>
       <status value="draft"/>
+      <description value="fixture for #20: Slicing a backbone element"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="PlanDefinition"/>
@@ -761,12 +762,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #21: Slicing a backbone element on it's nested use -->
     <StructureDefinition>
       <id value="t21"/>
       <url value="urn:uuid:ea08f7c0-97f2-44bb-8ef5-f36d9e53148c"/>
       <name value="t21"/>
       <status value="draft"/>
+      <description value="fixture for #21: Slicing a backbone element on it's nested use"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="PlanDefinition"/>
@@ -822,12 +823,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #22: Constrain base element before slicing -->
     <StructureDefinition>
       <id value="t22"/>
       <url value="urn:uuid:a690d8bf-7b93-4785-b5d7-74bc3452a24b"/>
       <name value="t22"/>
       <status value="draft"/>
+      <description value="fixture for #22: Constrain base element before slicing"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -961,12 +962,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #23: Test Slicing - unsorted differential -->
     <StructureDefinition>
       <id value="t23"/>
       <url value="urn:uuid:2e28117d-bb6f-4d8e-9ccd-5472535cc2d6"/>
       <name value="t23"/>
       <status value="draft"/>
+      <description value="fixture for #23: Test Slicing - unsorted differential"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -1002,12 +1003,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #24a: Constrain base element before slicing when slices were already defined - backbone -->
     <StructureDefinition>
       <id value="t24a"/>
       <url value="urn:uuid:5eac3230-a289-4662-a296-2b673d6d3293"/>
       <name value="t24a"/>
       <status value="draft"/>
+      <description value="fixture for #24a: Constrain base element before slicing when slices were already defined - backbone"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -1055,12 +1056,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #24b: Constrain base element before slicing when slices were already defined - backbone -->
     <StructureDefinition>
       <id value="t24b"/>
       <url value="urn:uuid:6a446a41-a552-4391-babc-db4caee2d987"/>
       <name value="t24b"/>
       <status value="draft"/>
+      <description value="fixture for #24b: Constrain base element before slicing when slices were already defined - backbone"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -1097,12 +1098,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #25a: Constrain base element before slicing when slices were already defined - data type -->
     <StructureDefinition>
       <id value="t25a"/>
       <url value="urn:uuid:ec0e207d-39e1-46ad-a10f-262029008feb"/>
       <name value="t25a"/>
       <status value="draft"/>
+      <description value="fixture for #25a: Constrain base element before slicing when slices were already defined - data type"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -1150,12 +1151,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #25b: Constrain base element before slicing when slices were already defined - data type -->
     <StructureDefinition>
       <id value="t25b"/>
       <url value="urn:uuid:729ce066-281e-48da-b2b7-866c0cf50241"/>
       <name value="t25b"/>
       <status value="draft"/>
+      <description value="fixture for #25b: Constrain base element before slicing when slices were already defined - data type"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -1192,12 +1193,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #26: Test differential sorting for polymorphic references -->
     <StructureDefinition>
       <id value="t26"/>
       <url value="urn:uuid:ab833682-88b9-4e7a-8e08-eb82f39f7beb"/>
       <name value="t26"/>
       <status value="draft"/>
+      <description value="fixture for #26: Test differential sorting for polymorphic references"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Patient"/>
@@ -1238,12 +1239,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #27: walking into a type for Contract -->
     <StructureDefinition>
       <id value="t27"/>
       <url value="urn:uuid:d2cb3b87-8f73-46fd-821c-cf39f0432757"/>
       <name value="t27"/>
       <status value="draft"/>
+      <description value="fixture for #27: walking into a type for Contract"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Contract"/>
@@ -1273,12 +1274,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #28: Test children of a polymorphic type -->
     <StructureDefinition>
       <id value="t28"/>
       <url value="urn:uuid:7c3e3bd7-7919-4348-bed7-a65af1690842"/>
       <name value="t28"/>
       <status value="draft"/>
+      <description value="fixture for #28: Test children of a polymorphic type"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="OperationOutcome"/>
@@ -1323,12 +1324,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #29: Test recursion on elements that are deeper than children of the root and have a different name (Parameters.parameter.part) -->
     <StructureDefinition>
       <id value="t29"/>
       <url value="urn:uuid:8371f159-76b3-41f7-a66f-bde129e7e603"/>
       <name value="t29"/>
       <status value="draft"/>
+      <description value="fixture for #29: Test recursion on elements that are deeper than children of the root and have a different name (Parameters.parameter.part)"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="OperationOutcome"/>
@@ -1377,12 +1378,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #30: Profile and derived profile both slice a backbone element; base profile -->
     <StructureDefinition>
       <id value="t30a"/>
       <url value="urn:uuid:149505c1-a51b-4378-9d31-d14dd62f18e6"/>
       <name value="t30a"/>
       <status value="draft"/>
+      <description value="fixture for #30: Profile and derived profile both slice a backbone element; base profile"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Observation"/>
@@ -1424,12 +1425,12 @@
     </StructureDefinition>
   </contained>
   <contained>
-    <!-- fixture for #30: Profile and derived profile both slice a backbone element; derived profile -->
     <StructureDefinition>
       <id value="t30b"/>
       <url value="urn:uuid:d144e878-9445-42cd-9e5c-28e4d8072a20"/>
       <name value="t30b"/>
       <status value="draft"/>
+      <description value="Profile and derived profile both slice a backbone element; derived profile"/>
       <kind value="resource"/>
       <abstract value="false"/>
       <type value="Observation"/>
@@ -1456,6 +1457,73 @@
               <code value="81258-6"/>
             </coding>
           </patternCodeableConcept>
+        </element>
+      </differential>
+    </StructureDefinition>
+  </contained>
+  <contained>
+    <StructureDefinition>
+      <id value="t31"/>
+      <url value="urn:uuid:e9d11ae4-b7be-40c2-9c19-c9a1c4861428"/>
+      <name value="t31"/>
+      <status value="draft"/>
+      <description value="fixture for #31: Propagate extensions from differential to snapshot"/>
+      <kind value="resource"/>
+      <abstract value="false"/>
+      <type value="Parameters"/>
+      <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+      <derivation value="constraint"/>
+      <differential>
+        <element id="Parameters">
+          <path value="Parameters"/>
+        </element>
+        <element id="Parameters.parameter">
+          <path value="Parameters.parameter"/>
+          <slicing>
+            <discriminator>
+              <type value="value"/>
+              <path value="name"/>
+            </discriminator>
+            <rules value="open"/>
+          </slicing>
+        </element>
+        <element id="Parameters.parameter:string">
+          <path value="Parameters.parameter"/>
+          <sliceName value="string"/>
+        </element>
+        <element id="Parameters.parameter:string.name">
+          <path value="Parameters.parameter.name"/>
+          <fixedString value="string"/>
+        </element>
+        <element id="Parameters.parameter:string.valueString">
+          <extension url="http://hl7.org/fhir/StructureDefinition/regex">
+            <valueString value="(a)*"/>
+          </extension>
+          <path value="Parameters.parameter.valueString"/>
+          <type>
+            <code value="string"/>
+          </type>
+          <maxLength value="2"/>
+        </element>
+        <element id="Parameters.parameter:string.valueString.extension:translation">
+          <path value="Parameters.parameter.valueString.extension"/>
+          <sliceName value="translation"/>
+          <type>
+            <code value="Extension"/>
+            <profile value="http://hl7.org/fhir/StructureDefinition/translation"/>
+          </type>
+        </element>
+        <element id="Parameters.parameter:string.valueString.extension:translation.extension:content">
+          <path value="Parameters.parameter.valueString.extension.extension"/>
+          <sliceName value="content"/>
+        </element>
+        <element id="Parameters.parameter:string.valueString.extension:translation.extension:content.valueString">
+          <extension url="http://hl7.org/fhir/StructureDefinition/regex">
+            <valueString value="(b)*"/>
+          </extension>
+          <path value="Parameters.parameter.valueString.extension.extension.valueString"/>
+          <sliceName value="content"/>
+          <maxLength value="2"/>
         </element>
       </differential>
     </StructureDefinition>
@@ -1493,7 +1561,6 @@
       <reference value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
     </resource>
   </fixture>
-  <!-- test #1: no change in the differential -->
   <test>
     <name value="Test1"/>
     <description value="an empty differential, generate the snapshot, and then insist it must match the base"/>
@@ -1549,7 +1616,6 @@
       </assert>
     </action>
   </test>
-  <!-- test #2: no change in the differential, but a resource with recursion -->
   <test>
     <name value="Test2"/>
     <description value="an empty differential, generate the snapshot, and then insist it must match the base - use a resource with recusion"/>
@@ -1581,7 +1647,6 @@
       </assert>
     </action>
   </test>
-  <!-- test #3: fix a cardinality -->
   <test>
     <name value="Test3"/>
     <description value="fix a cardinality"/>
@@ -1621,7 +1686,6 @@
       </assert>
     </action>
   </test>
-  <!-- test #4: test appending documentation -->
   <test>
     <name value="Test4"/>
     <description value="fix a cardinality"/>
@@ -1645,7 +1709,6 @@
       </assert>
     </action>
   </test>
-  <!-- test #5: test type narrowing -->
   <test>
     <name value="Test5"/>
     <description value="fix a type"/>
@@ -1677,7 +1740,6 @@
       </assert>
     </action>
   </test>
-  <!-- test #6: test type narrowing -->
   <test>
     <name value="Test6"/>
     <description value="fix a type (with renaming)"/>
@@ -1709,7 +1771,6 @@
       </assert>
     </action>
   </test>
-  <!-- test #7: test mapping resolution -->
   <test>
     <name value="Test7"/>
     <description value="test mapping resolution"/>
@@ -1733,10 +1794,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #8: test walking into a type -->
   <test>
     <name value="Test8"/>
-    <description value="test mapping resolution"/>
+    <description value="test walking into a type"/>
     <action>
       <operation>
         <type>
@@ -1765,10 +1825,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #9: test walking into a type (sparsely) -->
   <test>
     <name value="Test9"/>
-    <description value="test mapping resolution"/>
+    <description value="test walking into a type (sparsely)"/>
     <action>
       <operation>
         <type>
@@ -1797,7 +1856,6 @@
       </assert>
     </action>
   </test>
-  <!-- test #10: simple slicing -->
   <test>
     <name value="Test10"/>
     <description value="test slicing - simple"/>
@@ -1861,10 +1919,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #11: slicing on extension -->
   <test>
     <name value="Test11"/>
-    <description value="test slicing - simple"/>
+    <description value="test slicing on extension"/>
     <action>
       <operation>
         <type>
@@ -1933,10 +1990,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #12: slicing on extension -->
   <test>
     <name value="Test12"/>
-    <description value="test slicing - simple"/>
+    <description value="Test slicing - extension, but without setting the slicing up"/>
     <action>
       <operation>
         <type>
@@ -1997,10 +2053,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #12a: slicing on extension -->
   <test>
     <name value="Test12a"/>
-    <description value="test slicing - simple"/>
+    <description value="Test slicing - extension, but without setting the slicing up (one slice only)"/>
     <action>
       <operation>
         <type>
@@ -2053,7 +2108,6 @@
       </assert>
     </action>
   </test>
-  <!-- test #13: slicing on extension (complex) -->
   <test>
     <name value="Test13"/>
     <description value="test slicing - complex"/>
@@ -2237,10 +2291,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #14: slicing on extension (complex) -->
   <test>
     <name value="Test14"/>
-    <description value="test slicing - complex"/>
+    <description value="Test slicing see task 8742"/>
     <action>
       <operation>
         <type>
@@ -2260,7 +2313,6 @@
       </assert>
     </action>
   </test>
-  <!-- Test #15 - complex extensions with children -->
   <test>
     <name value="Test15"/>
     <description value="test slicing - complex extensions with children"/>
@@ -2283,7 +2335,6 @@
       </assert>
     </action>
   </test>
-  <!-- Test #16 - extending a complex extension's children in derived profile -->
   <test>
     <name value="Test16"/>
     <description value="test slicing - extending a complex extension's children in derived profile"/>
@@ -2306,10 +2357,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #17: slicing on modifierExtension -->
   <test>
     <name value="Test17"/>
-    <description value="test slicing - simple"/>
+    <description value="slicing on modifierExtension"/>
     <action>
       <operation>
         <type>
@@ -2378,10 +2428,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #18: slicing on modifierExtension, no set up -->
   <test>
     <name value="Test18"/>
-    <description value="slicing on modifierExtension, no extension"/>
+    <description value="slicing on modifierExtension, no set up"/>
     <action>
       <operation>
         <type>
@@ -2450,7 +2499,6 @@
       </assert>
     </action>
   </test>
-  <!-- test #19: slicing on modifierExtension, no set up -->
   <test>
     <name value="Test19"/>
     <description value="slicing on modifierExtension, no extension, one slice"/>
@@ -2506,10 +2554,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #20: Slicing a backbone element on it's nested use -->
   <test>
     <name value="Test20"/>
-    <description value="slicing on modifierExtension, no extension, one slice"/>
+    <description value="Slicing a backbone element"/>
     <action>
       <operation>
         <type>
@@ -2570,10 +2617,9 @@
       </assert>
     </action>
   </test>
-  <!-- test #21: Slicing a backbone element on it's nested use -->
   <test>
     <name value="Test21"/>
-    <description value="slicing on modifierExtension, no extension, one slice"/>
+    <description value="Slicing a backbone element on its nested use"/>
     <action>
       <operation>
         <type>
@@ -2626,7 +2672,6 @@
       </assert>
     </action>
   </test>
-  <!-- #22. Test slicing - Constrain base element before slicing -->
   <test>
     <name value="Test22"/>
     <description value="test slicing - Constrain base element before slicing"/>
@@ -2649,7 +2694,6 @@
       </assert>
     </action>
   </test>
-  <!-- #23. Test Slicing - unsorted differential -->
   <test>
     <name value="Test23"/>
     <description value="test slicing - unsorted differential"/>
@@ -2673,7 +2717,6 @@
       </assert>
     </action>
   </test>
-  <!-- #24. Test slicing - Constrain base element before slicing when slices were already defined - backbone -->
   <test>
     <name value="Test24"/>
     <description value="test slicing - Constrain base element before slicing when slices were already defined - backbone"/>
@@ -2714,7 +2757,6 @@
       </assert>
     </action>
   </test>
-  <!-- #25. Test slicing - Constrain base element before slicing when slices were already defined - datatype -->
   <!-- disabled until it passes
   <test>
     <name value="Test25"/>
@@ -2740,7 +2782,6 @@
     </action>
   </test>
   -->
-  <!-- #26. Test differential sorting for polymorphic references -->
   <test>
     <name value="Test26"/>
     <description value="Test differential sorting for polymorphic references"/>
@@ -2813,7 +2854,6 @@
       <assert>
         <label value="test28-1"/>
         <description value="Element count must be increased by 16"/>
-        <!-- This number may not be correct -->
         <direction value="response"/>
         <expression value="fixture('t28o').snapshot.element.count().trace('t28o') = fixture('operationoutcome').snapshot.element.count().trace('t28') + 16"/>
       </assert>
@@ -2872,6 +2912,30 @@
         <description value="Snapshot doesn't result in an error'"/>
         <direction value="response"/>
         <expression value="fixture('t30bo').snapshot.element.count().trace('t30bo')>1"/>
+      </assert>
+    </action>
+  </test>
+  <test>
+    <name value="Test31"/>
+    <description value="Propagate extensions from differential to snapshot"/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+          <code value="snapshot"/>
+        </type>
+        <resource value="StructureDefinition"/>
+        <params value="sort=true"/>
+        <responseId value="t31o"/>
+        <sourceId value="t31"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <label value="test31"/>
+        <description value="Snapshot contains regex extension'"/>
+        <direction value="response"/>
+        <expression value="fixture('t31o').snapshot.element.extension('http://hl7.org/fhir/StructureDefinition/regex').count().trace('t31o ext count')=2"/>
       </assert>
     </action>
   </test>

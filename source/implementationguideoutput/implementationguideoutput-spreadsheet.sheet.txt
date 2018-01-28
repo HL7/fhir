@@ -87,33 +87,15 @@
   Comments = An Implementation Guide should specify the target it applies to, as ImplementationGuides are rarely valid across multiple versions of FHIR
 
  -- Row 15 -----------------------------------
-  Element = ImplementationGuideOutput.dependency
+  Element = ImplementationGuideOutput.dependsOn
   Card. = 0..*
   Summary = Y
   UML = -20;80
+  Type = Reference(ImplementationGuideOutput)
   Short Name = Another Implementation guide this depends on
   Definition = Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides
 
  -- Row 16 -----------------------------------
-  Element = ImplementationGuideOutput.dependency.type
-  Card. = 1..1
-  Summary = Y
-  Type = code
-  Binding = GuideDependencyType
-  Short Name = reference | inclusion
-  Definition = How the dependency is represented when the guide is published
-  Comments = For information about processing included guides, see [Including Guides](implementationguide.html#include)
-
- -- Row 17 -----------------------------------
-  Element = ImplementationGuideOutput.dependency.uri
-  Card. = 1..1
-  Summary = Y
-  Type = uri
-  Short Name = Where to find dependency
-  Definition = Where the dependency is located
-  Comments = When a guide is published, and the type is \'include\', this will be a relative reference within the guide
-
- -- Row 18 -----------------------------------
   Element = ImplementationGuideOutput.resource
   Card. = 1..*
   Summary = Y
@@ -121,7 +103,7 @@
   Short Name = Resource in the implementation guide
   Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ImplementationGuideOutput.resource.reference
   Card. = 1..1
   Summary = Y
@@ -130,7 +112,7 @@
   Definition = Where this resource is found
   Comments = Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ImplementationGuideOutput.resource.example[x]
   Card. = 0..1
   Type = boolean|Reference(StructureDefinition)
@@ -138,7 +120,7 @@
   Definition = If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
   Comments = Typically, conformance resources and knowledge resources are directly part of the implementation guide, with their normal meaning, and patient linked resources are usually examples. However this is not always true
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ImplementationGuideOutput.resource.relativePath
   Card. = 0..1
   Type = string
@@ -146,7 +128,7 @@
   Definition = The relative path for primary page for this resource within the IG
   Comments = Appending \'rendering\' + \"/\" + this should resolve to the resource page.
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ImplementationGuideOutput.global
   Card. = 0..*
   Summary = Y
@@ -155,7 +137,7 @@
   Definition = A set of profiles that all resources covered by this implementation guide must conform to
   Comments = See [Default Profiles](implementationguide.html#default) for a discussion of which resources are \'covered\' by an implementation guide
 
- -- Row 23 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ImplementationGuideOutput.global.type
   Card. = 1..1
   Summary = Y
@@ -165,7 +147,7 @@
   Definition = The type of resource that all instances must conform to
   Comments = The type must match that of the profile that is referred to, but is made explicit here as a denormalization so that a system processing the implementation guide resource knows which resources the profile applies to even if the profile itself is not available
 
- -- Row 24 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ImplementationGuideOutput.global.profile
   Card. = 1..1
   Summary = Y
@@ -173,7 +155,7 @@
   Short Name = Profile that all resources must conform to
   Definition = A reference to the profile that all instances must conform to
 
- -- Row 25 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ImplementationGuideOutput.rendering
   Card. = 0..1
   Summary = Y
@@ -181,14 +163,14 @@
   Short Name = Location of rendered implementation guide
   Definition = A pointer to official web page, PDF or other rendering of the implementation guide
 
- -- Row 26 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ImplementationGuideOutput.page
   Card. = 0..*
   Short Name = HTML page within the parent IG
   Definition = Information about a page within the IG
   Requirements = Allows validation of hyperlinks from a derived IG to this IG without a local copy of the IG.
 
- -- Row 27 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ImplementationGuideOutput.page.name
   Card. = 1..1
   Type = string
@@ -196,7 +178,7 @@
   Definition = Relative path to the page
   Comments = Appending \'rendering\' + \"/\" + this should resolve to the page
 
- -- Row 28 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ImplementationGuideOutput.page.title
   Card. = 0..1
   Type = string
@@ -204,7 +186,7 @@
   Definition = Label for the page intended for human display
   Requirements = Allows generation of labels for markdown-generated hyperlinks
 
- -- Row 29 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ImplementationGuideOutput.page.anchor
   Card. = 0..*
   Type = string
@@ -213,7 +195,7 @@
   Requirements = Allows validation of hyperlinks from a derived IG to this IG without a local copy of the IG.
   Comments = Appending \'rendering\' + \"/\" + page.name + \"#\" + page.anchor should resolve to the anchor
 
- -- Row 30 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ImplementationGuideOutput.image
   Card. = 0..*
   Type = string
@@ -221,7 +203,7 @@
   Definition = Indicates a relative path to an image that exists within the IG
   Requirements = Allows validation of image links from a derived IG to this IG without a local copy of the IG.
 
- -- Row 31 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ImplementationGuideOutput.other
   Card. = 0..*
   Type = string
@@ -238,8 +220,8 @@
 
  -- Row 2 -----------------------------------
   Name = dependency
-  Type = uri
-  Path = ImplementationGuideOutput.dependency.uri
+  Type = reference
+  Path = ImplementationGuideOutput.dependsOn
 
  -- Row 3 -----------------------------------
   Name = resource
