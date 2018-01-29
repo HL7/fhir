@@ -7,10 +7,10 @@
       <p>Update Person resource for Peter James CHALMERS (Jim), MRN: 12345 (Acme Healthcare)</p>
     </div>
   </text>
-  <event>
+  <eventCoding>
     <system value="http://hl7.org/fhir/message-events"/>
     <code value="admin-notify"/>
-  </event>
+  </eventCoding>
   <destination>
     <name value="Acme Message Gateway"/>
     
