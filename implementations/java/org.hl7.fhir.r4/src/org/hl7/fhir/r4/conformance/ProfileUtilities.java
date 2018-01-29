@@ -2070,7 +2070,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     try {
       return gen.generate(model, imagePath, 0, outputTracker);
   	} catch (org.hl7.fhir.exceptions.FHIRException e) {
-  		throw new FHIRException(e.getMessage(), e);
+  		throw new FHIRException("Error generating table for profile " + profile.getUrl() + ": " + e.getMessage(), e);
   	}
   }
 
