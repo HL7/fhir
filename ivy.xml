@@ -1,6 +1,7 @@
 <ivy-module version="2.0">
 	<info organisation="org.hl7.fhir" module="tools"/>
 	<dependencies>
+		<dependency org="ch.qos.logback" name="logback-classic" rev="1.2.3" />
 		<dependency org="ca.uhn.hapi.fhir" name="hapi-fhir-base" rev="1.6"/>
 		<dependency org="com.google.code.gson" name="gson" rev="2.3"/>
 		<dependency org="commons-codec" name="commons-codec" rev="1.9"/>
@@ -57,7 +58,7 @@
 		<dependency org="net.sf.saxon" name="Saxon-HE" rev="9.5.1-5"/>
 		<dependency org="org.slf4s" name="slf4s-api_2.11" rev="1.7.13"/>
 		<dependency org="com.typesafe.scala-logging" name="scala-logging_2.12" rev="3.5.0"/>
-		<dependency org="org.everit.json" name="org.everit.json.schema" rev="1.5.1"/>
+		<dependency org="com.github.everit-org.json-schema" name="org.everit.json.schema" rev="1.7.0"/>
 		<dependency org="org.json" name="json" rev="20160212"/>
 		<dependency org="com.github.jsonld-java" name="jsonld-java" rev="0.8.3" />
 		<dependency org="com.google.code.javaparser" name="javaparser" rev="1.0.11"/>

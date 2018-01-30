@@ -4,12 +4,13 @@
     <resolvers>
         <ibiblio name="maven" m2compatible="true"/>
         <ibiblio name="maven-snapshots" root="https://oss.sonatype.org/content/repositories/snapshots" m2compatible="true" />
-      	<!--<ibiblio name="jcenter" root="http://jcenter.bintray.com/" m2compatible="true" />-->
       	<ibiblio name="bintray" root="http://dl.bintray.com/labra/maven" m2compatible="true" />
+			<ibiblio name="jitpack" root="https://jitpack.io" m2compatible="true" />
         <chain name="local-chain">
             <resolver ref="maven"/>
             <resolver ref="maven-snapshots"/>
             <resolver ref="bintray"/>
+            <resolver ref="jitpack"/>
         </chain>
     </resolvers>
 </ivysettings>
