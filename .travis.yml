@@ -23,4 +23,4 @@ before_install:
 after_success:
   - cd publish
   - echo -e "Host build.fhir.org\n  Compression yes\n  StrictHostKeyChecking no\n  User fhir_upload\n  IdentityFile ~/deploy.build.fhir.org" > ~/.ssh/config
-  - tar czf - * | ssh -p 2222 build.fhir.org ./publish
+  - tar czf - * | ssh -p 2222 build.fhir.org ./publish $TRAVIS_BRANCH
