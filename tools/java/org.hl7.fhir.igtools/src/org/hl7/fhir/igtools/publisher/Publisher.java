@@ -2770,11 +2770,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       return "<li><b>" + Utilities.escapeXml(page.getTitle()) + "</b></li>";
           }
 
-  private void addPageData(JsonObject pages, ImplementationGuidePageComponent page, String label, String breadcrumb) {
+  private void addPageData(JsonObject pages, ImplementationGuidePageComponent page, String label, String breadcrumb) throws FHIRException {
     addPageData(pages, page, page.getSource(), page.getTitle(), label, breadcrumb);
   }
 
-  private void addPageData(JsonObject pages, ImplementationGuidePageComponent page, String source, String title, String label, String breadcrumb) {
+  private void addPageData(JsonObject pages, ImplementationGuidePageComponent page, String source, String title, String label, String breadcrumb) throws FHIRException {
     FetchedResource r = resources.get(source);
     if (r==null)
       addPageDataRow(pages, source, title, label, breadcrumb + breadCrumbForPage(page, false), null);
@@ -2828,7 +2828,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private void addPageDataRow(JsonObject pages, String url, String title, String label, String breadcrumb, Set<FetchedResource> examples) {
+  private void addPageDataRow(JsonObject pages, String url, String title, String label, String breadcrumb, Set<FetchedResource> examples) throws FHIRException {
     JsonObject jsonPage = new JsonObject();
     pages.add(url, jsonPage);
     jsonPage.addProperty("title", title);
@@ -2930,7 +2930,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return s;
   }
 
-  private ImplementationGuidePageComponent pageForFetchedResource(FetchedResource r) {
+  private ImplementationGuidePageComponent pageForFetchedResource(FetchedResource r) throws FHIRException {
     String key = igpkp.doReplacements(igpkp.getLinkFor(r), r, null, null);
     return igPages.get(key);
   }
@@ -3427,7 +3427,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     //  fragment(f.getId()+"-gen-html", html);
   }
 
-  private void genWrapper(FetchedFile ff, FetchedResource r, String template, String outputName, Set<String> outputTracker, Map<String, String> vars, String format, String extension) throws FileNotFoundException, IOException {
+  private void genWrapper(FetchedFile ff, FetchedResource r, String template, String outputName, Set<String> outputTracker, Map<String, String> vars, String format, String extension) throws FileNotFoundException, IOException, FHIRException {
     if (template != null && !template.isEmpty()) {
       boolean existsAsPage = false;
       if (ff != null) {
@@ -3460,7 +3460,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private String determineOutputName(String outputName, FetchedResource r, Map<String, String> vars, String format, String extension) {
+  private String determineOutputName(String outputName, FetchedResource r, Map<String, String> vars, String format, String extension) throws FHIRException {
     if (outputName == null)
       outputName = "{{[type]}}-{{[id]}}"+(extension.equals("")? "":"-"+extension)+(format==null? "": ".{{[fmt]}}")+".html";
     if (outputName.contains("{{["))
@@ -3532,7 +3532,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private void fragmentError(String name, String error, Set<String> outputTracker) throws IOException {
+  private void fragmentError(String name, String error, Set<String> outputTracker) throws IOException, FHIRException {
     fragment(name, "<p style=\"color: maroon; font-weight: bold\">"+Utilities.escapeXml(error)+"</p>\r\n", outputTracker);
   }
 
@@ -3544,7 +3544,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
    * @param resource
    * @throws IOException
    */
-  private void generateOutputsConceptMap(FetchedFile f, FetchedResource r, ConceptMap cm, Map<String, String> vars) throws IOException {
+  private void generateOutputsConceptMap(FetchedFile f, FetchedResource r, ConceptMap cm, Map<String, String> vars) throws IOException, FHIRException {
     if (igpkp.wantGen(r, "summary"))
       fragmentError("ConceptMap-"+cm.getId()+"-summary", "yet to be done: concept map summary", f.getOutputNames());
     if (igpkp.wantGen(r, "content"))
@@ -3690,10 +3690,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       return div.getXhtml();
   }
 
-  private void fragment(String name, String content, Set<String> outputTracker) throws IOException {
+  private void fragment(String name, String content, Set<String> outputTracker) throws IOException, FHIRException {
     fragment(name, content, outputTracker, null, null, null);
   }
-  private void fragment(String name, String content, Set<String> outputTracker, FetchedResource r, Map<String, String> vars, String format) throws IOException {
+  private void fragment(String name, String content, Set<String> outputTracker, FetchedResource r, Map<String, String> vars, String format) throws IOException, FHIRException {
     String fixedContent = (r==null? content : igpkp.doReplacements(content, r, vars, format));
     if (checkMakeFile(fixedContent.getBytes(Charsets.UTF_8), Utilities.path(tempDir, "_includes", name+".xhtml"), outputTracker)) {
       if (mode != IGBuildMode.AUTOBUILD && makeQA)

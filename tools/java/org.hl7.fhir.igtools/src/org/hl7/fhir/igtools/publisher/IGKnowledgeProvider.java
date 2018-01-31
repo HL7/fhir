@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.elementmodel.ParserBase;
@@ -122,9 +123,12 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       return ((JsonPrimitive) e).getAsString();
   }
 
-  public String doReplacements(String s, FetchedResource r, Map<String, String> vars, String format) {
+  public String doReplacements(String s, FetchedResource r, Map<String, String> vars, String format) throws FHIRException {
     if (Utilities.noString(s))
       return s;
+    if (r.getId()== null) {
+      throw new FHIRException("Error doing replacements - no id defined in resource: " + r.getTitle()== null ? "NO TITLE EITHER" : r.getTitle());
+    }
     s = s.replace("{{[title]}}", r.getTitle() == null ? "?title?" : r.getTitle());
     s = s.replace("{{[name]}}", r.getId()+(format==null? "": "-"+format)+"-html");
     s = s.replace("{{[id]}}", r.getId());
@@ -233,7 +237,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       r.setConfig(e);
   }
   
-  public void checkForPath(FetchedFile f, FetchedResource r, MetadataResource bc) {
+  public void checkForPath(FetchedFile f, FetchedResource r, MetadataResource bc) throws FHIRException {
     if (!bc.hasUrl())
       error(f.getPath(), "Resource has no url: "+bc.getId());
     else if (bc.getUrl().startsWith(canonical) && !bc.getUrl().endsWith("/"+bc.getId()))
