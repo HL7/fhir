@@ -1519,15 +1519,15 @@ Note: the address is not relative to the service base address).
 The response can be one of 3 outcomes:
 </p>
 <ul>
-<li>a 202 <code>Accepted</code> that indicates that processing is still happening. This may have an <code>X-Progress header</code> that 
+<li>a <code>202 Accepted</code> that indicates that processing is still happening. This may have an <code>X-Progress header</code> that 
  provides some indication of progress to the user. The <code>X-progress header</code> is displayed as is to the user - it has 
  no format restrictions but should be &lt;100 characters in length. The client repeats this request periodically 
 until it gets either a <code>200</code> or a <code>5xx</code></li>
- <li>a 5xx Error that indicates that preparing the response has failed. The body is an OperationOutcome 
+ <li>a <code>5xx</code> Error that indicates that preparing the response has failed. The body is an OperationOutcome 
    describing the error</li>
- <li>a <code>200 OK</code> with the response for the original request. This response has one or more Link: 
-   headers (see <a href="https://tools.ietf.org/html/rfc5988">rfc 5988</a>) that list the files that are 
-   available for download as a result of servicing the request. 
+ <li>a <code>200 OK</code> with the response for the original request. This response has a JSON object 
+   including an <code>output</code> array, where each item includes a resource type and a URL. This provides a
+   list of files that are available for download as a result of servicing the request. 
    The response can also carry a <code>X-Available-Until</code> header to indicate when the response will 
    no longer be available</li>
 </ul>
@@ -1536,10 +1536,10 @@ Notes:
 </p>
 <ul>
  <li>The client can cancel a task or advise the server it’s ok to delete the outcome using DELETE [content-location]</li>
- <li>Other than the 5xx response, these responses have no body</li>
+ <li>Other than the <code>5xx</code> response, these responses have no body</li>
  <li>The client SHALL use the same content-type for the subsequent requests as for the initial request</li>
  <li>Often, the asyncronous use pattern is associated with one of <a href="formats.html#bulk">the bulk data formats</a></li>
- <li>The respond body can have one or more <code>output</code> links in them, per <a href="https://tools.ietf.org/html/rfc5988">rfc 5988</a></li>
+ <li>The respond body can have one or more <code>output</code> links in them</li>
  <li><b>Todo</b>: decide whether to add ‘supports asynchronous’ flag to the CapabilityStatement resource (and at what granlarity?)</li>
 </ul>
 
