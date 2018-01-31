@@ -54,7 +54,10 @@
 	<replaces>
 		<reference value="MessageDefinition/example" />
 	</replaces>
-	<event value="http://acme.com/ehr/fhir/event"/>
+	  <eventCoding>
+    <system value="http://hl7.org/fhir/message-events"/>
+    <code value="admin-notify"/>
+  </eventCoding>
 	<category value="Consequence"/>
 	<focus>
 		<code value="Patient"/>
