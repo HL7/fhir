@@ -1256,8 +1256,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
     String regex = context.getExtensionString(ToolingExtensions.EXT_REGEX);
     if (regex!=null)
-      regex = context.getExtensionString("http://hl7.org/fhir/StructureDefinition/regex");
-    if (regex!=null)
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().matches(regex), "Element value '" + e.primitiveValue() + "' does not meet regex '" + regex + "'");
 
     if (type.equals("boolean")) {
@@ -2951,7 +2949,35 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         }
         checkAllInterlinked(errors, entries, stack, bundle);
       }
+      validateResourceIds(errors, entries, stack);
     }
+  }
+
+  /**
+   * Check each resource entry to ensure that the entry's fullURL includes the resource's id
+   * value. Adds an ERROR ValidationMessge to errors List for a given entry if it references
+   * a resource and fullURL does not include the resource's id.
+   * @param errors List of ValidationMessage objects that new errors will be added to. 
+   * @param entries List of entry Element objects to be checked.
+   * @param stack Current NodeStack used to create path names in error detail messages.
+   */
+  private void validateResourceIds(List<ValidationMessage> errors, List<Element> entries, NodeStack stack) {
+   int i = 1;
+   for(Element entry : entries) {
+     String fullUrl = entry.getNamedChildValue("fullUrl");
+     Element resource = entry.getNamedChild("resource");
+     String id = resource != null?resource.getNamedChildValue("id"):null;
+     if (id != null && fullUrl != null) {
+       String urlId = null;
+       if (fullUrl.startsWith("https://") || fullUrl.startsWith("http://")) {
+         urlId = fullUrl.substring(fullUrl.lastIndexOf('/')+1);
+       } else if (fullUrl.startsWith("urn:uuid") || fullUrl.startsWith("urn:oid")) {
+         urlId = fullUrl.substring(fullUrl.lastIndexOf(':')+1);
+       }
+       rule(errors, IssueType.INVALID, entry.line(), entry.col(), stack.addToLiteralPath("entry["+i+"]"), urlId.equals(id), "Resource ID does not match the ID in the entry full URL");
+     }
+     i++;
+   }
   }
 
   private void checkAllInterlinked(List<ValidationMessage> errors, List<Element> entries, NodeStack stack, Element bundle) {
@@ -3381,6 +3407,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           boolean elementValidated = false;
           if (profiles.isEmpty()) {
             p = getProfileForType(type);
+
+            // If dealing with a primitive type, then we need to check the current child against
+            // the invariants (constraints) on the current element, because otherwise it only gets
+            // checked against the primary type's invariants: LLoyd
+            //if (p.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
+            //  checkInvariants(hostContext, errors, ei.path, profile, ei.definition, null, null, resource, ei.element);
+            //}
+            
             rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown type " + type);
           } else if (profiles.size()==1) {
             p = this.context.fetchResource(StructureDefinition.class, profiles.get(0));

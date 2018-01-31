@@ -115,12 +115,13 @@
   Definition = A MessageDefinition that is superseded by this definition
 
  -- Row 20 -----------------------------------
-  Element = MessageDefinition.event
-  Card. = 0..1
+  Element = MessageDefinition.event[x]
+  Card. = 1..1
   Summary = Y
-  Type = uri
-  Short Name = Link to the Event type
-  Definition = Link to the defined event type
+  Type = Coding|uri
+  Binding = MessageEvent
+  Short Name = Event code  or link to the EventDefinition
+  Definition = Event code or link to the EventDefinition.
   To Do = May need a profile id as well if profiles can define message events
 
  -- Row 21 -----------------------------------
@@ -209,9 +210,9 @@
 
  -- Row 1 -----------------------------------
   Name = event
-  Type = uri
-  Description = The event that triggers the message
-  Path = MessageDefinition.event
+  Type = token
+  Description = The event that triggers the message or link to the event definiton.
+  Path = MessageDefinition.event[x]
 
  -- Row 2 -----------------------------------
   Name = category

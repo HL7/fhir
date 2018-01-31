@@ -62,12 +62,12 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = MessageHeader.event
+  Element = MessageHeader.event[x]
   Card. = 1..1
-  Type = Coding
+  Type = Coding|uri
   Binding = MessageEvent
-  Short Name = Code for the event this message represents
-  Definition = Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\"
+  Short Name = Code for the event this message represents or link to event definition
+  Definition = Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\".  Alternatively uri to the EventDefinition.
   Requirements = Drives the behavior associated with this message
   Comments = The time of the event will be found in the focus resource. The time of the message will be found in [[[Bundle.timestamp]]]
   v2 Mapping = MSH-9.2
@@ -330,7 +330,7 @@
  -- Row 1 -----------------------------------
   Name = event
   Type = token
-  Path = MessageHeader.event
+  Path = MessageHeader.event[x]
 
  -- Row 2 -----------------------------------
   Name = destination

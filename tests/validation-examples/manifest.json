@@ -295,6 +295,10 @@
           "source" : "uk-nhs-sd-pat.xml", 
           "errorCount": 1
         }
+      },
+      "entry-resource-bad1.xml" : {
+          "errorCount": 1,
+          "errors": ["Resource ID does not match the ID in the entry full URL"]
       }
 		}
 	}

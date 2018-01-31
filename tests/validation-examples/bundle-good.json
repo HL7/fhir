@@ -20,7 +20,7 @@
       "fullUrl": "http://acme.com/Patient/pat2",
       "resource": {
         "resourceType": "Patient",
-        "id" : "pat1"
+        "id" : "pat2"
       }
     }
   ]

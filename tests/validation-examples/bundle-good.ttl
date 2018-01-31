@@ -32,7 +32,7 @@
 
 <http://acme.com/Patient/pat2> a fhir:Patient;
   fhir:index 0;
-  fhir:Resource.id [ fhir:value "pat1"].
+  fhir:Resource.id [ fhir:value "pat2"].
 
 # -------------------------------------------------------------------------------------
 
