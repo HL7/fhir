@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Clinical Gender Observation example see http://build.fhir.org/patient.html#gender -->
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="clinical-gender"/>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/observation-category"/>
+      <code value="social-history"/>
+      <display value="Social History"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <!-- 0..1 Identity of the terminology system -->
+      <code value="76691-5"/>
+      <!-- 0..1 Symbol in syntax defined by the system -->
+      <display value="Gender identity"/>
+      <!-- 0..1 Representation defined by the system -->
+    </coding>
+    <text value="Gender identity"/>
+    <!-- 0..1 Plain text representation of the concept -->
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <context>
+    <!-- 0..1 Reference(Encounter|EpisodeOfCare) Healthcare event during which this observation is made -->
+    <reference value="Encounter/example"/>
+  </context>
+  <effectiveDateTime value="2018-02-01"/>
+  <performer>
+    <!-- 0..* Reference(Practitioner|PractitionerRole|Organization|     CareTeam|Patient|RelatedPerson)Who is responsible for the observation -->
+    <reference value="Encounter/example"/>
+  </performer>
+  <valueCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <!-- 0..1 Identity of the terminology system -->
+      <code value="191788006"/>
+      <!-- 0..1 Symbol in syntax defined by the system -->
+      <display value="Feminism in boy (finding)"/>
+      <!-- 0..1 Representation defined by the system -->
+    </coding>
+    <text value="Feminism in boy"/>
+    <!-- 0..1 Plain text representation of the concept -->
+  </valueCodeableConcept>
+</Observation>

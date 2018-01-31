@@ -1397,92 +1397,98 @@
   Filename = observation-example-20minute-apgar-score.xml
 
  -- Row 43 -----------------------------------
+  Name = Clinical Gender
+  Identity = clinical-gender
+  Description = Example of a clinical gender observation.  For a discussion on representing a patient\'s gender the the Patient Resource.
+  Filename = observation-example-clinical-gender.xml
+
+ -- Row 44 -----------------------------------
   Name = Eye Color
   Identity = eye-color
   Description = Example of a very simple personal characteristic observation
   Filename = observation-example-eye-color.xml
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Name = Bone Density Measurement
   Identity = bmd
   Description = Example of an encoded BMD measurements of left femur
   Filename = observation-example-bmd.xml
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Name = Diplotype(with Haplotypes Ref)
   Identity = example-diplotype1
   Description = Example of diplotype data (with haplotypes observation as reference)
   Filename = observation-example-diplotype1.xml
   Profile = Observation-Genetics
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Name = Haplotype
   Identity = example-haplotype1
   Description = Example of haplotype data that is basis of a diplotype data
   Filename = observation-example-haplotype1.xml
   Profile = Observation-Genetics
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Name = Haplotype-2
   Identity = example-haplotype2
   Description = Example of another haplotype data that is basis of a diplotype data
   Filename = observation-example-haplotype2.xml
   Profile = Observation-Genetics
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Name = Phenotype
   Identity = example-phenotype
   Description = Example of phenotype data
   Filename = observation-example-phenotype.xml
   Profile = Observation-Genetics
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Name = TPMT-diplotype
   Identity = example-TPMT-diplotype
   Description = Example of a TPMT diplotype that link to two TPMT haplotype observations
   Filename = observation-example-TPMT-diplotype.xml
   Profile = Observation-Genetics
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Name = TPMT-haplotype-one
   Identity = example-TPMT-haplotype-one
   Description = Example of a TPMT haplotype observation
   Filename = observation-example-TPMT-haplotype-one.xml
   Profile = Observation-Genetics
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Name = TPMT-haplotype-two
   Identity = example-TPMT-haplotype-two
   Description = Example of another TPMT haplotype observation
   Filename = observation-example-TPMT-haplotype-two.xml
   Profile = Observation-Genetics
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Name = Spirometry
   Identity = 656
   Description = Spirometry Example referencing DeviceComponent
   Filename = observation-example-spirometry.xml
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Name = Breast Cancer genetic test
   Identity = example-genetics-brcapat
   Description = Example of breast cancer genetic observation
   Filename = observation-example-genetics-brcapat.xml
   Profile = Observation-Genetics
 
- -- Row 54 -----------------------------------
+ -- Row 55 -----------------------------------
   Name = Type of alcohol consumed
   Identity = alcohol-type
   Description = Example of a multi-select values/answers Observation with individual answers/values as components
   Filename = observation-example-alcohol-type.xml
 
- -- Row 55 -----------------------------------
+ -- Row 56 -----------------------------------
   Name = Oyster Testing
   Identity = vp-oyster
   Description = Example of an Observations made about a location - an oyster farm
   Filename = observation-example-vp-oyster.xml
 
- -- Row 56 -----------------------------------
+ -- Row 57 -----------------------------------
   Name = Herd test for Mycoplasmal Pneumonia
   Identity = herd1
   Description = An example of a herd screening ELISA assay for Mycoplasmal Pneumonia in Pigs.
