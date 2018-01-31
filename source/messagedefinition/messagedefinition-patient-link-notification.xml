@@ -48,12 +48,6 @@
 	<base>
 		<reference value="MessageDefinition/example" />
 	</base>
-	<parent>
-		<reference value="ActivityDefinition/example" />
-	</parent>
-	<replaces>
-		<reference value="MessageDefinition/example" />
-	</replaces>
 	  <eventCoding>
     <system value="http://hl7.org/fhir/message-events"/>
     <code value="admin-notify"/>
