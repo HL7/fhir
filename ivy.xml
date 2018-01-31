@@ -66,6 +66,7 @@
 		<dependency org="com.github.jsonld-java" name="jsonld-java-jena" rev="0.4.1"/>
     <dependency org="com.google.guava" name="guava" rev="23.6-jre"/>
     <dependency org="org.json" name="json" rev="20171018"/>
+    <dependency org="com.damnhandy" name="handy-uri-templates" rev="2.1.6"/>
 
 		<!-- if we need to use owasp for security checking
 		<dependency org="com.googlecode.owasp-java-html-sanitizer" name="owasp-java-html-sanitizer" rev="20160628.1"/>

@@ -41,6 +41,7 @@ import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -78,7 +79,7 @@ public class JsonGenerator  {
 		
 		if (schema == null) {
 			schema = new JsonObject();
-			schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
+			schema.addProperty("$schema", "http://json-schema.org/draft-06/schema#");
 			schema.addProperty("id", "http://hl7.org/fhir/json-schema/"+root.getName());
 			schema.addProperty("$ref", "#/definitions/"+root.getName().replace(".",  "_"));
 			schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
@@ -98,7 +99,7 @@ public class JsonGenerator  {
 	}
 
   private JsonObject generateType(ElementDefn root, String name, ElementDefn struc, boolean isResource, JsonObject base, boolean relative) throws IOException, Exception {
-    String parent = isResource ? root.typeCode() : "BackboneElement"; 
+    String parent = isResource ? struc.typeCode() : "BackboneElement"; 
 
     JsonObject r = new JsonObject();
 	
@@ -110,20 +111,20 @@ public class JsonGenerator  {
     JsonObject props = new JsonObject();
     r.add("properties", props);
 
-    if (isResource && definitions.hasResource(root.getName())) {
+    if (isResource && definitions.hasResource(root.getName()) || "Parameters".equals(struc.getName())) {
       JsonObject rt = new JsonObject();
       props.add("resourceType", rt);
       rt.addProperty("description", "This is a "+root.getName()+" resource");
-      rt.addProperty("type", "string");
+//      rt.addProperty("type", "string"); - everit bug?
       rt.addProperty("const", root.getName());
-      JsonArray enums = new JsonArray();
-      enums.add(new JsonPrimitive(root.getName()));
-      rt.add("enum", enums);
+//      JsonArray enums = new JsonArray();
+//      enums.add(new JsonPrimitive(root.getName()));
+//      rt.add("enum", enums);
       required.add("resourceType");
     }
     r.addProperty("additionalProperties", false);
     
-    addInheritedProperties(root, struc.typeCode(), required, props, relative);
+    addInheritedProperties(root, parent, required, props, relative);
 
     
 		for (ElementDefn e : struc.getElements()) {
@@ -242,8 +243,14 @@ public class JsonGenerator  {
 				for (TypeRef t : e.getTypes()) {
 					JsonObject property = new JsonObject();
 					JsonObject property_ = null;
+					TypeDefn td = null;
+					if (definitions.getConstraints().containsKey(t.getName()))
+					  td = definitions.getElementDefn(definitions.getConstraints().get(t.getName()).getBaseType());
+					else if (definitions.hasElementDefn(t.getName())) 
+					  td = definitions.getElementDefn(t.getName());
+					
 					String en = e.getName().replace("[x]",  "");
-					props.add(en+upFirst(t.getName()), property);
+					props.add(en+upFirst(td == null ? t.getName() : td.getName()), property);
 					property.addProperty("description", e.getDefinition());
 					String tref = null;
 					String type = null;
@@ -352,16 +359,18 @@ public class JsonGenerator  {
 	private void makeArray(JsonObject property) {
     JsonObject items = new JsonObject();
     property.add("items", items);
-    if (property.has("$ref")) {
-      items.addProperty("$ref", property.get("$ref").getAsString());
-      property.remove("$ref");
-    }
-    if (property.has("type")) {
-      items.addProperty("type", property.get("type").getAsString());
-      property.remove("type");
-    }
+    moveProp(property, items, "$ref");
+    moveProp(property, items, "type");
+    moveProp(property, items, "enum");
     property.addProperty("type", "array");
 
+  }
+
+  public void moveProp(JsonObject property, JsonObject items, String name) {
+    if (property.has(name)) {
+      items.add(name, property.get(name));
+      property.remove(name);
+    }
   }
 
   private CharSequence nameForType(String type) {
@@ -436,7 +445,7 @@ public class JsonGenerator  {
     
     String tn = type.getJsonType();
     String pattern = type.getRegex();
-    if (pattern != null)
+    if (pattern != null && !type.getCode().equals("base64Binary"))
       t.addProperty("pattern", pattern);  
     t.addProperty("type", tn);
     t.addProperty("description", type.getDefinition());    

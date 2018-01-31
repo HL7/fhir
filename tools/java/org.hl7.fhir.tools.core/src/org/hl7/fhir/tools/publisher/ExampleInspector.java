@@ -33,6 +33,7 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.sparql.util.Context;
 import org.apache.jena.sparql.util.IsoMatcher;
+import org.everit.json.schema.ValidationException;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.Example;
@@ -146,12 +147,12 @@ public class ExampleInspector implements IValidatorResourceFetcher {
         return null;
       }
     }
-
   }
+  
   private static final boolean VALIDATE_CONFORMANCE_REFERENCES = true;
   private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
-  private static final boolean VALIDATE_BY_JSON_SCHEMA = false;
+  private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
   private static final boolean VALIDATE_RDF = false;
   
   private IWorkerContext context;
@@ -297,7 +298,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
       org.w3c.dom.Element xe = validateXml(Utilities.path(rootDir, n+".xml"), profile == null ? null : profile.getId());
 
       validateLogical(Utilities.path(rootDir, n+".json"), profile, FhirFormat.JSON);
-      validateJson(Utilities.path(rootDir, n+".xml"), profile == null ? null : profile.getId());
+      validateJson(Utilities.path(rootDir, n+".json"), profile == null ? null : profile.getId());
       validateRDF(Utilities.path(rootDir, n+".ttl"), Utilities.path(rootDir, n+".jsonld"), rt);
       
       checkSearchParameters(xe, e);
@@ -345,7 +346,16 @@ public class ExampleInspector implements IValidatorResourceFetcher {
 
   private void validateJson(String f, String profile) throws FileNotFoundException, IOException {
     if (VALIDATE_BY_JSON_SCHEMA) {
-      jschema.validate(new CSFileInputStream(f));
+      JSONObject jo = new JSONObject(new JSONTokener(new CSFileInputStream(f)));
+      try {
+        jschema.validate(jo);
+      } catch (ValidationException e) {
+        System.out.println(e.getMessage());
+        e.getCausingExceptions().stream()
+            .map(ValidationException::getMessage)
+            .forEach(System.out::println);
+        throw e;
+      }
     }
   }
 
