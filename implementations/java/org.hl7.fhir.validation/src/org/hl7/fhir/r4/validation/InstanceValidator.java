@@ -2949,7 +2949,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         }
         checkAllInterlinked(errors, entries, stack, bundle);
       }
-      validateResourceIds(errors, entries, stack);
+//      validateResourceIds(errors, entries, stack);
     }
   }
 
@@ -2961,24 +2961,25 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
    * @param entries List of entry Element objects to be checked.
    * @param stack Current NodeStack used to create path names in error detail messages.
    */
-  private void validateResourceIds(List<ValidationMessage> errors, List<Element> entries, NodeStack stack) {
-   int i = 1;
-   for(Element entry : entries) {
-     String fullUrl = entry.getNamedChildValue("fullUrl");
-     Element resource = entry.getNamedChild("resource");
-     String id = resource != null?resource.getNamedChildValue("id"):null;
-     if (id != null && fullUrl != null) {
-       String urlId = null;
-       if (fullUrl.startsWith("https://") || fullUrl.startsWith("http://")) {
-         urlId = fullUrl.substring(fullUrl.lastIndexOf('/')+1);
-       } else if (fullUrl.startsWith("urn:uuid") || fullUrl.startsWith("urn:oid")) {
-         urlId = fullUrl.substring(fullUrl.lastIndexOf(':')+1);
-       }
-       rule(errors, IssueType.INVALID, entry.line(), entry.col(), stack.addToLiteralPath("entry["+i+"]"), urlId.equals(id), "Resource ID does not match the ID in the entry full URL");
-     }
-     i++;
-   }
-  }
+//  private void validateResourceIds(List<ValidationMessage> errors, List<Element> entries, NodeStack stack) {
+//   int i = 1;
+//   for(Element entry : entries) {
+//     String fullUrl = entry.getNamedChildValue("fullUrl");
+//     Element resource = entry.getNamedChild("resource");
+//     String id = resource != null?resource.getNamedChildValue("id"):null;
+//     if (id != null && fullUrl != null) {
+//       String urlId = null;
+//       if (fullUrl.startsWith("https://") || fullUrl.startsWith("http://")) {
+//         urlId = fullUrl.substring(fullUrl.lastIndexOf('/')+1);
+//       } else if (fullUrl.startsWith("urn:uuid") || fullUrl.startsWith("urn:oid")) {
+//         urlId = fullUrl.substring(fullUrl.lastIndexOf(':')+1);
+//       }
+//       rule(errors, IssueType.INVALID, entry.line(), entry.col(), stack.addToLiteralPath("entry["+i+"]"), urlId.equals(id),
+//           "Resource ID does not match the ID in the entry full URL ('"+id+"' vs '"+fullUrl+"') ");
+//     }
+//     i++;
+//   }
+//  }
 
   private void checkAllInterlinked(List<ValidationMessage> errors, List<Element> entries, NodeStack stack, Element bundle) {
     Map<String, Element> visitedResources = new HashMap<String, Element>();
