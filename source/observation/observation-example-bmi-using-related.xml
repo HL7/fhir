@@ -32,11 +32,11 @@
 		<code value="kg/m2"/>
 	</valueQuantity>
 	<derivedFrom>
-		<reference value="Observation/body-height"/>
-		<display value="Body-height"/>
+		<reference value="Observation/bodyheight"/>
+		<display value="Body Height"/>
 	</derivedFrom>
 	<derivedFrom>
 		<reference value="Observation/example"/>
-		<display value="Body-weight"/>
+		<display value="Body Weight"/>
 	</derivedFrom>
 </Observation>
