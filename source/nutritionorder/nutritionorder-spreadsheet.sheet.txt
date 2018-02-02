@@ -2,144 +2,95 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = NutritionOrderStatus
-  Binding = code list
-  Reference = #nutrition-request-status
-  Definition = Codes specifying the state of the request. Describes the lifecycle of the nutrition order.
-  Conformance = required
-
- -- Row 2 -----------------------------------
   Binding Name = FoodType
   Binding = value set
   Reference = valueset-food-type
   Definition = Codes used to indicate the type of food that should NOT be given to the patient.
   Conformance = example
 
- -- Row 3 -----------------------------------
+ -- Row 2 -----------------------------------
   Binding Name = OralDiet
   Binding = value set
   Reference = valueset-diet-type
   Definition = Codes used to indicate the type of diet being ordered for a patient.
   Conformance = example
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = NutrientModifier
   Binding = value set
   Reference = valueset-nutrient-code
   Definition = Codes for types of nutrient that is being modified such as carbohydrate or sodium.
   Conformance = example
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = TextureModifier
   Binding = value set
   Reference = valueset-texture-code
   Definition = Codes for food consistency types or texture modifications to apply to foods.
   Conformance = example
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = TextureModifiedFoodType
   Binding = value set
   Reference = valueset-modified-foodtype
   Definition = Codes for types of foods that are texture modified.
   Conformance = example
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = FluidConsistencyType
   Binding = value set
   Reference = valueset-consistency-type
   Definition = Codes used to represent the consistency of fluids and liquids provided to the patient.
   Conformance = example
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = SupplementType
   Binding = value set
   Reference = valueset-supplement-type
   Definition = Codes for nutritional supplements to be provided to the patient
   Conformance = example
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = EnteralFormulaType
   Binding = value set
   Reference = valueset-entformula-type
   Definition = Codes for type of enteral formula to be administered to patient.
   Conformance = example
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Binding Name = EnteralFormulaAdditiveType
   Binding = value set
   Reference = valueset-entformula-additive
   Definition = Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula.
   Conformance = example
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Binding Name = EnteralRouteOfAdministration
   Binding = value set
   Reference = valueset-enteral-route
   Definition = Codes specifying the route of administration of enteral formula.
   Conformance = extensible
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Binding Name = PatientDiet
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/encounter-diet
   Definition = Medical, cultural or ethical food preferences to help with catering requirements
   Conformance = example
 
-=== Sheet nutrition-request-status =====================================
+ -- Row 12 -----------------------------------
+  Binding Name = NutritionOrderStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-status
+  Definition = Codes identifying the stage lifecycle stage of the nutrition order
+  Conformance = required
 
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = proposed
-  Display = Proposed
-  Definition = The request has been proposed.
-
- -- Row 2 -----------------------------------
-  Id = 12
-  Code = draft
-  Display = Draft
-  Definition = The request is in preliminary form prior to being sent.
-
- -- Row 3 -----------------------------------
-  Id = 2
-  Code = planned
-  Display = Planned
-  Definition = The request has been planned.
-
- -- Row 4 -----------------------------------
-  Id = 1
-  Code = requested
-  Display = Requested
-  Definition = The request has been placed.
-
- -- Row 5 -----------------------------------
-  Id = 2
-  Code = active
-  Display = Active
-  Definition = The request is \'actionable\', but not all actions that are implied by it have occurred yet.
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = on-hold
-  Display = On-Hold
-  Definition = Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called \"suspended\".
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = completed
-  Display = Completed
-  Definition = All actions that are implied by the order have occurred and no continuation is planned (this will rarely be made explicit).
-
- -- Row 8 -----------------------------------
-  Id = 11
-  Code = cancelled
-  Display = Cancelled
-  Definition = The request has been withdrawn and is no longer actionable.
-
- -- Row 9 -----------------------------------
-  Id = 13
-  Code = entered-in-error
-  Display = Entered in Error
-  Definition = The request was entered in error and voided.
+ -- Row 13 -----------------------------------
+  Binding Name = NutritiionOrderIntent
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-intent
+  Definition = Codes indicating the degree of authority/intentionality associated with a nutrition order
+  Conformance = required
 
 === Sheet Invariants =====================================
 
@@ -186,7 +137,7 @@
   Binding = NutritionOrderStatus
   Short Name = proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
   Definition = The workflow status of the nutrition order/request.
-  Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.\n\nThis element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
+  Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
   Workflow Mapping = Request.status
   v2 Mapping = ORC-1
   RIM Mapping = .statusCode
@@ -194,6 +145,24 @@
   w5 = status
 
  -- Row 4 -----------------------------------
+  Element = NutritionOrder.intent
+  Card. = 1..1
+  Aliases = category
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = NutritiionOrderIntent
+  Short Name = proposal | plan | order
+  Definition = Indicates the level of authority/intentionality associated with the {{title}} and where the request fits into the workflow chain.
+  Requirements = Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain.
+  Comments = When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to \"proposal, plan or order\".  Can have multiple codes that map to one of these.  E.g. \"original order\", \"encoded order\", \"reflex order\" would all map to \"order\".  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy.
+  Workflow Mapping = Request.intent
+  v2 Mapping = N/A
+  RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
+  Committee Notes = #15128
+  w5 = class
+
+ -- Row 5 -----------------------------------
   Element = NutritionOrder.patient
   Card. = 1..1
   Summary = Y
@@ -206,7 +175,7 @@
   Committee Notes = 2/4/2015 EH: [#3707] change subject to patient
   w5 = who.focus
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = NutritionOrder.encounter
   Card. = 0..1
   Type = Reference(Encounter)
@@ -217,7 +186,7 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = NutritionOrder.dateTime
   Card. = 1..1
   Summary = Y
@@ -229,7 +198,7 @@
   RIM Mapping = author.time
   w5 = when.recorded
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = NutritionOrder.orderer
   Card. = 0..1
   Summary = Y
@@ -241,7 +210,7 @@
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = NutritionOrder.allergyIntolerance
   Card. = 0..*
   Type = Reference(AllergyIntolerance)
@@ -251,7 +220,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target[classCode=OBS, moodCode=EVN]
   Committee Notes = resource reference
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = NutritionOrder.foodPreferenceModifier
   Card. = 0..*
   Type = CodeableConcept
@@ -263,7 +232,7 @@
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=NutritionModificationType]
   Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = NutritionOrder.excludeFoodModifier
   Card. = 0..*
   Type = CodeableConcept
@@ -274,7 +243,7 @@
   RIM Mapping = N/A
   Committee Notes = Discussion at WGM Mon Q3 - maybe .foodPreferenceModifier --how to convey the patient No Soy, No Red Meat? (without a negation indicator) Do what domain expects e.g. ExcludeFoodType and IncludeFoodPreference
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = !NutritionOrder.item
   Card. = 0..*
   UML = down
@@ -282,7 +251,7 @@
   Definition = Different items that combine to make a complete description of the nutrition to be provided via oral diet, nutritional supplement and/or formula order.
   Committee Notes = use either HL7 Supply code that represents Nutrition Order Item or SNOMED CT/LOINC (i.e. parent concept for the diet regimes/therapies - figure out what to use for supplements and tube feedings).  reasons we may need a type - query for specific part of the order Per WGM Mon Q3 - remove this and move attributes to each instance 2/4/2015 EH: [#3996] deprecate
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = !NutritionOrder.item.scheduled[x]
   Card. = 0..1
   Aliases = Frequency
@@ -292,7 +261,7 @@
   v2 Mapping = ODS-2
   Committee Notes = (not sure where we include the elements such as start date - time, start meal, meal or timing schedule(this is like administration instructions) - date-time, a period, or a schedule interval) Per WGM MonQ3 - you need a schedule for each order component oralDiet.schedule, supplement.schedule, enteral.schedule 2/4/2015 EH: [#3996] deprecate
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = !NutritionOrder.item.isInEffect
   Card. = 1..1
   Type = boolean
@@ -300,7 +269,7 @@
   Definition = Indicates whether the nutrition item is  currently in effect for the patient.
   Committee Notes = Per WGM Mon Q3 - might not need if status provides same info 2/4/2015 EH: [#3996] deprecate
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = NutritionOrder.oralDiet
   Card. = 0..1
   UML = down
@@ -310,7 +279,7 @@
   v2 Mapping = ODS-1 Value = \"D\"
   RIM Mapping = oralDiet .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=OralDietSupplyType]
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = NutritionOrder.oralDiet.type
   Card. = 0..*
   Summary = Y
@@ -324,7 +293,7 @@
   Committee Notes = renamed from .code to .type for consistency
   w5 = what
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = NutritionOrder.oralDiet.schedule
   Card. = 0..*
   Aliases = Frequency
@@ -336,7 +305,7 @@
   RIM Mapping = .expectedUseTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type  #8181
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = NutritionOrder.oralDiet.nutrient
   Card. = 0..*
   UML = down
@@ -346,7 +315,7 @@
   v2 Mapping = ODS-4
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = NutritionOrder.oralDiet.nutrient.modifier
   Card. = 0..1
   Type = CodeableConcept
@@ -358,7 +327,7 @@
   RIM Mapping = .code
   w5 = what
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = NutritionOrder.oralDiet.nutrient.amount
   Card. = 0..1
   Type = SimpleQuantity
@@ -368,7 +337,7 @@
   RIM Mapping = .quantity
   Committee Notes = 2/4/2015 EH: [#4004] remove choice from .nutient.amount
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = NutritionOrder.oralDiet.texture
   Card. = 0..*
   UML = down
@@ -377,7 +346,7 @@
   v2 Mapping = ODS-4
   RIM Mapping = .inboundRelationship [typeCode =COMP], target [classCode=PROC, moodCode=EVN, code=DietTextureModificationType]
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = NutritionOrder.oralDiet.texture.modifier
   Card. = 0..1
   Type = CodeableConcept
@@ -389,7 +358,7 @@
   v2 Mapping = ODS-4
   RIM Mapping = .code
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = NutritionOrder.oralDiet.texture.foodType
   Card. = 0..1
   Type = CodeableConcept
@@ -401,7 +370,7 @@
   v2 Mapping = ODS-4
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = NutritionOrder.oralDiet.fluidConsistencyType
   Card. = 0..*
   Type = CodeableConcept
@@ -412,7 +381,7 @@
   v2 Mapping = ODS-4
   RIM Mapping = .code  (Not differentiated from dietTextureModificationType in HL7 v3)
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = NutritionOrder.oralDiet.instruction
   Card. = 0..1
   Summary = Y
@@ -424,7 +393,7 @@
   v2 Mapping = ODS-4
   RIM Mapping = .text
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = NutritionOrder.supplement
   Card. = 0..*
   UML = down
@@ -434,7 +403,7 @@
   v2 Mapping = ODS-1 Value = \"P\"
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=SUPPLEMENT]
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = NutritionOrder.supplement.type
   Card. = 0..1
   Summary = Y
@@ -447,7 +416,7 @@
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalSupplementType)
   w5 = what
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = NutritionOrder.supplement.productName
   Card. = 0..1
   Type = string
@@ -458,7 +427,7 @@
   RIM Mapping = .id
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = NutritionOrder.supplement.schedule
   Card. = 0..*
   Aliases = Frequency
@@ -470,7 +439,7 @@
   RIM Mapping = .effectiveTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type.  #8181
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = NutritionOrder.supplement.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -479,7 +448,7 @@
   v2 Mapping = TQ1-2
   RIM Mapping = .quantity
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = NutritionOrder.supplement.instruction
   Card. = 0..1
   Summary = Y
@@ -492,7 +461,7 @@
   RIM Mapping = .text
   Committee Notes = 2/28/2015:  pre-applied #5675
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = NutritionOrder.enteralFormula
   Card. = 0..1
   UML = right
@@ -502,7 +471,7 @@
   v2 Mapping = ODS-1 Value coded for enteral
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SPLY, moodCode=RQO, code=FORMULA]
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = NutritionOrder.enteralFormula.baseFormulaType
   Card. = 0..1
   Summary = Y
@@ -515,7 +484,7 @@
   RIM Mapping = .participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code (NutritionalFormulaType)
   w5 = what
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = NutritionOrder.enteralFormula.baseFormulaProductName
   Card. = 0..1
   Type = string
@@ -526,7 +495,7 @@
   RIM Mapping = .id
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = NutritionOrder.enteralFormula.additiveType
   Card. = 0..1
   Type = CodeableConcept
@@ -538,7 +507,7 @@
   RIM Mapping = N/A (not differentiated from NutritionalFormulaType in HL7 v3)
   w5 = what
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = NutritionOrder.enteralFormula.additiveProductName
   Card. = 0..1
   Type = string
@@ -549,7 +518,7 @@
   RIM Mapping = N/A
   Committee Notes = 2/4/2015 EH: [#4000][#4001][#4002] change ...name to ...productName
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = NutritionOrder.enteralFormula.caloricDensity
   Card. = 0..1
   Type = SimpleQuantity
@@ -558,7 +527,7 @@
   v2 Mapping = TQ1-2
   RIM Mapping = .quantity (caloricDensity)
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = NutritionOrder.enteralFormula.routeofAdministration
   Card. = 0..1
   Type = CodeableConcept
@@ -568,7 +537,7 @@
   v2 Mapping = ODS-4
   RIM Mapping = .routeCode
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = NutritionOrder.enteralFormula.administration
   Card. = 0..*
   UML = down
@@ -579,7 +548,7 @@
   RIM Mapping = .outboundRelationship [typeCode =COMP], target [classCode=SBADM, moodCode=RQO]
   Committee Notes = #6100, 6111
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = NutritionOrder.enteralFormula.administration.schedule
   Card. = 0..1
   Aliases = Frequency
@@ -591,7 +560,7 @@
   RIM Mapping = .effectiveUseTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type, #6101,#6100, 6111
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = NutritionOrder.enteralFormula.administration.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -601,7 +570,7 @@
   RIM Mapping = .doseQuantity
   Committee Notes = #6100, 6111
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = NutritionOrder.enteralFormula.administration.rate[x]
   Card. = 0..1
   Type = SimpleQuantity|Ratio
@@ -612,7 +581,7 @@
   RIM Mapping = .rateQuantity
   Committee Notes = 4/15/2015 EH:  #6100,# 6111
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = !NutritionOrder.enteralFormula.rateAdjustment
   Card. = 0..1
   Type = Ratio
@@ -622,7 +591,7 @@
   RIM Mapping = N/A
   Committee Notes = 4/15/2015 EH:  #6111
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = NutritionOrder.enteralFormula.maxVolumeToDeliver
   Card. = 0..1
   Type = SimpleQuantity
@@ -631,7 +600,7 @@
   v2 Mapping = ODS-4
   RIM Mapping = .maxDoseQuantity
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = NutritionOrder.enteralFormula.administrationInstruction
   Card. = 0..1
   Summary = Y
@@ -644,7 +613,7 @@
   RIM Mapping = N/A
   Committee Notes = 8177, 6102
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = NutritionOrder.note
   Card. = 0..*
   Type = Annotation

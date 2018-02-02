@@ -6,7 +6,7 @@ edited by Eric Haas Health eData Inc
 		<system value="http://goodhealthhospital.org/nutrition-requests"/>
 		<value value="123"/>
 	</identifier>
-	<status value="active"/>
+	<status value="active"/><intent value="order"/>
 	<patient>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>

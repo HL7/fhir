@@ -6,7 +6,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		<system value="http://www.acme.org/nutritionorders"/>
 		<value value="123"/>
 	</identifier>
-	<status value="active"/>
+	<status value="active"/><intent value="order"/>
 	<patient>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>

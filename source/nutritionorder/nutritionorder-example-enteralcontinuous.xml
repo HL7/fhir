@@ -6,7 +6,7 @@ editor Eric Haas Health eData Inc
 		<system value="http://www.acme.org/nutritionorders"/>
 		<value value="123"/>
 	</identifier>
-	<status value="active"/>
+	<status value="active"/><intent value="order"/>
 	<patient>
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
