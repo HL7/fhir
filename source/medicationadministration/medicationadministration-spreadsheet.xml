@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>5</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -859,13 +859,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3611,7 +3604,6 @@
    </Print>
    <Zoom>119</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3625,16 +3617,12 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     
     </Pane>
     <Pane>
      <Number>2</Number>
-     
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4120,9 +4108,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
-     <RangeSelection>R3:R4</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4385,8 +4370,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4988,11 +4971,11 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -5055,7 +5038,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Events!R1C1:R1C9"/>
   </Names>
-  <Table ss:DefaultColumnWidth="65.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" ss:StyleID="s118" x:FullColumns="1" x:FullRows="1">
+  <Table ss:DefaultColumnWidth="65.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="17" ss:StyleID="s118" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="239.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="83.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s118" ss:Width="199.0"/>
@@ -5075,50 +5058,6 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">Request Aggregations</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Response Aggregations</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">Follow Ups</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s120"><Data ss:Type="String">MedicationAdministration-Update</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">Consequence</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">Update a Medication Administration record.</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s122"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">MedicationAdministration-Nullification</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Consequence</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Someone wishes to record that the record of administration of a medication is in error and should be ignored.</Data></Cell>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s125"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">MedicationAdministration-Complete</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Consequence</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Change the status of a Medication Administration to show that it is complete.</Data></Cell>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s125"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">MedicationAdministration-Recording</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Consequence</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Indicates that a medication has been recorded against the patient's record.</Data></Cell>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">MedicationAdministration</Data></Cell>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"/>
@@ -5300,6 +5239,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5320,6 +5260,7 @@
     <Pane>
      <Number>0</Number>
      
+     <RangeSelection>R2:R5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5587,11 +5528,11 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -6055,8 +5996,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6551,8 +6490,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7157,8 +7094,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7801,8 +7736,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
      <RangeSelection>R1:R1048576</RangeSelection>
     </Pane>
    </Panes>
@@ -8320,13 +8253,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
