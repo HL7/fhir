@@ -30,7 +30,7 @@
 		--><coding>
 			<system value="http://loinc.org"/>
 			<code value="85354-9"/>
-			<display value="Bood pressure panel with all children optional"/>
+			<display value="Blood pressure panel with all children optional"/>
 		</coding>
 		<text value="Blood pressure systolic &amp; diastolic"/>
 	</code>
