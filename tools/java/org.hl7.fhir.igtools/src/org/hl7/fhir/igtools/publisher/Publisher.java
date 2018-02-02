@@ -3109,8 +3109,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void genEntryItem(StringBuilder list, StringBuilder lists, StringBuilder table, FetchedFile f, FetchedResource r, String name, String prefixType) throws Exception {
     String ref = igpkp.doReplacements(igpkp.getLinkFor(r), r, null, null);
+    if (Utilities.noString(ref))
+      throw new Exception("No reference found for "+r.getId());
     if (prefixType != null)
-      ref = ref.substring(0, ref.lastIndexOf("."))+"."+prefixType+ref.substring(ref.lastIndexOf("."));
+      if (ref.contains("."))
+        ref = ref.substring(0, ref.lastIndexOf("."))+"."+prefixType+ref.substring(ref.lastIndexOf("."));
+      else
+        ref = ref+"."+prefixType;
     PrimitiveType desc = new StringType(r.getTitle());
     if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
       name = ((MetadataResource) r.getResource()).getName();

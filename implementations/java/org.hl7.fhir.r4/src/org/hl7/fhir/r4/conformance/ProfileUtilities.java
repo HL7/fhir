@@ -3083,11 +3083,13 @@ public class ProfileUtilities extends TranslatingUtilities {
 
   	StructureDefinition base = context.fetchResource(StructureDefinition.class, structure.getBaseDefinition());
 
-  	SchematronWriter sch = new SchematronWriter(dest, SchematronType.PROFILE, base.getName());
+  	if (base != null) {
+  	  SchematronWriter sch = new SchematronWriter(dest, SchematronType.PROFILE, base.getName());
 
-    ElementDefinition ed = structure.getSnapshot().getElement().get(0);
-    generateForChildren(sch, "f:"+ed.getPath(), ed, structure, base);
-    sch.dump();
+  	  ElementDefinition ed = structure.getSnapshot().getElement().get(0);
+  	  generateForChildren(sch, "f:"+ed.getPath(), ed, structure, base);
+  	  sch.dump();
+  	}
   }
 
   // generate a CSV representation of the structure definition
