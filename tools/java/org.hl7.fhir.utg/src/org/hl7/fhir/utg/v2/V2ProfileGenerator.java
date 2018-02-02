@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -225,7 +226,8 @@ public class V2ProfileGenerator {
     ed.setPath("Component.component");
     ed.setMax("0");
     utils.generateSnapshot(context.fetchResource(StructureDefinition.class, sd.getBaseDefinition()), sd, sd.getUrl(), sd.getName());
-    gen.generate(sd);
+    Set<String> tracker = new HashSet<>();
+    gen.generate(sd, tracker);
     FileOutputStream stream = new FileOutputStream(Utilities.path(dest, "datatypes", vi.version+"-"+dt.code+".xml"));
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(stream, sd);
     stream.close();
@@ -279,7 +281,8 @@ public class V2ProfileGenerator {
         ed.addExtension("http://hl7.org/fhir/v2/StructureDefinition/conformance-length", new StringType(comp.confLength));
     }
     utils.generateSnapshot(context.fetchResource(StructureDefinition.class, sd.getBaseDefinition()), sd, sd.getUrl(), sd.getName());
-    gen.generate(sd);
+    Set<String> tracker = new HashSet<>();
+    gen.generate(sd, tracker);
     FileOutputStream stream = new FileOutputStream(Utilities.path(dest, "datatypes", vi.version+"-"+dt.code+".xml"));
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(stream, sd);
     stream.close();
@@ -354,7 +357,8 @@ public class V2ProfileGenerator {
       }
     }
     utils.generateSnapshot(context.fetchResource(StructureDefinition.class, sd.getBaseDefinition()), sd, sd.getUrl(), sd.getName());
-    gen.generate(sd);
+    Set<String> tracker = new HashSet<>();
+        gen.generate(sd, tracker);
     FileOutputStream stream = new FileOutputStream(Utilities.path(dest, "segments", vi.version+"-"+segment.code+".xml"));
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(stream, sd);
     stream.close();

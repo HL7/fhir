@@ -1,68 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuideInput xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="example"/>
-	<url value="http://hl7.org/fhir/us/daf"/>
-	<version value="0"/>
-	<name value="Data Access Framework (DAF)"/>
-	<status value="draft"/>
-	<experimental value="false"/>
-	<date value="2015-01-01"/>
-	<publisher value="ONC / HL7 Joint project"/>
-	<contact>
-		<name value="ONC"/>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.healthit.gov"/>
-		</telecom>
-	</contact>
-	<contact>
-		<name value="HL7"/>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="The Data Access Framework (DAF) Initiative leverages the HL7 FHIR standards to standardize access to Meaningful Use Stage 2 structured information both within the organization and from external organizations"/>
-	<jurisdiction>
-		<coding>
-			<system value="urn:iso:std:iso:3166"/>
-			<code value="US"/>
-		</coding>
-	</jurisdiction>
-	<copyright value="Published by ONC under the standard FHIR license (CC0)"/>
-	<fhirVersion value="1.0.0"/>
-	<dependsOn>
-    <reference value="http://hl7.org/fhir/ImplementationGuide/uscore"/>
-	</dependsOn>
-	<package>
-		<name value="test"/>
-		<description value="Base package (not broken up into multiple packages)"/>
-  </package>
-		<resource>
+  <id value="example"/>
+  <url value="http://hl7.org/fhir/us/daf"/>
+  <version value="0"/>
+  <name value="Data Access Framework (DAF)"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-01-01"/>
+  <publisher value="ONC / HL7 Joint project"/>
+  <contact>
+    <name value="ONC"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.healthit.gov"/>
+    </telecom>
+  </contact>
+  <contact>
+    <name value="HL7"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="The Data Access Framework (DAF) Initiative leverages the HL7 FHIR standards to standardize access to Meaningful Use Stage 2 structured information both within the organization and from external organizations"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <copyright value="Published by ONC under the standard FHIR license (CC0)"/>
+  <fhirVersion value="3.0.1"/>
+  <dependsOn>
+    <definition>
+      <reference value="http://hl7.org/fhir/ImplementationGuide/uscore"/>
+    </definition>
+    <version value="1.0"/>
+  </dependsOn>
+  <global>
+    <!-- all patients have to conform to daf-patient -->
+    <type value="Patient"/>
+    <profile>
+      <reference value="StructureDefinition/daf-patient"/>
+    </profile>
+  </global>
+  <definition>
+    <package>
+      <name value="test"/>
+      <description value="Base package (not broken up into multiple packages)"/>
+    </package>
+    <resource>
       <reference>
         <reference value="Patient/test"/>
       </reference>
-			<name value="Test Example"/>
-			<description value="A test example to show how a package works"/>
-			<exampleReference>
+      <name value="Test Example"/>
+      <description value="A test example to show how a package works"/>
+      <exampleReference>
         <reference value="StructureDefinition/daf-patient"/>
-			</exampleReference>
-		</resource>
-	<global>
-		<!-- all patients have to conform to daf-patient -->
-		<type value="Patient"/>
-		<profile>
-			<reference value="StructureDefinition/daf-patient"/>
-		</profile>
-	</global>
-	<!-- standard FHIR stylesheet. This doesn't need to be an absolute HTTP reference, 
+      </exampleReference>
+    </resource>
+    <!-- standard FHIR stylesheet. This doesn't need to be an absolute HTTP reference, 
     but the publishing tool gets confused if it isn't  -->
-	<page>
-		<sourceUri value="patient-example.html"/>
-		<title value="Example Patient Page"/>
-		<page>
-			<sourceUri value="list.html"/>
-			<title value="Value Set Page"/>
-		</page>
-	</page>
+    <page>
+      <nameUri value="patient-example.html"/>
+      <title value="Example Patient Page"/>
+      <page>
+        <nameUri value="list.html"/>
+        <title value="Value Set Page"/>
+      </page>
+    </page>
+  </definition>
 </ImplementationGuideInput>

@@ -1024,7 +1024,8 @@ public class ResourceValidator extends BaseValidator {
         String esd = b.substring(3);
         rule(errors, IssueType.STRUCTURE, path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
       } else {
-        rule(errors, IssueType.STRUCTURE, path, cd.getStrength() != BindingStrength.REQUIRED || ac.size() > 20 || ac.size() == 1 || !hasGoodCode(ac) || isExemptFromCodeList(path), "The short description of an element with a code list should have the format code | code | etc");
+        rule(errors, IssueType.STRUCTURE, path, cd.getStrength() != BindingStrength.REQUIRED || ac.size() > 20 || ac.size() == 1 || !hasGoodCode(ac) || isExemptFromCodeList(path), 
+            "The short description of an element with a code list should have the format code | code | etc (should be "+sd.toString()+")");
       }
     }
     boolean isComplex = !e.typeCode().equals("code");

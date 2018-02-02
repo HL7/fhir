@@ -15,6 +15,13 @@
   Definition = The kind of an included page.
   Conformance = required
 
+ -- Row 3 -----------------------------------
+  Binding Name = GuideParameterCode
+  Binding = code list
+  Reference = #guide-parameter-code
+  Definition = Code of parameter that is input to the guide
+  Conformance = required
+
 === Sheet guide-dependency-type =====================================
 
  -- Row 1 -----------------------------------
@@ -79,6 +86,74 @@
   Code = resource
   Display = Resource
   Definition = This is a page that represents a presented resource. This is typically used for generated conformance resource presentations.
+
+=== Sheet guide-parameter-code =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = apply-business-version
+  Display = Apply Business Version
+  Definition = If the value of this boolean 0..1 parameter is \"true\" then all conformance resources will have any specified [Resource].version overwritten with the ImplementationGuide.version
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = apply-jurisdiction
+  Display = Apply Jurisdiction
+  Definition = If the value of this boolean 0..1 parameter is \"true\" then all conformance resources will have any specified [Resource].jurisdiction overwritten with the ImplementationGuide.jurisdiction
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = path-resource
+  Display = Resource Path
+  Definition = The value of this string 0..* parameter is a subfolder of the build context\'s location that is to be scanned to load resources. Scope is (if present) a particular resource type
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = path-pages
+  Display = Pages Path
+  Definition = The value of this string 0..1 parameter is a subfolder of the build context\'s location that contains files that are part of the html content processed by the builder
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = path-tx-cache
+  Display = Terminology Cache Path
+  Definition = The value of this string 0..1 parameter is a subfolder of the build context\'s location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = expansion-profile
+  Display = Expansion Profile
+  Definition = The value of this string 0..1 parameter is a path to the ExpansionProfile used when expanding value sets for this implementation guide. This is particularly used to specify the versions of published terminologies such as SNOMED CT
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = rule-broken-links
+  Display = Broken Links Rule
+  Definition = The value of this string 0..1 parameter is either \"warning\" or \"error\" (default = \"error\"). If the value is \"warning\" then IG build tools allow the IG to be considered successfully build even when there is no internal broken links
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = generate-xml
+  Display = Generate XML
+  Definition = The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in XML format. If not present, the Publication Tool decides whether to generate XML
+
+ -- Row 9 -----------------------------------
+  Id = 8
+  Code = generate-json
+  Display = Generate JSON
+  Definition = The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in JSON format. If not present, the Publication Tool decides whether to generate JSON
+
+ -- Row 10 -----------------------------------
+  Id = 9
+  Code = generate-turtle
+  Display = Generate Turtle
+  Definition = The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in Turtle format. If not present, the Publication Tool decides whether to generate Turtle
+
+ -- Row 11 -----------------------------------
+  Id = 10
+  Code = html-template
+  Display = HTML Template
+  Definition = The value of this string singleton parameter is the name of the file to use as the builder template for each generated page (see templating)
 
 === Sheet Invariants =====================================
 
@@ -147,85 +222,28 @@
  -- Row 15 -----------------------------------
   Element = ImplementationGuideInput.dependsOn
   Card. = 0..*
-  Summary = Y
   UML = -20;80
-  Type = Reference(ImplementationGuideOutput)
   Short Name = Another Implementation guide this depends on
   Definition = Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides
 
  -- Row 16 -----------------------------------
-  Element = ImplementationGuideInput.package
-  Card. = 0..*
+  Element = ImplementationGuideInput.dependsOn.definition
+  Card. = 1..1
   Summary = Y
-  UML = 600;80
-  Short Name = Group of resources as used in .page.package
-  Definition = A logical group of resources. Logical groups can be used when building pages
+  Type = Reference(ImplementationGuideOutput)
+  Short Name = Canonical Reference to output resource for IG
+  Definition = The canonical reference of the definition of the IG that is depended on
 
  -- Row 17 -----------------------------------
-  Element = ImplementationGuideInput.package.name
-  Card. = 1..1
-  Summary = Y
+  Element = ImplementationGuideInput.dependsOn.version
+  Card. = 0..1
+  Summary = y
   Type = string
-  Short Name = Name used .page.package
-  Definition = The name for the group, as used in page.package
+  Short Name = Version of IG
+  Definition = Version of IG
+  Comments = Tools working with implementation guides use this version to resolve the correct version of the dependency
 
  -- Row 18 -----------------------------------
-  Element = ImplementationGuideInput.package.description
-  Card. = 0..1
-  Type = string
-  Short Name = Human readable text describing the package
-
- -- Row 19 -----------------------------------
-  Element = ImplementationGuideInput.resource
-  Card. = 1..*
-  Summary = Y
-  UML = 550;220
-  Short Name = Resource in the implementation guide
-  Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
-
- -- Row 20 -----------------------------------
-  Element = ImplementationGuideInput.resource.reference
-  Card. = 1..1
-  Summary = y
-  Type = Reference(Any)
-  Short Name = Location of the resource
-  Definition = Where this resource is found
-  Comments = Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it
-
- -- Row 21 -----------------------------------
-  Element = ImplementationGuideInput.resource.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = Human Name for the resource
-  Definition = A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)
-
- -- Row 22 -----------------------------------
-  Element = ImplementationGuideInput.resource.description
-  Card. = 0..1
-  Type = string
-  Short Name = Reason why included in guide
-  Definition = A description of the reason that a resource has been included in the implementation guide
-  Comments = This is mostly used with examples to explain why it is present (though they can have extensive comments in the examples)
-
- -- Row 23 -----------------------------------
-  Element = ImplementationGuideInput.resource.example[x]
-  Card. = 0..1
-  Type = boolean|Reference(StructureDefinition)
-  Short Name = Is an example/What is this an example of?
-  Definition = If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
-  Comments = Examples: * StructureDefinition -> Any * ValueSet -> expansion * OperationDefinition -> Parameters * Questionnaire -> QuestionnaireResponse
-
- -- Row 24 -----------------------------------
-  Element = ImplementationGuideInput.resource.pack
-  Card. = 0..1
-  Summary = Y
-  Type = id
-  Short Name = Pack this is part of
-  Definition = Reference to the id of the pack this resource appears in
-  Comments = This must correspond to a package.id element within this implementation guide.
-
- -- Row 25 -----------------------------------
   Element = ImplementationGuideInput.global
   Card. = 0..*
   Summary = Y
@@ -234,7 +252,7 @@
   Definition = A set of profiles that all resources covered by this implementation guide must conform to
   Comments = See [Default Profiles](ImplementationGuideInput.html#default) for a discussion of which resources are \'covered\' by an implementation guide
 
- -- Row 26 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ImplementationGuideInput.global.type
   Card. = 1..1
   Summary = Y
@@ -244,7 +262,7 @@
   Definition = The type of resource that all instances must conform to
   Comments = The type must match that of the profile that is referred to, but is made explicit here as a denormalization so that a system processing the implementation guide resource knows which resources the profile applies to even if the profile itself is not available
 
- -- Row 27 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ImplementationGuideInput.global.profile
   Card. = 1..1
   Summary = Y
@@ -252,39 +270,149 @@
   Short Name = Profile that all resources must conform to
   Definition = A reference to the profile that all instances must conform to
 
- -- Row 28 -----------------------------------
-  Element = ImplementationGuideInput.page
+ -- Row 21 -----------------------------------
+  Element = ImplementationGuideInput.definition
   Card. = 0..1
-  Summary = Y
+  Short Name = Information used when generating the IG
+
+ -- Row 22 -----------------------------------
+  Element = ImplementationGuideInput.definition.package
+  Card. = 0..*
+  UML = 600;80
+  Short Name = Group of resources as used in .page.package
+  Definition = A logical group of resources. Logical groups can be used when building pages
+
+ -- Row 23 -----------------------------------
+  Element = ImplementationGuideInput.definition.package.name
+  Card. = 1..1
+  Type = string
+  Short Name = Name used .page.package
+  Definition = The name for the group, as used in page.package
+
+ -- Row 24 -----------------------------------
+  Element = ImplementationGuideInput.definition.package.description
+  Card. = 0..1
+  Type = string
+  Short Name = Human readable text describing the package
+
+ -- Row 25 -----------------------------------
+  Element = ImplementationGuideInput.definition.resource
+  Card. = 1..*
+  UML = 550;220
+  Short Name = Resource in the implementation guide
+  Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
+
+ -- Row 26 -----------------------------------
+  Element = ImplementationGuideInput.definition.resource.reference
+  Card. = 1..1
+  Type = Reference(Any)
+  Short Name = Location of the resource
+  Definition = Where this resource is found
+  Comments = Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it
+
+ -- Row 27 -----------------------------------
+  Element = ImplementationGuideInput.definition.resource.name
+  Card. = 0..1
+  Type = string
+  Short Name = Human Name for the resource
+  Definition = A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)
+
+ -- Row 28 -----------------------------------
+  Element = ImplementationGuideInput.definition.resource.description
+  Card. = 0..1
+  Type = string
+  Short Name = Reason why included in guide
+  Definition = A description of the reason that a resource has been included in the implementation guide
+  Comments = This is mostly used with examples to explain why it is present (though they can have extensive comments in the examples)
+
+ -- Row 29 -----------------------------------
+  Element = ImplementationGuideInput.definition.resource.example[x]
+  Card. = 0..1
+  Type = boolean|Reference(StructureDefinition)
+  Short Name = Is an example/What is this an example of?
+  Definition = If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
+  Comments = Examples: * StructureDefinition -> Any * ValueSet -> expansion * OperationDefinition -> Parameters * Questionnaire -> QuestionnaireResponse
+
+ -- Row 30 -----------------------------------
+  Element = ImplementationGuideInput.definition.resource.package
+  Card. = 0..1
+  Type = id
+  Short Name = Pack this is part of
+  Definition = Reference to the id of the pack this resource appears in
+  Comments = This must correspond to a package.id element within this implementation guide.
+
+ -- Row 31 -----------------------------------
+  Element = ImplementationGuideInput.definition.page
+  Card. = 0..1
   UML = 0;180
   Short Name = Page/Section in the Guide
   Definition = A page / section in the implementation guide. The root page is the implementation guide home page
   Comments = Pages automatically become sections if they have sub-pages. By convention, the home page is called index.html
 
- -- Row 29 -----------------------------------
-  Element = ImplementationGuideInput.page.source[x]
+ -- Row 32 -----------------------------------
+  Element = ImplementationGuideInput.definition.page.name[x]
   Card. = 1..1
-  Summary = Y
   Type = uri|Reference(Binary)
   Short Name = Where to find that page
   Definition = The source address for the page
   Comments = The publishing tool will autogenerate source for list (source = n/a), and inject included implementations for include (source = uri of guide to include)
 
- -- Row 30 -----------------------------------
-  Element = ImplementationGuideInput.page.title
+ -- Row 33 -----------------------------------
+  Element = ImplementationGuideInput.definition.page.title
   Card. = 1..1
-  Summary = Y
   Type = string
   Short Name = Short title shown for navigational assistance
   Definition = A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc.
 
- -- Row 31 -----------------------------------
-  Element = ImplementationGuideInput.page.page
+ -- Row 34 -----------------------------------
+  Element = ImplementationGuideInput.definition.page.page
   Card. = 0..*
-  Type = @ImplementationGuideInput.page
+  Type = @ImplementationGuideInput.definition.page
   Short Name = Nested Pages / Sections
   Definition = Nested Pages/Sections under this page
   Comments = The implementation guide breadcrumbs are generated from this structure
+
+ -- Row 35 -----------------------------------
+  Element = ImplementationGuideInput.definition.parameter
+  Card. = 0..*
+  Short Name = Defines how IG is built by tools
+
+ -- Row 36 -----------------------------------
+  Element = ImplementationGuideInput.definition.parameter.code
+  Card. = 1..1
+  Type = code
+  Binding = GuideParameterCode
+  Short Name = apply-business-version | apply-jurisdiction | path-resource | path-pages | path-tx-cache | expansion-profile | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template
+
+ -- Row 37 -----------------------------------
+  Element = ImplementationGuideInput.definition.parameter.value
+  Card. = 1..1
+  Type = string
+  Short Name = Value for named type
+
+ -- Row 38 -----------------------------------
+  Element = ImplementationGuideInput.definition.template
+  Card. = 0..*
+  Short Name = A template for building resources
+
+ -- Row 39 -----------------------------------
+  Element = ImplementationGuideInput.definition.template.code
+  Card. = 1..1
+  Type = code
+  Binding = !
+  Short Name = Type of template specified
+
+ -- Row 40 -----------------------------------
+  Element = ImplementationGuideInput.definition.template.source
+  Card. = 1..1
+  Type = string
+  Short Name = The source of the template
+
+ -- Row 41 -----------------------------------
+  Element = ImplementationGuideInput.definition.template.scope
+  Card. = 0..1
+  Type = string
+  Short Name = The scope in which the template applies
 
 === Sheet Search =====================================
 
@@ -296,12 +424,12 @@
  -- Row 2 -----------------------------------
   Name = dependency
   Type = reference
-  Path = ImplementationGuideInput.dependsOn
+  Path = ImplementationGuideInput.dependsOn.definition
 
  -- Row 3 -----------------------------------
   Name = resource
   Type = reference
-  Path = ImplementationGuideInput.resource.reference
+  Path = ImplementationGuideInput.definition.resource.reference
 
 === Sheet Profiles =====================================
 
