@@ -116,7 +116,7 @@
   Id = 4
   Code = option
   Display = Option
-  Definition = The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.\n\nRefer to [[[RequestGroup]]] for additional information on how this status is used
+  Definition = The request represents a component or option for a RequestGroup that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestGroup]]] for additional information on how this status is used
   v3 = =ActMood.OPT
 
  -- Row 5 -----------------------------------
@@ -270,7 +270,7 @@
   Binding = RequestStatus
   Short Name = draft | active | suspended | cancelled | completed | entered-in-error | unknown
   Definition = The current state of the {{title}}
-  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding [[[Event]]](s) or using the [[[Task]]] resource.\n\nA nominal state-transition diagram can be found in the [[request.html#statemachine | Request pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.\n\nA status of \'active\' when doNotPerform is true means that the request to not perform is currently in force.
+  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, completed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding [[[Event]]](s) or using the [[[Task]]] resource.  A nominal state-transition diagram can be found in the [[request.html#statemachine | Request pattern]] documentation  Unknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.  A status of \'active\' when doNotPerform is true means that the request to not perform is currently in force.\n\nA status of completed for a \"doNotPerform\" request indicates that the period of non-performance is now satisfied and the request no longer holds
   v2 Mapping = ORC.5
   RIM Mapping = .status
   To Do = Should this be a common code system for all requests?
@@ -284,7 +284,7 @@
   Binding = RequestStatusReason
   Short Name = Reason for current status
   Definition = Captures the reason for the current state of the {{title}}.
-  Comments = This is generally only used for \"exception\" statuses such as \"suspended\" or \"cancelled\".  The reason why the {{title}} was created at all is captured in reasonCode, not here.\n\n[distinct reason codes for different statuses can be enforced using invariants if they are universal bindings]
+  Comments = This is generally only used for \"exception\" statuses such as \"suspended\" or \"cancelled\".  The reason why the {{title}} was created at all is captured in reasonCode, not here.  [distinct reason codes for different statuses can be enforced using invariants if they are universal bindings]
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde
 
  -- Row 9 -----------------------------------
@@ -327,7 +327,7 @@
   Short Name = true if request is prohibiting action
   Definition = If true indicates that the {{title}} is asking for the specified action to *not* occur.
   Requirements = Supports things like Do Not Recussitate, Nothing by mouth, etc.
-  Comments = The attributes provided with the request qualify what is not to be done.  For example, if an effectiveTime is provided, the \"do not\" request only applies within the specified time.  If a performerType is specified then the \"do not\" request only applies to performers of that type.  Qualifiers include: code, subject, occurrence, perormerType and performer
+  Comments = The attributes provided with the request qualify what is not to be done.  For example, if an effectiveTime is provided, the \"do not\" request only applies within the specified time.  If a performerType is specified then the \"do not\" request only applies to performers of that type.  Qualifiers include: code, subject, occurrence, perormerType and performer.\n\nIn some cases, the Request.code may pre-coordinate prohibition into the requested action.  E.g. \"NPO\" (nothing by mouth), \"DNR\" (do not recussitate).  If this happens, doNotPerform SHALL NOT be set to true.  I.e. The resource shall not have double negation. (E.g. \"Do not DNR\")
   Default Value = false
 
  -- Row 12 -----------------------------------
@@ -350,7 +350,7 @@
   Summary = Y
   Type = Reference(Patient|Group)
   Short Name = Individual the service is ordered for
-  Definition = The individual or set of individuals the action is to be performed on or for.
+  Definition = The individual or set of individuals the action is to be performed/not performed on or for.
   Requirements = Links the request to the Patient context
   Comments = [For resources that aren\'t patient-specific, the set of allowed resources may be extended to include other things.  Group should generally be retained unless there\'s certainty this resource won\'t be used for veterinary, research or public health settings where Group may be necessary (e.g. this cage of rats/crate of chickens, group of people in a 5 mile radious of the incident, etc.)]
   v2 Mapping = Accompanying PID segment
@@ -379,7 +379,7 @@
   Summary = Y
   Type = dateTime|Period|Timing
   Short Name = When service should occur
-  Definition = The date or time(s) at which the activity or service is desired to occur.
+  Definition = The date or time(s) at which the activity or service is desired to occur or not occur.
   Comments = [The list of types may be constrained as appropriate for the type of event]
   v2 Mapping = Accompanying TQ1/TQ2 segments
   RIM Mapping = .effectiveTime
@@ -418,8 +418,8 @@
   Type = CodeableConcept
   Binding = PerformerType
   Short Name = Desired kind of service performer
-  Definition = The type of individual that is desired to act upon the {{request}}
-  Comments = If specified without indicating a performer, this indicates that the performer must be of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.
+  Definition = The type of individual that is desired to act upon/ not act upon the {{request}}
+  Comments = If specified without indicating a performer, this indicates that the performer must be (or can\'t be) of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.  If doNotPerform is true, then only one of performerType and performer should be present.
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
   To Do = Need to define who.performer
@@ -430,7 +430,7 @@
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner|PractitionerRole|Organization|CareTeam|HealthcareService|Patient|Device|RelatedPerson)
-  Short Name = Specific desired performer
+  Short Name = Specific desired (non)performer
   Definition = Indicates who or what is being asked to perform (or not perform) the {{request}}
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
@@ -442,9 +442,9 @@
   Summary = Y
   Type = CodeableConcept
   Binding = RequestReason
-  Short Name = Why is service needed?
+  Short Name = Why is service (not) needed?
   Definition = Describes why the request is being made in coded or textual form.
-  Comments = Textual reasons can be caprued using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act.
+  Comments = Textual reasons can be captured using reasonCode.text.  If doNoPerform is true, this will be the reason why the request is being made to not act.
   v2 Mapping = ORC.16
   RIM Mapping = .reasonCode
   w5 = why
@@ -454,7 +454,7 @@
   Card. = 0..*
   Summary = Y
   Type = Reference(Condition|Observation|DiagnosticReport|DocumentReference)
-  Short Name = Why is service needed?
+  Short Name = Why is service (not) needed?
   Definition = Indicates another resource whose existence justifies this request
   Comments = [Additional resources may be added as appropriate]
   v2 Mapping = ORC.16
@@ -466,7 +466,7 @@
   Card. = 0..*
   Type = Reference(Coverage|ClaimResponse)
   Short Name = Associated insurance coverage
-  Definition = Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be rin delivering the requested service.
+  Definition = Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant in delivering the requested service.
   v2 Mapping = IN1/IN2
   RIM Mapping = .outboundRelationship[typeCode=COVBY].target
 
@@ -475,7 +475,7 @@
   Card. = 0..*
   Type = Reference(Any)
   Short Name = Extra information to use in performing request
-  Definition = Information that may be needed by/relevant to the performer in their execution of this {{title}}
+  Definition = Information that may be needed by/relevant to the performer in their execution of this {{title}}.
   v2 Mapping = Accompanying segments
   RIM Mapping = .outboundRelationship[typeCode=PERT].target
 
@@ -495,6 +495,6 @@
   Type = Reference(Provenance)
   Short Name = Key events in history of {{title}}
   Definition = Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
-  Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.\n\nReferenced provenances should adhere to the provenance-relevant-history profile.
+  Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.  Referenced provenances should adhere to the provenance-relevant-history profile.
   v2 Mapping = N/A
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]

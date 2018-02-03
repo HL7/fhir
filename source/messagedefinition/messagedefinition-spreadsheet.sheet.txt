@@ -122,7 +122,6 @@
   Binding = MessageEvent
   Short Name = Event code  or link to the EventDefinition
   Definition = Event code or link to the EventDefinition.
-  To Do = May need a profile id as well if profiles can define message events
 
  -- Row 21 -----------------------------------
   Element = MessageDefinition.category
