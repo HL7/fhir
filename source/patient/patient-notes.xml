@@ -96,23 +96,31 @@ This includes cases where these related people are actually contributing to the 
 the Patient.generalPractitioner field.</p>
 
 <a name="gender"></a>
-<h2>Patient Gender</h2>
+<h2>Patient Gender and Sex</h2>
 
 <p>
-Tracking a patient's gender presents a number of challenges due to biological variations, differing cultural expectations and legal restrictions, and the availability of various kinds of gender re-assignment. 
-The basic gender included in <code>Patient.gender</code> has a limited use, that of the <i>administrative</i> gender: the gender that the patient is considered to have for administration and record keeping purposes.
-In addition, to this gender, other kinds of gender may be represented:
+Many systems and organizations only provide for a single attribute that aspires to represent all aspects of a patient’s gender and sex with a single value. However there are many considerations around sex and gender documentation and interoperability.  Listed below are the various social and biological attributes that are relevant in the healthcare setting, as well as information on how each can communicated.
 </p>
 <ul>
- <li>Birth Sex - the sex assigned at birth / on the birth registration. Some countries allow variations such as not yet determined, unknown, or undifferentiated, while others do not. The US realm defines a US Specific extension for this for Meaningful Use</li>
- <li>Clinical Gender - an observation about the patient, typically using the <a href="loinc.html">LOINC</a> code <a href="http://loinc.org/76691-5">76691-5</a>). 
-     LOINC also provides a <a href="http://r.details.loinc.org/AnswerList/LL3322-6.html">set of possible codes</a>, or SNOMED CT has the descendents of <a href="http://www.snomedbrowser.com/Codes/Details/285116001">285116001</a>: Gender identity finding</li>
+ <li><b>Administrative Gender</b> - in order to interoperate with systems that use a single generic property, the basic <a href="patient-definitions.html#Patient.gender">Patient.gender</a> property attempts to represent an administrative gender: the gender that the patient is considered to have for administration and record keeping purposes. This property is often used as an input to patient matching algorithms, for example.</li>
 </ul>
 <p>
-Other related Observations may describe the Karyotypic/Genetic, Gonadal, Ductal, Phenotypic status of a patient.
+In addition to this administrative gender, other kinds of gender or sex properties may be represented:
 </p>
+<ul>
+  <li><b>Clinical Sex</b> - a testable observation about a biological property of the patient.  There are several different types of clinical sex, including karyotypic/genetic/chromosomal, gonadal, ductal, phenotypic, etc.  Clinical sex observations should be represented using <a href="observation.html">Observation</a>, qualified with the appropriate clinical codes from LOINC and/or SNOMED.
+ </li>
+  <li><b>Clinical Gender</b> - an observation about the patient, often collected as part of social history documentation, and represented as an Observation using, for example, the LOINC code <a href="http://loinc.org/76691-5">76691-5</a>). Clinical gender observations can provide both history and confidentiality, where the <a href="extension-patient-genderidentity.html">genderIdentity</a> extension does not.
+ </li>
+  <li><b>Gender Identity</b> - an indication from the patient about what gender they consider themselves to be.  This can influence how the patient prefers to be addressed by care providers and other individuals.  The standard <a href="extension-patient-genderidentity.html">genderIdentity</a> extension may be used to communicate this property.  This extension is appropriate when the gender identity is openly known.
+ </li>
+  <li><b>Sex assigned at Birth</b> - the sex assigned at birth, as documented on the birth registration. Some countries allow variations such as not yet determined, unknown, or undifferentiated, while others do not. Some countries also allow birth registration information to be updated.  The US realm defines a US Specific extension for this property.
+ </li>
+  <li><b>Legal Sex</b> - regional and national entities often categorize citizens using a single legal sex value.  The legal sex of a patient can vary from region to region and country to country.  A single patient may have multiple legal sex values at the same time in different jurisdictions.  In case where the Patient.gender administrative property is not sufficient to communicate legal sex, realm specific extensions should be used.
+ </li>
+</ul>
 <p>
-For veterinary use the animal component also includes the genderStatus which indicates sterility information.
+For veterinary use, the animal extension also includes the genderStatus which indicates sterility information.
 </p>
 
 <a name="maternity"></a>
