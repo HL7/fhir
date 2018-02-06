@@ -2,34 +2,27 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = DigitalMediaType
+  Binding Name = MediaCategory
   Binding = Value Set
   Reference = valueset-media-category
   Definition = Codes for high level media categories.
   Conformance = example
 
  -- Row 2 -----------------------------------
-  Binding Name = DigitalMediaModality
+  Binding Name = MediaModality
   Binding = Value Set
-  Reference = valueset-digital-media-subtype
+  Reference = valueset-media-modality
   Definition = Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it
   Conformance = example
 
  -- Row 3 -----------------------------------
-  Binding Name = !MediaModality
-  Binding = Code List
-  Reference = #media-modality
-  Definition = Type of the image capturing machinery used to capture a media recording
-  Conformance = required
-
- -- Row 4 -----------------------------------
   Binding Name = MediaView
   Binding = Value Set
   Reference = valueset-media-view
   Definition = Imaging view (projection) used when collecting an image
   Conformance = example
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
@@ -37,14 +30,14 @@
   Description = SNOMED CT Body site concepts
   Conformance = example
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = MediaReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/procedure-reason
   Definition = The reason for the media
   Conformance = example
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = MediaStatus
   Binding = code list
   Reference = #media-status
@@ -211,7 +204,7 @@
   Card. = 0..*
   Summary = y
   Type = CodeableConcept
-  Binding = DigitalMediaType
+  Binding = MediaCategory
   Short Name = Classification of  type of media
   Definition = A code that classifies the general type of observation being made. For example, whether the media is an image, video or audio recording.
   Requirements = Used for filtering what observations are retrieved and displayed.
@@ -224,7 +217,7 @@
   Card. = 0..1
   Summary = y
   Type = CodeableConcept
-  Binding = DigitalMediaModality
+  Binding = MediaModality
   Short Name = The type of acquisition equipment/process
   Definition = Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality
   Workflow Mapping = Event.code

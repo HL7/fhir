@@ -11,7 +11,7 @@
 	</category>
 	<modality>
 		<coding>
-			<system value="http://hl7.org/fhir/media-subtype"/>
+			<system value="http://hl7.org/fhir/media-modality"/>
 			<code value="diagram"/>
 		</coding>
 	</modality>
