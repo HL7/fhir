@@ -14,7 +14,7 @@
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>
-    <!--   all lab codes. TODO: can we get just the panel ones?   -->
+    <!--   all laboratory codes. TODO: can we get just the panel ones?   -->
       <system value="http://loinc.org"/>
     </include>
   </compose>

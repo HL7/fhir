@@ -290,7 +290,7 @@
   Short Name = Measurements and simple assertions
   Definition = Measurements and simple assertions made about a patient, device or other subject.
   Requirements = Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.
-  Comments = Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as lab reports, etc.
+  Comments = Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc.
   Workflow Mapping = Event
   SNOMED CT Concept Domain = < 363787002 |Observable entity|
   v2 Mapping = OBX
@@ -410,7 +410,7 @@
   Short Name = Healthcare event during which this observation is made
   Definition = The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made
   Requirements = For some observations it may be important to know the link between an observation and a particular encounter.
-  Comments = This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter or episode but still be tied to the context of the encounter or episode (e.g. pre-admission lab tests).
+  Comments = This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter or episode but still be tied to the context of the encounter or episode (e.g. pre-admission laboratory tests).
   Workflow Mapping = Event.context
   v2 Mapping = PV1
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]

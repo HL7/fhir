@@ -1,4 +1,4 @@
-//  1): Fetch the last 3 results for all vitals for a patient  2): Fetch the last lab results for a patient 3): Fetch the last 3 blood pressures, respiratory rate and heart rates for a patient
+//  1): Fetch the last 3 results for all vitals for a patient  2): Fetch the last laboratory results for a patient 3): Fetch the last 3 blood pressures, respiratory rate and heart rates for a patient
 
 1) GET [base]/Observation/$lastn?max=3&patient=Patient/123&category=vital-signs
 
