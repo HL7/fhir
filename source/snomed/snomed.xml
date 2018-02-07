@@ -11016,6 +11016,13 @@
     <display value="Sucrose intolerance"/>
     <display value="Sucrose intolerance (disorder)"/>
   </concept>
+  <concept id="191788006" display="Feminism in boy">
+    <display value="Feminism in boy"/>
+    <display value="Feminism in boy (finding)"/>
+    <display value="Femininity in a boy"/>
+    <display value="Effeminacy in boy"/>
+    <display value="Behavioral characteristics of a boy which are considered typical of the gender role of a female."/>
+  </concept>
   <concept id="19356005" display="Hunter horse">
     <display value="Hunter horse"/>
     <display value="Hunter horse (organism)"/>

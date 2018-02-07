@@ -1,0 +1,6 @@
+// everything linked to the nominated patient (in this case, built automatically by the publication tooling)
+
+HTTP/1.1 200 OK
+[other headers]
+
+$bundle Patient/f001

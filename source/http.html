@@ -31,7 +31,7 @@ claim to be conformant to "RESTful FHIR"  (see <a href="conformance-rules.html">
 Note that in this RESTful framework, transactions are performed directly on the server resource using an
 HTTP request/response. The API does not directly address authentication, authorization, and audit
 collection - for further information, see the <a href="security.html">Security Page</a>. All the 
-interactions are all described for synchronous use, and an <a href="#async">Asynchronous use
+interactions are all described for synchronous use, and an <a href="async.html">Asynchronous use
 pattern</a> is also defined.
 </p>
 <p>
@@ -273,7 +273,7 @@ only applies to successful interactions. In case of failure, servers SHOULD
 always return a body that contains an <a href="operationoutcome.html">OperationOutcome</a> resource.
 </p>
 <p>
-See also the <a href="#async">Asynchronous use pattern</a> for another use of
+See also the <a href="async.html">Asynchronous use pattern</a> for another use of
 the <code>Prefer</code> header.
 </p>
 
@@ -1474,74 +1474,6 @@ using  the <a href="bundle-definitions.html#Bundle.total">Bundle.total</a>.
 </p>
 <p>Note that for search, where <code>_include</code> can be used to return additional related resources, the total number
 of resources in the feed may exceed the number indicated in totalResults.</p>
-
-<a name="async"></a>
-<h3>Asynchronous Use Pattern</h3>
-
-<p>
-All of the interactions above are described as sychronous operations - that is, the client
-makes a query, and waits for the server to respond with the outcome in the HTTP response. 
-This pattern is not suitable once significant server side processing becomes necessary,
-or when substantial amounts of data must be returned. A good example of this is the 
-<a href="patient-operations.html#everything">$everything operation</a>, though simple
-searches may result in large amounts of data. In order to cater for this use case, 
-an asynchronous request pattern is defined. 
-</p>
-<p>
-This pattern is applicable for all the interactions defined above, and for 
-<a href="operations.html">Operations</a>, though for many of these interactions
-it brings no benefit. Servers may choose which interfactions the pattern should be supported on (if at
-all).
-</p>
-<p>
-The Asynchronous use pattern follows the pattern defined in <a href="https://tools.ietf.org/html/rfc7240#section-4.1">rfc 7240</a>. 
-The client initiates the pattern using the Prefer header:
-</p>
-
-<pre>
-Prefer: respond-async
-</pre>
-<p>
-When the server sees this return header, instead of generating the response, and then returning it, 
-the server returns a 202 Accepted header, and a Content-Location at which the client can use to 
-access the response.
-</p>
-<p>
-The client then queries this content location using 
-</p>
-<pre>
-GET [Content-location] 
-</pre>
-<p>
-Note: the address is not relative to the service base address). 
-</p>
-<p>
-The response can be one of 3 outcomes:
-</p>
-<ul>
- <li>a 202 Accepted that indicates that processing is still happening. This may have an “X-Progress header” that 
- provides some indication of progress to the user. The X-progress header is displayed as is to the user - it has 
- no format restrictions but should be &lt;100 characters in length. The client repeats this request periodically 
- until it gets either a 200 or a 5xx</li>
- <li>a 5xx Error that indicates that preparing the response has failed. The body is an OperationOutcome 
-   describing the error</li>
- <li>a 200 OK with the response for the original request. This response has one or more Link: 
-   headers (see <a href="https://tools.ietf.org/html/rfc5988">rfc 5988</a>) that list the files that are 
-   available for download as a result of servicing the request. 
-   The response can also carry a X-Available-Until header to indicate when the response will 
-   no longer be available</li>
-</ul>
-<p>
-Notes:
-</p>
-<ul>
- <li>The client can cancel a task or advise the server it’s ok to delete the outcome using DELETE [content-location]</li>
- <li>Other than the 5xx response, these responses have no body</li>
- <li>The client SHALL use the same content-type for the subsequent requests as for the initial request</li>
- <li>Often, the asyncronous use pattern is associated with one of <a href="formats.html#bulk">the bulk data formats</a></li>
- <li>Link Headers can have one or more links in them, per <a href="https://tools.ietf.org/html/rfc5988">rfc 5988</a></li>
- <li><b>Todo</b>: decide whether to add ‘supports asynchronous’ flag to the CapabilityStatement resource (and at what granlarity?)</li>
-</ul>
 
 <a name="head"/>
 <h3>Support for HEAD</h3>

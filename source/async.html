@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+
+[%settitle Asynchronous pattern%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<h2>Asynchronous API</h2>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+
+<p>
+All of the interactions defined in the <a href="http.html">RESTful API</a> are described as 
+synchronous operations - that is, the client makes a query, and waits for the server to 
+respond with the outcome in the HTTP response. This pattern is not suitable once significant 
+server side processing becomes necessary, or when substantial amounts of data must be returned. 
+A good example of this is the <a href="patient-operations.html#everything">$everything operation</a>, 
+though simple searches may result in large amounts of data. In order to cater for this use case, 
+clients may use an asynchronous request pattern is defined. 
+</p>
+<p>
+This pattern is applicable for all the <a href="http.html">defined interactions</a>, and for 
+<a href="operations.html">Operations</a>, though for many of these interactions
+it brings no benefit. Servers may choose which interactions the pattern should be supported on (if at
+all), and servers may choose to only support some of operations using the asynchronous pattern.
+</p>
+<p>
+The Asynchronous use pattern follows the pattern defined in <a href="https://tools.ietf.org/html/rfc7240#section-4.1">rfc 7240</a>. 
+</p>
+
+<a name="kickoff"></a>
+<h3>Kick-off</h3>
+<p>
+The client initiates the pattern using the Prefer header:
+</p>
+
+<pre>
+GET [base]/[request]?_outputFormat=[media-type]
+Accept: application/json
+Prefer: respond-async
+</pre>
+
+<p>
+The <code>_outputFormat</code> format specifies the format in which the final return is requested. 
+This may be any of <a href="formats.html#wire">defined Serialization formats, including the bulk
+data formats. The accept header describes the format in which OperationOutcomes are returned if
+the request fails.</a>
+</p>
+
+<p>
+The request will have whatever URL and other parameters would normally apply. Typical
+requests that are made using the asynchronous pattern are for all data on many patients:
+</p>
+<table class="none">
+ <tr><td><a href="patient-operations.html#everything">All Patients</a></td><td><pre>GET [fhir base]/Patient/$export</pre></td></tr>
+ <tr><td><a href="group.html#todo">Group of Patients</a></td><td><pre>GET [fhir base]/Group/[id]/$export</pre></td></tr>
+</table>
+
+<h4>Response - Success</h4>
+
+<ul>
+<li>HTTP Status Code of <code>202 Accepted</code></li>
+<li><code>Content-Location</code> header with a url for subsequent status requests</li>
+<li>Optionally an <a href="operationoutcome.html">OperationOutcome</a> in the body</li>
+</ul>
+
+<h4>Response - Error Processing Request</h4>
+
+<ul>
+<li>HTTP Status Code of <code>4XX</code> or <code>5XX</code></li>
+<li>A <a href="operationoutcome.html">OperationOutcome</a> in the body</li>
+</ul>
+<hr/>
+
+<a name="status"> </a>
+
+<h3>Bulk Data Status Request:</h3>
+
+<p>
+After a bulk data request has been kicked-off, clients can poll the <code>url</code> provided in the 
+<code>Content-Location</code> header to obtain the status of the request.
+</p>
+<p>
+Note: Clients SHOULD follow the an <a href="https://en.wikipedia.org/wiki/Exponential_backoff" rel="nofollow">exponential backoff</a> 
+approach when polling for status. Servers may supply a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After">Retry-After header</a> 
+with a http date or a delay time in seconds. When provided, clients should use this information to inform the timing of future polling requests.
+</p>
+
+<pre>
+GET [content-location]
+Accept: applicationa/json
+</pre>
+
+<h4>Response - In-Progress Status</h4>
+
+<ul>
+<li>HTTP Status Code of <code>202 Accepted</code></li>
+<li>Optionally an <code>X-Progress</code> header with a text description of the status of the request that's less than 100 characters. The format of this description is at the server's discretion and may be a percentage complete value or a more general status such as "in progress". Clients can try to parse this value, display it to the user, or log it.</li>
+<li>Optionally an <a href="operationoutcome.html">OperationOutcome</a> in the body</li>
+</ul>
+
+<h4>Response - Error Status</h4>
+<ul>
+<li>HTTP status code of <code>5XX</code></li>
+<li>An <a href="operationoutcome.html">OperationOutcome</a> in the body</li>
+</ul>
+
+<h4>Response - Complete Status</h4>
+<ul>
+<li>HTTP status of <code>200 OK</code></li>
+<li><code>Content-Type header</code> of <code>application/json</code></li>
+<li>Optionally an <code>Expires</code> header indicating when the files listed will no longer be available</li>
+<li>p>A body containing a json object providing metadata and links to the generated bulk data files</li>
+</ul>
+
+<p>Required Fields:</p>
+<ul>
+<li><code>transactionTime</code> - a FHIR instant type that indicates the server's time when the query is run. No resources that have a modified data after this instant should be in the response.</li>
+<li><code>request</code> - the full url of the original bulk data kick-off request</li>
+<li><code>secure</code> - boolean value indicating whether downloading the generated files will require an authentication token. Note: This may be false in the case of signed S3 urls or an internal file server within an organization's firewall.</li>
+<li><code>output</code> - array of bulk data file items with one entry for each generated file. Note: If no data is returned from the kick-off request, the server should return an empty array.</li>
+</ul>
+<p>Each file item should contain the following fields:</p>
+<ul>
+<li><code>type</code> - the FHIR resource type that is contained in the file. Note: Each file may only contain resources of one type, but a server may create more than one file for each resources type returned. The number of resources contained in a file is may vary between servers. If no data is found for a resource, the server should not return an output item for it in the response.</li>
+<li><code>url</code> - the path to the file. The format of the file should reflect that requested in the <code>_outputFormat</code> parameter of the initial kick-off request.</li>
+</ul>
+<p>Example response body:</p>
+<div class="json">
+<pre> {
+   "transactionTime": "[instant]",
+   "request" : "[base]/Patient/$everything?_type=Patient,Observation", 
+   "secure" : true,
+   "output" : [{
+     "type" : "Patient",
+     "url" : "http://serverpath2/patient_file_1.ndjson"
+   },{
+     "type" : "Patient",
+     "url" : "http://serverpath2/patient_file_2.ndjson"
+   },{
+     "type" : "Observation",
+     "url" : "http://serverpath2/observation_file_1.ndjson"
+   }]
+ }
+</pre>
+</div>
+<p>
+Once the client receives this response, it can retrieve the individual files listed in the response. 
+</p>
+<hr/>
+
+<a name="content"> </a>
+<h3>Requesting Individual Files</h3>
+<p>
+Using the urls supplied in the completed status request body, clients can 
+download the generated files (one or more per resource type). Note: These files 
+may be served by a file server rather than a FHIR specific server. Also, if 
+the <code>secure</code> field in the status body is set to <code>true</code> the 
+request must include a valid access token in the <code>Authorization</code> header 
+in these requests.</p>
+
+<h4>Endpoint</h4>
+<p>
+<code>GET [url from status request output field]</code>
+</p>
+
+<h4>Headers</h4>
+<ul>
+<li><code>Accept</code> (optional, but must match the original <code>_outputFormat</code> to <code>application/fhir+ndjson</code>): Specifies the format of the file being returned</li>
+</ul>
+
+<h4>Response - Success</h4>
+<ul>
+<li>HTTP status of <code>200 OK</code></li>
+<li><code>Content-Type</code> header of <code>application/fhir+ndjson</code></li>
+<li>Body - the requested content</li>
+</ul>
+<h4>Response - Error</h4>
+<ul>
+<li>HTTP Status Code of <code>4XX</code> or <code>5XX</code></li>
+</ul>
+<hr/>
+
+<a name="cancel"> </a>
+<h3>Bulk Data Delete Request:</h3>
+<p>After a bulk data request has been kicked-off, clients can send a delete request to the url provided in the <code>Content-Location</code> header to cancel the request.</p>
+<h4>Endpoint</h4>
+<p><code>DELETE [polling content location]</code></p>
+<h4>Response - Success</h4>
+<ul>
+<li>HTTP Status Code of <code>202 Accepted</code></li>
+<li>Optionally a FHIR OperationOutcome in the body</li>
+</ul>
+<h4>Response - Error Status</h4>
+<ul>
+<li>HTTP status code of <code>4XX</code> or <code>5XX</code></li>
+<li>Optionally a FHIR OperationOutcome in the body</li>
+</ul>
+
+
+</div>
+
+
+[%file newfooter%]
+</body>
+</html>
+
+

@@ -110,7 +110,7 @@
   Short Name = Whether this patient\'s record is in active use
   Definition = Whether this patient record is in active use
   Requirements = Need to be able to mark a patient record as not to be used because it was created in error
-  Comments = Default is true. If a record is inactive, and linked to an active record, then future patient/record updates should occur on the other patient\n\nThis element is labeled as a modifier because when the patient record is marked as not active it is not expected to be used/referenced without being changed back to active.
+  Comments = Default is true. If a record is inactive, and linked to an active record, then future patient/record updates should occur on the other patient  This element is labeled as a modifier because when the patient record is marked as not active it is not expected to be used/referenced without being changed back to active.
   RIM Mapping = statusCode
   CDA Mapping = n/a
   Default Value = True
@@ -194,7 +194,7 @@
   Short Name = Indicates if the individual is deceased or not
   Definition = Indicates if the individual is deceased or not
   Requirements = The fact that a patient is deceased influences the clinical process. Also, in human communication and relation management it is necessary to know whether the person is alive.
-  Comments = If there\'s no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.\n\nThis element is labeled as a modifier because once a patient is marked as deceased, the actions that are appropriate to perform on the patient may be significantly different.
+  Comments = If there\'s no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.  This element is labeled as a modifier because once a patient is marked as deceased, the actions that are appropriate to perform on the patient may be significantly different.
   v2 Mapping = PID-30  (bool) and PID-29 (datetime)
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedInd, player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedTime
   CDA Mapping = n/a
@@ -231,7 +231,7 @@
   Short Name = Whether patient is part of a multiple birth
   Definition = Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).
   Requirements = For disambiguation of multiple-birth children, especially relevant where the care provider doesn\'t meet the patient, such as labs.
-  Comments = Where the valueInteger is provided, the number is the birth number in the sequence.\nE.g. The middle birth in triplets would be valueInteger=2 and the third born would have valueInteger=3\nIf a bool value was provided for this triplets example, then all 3 patient records would have valueBool=true (the ordering is not indicated).
+  Comments = Where the valueInteger is provided, the number is the birth number in the sequence. E.g. The middle birth in triplets would be valueInteger=2 and the third born would have valueInteger=3 If a bool value was provided for this triplets example, then all 3 patient records would have valueBool=true (the ordering is not indicated).
   v2 Mapping = PID-24 (bool), PID-25 (integer)
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthInd,  player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthOrderNumber
   CDA Mapping = n/a
@@ -477,7 +477,7 @@
   Type = Reference(Organization|Practitioner)
   Short Name = Patient\'s nominated primary care provider
   Definition = Patient\'s nominated care provider
-  Comments = This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disablity setting, or even organization that will provide people to perform the care provider roles.\n\nIt is not to be used to record Care Teams, these should be in a CareTeam resource that may be linked to the CarePlan or EpisodeOfCare resources.
+  Comments = This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disablity setting, or even organization that will provide people to perform the care provider roles.  It is not to be used to record Care Teams, these should be in a CareTeam resource that may be linked to the CarePlan or EpisodeOfCare resources.
   v2 Mapping = PD1-4
   RIM Mapping = subjectOf.CareEvent.performer.AssignedEntity
   CDA Mapping = n/a
@@ -503,8 +503,8 @@
   UML = 380;90
   Short Name = Link to another patient resource that concerns the same actual person
   Definition = Link to another patient resource that concerns the same actual patient
-  Requirements = There are multiple usecases: \n\n* Duplicate patient records due to the clerical errors associated with the difficulties of identifying humans consistently, and * Distribution of patient information across multiple servers
-  Comments = There is no assumption that linked patient records have mutual links. \n\nThis element is labelled as a modifier because it might not be the main Patient resource, and the referenced patient should be used instead of this Patient record. This is when the link.type value is \'replaced-by\'
+  Requirements = There are multiple usecases:   * Duplicate patient records due to the clerical errors associated with the difficulties of identifying humans consistently, and * Distribution of patient information across multiple servers
+  Comments = There is no assumption that linked patient records have mutual links.   This element is labelled as a modifier because it might not be the main Patient resource, and the referenced patient should be used instead of this Patient record. This is when the link.type value is \'replaced-by\'
   RIM Mapping = outboundLink
   CDA Mapping = n/a
 
@@ -835,7 +835,7 @@
  -- Row 1 -----------------------------------
   Name = match
   Use = Resource
-  Documentation = A Master Patient Index ([MPI](http://en.wikipedia.org/wiki/Enterprise_master_patient_index) ) is a service used to manage patient identification in a context where multiple patient databases exist. Healthcare applications and middleware use the MPI to match patients between the databases, and as new patient details are encountered. MPIs are highly specialized applications, often tailored extensively to the institution\'s particular mix of patients. MPIs can also be run on a regional and national basis.\n\nTo ask an MPI to match a patient, clients use the \"$match\" operation, which accepts a patient resource which may be only partially complete. The data provided is interpreted as an MPI input and passed processed by an algorithm of some kind that uses the data to determine the most appropriate matches in the patient set.\n\nNote that different MPI matching algorithms have different required inputs. The generic $match operation does not specify any particular algorithm, nor a minimum set of information that must be provided when asking for an MPI match operation to be performed, but may implementations will have a set of minimum information, which may be declared in their definition of the $match operation by specifying a profile on the resource parameter, indicating which properties are required in the search.\n\nThe patient resource coming into the operation does not have to be complete, nor does it need to pass validation (i.e. Mandatory fields don\'t need to be populated), but it does have to be a valid instance. This is due to the resource being used for reference data to match from, and not being stored.
+  Documentation = A Master Patient Index ([MPI](http://en.wikipedia.org/wiki/Enterprise_master_patient_index) ) is a service used to manage patient identification in a context where multiple patient databases exist. Healthcare applications and middleware use the MPI to match patients between the databases, and as new patient details are encountered. MPIs are highly specialized applications, often tailored extensively to the institution\'s particular mix of patients. MPIs can also be run on a regional and national basis.  To ask an MPI to match a patient, clients use the \"$match\" operation, which accepts a patient resource which may be only partially complete. The data provided is interpreted as an MPI input and passed processed by an algorithm of some kind that uses the data to determine the most appropriate matches in the patient set.  Note that different MPI matching algorithms have different required inputs. The generic $match operation does not specify any particular algorithm, nor a minimum set of information that must be provided when asking for an MPI match operation to be performed, but may implementations will have a set of minimum information, which may be declared in their definition of the $match operation by specifying a profile on the resource parameter, indicating which properties are required in the search.  The patient resource coming into the operation does not have to be complete, nor does it need to pass validation (i.e. Mandatory fields don\'t need to be populated), but it does have to be a valid instance. This is due to the resource being used for reference data to match from, and not being stored.
   Type = operation
   Example.Request = $match-request.txt
   Example.Response = $match-response.txt
@@ -945,7 +945,7 @@
  -- Row 12 -----------------------------------
   Name = match.onlyCertainMatches
   Use = in
-  Documentation = If there are multiple potential matches, then the match should not return the results with this flag set to true.\n\nWhen false, the server may return multiple results with each result graded accordingly.
+  Documentation = If there are multiple potential matches, then the match should not return the results with this flag set to true.  When false, the server may return multiple results with each result graded accordingly.
   Type = boolean
   Title = The search algorithm should not return results if it is inconclusive
   Min = 0
@@ -972,7 +972,7 @@
  -- Row 15 -----------------------------------
   Name = match.return
   Use = out
-  Documentation = A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)\n\nIf the operation was unsuccessful, then an OperationOutcome may be returned along with a BadRequest status Code (e.g. security issue, or insufficient properties in patient fragment - check against profile)
+  Documentation = A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)  If the operation was unsuccessful, then an OperationOutcome may be returned along with a BadRequest status Code (e.g. security issue, or insufficient properties in patient fragment - check against profile)
   Type = Bundle
   Title = The set of possible matches found by the MPI
   Min = 1
@@ -981,12 +981,12 @@
  -- Row 16 -----------------------------------
   Name = everything
   Use = Resource | Instance
-  Documentation = This operation is used to return all the information related to one or mores patient described in the resource or context on which this operation is invoked. The response is a bundle of type \"searchset\". At a minimum, the patient resource(s) itself is returned, along with any other resources that the server has that are related to the patient(s), and that are available for the given user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, medications, locations, organizations etc. The intended use for this operation is to provide a patient with access to their entire record (e.g. \"Blue Button\"), or for bulk data download.  The server SHOULD return at least all resources that it has that are in the patient compartment for the identified patient(s), and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements as defined in [DAF](http://hl7.org/fhir/us/daf). Other applicable implementation guides may make additional rules about how much information that is returned
+  Documentation = This operation is used to return all the information related to one or more patients described in the resource or context on which this operation is invoked. The response is a bundle of type \"searchset\". At a minimum, the patient resource(s) itself is returned, along with any other resources that the server has that are related to the patient(s), and that are available for the given user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, medications, locations, organizations etc.   The intended use for this operation is to provide a patient with access to their entire record (e.g. \"Blue Button\"), or for provider or other user to perform a bulk data download.  The server SHOULD return at least all resources that it has that are in the patient compartment for the identified patient(s), and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements as defined in [DAF](http://hl7.org/fhir/us/daf). Other applicable implementation guides may make additional rules about how much information that is returned.
   Type = operation
   Example.Request = $everything-request.txt
   Example.Response = $everything-response.txt
   Title = Fetch Patient Record
-  Footer = The key differences between this operation and simply searching the patient compartment are:  \n\n* unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) \n* the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones). This frees the client from needing to determine what it could or should ask for\n\nIt is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one, or can determine an appropriate list of patients to provide data for from the context of the request. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server may choose to return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.\n\nWhen this operation is used to access multiple patient records at once (GET /Patient/$everything), the actual list of patients is all patients that the user associated with the request has access to. This may be all patients in the family that the patient has access to, or it may be all patients that a care provider has access to. In the second case, this could be a lot of patient; servers may choose to require that the such requests are made [asynchronously](http.html#async), and associated with [bulk data formats](formats.html#bulk).
+  Footer = The key differences between this operation and simply searching the patient compartment are:    * unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging)  * the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones). This frees the client from needing to determine what it could or should ask for, particularly with regard to included resources.  It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one, or can determine an appropriate list of patients to provide data for from the context of the request.   If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server may choose to return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification.  When this operation is used to access multiple patient records at once (GET /Patient/$everything), the actual list of patients is all patients that the user associated with the request has access to. This may be all patients in the family that the patient has access to, or it may be all patients that a care provider has access to, or all patients on the entire record system. In the second case, this could be a lot of data; servers may choose to require that the such requests are made [asynchronously](http.html#async), and associated with [bulk data formats](formats.html#bulk).
   Idempotent = True
 
  -- Row 17 -----------------------------------
@@ -1008,6 +1008,24 @@
   Max = 1
 
  -- Row 19 -----------------------------------
+  Name = everything._since
+  Use = in
+  Documentation = Resources updated after this period will be included in the response. The intent of this parameter is to allow a client to request only records that have changed since the last request, based on either the return header time, or or (for asynchronous use), the transaction time
+  Type = instant
+  Title = Oldest record update range to include
+  Min = 0
+  Max = 1
+
+ -- Row 20 -----------------------------------
+  Name = everything._type
+  Use = in
+  Documentation = One or more parameters, each containing one or more comma-delimited FHIR resource types to include in the return resources. In the absense of any specified types, the server returns all resource types
+  Type = code
+  Title = Resource type to include
+  Min = 0
+  Max = *
+
+ -- Row 21 -----------------------------------
   Name = everything.return
   Use = out
   Documentation = The bundle type is \"searchset\"

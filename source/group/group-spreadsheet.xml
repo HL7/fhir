@@ -4,7 +4,7 @@
   <LastAuthor>Lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2016-01-23T22:31:42Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -14,7 +14,8 @@
   
   
   
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -507,50 +508,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s124">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s125">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s126">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s127">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
-  </Style>
   <Style ss:ID="s128">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
@@ -737,6 +694,50 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s153">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s154">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s155">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s156">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R48C1"/>
@@ -772,13 +773,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3594,7 +3588,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4079,7 +4072,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4339,8 +4331,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4351,43 +4341,121 @@
  </Worksheet>
  <Worksheet ss:Name="Operations">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R1C9"/>
   </Names>
-  <Table ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s112" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="130.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="124.0"/>
-   <Column ss:StyleID="s112" ss:Width="24.0"/>
+  <Table ss:DefaultColumnWidth="51.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="13" ss:ExpandedRowCount="41" ss:StyleID="s112" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="131.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="125.0"/>
    <Column ss:StyleID="s112" ss:Width="25.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s112" ss:Width="106.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="7" ss:StyleID="s112" ss:Width="223.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s112" ss:Width="253.0"/>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of the operation or parameter (parameters prefixed by operation name + ".") </Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Use</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">"System | Resource | Instance" (operation) "In" or "Out" (parameter)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Min</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Minimum cardinality for a parameter (must be a non-negative integer)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Max</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">maximum cardinality for a parameter - must be "*" or a positive integer</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">query/operation for operation; data type for a parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Profile</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Profile that must apply to parameter's type</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Title</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The descriptive label for the operation</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">Documentation</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of the operation or parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Footer</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional usage notes for an operation</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   <Column ss:StyleID="s112" ss:Width="28.0"/>
+   <Column ss:StyleID="s112" ss:Width="33.0"/>
+   <Column ss:AutoFitWidth="0" ss:Span="2" ss:StyleID="s112" ss:Width="107.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s112" ss:Width="223.0"/>
+   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s112" ss:Width="254.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="12" ss:StyleID="s112" ss:Width="82.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s112" ss:Width="89.0"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of the operation or parameter (parameters prefixed by operation name + ".") </Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Use</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">"System | Resource | Instance" (operation) "In" or "Out" (parameter)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Min</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Minimum cardinality for a parameter (must be a non-negative integer)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Max</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">maximum cardinality for a parameter - must be "*" or a positive integer</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Idempotent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">query/operation for operation; data type for a parameter</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Search Type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Profile</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Profile that must apply to parameter's type</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Title</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The descriptive label for the operation</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">Documentation</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of the operation or parameter</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">Footer</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional usage notes for an operation</Font>       </ss:Data></Comment></Cell>
+    <Cell><Data ss:Type="String">Example.Request</Data></Cell>
+    <Cell><Data ss:Type="String">Example.Response</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="330">
+    <Cell ss:StyleID="s114"><Data ss:Type="String">everything</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Instance</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"><Data ss:Type="Boolean">1</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s115"/>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Fetch a group of Patient Records</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">This operation is used to return all the information related to one or more patients that are part of the group on which this operation is invoked. The response is a bundle of type "searchset". At a minimum, the patient resource(s) itself is returned, along with any other resources that the server has that are related to the patient(s), and that are available for the given user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, medications, locations, organizations etc.   The intended use for this operation is for a provider or other user to perform a bulk data download.  The server SHOULD return at least all resources that it has that are in the patient compartment for the identified patient(s), and any resource referenced from those, including binaries and attachments. In the US Realm, at a mimimum, the resources returned SHALL include all the data covered by the meaningful use common data elements as defined in [US-Core](http://hl7.org/fhir/us/coref). Other applicable implementation guides may make additional rules about how much information that is returned. </Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">The key differences between this operation and simply searching the group's patients compartment are:    * unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging)  * the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones). This frees the client from needing to determine what it could or should ask for, particularly with regard to included resources.  It is assumed that the server has identified and secured the context appropriately, and can determine whether the context has the rights to the nominated patients.  This operation could result in a lot of data; servers may choose to require that the such requests are made [asynchronously](http.html#async), and associated with [bulk data formats](formats.html#bulk).</Data></Cell>
+    <Cell><Data ss:Type="String">$everything-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$everything-response.txt</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">everything.start</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Start of date range</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no start date is provided, all records prior to the end date are in scope. </Data></Cell>
+    <Cell ss:StyleID="s133"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">everything.end</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">End of date range</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The date range relates to care dates, not record currency dates - e.g. all records relating to care provided in a certain date range. If no end date is provided, all records subsequent to the start date are in scope. </Data></Cell>
+    <Cell ss:StyleID="s133"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">everything._since</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">instant</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Oldest record update range to include</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Resources updated after this period will be included in the response. The intent of this parameter is to allow a client to request only records that have changed since the last request, based on either the return header time, or or (for asynchronous use), the transaction time</Data></Cell>
+    <Cell ss:StyleID="s133"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">everything._type</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Resource type to include</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">One or more parameters, each containing one or more comma-delimited FHIR resource types to include in the return resources. In the absense of any specified types, the server returns all resource types</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">everything.return</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Returned resources</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The bundle type is "searchset"</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4399,17 +4467,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4421,17 +4480,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4443,17 +4493,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4465,17 +4506,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4487,17 +4519,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4509,17 +4532,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4531,17 +4545,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4553,6 +4558,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4564,6 +4571,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4575,6 +4584,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4586,6 +4597,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4597,6 +4610,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4608,6 +4623,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4619,6 +4636,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4630,6 +4649,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4641,6 +4662,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4652,6 +4675,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4663,6 +4688,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4674,6 +4701,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4685,6 +4714,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4696,6 +4727,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4707,6 +4740,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4718,6 +4753,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4729,6 +4766,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4740,6 +4779,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4751,6 +4792,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4762,6 +4805,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4773,6 +4818,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4784,6 +4831,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4795,6 +4844,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4806,6 +4857,8 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -4813,105 +4866,19 @@
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s132"/>
-    <Cell ss:StyleID="s133"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s136"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16"/>
+   <Row ss:AutoFitHeight="0"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4920,6 +4887,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4945,7 +4913,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Events">
@@ -5214,7 +5182,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5489,7 +5456,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5878,7 +5844,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5898,8 +5863,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6408,7 +6371,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7007,8 +6969,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7607,7 +7567,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
