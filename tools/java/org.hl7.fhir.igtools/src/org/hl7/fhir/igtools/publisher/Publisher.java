@@ -88,6 +88,7 @@ import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint;
+import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ElementDefinition;
@@ -130,6 +131,7 @@ import org.hl7.fhir.r4.validation.InstanceValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.igtools.openapi.Writer;
 import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
 import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
@@ -151,6 +153,7 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
+import org.hl7.fhir.utilities.PackageGenerator;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.ZipGenerator;
@@ -235,7 +238,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String destDir;
   private FHIRToolingClient webTxServer;
   private static String txServer = "http://tx.fhir.org/r4";
-//  private static String txServer = "http://local.fhir.org:960/r4";
+//  private static String txServer = "http://local.fhir.org:964/r4";
   private String igPack = "";
   private boolean watch;
 
@@ -314,6 +317,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private MarkDownProcessor markdownEngine;
   private List<ValueSet> expansions = new ArrayList<>();
+
+  private String npmName;
   
 
   private class PreProcessInfo {
@@ -680,7 +685,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     version = ostr(configuration, "version");
     if (Utilities.noString(version))
       version = Constants.VERSION;
-
+    
     if (configuration.has("paths") && !(configuration.get("paths") instanceof JsonObject))
       throw new Exception("Error: if configuration file has a \"paths\", it must be an object");
     JsonObject paths = configuration.getAsJsonObject("paths");
@@ -694,7 +699,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       // We need the root to be expressed as a full path.  getDirectoryForFile will do that in general, but not in Eclipse
       root = new File(root).getCanonicalPath();
     }
-        
+      
+    
     markdownEngine = new MarkDownProcessor(Dialect.DARING_FIREBALL);
     
     log("Root directory: "+root);
@@ -822,8 +828,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     } else
       spec = loadValidationPack();
-    if (copyTemplate)
-      copyTemplate();
 
     context = spec.makeContext();
     context.setLogger(logger);
@@ -846,6 +850,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     } else 
       checkTSVersion(vsCache, context.connectToTSServer(webTxServer));
+    
+    if (copyTemplate)
+      copyTemplate();
     
     loadSpecDetails(context.getBinaries().get("spec.internals"));
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
@@ -1042,6 +1049,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     TextFile.stringToFile(
             "{\r\n"+
             "  \"tool\" : \"jekyll\",\r\n"+
+            "  \"canonicalBase\" : \"http://hl7.org/fhir/ig\",\r\n"+
+            "  \"resources\" : {},\r\n"+
             "  \"paths\" : {\r\n"+
             "    \"resources\" : \"resources\",\r\n"+
             "    \"pages\" : \"pages\",\r\n"+
@@ -1934,7 +1943,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             throw new Exception("Error: conformance resource "+f.getPath()+" could not be loaded");
           boolean altered = false;
           if (bc.hasUrl()) {
-            if (!listedURLExemptions.contains(bc.getUrl()) && !bc.getUrl().equals(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())))
+            if (adHocTmpDir == null && !listedURLExemptions.contains(bc.getUrl()) && !bc.getUrl().equals(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())))
               throw new Exception("Error: conformance resource "+f.getPath()+" canonical URL ("+Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())+") does not match the URL ("+bc.getUrl()+")");            
           } else if (bc.hasId())
             bc.setUrl(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId()));
@@ -2392,7 +2401,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         String u = igpkp.getCanonical()+r.getUrlTail();
         if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
           String uc = ((MetadataResource) r.getResource()).getUrl();
-          if (uc != null && !u.equals(uc) && !isListedURLExemption(uc))
+          if (uc != null && !u.equals(uc) && !isListedURLExemption(uc) && adHocTmpDir == null)
             throw new Exception("URL Mismatch "+u+" vs "+uc);
           if (uc != null && !u.equals(uc))
             map.path(uc, igpkp.getLinkFor(r));
@@ -2673,6 +2682,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generateResourceReferences();
 
     generateDataFile();
+    generateNPMPackage();
+    generateSwagger();
 
     // now, list the profiles - all the profiles
     JsonObject data = new JsonObject();
@@ -2741,6 +2752,69 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
   }
+
+  private void generateSwagger() throws FileNotFoundException, IOException {
+//    
+//    if (configuration.has("openapi")) {
+//      JsonOject 
+//    }
+    Writer oa = null;
+    if (configuration.has("openapi-template")) 
+      oa = new Writer(new FileOutputStream(Utilities.path(tempDir, "openapi.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("npm-template").getAsString())));
+    else
+      oa = new Writer(new FileOutputStream(Utilities.path(tempDir, "openapi.json")));
+    
+    
+    oa.commit();
+    otherFilesRun.add(Utilities.path(tempDir, "openapi.json"));
+  }
+
+
+  private void generateNPMPackage() throws Exception {
+    if (!configuration.has("npm-name"))
+      return;
+    String license = ostr(configuration, "license");
+    if (Utilities.noString(license))
+      throw new Exception("A license is required in the configuration file, and it must be a SPDX license identifier (see https://spdx.org/licenses/), or \"Not Open Source\"");
+    
+    PackageGenerator npm = null;
+    if (configuration.has("npm-template")) 
+      npm = new PackageGenerator(new FileOutputStream(Utilities.path(tempDir, "package.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("npm-template").getAsString())));
+    else
+      npm = new PackageGenerator(new FileOutputStream(Utilities.path(tempDir, "package.json")));
+    
+    npm.name(configuration.get("npm-name").getAsString());
+    npm.version(publishedIg.getVersion());
+    npm.description(publishedIg.getTitle()+": "+publishedIg.getDescription());
+    npm.license(license);
+    npm.author(publishedIg.getPublisher(), null, null);
+    for (ContactDetail t : publishedIg.getContact()) {
+      npm.contributor(t.getName(), email(t.getTelecom()), url(t.getTelecom()));
+    }
+    npm.file("validation.pack");
+    npm.dependency("fhir", version);
+    npm.commit();
+    otherFilesRun.add(Utilities.path(tempDir, "package.json"));
+  }
+
+
+  private String url(List<ContactPoint> telecom) {
+    for (ContactPoint cp : telecom) {
+      if (cp.getSystem() == ContactPointSystem.URL)
+        return cp.getValue();
+    }
+    return null;
+  }
+
+
+  private String email(List<ContactPoint> telecom) {
+    for (ContactPoint cp : telecom) {
+      if (cp.getSystem() == ContactPointSystem.EMAIL)
+        return cp.getValue();
+    }
+    return null;
+  }
+
 
   private void applyPageTemplate(String template, ImplementationGuidePageComponent page) throws Exception {
     if ((page.getKind().equals(ImplementationGuide.GuidePageKind.PAGE) || page.getKind().equals(ImplementationGuide.GuidePageKind.PAGE))

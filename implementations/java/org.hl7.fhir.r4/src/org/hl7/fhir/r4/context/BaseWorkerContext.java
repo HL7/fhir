@@ -105,7 +105,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private List<NamingSystem> systems = new ArrayList<NamingSystem>();
 
   
-  private ValueSetExpanderFactory expansionCache = new ValueSetExpansionCache(this);
+  private ValueSetExpansionCache expansionCache = new ValueSetExpansionCache(this);
   protected boolean cacheValidation; // if true, do an expansion and cache the expansion
   private Set<String> failed = new HashSet<String>(); // value sets for which we don't try to do expansion, since the first attempt to get a comprehensive expansion was not successful
   protected Map<String, Map<String, ValidationResult>> validationCache = new HashMap<String, Map<String,ValidationResult>>();
@@ -1020,6 +1020,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
     if (class_ == null) {
+      // it might be a special URL. 
+      Resource res = findTxValueSet(uri);
+      if (res != null)
+        return (T) res;
       return null;      
     }
 
@@ -1074,6 +1078,23 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         return null;
       throw new FHIRException("not done yet: can't fetch "+uri);
     }
+  }
+
+  private MetadataResource findTxValueSet(String uri) {
+    MetadataResource res = expansionCache.getStoredResource(uri);
+    if (res != null)
+      return res;
+    try {
+      res = txServer.getCanonical(ValueSet.class, uri);
+    } catch (Exception e) {
+      return null;
+    }
+    if (res != null)
+      try {
+        expansionCache.storeResource(res);
+      } catch (IOException e) {
+      }
+    return res;
   }
 
   @Override
