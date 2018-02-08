@@ -678,7 +678,7 @@
   Type = Reference(Observation|QuestionnaireResponse|Sequence)
   Short Name = Related resource that belongs to the Observation group
   Definition = This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group
-  Comments = When using this element, an observation will typically have either a value or a set of related resources, although both may be present in some cases.  For a discussion on the ways Observations can assembled in groups together, see [Notes](#obsgrouping) below.
+  Comments = When using this element, an observation will typically have either a value or a set of related resources, although both may be present in some cases.  For a discussion on the ways Observations can assembled in groups together, see [Notes](observation.html#obsgrouping) below.
   v2 Mapping = Relationships established by OBX-4 usage
   RIM Mapping = outBoundRelationship
   Committee Notes = [#10118]
@@ -690,7 +690,7 @@
   Type = Reference(DocumentReference|ImagingStudy|Media|QuestionnaireResponse|Observation|Sequence)
   Short Name = Related measurements the observation is made from
   Definition = The target resource that represents a measurement from which this observation value is derived. For example, a calculated anion gap or a fetal measurement based on an ultrasound image.
-  Comments = All the reference choices that are listed in this element can represent clinical observations and other measurements that may be the source for a derived value.  The most common reference will be another Observation.  For a discussion on the ways Observations can assembled in groups together, see [Notes](#obsgrouping) below.
+  Comments = All the reference choices that are listed in this element can represent clinical observations and other measurements that may be the source for a derived value.  The most common reference will be another Observation.  For a discussion on the ways Observations can assembled in groups together, see [Notes](observation.html#obsgrouping) below.
   v2 Mapping = Relationships established by OBX-4 usage
   RIM Mapping = .targetObservation
   Committee Notes = [#10118]

@@ -440,7 +440,7 @@
   Example.Request = $process-message-request.txt
   Example.Response = $process-message-response.txt
   Title = Process Message
-  Footer = This operation does not use the parameters resource; the parameters \"async\" and \"response-url\" always go in the URL, if they are used, and the message parameter is always the body of the HTTP message
+  Footer = This operation does not use the parameters resource; the parameters \"async\" and \"response-url\" always go in the URL, if they are used, and the \"content\" parameter is always the body of the HTTP message
 
  -- Row 2 -----------------------------------
   Name = process-message.content
