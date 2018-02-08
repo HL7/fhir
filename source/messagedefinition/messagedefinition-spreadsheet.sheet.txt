@@ -7,6 +7,14 @@
   Reference = http://hl7.org/fhir/ValueSet/message-significance-category
   Definition = The impact of the content of a message.
 
+ -- Row 2 -----------------------------------
+  Binding Name = messageheader-response-request
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/messageheader-response-request
+  Definition = Response definition
+  Description = This enables the capability currently available through MSH-16 (Application Level acknowledgement) in HL7 Version 2 to declare at a message definition level whether a response is required or only upon error or success, or never.
+  v2 = MSH-16
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -178,10 +186,13 @@
  -- Row 27 -----------------------------------
   Element = MessageDefinition.responseRequired
   Card. = 0..1
-  Type = boolean
-  Short Name = Is a response required?
-  Definition = Indicates whether a response is required for this message
-  Default Value = false
+  Type = code
+  Binding = messageheader-response-request
+  Short Name = Response circumstances
+  Definition = Declare at a message definition level whether a response is required or only upon error or success, or never.
+  Comments = This enables the capability currently available through MSH-16 (Application Level acknowledgement) in HL7 Version 2 to declare at a message instance level whether a response is required or only upon error or success, or never.
+  v2 Mapping = MSH-16
+  Example = always
 
  -- Row 28 -----------------------------------
   Element = MessageDefinition.allowedResponse

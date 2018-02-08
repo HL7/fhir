@@ -61,5 +61,4 @@
 		<min value="2"/>
 		<max value="2"/>
 	</focus>
-	<responseRequired value="false"/>
 </MessageDefinition>

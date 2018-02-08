@@ -63,7 +63,7 @@
 		<min value="2"/>
 		<max value="2"/>
 	</focus>
-	<responseRequired value="false"/>
+
 	<allowedResponse>
 		<message>
 			<reference value="MessageDefinition/patient-link-response" />
