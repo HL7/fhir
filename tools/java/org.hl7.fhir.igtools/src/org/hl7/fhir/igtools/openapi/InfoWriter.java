@@ -13,22 +13,26 @@ public class InfoWriter extends BaseWriter {
   }
 
   public InfoWriter title(String value) {
-    object.addProperty("title", value);
+    if (!Utilities.noString(value))
+      object.addProperty("title", value);
     return this;            
   }
 
   public InfoWriter description(String value) {
-    object.addProperty("description", value);
+    if (!Utilities.noString(value))
+      object.addProperty("description", value);
     return this;            
   }
   
   public InfoWriter termsOfService(String value) {
-    object.addProperty("termsOfService", value);
+    if (!Utilities.noString(value))
+      object.addProperty("termsOfService", value);
     return this;            
   }
 
   public InfoWriter version(String value) {
-    object.addProperty("version", value);
+    if (!Utilities.noString(value))
+      object.addProperty("version", value);
     return this;            
   }
 

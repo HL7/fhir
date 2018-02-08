@@ -9,6 +9,7 @@
     "txCache" : "txCache",
     "specification" : "../../../publish"
   },
+  "license" : "CCD-0",
 	"canonicalBase": "http://hl7.org/fhir/test",
   "version" : "3.0.1",
   "sct-edition" :  "http://snomed.info/sct/900000000000207008",
@@ -89,6 +90,9 @@
 		},
 		"ValueSet/test-ig-bnd2": {
 			"base": "valuesets.html#test-ig-bnd2"
+		},
+		"CapabilityStatement/test-ig-capstmt": {
+			"base": "caps.html#test-ig-capstmt"
 		}
 	}
 }

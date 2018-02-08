@@ -72,7 +72,7 @@ public class Writer extends BaseWriter {
     return new TagWriter(ensureArrayObject("tags", "name", name)); 
   }
    
-  public ExternalDocsWriter variable(String name) {
+  public ExternalDocsWriter externalDocs() {
     return new ExternalDocsWriter(ensureObject("externalDocs"));            
   }
 

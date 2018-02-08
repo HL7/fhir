@@ -47,6 +47,12 @@
         <reference value="ValueSet/test-ig-bnd2"/>
       </sourceReference>
     </resource>
+    <resource>
+      <example value="false"/>
+      <sourceReference>
+        <reference value="CapabilityStatement/test-ig-capstmt"/>
+      </sourceReference>
+    </resource>
 
     
     <!-- Profiles --> 

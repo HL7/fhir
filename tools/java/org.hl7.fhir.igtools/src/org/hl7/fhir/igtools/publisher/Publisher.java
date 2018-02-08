@@ -131,6 +131,7 @@ import org.hl7.fhir.r4.validation.InstanceValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.igtools.openapi.OpenApiGenerator;
 import org.hl7.fhir.igtools.openapi.Writer;
 import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
@@ -1924,11 +1925,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void load(String type) throws Exception {
-    dlog(LogCategory.PROGRESS, "process type: "+type);
+    log(LogCategory.PROGRESS, "process type: "+type);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals(type)) {
-          dlog(LogCategory.PROGRESS, "process res: "+r.getId());
+          log(LogCategory.PROGRESS, "process res: "+r.getId());
           if (!r.isValidated())
             validate(f, r);
           if (r.getResource() == null)
@@ -1938,47 +1939,49 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             } catch (Exception e) {
               throw new Exception("Error parsing "+f.getName()+": "+e.getMessage(), e);
             }
-          MetadataResource bc = (MetadataResource) r.getResource();
-          if (bc == null)
-            throw new Exception("Error: conformance resource "+f.getPath()+" could not be loaded");
-          boolean altered = false;
-          if (bc.hasUrl()) {
-            if (adHocTmpDir == null && !listedURLExemptions.contains(bc.getUrl()) && !bc.getUrl().equals(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())))
-              throw new Exception("Error: conformance resource "+f.getPath()+" canonical URL ("+Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())+") does not match the URL ("+bc.getUrl()+")");            
-          } else if (bc.hasId())
-            bc.setUrl(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId()));
-          else
-            throw new Exception("Error: conformance resource "+f.getPath()+" has neither id nor url");
-            
-            
-          if (businessVersion != null) {
-            if (!bc.hasVersion()) {
+          if (r.getResource() instanceof MetadataResource) {
+            MetadataResource bc = (MetadataResource) r.getResource();
+            if (bc == null)
+              throw new Exception("Error: conformance resource "+f.getPath()+" could not be loaded");
+            boolean altered = false;
+            if (bc.hasUrl()) {
+              if (adHocTmpDir == null && !listedURLExemptions.contains(bc.getUrl()) && !bc.getUrl().equals(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())))
+                throw new Exception("Error: conformance resource "+f.getPath()+" canonical URL ("+Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId())+") does not match the URL ("+bc.getUrl()+")");            
+            } else if (bc.hasId())
+              bc.setUrl(Utilities.pathURL(igpkp.getCanonical(), bc.fhirType(), bc.getId()));
+            else
+              throw new Exception("Error: conformance resource "+f.getPath()+" has neither id nor url");
+
+
+            if (businessVersion != null) {
+              if (!bc.hasVersion()) {
+                altered = true;
+              } else if (!bc.getVersion().equals(businessVersion))
+                System.out.println("Business version mismatch in "+f.getName()+" - overriding from "+bc.getVersion()+" to "+businessVersion);
+              bc.setVersion(businessVersion);
+            }
+            if (jurisdictions != null) {
               altered = true;
-            } else if (!bc.getVersion().equals(businessVersion))
-              System.out.println("Business version mismatch in "+f.getName()+" - overriding from "+bc.getVersion()+" to "+businessVersion);
-            bc.setVersion(businessVersion);
-          }
-          if (jurisdictions != null) {
-            altered = true;
-            bc.getJurisdiction().clear();
-            bc.getJurisdiction().addAll(jurisdictions);
-          }
-          if (!bc.hasDate()) {
-            altered = true;
-            bc.setDateElement(new DateTimeType(execTime));
-          }
-          if (!bc.hasStatus()) {
-            altered = true;
-            bc.setStatus(PublicationStatus.DRAFT);
-          }
-          if (altered)
-            r.setElement(convertToElement(bc));
-          igpkp.checkForPath(f, r, bc);
-          try {
-//            if (!(bc instanceof StructureDefinition))
-            context.cacheResource(bc);
-          } catch (Exception e) {
-            throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
+              bc.getJurisdiction().clear();
+              bc.getJurisdiction().addAll(jurisdictions);
+            }
+            if (!bc.hasDate()) {
+              altered = true;
+              bc.setDateElement(new DateTimeType(execTime));
+            }
+            if (!bc.hasStatus()) {
+              altered = true;
+              bc.setStatus(PublicationStatus.DRAFT);
+            }
+            if (altered)
+              r.setElement(convertToElement(bc));
+            igpkp.checkForPath(f, r, bc);
+            try {
+              //            if (!(bc instanceof StructureDefinition))
+              context.cacheResource(bc);
+            } catch (Exception e) {
+              throw new Exception("Exception loading "+bc.getUrl()+": "+e.getMessage(), e);
+            }
           }
         }
       }
@@ -2683,8 +2686,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     generateDataFile();
     generateNPMPackage();
-    generateSwagger();
-
+    
     // now, list the profiles - all the profiles
     JsonObject data = new JsonObject();
     int i = 0;
@@ -2753,29 +2755,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private void generateSwagger() throws FileNotFoundException, IOException {
-//    
-//    if (configuration.has("openapi")) {
-//      JsonOject 
-//    }
-    Writer oa = null;
-    if (configuration.has("openapi-template")) 
-      oa = new Writer(new FileOutputStream(Utilities.path(tempDir, "openapi.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("npm-template").getAsString())));
-    else
-      oa = new Writer(new FileOutputStream(Utilities.path(tempDir, "openapi.json")));
-    
-    
-    oa.commit();
-    otherFilesRun.add(Utilities.path(tempDir, "openapi.json"));
-  }
-
 
   private void generateNPMPackage() throws Exception {
     if (!configuration.has("npm-name"))
       return;
-    String license = ostr(configuration, "license");
-    if (Utilities.noString(license))
-      throw new Exception("A license is required in the configuration file, and it must be a SPDX license identifier (see https://spdx.org/licenses/), or \"Not Open Source\"");
+    String license = license();
     
     PackageGenerator npm = null;
     if (configuration.has("npm-template")) 
@@ -2795,6 +2779,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     npm.dependency("fhir", version);
     npm.commit();
     otherFilesRun.add(Utilities.path(tempDir, "package.json"));
+  }
+
+
+  public String license() throws Exception {
+    String license = ostr(configuration, "license");
+    if (Utilities.noString(license))
+      throw new Exception("A license is required in the configuration file, and it must be a SPDX license identifier (see https://spdx.org/licenses/), or \"Not Open Source\"");
+    return license;
   }
 
 
@@ -3634,11 +3626,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void generateOutputsCapabilityStatement(FetchedFile f, FetchedResource r, CapabilityStatement cpbs, Map<String, String> vars) throws Exception {
     if (igpkp.wantGen(r, "swagger")) {
-      String path = Utilities.path(tempDir, r.getId()+"-swagger.yaml");
-      f.getOutputNames().add(path);
-      SwaggerGenerator sg = new SwaggerGenerator(context, version);
-      sg.generate(cpbs);
-      sg.save(path);
+
+      Writer oa = null;
+      if (configuration.has("openapi-template")) 
+        oa = new Writer(new FileOutputStream(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")), new FileInputStream(Utilities.path(Utilities.getDirectoryForFile(configFile), configuration.get("npm-template").getAsString())));
+      else
+        oa = new Writer(new FileOutputStream(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json")));
+      new OpenApiGenerator(cpbs, oa).generate(license());
+      oa.commit();
+      otherFilesRun.add(Utilities.path(tempDir, cpbs.getId()+ ".openapi.json"));
     }
   }
 

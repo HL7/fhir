@@ -1,5 +1,7 @@
 package org.hl7.fhir.igtools.openapi;
 
+import org.hl7.fhir.utilities.Utilities;
+
 import com.google.gson.JsonObject;
 
 public class ServerWriter extends BaseWriter {
@@ -10,7 +12,8 @@ public class ServerWriter extends BaseWriter {
   }
 
   public ServerWriter description(String value) {
-    object.addProperty("description", value);
+    if (!Utilities.noString(value))
+      object.addProperty("description", value);
     return this;            
   }
   

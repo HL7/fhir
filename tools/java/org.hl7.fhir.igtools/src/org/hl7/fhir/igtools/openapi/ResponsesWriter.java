@@ -12,4 +12,8 @@ public class ResponsesWriter extends BaseWriter {
     return new ResponseObjectWriter(ensureObject("default"));
   }
   
+  public ResponseObjectWriter httpResponse(String code) {
+    return new ResponseObjectWriter(ensureMapObject(code));
+  }
+  
 }

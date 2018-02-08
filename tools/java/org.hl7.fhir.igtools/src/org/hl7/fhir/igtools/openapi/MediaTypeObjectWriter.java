@@ -13,7 +13,7 @@ public class MediaTypeObjectWriter extends BaseWriter {
     return this;
   }
   
-  public MediaTypeObjectWriter schemaRef(String name, String uri) {
+  public MediaTypeObjectWriter schemaRef(String uri) {
     JsonObject schema = new JsonObject();
     schema.addProperty("$ref", uri);
     object.add("schema", schema);
