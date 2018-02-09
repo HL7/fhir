@@ -4114,13 +4114,20 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("<table class=\"codes\">\r\n");
     s.append(" <tr><td><b>Name</b></td><td><b>Definition</b></td><td><b>Source</b></td><td><b>Id</b></td></tr>\r\n");
     List<String> namespaces = new ArrayList<String>();
+    Map<String, ValueSet> vslist = new HashMap<String, ValueSet>();
     for (String sn : definitions.getValuesets().keySet()) {
+      ValueSet vs = definitions.getValuesets().get(sn);
+      vslist.put(vs.getUrl(), vs);
       String n = getNamespace(sn);
       if (!n.equals("http://hl7.org/fhir/ValueSet") && !namespaces.contains(n) && !sn.startsWith("http://hl7.org/fhir/ValueSet/v2-") && !sn.startsWith("http://hl7.org/fhir/ValueSet/v3-"))
         namespaces.add(n);
     }
+    for (String sn : definitions.getExtraValuesets().keySet()) {
+      ValueSet vs = definitions.getExtraValuesets().get(sn);
+      vslist.put(vs.getUrl(), vs);
+    }
     Collections.sort(namespaces);
-    generateVSforNS(s, "http://hl7.org/fhir/ValueSet", definitions.getValuesets(), true, ig);
+    generateVSforNS(s, "http://hl7.org/fhir/ValueSet", vslist, true, ig);
     for (String n : namespaces)
       generateVSforNS(s, n, definitions.getValuesets(), true, ig);
     s.append("</table>\r\n");
@@ -4142,7 +4149,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       s.append(" <tr><td colspan=\"5\" style=\"background: #DFDFDF\"><b>Namespace: </b>"+ns+"</td></tr>\r\n");
       Collections.sort(sorts);
       for (String sn : sorts) {
-        ValueSet ae = definitions.getValuesets().get(sn);
+        ValueSet ae = vslist.get(sn);
         String n = getTail(sn);
         ValueSet vs = ae;
         if (wantPublish(vs)) {

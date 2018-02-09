@@ -141,7 +141,7 @@
   Workflow Mapping = Request.status
   v2 Mapping = ORC-1
   RIM Mapping = .statusCode
-  Committee Notes = [#3720]
+  Committee Notes = [#3720],[#14414]
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -159,7 +159,7 @@
   Workflow Mapping = Request.intent
   v2 Mapping = N/A
   RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
-  Committee Notes = #15128
+  Committee Notes = [#14414]
   w5 = class
 
  -- Row 5 -----------------------------------
