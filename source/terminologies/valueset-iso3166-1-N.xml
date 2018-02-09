@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="3166-1-N"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <name value="Iso3166-1-N"/>
+  <title value="Iso 3166 Part 1: Numeric Codes"/>
+  <status value="active"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines the ISO 3166 Part 1 Numeric codes"/>
+  <compose>
+    <include>
+      <system value="urn:iso:std:iso:3166"/>
+      <filter>
+        <property value="code"/>
+        <op value="regex"/>
+        <value value="[0-9]{3}"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
