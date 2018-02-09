@@ -89,6 +89,13 @@
         <reference value="Practitioner/f204"/>
         <display value="Carla Espinosa"/>
     </performer>
+    <performerType>
+        <coding>
+            <system value="http://snomed.info.sct"/>
+            <code value="26369006"/>
+            <display value="Public Health Nurse"/>
+        </coding>
+    </performerType>
     <reasonCode>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -96,6 +103,16 @@
             <display value="Rib Pain (finding)"/>
         </coding>
     </reasonCode>
+    <statusReason>
+        <coding>
+            <system value="http://hl7.org/fhir/med-request-status-reason"/>
+            <code value="altchoice"/>
+            <display value="Try another treatment first"/>
+        </coding>
+    </statusReason>
+    <insurance>
+        <reference value="9876B1"/>
+    </insurance>
     <note>
         <text value="Patient told to take with food"/>
     </note>
@@ -172,6 +189,9 @@
             <system value="http://unitsofmeasure.org"/>
             <code value="d"/> 
         </expectedSupplyDuration>
+        <performer>
+            <reference value="f001"></reference>
+        </performer>
     </dispenseRequest>   
     <substitution>
         <allowed value="true"></allowed>

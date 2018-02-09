@@ -57,6 +57,13 @@
         <display value="Donald Duck"/>
     </subject>
     <performer>
+        <function>
+            <coding>
+                <system value="http://hl7.org/fhir/ValeSet/med-dispense-perform-function"/>
+                <code value="finalchecker"/>
+                <display value="Final Checker"/>
+            </coding>
+        </function>
         <actor>
             <reference value="Practitioner/f006"/>
         </actor>

@@ -69,6 +69,10 @@
             <reference value="Practitioner/f006"/>
         </actor>
     </performer>
+    <location>
+        <reference value="ukp"></reference>
+        <display value="Pharmacy"></display>
+    </location>
     <authorizingPrescription>
         <reference value="MedicationRequest/medrx0318"/>
     </authorizingPrescription>

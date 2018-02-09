@@ -14,6 +14,7 @@
       <display value="Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"/>
     </coding>
   </code>
+  <status value="active"></status>
   <manufacturer>
     <reference value="#org4" />
   </manufacturer>
