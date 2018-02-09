@@ -157,7 +157,6 @@
   Element = Medication.batch
   Card. = 0..1
   UML = 380;40
-  Type = code
   Short Name = Details about packaged medications
   Definition = Information that only applies to packages (not products)
   SCRIPT 10.6 Mapping = no mapping
@@ -182,6 +181,14 @@
   SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = RXA-16 Substance Expiration Date / RXG-20 Substance Expiration Date
   RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime
+
+ -- Row 14 -----------------------------------
+  Element = Medication.batch.serialNumber
+  Card. = 0..1
+  Type = string
+  Short Name = Identifier assigned to a drug at the time of manufacture
+  Definition = An identifier assigned to a drug at the point of manufacturing and repackaging (at the package or pallet level), sufficenti to facilitate the identification, validatation, authentication and tracking and tracking of drugs.
+  RIM Mapping = .id
 
 === Sheet Search =====================================
 
@@ -214,6 +221,21 @@
   Name = status
   Type = token
   Path = Medication.status
+
+ -- Row 7 -----------------------------------
+  Name = lot-number
+  Type = token
+  Path = Medication.batch.lotNumber
+
+ -- Row 8 -----------------------------------
+  Name = expiration-date
+  Type = date
+  Path = Medication.batch.expirationDate
+
+ -- Row 9 -----------------------------------
+  Name = serial-number
+  Type = token
+  Path = Medication.batch.serialNumber
 
 === Sheet Profiles =====================================
 

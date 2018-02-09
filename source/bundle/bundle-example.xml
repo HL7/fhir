@@ -39,6 +39,7 @@
       <MedicationRequest>
         <id value="3123"/>
         <!-- snip -->
+        <status value="unknown"></status>
         <intent value="order">
         </intent>
 	<medicationReference>

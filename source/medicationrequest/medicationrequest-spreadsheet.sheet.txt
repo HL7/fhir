@@ -190,12 +190,19 @@
 
  -- Row 4 -----------------------------------
   Id = 4
+  Code = original-order
+  Display = Original Order
+  Definition = The request represents the original authorization for the medication request.
+  Parent = order
+
+ -- Row 5 -----------------------------------
+  Id = 4
   Code = instance-order
   Display = Instance Order
   Definition = The request represents an instance for the particular order, for example a medication administration record.
   Parent = order
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Id = 5
   Code = option
   Display = Option
@@ -336,14 +343,14 @@
 
  -- Row 3 -----------------------------------
   Element = MedicationRequest.status
-  Card. = 0..1
+  Card. = 1..1
   Is Modifier = Y
   Summary = y
   Type = code
   Binding = MedicationRequestStatus
   Short Name = active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown
   Definition = A code specifying the current state of the order.  Generally this will be active or completed state
-  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid
+  Comments = This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.\n\nThe default value will be \"unknown\" if the status of the MedicationRequest is known by the sending or receiving system.
   Workflow Mapping = Request.status
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .statusCode
@@ -356,7 +363,7 @@
   Summary = y
   Type = code
   Binding = MedicationRequestIntent
-  Short Name = proposal | plan | order | instance-order | option
+  Short Name = proposal | plan | order | original-order | instance-order | option
   Definition = Whether the request is a proposal, plan, or an original order
   Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.\r\rAn instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.\r\rThis element is labeled as a modifier because the intent alters when and how the resource is actually applicable
   Workflow Mapping = Request.intent

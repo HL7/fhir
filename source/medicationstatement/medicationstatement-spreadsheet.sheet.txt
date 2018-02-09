@@ -310,7 +310,7 @@
   Type = dateTime | Period
   Short Name = The date/time or interval when the medication is/was/will taken
   Definition = The interval of time during which it is being asserted that the patient is/was/will be taking the medication ( or was not taking, when the MedicationStatement.taken element is No).
-  Comments = This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Statements. If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.
+  Comments = This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Statements. If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.\n\nThe date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text.
   Workflow Mapping = Event.occurrence[x]
   RIM Mapping = .effectiveTime
   w5 = when.done

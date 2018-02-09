@@ -302,8 +302,8 @@
   Element = MedicationAdministration.performer
   Card. = 0..*
   Summary = y
-  Short Name = Who administered substance
-  Definition = The individual who was responsible for giving the medication to the patient.
+  Short Name = Who performed the medication administration and what they did
+  Definition = Indicates who or what performed the medication administration and how they were involved
   Workflow Mapping = Event.performer
   v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
   RIM Mapping = .participation[typeCode=PRF]
@@ -314,8 +314,8 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = MedicationAdministrationPerformerFunction
-  Short Name = Who performed the administration and what they did
-  Definition = Distinguishes the type of performer in the administration.
+  Short Name = Type of performance
+  Definition = Distinguishes the type of involvement of the performer in the medication administration.
   Workflow Mapping = Event.performer.function
   RIM Mapping = participation[typeCode=PRF].functionCode
 
@@ -324,8 +324,8 @@
   Card. = 1..1
   Summary = y
   Type = Reference(Practitioner | PractitionerRole | Patient | RelatedPerson | Device)
-  Short Name = Individual who was performing
-  Definition = The device, practitioner, etc. who performed the action.
+  Short Name = Who performed the medication administration
+  Definition = Indicates who or what performed the medication administration.
   Workflow Mapping = Event.performer.actor
   RIM Mapping = .role
 
@@ -399,6 +399,7 @@
   Short Name = Details of how medication was taken
   Definition = Describes the medication dosage information details e.g. dose, rate, site, route, etc.
   RIM Mapping = component->SubstanceAdministrationEvent
+  Committee Notes = This is a constrained list of attributes from the Dosage type.  These are the only attributes needed to describe the dose administered.
 
  -- Row 22 -----------------------------------
   Element = MedicationAdministration.dosage.text

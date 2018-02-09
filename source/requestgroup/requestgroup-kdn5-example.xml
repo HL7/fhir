@@ -8,6 +8,7 @@
   <contained>
     <MedicationRequest>
       <id value="1111"/>
+      <status value="unknown"></status>
       <intent value="proposal"/>
       <medicationCodeableConcept>
         <coding>
@@ -41,6 +42,7 @@
   <contained>
     <MedicationRequest>
       <id value="2222"/>
+      <status value="unknown"></status>
       <intent value="proposal"/>
       <medicationCodeableConcept>
         <coding>

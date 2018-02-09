@@ -365,6 +365,7 @@
         </text>
       <!--   The patient details will generally be in the Document resource in the Document bundle, but could just as easily
         point to a patient resource on a server  -->
+       <status value="unknown"></status>
         <intent value="order">
         </intent>
         <medicationCodeableConcept>
