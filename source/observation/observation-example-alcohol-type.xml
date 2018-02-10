@@ -26,7 +26,7 @@
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
 	</subject>
-	<effectiveDateTime value="2014-12-11T04:44:16Z"/><!--  When the code is the same as component.code the the value element must be empty per invariant obs-7
+	<effectiveDateTime value="2014-12-11T04:44:16Z"/><!--  When the code is the same as component.code the value element must be empty per invariant obs-7
     --><!-- Using components since multi-select values/answers share the same attributes (such as id, performer, effective date, status, comment.. --><!-- answer 1 --><component><!-- component.code is same as code --><code><!--  Local - unable to identify a proper LOINC code  --><coding>
 				<system value="http://acme-rehab.org"/>
 				<code value="alcohol-type"/>

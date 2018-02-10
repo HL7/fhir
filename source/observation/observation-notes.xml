@@ -192,7 +192,7 @@
 	    <ul>
 				<li>The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
 	      </li>
-				<li>The Observation.value is omitted. The default interpretation is the the concept (single code or expression) represented in Observation.code is present in the patient. A Observation.dataAbsentReason value of 'clinical-finding' SHOULD be used to indicate why the expected value is missing.</li>
+				<li>The Observation.value is omitted. The default interpretation is the concept (single code or expression) represented in Observation.code is present in the patient. A Observation.dataAbsentReason value of 'clinical-finding' SHOULD be used to indicate why the expected value is missing.</li>
 			</ul>
 		</li>
 		<li>SHOULD NOT use the <em>Assertion</em> pattern as described in <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=418">HL7 Version 3 Implementation Guide: TermInfo - Using SNOMED CT in CDA R2 Models, Release 1</a>. ( The code is 'ASSERTION' and the value is a SNOMED CT concept or expression )

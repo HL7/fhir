@@ -55,7 +55,7 @@
 	<concept>
 		<code value="hl7-fhir-rest" />
 		<display value="HL7 FHIR" />
-    <definition value="Interact with the server interface using FHIR's RESTful interface. For details on its version/capabilities you should connect the the value in Endpoint.address and retrieve the FHIR CapabilityStatement." />
+    <definition value="Interact with the server interface using FHIR's RESTful interface. For details on its version/capabilities you should connect the value in Endpoint.address and retrieve the FHIR CapabilityStatement." />
 	</concept>
 	<concept>
 		<code value="hl7-fhir-msg" />
