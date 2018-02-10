@@ -43,7 +43,7 @@ to yet another Patient resource. Records that replace another record <i>may</i> 
 <h3>Patient record in a Patient index</h3>
 <p>A Patient record may be present in a system that acts as a Patient Index: it maintains a (summary of) patient data and
 a list of one or more servers that are known to hold a more comprehensive and/or authorative record of the same patient.
-The link type 'refer' is used denote such a link. Note that linked records may contain contradictory information. The
+The link type 'refer' is used to denote such a link. Note that linked records may contain contradictory information. The
 record referred to does not point back to the referring record.</p>
 
 <h3>Distributed Patient record</h3>
