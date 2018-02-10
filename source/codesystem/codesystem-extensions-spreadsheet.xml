@@ -7035,7 +7035,7 @@
     <Cell><Data ss:Type="String">alternate</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Alternate Code</Data></Cell>
-    <Cell><Data ss:Type="String">The code is an alternative code that can be used in in any of the circumstances that the primary code can be used</Data></Cell>
+    <Cell><Data ss:Type="String">The code is an alternative code that can be used in any of the circumstances that the primary code can be used</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">deprecated</Data></Cell>

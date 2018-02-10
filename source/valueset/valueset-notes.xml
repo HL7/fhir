@@ -82,7 +82,7 @@ code systems should be done with care to avoid creating definitional confusion.
 Each <a href="codesystem.html">Code System</a> defines which filters can be 
 used in <code>ValueSet.compose.include.filter</code>. All code systems have
 <a href="codesystem.html#filter">base filters</a> and any additional 
-filters defined in in (<a href="codesystem-definitions.html#CodeSystem.filter">CodeSystem.filter)</a>.
+filters defined in (<a href="codesystem-definitions.html#CodeSystem.filter">CodeSystem.filter)</a>.
 </p>
 <p>
 This specification also defines filters for various published code systems:
