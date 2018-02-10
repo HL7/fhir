@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <p>
 The MessageHeader resource is defined in order to support <a href="messaging.html">Messaging using FHIR resources</a>.
-The principle usage of the MessageHeader resource is when messages are exchanged. However, as a 
+The principal usage of the MessageHeader resource is when messages are exchanged. However, as a 
 resource that can be used with the RESTful framework, the MessageHeader
 resource has the normal resource end-point ([base-url]/MessageHeader), which is
 used to manage a set of static messages resources. This could be used to 
