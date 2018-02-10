@@ -1342,7 +1342,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (needToBuild) {
       sourceIg = (ImplementationGuide) parse(igf);
       FetchedResource igr = igf.addResource();
-      igr.setElement(loadFromXml(igf));
+      loadAsElementModel(igf, igr);
       igr.setResource(sourceIg);
       igr.setId(sourceIg.getId()).setTitle(sourceIg.getName());
     } else {
