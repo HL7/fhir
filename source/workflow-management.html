@@ -48,7 +48,7 @@ in order to support consistent definitions for schema and UML derived code.
             </li>
             <li>Fulfiller system queries to retrieve the referenced request and updates the Task to indicate "acceptance" and agreement to fulfill </li>
             <li>Fulfiller may update the Task to indicate interim progress notes</li>
-            <li>Placer is madeaware of the acceptance of the Task and any changes to the Task either through its ownership of the resource or using polling or a subscription to a queue server system to determine the same</li>
+            <li>Placer is made aware of the acceptance of the Task and any changes to the Task either through its ownership of the resource or using polling or a subscription to a queue server system to determine the same</li>
             <li>Fulfiller creates an event resource in its own system via POST or internal action, or POSTs it to a queue server system</li>
             <li>Fulfiller PUTs an update to the Task resource to change its status to completed and to point to the event resource</li>
             <li>Placer is aware of the completion of the Task either through the ownership of the resource, or via polling or subscription to a queue server system, and retrieves the referenced event resource</li>
