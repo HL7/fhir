@@ -90,7 +90,7 @@ The contact element on the Patient Resource should be used for storing people to
 Where a system has a separate record for other people for purposes other than just the contact details, the RelatedPerson
 resource should be used.<br/>
 This includes cases where these related people are actually contributing to the record, and need to be referenced individually 
-(e.g. CarePlan.Participant, Encounter, DocumentReference, Appointment) where the Patient.Contact component cannot be used.
+(e.g. CarePlan.careTeam.participant, Encounter, DocumentReference, Appointment) where the Patient.Contact component cannot be used.
 </p>
 <p>It is not expected that these records will be used for recording the primary care provider; this information should be stored in
 the Patient.generalPractitioner field.</p>
