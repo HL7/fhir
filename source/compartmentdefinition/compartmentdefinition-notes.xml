@@ -25,9 +25,8 @@ URLs respectively:
   GET [base]/Condition?patient=[id]&amp;code:in=http://hspc.org/ValueSet/acute-concerns
 </pre>
 <p>
-Note that the outcome of a compartment search is the same as the equivalent 
-normal search. As an example, both these searches return the same outcome
-if there is no patient 333:
+The outcome of a compartment search is the same as the equivalent normal search. 
+For example, both these searches return the same outcome if there is no patient 333:
 </p>
 <pre>
   GET [base]/Patient/333/Condition
@@ -68,6 +67,29 @@ As a search related operation, the assignment of resources to compartments is on
 the current version of any of the resources involved. Note that <a href="references.html#contained">contained</a>
 patient resources cannot create a patient compartment of their own. 
 </p>
+
+<p>
+Note that this specification describes using the compartment syntax to find resources 
+that are logically associated with the compartment, the compartment is not part of the
+identity of the resource. E.g. the response to the following is not defined by this specification:
+</p>
+<pre>
+  GET [base]/Patient/[patient-id]/Condition/[resource-id]
+</pre>
+<p>
+The response for write operations (PUT/DELETE/PATCH) are also not defined by this
+specification. Nor is the response to a POST defined:
+</p>
+<pre>
+  POST [base]/Patient/[patient-id]/Condition
+</pre>
+<p>
+There is no expectation for servers to support either read or write 
+to such URLs.
+</p>
+
+<a name="logical"></a>
+<h3>Logical Meaning of Compartments</h3>
 <p>
 Compartments may be used explicitly, like this, but can also be used implicitly. For instance,
 if a FHIR server is providing a patient view of a record, the authorized user associated
@@ -93,6 +115,10 @@ many valid reasons, including:
 Given the wide variety of use cases and contexts in which FHIR is used, compartments 
 do not define how cross-linking is handled. Systems may reject resources, remove them 
 from both compartments, or place them in both, or act in some other fashion.
+</p>
+<p>
+The <a href="graphdefinition.html">graph definition</a> resource provides a method
+by which rules about cross-linking may be made and enforced.
 </p>
 <p>
 It is at the discretion of the server whether to include resources in a compartment when
