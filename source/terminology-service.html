@@ -1160,7 +1160,10 @@ Notes:
 </p>
 <ul>
  <li>The client can pass a concept or version, but not both</li>
- <li>These examples use a serially incrementing sequential integer, but this is not required, and clients should not assume that there is any meaning or order in the version. Just recall the last version, and treat it as a magic value. There is, however, one special value: ‘0’. Passing a last version of 0 should be understood as resyncing the entire closure table</li>
+ <li>These examples use a serially incrementing sequential integer, 
+   but this is not required, and clients should not assume that there is any meaning or order in the version. 
+   Just recall the last version, and treat it as a magic fixed value only meaningful to the server. There is, however, one special value: ‘0’. 
+   Passing a last version of 0 should be understood as resyncing the entire closure table</li>
 </ul>
 
 <a name="closure-use"></a>

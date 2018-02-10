@@ -5,7 +5,7 @@
   Binding Name = CodeSearchSupport
   Binding = code list
   Reference = #code-search-support
-  Definition = The degree to which the the server supports the code search parameter on ValueSet, if it is supported
+  Definition = The degree to which the server supports the code search parameter on ValueSet, if it is supported
 
 === Sheet code-search-support =====================================
 
@@ -233,7 +233,7 @@
   Type = code
   Binding = CodeSearchSupport
   Short Name = explicit | all
-  Definition = The degree to which the the server supports the code search parameter on ValueSet, if it is supported
+  Definition = The degree to which the server supports the code search parameter on ValueSet, if it is supported
   Comments = See notes on the [[[ValueSet]]] resource
 
  -- Row 36 -----------------------------------

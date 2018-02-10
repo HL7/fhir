@@ -762,7 +762,7 @@
   Element = ExplanationOfBenefit.careTeam.sequence
   Card. = 1..1
   Type = positiveInt
-  Short Name = Number to covey order of careteam
+  Short Name = Number to convey order of careteam
   Definition = Sequence of careteam which serves to order and provide a link.
   Requirements = Required to maintain order of the careteam members.
 
@@ -812,7 +812,7 @@
   Element = ExplanationOfBenefit.diagnosis.sequence
   Card. = 1..1
   Type = positiveInt
-  Short Name = Number to covey order of diagnosis
+  Short Name = Number to convey order of diagnosis
   Definition = Sequence of diagnosis which serves to provide a link.
   Requirements = Required to allow line items to reference the diagnoses.
 

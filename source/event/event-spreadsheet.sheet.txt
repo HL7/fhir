@@ -282,7 +282,7 @@
   Summary = Y
   Type = Reference(Location)
   Short Name = Where {{title}} occurred
-  Definition = The principle physical location where the {{title}} was performed
+  Definition = The principal physical location where the {{title}} was performed
   Requirements = Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)
   v2 Mapping = EVN.7
   RIM Mapping = .participation[typeCode=LOC].role

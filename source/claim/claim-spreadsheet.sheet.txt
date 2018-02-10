@@ -661,7 +661,7 @@
   Element = Claim.careTeam.sequence
   Card. = 1..1
   Type = positiveInt
-  Short Name = Number to covey order of careTeam
+  Short Name = Number to convey order of careTeam
   Definition = Sequence of the careTeam which serves to order and provide a link.
   Requirements = Required to maintain order of the careTeam.
 
@@ -770,7 +770,7 @@
   Element = Claim.diagnosis.sequence
   Card. = 1..1
   Type = positiveInt
-  Short Name = Number to covey order of diagnosis
+  Short Name = Number to convey order of diagnosis
   Definition = Sequence of diagnosis which serves to provide a link.
   Requirements = Required to allow line items to reference the diagnoses.
 

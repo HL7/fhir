@@ -1399,7 +1399,7 @@
  -- Row 43 -----------------------------------
   Name = Clinical Gender
   Identity = clinical-gender
-  Description = Example of a clinical gender observation.  For a discussion on representing a patient\'s gender the the Patient Resource.
+  Description = Example of a clinical gender observation.  For a discussion on representing a patient\'s gender the Patient Resource.
   Filename = observation-example-clinical-gender.xml
 
  -- Row 44 -----------------------------------
