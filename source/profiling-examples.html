@@ -62,9 +62,9 @@ needs to do the following:
  <li>On the base Patient.telecom element: define that slicing is discriminated by system and use, and that the slices are closed ("No other types of contact are allowed"). Order is left unfixed</li>
  <li>Then define 3 slices:
   <ol>
-   <li>home phone: fixed values for system and use, and cardinality 1..1</li>
-   <li>work phone: fixed values for system and use, and cardinality 0..1</li>
-   <li>email: fixed value for system, cardinality 0..0 for use, and cardinality 0..1</li>
+   <li>home phone: fixed values for system and use, and slice cardinality 1..1</li>
+   <li>work phone: fixed values for system and use, and slice cardinality 0..1</li>
+   <li>email: fixed value for system, cardinality 0..0 for use, and slice cardinality 0..1</li>
   </ol>
  </li>
 </ul>
