@@ -15,6 +15,7 @@ Notes:
  <li>The custodian is responsible for the maintenance of the composition and any documents derived from it. With regard to the documents, they are 
    responsible for the policy regarding persistence of the documents. Although they need not actually retain a copy of the document, they SHOULD do so.
  </li>
+ <li>It is acceptable for a Composition to contain only narrative (<code>Composition.section.text</code>) and no entries (<code>Composition.section.entry</code>)</li>
 </ul>  
 
 <blockquote class="stu-note">

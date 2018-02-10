@@ -801,13 +801,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -881,7 +874,7 @@
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">A set of resources composed into a single coherent clinical statement with clinical attestation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -967,9 +960,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">preliminary | final | amended | entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to mark interim, amended, or withdrawn compositions or documents</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag "entered-in-error" is why this element is labeled as a modifier of other elements. 
-
-Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag "entered-in-error" is why this element is labeled as a modifier of other elements.   Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">interim: .completionCode="IN" &amp; ./statusCode[isNormalDatatype()]="active";  final: .completionCode="AU" &amp;&amp;  ./statusCode[isNormalDatatype()]="complete" and not(./inboundRelationship[typeCode="SUBJ" and isNormalActRelationship()]/source[subsumesCode("ActClass#CACT") and moodCode="EVN" and domainMember("ReviseComposition", code) and isNormalAct()]);  amended: .completionCode="AU" &amp;&amp;  ./statusCode[isNormalDatatype()]="complete" and ./inboundRelationship[typeCode="SUBJ" and isNormalActRelationship()]/source[subsumesCode("ActClass#CACT") and moodCode="EVN" and domainMember("ReviseComposition", code) and isNormalAct() and statusCode="completed"];  withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]="obsolete"  </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1221,9 +1212,7 @@ Some reporting work flows require that the original narrative of a final documen
     <Cell ss:StyleID="s87"><Data ss:Type="String">As defined by affinity domain</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The code specifying the level of confidentiality of the Composition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section).
-
-This element is labeled as a modifier because highly confidential documents must not be treated as if they are not</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section).  This element is labeled as a modifier because highly confidential documents must not be treated as if they are not</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.confidentialityCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3397,7 +3386,7 @@ This element is labeled as a modifier because highly confidential documents must
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3407,7 +3396,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>1</Number>
-     
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3415,7 +3403,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
      
     </Pane>
    </Panes>
@@ -3453,13 +3440,6 @@ This element is labeled as a modifier because highly confidential documents must
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3949,7 +3929,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4170,7 +4149,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4806,8 +4784,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5082,7 +5058,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5372,9 +5347,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
-     <RangeSelection>R4C1:R4C5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5782,7 +5754,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6308,8 +6279,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6908,7 +6877,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7496,7 +7464,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8095,7 +8062,6 @@ This element is labeled as a modifier because highly confidential documents must
     </Pane>
     <Pane>
      <Number>0</Number>
-     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
