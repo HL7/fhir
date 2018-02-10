@@ -82,7 +82,7 @@
       prior images. Outputs could represent radiology measurements as well as the
       Radiologist's diagnostic report. </p>
     <p>Inputs and outputs are tracked by the task because workflow management activity
-      may automate the transer of outputs from one task to inputs to a subsequent task.
+      may automate the transfer of outputs from one task to inputs to a subsequent task.
     </p>
     <p>To facilitate the integration of off the shelf workflow applications with FHIR, the task
     resource may reference a definition.  This definition can represent a description of the workflow
