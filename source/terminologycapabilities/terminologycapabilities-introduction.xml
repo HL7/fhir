@@ -9,7 +9,7 @@ It is used as a statement of the features of actual software, or of a set of
 rules for an application to provide. This statement connects to all the detailed 
 statements of functionality, such as <a href="structuredefinition.html">StructureDefinitions</a> 
 and <a href="valueset.html">ValueSets</a>. This composite statement of application 
-capability may be used for system compatibility testing, code generation, or as either 
+capability may be used for system compatibility testing, code generation, or as 
 the basis for a conformance assessment. For further information about Conformance 
 testing, see <a href="conformance-rules.html">Conformance Rules</a> and 
 <a href="profiling.html">Profiling FHIR</a>.
