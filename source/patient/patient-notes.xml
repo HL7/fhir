@@ -224,7 +224,7 @@ To ask an MPI to match a patient, clients call the patient <a href="patient-oper
 which processes a parameters resource containing a complete or fragment of a patient resource, along with some other control parameters.<br/>
 This provided patient resource does not need to pass full validation (mandatory fields, or invariants) as the resource will not be stored,
 it does however need to be a parsable instance.<br/> 
-The MPI can then use the properties of the resource as MPI inputs, and processed using an internal MPI algorithm of some kind to determine the most appropriate matches 
+The MPI can then use the properties of the resource as MPI inputs, and process them using an internal MPI algorithm of some kind to determine the most appropriate matches 
 in the patient set. It does not have to use all the properties provided, and may ignore others provided quietly.<br/>
 A specific profile (with the required fields/invariants) can be used to define what parameters the MPI algorithm requires.
 </p>
