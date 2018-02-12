@@ -324,7 +324,7 @@
   Element = Immunization.performer.actor
   Card. = 1..1
   Summary = Y
-  Type = Reference(Practitioner | Organization)
+  Type = Reference(Practitioner|Organization)
   Short Name = Individual or organization who was performing
   Definition = The practitioner or organization who performed the action
   Comments = When the individual practioner who performed the action is known, it is best to send.
