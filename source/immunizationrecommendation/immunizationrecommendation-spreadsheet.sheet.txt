@@ -148,6 +148,7 @@
  -- Row 10 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.forecastStatus
   Card. = 1..1
+  Is Modifier = Y
   Summary = Y
   Type = CodeableConcept
   Binding = ImmunizationRecommendationStatus

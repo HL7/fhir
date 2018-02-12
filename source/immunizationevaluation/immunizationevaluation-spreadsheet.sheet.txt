@@ -55,6 +55,7 @@
  -- Row 3 -----------------------------------
   Element = ImmunizationEvaluation.status
   Card. = 1..1
+  Is Modifier = Y
   Summary = Y
   Type = code
   Binding = ImmunizationEvaluationStatus

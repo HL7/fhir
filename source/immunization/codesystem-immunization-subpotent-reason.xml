@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/immunization-subpotent-reason"/>
+  <name value="Immunization Event Subpotent Reason"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This code system supports describing the reason why a dose is considered to be subpotent."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="partial"/>
+    <display value="Partial Dose"/>
+    <definition value="The full volume of the dose was not administered to the patient."/>
+  </concept>
+  <concept>
+    <code value="coldchainbreak"/>
+    <display value="Cold Chain Break"/>
+    <definition value="The vaccine experienced a cold chain break."/>
+  </concept>
+  <concept>
+    <code value="recall"/>
+    <display value="Manufacturer Recall"/>
+    <definition value="The vaccine was recalled by the manufacturer."/>
+  </concept>
+</CodeSystem>

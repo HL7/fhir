@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Authored by Joginder Madra-->
 <Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/immunization.xsd">
-	<id value="example"/>
+	<id value="subpotent"/>
 	<identifier>
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"/>
@@ -10,9 +10,9 @@
 	<vaccineCode>
 		<coding>
 			<system value="urn:oid:1.2.36.1.2001.1005.17"/>
-			<code value="FLUVAX"/>
+			<code value="GNHEP"/>
 		</coding>
-		<text value="Fluvax	(Influenza)"/>
+		<text value="Hepatitis B"/>
 	</vaccineCode>
 	<patient>
 		<reference value="Patient/example"/>
@@ -20,7 +20,7 @@
 	<encounter>
 		<reference value="Encounter/example"/>
 	</encounter>
-	<date value="2013-01-10"/>
+	<date value="2015-01-15"/>
 	<primarySource value="true"/>
 	<location>
 		<reference value="Location/1"/>
@@ -29,12 +29,12 @@
 		<reference value="Organization/hl7"/>
 	</manufacturer>
 	<lotNumber value="AAJN11K"/>
-	<expirationDate value="2015-02-15"/>
+	<expirationDate value="2015-02-28"/>
 	<site>
 		<coding>
 			<system value="http://hl7.org/fhir/v3/ActSite"/>
-			<code value="LA"/>
-			<display value="left arm"/>
+			<code value="LT"/>
+			<display value="left thigh"/>
 		</coding>
 	</site>
 	<route>
@@ -45,9 +45,9 @@
 		</coding>
 	</route>
 	<doseQuantity>
-		<value value="5"/>
+		<value value="0.5"/>
 		<system value="http://unitsofmeasure.org"/>
-		<code value="mg"/>
+		<code value="ml"/>
 	</doseQuantity>
 	<performer>
 		<function>
@@ -74,13 +74,13 @@
 	<note>
 		<text value="Notes on adminstration of vaccine"/>
 	</note>
-	<reasonCode>
+	<isPotent value="false"/>
+	<subpotentReason>
 		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="429060002"/>
+			<system value="http://hl7.org/fhir/immunization-subpotent-reason"/>
+			<code value="partial"/>
 		</coding>
-	</reasonCode>
-	<isPotent value="true"/>
+	</subpotentReason>
 	<education>
 		<documentType value="253088698300010311120702"/>
 		<publicationDate value="2012-07-02"/>
