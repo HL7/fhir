@@ -200,6 +200,12 @@
   Description = The status of the dose relative to published recommendations
   Path = ImmunizationEvaluation.doseStatus
 
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Description = Immunization evaluation status
+  Path = ImmunizationEvaluation.status
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

@@ -3436,7 +3436,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3451,7 +3451,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     
      
     </Pane>
    </Panes>
@@ -4023,10 +4022,11 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">The status of the dose relative to published recommendations</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">status</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:Index="5" ss:StyleID="s121"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">ImmunizationEvaluation.status</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Immunization evaluation status</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"/>
@@ -4217,7 +4217,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <RangeSelection>R2C1:R7C5</RangeSelection>
+     
+     
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

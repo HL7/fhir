@@ -144,6 +144,7 @@
   Definition = Indicates the reason the immunization event was not performed.
   Comments = This is generally only used for the status of \"not-done\". The reason for performing the immunization event is captured in reasonCode, not here
   Workflow Mapping = Event.statusReason
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN].reasonCOde
   Committee Notes = #14377
 
  -- Row 5 -----------------------------------

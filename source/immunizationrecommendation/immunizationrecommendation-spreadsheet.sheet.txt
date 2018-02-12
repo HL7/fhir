@@ -166,6 +166,7 @@
   Short Name = Vaccine administration status reason
   Definition = The reason for the assigned forecast status
   v2 Mapping = OBX-5 : OBX-3 = 30982-3
+  RIM Mapping = N/A
 
  -- Row 12 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.dateCriterion
