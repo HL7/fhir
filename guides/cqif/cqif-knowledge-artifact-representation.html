@@ -162,12 +162,12 @@
 
 <p>The following fragment shows a simple referral creation action from an example order set for suicide risk assessment and management:</p>
 
-<pre><code>&lt;actionDefinition&gt;
+<pre><code>&lt;action&gt;
   &lt;!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now --&gt;
   &lt;textEquivalent value=&quot;Refer to outpatient mental health program for evaluation and treatment of mental health conditions now&quot;/&gt;
-  &lt;activityDefinition&gt;
+  &lt;definition&gt;
     &lt;reference value=&quot;#referralToMentalHealthCare&quot;/&gt;
-  &lt;/activityDefinition&gt;
+  &lt;/definition&gt;
   &lt;dynamicValue&gt;
     &lt;path value=&quot;timing.event&quot;/&gt;
     &lt;expression value=&quot;Now()&quot;/&gt;
@@ -196,7 +196,7 @@
     &lt;path value=&quot;supportingInformation&quot;/&gt;
     &lt;expression value=&quot;RiskAssessment&quot;/&gt;
   &lt;/dynamicValue&gt;
-&lt;/actionDefinition&gt;
+&lt;/action&gt;
 </code></pre>
 
 <p>The example describes how to create a <code>ReferralRequest</code> resource using information available from the context in which the order set is applied. The definition includes expressions for retrieving contextual information using the <code>dynamicValue</code> element of the <code>ActivityDefinition</code> resource. For more information on using expressions to provide dynamic values as part of a definition, refer to the <a href="cqif-topics-using-expressions.html">Using Expressions</a> topic in this module.</p>
@@ -395,7 +395,7 @@
 <i>Note that this example is a fragment of a larger example for the PlanDefinition resource, available <a href="[%fhir-path%]plandefinition-example.xml.html">here</a>.</i>
 
 <pre><code>&lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
-&lt;actionDefinition&gt;
+&lt;action&gt;
   &lt;title value=&quot;Suicide Risk Assessment and Outpatient Management&quot;/&gt;
   &lt;!-- Consults and Referrals --&gt;
   &lt;action&gt;
