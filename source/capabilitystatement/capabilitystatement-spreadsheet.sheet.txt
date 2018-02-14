@@ -587,7 +587,7 @@
   Type = uri
   Short Name = Canonical URL of another capability statement this implements
   Definition = Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.
-  Comments = HL7 defines the following Services: [[[Terminology Service]]].\n\nMany [Implementation Guides](http://fhir.org/guides/registry) define additional services.
+  Comments = HL7 defines the following Services: [[[Terminology Service]]].  Many [Implementation Guides](http://fhir.org/guides/registry) define additional services.
 
  -- Row 18 -----------------------------------
   Element = CapabilityStatement.software
@@ -665,7 +665,7 @@
   Binding = UnknownContentCode
   Short Name = no | extensions | elements | both
   Definition = A code that indicates whether the application accepts unknown elements or extensions when reading resources.
-  Comments = Unknown elements in a resource can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence accepting unknown elements is about inter-version compatibility.\n\nApplications are recommended to accept unknown extensions and elements (\'both\'), but this is not always possible.
+  Comments = Unknown elements in a resource can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence accepting unknown elements is about inter-version compatibility.  Applications are recommended to accept unknown extensions and elements (\'both\'), but this is not always possible.
 
  -- Row 27 -----------------------------------
   Element = CapabilityStatement.format
@@ -974,7 +974,7 @@
   UML = right
   Short Name = Definition of an resource operation
   Definition = Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters
-  Comments = Operations linked from Capability.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.\n\nIf an operation that is listed in multiple Capability.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource
+  Comments = Operations linked from Capability.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.  If an operation that is listed in multiple Capability.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource
 
  -- Row 64 -----------------------------------
   Element = CapabilityStatement.rest.resource.operation.name
@@ -1069,6 +1069,7 @@
   Short Name = If messaging is supported
   Definition = A description of the messaging capabilities of the solution
   Comments = Multiple repetitions allow the documentation of multiple endpoints per solution.
+  Order Meaning = trial-use
 
  -- Row 75 -----------------------------------
   Element = CapabilityStatement.messaging.endpoint
@@ -1142,6 +1143,7 @@
   Inv. = 1
   Short Name = Document definition
   Definition = A document definition
+  Order Meaning = trial-use
 
  -- Row 84 -----------------------------------
   Element = CapabilityStatement.document.mode
@@ -1324,7 +1326,7 @@
   Example.Request = $implements-request.txt
   Example.Response = $implements-response.txt
   Title = Test if a server implements a client\'s required operations
-  Footer = The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided\n\nTechnically, this operation is implemented as follows:\n * The server\'s capability statement must have an entry for each resource in the client\'s capability statement \n * The servers\' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude\n * The server capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)\n * The server must have a search parameter with matching name and definition for any search parameters in the client capability statement\n * The server must have an operation definitions with a matching reference for any operations in the client capability statement\n\nIf the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity >= error. If the capability statement doesn\'t match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity >= error
+  Footer = The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided  Technically, this operation is implemented as follows:  * The server\'s capability statement must have an entry for each resource in the client\'s capability statement   * The servers\' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude  * The server capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)  * The server must have a search parameter with matching name and definition for any search parameters in the client capability statement  * The server must have an operation definitions with a matching reference for any operations in the client capability statement  If the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity >= error. If the capability statement doesn\'t match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity >= error
   Idempotent = True
 
  -- Row 6 -----------------------------------
@@ -1367,7 +1369,7 @@
   Example.Request = $conforms-request.txt
   Example.Response = $conforms-response.txt
   Title = Test if a server implements a client\'s required operations
-  Footer = The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps. \n\nThe full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate\n\nIf the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity >= error
+  Footer = The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps.   The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate  If the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity >= error
   Idempotent = True
 
  -- Row 11 -----------------------------------
