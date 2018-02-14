@@ -452,7 +452,7 @@ public class SpreadsheetParser {
 	  ResourceDefn root = parseCommonTypeColumns(true);
 
 	  readInheritedMappings(root, loadSheet("Inherited Mappings"));
-	  readEvents(loadSheet("Events"));
+//	  readEvents(loadSheet("Events"));
 	  readSearchParams(root, loadSheet("Search"), false);
 	  if (xls.getSheets().containsKey("Profiles"))
 	    readPackages(root, loadSheet("Profiles"));
