@@ -20,7 +20,7 @@
 	</contact>
 	<purpose value="Defines a base example for other MessageDefintion instances."/>
   <eventCoding>
-    <system value="http://hl7.org/fhir/message-events"/>
+    <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>
   </eventCoding>
 	<category value="Notification"/>

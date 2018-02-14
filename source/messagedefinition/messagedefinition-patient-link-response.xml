@@ -49,7 +49,7 @@
 		<reference value="MessageDefinition/example" />
 	</base>
 		  <eventCoding>
-    <system value="http://hl7.org/fhir/message-events"/>
+    <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>
   </eventCoding>
 	<category value="Consequence"/>

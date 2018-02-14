@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MessageHeader xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/message.xsd">
+<MessageHeader xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/messageheader.xsd">
   <id value="1cbdfb97-5859-48a4-8301-d54eab818d68"/>
   <text>
     <status value="generated"/>
@@ -8,7 +8,7 @@
     </div>
   </text>
   <eventCoding>
-    <system value="http://hl7.org/fhir/message-events"/>
+    <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>
   </eventCoding>
   <destination>
