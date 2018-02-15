@@ -693,7 +693,7 @@
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="4" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="436.0"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -716,7 +716,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -732,7 +732,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R26C24"/>
   </Names>
-  <Table ss:DefaultColumnWidth="433.0" ss:DefaultRowHeight="14.4375" ss:ExpandedColumnCount="24" ss:ExpandedRowCount="38" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="38" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="285.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="61.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="28.0"/>
@@ -1005,7 +1005,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -1021,24 +1021,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-     
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-     
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -1048,7 +1031,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C7"/>
   </Names>
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" ss:StyleID="s83" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" ss:StyleID="s83" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s83" ss:Width="124.0"/>
    <Column ss:StyleID="s83" ss:Width="58.0"/>
    <Column ss:StyleID="s83" ss:Width="175.0"/>
@@ -1513,7 +1496,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -1526,20 +1509,7 @@
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -1551,7 +1521,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"/>
   </Names>
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="5" ss:ExpandedRowCount="28" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="28" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="76.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="61.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="117.0"/>
@@ -1742,7 +1712,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -1755,20 +1725,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -1780,7 +1737,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"/>
   </Names>
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="139.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="133.0"/>
    <Column ss:StyleID="s97" ss:Width="25.0"/>
@@ -2346,7 +2303,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2354,20 +2311,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -2381,7 +2325,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Events!R1C1:R1C9"/>
   </Names>
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="21" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s97" ss:Width="88.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s97" ss:Width="211.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="168.0"/>
@@ -2618,7 +2562,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -2631,20 +2575,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -2656,7 +2587,7 @@
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
   </Names>
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="181.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="298.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="268.0"/>
@@ -2886,7 +2817,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2894,20 +2825,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -2921,7 +2839,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"/>
   </Names>
-  <Table ss:DefaultColumnWidth="276.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="7" ss:ExpandedRowCount="40" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="40" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="136.0"/>
    <Column ss:StyleID="s126" ss:Width="28.0"/>
    <Column ss:StyleID="s126" ss:Width="346.0"/>
@@ -3287,7 +3205,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3295,20 +3213,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -3322,7 +3227,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"/>
   </Names>
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="13" ss:ExpandedRowCount="22" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="22" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="184.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s97" ss:Width="292.0"/>
    <Column ss:StyleID="s97" ss:Width="54.0"/>
@@ -3658,7 +3563,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3671,20 +3576,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -3693,7 +3585,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="adverse-event-severity">
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="14.4375" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="85.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="163.0"/>
@@ -4259,7 +4151,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4268,7 +4160,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='adverse-event-category'!R1C1:R1C9"/>
   </Names>
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="57" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="57" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="160.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="163.0"/>
@@ -4893,7 +4785,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4906,20 +4798,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -4928,7 +4807,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="adverse-event-seriousness">
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="14.4375" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="216.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="38.0"/>
@@ -5506,7 +5385,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5515,7 +5394,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='adverse-event-outcome'!R1C1:R1C9"/>
   </Names>
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="181.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="163.0"/>
@@ -6082,7 +5961,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6090,20 +5969,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -6117,7 +5983,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='adverse-event-causality-assess'!R1C1:R1C9"/>
   </Names>
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="181.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="163.0"/>
@@ -6684,7 +6550,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -6697,20 +6563,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -6721,7 +6574,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="adverse-event-causality-method">
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="14.4375" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="181.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="163.0"/>
@@ -7288,7 +7141,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -7297,7 +7150,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="adverse-event-actuality">
-  <Table ss:DefaultColumnWidth="69.0" ss:DefaultRowHeight="14.4375" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s126" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="85.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="37.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s126" ss:Width="163.0"/>
@@ -7863,9 +7716,9 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
-<!--canonicalized--></Workbook>
+<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>

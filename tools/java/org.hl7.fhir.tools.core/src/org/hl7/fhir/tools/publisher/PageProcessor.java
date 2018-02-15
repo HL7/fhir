@@ -1187,6 +1187,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildResListByCommittee()+s3;
       else if (com[0].equals("wglist"))
         src = s1+buildCommitteeList()+s3;
+      else if (com[0].equals("choice-elements"))
+        src = s1+buildChoiceElementList()+s3;
       else if (com[0].equals("past-narrative-link")) {
        if (object == null || !(object instanceof Boolean))  
          src = s1 + s3;
@@ -1198,6 +1200,32 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String buildChoiceElementList() {
+    StringBuilder b = new StringBuilder();
+    for (String s : sorted(definitions.getTypes().keySet())) {
+      ElementDefn t = definitions.getTypes().get(s);
+      buildChoiceElementList(b, s, t);
+    }
+    
+    for (String s : sorted(definitions.getResources().keySet())) {
+      ResourceDefn t = definitions.getResources().get(s);
+      buildChoiceElementList(b, s, t.getRoot());
+    }
+
+    return b.toString();
+  }
+
+  private void buildChoiceElementList(StringBuilder b, String s, ElementDefn t) {
+    if (t.getName().contains("[x]")) {
+      if (definitions.getTypes().containsKey(s))
+        b.append("<li><a href=\"datatypes-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a></li>");
+      else
+        b.append("<li><a href=\""+s.toLowerCase()+"-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a></li>");
+    }
+    for (ElementDefn e : t.getElements())
+      buildChoiceElementList(b, s, e);    
   }
 
   private String getStandardsStatusNote(String prefix, String value, String type, String pack) throws FHIRException {
@@ -5265,6 +5293,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildResListByCommittee()+s3;
       else if (com[0].equals("wglist"))
         src = s1+buildCommitteeList()+s3;
+      else if (com[0].equals("choice-elements"))
+        src = s1+buildChoiceElementList()+s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }

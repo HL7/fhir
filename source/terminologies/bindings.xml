@@ -602,7 +602,7 @@
   <NamedRange ss:Name="Invariantids" ss:RefersTo="='\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="17" ss:ExpandedRowCount="38" ss:StyleID="s122" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="38" ss:StyleID="s122" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s122" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s122" ss:Width="230.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s122" ss:Width="65.0"/>
@@ -1087,7 +1087,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -1096,19 +1096,13 @@
    </Print>
    <Selected/>
    <TopRowVisible>18</TopRowVisible>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="special-values">
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
@@ -1165,25 +1159,20 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="data-absent-reason">
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="7" ss:ExpandedRowCount="11" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="11" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:Width="104.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="543.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s89">
@@ -1275,20 +1264,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="administrative-gender">
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
    <Column ss:Index="2" ss:Span="1" ss:Width="48.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:Width="59.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="407.0"/>
@@ -1345,25 +1328,20 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="publication-status">
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="11" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="429.0"/>
    <Column ss:Index="8" ss:Width="99.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="174.0"/>
@@ -1435,20 +1413,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="document-reference-status">
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="120.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="291.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="8" ss:Width="129.0"/>
@@ -2011,19 +1983,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="remittance-outcome">
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="201.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="31">
     <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data></Cell>
@@ -2583,20 +2550,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="search-param-type">
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="105.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="5" ss:Width="95.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="440.0"/>
@@ -3159,19 +3120,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="note-type">
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="4" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="4" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="188.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="9" ss:Width="183.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16" ss:StyleID="s105">
@@ -3225,13 +3181,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3240,7 +3191,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='concept-map-equivalence'!R1C1:R1C10"/>
   </Names>
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="10" ss:ExpandedRowCount="52" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="52" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s105" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="35.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="155.0"/>
@@ -3869,7 +3820,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -3883,22 +3834,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3909,7 +3845,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='age-units'!R1C1:R1C9"/>
   </Names>
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s105" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="35.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="155.0"/>
@@ -4475,7 +4411,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4483,21 +4419,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -4509,7 +4431,7 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
    <NamedRange ss:Name="Invariantids" ss:RefersTo="='\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
-  <Table ss:DefaultColumnWidth="54.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s105" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="35.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="155.0"/>
@@ -5075,7 +4997,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5083,25 +5005,11 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
-<!--canonicalized--></Workbook>
+<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>

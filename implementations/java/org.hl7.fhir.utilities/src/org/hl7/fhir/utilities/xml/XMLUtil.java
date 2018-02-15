@@ -493,5 +493,11 @@ public class XMLUtil {
       e.removeChild(m);    
   }
 
+  public static void deleteAttr(Element e, String namespaceURI, String localName) {
+    if (e.hasAttributeNS(namespaceURI, localName))
+      e.removeAttributeNS(namespaceURI, localName);
+    
+  }
+
  	
 }

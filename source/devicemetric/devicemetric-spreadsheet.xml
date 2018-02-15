@@ -327,7 +327,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="2" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="139.0"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s64"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -353,20 +353,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     <RangeSelection>R4C1:R4C2</RangeSelection>
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="16" ss:ExpandedRowCount="16" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="16" ss:StyleID="s69" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s70" ss:Width="294.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s69" ss:Width="56.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:Span="1" ss:StyleID="s69" ss:Width="35.0"/>
@@ -520,7 +514,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -535,29 +529,13 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-     
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="6" ss:ExpandedRowCount="1" ss:StyleID="s79" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="1" ss:StyleID="s79" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s79" ss:Width="59.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s79" ss:Width="366.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s79" ss:Width="239.0"/>
@@ -577,7 +555,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -585,18 +563,13 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <TopRowVisible>6</TopRowVisible>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Operations">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="2" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="2" x:FullColumns="1" x:FullRows="1">
    <Row ss:AutoFitHeight="0" ss:Height="31">
     <Cell ss:StyleID="s80"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of the operation or parameter (parameters prefixed by operation name + ".") </Font>       </ss:Data></Comment></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Use</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">"System | Resource | Instance" (operation) "In" or "Out" (parameter)</Font>       </ss:Data></Comment></Cell>
@@ -626,19 +599,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.78740157499999996" x:Left="0.7" x:Right="0.7" x:Top="0.78740157499999996"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <RangeSelection>R1C1:R2C9</RangeSelection>
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Search">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="70.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="382.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="116.0"/>
@@ -694,26 +662,20 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     <RangeSelection>R6C1:R6C4</RangeSelection>
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Events">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="2" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="70.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:Width="94.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="4" ss:Width="101.0"/>
@@ -740,20 +702,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Examples">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="7" ss:ExpandedRowCount="3" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="3" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="5" ss:Width="134.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s94"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Descriptive Name</Font>       </ss:Data></Comment></Cell>
@@ -789,20 +745,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.78740157499999996" x:Left="0.7" x:Right="0.7" x:Top="0.78740157499999996"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" ss:StyleID="s76" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="8" ss:StyleID="s76" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s76" ss:Width="163.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s76" ss:Width="295.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s76" ss:Width="65.0"/>
@@ -874,25 +824,19 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="metric-color">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="9" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="9" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="5" ss:Width="100.0"/>
    <Column ss:Width="170.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="31">
@@ -996,19 +940,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="metric-operational-status">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="8" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="8" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="244.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="31">
     <Cell ss:StyleID="s94"><Data ss:Type="String">Code</Data><Comment ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code to be sent over the wire</Font>       </ss:Data></Comment></Cell>
@@ -1105,19 +1044,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.78740157499999996" x:Left="0.7" x:Right="0.7" x:Top="0.78740157499999996"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     <RangeSelection>R1C1:R1C9</RangeSelection>
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="metric-category">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="8" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="8" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="77.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="309.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="31">
@@ -1215,20 +1149,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.78740157499999996" x:Left="0.7" x:Right="0.7" x:Top="0.78740157499999996"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="metric-calibration-type">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="105.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="31">
     <Cell ss:StyleID="s94"><Data ss:Type="String">Code</Data><Comment ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code to be sent over the wire</Font>       </ss:Data></Comment></Cell>
@@ -1287,20 +1215,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.78740157499999996" x:Left="0.7" x:Right="0.7" x:Top="0.78740157499999996"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="metric-calibration-state">
-  <Table ss:DefaultColumnWidth="60.0" ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="257.0"/>
    <Row ss:AutoFitHeight="0" ss:Height="31">
     <Cell ss:StyleID="s94"><Data ss:Type="String">Code</Data><Comment ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code to be sent over the wire</Font>       </ss:Data></Comment></Cell>
@@ -1359,15 +1281,10 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.78740157499999996" x:Left="0.7" x:Right="0.7" x:Top="0.78740157499999996"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
-<!--canonicalized--></Workbook>
+<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>

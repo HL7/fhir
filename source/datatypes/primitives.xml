@@ -67,7 +67,7 @@
   <Names>
    <NamedRange ss:Name="boolean" ss:RefersTo="=Imports!R2C1"/>
   </Names>
-  <Table ss:DefaultRowHeight="15" ss:ExpandedColumnCount="9" ss:ExpandedRowCount="11" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="11" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="67.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="177.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="362.0"/>
@@ -190,7 +190,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -198,13 +198,7 @@
     <VerticalResolution>-1</VerticalResolution>
    </Print>
    <Selected/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -218,7 +212,7 @@
    <NamedRange ss:Name="oid" ss:RefersTo="=Patterns!R3C1"/>
    <NamedRange ss:Name="uuid" ss:RefersTo="=Patterns!R4C1"/>
   </Names>
-  <Table ss:DefaultRowHeight="15" ss:ExpandedColumnCount="8" ss:ExpandedRowCount="8" ss:StyleID="s71" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="8" ss:StyleID="s71" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s71" ss:Width="74.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s71" ss:Width="233.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="3" ss:StyleID="s71" ss:Width="142.0"/>
@@ -301,22 +295,16 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
-<!--canonicalized--></Workbook>
+<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>

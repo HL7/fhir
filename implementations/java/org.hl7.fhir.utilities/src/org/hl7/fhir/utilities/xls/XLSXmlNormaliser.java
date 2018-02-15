@@ -51,7 +51,6 @@ public class XLSXmlNormaliser {
   }
   
   public void go() throws FHIRException, TransformerException, ParserConfigurationException, SAXException, IOException {
-    System.out.println("normalise: "+source);
     xml = parseXml(new FileInputStream(source));
     
     Element root = xml.getDocumentElement();
@@ -62,6 +61,8 @@ public class XLSXmlNormaliser {
         return;
       n = n.getNextSibling();
     }
+    System.out.println("normalise: "+source);
+    
     XMLUtil.deleteByName(root, "ActiveSheet");
     Element xw = XMLUtil.getNamedChild(root, "ExcelWorkbook");
     XMLUtil.deleteByName(xw, "WindowHeight");
@@ -79,6 +80,11 @@ public class XLSXmlNormaliser {
       f.delete();
     try {
       saveXml(new FileOutputStream(dest));
+      String s = TextFile.fileToString(dest);
+      s = s.replaceAll("\r\n","\n");
+      s = s.replaceAll("\n","\r\n");
+      TextFile.stringToFile(s, dest, false);
+
     } catch (Exception e) {
       TextFile.stringToFile("Run process helper", altName);
     }
@@ -96,6 +102,8 @@ public class XLSXmlNormaliser {
   }
   
   private void processOptions(Element wo) {
+    XMLUtil.deleteByName(wo, "Unsynced");
+    XMLUtil.deleteByName(wo, "Panes");
     for (Element panes : XMLUtil.getNamedChildren(wo, "Panes"))
       processPanes(panes);      
   }
@@ -117,12 +125,8 @@ public class XLSXmlNormaliser {
 //  }
 
   private void processTable(Element col) {
-    String width = col.getAttributeNS("urn:schemas-microsoft-com:office:spreadsheet", "DefaultColumnWidth");
-    if (!Utilities.noString(width)) {
-      Double d = Double.valueOf(width);
-      width = Double.toString(Math.round(d*2)/2);
-      col.setAttributeNS("urn:schemas-microsoft-com:office:spreadsheet", "ss:DefaultColumnWidth", width);
-    }        
+    XMLUtil.deleteAttr(col, "urn:schemas-microsoft-com:office:spreadsheet", "DefaultColumnWidth");
+    XMLUtil.deleteAttr(col, "urn:schemas-microsoft-com:office:spreadsheet", "DefaultRowHeight");
   }
 
 
@@ -156,12 +160,14 @@ public class XLSXmlNormaliser {
     return builder.parse(in);
   }
 
-  private void saveXml(FileOutputStream stream) throws TransformerException {
+  private void saveXml(FileOutputStream stream) throws TransformerException, IOException {
+
     TransformerFactory factory = TransformerFactory.newInstance();
     Transformer transformer = factory.newTransformer();
     Result result = new StreamResult(stream);
     Source source = new DOMSource(xml);
     transformer.transform(source, result);    
+    stream.flush();
   }
 
   private String getLocation() {

@@ -1221,6 +1221,20 @@ public class ProfileGenerator {
       slices.add(path);
     }
 
+    // todo for task 12259
+//    if (ap != null) {
+//      String base = isImplicitTypeConstraint(path);
+//      if (base != null) {
+//        ElementDefinition typeConstrainer = new ElementDefinition();
+//        elements.add(typeConstrainer);
+//        typeConstrainer.setId(base);
+//        typeConstrainer.setPath(base);
+//        String type = path.substring(base.length()-3);
+//        if (definitions.hasPrimitiveType(Utilities.uncapitalize(type)))
+//          type = Utilities.uncapitalize(type);
+//        typeConstrainer.addType().setCode(type);
+//      }
+//    }
     ElementDefinition ce = new ElementDefinition();
     elements.add(ce);
 //    todo ce.setId(path.substring(path.indexOf(".")+1));
@@ -1386,6 +1400,32 @@ public class ProfileGenerator {
       defineElement(ap, p, elements, child, path+"."+child.getName(), containedSlices, myParents, snapshot, false, defType, null);
 
     return ce;
+  }
+
+  private String isImplicitTypeConstraint(String path) throws Exception {
+    if (!path.contains(".")) 
+      return null;
+    String t = path.substring(0, path.indexOf("."));
+    ElementDefn tt = definitions.getElementDefn(t);
+    return isImplicitTypeConstraint(tt.getName(), tt, path);
+  }
+
+  private String isImplicitTypeConstraint(String path, ElementDefn tt, String s) {
+    if (path.equals(s))
+      return null;
+    if (path.contains("[x]")) {
+      String base = path.substring(0, path.indexOf("["));
+      if (s.startsWith(base) && !s.substring(base.length()).contains("."))
+        return path;
+    }
+    if (s.equals(path+".extension"))
+      return null;
+    for (ElementDefn e : tt.getElements()) {
+      String ans = isImplicitTypeConstraint(path+"."+e.getName(), e, s);
+      if (ans != null)
+        return ans;
+    }
+    return null;
   }
 
   private void buildDefinitionFromElement(String path, ElementDefinition ce, ElementDefn e, Profile ap, StructureDefinition p, String inheritedType) throws Exception {

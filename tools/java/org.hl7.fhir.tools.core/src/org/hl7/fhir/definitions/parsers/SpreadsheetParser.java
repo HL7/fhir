@@ -452,7 +452,7 @@ public class SpreadsheetParser {
 	  ResourceDefn root = parseCommonTypeColumns(true);
 
 	  readInheritedMappings(root, loadSheet("Inherited Mappings"));
-//	  readEvents(loadSheet("Events"));
+//	  readEvents(loadSheet("Events"), root);
 	  readSearchParams(root, loadSheet("Search"), false);
 	  if (xls.getSheets().containsKey("Profiles"))
 	    readPackages(root, loadSheet("Profiles"));
@@ -1674,11 +1674,12 @@ public class SpreadsheetParser {
   }
 
 
-  private void readEvents(Sheet sheet) throws Exception {
+  private void readEvents(Sheet sheet, ResourceDefn root) throws Exception {
 		if (sheet != null) {
 			for (int row = 0; row < sheet.rows.size(); row++) {
 				String code = sheet.getColumn(row, "Event Code");
 				if (code != null && !code.equals("") && !code.startsWith("!")) {
+				  System.out.print("!!Lloyd Look at me! - event "+code+" on resource "+root.getName());
 					EventDefn e = new EventDefn();
 					events.add(e);
 					e.setCode(code);

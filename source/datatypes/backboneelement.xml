@@ -495,7 +495,7 @@
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
-  <Table ss:DefaultRowHeight="15" ss:ExpandedColumnCount="1" ss:ExpandedRowCount="3" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="3" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="411.0"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s63"><Data ss:Type="String">FHIR Resource-authoring Spreadsheet</Data></Cell>
@@ -513,13 +513,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-     
-    </Pane>
-   </Panes>
+   
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -528,7 +523,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R99C23"/>
   </Names>
-  <Table ss:DefaultRowHeight="15" ss:ExpandedColumnCount="24" ss:ExpandedRowCount="99" ss:StyleID="s67" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="99" ss:StyleID="s67" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s68" ss:Width="227.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s67" ss:Width="77.0"/>
    <Column ss:StyleID="s67" ss:Width="29.0"/>
@@ -3035,7 +3030,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3049,22 +3044,7 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3075,7 +3055,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C7"/>
   </Names>
-  <Table ss:DefaultRowHeight="15" ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" ss:StyleID="s99" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" ss:StyleID="s99" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s99" ss:Width="116.0"/>
    <Column ss:StyleID="s99" ss:Width="56.0"/>
    <Column ss:StyleID="s99" ss:Width="165.0"/>
@@ -3540,7 +3520,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3553,22 +3533,7 @@
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3577,7 +3542,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"/>
   </Names>
-  <Table ss:DefaultRowHeight="15" ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" ss:StyleID="s110" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" ss:StyleID="s110" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s110" ss:Width="114.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s110" ss:Width="275.0"/>
    <Column ss:StyleID="s110" ss:Width="51.0"/>
@@ -4048,7 +4013,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Unsynced/>
+   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4061,25 +4026,11 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   <Panes>
-    <Pane>
-     <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-    </Pane>
-    <Pane>
-     <Number>2</Number>
-    </Pane>
-    <Pane>
-     <Number>0</Number>
-     
-    </Pane>
-   </Panes>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C13">
   </AutoFilter>
  </Worksheet>
-<!--canonicalized--></Workbook>
+<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
