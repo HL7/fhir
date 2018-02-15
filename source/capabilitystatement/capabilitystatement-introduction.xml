@@ -26,7 +26,7 @@ provides for a degree of self-configuration of software solutions.
 </p>
 <p>
 This is the type of 
-profile that FHIR restful solutions are expected to make available on invocation of the 
+statement that FHIR restful solutions are expected to make available on invocation of the 
 <i>capabilities</i> operation.  It is also the type of statement that forms a basis for
 the testing, certification or commissioning of specific software installations.
 </p>
