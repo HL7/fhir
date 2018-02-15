@@ -41,7 +41,7 @@ is vnd.xacml+json). However servers might not always be able to interpret mime t
 and clients SHOULD be prepared to receive either format.
 </p>
 <p>
-Note that the _summary parameter does not apply when the mime type is not one of the stanard FHIR content types.
+Note that the _summary parameter does not apply when the mime type is not one of the standard FHIR content types.
 </p>
 
 <h3>Security Considerations</h3>
