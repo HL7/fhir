@@ -454,7 +454,9 @@ character set and/or the correct character set may be able to be determined by i
 </p>
 <p>
 The <code>hash</code> is included so that applications can verify that the content returned by the URL has not changed. The <code>hash</code> and <code>size</code>
-relate to the data before it is represented in base64 form.
+relate to the data before it is represented in base64 form. The hash is not intended to support digital signatures. 
+Where protection against malicious threats a digital signature should be considered, see 
+<a href="provenance-definitions.html#Provenance.signature">Provenance.signature</a> for mechanism to protect a resource with a digital signature.
 </p>
 <p>
 In many cases where Attachment is used, the cardinality is &gt;1. A valid use of repeats is to convey the same content in different mime types and languages.
