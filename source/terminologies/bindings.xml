@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
@@ -236,11 +243,12 @@
     <SheetIndex>12</SheetIndex>
    </Xct>
   </SupBook>
-  
-  
-  
-  
+  <WindowHeight>13270</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <TabRatio>780</TabRatio>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -249,100 +257,258 @@
   <Style ss:ID="Default" ss:Name="Normal">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
   </Style>
   <Style ss:ID="s62" ss:Name="Hyperlink">
-   <Font ss:Color="#0066CC" ss:FontName="Calibri" ss:Size="11" ss:Underline="Single" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0066CC"
+    ss:Underline="Single"/>
   </Style>
   <Style ss:ID="s63" ss:Name="Normal 2">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Vertical="Top"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s74" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#0066CC"
+    ss:Underline="Single"/>
+  </Style>
+  <Style ss:ID="s75">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s76">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s80">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s83">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s85">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+  </Style>
   <Style ss:ID="s86">
-   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
+  </Style>
+  <Style ss:ID="s87">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s88">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
   </Style>
   <Style ss:ID="s89">
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s91">
-   <Font ss:Color="#000000" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s92">
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
   </Style>
   <Style ss:ID="s93">
    <Borders/>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
    <Interior/>
   </Style>
   <Style ss:ID="s94">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
+   <Font ss:FontName="Verdana" x:Family="Swiss" ss:Size="9" ss:Color="#333333"/>
   </Style>
   <Style ss:ID="s95">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s96">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s97">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s98">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s99">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s101" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -353,8 +519,8 @@
   <Style ss:ID="s104">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
   </Style>
@@ -364,7 +530,7 @@
   <Style ss:ID="s106">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
@@ -381,7 +547,7 @@
   <Style ss:ID="s109" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -389,7 +555,7 @@
   <Style ss:ID="s110">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
@@ -397,44 +563,46 @@
    <Alignment ss:Vertical="Top"/>
   </Style>
   <Style ss:ID="s113">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
   <Style ss:ID="s114">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s115">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s116">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s117" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -442,177 +610,41 @@
   <Style ss:ID="s118">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
   <Style ss:ID="s119">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
    <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s120">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s121">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s122">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s123">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
-  <Style ss:ID="s124">
-   <Alignment ss:Vertical="Top"/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s127">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s128">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s129" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:Color="#0066CC" ss:FontName="Calibri" ss:Size="11" ss:Underline="Single" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s130">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s131">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s132">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s133">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s134">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s135">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s136">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s137">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s138">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s139">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s140">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s142">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s143">
-   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="='\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids"
+   ss:RefersTo="='\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="38" ss:StyleID="s122" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s122" ss:Width="158.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s122" ss:Width="230.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s122" ss:Width="65.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s122" ss:Width="219.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s122" ss:Width="245.0"/>
-   <Column ss:Index="7" ss:StyleID="s122" ss:Width="113.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s122" ss:Width="174.0"/>
-   <Column ss:StyleID="s122" ss:Width="233.0"/>
-   <Column ss:StyleID="s122" ss:Width="147.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s120">
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="38" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="14.5">
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="158"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="230"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="65"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="219"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="245" ss:Span="1"/>
+   <Column ss:Index="7" ss:StyleID="s64" ss:Width="113"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="174"/>
+   <Column ss:StyleID="s64" ss:Width="233"/>
+   <Column ss:StyleID="s64" ss:Width="147"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Binding Name</Data></Cell>
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Binding</Data></Cell>
@@ -620,8 +652,8 @@
     <Cell><Data ss:Type="String">Reference</Data></Cell>
     <Cell><Data ss:Type="String">Max</Data></Cell>
     <Cell><Data ss:Type="String">Description</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">Comments</Data></Cell>
-    <Cell ss:StyleID="s121"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">Comments</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">v3</Data></Cell>
     <Cell><Data ss:Type="String">v2</Data></Cell>
     <Cell><Data ss:Type="String">Committee</Data></Cell>
     <Cell><Data ss:Type="String">Copyright</Data></Cell>
@@ -630,22 +662,23 @@
     <Cell><Data ss:Type="String">AdministrativeGender</Data></Cell>
     <Cell><Data ss:Type="String">The gender of a person used for administrative purposes.</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s123"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">#administrative-gender</Data></Cell>
-    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">#administrative-gender</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-AdministrativeGender</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/v2-0001" ss:StyleID="s62"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0001</Data></Cell>
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/v2-0001"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0001</Data></Cell>
     <Cell><Data ss:Type="String">PA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">PublicationStatus</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">The lifecycle status of a Value Set or Concept Map.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The lifecycle status of a Value Set or Concept Map.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">#publication-status</Data></Cell>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">#publication-status</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:Index="11"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -653,23 +686,24 @@
     <Cell><Data ss:Type="String">Used to specify why the normally expected content of the data element is missing.</Data></Cell>
     <Cell><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#data-absent-reason</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/v3-NullFlavor" ss:Index="9" ss:StyleID="s129"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-NullFlavor</Data></Cell>
+    <Cell ss:Index="9" ss:StyleID="s74" ss:HRef="http://hl7.org/fhir/ValueSet/v3-NullFlavor"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/v3-NullFlavor</Data></Cell>
     <Cell ss:Index="11"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">DocumentReferenceStatus</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">The status of the document reference.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">DocumentReferenceStatus</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The status of the document reference.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
     <Cell><Data ss:Type="String">Required</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">#document-reference-status</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActStatus</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">SD</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:Index="14" ss:StyleID="s128"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">#document-reference-status</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActStatus</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">SD</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="14" ss:StyleID="s73"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -682,136 +716,136 @@
     <Cell ss:Index="11"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">SearchParamType</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Data types allowed to be used for search parameters.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s128"><Data ss:Type="String">#search-param-type</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">SearchParamType</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Data types allowed to be used for search parameters.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s73"><Data ss:Type="String">#search-param-type</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s132"><Data ss:Type="String">RemittanceOutcome</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">The outcome of the processing.</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s134"><Data ss:Type="String">#remittance-outcome</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">FM</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">RemittanceOutcome</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The outcome of the processing.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s79"><Data ss:Type="String">#remittance-outcome</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">NoteType</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">The presentation types of notes.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s128"><Data ss:Type="String">#note-type</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">FM</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">NoteType</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The presentation types of notes.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s73"><Data ss:Type="String">#note-type</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s132"><Data ss:Type="String">ConceptMapEquivalence</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">The degree of equivalence between concepts.</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="s134"><Data ss:Type="String">#concept-map-equivalence</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ConceptMapEquivalence</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The degree of equivalence between concepts.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s79"><Data ss:Type="String">#concept-map-equivalence</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s132"><Data ss:Type="String">AgeUnits</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">A valueSet of UCUM codes for representing age value units.</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">#age-units</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">AgeUnits</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">A valueSet of UCUM codes for representing age value units.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">#age-units</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
     <Cell><Data ss:Type="String">oo</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See TermsOfUse for details.</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See TermsOfUse for details.</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Language</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">A human language.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-languages</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-all-languages</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">IETF language tag</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Language</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">A human language.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-languages</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-all-languages</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">IETF language tag</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">MimeType</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">The mime type of an attachment. Any valid mime type is allowed.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">http://www.rfc-editor.org/bcp/bcp13.txt</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">MimeType</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The mime type of an attachment. Any valid mime type is allowed.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">http://www.rfc-editor.org/bcp/bcp13.txt</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DataType</Data></Cell>
     <Cell><Data ss:Type="String">The type of an element - one of the FHIR data types.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#data-types</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AbstractType</Data></Cell>
     <Cell><Data ss:Type="String">A type defined by FHIR that is an abstract type</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#abstract-types</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s128"/>
+    <Cell ss:Index="11" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FHIRDefinedType</Data></Cell>
     <Cell><Data ss:Type="String">Either a resource or a data type.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#defined-types</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FHIRAllTypes</Data></Cell>
     <Cell><Data ss:Type="String">Either an abstract type, a resource or a data type.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#all-types</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s128"/>
+    <Cell ss:Index="11" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
@@ -819,17 +853,17 @@
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">#message-events</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResourceType</Data></Cell>
     <Cell><Data ss:Type="String">One of the resource types defined as part of FHIR.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#resource-types</Data></Cell>
-    <Cell ss:Index="11" ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">ClinicalBaseGender</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">ClinicalBaseGender</Data></Cell>
     <Cell><Data ss:Type="String">The gender of a person used for clinical purposes . This has the same base codes as [[[AdministrativeGender]]], but is extensible to allow for finer differentiation of uncertainty, for gender re-assignment programs, and for social gender status.</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">extensible</Data></Cell>
@@ -840,212 +874,212 @@
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="s62"/>
     <Cell><Data ss:Type="String">PC</Data></Cell>
-    <Cell ss:Index="13" ss:StyleID="s136"/>
+    <Cell ss:Index="13" ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s132"><Data ss:Type="String">ConformanceUseContext</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Indicates the countries, regions, disciplines and other aspects of use within which this artifact is targeted for use.</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">valueset-use-context</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s138"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">ConformanceUseContext</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Indicates the countries, regions, disciplines and other aspects of use within which this artifact is targeted for use.</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">valueset-use-context</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s83"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s139"><Data ss:Type="String">MaritalStatus</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">MaritalStatus</Data></Cell>
     <Cell><Data ss:Type="String">The domestic partnership status of a person.</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s140"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">valueset-marital-status</Data></Cell>
-    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">valueset-marital-status</Data></Cell>
+    <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:Index="11"><Data ss:Type="String">PA</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s136"/>
+    <Cell ss:Index="14" ss:StyleID="s81"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">PayeeType</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">A code for the party to be reimbursed.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">PayeeType</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">A code for the party to be reimbursed.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-payeetype</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">FM</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-payeetype</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">FundsReserve</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">For whom funds are to be reserved: (Patient, Provider, None).</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">FundsReserve</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">For whom funds are to be reserved: (Patient, Provider, None).</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-fundsreserve</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">FM</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-fundsreserve</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">Relationship</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">The code for the relationship of the patient to the subscriber.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Relationship</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The code for the relationship of the patient to the subscriber.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-relationship</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">FM</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">CoverageRoleType?</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-relationship</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">CoverageRoleType?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">Forms</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">The forms codes.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-forms</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">FM</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Forms</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The forms codes.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-forms</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">AdjudicationError</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">The error codes for adjudication processing.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">AdjudicationError</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The error codes for adjudication processing.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-adjudication-error</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">FM</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-adjudication-error</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">FM</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">USPSState</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Two letter USPS alphabetic codes. </Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-usps-state</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:Index="8" ss:StyleID="s131"><Data ss:Type="String">extensible for Can, Mex?</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">US</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">USPSState</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Two letter USPS alphabetic codes. </Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-usps-state</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="8" ss:StyleID="s76"><Data ss:Type="String">extensible for Can, Mex?</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">US</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">USFIPSCounty</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">FIPS codes for US counties and county equivalent entities.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-fips-county</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">US</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">USFIPSCounty</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">FIPS codes for US counties and county equivalent entities.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-fips-county</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">US</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s132"><Data ss:Type="String">USCountry</Data></Cell>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">USCountry</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ISO 2 letter country codes.</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">http://www.iso.org/iso/country_codes.htm</Data></Cell>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">http://www.iso.org/iso/country_codes.htm</Data></Cell>
+    <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ISO 2 letter Country Codes</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">using DAF value set as soon as able check with Grahame - urn:iso:std:iso:3166</Data></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">using DAF value set as soon as able check with Grahame - urn:iso:std:iso:3166</Data></Cell>
     <Cell ss:StyleID="s86"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">US</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">US</Data></Cell>
+    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">BindingStrength</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Indication of the degree of conformance expectations associated with a binding.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">#binding-strength</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">FHIR</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">BindingStrength</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indication of the degree of conformance expectations associated with a binding.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">#binding-strength</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">IdentifierType</Data></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-identifier-type</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">IdentifierType</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-identifier-type</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">SecurityLabels</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Security Labels from the Healthcare Privacy and Security Classification System.</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-security-labels</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:Index="8" ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">SecurityLabels</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Security Labels from the Healthcare Privacy and Security Classification System.</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-security-labels</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:Index="8" ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Jurisdiction</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Countries and regions within which this artifact is targeted for use</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">valueset-jurisdiction</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">Countries and regions within which this artifact is targeted for use</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">extensible</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-jurisdiction</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosisRole</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">The type of diagnosis this condition represents</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">The type of diagnosis this condition represents</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">preferred</Data></Cell>
     <Cell><Data ss:Type="String">valueset-diagnosis-role</Data></Cell>
@@ -1059,19 +1093,19 @@
     <Cell><Data ss:Type="String">valueset-provider-taxonomy</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s130"><Data ss:Type="String">FHIRVersions</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">All published FHIR Versions</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s143"><Data ss:Type="String">valueset-fhir-versions</Data></Cell>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">FHIRVersions</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">All published FHIR Versions</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">valueset-fhir-versions</Data></Cell>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ParticipationRoleType</Data></Cell>
@@ -1087,26 +1121,24 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
    <TopRowVisible>18</TopRowVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="special-values">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="78.0"/>
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.5">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="63"/>
+   <Column ss:AutoFitWidth="0" ss:Width="209"/>
+   <Column ss:AutoFitWidth="0" ss:Width="639"/>
+   <Column ss:AutoFitWidth="0" ss:Width="78"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s89">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
@@ -1159,22 +1191,21 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="data-absent-reason">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="11" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="4" ss:Width="104.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="543.0"/>
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="15" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.5">
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="104"/>
+   <Column ss:AutoFitWidth="0" ss:Width="543"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s89">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
@@ -1217,27 +1248,37 @@
     <Cell><Data ss:Type="String">masked</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Masked</Data></Cell>
     <Cell><Data ss:Type="String">The information is not available due to security, privacy or related reasons.</Data></Cell>
-    <Cell><Data ss:Type="String">Using "masked" may be breach of security or confidentiality, but there are times when its use is required to support alternate workflows for gaining access to denied information.</Data></Cell>
+    <Cell><Data ss:Type="String">Using &quot;masked&quot; may be breach of security or confidentiality, but there are times when its use is required to support alternate workflows for gaining access to denied information.</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.MSK</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell><Data ss:Type="String">n/a</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Not Applicable</Data></Cell>
+    <Cell><Data ss:Type="String">There is no proper value for this element (e.g. last menstrual period for a male)</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">unsupported</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Unsupported</Data></Cell>
+    <Cell><Data ss:Type="String">n/a</Data></Cell>
+    <Cell><Data ss:Type="String">Unsupported</Data></Cell>
     <Cell><Data ss:Type="String">The source system wasn't capable of supporting this element.</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell><Data ss:Type="String">astext</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">As Text</Data></Cell>
+    <Cell><Data ss:Type="String">n/a</Data></Cell>
+    <Cell><Data ss:Type="String">As Text</Data></Cell>
     <Cell><Data ss:Type="String">The content of the data is represented in the resource narrative.</Data></Cell>
     <Cell><Data ss:Type="String">it may be linked by internal references (e.g. xml:id). This usually implies that the value could not be represented in the correct format - this may be due to system limitations, or this particular data value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Error</Data></Cell>
+    <Cell><Data ss:Type="String">n/a</Data></Cell>
+    <Cell><Data ss:Type="String">Error</Data></Cell>
     <Cell><Data ss:Type="String">Some system or workflow process error means that the information is not available.</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
    </Row>
@@ -1253,9 +1294,34 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="String">not-performed</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Not Performed</Data></Cell>
+    <Cell><Data ss:Type="String">n/a</Data></Cell>
+    <Cell><Data ss:Type="String">Not Performed</Data></Cell>
     <Cell><Data ss:Type="String">The value is not available because the observation procedure (test, etc.) was not performed.</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">&lt;NullFlavor.NA</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">14</Data></Cell>
+    <Cell><Data ss:Type="String">other</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Other</Data></Cell>
+    <Cell><Data ss:Type="String">The actual value is not a permitted value in this context (e.g. due to profiles, or the base types)</Data></Cell>
+    <Cell><Data ss:Type="String">This is most often associated with required bindings that do not include the actual code used, but may be used with other data types)</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.OTH</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">12</Data></Cell>
+    <Cell><Data ss:Type="String">ninf</Data></Cell>
+    <Cell><Data ss:Type="String">other</Data></Cell>
+    <Cell><Data ss:Type="String">Negative Infinity</Data></Cell>
+    <Cell><Data ss:Type="String">Negative infinity of numbers (a special value produced by some devices)</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NINF</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">13</Data></Cell>
+    <Cell><Data ss:Type="String">pinf</Data></Cell>
+    <Cell><Data ss:Type="String">other</Data></Cell>
+    <Cell><Data ss:Type="String">Positive Infinity</Data></Cell>
+    <Cell><Data ss:Type="String">Positive infinity of numbers (a special value produced by some devices)</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.PINF</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1264,18 +1330,30 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-1</HorizontalResolution>
+    <VerticalResolution>-1</VerticalResolution>
+   </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>1</ActiveCol>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="administrative-gender">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
-   <Column ss:Index="2" ss:Span="1" ss:Width="48.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="4" ss:Width="59.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="407.0"/>
-   <Column ss:Width="140.0"/>
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="5" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.5">
+   <Column ss:Index="4" ss:AutoFitWidth="0" ss:Width="59"/>
+   <Column ss:AutoFitWidth="0" ss:Width="407"/>
+   <Column ss:Width="140"/>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s92"><Data ss:Type="String">Id</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Code</Data></Cell>
@@ -1317,7 +1395,7 @@
     <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell><Data ss:Type="String">Unknown</Data></Cell>
     <Cell><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">A proper value is applicable, but not known.  Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of "unknown". (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of "H" and a URL prefix of "tel:" to convey that it is the home phone number that is unknown.)</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">A proper value is applicable, but not known.  Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=AdministrativeGender.UNK</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=0001.U</Data></Cell>
    </Row>
@@ -1328,25 +1406,24 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="publication-status">
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="5" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="429.0"/>
-   <Column ss:Index="8" ss:Width="99.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="174.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="218.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="183.0"/>
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="5" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.5">
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="429"/>
+   <Column ss:Index="8" ss:Width="99"/>
+   <Column ss:AutoFitWidth="0" ss:Width="174"/>
+   <Column ss:AutoFitWidth="0" ss:Width="218"/>
+   <Column ss:AutoFitWidth="0" ss:Width="183"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data></Cell>
@@ -1395,7 +1472,7 @@
     <Cell ss:StyleID="s109"><Data ss:Type="String">This resource has been withdrawn or superseded and should no longer be used.</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String" x:Ticked="1">=ActStatus.aborted</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">Marking a resource as "retired" is an assertion by the resource author/maintainer that a resource should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the resource, but best practice would be to phase its use out</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">Marking a resource as &quot;retired&quot; is an assertion by the resource author/maintainer that a resource should not be used anymore (often because the author would prefer implementers use something else).  Implementers are permitted to continue to use the resource, but best practice would be to phase its use out</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">удалён</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">verouderd</Data></Cell>
    </Row>
@@ -1403,7 +1480,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s109"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</Data></Cell>
     <Cell ss:Index="8" ss:StyleID="s112"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
    </Row>
   </Table>
@@ -1413,18 +1490,17 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="document-reference-status">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Width="120.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="291.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="8" ss:Width="129.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="122.0"/>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.5">
+   <Column ss:AutoFitWidth="0" ss:Width="120"/>
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="291"/>
+   <Column ss:Index="8" ss:AutoFitWidth="0" ss:Width="129"/>
+   <Column ss:AutoFitWidth="0" ss:Width="122"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data></Cell>
@@ -1983,15 +2059,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="remittance-outcome">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="201.0"/>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.5">
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="201"/>
    <Row ss:AutoFitHeight="0" ss:Height="31">
     <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data></Cell>
@@ -2550,18 +2625,17 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="search-param-type">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Width="105.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="5" ss:Width="95.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="440.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="9" ss:Width="138.0"/>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.5">
+   <Column ss:AutoFitWidth="0" ss:Width="105"/>
+   <Column ss:Index="5" ss:AutoFitWidth="0" ss:Width="95"/>
+   <Column ss:AutoFitWidth="0" ss:Width="440"/>
+   <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="138"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data></Cell>
@@ -2612,7 +2686,7 @@
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Token</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a &quot;|&quot;, depending on the modifier used.</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s110"><Data ss:Type="String"> </Data></Cell>
@@ -3120,26 +3194,43 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="note-type">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="4" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="188.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="9" ss:Width="183.0"/>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="4" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="14.5">
+   <Column ss:Index="6" ss:AutoFitWidth="0" ss:Width="188"/>
+   <Column ss:Index="9" ss:AutoFitWidth="0" ss:Width="183"/>
    <Row ss:AutoFitHeight="0" ss:Height="16" ss:StyleID="s105">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code to be sent over the wire</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">System</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Parent</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code this code is a specialization of (if any).  Content should be "#" + the Id of the parent code</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Display</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See wiki for syntax</Font>       </ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">The code to be sent over the wire</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">System</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Parent</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The code this code is a specialization of (if any).  Content should be &quot;#&quot; + the Id of the parent code</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Display</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Definition</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v3 codes - See wiki for syntax</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Committee Notes</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s105">
     <Cell ss:StyleID="s97"><Data ss:Type="String">display</Data></Cell>
@@ -3181,36 +3272,64 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="concept-map-equivalence">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='concept-map-equivalence'!R1C1:R1C10"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='concept-map-equivalence'!R1C1:R1C10" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="52" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s105" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="35.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="155.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s105" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s105" ss:Width="245.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s105" ss:Width="84.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s105" ss:Width="150.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="242.0"/>
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="52" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s105" ss:DefaultRowHeight="14.5">
+   <Column ss:StyleID="s105" ss:Width="80"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="35"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="155"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="80" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="245"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
+   <Column ss:Index="9" ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="150"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="242"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code to be sent over the wire</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">System</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Parent</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code this code is a specialization of (if any).  Content should be "#" + the Id of the parent code</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Display</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Comments</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">The code to be sent over the wire</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">System</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Parent</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The code this code is a specialization of (if any).  Content should be &quot;#&quot; + the Id of the parent code</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Display</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Definition</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v3 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Comments</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Committee Notes</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s106"><Data ss:Type="String">relatedto</Data></Cell>
@@ -3820,7 +3939,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -3834,35 +3952,78 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C10">
+  <AutoFilter x:Range="R1C1:R1C10"
+   xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="age-units">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='age-units'!R1C1:R1C9"/>
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='age-units'!R1C1:R1C9"
+    ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s105" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="35.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="155.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s105" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s105" ss:Width="245.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s105" ss:Width="84.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s105" ss:Width="242.0"/>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s105" ss:DefaultRowHeight="14.5">
+   <Column ss:StyleID="s105" ss:Width="80"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="35"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="155"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="80" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="245"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
+   <Column ss:Index="9" ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="242"/>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code to be sent over the wire</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">System</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Parent</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code this code is a specialization of (if any).  Content should be "#" + the Id of the parent code</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Display</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">The code to be sent over the wire</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">System</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Parent</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The code this code is a specialization of (if any).  Content should be &quot;#&quot; + the Id of the parent code</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Display</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Definition</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v3 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Committee Notes</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s97"><Data ss:Type="String">min</Data></Cell>
@@ -4411,7 +4572,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4419,36 +4579,79 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="binding-strength">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
-   <NamedRange ss:Name="Invariantids" ss:RefersTo="='\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='binding-strength'!R1C1:R1C9" ss:Hidden="1"/>
+   <NamedRange ss:Name="Invariantids"
+    ss:RefersTo="='\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s105" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="35.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="155.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s105" ss:Width="80.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s105" ss:Width="245.0"/>
-   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s105" ss:Width="84.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="9" ss:StyleID="s105" ss:Width="242.0"/>
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s105" ss:DefaultRowHeight="14.5">
+   <Column ss:StyleID="s105" ss:Width="80"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="35"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="155"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="80" ss:Span="1"/>
+   <Column ss:Index="6" ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="245"/>
+   <Column ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="84" ss:Span="1"/>
+   <Column ss:Index="9" ss:StyleID="s105" ss:AutoFitWidth="0" ss:Width="242"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code to be sent over the wire</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">System</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Parent</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code this code is a specialization of (if any).  Content should be "#" + the Id of the parent code</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Display</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">The code to be sent over the wire</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">System</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Parent</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The code this code is a specialization of (if any).  Content should be &quot;#&quot; + the Id of the parent code</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Display</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Definition</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v3 codes - See wiki for syntax</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Committee Notes</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s97"><Data ss:Type="String">required</Data></Cell>
@@ -4997,7 +5200,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5005,11 +5207,24 @@
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
-   
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+    </Pane>
+    <Pane>
+     <Number>1</Number>
+    </Pane>
+    <Pane>
+     <Number>2</Number>
+    </Pane>
+    <Pane>
+     <Number>0</Number>
+    </Pane>
+   </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
-<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
+</Workbook>
