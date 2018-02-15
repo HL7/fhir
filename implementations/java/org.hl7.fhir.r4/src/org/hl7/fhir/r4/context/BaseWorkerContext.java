@@ -1020,10 +1020,12 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
     if (class_ == null) {
-      // it might be a special URL. 
-      Resource res = findTxValueSet(uri);
-      if (res != null)
-        return (T) res;
+      // it might be a special URL.
+      if (Utilities.isAbsoluteUrl(uri) || uri.startsWith("ValueSet/")) {
+        Resource res = findTxValueSet(uri);
+        if (res != null)
+          return (T) res;
+      }
       return null;      
     }
 
