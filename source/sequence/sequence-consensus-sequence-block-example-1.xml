@@ -23,7 +23,7 @@
                 <code value="ref1"/>
             </coding>
         </referenceSeqId>
-      <strand value="1"/>
+      <strand value="watson"/>
       <windowStart value="29942412"/>
       <windowEnd value="29942852"/>
   </referenceSeq>

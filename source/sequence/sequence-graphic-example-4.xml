@@ -13,7 +13,7 @@
             </coding>
         </chromosome>
         <genomeBuild value="GRCh 38"/>    
-        <strand value="1"/>
+        <strand value="watson"/>
         <windowStart value="128273736"/>
         <windowEnd value="128273740"/>
     </referenceSeq>

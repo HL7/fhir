@@ -12,7 +12,7 @@
             <code value="NT_007592.15"/>
           </coding>
         </referenceSeqId>
-        <strand value="1"/>
+        <strand value="watson"/>
         <windowStart value="18130918"/>
         <windowEnd value="18143955"/>
     </referenceSeq>

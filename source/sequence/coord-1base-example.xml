@@ -6,7 +6,7 @@
     <coordinateSystem value="1"/>
     <referenceSeq>
         <referenceSeqString value="ACGTAGTC"/>
-        <strand value="1"/>
+        <strand value="watson"/>
         <windowStart value="1"/>
         <windowEnd value="8"/>
     </referenceSeq>

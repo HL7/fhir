@@ -8,7 +8,7 @@
         <referenceSeqPointer>
           <reference value="Sequence/graphic-example-5"/>
         </referenceSeqPointer>
-        <strand value="1"/>
+        <strand value="watson"/>
         <windowStart value="128273732"/>
         <windowEnd value="128273736"/>
     </referenceSeq>

@@ -28,7 +28,7 @@
             <code value="NC_000002.12"/>
           </coding>
         </referenceSeqId>
-        <strand value="1"/>
+        <strand value="watson"/>
         <windowStart value="128273724"/>
         <windowEnd value="128273754"/>
     </referenceSeq>
