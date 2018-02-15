@@ -119,7 +119,6 @@ import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
-import org.hl7.fhir.igtools.spreadsheets.TabDelimitedSpreadSheet;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
@@ -165,7 +164,6 @@ public class SpreadsheetParser {
   private boolean isLogicalModel;
   private IniFile ini;
   private WorkGroup committee;
-  private TabDelimitedSpreadSheet tabfmt;
   private Map<String, ConstraintStructure> profileIds;
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<FHIRPathUsage> fpUsages;
@@ -202,8 +200,6 @@ public class SpreadsheetParser {
 		this.ini = ini;
 		this.committee = committee;
 		this.fpUsages = fpUsages;
-		tabfmt = new TabDelimitedSpreadSheet();
-		tabfmt.setFileName(((CSFileInputStream) in).getPath(), Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".sheet.txt"));
 		this.profileIds = profileIds;
 		this.codeSystems = definitions.getCodeSystems();
 		this.maps = maps;
@@ -236,8 +232,6 @@ public class SpreadsheetParser {
     this.isAbstract = isAbstract;
     this.pkp = pkp;
     this.committee = committee;
-    this.tabfmt = new TabDelimitedSpreadSheet();
-    tabfmt.setFileName(((CSFileInputStream) in).getPath(), Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".sheet.txt"));
     this.profileIds = profileIds;
     this.codeSystems = codeSystems;
     this.maps = maps;
@@ -279,7 +273,6 @@ public class SpreadsheetParser {
 		sheet = loadSheet("Data Elements");
 		if (sheet == null)
 		  throw new Exception("No Sheet found for Data Elements");
-    tabfmt.sheet("Data Elements");
 		for (int row = 0; row < sheet.rows.size(); row++) {
 		  processLine(resource, sheet, row, invariants, false, null, row == 0);
 		}
@@ -322,7 +315,6 @@ public class SpreadsheetParser {
 
     scanNestedTypes(resource, resource.getRoot(), resource.getName());
     resolveElementReferences(resource, resource.getRoot());
-    tabfmt.close();
 
 		return resource;
 	}
@@ -331,7 +323,7 @@ public class SpreadsheetParser {
 	private List<String> checkIgnoredColumns(Sheet sheet) {
 	  List<String> res = new ArrayList<String>();
     for (String col : sheet.columns) {
-      if (!tabfmt.hasColumn(col) && sheet.hasColumnContent(col)) {
+      if (!hasMappingColumn(col) &&  sheet.hasColumnContent(col)) {
         // its a column we ignored...
         if (col.toLowerCase().contains("mapping") && !Utilities.existsInList(col, "??? Mapping", "OpenEHR Mapping", "RIM Mapping (old)", "Notes on mapping")) {
 //          System.out.println("Ignored Column "+col+" in sheet "+sheet.title+" in "+name);  
@@ -340,6 +332,14 @@ public class SpreadsheetParser {
       }
     }
     return res;
+  }
+
+  private boolean hasMappingColumn(String col) {
+    for (String n : mappings.keySet()) {
+      if (col.equals(mappings.get(n).getColumnName()))
+        return true;
+    }
+    return false;
   }
 
   private void copySearchParameters(ResourceDefn resource) {
@@ -462,7 +462,6 @@ public class SpreadsheetParser {
 	    readExamples(root, loadSheet("Examples"));
 	  readOperations(root.getOperations(), loadSheet("Operations"));
 
-	  tabfmt.close();
 	  return root;
 	}
 
@@ -486,41 +485,8 @@ public class SpreadsheetParser {
 
 	  if (sheet != null) {
 
-      tabfmt.sheet("Examples");
-      tabfmt.column("Name");
-      tabfmt.column("Use");
-      tabfmt.column("Documentation");
-      tabfmt.column("Type");
-      tabfmt.column("Search Type");
-      tabfmt.column("Example.Request");
-      tabfmt.column("Example.Response");
-      tabfmt.column("Title");
-      tabfmt.column("Footer");
-      tabfmt.column("Profile");
-      tabfmt.column("Min");
-      tabfmt.column("Max");
-      tabfmt.column("Binding");
-      tabfmt.column("Idempotent");
-      tabfmt.column("Standards-Status");
 
       for (int row = 0; row < sheet.rows.size(); row++) {
-        tabfmt.row();
-        tabfmt.cell(sheet.getColumn(row, "Name"));
-        tabfmt.cell(sheet.getColumn(row, "Use"));
-        tabfmt.cell(sheet.getColumn(row, "Documentation"));
-        tabfmt.cell(sheet.getColumn(row, "Type"));
-        tabfmt.cell(sheet.getColumn(row, "Search Type"));
-        tabfmt.cell(sheet.getColumn(row, "Example.Request"));
-        tabfmt.cell(sheet.getColumn(row, "Example.Response"));
-        tabfmt.cell(sheet.getColumn(row, "Title"));
-        tabfmt.cell(sheet.getColumn(row, "Footer"));
-        tabfmt.cell(sheet.getColumn(row, "Profile"));
-        tabfmt.cell(sheet.getColumn(row, "Min"));
-        tabfmt.cell(sheet.getColumn(row, "Max"));
-        tabfmt.cell(sheet.getColumn(row, "Binding"));
-        tabfmt.cell(sheet.getColumn(row, "Idempotent"));
-        tabfmt.cell(sheet.getColumn(row, "Standards-Status"));
-        
         String name = sheet.getColumn(row, "Name");
 
         String use = sheet.getColumn(row, "Use");
@@ -672,18 +638,8 @@ public class SpreadsheetParser {
 	private void readPackages(ResourceDefn defn, Sheet sheet) throws Exception {
 
     if (sheet != null) {
-      tabfmt.sheet("Profiles");
-      tabfmt.column("Name");
-      tabfmt.column("IG Name");
-      tabfmt.column("Filename");
-      tabfmt.column("Type");
 
       for (int row = 0; row < sheet.rows.size(); row++) {
-        tabfmt.row();
-        tabfmt.cell(sheet.getColumn(row, "Name"));
-        tabfmt.cell(sheet.getColumn(row, "IG Name"));
-        tabfmt.cell(sheet.getColumn(row, "Filename"));
-        tabfmt.cell(sheet.getColumn(row, "Type"));
 
         String name = sheet.getColumn(row, "Name");
         if (name != null && !name.equals("") && !name.startsWith("!")) {
@@ -735,29 +691,11 @@ public class SpreadsheetParser {
 
 
   private Map<String,Invariant> readInvariants(Sheet sheet, String id, String sheetName) throws Exception {
-    tabfmt.sheet(sheetName);
-    tabfmt.column("Id");
-    tabfmt.column("Requirements");
-    tabfmt.column("Context");
-    tabfmt.column("English");
-    tabfmt.column("XPath");
-    tabfmt.column("Expression");
-    tabfmt.column("Severity");
-    tabfmt.column("RDF");
 
     Map<String,Invariant> result = new HashMap<String,Invariant>();
 		for (int row = 0; row < sheet.rows.size(); row++) {
 			Invariant inv = new Invariant();
 
-	    tabfmt.row();
-			tabfmt.cell(sheet.getColumn(row, "Id"));
-			tabfmt.cell(sheet.getColumn(row, "Requirements"));
-			tabfmt.cell(sheet.getColumn(row, "Context"));
-			tabfmt.cell(sheet.getColumn(row, "English"));
-      tabfmt.cell(sheet.getColumn(row, "XPath"));
-      tabfmt.cell(sheet.getColumn(row, "Expression"));
-			tabfmt.cell(sheet.getColumn(row, "Severity"));
-			tabfmt.cell(sheet.getColumn(row, "RDF"));
 
 			String s = sheet.getColumn(row, "Id");
 			if (!s.startsWith("!")) {
@@ -787,26 +725,8 @@ public class SpreadsheetParser {
 
   /* for profiles that have a "search" tab not tied to a structure */
   private void readSearchParams(Profile pack, Sheet sheet, String prefix) throws Exception {
-    tabfmt.sheet("Search");
-    tabfmt.column("Name");
-    tabfmt.column("Type");
-    tabfmt.column("Description");
-    tabfmt.column("Path");
-    tabfmt.column("Expression");
-    tabfmt.column("XPath");
-    tabfmt.column("Target Types");
-    tabfmt.column("Path Usage");
 
     for (int row = 0; row < sheet.rows.size(); row++) {
-      tabfmt.row();
-      tabfmt.cell(sheet.getColumn(row, "Name"));
-      tabfmt.cell(sheet.getColumn(row, "Type"));
-      tabfmt.cell(sheet.getColumn(row, "Description"));
-      tabfmt.cell(sheet.getColumn(row, "Path"));
-      tabfmt.cell(sheet.getColumn(row, "Expression"));
-      tabfmt.cell(sheet.getColumn(row, "XPath"));
-      tabfmt.cell(sheet.getColumn(row, "Target Types"));
-      tabfmt.cell(sheet.getColumn(row, "Path Usage"));
 
       if (!sheet.hasColumn(row, "Name"))
         throw new Exception("Search Param has no name "+ getLocation(row));
@@ -940,26 +860,8 @@ public class SpreadsheetParser {
 
   private void readSearchParams(ResourceDefn root2, Sheet sheet, boolean forProfile) throws Exception {
     if (sheet != null) {
-      tabfmt.sheet("Search");
-      tabfmt.column("Name");
-      tabfmt.column("Type");
-      tabfmt.column("Description");
-      tabfmt.column("Path");
-      tabfmt.column("Expression");
-      tabfmt.column("XPath");
-      tabfmt.column("Target Types");
-      tabfmt.column("Path Usage");
 
       for (int row = 0; row < sheet.rows.size(); row++) {
-        tabfmt.row();
-        tabfmt.cell(sheet.getColumn(row, "Name"));
-        tabfmt.cell(sheet.getColumn(row, "Type"));
-        tabfmt.cell(sheet.getColumn(row, "Description"));
-        tabfmt.cell(sheet.getColumn(row, "Path"));
-        tabfmt.cell(sheet.getColumn(row, "Expression"));
-        tabfmt.cell(sheet.getColumn(row, "XPath"));
-        tabfmt.cell(sheet.getColumn(row, "Target Types"));
-        tabfmt.cell(sheet.getColumn(row, "Path Usage"));
 
         if (!sheet.hasColumn(row, "Name"))
           throw new Exception("Search Param has no name "+ getLocation(row));
@@ -1138,39 +1040,9 @@ public class SpreadsheetParser {
 	// Adds bindings to global definition.bindings. Returns list of
 	// newly found bindings in the sheet.
 	private void readBindings(Sheet sheet) throws Exception {
-    tabfmt.sheet("Bindings");
-    tabfmt.column("Binding Name");
-    tabfmt.column("Binding");
-    tabfmt.column("Reference");
-    tabfmt.column("Definition");
-    tabfmt.column("Description");
-    tabfmt.column("Conformance");
-    tabfmt.column("Uri");
-    tabfmt.column("Oid");
-    tabfmt.column("Status");
-    tabfmt.column("Website");
-    tabfmt.column("Email");
-    tabfmt.column("Copyright");
-    tabfmt.column("v2");
-    tabfmt.column("v3");
 
     for (int row = 0; row < sheet.rows.size(); row++) {
       String bindingName = sheet.getColumn(row, "Binding Name");
-      tabfmt.row();
-      tabfmt.cell(bindingName);
-      tabfmt.cell(sheet.getColumn(row, "Binding"));
-      tabfmt.cell(sheet.getColumn(row, "Reference"));
-      tabfmt.cell(sheet.getColumn(row, "Definition"));
-      tabfmt.cell(sheet.getColumn(row, "Description"));
-      tabfmt.cell(sheet.getColumn(row, "Conformance"));
-      tabfmt.cell(sheet.getColumn(row, "Uri"));
-      tabfmt.cell(sheet.getColumn(row, "Oid"));
-      tabfmt.cell(sheet.getColumn(row, "Status"));
-      tabfmt.cell(sheet.getColumn(row, "Website"));
-      tabfmt.cell(sheet.getColumn(row, "Email"));
-      tabfmt.cell(sheet.getColumn(row, "Copyright"));
-      tabfmt.cell(sheet.getColumn(row, "v2"));
-      tabfmt.cell(sheet.getColumn(row, "v3"));
     }
 
 		ValueSetGenerator vsGen = new ValueSetGenerator(definitions, version, genDate, context.translator());
@@ -1221,9 +1093,8 @@ public class SpreadsheetParser {
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
-        tabfmt.sheet(ref.substring(1));
         vsGen.updateHeader(cd, cd.getValueSet());
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, tabfmt, codeSystems, maps).execute(sheet.getColumn(row, "v2"), checkV3Mapping(sheet.getColumn(row, "v3")));
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, codeSystems, maps).execute(sheet.getColumn(row, "v2"), checkV3Mapping(sheet.getColumn(row, "v3")));
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:"))
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
@@ -1494,7 +1365,6 @@ public class SpreadsheetParser {
 	    }
 	    if (namedSheets.isEmpty() && xls.getSheets().containsKey("Search"))
 	      readSearchParams(ap, xls.getSheets().get("Search"), this.profileExtensionBase);
-	    tabfmt.close();
 
 	    if (xls.getSheets().containsKey("Operations"))
   	    readOperations(ap.getOperations(), loadSheet("Operations"));
@@ -1534,7 +1404,7 @@ public class SpreadsheetParser {
     sheet = loadSheet(n);
     if (sheet == null)
       throw new Exception("The StructureDefinition referred to a tab by the name of '"+n+"', but no tab by the name could be found");
-    tabfmt.sheet(n);
+
     for (int row = 0; row < sheet.rows.size(); row++) {
       ElementDefn e = processLine(resource, sheet, row, invariants, true, ap, row == 0);
       if (e != null)
@@ -1608,22 +1478,8 @@ public class SpreadsheetParser {
 
   private void readExamples(ResourceDefn defn, Sheet sheet) throws Exception {
 		if (sheet != null) {
-      tabfmt.sheet("Examples");
-      tabfmt.column("Name");
-      tabfmt.column("Identity");
-      tabfmt.column("Description");
-      tabfmt.column("Filename");
-      tabfmt.column("Type");
-      tabfmt.column("Profile");
 
 			for (int row = 0; row < sheet.rows.size(); row++) {
-        tabfmt.row();
-        tabfmt.cell(sheet.getColumn(row, "Name"));
-        tabfmt.cell(sheet.getColumn(row, "Identity"));
-        tabfmt.cell(sheet.getColumn(row, "Description"));
-        tabfmt.cell(sheet.getColumn(row, "Filename"));
-        tabfmt.cell(sheet.getColumn(row, "Type"));
-        tabfmt.cell(sheet.getColumn(row, "Profile"));
 
         String name = sheet.getColumn(row, "Name");
 				if (name != null && !name.equals("") && !name.startsWith("!")) {
@@ -1740,82 +1596,6 @@ public class SpreadsheetParser {
   private ElementDefn processLine(ResourceDefn root, Sheet sheet, int row, Map<String, Invariant> invariants, boolean profile, Profile pack, boolean firstTime) throws Exception {
 		ElementDefn e;
 		String path = sheet.getColumn(row, "Element");
-		if (firstTime) {
-      tabfmt.column("Element");
-      tabfmt.column("Profile Name");
-      tabfmt.column("Discriminator");
-      tabfmt.column("gForge");
-      tabfmt.column("Card.");
-      tabfmt.column("Slice Description");
-      tabfmt.column("Aliases");
-      tabfmt.column("Is Modifier");
-      tabfmt.column("Must Support");
-      tabfmt.column("Summary");
-      tabfmt.column("Regex");
-      tabfmt.column("UML");
-      tabfmt.column("Inv.");
-      tabfmt.column("Type");
-      tabfmt.column("Binding");
-      tabfmt.column("Short Name");
-      tabfmt.column("Definition");
-      tabfmt.column("Max Length");
-      tabfmt.column("Requirements");
-      tabfmt.column("Comments");
-      for (String n : mappings.keySet()) {
-        tabfmt.column(mappings.get(n).getColumnName());
-      }
-      tabfmt.column("To Do");
-      tabfmt.column("Example");
-      tabfmt.column("Committee Notes");
-      tabfmt.column("Display Hint");
-      tabfmt.column("Value");
-      tabfmt.column("Pattern");
-      tabfmt.column("Default Value");
-      tabfmt.column("Missing Meaning");
-      tabfmt.column("w5");
-      tabfmt.column("Translatable");
-      tabfmt.column("Order Meaning");
-      tabfmt.column("Standards-Status");
-	}
-
-    tabfmt.row();
-		tabfmt.cell(path);
-		tabfmt.cell(sheet.getColumn(row, "Profile Name"));
-		tabfmt.cell(sheet.getColumn(row, "Discriminator"));
-		tabfmt.cell(sheet.getColumn(row, "gForge"));
-		tabfmt.cell(sheet.getColumn(row, "Card."));
-		tabfmt.cell(sheet.getColumn(row, "Slice Description"));
-		tabfmt.cell(sheet.getColumn(row, "Aliases"));
-		tabfmt.cell(sheet.getColumn(row, "Is Modifier"));
-		tabfmt.cell(sheet.getColumn(row, "Must Support"));
-		tabfmt.cell(sheet.getColumn(row, "Summary"));
-		tabfmt.cell(sheet.getColumn(row, "Regex"));
-		tabfmt.cell(sheet.getColumn(row, "UML"));
-		tabfmt.cell(sheet.getColumn(row, "Inv."));
-		tabfmt.cell(sheet.getColumn(row, "Type"));
-		tabfmt.cell(sheet.getColumn(row, "Binding"));
-    if (!Utilities.noString(sheet.getColumn(row, "Short Name")))
-      tabfmt.cell(sheet.getColumn(row, "Short Name"));
-    else // todo: make this a warning when a fair chunk of the spreadsheets have been converted
-      tabfmt.cell(sheet.getColumn(row, "Short Name"));
-    tabfmt.cell(sheet.getColumn(row, "Definition"));
-    tabfmt.cell(sheet.getColumn(row, "Max Length"));
-    tabfmt.cell(sheet.getColumn(row, "Requirements"));
-    tabfmt.cell(sheet.getColumn(row, "Comments"));
-    for (String n : mappings.keySet()) {
-      tabfmt.cell(sheet.getColumn(row, mappings.get(n).getColumnName()));
-    }
-    tabfmt.cell(sheet.getColumn(row, "To Do"));
-    tabfmt.cell(sheet.getColumn(row, "Example"));
-    tabfmt.cell(sheet.getColumn(row, "Committee Notes"));
-    tabfmt.cell(sheet.getColumn(row, "Display Hint"));
-    tabfmt.cell(sheet.getColumn(row, "Value"));
-    tabfmt.cell(sheet.getColumn(row, "Pattern"));
-    tabfmt.cell(sheet.getColumn(row, "Default Value"));
-    tabfmt.cell(sheet.getColumn(row, "Missing Meaning"));
-    tabfmt.cell(sheet.getColumn(row, "w5"));
-    tabfmt.cell(sheet.getColumn(row, "Order Meaning"));
-    tabfmt.cell(sheet.getColumn(row, "Standards-Status"));
 
 		if (path.startsWith("!"))
 		  return null;
@@ -2591,7 +2371,7 @@ public class SpreadsheetParser {
     sheet = loadSheet("Data Elements");
     if (sheet == null)
       throw new Exception("No Sheet found for Data Elements");
-    tabfmt.sheet("Data Elements");
+
     for (int row = 0; row < sheet.rows.size(); row++) {
       processLine(resource, sheet, row, invariants, false, null, row == 0);
     }
@@ -2628,7 +2408,6 @@ public class SpreadsheetParser {
     LogicalModel lm = new LogicalModel();
     lm.setResource(resource);
     lm.setWg(definitions.getWorkgroups().get("fhir"));
-    tabfmt.close();
 
     return lm;
   }

@@ -1,9 +1,0 @@
-﻿
-=== Sheet Bindings =====================================
-
- -- Row 1 -----------------------------------
-  Binding Name = QuestionnaireResponseReason
-  Binding = unbound
-  Definition = Codes indicating why the response was captured.  For example, admitting, referral, insurance claim, etc.
-
-=== Sheet Search =====================================

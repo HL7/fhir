@@ -54,7 +54,6 @@ import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
-import org.hl7.fhir.igtools.spreadsheets.TabDelimitedSpreadSheet;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xls.XLSXmlNormaliser;
 import org.hl7.fhir.utilities.xls.XLSXmlParser;
@@ -68,7 +67,6 @@ public class BindingsParser {
   private String root;
   private XLSXmlParser xls;
   private OIDRegistry registry;
-  private TabDelimitedSpreadSheet tabfmt;
   private Map<String, CodeSystem> codeSystems;
   private Map<String, ConceptMap> maps;
   private Calendar genDate;
@@ -83,8 +81,6 @@ public class BindingsParser {
     this.maps = maps;
     this.genDate = genDate;
     
-    tabfmt = new TabDelimitedSpreadSheet();
-    tabfmt.setFileName(filename, Utilities.changeFileExt(filename, ".sheet.txt"));
   }
 
   public List<BindingSpecification> parse() throws Exception {
@@ -97,43 +93,7 @@ public class BindingsParser {
     xls = new XLSXmlParser(file, filename);
     new XLSXmlNormaliser(filename).go();
     Sheet sheet = xls.getSheets().get("Bindings");
-
-    tabfmt.sheet("Bindings");
-    tabfmt.column("Binding Name");
-    tabfmt.column("Definition");
-    tabfmt.column("Binding");
-    tabfmt.column("Reference");
-    tabfmt.column("Max");
-    tabfmt.column("Committee");
-    tabfmt.column("Description");
-    tabfmt.column("Uri");
-    tabfmt.column("Conformance");
-    tabfmt.column("Oid");
-    tabfmt.column("Website");
-    tabfmt.column("Status");
-    tabfmt.column("Email");
-    tabfmt.column("v2");
-    tabfmt.column("v3");
-    
-    for (int row = 0; row < sheet.rows.size(); row++) {
-      tabfmt.row();
-      tabfmt.cell(sheet.getColumn(row, "Binding Name"));
-      tabfmt.cell(sheet.getColumn(row, "Definition"));
-      tabfmt.cell(sheet.getColumn(row, "Binding"));
-      tabfmt.cell(sheet.getColumn(row, "Reference"));
-      tabfmt.cell(sheet.getColumn(row, "Max"));
-      tabfmt.cell(sheet.getColumn(row, "Committee"));
-      tabfmt.cell(sheet.getColumn(row, "Description"));
-      tabfmt.cell(sheet.getColumn(row, "Uri"));
-      tabfmt.cell(sheet.getColumn(row, "Conformance"));
-      tabfmt.cell(sheet.getColumn(row, "Oid"));
-      tabfmt.cell(sheet.getColumn(row, "Website"));
-      tabfmt.cell(sheet.getColumn(row, "Status"));
-      tabfmt.cell(sheet.getColumn(row, "Email"));
-      tabfmt.cell(sheet.getColumn(row, "v2"));
-      tabfmt.cell(sheet.getColumn(row, "v3"));
-    }
-    
+        
     for (int row = 0; row < sheet.rows.size(); row++) {
       processLine(results, sheet, row);
     }		
@@ -168,8 +128,7 @@ public class BindingsParser {
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
-        tabfmt.sheet(ref.substring(1));
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, tabfmt, codeSystems, maps).execute(sheet.getColumn(row, "v2"), sheet.getColumn(row, "v3"));
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, codeSystems, maps).execute(sheet.getColumn(row, "v2"), sheet.getColumn(row, "v3"));
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:")) {
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later

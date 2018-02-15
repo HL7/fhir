@@ -22,7 +22,6 @@ import org.hl7.fhir.r4.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
-import org.hl7.fhir.igtools.spreadsheets.TabDelimitedSpreadSheet;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xls.XLSXmlParser.Sheet;
 
@@ -32,53 +31,23 @@ public class CodeListToValueSetParser {
   private ValueSet valueSet;
   private String version;
   private String sheetName;
-  private TabDelimitedSpreadSheet tabfmt;
   private Map<String, CodeSystem> codeSystems;
   private Map<String, ConceptMap> maps;
 
-  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, TabDelimitedSpreadSheet tabfmt, 
-      Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps) throws Exception {
+  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, Map<String, CodeSystem> codeSystems, Map<String, ConceptMap> maps) throws Exception {
     super();
     this.sheet = sheet;
     this.sheetName = sheetName;
     this.valueSet = valueSet;
     this.version = version;
-    this.tabfmt = tabfmt;
     this.codeSystems = codeSystems;
     this.maps = maps;
 
-    tabfmt.column("System");
-    tabfmt.column("Id");
-    tabfmt.column("Abstract");
-    tabfmt.column("Code");
-    tabfmt.column("Display");
-    tabfmt.column("Definition");
-    tabfmt.column("Comment");
-    tabfmt.column("v2");
-    tabfmt.column("v3");
-    tabfmt.column("Parent");
-    for (String ct : sheet.columns) 
-      if (ct.startsWith("Display:"))
-        tabfmt.column(ct);
   }
 
   public void execute(String v2map, String v3map) throws Exception {
     boolean hasDefine = false;
     for (int row = 0; row < sheet.rows.size(); row++) {
-      tabfmt.row();
-      tabfmt.cell(sheet.getColumn(row, "System"));
-      tabfmt.cell(sheet.getColumn(row, "Id"));
-      tabfmt.cell(sheet.getColumn(row, "Abstract"));
-      tabfmt.cell(sheet.getColumn(row, "Code"));
-      tabfmt.cell(sheet.getColumn(row, "Display"));
-      tabfmt.cell(sheet.getColumn(row, "Definition"));
-      tabfmt.cell(sheet.getColumn(row, "Comment"));
-      tabfmt.cell(sheet.getColumn(row, "v2"));
-      tabfmt.cell(sheet.getColumn(row, "v3"));
-      tabfmt.cell(sheet.getColumn(row, "Parent"));
-      for (String ct : sheet.columns) 
-        if (ct.startsWith("Display:"))
-          tabfmt.cell(sheet.getColumn(row, ct));
 
       hasDefine = hasDefine || Utilities.noString(sheet.getColumn(row, "System"));
     }
