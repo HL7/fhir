@@ -16,6 +16,10 @@ The OperationOutcome resource is used in the following circumstances:
  <li>As the response on a <a href="http.html#validate">validation operation</a> to provide information about the outcome</li>
  <li>As part of a message response, usually when the message has not been processed correctly</li>
 </ul>
+<p>
+This resource is referenced by <a href="guidanceresponse.html">GuidanceResponse</a> and <a href="messageheader.html">MessageHeader</a>. 
+The reference from GuidanceResponse indicates that there is an additional use context that needs to be addressed in the scope.
+</p>
 </div>
 
 
@@ -28,7 +32,7 @@ these would be handled using <a href="detectedissue.html">DetectedIssue</a> or o
 is not designed to be persisted or referenced from other parts of the workflow. 
 </p>
 <p>
-It is possible to have both OperationOutcome and <a href="detectedissue.html">DetectedIssue</a> together, where the OperationOutcome might 
+It is possible to have both <code>OperationOutcome</code> and <a href="detectedissue.html">DetectedIssue</a> together, where the OperationOutcome might 
 indicate that a requested action was rejected due to a clinical issue and the DetectedIssue provides the details of the issue.
 </p>
 
