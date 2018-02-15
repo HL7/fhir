@@ -2130,7 +2130,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-json\">\r\n");
     b.append("  <div id=\"json\">\r\n");
-    b.append("   <p><b>JSON Template</b></p>\r\b");
+    b.append("   <p><b>JSON Template</b></p>\r\n");
     b.append("   <div id=\"json-inner\">\r\n");
     b.append("    "+json+"\r\n");
     b.append("   </div>\r\n");
@@ -2139,7 +2139,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-ttl\">\r\n");
     b.append("  <div id=\"json\">\r\n");
-    b.append("   <p><b>Turtle Template</b></p>\r\b");
+    b.append("   <p><b>Turtle Template</b></p>\r\n");
     b.append("   <div id=\"ttl-inner\">\r\n");
     b.append("    "+ttl+"\r\n");
     b.append("   </div>\r\n");
@@ -2148,7 +2148,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("\r\n");
     b.append(" <div id=\"tabs-"+name+"-diff\">\r\n");
     b.append("  <div id=\"diff\">\r\n");
-    b.append("   <p><b>Changes since DSTU2</b></p>\r\b");
+    b.append("   <p><b>Changes since DSTU2</b></p>\r\n");
     b.append("   <div id=\"diff-inner\">\r\n");
     b.append("    "+diff+"\r\n");
     b.append("   </div>\r\n");

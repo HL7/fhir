@@ -73,7 +73,7 @@ public class SchemaGenerator {
 
 	  JsonObject schema = new JsonObject();
 	  schema.addProperty("$schema", "http://json-schema.org/draft-06/schema#");
-//	  schema.addProperty("id", "http://hl7.org/fhir/json-schema/fhir");
+	  schema.addProperty("id", "http://hl7.org/fhir/json-schema/"+version.substring(0, version.lastIndexOf(".")));
 //	  schema.addProperty("$ref", "#/definitions/ResourceList");
 	  schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
 

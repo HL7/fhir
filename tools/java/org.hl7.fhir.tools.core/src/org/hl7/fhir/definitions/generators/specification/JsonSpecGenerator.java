@@ -175,7 +175,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
 
     
     write("{<span style=\"float: right\"><a title=\"Documentation for this format\" href=\""+prefix+"json.html\"><img src=\""+prefix+"help.png\" alt=\"doco\"/></a></span>\r\n");
-    if (rn != null) {
+    if (definitions.hasResource(root.getName()) || Utilities.existsInList(root.getName(), "Parameters")) {
       write("  \"resourceType\" : \"");
       if (defPage == null)
         write("<span title=\"" + Utilities.escapeXml(root.getDefinition())
@@ -189,7 +189,8 @@ public class JsonSpecGenerator extends OutputStreamWriter {
         write("</b></span>\",\r\n");
       else
         write("</b></a>\",\r\n");
-    }
+    } else
+      System.out.println(".");
 
     if ((root.getName().equals(rn) || "[name]".equals(rn)) && resource) {
       if (!Utilities.noString(root.typeCode())) {
