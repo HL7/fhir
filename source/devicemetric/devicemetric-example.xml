@@ -7,14 +7,14 @@
 	</identifier>
 	<type>
 		<coding>
-			<system value="https://rtmms.nist.gov"/>
+			<system value="urn:iso:std:iso:11073:10101"/>
 			<code value="150456"/>
 			<display value="MDC_PULS_OXIM_SAT_O2"/>
 		</coding>
 	</type>
 	<unit>
 		<coding>
-			<system value="https://rtmms.nist.gov"/>
+			<system value="urn:iso:std:iso:11073:10101"/>
 			<code value="262688"/>
 			<display value="MDC_DIM_PERCENT"/>
 		</coding>
