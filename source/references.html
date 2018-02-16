@@ -416,6 +416,23 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </blockquote>
 
 
+
+<a name="circular"></a>
+<h3>Circular Resources</h3>
+<p>
+There's a few places where circular references can arise. These fall into several
+categories:
+</p>
+<ul>
+ <li>References that refer to  something.. .</li>
+</ul>
+<p>
+Here's a list of resources where a reference refers to the same kind of resource (excluding references to any resource):
+</p>
+<ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
+ [%circular-references%]
+</ul>
+
 </div>
 
 [%file newfooter%]

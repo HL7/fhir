@@ -1189,6 +1189,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildCommitteeList()+s3;
       else if (com[0].equals("choice-elements"))
         src = s1+buildChoiceElementList()+s3;
+      else if (com[0].equals("circular-references"))
+        src = s1+buildCircularReferenceList()+s3;
       else if (com[0].equals("past-narrative-link")) {
        if (object == null || !(object instanceof Boolean))  
          src = s1 + s3;
@@ -1202,6 +1204,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return src;
   }
 
+  private String buildCircularReferenceList() {
+    StringBuilder b = new StringBuilder();
+    
+    for (String s : sorted(definitions.getResources().keySet())) {
+      ResourceDefn t = definitions.getResources().get(s);
+      buildCircularReferenceList(b, s, t.getRoot());
+    }
+
+    return b.toString();
+  }
+
+  private void buildCircularReferenceList(StringBuilder b, String s, ElementDefn t) {
+    for (TypeRef tr : t.getTypes()) {
+      if (tr.getName().equals("Reference"))
+        for (String p : tr.getParams()) {
+          if (s.equals(p))
+            b.append("<li><a href=\""+s.toLowerCase()+"-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a></li>");
+        }
+    }
+    for (ElementDefn e : t.getElements())
+      buildCircularReferenceList(b, s, e);    
+  }
+
+  
   private String buildChoiceElementList() {
     StringBuilder b = new StringBuilder();
     for (String s : sorted(definitions.getTypes().keySet())) {
@@ -5295,6 +5321,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildCommitteeList()+s3;
       else if (com[0].equals("choice-elements"))
         src = s1+buildChoiceElementList()+s3;
+      else if (com[0].equals("circular-references"))
+        src = s1+buildCircularReferenceList()+s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
