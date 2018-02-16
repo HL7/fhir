@@ -15,8 +15,7 @@
   
   
   <TabRatio>715</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>2</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1311,9 +1310,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Canonical URL of another capability statement this implements</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Reference to a canonical URL of another CapabilityStatement that this software implements or uses. This capability statement is a published API description that corresponds to a business service. The rest of the capability statement does not need to repeat the details of the referenced resource, but can do so.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">HL7 defines the following Services: [[[Terminology Service]]].  
-
-Many [Implementation Guides](http://fhir.org/guides/registry) define additional services.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">HL7 defines the following Services: [[[Terminology Service]]].    Many [Implementation Guides](http://fhir.org/guides/registry) define additional services.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1549,9 +1546,7 @@ Many [Implementation Guides](http://fhir.org/guides/registry) define additional 
     <Cell ss:StyleID="s87"><Data ss:Type="String">no | extensions | elements | both</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code that indicates whether the application accepts unknown elements or extensions when reading resources.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Unknown elements in a resource can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence accepting unknown elements is about inter-version compatibility.  
-
-Applications are recommended to accept unknown extensions and elements ('both'), but this is not always possible.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Unknown elements in a resource can only arise as later versions of the specification are published, because this is the only place where such elements can be defined. Hence accepting unknown elements is about inter-version compatibility.    Applications are recommended to accept unknown extensions and elements ('both'), but this is not always possible.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2513,9 +2508,7 @@ Applications are recommended to accept unknown extensions and elements ('both'),
     <Cell ss:StyleID="s87"><Data ss:Type="String">Definition of an resource operation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the opration, and the parameters</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Operations linked from Capability.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.  
-
-If an operation that is listed in multiple Capability.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Operations linked from Capability.rest.resource.operation must have OperationDefinition.type = true or OperationDefinition.instance = true.    If an operation that is listed in multiple Capability.rest.resource.operation (e.g. for different resource types), then clients should understand that the operation is only supported on the specified resource types, and that may be a subset of those listed in OperationDefinition.resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3800,7 +3793,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15" ss:Hidden="1">
+   <Row ss:AutoFitHeight="0" ss:Hidden="1">
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3838,7 +3831,6 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
@@ -3876,7 +3868,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s103"><Data ss:Type="String">Expression</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">XPath 2 expression.  See wiki or make Lloyd do it :&gt;</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s105"><Data ss:Type="Number">1</Data><NamedCell ss:Name="_FilterDatabase"/><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Content Required</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3903,7 +3895,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"><Data ss:Type="String">messaging.endpoint.empty() or kind = 'instance'</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:messaging/f:endpoint)) or f:kind/@value = 'instance'</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="150">
+   <Row ss:AutoFitHeight="0" ss:Height="120">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">7</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Document unique</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -3940,7 +3932,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s111"><Data ss:Type="String">count(f:operation)=count(distinct-values(f:operation/f:name/@value))</Data></Cell>
     <Cell><Data ss:Type="String">Temporarly commented out until we figure out how to address "everything"</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
+   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">12</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">SearchParam unique in resource</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -3949,7 +3941,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"><Data ss:Type="String">searchParam.select(name).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">count(f:searchParam)=count(distinct-values(f:searchParam/f:name/@value))</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">14</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Kind rules #1</Data></Cell>
     <Cell ss:StyleID="s90"/>
@@ -3958,16 +3950,16 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"><Data ss:Type="String">(software.empty() and implementation.empty()) or kind != 'requirements'</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:software) or exists(f:implementation)) or (f:kind/@value != 'requirements')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">15</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Kind rules #2</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">CapabilityStatement</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Capability Statements cannot have implementation elements unless kind is 'instance'</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">implementation.empty() or kind = 'instance'</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:implementation)) or (f:kind/@value == instance')</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:implementation)) or (f:kind/@value = 'instance')</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -3976,7 +3968,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -3985,7 +3977,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -3994,7 +3986,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4003,7 +3995,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4012,7 +4004,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4021,7 +4013,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4030,7 +4022,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4039,7 +4031,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4048,7 +4040,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4057,7 +4049,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4066,7 +4058,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4075,7 +4067,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4084,7 +4076,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4093,7 +4085,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4102,7 +4094,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4111,7 +4103,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4120,7 +4112,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4129,7 +4121,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4138,7 +4130,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4147,7 +4139,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4156,7 +4148,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4165,7 +4157,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4174,7 +4166,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4183,7 +4175,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4192,7 +4184,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4201,7 +4193,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4210,7 +4202,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4219,7 +4211,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4228,7 +4220,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4237,7 +4229,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4246,7 +4238,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4255,7 +4247,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s110"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
@@ -4286,12 +4278,13 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4574,16 +4567,7 @@ If an operation that is listed in multiple Capability.rest.resource.operation (e
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in its capability statement. The client provides its capability statement inline, or by referring the server to the canonical URL of its capability statement</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided  
-
-Technically, this operation is implemented as follows:  
-* The server's capability statement must have an entry for each resource in the client's capability statement   
-* The servers' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude  
-* The server capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)  
-* The server must have a search parameter with matching name and definition for any search parameters in the client capability statement  
-* The server must have an operation definitions with a matching reference for any operations in the client capability statement  
-
-If the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity &gt;= error. If the capability statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided    Technically, this operation is implemented as follows:   * The server's capability statement must have an entry for each resource in the client's capability statement    * The servers' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude   * The server capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)   * The server must have a search parameter with matching name and definition for any search parameters in the client capability statement   * The server must have an operation definitions with a matching reference for any operations in the client capability statement    If the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity &gt;= error. If the capability statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
     <Cell><Data ss:Type="String">$implements-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$implements-response.txt</Data></Cell>
    </Row>
@@ -4645,11 +4629,7 @@ If the capability statements match by these rules, then the return value is a 20
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in its capability statement. The client provides both capability statements by reference, and must ensure that all the referenced resources are available to the conformance server</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps.   
-
-The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate  
-
-If the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
+    <Cell ss:StyleID="s137"><Data ss:Type="String">The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps.     The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate    If the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
     <Cell><Data ss:Type="String">$conforms-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$conforms-response.txt</Data></Cell>
    </Row>
@@ -14119,4 +14099,4 @@ If the capability statements can be successfully compared, then the return value
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
-<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
+<!--canonicalized--></Workbook>
