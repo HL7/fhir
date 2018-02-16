@@ -16,7 +16,8 @@
   
   
   <TabRatio>732</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -849,7 +850,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -986,9 +986,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A code specifying the current state of the order.  Generally this will be active or completed state  </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.
-
-The default value will be "unknown" if the status of the MedicationRequest is known by the sending or receiving system.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.  The default value will be "unknown" if the status of the MedicationRequest is known by the sending or receiving system.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">.statusCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3593,7 +3591,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -3601,7 +3598,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4077,7 +4073,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4319,7 +4314,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4910,7 +4904,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5225,7 +5218,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5487,7 +5479,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>-4</HorizontalResolution>
@@ -5868,7 +5859,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>-4</HorizontalResolution>
@@ -6318,7 +6308,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -6349,7 +6338,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -6439,24 +6427,24 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Cell ss:StyleID="s136"><Data ss:Type="String">ActStatus.completed</Data></Cell>
     <Cell ss:StyleID="s151"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s156"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Entered In Error</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">The prescription was entered in error.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">Some of the actions that are implied by the medication request may have occurred.  For example, the medication may have been dispensed and the patient may have taken some of the medication.  Clinical decision support systems should take this status into account</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"><Data ss:Type="String">ActStatus.nullified</Data></Cell>
     <Cell ss:StyleID="s151"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="60">
     <Cell ss:StyleID="s156"><Data ss:Type="String">stopped</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s166"/>
     <Cell ss:StyleID="s166"><Data ss:Type="String">Stopped</Data></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">Actions implied by the prescription are to be permanently halted, before all of the administrations occurred.</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">Actions implied by the prescription are to be permanently halted, before all of the administrations occurred. This should not be used if the original order was entered in error</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"><Data ss:Type="String">ActStatus.aborted</Data></Cell>
     <Cell ss:StyleID="s151"/>
@@ -6942,7 +6930,7 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7635,7 +7623,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7820,7 +7807,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <TabColorIndex>9</TabColorIndex>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -7934,8 +7920,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -8408,7 +8392,6 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <TopRowVisible>7</TopRowVisible>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -8427,4 +8410,4 @@ The default value will be "unknown" if the status of the MedicationRequest is kn
    <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
-<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
+<!--canonicalized--></Workbook>
