@@ -308,7 +308,7 @@ The modifiers are separated from the parameter name by a colon. Modifiers are:</
   will return all the resources that have a value for the <code>gender</code> parameter. </li>
  <li>For string: <code>:exact</code> (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), or <code>:contains</code> (case insensitive and accent-insensitive, partial match at start or end), instead of the default behavior (case insensitive and accent-insensitive, partial matches at the end of the string).</li>
  <li>For token: <code>:text</code> (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other defined modifiers are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below.</li>
- <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource</li>
+ <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, and :above and :below</li>
  <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left matches the value, or vice-versa.</li>
 </ul>
 <p>
@@ -639,17 +639,17 @@ that partial matching is used. For example:
 </p>
 <pre>
  GET [base]/ValueSet?url=http://acme.org/fhir/ValueSet/123
- GET [base]/ValueSet?url=http://acme.org/fhir/
+ GET [base]/ValueSet?url:below=http://acme.org/fhir/
+ GET [base]/ValueSet?url:above=http://acme.org/fhir/ValueSet/123/_history/5
  GET [base]/ValueSet?url=urn:oid:1.2.3.4.5
 </pre>
-<p>
-The first line is a request to find any value set with the exact url "http://acme.org/fhir/ValueSet/123".
-The second line performs a search that will return any value sets that have a URL that starts with "http://acme.org/fhir/".
-The converse - the search for any value set above a given specific URL.  This approach may be useful for searching
-name systems, but it is generally less useful than the <code>:below</code> search. The third line shows an
-example of searching by an OID. Note that the :above and :below modifiers only apply to URLs, and not URNS such as
-OIDs.
-</p>
+<ul>
+ <li>The first line is a request to find any value set with the exact url "http://acme.org/fhir/ValueSet/123"</li>
+ <li>The second line performs a search that will return any value sets that have a URL that starts with "http://acme.org/fhir/"</li>
+ <li>The third line shows the converse - search for any value set above a given specific URL. This will match on any value set with the specified URL, but also on http://acme.org/ValueSet/123.
+    Note that there are not many use cases where :above is useful as compared to the <code>:below</code> search</li>
+ <li>The fourth line shows an example of searching by an OID. Note that the :above and :below modifiers only apply to URLs, and not URNS such as OIDs</li>
+</ul>
 <p>
 Note that for <a href="references.html#canonical">Canonical URLs</a>, servers SHOULD support searching by
 Canonical URL, and SHOULD support automatically detecting a <code>|[version]</code> portion as part of the
