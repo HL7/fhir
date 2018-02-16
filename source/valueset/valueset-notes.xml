@@ -168,6 +168,15 @@ produced must be clearly identified so that there is no confusion. The following
    previous expansion, but if it does, the canonical representation of the value set expansion SHALL be identical (e.g. a cached response)</li>
 </ul>
 <p>
+The expansion contains a set of parameters that record what controlled the expansion process. 
+These parameters may be used by users of expanded value sets to check whether the expansion 
+is suitable for a particular purpose, or to pick the correct expansion. The server decides which 
+parameters to include here, but at a minimum, the list SHOULD include the date, filter, and profile 
+parameters passed to the $expand operation (if any). If the codeSystem on the server has a specified 
+version then this version SHALL be provided as a parameter in the expansion (note that not all 
+code systems have a version). 
+</p>
+<p>
 Whether to store expanded value sets, or simply to store their definitions and expand on the fly is 
 a matter for system deployment. Some servers, including public value sets servers, only store expansions. 
 However any system that stores an expansion must be concerned with how to determine whether the expansion 
