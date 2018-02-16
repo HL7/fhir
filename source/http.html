@@ -1283,12 +1283,38 @@ A <code>create</code> interaction is represented in a history interaction in the
       &lt;method value="POST"/&gt;
       &lt;url value="Patient"/&gt;
     &lt;/request&gt;
+    &lt;!-- response carries the instant the server processed the create --&gt;
+    &lt;response&gt;
+      &lt;lastModified value="2014-08-15T10:35:02.034Z"/&gt;
+    &lt;/request&gt;
   &lt;/entry&gt;
 </pre>
 <p>
-Note that conditional creates, updates and deletes are converted to direct
-updates and deletes in a history list.
+A <code>delete</code> interaction is represented in a history interaction in the following way:
 </p>
+<pre class="xml">
+  &lt;entry&gt;
+    &lt;!-- no resource included for a delete --&gt;
+    &lt;request&gt;
+      &lt;method value="DELETE"/&gt;
+      &lt;url value="Patient/[id]"/&gt;
+    &lt;/request&gt;
+    &lt;!-- response carries the instant the server processed the delete --&gt;
+    &lt;response&gt;
+      &lt;lastModified value="2014-08-20T11:05:34.174Z"/&gt;
+    &lt;/request&gt;
+  &lt;/entry&gt;
+</pre>
+<p>
+Notes:
+</p>
+<ul>
+ <li>conditional creates, updates and deletes are converted to direct updates and deletes in a history list</li>
+ <li>operations do not appear directly in the history log, but side effects (e.g. creation of audit logs. stored binaries, etc) will appear where relevant</li>
+ <li>The resource in the entry is the resource as processed by the server, not as submitted by the client (<a href="updates.html">may be different</a>)</li>
+ <li>The server SHOULD populate at least <a href="bundle-definitions.html#Bundle.entry.response.lastModified">response.lastModified</a> so the time of processing is clear in the history record</li>
+ <li>If the server does not populate <a href="bundle-definitions.html#Bundle.entry.response.status">response.status</a>, it should ensure that only successful interactions appear in the history logs</li>
+</ul>
 <p>
 In addition to the standard <code>_format</code> parameter, the parameters to this interaction may also include:
 </p>
