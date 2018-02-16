@@ -692,10 +692,16 @@ all the codes in the hierarchy. The syntax for the value is one of the following
  <li><b><code>[parameter]=[system]|</code></b>: any element where the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
 </ul>
 <p>
-Note: The namespace URI and code both must be <a href="#escaping">escaped</a> correctly.
-If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>,
-then just the form [parameter]=[code] is used.
+Notes:
 </p>
+<ul>
+ <li>The namespace URI and code both must be <a href="#escaping">escaped</a> correctly.
+If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>,
+then just the form [parameter]=[code] is used.</li>
+ <li>For token parameters on elements of type <a href="datatypes.html#ContactPoint">ContactPoint</a>, <a href="datatypes.html#uri">uri</a>, 
+ or <a href="datatypes.html#boolean">boolean</a>, the presence of the pipe symbol SHALL not be used - only the <code>[parameter]=[code]</code> form is allowed</li>
+ <li></li>
+</ul>
 <p>
 Token search parameters are used for the following data types:
 </p>
@@ -726,9 +732,9 @@ Token search parameters are used for the following data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#Identifier">ContactPoint</a></td>
-  <td>ContactPoint.use</td>
+  <td></td>
   <td>ContactPoint.value</td>
-  <td>The use is prepended by <a href="valueset-contact-point-system.html">http://hl7.org/fhir/contact-point-system</a>/</td>
+  <td>At the discretion of the server, token searches on ContactPoint may use special handling, such as ignoring punctuation, performing partial searches etc</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#code">code</a></td>
@@ -738,9 +744,15 @@ Token search parameters are used for the following data types:
  </tr>
  <tr>
   <td><a href="datatypes.html#boolean">boolean</a></td>
-  <td>(implicit)</td>
+  <td></td>
   <td>boolean</td>
-  <td>The implicit system is <a href="valueset-special-values.html">http://hl7.org/fhir/special-values</a></td>
+  <td>The implicit system for boolean values is <a href="valueset-special-values.html">http://hl7.org/fhir/special-values</a> but this is never actually used</td>
+ </tr>
+ <tr>
+  <td><a href="datatypes.html#uri">uri</a></td>
+  <td></td>
+  <td>uri</td>
+  <td></td>
  </tr>
  <tr>
   <td><a href="datatypes.html#string">string</a></td>
