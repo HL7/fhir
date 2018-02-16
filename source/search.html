@@ -728,7 +728,7 @@ Token search parameters are used for the following data types:
   <td><a href="datatypes.html#Identifier">Identifier</a></td>
   <td>Identifier.system</td>
   <td>Identifier.value</td>
-  <td></td>
+  <td>Clients can search by <code>type</code> not <code>system</code> using the :of-type modifier, see below</td>
  </tr>
  <tr>
   <td><a href="datatypes.html#Identifier">ContactPoint</a></td>
@@ -777,6 +777,8 @@ http://hl7.org/fhir/special-values, though there is usually no reason to use thi
  <tr> <td><code>:below</code></td> <td>the search parameter is a concept with the form <code>[system]|[code]</code>, and the search parameter tests whether the coding in a resource is subsumed by the specified search code. For example, the coding in the resource has an is-a relationship with the search concept, and this includes the coding itself.</td> </tr>
  <tr> <td><code>:in</code></td> <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified <a href="valueset.html">value set</a>. The reference may be literal (to an address where the value set can be found) or logical (a reference to ValueSet.url). If the server can treat the reference as a literal URL, it does, else it tries to match known logical ValueSet.url values.</td> </tr>
  <tr> <td><code>:not-in</code></td> <td>The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set.</td> </tr>
+ <tr> <td><code>:of-type</code></td> <td>The search parameter has the format system|code|value, where the system and code refer to a <code>Identifier.type.coding.system</code> and <code>.code</code>, and match 
+    if any of the type codes match. All 3 parts must be present</td> </tr>
 </table>
 <p>
 Most servers will only process value sets that are already known/registered/supported internally.
@@ -799,6 +801,7 @@ Example searches:
  <tr><td><pre> GET [base]/Condition?code:in=http%3A%2F%2Fsnomed.info%2Fsct%3Ffhir_vs%3Disa%2F126851005</pre></td><td>Search for any condition in the SNOMED CT value set "http://snomed.info/sct?fhir_vs=isa/126851005" that includes all descendants of "Neoplasm of liver"</td></tr>
  <tr><td><pre> GET [base]/Condition?code:below=126851005</pre></td><td>Search for any condition that is subsumed by the SNOMED CT Code "Neoplasm of liver". Note: This is the same outcome as the previous search</td></tr>
  <tr><td><pre> GET [base]/Condition?code:in=http://acme.org/fhir/ValueSet/cardiac-conditions</pre></td><td>Search for any condition that is in the institutions list of cardiac conditions</td></tr>
+ <tr><td><pre> GET [base]/Patient?identifier:otype=http://hl7.org/fhir/v2/0203|MR|446053</pre></td><td>Search for the Medical Record Number 446053 - this is useful where the system id for the MRN is not known</td></tr>
 </table>
 
 
