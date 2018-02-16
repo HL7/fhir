@@ -106,14 +106,14 @@ which provides details for the item. If a definition is provided, then the follo
 <li>options (from ElementDefinition.binding)</li>
 </ul>
 <p>
-Any information provided in these elements overrides the information from the definition.
+Any information provided in these elements overrides the information from the definition, and some are always required to be populated so that invariants can be enforced, etc. 
 The url refers to a an ElementDefinition in  <a href="structuredefinition.html">StructureDefinition</a>, and always starts with the canonical URL for the target resource.
 When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its
 id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence
 of a fragment identifier, the first/root element definition in the target is the matching element definition.
 </p>
 <p>
-The definitions may also be used to automatically pre-populate answers, or extract data from a corresponding <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
+The definitions may also be used to automatically pre-populate answers, or extract data from a corresponding pre-existing <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.
 </p>
 <p>
 NOTE: Even if a standard question definition is provided<!--s are referenced using <code>concept</code> or the <code>deReference</code> extension-->, information such as the question text,
