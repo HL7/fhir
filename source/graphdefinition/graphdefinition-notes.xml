@@ -1,5 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="using"></a>
 <h3>Using GraphDefinitions</h3>
 <p>
 The GraphDefinition resource can be used to:
@@ -73,7 +74,7 @@ can be used instead to inform the server what to return as part of the search:
   GET [base]/MedicationDispense/example/$graph?graph=med-package
 </pre>
 <p>
-This is a requset to return a graph of resource, using the graph definition 
+This is a request to return a graph of resource, using the graph definition 
 'med-package'. In this case, the graph definition would look approximately 
 like this:
 </p>
@@ -92,11 +93,14 @@ Systems may either provide a pre-defined list of graph definitions that clients 
 from, or allow clients to define their own GraphDefinition resources and then refer to them.
 </p>
 <p>
-Server may also allow clients also pass in their own graph definition using the text representation defined below:
+Server may also allow clients also pass in their own graph definition using a text representation:
 </p>
 <pre>
   GET [base]/MedicationDispense/example/$graph?definition=Patient{managingOrganization:Organization{endpoint:Endpoint}}
 </pre>
+<p>
+See below for further details.
+</p>
 
 <a name="document"></a>
 <h4>Building a document</h4>
@@ -160,6 +164,113 @@ can specify one of the following consistencies:
 <p>
 Todo: how would this be validated? - where is the graph referred to?
 </p>
+
+<a name="examples"></a>
+<h3>Simple Examples</h3>
+
+<p>
+GraphDefinition can walk a graph forward through the links, which is the natural order.
+As an example, consider a profile on composition that wants to specify that the graph
+follows the section entry into a list:
+</p>
+<pre class="xml">
+    &lt;!-- 
+      starting from a Composition...
+    --&gt;
+  &lt;link&gt;
+    &lt;!-- 
+      follow and Composition.section.entry that refers to a list
+    --&gt;
+    &lt;path value=&quot;Composition.section.entry&quot;/&gt;
+    &lt;target&gt;
+      &lt;type value=&quot;List&quot;/&gt;      
+      &lt;!-- and inside this list, follow any items --&gt;
+      &lt;link&gt;
+        &lt;path value=&quot;List.entry.item&quot;/&gt;
+        &lt;target&gt;
+          &lt;type value=&quot;Resource&quot;/&gt; 
+        &lt;/target&gt;
+      &lt;/link&gt;      
+    &lt;/target&gt;
+  &lt;/link&gt;
+</pre>
+
+<p>
+The pattern can be extended to require that the none of the resources 
+in this little graph reference a different patient - that is, it is a 
+requirement when traversing the links that the patient compartment
+remain identical:
+</p>
+<pre class="xml">
+  &lt;link&gt;
+    &lt;path value=&quot;Composition.section.entry&quot;/&gt;
+    &lt;target&gt;
+      &lt;type value=&quot;List&quot;/&gt;      
+        &lt;compartment&gt;
+          &lt;use value=&quot;requirement&quot;/&gt;
+          &lt;code value=&quot;Patient&quot;/&gt;
+          &lt;rule value=&quot;identical&quot;/&gt;
+        &lt;/compartment&gt;
+      &lt;/target&gt;
+      &lt;link&gt;
+        &lt;path value=&quot;List.entry.item&quot;/&gt;
+        &lt;description value=&quot;Include any list entries&quot;/&gt;
+        &lt;target&gt;
+          &lt;type value=&quot;Resource&quot;/&gt; 
+          &lt;compartment&gt;
+            &lt;use value=&quot;requirement&quot;/&gt;
+            &lt;code value=&quot;Patient&quot;/&gt;
+            &lt;rule value=&quot;identical&quot;/&gt;
+          &lt;/compartment&gt;
+        &lt;/target&gt;
+      &lt;/link&gt;      
+    &lt;/target&gt;
+  &lt;/link&gt;
+</pre>
+
+<p>
+Another useful approach is to walk any link:
+</p>
+<pre class="xml">
+  &lt;link&gt;
+    &lt;!-- 
+      follow all links that refers to a list
+    --&gt;
+    &lt;path value=&quot;*&quot;/&gt;
+    &lt;target&gt;
+      &lt;type value=&quot;List&quot;/&gt;      
+      &lt;!-- and inside this list, follow any references --&gt;
+      &lt;link&gt;
+        &lt;path value=&quot;*&quot;/&gt;
+        &lt;target&gt;
+          &lt;type value=&quot;Resource&quot;/&gt; 
+        &lt;/target&gt;
+      &lt;/link&gt;      
+    &lt;/target&gt;
+  &lt;/link&gt;
+</pre>
+
+<p>
+It's also possible to build a graph by walking links in reverse.
+This technique is useful, for example, when including provenance resources in a document:
+</p>
+
+<pre class="xml">
+  &lt;link&gt;
+    &lt;!-- if the path is missing &lt;path value=&quot;&quot;/&gt; --&gt;
+    &lt;target&gt;
+      &lt;!-- 
+        any provenance
+      --&gt;
+      &lt;type value=&quot;Provenance&quot;/&gt;
+      &lt;!--
+        and specify the search parameters to include 
+        all the provenances that refer to this resource
+      --&gt;
+      &lt;params value=&quot;target={ref}&quot;/&gt;      
+    &lt;/target&gt;
+  &lt;/link&gt;
+</pre>
 
 <a name="text"></a>
 <h4>Text Representation</h4>
@@ -236,7 +347,8 @@ where:
 </ul>
 <p>
 In this format, the amount of whitespace, and it's form, is irrelevant. For the purposes
-of clarity, the content is laid ot on different lines, but this is not required.
+of clarity, the examples here are laid out on different lines, but this is not required.
+When a GraphDefinition is used as a parameter in a url, no whitespace is used.
 </p>
 
 <p>
