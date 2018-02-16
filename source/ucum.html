@@ -42,6 +42,21 @@ UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organiza
 All rights reserved. See <a class="wiki" href="http://unitsofmeasure.org/trac//wiki/TermsOfUse">TermsOfUse</a> for details.
 </p>
 
+<h3>UCUM Expressions</h3>
+<p>
+UCUM is inherently a compositional code system; almost all
+UCUM codes are expressions composed using the UCUM expression
+syntax. Many servers, however, do not implement full support
+for the syntax, and rely on a large library of pre-built
+valid UCUM codes (FHIR includes a <a href="valueset-ucum-common.html">common UCUM codes value 
+set</a> for this purpose). 
+</p>
+<p>
+UCUM us always documented as a compositional code system. If 
+a server does not support the full grammar, it should document
+that in it's <a href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.compositional">Terminology Capabilities Statement</a>.
+</p>
+
 <a name="filters"></a>
 <h3>UCUM Filter Properties</h3>
 
