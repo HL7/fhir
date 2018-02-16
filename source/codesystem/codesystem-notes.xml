@@ -25,6 +25,59 @@ When the <code>CodeSystem.versionNeeded</code> is 'true', then the version ident
 Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use as the version string the date (expressed in FHIR date format) on which the version of the code system that is being used was officially published.
 </p>
 
+<h2>Multi-part Code Systems</h2>
+
+<p>
+The simple case for a code system is that the entire code system - all the concepts and their codes, designations and properties 
+are distributed in a single <code>CodeSystem</code> resource. However for a variety of reasons, code systems may be distributed 
+by the code system authority in a set of fragments, and other authorities may issue additional designations and properties
+in supplements.
+</p>
+
+<a name="fragments"></a>
+<h2>Code System Fragments</h2>
+<p>
+If the <code>CodeSystem.content</code> value is <code>fragment</code>, then the resource 
+describes part of a code system. 
+</p>
+<p>
+Code Systems may be distributed in fragments for the following reasons:
+</p>
+<ul>
+ <li>Different IP distribution rules for different parts of the code system</li>
+ <li>Special purpose modules for specific purposes</li>
+ <li>Distribution of proposed content for evaluation</li>
+</ul>
+<p>
+The following rules apply to code system fragments:
+</p>
+<ul>
+ <li>All fragments SHALL have the same CodeSystem.url</li>
+ <li>Fragments can only be published by the code system authority, or according to a process defined by the authority, if they have defined one</li>
+ <li>Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system, if one exists</li>
+ <li>Publishing a code system in multiple fragments can create confusion for terminology servers and terminology service consumers. 
+   Code System authorities that publish fragments should be careful and communicate their intent clearly</li>
+</ul>
+
+<a name="supplements"></a>
+<h2>Code System Supplements</h2>
+<p>
+If the <code>CodeSystem.content</code> value is <code>supplement</code>, then the resource 
+describes a code system supplement. The following rules apply to code system supplements:
+</p>
+<ul>
+ <li>The <code>CodeSystem.supplements</code> element SHALL have a value, which is the URL of the code system being supplemented</li>
+ <li>The <code>CodeSystem.url</code> for a supplement SHALL never appear in a <a href="datatypes.html#Coding">Coding.system</a></li>
+ <li>The <code>CodeSystem.url</code> for a supplement SHALL never appear in a <a href="datatypes.html#Coding">Coding.system</a></li>
+ <li>The <code>CodeSystem.url</code> for a supplement must be under the control of the authority creating or publishing the supplement 
+   (e.g. not in the same space as the code system being supplemented, unless the supplement is being issued by the same authority as the original code system</li>
+ <li> A codesystem supplement can not define any new CodeSystem.concept.code. i.e.: all CodeSystem.concept.code in the supplement must be a code from the "supplemented" code system</li>
+</ul>
+<p>
+If a supplement needs to define new concepts/codes to use as property values, it can be paired with a new (possibly contained)
+Code System, and use the <code>Coding</code> type for the property values.
+</p> 
+
 
 <a name="properties"></a>
 <h2>Properties</h2>
