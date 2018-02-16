@@ -1317,7 +1317,7 @@ public class SpreadsheetParser {
 
 	    this.profileExtensionBase = ap.metadata("extension.uri");
 	    if (ig == null || ig.isCore()) {
-	      if (!profileExtensionBase.startsWith("http://hl7.org/fhir/StructureDefinition/"))
+	      if (!profileExtensionBase.startsWith("http://hl7.org/fhir/StructureDefinition/") && !profileExtensionBase.startsWith("http://fhir-registry.smarthealthit.org/StructureDefinition/"))
 	        throw new Exception("Core extensions must have a url starting with http://hl7.org/fhir/StructureDefinition/ for "+ap.getId());
 	    } else {
         if (!profileExtensionBase.startsWith("http://hl7.org/fhir/StructureDefinition/"+ig.getCode()+"-"))
@@ -1660,8 +1660,19 @@ public class SpreadsheetParser {
     if (sheet.hasColumn(row, "Must Understand"))
       throw new Exception("Column 'Must Understand' has been renamed to 'Is Modifier'");
 
-    if (sheet.hasColumn(row, "Is Modifier"))
+    if (sheet.hasColumn(row, "Is Modifier")) {
       e.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
+      String reason = sheet.getColumn(row, "Modifier Reason");
+      if (Utilities.noString(reason) && e.getName().toLowerCase().contains("status") && sheet.getColumn(row, "Short Name").contains("error")) 
+        reason = "This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid";
+      if (Utilities.noString(reason) && e.getName().equals("active")) 
+        reason = "This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid";
+      if (Utilities.noString(reason)) {
+        System.out.println("Missing IsModifierReason on "+path);
+        reason = "Not known why this is labelled a modifier";
+      }
+      e.setModifierReason(reason);
+    }
 		if (isProfile) {
 		  // later, this will get hooked in from the underlying definitions, but we need to know this now to validate the extension modifier matching
 	    if (e.getName().equals("modifierExtension"))
@@ -2084,7 +2095,7 @@ public class SpreadsheetParser {
 
     row++;
     if (ig == null || ig.isCore()) {
-      if (!ex.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/"))
+      if (!ex.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/") && !ex.getUrl().startsWith("http://fhir-registry.smarthealthit.org/StructureDefinition/"))
         throw new Exception("extension "+ex.getUrl()+" is not valid in the publication tooling");
     } else {
       if (!ex.getUrl().startsWith("http://hl7.org/fhir/StructureDefinition/"+ig.getCode()+"-"))
@@ -2153,6 +2164,14 @@ public class SpreadsheetParser {
     exe.setShortDefn(sheet.getColumn(row, "Short Name"));
 
     exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, null));
+    if (exe.isModifier()) {
+      String reason = sheet.getColumn(row, "Modifier Reason");
+      if (Utilities.noString(reason)) {
+        System.out.println("Missing IsModifierReason on extension @ "+getLocation(row));
+        reason = "Not known why this is labelled a modifier";
+      }
+      exe.setModifierReason(reason);
+    }
     if (nested && exe.isModifier())
       throw new Exception("Cannot create a nested extension that is a modifier @"+getLocation(row));
     exe.getTypes().add(new TypeRef().setName("Extension"));

@@ -13,6 +13,9 @@ import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
+
+import junit.framework.Assert;
+
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.exceptions.DefinitionException;
 
@@ -258,8 +261,9 @@ public class Property {
         String url = null;
         for (TypeRefComponent aType: ed.getType()) {
           if (aType.getCode().equals(t)) {
-            if (StringUtils.isNotBlank(aType.getProfile())) {
-              url = aType.getProfile();
+            if (aType.hasProfile()) {
+              assert aType.getProfile().size() == 1; 
+              url = aType.getProfile().get(0).getValue();
             } else {
               url = "http://hl7.org/fhir/StructureDefinition/" + t;
             }

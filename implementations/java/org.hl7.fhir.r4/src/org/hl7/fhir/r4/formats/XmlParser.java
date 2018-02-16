@@ -1605,6 +1605,8 @@ public class XmlParser extends XmlParserBase {
         res.setMustSupportElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("isModifier")) {
         res.setIsModifierElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("isModifierReason")) {
+        res.setIsModifierReasonElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("isSummary")) {
         res.setIsSummaryElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("binding")) {
@@ -1716,9 +1718,9 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.setCodeElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("profile")) {
-        res.setProfileElement(parseUri(xpp));
+        res.getProfile().add(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("targetProfile")) {
-        res.setTargetProfileElement(parseUri(xpp));
+        res.getTargetProfile().add(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("aggregation")) {
         res.getAggregation().add(parseEnumeration(xpp, ElementDefinition.AggregationMode.NULL, new ElementDefinition.AggregationModeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("versioning")) {
@@ -24407,6 +24409,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasIsModifierElement()) {
         composeBoolean("isModifier", element.getIsModifierElement());
       }
+      if (element.hasIsModifierReasonElement()) {
+        composeString("isModifierReason", element.getIsModifierReasonElement());
+      }
       if (element.hasIsSummaryElement()) {
         composeBoolean("isSummary", element.getIsSummaryElement());
       }
@@ -24502,11 +24507,13 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCodeElement()) {
         composeUri("code", element.getCodeElement());
       }
-      if (element.hasProfileElement()) {
-        composeUri("profile", element.getProfileElement());
+      if (element.hasProfile()) { 
+        for (UriType e : element.getProfile()) 
+          composeUri("profile", e);
       }
-      if (element.hasTargetProfileElement()) {
-        composeUri("targetProfile", element.getTargetProfileElement());
+      if (element.hasTargetProfile()) { 
+        for (UriType e : element.getTargetProfile()) 
+          composeUri("targetProfile", e);
       }
         if (element.hasAggregation()) 
           for (Enumeration<ElementDefinition.AggregationMode> e : element.getAggregation()) 

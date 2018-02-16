@@ -270,9 +270,9 @@ public class IgSpreadsheetParser {
       ElementDefinition e = processLine(sd, sheet, row, invariants, true, row == 0);
       if (e != null)
         for (TypeRefComponent t : e.getType()) {
-          if (t.hasProfile() && !"Extension".equals(t.getCode()) && t.getProfile().startsWith("#")) {
-            if (!namedSheets.contains(t.getProfile().substring(1)))
-              namedSheets.add(t.getProfile().substring(1));
+          if (t.hasProfile() && !"Extension".equals(t.getCode()) && t.getProfile().get(0).getValue().startsWith("#")) {
+            if (!namedSheets.contains(t.getProfile().get(0).getValue().substring(1)))
+              namedSheets.add(t.getProfile().get(0).getValue().substring(1));
           }
         }
     }
@@ -293,7 +293,7 @@ public class IgSpreadsheetParser {
       sd.setType(sd.getDifferential().getElementFirstRep().getPath());
       sd.getDifferential().getElementFirstRep().setSliceName(null);
       if (sd.getDifferential().getElementFirstRep().getType().size() == 1 && sd.getDifferential().getElementFirstRep().getType().get(0).hasProfile())
-        sd.setBaseDefinition(sd.getDifferential().getElementFirstRep().getType().get(0).getProfile());
+        sd.setBaseDefinition(sd.getDifferential().getElementFirstRep().getType().get(0).getProfile().get(0).getValue());
       else
         sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getType());
       if (!context.getResourceNames().contains(sd.getType()) && !context.getTypeNames().contains(sd.getType()))
@@ -714,6 +714,14 @@ public class IgSpreadsheetParser {
     doAliases(sheet, row, e);
 
     e.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, false));
+    if (e.getIsModifier()) {
+      String reason = sheet.getColumn(row, "Modifier Reason");
+      if (Utilities.noString(reason)) {
+        System.out.println("Missing IsModifierReason on "+path);
+        reason = "Not known why this is labelled a modifier";
+      }
+      e.setIsModifierReason(reason);
+    }
     // later, this will get hooked in from the underlying definitions, but we need to know this now to validate the extension modifier matching
     if (e.getPath().endsWith(".modifierExtension"))
       e.setIsModifier(true);
@@ -1228,6 +1236,14 @@ public class IgSpreadsheetParser {
     exe.setShort(sheet.getColumn(row, "Short Name"));
 
     exe.setIsModifier(parseBoolean(sheet.getColumn(row, "Is Modifier"), row, false));
+    if (exe.getIsModifier()) {
+      String reason = sheet.getColumn(row, "Modifier Reason");
+      if (Utilities.noString(reason)) {
+        System.out.println("Missing IsModifierReason on "+getLocation(row));
+        reason = "Not known why this is labelled a modifier";
+      }
+      exe.setIsModifierReason(reason);
+    }
     if (nested && exe.getIsModifier())
       throw new Exception("Cannot create a nested extension that is a modifier @"+getLocation(row));
     exe.getType().add(new TypeRefComponent().setCode("Extension"));

@@ -49,7 +49,8 @@ public class ElementDefn {
 	private Integer minCardinality;
 	private Integer maxCardinality;
 	private List<Invariant> statedInvariants = new ArrayList<Invariant>(); // a reference to an invariant defined on another element, but which constrains this one
-	private Boolean modifier;
+  private Boolean modifier;
+  private String modifierReason;
 	private Boolean mustSupport;
 	private Boolean summaryItem; // whether this is included in a summary
 	private String regex;
@@ -971,7 +972,16 @@ public class ElementDefn {
 
   public void setStandardsStatus(StandardsStatus standardsStatus) {
     this.standardsStatus = standardsStatus;
+  }
+
+  public String getModifierReason() {
+    return modifierReason;
+  }
+
+  public void setModifierReason(String modifierReason) {
+    this.modifierReason = modifierReason;
   }	
+  
   
 }
 

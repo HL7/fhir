@@ -2327,7 +2327,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
     
     for (StructureDefinition ed : page.getWorkerContext().getExtensionDefinitions()) {
-      String filename = "extension-"+ed.getUrl().substring(40).toLowerCase();
+      String filename = "extension-"+(ed.getUrl().startsWith("http://fhir-registry.smarthealthit.org/StructureDefinition/") ? ed.getUrl().substring(59).toLowerCase() : ed.getUrl().substring(40).toLowerCase());
       ed.setUserData("filename", filename);
       ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(ed.getUserString(ToolResourceUtilities.NAME_RES_IG));
       ed.setUserData("path", (ig.isCore() ? "" : ig.getCode()+File.separator) + filename+".html");
@@ -3046,7 +3046,11 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void checkElement(StructureDefinition sd, ElementDefinition ed, boolean inDiff) {
     check(ed.hasPath(), sd, "Element has no path");
+    Set<String> codes = new HashSet<String>();
     for (TypeRefComponent tr : ed.getType()) {
+      if (codes.contains(tr.getCode()))
+        check(false, sd, ed.getPath()+": type '"+tr.getCode()+"' is duplicated");
+        
       if ((!inDiff || tr.hasCode()) && tr.getCode() != null)
         if (ed.getPath().contains("."))
           check(page.getDefinitions().hasBaseType(tr.getCode()) || tr.getCode().equals("Resource"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (a)");
@@ -3057,7 +3061,9 @@ public class Publisher implements URIResolver, SectionNumberer {
             check(page.getDefinitions().hasAbstractResource(tr.getCode()) || tr.getCode().equals("Element"), sd, ed.getPath()+": type '"+tr.getCode()+"' is not valid (c)");
         }
       if (tr.hasProfile()) {
-        String pt = tr.getProfile();
+        check(tr.getProfile().size() == 1, sd, ed.getPath()+": multiple profiles found: "+tr.getProfile());
+
+        String pt = tr.getProfile().get(0).getValue();
         if (pt.contains("#")) {
           String[] parts = pt.split("\\#");
           StructureDefinition exd = page.getWorkerContext().fetchResource(StructureDefinition.class, parts[0]);
@@ -3075,22 +3081,22 @@ public class Publisher implements URIResolver, SectionNumberer {
           || isStringPattern(tail(pt)), sd, ed.getPath()+": profile '"+pt+"' is not valid (d)");
       }
       if (tr.hasTargetProfile()) {
-        String pt = tr.getTargetProfile();
+        String pt = tr.getTargetProfile().get(0).getValue();
         if (pt.contains("#")) {
           String[] parts = pt.split("\\#");
           StructureDefinition exd = page.getWorkerContext().fetchResource(StructureDefinition.class, parts[0]);
           if (exd == null)
-            check(false, sd, ed.getPath()+": profile '"+pt+"' is not valid (definition not found)");
+            check(false, sd, ed.getPath()+": target profile '"+pt+"' is not valid (definition not found)");
           else {
             ElementDefinition ex = null;
             for (ElementDefinition et : exd.getSnapshot().getElement())
               if (et.hasFixed() && et.getFixed() instanceof UriType && ((UriType)et.getFixed()).asStringValue().equals(parts[1]))
                   ex = et;
-              check(ex != null, sd, ed.getPath()+": profile '"+pt+"' is not valid (inner path not found)");
+              check(ex != null, sd, ed.getPath()+": target profile '"+pt+"' is not valid (inner path not found)");
           }
         } else
           check((page.getWorkerContext().hasResource(StructureDefinition.class, pt))
-          || isStringPattern(tail(pt)), sd, ed.getPath()+": profile '"+pt+"' is not valid (d)");
+          || isStringPattern(tail(pt)), sd, ed.getPath()+": target profile '"+pt+"' is not valid (d)");
       }
     }
   }
@@ -4291,7 +4297,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void processExample(Example e, ResourceDefn resn, StructureDefinition profile, Profile pack, ImplementationGuideDefn ig) throws Exception {
     if (e.getType() == ExampleType.Tool)
       return;
-
+    long time = System.currentTimeMillis(); 
     int level = (ig == null || ig.isCore()) ? 0 : 1;
     String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode() + File.separator;
 

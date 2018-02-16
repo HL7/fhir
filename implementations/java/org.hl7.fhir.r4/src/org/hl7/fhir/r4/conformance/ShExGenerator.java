@@ -722,10 +722,10 @@ public class ShExGenerator {
   private String getTypeName(ElementDefinition.TypeRefComponent typ) {
     // TODO: This is brittle. There has to be a utility to do this...
     if (typ.hasTargetProfile()) {
-      String[] els = typ.getTargetProfile().split("/");
+      String[] els = typ.getTargetProfile().get(0).getValue().split("/");
       return els[els.length - 1];
     } else if (typ.hasProfile()) {
-      String[] els = typ.getProfile().split("/");
+      String[] els = typ.getProfile().get(0).getValue().split("/");
       return els[els.length - 1];
     } else {
       return typ.getCode();

@@ -189,8 +189,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
         write("</b></span>\",\r\n");
       else
         write("</b></a>\",\r\n");
-    } else
-      System.out.println(".");
+    } 
 
     if ((root.getName().equals(rn) || "[name]".equals(rn)) && resource) {
       if (!Utilities.noString(root.typeCode())) {
@@ -559,8 +558,8 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       write("{ ");
       write("<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
       if (type.hasProfile()) {
-        if (type.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          String t = type.getProfile().substring(40);
+        if (type.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          String t = type.getProfile().get(0).getValue().substring(40);
           if (definitions.hasType(t))
             write("(<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
           else if (definitions.hasResource(t))
@@ -571,8 +570,8 @@ public class JsonSpecGenerator extends OutputStreamWriter {
           write("("+type.getProfile()+")");
       }
       if (type.hasTargetProfile()) {
-        if (type.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          String t = type.getTargetProfile().substring(40);
+        if (type.getTargetProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          String t = type.getTargetProfile().get(0).getValue().substring(40);
           if (definitions.hasType(t))
             write("(<span style=\"color: darkgreen\"><a href=\"" + prefix+(dtRoot + definitions.getSrcFile(t)+ ".html#" + t) + "\">" + t+ "</a></span>)");
           else if (definitions.hasResource(t))

@@ -1317,16 +1317,17 @@ public class ProfileGenerator {
           if (defType != null)
             ce.addType().setCode(defType);
         } else for (TypeRef t : expandedTypes) {
-          TypeRefComponent type = new TypeRefComponent();
           String profile = null;
+          String tc = null;
           if (definitions.getConstraints().containsKey(t.getName())) {
             ProfiledType pt = definitions.getConstraints().get(t.getName());
-            type.setCode(pt.getBaseType());
+            tc= pt.getBaseType();
             profile = "http://hl7.org/fhir/StructureDefinition/"+pt.getName();
           } else {
-            type.setCode(t.getName());
+            tc = t.getName();
             profile = t.getProfile();
           }
+          TypeRefComponent type = ce.getType(tc);
           if (profile == null && t.hasParams()) {
             profile = t.getParams().get(0);
           }
@@ -1350,16 +1351,14 @@ public class ProfileGenerator {
             } else 
               pr = "http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile);
             if (type.getCode().equals("Reference"))
-              type.setTargetProfile(pr);
+              type.addTargetProfile(pr);
             else
-              type.setProfile(pr);
+              type.addProfile(pr);
           }
 
           for (String aggregation : t.getAggregations()) {
             type.addAggregation(AggregationMode.fromCode(aggregation));
           }	      	
-
-          ce.getType().add(type);
         }
       }
     }
@@ -1455,6 +1454,8 @@ public class ProfileGenerator {
     // we don't know mustSupport here
     if (e.hasModifier())
       ce.setIsModifier(e.isModifier());
+    if (ce.getIsModifier())
+      ce.setIsModifierReason(e.getModifierReason());
     
     // ce.setConformance(getType(e.getConformance()));
     for (Invariant id : e.getStatedInvariants()) 
@@ -1669,16 +1670,17 @@ public class ProfileGenerator {
     ce.setMin(src.getMinCardinality());
     if (src.getMaxCardinality() != null)
       ce.setMax(src.getMaxCardinality() == Integer.MAX_VALUE ? "*" : src.getMaxCardinality().toString());
-    ce.getType().add(new TypeRefComponent());
-    ce.getType().get(0).setCode(src.typeCode());
+    ce.getType(src.typeCode());
     // this one should never be used
     if (!Utilities.noString(src.getTypes().get(0).getProfile())) {
       if (ce.getType().equals("Reference")) throw new Error("Should not happen");
-      ce.getType().get(0).setProfile(src.getTypes().get(0).getProfile());
+      ce.getType().get(0).addProfile(src.getTypes().get(0).getProfile());
     }
     // todo? conditions, constraints, binding, mapping
     if (src.hasModifier())
       ce.setIsModifier(src.isModifier());
+    if (ce.getIsModifier())
+      ce.setIsModifierReason(src.getModifierReason());
     if (src.hasSummaryItem())
       ce.setIsSummaryElement(Factory.newBoolean(src.isSummary()));
     for (Invariant id : src.getStatedInvariants()) 
@@ -1726,6 +1728,8 @@ public class ProfileGenerator {
       dst.setMustSupport(src.isMustSupport());
     if (src.hasModifier())
       dst.setIsModifier(src.isModifier());
+    if (dst.getIsModifier())
+      dst.setIsModifierReason(src.getModifierReason());
     if (src.hasSummaryItem() && dst.getPath().contains("."))
       dst.setIsSummaryElement(Factory.newBoolean(src.isSummary()));
     for (Invariant id : src.getStatedInvariants()) 
@@ -1735,35 +1739,31 @@ public class ProfileGenerator {
     for (TypeRef t : src.getTypes()) {
       if (t.hasParams()) {
         for (String tp : t.getParams()) {
-          ElementDefinition.TypeRefComponent type = new ElementDefinition.TypeRefComponent();
-          type.setCode(t.getName());
+          ElementDefinition.TypeRefComponent type = dst.getType(t.getName());
           String pr = t.hasProfile() ? t.getProfile() :
              // this should only happen if t.getParams().size() == 1
             "http://hl7.org/fhir/StructureDefinition/"+(tp.equals("Any") ? "Resource" : tp);
           if (type.getCode().equals("Reference"))
-            type.setTargetProfile(pr); 
+            type.addTargetProfile(pr); 
           else
-            type.setProfile(pr);
-          dst.getType().add(type);
+            type.addProfile(pr);
         }
       } else if (t.isWildcardType()) {
         for (String n : TypeParser.wildcardTypes()) 
-          dst.addType().setCode(n);
+          dst.getType(n);
       } else {
-        ElementDefinition.TypeRefComponent type = new ElementDefinition.TypeRefComponent();
         if (definitions != null && definitions.getConstraints().containsKey(t.getName())) {
          ProfiledType ct = definitions.getConstraints().get(t.getName());
-         type.setCode(ct.getBaseType());
-         type.setProfile("http://hl7.org/fhir/StructureDefinition/"+ct.getName());
+         ElementDefinition.TypeRefComponent type = dst.getType(ct.getBaseType());
+         type.addProfile("http://hl7.org/fhir/StructureDefinition/"+ct.getName());
         } else {
-          type.setCode(t.getName());
+          ElementDefinition.TypeRefComponent type = dst.getType(t.getName());
           if (t.hasProfile())
             if (type.getCode().equals("Reference"))
-              type.setTargetProfile(t.getProfile()); 
+              type.addTargetProfile(t.getProfile()); 
             else
-              type.setProfile(t.getProfile());
+              type.addProfile(t.getProfile());
         }
-        dst.getType().add(type);
       }
     }
     if (definitions != null) { // igtodo - catch this

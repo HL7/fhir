@@ -764,15 +764,42 @@ public class SpecDifferenceEvaluator {
     }
     return false;
   }
+  
   private String describeType(TypeRefComponent tr) {
     if (!tr.hasProfile() && !tr.hasTargetProfile()) 
       return tr.getCode();
-    else if (tr.getCode().equals("Reference") && tr.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/"))
-      return tr.getCode()+"("+tr.getTargetProfile().substring(40)+")";
-    else if (tr.hasTargetProfile())
-      return tr.getCode()+"{"+tr.getTargetProfile()+"}";
-    else
-      return tr.getCode()+"{"+tr.getProfile()+"}";
+    else if (tr.getCode().equals("Reference")) {
+      StringBuilder b = new StringBuilder("Reference");
+      b.append("(");
+      boolean first = true;
+      for (UriType u : tr.getTargetProfile()) {
+        if (first)
+          first = false;
+        else 
+          b.append("|");
+        if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/"))
+          b.append(u.getValue().substring(40));
+        else
+          b.append(u.getValue());
+      }
+      b.append(")");
+      return b.toString();
+    } else {
+      StringBuilder b = new StringBuilder("Reference");
+      if (tr.getProfile().size() > 0) {
+        b.append("(");
+        boolean first = true;
+        for (UriType u : tr.getTargetProfile()) {
+          if (first)
+            first = false;
+          else 
+            b.append("|");
+          b.append(u.getValue());
+        }
+        b.append(")");
+      }
+      return b.toString();
+    }
   }
 
   public void saveR2AsR3(ZipGenerator zip) throws IOException {

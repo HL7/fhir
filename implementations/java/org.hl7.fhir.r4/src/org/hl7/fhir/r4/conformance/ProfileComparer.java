@@ -433,7 +433,7 @@ public class ProfileComparer {
     
     if (left.slices() != null)
       for (DefinitionNavigator ex : left.slices()) {
-        String url = ex.current().getType().get(0).getProfile();
+        String url = ex.current().getType().get(0).getProfile().get(0).getValue();
         if (map.containsKey(url))
           throw new DefinitionException("Duplicate Extension "+url+" at "+path);
         else
@@ -441,7 +441,7 @@ public class ProfileComparer {
       }
     if (right.slices() != null)
       for (DefinitionNavigator ex : right.slices()) {
-        String url = ex.current().getType().get(0).getProfile();
+        String url = ex.current().getType().get(0).getProfile().get(0).getValue();
         if (map.containsKey(url)) {
           ExtensionUsage exd = map.get(url);
           exd.minSuperset = unionMin(exd.defn.current().getMin(), ex.current().getMin());
@@ -790,8 +790,8 @@ public class ProfileComparer {
           pfound = true;
           c.setProfile(r.getProfile());
         } else {
-          StructureDefinition sdl = resolveProfile(ed, outcome, path, l.getProfile(), outcome.leftName());
-          StructureDefinition sdr = resolveProfile(ed, outcome, path, r.getProfile(), outcome.rightName());
+          StructureDefinition sdl = resolveProfile(ed, outcome, path, l.getProfile().get(0).getValue(), outcome.leftName());
+          StructureDefinition sdr = resolveProfile(ed, outcome, path, r.getProfile().get(0).getValue(), outcome.rightName());
           if (sdl != null && sdr != null) {
             if (sdl == sdr) {
               pfound = true;
@@ -804,7 +804,7 @@ public class ProfileComparer {
               ProfileComparison comp = compareProfiles(sdl, sdr);
               if (comp.getSubset() != null) {
                 pfound = true;
-                c.setProfile("#"+comp.id);
+                c.addProfile("#"+comp.id);
               }
             }
           }
@@ -817,8 +817,8 @@ public class ProfileComparer {
           tfound = true;
           c.setTargetProfile(r.getTargetProfile());
         } else {
-          StructureDefinition sdl = resolveProfile(ed, outcome, path, l.getProfile(), outcome.leftName());
-          StructureDefinition sdr = resolveProfile(ed, outcome, path, r.getProfile(), outcome.rightName());
+          StructureDefinition sdl = resolveProfile(ed, outcome, path, l.getProfile().get(0).getValue(), outcome.leftName());
+          StructureDefinition sdr = resolveProfile(ed, outcome, path, r.getProfile().get(0).getValue(), outcome.rightName());
           if (sdl != null && sdr != null) {
             if (sdl == sdr) {
               tfound = true;
@@ -831,7 +831,7 @@ public class ProfileComparer {
               ProfileComparison comp = compareProfiles(sdl, sdr);
               if (comp.getSubset() != null) {
                 tfound = true;
-                c.setTargetProfile("#"+comp.id);
+                c.addTargetProfile("#"+comp.id);
               }
             }
           }
@@ -878,8 +878,8 @@ public class ProfileComparer {
           ex.setProfile(null);
         } else {
           // both have profiles. Is one derived from the other? 
-          StructureDefinition sdex = context.fetchResource(StructureDefinition.class, ex.getProfile());
-          StructureDefinition sdnw = context.fetchResource(StructureDefinition.class, nw.getProfile());
+          StructureDefinition sdex = context.fetchResource(StructureDefinition.class, ex.getProfile().get(0).getValue());
+          StructureDefinition sdnw = context.fetchResource(StructureDefinition.class, nw.getProfile().get(0).getValue());
           if (sdex != null && sdnw != null) {
             if (sdex == sdnw) {
               pfound = true;
@@ -892,7 +892,7 @@ public class ProfileComparer {
               ProfileComparison comp = compareProfiles(sdex, sdnw);
               if (comp.getSuperset() != null) {
                 pfound = true;
-                ex.setProfile("#"+comp.id);
+                ex.addProfile("#"+comp.id);
               }
             }
           }
@@ -906,8 +906,8 @@ public class ProfileComparer {
           ex.setTargetProfile(null);
         } else {
           // both have profiles. Is one derived from the other? 
-          StructureDefinition sdex = context.fetchResource(StructureDefinition.class, ex.getTargetProfile());
-          StructureDefinition sdnw = context.fetchResource(StructureDefinition.class, nw.getTargetProfile());
+          StructureDefinition sdex = context.fetchResource(StructureDefinition.class, ex.getTargetProfile().get(0).getValue());
+          StructureDefinition sdnw = context.fetchResource(StructureDefinition.class, nw.getTargetProfile().get(0).getValue());
           if (sdex != null && sdnw != null) {
             if (sdex == sdnw) {
               tfound = true;
@@ -920,7 +920,7 @@ public class ProfileComparer {
               ProfileComparison comp = compareProfiles(sdex, sdnw);
               if (comp.getSuperset() != null) {
                 tfound = true;
-                ex.setTargetProfile("#"+comp.id);
+                ex.addTargetProfile("#"+comp.id);
               }
             }
           }

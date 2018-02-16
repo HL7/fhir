@@ -47,6 +47,7 @@ import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscrimin
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Timing.EventTiming;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.r4.model.UsageContext;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
@@ -1205,7 +1206,7 @@ public class VersionConvertor_14_40 {
     if (src.hasContentReference())
       tgt.setContentReference(src.getContentReference());
     for (org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent t : src.getType())
-      tgt.addType(convertTypeRefComponent(t));
+      convertTypeRefComponent(t, tgt.getType());
     tgt.setDefaultValue(convertType(src.getDefaultValue()));
     if (src.hasMeaningWhenMissing())
       tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
@@ -1225,6 +1226,12 @@ public class VersionConvertor_14_40 {
       tgt.setMustSupport(src.getMustSupport());
     if (src.hasIsModifier())
       tgt.setIsModifier(src.getIsModifier());
+    if (tgt.getIsModifier()) {
+      String reason = org.hl7.fhir.dstu2016may.utils.ToolingExtensions.readStringExtension(src, VersionConvertorConstants.MODIFIER_REASON_EXTENSION);
+      if (Utilities.noString(reason))
+        reason = VersionConvertorConstants.MODIFIER_REASON_LEGACY;
+      tgt.setIsModifierReason(reason);
+    }
     if (src.hasIsSummary())
       tgt.setIsSummary(src.getIsSummary());
     tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
@@ -1268,7 +1275,7 @@ public class VersionConvertor_14_40 {
     if (src.hasContentReference())
       tgt.setContentReference(src.getContentReference());
     for (org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent t : src.getType())
-      tgt.addType(convertTypeRefComponent(t));
+      convertTypeRefComponent(t, tgt.getType());
     tgt.setDefaultValue(convertType(src.getDefaultValue()));
     if (src.hasMeaningWhenMissing())
       tgt.setMeaningWhenMissing(src.getMeaningWhenMissing());
@@ -1288,6 +1295,8 @@ public class VersionConvertor_14_40 {
       tgt.setMustSupport(src.getMustSupport());
     if (src.hasIsModifier())
       tgt.setIsModifier(src.getIsModifier());
+    if (src.hasIsModifierReason() && !VersionConvertorConstants.MODIFIER_REASON_LEGACY.equals(src.getIsModifierReason()))
+        org.hl7.fhir.dstu2016may.utils.ToolingExtensions.setStringExtension(tgt, VersionConvertorConstants.MODIFIER_REASON_EXTENSION, src.getIsModifierReason());
     if (src.hasIsSummary())
       tgt.setIsSummary(src.getIsSummary());
     if (src.hasBinding())
@@ -1418,38 +1427,51 @@ public class VersionConvertor_14_40 {
     return tgt;
   }
 
-  public static org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent convertTypeRefComponent(org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent();
-    copyElement(src, tgt);
-    tgt.setCode(src.getCode());
-    for (org.hl7.fhir.dstu2016may.model.UriType t : src.getProfile()) {
-      if (src.getCode().equals("Reference"))
-        tgt.setTargetProfile(t.getValueAsString());
-      else
-        tgt.setProfile(t.getValueAsString());
+  static void convertTypeRefComponent(org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent src, List<org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent> list) throws FHIRException {
+    if (src == null)
+      return ;
+    org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent tgt = null;
+    for (org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent t : list)
+      if (t.getCode().equals(src.getCode()))
+        tgt = t;
+    if (tgt == null) {
+      tgt = new org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent();
+      list.add(tgt);
+      copyElement(src, tgt);
+      tgt.setCode(src.getCode());
     }
-    for (org.hl7.fhir.dstu2016may.model.Enumeration<org.hl7.fhir.dstu2016may.model.ElementDefinition.AggregationMode> t : src.getAggregation())
-      tgt.addAggregation(convertAggregationMode(t.getValue()));
-    tgt.setVersioning(convertReferenceVersionRules(src.getVersioning()));
-    return tgt;
+    if (tgt.getCode().equals("Reference")) {
+      for (org.hl7.fhir.dstu2016may.model.UriType u : src.getProfile())
+        tgt.addTargetProfile(u.getValue());
+    } else {
+      for (org.hl7.fhir.dstu2016may.model.UriType u : src.getProfile())
+        tgt.addProfile(u.getValue());
+    }
+    for (org.hl7.fhir.dstu2016may.model.Enumeration<org.hl7.fhir.dstu2016may.model.ElementDefinition.AggregationMode> t : src.getAggregation()) {
+      org.hl7.fhir.r4.model.ElementDefinition.AggregationMode a = convertAggregationMode(t.getValue());
+      if (!tgt.hasAggregation(a))
+        tgt.addAggregation(a);
+    }
+    if (src.hasVersioning())
+      tgt.setVersioning(convertReferenceVersionRules(src.getVersioning()));
   }
-
-  public static org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent convertTypeRefComponent(org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
+  
+  public static void convertTypeRefComponent(org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent src, List<org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent> list) throws FHIRException {
+    if (src == null)
+      return;
     org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    if (src.hasCode() && "Reference".equals(src.getCode()))
-      tgt.addProfile(src.getTargetProfile());
-    else
-      tgt.addProfile(src.getProfile());
-    for (org.hl7.fhir.r4.model.Enumeration<org.hl7.fhir.r4.model.ElementDefinition.AggregationMode> t : src.getAggregation())
-      tgt.addAggregation(convertAggregationMode(t.getValue()));
-    tgt.setVersioning(convertReferenceVersionRules(src.getVersioning()));
-    return tgt;
+    list.add(tgt);
+    if (src.getCode().equals("Reference")) {
+      for (org.hl7.fhir.r4.model.UriType u : src.getTargetProfile()) {
+        tgt.addProfile(u.getValue());
+      }
+    } else {
+      for (org.hl7.fhir.r4.model.UriType u : src.getProfile()) {
+        tgt.addProfile(u.getValue());
+      }
+    }
   }
 
   private static org.hl7.fhir.r4.model.ElementDefinition.AggregationMode convertAggregationMode(org.hl7.fhir.dstu2016may.model.ElementDefinition.AggregationMode src) throws FHIRException {

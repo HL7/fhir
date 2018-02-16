@@ -380,6 +380,14 @@ public class ToolingExtensions {
       resource.getExtension().add(new Extension(new UriType(uri)).setValue(new StringType(value)));
   }
 
+  public static void setStringExtension(Element element, String uri, String value) {
+    Extension ext = getExtension(element, uri);
+    if (ext != null)
+      ext.setValue(new StringType(value));
+    else
+      element.getExtension().add(new Extension(new UriType(uri)).setValue(new StringType(value)));
+  }
+
   public static void setCodeExtension(DomainResource resource, String uri, String value) {
     Extension ext = getExtension(resource, uri);
     if (ext != null)

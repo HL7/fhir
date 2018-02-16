@@ -193,7 +193,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   public StructureDefinition getTypeStructure(TypeRefComponent type) {
     if (type.hasProfile())
-      return getStructure(type.getProfile());
+      return getStructure(type.getProfile().get(0).getValue());
     else
       return getStructure(type.getCode());
   }

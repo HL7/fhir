@@ -104,6 +104,10 @@ private Map<String, Object> userData;
 		return false;
 	}
 	
+  public boolean isBooleanPrimitive() {
+    return false;
+  }
+
 	public boolean hasPrimitiveValue() {
 		return isPrimitive();
 	}

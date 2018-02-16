@@ -615,6 +615,7 @@ public class V3SourceGenerator extends BaseGenerator {
     if (!"active".equals(item.getAttribute("status"))&& !"retired".equals(item.getAttribute("status")))
       throw new Exception("Unexpected value for attribute status "+item.getAttribute("status"));
     if (cd.hasCode())
+      // change this to an extension once the build defines the extension to use 
       cd.addDesignation().setUse(new Coding().setSystem("http://something...?").setCode("synonym")).setValue(item.getAttribute("code"));
     else
       cd.setCode(item.getAttribute("code"));

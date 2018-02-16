@@ -1454,6 +1454,10 @@ public class JsonParser extends JsonParserBase {
       res.setIsModifierElement(parseBoolean(json.get("isModifier").getAsBoolean()));
     if (json.has("_isModifier"))
       parseElementProperties(json.getAsJsonObject("_isModifier"), res.getIsModifierElement());
+    if (json.has("isModifierReason"))
+      res.setIsModifierReasonElement(parseString(json.get("isModifierReason").getAsString()));
+    if (json.has("_isModifierReason"))
+      parseElementProperties(json.getAsJsonObject("_isModifierReason"), res.getIsModifierReasonElement());
     if (json.has("isSummary"))
       res.setIsSummaryElement(parseBoolean(json.get("isSummary").getAsBoolean()));
     if (json.has("_isSummary"))
@@ -1548,14 +1552,36 @@ public class JsonParser extends JsonParserBase {
       res.setCodeElement(parseUri(json.get("code").getAsString()));
     if (json.has("_code"))
       parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
-    if (json.has("profile"))
-      res.setProfileElement(parseUri(json.get("profile").getAsString()));
-    if (json.has("_profile"))
-      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
-    if (json.has("targetProfile"))
-      res.setTargetProfileElement(parseUri(json.get("targetProfile").getAsString()));
-    if (json.has("_targetProfile"))
-      parseElementProperties(json.getAsJsonObject("_targetProfile"), res.getTargetProfileElement());
+    if (json.has("profile")) {
+      JsonArray array = json.getAsJsonArray("profile");
+      for (int i = 0; i < array.size(); i++) {
+        res.getProfile().add(parseUri(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_profile")) {
+      JsonArray array = json.getAsJsonArray("_profile");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getProfile().size())
+          res.getProfile().add(parseUri(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getProfile().get(i));
+      }
+    };
+    if (json.has("targetProfile")) {
+      JsonArray array = json.getAsJsonArray("targetProfile");
+      for (int i = 0; i < array.size(); i++) {
+        res.getTargetProfile().add(parseUri(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_targetProfile")) {
+      JsonArray array = json.getAsJsonArray("_targetProfile");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getTargetProfile().size())
+          res.getTargetProfile().add(parseUri(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getTargetProfile().get(i));
+      }
+    };
     if (json.has("aggregation")) {
       JsonArray array = json.getAsJsonArray("aggregation");
       for (int i = 0; i < array.size(); i++) {
@@ -26743,6 +26769,10 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("isModifier", element.getIsModifierElement(), false);
         composeBooleanExtras("isModifier", element.getIsModifierElement(), false);
       }
+      if (element.hasIsModifierReasonElement()) {
+        composeStringCore("isModifierReason", element.getIsModifierReasonElement(), false);
+        composeStringExtras("isModifierReason", element.getIsModifierReasonElement(), false);
+      }
       if (element.hasIsSummaryElement()) {
         composeBooleanCore("isSummary", element.getIsSummaryElement(), false);
         composeBooleanExtras("isSummary", element.getIsSummaryElement(), false);
@@ -26846,14 +26876,30 @@ public class JsonParser extends JsonParserBase {
         composeUriCore("code", element.getCodeElement(), false);
         composeUriExtras("code", element.getCodeElement(), false);
       }
-      if (element.hasProfileElement()) {
-        composeUriCore("profile", element.getProfileElement(), false);
-        composeUriExtras("profile", element.getProfileElement(), false);
+      if (element.hasProfile()) {
+        openArray("profile");
+        for (UriType e : element.getProfile()) 
+          composeUriCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getProfile())) {
+          openArray("_profile");
+          for (UriType e : element.getProfile()) 
+            composeUriExtras(null, e, true);
+          closeArray();
       }
-      if (element.hasTargetProfileElement()) {
-        composeUriCore("targetProfile", element.getTargetProfileElement(), false);
-        composeUriExtras("targetProfile", element.getTargetProfileElement(), false);
+      };
+      if (element.hasTargetProfile()) {
+        openArray("targetProfile");
+        for (UriType e : element.getTargetProfile()) 
+          composeUriCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getTargetProfile())) {
+          openArray("_targetProfile");
+          for (UriType e : element.getTargetProfile()) 
+            composeUriExtras(null, e, true);
+          closeArray();
       }
+      };
       if (element.hasAggregation()) {
         openArray("aggregation");
         for (Enumeration<ElementDefinition.AggregationMode> e : element.getAggregation()) 

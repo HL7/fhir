@@ -45,6 +45,7 @@ import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
 
@@ -425,30 +426,30 @@ public class QuestionnaireBuilder {
     vs.getExpansion().setIdentifier(Factory.createUUID());
     vs.getExpansion().setTimestampElement(DateTimeType.now());
     for (TypeRefComponent t : types) {
-      ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
-	    if (t.getCode().equals("Reference") && (t.hasTargetProfile() && t.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/"))) { 
-	      cc.setCode(t.getTargetProfile().substring(40));
-        cc.setSystem("http://hl7.org/fhir/resource-types");
-	      cc.setDisplay(cc.getCode());
-      } else {
+      if (t.getCode().equals("Reference")) {
+        for (UriType u : t.getTargetProfile()) {
+	        if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) { 
+	          ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
+    	      cc.setCode(u.getValue().substring(40));
+            cc.setSystem("http://hl7.org/fhir/resource-types");
+    	      cc.setDisplay(cc.getCode());
+	        }
+        }
+      } else if (!t.hasProfile()) {
+        ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
+        cc.setCode(t.getCode());
+        cc.setDisplay(t.getCode());
+        cc.setSystem("http://hl7.org/fhir/data-types");
+      } else for (UriType u : t.getProfile()) {
         ProfileUtilities pu = new ProfileUtilities(context, null, null);
-        StructureDefinition ps = null;
-        if (t.hasTargetProfile()) 
-          ps = pu.getProfile(profile, t.getTargetProfile());
-        else if (t.hasProfile()) 
-          ps = pu.getProfile(profile, t.getProfile());
-        
+        StructureDefinition ps = pu.getProfile(profile, u.getValue());
         if (ps != null) {
-	        cc.setCode(t.getTargetProfile());
+          ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
+	        cc.setCode(u.getValue());
           cc.setDisplay(ps.getType());
           cc.setSystem("http://hl7.org/fhir/resource-types");
-        } else {
-	        cc.setCode(t.getCode());
-	        cc.setDisplay(t.getCode());
-          cc.setSystem("http://hl7.org/fhir/data-types");
         }
       }
-	    t.setUserData("text", cc.getCode());
     }
 
     return vs;
@@ -469,22 +470,26 @@ public class QuestionnaireBuilder {
       q.setLinkId(g.getLinkId()+"._type");
       q.setText("type");
 
-      Coding cc = new Coding();
       QuestionnaireResponseItemAnswerComponent a = q.addAnswer();
-      a.setValue(cc);
-      if (t.getCode().equals("Reference") && t.hasTargetProfile() && t.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-        cc.setCode(t.getTargetProfile().substring(40));
-        cc.setSystem("http://hl7.org/fhir/resource-types");
+      if (t.getCode().equals("Reference")) {
+        for (UriType u : t.getTargetProfile()) {
+          if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+            Coding cc = new Coding();
+            a.setValue(cc);
+            cc.setCode(u.getValue().substring(40));
+            cc.setSystem("http://hl7.org/fhir/resource-types");
+          }
+        }
       } else {
+        Coding cc = new Coding();
+        a.setValue(cc);
         ProfileUtilities pu = new ProfileUtilities(context, null, null);
         StructureDefinition ps = null;
-        if (t.hasTargetProfile())
-          ps = pu.getProfile(profile, t.getTargetProfile());
-        else if (t.hasProfile())
-          ps = pu.getProfile(profile, t.getProfile());
+        if (t.hasProfile())
+          ps = pu.getProfile(profile, t.getProfile().get(0).getValue());
 
         if (ps != null) {
-          cc.setCode(t.getProfile());
+          cc.setCode(t.getProfile().get(0).getValue());
           cc.setSystem("http://hl7.org/fhir/resource-types");
         } else {
           cc.setCode(t.getCode());
@@ -510,8 +515,8 @@ public class QuestionnaireBuilder {
         // there are several problems here around profile matching. This process is degenerative, and there's probably nothing we can do to solve it
         if (url.startsWith("http:") || url.startsWith("https:"))
             return true;
-        else if (t.hasProfile() && t.getProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) 
-          return url.startsWith(t.getProfile().substring(40)+'/');
+        else if (t.hasProfile() && t.getProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) 
+          return url.startsWith(t.getProfile().get(0).getValue().substring(40)+'/');
         else
           return true;
       }
@@ -722,7 +727,7 @@ public class QuestionnaireBuilder {
     else if (t.getCode().equals("Money"))
       addMoneyQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Reference"))
-      addReferenceQuestions(group, element, path, t.hasTargetProfile() ? t.getTargetProfile() : null, answerGroups);
+      addReferenceQuestions(group, element, path, t.getTargetProfile(), answerGroups);
     else if (t.getCode().equals("Duration"))
       addDurationQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("base64Binary"))
@@ -741,7 +746,7 @@ public class QuestionnaireBuilder {
       addSampledDataQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("Extension")) {
       if (t.hasProfile())
-        addExtensionQuestions(profile, group, element, path, t.getProfile(), answerGroups);
+        addExtensionQuestions(profile, group, element, path, t.getProfile().get(0).getValue(), answerGroups);
     } else if (t.getCode().equals("SampledData"))
       addSampledDataQuestions(group, element, path, answerGroups);
     else if (!t.getCode().equals("Narrative") && !t.getCode().equals("Resource") && !t.getCode().equals("Meta") && !t.getCode().equals("Signature"))
@@ -979,7 +984,7 @@ public class QuestionnaireBuilder {
     }
   // Special Types ---------------------------------------------------------------
 
-    private void addReferenceQuestions(QuestionnaireItemComponent group, ElementDefinition element, String path, String profileURL, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups) throws FHIRException {
+    private void addReferenceQuestions(QuestionnaireItemComponent group, ElementDefinition element, String path, List<UriType> profileURL, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups) throws FHIRException {
       //  var
       //    rn : String;
       //    i : integer;
@@ -988,15 +993,14 @@ public class QuestionnaireBuilder {
 
       QuestionnaireItemComponent q = addQuestion(group, QuestionnaireItemType.REFERENCE, path, "value", group.getText(), answerGroups);
       group.setText(null);
-      String rn = null;
-      if (profileURL != null && profileURL.startsWith("http://hl7.org/fhir/StructureDefinition/"))
-        rn = profileURL.substring(40);
-      else
-        rn = "Any";
-      if (rn.equals("Any"))
+      CommaSeparatedStringBuilder rn = new CommaSeparatedStringBuilder();
+      for (UriType u : profileURL)
+      if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/"))
+        rn.append(u.getValue().substring(40));
+      if (rn.length() == 0)
         ToolingExtensions.addReferenceFilter(q, "subject=$subj&patient=$subj&encounter=$encounter");
       else {
-        ToolingExtensions.addAllowedResource(q, rn);
+        ToolingExtensions.addAllowedResource(q, rn.toString());
         ToolingExtensions.addReferenceFilter(q, "subject=$subj&patient=$subj&encounter=$encounter");
       }
       for (QuestionnaireResponse.QuestionnaireResponseItemComponent ag : answerGroups)

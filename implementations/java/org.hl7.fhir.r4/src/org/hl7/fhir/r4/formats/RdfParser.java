@@ -1094,6 +1094,8 @@ public class RdfParser extends RdfParserBase {
       composeBoolean(t, "ElementDefinition", "mustSupport", element.getMustSupportElement(), -1);
     if (element.hasIsModifierElement())
       composeBoolean(t, "ElementDefinition", "isModifier", element.getIsModifierElement(), -1);
+    if (element.hasIsModifierReasonElement())
+      composeString(t, "ElementDefinition", "isModifierReason", element.getIsModifierReasonElement(), -1);
     if (element.hasIsSummaryElement())
       composeBoolean(t, "ElementDefinition", "isSummary", element.getIsSummaryElement(), -1);
     if (element.hasBinding())
@@ -1168,10 +1170,10 @@ public class RdfParser extends RdfParserBase {
     composeElement(t, "type", name, element, index);
     if (element.hasCodeElement())
       composeUri(t, "ElementDefinition", "code", element.getCodeElement(), -1);
-    if (element.hasProfileElement())
-      composeUri(t, "ElementDefinition", "profile", element.getProfileElement(), -1);
-    if (element.hasTargetProfileElement())
-      composeUri(t, "ElementDefinition", "targetProfile", element.getTargetProfileElement(), -1);
+    for (int i = 0; i < element.getProfile().size(); i++)
+      composeUri(t, "ElementDefinition", "profile", element.getProfile().get(i), i);
+    for (int i = 0; i < element.getTargetProfile().size(); i++)
+      composeUri(t, "ElementDefinition", "targetProfile", element.getTargetProfile().get(i), i);
     for (int i = 0; i < element.getAggregation().size(); i++)
       composeEnum(t, "ElementDefinition", "aggregation", element.getAggregation().get(i), i);
     if (element.hasVersioningElement())

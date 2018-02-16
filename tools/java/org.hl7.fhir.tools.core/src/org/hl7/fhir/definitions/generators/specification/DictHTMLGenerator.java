@@ -85,14 +85,14 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 	  for (ElementDefinition ec : profile.getSnapshot().getElement()) {
 	    if (isProfiledExtension(ec)) {
 	      String name = profile.getId()+"."+ makePathLink(ec);
-        StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile());
+        StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile().get(0).getValue());
 	      if (extDefn == null) {
-	        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+	        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+")";
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        generateElementInner(profile,  ec, 1, null);
 	      } else {
 	        String title = ec.getPath() + " (<a href=\""+prefix+(extDefn.hasUserData("path") ? extDefn.getUserData("path") : "extension-"+extDefn.getId().toLowerCase()+".html")+
-	            "\">"+(ec.getType().get(0).getProfile().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+	            "\">"+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? profile.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
 	        write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
 	        ElementDefinition valueDefn = getExtensionValueDefinition(extDefn);
 	        generateElementInner(extDefn, extDefn.getSnapshot().getElement().get(0), valueDefn == null ? 2 : 3, valueDefn);
@@ -128,9 +128,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     for (ElementDefinition ec : ed.getSnapshot().getElement()) {
       if (isProfiledExtension(ec)) {
         String name = makePathLink(ec);
-        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? ed.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+        String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? ed.getUrl() : "")+ec.getType().get(0).getProfile()+")";
         write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+prefix+name+"\"> </a><b>"+title+"</b></td></tr>\r\n");
-        StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile());
+        StructureDefinition extDefn = page.getWorkerContext().getExtensionStructure(null, ec.getType().get(0).getProfile().get(0).getValue());
         if (extDefn == null)
           generateElementInner(ed, ec, 1, null);
         else { 
@@ -194,7 +194,10 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       tableRowNE("Type", "datatypes.html", describeTypes(d.getType()) + processSecondary(mode, value));
     if (d.getPath().endsWith("[x]"))
       tableRowNE("[x] Note", null, "See <a href=\""+prefix+"formats.html#choice\">Choice of Data Types</a> for further information about how to use [x]");
-    tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()));
+    if (d.getIsModifier())
+      tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()) + " (Reason: "+d.getIsModifierReason()+")");
+    else
+      tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()));
     tableRow("Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
     tableRowNE("Requirements",  null, page.processMarkdown(profile.getName(), d.getRequirements(), prefix));
     tableRowHint("Alternate Names", "Other names by which this resource/element may be known", null, describeAliases(d.getAlias()));
@@ -318,12 +321,12 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       boolean first = true;
       if (t.hasProfile()) {
         first = false;
-        addProfileReference(b, t.getProfile());
+        addProfileReference(b, t.getProfile().get(0).getValue());
       }
       if (t.hasTargetProfile()) {
         if (!first)
           b.append(", ");
-        addProfileReference(b, t.getTargetProfile());
+        addProfileReference(b, t.getTargetProfile().get(0).getValue());
       }
       if (!t.getAggregation().isEmpty()) {
         b.append(" : ");
@@ -462,7 +465,10 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		  tableRowNE("Type", "datatypes.html", type);
     if (path.endsWith("[x]"))
       tableRowNE("[x] Note", null, "See <a href=\""+prefix+"formats.html#choice\">Choice of Data Types</a> for further information about how to use [x]");
-		tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()));
+    if (e.isModifier())
+      tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()) + " (Reason: "+e.getModifierReason()+")");
+    else
+  		tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()));
     tableRowNE("Default Value", null, encodeValue(e.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, e.getMeaningWhenMissing());
     tableRowNE("Element Order Meaning", null, e.getOrderMeaning());

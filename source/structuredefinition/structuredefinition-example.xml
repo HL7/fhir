@@ -200,18 +200,10 @@
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-				<aggregation value="bundled"/>
-				<versioning value="either"/>
-			</type>
-			<type>
-				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-				<aggregation value="bundled"/>
-			</type>
-			<type>
-				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
 				<aggregation value="bundled"/>
+				<versioning value="either"/>
 			</type>
 			<isModifier value="false"/>
 		</element>

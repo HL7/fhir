@@ -1582,10 +1582,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         for (TypeRefComponent type : container.getType()) {
           if (!ok && type.getCode().equals("Reference")) {
             // we validate as much as we can. First, can we infer a type from the profile?
-            if (!type.hasTargetProfile() || type.getTargetProfile().equals("http://hl7.org/fhir/StructureDefinition/Resource"))
+            if (!type.hasTargetProfile() || type.hasTargetProfile("http://hl7.org/fhir/StructureDefinition/Resource"))
               ok = true;
-            else {
-              String pr = type.getTargetProfile();
+            else for (UriType u : type.getTargetProfile()) {              
+              String pr = u.getValue();
 
               String bt = getBaseType(profile, pr);
               StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + bt);
@@ -1609,6 +1609,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                 }
                 rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ok, "Reference is " + refType + " which isn't supported by the specified aggregation mode(s) for the reference");
               }
+              if (ok)
+                break;
             }
           }
           if (!ok && type.getCode().equals("*")) {
@@ -3334,7 +3336,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           type = ei.definition.getType().get(0).getCode();
           // Excluding reference is a kludge to get around versioning issues
           if (ei.definition.getType().get(0).hasProfile() && !type.equals("Reference"))
-            profiles.add(ei.definition.getType().get(0).getProfile());
+            profiles.add(ei.definition.getType().get(0).getProfile().get(0).getValue());
 
         } else if (ei.definition.getType().size() == 1 && ei.definition.getType().get(0).getCode().equals("*")) {
           String prefix = tail(ei.definition.getPath());
@@ -3344,7 +3346,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             type = Utilities.uncapitalize(type);
           // Excluding reference is a kludge to get around versioning issues
           if (ei.definition.getType().get(0).hasProfile() && !type.equals("Reference"))
-            profiles.add(ei.definition.getType().get(0).getProfile());
+            profiles.add(ei.definition.getType().get(0).getProfile().get(0).getValue());
         } else if (ei.definition.getType().size() > 1) {
 
           String prefix = tail(ei.definition.getPath());
@@ -3356,7 +3358,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               type = t.getCode();
               // Excluding reference is a kludge to get around versioning issues
               if (t.hasProfile() && !type.equals("Reference"))
-                profiles.add(t.getProfile());
+                profiles.add(t.getProfile().get(0).getValue());
             }
           if (type == null) {
             TypeRefComponent trc = ei.definition.getType().get(0);
@@ -3517,44 +3519,48 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       return;
 
     for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
-      if (inv.hasExpression()) {
-        ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
-        if (n == null) {
-          long t = System.nanoTime();
-          try {
-            n = fpe.parse(inv.getExpression());
-          } catch (FHIRLexerException e) {
-            throw new FHIRException("Problem processing expression "+inv.getExpression() +" in profile " + profile.getUrl() + " path " + path + ": " + e.getMessage());
-          }
-          fpeTime = fpeTime + (System.nanoTime() - t);
-          inv.setUserData("validator.expression.cache", n);
-        }
+      if (inv.hasExpression()) 
+        checkInvariant(hostContext, errors, path, profile, resource, element, inv);
+    }
+  }
 
-        String msg;
-        boolean ok;
-        try {
-          long t = System.nanoTime();
-          ok = fpe.evaluateToBoolean(hostContext, resource, element, n);
-          fpeTime = fpeTime + (System.nanoTime() - t);
-          msg = fpe.forLog();
-        } catch (Exception ex) {
-          ok = false;
-          msg = ex.getMessage(); 
-        }
-        if (!ok) {
-          try {
-            ok = fpe.evaluateToBoolean(hostContext, resource, element, n);
-          } catch (PathEngineException e) {
-            throw new FHIRException("Problem processing expression "+inv.getExpression() +" in profile " + profile.getUrl() + " path " + path + ": " + e.getMessage());
-          }
-          if (!Utilities.noString(msg))
-            msg = " ("+msg+")";
-          if (inv.getSeverity() == ConstraintSeverity.ERROR)
-            rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
-          else if (inv.getSeverity() == ConstraintSeverity.WARNING)
-            warning(errors, IssueType.INVARIANT, element.line(), element.line(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
-        }
+  public void checkInvariant(ValidatorHostContext hostContext, List<ValidationMessage> errors, String path, StructureDefinition profile, Element resource, Element element, ElementDefinitionConstraintComponent inv) throws FHIRException {
+    ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
+    if (n == null) {
+      long t = System.nanoTime();
+      try {
+        n = fpe.parse(inv.getExpression());
+      } catch (FHIRLexerException e) {
+        throw new FHIRException("Problem processing expression "+inv.getExpression() +" in profile " + profile.getUrl() + " path " + path + ": " + e.getMessage());
       }
+      fpeTime = fpeTime + (System.nanoTime() - t);
+      inv.setUserData("validator.expression.cache", n);
+    }
+
+    String msg;
+    boolean ok;
+    try {
+      long t = System.nanoTime();
+      ok = fpe.evaluateToBoolean(hostContext, resource, element, n);
+      fpeTime = fpeTime + (System.nanoTime() - t);
+      msg = fpe.forLog();
+    } catch (Exception ex) {
+      ok = false;
+      msg = ex.getMessage(); 
+    }
+    if (!ok) {
+      // GDG 18-feb 2018 - why do it again? just to waste cycles?
+//      try {
+//        ok = fpe.evaluateToBoolean(hostContext, resource, element, n);
+//      } catch (PathEngineException e) {
+//        throw new FHIRException("Problem processing expression "+inv.getExpression() +" in profile " + profile.getUrl() + " path " + path + ": " + e.getMessage());
+//      }
+      if (!Utilities.noString(msg))
+        msg = " ("+msg+")";
+      if (inv.getSeverity() == ConstraintSeverity.ERROR)
+        rule(errors, IssueType.INVARIANT, element.line(), element.col(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
+      else if (inv.getSeverity() == ConstraintSeverity.WARNING)
+        warning(errors, IssueType.INVARIANT, element.line(), element.line(), path, ok, inv.getHuman()+msg+" ["+inv.getExpression()+"]");
     }
   }
 

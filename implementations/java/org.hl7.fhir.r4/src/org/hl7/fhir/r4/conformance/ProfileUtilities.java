@@ -519,7 +519,7 @@ public class ProfileUtilities extends TranslatingUtilities {
         } else if (diffMatches.size() == 1 && (slicingDone || !(diffMatches.get(0).hasSlicing() || (isExtension(diffMatches.get(0)) && diffMatches.get(0).hasSliceName())))) {// one matching element in the differential
           ElementDefinition template = null;
           if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !diffMatches.get(0).getType().get(0).getCode().equals("Reference")) {
-            String p = diffMatches.get(0).getType().get(0).getProfile();
+            String p = diffMatches.get(0).getType().get(0).getProfile().get(0).getValue();
             StructureDefinition sd = context.fetchResource(StructureDefinition.class, p);
             if (sd != null) {
               if (!sd.hasSnapshot()) {
@@ -1050,7 +1050,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   private StructureDefinition getProfileForDataType(TypeRefComponent type)  {
     StructureDefinition sd = null;
     if (type.hasProfile()) {
-      sd = context.fetchResource(StructureDefinition.class, type.getProfile());
+      sd = context.fetchResource(StructureDefinition.class, type.getProfile().get(0).getValue());
       if (sd == null)
         System.out.println("Failed to find referenced profile: " + type.getProfile());
     }
@@ -1101,13 +1101,13 @@ public class ProfileUtilities extends TranslatingUtilities {
       if (defn.hasBinding() && defn.getBinding().getValueSet() instanceof Reference && ((Reference)defn.getBinding().getValueSet()).getReference().startsWith("#"))
         ((Reference)defn.getBinding().getValueSet()).setReference(url+((Reference)defn.getBinding().getValueSet()).getReference());
       for (TypeRefComponent t : defn.getType()) {
-        if (t.hasProfile()) {
-          if (t.getProfile().startsWith("#"))
-            t.setProfile(url+t.getProfile());
+        for (UriType u : t.getProfile()) {
+          if (u.getValue().startsWith("#"))
+            u.setValue(url+t.getProfile());
         }
-        if (t.hasTargetProfile()) {
-          if (t.getTargetProfile().startsWith("#"))
-            t.setTargetProfile(url+t.getTargetProfile());
+        for (UriType u : t.getTargetProfile()) {
+          if (u.getValue().startsWith("#"))
+            u.setValue(url+t.getTargetProfile());
         }
       }
     }
@@ -1265,7 +1265,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     // Before applying changes, apply them to what's in the profile
     // TODO: follow Chris's rules
     if (base.hasSliceName()) {
-      StructureDefinition profile = source.getType().size() == 1 && source.getTypeFirstRep().hasProfile() ? context.fetchResource(StructureDefinition.class, source.getTypeFirstRep().getProfile()) : null;
+      StructureDefinition profile = source.getType().size() == 1 && source.getTypeFirstRep().hasProfile() ? context.fetchResource(StructureDefinition.class, source.getTypeFirstRep().getProfile().get(0).getValue()) : null;
       if (profile != null) {
         ElementDefinition e = profile.getSnapshot().getElement().get(0);
         base.setDefinition(e.getDefinition());
@@ -1444,6 +1444,12 @@ public class ProfileUtilities extends TranslatingUtilities {
           derived.setIsModifierElement(null);
         else if (derived.hasIsModifierElement())
           derived.getIsModifierElement().setUserData(DERIVATION_EQUALS, true);
+        if (derived.hasIsModifierReasonElement() && !(base.hasIsModifierReasonElement() && Base.compareDeep(derived.getIsModifierReasonElement(), base.getIsModifierReasonElement(), false)))
+          base.setIsModifierReasonElement(derived.getIsModifierReasonElement().copy());
+        else if (trimDifferential)
+          derived.setIsModifierReasonElement(null);
+        else if (derived.hasIsModifierReasonElement())
+          derived.getIsModifierReasonElement().setUserData(DERIVATION_EQUALS, true);
       }
 
       if (derived.hasBinding()) {
@@ -1868,47 +1874,32 @@ public class ProfileUtilities extends TranslatingUtilities {
           c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
           c.getPieces().add(gen.new Piece(null, "(", null));
         }
-        if (t.hasTargetProfile() && t.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getTargetProfile());
-          if (sd != null) {
-            String disp = sd.hasTitle() ? sd.getTitle() : sd.getName();
-            c.addPiece(checkForNoChange(t, gen.new Piece(checkPrepend(corePath, sd.getUserString("path")), disp, null)));
-          } else {
-            String rn = t.getTargetProfile().substring(40);
-            c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, rn), rn, null)));
-          }
-        } else if (t.hasTargetProfile() && Utilities.isAbsoluteUrl(t.getTargetProfile())) {
-          StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getTargetProfile());
-          if (sd != null) {
-            String disp = sd.hasTitle() ? sd.getTitle() : sd.getName();
-            String ref = pkp.getLinkForProfile(null, sd.getUrl());
-            if (ref.contains("|"))
-              ref = ref.substring(0,  ref.indexOf("|"));
-            c.addPiece(checkForNoChange(t, gen.new Piece(ref, disp, null)));
-          } else
-            c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getTargetProfile(), null)));
-        } else if (t.hasTargetProfile() && t.getTargetProfile().startsWith("#"))
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+t.getTargetProfile().substring(1).toLowerCase()+".html", t.getTargetProfile(), null)));
-        else if (t.hasTargetProfile())
-          c.addPiece(checkForNoChange(t, gen.new Piece(corePath+t.getTargetProfile(), t.getTargetProfile(), null)));
-        if (!allReference) {
-          c.getPieces().add(gen.new Piece(null, ")", null));
-          if (t.getAggregation().size() > 0) {
-            c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", " {", null));
-            boolean firstA = true;
-            for (Enumeration<AggregationMode> a : t.getAggregation()) {
-              if (firstA = true)
-                firstA = false;
-              else
-                c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", ", ", null));
-              c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", codeForAggregation(a.getValue()), null));
+        for (UriType u : t.getTargetProfile()) {
+          if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+            StructureDefinition sd = context.fetchResource(StructureDefinition.class, u.getValue());
+            if (sd != null) {
+              String disp = sd.hasTitle() ? sd.getTitle() : sd.getName();
+              c.addPiece(checkForNoChange(t, gen.new Piece(checkPrepend(corePath, sd.getUserString("path")), disp, null)));
+            } else {
+              String rn = u.getValue().substring(40);
+              c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, rn), rn, null)));
             }
-            c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", "}", null));
-          }
+          } else if (Utilities.isAbsoluteUrl(u.getValue())) {
+            StructureDefinition sd = context.fetchResource(StructureDefinition.class, u.getValue());
+            if (sd != null) {
+              String disp = sd.hasTitle() ? sd.getTitle() : sd.getName();
+              String ref = pkp.getLinkForProfile(null, sd.getUrl());
+              if (ref.contains("|"))
+                ref = ref.substring(0,  ref.indexOf("|"));
+              c.addPiece(checkForNoChange(t, gen.new Piece(ref, disp, null)));
+            } else
+              c.addPiece(checkForNoChange(t, gen.new Piece(null, u.getValue(), null)));        
+          } else if (t.hasTargetProfile() && u.getValue().startsWith("#"))
+            c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+u.getValue().substring(1).toLowerCase()+".html", u.getValue(), null)));
         }
       } else if (t.hasProfile() && (!t.getCode().equals("Extension") || t.getProfile().contains(":"))) { // a profiled type
         String ref;
-        ref = pkp.getLinkForProfile(profile, t.getProfile());
+        ref = pkp.getLinkForProfile(profile, t.getProfile().get(0).getValue());
         if (ref != null) {
           String[] parts = ref.split("\\|");
           if (parts[0].startsWith("http:") || parts[0].startsWith("https:")) {
@@ -1916,10 +1907,10 @@ public class ProfileUtilities extends TranslatingUtilities {
             c.addPiece(checkForNoChange(t, gen.new Piece(parts[0], parts[1], t.getCode())));
           } else {
 //            c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+parts[0], "<" + parts[1] + ">", t.getCode())));
-            c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+parts[0], parts[1], t.getCode())));
+            c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().get(0).getValue().startsWith(corePath)? corePath: "")+parts[0], parts[1], t.getCode())));
           }
         } else
-          c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().startsWith(corePath)? corePath: "")+ref, t.getCode(), null)));
+          c.addPiece(checkForNoChange(t, gen.new Piece((t.getProfile().get(0).getValue().startsWith(corePath)? corePath: "")+ref, t.getCode(), null)));
       } else if (pkp.hasLinkFor(t.getCode())) {
         c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, t.getCode()), t.getCode(), null)));
       } else
@@ -2120,13 +2111,13 @@ public class ProfileUtilities extends TranslatingUtilities {
       boolean hasDef = element != null;
       boolean ext = false;
       if (s.equals("extension")) {
-        if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(element.getType().get(0).getProfile()))
+        if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(element.getType().get(0).getProfile().get(0).getValue()))
           row.setIcon("icon_extension_complex.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
         else
           row.setIcon("icon_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
         ext = true;
       } else if (s.equals("modifierExtension")) {
-        if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(element.getType().get(0).getProfile()))
+        if (element.hasType() && element.getType().get(0).hasProfile() && extensionIsComplex(element.getType().get(0).getProfile().get(0).getValue()))
           row.setIcon("icon_modifier_extension_complex.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_COMPLEX);
         else
           row.setIcon("icon_modifier_extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);
@@ -2166,13 +2157,14 @@ public class ProfileUtilities extends TranslatingUtilities {
       ExtensionContext extDefn = null;
       if (ext) {
         if (element != null && element.getType().size() == 1 && element.getType().get(0).hasProfile()) {
-        extDefn = locateExtension(StructureDefinition.class, element.getType().get(0).getProfile());
+          String eurl = element.getType().get(0).getProfile().get(0).getValue();
+          extDefn = locateExtension(StructureDefinition.class, eurl);
           if (extDefn == null) {
             genCardinality(gen, element, row, hasDef, used, null);
             row.getCells().add(gen.new Cell(null, null, "?? "+element.getType().get(0).getProfile(), null, null));
-            generateDescription(gen, row, element, null, used.used, profile.getUrl(), element.getType().get(0).getProfile(), profile, corePath, imagePath, root, logicalModel, allInvariants);
+            generateDescription(gen, row, element, null, used.used, profile.getUrl(), eurl, profile, corePath, imagePath, root, logicalModel, allInvariants);
           } else {
-            String name = urltail(element.getType().get(0).getProfile());
+            String name = urltail(eurl);
             left.getPieces().get(0).setText(name);
             // left.getPieces().get(0).setReference((String) extDefn.getExtensionStructure().getTag("filename"));
             left.getPieces().get(0).setHint(translate("sd.table", "Extension URL")+" = "+extDefn.getUrl());
@@ -2980,7 +2972,7 @@ public class ProfileUtilities extends TranslatingUtilities {
         if (ed.getType().isEmpty() || isAbstract(ed.getType().get(0).getCode()) || ed.getType().get(0).getCode().equals(ed.getPath())) {
           ccmp = new ElementDefinitionComparer(true, cmp.snapshot, cmp.base, cmp.prefixLength, cmp.name);
         } else if (ed.getType().get(0).getCode().equals("Extension") && child.getSelf().getType().size() == 1 && child.getSelf().getType().get(0).hasProfile()) {
-          StructureDefinition profile = context.fetchResource(StructureDefinition.class, child.getSelf().getType().get(0).getProfile());
+          StructureDefinition profile = context.fetchResource(StructureDefinition.class, child.getSelf().getType().get(0).getProfile().get(0).getValue());
           if (profile==null)
             ccmp = null; // this might happen before everything is loaded. And we don't so much care about sot order in this case
           else
@@ -3136,7 +3128,7 @@ public class ProfileUtilities extends TranslatingUtilities {
         return new Slicer(false);
       else {
       Slicer s = new Slicer(true);
-      String url = (ued == null || !ued.hasFixed()) ? child.getType().get(0).getProfile() : ((UriType) ued.getFixed()).asStringValue();
+      String url = (ued == null || !ued.hasFixed()) ? child.getType().get(0).getProfile().get(0).getValue() : ((UriType) ued.getFixed()).asStringValue();
       s.name = " with URL = '"+url+"'";
       s.criteria = "[@url = '"+url+"']";
       return s;
@@ -3684,10 +3676,11 @@ public class ProfileUtilities extends TranslatingUtilities {
     List<String> res = new ArrayList<String>();
     for (TypeRefComponent tr : ed.getType()) {
       // code is null if we're dealing with "value" and profile is null if we just have Reference()
-      if (tr.getCode()!= null && "Reference".equals(tr.getCode()) && tr.getTargetProfile() != null)
-        res.add(tr.getTargetProfile());
+      if (tr.getCode()!= null && "Reference".equals(tr.getCode()) && tr.hasTargetProfile())
+        for (UriType u : tr.getTargetProfile())
+          res.add(u.getValue());
     }
-    return res ;
+    return res;
   }
 
 

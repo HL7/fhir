@@ -2199,7 +2199,7 @@ public class StructureMapUtilities {
           throw new Error("Rule \""+ruleId+"\": Element has no type");
         ProfiledType pt = new ProfiledType(tr.getCode());
         if (tr.hasProfile())
-          pt.addProfile(tr.getProfile());
+          pt.addProfiles(tr.getProfile());
         if (element.getDefinition().hasBinding())
           pt.addBinding(element.getDefinition().getBinding());
         type.addType(pt);
@@ -2439,11 +2439,11 @@ public class StructureMapUtilities {
             if (pt.hasProfiles()) {
               for (String p : pt.getProfiles())
                 if (t.equals("Reference"))
-                  ednew.addType().setCode(t).setTargetProfile(p);
+                  ednew.getType(t).addTargetProfile(p);
                 else
-                  ednew.addType().setCode(t).setProfile(p);
+                  ednew.getType(t).addProfile(p);
             } else 
-            ednew.addType().setCode(t);
+            ednew.getType(t);
       }
         }
       }
@@ -2464,8 +2464,8 @@ public class StructureMapUtilities {
     throw new FHIRException("The type "+t+" is not compatible with the allowed types for "+pvb.getDefinition().getPath());
   }
 
-  private boolean profilesMatch(List<String> profiles, String profile) {
-    return profiles == null || profiles.size() == 0 || (profiles.size() == 1 && profiles.get(0).equals(profile));
+  private boolean profilesMatch(List<String> profiles, List<UriType> profile) {
+    return profiles == null || profiles.size() == 0 || (profiles.size() == 1 && profiles.get(0).equals(profile.get(0).getValue()));
   }
 
   private boolean isCompatibleType(String t, String code) {

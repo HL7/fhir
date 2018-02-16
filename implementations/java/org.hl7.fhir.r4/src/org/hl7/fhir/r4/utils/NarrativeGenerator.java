@@ -1031,7 +1031,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       ResurceWrapperMetaElement resw = new ResurceWrapperMetaElement(er);
       BaseWrapperMetaElement base = new BaseWrapperMetaElement(er, null, er.getProperty().getStructure(), er.getProperty().getDefinition());
       base.children();
-      generateByProfile(resw, er.getProperty().getStructure(), base, er.getProperty().getStructure().getSnapshot().getElement(), er.getProperty().getDefinition(), base.children, x, er.fhirType(), showCodeDetails);
+      generateByProfile(resw, er.getProperty().getStructure(), base, er.getProperty().getStructure().getSnapshot().getElement(), er.getProperty().getDefinition(), base.children, x, er.fhirType(), showCodeDetails, 0);
 
     } catch (Exception e) {
       e.printStackTrace();
@@ -1064,24 +1064,25 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.para().b().setAttribute("style", "color: maroon").tx("Exception generating Narrative: "+e.getMessage());
     }
     inject(er, x,  NarrativeStatus.GENERATED);
-    return new XhtmlComposer(XhtmlComposer.XML, pretty).compose(x);
+    String b = new XhtmlComposer(XhtmlComposer.XML, pretty).compose(x);
+    return b;
   }
 
   private void generateByProfile(Element eres, StructureDefinition profile, Element ee, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws FHIRException, UnsupportedEncodingException, IOException {
 
     ResurceWrapperElement resw = new ResurceWrapperElement(eres, profile);
     BaseWrapperElement base = new BaseWrapperElement(ee, null, profile, profile.getSnapshot().getElement().get(0));
-    generateByProfile(resw, profile, base, allElements, defn, children, x, path, showCodeDetails);
+    generateByProfile(resw, profile, base, allElements, defn, children, x, path, showCodeDetails, 0);
   }
 
 
   private void generateByProfile(Resource res, StructureDefinition profile, Base e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws FHIRException, UnsupportedEncodingException, IOException {
-    generateByProfile(new ResourceWrapperDirect(res), profile, new BaseWrapperDirect(e), allElements, defn, children, x, path, showCodeDetails);
+    generateByProfile(new ResourceWrapperDirect(res), profile, new BaseWrapperDirect(e), allElements, defn, children, x, path, showCodeDetails, 0);
   }
 
-  private void generateByProfile(ResourceWrapper res, StructureDefinition profile, BaseWrapper e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws FHIRException, UnsupportedEncodingException, IOException {
+  private void generateByProfile(ResourceWrapper res, StructureDefinition profile, BaseWrapper e, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails, int indent) throws FHIRException, UnsupportedEncodingException, IOException {
     if (children.isEmpty()) {
-      renderLeaf(res, e, defn, x, false, showCodeDetails, readDisplayHints(defn), path);
+      renderLeaf(res, e, defn, x, false, showCodeDetails, readDisplayHints(defn), path, indent);
     } else {
       for (PropertyWrapper p : splitExtensions(profile, e.children())) {
         if (p.hasValues()) {
@@ -1103,7 +1104,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
                     if (renderAsList(child) && p.getValues().size() > 1) {
                       XhtmlNode list = x.ul();
                       for (BaseWrapper v : p.getValues())
-                        renderLeaf(res, v, child, list.li(), false, showCodeDetails, displayHints, path);
+                        renderLeaf(res, v, child, list.li(), false, showCodeDetails, displayHints, path, indent);
                     } else {
                       boolean first = true;
                       for (BaseWrapper v : p.getValues()) {
@@ -1111,7 +1112,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
                           first = false;
                         else
                           para.tx(", ");
-                        renderLeaf(res, v, child, para, false, showCodeDetails, displayHints, path);
+                        renderLeaf(res, v, child, para, false, showCodeDetails, displayHints, path, indent);
                       }
                     }
                   }
@@ -1125,7 +1126,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
                     if (v != null) {
                       tr = tbl.tr();
                       tr.td().tx("*"); // work around problem with empty table rows
-                      addColumnValues(res, tr, grandChildren, v, showCodeDetails, displayHints, path);
+                      addColumnValues(res, tr, grandChildren, v, showCodeDetails, displayHints, path, indent);
                     }
                   }
                 } else {
@@ -1133,7 +1134,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
                     if (v != null) {
                       XhtmlNode bq = x.addTag("blockquote");
                       bq.para().b().addText(p.getName());
-                      generateByProfile(res, profile, v, allElements, child, grandChildren, bq, path+"."+p.getName(), showCodeDetails);
+                      generateByProfile(res, profile, v, allElements, child, grandChildren, bq, path+"."+p.getName(), showCodeDetails, indent+1);
                     }
                   }
                 }
@@ -1245,13 +1246,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
       tr.td().b().addText(Utilities.capitalize(tail(e.getPath())));
   }
 
-  private void addColumnValues(ResourceWrapper res, XhtmlNode tr, List<ElementDefinition> grandChildren, BaseWrapper v, boolean showCodeDetails, Map<String, String> displayHints, String path) throws FHIRException, UnsupportedEncodingException, IOException {
+  private void addColumnValues(ResourceWrapper res, XhtmlNode tr, List<ElementDefinition> grandChildren, BaseWrapper v, boolean showCodeDetails, Map<String, String> displayHints, String path, int indent) throws FHIRException, UnsupportedEncodingException, IOException {
     for (ElementDefinition e : grandChildren) {
       PropertyWrapper p = v.getChildByName(e.getPath().substring(e.getPath().lastIndexOf(".")+1));
       if (p == null || p.getValues().size() == 0 || p.getValues().get(0) == null)
         tr.td().tx(" ");
       else
-        renderLeaf(res, p.getValues().get(0), e, tr.td(), false, showCodeDetails, displayHints, path);
+        renderLeaf(res, p.getValues().get(0), e, tr.td(), false, showCodeDetails, displayHints, path, indent);
     }
   }
 
@@ -1307,7 +1308,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private void renderLeaf(ResourceWrapper res, BaseWrapper ew, ElementDefinition defn, XhtmlNode x, boolean title, boolean showCodeDetails, Map<String, String> displayHints, String path) throws FHIRException, UnsupportedEncodingException, IOException {
+  private void renderLeaf(ResourceWrapper res, BaseWrapper ew, ElementDefinition defn, XhtmlNode x, boolean title, boolean showCodeDetails, Map<String, String> displayHints, String path, int indent) throws FHIRException, UnsupportedEncodingException, IOException {
     if (ew == null)
       return;
 
@@ -1407,7 +1408,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         throw new NotImplementedException("type "+e.getClass().getName()+" not handled yet, and no structure found");
       else
         generateByProfile(res, sd, ew, sd.getSnapshot().getElement(), sd.getSnapshot().getElementFirstRep(),
-            getChildrenForPath(sd.getSnapshot().getElement(), sd.getSnapshot().getElementFirstRep().getPath()), x, path, showCodeDetails);
+            getChildrenForPath(sd.getSnapshot().getElement(), sd.getSnapshot().getElementFirstRep().getPath()), x, path, showCodeDetails, indent + 1);
     }
   }
 

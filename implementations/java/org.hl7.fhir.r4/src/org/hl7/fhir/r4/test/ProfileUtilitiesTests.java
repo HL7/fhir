@@ -212,12 +212,11 @@ public class ProfileUtilitiesTests {
     if (TestingUtilities.context == null)
       TestingUtilities.context = SimpleWorkerContext.fromPack(Utilities.path(TestingUtilities.home(), "publish", "definitions.xml.zip"));
 
-    StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = TestingUtilities.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/ValueSet").copy();
+    StructureDefinition focus = base.copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBaseDefinition(base.getUrl());
-    focus.setType(base.getType());
-    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
+    focus.setSnapshot(null);
+    focus.setDifferential(null);
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
     new ProfileUtilities(TestingUtilities.context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
@@ -226,10 +225,11 @@ public class ProfileUtilitiesTests {
       if (ok) {
         ElementDefinition b = base.getSnapshot().getElement().get(i);
         ElementDefinition f = focus.getSnapshot().getElement().get(i);
-        if (!f.hasBase() || !b.getPath().equals(f.getBase().getPath())) 
+        if (!f.hasBase() || !b.getPath().equals(f.getPath())) 
           ok = false;
         else {
           f.setBase(null);
+          b.setBase(null);
           ok = Base.compareDeep(b, f, true);
         }
       }
@@ -237,6 +237,7 @@ public class ProfileUtilitiesTests {
     
     if (!ok) {
       compareXml(base, focus);
+      System.out.println("Snap shot generation simple test failed");
       throw new FHIRException("Snap shot generation simple test failed");
     } else 
       System.out.println("Snap shot generation simple test passed");

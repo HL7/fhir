@@ -463,4 +463,15 @@ public class ToolingExtensions {
       }
     }
   }
+  
+
+  public static void setStringExtension(Element element, String uri, String value) {
+    Extension ext = getExtension(element, uri);
+    if (ext != null)
+      ext.setValue(new StringType(value));
+    else
+      element.getExtension().add(new Extension(new UriType(uri)).setValue(new StringType(value)));
+  }
+
+
 }

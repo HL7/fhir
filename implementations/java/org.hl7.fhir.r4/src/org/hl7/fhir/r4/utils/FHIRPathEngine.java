@@ -507,6 +507,8 @@ public class FHIRPathEngine {
       return false;
     else if (items.size() == 1 && items.get(0) instanceof BooleanType)
       return ((BooleanType) items.get(0)).getValue();
+    else if (items.size() == 1 && items.get(0).isBooleanPrimitive()) // element model
+      return Boolean.valueOf(items.get(0).primitiveValue());
     else 
       return items.size() > 0;
   }
@@ -2835,7 +2837,7 @@ public class FHIRPathEngine {
                 pt = new ProfiledType(t.getCode());
               if (pt != null) {
                 if (t.hasProfile())
-                  pt.addProfile(t.getProfile());
+                  pt.addProfiles(t.getProfile());
                 if (ed.getDefinition().hasBinding())
                   pt.addBinding(ed.getDefinition().getBinding());
                 result.addType(pt);
@@ -2955,9 +2957,11 @@ public class FHIRPathEngine {
           throw new DefinitionException("illegal use of resolve() in discriminator - no type on element "+element.getId());
         if (element.getType().size() > 1)
           throw new DefinitionException("illegal use of resolve() in discriminator - Multiple possible types on "+element.getId());
+        if (element.getType().get(0).getTargetProfile().size() > 1)
+          throw new DefinitionException("illegal use of resolve() in discriminator - Multiple possible target type profiles on "+element.getId());
         if (!"Reference".equals(element.getType().get(0).getCode()))
           throw new DefinitionException("illegal use of resolve() in discriminator - type on "+element.getId()+" is not Reference ("+element.getType().get(0).getCode()+")");
-        sd = worker.fetchResource(StructureDefinition.class, element.getType().get(0).getTargetProfile());
+        sd = worker.fetchResource(StructureDefinition.class, element.getType().get(0).getTargetProfile().get(0).getValue());
         if (sd == null)
           throw new DefinitionException("Problem with use of resolve() - profile '"+element.getType().get(0).getTargetProfile()+"' on "+element.getId()+" could not be resolved");
         focus = sd.getSnapshot().getElementFirstRep();
@@ -2967,7 +2971,7 @@ public class FHIRPathEngine {
         List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(sd, element);
         for (ElementDefinition t : childDefinitions) {
           if (t.getPath().endsWith(".extension") && t.hasSliceName()) {
-           sd = worker.fetchResource(StructureDefinition.class, t.getType().get(0).getProfile());
+           sd = worker.fetchResource(StructureDefinition.class, t.getType().get(0).getProfile().get(0).getValue());
            while (sd!=null && !sd.getBaseDefinition().equals("http://hl7.org/fhir/StructureDefinition/Extension"))
              sd = worker.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
            if (sd.getUrl().equals(targetUrl)) {
@@ -2997,10 +3001,12 @@ public class FHIRPathEngine {
       throw new DefinitionException("Error in discriminator at "+ed.getId()+": no children, no type");
     if (ed.getType().size() > 1)
       throw new DefinitionException("Error in discriminator at "+ed.getId()+": no children, multiple types");
+    if (ed.getType().get(0).getProfile().size() > 1)
+      throw new DefinitionException("Error in discriminator at "+ed.getId()+": no children, multiple type profiles");
     if (ed.hasSlicing()) 
       throw new DefinitionException("Error in discriminator at "+ed.getId()+": slicing found");
     if (ed.getType().get(0).hasProfile()) 
-      return worker.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile());
+      return worker.fetchResource(StructureDefinition.class, ed.getType().get(0).getProfile().get(0).getValue());
     else
       return worker.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + ed.getType().get(0).getCode());
   }

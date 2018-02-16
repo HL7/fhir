@@ -113,16 +113,16 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             fixeds++;
 
           for (TypeRefComponent t : ed.getType()) {
-            if (t.hasProfile() && !igp.isDatatype(t.getProfile().substring(40))) {
+            if (t.hasProfile() && !igp.isDatatype(t.getProfile().get(0).getValue().substring(40))) {
               if (ed.getPath().endsWith(".extension"))
                 tryAdd(ext, summariseExtension(t.getProfile(), false, prefix));
               else if (ed.getPath().endsWith(".modifierExtension"))
                 tryAdd(ext, summariseExtension(t.getProfile(), true, prefix));
               else
-                tryAdd(refs, describeProfile(t.getProfile(), prefix));
+                tryAdd(refs, describeProfile(t.getProfile().get(0).getValue(), prefix));
             } 
             if (t.hasTargetProfile()) {
-              tryAdd(refs, describeProfile(t.getTargetProfile(), prefix));
+              tryAdd(refs, describeProfile(t.getTargetProfile().get(0).getValue(), prefix));
             } 
           }
 
@@ -244,7 +244,10 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       ext.add(s);
   }
 
-  private String summariseExtension(String url, boolean modifier, String prefix) throws Exception {
+  private String summariseExtension(List<UriType> profiles, boolean modifier, String prefix) throws Exception {
+    if (profiles.size() != 1)
+      throw new Exception("Multiple profiles are not supported at this time (#1)");
+    String url = profiles.get(0).getValue();
     StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
     if (ed == null)
       return "<li>"+translate("sd.summary", "Unable to summarise extension %s (no extension found)", url)+"</li>";
@@ -454,14 +457,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     for (ElementDefinition ec : sd.getSnapshot().getElement()) {
       if (incProfiledOut || !"0".equals(ec.getMax())) {
         if (isProfiledExtension(ec)) {
-          StructureDefinition extDefn = context.fetchResource(StructureDefinition.class, ec.getType().get(0).getProfile());
+          StructureDefinition extDefn = context.fetchResource(StructureDefinition.class, ec.getType().get(0).getProfile().get(0).getValue());
           if (extDefn == null) {
-            String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+")";
+            String title = ec.getPath() + " ("+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+")";
             b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a><b>"+title+"</b></td></tr>\r\n");
             generateElementInner(b, sd,  ec, 1, null);
           } else {
             String title = ec.getPath() + " (<a href=\""+(extDefn.hasUserData("path") ? extDefn.getUserData("path") : "extension-"+extDefn.getId().toLowerCase()+".html")+
-                "\">"+(ec.getType().get(0).getProfile().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
+                "\">"+(ec.getType().get(0).getProfile().get(0).getValue().startsWith("#") ? sd.getUrl() : "")+ec.getType().get(0).getProfile()+"</a>)";
             b.append("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+ec.getId()+"\"> </a>");
             if (ec.getId().endsWith("[x]")) {
               Set<String> tl = new HashSet<String>();
@@ -709,7 +712,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
     if (t.hasProfile()) {
       b.append("(");
-      StructureDefinition p = context.fetchResource(StructureDefinition.class, t.getProfile());
+      StructureDefinition p = context.fetchResource(StructureDefinition.class, t.getProfile().get(0).getValue());
       if (p == null)
         b.append(t.getProfile());
       else {
@@ -722,7 +725,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
     if (t.hasTargetProfile()) {
       b.append("(");
-      StructureDefinition p = context.fetchResource(StructureDefinition.class, t.getTargetProfile());
+      StructureDefinition p = context.fetchResource(StructureDefinition.class, t.getTargetProfile().get(0).getValue());
       if (p == null)
         b.append(t.getTargetProfile());
       else {
@@ -1172,15 +1175,15 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       b.append("{");
       b.append("<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
       if (type.hasProfile()) {
-        StructureDefinition tsd = context.fetchResource(StructureDefinition.class, type.getProfile());
+        StructureDefinition tsd = context.fetchResource(StructureDefinition.class, type.getProfile().get(0).getValue());
         if (tsd != null)
           b.append(" (as <span style=\"color: darkgreen\"><a href=\"" + tsd.getUserString("path")+ "#"+tsd.getType() + "\">" + tsd.getName()+ "</a></span>)");
         else 
           b.append(" (as <span style=\"color: darkgreen\">"+type.getProfile()+ "</span>)");
       }
       if (type.hasTargetProfile()) {
-        if (type.getTargetProfile().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-          String t = type.getTargetProfile().substring(40);
+        if (type.getTargetProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+          String t = type.getTargetProfile().get(0).getValue().substring(40);
           if (hasType(t))
             b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(t)+ "#" + t) + "\">" + t+ "</a></span>)");
           else if (hasResource(t))
@@ -1349,7 +1352,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     List<ElementDefinition> slices = getSlices(elem, children);
     int c = 0;
     for (ElementDefinition slice : slices) {
-      String url = slice.getTypeFirstRep().getProfile();
+      String url = slice.getTypeFirstRep().getProfile().get(0).getValue();
       StructureDefinition sdExt = url == null ? null : context.fetchResource(StructureDefinition.class, url);
       b.append(indentS+"  ");
       b.append("{ // <span style=\"color: navy; opacity: 0.8\">");

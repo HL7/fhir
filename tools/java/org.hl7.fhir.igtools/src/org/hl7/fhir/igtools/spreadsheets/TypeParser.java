@@ -151,26 +151,22 @@ public class TypeParser {
           throw new Exception("Cannot declare profile on a resource reference declaring multiple resource types.  Path " + path);
         }
         if (t.getProfile() != null) {
-          TypeRefComponent childType = new TypeRefComponent();
-          childType.setCode(t.getName());
+          TypeRefComponent childType = getTypeComponent(list, t.getName());
           if (t.getVersioning() != null)
             childType.setVersioning(t.getVersioning());
           if (t.getName().equals("Reference"))
-            childType.setTargetProfile(t.getProfile());
+            childType.addTargetProfile(t.getProfile());
           else
-            childType.setProfile(t.getProfile());
-          list.add(childType);
+            childType.addProfile(t.getProfile());
         } else          
           for(String param : t.getParams()) {
-            TypeRefComponent childType = new TypeRefComponent();
+            TypeRefComponent childType = getTypeComponent(list, t.getName());
             if (t.getVersioning() != null)
               childType.setVersioning(t.getVersioning());
-            childType.setCode(t.getName());
             if (t.getName().equals("Reference"))
-              childType.setTargetProfile("http://hl7.org/fhir/StructureDefinition/"+param);
+              childType.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+param);
             else
-              childType.setProfile("http://hl7.org/fhir/StructureDefinition/"+param);
-            list.add(childType);
+              childType.addProfile("http://hl7.org/fhir/StructureDefinition/"+param);
           }
       } else if (t.isWildcardType()) {
         // this list is filled out manually because it may be running before the types referred to have been loaded
@@ -181,16 +177,14 @@ public class TypeParser {
           list.add(tc);
         }
       } else if (Utilities.noString(t.getName()) && t.getProfile() != null) {
-        TypeRefComponent tc = new TypeRefComponent();
+        StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile());
+        TypeRefComponent tc = getTypeComponent(list, sd != null ? sd.getType() : t.getName());
         if (t.getVersioning() != null)
           tc.setVersioning(t.getVersioning());
         if (t.getName().equals("Reference"))
-          tc.setTargetProfile(t.getProfile());
+          tc.addTargetProfile(t.getProfile());
         else  
-          tc.setProfile(t.getProfile());
-        StructureDefinition sd = context.fetchResource(StructureDefinition.class, t.getProfile());
-        if (sd != null)
-          tc.setCode(sd.getType());
+          tc.addProfile(t.getProfile());
         list.add(tc);
       } else if (t.getName().startsWith("=")){
         if (resource)
@@ -202,17 +196,26 @@ public class TypeParser {
         StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t.getName());
         if (sd == null)
           throw new Exception("Unknown type '"+t.getName()+"'");
-        TypeRefComponent tc = new TypeRefComponent().setCode(sd.getType());
+        TypeRefComponent tc = getTypeComponent(list, sd.getType());
         if (t.getVersioning() != null)
           tc.setVersioning(t.getVersioning());
-        list.add(tc);
         if (t.getName().equals("Reference"))
-          tc.setTargetProfile(t.getProfile());
+          tc.addTargetProfile(t.getProfile());
         else  
-          tc.setProfile(t.getProfile());
+          tc.addProfile(t.getProfile());
       }
     }    
     return list;
+  }
+
+  private TypeRefComponent getTypeComponent(List<TypeRefComponent> list, String name) {
+    for (TypeRefComponent tr : list) 
+      if (tr.getCode().equals(name))
+        return tr;
+    TypeRefComponent tr = new TypeRefComponent();
+    tr.setCode(name);
+    list.add(tr);
+    return tr;
   }
 
   public static List<String> wildcardTypes() {

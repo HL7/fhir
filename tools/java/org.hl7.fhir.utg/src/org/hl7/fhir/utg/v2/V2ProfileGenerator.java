@@ -270,7 +270,7 @@ public class V2ProfileGenerator {
         ed.setMin(0);
       ed.setDefinition(comp.desc);
       ed.addExtension().setUrl("http://hl7.org/fhir/v2/StructureDefinition/req-opt").setValue(new CodeType(comp.conf));
-      ed.addType().setProfile("http://hl7.org/fhir/v2/StructureDefinition/"+(comp.profile == null ? comp.type : comp.profile));
+      ed.addType().addProfile("http://hl7.org/fhir/v2/StructureDefinition/"+(comp.profile == null ? comp.type : comp.profile));
       if (comp.tbl > 0) {
         ed.getBinding().setStrength("CNE".equals(comp.type) || "ID".equals(comp.type)  ? BindingStrength.REQUIRED : BindingStrength.EXTENSIBLE); 
         ed.getBinding().setValueSet(new UriType("http://hl7.org/fhir/ValueSet/v2-"+Utilities.padLeft(Integer.toString(comp.tbl), '0', 4)));
@@ -344,7 +344,7 @@ public class V2ProfileGenerator {
       ed = sd.getDifferential().addElement();
       ed.setPath("Segment.element.field");
       ed.setId("Segment:"+segment.code+".element.field");
-      ed.addType().setProfile("http://hl7.org/fhir/v2/StructureDefinition/"+sde.element.type);
+      ed.addType().addProfile("http://hl7.org/fhir/v2/StructureDefinition/"+sde.element.type);
       if (sde.element.tbl > 0) {
         ed.getBinding().setStrength("CNE".equals(sde.element.type) || "ID".equals(sde.element.type)  ? BindingStrength.REQUIRED : BindingStrength.EXTENSIBLE); 
         ed.getBinding().setValueSet(new UriType("http://hl7.org/fhir/ValueSet/v2-"+Utilities.padLeft(Integer.toString(sde.element.tbl), '0', 4)));

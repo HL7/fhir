@@ -6480,7 +6480,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       boolean refers  = false;
       for (ElementDefinition ed : sd.getSnapshot().getElement()) {
         for (TypeRefComponent tr : ed.getType()) {
-          if (tr.hasTargetProfile() && tr.getTargetProfile().endsWith("/"+resource.getName()))
+          for (UriType u : tr.getTargetProfile())
+            if (u.getValue().endsWith("/"+resource.getName()))
               refers = true;
         }
         if (refers)
@@ -6513,7 +6514,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       boolean refers  = false;
       for (ElementDefinition ed : sd.getSnapshot().getElement()) {
         for (TypeRefComponent tr : ed.getType()) {
-          if (tr.hasTargetProfile() && (tr.getTargetProfile().endsWith("/Any") || tr.getTargetProfile().endsWith("/Resource") || tr.getTargetProfile().endsWith("/DomainResource")))
+          for (UriType u : tr.getTargetProfile())
+            if (u.getValue().endsWith("/Any") || u.getValue().endsWith("/Resource") || u.getValue().endsWith("/DomainResource"))
               refers = true;
         }
         if (refers)
@@ -7324,16 +7326,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             fixeds++;
 
           for (TypeRefComponent t : ed.getType()) {
-            if (t.hasProfile() && !definitions.hasType(t.getProfile().substring(40))) {
+            if (t.hasProfile() && !definitions.hasType(t.getProfile().get(0).getValue().substring(40))) {
               if (ed.getPath().endsWith(".extension"))
-                tryAdd(ext, summariseExtension(t.getProfile(), false, prefix));
+                tryAdd(ext, summariseExtension(t.getProfile().get(0).getValue(), false, prefix));
               else if (ed.getPath().endsWith(".modifierExtension"))
-                tryAdd(ext, summariseExtension(t.getProfile(), true, prefix));
+                tryAdd(ext, summariseExtension(t.getProfile().get(0).getValue(), true, prefix));
               else
-                tryAdd(refs, describeProfile(t.getProfile(), prefix));
+                tryAdd(refs, describeProfile(t.getProfile().get(0).getValue(), prefix));
             }
             if (t.hasTargetProfile()) {
-              tryAdd(refs, describeProfile(t.getTargetProfile(), prefix));
+              tryAdd(refs, describeProfile(t.getTargetProfile().get(0).getValue(), prefix));
             }
           }
 
