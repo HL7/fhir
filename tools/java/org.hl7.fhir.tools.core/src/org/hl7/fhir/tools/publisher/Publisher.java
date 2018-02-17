@@ -5998,8 +5998,9 @@ public class Publisher implements URIResolver, SectionNumberer {
         cs.setUserData("path", n + ".html");
       page.setId(cs.getId());
       String sf;
+      WorkGroup wg = wg(cs, "vocab");
       try {
-        sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-cs.html"), "codeSystem", null, n+".html", cs, null, "Value Set", ig, null, wg("vocab"));
+        sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-cs.html"), "codeSystem", null, n+".html", cs, null, "Value Set", ig, null, wg);
       } catch (Exception e) {
         throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
       }
@@ -6031,8 +6032,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       xml.compose(s, cs);
       s.close();
 //      System.out.println(vs.getUrl());
-      cloneToXhtml(n, "Definition for Code System " + cs.getName(), false, "codesystem-instance", "Code System", null, wg("vocab"));
-      jsonToXhtml(n, "Definition for Code System " + cs.getName(), resource2Json(cs), "codesystem-instance", "Code System", null, wg("vocab"));
+      cloneToXhtml(n, "Definition for Code System " + cs.getName(), false, "codesystem-instance", "Code System", null, wg);
+      jsonToXhtml(n, "Definition for Code System " + cs.getName(), resource2Json(cs), "codesystem-instance", "Code System", null, wg);
     }
   }
 //  if (vs.hasCodeSystem()) {

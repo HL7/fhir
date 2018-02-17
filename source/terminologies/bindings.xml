@@ -241,7 +241,6 @@
   
   
   <TabRatio>780</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -788,35 +787,35 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">The type of an element - one of the FHIR data types.</Data></Cell>
+    <Cell><Data ss:Type="String">A version specific list of the data types defined by the FHIR specification for use as an element  type (any of the FHIR defined data types)</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#data-types</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AbstractType</Data></Cell>
-    <Cell><Data ss:Type="String">A type defined by FHIR that is an abstract type</Data></Cell>
+    <Cell><Data ss:Type="String">A list of the base types defined by this version of the FHIR specification - types that are defined, but for which only specializations actually are created</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#abstract-types</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FHIRDefinedType</Data></Cell>
-    <Cell><Data ss:Type="String">Either a resource or a data type.</Data></Cell>
+    <Cell><Data ss:Type="String">A list of all the concrete types defined in this version of the FHIR specification - Data Types and Resource Types</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#defined-types</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FHIRAllTypes</Data></Cell>
-    <Cell><Data ss:Type="String">Either an abstract type, a resource or a data type.</Data></Cell>
+    <Cell><Data ss:Type="String">A list of all the concrete types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#all-types</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
-    <Cell><Data ss:Type="String">One of the message events defined as part of FHIR.</Data></Cell>
+    <Cell><Data ss:Type="String">One of the message events defined as part of this version of FHIR.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">#message-events</Data></Cell>
@@ -824,7 +823,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResourceType</Data></Cell>
-    <Cell><Data ss:Type="String">One of the resource types defined as part of FHIR.</Data></Cell>
+    <Cell><Data ss:Type="String">One of the resource types defined as part of this version of FHIR.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#resource-types</Data></Cell>
     <Cell ss:Index="11" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
@@ -1094,7 +1093,8 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <TopRowVisible>18</TopRowVisible>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1301,7 +1301,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>

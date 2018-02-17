@@ -1,6 +1,8 @@
 package org.hl7.fhir.definitions.parsers;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,6 +27,7 @@ import org.hl7.fhir.r4.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.r4.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
@@ -36,6 +39,7 @@ import org.hl7.fhir.r4.terminologies.ValueSetUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
+import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TranslationServices;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -120,6 +124,27 @@ public class ValueSetGenerator {
       }
     }
     ToolingExtensions.addCSComment(cs.addConcept().setCode("xhtml").setDisplay("XHTML").setDefinition("XHTML format, as defined by W3C, but restricted usage (mainly, no active content)"), "Special case: xhtml can only be used in the narrative Data Type");
+    markSpecialStatus(vs, cs);
+  }
+
+//  private String version() {
+//    return Constants.VERSION.substring(0, Constants.VERSION.lastIndexOf("."));
+//  }
+
+  private static final String SPECIAL_STATUS_NOTE = "This {name} is normative - it is generated based on the information defined in this specification. "+
+    "The definition will remain fixed  across versions, but the actual contents will change from version to version";
+  
+  private void markSpecialStatus(ValueSet vs, CodeSystem cs) {
+    ToolingExtensions.setStringExtension(vs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Value Set"));
+    ToolingExtensions.setStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
+    ToolingExtensions.addIntegerExtension(vs, ToolingExtensions.EXT_FMM_LEVEL, 5);
+    ToolingExtensions.setCodeExtension(vs, ToolingExtensions.EXT_WORKGROUP, "fhir");
+    if (cs != null) {
+      ToolingExtensions.setStringExtension(cs, "http://hl7.org/fhir/StructureDefinition/valueset-special-status", SPECIAL_STATUS_NOTE.replaceAll("\\{name\\}", "Code System"));
+      ToolingExtensions.setStringExtension(cs, ToolingExtensions.EXT_BALLOT_STATUS, StandardsStatus.NORMATIVE.toDisplay());
+      ToolingExtensions.addIntegerExtension(cs, ToolingExtensions.EXT_FMM_LEVEL, 5);
+      ToolingExtensions.setCodeExtension(cs, ToolingExtensions.EXT_WORKGROUP, "fhir");
+    }    
   }
 
   private void genResourceTypes(ValueSet vs) {
@@ -169,6 +194,7 @@ public class ValueSetGenerator {
       }
     }
 
+    markSpecialStatus(vs, cs);
   }
 
   private void genAbstractTypes(ValueSet vs) {
@@ -197,6 +223,7 @@ public class ValueSetGenerator {
 
     cs.addConcept().setCode("Type").setDisplay("Type").setDefinition("A place holder that means any kind of data type");
     cs.addConcept().setCode("Any").setDisplay("Any").setDefinition("A place holder that means any kind of resource");
+    markSpecialStatus(vs, cs);
   }
 
   private void genDefinedTypes(ValueSet vs, boolean doAbstract) throws Exception {
@@ -215,6 +242,7 @@ public class ValueSetGenerator {
         System.out.println("ValueSet "+vs.getUrl()+" WG mismatch 9: is "+ec+", want to set to "+"fhir");
     }     
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
+    markSpecialStatus(vs, null);
   }
 
   private void genMessageEvents(ValueSet vs) {
@@ -251,6 +279,7 @@ public class ValueSetGenerator {
       c.setDisplay(transform(e.getCode(), e.getTitle()));
       c.setDefinition(e.getDefinition());
     }
+    markSpecialStatus(vs, cs);
   }
 
   

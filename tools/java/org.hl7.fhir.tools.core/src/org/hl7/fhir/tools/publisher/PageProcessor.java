@@ -711,6 +711,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + xreferencesForV2(name, com[1]) + s3;
       else if (com[0].equals("vs-warning"))
         src = s1 + vsWarning((ValueSet) resource) + s3;
+      else if (com[0].equals("res-status-special"))
+        src = s1 + vsSpecialStatus((DomainResource) resource) + s3;
       else if (com[0].equals("conceptmaplistv2"))
         src = s1 + conceptmaplist("http://hl7.org/fhir/ValueSet/v2-"+(name.contains("|") ? name.substring(0,name.indexOf("|")) : name), com[1]) + s3;
       else if (com[0].equals("conceptmaplistv3"))
@@ -1218,7 +1220,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private void buildCircularReferenceList(StringBuilder b, String s, ElementDefn t) {
     for (TypeRef tr : t.getTypes()) {
       if (tr.getName().equals("Reference"))
-        for (String p : tr.getParams()) {
+        for (String p : tr.getParams()) { 
           if (s.equals(p))
             b.append("<li><a href=\""+s.toLowerCase()+"-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a></li>");
         }
@@ -1738,6 +1740,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (Utilities.noString(warning))
       return "";
     return "<div class=\"warning\">\r\n<p><b>Note for Implementer:</b></p>"+processMarkdown("vs-warning", warning, "")+"</div>\r\n";
+  }
+
+  private String vsSpecialStatus(DomainResource resource) throws Exception {
+    String note = ToolingExtensions.readStringExtension(resource, "http://hl7.org/fhir/StructureDefinition/valueset-special-status");
+    if (Utilities.noString(note))
+      return "";
+    return "<div class=\"warning\">\r\n<p>"+processMarkdown("vsSpecialStatus", note, "")+"</p></div>\r\n";
   }
 
   private String fileTail(String name) {
@@ -4593,6 +4602,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genW5("true".equals(com[1]))+s3;
       else if (com[0].equals("vs-warning"))
         src = s1 + vsWarning((ValueSet) resource) + s3;
+      else if (com[0].equals("res-status-special"))
+        src = s1 + vsSpecialStatus((DomainResource) resource) + s3;
       else if (com[0].equals("file"))
         src = s1+TextFile.fileToString(folders.srcDir + com[1]+".html")+s3;
       else  if (com[0].equals("conceptmaplistvs")) {
@@ -4993,6 +5004,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("vs-warning"))
         src = s1 + vsWarning((ValueSet) resource) + s3;
+      else if (com[0].equals("res-status-special"))
+        src = s1 + vsSpecialStatus((DomainResource) resource) + s3;
       else if (com[0].equals("maponthispage"))
           src = s1+s3;
       else if (com[0].equals("onthispage"))
