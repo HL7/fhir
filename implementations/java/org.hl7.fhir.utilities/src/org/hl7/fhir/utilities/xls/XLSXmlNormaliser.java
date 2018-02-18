@@ -82,7 +82,7 @@ public class XLSXmlNormaliser {
       saveXml(new FileOutputStream(dest));
       String s = TextFile.fileToString(dest);
       s = s.replaceAll("\r\n","\n");
-      s = s.replaceAll("\n","\r\n");
+      s = s.replaceAll("\n", "&#10;");
       TextFile.stringToFile(s, dest, false);
 
     } catch (Exception e) {
