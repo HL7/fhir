@@ -1,199 +1,217 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Claim xmlns="http://hl7.org/fhir">
-  <id value="100152"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Oral Health Claim</div>
-  </text>
-  
-  <contained>
-    <Organization>
-      <id value="org-insurer"/>
-      <identifier>
-        <system value="http://www.bindb.com/bin"/>
-        <value value="123456"/>
-      </identifier>
-    </Organization>
-  </contained>
+	<id value="100152"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Oral Health Claim</div>
+	</text>
 
-  <contained>
-    <Organization>
-      <id value="org-org"/>
-      <identifier>
-        <system value="http://www.jurisdiction.com/oralhealthoffices"/>
-        <value value="3456"/>
-      </identifier>
-    </Organization>
-  </contained>
+	<contained>
+		<Organization>
+			<id value="org-insurer"/>
+			<identifier>
+				<system value="http://www.bindb.com/bin"/>
+				<value value="123456"/>
+			</identifier>
+		</Organization>
+	</contained>
 
-  <contained>
-    <Practitioner>
-      <id value="provider-1"/>
-      <identifier>
-        <system value="http://www.jurisdiction.com/oralhealthproviders"/>
-        <value value="123456789"/>
-      </identifier>
-    </Practitioner>
-  </contained>
- 
-  <contained>
-    <Patient>
-      <id value="patient-1"/>
-      <name>
-        <use value="official"/>
-        <family value="Donald"/>
-        <given value="Duck"/>
-      </name>
-      <gender value="male"/>
-      <birthDate value="1986-05-17"/>
-      <address>
-        <use value="home"/>
-        <line value="1234 Main Street"/>
-        <city value="Vancouver"/>
-        <postalCode value="V2H1Y3"/>
-        <country value="CAD"/>
-      </address>
-    </Patient>
-  </contained>
-  
-  <contained>
-    <Coverage>
-      <id value="coverage-1"/>
-	  
-      <identifier>
-        <system value="http://benefitsinc.com/certificate"/>
-        <value value="12345"/>
-      </identifier>
+	<contained>
+		<Organization>
+			<id value="org-org"/>
+			<identifier>
+				<system value="http://www.jurisdiction.com/oralhealthoffices"/>
+				<value value="3456"/>
+			</identifier>
+		</Organization>
+	</contained>
 
-      <status value="active"/>
+	<contained>
+		<Practitioner>
+			<id value="provider-1"/>
+			<identifier>
+				<system value="http://www.jurisdiction.com/oralhealthproviders"/>
+				<value value="123456789"/>
+			</identifier>
+		</Practitioner>
+	</contained>
 
-      <type>
-	   <coding>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
-        <code value="EHCPOL"/>
-       </coding>
-	  </type>
-	  
-      <subscriber>
-        <reference value="#patient-1"/>
-      </subscriber>
- 
-      <beneficiary>
-        <reference value="#patient-1"/>
-      </beneficiary>
-      <dependent value="1"/>
- 
-      <relationship>
-	   <coding>
-        <code value="self"/>
-       </coding>
-	  </relationship>
+	<contained>
+		<Patient>
+			<id value="patient-1"/>
+			<name>
+				<use value="official"/>
+				<family value="Donald"/>
+				<given value="Duck"/>
+			</name>
+			<gender value="male"/>
+			<birthDate value="1986-05-17"/>
+			<address>
+				<use value="home"/>
+				<line value="1234 Main Street"/>
+				<city value="Vancouver"/>
+				<postalCode value="V2H1Y3"/>
+				<country value="CAD"/>
+			</address>
+		</Patient>
+	</contained>
 
-      <payor>
-	    <identifier>
-          <system value="http://www.bindb.com/bin"/>
-          <value value="123456"/>
-	    </identifier>
-      </payor>
-	  
-	  <grouping>
-	    <plan value="CBI35"/>
-        <planDisplay value="Corporate Baker's Inc. Plan#35" />
-        <subPlan value="123"/>
-        <subPlanDisplay value="Trainee Part-time Benefits" />
-	  </grouping> 
-	  	  
-      <sequence value="1"/>
-    </Coverage>
-  </contained>
-  
-  <identifier>
-    <system value="http://happyvalley.com/claim"/>
-    <value value="12347"/>
-  </identifier>
-  
-  <status value = "active"/>
-  
-  <type>
-   <coding>
-    <system value="http://hl7.org/fhir/ex-claimtype"/>
-    <code value="oral"/>
-   </coding>
-  </type>
+	<contained>
+		<Coverage>
+			<id value="coverage-1"/>
 
-  <use value="complete"/>
-  
-  <patient>
-    <reference value="#patient-1"/>
-  </patient>
+			<identifier>
+				<system value="http://benefitsinc.com/certificate"/>
+				<value value="12345"/>
+			</identifier>
 
-  <created value="2014-08-16"/>
-  
-  <insurer>
-    <reference value="#org-insurer"/>
-  </insurer>
-  
-  <organization>
-    <reference value="#org-org"/>
-  </organization>  
-  
-  <priority>
-   <coding>
-    <code value="normal"/>
-   </coding>
-  </priority>
-  
-  <payee>
-    <type>
-	 <coding>
-      <code value="provider"/>
-     </coding>
+			<status value="active"/>
+
+			<type>
+				<coding>
+					<system value="http://hl7.org/fhir/v3/ActCode"/>
+					<code value="EHCPOL"/>
+				</coding>
+			</type>
+
+			<subscriber>
+				<reference value="#patient-1"/>
+			</subscriber>
+
+			<beneficiary>
+				<reference value="#patient-1"/>
+			</beneficiary>
+			<dependent value="1"/>
+
+			<relationship>
+				<coding>
+					<code value="self"/>
+				</coding>
+			</relationship>
+
+			<payor>
+				<identifier>
+					<system value="http://www.bindb.com/bin"/>
+					<value value="123456"/>
+				</identifier>
+			</payor>
+
+			<class>
+				<type>
+					<system value="http://hl7.org/fhir/coverage-class"/>
+					<code value="plan"/>
+				</type>
+				<value value="CBI35"/>
+				<name value="Corporate Baker's Inc. Plan#35"/>
+			</class>
+
+			<class>
+				<type>
+					<system value="http://hl7.org/fhir/coverage-class"/>
+					<code value="subplan"/>
+				</type>
+				<value value="123"/>
+				<name value="Trainee Part-time Benefits"/>
+			</class>
+
+			<class>
+				<type>
+					<system value="http://hl7.org/fhir/coverage-class"/>
+					<code value="sequence"/>
+				</type>
+				<value value="1"/>
+			</class>
+
+		</Coverage>
+	</contained>
+
+	<identifier>
+		<system value="http://happyvalley.com/claim"/>
+		<value value="12347"/>
+	</identifier>
+
+	<status value = "active"/>
+
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/ex-claimtype"/>
+			<code value="oral"/>
+		</coding>
 	</type>
-  </payee>
 
-   <careTeam>
-    <sequence value="1"/>
-    <provider>
-      <reference value="#provider-1"/>
-    </provider>
-   </careTeam>
-  
-  <diagnosis>
-    <sequence value="1"/>
-    <diagnosisCodeableConcept>
-	 <coding>
-      <code value="123456"/>
-     </coding>
-	</diagnosisCodeableConcept>
-  </diagnosis>
-  
-  <insurance>
-    <sequence value="1"/>
-    <focal value="true"/>
-    <coverage>
-      <reference value="#coverage-1"/>
-    </coverage>
-  </insurance>
-  
-  <item>
-    <sequence value="1"/>
-    <careTeamSequence value="1"/>
-    <service>
-	 <coding>
-      <code value="1200"/>
-     </coding>
-	</service>
-    <servicedDate value="2014-08-16"/>
-    <unitPrice>
-      <value value="135.57"/>
-      <system value="urn:iso:std:iso:4217"/>
-      <code value="USD"/>
-    </unitPrice>
-    <net>
-      <value value="135.57"/>
-      <system value="urn:iso:std:iso:4217"/>
-      <code value="USD"/>
-    </net>
-  </item>
+	<use value="complete"/>
+
+	<patient>
+		<reference value="#patient-1"/>
+	</patient>
+
+	<created value="2014-08-16"/>
+
+	<insurer>
+		<reference value="#org-insurer"/>
+	</insurer>
+
+	<organization>
+		<reference value="#org-org"/>
+	</organization>  
+
+	<priority>
+		<coding>
+			<code value="normal"/>
+		</coding>
+	</priority>
+
+	<payee>
+		<type>
+			<coding>
+				<code value="provider"/>
+			</coding>
+		</type>
+	</payee>
+
+	<careTeam>
+		<sequence value="1"/>
+		<provider>
+			<reference value="#provider-1"/>
+		</provider>
+	</careTeam>
+
+	<diagnosis>
+		<sequence value="1"/>
+		<diagnosisCodeableConcept>
+			<coding>
+				<code value="123456"/>
+			</coding>
+		</diagnosisCodeableConcept>
+	</diagnosis>
+
+	<insurance>
+		<sequence value="1"/>
+		<focal value="true"/>
+		<coverage>
+			<reference value="#coverage-1"/>
+		</coverage>
+	</insurance>
+
+	<item>
+		<sequence value="1"/>
+		<careTeamSequence value="1"/>
+		<service>
+			<coding>
+				<code value="1200"/>
+			</coding>
+		</service>
+		<servicedDate value="2014-08-16"/>
+		<unitPrice>
+			<value value="135.57"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</unitPrice>
+		<net>
+			<value value="135.57"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</net>
+	</item>
 </Claim>

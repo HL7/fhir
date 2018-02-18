@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-	<url value="http://hl7.org/fhir/coverage-level"/>
-	<name value="Coverage Level Codes"/>
+	<url value="http://hl7.org/fhir/coverage-class"/>
+	<name value="Coverage Class Codes"/>
 	<status value="draft"/>
 	<publisher value="Financial Management"/>
 	<contact>
@@ -11,8 +11,8 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<description value="This value set includes Coverage Level codes."/>
-	<copyright value="This is an example set."/>
+	<description value="This value set includes Coverage Class codes."/>
+	<copyright value="HL7 Inc."/>
 	<caseSensitive value="true"/>
 	<content value="complete"/>
 	<concept>
@@ -44,10 +44,31 @@
 		<code value="subclass"/>
 		<display value="SubClass"/>
 		<definition value="A subset of a class of benefits."/>
-	</concept>  <concept>
+	</concept>  
+	<concept>
 		<code value="sequence"/>
 		<display value="Sequence"/>
-		<definition value="A sequence number associated with repeating short-term continuence of the converage."/>
+		<definition value="A sequence number associated with a short-term continuance of the coverage."/>
+	</concept>
+	<concept>
+		<code value="rxbin"/>
+		<display value="RX BIN"/>
+		<definition value="Pharmacy benefit manager's Business Identification Number."/>
+	</concept>
+	<concept>
+		<code value="rxpcn"/>
+		<display value="RX PCN"/>
+		<definition value="A Pharmacy Benefit Manager specified Processor Control Number."/>
+	</concept>
+	<concept>
+		<code value="rxid"/>
+		<display value="RX Id"/>
+		<definition value="A Pharmacy Benefit Manager specified Member ID."/>
+	</concept>
+	<concept>
+		<code value="rxgroup"/>
+		<display value="RX Group"/>
+		<definition value="A Pharmacy Benefit Manager specified Group number."/>
 	</concept>
 
 </CodeSystem>

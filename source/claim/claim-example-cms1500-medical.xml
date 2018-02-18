@@ -74,9 +74,13 @@
 				<display value="Humana Inc."/>
 			</payor>
 
-			<grouping>
-				<group value="80902206"/>
-			</grouping> 
+			<class>
+				<type>
+					<system value="http://hl7.org/fhir/coverage-class"/>
+					<code value="group"/>
+				</type>
+				<value value="80902206"/>
+			</class>
 
 		</Coverage>
 	</contained>

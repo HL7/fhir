@@ -49,17 +49,35 @@
 		<reference value="Organization/2"/>
 	</payor>
 
-	<grouping>
-		<group value="WESTAIR" />
-		<groupDisplay value="Western Airlines" />
-		<plan value="WESTAIR" />
-		<planDisplay value="Western Airlines" />
-		<subPlan value="D15C9" />
-		<subPlanDisplay value="Platinum" />
-	</grouping>
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-class"/>
+			<code value="group"/>
+		</type>
+		<value value="WESTAIR"/>
+		<name value="Western Airlines"/>
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-class"/>
+			<code value="plan"/>
+		</type>
+		<value value="BG4352"/>
+		<name value="Full Coverage: Medical, Dental, Pharmacy, Vision, EHC"/>
+	</class>
+
+	<class>
+		<type>
+			<system value="http://hl7.org/fhir/coverage-class"/>
+			<code value="subplan"/>
+		</type>
+		<value value="D15C9"/>
+		<name value="Platinum"/>
+	</class>
 
 	<order value="2"/> <!-- Second after the national medical coverage -->
-	
+
 	<network value="5"/>
 
 	<contract>

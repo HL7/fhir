@@ -66,14 +66,32 @@
 				</identifier>
 			</payor>
 
-			<grouping>
-				<plan value="CBI35"/>
-				<planDisplay value="Corporate Baker's Inc. Plan#35"/>
-				<subPlan value="123"/>
-				<subPlanDisplay value="Trainee Part-time Benefits"/>
-			</grouping> 
+			<class>
+				<type>
+					<system value="http://hl7.org/fhir/coverage-class"/>
+					<code value="plan"/>
+				</type>
+				<value value="CBI35"/>
+				<name value="Corporate Baker's Inc. Plan#35"/>
+			</class>
 
-			<sequence value="1"/>
+			<class>
+				<type>
+					<system value="http://hl7.org/fhir/coverage-class"/>
+					<code value="subplan"/>
+				</type>
+				<value value="123"/>
+				<name value="Trainee Part-time Benefits"/>
+			</class>
+
+			<class>
+				<type>
+					<system value="http://hl7.org/fhir/coverage-class"/>
+					<code value="sequence"/>
+				</type>
+				<value value="1"/>
+			</class>
+
 		</Coverage>
 	</contained>
 
@@ -105,7 +123,7 @@
 	</request>
 
 	<outcome value="complete" />
-	
+
 	<disposition value="Policy is currently in-force."/>
 
 	<insurer>
