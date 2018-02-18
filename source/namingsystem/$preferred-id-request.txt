@@ -1,0 +1,19 @@
+// Using GET
+GET [base]/NamingSystem/$preferred-id?id=http://ns.electronichealth.net.au/id/hi/ihi/1.0&type=oid
+
+--------------------------------------
+// Using POST
+POST [base]/NamingSystem/$preferred-id
+[other headers]
+
+{
+  "resourceType" : "Parameters",
+  "parameter" : [ {
+     "name" : "id",
+     "valueString" : "http://ns.electronichealth.net.au/id/hi/ihi/1.0"
+   }, {
+     "name" : "type",
+     "valueCode" : "oid"
+   }
+  ]
+}
