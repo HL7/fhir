@@ -3232,7 +3232,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     for (ResourceDefn r : definitions.getResources().values()) {
       scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def", prefix);
-      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operations-", prefix);
+      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operation-", prefix);
       scanForProfileUsage(b, vs, r, prefix);
     }
     for (ElementDefn e : definitions.getInfrastructure().values()) {
