@@ -88,12 +88,35 @@ public class XLSXmlNormaliser {
       saveXml(new FileOutputStream(dest));
       String s = TextFile.fileToString(dest);
       s = s.replaceAll("\r\n","\n");
-      s = s.replaceAll("\n", "&#10;");
+      s = replaceSignificantEoln(s);
       TextFile.stringToFile(s, dest, false);
 
     } catch (Exception e) {
       TextFile.stringToFile("Run process helper", altName);
     }
+  }
+
+  private String replaceSignificantEoln(String s) {
+    StringBuilder b = new StringBuilder();
+    boolean hasText = false;
+    for (char c : s.toCharArray()) {
+      if (c == '>' || c == '<' ) {
+        hasText = false;
+        b.append(c);
+      } else if (c == '\n') {
+        if (hasText) {
+          b.append("&#10;");
+        } else
+          b.append(c);
+        
+      } else if (!Character.isWhitespace(c)) {
+        b.append(c);
+        hasText = true;
+      } else 
+        b.append(c);
+    }
+    
+    return b.toString();
   }
 
   private void processWorksheet(Element wk) throws FHIRException  {

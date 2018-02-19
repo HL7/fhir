@@ -1,1 +1,809 @@
-<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">&#10; <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">&#10;  <Author>Grahame</Author>&#10;  <LastAuthor>Paul</LastAuthor>&#10;  <Created>2013-07-04T21:40:46Z</Created>&#10;  <LastSaved>2017-02-23T12:11:36Z</LastSaved>&#10;  <Version>16.00</Version>&#10; </DocumentProperties>&#10; <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">&#10;  <WorkbookGuid dt:dt="string">747a3dc3-14ba-4528-94a7-b06f9d606003</WorkbookGuid>&#10; </CustomDocumentProperties>&#10; <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">&#10;  <AllowPNG/>&#10; </OfficeDocumentSettings>&#10; <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">&#10;  &#10;  &#10;  &#10;  &#10;  <ActiveSheet>1</ActiveSheet>&#10;  <RefModeR1C1/>&#10;  <ProtectStructure>False</ProtectStructure>&#10;  <ProtectWindows>False</ProtectWindows>&#10; </ExcelWorkbook>&#10; <Styles>&#10;  <Style ss:ID="Default" ss:Name="Normal">&#10;   <Alignment ss:Vertical="Bottom"/>&#10;   <Borders/>&#10;   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>&#10;   <Interior/>&#10;   <NumberFormat/>&#10;   <Protection/>&#10;  </Style>&#10;  <Style ss:ID="s62">&#10;   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>&#10;  </Style>&#10;  <Style ss:ID="s63">&#10;   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>&#10;   <Borders>&#10;    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>&#10;   </Borders>&#10;   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>&#10;   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>&#10;  </Style>&#10;  <Style ss:ID="s64">&#10;   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>&#10;  </Style>&#10;  <Style ss:ID="s65">&#10;   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>&#10;  </Style>&#10;  <Style ss:ID="s66">&#10;   <Borders>&#10;    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>&#10;   </Borders>&#10;   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>&#10;   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>&#10;  </Style>&#10;  <Style ss:ID="s67">&#10;   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>&#10;  </Style>&#10; </Styles>&#10; <Worksheet ss:Name="compartments">&#10;  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" ss:StyleID="s62" x:FullColumns="1" x:FullRows="1">&#10;   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s62" ss:Width="110.0"/>&#10;   <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s62" ss:Width="131.0"/>&#10;   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="209.0"/>&#10;   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="254.0"/>&#10;   <Row ss:AutoFitHeight="0" ss:StyleID="s63">&#10;    <Cell><Data ss:Type="String">Name</Data></Cell>&#10;    <Cell><Data ss:Type="String">Title</Data></Cell>&#10;    <Cell><Data ss:Type="String">Description</Data></Cell>&#10;    <Cell><Data ss:Type="String">Identification</Data></Cell>&#10;    <Cell><Data ss:Type="String">Inclusion</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0" ss:Height="75">&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell><Data ss:Type="String">Patient</Data></Cell>&#10;    <Cell ss:StyleID="s64"><Data ss:Type="String">The set of resources associated with a particular patient</Data></Cell>&#10;    <Cell><Data ss:Type="String">There is an instance of the patient compartment for each patient resource, and the identity of the compartment is the same as the patient. When a patient is linked to another patient, all the records associated with the linked patient are in the compartment associated with the target of the link. </Data></Cell>&#10;    <Cell ss:StyleID="s64"><Data ss:Type="String">The patient compartment includes any resources where the subject of  the resource is the patient, and some other resources that are directly linked  to resources in the patient compartment</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">Encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">The set of resources associated with a particular encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">There is an instance of the encounter compartment for each encounter resource, and the identity of the compartment is the same as the encounter</Data></Cell>&#10;    <Cell ss:StyleID="s64"><Data ss:Type="String">The encounter compartment includes any resources where the resource has an explicitly nominated encounter, and some other resources that themselves link  to resources in the encounter compartment. Note that for many resources, the exact nature of the link to encounter can be ambiguous (e.g. for a DiagnosticReport, is it the encounter when it was initiated, or when it was reported?)</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">relatedPerson</Data></Cell>&#10;    <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>&#10;    <Cell><Data ss:Type="String">The set of resources associated with a particular 'related person'</Data></Cell>&#10;    <Cell><Data ss:Type="String">There is an instance of the relatedPerson compartment for each relatedPerson resource, and the identity of the compartment is the same as the relatedPerson</Data></Cell>&#10;    <Cell ss:StyleID="s64"><Data ss:Type="String">The relatedPerson compartment includes any resources where the resource is explicitly linked to relatedPerson (usually as author)</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">practitioner</Data></Cell>&#10;    <Cell><Data ss:Type="String">Practitioner</Data></Cell>&#10;    <Cell><Data ss:Type="String">The set of resources associated with a particular practitioner</Data></Cell>&#10;    <Cell><Data ss:Type="String">There is an instance of the practitioner compartment for each Practitioner resource, and the identity of the compartment is the same as the Practitioner</Data></Cell>&#10;    <Cell ss:StyleID="s64"><Data ss:Type="String">The practitioner compartment includes any resources where the resource is explicitly linked to a Practitioner (usually as author, but other kinds of linkage exist)</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">device</Data></Cell>&#10;    <Cell><Data ss:Type="String">Device</Data></Cell>&#10;    <Cell><Data ss:Type="String">The set of resources associated with a particular device</Data></Cell>&#10;    <Cell><Data ss:Type="String">There is an instance of the practitioner compartment for each Device resource, and the identity of the compartment is the same as the Device</Data></Cell>&#10;    <Cell ss:StyleID="s64"><Data ss:Type="String">The device compartment includes any resources where the resource is explicitly linked to a Device (mostly subject or performer)</Data></Cell>&#10;   </Row>&#10;  </Table>&#10;  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">&#10;   <PageSetup>&#10;    <Header x:Margin="0.3"/>&#10;    <Footer x:Margin="0.3"/>&#10;    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>&#10;   </PageSetup>&#10;   &#10;   <ProtectObjects>False</ProtectObjects>&#10;   <ProtectScenarios>False</ProtectScenarios>&#10;   <x:PageLayoutZoom>0</x:PageLayoutZoom>&#10;  </WorksheetOptions>&#10; </Worksheet>&#10; <Worksheet ss:Name="resources">&#10;  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="142" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">&#10;   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>&#10;   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>&#10;   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>&#10;   <Column ss:StyleID="s65" ss:Width="149.0"/>&#10;   <Column ss:StyleID="s65" ss:Width="198.0"/>&#10;   <Row ss:AutoFitHeight="0" ss:StyleID="s66">&#10;    <Cell><Data ss:Type="String">Resource</Data></Cell>&#10;    <Cell><Data ss:Type="String">Patient</Data></Cell>&#10;    <Cell><Data ss:Type="String">Encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>&#10;    <Cell><Data ss:Type="String">Practitioner</Data></Cell>&#10;    <Cell><Data ss:Type="String">Device</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient | recorder | asserter</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">asserter</Data></Cell>&#10;    <Cell><Data ss:Type="String">recorder | asserter</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Account</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">AdverseEvent</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">recorder</Data></Cell>&#10;    <Cell><Data ss:Type="String">recorder</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Appointment</Data></Cell>&#10;    <Cell><Data ss:Type="String">actor</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">actor</Data></Cell>&#10;    <Cell><Data ss:Type="String">actor</Data></Cell>&#10;    <Cell><Data ss:Type="String">actor</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">AppointmentResponse</Data></Cell>&#10;    <Cell><Data ss:Type="String">actor</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">actor</Data></Cell>&#10;    <Cell><Data ss:Type="String">actor</Data></Cell>&#10;    <Cell><Data ss:Type="String">actor</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">AuditEvent</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient | agent.patient | entity.patient</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">agent</Data></Cell>&#10;    <Cell><Data ss:Type="String">agent</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Basic</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient | author</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">author</Data></Cell>&#10;    <Cell><Data ss:Type="String">author</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Binary</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">BodyStructure</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Bundle</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">CarePlan</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | performer</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">CareTeam</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | participant </Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">participant </Data></Cell>&#10;    <Cell><Data ss:Type="String">participant </Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ChargeItem</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell><Data ss:Type="String">context</Data></Cell>&#10;    <Cell><Data ss:Type="String">enterer | participant-actor</Data></Cell>&#10;    <Cell><Data ss:Type="String">enterer | participant-actor</Data></Cell>&#10;    <Cell><Data ss:Type="String">enterer | participant-actor</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Claim</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | payee</Data></Cell>&#10;    <Cell><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">payee</Data></Cell>&#10;    <Cell><Data ss:Type="String">enterer | provider | payee | care-team</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ClaimResponse</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ClinicalImpression</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell><Data ss:Type="String">context</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">assessor</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">CodeSystem</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Communication</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | sender | recipient</Data></Cell>&#10;    <Cell><Data ss:Type="String">context</Data></Cell>&#10;    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>&#10;    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>&#10;    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">CommunicationRequest</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | sender | recipient | requester</Data></Cell>&#10;    <Cell><Data ss:Type="String">context</Data></Cell>&#10;    <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>&#10;    <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>&#10;    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">CompartmentDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Composition</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | author | attester</Data></Cell>&#10;    <Cell><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">author</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | author | attester</Data></Cell>&#10;    <Cell><Data ss:Type="String">author</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Consent</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ConceptMap</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Condition</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient | asserter</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">context</Data></Cell>&#10;    <Cell><Data ss:Type="String">asserter</Data></Cell>&#10;    <Cell><Data ss:Type="String">asserter</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">DetectedIssue</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>&#10;    <Cell><Data ss:Type="String">author</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Contract</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Coverage</Data></Cell>&#10;    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary |payor</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber |payor</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Device</Data></Cell>&#10;    <Cell ss:Index="6"><Data ss:Type="String">{def}</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">DeviceComponent</Data></Cell>&#10;    <Cell ss:Index="6"><Data ss:Type="String">source</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">DeviceMetric</Data></Cell>&#10;    <Cell ss:Index="6"><Data ss:Type="String">source</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">DeviceRequest</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | requester | performer</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">requester |  performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">device | subject | requester |  performer</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">DeviceUseStatement</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell ss:Index="6"><Data ss:Type="String">device</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">DiagnosticReport</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | agent | recipient</Data></Cell>&#10;    <Cell><Data ss:Type="String">related-ref</Data></Cell>&#10;    <Cell><Data ss:Type="String">agent</Data></Cell>&#10;    <Cell ss:StyleID="Default"><Data ss:Type="String">subject | agent | recipient</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | agent</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">DocumentReference</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject </Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">agent</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | agent | authenticator</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | agent</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">EligibilityRequest</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">enterer | provider</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">EligibilityResponse</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell><Data ss:Type="String">{def}</Data></Cell>&#10;    <Cell><Data ss:Type="String">participant</Data></Cell>&#10;    <Cell><Data ss:Type="String">practitioner | participant</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Endpoint</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">EnrollmentRequest</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">EnrollmentResponse</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">EpisodeOfCare</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:Index="5" ss:StyleID="s67"><Data ss:Type="String">care-manager</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">EventDefinition</Data></Cell>&#10;    <Cell ss:Index="5" ss:StyleID="s67"/>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ExpansionProfile</Data></Cell>&#10;    <Cell ss:Index="5" ss:StyleID="s67"/>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ExplanationOfBenefit</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | payee</Data></Cell>&#10;    <Cell><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">payee</Data></Cell>&#10;    <Cell><Data ss:Type="String">enterer | provider | payee | care-team</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">FamilyMemberHistory</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Flag</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>&#10;    <Cell><Data ss:Type="String">author</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Goal</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">GraphDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Group</Data></Cell>&#10;    <Cell><Data ss:Type="String">member</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">member</Data></Cell>&#10;    <Cell><Data ss:Type="String">member</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">HealthcareService</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ImagingStudy</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Immunization</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ImmunizationEvaluation</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ImmunizationRecommendation</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ImplementationGuide</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ImplementationGuideInput</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ImplementationGuideOutput</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Linkage</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">List</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | source</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">source</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | source</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Location</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Media</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">subject | operator</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Medication</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient | performer | subject</Data></Cell>&#10;    <Cell><Data ss:Type="String">context</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">device</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicationDispense</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | patient | receiver</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">performer | receiver</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicationRequest</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell><Data ss:Type="String">context</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">requester</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicationStatement</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">source</Data></Cell>&#10;    <Cell><Data ss:Type="String">source</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MessageDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MessageHeader</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">receiver | author | responsible | enterer</Data></Cell>&#10;    <Cell><Data ss:Type="String">target</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">NamingSystem</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">NutritionOrder</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Observation</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | device</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">OperationDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Organization</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Patient</Data></Cell>&#10;    <Cell><Data ss:Type="String">link</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">link</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">general-practitioner</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">PaymentNotice</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">PaymentReconciliation</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Person</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">link</Data></Cell>&#10;    <Cell><Data ss:Type="String">practitioner</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Practitioner</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">{def}</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">PractitionerRole</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">practitioner</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Procedure</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient | performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ServiceRequest</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">context</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer | requester</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer | requester</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ProcessRequest</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ProcessResponse</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">!Protocol</Data></Cell>&#10;    <Cell ss:Index="6"><Data ss:Type="String">subject </Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Provenance</Data></Cell>&#10;    <Cell><Data ss:Type="String">target.subject | target.patient | patient</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">agent</Data></Cell>&#10;    <Cell><Data ss:Type="String">agent</Data></Cell>&#10;    <Cell><Data ss:Type="String">agent</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Questionnaire</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">QuestionnaireResponse</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | author</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">context</Data></Cell>&#10;    <Cell><Data ss:Type="String">author | source</Data></Cell>&#10;    <Cell><Data ss:Type="String">author | source</Data></Cell>&#10;    <Cell><Data ss:Type="String">author</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">{def}</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ResearchStudy</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">principalinvestigator</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ResearchSubject</Data></Cell>&#10;    <Cell><Data ss:Type="String">individual</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">RiskAssessment</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>&#10;    <Cell><Data ss:Type="String">performer</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Schedule</Data></Cell>&#10;    <Cell><Data ss:Type="String">actor</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">actor</Data></Cell>&#10;    <Cell><Data ss:Type="String">actor</Data></Cell>&#10;    <Cell><Data ss:Type="String">actor</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">SearchParameter</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Slot</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Specimen</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">collector</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">StructureDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">StructureMap</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Subscription</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Substance</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">SupplyRequest</Data></Cell>&#10;    <Cell><Data ss:Type="String">requester</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">requester</Data></Cell>&#10;    <Cell><Data ss:Type="String">requester</Data></Cell>&#10;    <Cell><Data ss:Type="String">requester</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">supplier | receiver</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">TerminologyCapabilities</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">TestScript</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">TestReport</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ValueSet</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">VisionPrescription</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell ss:Index="5"><Data ss:Type="String">prescriber</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">GuidanceResponse</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Library</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Measure</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MeasureReport</Data></Cell>&#10;    <Cell><Data ss:Type="String">patient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Sequence</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Task</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ActivityDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ServiceDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">RequestGroup</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | participant</Data></Cell>&#10;    <Cell><Data ss:Type="String">encounter</Data></Cell>&#10;    <Cell><Data ss:Type="String">participant</Data></Cell>&#10;    <Cell><Data ss:Type="String">participant | author</Data></Cell>&#10;    <Cell><Data ss:Type="String">author</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">EntryDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">SpecimenDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ExampleScenario</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">UserSession</Data></Cell>&#10;    <Cell><Data ss:Type="String">user | focus</Data></Cell>&#10;    <Cell><Data ss:Type="String">focus</Data></Cell>&#10;    <Cell><Data ss:Type="String">user</Data></Cell>&#10;    <Cell><Data ss:Type="String">user | focus</Data></Cell>&#10;    <Cell><Data ss:Type="String">user</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ObservationDefinition</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">Invoice</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject | patient | recipient</Data></Cell>&#10;    <Cell ss:Index="4"><Data ss:Type="String">recipient</Data></Cell>&#10;    <Cell><Data ss:Type="String">participant</Data></Cell>&#10;    <Cell><Data ss:Type="String">participant</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ProductPlan</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">OrganizationRole</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">OccupationalData</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicinalProduct</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicinalProductAuthorization</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicinalProductClinicals</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicinalProductIngredient</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicinalProductPackaged</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicinalProductPharmaceutical</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">MedicinalProductDeviceSpec</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">SubstanceSpecification</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">SubstancePolymer</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">SubstanceReferenceInformation</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">VerificationResult</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">BiologicallyDerivedProduct</Data></Cell>&#10;   </Row>&#10;   <Row ss:AutoFitHeight="0">&#10;    <Cell><Data ss:Type="String">ItemInstance</Data></Cell>&#10;    <Cell><Data ss:Type="String">subject</Data></Cell>&#10;   </Row>&#10;  </Table>&#10;  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">&#10;   <PageSetup>&#10;    <Header x:Margin="0.3"/>&#10;    <Footer x:Margin="0.3"/>&#10;    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>&#10;   </PageSetup>&#10;   &#10;   <Print>&#10;    <ValidPrinterInfo/>&#10;    <PaperSizeIndex>9</PaperSizeIndex>&#10;    <HorizontalResolution>600</HorizontalResolution>&#10;    <VerticalResolution>600</VerticalResolution>&#10;   </Print>&#10;   <Selected/>&#10;   <FreezePanes/>&#10;   <FrozenNoSplit/>&#10;   <SplitHorizontal>1</SplitHorizontal>&#10;   <TopRowBottomPane>36</TopRowBottomPane>&#10;   <ActivePane>2</ActivePane>&#10;   &#10;   <ProtectObjects>False</ProtectObjects>&#10;   <ProtectScenarios>False</ProtectScenarios>&#10;   <x:PageLayoutZoom>0</x:PageLayoutZoom>&#10;  </WorksheetOptions>&#10; </Worksheet>&#10;<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
+<?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Grahame</Author>
+  <LastAuthor>Paul</LastAuthor>
+  <Created>2013-07-04T21:40:46Z</Created>
+  <LastSaved>2017-02-23T12:11:36Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <WorkbookGuid dt:dt="string">747a3dc3-14ba-4528-94a7-b06f9d606003</WorkbookGuid>
+ </CustomDocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  
+  
+  
+  
+  <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s66">
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
+   </Borders>
+   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
+   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s67">
+   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="compartments">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" ss:StyleID="s62" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s62" ss:Width="110.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="3" ss:StyleID="s62" ss:Width="131.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="209.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="254.0"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s63">
+    <Cell><Data ss:Type="String">Name</Data></Cell>
+    <Cell><Data ss:Type="String">Title</Data></Cell>
+    <Cell><Data ss:Type="String">Description</Data></Cell>
+    <Cell><Data ss:Type="String">Identification</Data></Cell>
+    <Cell><Data ss:Type="String">Inclusion</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">Patient</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The set of resources associated with a particular patient</Data></Cell>
+    <Cell><Data ss:Type="String">There is an instance of the patient compartment for each patient resource, and the identity of the compartment is the same as the patient. When a patient is linked to another patient, all the records associated with the linked patient are in the compartment associated with the target of the link. </Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The patient compartment includes any resources where the subject of  the resource is the patient, and some other resources that are directly linked  to resources in the patient compartment</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell><Data ss:Type="String">The set of resources associated with a particular encounter</Data></Cell>
+    <Cell><Data ss:Type="String">There is an instance of the encounter compartment for each encounter resource, and the identity of the compartment is the same as the encounter</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The encounter compartment includes any resources where the resource has an explicitly nominated encounter, and some other resources that themselves link  to resources in the encounter compartment. Note that for many resources, the exact nature of the link to encounter can be ambiguous (e.g. for a DiagnosticReport, is it the encounter when it was initiated, or when it was reported?)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">relatedPerson</Data></Cell>
+    <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>
+    <Cell><Data ss:Type="String">The set of resources associated with a particular 'related person'</Data></Cell>
+    <Cell><Data ss:Type="String">There is an instance of the relatedPerson compartment for each relatedPerson resource, and the identity of the compartment is the same as the relatedPerson</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The relatedPerson compartment includes any resources where the resource is explicitly linked to relatedPerson (usually as author)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">The set of resources associated with a particular practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">There is an instance of the practitioner compartment for each Practitioner resource, and the identity of the compartment is the same as the Practitioner</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The practitioner compartment includes any resources where the resource is explicitly linked to a Practitioner (usually as author, but other kinds of linkage exist)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">device</Data></Cell>
+    <Cell><Data ss:Type="String">Device</Data></Cell>
+    <Cell><Data ss:Type="String">The set of resources associated with a particular device</Data></Cell>
+    <Cell><Data ss:Type="String">There is an instance of the practitioner compartment for each Device resource, and the identity of the compartment is the same as the Device</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">The device compartment includes any resources where the resource is explicitly linked to a Device (mostly subject or performer)</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+   <x:PageLayoutZoom>0</x:PageLayoutZoom>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="resources">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="142" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
+   <Column ss:StyleID="s65" ss:Width="149.0"/>
+   <Column ss:StyleID="s65" ss:Width="198.0"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">Patient</Data></Cell>
+    <Cell><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>
+    <Cell><Data ss:Type="String">Practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">Device</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
+    <Cell><Data ss:Type="String">patient | recorder | asserter</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">asserter</Data></Cell>
+    <Cell><Data ss:Type="String">recorder | asserter</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Account</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AdverseEvent</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">recorder</Data></Cell>
+    <Cell><Data ss:Type="String">recorder</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Appointment</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">actor</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AppointmentResponse</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">actor</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AuditEvent</Data></Cell>
+    <Cell><Data ss:Type="String">patient | agent.patient | entity.patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">agent</Data></Cell>
+    <Cell><Data ss:Type="String">agent</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Basic</Data></Cell>
+    <Cell><Data ss:Type="String">patient | author</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">author</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Binary</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">BodyStructure</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Bundle</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CarePlan</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | performer</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CareTeam</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | participant </Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">participant </Data></Cell>
+    <Cell><Data ss:Type="String">participant </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ChargeItem</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">enterer | participant-actor</Data></Cell>
+    <Cell><Data ss:Type="String">enterer | participant-actor</Data></Cell>
+    <Cell><Data ss:Type="String">enterer | participant-actor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Claim</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | payee</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">payee</Data></Cell>
+    <Cell><Data ss:Type="String">enterer | provider | payee | care-team</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ClaimResponse</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ClinicalImpression</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">assessor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CodeSystem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Communication</Data></Cell>
+    <Cell><Data ss:Type="String">subject | sender | recipient</Data></Cell>
+    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
+    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
+    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CommunicationRequest</Data></Cell>
+    <Cell><Data ss:Type="String">subject | sender | recipient | requester</Data></Cell>
+    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
+    <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
+    <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CompartmentDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Composition</Data></Cell>
+    <Cell><Data ss:Type="String">subject | author | attester</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+    <Cell><Data ss:Type="String">subject | author | attester</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Consent</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Condition</Data></Cell>
+    <Cell><Data ss:Type="String">patient | asserter</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">asserter</Data></Cell>
+    <Cell><Data ss:Type="String">asserter</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DetectedIssue</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Contract</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Coverage</Data></Cell>
+    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary |payor</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber |payor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Device</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">{def}</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceComponent</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">source</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceMetric</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">source</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceRequest</Data></Cell>
+    <Cell><Data ss:Type="String">subject | requester | performer</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">requester |  performer</Data></Cell>
+    <Cell><Data ss:Type="String">device | subject | requester |  performer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceUseStatement</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">device</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DiagnosticReport</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>
+    <Cell><Data ss:Type="String">subject | agent | recipient</Data></Cell>
+    <Cell><Data ss:Type="String">related-ref</Data></Cell>
+    <Cell><Data ss:Type="String">agent</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">subject | agent | recipient</Data></Cell>
+    <Cell><Data ss:Type="String">subject | agent</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
+    <Cell><Data ss:Type="String">subject </Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">agent</Data></Cell>
+    <Cell><Data ss:Type="String">subject | agent | authenticator</Data></Cell>
+    <Cell><Data ss:Type="String">subject | agent</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EligibilityRequest</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">enterer | provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EligibilityResponse</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">{def}</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">practitioner | participant</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Endpoint</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EnrollmentRequest</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EnrollmentResponse</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EpisodeOfCare</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s67"><Data ss:Type="String">care-manager</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EventDefinition</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ExpansionProfile</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ExplanationOfBenefit</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | payee</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">payee</Data></Cell>
+    <Cell><Data ss:Type="String">enterer | provider | payee | care-team</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">FamilyMemberHistory</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Flag</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Goal</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GraphDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Group</Data></Cell>
+    <Cell><Data ss:Type="String">member</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">member</Data></Cell>
+    <Cell><Data ss:Type="String">member</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HealthcareService</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImagingStudy</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Immunization</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImmunizationEvaluation</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImmunizationRecommendation</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImplementationGuide</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImplementationGuideInput</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ImplementationGuideOutput</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Linkage</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">List</Data></Cell>
+    <Cell><Data ss:Type="String">subject | source</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">source</Data></Cell>
+    <Cell><Data ss:Type="String">subject | source</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Location</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Media</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">subject | operator</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Medication</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationAdministration</Data></Cell>
+    <Cell><Data ss:Type="String">patient | performer | subject</Data></Cell>
+    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">device</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationDispense</Data></Cell>
+    <Cell><Data ss:Type="String">subject | patient | receiver</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">performer | receiver</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationRequest</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">requester</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationStatement</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">source</Data></Cell>
+    <Cell><Data ss:Type="String">source</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MessageDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MessageHeader</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">receiver | author | responsible | enterer</Data></Cell>
+    <Cell><Data ss:Type="String">target</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NamingSystem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionOrder</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Observation</Data></Cell>
+    <Cell><Data ss:Type="String">subject | performer</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">subject | device</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OperationDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Organization</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Patient</Data></Cell>
+    <Cell><Data ss:Type="String">link</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">link</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">general-practitioner</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PaymentNotice</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PaymentReconciliation</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Person</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">link</Data></Cell>
+    <Cell><Data ss:Type="String">practitioner</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Practitioner</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">{def}</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PractitionerRole</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">practitioner</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Procedure</Data></Cell>
+    <Cell><Data ss:Type="String">patient | performer</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ServiceRequest</Data></Cell>
+    <Cell><Data ss:Type="String">subject | performer</Data></Cell>
+    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">performer | requester</Data></Cell>
+    <Cell><Data ss:Type="String">performer | requester</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ProcessRequest</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ProcessResponse</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">request-provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">!Protocol</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">subject </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Provenance</Data></Cell>
+    <Cell><Data ss:Type="String">target.subject | target.patient | patient</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">agent</Data></Cell>
+    <Cell><Data ss:Type="String">agent</Data></Cell>
+    <Cell><Data ss:Type="String">agent</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Questionnaire</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">QuestionnaireResponse</Data></Cell>
+    <Cell><Data ss:Type="String">subject | author</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">author | source</Data></Cell>
+    <Cell><Data ss:Type="String">author | source</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">{def}</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ResearchStudy</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">principalinvestigator</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ResearchSubject</Data></Cell>
+    <Cell><Data ss:Type="String">individual</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">RiskAssessment</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Schedule</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">actor</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+    <Cell><Data ss:Type="String">actor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SearchParameter</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Slot</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Specimen</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">collector</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">StructureDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">StructureMap</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Subscription</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Substance</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SupplyRequest</Data></Cell>
+    <Cell><Data ss:Type="String">requester</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">requester</Data></Cell>
+    <Cell><Data ss:Type="String">requester</Data></Cell>
+    <Cell><Data ss:Type="String">requester</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">supplier | receiver</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TerminologyCapabilities</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TestScript</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TestReport</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ValueSet</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">VisionPrescription</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">prescriber</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GuidanceResponse</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Library</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Measure</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MeasureReport</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Sequence</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Task</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ActivityDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ServiceDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">RequestGroup</Data></Cell>
+    <Cell><Data ss:Type="String">subject | participant</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">participant | author</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EntryDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SpecimenDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ExampleScenario</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">UserSession</Data></Cell>
+    <Cell><Data ss:Type="String">user | focus</Data></Cell>
+    <Cell><Data ss:Type="String">focus</Data></Cell>
+    <Cell><Data ss:Type="String">user</Data></Cell>
+    <Cell><Data ss:Type="String">user | focus</Data></Cell>
+    <Cell><Data ss:Type="String">user</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ObservationDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Invoice</Data></Cell>
+    <Cell><Data ss:Type="String">subject | patient | recipient</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">recipient</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ProductPlan</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OrganizationRole</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OccupationalData</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicinalProduct</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicinalProductAuthorization</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicinalProductClinicals</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicinalProductIngredient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicinalProductPackaged</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicinalProductPharmaceutical</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicinalProductDeviceSpec</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubstanceSpecification</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubstancePolymer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubstanceReferenceInformation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">VerificationResult</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">BiologicallyDerivedProduct</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ItemInstance</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Selected/>
+   <FreezePanes/>
+   <FrozenNoSplit/>
+   <SplitHorizontal>1</SplitHorizontal>
+   <TopRowBottomPane>36</TopRowBottomPane>
+   <ActivePane>2</ActivePane>
+   
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+   <x:PageLayoutZoom>0</x:PageLayoutZoom>
+  </WorksheetOptions>
+ </Worksheet>
+<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
