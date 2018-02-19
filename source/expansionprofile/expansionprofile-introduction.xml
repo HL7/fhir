@@ -10,8 +10,8 @@ builds expansions - and, in a similar manner, how it validates codes in value se
 ExpansionProfiles are used for the following operations:
 </p>
 <ul>
-<li><a href="valueset-operations.html#expand">Value Set Expansion</a></li>
-<li><a href="valueset-operations.html#validate-code">Value Set based Validation</a></li>
+<li><a href="valueset-operation-expand.html">Value Set Expansion</a></li>
+<li><a href="valueset-operation-validate-code.html">Value Set based Validation</a></li>
 </ul>
 <p>
 The ExpansionProfile can be passed either directly, or as a reference by its canonical URL.

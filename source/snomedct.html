@@ -114,7 +114,7 @@ automatically become properties. For example, laterality:
 <tr><td>Laterality</td><td>code</td><td>In this case, the URI (See the <a href="codesystem-snomedct.html">code system definition</a>) is <code>http://snomed.info/id/272741003</code>, which can be used to unambiguously map to the underlying concept</td></tr>
 </table>
 <p>
-Note that when a <a href="codesystem-operations.html#lookup">$lookup</a> operation is performed on a SNOMED CT concept,
+Note that when a <a href="codesystem-operation-lookup.html">$lookup</a> operation is performed on a SNOMED CT concept,
 servers SHALL return the URI for the edition and version being used (see above) in the <code>version</code> property.
 Other properties are at the discretion of the server and the client.
 </p>
@@ -210,7 +210,7 @@ underlying code system, and the known structure of the URL that identifies them.
 has two common sets of implicit value sets defined: By Subsumption, and By Reference Set.
 These implicit value sets do not use complex queries. This allows a single URL to serve
 as a value set definition that defines a value set, and can serve as the basis for the
-<a href="valueset-operations.html#expand">$expansion</a> operation.
+<a href="valueset-operation-expand.html">$expansion</a> operation.
 </p>
 <p>
 If any value set resources exist with an identifier that conforms to the URL patterns specified below,
@@ -371,7 +371,7 @@ A value set with a url that follows the pattern "[edition/version]?fhir_vs=ecl:[
 Implicit concept maps are those whose specification can be predicted based on the grammar and/or content of the
 underlying code system, and the known structure of the URL that identifies them. This allows a single URL to serve
 as a concept map definition that defines a mapping between two sets of concepts, and which can serve as the basis for the
-<a href="conceptmap-operations.html#translate">$translate</a> operation. SNOMED CT has two common sets of implicit
+<a href="conceptmap-operation-translate.html">$translate</a> operation. SNOMED CT has two common sets of implicit
 concept maps defined:
 </p>
 <ul>

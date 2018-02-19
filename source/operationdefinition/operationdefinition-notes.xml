@@ -43,7 +43,7 @@ There are two ways to pass resources to an operation: directly or by reference.
 The definition of an operation distinguishes between these two, since they have very different behaviors and consequences.
 </p>
 <p>
-As an example, take the <a href="questionnaire-operations.html#populate">Questionnaire.$populate operation</a>.  
+As an example, take the <a href="questionnaire-operation-populate.html">Questionnaire.$populate operation</a>.  
 This operation takes a questionnaire as a direct parameter. The type of the parameter is 
 defined as 'Questionnaire'. In a <a href="parameters.html">Parameters</a> resource, it would be represented like this:
 </p>

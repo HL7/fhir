@@ -919,8 +919,8 @@ For example, to retrieve all the observation resources for a particular LOINC co
   GET [base]/Encounter/23423445/Observation?code=2951-2  {&amp;_format=[mime-type]}
 </pre>
 <p>
-Note that there are specific operations defined to support fetching <a href="patient-operations.html#everything">an entire patient record</a>
-or <a href="encounter-operations.html#everything">all record for an encounter</a>.
+Note that there are specific operations defined to support fetching <a href="patient-operation-everything.html">an entire patient record</a>
+or <a href="encounter-operation-everything.html">all record for an encounter</a>.
 </p>
 <p>
 It is also possible to search across multiple resource types:
@@ -973,7 +973,7 @@ The Capability statement returned typically has an arbitrary id, and no meta ele
 Capability statements can become quite large; servers are encouraged to support the
 <a href="search.html#summary"><code>_summary</code></a> and <a href="search.html#elements"><code>_elements</code></a>
 parameters on the capabilities interaction, though this is not required. In addition, servers are encouraged to
-implement the <a href="capabilitystatement-operations.html#subset">$subset</a> and <a href="capabilitystatement-operations.html#implements">$implements</a>
+implement the <a href="capabilitystatement-operation-subset.html">$subset</a> and <a href="capabilitystatement-operation-implements.html">$implements</a>
 operations to make it easy for a client to check conformance.
 </p>
 <p>

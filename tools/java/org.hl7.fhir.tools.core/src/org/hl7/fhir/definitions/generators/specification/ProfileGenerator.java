@@ -1859,8 +1859,11 @@ public class ProfileGenerator {
     return false;
   }
 
-  public OperationDefinition generate(String name, String id, String resourceName, Operation op) throws Exception {
+  public OperationDefinition generate(String name, String id, String resourceName, Operation op, ResourceDefn rd) throws Exception {
     OperationDefinition opd = new OperationDefinition();
+    op.setResource(opd);
+    ToolingExtensions.addIntegerExtension(opd, ToolingExtensions.EXT_FMM_LEVEL, Integer.parseInt(rd.getFmmLevel()));
+    ToolingExtensions.setStringExtension(opd, ToolingExtensions.EXT_BALLOT_STATUS, op.getStandardsStatus() == null ? rd.getStatus().toDisplay() : op.getStandardsStatus().toDisplay());
     opd.setId(FormatUtilities.makeId(id));
     opd.setUrl("http://hl7.org/fhir/OperationDefinition/"+id);
     opd.setName(op.getTitle());

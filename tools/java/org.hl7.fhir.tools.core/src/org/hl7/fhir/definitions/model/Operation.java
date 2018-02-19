@@ -3,6 +3,7 @@ package org.hl7.fhir.definitions.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.r4.model.OperationDefinition;
 import org.hl7.fhir.utilities.StandardsStatus;
 
 public class Operation {
@@ -41,6 +42,7 @@ public class Operation {
   private Boolean idempotent;
   private StandardsStatus standardsStatus; // defaults to container value
   private List<OperationExample> examples = new ArrayList<Operation.OperationExample>();
+  private OperationDefinition resource;
 
   public Operation(String name, boolean system, boolean type, boolean instance, String kind, String title, String doco, String footer, List<OperationExample> examples, boolean idempotent) {
     this.name = name;
@@ -150,6 +152,14 @@ public class Operation {
 
   public void setStandardsStatus(StandardsStatus standardsStatus) {
     this.standardsStatus = standardsStatus;
+  }
+
+  public void setResource(OperationDefinition opd) {
+    this.resource = opd;
+  }
+
+  public OperationDefinition getResource() {
+    return resource;
   }
 
 }

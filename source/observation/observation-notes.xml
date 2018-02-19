@@ -28,7 +28,7 @@
 						 On the other hand, any observations that are clinically relevant outside the context of being a component of another observation should be represented by separate Observation resources.  For example a <a href="observation-example-bmi-using-related.html">Body Mass Index (BMI)</a> Observation should <em>not</em> contain components for height and weight because they are clinically relevant observations on their own and should be represented by separate Observation resources. See the <code>Observation.related</code> section below on how to relate independent Observations.
       </p>
 	<p>
-      Note that the <code>component.code</code> may in some cases only be able to be understood in relation to the <code>Observation.code</code> (for example, see the <a href="observation-operations.html#10.1.20.1">
+      Note that the <code>component.code</code> may in some cases only be able to be understood in relation to the <code>Observation.code</code> (for example, see the <a href="observation-operation-stats.html">
 			<code>$stats</code> operation</a>).
         </p>
 	<h4>Observation.member of and Observation.derivedFrom
@@ -276,7 +276,7 @@ If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> e
 		<li>Get the most recent laboratory results for patient</li>
 		<li>Fetch the last 3 results for all vitals for a patient</li>
 	</ul>
-	<p>See the <a href="observation-operations.html#10.1.20.2">Last N Observations Query</a> section in the Observation resource operations page for more information and examples</p>
+	<p>See the <a href="observation-operation-lastn.html">Last N Observations Query</a> section in the Observation resource operations page for more information and examples</p>
 	<p>
 	</p>
 	<a name="stats">
@@ -286,6 +286,6 @@ If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> e
 	<ul>
 		<li>Get the average, min, max and count of a series of BP measurements for a patient</li>
 		<li>Determine 20th or 80th percentile on a set of measurements over a time period</li>
-	</ul>See the <a href="observation-operations.html#10.1.20.1">Observation Statistics</a> section in the Observation resource operations page for more information and examples<p>
+	</ul>See the <a href="observation-operation-stats.html">Observation Statistics</a> section in the Observation resource operations page for more information and examples<p>
 	</p>
 </div>

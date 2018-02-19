@@ -172,7 +172,7 @@ a code system).
 </p>
 <p>
 A FHIR enabled application can simply ask a terminology server to figure out all the details, and return it a list
-of the current codes in the value set. This is known as <a href="valueset-operations.html#expand">"expanding" the valueset</a>.
+of the current codes in the value set. This is known as <a href="valueset-operation-expand.html">"expanding" the valueset</a>.
 As a summary, the client passes the server the following information:
 </p>
 <ul>
@@ -192,7 +192,7 @@ and for these, the server SHOULD return an <a href="valueset-issue-type.html#too
 to reduce the number of codes returned - this may result in a valid expansion.
 </p>
 <p>
-For further information, consult the <a href="valueset-operations.html#expand">definition of the operation</a>.
+For further information, consult the <a href="valueset-operation-expand.html">definition of the operation</a>.
 </p>
 <p>
 The $expand operation has support for paging - for a client to retrieve a big expansion
@@ -270,7 +270,7 @@ HTTP/1.1 200 OK
 <h3>Concept Lookup / Decomposition</h3>
 <p>
 A system can ask a terminology server to return a set of information about a particular system/code
-combination using <a href="codesystem-operations.html#lookup">the lookup operation</a>. The server returns information for both display and processing
+combination using <a href="codesystem-operation-lookup.html">the lookup operation</a>. The server returns information for both display and processing
 purposes. The client passes the server the following information:
 </p>
 <ul>
@@ -419,7 +419,7 @@ One way to determine whether a code is in a value set is to expand the value set
 (as described above), and then look at the returned codes to see if the code is in the expansion.
 However this is not an efficient way to test whether a code is valid, and for some value sets
 (e.g. with infinite number of members), it cannot work. Instead, a FHIR terminology server
-provides <a href="valueset-operations.html#validate-code">a "validate-code" operation</a>. The client passes the server the following information:
+provides <a href="valueset-operation-validate.html-code">a "validate-code" operation</a>. The client passes the server the following information:
 </p>
 <ul>
  <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definitions.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
@@ -679,7 +679,7 @@ HTTP/1.1 200 OK
 <p>
 A client can ask a server to translate a concept from one value set to another. Typically, this
 is used to translate between code systems (e.g. from LOINC to SNOMED CT, or from a <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 V3</a> code to
-a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> code). The client calls <a href="conceptmap-operations.html#translate">the translate operation</a> and passes the following parameters:
+a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> code). The client calls <a href="conceptmap-operation-translate.html">the translate operation</a> and passes the following parameters:
 </p>
 <ul>
   <li>a code + system, Coding, or CodeableConcept</li>
@@ -906,7 +906,7 @@ whether the concept is post-coordinated or not. Here's a description of how the 
  <li> to facilitate the initialization process, a client can call $closure with multiple Coding values</li>
 </ol>
 <p>
-The <a href="conceptmap-operations.html#closure">$closure operation</a> takes 2 parameters:
+The <a href="conceptmap-operation-closure.html">$closure operation</a> takes 2 parameters:
 </p>
 <ul>
  <li> closure table context name</li>

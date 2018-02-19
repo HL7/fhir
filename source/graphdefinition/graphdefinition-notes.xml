@@ -105,7 +105,7 @@ See below for further details.
 <a name="document"></a>
 <h4>Building a document</h4>
 <p>
-A very similar issue applies when building a document using the <a href="composition-operations.html#document">$document operation</a>. 
+A very similar issue applies when building a document using the <a href="composition-operation-document.html">$document operation</a>. 
 A document must include all the resources linked directly from the composition, but 
 whether to include additional linked resources is at the discretion of the document author. How does
 the user inform the $document operation which linked resources to include? One option is a boolean flag

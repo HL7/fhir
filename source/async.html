@@ -18,7 +18,7 @@ All of the interactions defined in the <a href="http.html">RESTful API</a> are d
 synchronous operations - that is, the client makes a query, and waits for the server to 
 respond with the outcome in the HTTP response. This pattern is not suitable once significant 
 server side processing becomes necessary, or when substantial amounts of data must be returned. 
-A good example of this is the <a href="patient-operations.html#everything">$everything operation</a>, 
+A good example of this is the <a href="patient-operation-everything.html">$everything operation</a>, 
 though simple searches may result in large amounts of data. In order to cater for this use case, 
 clients may use an asynchronous request pattern is defined. 
 </p>
@@ -56,7 +56,7 @@ The request will have whatever URL and other parameters would normally apply. Ty
 requests that are made using the asynchronous pattern are for all data on many patients:
 </p>
 <table class="none">
- <tr><td><a href="patient-operations.html#everything">All Patients</a></td><td><pre>GET [fhir base]/Patient/$export</pre></td></tr>
+ <tr><td><a href="patient-operation-everything.html">All Patients</a></td><td><pre>GET [fhir base]/Patient/$export</pre></td></tr>
  <tr><td><a href="group.html#todo">Group of Patients</a></td><td><pre>GET [fhir base]/Group/[id]/$export</pre></td></tr>
 </table>
 

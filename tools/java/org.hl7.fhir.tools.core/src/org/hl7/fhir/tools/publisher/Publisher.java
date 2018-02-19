@@ -3163,16 +3163,17 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceIgOperations(ImplementationGuideDefn ig, Profile p) throws Exception {
-    String src = TextFile.fileToString(page.getFolders().srcDir + "template-ig-operations.html");
-    String n = p.getId();
-    WorkGroup wg = null;
-    TextFile.stringToFile(page.processPageIncludes(ig.getCode()+File.separator+n+"-operations.html", src, "?type", null, "??path", null, null, "Operations", p, ig, null, wg), page.getFolders().dstDir + ig.getCode()+File.separator+n + "-operations.html");
-    // insertSectionNumbers(, st, n+"-operations.html", 0, null)
-    page.getHTMLChecker().registerFile(ig.getCode()+File.separator+n + "-operations.html", "Operations defined by " + p.getTitle(), HTMLLinkChecker.XHTML_TYPE, true);
-
-    for (Operation t : p.getOperations()) {
-      produceOperation(ig, n+"-"+t.getName(), n+"-"+t.getName().toLowerCase(), null, t);
-    }
+    throw new Error("not supported anymore");
+//    String src = TextFile.fileToString(page.getFolders().srcDir + "template-ig-operations.html");
+//    String n = p.getId();
+//    WorkGroup wg = null;
+//    TextFile.stringToFile(page.processPageIncludes(ig.getCode()+File.separator+n+"-operations.html", src, "?type", null, "??path", null, null, "Operations", p, ig, null, wg), page.getFolders().dstDir + ig.getCode()+File.separator+n + "-operations.html");
+//    // insertSectionNumbers(, st, n+"-operations.html", 0, null)
+//    page.getHTMLChecker().registerFile(ig.getCode()+File.separator+n + "-operations.html", "Operations defined by " + p.getTitle(), HTMLLinkChecker.XHTML_TYPE, true);
+//
+//    for (Operation t : p.getOperations()) {
+//      produceOperation(ig, n+"-"+t.getName(), n+"-"+t.getName().toLowerCase(), null, t, null);
+//    }
   }
 
   /**
@@ -4045,7 +4046,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getHTMLChecker().registerFile(n + "-operations.html", "Operations for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
 
         for (Operation t : resource.getOperations()) {
-          produceOperation(null, resource.getName().toLowerCase()+"-"+t.getName(), resource.getName()+"-"+t.getName(), resource, t);
+          produceOperation(null, resource.getName().toLowerCase()+"-"+t.getName(), resource.getName()+"-"+t.getName(), resource, t, st);
         }
         //      // todo: get rid of these...
         //      src = TextFile.fileToString(page.getFolders().srcDir + "template-book.html").replace("<body>", "<body style=\"margin: 10px\">");
@@ -4105,8 +4106,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     TextFile.stringToFile(out.toString(), filename);
   }
 
-  private void produceOperation(ImplementationGuideDefn ig, String name, String id, ResourceDefn resource, Operation op) throws Exception {
-    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(name, id, resource.getName(), op);
+  private void produceOperation(ImplementationGuideDefn ig, String name, String id, ResourceDefn resource, Operation op, SectionTracker st) throws Exception {
+    OperationDefinition opd = new ProfileGenerator(page.getDefinitions(), page.getWorkerContext(), page, page.getGenDate(), page.getVersion(), dataElements, fpUsages).generate(name, id, resource.getName(), op, resource);
     
     String dir = ig == null ? "" : ig.getCode()+File.separator;
 
@@ -4135,6 +4136,15 @@ public class Publisher implements URIResolver, SectionNumberer {
       addToResourceFeed(opd, page.getResourceBundle(), name);
       page.getWorkerContext().cacheResource(opd);
     }
+    // now we create a page for the operation
+    String fnp = resource.getName().toLowerCase()+"-operation-" + op.getName().toLowerCase()+".html";
+    
+    String src = TextFile.fileToString(page.getFolders().srcDir + "template-operation.html");
+    src = page.processPageIncludes(fnp, src, "res-Operations", null, "something", op.getResource(), null, "Operation Definition", op, ig, resource, resource.getWg());
+    TextFile.stringToFile(insertSectionNumbers(src, st, fnp, 0, null), page.getFolders().dstDir + fnp);
+    page.getHTMLChecker().registerFile(fnp, "Operation "+op.getName()+" for " + resource.getName(), HTMLLinkChecker.XHTML_TYPE, true);
+
+    
     // now, we create an html page from the narrative
     String html = TextFile.fileToString(page.getFolders().srcDir + "template-example.html").replace("<%example%>", new XhtmlComposer(XhtmlComposer.HTML).compose(opd.getText().getDiv()));
     html = page.processPageIncludes(dir+"operation-" + name + ".html", html, "resource-instance:OperationDefinition", null, null, null, "Operation Definition", ig, resource, resource.getWg());

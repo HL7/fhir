@@ -24,7 +24,7 @@
 
 <p>As an example, the Low Suicide Risk example order set from the Clinical Decision Support Knowledge Artifact Specification can be represented using the PlanDefinition and ActivityDefinition structures: <a href="plandefinition-example.html">Low Suicide Risk Example Order Set</a>.</p>
 
-<p>In addition to the representation of PlanDefinitions, the <a href="plandefinition-operations.html#apply">$apply</a> operation allows PlanDefinitions to be realized for a specific context such as a patient, practitioner, or institution. For Order Sets specifically, this operation is expected to place the orders defined by the order set, consistent with the service functional requirements defined by the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=287">Order Set specification</a>.</p>
+<p>In addition to the representation of PlanDefinitions, the <a href="plandefinition-operation-apply.html">$apply</a> operation allows PlanDefinitions to be realized for a specific context such as a patient, practitioner, or institution. For Order Sets specifically, this operation is expected to place the orders defined by the order set, consistent with the service functional requirements defined by the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=287">Order Set specification</a>.</p>
 
 </div>
 

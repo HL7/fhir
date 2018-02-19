@@ -679,9 +679,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("codetoc"))
         src = s1+codetoc(com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("resheader")) {
-        StructureDefinition sd = (StructureDefinition) resource;
-        if (sd != null)
-          src = s1+resHeader(sd.getId().toLowerCase(), sd.getId(), com.length > 1 ? com[1] : null)+s3;
+        if (resource != null && resource instanceof StructureDefinition)
+          src = s1+resHeader(((StructureDefinition) resource).getId().toLowerCase(), ((StructureDefinition) resource).getId(), com.length > 1 ? com[1] : null)+s3;
         else if (rd != null) {
           src = s1+resHeader(rd.getName().toLowerCase(), rd.getName(), com.length > 1 ? com[1] : null)+s3;
         } else 
@@ -832,8 +831,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }
         src = s1+(p == null ? "" : getMixedNormativeNote(genlevel(level), p, wt, file))+s3;
       } else if (com[0].equals("normative")) {
-        String p = null;
-        String wt = workingTitle; 
+        String p = object instanceof Object ? rd.getNormativePackage() : null;
+        String wt = object instanceof Object ? rd.getName()+" Operation " + ((Operation) object).getName() : workingTitle; 
         if (com.length >= 2) {
           if (!com[1].equals("%check"))
             p = com[1]; 
@@ -852,6 +851,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else if (s2.startsWith("search-additions\r\n")) {
         searchAdditions = s2.substring(16).trim();
         src = s1+s3;
+      } else if (com[0].equals("complinks")) {
+          src = s1+(rd == null ? "" : getCompLinks(rd, com.length > 1 ? com[1] : null))+s3;
       } else if (com[0].equals("StandardsStatus")) {
         src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
       } else if (com[0].equals("diff-analysis")) {
@@ -1032,9 +1033,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + breadCrumbManager.make(name) + s3;
       else if (com[0].equals("navlist"))
         src = s1 + breadCrumbManager.navlist(name, genlevel(level)) + s3;
-      else if (com[0].equals("breadcrumblist"))
-        src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), crumbTitle) : ig.makeList(name, type, genlevel(level), crumbTitle)) + s3;
-      else if (com[0].equals("year"))
+      else if (com[0].equals("breadcrumblist")) {
+        if (object instanceof Operation)
+          src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(rd.getName().toLowerCase(), type, genlevel(level), crumbTitle) : ig.makeList(name, type, genlevel(level), crumbTitle)) + s3;
+        else
+          src = s1 + ((ig == null || ig.isCore()) ? breadCrumbManager.makelist(name, type, genlevel(level), crumbTitle) : ig.makeList(name, type, genlevel(level), crumbTitle)) + s3;
+      } else if (com[0].equals("year"))
         src = s1 + new SimpleDateFormat("yyyy").format(new Date()) + s3;
       else if (com[0].equals("revision"))
         src = s1 + svnRevision + s3;
@@ -1159,7 +1163,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         Profile p = (Profile) object;
         src = s1 + genOperations(p.getOperations(), p.getTitle(), p.getId(), false, null, "../", "") + s3;
       } else if (com[0].equals("operations-summary"))
-        src = s1 + genOperationsSummary(((Profile) object).getOperations()) + s3;
+        src = s1 + genOperationsSummary(((Profile) object).getOperations(), rd) + s3;
       else if (com[0].equals("ig.opcount"))
         src = s1 + genOpCount(((Profile) object).getOperations()) + s3;
       else if (com[0].equals("ig-toc"))
@@ -1176,8 +1180,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genDefaultedList() + s3;
       else if (com[0].equals("wgreport"))
         src = s1 + genWGReport() + s3;
-      else if (com[0].equals("complinks"))
-        src = s1+(rd == null ? "" : getCompLinks(rd))+s3;
       else if (com[0].equals("r2maps-summary"))
         src = s1 + genR2MapsSummary() + s3;
       else if (com[0].equals("wg")) {
@@ -1196,7 +1198,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildChoiceElementList()+s3;
       else if (com[0].equals("circular-references"))
         src = s1+buildCircularReferenceList()+s3;
-      else if (com[0].equals("past-narrative-link")) {
+      else if (com[0].equals("opName"))
+        src = s1+((Operation) object).getName()+s3;
+      else if (com[0].equals("rName"))
+        src = s1+rd.getName()+s3;
+      else if (com[0].equals("operation-summary"))
+        src = s1+((Operation) object).getName()+" summary"+s3;
+      else if (com[0].equals("operation")) {
+        Operation op = (Operation) object;
+        src = s1+genOperation(op, rd.getName(), rd.getName().toLowerCase(), false, rd.getStatus(), genlevel(level), rd.getNormativePackage())+s3;
+      } else if (com[0].equals("past-narrative-link")) {
        if (object == null || !(object instanceof Boolean))  
          src = s1 + s3;
        else
@@ -2342,7 +2353,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private void genOperationDetails(StringBuilder b, String n, List<Operation> oplist, boolean isAbstract) {
     for (Operation op : oplist) {
-      b.append("<tr><td><a href=\"").append(n.toLowerCase()).append("-operations.html#").append(op.getName()).append("\">");
+      b.append("<tr><td><a href=\"").append(n.toLowerCase()).append("-operation-").append(op.getName()).append(".html\">");
       b.append(Utilities.escapeXml(op.getTitle()));
       b.append("</a></td><td>");
       boolean first = true;
@@ -3216,12 +3227,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     for (ResourceDefn r : definitions.getBaseResources().values()) {
       scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def", prefix);
-      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operations.html#", prefix);
+      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operation-", prefix);
       scanForProfileUsage(b, vs, r, prefix);
     }
     for (ResourceDefn r : definitions.getResources().values()) {
       scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def", prefix);
-      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operations.html#", prefix);
+      scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operations-", prefix);
       scanForProfileUsage(b, vs, r, prefix);
     }
     for (ElementDefn e : definitions.getInfrastructure().values()) {
@@ -3303,7 +3314,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     for (Operation op : r.getOperations()) {
       for (OperationParameter p : op.getParameters()) {
         if (p.getBs() != null && p.getBs().getValueSet() == vs) {
-          b.append(" <li><a href=\"").append(prefix+page).append(op.getName()).append("\">Operation Parameter $")
+          b.append(" <li><a href=\"").append(prefix+page).append(op.getName()).append(".html").append("\">Operation Parameter $")
           .append(op.getName()).append(".").append(p.getName()).append("</a> (").append(getBindingTypeDesc(p.getBs(), prefix)).append(")</li>\r\n");
         }
       }
@@ -5663,6 +5674,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         workingTitle = s2.substring(9).replace("{", "<%").replace("}", "%>");
         src = s1+s3;
       }
+      else if (com[0].equals("complinks"))
+        src = s1+getCompLinks(resource, com.length > 1 ? com[1] : null)+s3;
       else if (com[0].equals("othertabs"))
         src = s1 + genOtherTabs(com[1], tabs) + s3;
       else if (com[0].equals("svg"))
@@ -5740,8 +5753,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+"<a href=\"versions.html#maturity\">Maturity Level</a>: "+resource.getFmmLevel()+s3;
       else if (com[0].equals("sstatus")) 
         src = s1+getStandardsStatus(resource.getName())+s3;
-      else if (com[0].equals("complinks"))
-        src = s1+getCompLinks(resource)+s3;
       else if (com[0].equals("example-list"))
         src = s1+produceExampleList(resource)+s3;
       else if (com[0].equals("name"))
@@ -5824,7 +5835,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         }
         src = s1 + genOperations(oplist, n, id, mixed, resource.getStatus(), "", resource.getNormativePackage()) + s3;
       } else if (com[0].equals("operations-summary"))
-        src = s1 + genOperationsSummary(resource.getOperations()) + s3;
+        src = s1 + genOperationsSummary(resource.getOperations(), resource) + s3;
       else if (com[0].equals("opcount"))
         src = s1 + genOpCount(resource.getOperations()) + s3;
       else if (com[0].startsWith("!"))
@@ -5912,7 +5923,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return "";
   }
 
-  private String getCompLinks(ResourceDefn resource) {
+  private String getCompLinks(ResourceDefn resource, String param) {
     List<String> names = new ArrayList<String>();
     for (Compartment comp : definitions.getCompartments()) {
       if (comp.getResources().containsKey(resource) && !Utilities.noString(comp.getResources().get(resource)))
@@ -5920,17 +5931,21 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     StringBuilder b = new StringBuilder();
     b.append("<a href=\"compartmentdefinition.html\">Compartments</a>: ");
-    if (names.isEmpty())
-      b.append("Not linked to any defined compartments");
+    if ("n/a".equals(param))
+      b.append("N/A");
     else {
-      Collections.sort(names);
-      boolean first = true;
-      for (String name : names) {
-        if (first)
-          first = false;
-        else
-          b.append(", ");
-        b.append("<a href=\"compartmentdefinition-"+name.toLowerCase()+".html\">"+definitions.getCompartmentByName(name).getTitle()+"</a>");
+      if (names.isEmpty())
+        b.append("Not linked to any defined compartments");
+      else {
+        Collections.sort(names);
+        boolean first = true;
+        for (String name : names) {
+          if (first)
+            first = false;
+          else
+            b.append(", ");
+          b.append("<a href=\"compartmentdefinition-"+name.toLowerCase()+".html\">"+definitions.getCompartmentByName(name).getTitle()+"</a>");
+        }
       }
     }
     return b.toString();
@@ -5968,63 +5983,75 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return Integer.toString(oplist.size()) + (oplist.size() == 1 ? " operation" : " operations");
   }
 
-  private String genOperationsSummary(List<Operation> oplist) throws Exception {
+  private String genOperationsSummary(List<Operation> oplist, ResourceDefn resource) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"list\">\r\n");
     for (Operation op : oplist) {
-      b.append("<tr><td><a href=\"#"+op.getName()+"\">$"+Utilities.escapeXml(op.getName())+"</a></td><td>"+Utilities.escapeXml(op.getTitle())+"</td></tr>\r\n");
+      b.append("<tr><td><a href=\""+resource.getName().toLowerCase()+"-operation-"+ op.getName()+".html\">$"+Utilities.escapeXml(op.getName())+"</a></td><td>"+Utilities.escapeXml(op.getTitle())+"</td></tr>\r\n");
     }
     b.append("</table>\r\n");
     return b.toString();
   }
   
+  private String genOperation(Operation op, String n, String id, boolean mixed, StandardsStatus resStatus, String prefix, String np) throws Exception {
+   
+    StringBuilder b = new StringBuilder();
+    genOperationInner(n, id, mixed, resStatus, prefix, np, b, op, false);
+    return b.toString();
+  }
+
   private String genOperations(List<Operation> oplist, String n, String id, boolean mixed, StandardsStatus resStatus, String prefix, String np) throws Exception {
     
     StringBuilder b = new StringBuilder();
     for (Operation op : oplist) {
-      b.append("<h3>").append(Utilities.escapeXml(op.getTitle())).append("<a name=\"").append(op.getName()).append("\"> </a></h3>\r\n");
-      if (mixed)
-        b.append(opStandardsStatusNotice(n, op.getStandardsStatus(), resStatus, np, prefix)+"\r\n");
-      b.append(processMarkdown(n, op.getDoco(), prefix)+"\r\n");
-      b.append("<p>The official URL for this operation definition is</p>\r\n<pre> http://hl7.org/fhir/OperationDefinition/"+n+"-"+op.getName()+"</pre>\r\n");
-      b.append("<p><a href=\"operation-"+id+"-"+op.getName().toLowerCase()+".html\">Formal Definition</a> (as a <a href=\""+prefix+"operationdefinition.html\">OperationDefinition</a>).</p>\r\n");
-      if (op.isSystem())
-        b.append("<p>URL: [base]/$").append(op.getName()).append("</p>\r\n");
-      if (op.isType())
-        b.append("<p>URL: [base]/").append(checkWrap(n)).append("/$").append(op.getName()).append("</p>\r\n");
-      if (op.isInstance())
-        b.append("<p>URL: [base]/").append(checkWrap(n)).append("/[id]/$").append(op.getName()).append("</p>\r\n");
-      if (op.getIdempotent())
-        b.append("<p>This is an idempotent operation</p>\r\n");
-      else
-        b.append("<p>This is <b>not</b> an idempotent operation</p>\r\n");
-      if (!op.getParameters().isEmpty()) {
-        b.append("<table class=\"grid\">\r\n");
-        if (hasParameters(op.getParameters(), "In")) {
-          genParameterHeader(b, "In");
-          for (OperationParameter p : op.getParameters())
-            genOperationParameter(n, "In", "", b, op, p, prefix);
-        }
-        if (hasParameters(op.getParameters(), "Out")) {
-          genParameterHeader(b, "Out");
-          for (OperationParameter p : op.getParameters())
-            genOperationParameter(n, "Out", "", b, op, p, prefix);
-        }
-        b.append("</table>\r\n");
-      }
-      b.append(processMarkdown(n, op.getFooter(), prefix)).append("\r\n");
-      if (op.getExamples().size() > 0) {
-        b.append("<h4>Examples</h4>\r\n");
-        for (OperationExample ex : op.getExamples())
-          if (!ex.isResponse())
-            renderExample(b, ex, "Request");
-        for (OperationExample ex : op.getExamples())
-          if (ex.isResponse())
-            renderExample(b, ex, "Response");
-      }
-      b.append("<p>&nbsp;</p>");
+      genOperationInner(n, id, mixed, resStatus, prefix, np, b, op, true);
     }
     return b.toString();
+  }
+
+  public void genOperationInner(String n, String id, boolean mixed, StandardsStatus resStatus, String prefix, String np, StringBuilder b, Operation op, boolean header) throws Exception {
+    if (header)
+      b.append("<h3>").append(Utilities.escapeXml(op.getTitle())).append("<a name=\"").append(op.getName()).append("\"> </a></h3>\r\n");
+    if (mixed)
+      b.append(opStandardsStatusNotice(n, op.getStandardsStatus(), resStatus, np, prefix)+"\r\n");
+    b.append(processMarkdown(n, op.getDoco(), prefix)+"\r\n");
+    b.append("<p>The official URL for this operation definition is</p>\r\n<pre> http://hl7.org/fhir/OperationDefinition/"+n+"-"+op.getName()+"</pre>\r\n");
+    b.append("<p><a href=\"operation-"+id+"-"+op.getName().toLowerCase()+".html\">Formal Definition</a> (as a <a href=\""+prefix+"operationdefinition.html\">OperationDefinition</a>).</p>\r\n");
+    if (op.isSystem())
+      b.append("<p>URL: [base]/$").append(op.getName()).append("</p>\r\n");
+    if (op.isType())
+      b.append("<p>URL: [base]/").append(checkWrap(n)).append("/$").append(op.getName()).append("</p>\r\n");
+    if (op.isInstance())
+      b.append("<p>URL: [base]/").append(checkWrap(n)).append("/[id]/$").append(op.getName()).append("</p>\r\n");
+    if (op.getIdempotent())
+      b.append("<p>This is an idempotent operation</p>\r\n");
+    else
+      b.append("<p>This is <b>not</b> an idempotent operation</p>\r\n");
+    if (!op.getParameters().isEmpty()) {
+      b.append("<table class=\"grid\">\r\n");
+      if (hasParameters(op.getParameters(), "In")) {
+        genParameterHeader(b, "In");
+        for (OperationParameter p : op.getParameters())
+          genOperationParameter(n, "In", "", b, op, p, prefix);
+      }
+      if (hasParameters(op.getParameters(), "Out")) {
+        genParameterHeader(b, "Out");
+        for (OperationParameter p : op.getParameters())
+          genOperationParameter(n, "Out", "", b, op, p, prefix);
+      }
+      b.append("</table>\r\n");
+    }
+    b.append(processMarkdown(n, op.getFooter(), prefix)).append("\r\n");
+    if (op.getExamples().size() > 0) {
+      b.append("<h4>Examples</h4>\r\n");
+      for (OperationExample ex : op.getExamples())
+        if (!ex.isResponse())
+          renderExample(b, ex, "Request");
+      for (OperationExample ex : op.getExamples())
+        if (ex.isResponse())
+          renderExample(b, ex, "Response");
+    }
+    b.append("<p>&nbsp;</p>");
   }
 
   private String opStandardsStatusNotice(String n, StandardsStatus opStatus, StandardsStatus resStatus, String pack, String prefix) {

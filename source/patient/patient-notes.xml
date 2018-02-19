@@ -220,7 +220,7 @@ MPIs are highly specialized applications, often tailored extensively to the inst
 particular mix of patients. MPIs can also be run on a regional and national basis. 
 </p>
 <p>
-To ask an MPI to match a patient, clients call the patient <a href="patient-operations.html#match">$match</a> operation,
+To ask an MPI to match a patient, clients call the patient <a href="patient-operation-match.html">$match</a> operation,
 which processes a parameters resource containing a complete or fragment of a patient resource, along with some other control parameters.<br/>
 This provided patient resource does not need to pass full validation (mandatory fields, or invariants) as the resource will not be stored,
 it does however need to be a parsable instance.<br/> 
