@@ -5,7 +5,7 @@
  
  1. No change made by differential
  2. No change in differential, but use a resource with recursion in the definitions
- 3. change a cardinaliy
+ 3. change a cardinality
  4. test appending documentation
  5. test constraining the type (with renaming)
  6. test constraining the type (without renaming)

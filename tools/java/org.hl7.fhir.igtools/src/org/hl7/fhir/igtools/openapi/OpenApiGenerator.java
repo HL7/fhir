@@ -50,9 +50,12 @@ public class OpenApiGenerator {
   }
   
   private void generateResource(CapabilityStatementRestResourceComponent r) {
-    if (hasOp(r, TypeRestfulInteraction.READ)) {
+    if (hasOp(r, TypeRestfulInteraction.READ))
       generateRead(r);
-    }
+    if (hasOp(r, TypeRestfulInteraction.VREAD)) 
+      generateVRead(r);
+    if (hasOp(r, TypeRestfulInteraction.UPDATE)) 
+      generateUpdate(r);
   }
 
   private void generateRead(CapabilityStatementRestResourceComponent r) {
@@ -62,6 +65,44 @@ public class OpenApiGenerator {
     opOutcome(op.responses().defaultResponse());
     ResponseObjectWriter resp = op.responses().httpResponse("200");
     resp.description("the resource being returned");
+    if (r.getVersioning() != ResourceVersionPolicy.NOVERSION)
+      resp.header("ETag").description("Version from Resource.meta.version as a weak ETag");
+    if (isJson())
+      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/"+r.getType());
+    if (isXml())
+      resp.content("application/fhir+xml").schemaRef(specRef()+"/"+r.getType()+".xsd");
+  }
+
+  private void generateVRead(CapabilityStatementRestResourceComponent r) {
+    OperationWriter op = makePathResHistId(r).operation("get");
+    op.summary("Read a past state of the resource");
+    op.operationId("vread"+r.getType());
+    opOutcome(op.responses().defaultResponse());
+    ResponseObjectWriter resp = op.responses().httpResponse("200");
+    resp.description("the resource being returned");
+    if (r.getVersioning() != ResourceVersionPolicy.NOVERSION)
+      resp.header("ETag").description("Version from Resource.meta.version as a weak ETag for that version");
+    if (isJson())
+      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/"+r.getType());
+    if (isXml())
+      resp.content("application/fhir+xml").schemaRef(specRef()+"/"+r.getType()+".xsd");
+  }
+
+  // todo: how does prefer header affect return type?
+  private void generateUpdate(CapabilityStatementRestResourceComponent r) {
+    OperationWriter op = makePathResId(r).operation("put");
+    op.summary("Update the current state of the resource");
+    op.operationId("update"+r.getType());
+    RequestBodyWriter req = op.request();
+    req.description("The new state of the resource").required(true);
+    if (isJson())
+      req.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/"+r.getType());
+    if (isXml())
+      req.content("application/fhir+xml").schemaRef(specRef()+"/"+r.getType()+".xsd");
+    
+    opOutcome(op.responses().defaultResponse());
+    ResponseObjectWriter resp = op.responses().httpResponse("200");
+    resp.description("the resource being returned after being updated");
     if (r.getVersioning() != ResourceVersionPolicy.NOVERSION)
       resp.header("ETag").description("Version from Resource.meta.version as a weak ETag");
     if (isJson())
@@ -110,6 +151,13 @@ public class OpenApiGenerator {
     PathItemWriter p = dest.path("/"+r.getType()+"/{rid}");
     p.summary("Read/Write/etc resource instance of type "+r.getType());
     p.description("Access to services to manage the state of a single resource of type "+r.getType());
+    return p;
+  }
+
+  public PathItemWriter makePathResHistId(CapabilityStatementRestResourceComponent r) {
+    PathItemWriter p = dest.path("/"+r.getType()+"/{rid}/_history/{hid}");
+    p.summary("Read past versions of resource instance of type "+r.getType());
+    p.description("Access to previous versions of a single resource of type "+r.getType());
     return p;
   }
 

@@ -2657,21 +2657,8 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
     return c;
   }
-  /*
-  private List<Piece> markdownToPieces(String markdown) throws FHIRException {
-    String htmlString = Processor.process(markdown);
-    XhtmlParser parser = new XhtmlParser();
-    try {
-      XhtmlNode node = parser.parseFragment(htmlString);
-      return htmlToPieces(node);
-    } catch (IOException e) {
-    }
-    return null;
-  }
 
-  private List<Piece> htmlToPieces(XhtmlNode n) {
-    
-  }*/
+
 
   private String buildJson(Type value) throws IOException {
     if (value instanceof PrimitiveType)

@@ -62,6 +62,7 @@ import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_30;
 import org.hl7.fhir.convertors.VersionConvertor_14_40;
 import org.hl7.fhir.convertors.VersionConvertor_30_40;
+import org.hl7.fhir.r4.conformance.ConstraintJavaGenerator;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.context.IWorkerContext.ILoggingService;
@@ -701,8 +702,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       root = new File(root).getCanonicalPath();
     }
       
-    
-    markdownEngine = new MarkDownProcessor(Dialect.DARING_FIREBALL);
+    if (Utilities.existsInList(version.substring(0,  3), "1.0", "1.4", "1.6", "3.0"))
+      markdownEngine = new MarkDownProcessor(Dialect.DARING_FIREBALL);
+    else
+      markdownEngine = new MarkDownProcessor(Dialect.COMMON_MARK);
     
     log("Root directory: "+root);
     if (paths != null && paths.get("resources") instanceof JsonArray) {
@@ -3697,6 +3700,15 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       String path = Utilities.path(tempDir, r.getId()+".csv");
       f.getOutputNames().add(path);
       new ProfileUtilities(context, errors, igpkp).generateCsvs(new FileOutputStream(path), sd, true);
+    }
+
+    if (igpkp.wantGen(r, "java")) {
+      ConstraintJavaGenerator jg = new ConstraintJavaGenerator(context, version, tempDir, sourceIg.getUrl());
+      try {
+        f.getOutputNames().add(jg.generate(sd));
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     }
 
     if (igpkp.wantGen(r, "xlsx")) {

@@ -18,7 +18,9 @@ public class MarkDownProcessor {
   }
 
 
-  public String process(String source) {
+  public String process(String source, String context) {
+    if (source.contains(" * ") && !source.contains("\n"))
+      System.out.println("Suspect markdown: check "+context+" ('"+source+"')");
     switch (dialect) {
     case DARING_FIREBALL : return Processor.process(source); 
     case COMMON_MARK : return processCommonMark(source); 

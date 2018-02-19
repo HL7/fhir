@@ -158,6 +158,8 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.MarkDownProcessor;
+import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
 import org.hl7.fhir.utilities.TranslationServices;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -268,6 +270,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String corePath;
   private String destDir;
   private ProfileKnowledgeProvider pkp;
+  private MarkDownProcessor markdown = new MarkDownProcessor(Dialect.COMMON_MARK);
   
   public boolean generate(Bundle b, boolean evenIfAlreadyHasNarrative, Set<String> outputTracker) throws EOperationOutcome, FHIRException, IOException {
     boolean res = false;
@@ -4003,7 +4006,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	    }
 
 	    // 2. markdown
-	    String s = Processor.process(Utilities.escapeXml(text));
+	    String s = markdown.process(Utilities.escapeXml(text), "narrative generator");
 	    XhtmlParser p = new XhtmlParser();
 	    XhtmlNode m;
 		try {

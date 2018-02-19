@@ -81,7 +81,7 @@ public class BaseRenderer extends TranslatingUtilities {
 	      }
 	    }
 	    // 3. markdown
-	    String s = markdownEngine.process(checkEscape(text));
+	    String s = markdownEngine.process(checkEscape(text), location);
 	    return s;
 	  } catch (Throwable e) {
 		  throw new Exception ("Error processing string: " + text, e);

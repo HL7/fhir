@@ -200,6 +200,8 @@ import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.MarkDownProcessor;
+import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
 import org.hl7.fhir.utilities.StandardsStatus;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -345,6 +347,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private Bundle resourceBundle;
   private JsonObject r2r3Outcomes;
   private Map<String, Map<String, String>> normativePackages = new HashMap<String, Map<String, String>>();
+  private MarkDownProcessor processor = new MarkDownProcessor(Dialect.COMMON_MARK);
 
   public PageProcessor(String tsServer) throws URISyntaxException, UcumException {
     super();
@@ -7639,7 +7642,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("gendate"))
         src = s1+Config.DATE_FORMAT().format(new Date())+s3;
       else if (com[0].equals("definition"))
-        src = s1+Processor.process(Utilities.escapeXml(ed.getDescription()))+s3;
+        src = s1+processor.process(Utilities.escapeXml(ed.getDescription()), "Definition on "+ed.getId())+s3;
       else if (com[0].equals("status"))
         src = s1+(ed.getStatus() == null ? "??" : ed.getStatus().toCode())+s3;
       else if (com[0].equals("author"))
@@ -8261,7 +8264,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     text = MarkDownPreProcessor.process(definitions, workerContext, validationErrors, text, location, prefix);
 
     // 2. markdown
-    String s = Processor.process(checkEscape(text));
+    String s = processor.process(checkEscape(text), location);
     return s;
   }
 

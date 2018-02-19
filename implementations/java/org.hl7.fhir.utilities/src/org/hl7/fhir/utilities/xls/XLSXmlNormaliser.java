@@ -55,12 +55,17 @@ public class XLSXmlNormaliser {
     
     Element root = xml.getDocumentElement();
 
+    boolean hasComment = false;
     Node n = root.getFirstChild();
     while (n != null) {
-      if (n.getNodeType() == Node.COMMENT_NODE && "canonicalized".equals(n.getTextContent()))
-        return;
+      if (n.getNodeType() == Node.COMMENT_NODE && "canonicalized".equals(n.getTextContent())) {
+        hasComment = true;
+        break;
+      }
       n = n.getNextSibling();
     }
+    if (hasComment)
+      return;
     System.out.println("normalise: "+source);
     
     XMLUtil.deleteByName(root, "ActiveSheet");
@@ -73,7 +78,8 @@ public class XLSXmlNormaliser {
     for (Element wk : XMLUtil.getNamedChildren(root, "Worksheet"))
       processWorksheet(wk);
     
-    root.appendChild(xml.createComment("canonicalized"));
+    if (!hasComment)
+      root.appendChild(xml.createComment("canonicalized"));
     String altName = dest+".please-close-this-in-excel-and-return-the-build-prior-to-committing";
     File f = new File(altName);
     if (f.exists())

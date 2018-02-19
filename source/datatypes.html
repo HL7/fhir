@@ -223,7 +223,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td>markdown<a name="markdown"></a></td>
-   <td>A string that may contain markdown syntax for optional processing by a markdown presentation engine</td>
+   <td>A string that may contain markdown syntax for optional processing by a markdown presentation engine, in the GFM extension of CommonMark format (see below)</td>
    <td>xs:string</td>
    <td>JSON string</td>
  </tr>
@@ -282,24 +282,13 @@ Notes:
  </li>
  <li>About the markdown datatype:
    <ul>
-     <li>Systems are not required to have markdown support, and there is considerable variation in markdown syntax,
-       so the content of a string should be readable without markdown processing, per markdown philosophy</li>
-     <li>The preferred markdown syntax is described at <a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a>
-       (see tests here: <a href="http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip">http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip</a>)</li>
-     <li>Markdown content should not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed). <i>Todo: is there any reason not to make this a SHALL?</i></li>
+     <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format</li>
+     <li>Note that GFM prohibits Raw HTML</li>
+     <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy</li>
+     <li>Markdown content SHALL not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed)</li>
    </ul>
  </li>
 </ul>
-<blockquote class="stu-note">
-<a name="dstu"></a>
-<p>
-<b>STU Note:</b> It is likely that FHIR will change to require/recommend <a href="http://commonmark.org/">CommonMark</a> in Release 4. 
-</p>
-<p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-</p>
-</blockquote>
-
 
 <h3>Representations in XML, JSON, and Turtle</h3>
 
