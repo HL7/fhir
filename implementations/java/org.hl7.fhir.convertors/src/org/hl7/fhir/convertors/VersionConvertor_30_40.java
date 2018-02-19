@@ -1617,7 +1617,7 @@ public class VersionConvertor_30_40 {
     org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    if (src.getCode().equals("Reference")) {
+    if ("Reference".equals(src.getCode())) {
       if (src.hasProfile())
         tgt.setProfile(src.getProfile().get(0).getValue());
       for (org.hl7.fhir.r4.model.UriType u : src.getTargetProfile()) {
