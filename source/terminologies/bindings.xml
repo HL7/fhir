@@ -241,6 +241,7 @@
   
   
   <TabRatio>780</TabRatio>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1093,8 +1094,6 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1163,14 +1162,22 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <LeftColumnVisible>4</LeftColumnVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="data-absent-reason">
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="15" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="4" ss:Width="104.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="543.0"/>
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="15" x:FullColumns="1" x:FullRows="1">
+   <Column ss:Width="16.0"/>
+   <Column ss:Width="84.0"/>
+   <Column ss:Width="36.0"/>
+   <Column ss:Width="84.0"/>
+   <Column ss:Width="478.0"/>
+   <Column ss:Width="967.0"/>
+   <Column ss:Width="88.0"/>
+   <Column ss:Width="88.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s89">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
@@ -1179,6 +1186,7 @@
     <Cell><Data ss:Type="String">Definition</Data></Cell>
     <Cell><Data ss:Type="String">Comment</Data></Cell>
     <Cell><Data ss:Type="String">v3</Data></Cell>
+    <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1218,7 +1226,7 @@
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
+    <Cell><Data ss:Type="String">not-applicable</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Not Applicable</Data></Cell>
     <Cell><Data ss:Type="String">There is no proper value for this element (e.g. last menstrual period for a male)</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NA</Data></Cell>
@@ -1226,67 +1234,65 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
     <Cell><Data ss:Type="String">unsupported</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">Unsupported</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Unsupported</Data></Cell>
     <Cell><Data ss:Type="String">The source system wasn't capable of supporting this element.</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">astext</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">As Text</Data></Cell>
+    <Cell><Data ss:Type="String">as-text</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">As Text</Data></Cell>
     <Cell><Data ss:Type="String">The content of the data is represented in the resource narrative.</Data></Cell>
     <Cell><Data ss:Type="String">it may be linked by internal references (e.g. xml:id). This usually implies that the value could not be represented in the correct format - this may be due to system limitations, or this particular data value</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">8</Data></Cell>
     <Cell><Data ss:Type="String">error</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">Error</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Error</Data></Cell>
     <Cell><Data ss:Type="String">Some system or workflow process error means that the information is not available.</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">NaN</Data></Cell>
-    <Cell><Data ss:Type="String">#8</Data></Cell>
+    <Cell><Data ss:Type="String">not-a-number</Data></Cell>
+    <Cell><Data ss:Type="String">error</Data></Cell>
     <Cell><Data ss:Type="String">Not a Number</Data></Cell>
-    <Cell><Data ss:Type="String">NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value.</Data></Cell>
-    <Cell><Data ss:Type="String">This is sometimes an output value from measuring devices</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">&lt;NullFlavor.NA</Data></Cell>
+    <Cell><Data ss:Type="String">The numeric value is undefined or unrepresentable due to a floating point processing error.</Data></Cell>
+    <Cell><Data ss:Type="String">This is sometimes an output value from measuring devices.</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">10</Data></Cell>
     <Cell><Data ss:Type="String">not-performed</Data></Cell>
-    <Cell><Data ss:Type="String">n/a</Data></Cell>
-    <Cell><Data ss:Type="String">Not Performed</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Not Performed</Data></Cell>
     <Cell><Data ss:Type="String">The value is not available because the observation procedure (test, etc.) was not performed.</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">&lt;NullFlavor.NA</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="String">other</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Other</Data></Cell>
-    <Cell><Data ss:Type="String">The actual value is not a permitted value in this context (e.g. due to profiles, or the base types)</Data></Cell>
+    <Cell><Data ss:Type="String">not-permitted</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">Not Permitted</Data></Cell>
+    <Cell><Data ss:Type="String">The value is not permitted in this context (e.g. due to profiles, or the base types)</Data></Cell>
     <Cell><Data ss:Type="String">This is most often associated with required bindings that do not include the actual code used, but may be used with other data types)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.OTH</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">ninf</Data></Cell>
-    <Cell><Data ss:Type="String">other</Data></Cell>
+    <Cell><Data ss:Type="String">negative-infinity</Data></Cell>
+    <Cell><Data ss:Type="String">error</Data></Cell>
     <Cell><Data ss:Type="String">Negative Infinity</Data></Cell>
-    <Cell><Data ss:Type="String">Negative infinity of numbers (a special value produced by some devices)</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NINF</Data></Cell>
+    <Cell><Data ss:Type="String">The numeric value is excessively low and unrepresentable due to a floating point processing error.</Data></Cell>
+    <Cell><Data ss:Type="String">This is sometimes an output value from measuring devices.</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.NINF</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="String">pinf</Data></Cell>
-    <Cell><Data ss:Type="String">other</Data></Cell>
+    <Cell><Data ss:Type="String">positive-infinity</Data></Cell>
+    <Cell><Data ss:Type="String">error</Data></Cell>
     <Cell><Data ss:Type="String">Positive Infinity</Data></Cell>
-    <Cell><Data ss:Type="String">Positive infinity of numbers (a special value produced by some devices)</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.PINF</Data></Cell>
+    <Cell><Data ss:Type="String">The numeric value is excessively high and unrepresentable due to a floating point processing error.</Data></Cell>
+    <Cell><Data ss:Type="String">This is sometimes an output value from measuring devices.</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.PINF</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1301,6 +1307,8 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
+   <LeftColumnVisible>5</LeftColumnVisible>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -1369,6 +1377,8 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <LeftColumnVisible>2</LeftColumnVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1446,6 +1456,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <LeftColumnVisible>6</LeftColumnVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -2014,6 +2026,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3147,6 +3160,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

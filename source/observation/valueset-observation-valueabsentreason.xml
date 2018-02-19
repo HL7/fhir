@@ -15,14 +15,5 @@
 		<include>
 			<system value="http://hl7.org/fhir/data-absent-reason"/>
 		</include>
-		<include>
-			<system value="http://hl7.org/fhir/v3/NullFlavor"/>
-			<concept>
-				<code value="NINF"/>
-			</concept>
-			<concept>
-				<code value="PINF"/>
-			</concept>
-		</include>
 	</compose>
 </ValueSet>
