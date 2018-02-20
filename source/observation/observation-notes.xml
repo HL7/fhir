@@ -2,9 +2,16 @@
 	<a name="notes">
 	</a>
 	<h2>Notes:</h2>
-	<p>   At its simplest, a resource instances can consist of only a code and a value, and status flag.    The relevance of other properties will vary based on the type of observation.</p>
+	<h3>Profiling Observation</h3>
+	<p>   At its simplest, a resource instances can consist of only a code and a value, and status flag.    The relevance of other properties will vary based on the type of observation.
+
+		<a href="observation-profiles.html">Profiles</a> are created to provide guidance on capturing certain types of observations for a given use case.  The Observation resource focuses on the level of detail    captured by most systems.  However, for a given use case there may be additional constraints and additional information relevant in certain circumstances.  As with other resources, <a href="extensibility.html">extensions</a> can be used to introduce this additional complexity. </p>
+			<a name="focalsubject">
+	</a>
+	<h3>Subject of an Observation</h3>
 	<p>
-		<a href="observation-profiles.html">Profiles</a> will be created to provide guidance on capturing certain types    of simple observations.  This resource focuses on the level of detail    captured by most systems.  However, any "simple" observation can easily	be broken into numerous components and sub-components to provide additional    information relevant in certain circumstances.  As with other resources, <a href="extensibility.html">extensions</a> can be used to introduce this additional complexity. </p>
+	Typically an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately.  However,  three attributes may be used for representing the focus of the observation if it is not the subject itself.  The <code>specimen</code> and <code>bodySite</code>  elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and the <a href="extension-observation-focal-subject.html">observation-focal-subject</a> extension represents other observation targets such as an observation about a device implanted in a patient.
+	 </p>	
 			<a name="obsgrouping">
 	</a>
 	<h3>Observation Grouping</h3>
