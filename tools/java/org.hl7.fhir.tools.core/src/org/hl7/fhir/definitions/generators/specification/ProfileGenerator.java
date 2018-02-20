@@ -56,6 +56,7 @@ import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.CompositeDefinition;
 import org.hl7.fhir.definitions.model.TypeDefn;
+import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
@@ -1362,8 +1363,9 @@ public class ProfileGenerator {
         }
       }
     }
-    if (e.getW5() != null)
-      addMapping(p, ce, "http://hl7.org/fhir/w5", e.getW5(), ap);
+    String w5 = translateW5(e.getW5());
+    if (w5 != null)
+      addMapping(p, ce, "http://hl7.org/fhir/fivews", w5, ap);
     if (e.isTranslatable())
       ce.addExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable", new BooleanType(true));
     if (!Utilities.noString(e.getOrderMeaning()))
@@ -1399,6 +1401,13 @@ public class ProfileGenerator {
       defineElement(ap, p, elements, child, path+"."+child.getName(), containedSlices, myParents, snapshot, false, defType, null);
 
     return ce;
+  }
+
+  private String translateW5(String w5) {
+    if (w5 == null)
+      return null;
+    W5Entry e = definitions.getW5s().get(w5);
+    return e == null ? null : e.getFiveWs();
   }
 
   private String isImplicitTypeConstraint(String path) throws Exception {

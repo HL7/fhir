@@ -5874,6 +5874,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String genLogicalMappings(ResourceDefn logical, String genlevel) throws FHIRException {
+    String url = null;
+    if (logical.getName().equals("fivews"))
+      url = "http://hl7.org/fhir/fivews";
+    else
+      url = "http://hl7.org/fhir/workflow";
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"lmap\">");
     b.append(" <tr>");
@@ -5882,25 +5887,33 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     listAllElements(elements, logical.getRoot().getName(), logical.getRoot());
     for (ElementDefn e : elements) {
       if (logical.getRoot().getElements().contains(e))
-        b.append("<td>"+e.getName()+"</td>\r\n");
+        b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">"+e.getName()+"</a> "+e.describeCardinality()+"</td>\r\n");
       else
-        b.append("<td>."+e.getName()+"</td>\r\n");
+        b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">."+e.getName()+"</a> "+e.describeCardinality()+"</td>\r\n");
     }      
     b.append(" </tr>\r\n");
 
     boolean any = false;
     for (String s : sorted(definitions.getResources().keySet())) {
       ResourceDefn rd = definitions.getResourceByName(s);
-      if (hasLogicalMapping(rd, logical)) {
-        any = true;
-        b.append(" <tr>\r\n");
-        b.append("  <td>"+rd.getName()+"</td>\r\n");
-        for (ElementDefn e : elements) {
-          b.append("  <td>");
-          populateLogicalMappingColumn(b, logical.getRoot().getName(), e, rd);
-          b.append("</td>\r\n");
+      StructureDefinition sd = rd.getProfile();
+      String code = null;
+      for (StructureDefinitionMappingComponent m : sd.getMapping()) {
+        if (m.getUri().equals(url))
+          code = m.getIdentity();
+      }
+      if (code != null) {
+        if (hasLogicalMapping(sd, logical, code)) {
+          any = true;
+          b.append(" <tr>\r\n");
+          b.append("  <td><a href=\""+rd.getName().toLowerCase()+".html\">"+rd.getName()+"</a></td>\r\n");
+          for (ElementDefn e : elements) {
+            b.append("  <td>");
+            populateLogicalMappingColumn(b, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, code);
+            b.append("</td>\r\n");
+          }
+          b.append(" </tr>\r\n");
         }
-        b.append(" </tr>\r\n");
       }
     }
     b.append("</table>\r\n");
@@ -5908,7 +5921,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "<a name=\"mappings\"></a><h3>Mappings</h3>\r\n\r\n"+ b.toString();
     else
       return "";
-
   }
 
   private void listAllElements(List<ElementDefn> elements,  String path, ElementDefn logical) {
@@ -5924,22 +5936,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return null;
   }
 
-  private void populateLogicalMappingColumn(StringBuilder b, String n, ElementDefn e, ResourceDefn rd) {
+  private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String code) {
     boolean first = true;
-    String code = null;
-    StructureDefinition sd = rd.getProfile();
-    for (StructureDefinitionMappingComponent m : sd.getMapping()) {
-      if (m.getUri().equals("http://hl7.org/fhir/workflow"))
-        code = m.getIdentity();
-    }
-    if (code == null)
-      return;
     for (ElementDefinition ed : sd.getSnapshot().getElement()) { 
       for (ElementDefinitionMappingComponent m : ed.getMapping()) {
         if (m.getIdentity().equals(code)) {
           String s = m.getMap();
           if (s.equals(e.getPath())) {
-            populateLogicalMappingColumnLine(b, e, ed, first);
+            populateLogicalMappingColumnLine(b, page, e, ed, first);
             first = false;
           }
         }
@@ -5947,7 +5951,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     } 
   }
 
-  private void populateLogicalMappingColumnLine(StringBuilder b, ElementDefn logical, ElementDefinition resource, boolean first) {
+  private void populateLogicalMappingColumnLine(StringBuilder b, String page, ElementDefn logical, ElementDefinition resource, boolean first) {
     if (!first)
       b.append("<br/>");
     String typeError = checkType(logical, resource);
@@ -5956,7 +5960,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("<span style=\"background-color: salmon\" title=\""+cardinalityError+" "+typeError+"\">");
     else
       b.append("<span style=\"background-color: white\">");
+    b.append("<a style=\"color: black\" href=\""+page+resource.getPath()+"\">");
     b.append(resource.getPath().substring(resource.getPath().indexOf(".")+1));
+    b.append("</a> ");
+    if (resource.getMin() != logical.getMinCardinality() || !resource.getMax().equals(Integer.toString(logical.getMaxCardinality()))) {
+      b.append(resource.getMin());
+      b.append("..");
+      b.append(resource.getMax());
+    }
     b.append("</span>");
   }
 
@@ -5988,16 +5999,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return s;
   }
 
-  private boolean hasLogicalMapping(ResourceDefn rd, ResourceDefn logical) {
-    String code = null;
-    StructureDefinition sd = rd.getProfile();
-    for (StructureDefinitionMappingComponent m : sd.getMapping()) {
-      if (m.getUri().equals("http://hl7.org/fhir/workflow"))
-        code = m.getIdentity();
-    }
-    if (code == null)
-      return false;
-    
+  private boolean hasLogicalMapping(StructureDefinition sd, ResourceDefn logical, String code) {
     for (ElementDefinition ed : sd.getSnapshot().getElement()) { 
       for (ElementDefinitionMappingComponent m : ed.getMapping()) {
         if (m.getIdentity().equals(code)) {

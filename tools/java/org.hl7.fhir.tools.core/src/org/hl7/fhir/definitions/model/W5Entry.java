@@ -9,13 +9,15 @@ public class W5Entry {
   private String description;
   private boolean display;
   private Set<String> subClasses = new HashSet<String>();
+  private String fivews;
   
   
-  public W5Entry(String code, String description, boolean display, String subclasses) {
+  public W5Entry(String code, String description, boolean display, String subclasses, String fivews) {
     super();
     this.code = code;
     this.description = description;
     this.display = display;
+    this.fivews = fivews;
     if (subclasses != null) {
       String[] parts = subclasses.split("\\,");
       for (String s : parts)
@@ -42,6 +44,9 @@ public class W5Entry {
   }
   public Set<String> getSubClasses() {
     return subClasses;
+  }
+  public String getFiveWs() {
+    return fivews;
   }
   
   
