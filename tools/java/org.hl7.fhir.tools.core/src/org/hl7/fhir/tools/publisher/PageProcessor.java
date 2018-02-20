@@ -4079,7 +4079,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("<ul class=\"nav nav-tabs\">");
 
     b.append(makeHeaderTab("Content", n+".html", mode==null || "content".equals(mode)));
-    b.append(makeHeaderTab("Examples", n+"-examples.html", "examples".equals(mode)));
+    b.append(makeHeaderTab("Implementations", n+"-implementations.html", "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", n+"-definitions.html", "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", n+"-mappings.html", "mappings".equals(mode)));
     if (hasXMlJson) {
@@ -5853,8 +5853,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+fmmBarColorStyle(resource)+s3;
       else if (otherValues.containsKey(com[0]))
         src = s1+otherValues.get(com[0])+s3;
-      else if (com[0].equals("lmexamples"))
-        src = s1+genExampleList(examples)+s3; 
+      else if (com[0].equals("lmimplementations"))
+        src = s1+genImplementationList(resource)+s3; 
       else if (com[0].equals("json-schema"))
         src = s1+jsonSchema(resource.getName())+s3; 
       else if (com[0].equals("dependency-graph"))
@@ -5873,12 +5873,35 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return src;
   }
 
+  private String genImplementationList(ResourceDefn logical) throws FHIRException {
+    String url = getLogicalMappingUrl(logical);
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"lines\">\r\n");
+    for (String s : sorted(definitions.getResources().keySet())) {
+      ResourceDefn rd = definitions.getResourceByName(s);
+      StructureDefinition sd = rd.getProfile();
+      String code = null;
+      for (StructureDefinitionMappingComponent m : sd.getMapping()) {
+        if (m.getUri().equals(url))
+          code = m.getIdentity();
+      }
+      if (code != null) {
+        if (hasLogicalMapping(sd, logical, code)) {
+          b.append(" <tr>\r\n");
+          b.append("  <td><a href=\""+rd.getName().toLowerCase()+".html\">"+rd.getName()+"</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n");
+          b.append("  <td><a href=\""+rd.getName().toLowerCase()+"-mappings.html#"+url+"\">Mappings</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>\r\n");
+          b.append("  <td><a href=\""+rd.getName().toLowerCase()+"-examples.html\">Examples</a></td>\r\n");
+          b.append(" </tr>\r\n");
+        }
+      }
+    }
+    
+    b.append("</table>");    
+    return b.toString();
+  }
+
   private String genLogicalMappings(ResourceDefn logical, String genlevel) throws FHIRException {
-    String url = null;
-    if (logical.getName().equals("fivews"))
-      url = "http://hl7.org/fhir/fivews";
-    else
-      url = "http://hl7.org/fhir/workflow";
+    String url = getLogicalMappingUrl(logical);
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"lmap\">");
     b.append(" <tr>");
@@ -5921,6 +5944,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return "<a name=\"mappings\"></a><h3>Mappings</h3>\r\n\r\n"+ b.toString();
     else
       return "";
+  }
+
+  public String getLogicalMappingUrl(ResourceDefn logical) {
+    String url = null;
+    if (logical.getName().equals("fivews"))
+      url = "http://hl7.org/fhir/fivews";
+    else
+      url = "http://hl7.org/fhir/workflow";
+    return url;
   }
 
   private void listAllElements(List<ElementDefn> elements,  String path, ElementDefn logical) {
