@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/consentscope"/>
-  <name value="Consent Action Codes"/>
+  <name value="Consent Scope Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes the current scopes for the Consent resources."/>
@@ -9,7 +9,7 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="ADR"/>
+    <code value="adr"/>
     <display value="Advanced Care Directive"/>
     <definition value="Actions to be taken if they are no longer able to make decisions for themselves"/>
   </concept>

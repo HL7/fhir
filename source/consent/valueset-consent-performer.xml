@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Consent Scope Codes"/>
+  <name value="Performer Role Codes"/>
   <status value="draft"/>
   <publisher value="CBCC"/>
   <contact>
@@ -13,11 +13,11 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes the four Consent scope codes."/>
+  <description value="This value set includes sample Performer Role codes."/>
   <copyright value="This is an example set."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/consentscope"/>
+      <system value="http://hl7.org/fhir/consentperformer"/>
     </include>
   </compose>
 </ValueSet>
