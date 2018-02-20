@@ -1618,6 +1618,8 @@ public class SpreadsheetParser {
 			e = new TypeDefn();
 			e.setName(path);
 			root.setRoot((TypeDefn) e);
+			if (template != null)
+        e.copyFrom(template.getRoot(), root.getName(), templateTitle);
 		} else {
 			e = makeFromPath(root.getRoot(), path, row, profileName, true);
 			if (template != null) {
