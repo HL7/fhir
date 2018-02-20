@@ -27,7 +27,7 @@
 -->
 <Consent xmlns="http://hl7.org/fhir">
   <id value="consent-example-smartonfhir"/>
-  <status value="active"/>
+  <status value="in-progress"/>
   <scope value="privacy"/>
   <category>
     <coding>
@@ -43,12 +43,12 @@
     <reference value="Patient/xcda"/>
   </patient>
   <dateTime value="2016-06-23T17:02:33+10:00"/>
-  <consentingParty>
+  <performer>
     <!-- this is the patient record that matches the person
       making the decision. note: it's not always a related person
     -->
     <reference value="RelatedPerson/peter"/>
-  </consentingParty>
+  </performer>
   <organization>
     <!-- The organization running the Authentication server -->
     <reference value="Organization/f001"/>

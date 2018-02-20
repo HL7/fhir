@@ -13,7 +13,7 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
    </p>
    </div>
   </text>
-  <status value="active"/>
+  <status value="in-progress"/>
   <scope value="privacy"/>
   <category>
     <coding>
