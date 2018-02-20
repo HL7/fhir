@@ -827,7 +827,7 @@ table.lmap {
 table.lmap th {
   border:1px solid silver;
   padding:3px 7px 2px 7px;
-  font-size: 9px;
+  font-size: 10px;
   line-height: 1.4em;
   font-family: verdana;
   font-weight: bold;
@@ -839,7 +839,7 @@ table.lmap th {
 table.lmap td {
   border:1px solid silver;
   padding:3px 7px 2px 7px;
-  font-size: 9px;
+  font-size: 10px;
   line-height: 1.4em;
   font-family: verdana;
   font-weight: normal;

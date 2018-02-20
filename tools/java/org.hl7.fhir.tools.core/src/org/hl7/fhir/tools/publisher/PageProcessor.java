@@ -5910,9 +5910,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     listAllElements(elements, logical.getRoot().getName(), logical.getRoot());
     for (ElementDefn e : elements) {
       if (logical.getRoot().getElements().contains(e))
-        b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">"+e.getName()+"</a> "+e.describeCardinality()+"</td>\r\n");
+        b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">"+e.getName()+"</a></td>\r\n");
       else
-        b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">."+e.getName()+"</a> "+e.describeCardinality()+"</td>\r\n");
+        b.append("<td><a href=\""+logical.getName().toLowerCase()+"-definitions.html#"+e.getPath()+"\">."+e.getName()+"</a></td>\r\n");
     }      
     b.append(" </tr>\r\n");
 
@@ -5931,9 +5931,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b.append(" <tr>\r\n");
           b.append("  <td><a href=\""+rd.getName().toLowerCase()+".html\">"+rd.getName()+"</a></td>\r\n");
           for (ElementDefn e : elements) {
-            b.append("  <td>");
             populateLogicalMappingColumn(b, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, code);
-            b.append("</td>\r\n");
           }
           b.append(" </tr>\r\n");
         }
@@ -5968,46 +5966,101 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return null;
   }
 
+  private class LogicalModelSupportInformation {
+    int elementcount;
+    boolean extension;
+    boolean nameChanged;
+    boolean typeMismatch;
+    boolean cardinalityProblem;
+    List<String> notes = new ArrayList<String>();
+  }
+  private final static String LOGICAL_MAPPING_MISMATCH_COLOR = "#ffebe6";
+  private final static String LOGICAL_MAPPING_NAMECHANGE_COLOR = "#e6ffff";
+  private final static String LOGICAL_MAPPING_EXTENSION_COLOR = "#ffffe6";
+  private final static String LOGICAL_MAPPING_MAPPED_COLOR = "#ffffff";
+  private final static String LOGICAL_MAPPING_NOTMAPPED_COLOR = "#f2f2f2";
+  
   private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String code) {
-    boolean first = true;
+    LogicalModelSupportInformation info = new LogicalModelSupportInformation();
+    // support: not, native, extension
+    
     for (ElementDefinition ed : sd.getSnapshot().getElement()) { 
       for (ElementDefinitionMappingComponent m : ed.getMapping()) {
         if (m.getIdentity().equals(code)) {
           String s = m.getMap();
-          if (s.equals(e.getPath())) {
-            populateLogicalMappingColumnLine(b, page, e, ed, first);
-            first = false;
+          for (String p : s.split("\\,")) {
+            String f = p.contains("{") ? p.substring(0, p.indexOf("{")) : p;
+            if (f.equals(e.getPath())) {
+              checkMapping(info, e, ed);
+           }
           }
         }
       }
-    } 
+    }
+    
+    // color: 
+    //   one color when supported and aligned
+    //   one color when not aligned
+    //   one coor when color extension  
+    //   blank for no mapping
+    String color;
+    if (info.typeMismatch || info.cardinalityProblem) 
+      color = LOGICAL_MAPPING_MISMATCH_COLOR;
+    else if (info.nameChanged) 
+      color = LOGICAL_MAPPING_NAMECHANGE_COLOR;
+    else if (info.extension) 
+      color = LOGICAL_MAPPING_EXTENSION_COLOR;
+    else if (info.elementcount> 0)
+      color = LOGICAL_MAPPING_MAPPED_COLOR;
+    else 
+      color = LOGICAL_MAPPING_NOTMAPPED_COLOR;
+    
+    StringBuilder ns = new StringBuilder();
+    for (String s : info.notes) {
+      if (ns.length() > 0)
+        ns.append("; ");
+      ns.append(s);
+    }
+    b.append("  <td style=\"background-color: "+color+"\" title=\""+ns.toString()+"\">");
+    if (info.elementcount > 0)
+      b.append(info.elementcount);
+    else if (info.extension)
+      b.append("E");
+    b.append(" ");
+    if (info.nameChanged)
+      b.append("N");
+    if (info.typeMismatch)
+      b.append("T");
+    if (info.cardinalityProblem)
+      b.append("C");
+    b.append("</td>\r\n");
   }
 
-  private void populateLogicalMappingColumnLine(StringBuilder b, String page, ElementDefn logical, ElementDefinition resource, boolean first) {
-    if (!first)
-      b.append("<br/>");
-    String typeError = checkType(logical, resource);
-    String cardinalityError = checkCardinality(logical, resource);
-    if (!Utilities.noString(cardinalityError) || !Utilities.noString(typeError))
-      b.append("<span style=\"background-color: salmon\" title=\""+cardinalityError+" "+typeError+"\">");
-    else
-      b.append("<span style=\"background-color: white\">");
-    b.append("<a style=\"color: black\" href=\""+page+resource.getPath()+"\">");
-    b.append(resource.getPath().substring(resource.getPath().indexOf(".")+1));
-    b.append("</a> ");
-    if (resource.getMin() != logical.getMinCardinality() || !resource.getMax().equals(Integer.toString(logical.getMaxCardinality()))) {
-      b.append(resource.getMin());
-      b.append("..");
-      b.append(resource.getMax());
+  private void checkMapping(LogicalModelSupportInformation info, ElementDefn logical, ElementDefinition resource) {
+    info.elementcount++;
+    String s = logical.getPath()+" : "+logical.typeCode()+" ["+logical.describeCardinality()+"] =&gt; "+resource.getPath()+" : "+resource.typeSummary()+" ["+resource.getMin()+".."+resource.getMax()+"]";
+    if (logical.getName().equals(resource.getPath())) {
+      info.nameChanged = true;
     }
-    b.append("</span>");
+    String cardinalityError = checkCardinality(logical, resource);
+    if (!Utilities.noString(cardinalityError)) {
+      info.cardinalityProblem = true;
+      s = s + " " +cardinalityError;
+    }
+    String typeError = checkType(logical, resource);
+    if (!Utilities.noString(typeError)) {
+      info.typeMismatch = true;
+      s = s + " " +typeError;
+    }
+    info.notes.add(s);
   }
+
 
   private String checkType(ElementDefn logical, ElementDefinition resource) {
     String s = "";
     for (TypeRefComponent rt : resource.getType()) {
       if (!checkType(logical, rt)) {
-        String m = "The type '"+rt.getCode()+"' is not legal accoding to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
+        String m = "The type '"+rt.getCode()+"' is not legal according to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
         s = Utilities.noString(s) ? m : s + ", "+m;
       }
     }
