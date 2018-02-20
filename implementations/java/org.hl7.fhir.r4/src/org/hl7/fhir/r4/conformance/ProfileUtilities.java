@@ -2095,8 +2095,8 @@ public class ProfileUtilities extends TranslatingUtilities {
     String s = tail(element.getPath());
     List<ElementDefinition> children = getChildren(all, element);
     boolean isExtension = (s.equals("extension") || s.equals("modifierExtension"));
-    if (!snapshot && isExtension && extensions != null && extensions != isExtension)
-      return;
+//    if (!snapshot && isExtension && extensions != null && extensions != isExtension)
+//      return;
 
     if (!onlyInformationIsMapping(all, element)) {
       Row row = gen.new Row();
@@ -2218,10 +2218,10 @@ public class ProfileUtilities extends TranslatingUtilities {
         for (ElementDefinition child : children)
           if (logicalModel || !child.getPath().endsWith(".id") || (child.getPath().endsWith(".id") && (profile != null) && (profile.getDerivation() == TypeDerivationRule.CONSTRAINT)))  
             genElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, isExtension, snapshot, corePath, imagePath, false, logicalModel, isConstraintMode, allInvariants);
-        if (!snapshot && (extensions == null || !extensions))
-          for (ElementDefinition child : children)
-            if (child.getPath().endsWith(".extension") || child.getPath().endsWith(".modifierExtension"))
-              genElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, true, false, corePath, imagePath, false, logicalModel, isConstraintMode, allInvariants);
+//        if (!snapshot && (extensions == null || !extensions))
+//          for (ElementDefinition child : children)
+//            if (child.getPath().endsWith(".extension") || child.getPath().endsWith(".modifierExtension"))
+//              genElement(defPath, gen, row.getSubRows(), child, all, profiles, showMissing, profileBaseFileName, true, false, corePath, imagePath, false, logicalModel, isConstraintMode, allInvariants);
       }
     }
   }
