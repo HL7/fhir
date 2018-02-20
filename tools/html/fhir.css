@@ -817,3 +817,32 @@ a.normative-flag {
   color: black; 
   font-weight: bold
 }
+
+table.lmap {
+  margin-bottom: 10px;
+  border: 1px black solid;
+  margin-right: auto;
+}
+
+table.lmap th {
+  border:1px solid silver;
+  padding:3px 7px 2px 7px;
+  font-size: 9px;
+  line-height: 1.4em;
+  font-family: verdana;
+  font-weight: bold;
+  padding: 3px;
+  vertical-align: top;
+}
+
+
+table.lmap td {
+  border:1px solid silver;
+  padding:3px 7px 2px 7px;
+  font-size: 9px;
+  line-height: 1.4em;
+  font-family: verdana;
+  font-weight: normal;
+  padding: 3px;
+  vertical-align: top;
+}

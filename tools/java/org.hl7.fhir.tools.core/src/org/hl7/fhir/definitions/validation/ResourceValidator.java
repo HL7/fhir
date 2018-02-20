@@ -52,6 +52,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
+import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
@@ -104,16 +105,18 @@ public class ResourceValidator extends BaseValidator {
   private int maxElementLength;
   private List<FHIRPathUsage> fpUsages;
   private List<String> suppressedMessages;
+  private IWorkerContext context;
   
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
-	public ResourceValidator(Definitions definitions, Translations translations, Map<String, CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages, List<String> suppressedMessages) throws IOException {
+	public ResourceValidator(Definitions definitions, Translations translations, Map<String, CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages, List<String> suppressedMessages, IWorkerContext context) throws IOException {
 		super();
 		source = Source.ResourceValidator;
 		this.definitions = definitions;
 		this.translations = translations;
 		this.codeSystems = map;
 		this.fpUsages = fpUsages;
+		this.context = context;
 		speller = new SpellChecker(srcFolder, definitions);
 		int l = 0;
 		for (String n : definitions.getTypes().keySet())
@@ -711,11 +714,11 @@ public class ResourceValidator extends BaseValidator {
 			  check(errors, path, cd, sd, e);
 			  if (cd.getValueSet() != null) {
 			    if (e.getBinding().getStrength() == BindingStrength.EXAMPLE)
-	          ValueSetUtilities.markStatus(cd.getValueSet(), parent == null ? "fhir" : parent.getWg().getCode(), StandardsStatus.DRAFT, null, "1");
+	          ValueSetUtilities.markStatus(cd.getValueSet(), parent == null ? "fhir" : parent.getWg().getCode(), StandardsStatus.DRAFT, null, "1", context);
 			    else if (parent == null)
-            ValueSetUtilities.markStatus(cd.getValueSet(), "fhir", StandardsStatus.DRAFT, null, "0");
+            ValueSetUtilities.markStatus(cd.getValueSet(), "fhir", StandardsStatus.DRAFT, null, "0", context);
 			    else
-			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativePackage(), parent.getFmmLevel());
+			      ValueSetUtilities.markStatus(cd.getValueSet(), parent.getWg().getCode(), parent.getStatus(), parent.getNormativePackage(), parent.getFmmLevel(), context);
 			    Integer w = (Integer) cd.getValueSet().getUserData("warnings");
 			    if (w != null && w > 0 && !vsWarns.contains(cd.getValueSet().getId())) {
 			      vsWarnings++;

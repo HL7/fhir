@@ -139,6 +139,7 @@ import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.SlicingRules;
@@ -5858,6 +5859,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+jsonSchema(resource.getName())+s3; 
       else if (com[0].equals("dependency-graph"))
         src = s1+genDependencyGraph(resource, genlevel(level))+s3; 
+      else if (com[0].equals("logical-mappings"))
+        src = s1+genLogicalMappings(resource, genlevel(level))+s3; 
       else if (com[0].equals("resurl")) {
         if (isAggregationEndpoint(resource.getName()))
           src = s1+s3;
@@ -5868,6 +5871,148 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
     }
     return src;
+  }
+
+  private String genLogicalMappings(ResourceDefn logical, String genlevel) throws FHIRException {
+    StringBuilder b = new StringBuilder();
+    b.append("<table class=\"lmap\">");
+    b.append(" <tr>");
+    b.append("  <th></th>\r\n");
+    List<ElementDefn> elements = new ArrayList<ElementDefn>();
+    listAllElements(elements, logical.getRoot().getName(), logical.getRoot());
+    for (ElementDefn e : elements) {
+      if (logical.getRoot().getElements().contains(e))
+        b.append("<td>"+e.getName()+"</td>\r\n");
+      else
+        b.append("<td>."+e.getName()+"</td>\r\n");
+    }      
+    b.append(" </tr>\r\n");
+
+    boolean any = false;
+    for (String s : sorted(definitions.getResources().keySet())) {
+      ResourceDefn rd = definitions.getResourceByName(s);
+      if (hasLogicalMapping(rd, logical)) {
+        any = true;
+        b.append(" <tr>\r\n");
+        b.append("  <td>"+rd.getName()+"</td>\r\n");
+        for (ElementDefn e : elements) {
+          b.append("  <td>");
+          populateLogicalMappingColumn(b, logical.getRoot().getName(), e, rd);
+          b.append("</td>\r\n");
+        }
+        b.append(" </tr>\r\n");
+      }
+    }
+    b.append("</table>\r\n");
+    if (any)
+      return "<a name=\"mappings\"></a><h3>Mappings</h3>\r\n\r\n"+ b.toString();
+    else
+      return "";
+
+  }
+
+  private void listAllElements(List<ElementDefn> elements,  String path, ElementDefn logical) {
+    for (ElementDefn c : logical.getElements()) {
+      c.setPath(path+"."+c.getName());
+      elements.add(c);
+      listAllElements(elements, c.getPath(), c);
+    }
+  }
+
+  private List<ElementDefn> listAllElements(ResourceDefn logical) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  private void populateLogicalMappingColumn(StringBuilder b, String n, ElementDefn e, ResourceDefn rd) {
+    boolean first = true;
+    String code = null;
+    StructureDefinition sd = rd.getProfile();
+    for (StructureDefinitionMappingComponent m : sd.getMapping()) {
+      if (m.getUri().equals("http://hl7.org/fhir/workflow"))
+        code = m.getIdentity();
+    }
+    if (code == null)
+      return;
+    for (ElementDefinition ed : sd.getSnapshot().getElement()) { 
+      for (ElementDefinitionMappingComponent m : ed.getMapping()) {
+        if (m.getIdentity().equals(code)) {
+          String s = m.getMap();
+          if (s.equals(e.getPath())) {
+            populateLogicalMappingColumnLine(b, e, ed, first);
+            first = false;
+          }
+        }
+      }
+    } 
+  }
+
+  private void populateLogicalMappingColumnLine(StringBuilder b, ElementDefn logical, ElementDefinition resource, boolean first) {
+    if (!first)
+      b.append("<br/>");
+    String typeError = checkType(logical, resource);
+    String cardinalityError = checkCardinality(logical, resource);
+    if (!Utilities.noString(cardinalityError) || !Utilities.noString(typeError))
+      b.append("<span style=\"background-color: salmon\" title=\""+cardinalityError+" "+typeError+"\">");
+    else
+      b.append("<span style=\"background-color: white\">");
+    b.append(resource.getPath().substring(resource.getPath().indexOf(".")+1));
+    b.append("</span>");
+  }
+
+  private String checkType(ElementDefn logical, ElementDefinition resource) {
+    String s = "";
+    for (TypeRefComponent rt : resource.getType()) {
+      if (!checkType(logical, rt)) {
+        String m = "The type '"+rt.getCode()+"' is not legal accoding to the pattern ("+resource.typeSummary()+" vs "+logical.typeCode()+") ";
+        s = Utilities.noString(s) ? m : s + ", "+m;
+      }
+    }
+    return s;
+  }
+
+  private boolean checkType(ElementDefn logical, TypeRefComponent rt) {
+    for (TypeRef lt : logical.getTypes()) {
+      if (lt.getName().equals(rt.getCode()))
+        return true;
+    }
+    return false;
+  }
+
+  private String checkCardinality(ElementDefn logical, ElementDefinition resource) {
+    String s = "";
+    if (resource.getMin() < logical.getMinCardinality())
+      s = "Minimum Cardinality Violation (pattern = 1, resource = 0)";
+    if (!resource.getMax().equals("1") && logical.getMaxCardinality() == 1)
+      s = Utilities.noString(s) ? "Maximum Cardinality Violation (pattern = 1, resource = *)" : s + ", Maximum Cardinality Violation (pattern = 1, resource = *)";
+    return s;
+  }
+
+  private boolean hasLogicalMapping(ResourceDefn rd, ResourceDefn logical) {
+    String code = null;
+    StructureDefinition sd = rd.getProfile();
+    for (StructureDefinitionMappingComponent m : sd.getMapping()) {
+      if (m.getUri().equals("http://hl7.org/fhir/workflow"))
+        code = m.getIdentity();
+    }
+    if (code == null)
+      return false;
+    
+    for (ElementDefinition ed : sd.getSnapshot().getElement()) { 
+      for (ElementDefinitionMappingComponent m : ed.getMapping()) {
+        if (m.getIdentity().equals(code)) {
+          String s = m.getMap();
+          if (s.equals(logical.getRoot().getName()) || s.startsWith(logical.getRoot().getName()+"."))
+            return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  private void addLogicalElementColumn(StringBuilder b, boolean root, ElementDefn e) {
+    for (ElementDefn c : e.getElements()) 
+      addLogicalElementColumn(b, false, c);    
   }
 
   private String jsonSchema(String name) throws FileNotFoundException, IOException {
@@ -5902,7 +6047,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   public String fmmBarColorStyle(StandardsStatus status, String fmm) {
     if (status == null)
-      return "cols";
+      return "0".equals(fmm) ? "colsd" : "colstu";
     switch (status) {
     case DRAFT: return "colsd";
     case TRIAL_USE: return "0".equals(fmm) ? "colsd" : "colstu"; 

@@ -360,7 +360,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   private ValueSet buildV2ValueSet(String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
@@ -498,7 +498,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   private void buildV2CodeSystem(VSPack vp, String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
@@ -662,7 +662,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
-    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0");
+    ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
     vs.setUserData("path", Utilities.path("v2", id, version, "index.html"));
