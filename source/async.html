@@ -40,7 +40,7 @@ The client initiates the pattern using the Prefer header:
 
 <pre>
 GET [base]/[request]?_outputFormat=[media-type]
-Accept: application/json
+Accept: application/fhir+json
 Prefer: respond-async
 </pre>
 
@@ -57,7 +57,7 @@ requests that are made using the asynchronous pattern are for all data on many p
 </p>
 <table class="none">
  <tr><td><a href="patient-operation-everything.html">All Patients</a></td><td><pre>GET [fhir base]/Patient/$export</pre></td></tr>
- <tr><td><a href="group.html#todo">Group of Patients</a></td><td><pre>GET [fhir base]/Group/[id]/$export</pre></td></tr>
+ <tr><td><a href="group-operation-everything.html">Group of Patients</a></td><td><pre>GET [fhir base]/Group/[id]/$export</pre></td></tr>
 </table>
 
 <h4>Response - Success</h4>
@@ -92,7 +92,7 @@ with a http date or a delay time in seconds. When provided, clients should use t
 
 <pre>
 GET [content-location]
-Accept: applicationa/json
+Accept: application/json
 </pre>
 
 <h4>Response - In-Progress Status</h4>
@@ -114,12 +114,12 @@ Accept: applicationa/json
 <li>HTTP status of <code>200 OK</code></li>
 <li><code>Content-Type header</code> of <code>application/json</code></li>
 <li>Optionally an <code>Expires</code> header indicating when the files listed will no longer be available</li>
-<li>p>A body containing a json object providing metadata and links to the generated bulk data files</li>
+<li>A body containing a json object providing metadata and links to the generated bulk data files</li>
 </ul>
 
 <p>Required Fields:</p>
 <ul>
-<li><code>transactionTime</code> - a FHIR instant type that indicates the server's time when the query is run. No resources that have a modified data after this instant should be in the response.</li>
+<li><code>transactionTime</code> - an <a href="datatypes.html#instant">instant type</a> that indicates the server's time when the query is run. No resources that have a modified data after this instant should be in the response.</li>
 <li><code>request</code> - the full url of the original bulk data kick-off request</li>
 <li><code>secure</code> - boolean value indicating whether downloading the generated files will require an authentication token. Note: This may be false in the case of signed S3 urls or an internal file server within an organization's firewall.</li>
 <li><code>output</code> - array of bulk data file items with one entry for each generated file. Note: If no data is returned from the kick-off request, the server should return an empty array.</li>
@@ -129,6 +129,9 @@ Accept: applicationa/json
 <li><code>type</code> - the FHIR resource type that is contained in the file. Note: Each file may only contain resources of one type, but a server may create more than one file for each resources type returned. The number of resources contained in a file is may vary between servers. If no data is found for a resource, the server should not return an output item for it in the response.</li>
 <li><code>url</code> - the path to the file. The format of the file should reflect that requested in the <code>_outputFormat</code> parameter of the initial kick-off request.</li>
 </ul>
+<p>
+Note: no extensions in this json object.
+</p>
 <p>Example response body:</p>
 <div class="json">
 <pre> {
@@ -193,12 +196,12 @@ in these requests.</p>
 <h4>Response - Success</h4>
 <ul>
 <li>HTTP Status Code of <code>202 Accepted</code></li>
-<li>Optionally a FHIR OperationOutcome in the body</li>
+<li>Optionally a <a href="operationoutcome.html">OperationOutcome</a> in the body</li>
 </ul>
 <h4>Response - Error Status</h4>
 <ul>
 <li>HTTP status code of <code>4XX</code> or <code>5XX</code></li>
-<li>Optionally a FHIR OperationOutcome in the body</li>
+<li>Optionally a <a href="operationoutcome.html">OperationOutcome</a> in the body</li>
 </ul>
 
 
