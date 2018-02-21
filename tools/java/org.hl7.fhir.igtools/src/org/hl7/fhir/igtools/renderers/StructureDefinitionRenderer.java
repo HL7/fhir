@@ -1352,7 +1352,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     List<ElementDefinition> slices = getSlices(elem, children);
     int c = 0;
     for (ElementDefinition slice : slices) {
-      String url = slice.getTypeFirstRep().getProfile().get(0).getValue();
+      List<UriType> profiles = slice.getTypeFirstRep().getProfile();
+      // Won't have a profile if this slice is part of a complex extension
+      String url = profiles.isEmpty() ? null : profiles.get(0).getValue();
       StructureDefinition sdExt = url == null ? null : context.fetchResource(StructureDefinition.class, url);
       b.append(indentS+"  ");
       b.append("{ // <span style=\"color: navy; opacity: 0.8\">");
