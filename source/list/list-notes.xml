@@ -108,6 +108,19 @@ was a working list of patient medications in a clinical tracking system, and lis
 flags were used to implement version tracking history within the resource.
 </p>
 
+<a name="size"></a>
+<h2>Efficiency and size issues</h2>
+<p>
+Some kinds of <code>List</code> resources may grow to a considerable size, and 
+handling them may require more care than typical resources. Some approaches 
+to consider include: 
+</p>
+<ul>
+ <li><a href="graphql.html#list">Reading portions of the list</a> resource using GraphQL</li>
+ <li>Using the <a href="search.html#list">_list</a> parameter rather than retrieving the list</li>
+ <li>Changing the resource using <a href="http.html#patch">the PATCH interaction</a> rather than PUTting the whole resource</li>
+</ul>
+
 <a name="narrative"></a>
 <h2>Narrative Content</h2>
 

@@ -27,4 +27,5 @@
  <test name="flatten-singleton3" source="flatten-singleton3.gql" output="flatten-singleton3.json" context="Patient/example/$graphql"/>
  <test name="flatten-slice1" source="flatten-slice1.gql" output="flatten-slice1.json" context="Patient/example/$graphql"/>
  <test name="flatten-slice2" source="flatten-slice2.gql" output="flatten-slice2.json" context="Patient/example/$graphql"/> 
+ <test name="list-sub" source="list-sub.gql" output="list-sub.json" context="List/example-long/$graphql"/> 
 </graphql-tests>

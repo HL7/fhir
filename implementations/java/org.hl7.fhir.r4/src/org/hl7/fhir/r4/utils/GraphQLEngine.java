@@ -354,6 +354,8 @@ public class GraphQLEngine {
   private List<Base> filter(Resource context, Property prop, List<Argument> arguments, List<Base> values, boolean extensionMode) throws FHIRException, EGraphQLException {
     List<Base> result = new ArrayList<Base>();
     if (values.size() > 0) {
+      int count = Integer.MAX_VALUE;
+      int offset = 0;
       StringBuilder fp = new StringBuilder();
       for (Argument arg : arguments) {
         List<Value> vl = resolveValues(arg);
@@ -363,6 +365,10 @@ public class GraphQLEngine {
           throw new EGraphQLException("Attempt to use a filter ("+arg.getName()+") on a primtive type ("+prop.getTypeCode()+")");
         if ((arg.getName().equals("fhirpath")))
           fp.append(" and "+vl.get(0).toString());
+        else if ((arg.getName().equals("_count")))
+          count = Integer.valueOf(vl.get(0).toString());
+        else if ((arg.getName().equals("_offset")))
+          offset = Integer.valueOf(vl.get(0).toString());
         else {
           Property p = values.get(0).getNamedProperty(arg.getName());
           if (p == null)
@@ -370,15 +376,28 @@ public class GraphQLEngine {
           fp.append(" and "+arg.getName()+" = '"+vl.get(0).toString()+"'");
         }
       }
+      int i = 0;
+      int t = 0;
       if (fp.length() == 0)
         for (Base v : values) {
-          if (passesExtensionMode(v, extensionMode))
+          if ((i >= offset) && passesExtensionMode(v, extensionMode)) {
             result.add(v);
+            t++;
+            if (t >= count)
+              break;
+          }
+          i++;
         } else {
           ExpressionNode node = fpe.parse(fp.toString().substring(5));
-          for (Base v : values)
-            if (passesExtensionMode(v, extensionMode) && fpe.evaluateToBoolean(null, context, v, node))
+          for (Base v : values) {
+            if ((i >= offset) && passesExtensionMode(v, extensionMode) && fpe.evaluateToBoolean(null, context, v, node)) {
               result.add(v);
+              t++;
+              if (t >= count)
+                break;
+            }
+            i++;
+          }
         }
     }
     return result;
