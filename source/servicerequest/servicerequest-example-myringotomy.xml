@@ -16,14 +16,14 @@
 	</requisition>
 	<status value="active"/>
 	<intent value="order"/>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="103696004"/>
+      <display value="Patient referral to specialist"/>
+    </coding>
+  </category>
 	<priority value="routine"/>
-	<category>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="103696004"/>
-			<display value="Patient referral to specialist"/>
-		</coding>
-	</category>
 	<code>
 		<coding>
 			<system value="http://snomed.info/sct"/>
