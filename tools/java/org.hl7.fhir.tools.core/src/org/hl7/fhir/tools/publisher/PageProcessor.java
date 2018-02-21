@@ -5931,7 +5931,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           b.append(" <tr>\r\n");
           b.append("  <td><a href=\""+rd.getName().toLowerCase()+".html\">"+rd.getName()+"</a></td>\r\n");
           for (ElementDefn e : elements) {
-            populateLogicalMappingColumn(b, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, code);
+            populateLogicalMappingColumn(b, logical.getRoot().getName(), rd.getName().toLowerCase()+"-definitions.html#", e, sd, rd.getName(), code, url);
           }
           b.append(" </tr>\r\n");
         }
@@ -5961,11 +5961,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
-  private List<ElementDefn> listAllElements(ResourceDefn logical) {
-    // TODO Auto-generated method stub
-    return null;
-  }
-
   private class LogicalModelSupportInformation {
     int elementcount;
     boolean extension;
@@ -5980,10 +5975,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private final static String LOGICAL_MAPPING_MAPPED_COLOR = "#ffffff";
   private final static String LOGICAL_MAPPING_NOTMAPPED_COLOR = "#f2f2f2";
   
-  private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String code) {
+  private void populateLogicalMappingColumn(StringBuilder b, String n, String page, ElementDefn e, StructureDefinition sd, String rn, String code, String url) {
     LogicalModelSupportInformation info = new LogicalModelSupportInformation();
-    // support: not, native, extension
-    
+
     for (ElementDefinition ed : sd.getSnapshot().getElement()) { 
       for (ElementDefinitionMappingComponent m : ed.getMapping()) {
         if (m.getIdentity().equals(code)) {
@@ -5998,6 +5992,27 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
     }
     
+    for (StructureDefinition ext : workerContext.getExtensionDefinitions()) {
+      boolean ok = false;
+      if (ext.getContextType() == ExtensionContext.RESOURCE) {
+        for (StringType c : ext.getContext()) {
+          if (rn.equals(c.getValue()))
+            ok = true;
+        }
+        if (ok) {
+          String map = getWorkflowMapping(ext, url);
+          if (map != null) {
+            for (String p : map.split("\\,")) {
+              String f = p.contains("{") ? p.substring(0, p.indexOf("{")) : p;
+              if (f.equals(e.getPath())) {
+                checkExtMapping(info, e, ext);
+              }
+            }
+          }
+        }
+      }
+    }
+
     // color: 
     //   one color when supported and aligned
     //   one color when not aligned
@@ -6036,10 +6051,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("</td>\r\n");
   }
 
+  private String getWorkflowMapping(StructureDefinition ext, String url) {
+    String code = null;
+    for (StructureDefinitionMappingComponent m : ext.getMapping()) {
+      if (m.getUri().equals(url))
+        code = m.getIdentity();
+    }
+    if (code != null) {
+      for (ElementDefinitionMappingComponent m : ext.getSnapshot().getElementFirstRep().getMapping()) {
+        if (m.getIdentity().equals(code)) {
+          return m.getMap();
+        }
+      }           
+    }
+    return null;
+  }
+
   private void checkMapping(LogicalModelSupportInformation info, ElementDefn logical, ElementDefinition resource) {
     info.elementcount++;
     String s = logical.getPath()+" : "+logical.typeCode()+" ["+logical.describeCardinality()+"] =&gt; "+resource.getPath()+" : "+resource.typeSummary()+" ["+resource.getMin()+".."+resource.getMax()+"]";
-    if (logical.getName().equals(resource.getPath())) {
+    if (!logical.getName().equals(pathTail(resource.getPath()))) {
       info.nameChanged = true;
     }
     String cardinalityError = checkCardinality(logical, resource);
@@ -6054,6 +6085,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     info.notes.add(s);
   }
+
+  private void checkExtMapping(LogicalModelSupportInformation info, ElementDefn logical, StructureDefinition extension) {
+    info.extension = true;
+    ElementDefinition e = extension.getSnapshot().getElementFirstRep();
+    ElementDefinition v = null;
+    for (ElementDefinition ed : extension.getSnapshot().getElement()) {
+      if ("Extension.value[x]".equals(ed.getBase().getPath()))
+        v = ed;
+    }
+    String s = logical.getPath()+" : "+logical.typeCode()+" ["+logical.describeCardinality()+"] =&gt; Extension "+tail(extension.getUrl())+" : "+v.typeSummary()+" ["+e.getMin()+".."+e.getMax()+"]";
+    String cardinalityError = checkCardinality(logical, e);
+    if (!Utilities.noString(cardinalityError)) {
+      info.cardinalityProblem = true;
+      s = s + " " +cardinalityError;
+    }
+    String typeError = checkType(logical, v);
+    if (!Utilities.noString(typeError)) {
+      info.typeMismatch = true;
+      s = s + " " +typeError;
+    }
+    info.notes.add(s);
+  }
+
 
 
   private String checkType(ElementDefn logical, ElementDefinition resource) {
