@@ -1,0 +1,29 @@
+{
+  "entry": [
+    {
+      "item": {
+        "reference": "Patient/1"
+      }
+    },
+    {
+      "item": {
+        "reference": "Patient/2"
+      }
+    },
+    {
+      "item": {
+        "reference": "Patient/3"
+      }
+    },
+    {
+      "item": {
+        "reference": "Patient/4"
+      }
+    },
+    {
+      "item": {
+        "reference": "Patient/5"
+      }
+    }
+  ]
+}
