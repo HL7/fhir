@@ -3,8 +3,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-12-08T05:53:59Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2018-02-21T00:36:14Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -269,20 +269,6 @@
    <Borders/>
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Italic="1" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
-  </Style>
-  <Style ss:ID="s95">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Italic="1" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s96">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Italic="1" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
   <Style ss:ID="s97">
    <Font ss:Color="#808080" ss:FontName="Tahoma" ss:Size="9" x:Family="Swiss"/>
@@ -1027,9 +1013,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">Part of referenced event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">A larger event of which this particular event is a component or step</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">E.g. Drug administration as part of a procedure, procedure as part of observation, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Not to be used to link an event to an Encounter - use Event.context for that.&#xD;&#xD;[The allowed reference resources may be adjusted as appropriate for the event resource]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A larger event of which this particular event is a component or step</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">E.g. Drug administration as part of a procedure, procedure as part of observation, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Not to be used to link an event to an Encounter - use Event.context for that.&#xD;&#xD;[The allowed reference resources may be adjusted as appropriate for the event resource]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.inboundRelationship[typeCode=COMP].source[moodCode=EVN]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1074,7 +1060,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">category</Data></Cell>
     <Cell ss:Formula="=R2C3&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s86"><Data ss:Type="String">Media.category</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1085,10 +1071,10 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Classification of  type of media</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String"> A code that classifies the general type of observation being made. For example, whether the media is an image, video or audio recording.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Classification of media as image, video, or audio</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String"> A code that classifies whether the media is an image, video or audio recording or some other media category.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Used for filtering what observations are retrieved and displayed.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set. &#xD;</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1111,7 +1097,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">MediaModality</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">class</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">what</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4081,9 +4067,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
-   <LeftColumnRightPane>15</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6421,8 +6407,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">MediaCategory</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Codes for high level media categories.</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">Value Set</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">valueset-media-category</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
@@ -6436,7 +6422,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s87"><Data ss:Type="String">MediaModality</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it </Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Value Set</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">valueset-media-modality</Data></Cell>
     <Cell ss:StyleID="s129"/>
@@ -6451,7 +6437,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s102"><Data ss:Type="String">MediaView</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Imaging view (projection) used when collecting an image</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Value Set</Data></Cell>
+    <Cell ss:StyleID="s129"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">valueset-media-view</Data></Cell>
     <Cell ss:StyleID="s129"/>
@@ -6496,9 +6482,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s159"><Data ss:Type="String">MediaStatus</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Codes identifying the stage lifecycle stage of a event</Data></Cell>
-    <Cell ss:StyleID="s126"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">#media-status</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/event-status</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
