@@ -12,7 +12,7 @@
 		<include>
 			<system value="http://hl7.org/fhir/data-absent-reason"/>
 			<concept>
-				<code value="asked"/>
+				<code value="asked-unknown"/>
 				<display value="Don't know"/>
 			</concept>
 		</include>
@@ -32,7 +32,7 @@
 		</contains>
 		<contains>
 			<system value="http://hl7.org/fhir/data-absent-reason"/>
-			<code value="asked"/>
+			<code value="asked-unknown"/>
 			<display value="Don't know"/>
 		</contains>
 	</expansion>

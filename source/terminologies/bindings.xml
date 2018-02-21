@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Bryn</LastAuthor>
+  <LastAuthor>Rob Hausam</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2017-03-18T21:22:36Z</LastSaved>
+  <LastSaved>2018-02-20T18:22:29Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -1163,21 +1163,20 @@
     <VerticalResolution>0</VerticalResolution>
    </Print>
    <LeftColumnVisible>4</LeftColumnVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="data-absent-reason">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="15" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="16" x:FullColumns="1" x:FullRows="1">
    <Column ss:Width="16.0"/>
    <Column ss:Width="84.0"/>
-   <Column ss:Width="36.0"/>
-   <Column ss:Width="84.0"/>
+   <Column ss:Width="49.0"/>
+   <Column ss:Width="109.0"/>
    <Column ss:Width="478.0"/>
    <Column ss:Width="967.0"/>
    <Column ss:Width="88.0"/>
-   <Column ss:Width="88.0"/>
+   <Column ss:Width="323.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s89">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
@@ -1192,27 +1191,31 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">The value is not known.</Data></Cell>
+    <Cell><Data ss:Type="String">The value is expected to exist but is not known.</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.UNK</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">asked</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Asked</Data></Cell>
-    <Cell><Data ss:Type="String">The source human does not know the value.</Data></Cell>
+    <Cell><Data ss:Type="String">asked-unknown</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
+    <Cell><Data ss:Type="String">Asked But Unknown</Data></Cell>
+    <Cell><Data ss:Type="String">The source was asked but does not know the value.</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.ASKU</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">asked-unknown' aligns better with V3 ASKU than 'asked'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">temp</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Temp</Data></Cell>
+    <Cell><Data ss:Type="String">temp-unknown</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
+    <Cell><Data ss:Type="String">Temporarily Unknown</Data></Cell>
     <Cell><Data ss:Type="String">There is reason to expect (from the workflow) that the value may become known.</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NAV</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
     <Cell><Data ss:Type="String">not-asked</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Not Asked</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
+    <Cell><Data ss:Type="String">Not Asked</Data></Cell>
     <Cell><Data ss:Type="String">The workflow didn't lead to this value being known.</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NASK</Data></Cell>
    </Row>
@@ -1244,6 +1247,7 @@
     <Cell ss:Index="4"><Data ss:Type="String">As Text</Data></Cell>
     <Cell><Data ss:Type="String">The content of the data is represented in the resource narrative.</Data></Cell>
     <Cell><Data ss:Type="String">it may be linked by internal references (e.g. xml:id). This usually implies that the value could not be represented in the correct format - this may be due to system limitations, or this particular data value</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">8</Data></Cell>
@@ -1272,7 +1276,7 @@
     <Cell><Data ss:Type="Number">14</Data></Cell>
     <Cell><Data ss:Type="String">not-permitted</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">Not Permitted</Data></Cell>
-    <Cell><Data ss:Type="String">The value is not permitted in this context (e.g. due to profiles, or the base types)</Data></Cell>
+    <Cell><Data ss:Type="String">The value is not permitted in this context (e.g. due to profiles, or the base data types)</Data></Cell>
     <Cell><Data ss:Type="String">This is most often associated with required bindings that do not include the actual code used, but may be used with other data types)</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.OTH</Data></Cell>
    </Row>
@@ -1294,6 +1298,13 @@
     <Cell><Data ss:Type="String">This is sometimes an output value from measuring devices.</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.PINF</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">15</Data></Cell>
+    <Cell><Data ss:Type="String">asked-declined</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
+    <Cell><Data ss:Type="String">Asked But Declined</Data></Cell>
+    <Cell><Data ss:Type="String">The source was asked but declined to answer.</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1308,7 +1319,6 @@
     <VerticalResolution>-1</VerticalResolution>
    </Print>
    <Selected/>
-   <LeftColumnVisible>5</LeftColumnVisible>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -1378,7 +1388,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <LeftColumnVisible>2</LeftColumnVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1457,7 +1466,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <LeftColumnVisible>6</LeftColumnVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -2026,7 +2034,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3160,7 +3167,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
