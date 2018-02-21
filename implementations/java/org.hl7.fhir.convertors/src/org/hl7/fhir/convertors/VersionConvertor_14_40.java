@@ -1463,7 +1463,7 @@ public class VersionConvertor_14_40 {
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
     list.add(tgt);
-    if (src.getCode().equals("Reference")) {
+    if (src.hasCode() && src.getCode().equals("Reference")) {
       for (org.hl7.fhir.r4.model.UriType u : src.getTargetProfile()) {
         tgt.addProfile(u.getValue());
       }
