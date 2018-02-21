@@ -1838,7 +1838,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           System.out.println(err.summary());
       }
       System.out.println("WARNING: Unable to create warnings file - one or more profiles-* files unavailable or invalid");
-      System.out.println(e.toString());
+      System.out.println(e.getCause().toString());
     }
 
     

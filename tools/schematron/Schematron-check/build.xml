@@ -24,16 +24,16 @@
     
     <delete file="../../../temp/bundle-validate.txt"/>
     
-    <replace file="${xsl.invariants}" token="match=&quot;f:extension&quot;" value="match=&quot;*/f:extension&quot;"/>
+<!--    <replace file="${xsl.invariants}" token="match=&quot;f:extension&quot;" value="match=&quot;*/f:extension&quot;"/>
     <replace file="${xsl.invariants}" token="match=&quot;f:modifierExtension&quot;" value="match=&quot;*/f:modifierExtension&quot;"/>
-    <replace file="${xsl.invariants}" token="match=&quot;f:extension[" value="match=&quot;*/f:extension["/>
+    <replace file="${xsl.invariants}" token="match=&quot;f:extension[" value="match=&quot;*/f:extension["/>-->
     
-    <java jar="${dir.saxon}/saxon9ee.jar" fork="true">
+    <java jar="${dir.saxon}/saxon9ee.jar" fork="true" maxmemory="2048m">
       <arg value="-s:emptybundle.xml"/>
       <arg value="-o:t.txt"/>
       <arg value="-val:strict"/>
       <arg value="-xsl:${xsl.invariants}"/>
-      <arg value="-xsd:../../../schema/fhir-single.xsd"/>
+      <arg value="-xsd:../../../schema/codegen/fhir-single.xsd"/>
     </java>
 <!--    
     <xslt in="emptybundle.xml" out="../../../temp/bundle-validate.txt" style="../../../temp/fhir-invariants.xslt" classpathref="saxonee.path">
