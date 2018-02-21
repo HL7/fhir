@@ -1833,12 +1833,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-types.xml", xslt)));
       s.write(new String(Utilities.saxonTransform(page.getFolders().dstDir + "profiles-others.xml", xslt)));
     } catch (Exception e) {
-      System.out.println(e.toString());
       for (ValidationMessage err : page.getValidationErrors()) {
         if (!page.getSuppressedMessages().contains(err.getDisplay()))
           System.out.println(err.summary());
       }
-      System.out.println("ERROR: Unable to create warnings file - one or more profiles-* files unavailable or invalid");
+      System.out.println("WARNING: Unable to create warnings file - one or more profiles-* files unavailable or invalid");
+      System.out.println(e.toString());
     }
 
     
