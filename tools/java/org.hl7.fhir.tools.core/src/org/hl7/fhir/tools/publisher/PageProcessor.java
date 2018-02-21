@@ -6070,7 +6070,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private void checkMapping(LogicalModelSupportInformation info, ElementDefn logical, ElementDefinition resource) {
     info.elementcount++;
     String s = logical.getPath()+" : "+logical.typeCode()+" ["+logical.describeCardinality()+"] =&gt; "+resource.getPath()+" : "+resource.typeSummary()+" ["+resource.getMin()+".."+resource.getMax()+"]";
-    if (!logical.getName().equals(pathTail(resource.getPath()))) {
+    if (!logical.getName().equals(edPathTail(resource.getPath()))) {
       info.nameChanged = true;
     }
     String cardinalityError = checkCardinality(logical, resource);
@@ -6084,6 +6084,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       s = s + " " +typeError;
     }
     info.notes.add(s);
+  }
+
+  private Object edPathTail(String path) {
+    return path.substring(path.lastIndexOf(".")+1);
   }
 
   private void checkExtMapping(LogicalModelSupportInformation info, ElementDefn logical, StructureDefinition extension) {
