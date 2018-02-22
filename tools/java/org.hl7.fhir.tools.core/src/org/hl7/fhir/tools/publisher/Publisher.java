@@ -5887,7 +5887,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     Set<String> urls = new HashSet<String>();
 
     for (CodeSystem cs : page.getDefinitions().getCodeSystems().values()) {
-      if (cs != null) {
+      if (cs != null && !cs.hasUserData("external.url")) {
         if (cs.getUserData("example") == null && !cs.getUrl().contains("/v2/") && !cs.getUrl().contains("/v3/"))
           if (!urls.contains(cs.getUrl())) {
             urls.add(cs.getUrl());
@@ -6082,7 +6082,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void generateCodeSystemsPart1() throws Exception {
     page.log(" ...code systems", LogMessageType.Process);
     for (CodeSystem cs : page.getDefinitions().getCodeSystems().values()) {
-      if (cs != null) {
+      if (cs != null && !cs.hasUserData("external.url")) {
         if (!cs.hasText()) {
           cs.setText(new Narrative());
           cs.getText().setStatus(NarrativeStatus.EMPTY);

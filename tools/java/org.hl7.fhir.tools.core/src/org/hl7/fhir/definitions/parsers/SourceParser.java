@@ -32,6 +32,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -46,6 +48,10 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Source;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.output.ByteArrayOutputStream;
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPClientConfig;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.ProfileGenerator;
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
@@ -73,6 +79,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
+import org.hl7.fhir.dstu2.model.Meta;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.formats.XmlParser;
@@ -82,6 +89,7 @@ import org.hl7.fhir.r4.model.Bundle.BundleType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.Composition;
+import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.SearchParameter;
 import org.hl7.fhir.r4.model.StringType;
@@ -147,6 +155,7 @@ public class SourceParser {
   private final Set<String> igNames = new HashSet<String>();
   private boolean forPublication;
   private List<FHIRPathUsage> fpUsages;
+  private boolean tryNetwork;
   
 
   public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, BuildWorkerContext context, Calendar genDate, PageProcessor page, List<FHIRPathUsage> fpUsages) throws IOException, ParserConfigurationException, SAXException {
@@ -183,6 +192,8 @@ public class SourceParser {
     loadMappingSpaces();
     loadGlobalBindings();
 
+    loadExternals();
+    
     loadTLAs();
     loadIgs();
     loadTypePages();
@@ -303,6 +314,66 @@ public class SourceParser {
     }
     closeTemplates();
   }
+
+  private void loadExternals() throws Exception {
+    String[] externals = ini.getPropertyNames("externals");
+
+    tryNetwork = true;
+    if (externals != null) {
+      for (String n : externals) {
+        loadExternal(n);        
+      }
+    }
+  }
+
+
+  private void loadExternal(String n) throws Exception {
+    File file = new File(Utilities.path(rootDir, "vscache", "externals", Integer.toString(n.hashCode())+".xml"));
+    if (!file.exists()) {
+      logger.log("Fetch "+n, LogMessageType.Process);
+      if (n.startsWith("ftp:")) {
+        byte[] source = ftpFetch(n);
+        TextFile.bytesToFile(source, file.getAbsolutePath());
+      } else if (n.startsWith("http:") || n.startsWith("https:"))
+        throw new Exception("HTTP externals are not yet supported: "+n);
+      else 
+        throw new Exception("Unknown protocol for externals: "+n);
+    }
+    Resource res = new XmlParser().parse(new FileInputStream(file));
+    if (res instanceof MetadataResource) {
+      res.setUserData("external.url", n);
+      context.cacheResource(res);
+    } else
+      throw new Exception("Unsupported external resource type "+res.fhirType());  
+  }
+
+
+
+
+  private byte[] ftpFetch(String n) throws Exception {
+    URI url = new URI(n);
+    String server = url.getHost();
+    int port = 21;
+
+    FTPClient ftpClient = new FTPClient();
+    ftpClient.connect(server, port);
+    ftpClient.login("anonymous", "anonymous");
+    ftpClient.enterLocalPassiveMode();
+    ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+
+    // APPROACH #1: using retrieveFile(String, OutputStream)
+    String remoteFile1 = url.getPath();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    boolean success = ftpClient.retrieveFile(remoteFile1, bytes);
+    bytes.close();
+
+    if (!success) 
+      throw new Exception("Unable to retrieve "+n);
+    return bytes.toByteArray();
+  }
+
+
+
 
   private void loadNormativePackages() {
     for (String s : ini.getPropertyNames("normative-packages")) {

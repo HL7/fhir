@@ -4891,7 +4891,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     vs1.setExpansion(null);
     vs1.setText(null);
     ImplementationGuideDefn ig = (ImplementationGuideDefn) vs.getUserData(ToolResourceUtilities.NAME_RES_IG);
-    new NarrativeGenerator(prefix, "", workerContext, this).setTooCostlyNoteEmpty(TOO_MANY_CODES_TEXT_EMPTY).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(null, vs1, null, false);
+    new NarrativeGenerator(prefix, "", workerContext, this).setTooCostlyNoteNotEmpty(TOO_MANY_CODES_TEXT_NOT_EMPTY).generate(null, vs1, null, false);
     return "<hr/>\r\n"+VS_INC_START+""+new XhtmlComposer(XhtmlComposer.HTML).compose(vs1.getText().getDiv())+VS_INC_END;
   }
 

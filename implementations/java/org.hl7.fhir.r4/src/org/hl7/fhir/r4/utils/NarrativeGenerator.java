@@ -3746,8 +3746,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
   private  <T extends Resource> void addCsRef(ConceptSetComponent inc, XhtmlNode li, T cs) {
     String ref = null;
+    boolean addHtml = true;
     if (cs != null) {
-      ref = (String) cs.getUserData("filename");
+      ref = (String) cs.getUserData("external.url");
+      if (Utilities.noString(ref))
+        ref = (String) cs.getUserData("filename");
+      else
+        addHtml = false;
       if (Utilities.noString(ref))
         ref = (String) cs.getUserData("path");
     }
@@ -3758,7 +3763,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     } else if (cs != null && ref != null) {
       if (!Utilities.noString(prefix) && ref.startsWith("http://hl7.org/fhir/"))
         ref = ref.substring(20)+"/index.html";
-      else if (!ref.contains(".html"))
+      else if (addHtml && !ref.contains(".html"))
         ref = ref + ".html";
       XhtmlNode a = li.ah(prefix+ref.replace("\\", "/"));
       a.code(inc.getSystem());
