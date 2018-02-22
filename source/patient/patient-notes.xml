@@ -117,6 +117,7 @@ In addition to this administrative gender, other kinds of gender or sex properti
   <li><b>Gender Identity</b> - an indication from the patient about what gender they consider themselves to be.  This can influence how the patient prefers to be addressed by care providers and other individuals.  The standard <a href="extension-patient-genderidentity.html">genderIdentity</a> extension may be used to communicate this property.  This extension is appropriate when the gender identity is openly known.
  </li>
   <li><b>Sex assigned at Birth</b> - the sex assigned at birth, as documented on the birth registration. Some countries allow variations such as not yet determined, unknown, or undifferentiated, while others do not. Some countries also allow birth registration information to be updated.  The US realm defines a US specific extension for this property.
+  Alternatively, if you were representing this concept with an observation, you could use the LOINC code <a href="http://loinc.org/76689-9">76689-9</a>.
  </li>
   <li><b>Legal Sex</b> - regional and national entities often categorize citizens using a single legal sex value.  The legal sex of a patient can vary from region to region and country to country.  A single patient may have multiple legal sex values at the same time in different jurisdictions.  In case where the Patient.gender administrative property is not sufficient to communicate legal sex, realm specific extensions should be used.
  </li>
