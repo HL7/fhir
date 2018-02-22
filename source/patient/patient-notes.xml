@@ -86,11 +86,9 @@ query to potentially locate other patient resources to consider, or use _revIncl
 <a name="contact"></a>
 <h2>Patient.contact vs. RelatedPerson</h2>
 <p>
-The contact element on the Patient Resource should be used for storing people to contact information.
-Where a system has a separate record for other people for purposes other than just the contact details, the RelatedPerson
-resource should be used.<br/>
-This includes cases where these related people are actually contributing to the record, and need to be referenced individually 
-(e.g. CarePlan.careTeam.participant, Encounter, DocumentReference, Appointment) where the Patient.Contact component cannot be used.
+The contact element on the Patient resource should be used for storing the details of people to contact. This information always travels with the Patient resource, and cannot be used as the target of a reference.
+
+Where related people need to be referenced by other resources (e.g. CarePlan.participant, Encounter.participant, DocumentReference.author, Appointment.participant), the RelatedPerson resource must be used.
 </p>
 <p>It is not expected that these records will be used for recording the primary care provider; this information should be stored in
 the Patient.generalPractitioner field.</p>
