@@ -11,6 +11,9 @@
 		<system value="http://goodcare.org/observation/id"/>
 		<value value="o1223435-10"/>
 	</identifier>
+	<partOf>
+		<reference value="Procedure/ob"/>
+	</partOf>
 	<status value="final"/>
 	<category>
 		<coding>
