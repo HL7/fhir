@@ -100,8 +100,8 @@
 </a>
 		</li>
 	</ul>
-	<h3>Personal Characteristics</h3>
-	<p>The following Observations show examples of personal characteristics observation:
+	<h3>Physical Traits</h3>
+	<p>The following Observations show examples of physical trait observation:
     </p>
 	<ul>
 		<li>
@@ -160,12 +160,25 @@
     </p>
 	<ul>
 		<li>
+			<a href="observation-example-secondsmoke.html"> An example of a finding of second hand smoke exposure</a>
+		</li>
+	</ul>
+	<ul>
+		<li>
 			<a href="observation-example-alcohol-type.html">Type of alcohol consumed</a>
 		</li>
 	</ul>
-		<ul>
+	<ul>
 		<li>
 			<a href="observation-example-clinical-gender.html">Clinical gender observation.</a> For a discussion of representing patient gender see the <a href="patient.html#gender">Patient</a> resource.
+		</li>
+	</ul>
+	<h3>Signs and Symptoms</h3>
+	<p>The following Observations show examples of findings of signs and symptoms:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-vomiting.html">An example of a finding of vomiting</a>
 		</li>
 	</ul>
 	<h3>Vital Signs</h3>

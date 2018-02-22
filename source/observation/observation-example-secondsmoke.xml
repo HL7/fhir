@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="secondsmoke"/>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="social-history"/>
+			<display value="Social History"/>
+		</coding>
+		<text value="Social History"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="39243-1"/>
+			<display value="Second hand smoke exposure CPHS"/>
+		</coding>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="102409004"/>
+			<display value="Second hand cigarette smoke (substance)"/>
+		</coding>
+		<text value="Second hand smoke exposure"/>
+	</code>
+	<subject>
+		<reference value="Patient/infant"/>
+	</subject>
+	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="373066001"/>
+			<display value="Yes (qualifier value)"/>
+		</coding>
+		<text value="YES"/>
+	</valueCodeableConcept>
+</Observation>

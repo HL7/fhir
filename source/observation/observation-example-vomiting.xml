@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="vomiting"/>
+	<status value="final"/>
+	<category>
+		<text value="Signs and Symptoms"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="45708-5"/>
+			<display value="Vomiting [Minimum Data Set]"/>
+		</coding>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="249497008"/>
+			<display value="Vomiting symptom (finding)"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/infant"/>
+	</subject>
+	<effectiveDateTime value="2016-05-18T22:33:22Z"/>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="2667000"/>
+			<display value="Absent (qualifier value)"/>
+		</coding>
+	</valueCodeableConcept>
+</Observation>

@@ -3,8 +3,8 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-02-20T03:31:01Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2018-02-22T02:52:49Z</LastSaved>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -15,7 +15,7 @@
   
   
   <TabRatio>839</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6833,7 +6833,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="59" ss:StyleID="s181" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="60" ss:StyleID="s181" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s181" ss:Width="143.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s181" ss:Width="112.0"/>
    <Column ss:StyleID="s181" ss:Width="328.0"/>
@@ -7318,7 +7318,16 @@
     <Cell ss:Index="7" ss:StyleID="s189"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3" ss:StyleID="s189"/>
+    <Cell ss:StyleID="s189"><Data ss:Type="String">Vomiting</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s189"><Data ss:Type="String"> An example of a finding of vomiting</Data></Cell>
+    <Cell ss:StyleID="s189"><Data ss:Type="String">vomiting</Data></Cell>
+    <Cell ss:StyleID="s189"><Data ss:Type="String">observation-example-vomiting.xml</Data></Cell>
+   </Row>
+   <Row ss:Height="30">
+    <Cell ss:StyleID="s189"><Data ss:Type="String">Second Hand Smoke Exposure</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s189"><Data ss:Type="String"> An example of a finding of second hand smoke exposure</Data></Cell>
+    <Cell ss:StyleID="s189"><Data ss:Type="String">secondsmoke</Data></Cell>
+    <Cell ss:StyleID="s189"><Data ss:Type="String">observation-example-secondsmoke.xml</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -7332,10 +7341,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>21</TopRowBottomPane>
+   <TopRowBottomPane>39</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7782,7 +7792,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
