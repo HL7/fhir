@@ -16,14 +16,12 @@
 	</subject>
 	<occurrenceTiming>
 		<repeat>
-      <count value="20"/>
-      <countMax value="30"/>
+			<count value="20"/>
+			<countMax value="30"/>
 			<frequency value="3"/>
 			<period value="1"/>
 			<periodUnit value="wk"/>
 		</repeat>
 	</occurrenceTiming>
-	<note>
-    <text value="Start with 30kg and increase in increments of 5kg when you feel ready"/>
-  </note>
+	<patientInstruction value="Start with 30kg 10-15 repetitions for three sets and increase in increments of 5kg when you feel ready"/>
 </ServiceRequest>
