@@ -21,6 +21,10 @@
     <display value="Eggs (edible)"/>
     <display value="Eggs (edible) (substance)"/>
   </concept>
+  <concept id="102409004" display="Second hand cigarette smoke">
+    <display value="Second hand cigarette smoke"/>
+    <display value="Second hand cigarette smoke (substance)"/>
+  </concept>
   <concept id="10261003" display="Belgium landrace pig">
     <display value="Belgium landrace pig"/>
     <display value="Belgium landrace pig (organism)"/>
@@ -11472,6 +11476,10 @@
     <display value="Apgar colour score"/>
     <display value="Apgar color score (observable entity)"/>
   </concept>
+  <concept id="249497008" display="Vomiting symptom">
+    <display value="Vomiting symptom (finding)"/>
+    <display value="Vomiting symptom"/>
+  </concept>
   <concept id="249943000:363698007=72098002,260868000=6934004" display="Weakness of distal arms and legs where Finding site = Left arm, and Permanence = Permanent"/>
   <concept id="25062003" display="Feeding tube">
     <display value="Feeding tube"/>
@@ -11857,6 +11865,11 @@
     <display value="Dysmenorrhoea"/>
     <display value="Dysmenorrhea (disorder)"/>
     <display value="Menorrhalgia"/>
+  </concept>
+  <concept id="2667000" display="Absent">
+    <display value="Absent"/>
+    <display value="Absence of"/>
+    <display value="Absent (qualifier value)"/>
   </concept>
   <concept id="266710000" display="Drugs not taken/completed">
     <display value="Drugs not taken/completed"/>
@@ -12817,6 +12830,10 @@
     <display value="Hospital-based outpatient paediatric clinic"/>
     <display value="Hospital-based outpatient pediatric clinic (environment)"/>
   </concept>
+  <concept id="373066001" display="Yes">
+    <display value="Yes (qualifier value)"/>
+    <display value="Yes"/>
+  </concept>
   <concept id="373147003" display="Medication not administered because contraindicated">
     <display value="Medication not administered because contraindicated"/>
     <display value="Administration of medication not done due to contraindication (situation)"/>
@@ -13518,6 +13535,16 @@
     <display value="Medication refused"/>
     <display value="Refusal to take medication"/>
     <display value="Medication refused (situation)"/>
+  </concept>
+  <concept id="40617009" display="Artificial respiration">
+    <display value="Artificial respiration"/>
+    <display value="Mechanical ventilation"/>
+    <display value="Artificial ventilation"/>
+    <display value="Mechanically assisted breathing"/>
+    <display value="Respiratory assist, mechanical"/>
+    <display value="Mechanically assisted ventilation"/>
+    <display value="Artificial respiration (procedure)"/>
+    <display value="An assistance of respiration"/>
   </concept>
   <concept id="406466009" display="House dust allergen">
     <display value="House dust allergen (substance)"/>

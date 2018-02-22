@@ -199,9 +199,10 @@ public class TypeParser {
         TypeRefComponent tc = getTypeComponent(list, sd.getType());
         if (t.getVersioning() != null)
           tc.setVersioning(t.getVersioning());
-        if (t.getName().equals("Reference"))
-          tc.addTargetProfile(t.getProfile());
-        else  
+        if (t.getName().equals("Reference")) {
+          if(t.hasProfile())
+            tc.addTargetProfile(t.getProfile());
+        } else  
           tc.addProfile(t.getProfile());
       }
     }    
