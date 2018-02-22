@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/devicerequest.xsd">
+<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
 	<id value="left-lens"/>
 	<identifier>
 		<system value="http://www.happysight.com/prescription"/>
-		<value value="15013R"/>
+		<value value="15013L"/>
 	</identifier>
 	<!-- insert contents here -->
 	<groupIdentifier>
@@ -24,58 +24,50 @@
 	</codeCodeableConcept>
 	<parameter>
 		<code>
-			<text value="eye"/>
-		</code>
-		<valueCodeableConcept>
-			<text value="left"/>
-		</valueCodeableConcept>
-	</parameter>
-	<parameter>
-		<code>
-			<text value="sphere"/>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="28842-3"/>
+				<display value="Sphere distance Glasses prescription.lens - left"/>
+			</coding>
+			<text value="sphere, left lens"/>
 		</code>
 		<valueQuantity>
 			<value value="-1.00"/>
+			<unit value="Diopter"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="[diop]"> </code>
 		</valueQuantity>
 	</parameter>
 	<parameter>
 		<code>
-			<text value="cylinder"/>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="28843-1"/>
+				<display value="Cylinder base distance Glasses prescription.lens - left"/>
+			</coding>
+			<text value="cylinder, left lens"/>
 		</code>
 		<valueQuantity>
 			<value value="-0.50"/>
+			<unit value="Diopter"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="[diop]"> </code>
 		</valueQuantity>
 	</parameter>
 	<parameter>
 		<code>
-			<text value="axis"/>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="28844-9"/>
+				<display value="	Axis distance Glasses prescription.lens - left"/>
+			</coding>
+			<text value="axis, left lens"/>
 		</code>
 		<valueQuantity>
 			<value value="180"/>
-		</valueQuantity>
-	</parameter>
-	<parameter>
-		<code>
-			<text value="prism"/>
-		</code>
-		<valueQuantity>
-			<value value="0.5"/>
-		</valueQuantity>
-	</parameter>
-	<parameter>
-		<code>
-			<text value="base"/>
-		</code>
-		<valueCodeableConcept>
-			<text value="up"/>
-		</valueCodeableConcept>
-	</parameter>
-	<parameter>
-		<code>
-			<text value="add"/>
-		</code>
-		<valueQuantity>
-			<value value="2.00"/>
+			<unit value="Degrees"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="deg"> </code>
 		</valueQuantity>
 	</parameter>
 	<subject>
