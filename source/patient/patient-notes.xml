@@ -24,6 +24,10 @@ the same patient. Instead they should be represented in the <i>Patient.identifie
 list where they can be managed. This is also useful for the case of institutions that have acquired 
 multiple numbers because of mergers of patient record systems over time.
 </p>
+<p>
+Where there is a need to implement an automated MRN Identifier created for a patient record, this could be achieved by providing an identifier in the patient with an appropriate assigner, MRN Type and/or system but with <i>no value</i> assigned. Internal business rules can then detect this and replace/populate this identifier with 1 or more identifiers (as required)i
+</p>
+
 
 
 <a name="links"></a>
