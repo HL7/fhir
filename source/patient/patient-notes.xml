@@ -263,7 +263,7 @@ The match-grade extension has one of the <a href="valueset-match-grade.html">fol
 <p>
   The purpose of using an MPI search versus a regular search is that the MPI search is really intended to target and 
   find a specific single patient for recording information about reducing errors through incorrectly selecting the
-  wrong patient. Often MPIs won't return data if there is insuffience search parameter data, such as a partial surname.<br/>
+  wrong patient. Often MPIs won't return data if there is insuffient search parameter data, such as a partial surname.<br/>
   This compares to a regular search which can be used for finding lists of patients, such as to locate a group of patients
   that share a property in common, such as live in a specific location, or fit within an age range for performing population analysis.
 </p>
