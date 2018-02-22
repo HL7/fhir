@@ -24,14 +24,10 @@
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
   </subject>
-  <period>
+  <servicePeriod>
     <start value="2016-01-01"/>
     <end value="2016-06-30"/>
-  </period>
-  <active>
-    <start value="2016-01-01"/>
-    <end value="2016-06-30"/>
-  </active>
+  </servicePeriod>
     <coverage>
       <coverage>
         <reference value="Coverage/9876B1"/>
