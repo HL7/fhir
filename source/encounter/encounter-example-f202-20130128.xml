@@ -1,67 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
-  <id value="f202"/>
- <identifier>
-    <use value="temp"/><!-- 0..1 The use of this identifier -->
-    <value value="Encounter_Roel_20130128"/>
- </identifier>
- <status value="finished"/><!--Encounter has finished-->
-    <class>
-        <system value="http://hl7.org/fhir/v3/ActCode"/>
-        <code value="AMB"/> <!-- outpatient encounter for chemotherapy -->
-        <display value="ambulatory"/>
-    </class>
- <type>
-    <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="367336001"/>
-       <display value="Chemotherapy"/> 
-    </coding>
- </type>
- <priority><!--Urgent priority, because of complications-->
-    <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="103391001"/>
-       <display value="Urgent"/>
-    </coding>
- </priority>
- <subject>
-     <reference value="Patient/f201"/>
-     <display value="Roel"/>
- </subject>
- <participant>
-     <individual>
-         <reference value="Practitioner/f201"/>
-    </individual>
- </participant>
- <length>
-    <value value="56"/>
-    <unit value="minutes"/>
-    <system value="http://unitsofmeasure.org"/>
-    <code value="min"/>
- </length>
- <reason>
-		<extension url="http://hl7.org/fhir/StructureDefinition/encounter-primaryDiagnosis">
-			<valuePositiveInt value="2"/>
-		</extension>
-   <text value="The patient is treated for a tumor."/>
- </reason>
-  <diagnosis>
-    <condition>
-      <display value="Complications from Roel's TPF chemotherapy on January 28th, 2013"/>
-    </condition>
-  <role>
-    <coding>
-      <system value="http://hl7.org/fhir/diagnosis-role"/>
-      <code value="AD"/>
-      <display value="Admission diagnosis"/>
-    </coding>
-  </role>
-  <rank value="1"/>
-  </diagnosis>
-  
- <!--No hospitalization was deemed necessary-->
- <serviceProvider>
-     <reference value="Organization/f201"/>
- </serviceProvider>
+	<id value="f202"/>
+	<identifier>
+		<use value="temp"/>
+		<!-- 0..1 The use of this identifier -->
+		<value value="Encounter_Roel_20130128"/>
+	</identifier>
+	<status value="finished"/>
+	<!--Encounter has finished-->
+	<class>
+		<system value="http://hl7.org/fhir/v3/ActCode"/>
+		<code value="AMB"/>
+		<!-- outpatient encounter for chemotherapy -->
+		<display value="ambulatory"/>
+	</class>
+	<type>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="367336001"/>
+			<display value="Chemotherapy"/> 
+		</coding>
+	</type>
+	<priority>
+		<!--Urgent priority, because of complications-->
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="103391001"/>
+			<display value="Urgent"/>
+		</coding>
+	</priority>
+	<subject>
+		<reference value="Patient/f201"/>
+		<display value="Roel"/>
+	</subject>
+	<participant>
+		<individual>
+			<reference value="Practitioner/f201"/>
+		</individual>
+	</participant>
+	<length>
+		<value value="56"/>
+		<unit value="minutes"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="min"/>
+	</length>
+	<reason>
+		<text value="The patient is treated for a tumor."/>
+	</reason>
+	<diagnosis>
+		<condition>
+			<display value="Complications from Roel's TPF chemotherapy on January 28th, 2013"/>
+		</condition>
+		<role>
+			<coding>
+				<system value="http://hl7.org/fhir/diagnosis-role"/>
+				<code value="AD"/>
+				<display value="Admission diagnosis"/>
+			</coding>
+		</role>
+		<rank value="2"/>
+	</diagnosis>
+	<!-- Example of a principal diagnosis with role=CC and rank=1-->
+	<diagnosis>
+		<condition>
+			<display value="The patient is treated for a tumor"/>
+		</condition>
+		<role>
+			<coding>
+				<system value="http://hl7.org/fhir/diagnosis-role"/>
+				<code value="CC"/>
+				<display value="Chief complaint"/>
+			</coding>
+		</role>
+		<rank value="1"/>
+	</diagnosis>
+	<!--No hospitalization was deemed necessary-->
+	<serviceProvider>
+		<reference value="Organization/f201"/>
+	</serviceProvider>
 </Encounter>
