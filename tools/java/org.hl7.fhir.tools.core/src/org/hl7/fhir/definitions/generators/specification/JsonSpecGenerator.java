@@ -51,7 +51,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
     if (bs == null)
       return "terminologies.html#unbound";
     if (bs.getValueSet() != null) 
-      return bs.getValueSet().getUserString("path");
+      return bs.getValueSet().hasUserData("external.url") ? bs.getValueSet().getUserString("external.url") : bs.getValueSet().getUserString("path");
     else if (!Utilities.noString(bs.getReference()))
       return bs.getReference();      
     else 

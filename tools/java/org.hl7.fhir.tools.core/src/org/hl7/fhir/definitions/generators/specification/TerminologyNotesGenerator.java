@@ -76,7 +76,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
 
   protected String getBindingLink(BindingSpecification bs) throws Exception {
     if (bs.getValueSet() != null) 
-      return bs.getValueSet().getUserString("path");
+      return bs.getValueSet().hasUserData("external.url") ? bs.getValueSet().getUserString("external.url") : bs.getValueSet().getUserString("path");
     else if (bs.getReference() != null)
       return bs.getReference();      
     else 
@@ -193,7 +193,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           if (vs == null) {
             write("<td><a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>, but limited to <a href=\""+cd.getMaxReference()+"\">"+cd.getMaxReference()+"</a></td>");
           } else {
-            String pp = (String) vs.getUserData("path");
+            String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
             write("<td><a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>, but limited to <a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a></td>");
           }
         } else
@@ -214,7 +214,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
             throw new Exception("Unknown special type "+name);
         } else if (cd.getValueSet() != null) {
           ValueSet vs = cd.getValueSet();
-          String pp = (String) vs.getUserData("path");
+          String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
           if (pp == null)
             throw new Exception("unknown path on "+cd.getReference());
           write("<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a><!-- b -->");
@@ -226,13 +226,13 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
           else if (cd.getReference().startsWith("http://hl7.org/fhir")) {
             if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
               ValueSet vs = page.getValueSets().get(cd.getReference());
-              String pp = (String) vs.getUserData("path");
+              String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
               if (pp == null)
                 throw new Exception("unknown path on "+cd.getReference());
               write("<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- b -->");
             } else if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/v2-")) {
                 ValueSet vs = page.getValueSets().get(cd.getReference());
-                String pp = (String) vs.getUserData("path");
+                String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
                 write("<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getReference()+"</a><!-- c -->");
             } else if (cd.getReference().startsWith("http://hl7.org/fhir/ValueSet/")) {
               String ref = getBindingLink(cd);
@@ -267,7 +267,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     String ref = def.getValueSet() instanceof UriType ? ((UriType) def.getValueSet()).asStringValue() : ((Reference) def.getValueSet()).getReference();
     ValueSet vs = page.getValueSets().get(ref);
     if (vs != null) {
-      String pp = (String) vs.getUserData("path");
+      String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
       return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
     }
     if (ref.startsWith("http:") || ref.startsWith("https:"))
@@ -322,7 +322,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
     String bs = "<a href=\""+prefix+"terminologies.html#"+cd.getStrength().toCode()+"\">"+cd.getStrength().getDisplay()+"</a>";
     if (cd.getValueSet() != null) {
       ValueSet vs = cd.getValueSet();
-      String pp = (String) vs.getUserData("path");
+      String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");
       return "<a href=\""+prefix+pp.replace(File.separatorChar, '/')+"\">"+cd.getValueSet().getName()+"</a> ("+bs+mx+")";      
     } else if (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet) {
       if (Utilities.noString(cd.getReference())) 

@@ -396,38 +396,38 @@
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
   <Style ss:ID="s86">
-   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s87">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s88">
+  <Style ss:ID="s87">
    <Font ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s89">
+  <Style ss:ID="s88">
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
    </Borders>
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s91">
+  <Style ss:ID="s90">
    <Font ss:Color="#000000" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
   </Style>
-  <Style ss:ID="s92">
+  <Style ss:ID="s91">
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
    </Borders>
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
   </Style>
-  <Style ss:ID="s93">
+  <Style ss:ID="s92">
    <Borders/>
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
+  </Style>
+  <Style ss:ID="s93">
+   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
   </Style>
   <Style ss:ID="s94">
    <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
@@ -602,7 +602,7 @@
   <NamedRange ss:Name="Invariantids" ss:RefersTo="='\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="39" ss:StyleID="s64" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="36" ss:StyleID="s64" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="230.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="65.0"/>
@@ -773,7 +773,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">MimeType</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">The mime type of an attachment. Any valid mime type is allowed.</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">http://www.rfc-editor.org/bcp/bcp13.txt</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"><Data ss:Type="String">BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)</Data></Cell>
@@ -946,52 +946,8 @@
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">USPSState</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Two letter USPS alphabetic codes. </Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-usps-state</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:Index="8" ss:StyleID="s76"><Data ss:Type="String">extensible for Can, Mex?</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">US</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s75"><Data ss:Type="String">USFIPSCounty</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">FIPS codes for US counties and county equivalent entities.</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-fips-county</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">US</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s73"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s77"><Data ss:Type="String">USCountry</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ISO 2 letter country codes.</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">http://www.iso.org/iso/country_codes.htm</Data></Cell>
-    <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ISO 2 letter Country Codes</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">using DAF value set as soon as able check with Grahame - urn:iso:std:iso:3166</Data></Cell>
-    <Cell ss:StyleID="s86"/>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">US</Data></Cell>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s79"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">BindingStrength</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indication of the degree of conformance expectations associated with a binding.</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Indication of the degree of conformance expectations associated with a binding.</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">#binding-strength</Data></Cell>
@@ -1006,7 +962,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s72"><Data ss:Type="String">IdentifierType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">valueset-identifier-type</Data></Cell>
@@ -1063,7 +1019,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">All published FHIR Versions</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s73"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">valueset-fhir-versions</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">valueset-fhir-versions</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
@@ -1103,7 +1059,6 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>18</TopRowVisible>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -1115,7 +1070,7 @@
    <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="78.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s89">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s88">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Display</Data></Cell>
@@ -1126,38 +1081,38 @@
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Boolean true.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Boolean true.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Boolean false.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Boolean false.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell><Data ss:Type="String">trace</Data></Cell>
     <Cell><Data ss:Type="String">Trace Amount Detected</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">The content is greater than zero, but too small to be quantified.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">The content is greater than zero, but too small to be quantified.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">sufficient</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">sufficient</Data></Cell>
     <Cell><Data ss:Type="String">Sufficient Quantity</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material.</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">used in formulations (e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' This code would be used to express the quantity of water. )</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">used in formulations (e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' This code would be used to express the quantity of water. )</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">5</Data></Cell>
     <Cell><Data ss:Type="String">withdrawn</Data></Cell>
     <Cell><Data ss:Type="String">Value Withdrawn</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">The value is no longer available.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">The value is no longer available.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">nil-known</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">nil-known</Data></Cell>
     <Cell><Data ss:Type="String">Nil Known</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">The are no known applicable values in this context.</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">The are no known applicable values in this context.</Data></Cell>
     <Cell><Data ss:Type="String">The existence of this subject to review</Data></Cell>
    </Row>
   </Table>
@@ -1188,7 +1143,7 @@
    <Column ss:Width="967.0"/>
    <Column ss:Width="88.0"/>
    <Column ss:Width="323.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s89">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s88">
     <Cell><Data ss:Type="String">Id</Data></Cell>
     <Cell><Data ss:Type="String">Code</Data></Cell>
     <Cell><Data ss:Type="String">Parent</Data></Cell>
@@ -1339,13 +1294,13 @@
    <Column ss:AutoFitWidth="0" ss:Width="407.0"/>
    <Column ss:Width="140.0"/>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Id</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Code</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Display</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Definition</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Comment</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">v3</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">v2</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Code</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Display</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Definition</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Comment</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">v3</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">v2</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="Number">1</Data></Cell>
@@ -1370,7 +1325,7 @@
     <Cell><Data ss:Type="String">other</Data></Cell>
     <Cell><Data ss:Type="String">Other</Data></Cell>
     <Cell><Data ss:Type="String">Other</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">The gender of a person could not be uniquely defined as male or female, such as hermaphrodite.</Data></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">The gender of a person could not be uniquely defined as male or female, such as hermaphrodite.</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&lt;AdministrativeGender.UN</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&gt;0001.A,&gt;0001.O</Data></Cell>
    </Row>

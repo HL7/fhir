@@ -16,7 +16,7 @@ public class BaseGenerator {
   
   public static String getBindingLink(String prefix, BindingSpecification bs) throws Exception {
     if (bs.getValueSet() != null) 
-      return prefix+bs.getValueSet().getUserString("path");
+      return bs.getValueSet().hasUserData("external.url") ? bs.getValueSet().getUserString("external.url") :  prefix+bs.getValueSet().getUserString("path");
     else if (bs.getReference() != null)
       return bs.getReference();      
     else 

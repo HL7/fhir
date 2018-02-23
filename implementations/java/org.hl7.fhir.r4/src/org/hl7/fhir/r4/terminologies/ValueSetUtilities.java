@@ -1,5 +1,7 @@
 package org.hl7.fhir.r4.terminologies;
 
+import javax.net.ssl.SSLEngineResult.HandshakeStatus;
+
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.model.CodeSystem;
@@ -59,6 +61,9 @@ public class ValueSetUtilities {
   }
 
   public static void markStatus(ValueSet vs, String wg, StandardsStatus status, String pckage, String fmm, IWorkerContext context) throws FHIRException {
+    if (vs.hasUserData("external.url"))
+      return;
+    
     if (wg != null) {
       if (!ToolingExtensions.hasExtension(vs, ToolingExtensions.EXT_WORKGROUP) || 
           (Utilities.existsInList(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_WORKGROUP), "fhir", "vocab") && !Utilities.existsInList(wg, "fhir", "vocab"))) {

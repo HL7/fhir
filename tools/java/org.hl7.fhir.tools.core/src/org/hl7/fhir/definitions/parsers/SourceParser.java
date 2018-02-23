@@ -156,6 +156,7 @@ public class SourceParser {
   private boolean forPublication;
   private List<FHIRPathUsage> fpUsages;
   private boolean tryNetwork;
+  private Bundle externals;
   
 
   public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, BuildWorkerContext context, Calendar genDate, PageProcessor page, List<FHIRPathUsage> fpUsages) throws IOException, ParserConfigurationException, SAXException {
@@ -339,10 +340,14 @@ public class SourceParser {
       else 
         throw new Exception("Unknown protocol for externals: "+n);
     }
+    String stated = ini.getStringProperty("externals", n);
+    if (Utilities.noString(stated))
+      stated = n;
     Resource res = new XmlParser().parse(new FileInputStream(file));
     if (res instanceof MetadataResource) {
-      res.setUserData("external.url", n);
+      res.setUserData("external.url", stated);
       context.cacheResource(res);
+      externals.addEntry().setFullUrl(((MetadataResource) res).getUrl()).setResource(res).addLink().setRelation("via").setUrl(stated);
     } else
       throw new Exception("Unsupported external resource type "+res.fhirType());  
   }
@@ -1169,6 +1174,14 @@ public class SourceParser {
 
   public IniFile getIni() {
     return ini;
+  }
+
+
+
+
+  public void setExternals(Bundle externals) {
+    this.externals = externals;
+    
   }
   
   

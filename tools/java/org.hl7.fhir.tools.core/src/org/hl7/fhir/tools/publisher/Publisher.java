@@ -408,6 +408,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private Bundle valueSetsFeed;
   private Bundle conceptMapsFeed;
   private Bundle dataElements;
+  private Bundle externals;
   private boolean noPartialBuild;
   private List<Fragment> fragments = new ArrayList<Publisher.Fragment>();
   private Map<String, String> xmls = new HashMap<String, String>();
@@ -426,6 +427,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private ProfileGenerator pgen;
 
   private boolean noSound;
+
 
   public static void main(String[] args) throws Exception {
     //
@@ -586,6 +588,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.loadSnomed();
       page.loadLoinc();
       page.loadUcum();
+      buildFeedsAndMaps();
+      prsr.setExternals(externals);
 
       prsr.parse(page.getGenDate(), page.getValidationErrors());
       for (String n : page.getDefinitions().sortedResourceNames())
@@ -1196,7 +1200,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void loadValueSets1() throws Exception {
-    buildFeedsAndMaps();
 
     page.log(" ...vocab #1", LogMessageType.Process);
     new ValueSetImporterV3(page, page.getValidationErrors()).execute();
@@ -1218,6 +1221,12 @@ public class Publisher implements URIResolver, SectionNumberer {
           throw new Exception("Unable to resolve the value set reference "+ref);
         }
         cd.setValueSet(vs);
+      } else {
+        ValueSet vs = page.getWorkerContext().fetchResource(ValueSet.class, ref);
+        if (vs != null)
+          cd.setValueSet(vs);
+        else
+          System.out.println("Unresolved value set reference: "+ref);
       }
     }
     for (ImplementationGuideDefn ig : page.getDefinitions().getSortedIgs()) {
@@ -1438,6 +1447,12 @@ public class Publisher implements URIResolver, SectionNumberer {
     conceptMapsFeed.setId("conceptmaps");
     conceptMapsFeed.setType(BundleType.COLLECTION);
     conceptMapsFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+
+    externals = new Bundle();
+    externals.setId("externals");
+    externals.setType(BundleType.COLLECTION);
+    externals.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+
   }
 
   private void generateCompartmentDefinitions() throws Exception {
@@ -2578,8 +2593,15 @@ public class Publisher implements URIResolver, SectionNumberer {
       s = new FileOutputStream(page.getFolders().dstDir + "conceptmaps.json");
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, conceptMapsFeed);
       s.close();
-//      if (delphiReferencePlatform.canSign())
-//        delphiReferencePlatform.sign(page.getFolders().dstDir + "conceptmaps.xml", true, "dsa");
+
+      checkBundleURLs(externals);
+      s = new FileOutputStream(page.getFolders().dstDir + "external-resources.xml");
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, externals);
+      s.close();
+      Utilities.copyFile(page.getFolders().dstDir + "external-resources.xml", page.getFolders().dstDir + "examples" + File.separator + "external-resources.xml");
+      s = new FileOutputStream(page.getFolders().dstDir + "external-resources.json");
+      new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, externals);
+      s.close();
 
       Bundle v2Valuesets = new Bundle();
       v2Valuesets.setType(BundleType.COLLECTION);
@@ -3188,12 +3210,14 @@ public class Publisher implements URIResolver, SectionNumberer {
     int i = 0;
     for (BundleEntryComponent e : bnd.getEntry()) {
       i++;
-      if (!e.hasFullUrl())
-        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "no Full URL on entry "+Integer.toString(i),IssueSeverity.ERROR));
-      else if (!e.getFullUrl().endsWith("/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()) && e.getResource().getResourceType() != ResourceType.CodeSystem)
-        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL doesn't match resource and id on entry "+Integer.toString(i)+" : "+e.getFullUrl()+" should end with /"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId(),IssueSeverity.ERROR));
-      else if (!e.getFullUrl().equals("http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()) && e.getResource().getResourceType() != ResourceType.CodeSystem)
-        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL is non-FHIR "+Integer.toString(i)+" : "+e.getFullUrl()+" should start with http://hl7.org/fhir/ for HL7-defined artifacts",IssueSeverity.WARNING));
+      if (!e.getResource().hasUserData("external.url")) {
+        if (!e.hasFullUrl())
+          page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "no Full URL on entry "+Integer.toString(i),IssueSeverity.ERROR));
+        else if (!e.getFullUrl().endsWith("/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()) && e.getResource().getResourceType() != ResourceType.CodeSystem)
+          page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL doesn't match resource and id on entry "+Integer.toString(i)+" : "+e.getFullUrl()+" should end with /"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId(),IssueSeverity.ERROR));
+        else if (!e.getFullUrl().equals("http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()) && e.getResource().getResourceType() != ResourceType.CodeSystem)
+          page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL is non-FHIR "+Integer.toString(i)+" : "+e.getFullUrl()+" should start with http://hl7.org/fhir/ for HL7-defined artifacts",IssueSeverity.WARNING));
+      }
     }
   }
 

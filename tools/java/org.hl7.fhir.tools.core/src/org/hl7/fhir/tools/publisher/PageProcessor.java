@@ -3185,7 +3185,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           uses = true;
       }
       if (uses) {
-        if (!vs.hasUserData("path"))
+        if (vs.hasUserData("external.url"))
+          b.append(" <li><a href=\"").append(vs.getUserString("external.url")).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
+        else if (!vs.hasUserData("path"))
           b.append(" <li><a href=\"").append(prefix+"valueset-"+vs.getId()).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
         else
           b.append(" <li><a href=\"").append(prefix+vs.getUserString("path")).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
@@ -4231,8 +4233,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String n = getTail(sn);
         ValueSet vs = ae;
         if (wantPublish(vs)) {
-          String path = (String) ae.getUserData("path");
-          s.append(" <tr><td><a href=\""+pathTail(Utilities.changeFileExt(path, ".html"))+"\">"+n+"</a>");
+          String path = ae.hasUserData("external.url") ? ae.getUserString("external.url") : pathTail(Utilities.changeFileExt(ae.getUserString("path"), ".html"));
+          s.append(" <tr><td><a href=\""+path+"\">"+n+"</a>");
           if ("Normative".equals(ToolingExtensions.readStringExtension(vs, ToolingExtensions.EXT_BALLOT_STATUS)))
             s.append(" <a href=\"ballot-intro.html#conformance\" class=\"normative-flag\">N</a>");
           s.append("</td><td>"+Utilities.escapeXml(vs.getDescription())+"</td><td>"+sourceSummary(vs)+"</td>");

@@ -150,7 +150,7 @@ public class TableGenerator extends BaseGenerator {
         if (vs == null)
           cc.getPieces().add(gen.new Piece(b.getMaxReference(), b.getMaxReference(), null));
         else
-          cc.getPieces().add(gen.new Piece(vs.getUserString("path"), vs.getName(), null));
+          cc.getPieces().add(gen.new Piece(vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path"), vs.getName(), null));
       }  else
         cc.getPieces().add(gen.new Piece(prefix+"terminologies.html#"+b.getStrength().toCode(), b.getStrength().getDisplay(),  b.getStrength().getDefinition()));
       cc.getPieces().add(gen.new Piece(null, ")", null));
