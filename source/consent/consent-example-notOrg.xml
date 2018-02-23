@@ -17,8 +17,13 @@
    </div>
   </text>
   <status value="in-progress"/>
-  <scope value="privacy"/>
-  <category>
+  <scope>
+    <coding>
+      <system value="http://hl7.org/fhir/consentscope"/>
+      <code value="privacy"/>
+    </coding>
+    </scope>
+      <category>
     <coding>
       <system value="http://loinc.org"/>
       <code value="59284-0"/>
