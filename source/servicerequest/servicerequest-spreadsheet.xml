@@ -4,7 +4,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2018-02-21T08:44:59Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -18,7 +18,7 @@
   
   
   
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1577,8 +1577,8 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="Boolean">0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">If missing, the request is a positive request e.g. "do perform"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">True if service/procedure should not be performed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">Set this to true if the record is saying that the service/procedure should NOT be performed.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4963,12 +4963,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>110</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>23</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -7625,7 +7626,6 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Zoom>130</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

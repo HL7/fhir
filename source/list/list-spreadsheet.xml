@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1213,15 +1213,13 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="Boolean">0</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">List items are generally only treated as deleted when this element explicitly carries a value of true. Systems SHOULD always populate this value when mode is 'changes'</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If this item is actually marked as deleted</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">True if this item is marked as deleted in the list.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as "deleted"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Both flag and deleted can only be used if the List.mode is "changes". A deleted entry should be displayed in narrative as deleted.
-
-This element is labeled as a modifier because it indicates that an item is (to be) no longer in the list</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. Both flag and deleted can only be used if the List.mode is "changes". A deleted entry should be displayed in narrative as deleted.  This element is labeled as a modifier because it indicates that an item is (to be) no longer in the list</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">added: .updateMode=("A","AR")  retained: .updateMode="NC"  updated: .updateMode="R"  deleted: .updateMode="D"</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3530,10 +3528,11 @@ This element is labeled as a modifier because it indicates that an item is (to b
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4312,9 +4311,7 @@ This element is labeled as a modifier because it indicates that an item is (to b
     <Cell ss:StyleID="s116"><Data ss:Type="String">operation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Find a functional list</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="String">This operation allows a client to find an identified list for a particular function by its function. The operation takes two parameters, the identity of a patient, and the name of a functional list.   
-
-The list of defined functional lists can be found at [Current Resource Lists](lifecycle.html#lists). Applications are not required to support all the lists, and may define additional lists of their own.   If the system is able to locate a list that serves the identified purpose, it returns it as the body of the response with a 200 OK status. If the resource cannot be located, the server returns a 404 not found (optionally with an OperationOutcome resource)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">This operation allows a client to find an identified list for a particular function by its function. The operation takes two parameters, the identity of a patient, and the name of a functional list.     The list of defined functional lists can be found at [Current Resource Lists](lifecycle.html#lists). Applications are not required to support all the lists, and may define additional lists of their own.   If the system is able to locate a list that serves the identified purpose, it returns it as the body of the response with a 200 OK status. If the resource cannot be located, the server returns a 404 not found (optionally with an OperationOutcome resource)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Note that servers may support searching by a functional list, and not support this operation that allows clients to find the list directly</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$find-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$find-response.txt</Data></Cell>
@@ -5823,7 +5820,6 @@ The list of defined functional lists can be found at [Current Resource Lists](li
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

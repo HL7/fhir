@@ -16,6 +16,7 @@
   
   <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1488,8 +1489,8 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="Boolean">1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">By default, a dose should be considered to be potent.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Dose potency</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Indication if a dose is considered to be subpotent. By default, a dose should be considered to be potent.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3639,7 +3640,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>17</TopRowBottomPane>
+   <TopRowBottomPane>18</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -56048,4 +56049,4 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
-<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
+<!--canonicalized--></Workbook>
