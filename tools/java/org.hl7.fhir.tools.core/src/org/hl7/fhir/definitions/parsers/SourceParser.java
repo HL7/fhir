@@ -157,7 +157,8 @@ public class SourceParser {
   private List<FHIRPathUsage> fpUsages;
   private boolean tryNetwork;
   private Bundle externals;
-  
+  private List<String> errors = new ArrayList<String>();
+
 
   public SourceParser(Logger logger, String root, Definitions definitions, boolean forPublication, String version, BuildWorkerContext context, Calendar genDate, PageProcessor page, List<FHIRPathUsage> fpUsages) throws IOException, ParserConfigurationException, SAXException {
     this.logger = logger;
@@ -461,6 +462,7 @@ public class SourceParser {
     if (lm.getResource().getFmmLevel() == null)
       lm.getResource().setFmmLevel("1");
     lm.getResource().setStatus(StandardsStatus.INFORMATIVE);
+    errors.addAll(sparser.getErrors());
     return lm;
   }
 
@@ -793,6 +795,7 @@ public class SourceParser {
         definitions.getPackList().add(pack);
         definitions.getPackMap().put(n, pack);
         sparser.parseConformancePackage(pack, definitions, Utilities.getDirectoryForFile(spreadsheet.getAbsolutePath()), pack.getCategory(), issues, null);
+        errors.addAll(sparser.getErrors());
       } catch (Exception e) {
         throw new Exception("Error Parsing StructureDefinition: '"+n+"': "+e.getMessage(), e);
       }
@@ -864,6 +867,7 @@ public class SourceParser {
       SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), ap.getSource(), definitions, srcDir, logger, registry, version, context, genDate, false, page, false, ini, wg, definitions.getProfileIds(), fpUsages, page.getConceptMaps());
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()), ap.getCategory(), issues, wg);
+      errors.addAll(sparser.getErrors());
     } else if (ap.getSourceType() == ConformancePackageSourceType.StructureDefinition) {
       Resource rf = new XmlParser().parse(new CSFileInputStream(ap.getSource()));
       if (!(rf instanceof StructureDefinition)) 
@@ -984,6 +988,7 @@ public class SourceParser {
         el.setStandardsStatus(status);
         map.put(t.getName(), el);
         genTypeProfile(el);
+        errors.addAll(p.getErrors());
         return el.getName();
       } else {
         String p = ini.getStringProperty("types", n);
@@ -1058,6 +1063,7 @@ public class SourceParser {
     } catch (Exception e) {
       throw new Exception("Error Parsing Resource "+n+": "+e.getMessage(), e);
     }
+    errors.addAll(sparser.getErrors());
     root.setWg(wg);
     root.setFmmLevel(ini.getStringProperty("fmm", n.toLowerCase()));
     root.setNormativePackage(ini.getStringProperty("normative", root.getName()));
@@ -1182,6 +1188,13 @@ public class SourceParser {
   public void setExternals(Bundle externals) {
     this.externals = externals;
     
+  }
+
+
+
+
+  public List<String> getErrors() {
+    return errors;
   }
   
   

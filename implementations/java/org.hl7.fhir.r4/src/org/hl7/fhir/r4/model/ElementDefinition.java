@@ -4208,6 +4208,7 @@ public class ElementDefinition extends Type implements ICompositeType {
 
     private static final long serialVersionUID = 158101607L;
 
+
   /**
    * Constructor
    */
@@ -4222,6 +4223,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       super();
       this.path = path;
     }
+
 
     /**
      * @return {@link #path} (The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource or extension.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
@@ -7236,6 +7238,17 @@ public class ElementDefinition extends Type implements ICompositeType {
     return tr;
   }
 
+  public static final boolean NOT_MODIFIER = false;
+  public static final boolean NOT_IN_SUMMARY = false;
+  public static final boolean IS_MODIFIER = true;
+  public static final boolean IS_IN_SUMMARY = true;
+  public ElementDefinition(boolean defaults, boolean modifier, boolean inSummary) {
+    super();
+    if (defaults) {
+      setIsModifier(modifier);
+      setIsSummary(inSummary);
+    }
+  }
 
 // end addition
 

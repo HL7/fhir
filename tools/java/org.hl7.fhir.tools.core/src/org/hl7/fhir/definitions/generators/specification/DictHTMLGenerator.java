@@ -469,7 +469,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
       tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()) + " (Reason: "+e.getModifierReason()+")");
     else
   		tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()));
-    tableRowNE("Default Value", null, encodeValue(e.getDefaultValue()));
+//    tableRowNE("Default Value", null, encodeValue(e.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, e.getMeaningWhenMissing());
     tableRowNE("Element Order Meaning", null, e.getOrderMeaning());
 

@@ -172,6 +172,7 @@ public class SpreadsheetParser {
   private Map<String, WorkGroup> workgroups;  
   private ResourceDefn template;
   private String templateTitle;
+  private List<String> errors = new ArrayList<String>();
 
 	public SpreadsheetParser(String usageContext, InputStream in, String name, String filename, Definitions definitions, String root, Logger log, OIDRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, WorkGroup committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages, Map<String, ConceptMap> maps) throws Exception {
 	  this.usageContext = usageContext;
@@ -1808,8 +1809,8 @@ public class SpreadsheetParser {
       e.setFixed(processValue(sheet, row, "Value", sheet.getColumn(row, "Value"), e));
       e.setPattern(processValue(sheet, row, "Pattern", sheet.getColumn(row, "Pattern"), e));
 		} else {
-		  if (sheet.hasColumn(row, "Default Value"))
-		    e.setDefaultValue(processValue(sheet, row, "Default Value", sheet.getColumn(row, "Default Value"), e));
+		  if (sheet.hasColumn(row, "Default Value")) 
+		    errors.add(path+": Default value '"+sheet.getColumn(row, "Default Value")+"' found @ "+getLocation(row));
 		  if (sheet.hasColumn(row, "Missing Meaning"))
 		    e.setMeaningWhenMissing(sheet.getColumn(row, "Missing Meaning"));
 		}
@@ -2435,6 +2436,10 @@ public class SpreadsheetParser {
 
   public List<ValueSet> getValuesets() {
     return valuesets;
+  }
+
+  public List<String> getErrors() {
+    return errors;
   }
 
 

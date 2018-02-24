@@ -79,7 +79,7 @@ public class ElementDefn {
 	private List<String> discriminator = new ArrayList<String>(); // when slicing
   private Type example;
   private Map<Integer, Type> otherExamples = new HashMap<Integer, Type>();
-  private Type defaultValue;
+//  private Type defaultValue;
   private String meaningWhenMissing;
   private Type fixed; // only in a profile
   private Type pattern; // only in a profile
@@ -831,13 +831,13 @@ public class ElementDefn {
     this.sliceDescription = sliceDescription;
   }
 
-  public Type getDefaultValue() {
-    return defaultValue;
-  }
-
-  public void setDefaultValue(Type defaultValue) {
-    this.defaultValue = defaultValue;
-  }
+//  public Type getDefaultValue() {
+//    return defaultValue;
+//  }
+//
+//  public void setDefaultValue(Type defaultValue) {
+//    this.defaultValue = defaultValue;
+//  }
 
   public String getMeaningWhenMissing() {
     return meaningWhenMissing;
@@ -928,7 +928,7 @@ public class ElementDefn {
     example = other.example;
     otherExamples.clear();
     otherExamples.putAll(other.otherExamples);
-    defaultValue = other.defaultValue;
+//    defaultValue = other.defaultValue;
     meaningWhenMissing = other.meaningWhenMissing == null ? null : other.meaningWhenMissing.replace("{{title}}", title);
     fixed = other.fixed;
     pattern = other.pattern;

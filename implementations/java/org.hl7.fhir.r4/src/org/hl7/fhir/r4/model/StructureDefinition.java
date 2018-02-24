@@ -1130,6 +1130,14 @@ public class StructureDefinition extends MetadataResource {
 
   }
 
+  public ElementDefinition addElement(boolean notModifier, boolean notInSummary) {
+    ElementDefinition t = new ElementDefinition(true, notModifier, notInSummary);
+    if (this.element == null)
+      this.element = new ArrayList<ElementDefinition>();
+    this.element.add(t);
+    return t;
+  }
+
   }
 
     /**

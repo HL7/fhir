@@ -1178,7 +1178,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("modifier-list"))
         src = s1 + genModifierList() + s3;
       else if (com[0].equals("missing-element-list"))
-        src = s1 + genDefaultedList() + s3;
+        src = s1 + genMeaningWhenMissingList() + s3;
       else if (com[0].equals("wgreport"))
         src = s1 + genWGReport() + s3;
       else if (com[0].equals("r2maps-summary"))
@@ -5336,7 +5336,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       else if (com[0].equals("modifier-list"))
         src = s1 + genModifierList() + s3;
       else if (com[0].equals("missing-element-list"))
-        src = s1 + genDefaultedList() + s3;
+        src = s1 + genMeaningWhenMissingList() + s3;
       else if (com[0].equals("wgreport"))
         src = s1 + genWGReport() + s3;
       else if (com[0].equals("r2maps-summary"))
@@ -9474,30 +9474,30 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return res;
   }
 
-  private String genDefaultedList() throws Exception {
+  private String genMeaningWhenMissingList() throws Exception {
     StringBuilder b = new StringBuilder();
     for (String s : sorted(definitions.getTypes().keySet()))
-      checkForDefaulted(b, s, definitions.getTypes().get(s));
+      checkForMeaningWhenMissing(b, s, definitions.getTypes().get(s));
     for (String s : sorted(definitions.getStructures().keySet()))
-      checkForDefaulted(b, s, definitions.getStructures().get(s));
+      checkForMeaningWhenMissing(b, s, definitions.getStructures().get(s));
     for (String s : sorted(definitions.getInfrastructure().keySet()))
-      checkForDefaulted(b, s, definitions.getInfrastructure().get(s));
+      checkForMeaningWhenMissing(b, s, definitions.getInfrastructure().get(s));
     for (String s : sorted(definitions.getBaseResources().keySet()))
-      checkForDefaulted(b, s, definitions.getBaseResources().get(s).getRoot());
+      checkForMeaningWhenMissing(b, s, definitions.getBaseResources().get(s).getRoot());
     for (String s : sorted(definitions.getResources().keySet()))
-      checkForDefaulted(b, s, definitions.getResources().get(s).getRoot());
+      checkForMeaningWhenMissing(b, s, definitions.getResources().get(s).getRoot());
     return b.toString();
   }
 
-  private void checkForDefaulted(StringBuilder b, String path, ElementDefn e) throws Exception {
+  private void checkForMeaningWhenMissing(StringBuilder b, String path, ElementDefn e) throws Exception {
     if (e.hasMeaningWhenMissing()) {
       b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"-definitions.html#"+path+"\">"+path+"</a>: "+Utilities.escapeXml(e.getMeaningWhenMissing())+"</li>\r\n");
     }
-    if (e.getDefaultValue() != null) {
-      b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"-definitions.html#"+path+"\">"+path+"</a>: "+renderType(e.getDefaultValue())+"</li>\r\n");
-    }
+//    if (e.getDefaultValue() != null) {
+//      b.append(" <li><a href=\""+definitions.getSrcFile(path.substring(0, path.indexOf(".")))+"-definitions.html#"+path+"\">"+path+"</a>: "+renderType(e.getDefaultValue())+"</li>\r\n");
+//    }
     for (ElementDefn c : e.getElements())
-      checkForDefaulted(b, path+"."+c.getName(), c);
+      checkForMeaningWhenMissing(b, path+"."+c.getName(), c);
   }
 
   @SuppressWarnings("rawtypes")

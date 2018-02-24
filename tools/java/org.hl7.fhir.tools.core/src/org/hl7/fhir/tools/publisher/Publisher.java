@@ -596,6 +596,9 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (!page.getBreadCrumbManager().knowsResource(n))
           page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "hierarchy.xml", "Resource not found: "+n,IssueSeverity.ERROR));
 
+      for (String n : prsr.getErrors()) 
+        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "source spreadsheets", n, IssueSeverity.ERROR));        
+      
       if (web) {
         page.log("Clear Directory", LogMessageType.Process);
         Utilities.clearDirectory(page.getFolders().dstDir);
