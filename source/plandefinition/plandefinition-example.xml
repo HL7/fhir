@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
+ xmlns="http://hl7.org/fhir">
   <id value="low-suicide-risk-order-set"/>
   <text>
     <status value="generated"/>
@@ -688,10 +690,20 @@
           </coding>
           <text value="Oral route (qualifier value)"/>
         </route>
-        <doseQuantity>
-          <value value="1"/>
-          <unit value="{tbl}"/>
-        </doseQuantity>
+        <doseAndRate>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/dose-rate-type"/>
+              <code value="ordered"/>
+              <display value="Ordered"/>
+            </coding>
+          </type>
+          <doseQuantity>
+            <value value="1"/>
+            <unit value="{tbl}"/>
+          </doseQuantity>
+        </doseAndRate>
+        
       </dosage>
       <dynamicValue>
         <path value="dispenseRequest.numberOfRepeatsAllowed"/>

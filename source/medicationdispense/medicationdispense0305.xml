@@ -89,12 +89,21 @@
                 <display value="Swallow - dosing instruction imperative (qualifier value)"/>
             </coding>
         </method>
+        <doseAndRate>
+            <type>
+                <coding>
+                    <system value="http://hl7.org/fhir/dose-rate-type"/>
+                    <code value="calculated"/>
+                    <display value="Calculated"/>
+                </coding>
+            </type>
         <doseQuantity>
             <value value="4"/>
             <unit value="TAB"/>
             <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
             <code value="TAB"/> 
         </doseQuantity>
+        </doseAndRate>
     </dosageInstruction>
     <dosageInstruction>
         <sequence value="2"/>
@@ -131,12 +140,22 @@
                 <display value="Swallow - dosing instruction imperative (qualifier value)"/>
             </coding>
         </method>
-        <doseQuantity>
-            <value value="2"/>
-            <unit value="TAB"/>
-            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-            <code value="TAB"/> 
-        </doseQuantity>
+        <doseAndRate>
+            <type>
+                <coding>
+                    <system value="http://hl7.org/fhir/dose-rate-type"/>
+                    <code value="calculated"/>
+                    <display value="Calculated"/>
+                </coding>
+            </type>
+            <doseQuantity>
+                <value value="2"/>
+                <unit value="TAB"/>
+                <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                <code value="TAB"/> 
+            </doseQuantity>
+        </doseAndRate>
+
     </dosageInstruction>
     <dosageInstruction>
         <sequence value="3"/>
@@ -173,12 +192,22 @@
                 <display value="Swallow - dosing instruction imperative (qualifier value)"/>
             </coding>
         </method>
-        <doseQuantity>
-            <value value="1"/>
-            <unit value="TAB"/>
-            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-            <code value="TAB"/> 
-        </doseQuantity>
+        <doseAndRate>
+            <type>
+                <coding>
+                    <system value="http://hl7.org/fhir/dose-rate-type"/>
+                    <code value="calculated"/>
+                    <display value="Calculated"/>
+                </coding>
+            </type>
+            <doseQuantity>
+                <value value="1"/>
+                <unit value="TAB"/>
+                <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                <code value="TAB"/> 
+            </doseQuantity>
+        </doseAndRate>
+
     </dosageInstruction>
 </MedicationDispense>
 

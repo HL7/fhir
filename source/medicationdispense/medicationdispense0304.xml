@@ -77,23 +77,34 @@
                 <display value="IV intravascular route that begins within a vein)"/>
             </coding>
         </route>
-        <doseQuantity>
-            <value value="4.5"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="g"/>
-        </doseQuantity>
-        <rateRatio>
-            <numerator>
-                <value value="8"/>
+        <doseAndRate>
+            <type>
+                <coding>
+                    <system value="http://hl7.org/fhir/dose-rate-type"/>
+                    <code value="calculated"/>
+                    <display value="Calculated"/>
+                </coding>
+            </type>
+            <doseQuantity>
+                <value value="4.5"/>
                 <system value="http://unitsofmeasure.org"/>
-                <code value="ml"/>
-            </numerator>
-            <denominator>
-                <value value="1"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="min"/>
-            </denominator>
-        </rateRatio>
+                <code value="g"/>
+            </doseQuantity>
+            <rateRatio>
+                <numerator>
+                    <value value="8"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="ml"/>
+                </numerator>
+                <denominator>
+                    <value value="1"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="min"/>
+                </denominator>
+            </rateRatio>
+        </doseAndRate>
+ 
+
     </dosageInstruction>
 </MedicationDispense>
 

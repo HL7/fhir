@@ -52,12 +52,22 @@
                 <periodUnit value="wk"/>
             </repeat>
         </timing>
-        <doseQuantity>
-            <value value="1"/>
-            <unit value="patch"/>
-            <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-            <code value="patch"/>
-        </doseQuantity>
+        <doseAndRate>
+            <type>
+                <coding>
+                    <system value="http://hl7.org/fhir/dose-rate-type"/>
+                    <code value="ordered"/>
+                    <display value="Ordered"/>
+                </coding>
+            </type>
+            <doseQuantity>
+                <value value="1"/>
+                <unit value="patch"/>
+                <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                <code value="patch"/>
+            </doseQuantity>
+        </doseAndRate>
+
     </dosageInstruction>
 </MedicationDispense>
 

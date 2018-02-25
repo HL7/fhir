@@ -1,4 +1,6 @@
-<PlanDefinition xmlns="http://hl7.org/fhir">
+<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
+ xmlns="http://hl7.org/fhir">
   <id value="KDN5" />
   <text>
     <status value="additional" />
@@ -91,10 +93,19 @@
         <route>
           <text value="IV" />
         </route>
-        <doseQuantity>
-          <value value="1250" />
-          <unit value="mg/m²" />
-        </doseQuantity>
+        <doseAndRate>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/dose-rate-type"/>
+              <code value="ordered"/>
+              <display value="Ordered"/>
+            </coding>
+          </type>
+          <doseQuantity>
+            <value value="1250" />
+            <unit value="mg/m²" />
+          </doseQuantity>
+        </doseAndRate>
       </dosage>
     </ActivityDefinition>
   </contained>
@@ -121,16 +132,26 @@
         <route>
           <text value="IV" />
         </route>
-        <doseQuantity>
-          <!-- AUC as dose unit or as an extension? -->
-          <extension url="http://example.org/fhir/AUC-dose" >
-            <valueInteger value="5" />
-          </extension>
-          <!-- <value value="5" />
+        <doseAndRate>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/dose-rate-type"/>
+              <code value="ordered"/>
+              <display value="Ordered"/>
+            </coding>
+          </type>
+          <doseQuantity>
+            <!-- AUC as dose unit or as an extension? -->
+            <extension url="http://example.org/fhir/AUC-dose" >
+              <valueInteger value="5" />
+            </extension>
+            <!-- <value value="5" />
           <unit value="AUC" />
           <system value="http://snomed.info/sct" />
           <code value="413573002" /> -->
-        </doseQuantity>
+          </doseQuantity>
+        </doseAndRate>
+
       </dosage>
     </ActivityDefinition>
   </contained>

@@ -35,12 +35,22 @@
       <display value="Oral"/>
       </coding>
     </route>
-    <doseQuantity>
-      <value value="1"/>
-      <unit value="tab"/>
-      <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-      <code value="tab"/>
-    </doseQuantity>
+    <doseAndRate>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/dose-rate-type"/>
+          <code value="ordered"/>
+          <display value="Ordered"/>
+        </coding>
+      </type>
+      <doseQuantity>
+        <value value="1"/>
+        <unit value="tab"/>
+        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+        <code value="tab"/>
+      </doseQuantity>
+    </doseAndRate>
+    
     <maxDosePerPeriod>
       <numerator>
         <value value="1"/>

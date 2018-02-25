@@ -74,7 +74,7 @@
         <display value="Donald Duck"/>           
     </subject>
     <context> <!-- Linked to a resource Encounter between patient and practitioner-->
-        <reference value="Encounter/f001"/>
+        <reference value="Encounter/f201"/>
         <display value="encounter who leads to this prescription"/>
     </context>
     <supportingInformation>
@@ -111,7 +111,7 @@
         </coding>
     </statusReason>
     <insurance>
-        <reference value="9876B1"/>
+        <reference value="Coverage/9876B1"/>
     </insurance>
     <note>
         <text value="Patient told to take with food"/>
@@ -156,20 +156,30 @@
                 <display value="Swallow - dosing instruction imperative (qualifier value)"/>
             </coding>
         </method>
-       <doseRange>
-           <low>
-               <value value="1"/>
-               <unit value="TAB"/>
-               <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-               <code value="TAB"/> 
-           </low>
-           <high>
-               <value value="2"/>
-               <unit value="TAB"/>
-               <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-               <code value="TAB"/> 
-           </high>
-       </doseRange>
+        <doseAndRate>
+            <type>
+                <coding>
+                    <system value="http://hl7.org/fhir/dose-rate-type"/>
+                    <code value="ordered"/>
+                    <display value="Ordered"/>
+                </coding>
+            </type>
+            <doseRange>
+                <low>
+                    <value value="1"/>
+                    <unit value="TAB"/>
+                    <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                    <code value="TAB"/> 
+                </low>
+                <high>
+                    <value value="2"/>
+                    <unit value="TAB"/>
+                    <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+                    <code value="TAB"/> 
+                </high>
+            </doseRange>
+        </doseAndRate>
+        
     </dosageInstruction>
     <dispenseRequest>
         <validityPeriod>
@@ -190,7 +200,7 @@
             <code value="d"/> 
         </expectedSupplyDuration>
         <performer>
-            <reference value="f001"></reference>
+            <reference value="Practitioner/f001"></reference>
         </performer>
     </dispenseRequest>   
     <substitution>
