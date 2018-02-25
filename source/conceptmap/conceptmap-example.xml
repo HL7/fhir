@@ -48,8 +48,7 @@
             <target>
                 <code value="H"/>
                 <display value="home"/>
-                <!-- this applies, but it's the default to reduce volume 
-        <equivalence value="equivalent"/> -->
+                <equivalence value="equivalent"/>
             </target>
         </element>
         <element>
@@ -58,6 +57,7 @@
             <target>
                 <code value="WP"/>
                 <display value="work place"/>
+                <equivalence value="equivalent"/>
             </target>
         </element>
         <element>
@@ -66,6 +66,7 @@
             <target>
                 <code value="TMP"/>
                 <display value="temporary address"/>
+                <equivalence value="equivalent"/>
             </target>
         </element>
         <element>

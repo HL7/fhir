@@ -2015,10 +2015,10 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Default value when item is first rendered</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Initial value when item is first rendered</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The value that should be defaulted when initially rendering the questionnaire for user input</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">In some workflows, having defaults saves time.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that default values can influence results.  The data type of initial[x] must agree with the item.type.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial[x] must agree with the item.type.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">N/A - MIF rather than RIM level</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4308,7 +4308,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">Initial value only for questions</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Questionnaire.item</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">Default values can't be specified for groups or display items</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">Initial values can't be specified for groups or display items</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">(type!='group' and type!='display') or initial.empty()</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">not(f:type/@value=('group', 'display') and f:*[starts-with(local-name(.), 'initial')])</Data></Cell>
    </Row>

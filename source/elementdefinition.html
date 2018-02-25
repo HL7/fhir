@@ -410,41 +410,7 @@
                 is that the value is unknown - it may have a correct value, but it has not been provided for security or workflow reasons. On the other hand, it might not have a value at all. All the application can say is that the value is unknown.
             </p>
             <p>
-                However, for some elements, this specification makes specific rules about what it means if the element is missing. For some elements, this takes the form of a default value, a value that should be assumed if an element is not present. For example, here
-                are some default values:
-            </p>
-            <table class="grid">
-                <tr>
-                    <td><b>Element</b></td>
-                    <td><b>Default Value</b></td>
-                </tr>
-                <tr>
-                    <td>ElementDefinition.mustSupport</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>SampledData.factor</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>ValueSet.codeSystem.concept.abstract</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>List.entry.deleted</td>
-                    <td>false</td>
-                </tr>
-            </table>
-            <p>
-                Most default values are mathematical / numerical non-operations e.g. false, 0 for addition or 1 for multiplication. Default values are rarely used because:
-            </p>
-            <ul>
-                <li>The value must be known by all implementations</li>
-                <li>When an element has a default value, it can never be unknown - e.g. it is implicitly mandatory</li>
-                <li>The default value can never be changed.</li>
-            </ul>
-            <p>
-                For other elements, the resource explicitly documents the meaning of a missing element, and that meaning is not represented by a default value. Some examples:
+                However, for some elements, this specification makes specific rules about what it means if the element is missing. For example:
             </p>
             <table class="grid">
                 <tr>
@@ -469,8 +435,7 @@
                 </tr>
             </table>
             <p>
-                Like default values, and for the same reasons, assigning a meaning when an element is missing is something that is not done very often. Note that Profiles cannot change the default value or missing meaning of an element, since this cannot be done in the
-                base specification either.
+                Assigning a meaning when an element is missing is something that is not done very often. Note that constraints on other structures cannot change the missing meaning of an element.
             </p>
             <p>
                 Here is a list of all elements with a default value or a missing meaning:
@@ -478,6 +443,18 @@
             <ul>
                 <%missing-element-list%>
             </ul>
+            <p>
+                This specification does not define any default values for resources or data types because:
+            </p>
+            <ul>
+                <li>The value must be known by all implementations</li>
+                <li>When an element has a default value, it can never be unknown - e.g. it is implicitly mandatory</li>
+                <li>The default value can never be changed</li>
+                <li>The presence of a default value interacts with minimum cardinality and the <a href="search.html#modifiers">:missing search token</a> in ways that create confusion for implementations</li>
+            </ul>
+            <p>
+              Note that default values can be defined in <a href="structuredefinition.html#logical">Logical Models</a>.
+            </p>
 
     </div>
 

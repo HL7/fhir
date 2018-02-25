@@ -171,7 +171,7 @@ basic property URIs are defined:
 <table class="grid">
  <tr><td>http://hl7.org/fhir/concept-properties#status</td><td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
      <ul>
-      <li>active - the concept is for normal use (this is the default value)</li>
+      <li>active - the concept is for normal use</li>
       <li>experimental - provided for trial, but may be removed in the future</li>
       <li>deprecated - planned to be removed from use</li>
       <li>retired - still present for historical reasons, but no longer allowed to be used</li>
