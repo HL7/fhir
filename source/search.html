@@ -305,7 +305,9 @@ The modifiers are separated from the parameter name by a colon. Modifiers are:</
  <li>For all parameters (except combination): <code>:missing</code>; e.g. gender:missing=true (or false).
   Searching for <code>gender:missing=true</code> will return all the resources that don't have a value for the gender parameter (which usually
   equates to not having the relevant element in the resource). Searching for <code>gender:missing=false</code>
-  will return all the resources that have a value for the <code>gender</code> parameter. </li>
+  will return all the resources that have a value for the <code>gender</code> parameter. 
+  For simple data type elements, :missing=true will match on all elements where either the underlying element is omitted or where the element is present with extensions but no @value is specified
+  </li>
  <li>For string: <code>:exact</code> (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), or <code>:contains</code> (case insensitive and accent-insensitive, partial match at start or end), instead of the default behavior (case insensitive and accent-insensitive, partial matches at the end of the string).</li>
  <li>For token: <code>:text</code> (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other defined modifiers are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below.</li>
  <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, and :above and :below</li>
