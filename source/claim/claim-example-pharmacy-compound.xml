@@ -16,7 +16,7 @@
 
 	<type>
 		<coding>
-			<system value="http://hl7.org/fhir/ex-claimtype"/>
+			<system value="http://hl7.org/fhir/claim-type"/>
 			<code value="pharmacy"/>
 		</coding>	
 	</type>

@@ -1,299 +1,299 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
-  <id value="100153"/>
+	<id value="100153"/>
 
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Oral Health Claim</div>
-  </text>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Oral Health Claim</div>
+	</text>
 
-  <identifier>
-    <system value="http://happyvalley.com/claim"/>
-    <value value="12355"/>
-  </identifier>
- 
-  <status value = "active"/>
+	<identifier>
+		<system value="http://happyvalley.com/claim"/>
+		<value value="12355"/>
+	</identifier>
 
-  <type>
-   <coding>
-    <system value="http://hl7.org/fhir/ex-claimtype"/>
-    <code value="oral"/>
-   </coding>
-  </type>
-  
-  <use value="proposed"/>
+	<status value = "active"/>
 
-  <patient>
-    <reference value="Patient/1"/>
-  </patient>
- 
-  <created value="2015-03-16"/>
-
-  <insurer>
-    <reference value="Organization/2"/>
-  </insurer>
-
-  <organization>
-    <reference value="Organization/1"/>
-  </organization>
-
-  <priority>
-   <coding>
-    <code value="normal"/>
-   </coding>
-  </priority>
-
-  <fundsReserve>
-   <coding>
-    <code value="provider"/>
-   </coding>
-  </fundsReserve>
-  
-  <payee>
-    <type>
-	 <coding>
-      <code value="provider"/>
-     </coding>
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/claim-type"/>
+			<code value="oral"/>
+		</coding>
 	</type>
-  </payee>
 
-   <careTeam>
-     <sequence value="1"/>
-     <provider>
-       <reference value="Practitioner/example"/>
-     </provider>
-   </careTeam>
-  
-  <diagnosis>
-    <sequence value="1"/>
-    <diagnosisCodeableConcept>
-     <coding>
-	  <system value="http://hl7.org/fhir/sid/icd-10"/>
-      <code value="123457"/>
-     </coding>
-	</diagnosisCodeableConcept>
-  </diagnosis>
- 
-  <insurance>
-    <sequence value="1"/>
-    <focal value="true"/>
-    <coverage>
-      <reference value="Coverage/9876B1"/>
-    </coverage>
-  </insurance>
-  
- <item>
-   <sequence value="1"/>
-   <careTeamSequence value="1"/>
-   <diagnosisSequence value="1"/>
-   <service>
-    <coding>
-     <system value="http://example.org/fhir/oralservicecodes"/>
-     <code value="ORTHPLAN"/>
-    </coding>
-   </service>
-   <servicedDate value="2015-05-16"/>  <!-- Start Date -->
-   <unitPrice>
-     <value value="9000.00"/>
-     <system value="urn:iso:std:iso:4217"/>
-     <code value="USD"/> 
-   </unitPrice> 
-   <net>
-     <value value="9000.00"/>
-     <system value="urn:iso:std:iso:4217"/>
-     <code value="USD"/> 
-   </net> 
-   <detail>
-     <sequence value="1"/> <!-- Exam Fee -->
-     <service>
-	  <coding>
-       <system value="http://example.org/fhir/oralservicecodes"/>
-       <code value="ORTHOEXAM"/>
-      </coding>
-	 </service>
-     <unitPrice>
-       <value value="1000.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </unitPrice> 
-     <net>
-       <value value="1000.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </net> 
-   </detail>
-   <detail>
-     <sequence value="2"/> <!-- Diagnostic Fee -->
-     <service>
-	  <coding>
-       <system value="http://example.org/fhir/oralservicecodes"/>
-       <code value="ORTHODIAG"/>
-      </coding>
-	 </service>
-     <unitPrice>
-       <value value="1500.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </unitPrice> 
-     <net>
-       <value value="1500.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </net> 
-   </detail>
-   <detail>
-     <sequence value="3"/> <!-- Initial Payment -->
-     <service>
-	  <coding>
-       <system value="http://example.org/fhir/oralservicecodes"/>
-       <code value="ORTHOINITIAL"/>
-      </coding>
-	 </service>
-     <unitPrice>
-       <value value="500.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </unitPrice> 
-     <net>
-       <value value="500.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </net> 
-   </detail>
-   <detail>
-     <sequence value="4"/> <!-- Duration in Months -->
-     <service>
-	  <coding>
-       <system value="http://example.org/fhir/oralservicecodes"/>
-       <code value="ORTHOMONTHS"/>
-      </coding>
-	 </service>
-     <quantity>
-       <value value="24"/>
-     </quantity>  
-   </detail>
-   <detail>
-     <sequence value="5"/> <!-- Periodic Payments -->
-     <service>
-	  <coding>
-       <system value="http://example.org/fhir/oralservicecodes"/>
-       <code value="ORTHOPERIODIC"/>
-      </coding>
-	 </service>
-     <quantity>
-       <value value="24"/>
-     </quantity>  
-     <unitPrice>
-       <value value="250.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </unitPrice> 
-     <net>
-       <value value="250.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </net> 
-   </detail>
-  </item>
+	<use value="proposed"/>
 
-  <item>
-   <sequence value="2"/>
-   <careTeamSequence value="1"/>
-   <service>
-    <coding>
-     <system value="http://example.org/fhir/oralservicecodes"/>
-     <code value="21211"/>
-    </coding>
-   </service>
-   <servicedDate value="2014-08-16"/>
-   <unitPrice>
-     <value value="105.00"/>
-     <system value="urn:iso:std:iso:4217"/>
-     <code value="USD"/> 
-   </unitPrice> 
-   <net>
-     <value value="105.00"/>
-     <system value="urn:iso:std:iso:4217"/>
-     <code value="USD"/> 
-   </net> 
-   <bodySite>
-    <coding>
-     <system value="http://fdi.org/fhir/oraltoothcodes"/>
-     <code value="21"/>
-    </coding>
-   </bodySite>
-   <subSite>
-    <coding>
-     <system value="http://fdi.org/fhir/oralsurfacecodes"/>
-     <code value="L"/>
-    </coding>
-   </subSite>
-  </item>
+	<patient>
+		<reference value="Patient/1"/>
+	</patient>
 
-  <item>
-   <sequence value="3"/>
-   <careTeamSequence value="1"/>
-   <service>
-    <coding>
-     <system value="http://example.org/fhir/oralservicecodes"/>
-     <code value="27211"/>
-    </coding>
-   </service>
-   <servicedDate value="2014-08-16"/>
-   <unitPrice>
-     <value value="1100.00"/>
-     <system value="urn:iso:std:iso:4217"/>
-     <code value="USD"/> 
-   </unitPrice> 
-   <net>
-     <value value="1100.00"/>
-     <system value="urn:iso:std:iso:4217"/>
-     <code value="USD"/> 
-   </net> 
-   <bodySite>
-    <coding>
-     <system value="http://fdi.org/fhir/oraltoothcodes"/>
-     <code value="36"/>
-    </coding>
-   </bodySite>
-   <detail>
-     <sequence value="1"/>
-     <service>
-	  <coding>
-       <system value="http://example.org/fhir/oralservicecodes"/>
-       <code value="27211"/>
-      </coding>
-	 </service>
-     <unitPrice>
-       <value value="750.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </unitPrice> 
-     <net>
-       <value value="750.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </net> 
-   </detail>
-   <detail>
-     <sequence value="2"/>
-     <service>
-	  <coding>
-       <system value="http://example.org/fhir/oralservicecodes"/>
-       <code value="lab"/>
-      </coding>
-	 </service>
-     <unitPrice>
-       <value value="350.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </unitPrice> 
-     <net>
-       <value value="350.00"/>
-       <system value="urn:iso:std:iso:4217"/>
-       <code value="USD"/> 
-     </net> 
-   </detail>
-  </item>
+	<created value="2015-03-16"/>
+
+	<insurer>
+		<reference value="Organization/2"/>
+	</insurer>
+
+	<organization>
+		<reference value="Organization/1"/>
+	</organization>
+
+	<priority>
+		<coding>
+			<code value="normal"/>
+		</coding>
+	</priority>
+
+	<fundsReserve>
+		<coding>
+			<code value="provider"/>
+		</coding>
+	</fundsReserve>
+
+	<payee>
+		<type>
+			<coding>
+				<code value="provider"/>
+			</coding>
+		</type>
+	</payee>
+
+	<careTeam>
+		<sequence value="1"/>
+		<provider>
+			<reference value="Practitioner/example"/>
+		</provider>
+	</careTeam>
+
+	<diagnosis>
+		<sequence value="1"/>
+		<diagnosisCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/sid/icd-10"/>
+				<code value="123457"/>
+			</coding>
+		</diagnosisCodeableConcept>
+	</diagnosis>
+
+	<insurance>
+		<sequence value="1"/>
+		<focal value="true"/>
+		<coverage>
+			<reference value="Coverage/9876B1"/>
+		</coverage>
+	</insurance>
+
+	<item>
+		<sequence value="1"/>
+		<careTeamSequence value="1"/>
+		<diagnosisSequence value="1"/>
+		<service>
+			<coding>
+				<system value="http://example.org/fhir/oralservicecodes"/>
+				<code value="ORTHPLAN"/>
+			</coding>
+		</service>
+		<servicedDate value="2015-05-16"/>  <!-- Start Date -->
+		<unitPrice>
+			<value value="9000.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</unitPrice> 
+		<net>
+			<value value="9000.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</net> 
+		<detail>
+			<sequence value="1"/> <!-- Exam Fee -->
+			<service>
+				<coding>
+					<system value="http://example.org/fhir/oralservicecodes"/>
+					<code value="ORTHOEXAM"/>
+				</coding>
+			</service>
+			<unitPrice>
+				<value value="1000.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</unitPrice> 
+			<net>
+				<value value="1000.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</net> 
+		</detail>
+		<detail>
+			<sequence value="2"/> <!-- Diagnostic Fee -->
+			<service>
+				<coding>
+					<system value="http://example.org/fhir/oralservicecodes"/>
+					<code value="ORTHODIAG"/>
+				</coding>
+			</service>
+			<unitPrice>
+				<value value="1500.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</unitPrice> 
+			<net>
+				<value value="1500.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</net> 
+		</detail>
+		<detail>
+			<sequence value="3"/> <!-- Initial Payment -->
+			<service>
+				<coding>
+					<system value="http://example.org/fhir/oralservicecodes"/>
+					<code value="ORTHOINITIAL"/>
+				</coding>
+			</service>
+			<unitPrice>
+				<value value="500.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</unitPrice> 
+			<net>
+				<value value="500.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</net> 
+		</detail>
+		<detail>
+			<sequence value="4"/> <!-- Duration in Months -->
+			<service>
+				<coding>
+					<system value="http://example.org/fhir/oralservicecodes"/>
+					<code value="ORTHOMONTHS"/>
+				</coding>
+			</service>
+			<quantity>
+				<value value="24"/>
+			</quantity>  
+		</detail>
+		<detail>
+			<sequence value="5"/> <!-- Periodic Payments -->
+			<service>
+				<coding>
+					<system value="http://example.org/fhir/oralservicecodes"/>
+					<code value="ORTHOPERIODIC"/>
+				</coding>
+			</service>
+			<quantity>
+				<value value="24"/>
+			</quantity>  
+			<unitPrice>
+				<value value="250.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</unitPrice> 
+			<net>
+				<value value="250.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</net> 
+		</detail>
+	</item>
+
+	<item>
+		<sequence value="2"/>
+		<careTeamSequence value="1"/>
+		<service>
+			<coding>
+				<system value="http://example.org/fhir/oralservicecodes"/>
+				<code value="21211"/>
+			</coding>
+		</service>
+		<servicedDate value="2014-08-16"/>
+		<unitPrice>
+			<value value="105.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</unitPrice> 
+		<net>
+			<value value="105.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</net> 
+		<bodySite>
+			<coding>
+				<system value="http://fdi.org/fhir/oraltoothcodes"/>
+				<code value="21"/>
+			</coding>
+		</bodySite>
+		<subSite>
+			<coding>
+				<system value="http://fdi.org/fhir/oralsurfacecodes"/>
+				<code value="L"/>
+			</coding>
+		</subSite>
+	</item>
+
+	<item>
+		<sequence value="3"/>
+		<careTeamSequence value="1"/>
+		<service>
+			<coding>
+				<system value="http://example.org/fhir/oralservicecodes"/>
+				<code value="27211"/>
+			</coding>
+		</service>
+		<servicedDate value="2014-08-16"/>
+		<unitPrice>
+			<value value="1100.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</unitPrice> 
+		<net>
+			<value value="1100.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</net> 
+		<bodySite>
+			<coding>
+				<system value="http://fdi.org/fhir/oraltoothcodes"/>
+				<code value="36"/>
+			</coding>
+		</bodySite>
+		<detail>
+			<sequence value="1"/>
+			<service>
+				<coding>
+					<system value="http://example.org/fhir/oralservicecodes"/>
+					<code value="27211"/>
+				</coding>
+			</service>
+			<unitPrice>
+				<value value="750.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</unitPrice> 
+			<net>
+				<value value="750.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</net> 
+		</detail>
+		<detail>
+			<sequence value="2"/>
+			<service>
+				<coding>
+					<system value="http://example.org/fhir/oralservicecodes"/>
+					<code value="lab"/>
+				</coding>
+			</service>
+			<unitPrice>
+				<value value="350.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</unitPrice> 
+			<net>
+				<value value="350.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</net> 
+		</detail>
+	</item>
 
 </Claim>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/ex-claimtype"/>
-  <name value="Example Claim Type Codes"/>
+  <url value="http://hl7.org/fhir/claim-type"/>
+  <name value="Claim Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set includes sample Claim Type codes."/>
-  <copyright value="This is an example set."/>
+  <description value="This value set includes Claim Type codes."/>
+  <copyright value="HL7 Inc."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
