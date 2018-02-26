@@ -20,7 +20,7 @@
   <scope>
     <coding>
       <system value="http://hl7.org/fhir/consentscope"/>
-      <code value="privacy"/>
+      <code value="patient-privacy"/>
     </coding>
     </scope>
   <category>

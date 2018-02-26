@@ -17,7 +17,7 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
   <scope>
     <coding>
       <system value="http://hl7.org/fhir/consentscope"/>
-      <code value="privacy"/>
+      <code value="patient-privacy"/>
     </coding>  
         </scope>
 <category>

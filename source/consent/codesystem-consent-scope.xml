@@ -19,7 +19,7 @@
     <definition value="Consent to participate in research protocol and information sharing required"/>
   </concept>
   <concept>
-    <code value="privacy"/>
+    <code value="patient-privacy"/>
     <display value="Privacy Consent"/>
     <definition value="Agreement to collect, access, use or disclose (share) information"/>
   </concept>
