@@ -215,6 +215,19 @@ For details, see
 
 </p>
 
+<a name="AoD"></a>
+<h4>Accounting of Disclosures and/or Access Report</h4>
+<p>
+<em>Use case:</em> "A Patient should be offered a report that informs about how their data is Collected, Used, and Disclosed.".
+</p><p>
+<em>Approach:</em> The AuditEvent resource can inform this report.
+</p><p>
+There are many motivations to provide a Patient with some report on how their data was used. There is a very restricted version of this in HIPAA as an "Accounting of Disclosures", there are others that would include more accesses. The result is a human readable report. The raw material used to create this report can be derived from a well recorded 'security audit log', specifically based on AuditEvent. The format of the report delivered to the Patient is not further discussed but might be: printed on paper, PDF, comma separated file, or FHIR Document made up of filtered and crafted AuditEvent Resources.  The report would indicate, to the best ability, Who accessed What data from Where at When for Why purpose. The 'best ability' recognizes that some events happen during emergent conditions where some knowledge is not knowable. The report usually does need to be careful not to abuse the Privacy rights of the individual that accessed the data (Who).  The report would describe the data that was accessed (What), not duplicate the data. 
+</p><p>
+Some events are known to be subject to the Accounting of Disclosures report when the event happens, thus can be recorded as an Accounting of Disclosures  - See <a href="auditevent-example-disclosure.html">example Accounting of Disclosures</a>.  Other events must be pulled from the security audit log. A security audit log will record ALL actions upon data regardless of if they are reportable to the Patient. This is true because the security audit log is used for many other purposes. - See <a href="security.html#audit">Audit Logging</a>. These recorded AuditEvents may need to be manipulated to protect organization or employee (provider) privacy constraints. GIven the large number of AuditEvents, there may be multiple records of the same actual access event, so the reporting will need to de-duplicate.
+
+</p>
+
 <a name="privacy-consent"></a>
 <h4>
 Privacy Consent
@@ -302,17 +315,19 @@ For details, see
 <a name="deId"></a>
 <h4>De-Identification, pseudonymization, anonymization</h4>
 <p>
-De-Identifiction is inclusive of pseudonymization and anonymization; which are the Process of reducing privacy risk by eliminating 
+De-Identification is inclusive of pseudonymization and anonymization; which are the Process of reducing privacy risk by eliminating 
 and modifying data elements to meet a targeted use-case.
 </p><p>
-Use-Case: "Requesting Client should have access to De-Identifed data only."
+Use-Case: "Requesting Client should have access to De-Identified data only."
 </p><p>
-<em>Trigger:</em> Based on an Access Control decision that results in a PERMIT with an Obligation to De-Identify, the Results delivered 
+<em>Trigger:</em> Based on an Access Control decision that results in a permit with an Obligation to De-Identify, the Results delivered 
 to the Requesting Client would be de-identified.
 </p><p>
-<em>Consideration:</em> This assumes the system knows the type and intensity of the de-identificaiton algorithm. 
+<em>Consideration:</em> This assumes the system knows the type and intensity of the de-identification algorithm. 
 Where de-identification is best viewed as a Process, not an algorithm. 
 A Process that reduces Privacy risk while enabling a targeted and authorized use-case.
+</p><p>
+<em>Modifying an element:</em> The de-identification process may determine that specific elements need to be modified to lower privacy risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. See standards below for further details.
 </p><p>
 <em>Discussion:</em> With the Observation Resource, one would remove the subject element as it is a Direct Identifier. 
 However there are many other Reference elements that can easily be used to navigate back to the Subject; 
@@ -326,16 +341,43 @@ Some identifiers in Observation Resource:
 </p><p>
 <em>Emphasis:</em> The .specimen is a direct identifier of a particular specimen; and would be an indirect identifier of a particular person. 
 There is a ramification of having the specimen identifier. 
-One solution is to create pseudo specimen resources that will standin for the original specimen resource. 
-This psudo specimen management is supplied by a trusted-third-party that maintains a database of pseudo-identifiers with authorized reversability.
+One solution is to create pseudo specimen resources that will stand-in for the original specimen resource. 
+This psudo specimen management is supplied by a trusted-third-party that maintains a database of pseudo-identifiers with authorized reversibility.
+</p><p>
+Care should be taken when modifying an isModifier elements, as the modification will change the meaning of the Resource.
+</p><p>
+<em>Security-label</em> The resulting Resource should be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
 </p><p>
 Further Standards: 
 <a href="http://www.iso.org/iso/catalogue_detail?csnumber=42807">Health: ISO Pseudonymization</a>, 
 <a href="http://nvlpubs.nist.gov/nistpubs/ir/2015/NIST.IR.8053.pdf">NIST IR 8053 - De-Identification of Personal Information</a>, 
-<a href="http://wiki.ihe.net/index.php/Healthcare_De-Identification_Handbook">IHE De-Identificaiton Handbook</a>, 
+<a href="http://wiki.ihe.net/index.php/Healthcare_De-Identification_Handbook">IHE De-Identification Handbook</a>, 
 <a href="http://dicom.nema.org/medical/dicom/current/output/html/part15.html#chapter_E">DICOM (Part 15, Chapter E)</a>
 </p>
 
+
+<a name="TestData"></a>
+<h4>Using FHIR to publish test data</h4>
+<p>
+Use-Case: There are times when test data is needed. Test data are data that is not associated with any real patient. Test data are usually representative of expected data that is published for the purpose of testing. Test data may be fully fabricated, or derived from use-cases that had previously caused failures.
+</p><p>
+<em>Trigger:</em> When test data are published it may be important to identify the data as test data. 
+</p><p>
+<em>Consideration:</em> This identification may be to assure that the test data is not misunderstood as real data, and that the test data is not factored into statistics or reporting. However there is a risk that identifying test data may inappropriately thwart the intended test that the data are published to test.
+</p><p>
+<em>Discussion:</em> 
+</p><p>
+Test data could be isolated in a server specific to test data.
+</p><p>
+Test data could be intermingled with real-patient data using one or both of the following methods:
+</p><p>
+<ul>
+<li>Security-label -- All test data Resources could be tagged with PurposeOfUse HTEST</li>
+<li>Test Patient -- The Patient that the data is associated with could be a clear indication of a test patient. (For example, in the USA the SSN starting with "666-" will never be issued so is commonly used as an indicator of a test patient)</li>
+</ul>
+</p><p>
+<em>Considerations:</em> Note there is a risk when co-mingling test data with real patient data that someone will accidentally use test data without realizing it is test data. 
+</p>
 
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>

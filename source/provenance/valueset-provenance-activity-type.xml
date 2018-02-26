@@ -31,12 +31,27 @@
 	<compose>
 		<include>
 			<system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
+			<concept><code value="LA"/></concept>
 		</include>
 		<include>
-			<system value="http://hl7.org/fhir/v3/ActStatus"/>
+			<system value="http://hl7.org/fhir/v3/ActCode"/>
+			<concept><code value="ANONY"/></concept>
+			<concept><code value="DEID"/></concept>
+			<concept><code value="MASK"/></concept>
+			<concept><code value="LABEL"/></concept>
+			<concept><code value="PSEUD"/></concept>
 		</include>
 		<include>
 			<system value="http://hl7.org/fhir/v3/DataOperation"/>
+			<concept><code value="CREATE"/>	</concept>
+			<concept><code value="DELETE"/>	</concept>
+			<concept><code value="UPDATE"/>	</concept>
+			<concept><code value="APPEND"/>	</concept>
+			<concept><code value="NULLIFY"/> </concept>
+		</include>
+<!-- Reduced set to most likely
+		<include>
+			<system value="http://hl7.org/fhir/v3/ActStatus"/>
 		</include>
 		<include>
 			<valueSet value="http://hl7.org/fhir/ValueSet/v3-ObligationPolicy"/>
@@ -47,5 +62,6 @@
 		<include>
 			<system value="http://hl7.org/fhir/extra-activity-type"/>
 		</include>
-	</compose>
+-->
+		</compose>
 </ValueSet>
