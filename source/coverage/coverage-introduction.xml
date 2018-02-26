@@ -5,20 +5,14 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The Coverage resource is intended to provide the high level identifiers and potentially descriptors of an insurance plan which may used to pay for,
+The Coverage resource is intended to provide the high level identifiers and descriptors of an insurance plan which may used to pay for,
  in part or in whole, the provision of health care products and services. 
 </p>
 <p>
 This resource may also be used to register 'SelfPay' where an individual or organization other than an insurer is taking responsibility for payment for a
  portion of the health care costs.
 </p>
-<p>
-<b>Notes to Reviewers:</b> The following subclasses have been added to the resource for review: 
-</p>
-<ul>
-<li>class - this is a list of elements to replace the <b>grouping</b> element and sequence element; and</li>
-<li>copay - this is a list of co-payment information provided on the insurance card or otherwise gathered from the insurer</li>
-</ul>
+
 </div>
 
 </div>
