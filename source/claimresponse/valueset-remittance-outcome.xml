@@ -13,8 +13,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes a Claim Processing Outcome codes."/>
-  <copyright value="This is an example set."/>
+  <description value="This value set includes Claim Processing Outcome codes."/>
+  <copyright value="HL7 Inc."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/remittance-outcome"/>
