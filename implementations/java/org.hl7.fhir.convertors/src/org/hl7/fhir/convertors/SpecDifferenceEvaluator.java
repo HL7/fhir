@@ -680,7 +680,7 @@ public class SpecDifferenceEvaluator {
 
   private ValueSet getValueSet(Type ref, Map<String, ValueSet> expansions) {
     if (ref instanceof CanonicalType) {
-      String id = ((Reference) ref).getReference();
+      String id = ref.primitiveValue();
       if (Utilities.isAbsoluteUrl(id)) {
         for (ValueSet ve : expansions.values()) {
           if (ve.getUrl().equals(id))
@@ -781,7 +781,7 @@ public class SpecDifferenceEvaluator {
       b.append(")");
       return b.toString();
     } else {
-      StringBuilder b = new StringBuilder("Reference");
+      StringBuilder b = new StringBuilder("canonical");
       if (tr.getProfile().size() > 0) {
         b.append("(");
         boolean first = true;
