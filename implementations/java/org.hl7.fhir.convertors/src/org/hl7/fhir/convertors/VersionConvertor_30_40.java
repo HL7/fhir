@@ -4946,7 +4946,7 @@ public class VersionConvertor_30_40 {
       tgt.setConditionalRead(convertConditionalReadStatus(src.getConditionalRead()));
     if (src.hasConditionalUpdate())
       tgt.setConditionalUpdate(src.getConditionalUpdate());
-    if (src.hasConditionalDelete())
+        if (src.hasConditionalDelete())
       tgt.setConditionalDelete(convertConditionalDeleteStatus(src.getConditionalDelete()));
     for (org.hl7.fhir.dstu3.model.Enumeration<org.hl7.fhir.dstu3.model.CapabilityStatement.ReferenceHandlingPolicy> t : src.getReferencePolicy())
       tgt.addReferencePolicy(convertReferenceHandlingPolicy(t.getValue()));

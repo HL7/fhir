@@ -844,6 +844,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           }
         }
         src = s1+(p == null ? "" : getNormativeNote(genlevel(level), p, wt, file))+s3;
+      } else if (com[0].equals("normative-op")) {
+        String p = rd.getNormativePackage();
+        String wt = rd.getName()+" Operation " + ((Operation) object).getName(); 
+        StandardsStatus st = ((Operation) object).getStandardsStatus();
+        if (st == null)
+          st = StandardsStatus .fromCode(ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_BALLOT_STATUS));
+        src = s1+(st == StandardsStatus.NORMATIVE ? getNormativeNote(genlevel(level), p, wt, file) : "")+s3;
       } else if (com[0].equals("fmmshort")) {
         String fmm = resource == null || !(resource instanceof MetadataResource) ? getFmm(com[1]) : ToolingExtensions.readStringExtension((DomainResource) resource, ToolingExtensions.EXT_FMM_LEVEL);
         String npr = resource == null || !(resource instanceof MetadataResource) ? getNormativePackageRef(com[1]) : "";
