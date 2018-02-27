@@ -970,7 +970,6 @@ public class FHIRPathEngine {
   }
 
   private TypeDetails executeType(ExecutionTypeContext context, TypeDetails focus, ExpressionNode exp, boolean atEntry) throws PathEngineException, DefinitionException {
-    System.out.println(exp.toString());
     TypeDetails result = new TypeDetails(null);
     switch (exp.getKind()) {
     case Name:
