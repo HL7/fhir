@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -4125,7 +4125,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           if (this.searchInclude == null)
             return false;
           for (StringType v : this.searchInclude)
-            if (v.equals(value)) // string
+            if (v.getValue().equals(value)) // string
               return true;
           return false;
         }
@@ -4186,7 +4186,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           if (this.searchRevInclude == null)
             return false;
           for (StringType v : this.searchRevInclude)
-            if (v.equals(value)) // string
+            if (v.getValue().equals(value)) // string
               return true;
           return false;
         }
@@ -8200,7 +8200,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       if (this.format == null)
         return false;
       for (CodeType v : this.format)
-        if (v.equals(value)) // code
+        if (v.getValue().equals(value)) // code
           return true;
       return false;
     }
@@ -8261,7 +8261,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       if (this.patchFormat == null)
         return false;
       for (CodeType v : this.patchFormat)
-        if (v.equals(value)) // code
+        if (v.getValue().equals(value)) // code
           return true;
       return false;
     }

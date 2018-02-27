@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1709,7 +1709,7 @@ public class Timing extends Type implements ICompositeType {
           if (this.timeOfDay == null)
             return false;
           for (TimeType v : this.timeOfDay)
-            if (v.equals(value)) // time
+            if (v.getValue().equals(value)) // time
               return true;
           return false;
         }
@@ -2257,7 +2257,7 @@ public class Timing extends Type implements ICompositeType {
       if (this.event == null)
         return false;
       for (DateTimeType v : this.event)
-        if (v.equals(value)) // dateTime
+        if (v.getValue().equals(value)) // dateTime
           return true;
       return false;
     }

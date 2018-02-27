@@ -7,6 +7,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
+import org.hl7.fhir.r4.model.Dosage.DosageDoseAndRateComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.utilities.Utilities;
@@ -1228,16 +1229,19 @@ public class VersionConvertor_30_40 {
       tgt.setRoute(convertCodeableConcept(src.getRoute()));
     if (src.hasMethod())
       tgt.setMethod(convertCodeableConcept(src.getMethod()));
-    if (src.hasDose())
-      tgt.setDose(convertType(src.getDose()));
+    if (src.hasDose() || src.hasRate()) {
+      DosageDoseAndRateComponent dr = tgt.addDoseAndRate();
+      if (src.hasDose())
+        dr.setDose(convertType(src.getDose()));
+      if (src.hasRate())
+        dr.setRate(convertType(src.getRate()));
+    }
     if (src.hasMaxDosePerPeriod())
       tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
     if (src.hasMaxDosePerAdministration())
       tgt.setMaxDosePerAdministration(convertSimpleQuantity(src.getMaxDosePerAdministration()));
     if (src.hasMaxDosePerLifetime())
       tgt.setMaxDosePerLifetime(convertSimpleQuantity(src.getMaxDosePerLifetime()));
-    if (src.hasRate())
-      tgt.setRate(convertType(src.getRate()));
     return tgt;
   }
 
@@ -1264,16 +1268,16 @@ public class VersionConvertor_30_40 {
       tgt.setRoute(convertCodeableConcept(src.getRoute()));
     if (src.hasMethod())
       tgt.setMethod(convertCodeableConcept(src.getMethod()));
-    if (src.hasDose())
-      tgt.setDose(convertType(src.getDose()));
+    if (src.hasDoseAndRate() && src.getDoseAndRate().get(0).hasDose())
+      tgt.setDose(convertType(src.getDoseAndRate().get(0).getDose()));
     if (src.hasMaxDosePerPeriod())
       tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
     if (src.hasMaxDosePerAdministration())
       tgt.setMaxDosePerAdministration(convertSimpleQuantity(src.getMaxDosePerAdministration()));
     if (src.hasMaxDosePerLifetime())
       tgt.setMaxDosePerLifetime(convertSimpleQuantity(src.getMaxDosePerLifetime()));
-    if (src.hasRate())
-      tgt.setRate(convertType(src.getRate()));
+    if (src.hasDoseAndRate() && src.getDoseAndRate().get(0).hasRate())
+      tgt.setRate(convertType(src.getDoseAndRate().get(0).getRate()));
     return tgt;
   }
 
@@ -5599,7 +5603,7 @@ public class VersionConvertor_30_40 {
     org.hl7.fhir.r4.model.ChargeItem tgt = new org.hl7.fhir.r4.model.ChargeItem();
     copyDomainResource(src, tgt);
     if (src.hasIdentifier())
-      tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+      tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
     for (org.hl7.fhir.dstu3.model.UriType t : src.getDefinition())
       tgt.addDefinition(t.getValue());
     if (src.hasStatus())
@@ -5653,7 +5657,7 @@ public class VersionConvertor_30_40 {
     org.hl7.fhir.dstu3.model.ChargeItem tgt = new org.hl7.fhir.dstu3.model.ChargeItem();
     copyDomainResource(src, tgt);
     if (src.hasIdentifier())
-      tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+      tgt.setIdentifier(convertIdentifier(src.getIdentifier().get(0)));
     for (org.hl7.fhir.r4.model.UriType t : src.getDefinition())
       tgt.addDefinition(t.getValue());
     if (src.hasStatus())

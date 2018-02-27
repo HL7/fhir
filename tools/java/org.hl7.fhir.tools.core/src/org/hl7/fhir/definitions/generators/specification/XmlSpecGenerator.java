@@ -556,11 +556,9 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           if (elem.hasBinding() && elem.getBinding().hasValueSet()) {
             ValueSet vs = resolveValueSet(elem.getBinding().getValueSet());
             if (vs != null)
-              write("<span style=\"color: navy\"><a href=\""+prefix+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
-            else if (!elem.getBinding().hasValueSetCanonical())
-              write("<span style=\"color: navy\"><a href=\""+elem.getBinding().getValueSetUriType().getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
-            else
-              write("<span style=\"color: navy\"><a href=\""+elem.getBinding().getValueSetCanonical().getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+              write("<span style=\"color: navy\"><a href=\""+prefix+vs.getUserData("path")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--A--></span>");
+            else 
+              write("<span style=\"color: navy\"><a href=\""+elem.getBinding().getValueSet().primitiveValue()+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--B--></span>");          
           } else
             write("<span style=\"color: navy\">" + docPrefix(width, indent, elem)+Utilities.escapeXml(elem.getShort()) + "</span>");
           if (elem.hasMax() && elem.getMax().equals("0")) 

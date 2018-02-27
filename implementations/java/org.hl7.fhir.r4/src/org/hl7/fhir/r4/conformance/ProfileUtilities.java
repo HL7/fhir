@@ -1098,7 +1098,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   private ElementDefinition updateURLs(String url, ElementDefinition element) {
     if (element != null) {
       ElementDefinition defn = element;
-      if (defn.hasBinding() && defn.getBinding().hasValueSetCanonical() && defn.getBinding().getValueSet().primitiveValue().startsWith("#"))
+      if (defn.hasBinding() && defn.getBinding().hasValueSetCanonicalType() && defn.getBinding().getValueSet().primitiveValue().startsWith("#"))
         ((Reference)defn.getBinding().getValueSet()).setReference(url+defn.getBinding().getValueSet().primitiveValue());
       for (TypeRefComponent t : defn.getType()) {
         for (UriType u : t.getProfile()) {
@@ -1457,15 +1457,15 @@ public class ProfileUtilities extends TranslatingUtilities {
           if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && derived.getBinding().getStrength() != BindingStrength.REQUIRED)
             messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change the binding on "+derived.getPath()+" from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), ValidationMessage.IssueSeverity.ERROR));
 //            throw new DefinitionException("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode());
-          else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && base.getBinding().hasValueSetCanonical() && derived.getBinding().hasValueSetCanonical()) {
-            ValueSetExpansionOutcome expBase = context.expandVS(context.fetchResource(ValueSet.class, base.getBinding().getValueSetCanonical().getValue()), true, false);
-            ValueSetExpansionOutcome expDerived = context.expandVS(context.fetchResource(ValueSet.class, derived.getBinding().getValueSetCanonical().getValue()), true, false);
+          else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && base.getBinding().hasValueSetCanonicalType() && derived.getBinding().hasValueSetCanonicalType()) {
+            ValueSetExpansionOutcome expBase = context.expandVS(context.fetchResource(ValueSet.class, base.getBinding().getValueSetCanonicalType().getValue()), true, false);
+            ValueSetExpansionOutcome expDerived = context.expandVS(context.fetchResource(ValueSet.class, derived.getBinding().getValueSetCanonicalType().getValue()), true, false);
             if (expBase.getValueset() == null)
-              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetCanonical().getValue()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
+              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetCanonicalType().getValue()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
             else if (expDerived.getValueset() == null)
-              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetCanonical().getValue()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
+              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetCanonicalType().getValue()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
             else if (!isSubset(expBase.getValueset(), expDerived.getValueset()))
-              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetCanonical().getValue()+" is not a subset of binding "+base.getBinding().getValueSetCanonical().getValue(), ValidationMessage.IssueSeverity.ERROR));
+              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetCanonicalType().getValue()+" is not a subset of binding "+base.getBinding().getValueSetCanonicalType().getValue(), ValidationMessage.IssueSeverity.ERROR));
           }
           base.setBinding(derived.getBinding().copy());
         } else if (trimDifferential)

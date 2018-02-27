@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -3146,7 +3146,7 @@ public class Sequence extends DomainResource {
           if (this.score == null)
             return false;
           for (IntegerType v : this.score)
-            if (v.equals(value)) // integer
+            if (v.getValue().equals(value)) // integer
               return true;
           return false;
         }
@@ -3207,7 +3207,7 @@ public class Sequence extends DomainResource {
           if (this.numTP == null)
             return false;
           for (IntegerType v : this.numTP)
-            if (v.equals(value)) // integer
+            if (v.getValue().equals(value)) // integer
               return true;
           return false;
         }
@@ -3268,7 +3268,7 @@ public class Sequence extends DomainResource {
           if (this.numFP == null)
             return false;
           for (IntegerType v : this.numFP)
-            if (v.equals(value)) // integer
+            if (v.getValue().equals(value)) // integer
               return true;
           return false;
         }
@@ -3329,7 +3329,7 @@ public class Sequence extends DomainResource {
           if (this.numFN == null)
             return false;
           for (IntegerType v : this.numFN)
-            if (v.equals(value)) // integer
+            if (v.getValue().equals(value)) // integer
               return true;
           return false;
         }
@@ -3390,7 +3390,7 @@ public class Sequence extends DomainResource {
           if (this.precision == null)
             return false;
           for (DecimalType v : this.precision)
-            if (v.equals(value)) // decimal
+            if (v.getValue().equals(value)) // decimal
               return true;
           return false;
         }
@@ -3451,7 +3451,7 @@ public class Sequence extends DomainResource {
           if (this.sensitivity == null)
             return false;
           for (DecimalType v : this.sensitivity)
-            if (v.equals(value)) // decimal
+            if (v.getValue().equals(value)) // decimal
               return true;
           return false;
         }
@@ -3512,7 +3512,7 @@ public class Sequence extends DomainResource {
           if (this.fMeasure == null)
             return false;
           for (DecimalType v : this.fMeasure)
-            if (v.equals(value)) // decimal
+            if (v.getValue().equals(value)) // decimal
               return true;
           return false;
         }

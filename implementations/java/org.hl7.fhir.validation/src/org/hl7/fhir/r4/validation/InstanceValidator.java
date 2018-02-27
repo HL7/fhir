@@ -708,7 +708,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (!noTerminologyChecks && theElementCntext != null && theElementCntext.hasBinding()) {
       ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
       if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, binding != null, "Binding for " + path + " missing (cc)")) {
-        if (binding.hasValueSet() && binding.hasValueSetCanonical()) {
+        if (binding.hasValueSet() && binding.hasValueSetCanonicalType()) {
           ValueSet valueset = resolveBindingReference(profile, binding.getValueSet(), profile.getUrl());
           if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(binding.getValueSet()) + " not found")) {
             try {
@@ -874,7 +874,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           if (theElementCntext != null && theElementCntext.hasBinding()) {
             ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
             if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, binding != null, "Binding for " + path + " missing")) {
-              if (binding.hasValueSet() && binding.hasValueSetCanonical()) {
+              if (binding.hasValueSet() && binding.hasValueSetCanonicalType()) {
                 ValueSet valueset = resolveBindingReference(profile, binding.getValueSet(), profile.getUrl());
                 if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(binding.getValueSet()) + " not found")) {
                   try {
@@ -1488,7 +1488,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     // firstly, resolve the value set
     ElementDefinitionBindingComponent binding = elementContext.getBinding();
-    if (binding.hasValueSetCanonical()) {
+    if (binding.hasValueSetCanonicalType()) {
       ValueSet vs = resolveBindingReference(profile, binding.getValueSet(), profile.getUrl());
       if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "ValueSet {0} not found", describeReference(binding.getValueSet()))) {
         long t = System.nanoTime();
@@ -2342,8 +2342,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           buildFixedExpression(ed, expression, discriminator, criteriaElement);
         } else if (criteriaElement.hasPattern()) {
           buildPattternExpression(ed, expression, discriminator, criteriaElement);
-        } else if (criteriaElement.hasBinding() && criteriaElement.getBinding().hasStrength() && criteriaElement.getBinding().getStrength().equals(BindingStrength.REQUIRED) && criteriaElement.getBinding().getValueSetCanonical()!=null) {
-          expression.append(" and (" + discriminator + " memberOf '" + criteriaElement.getBinding().getValueSetCanonical().getValue() + "')");
+        } else if (criteriaElement.hasBinding() && criteriaElement.getBinding().hasStrength() && criteriaElement.getBinding().getStrength().equals(BindingStrength.REQUIRED) && criteriaElement.getBinding().getValueSetCanonicalType()!=null) {
+          expression.append(" and (" + discriminator + " memberOf '" + criteriaElement.getBinding().getValueSetCanonicalType().getValue() + "')");
         } else {
           throw new DefinitionException("Could not match discriminator (" + discriminator + ") for slice " + ed.getId() + " in profile " + profile.getUrl() + " - does not have fixed value, binding or existence assertions");
         }

@@ -2468,11 +2468,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("<table class=\"grid\">\r\n");
       for (ConceptMap cm : cmaps) {
         b.append(" <tr><td>");
-        if (cm.getSourceCanonical().getValue().equals(id)) {
-          b.append("to <a href=\"").append(getValueSetRef(prefix, cm.getTargetCanonical().getValue())).append("\">")
+        if (cm.getSourceCanonicalType().getValue().equals(id)) {
+          b.append("to <a href=\"").append(getValueSetRef(prefix, cm.getTargetCanonicalType().getValue())).append("\">")
                   .append(describeValueSetByRef(cm.getTarget()));
         } else {
-          b.append("from <a href=\"").append(getValueSetRef(prefix, cm.getSourceCanonical().getValue())).append("\">")
+          b.append("from <a href=\"").append(getValueSetRef(prefix, cm.getSourceCanonicalType().getValue())).append("\">")
                   .append(describeValueSetByRef(cm.getSource()));
         }
         b.append("</a></td><td><a href=\"").append(prefix).append(cm.getUserData("path")).append("\">").append(cm.getName())
@@ -3210,7 +3210,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (cm.hasSourceUriType() && cm.getSourceUriType().equals(vs.getUrl())) {
         b.append(" <li>This value set has translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
       }
-      if (cm.hasSourceCanonical() && (cm.getSourceCanonical().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getSourceCanonical().getValue()))) {
+      if (cm.hasSourceCanonicalType() && (cm.getSourceCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getSourceCanonicalType().getValue()))) {
         b.append(" <li>This value set has translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
       }
     }
@@ -3218,7 +3218,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       if (cm.hasTargetUriType() && cm.getTargetUriType().equals(vs.getUrl())) {
         b.append(" <li>This value set is the target of translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
       }
-      if (cm.hasTargetCanonical() && (cm.getTargetCanonical().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getTargetCanonical().getValue()))) {
+      if (cm.hasTargetCanonicalType() && (cm.getTargetCanonicalType().getValue().equals(vs.getUrl()) || vs.getUrl().endsWith("/"+cm.getTargetCanonicalType().getValue()))) {
         b.append(" <li>This value set is the target of translations in the ConceptMap <a href=\"").append(prefix+cm.getUserString("path")).append("\">").append(cm.getName()).append("</a> ").append("</li>\r\n");
       }
     }
@@ -4154,8 +4154,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       //String n = sn.substring(23);
       ConceptMap cm = ae;
       s.append(" <tr><td><a href=\"").append(ae.getUserData("path")).append("\">").append(cm.getName()).append("</a></td>")
-              .append("<td><a href=\"").append(getValueSetRef("", cm.hasSourceCanonical() ? (cm.getSourceCanonical()).getValue() : cm.getSourceUriType().asStringValue())).append("\">").append(describeValueSetByRef(cm.getSource())).append("</a></td>")
-              .append("<td><a href=\"").append(getValueSetRef("", cm.hasTargetCanonical() ? (cm.getTargetCanonical()).getValue() : cm.getTargetUriType().asStringValue())).append("\">").append(describeValueSetByRef(cm.getTarget())).append("</a></td></tr>\r\n");
+              .append("<td><a href=\"").append(getValueSetRef("", cm.hasSourceCanonicalType() ? (cm.getSourceCanonicalType()).getValue() : cm.getSourceUriType().asStringValue())).append("\">").append(describeValueSetByRef(cm.getSource())).append("</a></td>")
+              .append("<td><a href=\"").append(getValueSetRef("", cm.hasTargetCanonicalType() ? (cm.getTargetCanonicalType()).getValue() : cm.getTargetUriType().asStringValue())).append("\">").append(describeValueSetByRef(cm.getTarget())).append("</a></td></tr>\r\n");
     }
     s.append("</table>\r\n");
     return s.toString();
@@ -7835,10 +7835,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String describeReference(ElementDefinitionBindingComponent binding) throws FHIRException {
-    if (binding.hasValueSetCanonical()) {
-      ValueSet vs = workerContext.fetchResource(ValueSet.class, binding.getValueSetCanonical().asStringValue());
+    if (binding.hasValueSetCanonicalType()) {
+      ValueSet vs = workerContext.fetchResource(ValueSet.class, binding.getValueSetCanonicalType().asStringValue());
       String disp = vs != null ?  vs.getName() : "??";
-      return "<a href=\""+(vs == null ? binding.getValueSetCanonical().getValue() : vs.getUserData("filename"))+"\">"+disp+"</a>";
+      return "<a href=\""+(vs == null ? binding.getValueSetCanonicalType().getValue() : vs.getUserData("filename"))+"\">"+disp+"</a>";
     } else if (binding.hasValueSetUriType()) {
       UriType uri = binding.getValueSetUriType();
       return "<a href=\""+uri.asStringValue()+"\">"+uri.asStringValue()+"</a>";
@@ -8080,8 +8080,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         String vss = "";
         String vsn = "?ext";
         if (tx.hasValueSet()) {
-          if (tx.hasValueSetCanonical()) {
-            String uri = tx.getValueSetCanonical().getValue();
+          if (tx.hasValueSetCanonicalType()) {
+            String uri = tx.getValueSetCanonicalType().getValue();
             ValueSet vs = definitions.getValuesets().get(uri);
             if (vs == null) {
               if (uri.startsWith("http://hl7.org/fhir/ValueSet/")) {
@@ -8601,7 +8601,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (!binding.hasValueSet()) {
       br.url = "terminologies.html#unbound";
       br.display = "(unbound)";
-    } else if (!binding.hasValueSetCanonical()) {
+    } else if (!binding.hasValueSetCanonicalType()) {
       String ref = binding.getValueSetUriType().getValue();
       if (ref.startsWith("http://hl7.org/fhir/ValueSet/v3-")) {
         br.url = "v3/"+ref.substring(26)+"/index.html";
@@ -8626,7 +8626,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           br.display = "????";
       }
     } else {
-      String ref = binding.getValueSetCanonical().getValue();
+      String ref = binding.getValueSetCanonicalType().getValue();
       if (ref.startsWith("ValueSet/")) {
         ValueSet vs = definitions.getValuesets().get(ref.substring(8));
         if (vs == null) {

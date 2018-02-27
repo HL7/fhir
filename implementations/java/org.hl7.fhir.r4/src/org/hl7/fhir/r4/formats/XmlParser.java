@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -1209,14 +1209,39 @@ public class XmlParser extends XmlParserBase {
         res.setRoute(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("method")) {
         res.setMethod(parseCodeableConcept(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "dose")) {
-        res.setDose(parseType("dose", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("doseAndRate")) {
+        res.getDoseAndRate().add(parseDosageDosageDoseAndRateComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("maxDosePerPeriod")) {
         res.setMaxDosePerPeriod(parseRatio(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("maxDosePerAdministration")) {
         res.setMaxDosePerAdministration(parseSimpleQuantity(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("maxDosePerLifetime")) {
         res.setMaxDosePerLifetime(parseSimpleQuantity(xpp));
+      } else if (!parseElementContent(eventType, xpp, res))
+        return false;
+    return true;
+  }
+
+  protected Dosage.DosageDoseAndRateComponent parseDosageDosageDoseAndRateComponent(XmlPullParser xpp, Dosage owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    Dosage.DosageDoseAndRateComponent res = new Dosage.DosageDoseAndRateComponent();
+    parseElementAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+  if (!parseDosageDosageDoseAndRateComponentContent(eventType, xpp, owner, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    parseElementClose(res);
+    return res;
+  }
+
+  protected boolean parseDosageDosageDoseAndRateComponentContent(int eventType, XmlPullParser xpp, Dosage owner, Dosage.DosageDoseAndRateComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+        res.setType(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "dose")) {
+        res.setDose(parseType("dose", xpp));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "rate")) {
         res.setRate(parseType("rate", xpp));
       } else if (!parseElementContent(eventType, xpp, res))
@@ -4013,7 +4038,7 @@ public class XmlParser extends XmlParserBase {
 
   protected boolean parseChargeItemContent(int eventType, XmlPullParser xpp, ChargeItem res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("identifier")) {
-        res.setIdentifier(parseIdentifier(xpp));
+        res.getIdentifier().add(parseIdentifier(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("definition")) {
         res.getDefinition().add(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
@@ -10888,7 +10913,7 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
         res.setTypeElement(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("profile")) {
-        res.setProfile(parseReference(xpp));
+        res.setProfileElement(parseCanonical(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -11167,7 +11192,7 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
         res.setTypeElement(parseCode(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("profile")) {
-        res.setProfile(parseReference(xpp));
+        res.setProfileElement(parseCanonical(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -24064,9 +24089,11 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMethod()) {
         composeCodeableConcept("method", element.getMethod());
       }
-      if (element.hasDose()) {
-        composeType("dose", element.getDose());
-      }      if (element.hasMaxDosePerPeriod()) {
+      if (element.hasDoseAndRate()) { 
+        for (Dosage.DosageDoseAndRateComponent e : element.getDoseAndRate()) 
+          composeDosageDosageDoseAndRateComponent("doseAndRate", e);
+      }
+      if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
       }
       if (element.hasMaxDosePerAdministration()) {
@@ -24075,7 +24102,26 @@ public class XmlParser extends XmlParserBase {
       if (element.hasMaxDosePerLifetime()) {
         composeSimpleQuantity("maxDosePerLifetime", element.getMaxDosePerLifetime());
       }
-      if (element.hasRate()) {
+  }
+
+  protected void composeDosageDosageDoseAndRateComponent(String name, Dosage.DosageDoseAndRateComponent element) throws IOException {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.enter(FHIR_NS, name);
+      composeDosageDosageDoseAndRateComponentElements(element);
+      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
+    }
+  }
+
+  protected void composeDosageDosageDoseAndRateComponentElements(Dosage.DosageDoseAndRateComponent element) throws IOException {
+      composeElementElements(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasDose()) {
+        composeType("dose", element.getDose());
+      }      if (element.hasRate()) {
         composeType("rate", element.getRate());
       }  }
 
@@ -26928,8 +26974,9 @@ public class XmlParser extends XmlParserBase {
 
   protected void composeChargeItemElements(ChargeItem element) throws IOException {
       composeDomainResourceElements(element);
-      if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
+      if (element.hasIdentifier()) { 
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier("identifier", e);
       }
       if (element.hasDefinition()) { 
         for (UriType e : element.getDefinition()) 
@@ -34186,8 +34233,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTypeElement()) {
         composeCode("type", element.getTypeElement());
       }
-      if (element.hasProfile()) {
-        composeReference("profile", element.getProfile());
+      if (element.hasProfileElement()) {
+        composeCanonical("profile", element.getProfileElement());
       }
   }
 
@@ -34456,8 +34503,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTypeElement()) {
         composeCode("type", element.getTypeElement());
       }
-      if (element.hasProfile()) {
-        composeReference("profile", element.getProfile());
+      if (element.hasProfileElement()) {
+        composeCanonical("profile", element.getProfileElement());
       }
   }
 

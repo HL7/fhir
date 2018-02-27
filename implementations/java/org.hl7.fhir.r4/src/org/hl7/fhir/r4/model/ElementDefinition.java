@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -3425,13 +3425,13 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
          */
-        public CanonicalType getValueSetCanonical() throws FHIRException { 
+        public CanonicalType getValueSetCanonicalType() throws FHIRException { 
           if (!(this.valueSet instanceof CanonicalType))
             throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (CanonicalType) this.valueSet;
         }
 
-        public boolean hasValueSetCanonical() { 
+        public boolean hasValueSetCanonicalType() { 
           return this.valueSet instanceof CanonicalType;
         }
 
@@ -3441,7 +3441,6 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         /**
          * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
-         * @throws Exception 
          */
         public ElementDefinitionBindingComponent setValueSet(Type value) throws FHIRFormatError { 
           if (value != null && !(value instanceof CanonicalType || value instanceof UriType))
@@ -4772,7 +4771,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       if (this.alias == null)
         return false;
       for (StringType v : this.alias)
-        if (v.equals(value)) // string
+        if (v.getValue().equals(value)) // string
           return true;
       return false;
     }
@@ -5578,7 +5577,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       if (this.condition == null)
         return false;
       for (IdType v : this.condition)
-        if (v.equals(value)) // id
+        if (v.getValue().equals(value)) // id
           return true;
       return false;
     }

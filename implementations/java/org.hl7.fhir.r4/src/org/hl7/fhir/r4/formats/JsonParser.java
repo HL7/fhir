@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -928,15 +928,33 @@ public class JsonParser extends JsonParserBase {
       res.setRoute(parseCodeableConcept(json.getAsJsonObject("route")));
     if (json.has("method"))
       res.setMethod(parseCodeableConcept(json.getAsJsonObject("method")));
-    Type dose = parseType("dose", json);
-    if (dose != null)
-      res.setDose(dose);
+    if (json.has("doseAndRate")) {
+      JsonArray array = json.getAsJsonArray("doseAndRate");
+      for (int i = 0; i < array.size(); i++) {
+        res.getDoseAndRate().add(parseDosageDosageDoseAndRateComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
     if (json.has("maxDosePerPeriod"))
       res.setMaxDosePerPeriod(parseRatio(json.getAsJsonObject("maxDosePerPeriod")));
     if (json.has("maxDosePerAdministration"))
       res.setMaxDosePerAdministration(parseSimpleQuantity(json.getAsJsonObject("maxDosePerAdministration")));
     if (json.has("maxDosePerLifetime"))
       res.setMaxDosePerLifetime(parseSimpleQuantity(json.getAsJsonObject("maxDosePerLifetime")));
+  }
+
+  protected Dosage.DosageDoseAndRateComponent parseDosageDosageDoseAndRateComponent(JsonObject json, Dosage owner) throws IOException, FHIRFormatError {
+    Dosage.DosageDoseAndRateComponent res = new Dosage.DosageDoseAndRateComponent();
+    parseDosageDosageDoseAndRateComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseDosageDosageDoseAndRateComponentProperties(JsonObject json, Dosage owner, Dosage.DosageDoseAndRateComponent res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    if (json.has("type"))
+      res.setType(parseCodeableConcept(json.getAsJsonObject("type")));
+    Type dose = parseType("dose", json);
+    if (dose != null)
+      res.setDose(dose);
     Type rate = parseType("rate", json);
     if (rate != null)
       res.setRate(rate);
@@ -4178,8 +4196,12 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseChargeItemProperties(JsonObject json, ChargeItem res) throws IOException, FHIRFormatError {
     parseDomainResourceProperties(json, res);
-    if (json.has("identifier"))
-      res.setIdentifier(parseIdentifier(json.getAsJsonObject("identifier")));
+    if (json.has("identifier")) {
+      JsonArray array = json.getAsJsonArray("identifier");
+      for (int i = 0; i < array.size(); i++) {
+        res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("definition")) {
       JsonArray array = json.getAsJsonArray("definition");
       for (int i = 0; i < array.size(); i++) {
@@ -12046,7 +12068,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("profile"))
-      res.setProfile(parseReference(json.getAsJsonObject("profile")));
+      res.setProfileElement(parseCanonical(json.get("profile").getAsString()));
+    if (json.has("_profile"))
+      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
   }
 
   protected ImplementationGuideInput.ImplementationGuideInputDefinitionComponent parseImplementationGuideInputImplementationGuideInputDefinitionComponent(JsonObject json, ImplementationGuideInput owner) throws IOException, FHIRFormatError {
@@ -12351,7 +12375,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("profile"))
-      res.setProfile(parseReference(json.getAsJsonObject("profile")));
+      res.setProfileElement(parseCanonical(json.get("profile").getAsString()));
+    if (json.has("_profile"))
+      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
   }
 
   protected ImplementationGuideOutput.ImplementationGuideOutputPageComponent parseImplementationGuideOutputImplementationGuideOutputPageComponent(JsonObject json, ImplementationGuideOutput owner) throws IOException, FHIRFormatError {
@@ -26408,9 +26434,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasMethod()) {
         composeCodeableConcept("method", element.getMethod());
       }
-      if (element.hasDose()) {
-        composeType("dose", element.getDose());
-      }
+      if (element.hasDoseAndRate()) {
+        openArray("doseAndRate");
+        for (Dosage.DosageDoseAndRateComponent e : element.getDoseAndRate()) 
+          composeDosageDosageDoseAndRateComponent(null, e);
+        closeArray();
+      };
       if (element.hasMaxDosePerPeriod()) {
         composeRatio("maxDosePerPeriod", element.getMaxDosePerPeriod());
       }
@@ -26419,6 +26448,24 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasMaxDosePerLifetime()) {
         composeSimpleQuantity("maxDosePerLifetime", element.getMaxDosePerLifetime());
+      }
+  }
+
+  protected void composeDosageDosageDoseAndRateComponent(String name, Dosage.DosageDoseAndRateComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeDosageDosageDoseAndRateComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeDosageDosageDoseAndRateComponentInner(Dosage.DosageDoseAndRateComponent element) throws IOException {
+      composeElement(element);
+      if (element.hasType()) {
+        composeCodeableConcept("type", element.getType());
+      }
+      if (element.hasDose()) {
+        composeType("dose", element.getDose());
       }
       if (element.hasRate()) {
         composeType("rate", element.getRate());
@@ -29867,8 +29914,11 @@ public class JsonParser extends JsonParserBase {
   protected void composeChargeItemInner(ChargeItem element) throws IOException {
       composeDomainResourceElements(element);
       if (element.hasIdentifier()) {
-        composeIdentifier("identifier", element.getIdentifier());
-      }
+        openArray("identifier");
+        for (Identifier e : element.getIdentifier()) 
+          composeIdentifier(null, e);
+        closeArray();
+      };
       if (element.hasDefinition()) {
         openArray("definition");
         for (UriType e : element.getDefinition()) 
@@ -38421,8 +38471,9 @@ public class JsonParser extends JsonParserBase {
         composeCodeCore("type", element.getTypeElement(), false);
         composeCodeExtras("type", element.getTypeElement(), false);
       }
-      if (element.hasProfile()) {
-        composeReference("profile", element.getProfile());
+      if (element.hasProfileElement()) {
+        composeCanonicalCore("profile", element.getProfileElement(), false);
+        composeCanonicalExtras("profile", element.getProfileElement(), false);
       }
   }
 
@@ -38741,8 +38792,9 @@ public class JsonParser extends JsonParserBase {
         composeCodeCore("type", element.getTypeElement(), false);
         composeCodeExtras("type", element.getTypeElement(), false);
       }
-      if (element.hasProfile()) {
-        composeReference("profile", element.getProfile());
+      if (element.hasProfileElement()) {
+        composeCanonicalCore("profile", element.getProfileElement(), false);
+        composeCanonicalExtras("profile", element.getProfileElement(), false);
       }
   }
 

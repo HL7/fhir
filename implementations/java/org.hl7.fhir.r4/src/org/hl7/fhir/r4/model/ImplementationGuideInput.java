@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -553,16 +553,11 @@ public class ImplementationGuideInput extends MetadataResource {
         /**
          * A reference to the profile that all instances must conform to.
          */
-        @Child(name = "profile", type = {StructureDefinition.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "profile", type = {CanonicalType.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Profile that all resources must conform to", formalDefinition="A reference to the profile that all instances must conform to." )
-        protected Reference profile;
+        protected CanonicalType profile;
 
-        /**
-         * The actual object that is the target of the reference (A reference to the profile that all instances must conform to.)
-         */
-        protected StructureDefinition profileTarget;
-
-        private static final long serialVersionUID = 2011731959L;
+        private static final long serialVersionUID = 33894666L;
 
     /**
      * Constructor
@@ -574,7 +569,7 @@ public class ImplementationGuideInput extends MetadataResource {
     /**
      * Constructor
      */
-      public ImplementationGuideInputGlobalComponent(CodeType type, Reference profile) {
+      public ImplementationGuideInputGlobalComponent(CodeType type, CanonicalType profile) {
         super();
         this.type = type;
         this.profile = profile;
@@ -626,15 +621,19 @@ public class ImplementationGuideInput extends MetadataResource {
         }
 
         /**
-         * @return {@link #profile} (A reference to the profile that all instances must conform to.)
+         * @return {@link #profile} (A reference to the profile that all instances must conform to.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
-        public Reference getProfile() { 
+        public CanonicalType getProfileElement() { 
           if (this.profile == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ImplementationGuideInputGlobalComponent.profile");
             else if (Configuration.doAutoCreate())
-              this.profile = new Reference(); // cc
+              this.profile = new CanonicalType(); // bb
           return this.profile;
+        }
+
+        public boolean hasProfileElement() { 
+          return this.profile != null && !this.profile.isEmpty();
         }
 
         public boolean hasProfile() { 
@@ -642,44 +641,41 @@ public class ImplementationGuideInput extends MetadataResource {
         }
 
         /**
-         * @param value {@link #profile} (A reference to the profile that all instances must conform to.)
+         * @param value {@link #profile} (A reference to the profile that all instances must conform to.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
-        public ImplementationGuideInputGlobalComponent setProfile(Reference value) { 
+        public ImplementationGuideInputGlobalComponent setProfileElement(CanonicalType value) { 
           this.profile = value;
           return this;
         }
 
         /**
-         * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the profile that all instances must conform to.)
+         * @return A reference to the profile that all instances must conform to.
          */
-        public StructureDefinition getProfileTarget() { 
-          if (this.profileTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuideInputGlobalComponent.profile");
-            else if (Configuration.doAutoCreate())
-              this.profileTarget = new StructureDefinition(); // aa
-          return this.profileTarget;
+        public String getProfile() { 
+          return this.profile == null ? null : this.profile.getValue();
         }
 
         /**
-         * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the profile that all instances must conform to.)
+         * @param value A reference to the profile that all instances must conform to.
          */
-        public ImplementationGuideInputGlobalComponent setProfileTarget(StructureDefinition value) { 
-          this.profileTarget = value;
+        public ImplementationGuideInputGlobalComponent setProfile(String value) { 
+            if (this.profile == null)
+              this.profile = new CanonicalType();
+            this.profile.setValue(value);
           return this;
         }
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("type", "code", "The type of resource that all instances must conform to.", 0, 1, type));
-          children.add(new Property("profile", "Reference(StructureDefinition)", "A reference to the profile that all instances must conform to.", 0, 1, profile));
+          children.add(new Property("profile", "canonical(StructureDefinition)", "A reference to the profile that all instances must conform to.", 0, 1, profile));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3575610: /*type*/  return new Property("type", "code", "The type of resource that all instances must conform to.", 0, 1, type);
-          case -309425751: /*profile*/  return new Property("profile", "Reference(StructureDefinition)", "A reference to the profile that all instances must conform to.", 0, 1, profile);
+          case -309425751: /*profile*/  return new Property("profile", "canonical(StructureDefinition)", "A reference to the profile that all instances must conform to.", 0, 1, profile);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -689,7 +685,7 @@ public class ImplementationGuideInput extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
-        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : new Base[] {this.profile}; // Reference
+        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : new Base[] {this.profile}; // CanonicalType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -702,7 +698,7 @@ public class ImplementationGuideInput extends MetadataResource {
           this.type = castToCode(value); // CodeType
           return value;
         case -309425751: // profile
-          this.profile = castToReference(value); // Reference
+          this.profile = castToCanonical(value); // CanonicalType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -714,7 +710,7 @@ public class ImplementationGuideInput extends MetadataResource {
         if (name.equals("type")) {
           this.type = castToCode(value); // CodeType
         } else if (name.equals("profile")) {
-          this.profile = castToReference(value); // Reference
+          this.profile = castToCanonical(value); // CanonicalType
         } else
           return super.setProperty(name, value);
         return value;
@@ -724,7 +720,7 @@ public class ImplementationGuideInput extends MetadataResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return getTypeElement();
-        case -309425751:  return getProfile(); 
+        case -309425751:  return getProfileElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -734,7 +730,7 @@ public class ImplementationGuideInput extends MetadataResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610: /*type*/ return new String[] {"code"};
-        case -309425751: /*profile*/ return new String[] {"Reference"};
+        case -309425751: /*profile*/ return new String[] {"canonical"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -746,8 +742,7 @@ public class ImplementationGuideInput extends MetadataResource {
           throw new FHIRException("Cannot call addChild on a primitive type ImplementationGuideInput.type");
         }
         else if (name.equals("profile")) {
-          this.profile = new Reference();
-          return this.profile;
+          throw new FHIRException("Cannot call addChild on a primitive type ImplementationGuideInput.profile");
         }
         else
           return super.addChild(name);

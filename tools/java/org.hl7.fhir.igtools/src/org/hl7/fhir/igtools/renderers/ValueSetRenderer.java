@@ -132,7 +132,7 @@ public class ValueSetRenderer extends BaseRenderer {
       for (ElementDefinition ed : sd.getSnapshot().getElement()) {
         if (ed.hasBinding() && ed.getBinding().hasValueSet()) {
           if ((ed.getBinding().hasValueSetUriType() && ed.getBinding().getValueSetUriType().getValueAsString().equals(vs.getUrl())) ||
-              (ed.getBinding().hasValueSetCanonical() && ed.getBinding().getValueSetCanonical().getValue().equals(vs.getUrl()))) {
+              (ed.getBinding().hasValueSetCanonicalType() && ed.getBinding().getValueSetCanonicalType().getValue().equals(vs.getUrl()))) {
             if (first) {
               first = false;
               b.append("<ul>\r\n");

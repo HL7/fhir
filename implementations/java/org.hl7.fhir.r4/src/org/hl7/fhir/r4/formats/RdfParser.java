@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -792,14 +792,30 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "Dosage", "route", element.getRoute(), -1);
     if (element.hasMethod())
       composeCodeableConcept(t, "Dosage", "method", element.getMethod(), -1);
-    if (element.hasDose())
-      composeType(t, "Dosage", "dose", element.getDose(), -1);
+    for (int i = 0; i < element.getDoseAndRate().size(); i++)
+      composeDosageDosageDoseAndRateComponent(t, "Dosage", "doseAndRate", element.getDoseAndRate().get(i), i);
     if (element.hasMaxDosePerPeriod())
       composeRatio(t, "Dosage", "maxDosePerPeriod", element.getMaxDosePerPeriod(), -1);
     if (element.hasMaxDosePerAdministration())
       composeQuantity(t, "Dosage", "maxDosePerAdministration", element.getMaxDosePerAdministration(), -1);
     if (element.hasMaxDosePerLifetime())
       composeQuantity(t, "Dosage", "maxDosePerLifetime", element.getMaxDosePerLifetime(), -1);
+  }
+
+  protected void composeDosageDosageDoseAndRateComponent(Complex parent, String parentType, String name, Dosage.DosageDoseAndRateComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "doseAndRate", name, element, index);
+    if (element.hasType())
+      composeCodeableConcept(t, "Dosage", "type", element.getType(), -1);
+    if (element.hasDose())
+      composeType(t, "Dosage", "dose", element.getDose(), -1);
     if (element.hasRate())
       composeType(t, "Dosage", "rate", element.getRate(), -1);
   }
@@ -2859,8 +2875,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeDomainResource(t, "ChargeItem", name, element, index);
-    if (element.hasIdentifier())
-      composeIdentifier(t, "ChargeItem", "identifier", element.getIdentifier(), -1);
+    for (int i = 0; i < element.getIdentifier().size(); i++)
+      composeIdentifier(t, "ChargeItem", "identifier", element.getIdentifier().get(i), i);
     for (int i = 0; i < element.getDefinition().size(); i++)
       composeUri(t, "ChargeItem", "definition", element.getDefinition().get(i), i);
     if (element.hasStatusElement())
@@ -8015,8 +8031,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "global", name, element, index);
     if (element.hasTypeElement())
       composeCode(t, "ImplementationGuideInput", "type", element.getTypeElement(), -1);
-    if (element.hasProfile())
-      composeReference(t, "ImplementationGuideInput", "profile", element.getProfile(), -1);
+    if (element.hasProfileElement())
+      composeCanonical(t, "ImplementationGuideInput", "profile", element.getProfileElement(), -1);
   }
 
   protected void composeImplementationGuideInputImplementationGuideInputDefinitionComponent(Complex parent, String parentType, String name, ImplementationGuideInput.ImplementationGuideInputDefinitionComponent element, int index) {
@@ -8213,8 +8229,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "global", name, element, index);
     if (element.hasTypeElement())
       composeCode(t, "ImplementationGuideOutput", "type", element.getTypeElement(), -1);
-    if (element.hasProfile())
-      composeReference(t, "ImplementationGuideOutput", "profile", element.getProfile(), -1);
+    if (element.hasProfileElement())
+      composeCanonical(t, "ImplementationGuideOutput", "profile", element.getProfileElement(), -1);
   }
 
   protected void composeImplementationGuideOutputImplementationGuideOutputPageComponent(Complex parent, String parentType, String name, ImplementationGuideOutput.ImplementationGuideOutputPageComponent element, int index) {

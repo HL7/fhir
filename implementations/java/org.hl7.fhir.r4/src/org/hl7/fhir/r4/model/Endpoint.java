@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -710,7 +710,7 @@ public class Endpoint extends DomainResource {
       if (this.payloadMimeType == null)
         return false;
       for (CodeType v : this.payloadMimeType)
-        if (v.equals(value)) // code
+        if (v.getValue().equals(value)) // code
           return true;
       return false;
     }
@@ -816,7 +816,7 @@ public class Endpoint extends DomainResource {
       if (this.header == null)
         return false;
       for (StringType v : this.header)
-        if (v.equals(value)) // string
+        if (v.getValue().equals(value)) // string
           return true;
       return false;
     }

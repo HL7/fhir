@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -2817,7 +2817,7 @@ public class Claim extends DomainResource {
           if (this.preAuthRef == null)
             return false;
           for (StringType v : this.preAuthRef)
-            if (v.equals(value)) // string
+            if (v.getValue().equals(value)) // string
               return true;
           return false;
         }
@@ -3657,7 +3657,7 @@ public class Claim extends DomainResource {
           if (this.careTeamSequence == null)
             return false;
           for (PositiveIntType v : this.careTeamSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -3718,7 +3718,7 @@ public class Claim extends DomainResource {
           if (this.diagnosisSequence == null)
             return false;
           for (PositiveIntType v : this.diagnosisSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -3779,7 +3779,7 @@ public class Claim extends DomainResource {
           if (this.procedureSequence == null)
             return false;
           for (PositiveIntType v : this.procedureSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -3840,7 +3840,7 @@ public class Claim extends DomainResource {
           if (this.informationSequence == null)
             return false;
           for (PositiveIntType v : this.informationSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }

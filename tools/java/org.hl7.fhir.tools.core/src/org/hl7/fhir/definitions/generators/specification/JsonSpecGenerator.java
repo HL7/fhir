@@ -604,7 +604,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
         if (vs != null)
           write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
         else if (elem.getBinding().getValueSet() instanceof CanonicalType)
-          write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+elem.getBinding().getValueSetCanonical().getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
+          write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+elem.getBinding().getValueSetCanonicalType().getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
         else
           write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+((UriType)elem.getBinding().getValueSet()).getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
       } else
@@ -631,24 +631,12 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   }
 
   private ValueSet resolveValueSet(Type reference) {
-    //            else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
-    //              if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
-    //                AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build
-    //                write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
-    //              } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
-    //                  AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-    //                  write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn())+ "</a>");
-    //              } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
-    //                BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);
-    //                if (bs1 != null)
-    //                  write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
-    //                else
-    //                  write("<a href=\"valueset-"+bs.getReference().substring(23)+".html\" style=\"color: navy; opacity: 0.8\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
-    //              } else
-    //                throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
-    // TODO Auto-generated method stub
-    return null;
-  }
+  //  String ref = reference.primitiveValue();
+  //  if (ref.startsWith("http://hl7.org/fhir")) 
+  //    return page.getValueSets().get(ref);
+  //  else 
+      return null;
+    }
 
   private String tail(String path) {
     return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;

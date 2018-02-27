@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1150,13 +1150,13 @@ public class OperationDefinition extends MetadataResource {
         /**
          * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
-        public CanonicalType getValueSetCanonical() throws FHIRException { 
+        public CanonicalType getValueSetCanonicalType() throws FHIRException { 
           if (!(this.valueSet instanceof CanonicalType))
             throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (CanonicalType) this.valueSet;
         }
 
-        public boolean hasValueSetCanonical() { 
+        public boolean hasValueSetCanonicalType() { 
           return this.valueSet instanceof CanonicalType;
         }
 
@@ -1386,7 +1386,7 @@ public class OperationDefinition extends MetadataResource {
           if (this.parameterName == null)
             return false;
           for (StringType v : this.parameterName)
-            if (v.equals(value)) // string
+            if (v.getValue().equals(value)) // string
               return true;
           return false;
         }
@@ -2568,7 +2568,7 @@ public class OperationDefinition extends MetadataResource {
       if (this.resource == null)
         return false;
       for (CodeType v : this.resource)
-        if (v.equals(value)) // code
+        if (v.getValue().equals(value)) // code
           return true;
       return false;
     }

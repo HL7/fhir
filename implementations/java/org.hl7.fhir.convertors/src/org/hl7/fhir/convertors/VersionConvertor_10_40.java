@@ -24,6 +24,7 @@ import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.r4.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.r4.model.DocumentReference.ReferredDocumentStatus;
+import org.hl7.fhir.r4.model.Dosage.DosageDoseAndRateComponent;
 import org.hl7.fhir.r4.model.Dosage;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
@@ -1302,7 +1303,7 @@ public class VersionConvertor_10_40 {
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
     tgt.setDescription(src.getDescription());
-    tgt.setValueSet(src.hasValueSetCanonical() ? new org.hl7.fhir.dstu2.model.Reference(src.getValueSetCanonical().getValue()) : convertType(src.getValueSet()));
+    tgt.setValueSet(src.hasValueSetCanonicalType() ? new org.hl7.fhir.dstu2.model.Reference(src.getValueSetCanonicalType().getValue()) : convertType(src.getValueSet()));
     return tgt;
   }
 
@@ -7807,8 +7808,13 @@ public class VersionConvertor_10_40 {
       tgt.setSite(convertCodeableConcept(src.getSiteCodeableConcept()));
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
-    tgt.setDose(convertType(src.getDose()));
-    tgt.setRate(convertType(src.getRate()));
+    if (src.hasDose() || src.hasRate()) {
+      DosageDoseAndRateComponent dr = tgt.addDoseAndRate();
+      if (src.hasDose())
+        dr.setDose(convertType(src.getDose()));
+      if (src.hasRate())
+        dr.setRate(convertType(src.getRate()));
+    }
     tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
     return tgt;
   }
@@ -7825,9 +7831,11 @@ public class VersionConvertor_10_40 {
     tgt.setSite(convertType(src.getSite()));
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
-    tgt.setDose(convertType(src.getDose()));
-    tgt.setRate(convertType(src.getRate()));
+    if (src.hasDoseAndRate() && src.getDoseAndRate().get(0).hasDose())
+      tgt.setDose(convertType(src.getDoseAndRate().get(0).getDose()));
     tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
+    if (src.hasDoseAndRate() && src.getDoseAndRate().get(0).hasRate())
+      tgt.setRate(convertType(src.getDoseAndRate().get(0).getRate()));
     return tgt;
   }
 
@@ -7958,8 +7966,13 @@ public class VersionConvertor_10_40 {
       tgt.setSite(convertCodeableConcept(src.getSiteCodeableConcept()));
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
-    tgt.setDose(convertType(src.getDose()));
-    tgt.setRate(convertType(src.getRate()));
+    if (src.hasDose() || src.hasRate()) {
+      DosageDoseAndRateComponent dr = tgt.addDoseAndRate();
+      if (src.hasDose())
+        dr.setDose(convertType(src.getDose()));
+      if (src.hasRate())
+        dr.setRate(convertType(src.getRate()));
+    }
     tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
     return tgt;
   }
@@ -7976,8 +7989,10 @@ public class VersionConvertor_10_40 {
     tgt.setSite(convertType(src.getSite()));
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
-    tgt.setDose(convertType(src.getDose()));
-    tgt.setRate(convertType(src.getRate()));
+    if (src.hasDoseAndRate() && src.getDoseAndRate().get(0).hasDose())
+      tgt.setDose(convertType(src.getDoseAndRate().get(0).getDose()));
+    if (src.hasDoseAndRate() && src.getDoseAndRate().get(0).hasRate())
+      tgt.setRate(convertType(src.getDoseAndRate().get(0).getRate()));
     tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
     return tgt;
   }
@@ -8119,7 +8134,11 @@ public class VersionConvertor_10_40 {
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
 //    tgt.setQuantity(convertType(src.getQuantity()));
-    tgt.setRate(convertType(src.getRate()));
+    if (src.hasRate()) {
+      DosageDoseAndRateComponent dr = tgt.addDoseAndRate();
+      if (src.hasRate())
+        dr.setRate(convertType(src.getRate()));
+    }
     tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
     return tgt;
   }
@@ -8136,7 +8155,8 @@ public class VersionConvertor_10_40 {
     tgt.setRoute(convertCodeableConcept(src.getRoute()));
     tgt.setMethod(convertCodeableConcept(src.getMethod()));
 //    tgt.setQuantity(convertType(src.getQuantity()));
-    tgt.setRate(convertType(src.getRate()));
+    if (src.hasDoseAndRate() && src.getDoseAndRate().get(0).hasRate())
+      tgt.setRate(convertType(src.getDoseAndRate().get(0).getRate()));
     tgt.setMaxDosePerPeriod(convertRatio(src.getMaxDosePerPeriod()));
     return tgt;
   }

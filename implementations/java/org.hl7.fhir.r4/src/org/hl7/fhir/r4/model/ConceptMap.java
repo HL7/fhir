@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -3127,13 +3127,13 @@ public class ConceptMap extends MetadataResource {
     /**
      * @return {@link #source} (The source value set that specifies the concepts that are being mapped.)
      */
-    public CanonicalType getSourceCanonical() throws FHIRException { 
+    public CanonicalType getSourceCanonicalType() throws FHIRException { 
       if (!(this.source instanceof CanonicalType))
         throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.source.getClass().getName()+" was encountered");
       return (CanonicalType) this.source;
     }
 
-    public boolean hasSourceCanonical() { 
+    public boolean hasSourceCanonicalType() { 
       return this.source instanceof CanonicalType;
     }
 
@@ -3172,13 +3172,13 @@ public class ConceptMap extends MetadataResource {
     /**
      * @return {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
-    public CanonicalType getTargetCanonical() throws FHIRException { 
+    public CanonicalType getTargetCanonicalType() throws FHIRException { 
       if (!(this.target instanceof CanonicalType))
         throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.target.getClass().getName()+" was encountered");
       return (CanonicalType) this.target;
     }
 
-    public boolean hasTargetCanonical() { 
+    public boolean hasTargetCanonicalType() { 
       return this.target instanceof CanonicalType;
     }
 

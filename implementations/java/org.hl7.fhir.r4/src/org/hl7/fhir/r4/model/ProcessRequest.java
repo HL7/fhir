@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1229,7 +1229,7 @@ public class ProcessRequest extends DomainResource {
       if (this.include == null)
         return false;
       for (StringType v : this.include)
-        if (v.equals(value)) // string
+        if (v.getValue().equals(value)) // string
           return true;
       return false;
     }
@@ -1290,7 +1290,7 @@ public class ProcessRequest extends DomainResource {
       if (this.exclude == null)
         return false;
       for (StringType v : this.exclude)
-        if (v.equals(value)) // string
+        if (v.getValue().equals(value)) // string
           return true;
       return false;
     }

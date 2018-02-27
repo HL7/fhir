@@ -1135,10 +1135,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public ValueSetExpansionOutcome expandVS(ElementDefinitionBindingComponent binding, boolean cacheOk, boolean heirarchical) throws FHIRException {
     ValueSet vs = null;
-    if (binding.hasValueSetCanonical()) {
-      vs = fetchResource(ValueSet.class, binding.getValueSetCanonical().getValue());
+    if (binding.hasValueSetCanonicalType()) {
+      vs = fetchResource(ValueSet.class, binding.getValueSetCanonicalType().getValue());
       if (vs == null)
-        throw new FHIRException("Unable to resolve value Set "+binding.getValueSetCanonical().getValue());
+        throw new FHIRException("Unable to resolve value Set "+binding.getValueSetCanonicalType().getValue());
     } else {
       vs = fetchResource(ValueSet.class, binding.getValueSetUriType().asStringValue());
       if (vs == null)

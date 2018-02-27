@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1194,7 +1194,7 @@ public class Enumerations {
          */
         SAMPLEDDATA, 
         /**
-         * A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different signature approaches have different utilities.
+         * A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.
          */
         SIGNATURE, 
         /**
@@ -1600,7 +1600,7 @@ public class Enumerations {
             case REFERENCE: return "A reference from one resource to another.";
             case RELATEDARTIFACT: return "Related artifacts such as additional documentation, justification, or bibliographic references.";
             case SAMPLEDDATA: return "A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.";
-            case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different signature approaches have different utilities.";
+            case SIGNATURE: return "A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
             case SUBSTANCEAMOUNT: return "Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.";
             case SUBSTANCEMOIETY: return "Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.";
@@ -2332,7 +2332,7 @@ public class Enumerations {
          */
         SAMPLEDDATA, 
         /**
-         * A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different signature approaches have different utilities.
+         * A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.
          */
         SIGNATURE, 
         /**
@@ -3899,7 +3899,7 @@ into another (possibly the same) biological entity.
             case REFERENCE: return "A reference from one resource to another.";
             case RELATEDARTIFACT: return "Related artifacts such as additional documentation, justification, or bibliographic references.";
             case SAMPLEDDATA: return "A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.";
-            case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different signature approaches have different utilities.";
+            case SIGNATURE: return "A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
             case SUBSTANCEAMOUNT: return "Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.";
             case SUBSTANCEMOIETY: return "Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.";
@@ -5686,7 +5686,7 @@ into another (possibly the same) biological entity.
          */
         SAMPLEDDATA, 
         /**
-         * A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different signature approaches have different utilities.
+         * A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.
          */
         SIGNATURE, 
         /**
@@ -7237,7 +7237,7 @@ into another (possibly the same) biological entity.
             case REFERENCE: return "A reference from one resource to another.";
             case RELATEDARTIFACT: return "Related artifacts such as additional documentation, justification, or bibliographic references.";
             case SAMPLEDDATA: return "A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.";
-            case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different signature approaches have different utilities.";
+            case SIGNATURE: return "A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
             case SUBSTANCEAMOUNT: return "Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.";
             case SUBSTANCEMOIETY: return "Chemical substances are a single substance type whose primary defining element is the molecular structure. Chemical substances shall be defined on the basis of their complete covalent molecular structure; the presence of a salt (counter-ion) and/or solvates (water, alcohols) is also captured. Purity, grade, physical form or particle size are not taken into account in the definition of a chemical substance or in the assignment of a Substance ID.";
@@ -9452,6 +9452,10 @@ into another (possibly the same) biological entity.
 
     public enum RemittanceOutcome {
         /**
+         * The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.
+         */
+        RECEIVED, 
+        /**
          * The processing has completed without errors
          */
         COMPLETE, 
@@ -9470,6 +9474,8 @@ into another (possibly the same) biological entity.
         public static RemittanceOutcome fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("received".equals(codeString))
+          return RECEIVED;
         if ("complete".equals(codeString))
           return COMPLETE;
         if ("error".equals(codeString))
@@ -9480,6 +9486,7 @@ into another (possibly the same) biological entity.
         }
         public String toCode() {
           switch (this) {
+            case RECEIVED: return "received";
             case COMPLETE: return "complete";
             case ERROR: return "error";
             case PARTIAL: return "partial";
@@ -9488,6 +9495,7 @@ into another (possibly the same) biological entity.
         }
         public String getSystem() {
           switch (this) {
+            case RECEIVED: return "http://hl7.org/fhir/remittance-outcome";
             case COMPLETE: return "http://hl7.org/fhir/remittance-outcome";
             case ERROR: return "http://hl7.org/fhir/remittance-outcome";
             case PARTIAL: return "http://hl7.org/fhir/remittance-outcome";
@@ -9496,6 +9504,7 @@ into another (possibly the same) biological entity.
         }
         public String getDefinition() {
           switch (this) {
+            case RECEIVED: return "The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.";
             case COMPLETE: return "The processing has completed without errors";
             case ERROR: return "One or more errors have been detected in the Claim";
             case PARTIAL: return "No errors have been detected in the Claim and some of the adjudication has been performed.";
@@ -9504,6 +9513,7 @@ into another (possibly the same) biological entity.
         }
         public String getDisplay() {
           switch (this) {
+            case RECEIVED: return "Received but not Processed";
             case COMPLETE: return "Processing Complete";
             case ERROR: return "Error";
             case PARTIAL: return "Partial Processing";
@@ -9517,6 +9527,8 @@ into another (possibly the same) biological entity.
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("received".equals(codeString))
+          return RemittanceOutcome.RECEIVED;
         if ("complete".equals(codeString))
           return RemittanceOutcome.COMPLETE;
         if ("error".equals(codeString))
@@ -9533,6 +9545,8 @@ into another (possibly the same) biological entity.
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("received".equals(codeString))
+          return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.RECEIVED);
         if ("complete".equals(codeString))
           return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.COMPLETE);
         if ("error".equals(codeString))
@@ -9542,6 +9556,8 @@ into another (possibly the same) biological entity.
         throw new FHIRException("Unknown RemittanceOutcome code '"+codeString+"'");
         }
     public String toCode(RemittanceOutcome code) {
+      if (code == RemittanceOutcome.RECEIVED)
+        return "received";
       if (code == RemittanceOutcome.COMPLETE)
         return "complete";
       if (code == RemittanceOutcome.ERROR)

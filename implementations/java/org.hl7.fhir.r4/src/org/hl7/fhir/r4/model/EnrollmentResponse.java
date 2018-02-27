@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -204,7 +204,7 @@ public class EnrollmentResponse extends DomainResource {
      * Processing status: error, complete.
      */
     @Child(name = "outcome", type = {CodeType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="complete | error | partial", formalDefinition="Processing status: error, complete." )
+    @Description(shortDefinition="received | complete | error | partial", formalDefinition="Processing status: error, complete." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/remittance-outcome")
     protected Enumeration<RemittanceOutcome> outcome;
 

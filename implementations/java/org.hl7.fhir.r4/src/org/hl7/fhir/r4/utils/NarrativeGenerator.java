@@ -2639,7 +2639,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         if (isSource(vs, cm.getSource())) {
           ConceptMapRenderInstructions re = findByTarget(cm.getTarget());
           if (re != null) {
-            ValueSet vst = cm.hasTarget() ? context.fetchResource(ValueSet.class, cm.hasTargetCanonical() ? cm.getTargetCanonical().getValue() : cm.getTargetUriType().asStringValue()) : null;
+            ValueSet vst = cm.hasTarget() ? context.fetchResource(ValueSet.class, cm.hasTargetCanonicalType() ? cm.getTargetCanonicalType().getValue() : cm.getTargetUriType().asStringValue()) : null;
             res.add(new UsedConceptMap(re, vst == null ? cm.getUserString("path") : vst.getUserString("path"), cm));
           }
         }
@@ -3959,7 +3959,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       XhtmlNode td = tr.td();
       if (p.hasBinding() && p.getBinding().hasValueSet()) {
         if (p.getBinding().getValueSet() instanceof CanonicalType)
-          AddVsRef(rcontext, p.getBinding().getValueSetCanonical().getValue(), td);
+          AddVsRef(rcontext, p.getBinding().getValueSetCanonicalType().getValue(), td);
         else
           td.ah(p.getBinding().getValueSetUriType().getValue()).tx("External Reference");
         td.tx(" ("+p.getBinding().getStrength().getDisplay()+")");

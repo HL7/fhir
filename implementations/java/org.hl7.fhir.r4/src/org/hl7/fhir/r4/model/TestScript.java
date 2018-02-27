@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -2020,7 +2020,7 @@ public class TestScript extends MetadataResource {
           if (this.origin == null)
             return false;
           for (IntegerType v : this.origin)
-            if (v.equals(value)) // integer
+            if (v.getValue().equals(value)) // integer
               return true;
           return false;
         }
@@ -2126,7 +2126,7 @@ public class TestScript extends MetadataResource {
           if (this.link == null)
             return false;
           for (UriType v : this.link)
-            if (v.equals(value)) // uri
+            if (v.getValue().equals(value)) // uri
               return true;
           return false;
         }

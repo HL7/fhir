@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -176,6 +176,10 @@ public class ExplanationOfBenefit extends DomainResource {
 
     public enum RemittanceOutcome {
         /**
+         * The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.
+         */
+        RECEIVED, 
+        /**
          * The processing has completed without errors
          */
         COMPLETE, 
@@ -194,6 +198,8 @@ public class ExplanationOfBenefit extends DomainResource {
         public static RemittanceOutcome fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("received".equals(codeString))
+          return RECEIVED;
         if ("complete".equals(codeString))
           return COMPLETE;
         if ("error".equals(codeString))
@@ -207,6 +213,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
         public String toCode() {
           switch (this) {
+            case RECEIVED: return "received";
             case COMPLETE: return "complete";
             case ERROR: return "error";
             case PARTIAL: return "partial";
@@ -215,6 +222,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
+            case RECEIVED: return "http://hl7.org/fhir/remittance-outcome";
             case COMPLETE: return "http://hl7.org/fhir/remittance-outcome";
             case ERROR: return "http://hl7.org/fhir/remittance-outcome";
             case PARTIAL: return "http://hl7.org/fhir/remittance-outcome";
@@ -223,6 +231,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
+            case RECEIVED: return "The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.";
             case COMPLETE: return "The processing has completed without errors";
             case ERROR: return "One or more errors have been detected in the Claim";
             case PARTIAL: return "No errors have been detected in the Claim and some of the adjudication has been performed.";
@@ -231,6 +240,7 @@ public class ExplanationOfBenefit extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
+            case RECEIVED: return "Received but not Processed";
             case COMPLETE: return "Processing Complete";
             case ERROR: return "Error";
             case PARTIAL: return "Partial Processing";
@@ -244,6 +254,8 @@ public class ExplanationOfBenefit extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("received".equals(codeString))
+          return RemittanceOutcome.RECEIVED;
         if ("complete".equals(codeString))
           return RemittanceOutcome.COMPLETE;
         if ("error".equals(codeString))
@@ -260,6 +272,8 @@ public class ExplanationOfBenefit extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("received".equals(codeString))
+          return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.RECEIVED);
         if ("complete".equals(codeString))
           return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.COMPLETE);
         if ("error".equals(codeString))
@@ -269,6 +283,8 @@ public class ExplanationOfBenefit extends DomainResource {
         throw new FHIRException("Unknown RemittanceOutcome code '"+codeString+"'");
         }
     public String toCode(RemittanceOutcome code) {
+      if (code == RemittanceOutcome.RECEIVED)
+        return "received";
       if (code == RemittanceOutcome.COMPLETE)
         return "complete";
       if (code == RemittanceOutcome.ERROR)
@@ -2580,7 +2596,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.preAuthRef == null)
             return false;
           for (StringType v : this.preAuthRef)
-            if (v.equals(value)) // string
+            if (v.getValue().equals(value)) // string
               return true;
           return false;
         }
@@ -3309,7 +3325,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.careTeamSequence == null)
             return false;
           for (PositiveIntType v : this.careTeamSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -3370,7 +3386,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.diagnosisSequence == null)
             return false;
           for (PositiveIntType v : this.diagnosisSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -3431,7 +3447,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.procedureSequence == null)
             return false;
           for (PositiveIntType v : this.procedureSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -3492,7 +3508,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.informationSequence == null)
             return false;
           for (PositiveIntType v : this.informationSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -4200,7 +4216,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.noteNumber == null)
             return false;
           for (PositiveIntType v : this.noteNumber)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -5782,7 +5798,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.noteNumber == null)
             return false;
           for (PositiveIntType v : this.noteNumber)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -6834,7 +6850,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.noteNumber == null)
             return false;
           for (PositiveIntType v : this.noteNumber)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -7326,7 +7342,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.itemSequence == null)
             return false;
           for (PositiveIntType v : this.itemSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -7387,7 +7403,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.detailSequence == null)
             return false;
           for (PositiveIntType v : this.detailSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -7448,7 +7464,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.subDetailSequence == null)
             return false;
           for (PositiveIntType v : this.subDetailSequence)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -7610,7 +7626,7 @@ public class ExplanationOfBenefit extends DomainResource {
           if (this.noteNumber == null)
             return false;
           for (PositiveIntType v : this.noteNumber)
-            if (v.equals(value)) // positiveInt
+            if (v.getValue().equals(value)) // positiveInt
               return true;
           return false;
         }
@@ -9803,7 +9819,7 @@ public class ExplanationOfBenefit extends DomainResource {
      * Processing outcome errror, partial or complete processing.
      */
     @Child(name = "outcome", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="complete | error | partial", formalDefinition="Processing outcome errror, partial or complete processing." )
+    @Description(shortDefinition="received | complete | error | partial", formalDefinition="Processing outcome errror, partial or complete processing." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/remittance-outcome")
     protected Enumeration<RemittanceOutcome> outcome;
 
