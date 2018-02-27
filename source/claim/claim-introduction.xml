@@ -5,16 +5,16 @@
 <h2>Scope and Usage</h2>
 <p>
 The Claim is used by providers and payors, insurers, to exchange the financial information, and supporting clinical information, regarding the provision
- of healthcare services with payors an firms which provide data analytics. The primary uses of this resource is to support eClaims, 
+ of health care services with payors and firms which provide data analytics. The primary uses of this resource is to support eClaims, 
 the exchange of proposed or actual services to benefit payors, insurers and national health programs, for treatment payment planning and reimbursement.
 </p>
 <p>
-The Claim is intended to support (and the Claim.use element contains the code to indicate):
+The Claim resource may be interpreted differently depending on its intended use (and the Claim.use element contains the code to indicate):
 <ul>
-<li>Claims - where the provision of goods and services is <b>complete</b> and reimbursement is sought.</li>
-<li>Pre-Authorization - where the provision of goods and services is <b>proposed</b> and either authorization and/or the reservation of funds is desired.</li>
+<li>Claims - where the provision of goods and services is <b>complete</b> and adjudication under a plan and payment is sought.</li>
+<li>Pre-Authorization - where the provision of goods and services is <b>proposed</b> and authorization and/or the reservation of funds is desired.</li>
 <li>Pre-Determination - where the provision of goods and services is <b>explored</b> to determine what services may be covered and to what amount. Essentially a 'what if' claim.</li>
-</ul>
+</ul> 
 </p>
 
 <p>
@@ -26,7 +26,7 @@ The Claim also supports:
 </ul>
 </p>
 <p>
-<b>Mapping to other Claim specifications:</b> Mappings are currently maintained by the Financial Management Workgroup to UB04 and CMS1500 and are available 
+<b>Mapping to other Claim specifications:</b> Mappings are currently maintained by the Financial Management Work Group to UB04 and CMS1500 and are available 
 at <a href="http://wiki.hl7.org/index.php?title=Financial_Management_FHIR_Resource_Development">http://wiki.hl7.org/index.php?title=Financial_Management_FHIR_Resource_Development</a>.
 Mappings to other specifications may be made available where IP restrictions permit.  
 </p>

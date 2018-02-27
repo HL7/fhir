@@ -127,6 +127,33 @@
 		<end value="2014-02-16"/>
 	</hospitalization>
 
+	<total>
+		<category>
+			<coding>
+				<code value="submitted"/>
+			</coding>
+		</category>
+		<amount>
+			<value value="2478.57"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</amount> 
+	</total>
+	
+	<total>
+		<category>
+			<coding>
+				<code value="benefit"/>
+			</coding>
+		</category>
+		<amount>
+			<value value="0.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</amount> 
+	</total>
+
+	<!--	
 	<totalCost>
 		<value value="2478.57"/>
 		<system value="urn:iso:std:iso:4217"/>
@@ -137,7 +164,7 @@
 		<value value="0.00"/>
 		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/> 
-	</totalBenefit>
+	</totalBenefit> -->
 
 	<form>
 		<coding>

@@ -140,6 +140,32 @@
 		</adjudication>
 	</item>
 
+	<total>
+		<category>
+			<coding>
+				<code value="submitted"/>
+			</coding>
+		</category>
+		<amount>
+			<value value="135.57"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</amount> 
+	</total>
+	
+	<total>
+		<category>
+			<coding>
+				<code value="benefit"/>
+			</coding>
+		</category>
+		<amount>
+			<value value="96.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</amount> 
+	</total>
+	<!--
 	<totalCost>
 		<value value="135.57"/>
 		<system value="urn:iso:std:iso:4217"/>
@@ -150,6 +176,6 @@
 		<value value="96.00"/>
 		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/> 
-	</totalBenefit>
+	</totalBenefit> -->
 
 </ExplanationOfBenefit>
