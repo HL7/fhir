@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 18:45+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -3361,10 +3361,6 @@ public class JsonParser extends JsonParserBase {
       res.setFhirVersionElement(parseId(json.get("fhirVersion").getAsString()));
     if (json.has("_fhirVersion"))
       parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionElement());
-    if (json.has("acceptUnknown"))
-      res.setAcceptUnknownElement(parseEnumeration(json.get("acceptUnknown").getAsString(), CapabilityStatement.UnknownContentCode.NULL, new CapabilityStatement.UnknownContentCodeEnumFactory()));
-    if (json.has("_acceptUnknown"))
-      parseElementProperties(json.getAsJsonObject("_acceptUnknown"), res.getAcceptUnknownElement());
     if (json.has("format")) {
       JsonArray array = json.getAsJsonArray("format");
       for (int i = 0; i < array.size(); i++) {
@@ -3551,30 +3547,6 @@ public class JsonParser extends JsonParserBase {
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    if (json.has("certificate")) {
-      JsonArray array = json.getAsJsonArray("certificate");
-      for (int i = 0; i < array.size(); i++) {
-        res.getCertificate().add(parseCapabilityStatementCapabilityStatementRestSecurityCertificateComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-  }
-
-  protected CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent parseCapabilityStatementCapabilityStatementRestSecurityCertificateComponent(JsonObject json, CapabilityStatement owner) throws IOException, FHIRFormatError {
-    CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent res = new CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent();
-    parseCapabilityStatementCapabilityStatementRestSecurityCertificateComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseCapabilityStatementCapabilityStatementRestSecurityCertificateComponentProperties(JsonObject json, CapabilityStatement owner, CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent res) throws IOException, FHIRFormatError {
-    parseBackboneProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseCode(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("blob"))
-      res.setBlobElement(parseBase64Binary(json.get("blob").getAsString()));
-    if (json.has("_blob"))
-      parseElementProperties(json.getAsJsonObject("_blob"), res.getBlobElement());
   }
 
   protected CapabilityStatement.CapabilityStatementRestResourceComponent parseCapabilityStatementCapabilityStatementRestResourceComponent(JsonObject json, CapabilityStatement owner) throws IOException, FHIRFormatError {
@@ -19414,6 +19386,14 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getTarget().get(i));
       }
     };
+    if (json.has("multipleOr"))
+      res.setMultipleOrElement(parseBoolean(json.get("multipleOr").getAsBoolean()));
+    if (json.has("_multipleOr"))
+      parseElementProperties(json.getAsJsonObject("_multipleOr"), res.getMultipleOrElement());
+    if (json.has("multipleAnd"))
+      res.setMultipleAndElement(parseBoolean(json.get("multipleAnd").getAsBoolean()));
+    if (json.has("_multipleAnd"))
+      parseElementProperties(json.getAsJsonObject("_multipleAnd"), res.getMultipleAndElement());
     if (json.has("comparator")) {
       JsonArray array = json.getAsJsonArray("comparator");
       for (int i = 0; i < array.size(); i++) {
@@ -29050,10 +29030,6 @@ public class JsonParser extends JsonParserBase {
         composeIdCore("fhirVersion", element.getFhirVersionElement(), false);
         composeIdExtras("fhirVersion", element.getFhirVersionElement(), false);
       }
-      if (element.hasAcceptUnknownElement()) {
-        composeEnumerationCore("acceptUnknown", element.getAcceptUnknownElement(), new CapabilityStatement.UnknownContentCodeEnumFactory(), false);
-        composeEnumerationExtras("acceptUnknown", element.getAcceptUnknownElement(), new CapabilityStatement.UnknownContentCodeEnumFactory(), false);
-      }
       if (element.hasFormat()) {
         openArray("format");
         for (CodeType e : element.getFormat()) 
@@ -29236,32 +29212,6 @@ public class JsonParser extends JsonParserBase {
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
-      }
-      if (element.hasCertificate()) {
-        openArray("certificate");
-        for (CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent e : element.getCertificate()) 
-          composeCapabilityStatementCapabilityStatementRestSecurityCertificateComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeCapabilityStatementCapabilityStatementRestSecurityCertificateComponent(String name, CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeCapabilityStatementCapabilityStatementRestSecurityCertificateComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeCapabilityStatementCapabilityStatementRestSecurityCertificateComponentInner(CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeCodeCore("type", element.getTypeElement(), false);
-        composeCodeExtras("type", element.getTypeElement(), false);
-      }
-      if (element.hasBlobElement()) {
-        composeBase64BinaryCore("blob", element.getBlobElement(), false);
-        composeBase64BinaryExtras("blob", element.getBlobElement(), false);
       }
   }
 
@@ -46434,6 +46384,14 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
+      if (element.hasMultipleOrElement()) {
+        composeBooleanCore("multipleOr", element.getMultipleOrElement(), false);
+        composeBooleanExtras("multipleOr", element.getMultipleOrElement(), false);
+      }
+      if (element.hasMultipleAndElement()) {
+        composeBooleanCore("multipleAnd", element.getMultipleAndElement(), false);
+        composeBooleanExtras("multipleAnd", element.getMultipleAndElement(), false);
+      }
       if (element.hasComparator()) {
         openArray("comparator");
         for (Enumeration<SearchParameter.SearchComparator> e : element.getComparator()) 

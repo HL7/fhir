@@ -13,7 +13,6 @@
   <requirements value="A Decision Support actor must implement the requirements expressed in this conformance resource."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.2"/>
-  <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>
   <profile>

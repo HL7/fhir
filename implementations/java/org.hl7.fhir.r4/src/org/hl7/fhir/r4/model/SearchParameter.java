@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 18:45+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A search parameter that defines a named search item that can be used to search/filter on a resource.
  */
 @ResourceDef(name="SearchParameter", profile="http://hl7.org/fhir/Profile/SearchParameter")
-@ChildOrder(names={"url", "version", "name", "status", "experimental", "date", "publisher", "contact", "useContext", "jurisdiction", "purpose", "code", "base", "type", "derivedFrom", "description", "expression", "xpath", "xpathUsage", "target", "comparator", "modifier", "chain", "component"})
+@ChildOrder(names={"url", "version", "name", "status", "experimental", "date", "publisher", "contact", "useContext", "jurisdiction", "purpose", "code", "base", "type", "derivedFrom", "description", "expression", "xpath", "xpathUsage", "target", "multipleOr", "multipleAnd", "comparator", "modifier", "chain", "component"})
 public class SearchParameter extends MetadataResource {
 
     public enum XPathUsageType {
@@ -929,9 +929,23 @@ public class SearchParameter extends MetadataResource {
     protected List<CodeType> target;
 
     /**
+     * Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match.
+     */
+    @Child(name = "multipleOr", type = {BooleanType.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Allow multiple values per parameter (or)", formalDefinition="Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match." )
+    protected BooleanType multipleOr;
+
+    /**
+     * Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match.
+     */
+    @Child(name = "multipleAnd", type = {BooleanType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Allow multiple parameters (and)", formalDefinition="Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match." )
+    protected BooleanType multipleAnd;
+
+    /**
      * Comparators supported for the search parameter.
      */
-    @Child(name = "comparator", type = {CodeType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "comparator", type = {CodeType.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="eq | ne | gt | lt | ge | le | sa | eb | ap", formalDefinition="Comparators supported for the search parameter." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/search-comparator")
     protected List<Enumeration<SearchComparator>> comparator;
@@ -939,7 +953,7 @@ public class SearchParameter extends MetadataResource {
     /**
      * A modifier supported for the search parameter.
      */
-    @Child(name = "modifier", type = {CodeType.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "modifier", type = {CodeType.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="missing | exact | contains | not | text | in | not-in | below | above | type", formalDefinition="A modifier supported for the search parameter." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/search-modifier-code")
     protected List<Enumeration<SearchModifierCode>> modifier;
@@ -947,18 +961,18 @@ public class SearchParameter extends MetadataResource {
     /**
      * Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type.
      */
-    @Child(name = "chain", type = {StringType.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "chain", type = {StringType.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Chained names supported", formalDefinition="Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type." )
     protected List<StringType> chain;
 
     /**
      * Used to define the parts of a composite search parameter.
      */
-    @Child(name = "component", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "component", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="For Composite resources to define the parts", formalDefinition="Used to define the parts of a composite search parameter." )
     protected List<SearchParameterComponentComponent> component;
 
-    private static final long serialVersionUID = 302835049L;
+    private static final long serialVersionUID = 1646142475L;
 
   /**
    * Constructor
@@ -1969,6 +1983,96 @@ public class SearchParameter extends MetadataResource {
     }
 
     /**
+     * @return {@link #multipleOr} (Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match.). This is the underlying object with id, value and extensions. The accessor "getMultipleOr" gives direct access to the value
+     */
+    public BooleanType getMultipleOrElement() { 
+      if (this.multipleOr == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.multipleOr");
+        else if (Configuration.doAutoCreate())
+          this.multipleOr = new BooleanType(); // bb
+      return this.multipleOr;
+    }
+
+    public boolean hasMultipleOrElement() { 
+      return this.multipleOr != null && !this.multipleOr.isEmpty();
+    }
+
+    public boolean hasMultipleOr() { 
+      return this.multipleOr != null && !this.multipleOr.isEmpty();
+    }
+
+    /**
+     * @param value {@link #multipleOr} (Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match.). This is the underlying object with id, value and extensions. The accessor "getMultipleOr" gives direct access to the value
+     */
+    public SearchParameter setMultipleOrElement(BooleanType value) { 
+      this.multipleOr = value;
+      return this;
+    }
+
+    /**
+     * @return Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match.
+     */
+    public boolean getMultipleOr() { 
+      return this.multipleOr == null || this.multipleOr.isEmpty() ? false : this.multipleOr.getValue();
+    }
+
+    /**
+     * @param value Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match.
+     */
+    public SearchParameter setMultipleOr(boolean value) { 
+        if (this.multipleOr == null)
+          this.multipleOr = new BooleanType();
+        this.multipleOr.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #multipleAnd} (Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match.). This is the underlying object with id, value and extensions. The accessor "getMultipleAnd" gives direct access to the value
+     */
+    public BooleanType getMultipleAndElement() { 
+      if (this.multipleAnd == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.multipleAnd");
+        else if (Configuration.doAutoCreate())
+          this.multipleAnd = new BooleanType(); // bb
+      return this.multipleAnd;
+    }
+
+    public boolean hasMultipleAndElement() { 
+      return this.multipleAnd != null && !this.multipleAnd.isEmpty();
+    }
+
+    public boolean hasMultipleAnd() { 
+      return this.multipleAnd != null && !this.multipleAnd.isEmpty();
+    }
+
+    /**
+     * @param value {@link #multipleAnd} (Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match.). This is the underlying object with id, value and extensions. The accessor "getMultipleAnd" gives direct access to the value
+     */
+    public SearchParameter setMultipleAndElement(BooleanType value) { 
+      this.multipleAnd = value;
+      return this;
+    }
+
+    /**
+     * @return Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match.
+     */
+    public boolean getMultipleAnd() { 
+      return this.multipleAnd == null || this.multipleAnd.isEmpty() ? false : this.multipleAnd.getValue();
+    }
+
+    /**
+     * @param value Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match.
+     */
+    public SearchParameter setMultipleAnd(boolean value) { 
+        if (this.multipleAnd == null)
+          this.multipleAnd = new BooleanType();
+        this.multipleAnd.setValue(value);
+      return this;
+    }
+
+    /**
      * @return {@link #comparator} (Comparators supported for the search parameter.)
      */
     public List<Enumeration<SearchComparator>> getComparator() { 
@@ -2226,6 +2330,8 @@ public class SearchParameter extends MetadataResource {
         children.add(new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, 1, xpath));
         children.add(new Property("xpathUsage", "code", "How the search parameter relates to the set of elements returned by evaluating the xpath query.", 0, 1, xpathUsage));
         children.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
+        children.add(new Property("multipleOr", "boolean", "Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match.", 0, 1, multipleOr));
+        children.add(new Property("multipleAnd", "boolean", "Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match.", 0, 1, multipleAnd));
         children.add(new Property("comparator", "code", "Comparators supported for the search parameter.", 0, java.lang.Integer.MAX_VALUE, comparator));
         children.add(new Property("modifier", "code", "A modifier supported for the search parameter.", 0, java.lang.Integer.MAX_VALUE, modifier));
         children.add(new Property("chain", "string", "Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type.", 0, java.lang.Integer.MAX_VALUE, chain));
@@ -2255,6 +2361,8 @@ public class SearchParameter extends MetadataResource {
         case 114256029: /*xpath*/  return new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, 1, xpath);
         case 1801322244: /*xpathUsage*/  return new Property("xpathUsage", "code", "How the search parameter relates to the set of elements returned by evaluating the xpath query.", 0, 1, xpathUsage);
         case -880905839: /*target*/  return new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target);
+        case 1265069075: /*multipleOr*/  return new Property("multipleOr", "boolean", "Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match.", 0, 1, multipleOr);
+        case 562422183: /*multipleAnd*/  return new Property("multipleAnd", "boolean", "Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match.", 0, 1, multipleAnd);
         case -844673834: /*comparator*/  return new Property("comparator", "code", "Comparators supported for the search parameter.", 0, java.lang.Integer.MAX_VALUE, comparator);
         case -615513385: /*modifier*/  return new Property("modifier", "code", "A modifier supported for the search parameter.", 0, java.lang.Integer.MAX_VALUE, modifier);
         case 94623425: /*chain*/  return new Property("chain", "string", "Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference, and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type.", 0, java.lang.Integer.MAX_VALUE, chain);
@@ -2287,6 +2395,8 @@ public class SearchParameter extends MetadataResource {
         case 114256029: /*xpath*/ return this.xpath == null ? new Base[0] : new Base[] {this.xpath}; // StringType
         case 1801322244: /*xpathUsage*/ return this.xpathUsage == null ? new Base[0] : new Base[] {this.xpathUsage}; // Enumeration<XPathUsageType>
         case -880905839: /*target*/ return this.target == null ? new Base[0] : this.target.toArray(new Base[this.target.size()]); // CodeType
+        case 1265069075: /*multipleOr*/ return this.multipleOr == null ? new Base[0] : new Base[] {this.multipleOr}; // BooleanType
+        case 562422183: /*multipleAnd*/ return this.multipleAnd == null ? new Base[0] : new Base[] {this.multipleAnd}; // BooleanType
         case -844673834: /*comparator*/ return this.comparator == null ? new Base[0] : this.comparator.toArray(new Base[this.comparator.size()]); // Enumeration<SearchComparator>
         case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // Enumeration<SearchModifierCode>
         case 94623425: /*chain*/ return this.chain == null ? new Base[0] : this.chain.toArray(new Base[this.chain.size()]); // StringType
@@ -2362,6 +2472,12 @@ public class SearchParameter extends MetadataResource {
         case -880905839: // target
           this.getTarget().add(castToCode(value)); // CodeType
           return value;
+        case 1265069075: // multipleOr
+          this.multipleOr = castToBoolean(value); // BooleanType
+          return value;
+        case 562422183: // multipleAnd
+          this.multipleAnd = castToBoolean(value); // BooleanType
+          return value;
         case -844673834: // comparator
           value = new SearchComparatorEnumFactory().fromType(castToCode(value));
           this.getComparator().add((Enumeration) value); // Enumeration<SearchComparator>
@@ -2426,6 +2542,10 @@ public class SearchParameter extends MetadataResource {
           this.xpathUsage = (Enumeration) value; // Enumeration<XPathUsageType>
         } else if (name.equals("target")) {
           this.getTarget().add(castToCode(value));
+        } else if (name.equals("multipleOr")) {
+          this.multipleOr = castToBoolean(value); // BooleanType
+        } else if (name.equals("multipleAnd")) {
+          this.multipleAnd = castToBoolean(value); // BooleanType
         } else if (name.equals("comparator")) {
           value = new SearchComparatorEnumFactory().fromType(castToCode(value));
           this.getComparator().add((Enumeration) value);
@@ -2464,6 +2584,8 @@ public class SearchParameter extends MetadataResource {
         case 114256029:  return getXpathElement();
         case 1801322244:  return getXpathUsageElement();
         case -880905839:  return addTargetElement();
+        case 1265069075:  return getMultipleOrElement();
+        case 562422183:  return getMultipleAndElement();
         case -844673834:  return addComparatorElement();
         case -615513385:  return addModifierElement();
         case 94623425:  return addChainElement();
@@ -2496,6 +2618,8 @@ public class SearchParameter extends MetadataResource {
         case 114256029: /*xpath*/ return new String[] {"string"};
         case 1801322244: /*xpathUsage*/ return new String[] {"code"};
         case -880905839: /*target*/ return new String[] {"code"};
+        case 1265069075: /*multipleOr*/ return new String[] {"boolean"};
+        case 562422183: /*multipleAnd*/ return new String[] {"boolean"};
         case -844673834: /*comparator*/ return new String[] {"code"};
         case -615513385: /*modifier*/ return new String[] {"code"};
         case 94623425: /*chain*/ return new String[] {"string"};
@@ -2567,6 +2691,12 @@ public class SearchParameter extends MetadataResource {
         else if (name.equals("target")) {
           throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.target");
         }
+        else if (name.equals("multipleOr")) {
+          throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.multipleOr");
+        }
+        else if (name.equals("multipleAnd")) {
+          throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.multipleAnd");
+        }
         else if (name.equals("comparator")) {
           throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.comparator");
         }
@@ -2631,6 +2761,8 @@ public class SearchParameter extends MetadataResource {
           for (CodeType i : target)
             dst.target.add(i.copy());
         };
+        dst.multipleOr = multipleOr == null ? null : multipleOr.copy();
+        dst.multipleAnd = multipleAnd == null ? null : multipleAnd.copy();
         if (comparator != null) {
           dst.comparator = new ArrayList<Enumeration<SearchComparator>>();
           for (Enumeration<SearchComparator> i : comparator)
@@ -2668,6 +2800,7 @@ public class SearchParameter extends MetadataResource {
         return compareDeep(purpose, o.purpose, true) && compareDeep(code, o.code, true) && compareDeep(base, o.base, true)
            && compareDeep(type, o.type, true) && compareDeep(derivedFrom, o.derivedFrom, true) && compareDeep(expression, o.expression, true)
            && compareDeep(xpath, o.xpath, true) && compareDeep(xpathUsage, o.xpathUsage, true) && compareDeep(target, o.target, true)
+           && compareDeep(multipleOr, o.multipleOr, true) && compareDeep(multipleAnd, o.multipleAnd, true)
            && compareDeep(comparator, o.comparator, true) && compareDeep(modifier, o.modifier, true) && compareDeep(chain, o.chain, true)
            && compareDeep(component, o.component, true);
       }
@@ -2681,14 +2814,15 @@ public class SearchParameter extends MetadataResource {
         SearchParameter o = (SearchParameter) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(code, o.code, true) && compareValues(base, o.base, true)
            && compareValues(type, o.type, true) && compareValues(expression, o.expression, true) && compareValues(xpath, o.xpath, true)
-           && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true) && compareValues(comparator, o.comparator, true)
+           && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true) && compareValues(multipleOr, o.multipleOr, true)
+           && compareValues(multipleAnd, o.multipleAnd, true) && compareValues(comparator, o.comparator, true)
            && compareValues(modifier, o.modifier, true) && compareValues(chain, o.chain, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, code, base, type
-          , derivedFrom, expression, xpath, xpathUsage, target, comparator, modifier, chain
-          , component);
+          , derivedFrom, expression, xpath, xpathUsage, target, multipleOr, multipleAnd
+          , comparator, modifier, chain, component);
       }
 
   @Override

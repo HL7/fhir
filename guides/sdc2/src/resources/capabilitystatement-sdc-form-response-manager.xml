@@ -156,7 +156,6 @@
   <kind value="requirements"/>
   <instantiates value="http://hl7.org/fhir/us/sdc/CapabilityStatement/sdc-form-manager"/>
   <fhirVersion value="1.0.0"/>
-  <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>
   <rest>

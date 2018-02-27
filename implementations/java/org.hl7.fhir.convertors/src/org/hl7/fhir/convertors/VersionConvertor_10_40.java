@@ -4092,7 +4092,7 @@ public class VersionConvertor_10_40 {
     tgt.setSoftware(convertConformanceSoftwareComponent(src.getSoftware()));
     tgt.setImplementation(convertConformanceImplementationComponent(src.getImplementation()));
     tgt.setFhirVersion(src.getFhirVersion());
-    tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
+//    tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.dstu2.model.CodeType t : src.getFormat())
       tgt.addFormat(t.getValue());
 //    for (org.hl7.fhir.dstu2.model.Reference t : src.getProfile())
@@ -4130,7 +4130,7 @@ public class VersionConvertor_10_40 {
     if (src.hasImplementation())
       tgt.setImplementation(convertConformanceImplementationComponent(src.getImplementation()));
     tgt.setFhirVersion(src.getFhirVersion());
-    tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
+//    tgt.setAcceptUnknown(convertUnknownContentCode(src.getAcceptUnknown()));
     for (org.hl7.fhir.r4.model.CodeType t : src.getFormat())
       tgt.addFormat(t.getValue());
     for (CapabilityStatementRestComponent r : src.getRest())
@@ -4168,29 +4168,29 @@ public class VersionConvertor_10_40 {
     }
   }
 
-  public org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode convertUnknownContentCode(org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case NO: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.NO;
-    case EXTENSIONS: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.EXTENSIONS;
-    case ELEMENTS: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.ELEMENTS;
-    case BOTH: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.BOTH;
-    default: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.NULL;
-    }
-  }
-
-  public org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode convertUnknownContentCode(org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case NO: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.NO;
-    case EXTENSIONS: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.EXTENSIONS;
-    case ELEMENTS: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.ELEMENTS;
-    case BOTH: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.BOTH;
-    default: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.NULL;
-    }
-  }
+//  public org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode convertUnknownContentCode(org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case NO: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.NO;
+//    case EXTENSIONS: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.EXTENSIONS;
+//    case ELEMENTS: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.ELEMENTS;
+//    case BOTH: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.BOTH;
+//    default: return org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode.NULL;
+//    }
+//  }
+//
+//  public org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode convertUnknownContentCode(org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case NO: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.NO;
+//    case EXTENSIONS: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.EXTENSIONS;
+//    case ELEMENTS: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.ELEMENTS;
+//    case BOTH: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.BOTH;
+//    default: return org.hl7.fhir.dstu2.model.Conformance.UnknownContentCode.NULL;
+//    }
+//  }
 
   public org.hl7.fhir.r4.model.ContactDetail convertConformanceContactComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceContactComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -4342,8 +4342,6 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getService())
       tgt.addService(convertCodeableConcept(t));
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent t : src.getCertificate())
-      tgt.addCertificate(convertConformanceRestSecurityCertificateComponent(t));
     return tgt;
   }
 
@@ -4356,28 +4354,6 @@ public class VersionConvertor_10_40 {
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getService())
       tgt.addService(convertCodeableConcept(t));
     tgt.setDescription(src.getDescription());
-    for (org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent t : src.getCertificate())
-      tgt.addCertificate(convertConformanceRestSecurityCertificateComponent(t));
-    return tgt;
-  }
-
-  public org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent convertConformanceRestSecurityCertificateComponent(org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent tgt = new org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent();
-    copyElement(src, tgt);
-    tgt.setType(src.getType());
-    tgt.setBlob(src.getBlob());
-    return tgt;
-  }
-
-  public org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent convertConformanceRestSecurityCertificateComponent(org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent tgt = new org.hl7.fhir.dstu2.model.Conformance.ConformanceRestSecurityCertificateComponent();
-    copyElement(src, tgt);
-    tgt.setType(src.getType());
-    tgt.setBlob(src.getBlob());
     return tgt;
   }
 

@@ -13,7 +13,6 @@
   <requirements value="An Order Evaluation Requestor actor must implement the requirements expressed in this conformance resource."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.2"/>
-  <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>
   <profile>

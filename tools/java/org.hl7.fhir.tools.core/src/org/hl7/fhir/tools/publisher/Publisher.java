@@ -137,7 +137,6 @@ import org.hl7.fhir.r4.model.CapabilityStatement.RestfulCapabilityMode;
 import org.hl7.fhir.r4.model.CapabilityStatement.SystemInteractionComponent;
 import org.hl7.fhir.r4.model.CapabilityStatement.SystemRestfulInteraction;
 import org.hl7.fhir.r4.model.CapabilityStatement.TypeRestfulInteraction;
-import org.hl7.fhir.r4.model.CapabilityStatement.UnknownContentCode;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeableConcept;
@@ -1528,7 +1527,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     cpbs.setSoftware(new CapabilityStatementSoftwareComponent());
     cpbs.getSoftware().setName("Insert your softwware name here...");
     cpbs.setFhirVersion(page.getVersion());
-    cpbs.setAcceptUnknown(full ? UnknownContentCode.BOTH : UnknownContentCode.NO);
     cpbs.getFormat().add(Factory.newCode("xml"));
     cpbs.getFormat().add(Factory.newCode("json"));
     CapabilityStatementRestComponent rest = new CapabilityStatement.CapabilityStatementRestComponent();

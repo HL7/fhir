@@ -744,6 +744,8 @@ public class SpreadsheetParser {
 //          throw new Exception("Search Param "+pack.getTitle()+"/"+n+" must be all lowercase "+ getLocation(row));
         sp.setName(n);
         sp.setCode(n);
+        sp.setMultipleAnd(true);
+        sp.setMultipleOr(true);
 
         if (pack.getProfiles().size() > 0 && pack.getProfiles().get(0).getResource() != null) {
           sp.setStatus(pack.getProfiles().get(0).getResource().getStatus());

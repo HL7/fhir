@@ -1057,6 +1057,8 @@ public class ProfileGenerator {
       sp.setCode(spd.getCode());
       sp.setDate(genDate.getTime());
       sp.setPublisher(p.getPublisher());
+      sp.setMultipleAnd(true);
+      sp.setMultipleOr(true);
       for (ContactDetail tc : p.getContact()) {
         ContactDetail t = sp.addContact();
         if (tc.hasNameElement())
@@ -1084,6 +1086,7 @@ public class ProfileGenerator {
         for (CompositeDefinition cs : spd.getComposites()) {
           sp.addComponent().setExpression(cs.getExpression()).setDefinition("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs.getDefinition());
         }
+        sp.setMultipleOr(false);
       } 
       sp.addBase(p.getType());
     } else {

@@ -17,11 +17,6 @@
       "message": "The code provided (http://acme.com/labs/reports#GHP) is not  valid in the value set LOINC Diagnostic Report Codes"
     },
     {
-      "hash": "#|http://acme.com/labs/reports|null|bchem2|Specialist Biochemistry",
-      "severity": "error",
-      "message": "The code provided (http://acme.com/labs/reports#bchem2) is not  valid in the value set LOINC Diagnostic Report Codes"
-    },
-    {
       "hash": "#|http://loinc.org|null|13303-3|HLA-A+​B+​C (class I) [Type]",
       "severity": "warning",
       "message": "The display \"HLA-A+​B+​C (class I) [Type]\" is not a valid display for the code {http://loinc.org}13303-3",

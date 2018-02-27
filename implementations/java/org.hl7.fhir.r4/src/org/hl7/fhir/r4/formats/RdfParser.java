@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 18:45+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -2389,8 +2389,6 @@ public class RdfParser extends RdfParserBase {
       composeCapabilityStatementCapabilityStatementImplementationComponent(t, "CapabilityStatement", "implementation", element.getImplementation(), -1);
     if (element.hasFhirVersionElement())
       composeId(t, "CapabilityStatement", "fhirVersion", element.getFhirVersionElement(), -1);
-    if (element.hasAcceptUnknownElement())
-      composeEnum(t, "CapabilityStatement", "acceptUnknown", element.getAcceptUnknownElement(), -1);
     for (int i = 0; i < element.getFormat().size(); i++)
       composeCode(t, "CapabilityStatement", "format", element.getFormat().get(i), i);
     for (int i = 0; i < element.getPatchFormat().size(); i++)
@@ -2483,24 +2481,6 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "CapabilityStatement", "service", element.getService().get(i), i);
     if (element.hasDescriptionElement())
       composeString(t, "CapabilityStatement", "description", element.getDescriptionElement(), -1);
-    for (int i = 0; i < element.getCertificate().size(); i++)
-      composeCapabilityStatementCapabilityStatementRestSecurityCertificateComponent(t, "CapabilityStatement", "certificate", element.getCertificate().get(i), i);
-  }
-
-  protected void composeCapabilityStatementCapabilityStatementRestSecurityCertificateComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestSecurityCertificateComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "certificate", name, element, index);
-    if (element.hasTypeElement())
-      composeCode(t, "CapabilityStatement", "type", element.getTypeElement(), -1);
-    if (element.hasBlobElement())
-      composeBase64Binary(t, "CapabilityStatement", "blob", element.getBlobElement(), -1);
   }
 
   protected void composeCapabilityStatementCapabilityStatementRestResourceComponent(Complex parent, String parentType, String name, CapabilityStatement.CapabilityStatementRestResourceComponent element, int index) {
@@ -12805,6 +12785,10 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "SearchParameter", "xpathUsage", element.getXpathUsageElement(), -1);
     for (int i = 0; i < element.getTarget().size(); i++)
       composeCode(t, "SearchParameter", "target", element.getTarget().get(i), i);
+    if (element.hasMultipleOrElement())
+      composeBoolean(t, "SearchParameter", "multipleOr", element.getMultipleOrElement(), -1);
+    if (element.hasMultipleAndElement())
+      composeBoolean(t, "SearchParameter", "multipleAnd", element.getMultipleAndElement(), -1);
     for (int i = 0; i < element.getComparator().size(); i++)
       composeEnum(t, "SearchParameter", "comparator", element.getComparator().get(i), i);
     for (int i = 0; i < element.getModifier().size(); i++)

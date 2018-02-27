@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 13:09+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 18:45+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
  */
 @ResourceDef(name="CapabilityStatement", profile="http://hl7.org/fhir/Profile/CapabilityStatement")
-@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "software", "implementation", "fhirVersion", "acceptUnknown", "format", "patchFormat", "implementationGuide", "rest", "messaging", "document"})
+@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "kind", "instantiates", "software", "implementation", "fhirVersion", "format", "patchFormat", "implementationGuide", "rest", "messaging", "document"})
 public class CapabilityStatement extends MetadataResource implements IBaseConformance {
 
     public enum CapabilityStatementKind {
@@ -154,130 +154,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       return "?";
       }
     public String toSystem(CapabilityStatementKind code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum UnknownContentCode {
-        /**
-         * The application does not accept either unknown elements or extensions.
-         */
-        NO, 
-        /**
-         * The application accepts unknown extensions, but not unknown elements.
-         */
-        EXTENSIONS, 
-        /**
-         * The application accepts unknown elements, but not unknown extensions.
-         */
-        ELEMENTS, 
-        /**
-         * The application accepts unknown elements and extensions.
-         */
-        BOTH, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static UnknownContentCode fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("no".equals(codeString))
-          return NO;
-        if ("extensions".equals(codeString))
-          return EXTENSIONS;
-        if ("elements".equals(codeString))
-          return ELEMENTS;
-        if ("both".equals(codeString))
-          return BOTH;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown UnknownContentCode code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case NO: return "no";
-            case EXTENSIONS: return "extensions";
-            case ELEMENTS: return "elements";
-            case BOTH: return "both";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case NO: return "http://hl7.org/fhir/unknown-content-code";
-            case EXTENSIONS: return "http://hl7.org/fhir/unknown-content-code";
-            case ELEMENTS: return "http://hl7.org/fhir/unknown-content-code";
-            case BOTH: return "http://hl7.org/fhir/unknown-content-code";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case NO: return "The application does not accept either unknown elements or extensions.";
-            case EXTENSIONS: return "The application accepts unknown extensions, but not unknown elements.";
-            case ELEMENTS: return "The application accepts unknown elements, but not unknown extensions.";
-            case BOTH: return "The application accepts unknown elements and extensions.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case NO: return "Neither Elements or Extensions";
-            case EXTENSIONS: return "Unknown Extensions";
-            case ELEMENTS: return "Unknown Elements";
-            case BOTH: return "Unknown Elements and Extensions";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class UnknownContentCodeEnumFactory implements EnumFactory<UnknownContentCode> {
-    public UnknownContentCode fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("no".equals(codeString))
-          return UnknownContentCode.NO;
-        if ("extensions".equals(codeString))
-          return UnknownContentCode.EXTENSIONS;
-        if ("elements".equals(codeString))
-          return UnknownContentCode.ELEMENTS;
-        if ("both".equals(codeString))
-          return UnknownContentCode.BOTH;
-        throw new IllegalArgumentException("Unknown UnknownContentCode code '"+codeString+"'");
-        }
-        public Enumeration<UnknownContentCode> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<UnknownContentCode>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("no".equals(codeString))
-          return new Enumeration<UnknownContentCode>(this, UnknownContentCode.NO);
-        if ("extensions".equals(codeString))
-          return new Enumeration<UnknownContentCode>(this, UnknownContentCode.EXTENSIONS);
-        if ("elements".equals(codeString))
-          return new Enumeration<UnknownContentCode>(this, UnknownContentCode.ELEMENTS);
-        if ("both".equals(codeString))
-          return new Enumeration<UnknownContentCode>(this, UnknownContentCode.BOTH);
-        throw new FHIRException("Unknown UnknownContentCode code '"+codeString+"'");
-        }
-    public String toCode(UnknownContentCode code) {
-      if (code == UnknownContentCode.NO)
-        return "no";
-      if (code == UnknownContentCode.EXTENSIONS)
-        return "extensions";
-      if (code == UnknownContentCode.ELEMENTS)
-        return "elements";
-      if (code == UnknownContentCode.BOTH)
-        return "both";
-      return "?";
-      }
-    public String toSystem(UnknownContentCode code) {
       return code.getSystem();
       }
     }
@@ -2660,14 +2536,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         @Description(shortDefinition="General description of how security works", formalDefinition="General description of how security works." )
         protected StringType description;
 
-        /**
-         * Certificates associated with security profiles.
-         */
-        @Child(name = "certificate", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Certificates associated with security profiles", formalDefinition="Certificates associated with security profiles." )
-        protected List<CapabilityStatementRestSecurityCertificateComponent> certificate;
-
-        private static final long serialVersionUID = 1081654002L;
+        private static final long serialVersionUID = 253997386L;
 
     /**
      * Constructor
@@ -2823,65 +2692,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return this;
         }
 
-        /**
-         * @return {@link #certificate} (Certificates associated with security profiles.)
-         */
-        public List<CapabilityStatementRestSecurityCertificateComponent> getCertificate() { 
-          if (this.certificate == null)
-            this.certificate = new ArrayList<CapabilityStatementRestSecurityCertificateComponent>();
-          return this.certificate;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public CapabilityStatementRestSecurityComponent setCertificate(List<CapabilityStatementRestSecurityCertificateComponent> theCertificate) { 
-          this.certificate = theCertificate;
-          return this;
-        }
-
-        public boolean hasCertificate() { 
-          if (this.certificate == null)
-            return false;
-          for (CapabilityStatementRestSecurityCertificateComponent item : this.certificate)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public CapabilityStatementRestSecurityCertificateComponent addCertificate() { //3
-          CapabilityStatementRestSecurityCertificateComponent t = new CapabilityStatementRestSecurityCertificateComponent();
-          if (this.certificate == null)
-            this.certificate = new ArrayList<CapabilityStatementRestSecurityCertificateComponent>();
-          this.certificate.add(t);
-          return t;
-        }
-
-        public CapabilityStatementRestSecurityComponent addCertificate(CapabilityStatementRestSecurityCertificateComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.certificate == null)
-            this.certificate = new ArrayList<CapabilityStatementRestSecurityCertificateComponent>();
-          this.certificate.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #certificate}, creating it if it does not already exist
-         */
-        public CapabilityStatementRestSecurityCertificateComponent getCertificateFirstRep() { 
-          if (getCertificate().isEmpty()) {
-            addCertificate();
-          }
-          return getCertificate().get(0);
-        }
-
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("cors", "boolean", "Server adds CORS headers when responding to requests - this enables javascript applications to use the server.", 0, 1, cors));
           children.add(new Property("service", "CodeableConcept", "Types of security services that are supported/required by the system.", 0, java.lang.Integer.MAX_VALUE, service));
           children.add(new Property("description", "string", "General description of how security works.", 0, 1, description));
-          children.add(new Property("certificate", "", "Certificates associated with security profiles.", 0, java.lang.Integer.MAX_VALUE, certificate));
         }
 
         @Override
@@ -2890,7 +2705,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           case 3059629: /*cors*/  return new Property("cors", "boolean", "Server adds CORS headers when responding to requests - this enables javascript applications to use the server.", 0, 1, cors);
           case 1984153269: /*service*/  return new Property("service", "CodeableConcept", "Types of security services that are supported/required by the system.", 0, java.lang.Integer.MAX_VALUE, service);
           case -1724546052: /*description*/  return new Property("description", "string", "General description of how security works.", 0, 1, description);
-          case 1952399767: /*certificate*/  return new Property("certificate", "", "Certificates associated with security profiles.", 0, java.lang.Integer.MAX_VALUE, certificate);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2902,7 +2716,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 3059629: /*cors*/ return this.cors == null ? new Base[0] : new Base[] {this.cors}; // BooleanType
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : this.service.toArray(new Base[this.service.size()]); // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case 1952399767: /*certificate*/ return this.certificate == null ? new Base[0] : this.certificate.toArray(new Base[this.certificate.size()]); // CapabilityStatementRestSecurityCertificateComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2920,9 +2733,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case -1724546052: // description
           this.description = castToString(value); // StringType
           return value;
-        case 1952399767: // certificate
-          this.getCertificate().add((CapabilityStatementRestSecurityCertificateComponent) value); // CapabilityStatementRestSecurityCertificateComponent
-          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -2936,8 +2746,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.getService().add(castToCodeableConcept(value));
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        } else if (name.equals("certificate")) {
-          this.getCertificate().add((CapabilityStatementRestSecurityCertificateComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -2949,7 +2757,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 3059629:  return getCorsElement();
         case 1984153269:  return addService(); 
         case -1724546052:  return getDescriptionElement();
-        case 1952399767:  return addCertificate(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2961,7 +2768,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 3059629: /*cors*/ return new String[] {"boolean"};
         case 1984153269: /*service*/ return new String[] {"CodeableConcept"};
         case -1724546052: /*description*/ return new String[] {"string"};
-        case 1952399767: /*certificate*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2978,9 +2784,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.description");
         }
-        else if (name.equals("certificate")) {
-          return addCertificate();
-        }
         else
           return super.addChild(name);
       }
@@ -2995,11 +2798,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
             dst.service.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
-        if (certificate != null) {
-          dst.certificate = new ArrayList<CapabilityStatementRestSecurityCertificateComponent>();
-          for (CapabilityStatementRestSecurityCertificateComponent i : certificate)
-            dst.certificate.add(i.copy());
-        };
         return dst;
       }
 
@@ -3011,7 +2809,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return false;
         CapabilityStatementRestSecurityComponent o = (CapabilityStatementRestSecurityComponent) other_;
         return compareDeep(cors, o.cors, true) && compareDeep(service, o.service, true) && compareDeep(description, o.description, true)
-           && compareDeep(certificate, o.certificate, true);
+          ;
       }
 
       @Override
@@ -3026,256 +2824,11 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(cors, service, description
-          , certificate);
+          );
       }
 
   public String fhirType() {
     return "CapabilityStatement.rest.security";
-
-  }
-
-  }
-
-    @Block()
-    public static class CapabilityStatementRestSecurityCertificateComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Mime type for a certificate.
-         */
-        @Child(name = "type", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Mime type for certificates", formalDefinition="Mime type for a certificate." )
-        protected CodeType type;
-
-        /**
-         * Actual certificate.
-         */
-        @Child(name = "blob", type = {Base64BinaryType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Actual certificate", formalDefinition="Actual certificate." )
-        protected Base64BinaryType blob;
-
-        private static final long serialVersionUID = 2092655854L;
-
-    /**
-     * Constructor
-     */
-      public CapabilityStatementRestSecurityCertificateComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #type} (Mime type for a certificate.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
-         */
-        public CodeType getTypeElement() { 
-          if (this.type == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CapabilityStatementRestSecurityCertificateComponent.type");
-            else if (Configuration.doAutoCreate())
-              this.type = new CodeType(); // bb
-          return this.type;
-        }
-
-        public boolean hasTypeElement() { 
-          return this.type != null && !this.type.isEmpty();
-        }
-
-        public boolean hasType() { 
-          return this.type != null && !this.type.isEmpty();
-        }
-
-        /**
-         * @param value {@link #type} (Mime type for a certificate.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
-         */
-        public CapabilityStatementRestSecurityCertificateComponent setTypeElement(CodeType value) { 
-          this.type = value;
-          return this;
-        }
-
-        /**
-         * @return Mime type for a certificate.
-         */
-        public String getType() { 
-          return this.type == null ? null : this.type.getValue();
-        }
-
-        /**
-         * @param value Mime type for a certificate.
-         */
-        public CapabilityStatementRestSecurityCertificateComponent setType(String value) { 
-          if (Utilities.noString(value))
-            this.type = null;
-          else {
-            if (this.type == null)
-              this.type = new CodeType();
-            this.type.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #blob} (Actual certificate.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
-         */
-        public Base64BinaryType getBlobElement() { 
-          if (this.blob == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CapabilityStatementRestSecurityCertificateComponent.blob");
-            else if (Configuration.doAutoCreate())
-              this.blob = new Base64BinaryType(); // bb
-          return this.blob;
-        }
-
-        public boolean hasBlobElement() { 
-          return this.blob != null && !this.blob.isEmpty();
-        }
-
-        public boolean hasBlob() { 
-          return this.blob != null && !this.blob.isEmpty();
-        }
-
-        /**
-         * @param value {@link #blob} (Actual certificate.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
-         */
-        public CapabilityStatementRestSecurityCertificateComponent setBlobElement(Base64BinaryType value) { 
-          this.blob = value;
-          return this;
-        }
-
-        /**
-         * @return Actual certificate.
-         */
-        public byte[] getBlob() { 
-          return this.blob == null ? null : this.blob.getValue();
-        }
-
-        /**
-         * @param value Actual certificate.
-         */
-        public CapabilityStatementRestSecurityCertificateComponent setBlob(byte[] value) { 
-          if (value == null)
-            this.blob = null;
-          else {
-            if (this.blob == null)
-              this.blob = new Base64BinaryType();
-            this.blob.setValue(value);
-          }
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("type", "code", "Mime type for a certificate.", 0, 1, type));
-          children.add(new Property("blob", "base64Binary", "Actual certificate.", 0, 1, blob));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 3575610: /*type*/  return new Property("type", "code", "Mime type for a certificate.", 0, 1, type);
-          case 3026845: /*blob*/  return new Property("blob", "base64Binary", "Actual certificate.", 0, 1, blob);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
-        case 3026845: /*blob*/ return this.blob == null ? new Base[0] : new Base[] {this.blob}; // Base64BinaryType
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3575610: // type
-          this.type = castToCode(value); // CodeType
-          return value;
-        case 3026845: // blob
-          this.blob = castToBase64Binary(value); // Base64BinaryType
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type")) {
-          this.type = castToCode(value); // CodeType
-        } else if (name.equals("blob")) {
-          this.blob = castToBase64Binary(value); // Base64BinaryType
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3575610:  return getTypeElement();
-        case 3026845:  return getBlobElement();
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3575610: /*type*/ return new String[] {"code"};
-        case 3026845: /*blob*/ return new String[] {"base64Binary"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("type")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.type");
-        }
-        else if (name.equals("blob")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.blob");
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public CapabilityStatementRestSecurityCertificateComponent copy() {
-        CapabilityStatementRestSecurityCertificateComponent dst = new CapabilityStatementRestSecurityCertificateComponent();
-        copyValues(dst);
-        dst.type = type == null ? null : type.copy();
-        dst.blob = blob == null ? null : blob.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other_) {
-        if (!super.equalsDeep(other_))
-          return false;
-        if (!(other_ instanceof CapabilityStatementRestSecurityCertificateComponent))
-          return false;
-        CapabilityStatementRestSecurityCertificateComponent o = (CapabilityStatementRestSecurityCertificateComponent) other_;
-        return compareDeep(type, o.type, true) && compareDeep(blob, o.blob, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other_) {
-        if (!super.equalsShallow(other_))
-          return false;
-        if (!(other_ instanceof CapabilityStatementRestSecurityCertificateComponent))
-          return false;
-        CapabilityStatementRestSecurityCertificateComponent o = (CapabilityStatementRestSecurityCertificateComponent) other_;
-        return compareValues(type, o.type, true) && compareValues(blob, o.blob, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, blob);
-      }
-
-  public String fhirType() {
-    return "CapabilityStatement.rest.security.certificate";
 
   }
 
@@ -7144,56 +6697,48 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     protected IdType fhirVersion;
 
     /**
-     * A code that indicates whether the application accepts unknown elements or extensions when reading resources.
-     */
-    @Child(name = "acceptUnknown", type = {CodeType.class}, order=7, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="no | extensions | elements | both", formalDefinition="A code that indicates whether the application accepts unknown elements or extensions when reading resources." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/unknown-content-code")
-    protected Enumeration<UnknownContentCode> acceptUnknown;
-
-    /**
      * A list of the formats supported by this implementation using their content types.
      */
-    @Child(name = "format", type = {CodeType.class}, order=8, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "format", type = {CodeType.class}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="formats supported (xml | json | ttl | mime type)", formalDefinition="A list of the formats supported by this implementation using their content types." )
     protected List<CodeType> format;
 
     /**
      * A list of the patch formats supported by this implementation using their content types.
      */
-    @Child(name = "patchFormat", type = {CodeType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "patchFormat", type = {CodeType.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Patch formats supported", formalDefinition="A list of the patch formats supported by this implementation using their content types." )
     protected List<CodeType> patchFormat;
 
     /**
      * A list of implementation guides that the server does (or should) support in their entirety.
      */
-    @Child(name = "implementationGuide", type = {CanonicalType.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "implementationGuide", type = {CanonicalType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Implementation guides supported", formalDefinition="A list of implementation guides that the server does (or should) support in their entirety." )
     protected List<CanonicalType> implementationGuide;
 
     /**
      * A definition of the restful capabilities of the solution, if any.
      */
-    @Child(name = "rest", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "rest", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If the endpoint is a RESTful one", formalDefinition="A definition of the restful capabilities of the solution, if any." )
     protected List<CapabilityStatementRestComponent> rest;
 
     /**
      * A description of the messaging capabilities of the solution.
      */
-    @Child(name = "messaging", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "messaging", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If messaging is supported", formalDefinition="A description of the messaging capabilities of the solution." )
     protected List<CapabilityStatementMessagingComponent> messaging;
 
     /**
      * A document definition.
      */
-    @Child(name = "document", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "document", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<CapabilityStatementDocumentComponent> document;
 
-    private static final long serialVersionUID = 780015323L;
+    private static final long serialVersionUID = -2010720074L;
 
   /**
    * Constructor
@@ -7205,13 +6750,12 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
   /**
    * Constructor
    */
-    public CapabilityStatement(Enumeration<PublicationStatus> status, DateTimeType date, Enumeration<CapabilityStatementKind> kind, IdType fhirVersion, Enumeration<UnknownContentCode> acceptUnknown) {
+    public CapabilityStatement(Enumeration<PublicationStatus> status, DateTimeType date, Enumeration<CapabilityStatementKind> kind, IdType fhirVersion) {
       super();
       this.status = status;
       this.date = date;
       this.kind = kind;
       this.fhirVersion = fhirVersion;
-      this.acceptUnknown = acceptUnknown;
     }
 
     /**
@@ -8100,51 +7644,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
     }
 
     /**
-     * @return {@link #acceptUnknown} (A code that indicates whether the application accepts unknown elements or extensions when reading resources.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
-     */
-    public Enumeration<UnknownContentCode> getAcceptUnknownElement() { 
-      if (this.acceptUnknown == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CapabilityStatement.acceptUnknown");
-        else if (Configuration.doAutoCreate())
-          this.acceptUnknown = new Enumeration<UnknownContentCode>(new UnknownContentCodeEnumFactory()); // bb
-      return this.acceptUnknown;
-    }
-
-    public boolean hasAcceptUnknownElement() { 
-      return this.acceptUnknown != null && !this.acceptUnknown.isEmpty();
-    }
-
-    public boolean hasAcceptUnknown() { 
-      return this.acceptUnknown != null && !this.acceptUnknown.isEmpty();
-    }
-
-    /**
-     * @param value {@link #acceptUnknown} (A code that indicates whether the application accepts unknown elements or extensions when reading resources.). This is the underlying object with id, value and extensions. The accessor "getAcceptUnknown" gives direct access to the value
-     */
-    public CapabilityStatement setAcceptUnknownElement(Enumeration<UnknownContentCode> value) { 
-      this.acceptUnknown = value;
-      return this;
-    }
-
-    /**
-     * @return A code that indicates whether the application accepts unknown elements or extensions when reading resources.
-     */
-    public UnknownContentCode getAcceptUnknown() { 
-      return this.acceptUnknown == null ? null : this.acceptUnknown.getValue();
-    }
-
-    /**
-     * @param value A code that indicates whether the application accepts unknown elements or extensions when reading resources.
-     */
-    public CapabilityStatement setAcceptUnknown(UnknownContentCode value) { 
-        if (this.acceptUnknown == null)
-          this.acceptUnknown = new Enumeration<UnknownContentCode>(new UnknownContentCodeEnumFactory());
-        this.acceptUnknown.setValue(value);
-      return this;
-    }
-
-    /**
      * @return {@link #format} (A list of the formats supported by this implementation using their content types.)
      */
     public List<CodeType> getFormat() { 
@@ -8507,7 +8006,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         children.add(new Property("software", "", "Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.", 0, 1, software));
         children.add(new Property("implementation", "", "Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, 1, implementation));
         children.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this capability statement is based.", 0, 1, fhirVersion));
-        children.add(new Property("acceptUnknown", "code", "A code that indicates whether the application accepts unknown elements or extensions when reading resources.", 0, 1, acceptUnknown));
         children.add(new Property("format", "code", "A list of the formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, format));
         children.add(new Property("patchFormat", "code", "A list of the patch formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, patchFormat));
         children.add(new Property("implementationGuide", "canonical(ImplementationGuide)", "A list of implementation guides that the server does (or should) support in their entirety.", 0, java.lang.Integer.MAX_VALUE, implementationGuide));
@@ -8538,7 +8036,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1319330215: /*software*/  return new Property("software", "", "Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation.", 0, 1, software);
         case 1683336114: /*implementation*/  return new Property("implementation", "", "Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program.", 0, 1, implementation);
         case 461006061: /*fhirVersion*/  return new Property("fhirVersion", "id", "The version of the FHIR specification on which this capability statement is based.", 0, 1, fhirVersion);
-        case -1862642142: /*acceptUnknown*/  return new Property("acceptUnknown", "code", "A code that indicates whether the application accepts unknown elements or extensions when reading resources.", 0, 1, acceptUnknown);
         case -1268779017: /*format*/  return new Property("format", "code", "A list of the formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, format);
         case 172338783: /*patchFormat*/  return new Property("patchFormat", "code", "A list of the patch formats supported by this implementation using their content types.", 0, java.lang.Integer.MAX_VALUE, patchFormat);
         case 156966506: /*implementationGuide*/  return new Property("implementationGuide", "canonical(ImplementationGuide)", "A list of implementation guides that the server does (or should) support in their entirety.", 0, java.lang.Integer.MAX_VALUE, implementationGuide);
@@ -8572,7 +8069,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1319330215: /*software*/ return this.software == null ? new Base[0] : new Base[] {this.software}; // CapabilityStatementSoftwareComponent
         case 1683336114: /*implementation*/ return this.implementation == null ? new Base[0] : new Base[] {this.implementation}; // CapabilityStatementImplementationComponent
         case 461006061: /*fhirVersion*/ return this.fhirVersion == null ? new Base[0] : new Base[] {this.fhirVersion}; // IdType
-        case -1862642142: /*acceptUnknown*/ return this.acceptUnknown == null ? new Base[0] : new Base[] {this.acceptUnknown}; // Enumeration<UnknownContentCode>
         case -1268779017: /*format*/ return this.format == null ? new Base[0] : this.format.toArray(new Base[this.format.size()]); // CodeType
         case 172338783: /*patchFormat*/ return this.patchFormat == null ? new Base[0] : this.patchFormat.toArray(new Base[this.patchFormat.size()]); // CodeType
         case 156966506: /*implementationGuide*/ return this.implementationGuide == null ? new Base[0] : this.implementationGuide.toArray(new Base[this.implementationGuide.size()]); // CanonicalType
@@ -8646,10 +8142,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 461006061: // fhirVersion
           this.fhirVersion = castToId(value); // IdType
           return value;
-        case -1862642142: // acceptUnknown
-          value = new UnknownContentCodeEnumFactory().fromType(castToCode(value));
-          this.acceptUnknown = (Enumeration) value; // Enumeration<UnknownContentCode>
-          return value;
         case -1268779017: // format
           this.getFormat().add(castToCode(value)); // CodeType
           return value;
@@ -8715,9 +8207,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           this.implementation = (CapabilityStatementImplementationComponent) value; // CapabilityStatementImplementationComponent
         } else if (name.equals("fhirVersion")) {
           this.fhirVersion = castToId(value); // IdType
-        } else if (name.equals("acceptUnknown")) {
-          value = new UnknownContentCodeEnumFactory().fromType(castToCode(value));
-          this.acceptUnknown = (Enumeration) value; // Enumeration<UnknownContentCode>
         } else if (name.equals("format")) {
           this.getFormat().add(castToCode(value));
         } else if (name.equals("patchFormat")) {
@@ -8757,7 +8246,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1319330215:  return getSoftware(); 
         case 1683336114:  return getImplementation(); 
         case 461006061:  return getFhirVersionElement();
-        case -1862642142:  return getAcceptUnknownElement();
         case -1268779017:  return addFormatElement();
         case 172338783:  return addPatchFormatElement();
         case 156966506:  return addImplementationGuideElement();
@@ -8791,7 +8279,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         case 1319330215: /*software*/ return new String[] {};
         case 1683336114: /*implementation*/ return new String[] {};
         case 461006061: /*fhirVersion*/ return new String[] {"id"};
-        case -1862642142: /*acceptUnknown*/ return new String[] {"code"};
         case -1268779017: /*format*/ return new String[] {"code"};
         case 172338783: /*patchFormat*/ return new String[] {"code"};
         case 156966506: /*implementationGuide*/ return new String[] {"canonical"};
@@ -8864,9 +8351,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("fhirVersion")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.fhirVersion");
         }
-        else if (name.equals("acceptUnknown")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.acceptUnknown");
-        }
         else if (name.equals("format")) {
           throw new FHIRException("Cannot call addChild on a primitive type CapabilityStatement.format");
         }
@@ -8932,7 +8416,6 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         dst.software = software == null ? null : software.copy();
         dst.implementation = implementation == null ? null : implementation.copy();
         dst.fhirVersion = fhirVersion == null ? null : fhirVersion.copy();
-        dst.acceptUnknown = acceptUnknown == null ? null : acceptUnknown.copy();
         if (format != null) {
           dst.format = new ArrayList<CodeType>();
           for (CodeType i : format)
@@ -8979,10 +8462,9 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         CapabilityStatement o = (CapabilityStatement) other_;
         return compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(kind, o.kind, true)
            && compareDeep(instantiates, o.instantiates, true) && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
-           && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(acceptUnknown, o.acceptUnknown, true)
-           && compareDeep(format, o.format, true) && compareDeep(patchFormat, o.patchFormat, true) && compareDeep(implementationGuide, o.implementationGuide, true)
-           && compareDeep(rest, o.rest, true) && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true)
-          ;
+           && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(format, o.format, true) && compareDeep(patchFormat, o.patchFormat, true)
+           && compareDeep(implementationGuide, o.implementationGuide, true) && compareDeep(rest, o.rest, true)
+           && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true);
       }
 
       @Override
@@ -8993,14 +8475,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           return false;
         CapabilityStatement o = (CapabilityStatement) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(kind, o.kind, true)
-           && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(acceptUnknown, o.acceptUnknown, true)
-           && compareValues(format, o.format, true) && compareValues(patchFormat, o.patchFormat, true);
+           && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(format, o.format, true) && compareValues(patchFormat, o.patchFormat, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, copyright, kind
-          , instantiates, software, implementation, fhirVersion, acceptUnknown, format, patchFormat
-          , implementationGuide, rest, messaging, document);
+          , instantiates, software, implementation, fhirVersion, format, patchFormat, implementationGuide
+          , rest, messaging, document);
       }
 
   @Override

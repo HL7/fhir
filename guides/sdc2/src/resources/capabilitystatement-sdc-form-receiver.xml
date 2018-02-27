@@ -52,7 +52,6 @@
   <description value="This profile defines the expected capabilities of the ''SDC Form Receiver'' role when conforming to the S&amp;I Framework's [[index|Structured Data Capture FHIR implementation guide]].  This role is responsible for accepting and processing completed and partially-completed forms."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>
-  <acceptUnknown value="extensions"/>
   <format value="xml"/>
   <format value="json"/>
   <rest>
