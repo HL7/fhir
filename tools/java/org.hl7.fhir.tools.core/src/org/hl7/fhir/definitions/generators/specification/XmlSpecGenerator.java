@@ -556,7 +556,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
           if (elem.hasBinding() && elem.getBinding().hasValueSet()) {
             ValueSet vs = resolveValueSet(elem.getBinding().getValueSet());
             if (vs != null)
-              write("<span style=\"color: navy\"><a href=\""+prefix+vs.getUserData("path")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--A--></span>");
+              write("<span style=\"color: navy\"><a href=\""+prefix+vs.getUserData("path")+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--A--></span>");
             else 
               write("<span style=\"color: navy\"><a href=\""+elem.getBinding().getValueSet().primitiveValue()+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a><!--B--></span>");          
           } else
@@ -639,23 +639,7 @@ public class XmlSpecGenerator extends OutputStreamWriter {
   }
 
   private ValueSet resolveValueSet(Type reference) {
-    //            else if (bs.getReference().startsWith("http://hl7.org/fhir")) {
-    //              if (bs.getReference().startsWith("http://hl7.org/fhir/v3/vs/")) {
-    //                AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference()); // night be null in a partial build
-    //                write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
-    //              } else if (bs.getReference().startsWith("http://hl7.org/fhir/v2/vs/")) {
-    //                  AtomEntry<ValueSet> vs = page.getValueSets().get(bs.getReference());
-    //                  write("<a href=\""+(vs == null ? "??" : vs.getLinks().get("path").replace(File.separatorChar, '/'))+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn())+ "</a>");
-    //              } else if (bs.getReference().startsWith("http://hl7.org/fhir/vs/")) {
-    //                BindingSpecification bs1 = page.getDefinitions().getBindingByReference("#"+bs.getReference().substring(23), bs);
-    //                if (bs1 != null)
-    //                  write("<a href=\""+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
-    //                else
-    //                  write("<a href=\"valueset-"+bs.getReference().substring(23)+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShortDefn()) + "</a>");
-    //              } else
-    //                throw new Exception("Internal reference "+bs.getReference()+" not handled yet");
-    // TODO Auto-generated method stub
-    return null;
+    return page.getValueSets().get(reference.primitiveValue());
   }
 
   private String tail(String path) {

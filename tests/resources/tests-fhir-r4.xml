@@ -769,6 +769,10 @@
 		<test inputfile="patient-example.xml"><expression>Patient.birthDate.extension('http://hl7.org/fhir/StructureDefinition/patient-birthTime1').empty()</expression><output type="boolean">true</output></test>
 	</group>
 
+	<group name="testDomainResource">
+		<test inputfile="questionnaire-example-gcs.xml"><expression>contained.all(('#'+id in (%resource.descendants().reference | %resource.descendants().as(canonical))) or descendants().where(reference = '#').exists() or descendants().where(as(canonical) = '#').exists())</expression><output type="boolean">true</output></test>
+	</group>
+  
 <!--
   <group name="testDollarResource">
 		testBoolean(patient(), patient().getManagingOrganization(), "Reference", "reference.startsWith('#').not() or (reference.substring(1).trace('url') in %resource.contained.id.trace('ids'))</expression><output type="boolean">true</output></test>

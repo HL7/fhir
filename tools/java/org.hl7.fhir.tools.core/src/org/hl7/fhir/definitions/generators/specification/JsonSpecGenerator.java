@@ -602,7 +602,7 @@ public class JsonSpecGenerator extends OutputStreamWriter {
       if (elem.hasBinding() && elem.getBinding().hasValueSet()) {
         ValueSet vs = resolveValueSet(elem.getBinding().getValueSet());
         if (vs != null)
-          write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+vs.getUserData("filename")+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
+          write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+prefix+vs.getUserData("path")+"\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");
         else if (elem.getBinding().getValueSet() instanceof CanonicalType)
           write("<span style=\"color: navy; opacity: 0.8\"><a href=\""+elem.getBinding().getValueSetCanonicalType().getValue()+".html\" style=\"color: navy\">" + Utilities.escapeXml(elem.getShort()) + "</a></span>");          
         else
@@ -631,12 +631,8 @@ public class JsonSpecGenerator extends OutputStreamWriter {
   }
 
   private ValueSet resolveValueSet(Type reference) {
-  //  String ref = reference.primitiveValue();
-  //  if (ref.startsWith("http://hl7.org/fhir")) 
-  //    return page.getValueSets().get(ref);
-  //  else 
-      return null;
-    }
+    return page.getValueSets().get(reference.primitiveValue());
+  }
 
   private String tail(String path) {
     return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;

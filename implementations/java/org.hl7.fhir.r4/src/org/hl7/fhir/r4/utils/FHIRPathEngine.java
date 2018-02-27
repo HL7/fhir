@@ -847,6 +847,7 @@ public class FHIRPathEngine {
     case Repeat: return checkParamCount(lexer, location, exp, 1);
     case Item: return checkParamCount(lexer, location, exp, 1);
     case As: return checkParamCount(lexer, location, exp, 1);
+    case OfType: return checkParamCount(lexer, location, exp, 1);
     case Is: return checkParamCount(lexer, location, exp, 1);
     case Single: return checkParamCount(lexer, location, exp, 0);
     case First: return checkParamCount(lexer, location, exp, 0);
@@ -969,6 +970,7 @@ public class FHIRPathEngine {
   }
 
   private TypeDetails executeType(ExecutionTypeContext context, TypeDetails focus, ExpressionNode exp, boolean atEntry) throws PathEngineException, DefinitionException {
+    System.out.println(exp.toString());
     TypeDetails result = new TypeDetails(null);
     switch (exp.getKind()) {
     case Name:
@@ -1890,6 +1892,10 @@ public class FHIRPathEngine {
       checkParamTypes(exp.getFunction().toCode(), paramTypes, new TypeDetails(CollectionStatus.SINGLETON, "string")); 
       return new TypeDetails(CollectionStatus.SINGLETON, exp.getParameters().get(0).getName());
     }
+    case OfType : { 
+      checkParamTypes(exp.getFunction().toCode(), paramTypes, new TypeDetails(CollectionStatus.SINGLETON, "string")); 
+      return new TypeDetails(CollectionStatus.SINGLETON, exp.getParameters().get(0).getName());
+    }
     case Is : {
       checkParamTypes(exp.getFunction().toCode(), paramTypes, new TypeDetails(CollectionStatus.SINGLETON, "string")); 
       return new TypeDetails(CollectionStatus.SINGLETON, "boolean"); 
@@ -2095,6 +2101,7 @@ public class FHIRPathEngine {
     case Repeat : return funcRepeat(context, focus, exp);
     case Item : return funcItem(context, focus, exp);
     case As : return funcAs(context, focus, exp);
+    case OfType : return funcAs(context, focus, exp);
     case Is : return funcIs(context, focus, exp);
     case Single : return funcSingle(context, focus, exp);
     case First : return funcFirst(context, focus, exp);
