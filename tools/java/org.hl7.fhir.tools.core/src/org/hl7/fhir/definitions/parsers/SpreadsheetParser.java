@@ -81,6 +81,7 @@ import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base64BinaryType;
 import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.CodeableConcept;
@@ -112,6 +113,7 @@ import org.hl7.fhir.r4.model.TimeType;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UnsignedIntType;
 import org.hl7.fhir.r4.model.UriType;
+import org.hl7.fhir.r4.model.UrlType;
 import org.hl7.fhir.r4.model.UuidType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
@@ -943,13 +945,13 @@ public class SpreadsheetParser {
               if (t == SearchType.reference) {
                 if (e == null && !forProfile && !sheet.hasColumn(row, "Target Types"))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" of type reference has wrong path "+ getLocation(row));
-                if (!forProfile && e != null && (!e.hasType("Reference")) && (!e.hasType("Resource")))
+                if (!forProfile && e != null && (!e.hasType("Reference")) && (!e.hasType("canonical")) && (!e.hasType("Resource")))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is reference, but the element type is "+e.typeCode());
               } else {
                 if (e != null && e.hasOnlyType("Reference"))
                   throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
                 if (t == SearchType.uri) {
-                  if (e != null && !(e.typeCode().equals("uri") | e.typeCode().equals("oid")))
+                  if (e != null && !(e.typeCode().equals("uri") | e.typeCode().equals("url") | e.typeCode().equals("oid")))
                     throw new Exception("Search Param "+root2.getName()+"/"+n+" wrong type. The search type is "+t.toString()+", but the element type is "+e.typeCode());
                 } else {
                   if (e != null && e.typeCode().equals("uri"))
@@ -1911,6 +1913,10 @@ public class SpreadsheetParser {
         return new InstantType(source);
       if (type.equals("uri"))
         return new UriType(source);
+      if (type.equals("url"))
+        return new UrlType(source);
+      if (type.equals("canonical"))
+        return new CanonicalType(source);
       if (type.equals("date"))
         return new DateType(source);
       if (type.equals("dateTime"))
@@ -2186,7 +2192,7 @@ public class SpreadsheetParser {
       if (exv.getTypes().size()>1) {
         exv.setName("valueReference");
         for (TypeRef t : exv.getTypes()) {
-          if (!t.getName().equals("Reference")) {
+          if (!t.getName().equals("Reference") && !t.getName().equals("canonical") ) {
             exv.setName("value[x]");
             break;
           }

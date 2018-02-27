@@ -43,8 +43,6 @@
 	<global>
 		<!-- all patients have to conform to daf-patient -->
 		<type value="Patient"/>
-		<profile>
-			<reference value="StructureDefinition/daf-patient"/>
-		</profile>
+		<profile value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
 	</global>
 </ImplementationGuideOutput>

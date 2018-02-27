@@ -299,6 +299,34 @@
       "entry-resource-bad1.xml" : {
           "errorCount": 0,
           "x-errors": ["Resource ID does not match the ID in the entry full URL"]
+      },
+      "reference-good.xml" : {
+          "validate" : "CHECK_EXISTS_AND_TYPE",
+          "errorCount": 0
+      },
+      "reference-bad.xml" : {
+          "validate" : "CHECK_EXISTS_AND_TYPE",
+          "errorCount": 1
+      },
+      "reference-good-contained.xml" : {
+          "validate" : "CHECK_EXISTS_AND_TYPE",
+          "errorCount": 0
+      },
+      "reference-good-typed.xml" : {
+          "validate" : "CHECK_EXISTS_AND_TYPE",
+          "errorCount": 0
+      },
+      "reference-good-logical.xml" : {
+          "validate" : "CHECK_EXISTS_AND_TYPE",
+          "errorCount": 0
+      },
+      "reference-bad-logical.xml" : {
+          "validate" : "CHECK_EXISTS_AND_TYPE",
+          "errorCount": 1
+      },
+      "reference-bad-typed.xml" : {
+          "validate" : "CHECK_EXISTS_AND_TYPE",
+          "errorCount": 1
       }
 		}
 	}

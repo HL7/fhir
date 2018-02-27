@@ -48,17 +48,13 @@
       <!-- used when generating invariants -->
       <acronym value="daf-tst"/>
       <sourceUri value="test.html"/>
-      <exampleFor>
-        <reference value="StructureDefinition/daf-patient"/>
-      </exampleFor>
+      <exampleFor value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
     </resource>
   </package>
   <global>
    <!-- all patients have to conform to daf-patient -->
    <type value="Patient"/>
-   <profile>
-     <reference value="StructureDefinition/daf-patient"/>
-   </profile>
+   <profile value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
   </global>
   <!-- standard FHIR stylesheet. This doesn't need to be an absolute HTTP reference, 
     but the publishing tool gets confused if it isn't  -->

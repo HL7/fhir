@@ -41,9 +41,7 @@
 <!--  profile - terminology servers may consider 
     supporting the shareable value set directly, but
     are not required. HL7 servers will
-  <profile>
-    <reference value="StructureDefinition/valueset-shareable-definition"/>  
-  </profile>   
+  <profile value="StructureDefinition/valueset-shareable-definition"/>  
    -->
   <rest>
     <mode value="server"/>
@@ -71,9 +69,7 @@
   <!--  value set. Must provide read and search  -->
     <resource>
       <type value="ValueSet"/>
-      <profile>
-        <reference value="StructureDefinition/ValueSet"/>
-      </profile>
+      <profile value="StructureDefinition/ValueSet"/>
       <interaction>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the value sets"/>
@@ -133,9 +129,7 @@
     </resource>
     <resource>
       <type value="ConceptMap"/>
-      <profile>
-        <reference value="StructureDefinition/ConceptMap"/>
-      </profile>
+      <profile value="StructureDefinition/ConceptMap"/>
       <interaction>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the concept maps"/>
@@ -202,33 +196,23 @@
       named services, though not necessarily actually these profiles  -->
     <operation>
       <name value="expand"/>
-      <definition>
-        <reference value="OperationDefinition/ValueSet-expand"/>
-      </definition>
+      <definition value="OperationDefinition/ValueSet-expand"/>
     </operation>
     <operation>
       <name value="lookup"/>
-      <definition>
-        <reference value="OperationDefinition/CodeSystem-lookup"/>
-      </definition>
+      <definition value="OperationDefinition/CodeSystem-lookup"/>
     </operation>
     <operation>
       <name value="validate-code"/>
-      <definition>
-        <reference value="OperationDefinition/ValueSet-validate-code"/>
-      </definition>
+      <definition value="OperationDefinition/ValueSet-validate-code"/>
     </operation>
     <operation>
       <name value="translate"/>
-      <definition>
-        <reference value="OperationDefinition/ConceptMap-translate"/>
-      </definition>
+      <definition value="OperationDefinition/ConceptMap-translate"/>
     </operation>
     <operation>
       <name value="closure"/>
-      <definition>
-        <reference value="OperationDefinition/ConceptMap-closure"/>
-      </definition>
+      <definition value="OperationDefinition/ConceptMap-closure"/>
     </operation>
   </rest>
 </CapabilityStatement>

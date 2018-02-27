@@ -124,8 +124,8 @@ public class ZipFetcher implements IFetchFile {
 
   @Override
   public FetchedFile fetch(Type source, FetchedFile src) throws Exception {
-    if (source instanceof Reference) {
-      String s = ((Reference)source).getReference();
+    if (source instanceof Reference || source instanceof CanonicalType) {
+      String s = source instanceof CanonicalType ? source.primitiveValue() : ((Reference)source).getReference();
       if (!s.contains("/"))
         throw new Exception("Bad Source Reference '"+s+"' - should have the format [Type]/[id]");
       String type = s.substring(0,  s.indexOf("/"));

@@ -135,6 +135,12 @@ public class TypeRef {
 		return name.equals("Reference") && !params.isEmpty();
 	}
 	
+  public boolean isCanonical()
+  {
+    // When the type is Reference(X), this is a resource reference
+    return name.equals("canonical") && !params.isEmpty();
+  }
+  
 	public boolean isContainedReference()
 	{
 		// When the type is Resource, it's a contained resource

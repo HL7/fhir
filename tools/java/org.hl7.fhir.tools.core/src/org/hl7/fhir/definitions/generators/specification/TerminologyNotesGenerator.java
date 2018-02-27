@@ -264,7 +264,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
   public static String describeBinding(String prefix, ElementDefinitionBindingComponent def, PageProcessor page) throws Exception {
     if (!def.hasValueSet()) 
       return def.getDescription();
-    String ref = def.getValueSet() instanceof UriType ? ((UriType) def.getValueSet()).asStringValue() : ((Reference) def.getValueSet()).getReference();
+    String ref = def.getValueSet().primitiveValue();
     ValueSet vs = page.getValueSets().get(ref);
     if (vs != null) {
       String pp = vs.hasUserData("external.url") ? vs.getUserString("external.url") : vs.getUserString("path");

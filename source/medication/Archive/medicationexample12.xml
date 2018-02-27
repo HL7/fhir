@@ -21,5 +21,6 @@
   <isBrand value="true"/>
   <manufacturer>
     <reference value="http://us.gsk.com/fhirresource/1" />
+    <type value="Organization"/>
   </manufacturer>
 </Medication>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1335,7 +1335,7 @@ public class ExplanationOfBenefit extends DomainResource {
          * Sequence of careteam which serves to order and provide a link.
          */
         @Child(name = "sequence", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Number to covey order of careteam", formalDefinition="Sequence of careteam which serves to order and provide a link." )
+        @Description(shortDefinition="Number to convey order of careteam", formalDefinition="Sequence of careteam which serves to order and provide a link." )
         protected PositiveIntType sequence;
 
         /**
@@ -1744,7 +1744,7 @@ public class ExplanationOfBenefit extends DomainResource {
          * Sequence of diagnosis which serves to provide a link.
          */
         @Child(name = "sequence", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Number to covey order of diagnosis", formalDefinition="Sequence of diagnosis which serves to provide a link." )
+        @Description(shortDefinition="Number to convey order of diagnosis", formalDefinition="Sequence of diagnosis which serves to provide a link." )
         protected PositiveIntType sequence;
 
         /**

@@ -21,6 +21,7 @@
   <isBrand value="true"/>
   <manufacturer>
     <reference value="http://www.tevacanada.com/fhirresource/1" />
+    <type value="Organization"/>
   </manufacturer>
   <product>
     <form>

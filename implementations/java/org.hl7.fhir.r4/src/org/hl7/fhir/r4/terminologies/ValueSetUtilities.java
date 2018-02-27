@@ -4,6 +4,7 @@ import javax.net.ssl.SSLEngineResult.HandshakeStatus;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.context.IWorkerContext;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.Identifier;
 import org.hl7.fhir.r4.model.Meta;
@@ -22,7 +23,7 @@ public class ValueSetUtilities {
     for (UriType t : vs.getMeta().getProfile()) 
       if (t.getValue().equals("http://hl7.org/fhir/StructureDefinition/shareablevalueset"))
         return vs;
-    vs.getMeta().getProfile().add(new UriType("http://hl7.org/fhir/StructureDefinition/shareablevalueset"));
+    vs.getMeta().getProfile().add(new CanonicalType("http://hl7.org/fhir/StructureDefinition/shareablevalueset"));
     return vs;
   }
 

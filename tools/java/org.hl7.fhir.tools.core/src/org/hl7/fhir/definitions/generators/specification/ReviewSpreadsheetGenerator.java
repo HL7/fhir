@@ -18,6 +18,7 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.r4.model.ElementDefinition;
@@ -40,7 +41,7 @@ public class ReviewSpreadsheetGenerator {
     out.close();
   }
 
-  private void generateReviewSheet(HSSFWorkbook workbook, StructureDefinition profile) {
+  private void generateReviewSheet(HSSFWorkbook workbook, StructureDefinition profile) throws FHIRException {
     HSSFSheet sheet = workbook.createSheet(sanitize(profile.getName()));
     sheet.setColumnWidth(0, 8000);
     sheet.setColumnWidth(3, 100);
@@ -77,7 +78,7 @@ public class ReviewSpreadsheetGenerator {
     return b.toString();
   }
 
-  private int processRows(HSSFWorkbook workbook, String path, StructureDefinition profile, List<ElementDefinition> list, int i, HSSFSheet sheet, String indent) {
+  private int processRows(HSSFWorkbook workbook, String path, StructureDefinition profile, List<ElementDefinition> list, int i, HSSFSheet sheet, String indent) throws FHIRException {
     ElementDefinition ed = list.get(i);
     HSSFFont font = workbook.createFont();
     font.setFontName("Calibri");
@@ -148,7 +149,7 @@ public class ReviewSpreadsheetGenerator {
     
   }
 
-  private String describeBinding(StructureDefinition profile, ElementDefinition def) {
+  private String describeBinding(StructureDefinition profile, ElementDefinition def) throws FHIRException {
     if (!def.hasBinding())
       return "";
     BindingResolution br = pkp.resolveBinding(profile, def.getBinding(), def.getPath());

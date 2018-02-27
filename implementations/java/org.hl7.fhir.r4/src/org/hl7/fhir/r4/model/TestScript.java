@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -49,130 +49,6 @@ import org.hl7.fhir.exceptions.FHIRException;
 @ResourceDef(name="TestScript", profile="http://hl7.org/fhir/Profile/TestScript")
 @ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "origin", "destination", "metadata", "fixture", "profile", "variable", "rule", "ruleset", "setup", "test", "teardown"})
 public class TestScript extends MetadataResource {
-
-    public enum ContentType {
-        /**
-         * XML content-type corresponding to the application/fhir+xml mime-type.
-         */
-        XML, 
-        /**
-         * JSON content-type corresponding to the application/fhir+json mime-type.
-         */
-        JSON, 
-        /**
-         * RDF content-type corresponding to the text/turtle mime-type.
-         */
-        TTL, 
-        /**
-         * Prevent the use of the corresponding http header.
-         */
-        NONE, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static ContentType fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("xml".equals(codeString))
-          return XML;
-        if ("json".equals(codeString))
-          return JSON;
-        if ("ttl".equals(codeString))
-          return TTL;
-        if ("none".equals(codeString))
-          return NONE;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown ContentType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case XML: return "xml";
-            case JSON: return "json";
-            case TTL: return "ttl";
-            case NONE: return "none";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case XML: return "http://hl7.org/fhir/content-type";
-            case JSON: return "http://hl7.org/fhir/content-type";
-            case TTL: return "http://hl7.org/fhir/content-type";
-            case NONE: return "http://hl7.org/fhir/content-type";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case XML: return "XML content-type corresponding to the application/fhir+xml mime-type.";
-            case JSON: return "JSON content-type corresponding to the application/fhir+json mime-type.";
-            case TTL: return "RDF content-type corresponding to the text/turtle mime-type.";
-            case NONE: return "Prevent the use of the corresponding http header.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case XML: return "xml";
-            case JSON: return "json";
-            case TTL: return "ttl";
-            case NONE: return "none";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ContentTypeEnumFactory implements EnumFactory<ContentType> {
-    public ContentType fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("xml".equals(codeString))
-          return ContentType.XML;
-        if ("json".equals(codeString))
-          return ContentType.JSON;
-        if ("ttl".equals(codeString))
-          return ContentType.TTL;
-        if ("none".equals(codeString))
-          return ContentType.NONE;
-        throw new IllegalArgumentException("Unknown ContentType code '"+codeString+"'");
-        }
-        public Enumeration<ContentType> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<ContentType>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("xml".equals(codeString))
-          return new Enumeration<ContentType>(this, ContentType.XML);
-        if ("json".equals(codeString))
-          return new Enumeration<ContentType>(this, ContentType.JSON);
-        if ("ttl".equals(codeString))
-          return new Enumeration<ContentType>(this, ContentType.TTL);
-        if ("none".equals(codeString))
-          return new Enumeration<ContentType>(this, ContentType.NONE);
-        throw new FHIRException("Unknown ContentType code '"+codeString+"'");
-        }
-    public String toCode(ContentType code) {
-      if (code == ContentType.XML)
-        return "xml";
-      if (code == ContentType.JSON)
-        return "json";
-      if (code == ContentType.TTL)
-        return "ttl";
-      if (code == ContentType.NONE)
-        return "none";
-      return "?";
-      }
-    public String toSystem(ContentType code) {
-      return code.getSystem();
-      }
-    }
 
     public enum AssertionDirectionType {
         /**
@@ -1879,14 +1755,14 @@ public class TestScript extends MetadataResource {
         /**
          * Whether or not the test execution will require the given capabilities of the server in order for this test script to execute.
          */
-        @Child(name = "required", type = {BooleanType.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "required", type = {BooleanType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Are the capabilities required?", formalDefinition="Whether or not the test execution will require the given capabilities of the server in order for this test script to execute." )
         protected BooleanType required;
 
         /**
          * Whether or not the test execution will validate the given capabilities of the server in order for this test script to execute.
          */
-        @Child(name = "validated", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "validated", type = {BooleanType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Are the capabilities validated?", formalDefinition="Whether or not the test execution will validate the given capabilities of the server in order for this test script to execute." )
         protected BooleanType validated;
 
@@ -1942,8 +1818,10 @@ public class TestScript extends MetadataResource {
     /**
      * Constructor
      */
-      public TestScriptMetadataCapabilityComponent(Reference capabilities) {
+      public TestScriptMetadataCapabilityComponent(BooleanType required, BooleanType validated, Reference capabilities) {
         super();
+        this.required = required;
+        this.validated = validated;
         this.capabilities = capabilities;
       }
 
@@ -2508,14 +2386,14 @@ public class TestScript extends MetadataResource {
         /**
          * Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section.
          */
-        @Child(name = "autocreate", type = {BooleanType.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "autocreate", type = {BooleanType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Whether or not to implicitly create the fixture during setup", formalDefinition="Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section." )
         protected BooleanType autocreate;
 
         /**
          * Whether or not to implicitly delete the fixture during teardown. If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.
          */
-        @Child(name = "autodelete", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "autodelete", type = {BooleanType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Whether or not to implicitly delete the fixture during teardown", formalDefinition="Whether or not to implicitly delete the fixture during teardown. If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section." )
         protected BooleanType autodelete;
 
@@ -2538,6 +2416,15 @@ public class TestScript extends MetadataResource {
      */
       public TestScriptFixtureComponent() {
         super();
+      }
+
+    /**
+     * Constructor
+     */
+      public TestScriptFixtureComponent(BooleanType autocreate, BooleanType autodelete) {
+        super();
+        this.autocreate = autocreate;
+        this.autodelete = autodelete;
       }
 
         /**
@@ -5167,20 +5054,18 @@ public class TestScript extends MetadataResource {
         protected StringType description;
 
         /**
-         * The content-type or mime-type to use for RESTful operation in the 'Accept' header.
+         * The mime-type to use for RESTful operation in the 'Accept' header.
          */
         @Child(name = "accept", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Accept' header." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/content-type")
-        protected Enumeration<ContentType> accept;
+        @Description(shortDefinition="Mime type to accept in the payload of the response, with charset etc.", formalDefinition="The mime-type to use for RESTful operation in the 'Accept' header." )
+        protected CodeType accept;
 
         /**
-         * The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
+         * The mime-type to use for RESTful operation in the 'Content-Type' header.
          */
         @Child(name = "contentType", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Content-Type' header." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/content-type")
-        protected Enumeration<ContentType> contentType;
+        @Description(shortDefinition="Mime type of the request payload contents, with charset etc.", formalDefinition="The mime-type to use for RESTful operation in the 'Content-Type' header." )
+        protected CodeType contentType;
 
         /**
          * The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.
@@ -5192,7 +5077,7 @@ public class TestScript extends MetadataResource {
         /**
          * Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
          */
-        @Child(name = "encodeRequestUrl", type = {BooleanType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "encodeRequestUrl", type = {BooleanType.class}, order=8, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Whether or not to send the request url in encoded format", formalDefinition="Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths." )
         protected BooleanType encodeRequestUrl;
 
@@ -5252,13 +5137,21 @@ public class TestScript extends MetadataResource {
         @Description(shortDefinition="Request URL", formalDefinition="Complete request URL." )
         protected StringType url;
 
-        private static final long serialVersionUID = -488909648L;
+        private static final long serialVersionUID = 1998717374L;
 
     /**
      * Constructor
      */
       public SetupActionOperationComponent() {
         super();
+      }
+
+    /**
+     * Constructor
+     */
+      public SetupActionOperationComponent(BooleanType encodeRequestUrl) {
+        super();
+        this.encodeRequestUrl = encodeRequestUrl;
       }
 
         /**
@@ -5433,14 +5326,14 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return {@link #accept} (The content-type or mime-type to use for RESTful operation in the 'Accept' header.). This is the underlying object with id, value and extensions. The accessor "getAccept" gives direct access to the value
+         * @return {@link #accept} (The mime-type to use for RESTful operation in the 'Accept' header.). This is the underlying object with id, value and extensions. The accessor "getAccept" gives direct access to the value
          */
-        public Enumeration<ContentType> getAcceptElement() { 
+        public CodeType getAcceptElement() { 
           if (this.accept == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SetupActionOperationComponent.accept");
             else if (Configuration.doAutoCreate())
-              this.accept = new Enumeration<ContentType>(new ContentTypeEnumFactory()); // bb
+              this.accept = new CodeType(); // bb
           return this.accept;
         }
 
@@ -5453,43 +5346,43 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #accept} (The content-type or mime-type to use for RESTful operation in the 'Accept' header.). This is the underlying object with id, value and extensions. The accessor "getAccept" gives direct access to the value
+         * @param value {@link #accept} (The mime-type to use for RESTful operation in the 'Accept' header.). This is the underlying object with id, value and extensions. The accessor "getAccept" gives direct access to the value
          */
-        public SetupActionOperationComponent setAcceptElement(Enumeration<ContentType> value) { 
+        public SetupActionOperationComponent setAcceptElement(CodeType value) { 
           this.accept = value;
           return this;
         }
 
         /**
-         * @return The content-type or mime-type to use for RESTful operation in the 'Accept' header.
+         * @return The mime-type to use for RESTful operation in the 'Accept' header.
          */
-        public ContentType getAccept() { 
+        public String getAccept() { 
           return this.accept == null ? null : this.accept.getValue();
         }
 
         /**
-         * @param value The content-type or mime-type to use for RESTful operation in the 'Accept' header.
+         * @param value The mime-type to use for RESTful operation in the 'Accept' header.
          */
-        public SetupActionOperationComponent setAccept(ContentType value) { 
-          if (value == null)
+        public SetupActionOperationComponent setAccept(String value) { 
+          if (Utilities.noString(value))
             this.accept = null;
           else {
             if (this.accept == null)
-              this.accept = new Enumeration<ContentType>(new ContentTypeEnumFactory());
+              this.accept = new CodeType();
             this.accept.setValue(value);
           }
           return this;
         }
 
         /**
-         * @return {@link #contentType} (The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
+         * @return {@link #contentType} (The mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
          */
-        public Enumeration<ContentType> getContentTypeElement() { 
+        public CodeType getContentTypeElement() { 
           if (this.contentType == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SetupActionOperationComponent.contentType");
             else if (Configuration.doAutoCreate())
-              this.contentType = new Enumeration<ContentType>(new ContentTypeEnumFactory()); // bb
+              this.contentType = new CodeType(); // bb
           return this.contentType;
         }
 
@@ -5502,29 +5395,29 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #contentType} (The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
+         * @param value {@link #contentType} (The mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
          */
-        public SetupActionOperationComponent setContentTypeElement(Enumeration<ContentType> value) { 
+        public SetupActionOperationComponent setContentTypeElement(CodeType value) { 
           this.contentType = value;
           return this;
         }
 
         /**
-         * @return The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
+         * @return The mime-type to use for RESTful operation in the 'Content-Type' header.
          */
-        public ContentType getContentType() { 
+        public String getContentType() { 
           return this.contentType == null ? null : this.contentType.getValue();
         }
 
         /**
-         * @param value The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
+         * @param value The mime-type to use for RESTful operation in the 'Content-Type' header.
          */
-        public SetupActionOperationComponent setContentType(ContentType value) { 
-          if (value == null)
+        public SetupActionOperationComponent setContentType(String value) { 
+          if (Utilities.noString(value))
             this.contentType = null;
           else {
             if (this.contentType == null)
-              this.contentType = new Enumeration<ContentType>(new ContentTypeEnumFactory());
+              this.contentType = new CodeType();
             this.contentType.setValue(value);
           }
           return this;
@@ -6018,8 +5911,8 @@ public class TestScript extends MetadataResource {
           children.add(new Property("resource", "code", "The type of the resource.  See http://build.fhir.org/resourcelist.html.", 0, 1, resource));
           children.add(new Property("label", "string", "The label would be used for tracking/logging purposes by test engines.", 0, 1, label));
           children.add(new Property("description", "string", "The description would be used by test engines for tracking and reporting purposes.", 0, 1, description));
-          children.add(new Property("accept", "code", "The content-type or mime-type to use for RESTful operation in the 'Accept' header.", 0, 1, accept));
-          children.add(new Property("contentType", "code", "The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.", 0, 1, contentType));
+          children.add(new Property("accept", "code", "The mime-type to use for RESTful operation in the 'Accept' header.", 0, 1, accept));
+          children.add(new Property("contentType", "code", "The mime-type to use for RESTful operation in the 'Content-Type' header.", 0, 1, contentType));
           children.add(new Property("destination", "integer", "The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.", 0, 1, destination));
           children.add(new Property("encodeRequestUrl", "boolean", "Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.", 0, 1, encodeRequestUrl));
           children.add(new Property("origin", "integer", "The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.", 0, 1, origin));
@@ -6039,8 +5932,8 @@ public class TestScript extends MetadataResource {
           case -341064690: /*resource*/  return new Property("resource", "code", "The type of the resource.  See http://build.fhir.org/resourcelist.html.", 0, 1, resource);
           case 102727412: /*label*/  return new Property("label", "string", "The label would be used for tracking/logging purposes by test engines.", 0, 1, label);
           case -1724546052: /*description*/  return new Property("description", "string", "The description would be used by test engines for tracking and reporting purposes.", 0, 1, description);
-          case -1423461112: /*accept*/  return new Property("accept", "code", "The content-type or mime-type to use for RESTful operation in the 'Accept' header.", 0, 1, accept);
-          case -389131437: /*contentType*/  return new Property("contentType", "code", "The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.", 0, 1, contentType);
+          case -1423461112: /*accept*/  return new Property("accept", "code", "The mime-type to use for RESTful operation in the 'Accept' header.", 0, 1, accept);
+          case -389131437: /*contentType*/  return new Property("contentType", "code", "The mime-type to use for RESTful operation in the 'Content-Type' header.", 0, 1, contentType);
           case -1429847026: /*destination*/  return new Property("destination", "integer", "The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.", 0, 1, destination);
           case -1760554218: /*encodeRequestUrl*/  return new Property("encodeRequestUrl", "boolean", "Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.", 0, 1, encodeRequestUrl);
           case -1008619738: /*origin*/  return new Property("origin", "integer", "The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.", 0, 1, origin);
@@ -6063,8 +5956,8 @@ public class TestScript extends MetadataResource {
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // CodeType
         case 102727412: /*label*/ return this.label == null ? new Base[0] : new Base[] {this.label}; // StringType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
-        case -1423461112: /*accept*/ return this.accept == null ? new Base[0] : new Base[] {this.accept}; // Enumeration<ContentType>
-        case -389131437: /*contentType*/ return this.contentType == null ? new Base[0] : new Base[] {this.contentType}; // Enumeration<ContentType>
+        case -1423461112: /*accept*/ return this.accept == null ? new Base[0] : new Base[] {this.accept}; // CodeType
+        case -389131437: /*contentType*/ return this.contentType == null ? new Base[0] : new Base[] {this.contentType}; // CodeType
         case -1429847026: /*destination*/ return this.destination == null ? new Base[0] : new Base[] {this.destination}; // IntegerType
         case -1760554218: /*encodeRequestUrl*/ return this.encodeRequestUrl == null ? new Base[0] : new Base[] {this.encodeRequestUrl}; // BooleanType
         case -1008619738: /*origin*/ return this.origin == null ? new Base[0] : new Base[] {this.origin}; // IntegerType
@@ -6096,12 +5989,10 @@ public class TestScript extends MetadataResource {
           this.description = castToString(value); // StringType
           return value;
         case -1423461112: // accept
-          value = new ContentTypeEnumFactory().fromType(castToCode(value));
-          this.accept = (Enumeration) value; // Enumeration<ContentType>
+          this.accept = castToCode(value); // CodeType
           return value;
         case -389131437: // contentType
-          value = new ContentTypeEnumFactory().fromType(castToCode(value));
-          this.contentType = (Enumeration) value; // Enumeration<ContentType>
+          this.contentType = castToCode(value); // CodeType
           return value;
         case -1429847026: // destination
           this.destination = castToInteger(value); // IntegerType
@@ -6149,11 +6040,9 @@ public class TestScript extends MetadataResource {
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else if (name.equals("accept")) {
-          value = new ContentTypeEnumFactory().fromType(castToCode(value));
-          this.accept = (Enumeration) value; // Enumeration<ContentType>
+          this.accept = castToCode(value); // CodeType
         } else if (name.equals("contentType")) {
-          value = new ContentTypeEnumFactory().fromType(castToCode(value));
-          this.contentType = (Enumeration) value; // Enumeration<ContentType>
+          this.contentType = castToCode(value); // CodeType
         } else if (name.equals("destination")) {
           this.destination = castToInteger(value); // IntegerType
         } else if (name.equals("encodeRequestUrl")) {
@@ -6643,12 +6532,11 @@ public class TestScript extends MetadataResource {
         protected StringType compareToSourcePath;
 
         /**
-         * The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
+         * The mime-type contents to compare against the request or response message 'Content-Type' header.
          */
         @Child(name = "contentType", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="xml | json | ttl | none", formalDefinition="The content-type or mime-type to use for RESTful operation in the 'Content-Type' header." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/content-type")
-        protected Enumeration<ContentType> contentType;
+        @Description(shortDefinition="Mime type to compare against the 'Content-Type' header", formalDefinition="The mime-type contents to compare against the request or response message 'Content-Type' header." )
+        protected CodeType contentType;
 
         /**
          * The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.
@@ -6769,17 +6657,25 @@ public class TestScript extends MetadataResource {
         /**
          * Whether or not the test execution will produce a warning only on error for this assert.
          */
-        @Child(name = "warningOnly", type = {BooleanType.class}, order=24, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "warningOnly", type = {BooleanType.class}, order=24, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Will this assert produce a warning only on error?", formalDefinition="Whether or not the test execution will produce a warning only on error for this assert." )
         protected BooleanType warningOnly;
 
-        private static final long serialVersionUID = 171718507L;
+        private static final long serialVersionUID = -483432060L;
 
     /**
      * Constructor
      */
       public SetupActionAssertComponent() {
         super();
+      }
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertComponent(BooleanType warningOnly) {
+        super();
+        this.warningOnly = warningOnly;
       }
 
         /**
@@ -7077,14 +6973,14 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return {@link #contentType} (The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
+         * @return {@link #contentType} (The mime-type contents to compare against the request or response message 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
          */
-        public Enumeration<ContentType> getContentTypeElement() { 
+        public CodeType getContentTypeElement() { 
           if (this.contentType == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SetupActionAssertComponent.contentType");
             else if (Configuration.doAutoCreate())
-              this.contentType = new Enumeration<ContentType>(new ContentTypeEnumFactory()); // bb
+              this.contentType = new CodeType(); // bb
           return this.contentType;
         }
 
@@ -7097,29 +6993,29 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #contentType} (The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
+         * @param value {@link #contentType} (The mime-type contents to compare against the request or response message 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
          */
-        public SetupActionAssertComponent setContentTypeElement(Enumeration<ContentType> value) { 
+        public SetupActionAssertComponent setContentTypeElement(CodeType value) { 
           this.contentType = value;
           return this;
         }
 
         /**
-         * @return The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
+         * @return The mime-type contents to compare against the request or response message 'Content-Type' header.
          */
-        public ContentType getContentType() { 
+        public String getContentType() { 
           return this.contentType == null ? null : this.contentType.getValue();
         }
 
         /**
-         * @param value The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
+         * @param value The mime-type contents to compare against the request or response message 'Content-Type' header.
          */
-        public SetupActionAssertComponent setContentType(ContentType value) { 
-          if (value == null)
+        public SetupActionAssertComponent setContentType(String value) { 
+          if (Utilities.noString(value))
             this.contentType = null;
           else {
             if (this.contentType == null)
-              this.contentType = new Enumeration<ContentType>(new ContentTypeEnumFactory());
+              this.contentType = new CodeType();
             this.contentType.setValue(value);
           }
           return this;
@@ -7908,7 +7804,7 @@ public class TestScript extends MetadataResource {
           children.add(new Property("compareToSourceId", "string", "Id of the source fixture used as the contents to be evaluated by either the \"source/expression\" or \"sourceId/path\" definition.", 0, 1, compareToSourceId));
           children.add(new Property("compareToSourceExpression", "string", "The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.", 0, 1, compareToSourceExpression));
           children.add(new Property("compareToSourcePath", "string", "XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.", 0, 1, compareToSourcePath));
-          children.add(new Property("contentType", "code", "The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.", 0, 1, contentType));
+          children.add(new Property("contentType", "code", "The mime-type contents to compare against the request or response message 'Content-Type' header.", 0, 1, contentType));
           children.add(new Property("expression", "string", "The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.", 0, 1, expression));
           children.add(new Property("headerField", "string", "The HTTP header field name e.g. 'Location'.", 0, 1, headerField));
           children.add(new Property("minimumId", "string", "The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId.", 0, 1, minimumId));
@@ -7937,7 +7833,7 @@ public class TestScript extends MetadataResource {
           case 2081856758: /*compareToSourceId*/  return new Property("compareToSourceId", "string", "Id of the source fixture used as the contents to be evaluated by either the \"source/expression\" or \"sourceId/path\" definition.", 0, 1, compareToSourceId);
           case -1415702669: /*compareToSourceExpression*/  return new Property("compareToSourceExpression", "string", "The fluentpath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.", 0, 1, compareToSourceExpression);
           case -790206144: /*compareToSourcePath*/  return new Property("compareToSourcePath", "string", "XPath or JSONPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both.", 0, 1, compareToSourcePath);
-          case -389131437: /*contentType*/  return new Property("contentType", "code", "The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.", 0, 1, contentType);
+          case -389131437: /*contentType*/  return new Property("contentType", "code", "The mime-type contents to compare against the request or response message 'Content-Type' header.", 0, 1, contentType);
           case -1795452264: /*expression*/  return new Property("expression", "string", "The fluentpath expression to be evaluated against the request or response message contents - HTTP headers and payload.", 0, 1, expression);
           case 1160732269: /*headerField*/  return new Property("headerField", "string", "The HTTP header field name e.g. 'Location'.", 0, 1, headerField);
           case 818925001: /*minimumId*/  return new Property("minimumId", "string", "The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId.", 0, 1, minimumId);
@@ -7969,7 +7865,7 @@ public class TestScript extends MetadataResource {
         case 2081856758: /*compareToSourceId*/ return this.compareToSourceId == null ? new Base[0] : new Base[] {this.compareToSourceId}; // StringType
         case -1415702669: /*compareToSourceExpression*/ return this.compareToSourceExpression == null ? new Base[0] : new Base[] {this.compareToSourceExpression}; // StringType
         case -790206144: /*compareToSourcePath*/ return this.compareToSourcePath == null ? new Base[0] : new Base[] {this.compareToSourcePath}; // StringType
-        case -389131437: /*contentType*/ return this.contentType == null ? new Base[0] : new Base[] {this.contentType}; // Enumeration<ContentType>
+        case -389131437: /*contentType*/ return this.contentType == null ? new Base[0] : new Base[] {this.contentType}; // CodeType
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
         case 1160732269: /*headerField*/ return this.headerField == null ? new Base[0] : new Base[] {this.headerField}; // StringType
         case 818925001: /*minimumId*/ return this.minimumId == null ? new Base[0] : new Base[] {this.minimumId}; // StringType
@@ -8015,8 +7911,7 @@ public class TestScript extends MetadataResource {
           this.compareToSourcePath = castToString(value); // StringType
           return value;
         case -389131437: // contentType
-          value = new ContentTypeEnumFactory().fromType(castToCode(value));
-          this.contentType = (Enumeration) value; // Enumeration<ContentType>
+          this.contentType = castToCode(value); // CodeType
           return value;
         case -1795452264: // expression
           this.expression = castToString(value); // StringType
@@ -8093,8 +7988,7 @@ public class TestScript extends MetadataResource {
         } else if (name.equals("compareToSourcePath")) {
           this.compareToSourcePath = castToString(value); // StringType
         } else if (name.equals("contentType")) {
-          value = new ContentTypeEnumFactory().fromType(castToCode(value));
-          this.contentType = (Enumeration) value; // Enumeration<ContentType>
+          this.contentType = castToCode(value); // CodeType
         } else if (name.equals("expression")) {
           this.expression = castToString(value); // StringType
         } else if (name.equals("headerField")) {

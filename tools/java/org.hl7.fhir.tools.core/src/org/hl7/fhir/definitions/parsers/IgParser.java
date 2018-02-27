@@ -149,7 +149,7 @@ public class IgParser {
           Example example = new Example(r.getName(), id, r.getDescription(), fn, false, ExampleType.XmlFile, false);
           example.setIg(igd.getCode());
           if (r.hasExampleFor()) {
-            example.setExampleFor(r.getExampleFor().getReference());
+            example.setExampleFor(r.getExampleFor());
             example.setRegistered(true);
             exr.add(example);
           }

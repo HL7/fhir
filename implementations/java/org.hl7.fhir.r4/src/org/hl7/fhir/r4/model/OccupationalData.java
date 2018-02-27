@@ -29,10 +29,11 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
+import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.r4.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
@@ -44,340 +45,29 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * Patient’s or family member's work information.
+ * A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.
  */
 @ResourceDef(name="OccupationalData", profile="http://hl7.org/fhir/Profile/OccupationalData")
 public class OccupationalData extends DomainResource {
 
-    public enum HistoryOfEmploymentStatus {
-        /**
-         * null
-         */
-        _741652, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static HistoryOfEmploymentStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("74165-2".equals(codeString))
-          return _741652;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown HistoryOfEmploymentStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case _741652: return "74165-2";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case _741652: return "http://loinc.org";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case _741652: return "";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case _741652: return "History of employment status NIOSH";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class HistoryOfEmploymentStatusEnumFactory implements EnumFactory<HistoryOfEmploymentStatus> {
-    public HistoryOfEmploymentStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("74165-2".equals(codeString))
-          return HistoryOfEmploymentStatus._741652;
-        throw new IllegalArgumentException("Unknown HistoryOfEmploymentStatus code '"+codeString+"'");
-        }
-        public Enumeration<HistoryOfEmploymentStatus> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<HistoryOfEmploymentStatus>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("74165-2".equals(codeString))
-          return new Enumeration<HistoryOfEmploymentStatus>(this, HistoryOfEmploymentStatus._741652);
-        throw new FHIRException("Unknown HistoryOfEmploymentStatus code '"+codeString+"'");
-        }
-    public String toCode(HistoryOfEmploymentStatus code) {
-      if (code == HistoryOfEmploymentStatus._741652)
-        return "74165-2";
-      return "?";
-      }
-    public String toSystem(HistoryOfEmploymentStatus code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum RetirementStatus {
-        /**
-         * Retirement Status
-         */
-        _875104, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static RetirementStatus fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("87510-4".equals(codeString))
-          return _875104;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown RetirementStatus code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case _875104: return "87510-4";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case _875104: return "http://hl7.org/fhir/retirement-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case _875104: return "Retirement Status";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case _875104: return "Retirement Status";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class RetirementStatusEnumFactory implements EnumFactory<RetirementStatus> {
-    public RetirementStatus fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("87510-4".equals(codeString))
-          return RetirementStatus._875104;
-        throw new IllegalArgumentException("Unknown RetirementStatus code '"+codeString+"'");
-        }
-        public Enumeration<RetirementStatus> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<RetirementStatus>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("87510-4".equals(codeString))
-          return new Enumeration<RetirementStatus>(this, RetirementStatus._875104);
-        throw new FHIRException("Unknown RetirementStatus code '"+codeString+"'");
-        }
-    public String toCode(RetirementStatus code) {
-      if (code == RetirementStatus._875104)
-        return "87510-4";
-      return "?";
-      }
-    public String toSystem(RetirementStatus code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum HazardousDutyWork {
-        /**
-         * Hazardous Duty Work
-         */
-        _875112, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static HazardousDutyWork fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("87511-2".equals(codeString))
-          return _875112;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown HazardousDutyWork code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case _875112: return "87511-2";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case _875112: return "http://hl7.org/fhir/hazadardous-duty-work";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case _875112: return "Hazardous Duty Work";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case _875112: return "Hazardous Duty Work";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class HazardousDutyWorkEnumFactory implements EnumFactory<HazardousDutyWork> {
-    public HazardousDutyWork fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("87511-2".equals(codeString))
-          return HazardousDutyWork._875112;
-        throw new IllegalArgumentException("Unknown HazardousDutyWork code '"+codeString+"'");
-        }
-        public Enumeration<HazardousDutyWork> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<HazardousDutyWork>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("87511-2".equals(codeString))
-          return new Enumeration<HazardousDutyWork>(this, HazardousDutyWork._875112);
-        throw new FHIRException("Unknown HazardousDutyWork code '"+codeString+"'");
-        }
-    public String toCode(HazardousDutyWork code) {
-      if (code == HazardousDutyWork._875112)
-        return "87511-2";
-      return "?";
-      }
-    public String toSystem(HazardousDutyWork code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum UsualOccupation {
-        /**
-         * null
-         */
-        _218438, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static UsualOccupation fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("21843-8".equals(codeString))
-          return _218438;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown UsualOccupation code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case _218438: return "21843-8";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case _218438: return "http://loinc.org";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case _218438: return "";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case _218438: return "History of Usual occupation";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class UsualOccupationEnumFactory implements EnumFactory<UsualOccupation> {
-    public UsualOccupation fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("21843-8".equals(codeString))
-          return UsualOccupation._218438;
-        throw new IllegalArgumentException("Unknown UsualOccupation code '"+codeString+"'");
-        }
-        public Enumeration<UsualOccupation> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<UsualOccupation>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("21843-8".equals(codeString))
-          return new Enumeration<UsualOccupation>(this, UsualOccupation._218438);
-        throw new FHIRException("Unknown UsualOccupation code '"+codeString+"'");
-        }
-    public String toCode(UsualOccupation code) {
-      if (code == UsualOccupation._218438)
-        return "21843-8";
-      return "?";
-      }
-    public String toSystem(UsualOccupation code) {
-      return code.getSystem();
-      }
-    }
-
     @Block()
     public static class OccupationalDataEmploymentStatusComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * 74165-2.
+         * A code that represents a person’s current economic relationship to a job.
          */
-        @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="74165-2", formalDefinition="74165-2." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/history-of-employment-status")
-        protected Enumeration<HistoryOfEmploymentStatus> code;
+        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Employment status code", formalDefinition="A code that represents a person’s current economic relationship to a job." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/employment-status-odh")
+        protected CodeableConcept code;
 
         /**
-         * Employment status effective time.
+         * The start and end dates for a person's current economic relationship to a job.
          */
-        @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Employment status effective time", formalDefinition="Employment status effective time." )
+        @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Employment status effective time", formalDefinition="The start and end dates for a person's current economic relationship to a job." )
         protected Type effective;
 
-        /**
-         * Employment status value.
-         */
-        @Child(name = "value", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Employment status value", formalDefinition="Employment status value." )
-        protected CodeableConcept value;
-
-        private static final long serialVersionUID = -889740778L;
+        private static final long serialVersionUID = 464207595L;
 
     /**
      * Constructor
@@ -389,27 +79,22 @@ public class OccupationalData extends DomainResource {
     /**
      * Constructor
      */
-      public OccupationalDataEmploymentStatusComponent(Enumeration<HistoryOfEmploymentStatus> code, Type effective, CodeableConcept value) {
+      public OccupationalDataEmploymentStatusComponent(CodeableConcept code, Type effective) {
         super();
         this.code = code;
         this.effective = effective;
-        this.value = value;
       }
 
         /**
-         * @return {@link #code} (74165-2.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #code} (A code that represents a person’s current economic relationship to a job.)
          */
-        public Enumeration<HistoryOfEmploymentStatus> getCodeElement() { 
+        public CodeableConcept getCode() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OccupationalDataEmploymentStatusComponent.code");
             else if (Configuration.doAutoCreate())
-              this.code = new Enumeration<HistoryOfEmploymentStatus>(new HistoryOfEmploymentStatusEnumFactory()); // bb
+              this.code = new CodeableConcept(); // cc
           return this.code;
-        }
-
-        public boolean hasCodeElement() { 
-          return this.code != null && !this.code.isEmpty();
         }
 
         public boolean hasCode() { 
@@ -417,39 +102,22 @@ public class OccupationalData extends DomainResource {
         }
 
         /**
-         * @param value {@link #code} (74165-2.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #code} (A code that represents a person’s current economic relationship to a job.)
          */
-        public OccupationalDataEmploymentStatusComponent setCodeElement(Enumeration<HistoryOfEmploymentStatus> value) { 
+        public OccupationalDataEmploymentStatusComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
 
         /**
-         * @return 74165-2.
-         */
-        public HistoryOfEmploymentStatus getCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value 74165-2.
-         */
-        public OccupationalDataEmploymentStatusComponent setCode(HistoryOfEmploymentStatus value) { 
-            if (this.code == null)
-              this.code = new Enumeration<HistoryOfEmploymentStatus>(new HistoryOfEmploymentStatusEnumFactory());
-            this.code.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #effective} (Employment status effective time.)
+         * @return {@link #effective} (The start and end dates for a person's current economic relationship to a job.)
          */
         public Type getEffective() { 
           return this.effective;
         }
 
         /**
-         * @return {@link #effective} (Employment status effective time.)
+         * @return {@link #effective} (The start and end dates for a person's current economic relationship to a job.)
          */
         public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
           if (!(this.effective instanceof DateTimeType))
@@ -462,7 +130,7 @@ public class OccupationalData extends DomainResource {
         }
 
         /**
-         * @return {@link #effective} (Employment status effective time.)
+         * @return {@link #effective} (The start and end dates for a person's current economic relationship to a job.)
          */
         public Period getEffectivePeriod() throws FHIRException { 
           if (!(this.effective instanceof Period))
@@ -479,53 +147,27 @@ public class OccupationalData extends DomainResource {
         }
 
         /**
-         * @param value {@link #effective} (Employment status effective time.)
+         * @param value {@link #effective} (The start and end dates for a person's current economic relationship to a job.)
          */
         public OccupationalDataEmploymentStatusComponent setEffective(Type value) { 
           this.effective = value;
           return this;
         }
 
-        /**
-         * @return {@link #value} (Employment status value.)
-         */
-        public CodeableConcept getValue() { 
-          if (this.value == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataEmploymentStatusComponent.value");
-            else if (Configuration.doAutoCreate())
-              this.value = new CodeableConcept(); // cc
-          return this.value;
-        }
-
-        public boolean hasValue() { 
-          return this.value != null && !this.value.isEmpty();
-        }
-
-        /**
-         * @param value {@link #value} (Employment status value.)
-         */
-        public OccupationalDataEmploymentStatusComponent setValue(CodeableConcept value) { 
-          this.value = value;
-          return this;
-        }
-
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("code", "code", "74165-2.", 0, 1, code));
-          children.add(new Property("effective[x]", "dateTime|Period", "Employment status effective time.", 0, 1, effective));
-          children.add(new Property("value", "CodeableConcept", "Employment status value.", 0, 1, value));
+          children.add(new Property("code", "CodeableConcept", "A code that represents a person’s current economic relationship to a job.", 0, 1, code));
+          children.add(new Property("effective[x]", "dateTime|Period", "The start and end dates for a person's current economic relationship to a job.", 0, 1, effective));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "code", "74165-2.", 0, 1, code);
-          case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period", "Employment status effective time.", 0, 1, effective);
-          case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period", "Employment status effective time.", 0, 1, effective);
-          case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "Employment status effective time.", 0, 1, effective);
-          case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "Employment status effective time.", 0, 1, effective);
-          case 111972721: /*value*/  return new Property("value", "CodeableConcept", "Employment status value.", 0, 1, value);
+          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that represents a person’s current economic relationship to a job.", 0, 1, code);
+          case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period", "The start and end dates for a person's current economic relationship to a job.", 0, 1, effective);
+          case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period", "The start and end dates for a person's current economic relationship to a job.", 0, 1, effective);
+          case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "The start and end dates for a person's current economic relationship to a job.", 0, 1, effective);
+          case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "The start and end dates for a person's current economic relationship to a job.", 0, 1, effective);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -534,9 +176,8 @@ public class OccupationalData extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<HistoryOfEmploymentStatus>
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -546,14 +187,10 @@ public class OccupationalData extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059181: // code
-          value = new HistoryOfEmploymentStatusEnumFactory().fromType(castToCode(value));
-          this.code = (Enumeration) value; // Enumeration<HistoryOfEmploymentStatus>
+          this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1468651097: // effective
           this.effective = castToType(value); // Type
-          return value;
-        case 111972721: // value
-          this.value = castToCodeableConcept(value); // CodeableConcept
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -563,12 +200,9 @@ public class OccupationalData extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code")) {
-          value = new HistoryOfEmploymentStatusEnumFactory().fromType(castToCode(value));
-          this.code = (Enumeration) value; // Enumeration<HistoryOfEmploymentStatus>
+          this.code = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("effective[x]")) {
           this.effective = castToType(value); // Type
-        } else if (name.equals("value")) {
-          this.value = castToCodeableConcept(value); // CodeableConcept
         } else
           return super.setProperty(name, value);
         return value;
@@ -577,10 +211,9 @@ public class OccupationalData extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCodeElement();
+        case 3059181:  return getCode(); 
         case 247104889:  return getEffective(); 
         case -1468651097:  return getEffective(); 
-        case 111972721:  return getValue(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -589,9 +222,8 @@ public class OccupationalData extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181: /*code*/ return new String[] {"code"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
-        case 111972721: /*value*/ return new String[] {"CodeableConcept"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -600,7 +232,8 @@ public class OccupationalData extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("code")) {
-          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.code");
+          this.code = new CodeableConcept();
+          return this.code;
         }
         else if (name.equals("effectiveDateTime")) {
           this.effective = new DateTimeType();
@@ -609,10 +242,6 @@ public class OccupationalData extends DomainResource {
         else if (name.equals("effectivePeriod")) {
           this.effective = new Period();
           return this.effective;
-        }
-        else if (name.equals("value")) {
-          this.value = new CodeableConcept();
-          return this.value;
         }
         else
           return super.addChild(name);
@@ -623,7 +252,6 @@ public class OccupationalData extends DomainResource {
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
         dst.effective = effective == null ? null : effective.copy();
-        dst.value = value == null ? null : value.copy();
         return dst;
       }
 
@@ -634,8 +262,7 @@ public class OccupationalData extends DomainResource {
         if (!(other_ instanceof OccupationalDataEmploymentStatusComponent))
           return false;
         OccupationalDataEmploymentStatusComponent o = (OccupationalDataEmploymentStatusComponent) other_;
-        return compareDeep(code, o.code, true) && compareDeep(effective, o.effective, true) && compareDeep(value, o.value, true)
-          ;
+        return compareDeep(code, o.code, true) && compareDeep(effective, o.effective, true);
       }
 
       @Override
@@ -645,11 +272,11 @@ public class OccupationalData extends DomainResource {
         if (!(other_ instanceof OccupationalDataEmploymentStatusComponent))
           return false;
         OccupationalDataEmploymentStatusComponent o = (OccupationalDataEmploymentStatusComponent) other_;
-        return compareValues(code, o.code, true);
+        return true;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, effective, value);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, effective);
       }
 
   public String fhirType() {
@@ -660,841 +287,88 @@ public class OccupationalData extends DomainResource {
   }
 
     @Block()
-    public static class OccupationalDataRetirementStatusComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class OccupationalDataUsualWorkComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * 87510-4.
+         * A code that represents the type of work a person has held for the longest amount of time during his or her life.
          */
-        @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="87510-4", formalDefinition="87510-4." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/retirement-status")
-        protected Enumeration<RetirementStatus> code;
-
-        /**
-         * Retirement status effective time.
-         */
-        @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Retirement status effective time", formalDefinition="Retirement status effective time." )
-        protected Type effective;
-
-        /**
-         * Retirement status value.
-         */
-        @Child(name = "value", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Retirement status value", formalDefinition="Retirement status value." )
-        protected CodeableConcept value;
-
-        private static final long serialVersionUID = 695307622L;
-
-    /**
-     * Constructor
-     */
-      public OccupationalDataRetirementStatusComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public OccupationalDataRetirementStatusComponent(Enumeration<RetirementStatus> code, Type effective, CodeableConcept value) {
-        super();
-        this.code = code;
-        this.effective = effective;
-        this.value = value;
-      }
-
-        /**
-         * @return {@link #code} (87510-4.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
-         */
-        public Enumeration<RetirementStatus> getCodeElement() { 
-          if (this.code == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataRetirementStatusComponent.code");
-            else if (Configuration.doAutoCreate())
-              this.code = new Enumeration<RetirementStatus>(new RetirementStatusEnumFactory()); // bb
-          return this.code;
-        }
-
-        public boolean hasCodeElement() { 
-          return this.code != null && !this.code.isEmpty();
-        }
-
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
-        }
-
-        /**
-         * @param value {@link #code} (87510-4.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
-         */
-        public OccupationalDataRetirementStatusComponent setCodeElement(Enumeration<RetirementStatus> value) { 
-          this.code = value;
-          return this;
-        }
-
-        /**
-         * @return 87510-4.
-         */
-        public RetirementStatus getCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value 87510-4.
-         */
-        public OccupationalDataRetirementStatusComponent setCode(RetirementStatus value) { 
-            if (this.code == null)
-              this.code = new Enumeration<RetirementStatus>(new RetirementStatusEnumFactory());
-            this.code.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #effective} (Retirement status effective time.)
-         */
-        public Type getEffective() { 
-          return this.effective;
-        }
-
-        /**
-         * @return {@link #effective} (Retirement status effective time.)
-         */
-        public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
-          if (!(this.effective instanceof DateTimeType))
-            throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
-          return (DateTimeType) this.effective;
-        }
-
-        public boolean hasEffectiveDateTimeType() { 
-          return this.effective instanceof DateTimeType;
-        }
-
-        /**
-         * @return {@link #effective} (Retirement status effective time.)
-         */
-        public Period getEffectivePeriod() throws FHIRException { 
-          if (!(this.effective instanceof Period))
-            throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
-          return (Period) this.effective;
-        }
-
-        public boolean hasEffectivePeriod() { 
-          return this.effective instanceof Period;
-        }
-
-        public boolean hasEffective() { 
-          return this.effective != null && !this.effective.isEmpty();
-        }
-
-        /**
-         * @param value {@link #effective} (Retirement status effective time.)
-         */
-        public OccupationalDataRetirementStatusComponent setEffective(Type value) { 
-          this.effective = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #value} (Retirement status value.)
-         */
-        public CodeableConcept getValue() { 
-          if (this.value == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataRetirementStatusComponent.value");
-            else if (Configuration.doAutoCreate())
-              this.value = new CodeableConcept(); // cc
-          return this.value;
-        }
-
-        public boolean hasValue() { 
-          return this.value != null && !this.value.isEmpty();
-        }
-
-        /**
-         * @param value {@link #value} (Retirement status value.)
-         */
-        public OccupationalDataRetirementStatusComponent setValue(CodeableConcept value) { 
-          this.value = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("code", "code", "87510-4.", 0, 1, code));
-          children.add(new Property("effective[x]", "dateTime|Period", "Retirement status effective time.", 0, 1, effective));
-          children.add(new Property("value", "CodeableConcept", "Retirement status value.", 0, 1, value));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "code", "87510-4.", 0, 1, code);
-          case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period", "Retirement status effective time.", 0, 1, effective);
-          case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period", "Retirement status effective time.", 0, 1, effective);
-          case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "Retirement status effective time.", 0, 1, effective);
-          case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "Retirement status effective time.", 0, 1, effective);
-          case 111972721: /*value*/  return new Property("value", "CodeableConcept", "Retirement status value.", 0, 1, value);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<RetirementStatus>
-        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // CodeableConcept
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3059181: // code
-          value = new RetirementStatusEnumFactory().fromType(castToCode(value));
-          this.code = (Enumeration) value; // Enumeration<RetirementStatus>
-          return value;
-        case -1468651097: // effective
-          this.effective = castToType(value); // Type
-          return value;
-        case 111972721: // value
-          this.value = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code")) {
-          value = new RetirementStatusEnumFactory().fromType(castToCode(value));
-          this.code = (Enumeration) value; // Enumeration<RetirementStatus>
-        } else if (name.equals("effective[x]")) {
-          this.effective = castToType(value); // Type
-        } else if (name.equals("value")) {
-          this.value = castToCodeableConcept(value); // CodeableConcept
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181:  return getCodeElement();
-        case 247104889:  return getEffective(); 
-        case -1468651097:  return getEffective(); 
-        case 111972721:  return getValue(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return new String[] {"code"};
-        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
-        case 111972721: /*value*/ return new String[] {"CodeableConcept"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.code");
-        }
-        else if (name.equals("effectiveDateTime")) {
-          this.effective = new DateTimeType();
-          return this.effective;
-        }
-        else if (name.equals("effectivePeriod")) {
-          this.effective = new Period();
-          return this.effective;
-        }
-        else if (name.equals("value")) {
-          this.value = new CodeableConcept();
-          return this.value;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public OccupationalDataRetirementStatusComponent copy() {
-        OccupationalDataRetirementStatusComponent dst = new OccupationalDataRetirementStatusComponent();
-        copyValues(dst);
-        dst.code = code == null ? null : code.copy();
-        dst.effective = effective == null ? null : effective.copy();
-        dst.value = value == null ? null : value.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other_) {
-        if (!super.equalsDeep(other_))
-          return false;
-        if (!(other_ instanceof OccupationalDataRetirementStatusComponent))
-          return false;
-        OccupationalDataRetirementStatusComponent o = (OccupationalDataRetirementStatusComponent) other_;
-        return compareDeep(code, o.code, true) && compareDeep(effective, o.effective, true) && compareDeep(value, o.value, true)
-          ;
-      }
-
-      @Override
-      public boolean equalsShallow(Base other_) {
-        if (!super.equalsShallow(other_))
-          return false;
-        if (!(other_ instanceof OccupationalDataRetirementStatusComponent))
-          return false;
-        OccupationalDataRetirementStatusComponent o = (OccupationalDataRetirementStatusComponent) other_;
-        return compareValues(code, o.code, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, effective, value);
-      }
-
-  public String fhirType() {
-    return "OccupationalData.retirementStatus";
-
-  }
-
-  }
-
-    @Block()
-    public static class OccupationalDataCombatZoneHazardousDutyComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * 87511-2.
-         */
-        @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="87511-2", formalDefinition="87511-2." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/hazadardous-duty-work")
-        protected List<Enumeration<HazardousDutyWork>> code;
-
-        /**
-         * Combat Zone Hazardous Duty effective time.
-         */
-        @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Combat Zone Hazardous Duty effective time", formalDefinition="Combat Zone Hazardous Duty effective time." )
-        protected Type effective;
-
-        /**
-         * Combat Zone Hazardous Duty value.
-         */
-        @Child(name = "value", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Combat Zone Hazardous Duty value", formalDefinition="Combat Zone Hazardous Duty value." )
-        protected CodeableConcept value;
-
-        private static final long serialVersionUID = -1552285935L;
-
-    /**
-     * Constructor
-     */
-      public OccupationalDataCombatZoneHazardousDutyComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public OccupationalDataCombatZoneHazardousDutyComponent(Type effective, CodeableConcept value) {
-        super();
-        this.effective = effective;
-        this.value = value;
-      }
-
-        /**
-         * @return {@link #code} (87511-2.)
-         */
-        public List<Enumeration<HazardousDutyWork>> getCode() { 
-          if (this.code == null)
-            this.code = new ArrayList<Enumeration<HazardousDutyWork>>();
-          return this.code;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public OccupationalDataCombatZoneHazardousDutyComponent setCode(List<Enumeration<HazardousDutyWork>> theCode) { 
-          this.code = theCode;
-          return this;
-        }
-
-        public boolean hasCode() { 
-          if (this.code == null)
-            return false;
-          for (Enumeration<HazardousDutyWork> item : this.code)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #code} (87511-2.)
-         */
-        public Enumeration<HazardousDutyWork> addCodeElement() {//2 
-          Enumeration<HazardousDutyWork> t = new Enumeration<HazardousDutyWork>(new HazardousDutyWorkEnumFactory());
-          if (this.code == null)
-            this.code = new ArrayList<Enumeration<HazardousDutyWork>>();
-          this.code.add(t);
-          return t;
-        }
-
-        /**
-         * @param value {@link #code} (87511-2.)
-         */
-        public OccupationalDataCombatZoneHazardousDutyComponent addCode(HazardousDutyWork value) { //1
-          Enumeration<HazardousDutyWork> t = new Enumeration<HazardousDutyWork>(new HazardousDutyWorkEnumFactory());
-          t.setValue(value);
-          if (this.code == null)
-            this.code = new ArrayList<Enumeration<HazardousDutyWork>>();
-          this.code.add(t);
-          return this;
-        }
-
-        /**
-         * @param value {@link #code} (87511-2.)
-         */
-        public boolean hasCode(HazardousDutyWork value) { 
-          if (this.code == null)
-            return false;
-          for (Enumeration<HazardousDutyWork> v : this.code)
-            if (v.getValue().equals(value)) // code
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #effective} (Combat Zone Hazardous Duty effective time.)
-         */
-        public Type getEffective() { 
-          return this.effective;
-        }
-
-        /**
-         * @return {@link #effective} (Combat Zone Hazardous Duty effective time.)
-         */
-        public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
-          if (!(this.effective instanceof DateTimeType))
-            throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
-          return (DateTimeType) this.effective;
-        }
-
-        public boolean hasEffectiveDateTimeType() { 
-          return this.effective instanceof DateTimeType;
-        }
-
-        /**
-         * @return {@link #effective} (Combat Zone Hazardous Duty effective time.)
-         */
-        public Period getEffectivePeriod() throws FHIRException { 
-          if (!(this.effective instanceof Period))
-            throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
-          return (Period) this.effective;
-        }
-
-        public boolean hasEffectivePeriod() { 
-          return this.effective instanceof Period;
-        }
-
-        public boolean hasEffective() { 
-          return this.effective != null && !this.effective.isEmpty();
-        }
-
-        /**
-         * @param value {@link #effective} (Combat Zone Hazardous Duty effective time.)
-         */
-        public OccupationalDataCombatZoneHazardousDutyComponent setEffective(Type value) { 
-          this.effective = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #value} (Combat Zone Hazardous Duty value.)
-         */
-        public CodeableConcept getValue() { 
-          if (this.value == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataCombatZoneHazardousDutyComponent.value");
-            else if (Configuration.doAutoCreate())
-              this.value = new CodeableConcept(); // cc
-          return this.value;
-        }
-
-        public boolean hasValue() { 
-          return this.value != null && !this.value.isEmpty();
-        }
-
-        /**
-         * @param value {@link #value} (Combat Zone Hazardous Duty value.)
-         */
-        public OccupationalDataCombatZoneHazardousDutyComponent setValue(CodeableConcept value) { 
-          this.value = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("code", "code", "87511-2.", 0, java.lang.Integer.MAX_VALUE, code));
-          children.add(new Property("effective[x]", "dateTime|Period", "Combat Zone Hazardous Duty effective time.", 0, 1, effective));
-          children.add(new Property("value", "CodeableConcept", "Combat Zone Hazardous Duty value.", 0, 1, value));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "code", "87511-2.", 0, java.lang.Integer.MAX_VALUE, code);
-          case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period", "Combat Zone Hazardous Duty effective time.", 0, 1, effective);
-          case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period", "Combat Zone Hazardous Duty effective time.", 0, 1, effective);
-          case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "Combat Zone Hazardous Duty effective time.", 0, 1, effective);
-          case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "Combat Zone Hazardous Duty effective time.", 0, 1, effective);
-          case 111972721: /*value*/  return new Property("value", "CodeableConcept", "Combat Zone Hazardous Duty value.", 0, 1, value);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // Enumeration<HazardousDutyWork>
-        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // CodeableConcept
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3059181: // code
-          value = new HazardousDutyWorkEnumFactory().fromType(castToCode(value));
-          this.getCode().add((Enumeration) value); // Enumeration<HazardousDutyWork>
-          return value;
-        case -1468651097: // effective
-          this.effective = castToType(value); // Type
-          return value;
-        case 111972721: // value
-          this.value = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code")) {
-          value = new HazardousDutyWorkEnumFactory().fromType(castToCode(value));
-          this.getCode().add((Enumeration) value);
-        } else if (name.equals("effective[x]")) {
-          this.effective = castToType(value); // Type
-        } else if (name.equals("value")) {
-          this.value = castToCodeableConcept(value); // CodeableConcept
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181:  return addCodeElement();
-        case 247104889:  return getEffective(); 
-        case -1468651097:  return getEffective(); 
-        case 111972721:  return getValue(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return new String[] {"code"};
-        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
-        case 111972721: /*value*/ return new String[] {"CodeableConcept"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.code");
-        }
-        else if (name.equals("effectiveDateTime")) {
-          this.effective = new DateTimeType();
-          return this.effective;
-        }
-        else if (name.equals("effectivePeriod")) {
-          this.effective = new Period();
-          return this.effective;
-        }
-        else if (name.equals("value")) {
-          this.value = new CodeableConcept();
-          return this.value;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public OccupationalDataCombatZoneHazardousDutyComponent copy() {
-        OccupationalDataCombatZoneHazardousDutyComponent dst = new OccupationalDataCombatZoneHazardousDutyComponent();
-        copyValues(dst);
-        if (code != null) {
-          dst.code = new ArrayList<Enumeration<HazardousDutyWork>>();
-          for (Enumeration<HazardousDutyWork> i : code)
-            dst.code.add(i.copy());
-        };
-        dst.effective = effective == null ? null : effective.copy();
-        dst.value = value == null ? null : value.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other_) {
-        if (!super.equalsDeep(other_))
-          return false;
-        if (!(other_ instanceof OccupationalDataCombatZoneHazardousDutyComponent))
-          return false;
-        OccupationalDataCombatZoneHazardousDutyComponent o = (OccupationalDataCombatZoneHazardousDutyComponent) other_;
-        return compareDeep(code, o.code, true) && compareDeep(effective, o.effective, true) && compareDeep(value, o.value, true)
-          ;
-      }
-
-      @Override
-      public boolean equalsShallow(Base other_) {
-        if (!super.equalsShallow(other_))
-          return false;
-        if (!(other_ instanceof OccupationalDataCombatZoneHazardousDutyComponent))
-          return false;
-        OccupationalDataCombatZoneHazardousDutyComponent o = (OccupationalDataCombatZoneHazardousDutyComponent) other_;
-        return compareValues(code, o.code, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, effective, value);
-      }
-
-  public String fhirType() {
-    return "OccupationalData.combatZoneHazardousDuty";
-
-  }
-
-  }
-
-    @Block()
-    public static class OccupationalDataUsualOccupationComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * 21843-8.
-         */
-        @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="21843-8", formalDefinition="21843-8." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/usual-occupation")
-        protected Enumeration<UsualOccupation> code;
-
-        /**
-         * Usual Occupation effective time.
-         */
-        @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Usual Occupation effective time", formalDefinition="Usual Occupation effective time." )
-        protected Type effective;
-
-        /**
-         * Usual Occupation value.
-         */
-        @Child(name = "value", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Usual Occupation value", formalDefinition="Usual Occupation value." )
+        @Child(name = "occupation", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Usual Work occupation", formalDefinition="A code that represents the type of work a person has held for the longest amount of time during his or her life." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/occupation-cdc-census-2010")
-        protected CodeableConcept value;
+        protected CodeableConcept occupation;
 
         /**
-         * Usual Occupation duration.
+         * A code that represents the type of business a person has worked in for the longest total time while in the usual occupation.
          */
-        @Child(name = "duration", type = {}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Usual Occupation duration", formalDefinition="Usual Occupation duration." )
-        protected OccupationalDataUsualOccupationDurationComponent duration;
+        @Child(name = "industry", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Usual Work industry", formalDefinition="A code that represents the type of business a person has worked in for the longest total time while in the usual occupation." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/industry-cdc-census-2010")
+        protected CodeableConcept industry;
 
         /**
-         * Usual Occupation industry.
+         * The date when a person first started working in their usual occupation.
          */
-        @Child(name = "industry", type = {}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Usual Occupation industry", formalDefinition="Usual Occupation industry." )
-        protected OccupationalDataUsualOccupationIndustryComponent industry;
+        @Child(name = "start", type = {DateTimeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Usual Work start time", formalDefinition="The date when a person first started working in their usual occupation." )
+        protected DateTimeType start;
 
-        private static final long serialVersionUID = -754978326L;
+        /**
+         * Total of all periods of time a person has spent in the usual occupation, not including intermittent period(s) where the person was not working in that occupation.
+         */
+        @Child(name = "duration", type = {Duration.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Usual Work duration", formalDefinition="Total of all periods of time a person has spent in the usual occupation, not including intermittent period(s) where the person was not working in that occupation." )
+        protected Duration duration;
+
+        private static final long serialVersionUID = -1952160116L;
 
     /**
      * Constructor
      */
-      public OccupationalDataUsualOccupationComponent() {
+      public OccupationalDataUsualWorkComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public OccupationalDataUsualOccupationComponent(Enumeration<UsualOccupation> code, Type effective, CodeableConcept value) {
+      public OccupationalDataUsualWorkComponent(CodeableConcept occupation, CodeableConcept industry) {
         super();
-        this.code = code;
-        this.effective = effective;
-        this.value = value;
+        this.occupation = occupation;
+        this.industry = industry;
       }
 
         /**
-         * @return {@link #code} (21843-8.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #occupation} (A code that represents the type of work a person has held for the longest amount of time during his or her life.)
          */
-        public Enumeration<UsualOccupation> getCodeElement() { 
-          if (this.code == null)
+        public CodeableConcept getOccupation() { 
+          if (this.occupation == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataUsualOccupationComponent.code");
+              throw new Error("Attempt to auto-create OccupationalDataUsualWorkComponent.occupation");
             else if (Configuration.doAutoCreate())
-              this.code = new Enumeration<UsualOccupation>(new UsualOccupationEnumFactory()); // bb
-          return this.code;
+              this.occupation = new CodeableConcept(); // cc
+          return this.occupation;
         }
 
-        public boolean hasCodeElement() { 
-          return this.code != null && !this.code.isEmpty();
-        }
-
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+        public boolean hasOccupation() { 
+          return this.occupation != null && !this.occupation.isEmpty();
         }
 
         /**
-         * @param value {@link #code} (21843-8.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #occupation} (A code that represents the type of work a person has held for the longest amount of time during his or her life.)
          */
-        public OccupationalDataUsualOccupationComponent setCodeElement(Enumeration<UsualOccupation> value) { 
-          this.code = value;
+        public OccupationalDataUsualWorkComponent setOccupation(CodeableConcept value) { 
+          this.occupation = value;
           return this;
         }
 
         /**
-         * @return 21843-8.
+         * @return {@link #industry} (A code that represents the type of business a person has worked in for the longest total time while in the usual occupation.)
          */
-        public UsualOccupation getCode() { 
-          return this.code == null ? null : this.code.getValue();
-        }
-
-        /**
-         * @param value 21843-8.
-         */
-        public OccupationalDataUsualOccupationComponent setCode(UsualOccupation value) { 
-            if (this.code == null)
-              this.code = new Enumeration<UsualOccupation>(new UsualOccupationEnumFactory());
-            this.code.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #effective} (Usual Occupation effective time.)
-         */
-        public Type getEffective() { 
-          return this.effective;
-        }
-
-        /**
-         * @return {@link #effective} (Usual Occupation effective time.)
-         */
-        public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
-          if (!(this.effective instanceof DateTimeType))
-            throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
-          return (DateTimeType) this.effective;
-        }
-
-        public boolean hasEffectiveDateTimeType() { 
-          return this.effective instanceof DateTimeType;
-        }
-
-        /**
-         * @return {@link #effective} (Usual Occupation effective time.)
-         */
-        public Period getEffectivePeriod() throws FHIRException { 
-          if (!(this.effective instanceof Period))
-            throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
-          return (Period) this.effective;
-        }
-
-        public boolean hasEffectivePeriod() { 
-          return this.effective instanceof Period;
-        }
-
-        public boolean hasEffective() { 
-          return this.effective != null && !this.effective.isEmpty();
-        }
-
-        /**
-         * @param value {@link #effective} (Usual Occupation effective time.)
-         */
-        public OccupationalDataUsualOccupationComponent setEffective(Type value) { 
-          this.effective = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #value} (Usual Occupation value.)
-         */
-        public CodeableConcept getValue() { 
-          if (this.value == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataUsualOccupationComponent.value");
-            else if (Configuration.doAutoCreate())
-              this.value = new CodeableConcept(); // cc
-          return this.value;
-        }
-
-        public boolean hasValue() { 
-          return this.value != null && !this.value.isEmpty();
-        }
-
-        /**
-         * @param value {@link #value} (Usual Occupation value.)
-         */
-        public OccupationalDataUsualOccupationComponent setValue(CodeableConcept value) { 
-          this.value = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #duration} (Usual Occupation duration.)
-         */
-        public OccupationalDataUsualOccupationDurationComponent getDuration() { 
-          if (this.duration == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataUsualOccupationComponent.duration");
-            else if (Configuration.doAutoCreate())
-              this.duration = new OccupationalDataUsualOccupationDurationComponent(); // cc
-          return this.duration;
-        }
-
-        public boolean hasDuration() { 
-          return this.duration != null && !this.duration.isEmpty();
-        }
-
-        /**
-         * @param value {@link #duration} (Usual Occupation duration.)
-         */
-        public OccupationalDataUsualOccupationComponent setDuration(OccupationalDataUsualOccupationDurationComponent value) { 
-          this.duration = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #industry} (Usual Occupation industry.)
-         */
-        public OccupationalDataUsualOccupationIndustryComponent getIndustry() { 
+        public CodeableConcept getIndustry() { 
           if (this.industry == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataUsualOccupationComponent.industry");
+              throw new Error("Attempt to auto-create OccupationalDataUsualWorkComponent.industry");
             else if (Configuration.doAutoCreate())
-              this.industry = new OccupationalDataUsualOccupationIndustryComponent(); // cc
+              this.industry = new CodeableConcept(); // cc
           return this.industry;
         }
 
@@ -1503,157 +377,205 @@ public class OccupationalData extends DomainResource {
         }
 
         /**
-         * @param value {@link #industry} (Usual Occupation industry.)
+         * @param value {@link #industry} (A code that represents the type of business a person has worked in for the longest total time while in the usual occupation.)
          */
-        public OccupationalDataUsualOccupationComponent setIndustry(OccupationalDataUsualOccupationIndustryComponent value) { 
+        public OccupationalDataUsualWorkComponent setIndustry(CodeableConcept value) { 
           this.industry = value;
           return this;
         }
 
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("code", "code", "21843-8.", 0, 1, code));
-          children.add(new Property("effective[x]", "dateTime|Period", "Usual Occupation effective time.", 0, 1, effective));
-          children.add(new Property("value", "CodeableConcept", "Usual Occupation value.", 0, 1, value));
-          children.add(new Property("duration", "", "Usual Occupation duration.", 0, 1, duration));
-          children.add(new Property("industry", "", "Usual Occupation industry.", 0, 1, industry));
+        /**
+         * @return {@link #start} (The date when a person first started working in their usual occupation.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
+         */
+        public DateTimeType getStartElement() { 
+          if (this.start == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataUsualWorkComponent.start");
+            else if (Configuration.doAutoCreate())
+              this.start = new DateTimeType(); // bb
+          return this.start;
         }
 
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "code", "21843-8.", 0, 1, code);
-          case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period", "Usual Occupation effective time.", 0, 1, effective);
-          case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period", "Usual Occupation effective time.", 0, 1, effective);
-          case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "Usual Occupation effective time.", 0, 1, effective);
-          case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "Usual Occupation effective time.", 0, 1, effective);
-          case 111972721: /*value*/  return new Property("value", "CodeableConcept", "Usual Occupation value.", 0, 1, value);
-          case -1992012396: /*duration*/  return new Property("duration", "", "Usual Occupation duration.", 0, 1, duration);
-          case 127156702: /*industry*/  return new Property("industry", "", "Usual Occupation industry.", 0, 1, industry);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
+        public boolean hasStartElement() { 
+          return this.start != null && !this.start.isEmpty();
+        }
+
+        public boolean hasStart() { 
+          return this.start != null && !this.start.isEmpty();
+        }
+
+        /**
+         * @param value {@link #start} (The date when a person first started working in their usual occupation.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
+         */
+        public OccupationalDataUsualWorkComponent setStartElement(DateTimeType value) { 
+          this.start = value;
+          return this;
+        }
+
+        /**
+         * @return The date when a person first started working in their usual occupation.
+         */
+        public Date getStart() { 
+          return this.start == null ? null : this.start.getValue();
+        }
+
+        /**
+         * @param value The date when a person first started working in their usual occupation.
+         */
+        public OccupationalDataUsualWorkComponent setStart(Date value) { 
+          if (value == null)
+            this.start = null;
+          else {
+            if (this.start == null)
+              this.start = new DateTimeType();
+            this.start.setValue(value);
           }
-
+          return this;
         }
 
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // Enumeration<UsualOccupation>
-        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // CodeableConcept
-        case -1992012396: /*duration*/ return this.duration == null ? new Base[0] : new Base[] {this.duration}; // OccupationalDataUsualOccupationDurationComponent
-        case 127156702: /*industry*/ return this.industry == null ? new Base[0] : new Base[] {this.industry}; // OccupationalDataUsualOccupationIndustryComponent
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3059181: // code
-          value = new UsualOccupationEnumFactory().fromType(castToCode(value));
-          this.code = (Enumeration) value; // Enumeration<UsualOccupation>
-          return value;
-        case -1468651097: // effective
-          this.effective = castToType(value); // Type
-          return value;
-        case 111972721: // value
-          this.value = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case -1992012396: // duration
-          this.duration = (OccupationalDataUsualOccupationDurationComponent) value; // OccupationalDataUsualOccupationDurationComponent
-          return value;
-        case 127156702: // industry
-          this.industry = (OccupationalDataUsualOccupationIndustryComponent) value; // OccupationalDataUsualOccupationIndustryComponent
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code")) {
-          value = new UsualOccupationEnumFactory().fromType(castToCode(value));
-          this.code = (Enumeration) value; // Enumeration<UsualOccupation>
-        } else if (name.equals("effective[x]")) {
-          this.effective = castToType(value); // Type
-        } else if (name.equals("value")) {
-          this.value = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("duration")) {
-          this.duration = (OccupationalDataUsualOccupationDurationComponent) value; // OccupationalDataUsualOccupationDurationComponent
-        } else if (name.equals("industry")) {
-          this.industry = (OccupationalDataUsualOccupationIndustryComponent) value; // OccupationalDataUsualOccupationIndustryComponent
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181:  return getCodeElement();
-        case 247104889:  return getEffective(); 
-        case -1468651097:  return getEffective(); 
-        case 111972721:  return getValue(); 
-        case -1992012396:  return getDuration(); 
-        case 127156702:  return getIndustry(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return new String[] {"code"};
-        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
-        case 111972721: /*value*/ return new String[] {"CodeableConcept"};
-        case -1992012396: /*duration*/ return new String[] {};
-        case 127156702: /*industry*/ return new String[] {};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.code");
-        }
-        else if (name.equals("effectiveDateTime")) {
-          this.effective = new DateTimeType();
-          return this.effective;
-        }
-        else if (name.equals("effectivePeriod")) {
-          this.effective = new Period();
-          return this.effective;
-        }
-        else if (name.equals("value")) {
-          this.value = new CodeableConcept();
-          return this.value;
-        }
-        else if (name.equals("duration")) {
-          this.duration = new OccupationalDataUsualOccupationDurationComponent();
+        /**
+         * @return {@link #duration} (Total of all periods of time a person has spent in the usual occupation, not including intermittent period(s) where the person was not working in that occupation.)
+         */
+        public Duration getDuration() { 
+          if (this.duration == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataUsualWorkComponent.duration");
+            else if (Configuration.doAutoCreate())
+              this.duration = new Duration(); // cc
           return this.duration;
         }
+
+        public boolean hasDuration() { 
+          return this.duration != null && !this.duration.isEmpty();
+        }
+
+        /**
+         * @param value {@link #duration} (Total of all periods of time a person has spent in the usual occupation, not including intermittent period(s) where the person was not working in that occupation.)
+         */
+        public OccupationalDataUsualWorkComponent setDuration(Duration value) { 
+          this.duration = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("occupation", "CodeableConcept", "A code that represents the type of work a person has held for the longest amount of time during his or her life.", 0, 1, occupation));
+          children.add(new Property("industry", "CodeableConcept", "A code that represents the type of business a person has worked in for the longest total time while in the usual occupation.", 0, 1, industry));
+          children.add(new Property("start", "dateTime", "The date when a person first started working in their usual occupation.", 0, 1, start));
+          children.add(new Property("duration", "Duration", "Total of all periods of time a person has spent in the usual occupation, not including intermittent period(s) where the person was not working in that occupation.", 0, 1, duration));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 1615358283: /*occupation*/  return new Property("occupation", "CodeableConcept", "A code that represents the type of work a person has held for the longest amount of time during his or her life.", 0, 1, occupation);
+          case 127156702: /*industry*/  return new Property("industry", "CodeableConcept", "A code that represents the type of business a person has worked in for the longest total time while in the usual occupation.", 0, 1, industry);
+          case 109757538: /*start*/  return new Property("start", "dateTime", "The date when a person first started working in their usual occupation.", 0, 1, start);
+          case -1992012396: /*duration*/  return new Property("duration", "Duration", "Total of all periods of time a person has spent in the usual occupation, not including intermittent period(s) where the person was not working in that occupation.", 0, 1, duration);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1615358283: /*occupation*/ return this.occupation == null ? new Base[0] : new Base[] {this.occupation}; // CodeableConcept
+        case 127156702: /*industry*/ return this.industry == null ? new Base[0] : new Base[] {this.industry}; // CodeableConcept
+        case 109757538: /*start*/ return this.start == null ? new Base[0] : new Base[] {this.start}; // DateTimeType
+        case -1992012396: /*duration*/ return this.duration == null ? new Base[0] : new Base[] {this.duration}; // Duration
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 1615358283: // occupation
+          this.occupation = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 127156702: // industry
+          this.industry = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 109757538: // start
+          this.start = castToDateTime(value); // DateTimeType
+          return value;
+        case -1992012396: // duration
+          this.duration = castToDuration(value); // Duration
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("occupation")) {
+          this.occupation = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("industry")) {
+          this.industry = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("start")) {
+          this.start = castToDateTime(value); // DateTimeType
+        } else if (name.equals("duration")) {
+          this.duration = castToDuration(value); // Duration
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1615358283:  return getOccupation(); 
+        case 127156702:  return getIndustry(); 
+        case 109757538:  return getStartElement();
+        case -1992012396:  return getDuration(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1615358283: /*occupation*/ return new String[] {"CodeableConcept"};
+        case 127156702: /*industry*/ return new String[] {"CodeableConcept"};
+        case 109757538: /*start*/ return new String[] {"dateTime"};
+        case -1992012396: /*duration*/ return new String[] {"Duration"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("occupation")) {
+          this.occupation = new CodeableConcept();
+          return this.occupation;
+        }
         else if (name.equals("industry")) {
-          this.industry = new OccupationalDataUsualOccupationIndustryComponent();
+          this.industry = new CodeableConcept();
           return this.industry;
         }
+        else if (name.equals("start")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.start");
+        }
+        else if (name.equals("duration")) {
+          this.duration = new Duration();
+          return this.duration;
+        }
         else
           return super.addChild(name);
       }
 
-      public OccupationalDataUsualOccupationComponent copy() {
-        OccupationalDataUsualOccupationComponent dst = new OccupationalDataUsualOccupationComponent();
+      public OccupationalDataUsualWorkComponent copy() {
+        OccupationalDataUsualWorkComponent dst = new OccupationalDataUsualWorkComponent();
         copyValues(dst);
-        dst.code = code == null ? null : code.copy();
-        dst.effective = effective == null ? null : effective.copy();
-        dst.value = value == null ? null : value.copy();
-        dst.duration = duration == null ? null : duration.copy();
+        dst.occupation = occupation == null ? null : occupation.copy();
         dst.industry = industry == null ? null : industry.copy();
+        dst.start = start == null ? null : start.copy();
+        dst.duration = duration == null ? null : duration.copy();
         return dst;
       }
 
@@ -1661,523 +583,184 @@ public class OccupationalData extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof OccupationalDataUsualOccupationComponent))
+        if (!(other_ instanceof OccupationalDataUsualWorkComponent))
           return false;
-        OccupationalDataUsualOccupationComponent o = (OccupationalDataUsualOccupationComponent) other_;
-        return compareDeep(code, o.code, true) && compareDeep(effective, o.effective, true) && compareDeep(value, o.value, true)
-           && compareDeep(duration, o.duration, true) && compareDeep(industry, o.industry, true);
+        OccupationalDataUsualWorkComponent o = (OccupationalDataUsualWorkComponent) other_;
+        return compareDeep(occupation, o.occupation, true) && compareDeep(industry, o.industry, true) && compareDeep(start, o.start, true)
+           && compareDeep(duration, o.duration, true);
       }
 
       @Override
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof OccupationalDataUsualOccupationComponent))
+        if (!(other_ instanceof OccupationalDataUsualWorkComponent))
           return false;
-        OccupationalDataUsualOccupationComponent o = (OccupationalDataUsualOccupationComponent) other_;
-        return compareValues(code, o.code, true);
+        OccupationalDataUsualWorkComponent o = (OccupationalDataUsualWorkComponent) other_;
+        return compareValues(start, o.start, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, effective, value, duration
-          , industry);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(occupation, industry, start
+          , duration);
       }
 
   public String fhirType() {
-    return "OccupationalData.usualOccupation";
+    return "OccupationalData.usualWork";
 
   }
 
   }
 
     @Block()
-    public static class OccupationalDataUsualOccupationDurationComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class OccupationalDataPastOrPresentJobComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Usual Occupation duration code.
+         * A code that represents the type of work done by a person at one job.
          */
-        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Usual Occupation duration code", formalDefinition="Usual Occupation duration code." )
-        protected CodeableConcept code;
-
-        /**
-         * Usual Occupation duration value.
-         */
-        @Child(name = "value", type = {Period.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Usual Occupation duration value", formalDefinition="Usual Occupation duration value." )
-        protected Period value;
-
-        private static final long serialVersionUID = -187323334L;
-
-    /**
-     * Constructor
-     */
-      public OccupationalDataUsualOccupationDurationComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public OccupationalDataUsualOccupationDurationComponent(CodeableConcept code, Period value) {
-        super();
-        this.code = code;
-        this.value = value;
-      }
+        @Child(name = "occupation", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job occupation", formalDefinition="A code that represents the type of work done by a person at one job." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/occupation-cdc-census-2010")
+        protected CodeableConcept occupation;
 
         /**
-         * @return {@link #code} (Usual Occupation duration code.)
+         * A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.
          */
-        public CodeableConcept getCode() { 
-          if (this.code == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataUsualOccupationDurationComponent.code");
-            else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept(); // cc
-          return this.code;
-        }
-
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
-        }
+        @Child(name = "industry", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job industry", formalDefinition="A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/industry-cdc-census-2010")
+        protected CodeableConcept industry;
 
         /**
-         * @param value {@link #code} (Usual Occupation duration code.)
+         * The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.
          */
-        public OccupationalDataUsualOccupationDurationComponent setCode(CodeableConcept value) { 
-          this.code = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #value} (Usual Occupation duration value.)
-         */
-        public Period getValue() { 
-          if (this.value == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataUsualOccupationDurationComponent.value");
-            else if (Configuration.doAutoCreate())
-              this.value = new Period(); // cc
-          return this.value;
-        }
-
-        public boolean hasValue() { 
-          return this.value != null && !this.value.isEmpty();
-        }
-
-        /**
-         * @param value {@link #value} (Usual Occupation duration value.)
-         */
-        public OccupationalDataUsualOccupationDurationComponent setValue(Period value) { 
-          this.value = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("code", "CodeableConcept", "Usual Occupation duration code.", 0, 1, code));
-          children.add(new Property("value", "Period", "Usual Occupation duration value.", 0, 1, value));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Usual Occupation duration code.", 0, 1, code);
-          case 111972721: /*value*/  return new Property("value", "Period", "Usual Occupation duration value.", 0, 1, value);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // Period
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3059181: // code
-          this.code = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case 111972721: // value
-          this.value = castToPeriod(value); // Period
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code")) {
-          this.code = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("value")) {
-          this.value = castToPeriod(value); // Period
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181:  return getCode(); 
-        case 111972721:  return getValue(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case 111972721: /*value*/ return new String[] {"Period"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          this.code = new CodeableConcept();
-          return this.code;
-        }
-        else if (name.equals("value")) {
-          this.value = new Period();
-          return this.value;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public OccupationalDataUsualOccupationDurationComponent copy() {
-        OccupationalDataUsualOccupationDurationComponent dst = new OccupationalDataUsualOccupationDurationComponent();
-        copyValues(dst);
-        dst.code = code == null ? null : code.copy();
-        dst.value = value == null ? null : value.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other_) {
-        if (!super.equalsDeep(other_))
-          return false;
-        if (!(other_ instanceof OccupationalDataUsualOccupationDurationComponent))
-          return false;
-        OccupationalDataUsualOccupationDurationComponent o = (OccupationalDataUsualOccupationDurationComponent) other_;
-        return compareDeep(code, o.code, true) && compareDeep(value, o.value, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other_) {
-        if (!super.equalsShallow(other_))
-          return false;
-        if (!(other_ instanceof OccupationalDataUsualOccupationDurationComponent))
-          return false;
-        OccupationalDataUsualOccupationDurationComponent o = (OccupationalDataUsualOccupationDurationComponent) other_;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value);
-      }
-
-  public String fhirType() {
-    return "OccupationalData.usualOccupation.duration";
-
-  }
-
-  }
-
-    @Block()
-    public static class OccupationalDataUsualOccupationIndustryComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Usual Occupation industry code.
-         */
-        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Usual Occupation industry code", formalDefinition="Usual Occupation industry code." )
-        protected CodeableConcept code;
-
-        /**
-         * Usual Occupation industry value.
-         */
-        @Child(name = "value", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Usual Occupation industry value", formalDefinition="Usual Occupation industry value." )
-        protected CodeableConcept value;
-
-        private static final long serialVersionUID = 1750253426L;
-
-    /**
-     * Constructor
-     */
-      public OccupationalDataUsualOccupationIndustryComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public OccupationalDataUsualOccupationIndustryComponent(CodeableConcept code, CodeableConcept value) {
-        super();
-        this.code = code;
-        this.value = value;
-      }
-
-        /**
-         * @return {@link #code} (Usual Occupation industry code.)
-         */
-        public CodeableConcept getCode() { 
-          if (this.code == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataUsualOccupationIndustryComponent.code");
-            else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept(); // cc
-          return this.code;
-        }
-
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
-        }
-
-        /**
-         * @param value {@link #code} (Usual Occupation industry code.)
-         */
-        public OccupationalDataUsualOccupationIndustryComponent setCode(CodeableConcept value) { 
-          this.code = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #value} (Usual Occupation industry value.)
-         */
-        public CodeableConcept getValue() { 
-          if (this.value == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataUsualOccupationIndustryComponent.value");
-            else if (Configuration.doAutoCreate())
-              this.value = new CodeableConcept(); // cc
-          return this.value;
-        }
-
-        public boolean hasValue() { 
-          return this.value != null && !this.value.isEmpty();
-        }
-
-        /**
-         * @param value {@link #value} (Usual Occupation industry value.)
-         */
-        public OccupationalDataUsualOccupationIndustryComponent setValue(CodeableConcept value) { 
-          this.value = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> children) {
-          super.listChildren(children);
-          children.add(new Property("code", "CodeableConcept", "Usual Occupation industry code.", 0, 1, code));
-          children.add(new Property("value", "CodeableConcept", "Usual Occupation industry value.", 0, 1, value));
-        }
-
-        @Override
-        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
-          switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Usual Occupation industry code.", 0, 1, code);
-          case 111972721: /*value*/  return new Property("value", "CodeableConcept", "Usual Occupation industry value.", 0, 1, value);
-          default: return super.getNamedProperty(_hash, _name, _checkValid);
-          }
-
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // CodeableConcept
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3059181: // code
-          this.code = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case 111972721: // value
-          this.value = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code")) {
-          this.code = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("value")) {
-          this.value = castToCodeableConcept(value); // CodeableConcept
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181:  return getCode(); 
-        case 111972721:  return getValue(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case 111972721: /*value*/ return new String[] {"CodeableConcept"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("code")) {
-          this.code = new CodeableConcept();
-          return this.code;
-        }
-        else if (name.equals("value")) {
-          this.value = new CodeableConcept();
-          return this.value;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public OccupationalDataUsualOccupationIndustryComponent copy() {
-        OccupationalDataUsualOccupationIndustryComponent dst = new OccupationalDataUsualOccupationIndustryComponent();
-        copyValues(dst);
-        dst.code = code == null ? null : code.copy();
-        dst.value = value == null ? null : value.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other_) {
-        if (!super.equalsDeep(other_))
-          return false;
-        if (!(other_ instanceof OccupationalDataUsualOccupationIndustryComponent))
-          return false;
-        OccupationalDataUsualOccupationIndustryComponent o = (OccupationalDataUsualOccupationIndustryComponent) other_;
-        return compareDeep(code, o.code, true) && compareDeep(value, o.value, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other_) {
-        if (!super.equalsShallow(other_))
-          return false;
-        if (!(other_ instanceof OccupationalDataUsualOccupationIndustryComponent))
-          return false;
-        OccupationalDataUsualOccupationIndustryComponent o = (OccupationalDataUsualOccupationIndustryComponent) other_;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value);
-      }
-
-  public String fhirType() {
-    return "OccupationalData.usualOccupation.industry";
-
-  }
-
-  }
-
-    @Block()
-    public static class OccupationalDataPastOrPresentOccupationComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Past Or Present Occupation code.
-         */
-        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Past Or Present Occupation code", formalDefinition="Past Or Present Occupation code." )
-        protected CodeableConcept code;
-
-        /**
-         * Past Or Present Occupation effective time.
-         */
-        @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Past Or Present Occupation effective time", formalDefinition="Past Or Present Occupation effective time." )
+        @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job effective time", formalDefinition="The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job." )
         protected Type effective;
 
         /**
-         * Past Or Present Occupation value.
+         * The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.
          */
-        @Child(name = "value", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Past Or Present Occupation value", formalDefinition="Past Or Present Occupation value." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/occupation-cdc-census-2010")
-        protected CodeableConcept value;
+        @Child(name = "employer", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job employer", formalDefinition="The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job." )
+        protected Reference employer;
 
-        private static final long serialVersionUID = -260590813L;
+        /**
+         * The actual object that is the target of the reference (The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.)
+         */
+        protected Organization employerTarget;
+
+        /**
+         * The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).
+         */
+        @Child(name = "workClassification", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job work classification", formalDefinition="The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/work-classification-odh")
+        protected CodeableConcept workClassification;
+
+        /**
+         * Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job.
+         */
+        @Child(name = "supervisoryLevel", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job supervisory level", formalDefinition="Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/supervisory-level-odh-us")
+        protected CodeableConcept supervisoryLevel;
+
+        /**
+         * A regular action performed at a single job.
+         */
+        @Child(name = "jobDuty", type = {StringType.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job job duty", formalDefinition="A regular action performed at a single job." )
+        protected List<StringType> jobDuty;
+
+        /**
+         * A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological).
+         */
+        @Child(name = "occupationalHazard", type = {StringType.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job occupational hazard", formalDefinition="A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological)." )
+        protected List<StringType> occupationalHazard;
+
+        /**
+         * Describes a person's typical arrangement of working hours for one job.
+         */
+        @Child(name = "workSchedule", type = {}, order=9, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job work schedule", formalDefinition="Describes a person's typical arrangement of working hours for one job." )
+        protected OccupationalDataPastOrPresentJobWorkScheduleComponent workSchedule;
+
+        private static final long serialVersionUID = -1553398342L;
 
     /**
      * Constructor
      */
-      public OccupationalDataPastOrPresentOccupationComponent() {
+      public OccupationalDataPastOrPresentJobComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public OccupationalDataPastOrPresentOccupationComponent(CodeableConcept code, Type effective, CodeableConcept value) {
+      public OccupationalDataPastOrPresentJobComponent(CodeableConcept occupation, CodeableConcept industry) {
         super();
-        this.code = code;
-        this.effective = effective;
-        this.value = value;
+        this.occupation = occupation;
+        this.industry = industry;
       }
 
         /**
-         * @return {@link #code} (Past Or Present Occupation code.)
+         * @return {@link #occupation} (A code that represents the type of work done by a person at one job.)
          */
-        public CodeableConcept getCode() { 
-          if (this.code == null)
+        public CodeableConcept getOccupation() { 
+          if (this.occupation == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentOccupationComponent.code");
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobComponent.occupation");
             else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept(); // cc
-          return this.code;
+              this.occupation = new CodeableConcept(); // cc
+          return this.occupation;
         }
 
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+        public boolean hasOccupation() { 
+          return this.occupation != null && !this.occupation.isEmpty();
         }
 
         /**
-         * @param value {@link #code} (Past Or Present Occupation code.)
+         * @param value {@link #occupation} (A code that represents the type of work done by a person at one job.)
          */
-        public OccupationalDataPastOrPresentOccupationComponent setCode(CodeableConcept value) { 
-          this.code = value;
+        public OccupationalDataPastOrPresentJobComponent setOccupation(CodeableConcept value) { 
+          this.occupation = value;
           return this;
         }
 
         /**
-         * @return {@link #effective} (Past Or Present Occupation effective time.)
+         * @return {@link #industry} (A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.)
+         */
+        public CodeableConcept getIndustry() { 
+          if (this.industry == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobComponent.industry");
+            else if (Configuration.doAutoCreate())
+              this.industry = new CodeableConcept(); // cc
+          return this.industry;
+        }
+
+        public boolean hasIndustry() { 
+          return this.industry != null && !this.industry.isEmpty();
+        }
+
+        /**
+         * @param value {@link #industry} (A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.)
+         */
+        public OccupationalDataPastOrPresentJobComponent setIndustry(CodeableConcept value) { 
+          this.industry = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #effective} (The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.)
          */
         public Type getEffective() { 
           return this.effective;
         }
 
         /**
-         * @return {@link #effective} (Past Or Present Occupation effective time.)
+         * @return {@link #effective} (The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.)
          */
         public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
           if (!(this.effective instanceof DateTimeType))
@@ -2190,7 +773,7 @@ public class OccupationalData extends DomainResource {
         }
 
         /**
-         * @return {@link #effective} (Past Or Present Occupation effective time.)
+         * @return {@link #effective} (The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.)
          */
         public Period getEffectivePeriod() throws FHIRException { 
           if (!(this.effective instanceof Period))
@@ -2207,53 +790,713 @@ public class OccupationalData extends DomainResource {
         }
 
         /**
-         * @param value {@link #effective} (Past Or Present Occupation effective time.)
+         * @param value {@link #effective} (The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.)
          */
-        public OccupationalDataPastOrPresentOccupationComponent setEffective(Type value) { 
+        public OccupationalDataPastOrPresentJobComponent setEffective(Type value) { 
           this.effective = value;
           return this;
         }
 
         /**
-         * @return {@link #value} (Past Or Present Occupation value.)
+         * @return {@link #employer} (The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.)
          */
-        public CodeableConcept getValue() { 
-          if (this.value == null)
+        public Reference getEmployer() { 
+          if (this.employer == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentOccupationComponent.value");
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobComponent.employer");
             else if (Configuration.doAutoCreate())
-              this.value = new CodeableConcept(); // cc
-          return this.value;
+              this.employer = new Reference(); // cc
+          return this.employer;
         }
 
-        public boolean hasValue() { 
-          return this.value != null && !this.value.isEmpty();
+        public boolean hasEmployer() { 
+          return this.employer != null && !this.employer.isEmpty();
         }
 
         /**
-         * @param value {@link #value} (Past Or Present Occupation value.)
+         * @param value {@link #employer} (The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.)
          */
-        public OccupationalDataPastOrPresentOccupationComponent setValue(CodeableConcept value) { 
-          this.value = value;
+        public OccupationalDataPastOrPresentJobComponent setEmployer(Reference value) { 
+          this.employer = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #employer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.)
+         */
+        public Organization getEmployerTarget() { 
+          if (this.employerTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobComponent.employer");
+            else if (Configuration.doAutoCreate())
+              this.employerTarget = new Organization(); // aa
+          return this.employerTarget;
+        }
+
+        /**
+         * @param value {@link #employer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.)
+         */
+        public OccupationalDataPastOrPresentJobComponent setEmployerTarget(Organization value) { 
+          this.employerTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #workClassification} (The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).)
+         */
+        public CodeableConcept getWorkClassification() { 
+          if (this.workClassification == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobComponent.workClassification");
+            else if (Configuration.doAutoCreate())
+              this.workClassification = new CodeableConcept(); // cc
+          return this.workClassification;
+        }
+
+        public boolean hasWorkClassification() { 
+          return this.workClassification != null && !this.workClassification.isEmpty();
+        }
+
+        /**
+         * @param value {@link #workClassification} (The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).)
+         */
+        public OccupationalDataPastOrPresentJobComponent setWorkClassification(CodeableConcept value) { 
+          this.workClassification = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #supervisoryLevel} (Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job.)
+         */
+        public CodeableConcept getSupervisoryLevel() { 
+          if (this.supervisoryLevel == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobComponent.supervisoryLevel");
+            else if (Configuration.doAutoCreate())
+              this.supervisoryLevel = new CodeableConcept(); // cc
+          return this.supervisoryLevel;
+        }
+
+        public boolean hasSupervisoryLevel() { 
+          return this.supervisoryLevel != null && !this.supervisoryLevel.isEmpty();
+        }
+
+        /**
+         * @param value {@link #supervisoryLevel} (Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job.)
+         */
+        public OccupationalDataPastOrPresentJobComponent setSupervisoryLevel(CodeableConcept value) { 
+          this.supervisoryLevel = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #jobDuty} (A regular action performed at a single job.)
+         */
+        public List<StringType> getJobDuty() { 
+          if (this.jobDuty == null)
+            this.jobDuty = new ArrayList<StringType>();
+          return this.jobDuty;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public OccupationalDataPastOrPresentJobComponent setJobDuty(List<StringType> theJobDuty) { 
+          this.jobDuty = theJobDuty;
+          return this;
+        }
+
+        public boolean hasJobDuty() { 
+          if (this.jobDuty == null)
+            return false;
+          for (StringType item : this.jobDuty)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #jobDuty} (A regular action performed at a single job.)
+         */
+        public StringType addJobDutyElement() {//2 
+          StringType t = new StringType();
+          if (this.jobDuty == null)
+            this.jobDuty = new ArrayList<StringType>();
+          this.jobDuty.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #jobDuty} (A regular action performed at a single job.)
+         */
+        public OccupationalDataPastOrPresentJobComponent addJobDuty(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.jobDuty == null)
+            this.jobDuty = new ArrayList<StringType>();
+          this.jobDuty.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #jobDuty} (A regular action performed at a single job.)
+         */
+        public boolean hasJobDuty(String value) { 
+          if (this.jobDuty == null)
+            return false;
+          for (StringType v : this.jobDuty)
+            if (v.equals(value)) // string
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #occupationalHazard} (A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological).)
+         */
+        public List<StringType> getOccupationalHazard() { 
+          if (this.occupationalHazard == null)
+            this.occupationalHazard = new ArrayList<StringType>();
+          return this.occupationalHazard;
+        }
+
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public OccupationalDataPastOrPresentJobComponent setOccupationalHazard(List<StringType> theOccupationalHazard) { 
+          this.occupationalHazard = theOccupationalHazard;
+          return this;
+        }
+
+        public boolean hasOccupationalHazard() { 
+          if (this.occupationalHazard == null)
+            return false;
+          for (StringType item : this.occupationalHazard)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #occupationalHazard} (A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological).)
+         */
+        public StringType addOccupationalHazardElement() {//2 
+          StringType t = new StringType();
+          if (this.occupationalHazard == null)
+            this.occupationalHazard = new ArrayList<StringType>();
+          this.occupationalHazard.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #occupationalHazard} (A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological).)
+         */
+        public OccupationalDataPastOrPresentJobComponent addOccupationalHazard(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.occupationalHazard == null)
+            this.occupationalHazard = new ArrayList<StringType>();
+          this.occupationalHazard.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #occupationalHazard} (A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological).)
+         */
+        public boolean hasOccupationalHazard(String value) { 
+          if (this.occupationalHazard == null)
+            return false;
+          for (StringType v : this.occupationalHazard)
+            if (v.equals(value)) // string
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #workSchedule} (Describes a person's typical arrangement of working hours for one job.)
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent getWorkSchedule() { 
+          if (this.workSchedule == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobComponent.workSchedule");
+            else if (Configuration.doAutoCreate())
+              this.workSchedule = new OccupationalDataPastOrPresentJobWorkScheduleComponent(); // cc
+          return this.workSchedule;
+        }
+
+        public boolean hasWorkSchedule() { 
+          return this.workSchedule != null && !this.workSchedule.isEmpty();
+        }
+
+        /**
+         * @param value {@link #workSchedule} (Describes a person's typical arrangement of working hours for one job.)
+         */
+        public OccupationalDataPastOrPresentJobComponent setWorkSchedule(OccupationalDataPastOrPresentJobWorkScheduleComponent value) { 
+          this.workSchedule = value;
           return this;
         }
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("code", "CodeableConcept", "Past Or Present Occupation code.", 0, 1, code));
-          children.add(new Property("effective[x]", "dateTime|Period", "Past Or Present Occupation effective time.", 0, 1, effective));
-          children.add(new Property("value", "CodeableConcept", "Past Or Present Occupation value.", 0, 1, value));
+          children.add(new Property("occupation", "CodeableConcept", "A code that represents the type of work done by a person at one job.", 0, 1, occupation));
+          children.add(new Property("industry", "CodeableConcept", "A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.", 0, 1, industry));
+          children.add(new Property("effective[x]", "dateTime|Period", "The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.", 0, 1, effective));
+          children.add(new Property("employer", "Reference(Organization)", "The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.", 0, 1, employer));
+          children.add(new Property("workClassification", "CodeableConcept", "The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).", 0, 1, workClassification));
+          children.add(new Property("supervisoryLevel", "CodeableConcept", "Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job.", 0, 1, supervisoryLevel));
+          children.add(new Property("jobDuty", "string", "A regular action performed at a single job.", 0, java.lang.Integer.MAX_VALUE, jobDuty));
+          children.add(new Property("occupationalHazard", "string", "A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological).", 0, java.lang.Integer.MAX_VALUE, occupationalHazard));
+          children.add(new Property("workSchedule", "", "Describes a person's typical arrangement of working hours for one job.", 0, 1, workSchedule));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Past Or Present Occupation code.", 0, 1, code);
-          case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period", "Past Or Present Occupation effective time.", 0, 1, effective);
-          case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period", "Past Or Present Occupation effective time.", 0, 1, effective);
-          case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "Past Or Present Occupation effective time.", 0, 1, effective);
-          case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "Past Or Present Occupation effective time.", 0, 1, effective);
-          case 111972721: /*value*/  return new Property("value", "CodeableConcept", "Past Or Present Occupation value.", 0, 1, value);
+          case 1615358283: /*occupation*/  return new Property("occupation", "CodeableConcept", "A code that represents the type of work done by a person at one job.", 0, 1, occupation);
+          case 127156702: /*industry*/  return new Property("industry", "CodeableConcept", "A code that represents the type of business associated with a person's Past Or Present Job; i.e., for one job. A change in industry indicates a change in job.", 0, 1, industry);
+          case 247104889: /*effective[x]*/  return new Property("effective[x]", "dateTime|Period", "The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.", 0, 1, effective);
+          case -1468651097: /*effective*/  return new Property("effective[x]", "dateTime|Period", "The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.", 0, 1, effective);
+          case -275306910: /*effectiveDateTime*/  return new Property("effective[x]", "dateTime|Period", "The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.", 0, 1, effective);
+          case -403934648: /*effectivePeriod*/  return new Property("effective[x]", "dateTime|Period", "The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.", 0, 1, effective);
+          case 1193469627: /*employer*/  return new Property("employer", "Reference(Organization)", "The party, be it an individual or an organization, responsible for providing compensation to a person performing work, or in the case of unpaid work, the party responsible for engaging the person in a position. For military occupations, this refers to the name of the person's military home base; the person's Branch of Service is recorded as industry. A change in employer or employer location indicates a change in job.", 0, 1, employer);
+          case 909284695: /*workClassification*/  return new Property("workClassification", "CodeableConcept", "The classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status).", 0, 1, workClassification);
+          case -1746062349: /*supervisoryLevel*/  return new Property("supervisoryLevel", "CodeableConcept", "Reflects the amount of supervisory or management responsibilities of a person at one job. For military jobs, pay grade is used as a proxy because it can be interpreted across branches of service.  A change in supervisory level is considered a new job.", 0, 1, supervisoryLevel);
+          case -1438374861: /*jobDuty*/  return new Property("jobDuty", "string", "A regular action performed at a single job.", 0, java.lang.Integer.MAX_VALUE, jobDuty);
+          case 1203483240: /*occupationalHazard*/  return new Property("occupationalHazard", "string", "A hazard that is specific to a person's work or work environment for a single job and with which the person might come in contact. A hazard is a source of potential harm to an individual's physical or mental health (e.g., biological, chemical, physical, psychological, radiological).", 0, java.lang.Integer.MAX_VALUE, occupationalHazard);
+          case -1102242616: /*workSchedule*/  return new Property("workSchedule", "", "Describes a person's typical arrangement of working hours for one job.", 0, 1, workSchedule);
+          default: return super.getNamedProperty(_hash, _name, _checkValid);
+          }
+
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 1615358283: /*occupation*/ return this.occupation == null ? new Base[0] : new Base[] {this.occupation}; // CodeableConcept
+        case 127156702: /*industry*/ return this.industry == null ? new Base[0] : new Base[] {this.industry}; // CodeableConcept
+        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
+        case 1193469627: /*employer*/ return this.employer == null ? new Base[0] : new Base[] {this.employer}; // Reference
+        case 909284695: /*workClassification*/ return this.workClassification == null ? new Base[0] : new Base[] {this.workClassification}; // CodeableConcept
+        case -1746062349: /*supervisoryLevel*/ return this.supervisoryLevel == null ? new Base[0] : new Base[] {this.supervisoryLevel}; // CodeableConcept
+        case -1438374861: /*jobDuty*/ return this.jobDuty == null ? new Base[0] : this.jobDuty.toArray(new Base[this.jobDuty.size()]); // StringType
+        case 1203483240: /*occupationalHazard*/ return this.occupationalHazard == null ? new Base[0] : this.occupationalHazard.toArray(new Base[this.occupationalHazard.size()]); // StringType
+        case -1102242616: /*workSchedule*/ return this.workSchedule == null ? new Base[0] : new Base[] {this.workSchedule}; // OccupationalDataPastOrPresentJobWorkScheduleComponent
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 1615358283: // occupation
+          this.occupation = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 127156702: // industry
+          this.industry = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case -1468651097: // effective
+          this.effective = castToType(value); // Type
+          return value;
+        case 1193469627: // employer
+          this.employer = castToReference(value); // Reference
+          return value;
+        case 909284695: // workClassification
+          this.workClassification = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case -1746062349: // supervisoryLevel
+          this.supervisoryLevel = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case -1438374861: // jobDuty
+          this.getJobDuty().add(castToString(value)); // StringType
+          return value;
+        case 1203483240: // occupationalHazard
+          this.getOccupationalHazard().add(castToString(value)); // StringType
+          return value;
+        case -1102242616: // workSchedule
+          this.workSchedule = (OccupationalDataPastOrPresentJobWorkScheduleComponent) value; // OccupationalDataPastOrPresentJobWorkScheduleComponent
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("occupation")) {
+          this.occupation = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("industry")) {
+          this.industry = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("effective[x]")) {
+          this.effective = castToType(value); // Type
+        } else if (name.equals("employer")) {
+          this.employer = castToReference(value); // Reference
+        } else if (name.equals("workClassification")) {
+          this.workClassification = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("supervisoryLevel")) {
+          this.supervisoryLevel = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("jobDuty")) {
+          this.getJobDuty().add(castToString(value));
+        } else if (name.equals("occupationalHazard")) {
+          this.getOccupationalHazard().add(castToString(value));
+        } else if (name.equals("workSchedule")) {
+          this.workSchedule = (OccupationalDataPastOrPresentJobWorkScheduleComponent) value; // OccupationalDataPastOrPresentJobWorkScheduleComponent
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1615358283:  return getOccupation(); 
+        case 127156702:  return getIndustry(); 
+        case 247104889:  return getEffective(); 
+        case -1468651097:  return getEffective(); 
+        case 1193469627:  return getEmployer(); 
+        case 909284695:  return getWorkClassification(); 
+        case -1746062349:  return getSupervisoryLevel(); 
+        case -1438374861:  return addJobDutyElement();
+        case 1203483240:  return addOccupationalHazardElement();
+        case -1102242616:  return getWorkSchedule(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1615358283: /*occupation*/ return new String[] {"CodeableConcept"};
+        case 127156702: /*industry*/ return new String[] {"CodeableConcept"};
+        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
+        case 1193469627: /*employer*/ return new String[] {"Reference"};
+        case 909284695: /*workClassification*/ return new String[] {"CodeableConcept"};
+        case -1746062349: /*supervisoryLevel*/ return new String[] {"CodeableConcept"};
+        case -1438374861: /*jobDuty*/ return new String[] {"string"};
+        case 1203483240: /*occupationalHazard*/ return new String[] {"string"};
+        case -1102242616: /*workSchedule*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("occupation")) {
+          this.occupation = new CodeableConcept();
+          return this.occupation;
+        }
+        else if (name.equals("industry")) {
+          this.industry = new CodeableConcept();
+          return this.industry;
+        }
+        else if (name.equals("effectiveDateTime")) {
+          this.effective = new DateTimeType();
+          return this.effective;
+        }
+        else if (name.equals("effectivePeriod")) {
+          this.effective = new Period();
+          return this.effective;
+        }
+        else if (name.equals("employer")) {
+          this.employer = new Reference();
+          return this.employer;
+        }
+        else if (name.equals("workClassification")) {
+          this.workClassification = new CodeableConcept();
+          return this.workClassification;
+        }
+        else if (name.equals("supervisoryLevel")) {
+          this.supervisoryLevel = new CodeableConcept();
+          return this.supervisoryLevel;
+        }
+        else if (name.equals("jobDuty")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.jobDuty");
+        }
+        else if (name.equals("occupationalHazard")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.occupationalHazard");
+        }
+        else if (name.equals("workSchedule")) {
+          this.workSchedule = new OccupationalDataPastOrPresentJobWorkScheduleComponent();
+          return this.workSchedule;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public OccupationalDataPastOrPresentJobComponent copy() {
+        OccupationalDataPastOrPresentJobComponent dst = new OccupationalDataPastOrPresentJobComponent();
+        copyValues(dst);
+        dst.occupation = occupation == null ? null : occupation.copy();
+        dst.industry = industry == null ? null : industry.copy();
+        dst.effective = effective == null ? null : effective.copy();
+        dst.employer = employer == null ? null : employer.copy();
+        dst.workClassification = workClassification == null ? null : workClassification.copy();
+        dst.supervisoryLevel = supervisoryLevel == null ? null : supervisoryLevel.copy();
+        if (jobDuty != null) {
+          dst.jobDuty = new ArrayList<StringType>();
+          for (StringType i : jobDuty)
+            dst.jobDuty.add(i.copy());
+        };
+        if (occupationalHazard != null) {
+          dst.occupationalHazard = new ArrayList<StringType>();
+          for (StringType i : occupationalHazard)
+            dst.occupationalHazard.add(i.copy());
+        };
+        dst.workSchedule = workSchedule == null ? null : workSchedule.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other_) {
+        if (!super.equalsDeep(other_))
+          return false;
+        if (!(other_ instanceof OccupationalDataPastOrPresentJobComponent))
+          return false;
+        OccupationalDataPastOrPresentJobComponent o = (OccupationalDataPastOrPresentJobComponent) other_;
+        return compareDeep(occupation, o.occupation, true) && compareDeep(industry, o.industry, true) && compareDeep(effective, o.effective, true)
+           && compareDeep(employer, o.employer, true) && compareDeep(workClassification, o.workClassification, true)
+           && compareDeep(supervisoryLevel, o.supervisoryLevel, true) && compareDeep(jobDuty, o.jobDuty, true)
+           && compareDeep(occupationalHazard, o.occupationalHazard, true) && compareDeep(workSchedule, o.workSchedule, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other_) {
+        if (!super.equalsShallow(other_))
+          return false;
+        if (!(other_ instanceof OccupationalDataPastOrPresentJobComponent))
+          return false;
+        OccupationalDataPastOrPresentJobComponent o = (OccupationalDataPastOrPresentJobComponent) other_;
+        return compareValues(jobDuty, o.jobDuty, true) && compareValues(occupationalHazard, o.occupationalHazard, true)
+          ;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(occupation, industry, effective
+          , employer, workClassification, supervisoryLevel, jobDuty, occupationalHazard, workSchedule
+          );
+      }
+
+  public String fhirType() {
+    return "OccupationalData.pastOrPresentJob";
+
+  }
+
+  }
+
+    @Block()
+    public static class OccupationalDataPastOrPresentJobWorkScheduleComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * A code that represents a person's typical arrangement of working hours for one job.
+         */
+        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job work schedule code", formalDefinition="A code that represents a person's typical arrangement of working hours for one job." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/work-schedule-odh")
+        protected CodeableConcept code;
+
+        /**
+         * The typical number of days worked in a week by a person at one job.
+         */
+        @Child(name = "weeklyWorkDays", type = {DecimalType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job work schedule weekly work days", formalDefinition="The typical number of days worked in a week by a person at one job." )
+        protected DecimalType weeklyWorkDays;
+
+        /**
+         * The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.
+         */
+        @Child(name = "dailyWorkHours", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Past Or Present Job work schedule daily work hours", formalDefinition="The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift." )
+        protected DecimalType dailyWorkHours;
+
+        private static final long serialVersionUID = -253812674L;
+
+    /**
+     * Constructor
+     */
+      public OccupationalDataPastOrPresentJobWorkScheduleComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public OccupationalDataPastOrPresentJobWorkScheduleComponent(CodeableConcept code) {
+        super();
+        this.code = code;
+      }
+
+        /**
+         * @return {@link #code} (A code that represents a person's typical arrangement of working hours for one job.)
+         */
+        public CodeableConcept getCode() { 
+          if (this.code == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobWorkScheduleComponent.code");
+            else if (Configuration.doAutoCreate())
+              this.code = new CodeableConcept(); // cc
+          return this.code;
+        }
+
+        public boolean hasCode() { 
+          return this.code != null && !this.code.isEmpty();
+        }
+
+        /**
+         * @param value {@link #code} (A code that represents a person's typical arrangement of working hours for one job.)
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent setCode(CodeableConcept value) { 
+          this.code = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #weeklyWorkDays} (The typical number of days worked in a week by a person at one job.). This is the underlying object with id, value and extensions. The accessor "getWeeklyWorkDays" gives direct access to the value
+         */
+        public DecimalType getWeeklyWorkDaysElement() { 
+          if (this.weeklyWorkDays == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobWorkScheduleComponent.weeklyWorkDays");
+            else if (Configuration.doAutoCreate())
+              this.weeklyWorkDays = new DecimalType(); // bb
+          return this.weeklyWorkDays;
+        }
+
+        public boolean hasWeeklyWorkDaysElement() { 
+          return this.weeklyWorkDays != null && !this.weeklyWorkDays.isEmpty();
+        }
+
+        public boolean hasWeeklyWorkDays() { 
+          return this.weeklyWorkDays != null && !this.weeklyWorkDays.isEmpty();
+        }
+
+        /**
+         * @param value {@link #weeklyWorkDays} (The typical number of days worked in a week by a person at one job.). This is the underlying object with id, value and extensions. The accessor "getWeeklyWorkDays" gives direct access to the value
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent setWeeklyWorkDaysElement(DecimalType value) { 
+          this.weeklyWorkDays = value;
+          return this;
+        }
+
+        /**
+         * @return The typical number of days worked in a week by a person at one job.
+         */
+        public BigDecimal getWeeklyWorkDays() { 
+          return this.weeklyWorkDays == null ? null : this.weeklyWorkDays.getValue();
+        }
+
+        /**
+         * @param value The typical number of days worked in a week by a person at one job.
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent setWeeklyWorkDays(BigDecimal value) { 
+          if (value == null)
+            this.weeklyWorkDays = null;
+          else {
+            if (this.weeklyWorkDays == null)
+              this.weeklyWorkDays = new DecimalType();
+            this.weeklyWorkDays.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @param value The typical number of days worked in a week by a person at one job.
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent setWeeklyWorkDays(long value) { 
+              this.weeklyWorkDays = new DecimalType();
+            this.weeklyWorkDays.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value The typical number of days worked in a week by a person at one job.
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent setWeeklyWorkDays(double value) { 
+              this.weeklyWorkDays = new DecimalType();
+            this.weeklyWorkDays.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #dailyWorkHours} (The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.). This is the underlying object with id, value and extensions. The accessor "getDailyWorkHours" gives direct access to the value
+         */
+        public DecimalType getDailyWorkHoursElement() { 
+          if (this.dailyWorkHours == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OccupationalDataPastOrPresentJobWorkScheduleComponent.dailyWorkHours");
+            else if (Configuration.doAutoCreate())
+              this.dailyWorkHours = new DecimalType(); // bb
+          return this.dailyWorkHours;
+        }
+
+        public boolean hasDailyWorkHoursElement() { 
+          return this.dailyWorkHours != null && !this.dailyWorkHours.isEmpty();
+        }
+
+        public boolean hasDailyWorkHours() { 
+          return this.dailyWorkHours != null && !this.dailyWorkHours.isEmpty();
+        }
+
+        /**
+         * @param value {@link #dailyWorkHours} (The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.). This is the underlying object with id, value and extensions. The accessor "getDailyWorkHours" gives direct access to the value
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent setDailyWorkHoursElement(DecimalType value) { 
+          this.dailyWorkHours = value;
+          return this;
+        }
+
+        /**
+         * @return The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.
+         */
+        public BigDecimal getDailyWorkHours() { 
+          return this.dailyWorkHours == null ? null : this.dailyWorkHours.getValue();
+        }
+
+        /**
+         * @param value The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent setDailyWorkHours(BigDecimal value) { 
+          if (value == null)
+            this.dailyWorkHours = null;
+          else {
+            if (this.dailyWorkHours == null)
+              this.dailyWorkHours = new DecimalType();
+            this.dailyWorkHours.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @param value The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent setDailyWorkHours(long value) { 
+              this.dailyWorkHours = new DecimalType();
+            this.dailyWorkHours.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.
+         */
+        public OccupationalDataPastOrPresentJobWorkScheduleComponent setDailyWorkHours(double value) { 
+              this.dailyWorkHours = new DecimalType();
+            this.dailyWorkHours.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> children) {
+          super.listChildren(children);
+          children.add(new Property("code", "CodeableConcept", "A code that represents a person's typical arrangement of working hours for one job.", 0, 1, code));
+          children.add(new Property("weeklyWorkDays", "decimal", "The typical number of days worked in a week by a person at one job.", 0, 1, weeklyWorkDays));
+          children.add(new Property("dailyWorkHours", "decimal", "The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.", 0, 1, dailyWorkHours));
+        }
+
+        @Override
+        public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
+          switch (_hash) {
+          case 3059181: /*code*/  return new Property("code", "CodeableConcept", "A code that represents a person's typical arrangement of working hours for one job.", 0, 1, code);
+          case -2051928407: /*weeklyWorkDays*/  return new Property("weeklyWorkDays", "decimal", "The typical number of days worked in a week by a person at one job.", 0, 1, weeklyWorkDays);
+          case -1065164699: /*dailyWorkHours*/  return new Property("dailyWorkHours", "decimal", "The number of hours worked in a day or shift at one job by a person. For those working a split shift (divided into two parts that are separated by an interval longer than a normal rest period), it is the total of both periods of time in a shift.", 0, 1, dailyWorkHours);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2263,8 +1506,8 @@ public class OccupationalData extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // CodeableConcept
+        case -2051928407: /*weeklyWorkDays*/ return this.weeklyWorkDays == null ? new Base[0] : new Base[] {this.weeklyWorkDays}; // DecimalType
+        case -1065164699: /*dailyWorkHours*/ return this.dailyWorkHours == null ? new Base[0] : new Base[] {this.dailyWorkHours}; // DecimalType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2276,11 +1519,11 @@ public class OccupationalData extends DomainResource {
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
-        case -1468651097: // effective
-          this.effective = castToType(value); // Type
+        case -2051928407: // weeklyWorkDays
+          this.weeklyWorkDays = castToDecimal(value); // DecimalType
           return value;
-        case 111972721: // value
-          this.value = castToCodeableConcept(value); // CodeableConcept
+        case -1065164699: // dailyWorkHours
+          this.dailyWorkHours = castToDecimal(value); // DecimalType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2291,10 +1534,10 @@ public class OccupationalData extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("effective[x]")) {
-          this.effective = castToType(value); // Type
-        } else if (name.equals("value")) {
-          this.value = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("weeklyWorkDays")) {
+          this.weeklyWorkDays = castToDecimal(value); // DecimalType
+        } else if (name.equals("dailyWorkHours")) {
+          this.dailyWorkHours = castToDecimal(value); // DecimalType
         } else
           return super.setProperty(name, value);
         return value;
@@ -2304,9 +1547,8 @@ public class OccupationalData extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181:  return getCode(); 
-        case 247104889:  return getEffective(); 
-        case -1468651097:  return getEffective(); 
-        case 111972721:  return getValue(); 
+        case -2051928407:  return getWeeklyWorkDaysElement();
+        case -1065164699:  return getDailyWorkHoursElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2316,8 +1558,8 @@ public class OccupationalData extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
-        case 111972721: /*value*/ return new String[] {"CodeableConcept"};
+        case -2051928407: /*weeklyWorkDays*/ return new String[] {"decimal"};
+        case -1065164699: /*dailyWorkHours*/ return new String[] {"decimal"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2329,28 +1571,22 @@ public class OccupationalData extends DomainResource {
           this.code = new CodeableConcept();
           return this.code;
         }
-        else if (name.equals("effectiveDateTime")) {
-          this.effective = new DateTimeType();
-          return this.effective;
+        else if (name.equals("weeklyWorkDays")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.weeklyWorkDays");
         }
-        else if (name.equals("effectivePeriod")) {
-          this.effective = new Period();
-          return this.effective;
-        }
-        else if (name.equals("value")) {
-          this.value = new CodeableConcept();
-          return this.value;
+        else if (name.equals("dailyWorkHours")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.dailyWorkHours");
         }
         else
           return super.addChild(name);
       }
 
-      public OccupationalDataPastOrPresentOccupationComponent copy() {
-        OccupationalDataPastOrPresentOccupationComponent dst = new OccupationalDataPastOrPresentOccupationComponent();
+      public OccupationalDataPastOrPresentJobWorkScheduleComponent copy() {
+        OccupationalDataPastOrPresentJobWorkScheduleComponent dst = new OccupationalDataPastOrPresentJobWorkScheduleComponent();
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
-        dst.effective = effective == null ? null : effective.copy();
-        dst.value = value == null ? null : value.copy();
+        dst.weeklyWorkDays = weeklyWorkDays == null ? null : weeklyWorkDays.copy();
+        dst.dailyWorkHours = dailyWorkHours == null ? null : dailyWorkHours.copy();
         return dst;
       }
 
@@ -2358,10 +1594,10 @@ public class OccupationalData extends DomainResource {
       public boolean equalsDeep(Base other_) {
         if (!super.equalsDeep(other_))
           return false;
-        if (!(other_ instanceof OccupationalDataPastOrPresentOccupationComponent))
+        if (!(other_ instanceof OccupationalDataPastOrPresentJobWorkScheduleComponent))
           return false;
-        OccupationalDataPastOrPresentOccupationComponent o = (OccupationalDataPastOrPresentOccupationComponent) other_;
-        return compareDeep(code, o.code, true) && compareDeep(effective, o.effective, true) && compareDeep(value, o.value, true)
+        OccupationalDataPastOrPresentJobWorkScheduleComponent o = (OccupationalDataPastOrPresentJobWorkScheduleComponent) other_;
+        return compareDeep(code, o.code, true) && compareDeep(weeklyWorkDays, o.weeklyWorkDays, true) && compareDeep(dailyWorkHours, o.dailyWorkHours, true)
           ;
       }
 
@@ -2369,18 +1605,20 @@ public class OccupationalData extends DomainResource {
       public boolean equalsShallow(Base other_) {
         if (!super.equalsShallow(other_))
           return false;
-        if (!(other_ instanceof OccupationalDataPastOrPresentOccupationComponent))
+        if (!(other_ instanceof OccupationalDataPastOrPresentJobWorkScheduleComponent))
           return false;
-        OccupationalDataPastOrPresentOccupationComponent o = (OccupationalDataPastOrPresentOccupationComponent) other_;
-        return true;
+        OccupationalDataPastOrPresentJobWorkScheduleComponent o = (OccupationalDataPastOrPresentJobWorkScheduleComponent) other_;
+        return compareValues(weeklyWorkDays, o.weeklyWorkDays, true) && compareValues(dailyWorkHours, o.dailyWorkHours, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, effective, value);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, weeklyWorkDays, dailyWorkHours
+          );
       }
 
   public String fhirType() {
-    return "OccupationalData.pastOrPresentOccupation";
+    return "OccupationalData.pastOrPresentJob.workSchedule";
 
   }
 
@@ -2390,7 +1628,7 @@ public class OccupationalData extends DomainResource {
      * Business identifier assigned to the occupational data record.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Unique identifier for the occupational data record", formalDefinition="Business identifier assigned to the occupational data record." )
+    @Description(shortDefinition="Unique identifier for the occupational data (ODH) record", formalDefinition="Business identifier assigned to the occupational data record." )
     protected Identifier identifier;
 
     /**
@@ -2402,72 +1640,72 @@ public class OccupationalData extends DomainResource {
     protected Enumeration<PublicationStatus> status;
 
     /**
-     * Who the occupational data is collected about.
+     * The occupational data record is about this person (e.g., the patient, a parent of a minor child).
      */
-    @Child(name = "subject", type = {Patient.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who the occupational data is collected about", formalDefinition="Who the occupational data is collected about." )
+    @Child(name = "subject", type = {Patient.class, RelatedPerson.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Who the occupational data (ODH) is collected about", formalDefinition="The occupational data record is about this person (e.g., the patient, a parent of a minor child)." )
     protected Reference subject;
 
     /**
-     * The actual object that is the target of the reference (Who the occupational data is collected about.)
+     * The actual object that is the target of the reference (The occupational data record is about this person (e.g., the patient, a parent of a minor child).)
      */
-    protected Patient subjectTarget;
+    protected Resource subjectTarget;
 
     /**
-     * Occupational Data author time.
+     * The date of creation or updating of the occupational data record.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Occupational Data author time", formalDefinition="Occupational Data author time." )
+    @Child(name = "date", type = {DateTimeType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Occupational Data (ODH) author time", formalDefinition="The date of creation or updating of the occupational data record." )
     protected DateTimeType date;
 
     /**
-     * Occupational Data author.
+     * The person who created or last updated the occupational data record.
      */
-    @Child(name = "author", type = {Practitioner.class, PractitionerRole.class, Patient.class, RelatedPerson.class}, order=4, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Occupational Data author", formalDefinition="Occupational Data author." )
+    @Child(name = "author", type = {Practitioner.class, PractitionerRole.class, Patient.class, RelatedPerson.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Occupational Data (ODH) author", formalDefinition="The person who created or last updated the occupational data record." )
     protected List<Reference> author;
     /**
-     * The actual objects that are the target of the reference (Occupational Data author.)
+     * The actual objects that are the target of the reference (The person who created or last updated the occupational data record.)
      */
     protected List<Resource> authorTarget;
 
 
     /**
-     * Employment status.
+     * A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.
      */
-    @Child(name = "employmentStatus", type = {}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Employment status", formalDefinition="Employment status." )
+    @Child(name = "employmentStatus", type = {}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Employment status", formalDefinition="A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work." )
     protected OccupationalDataEmploymentStatusComponent employmentStatus;
 
     /**
-     * Retirement status.
+     * A person's self-identified retirement date.  A person may retire multiple times.
      */
-    @Child(name = "retirementStatus", type = {}, order=6, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Retirement status", formalDefinition="Retirement status." )
-    protected OccupationalDataRetirementStatusComponent retirementStatus;
+    @Child(name = "retirementDate", type = {DateTimeType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Retirement date", formalDefinition="A person's self-identified retirement date.  A person may retire multiple times." )
+    protected List<DateTimeType> retirementDate;
 
     /**
-     * Combat Zone Hazardous Duty.
+     * The start and end dates for the period of time a person's work is or was in a combat zone. In addition to military personnel, civilians also may work or have worked in a combat zone.
      */
-    @Child(name = "combatZoneHazardousDuty", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Combat Zone Hazardous Duty", formalDefinition="Combat Zone Hazardous Duty." )
-    protected List<OccupationalDataCombatZoneHazardousDutyComponent> combatZoneHazardousDuty;
+    @Child(name = "combatZoneWork", type = {Period.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Combat Zone Work period", formalDefinition="The start and end dates for the period of time a person's work is or was in a combat zone. In addition to military personnel, civilians also may work or have worked in a combat zone." )
+    protected List<Period> combatZoneWork;
 
     /**
-     * Usual Occupation.
+     * The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time.
      */
-    @Child(name = "usualOccupation", type = {}, order=8, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Usual Occupation", formalDefinition="Usual Occupation." )
-    protected OccupationalDataUsualOccupationComponent usualOccupation;
+    @Child(name = "usualWork", type = {}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Usual Work", formalDefinition="The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time." )
+    protected OccupationalDataUsualWorkComponent usualWork;
 
     /**
-     * Past Or Present Occupation.
+     * The type of work done by a person during a current or past job. A job is defined by the sum of all the data related to the occupation. A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.
      */
-    @Child(name = "pastOrPresentOccupation", type = {}, order=9, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Past Or Present Occupation", formalDefinition="Past Or Present Occupation." )
-    protected OccupationalDataPastOrPresentOccupationComponent pastOrPresentOccupation;
+    @Child(name = "pastOrPresentJob", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Past Or Present Job", formalDefinition="The type of work done by a person during a current or past job. A job is defined by the sum of all the data related to the occupation. A change in occupation, supervisory level, industry, employer, or employer location is considered a new job." )
+    protected List<OccupationalDataPastOrPresentJobComponent> pastOrPresentJob;
 
-    private static final long serialVersionUID = -747334798L;
+    private static final long serialVersionUID = -1943418657L;
 
   /**
    * Constructor
@@ -2479,10 +1717,9 @@ public class OccupationalData extends DomainResource {
   /**
    * Constructor
    */
-    public OccupationalData(Enumeration<PublicationStatus> status, DateTimeType date) {
+    public OccupationalData(Enumeration<PublicationStatus> status) {
       super();
       this.status = status;
-      this.date = date;
     }
 
     /**
@@ -2555,7 +1792,7 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (Who the occupational data is collected about.)
+     * @return {@link #subject} (The occupational data record is about this person (e.g., the patient, a parent of a minor child).)
      */
     public Reference getSubject() { 
       if (this.subject == null)
@@ -2571,7 +1808,7 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @param value {@link #subject} (Who the occupational data is collected about.)
+     * @param value {@link #subject} (The occupational data record is about this person (e.g., the patient, a parent of a minor child).)
      */
     public OccupationalData setSubject(Reference value) { 
       this.subject = value;
@@ -2579,27 +1816,22 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who the occupational data is collected about.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The occupational data record is about this person (e.g., the patient, a parent of a minor child).)
      */
-    public Patient getSubjectTarget() { 
-      if (this.subjectTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OccupationalData.subject");
-        else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient(); // aa
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who the occupational data is collected about.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The occupational data record is about this person (e.g., the patient, a parent of a minor child).)
      */
-    public OccupationalData setSubjectTarget(Patient value) { 
+    public OccupationalData setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #date} (Occupational Data author time.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date of creation or updating of the occupational data record.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
       if (this.date == null)
@@ -2619,7 +1851,7 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @param value {@link #date} (Occupational Data author time.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date of creation or updating of the occupational data record.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public OccupationalData setDateElement(DateTimeType value) { 
       this.date = value;
@@ -2627,24 +1859,28 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @return Occupational Data author time.
+     * @return The date of creation or updating of the occupational data record.
      */
     public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value Occupational Data author time.
+     * @param value The date of creation or updating of the occupational data record.
      */
     public OccupationalData setDate(Date value) { 
+      if (value == null)
+        this.date = null;
+      else {
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
+      }
       return this;
     }
 
     /**
-     * @return {@link #author} (Occupational Data author.)
+     * @return {@link #author} (The person who created or last updated the occupational data record.)
      */
     public List<Reference> getAuthor() { 
       if (this.author == null)
@@ -2707,7 +1943,7 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @return {@link #employmentStatus} (Employment status.)
+     * @return {@link #employmentStatus} (A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.)
      */
     public OccupationalDataEmploymentStatusComponent getEmploymentStatus() { 
       if (this.employmentStatus == null)
@@ -2723,7 +1959,7 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @param value {@link #employmentStatus} (Employment status.)
+     * @param value {@link #employmentStatus} (A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.)
      */
     public OccupationalData setEmploymentStatus(OccupationalDataEmploymentStatusComponent value) { 
       this.employmentStatus = value;
@@ -2731,142 +1967,208 @@ public class OccupationalData extends DomainResource {
     }
 
     /**
-     * @return {@link #retirementStatus} (Retirement status.)
+     * @return {@link #retirementDate} (A person's self-identified retirement date.  A person may retire multiple times.)
      */
-    public OccupationalDataRetirementStatusComponent getRetirementStatus() { 
-      if (this.retirementStatus == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OccupationalData.retirementStatus");
-        else if (Configuration.doAutoCreate())
-          this.retirementStatus = new OccupationalDataRetirementStatusComponent(); // cc
-      return this.retirementStatus;
-    }
-
-    public boolean hasRetirementStatus() { 
-      return this.retirementStatus != null && !this.retirementStatus.isEmpty();
-    }
-
-    /**
-     * @param value {@link #retirementStatus} (Retirement status.)
-     */
-    public OccupationalData setRetirementStatus(OccupationalDataRetirementStatusComponent value) { 
-      this.retirementStatus = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #combatZoneHazardousDuty} (Combat Zone Hazardous Duty.)
-     */
-    public List<OccupationalDataCombatZoneHazardousDutyComponent> getCombatZoneHazardousDuty() { 
-      if (this.combatZoneHazardousDuty == null)
-        this.combatZoneHazardousDuty = new ArrayList<OccupationalDataCombatZoneHazardousDutyComponent>();
-      return this.combatZoneHazardousDuty;
+    public List<DateTimeType> getRetirementDate() { 
+      if (this.retirementDate == null)
+        this.retirementDate = new ArrayList<DateTimeType>();
+      return this.retirementDate;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public OccupationalData setCombatZoneHazardousDuty(List<OccupationalDataCombatZoneHazardousDutyComponent> theCombatZoneHazardousDuty) { 
-      this.combatZoneHazardousDuty = theCombatZoneHazardousDuty;
+    public OccupationalData setRetirementDate(List<DateTimeType> theRetirementDate) { 
+      this.retirementDate = theRetirementDate;
       return this;
     }
 
-    public boolean hasCombatZoneHazardousDuty() { 
-      if (this.combatZoneHazardousDuty == null)
+    public boolean hasRetirementDate() { 
+      if (this.retirementDate == null)
         return false;
-      for (OccupationalDataCombatZoneHazardousDutyComponent item : this.combatZoneHazardousDuty)
+      for (DateTimeType item : this.retirementDate)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public OccupationalDataCombatZoneHazardousDutyComponent addCombatZoneHazardousDuty() { //3
-      OccupationalDataCombatZoneHazardousDutyComponent t = new OccupationalDataCombatZoneHazardousDutyComponent();
-      if (this.combatZoneHazardousDuty == null)
-        this.combatZoneHazardousDuty = new ArrayList<OccupationalDataCombatZoneHazardousDutyComponent>();
-      this.combatZoneHazardousDuty.add(t);
+    /**
+     * @return {@link #retirementDate} (A person's self-identified retirement date.  A person may retire multiple times.)
+     */
+    public DateTimeType addRetirementDateElement() {//2 
+      DateTimeType t = new DateTimeType();
+      if (this.retirementDate == null)
+        this.retirementDate = new ArrayList<DateTimeType>();
+      this.retirementDate.add(t);
       return t;
     }
 
-    public OccupationalData addCombatZoneHazardousDuty(OccupationalDataCombatZoneHazardousDutyComponent t) { //3
+    /**
+     * @param value {@link #retirementDate} (A person's self-identified retirement date.  A person may retire multiple times.)
+     */
+    public OccupationalData addRetirementDate(Date value) { //1
+      DateTimeType t = new DateTimeType();
+      t.setValue(value);
+      if (this.retirementDate == null)
+        this.retirementDate = new ArrayList<DateTimeType>();
+      this.retirementDate.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #retirementDate} (A person's self-identified retirement date.  A person may retire multiple times.)
+     */
+    public boolean hasRetirementDate(Date value) { 
+      if (this.retirementDate == null)
+        return false;
+      for (DateTimeType v : this.retirementDate)
+        if (v.equals(value)) // dateTime
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #combatZoneWork} (The start and end dates for the period of time a person's work is or was in a combat zone. In addition to military personnel, civilians also may work or have worked in a combat zone.)
+     */
+    public List<Period> getCombatZoneWork() { 
+      if (this.combatZoneWork == null)
+        this.combatZoneWork = new ArrayList<Period>();
+      return this.combatZoneWork;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public OccupationalData setCombatZoneWork(List<Period> theCombatZoneWork) { 
+      this.combatZoneWork = theCombatZoneWork;
+      return this;
+    }
+
+    public boolean hasCombatZoneWork() { 
+      if (this.combatZoneWork == null)
+        return false;
+      for (Period item : this.combatZoneWork)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Period addCombatZoneWork() { //3
+      Period t = new Period();
+      if (this.combatZoneWork == null)
+        this.combatZoneWork = new ArrayList<Period>();
+      this.combatZoneWork.add(t);
+      return t;
+    }
+
+    public OccupationalData addCombatZoneWork(Period t) { //3
       if (t == null)
         return this;
-      if (this.combatZoneHazardousDuty == null)
-        this.combatZoneHazardousDuty = new ArrayList<OccupationalDataCombatZoneHazardousDutyComponent>();
-      this.combatZoneHazardousDuty.add(t);
+      if (this.combatZoneWork == null)
+        this.combatZoneWork = new ArrayList<Period>();
+      this.combatZoneWork.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #combatZoneHazardousDuty}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #combatZoneWork}, creating it if it does not already exist
      */
-    public OccupationalDataCombatZoneHazardousDutyComponent getCombatZoneHazardousDutyFirstRep() { 
-      if (getCombatZoneHazardousDuty().isEmpty()) {
-        addCombatZoneHazardousDuty();
+    public Period getCombatZoneWorkFirstRep() { 
+      if (getCombatZoneWork().isEmpty()) {
+        addCombatZoneWork();
       }
-      return getCombatZoneHazardousDuty().get(0);
+      return getCombatZoneWork().get(0);
     }
 
     /**
-     * @return {@link #usualOccupation} (Usual Occupation.)
+     * @return {@link #usualWork} (The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time.)
      */
-    public OccupationalDataUsualOccupationComponent getUsualOccupation() { 
-      if (this.usualOccupation == null)
+    public OccupationalDataUsualWorkComponent getUsualWork() { 
+      if (this.usualWork == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OccupationalData.usualOccupation");
+          throw new Error("Attempt to auto-create OccupationalData.usualWork");
         else if (Configuration.doAutoCreate())
-          this.usualOccupation = new OccupationalDataUsualOccupationComponent(); // cc
-      return this.usualOccupation;
+          this.usualWork = new OccupationalDataUsualWorkComponent(); // cc
+      return this.usualWork;
     }
 
-    public boolean hasUsualOccupation() { 
-      return this.usualOccupation != null && !this.usualOccupation.isEmpty();
+    public boolean hasUsualWork() { 
+      return this.usualWork != null && !this.usualWork.isEmpty();
     }
 
     /**
-     * @param value {@link #usualOccupation} (Usual Occupation.)
+     * @param value {@link #usualWork} (The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time.)
      */
-    public OccupationalData setUsualOccupation(OccupationalDataUsualOccupationComponent value) { 
-      this.usualOccupation = value;
+    public OccupationalData setUsualWork(OccupationalDataUsualWorkComponent value) { 
+      this.usualWork = value;
       return this;
     }
 
     /**
-     * @return {@link #pastOrPresentOccupation} (Past Or Present Occupation.)
+     * @return {@link #pastOrPresentJob} (The type of work done by a person during a current or past job. A job is defined by the sum of all the data related to the occupation. A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.)
      */
-    public OccupationalDataPastOrPresentOccupationComponent getPastOrPresentOccupation() { 
-      if (this.pastOrPresentOccupation == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OccupationalData.pastOrPresentOccupation");
-        else if (Configuration.doAutoCreate())
-          this.pastOrPresentOccupation = new OccupationalDataPastOrPresentOccupationComponent(); // cc
-      return this.pastOrPresentOccupation;
-    }
-
-    public boolean hasPastOrPresentOccupation() { 
-      return this.pastOrPresentOccupation != null && !this.pastOrPresentOccupation.isEmpty();
+    public List<OccupationalDataPastOrPresentJobComponent> getPastOrPresentJob() { 
+      if (this.pastOrPresentJob == null)
+        this.pastOrPresentJob = new ArrayList<OccupationalDataPastOrPresentJobComponent>();
+      return this.pastOrPresentJob;
     }
 
     /**
-     * @param value {@link #pastOrPresentOccupation} (Past Or Present Occupation.)
+     * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public OccupationalData setPastOrPresentOccupation(OccupationalDataPastOrPresentOccupationComponent value) { 
-      this.pastOrPresentOccupation = value;
+    public OccupationalData setPastOrPresentJob(List<OccupationalDataPastOrPresentJobComponent> thePastOrPresentJob) { 
+      this.pastOrPresentJob = thePastOrPresentJob;
       return this;
+    }
+
+    public boolean hasPastOrPresentJob() { 
+      if (this.pastOrPresentJob == null)
+        return false;
+      for (OccupationalDataPastOrPresentJobComponent item : this.pastOrPresentJob)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public OccupationalDataPastOrPresentJobComponent addPastOrPresentJob() { //3
+      OccupationalDataPastOrPresentJobComponent t = new OccupationalDataPastOrPresentJobComponent();
+      if (this.pastOrPresentJob == null)
+        this.pastOrPresentJob = new ArrayList<OccupationalDataPastOrPresentJobComponent>();
+      this.pastOrPresentJob.add(t);
+      return t;
+    }
+
+    public OccupationalData addPastOrPresentJob(OccupationalDataPastOrPresentJobComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.pastOrPresentJob == null)
+        this.pastOrPresentJob = new ArrayList<OccupationalDataPastOrPresentJobComponent>();
+      this.pastOrPresentJob.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #pastOrPresentJob}, creating it if it does not already exist
+     */
+    public OccupationalDataPastOrPresentJobComponent getPastOrPresentJobFirstRep() { 
+      if (getPastOrPresentJob().isEmpty()) {
+        addPastOrPresentJob();
+      }
+      return getPastOrPresentJob().get(0);
     }
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Business identifier assigned to the occupational data record.", 0, 1, identifier));
         children.add(new Property("status", "code", "The status of this {{title}}. Enables tracking the life-cycle of the content.", 0, 1, status));
-        children.add(new Property("subject", "Reference(Patient)", "Who the occupational data is collected about.", 0, 1, subject));
-        children.add(new Property("date", "dateTime", "Occupational Data author time.", 0, 1, date));
-        children.add(new Property("author", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "Occupational Data author.", 0, java.lang.Integer.MAX_VALUE, author));
-        children.add(new Property("employmentStatus", "", "Employment status.", 0, 1, employmentStatus));
-        children.add(new Property("retirementStatus", "", "Retirement status.", 0, 1, retirementStatus));
-        children.add(new Property("combatZoneHazardousDuty", "", "Combat Zone Hazardous Duty.", 0, java.lang.Integer.MAX_VALUE, combatZoneHazardousDuty));
-        children.add(new Property("usualOccupation", "", "Usual Occupation.", 0, 1, usualOccupation));
-        children.add(new Property("pastOrPresentOccupation", "", "Past Or Present Occupation.", 0, 1, pastOrPresentOccupation));
+        children.add(new Property("subject", "Reference(Patient|RelatedPerson)", "The occupational data record is about this person (e.g., the patient, a parent of a minor child).", 0, 1, subject));
+        children.add(new Property("date", "dateTime", "The date of creation or updating of the occupational data record.", 0, 1, date));
+        children.add(new Property("author", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "The person who created or last updated the occupational data record.", 0, java.lang.Integer.MAX_VALUE, author));
+        children.add(new Property("employmentStatus", "", "A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.", 0, 1, employmentStatus));
+        children.add(new Property("retirementDate", "dateTime", "A person's self-identified retirement date.  A person may retire multiple times.", 0, java.lang.Integer.MAX_VALUE, retirementDate));
+        children.add(new Property("combatZoneWork", "Period", "The start and end dates for the period of time a person's work is or was in a combat zone. In addition to military personnel, civilians also may work or have worked in a combat zone.", 0, java.lang.Integer.MAX_VALUE, combatZoneWork));
+        children.add(new Property("usualWork", "", "The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time.", 0, 1, usualWork));
+        children.add(new Property("pastOrPresentJob", "", "The type of work done by a person during a current or past job. A job is defined by the sum of all the data related to the occupation. A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.", 0, java.lang.Integer.MAX_VALUE, pastOrPresentJob));
       }
 
       @Override
@@ -2874,14 +2176,14 @@ public class OccupationalData extends DomainResource {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Business identifier assigned to the occupational data record.", 0, 1, identifier);
         case -892481550: /*status*/  return new Property("status", "code", "The status of this {{title}}. Enables tracking the life-cycle of the content.", 0, 1, status);
-        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient)", "Who the occupational data is collected about.", 0, 1, subject);
-        case 3076014: /*date*/  return new Property("date", "dateTime", "Occupational Data author time.", 0, 1, date);
-        case -1406328437: /*author*/  return new Property("author", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "Occupational Data author.", 0, java.lang.Integer.MAX_VALUE, author);
-        case 418561790: /*employmentStatus*/  return new Property("employmentStatus", "", "Employment status.", 0, 1, employmentStatus);
-        case -274416309: /*retirementStatus*/  return new Property("retirementStatus", "", "Retirement status.", 0, 1, retirementStatus);
-        case -855561583: /*combatZoneHazardousDuty*/  return new Property("combatZoneHazardousDuty", "", "Combat Zone Hazardous Duty.", 0, java.lang.Integer.MAX_VALUE, combatZoneHazardousDuty);
-        case 464548589: /*usualOccupation*/  return new Property("usualOccupation", "", "Usual Occupation.", 0, 1, usualOccupation);
-        case 1442028369: /*pastOrPresentOccupation*/  return new Property("pastOrPresentOccupation", "", "Past Or Present Occupation.", 0, 1, pastOrPresentOccupation);
+        case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|RelatedPerson)", "The occupational data record is about this person (e.g., the patient, a parent of a minor child).", 0, 1, subject);
+        case 3076014: /*date*/  return new Property("date", "dateTime", "The date of creation or updating of the occupational data record.", 0, 1, date);
+        case -1406328437: /*author*/  return new Property("author", "Reference(Practitioner|PractitionerRole|Patient|RelatedPerson)", "The person who created or last updated the occupational data record.", 0, java.lang.Integer.MAX_VALUE, author);
+        case 418561790: /*employmentStatus*/  return new Property("employmentStatus", "", "A person’s current economic relationship to a job. Employment status refers to whether a person is currently working for compensation, is unemployed (i.e., searching for work for compensation), or is not in the labor force (e.g. disabled, homemaker, chooses not to work, etc.). Employment status is not the same as classification of work.", 0, 1, employmentStatus);
+        case 1617125191: /*retirementDate*/  return new Property("retirementDate", "dateTime", "A person's self-identified retirement date.  A person may retire multiple times.", 0, java.lang.Integer.MAX_VALUE, retirementDate);
+        case -16394255: /*combatZoneWork*/  return new Property("combatZoneWork", "Period", "The start and end dates for the period of time a person's work is or was in a combat zone. In addition to military personnel, civilians also may work or have worked in a combat zone.", 0, java.lang.Integer.MAX_VALUE, combatZoneWork);
+        case 1179136563: /*usualWork*/  return new Property("usualWork", "", "The type of work a person has held for the longest amount of time during his or her life, regardless of the occupation currently held and regardless of whether or not it has been held for a continuous time.", 0, 1, usualWork);
+        case -1024719753: /*pastOrPresentJob*/  return new Property("pastOrPresentJob", "", "The type of work done by a person during a current or past job. A job is defined by the sum of all the data related to the occupation. A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.", 0, java.lang.Integer.MAX_VALUE, pastOrPresentJob);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -2896,10 +2198,10 @@ public class OccupationalData extends DomainResource {
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case -1406328437: /*author*/ return this.author == null ? new Base[0] : this.author.toArray(new Base[this.author.size()]); // Reference
         case 418561790: /*employmentStatus*/ return this.employmentStatus == null ? new Base[0] : new Base[] {this.employmentStatus}; // OccupationalDataEmploymentStatusComponent
-        case -274416309: /*retirementStatus*/ return this.retirementStatus == null ? new Base[0] : new Base[] {this.retirementStatus}; // OccupationalDataRetirementStatusComponent
-        case -855561583: /*combatZoneHazardousDuty*/ return this.combatZoneHazardousDuty == null ? new Base[0] : this.combatZoneHazardousDuty.toArray(new Base[this.combatZoneHazardousDuty.size()]); // OccupationalDataCombatZoneHazardousDutyComponent
-        case 464548589: /*usualOccupation*/ return this.usualOccupation == null ? new Base[0] : new Base[] {this.usualOccupation}; // OccupationalDataUsualOccupationComponent
-        case 1442028369: /*pastOrPresentOccupation*/ return this.pastOrPresentOccupation == null ? new Base[0] : new Base[] {this.pastOrPresentOccupation}; // OccupationalDataPastOrPresentOccupationComponent
+        case 1617125191: /*retirementDate*/ return this.retirementDate == null ? new Base[0] : this.retirementDate.toArray(new Base[this.retirementDate.size()]); // DateTimeType
+        case -16394255: /*combatZoneWork*/ return this.combatZoneWork == null ? new Base[0] : this.combatZoneWork.toArray(new Base[this.combatZoneWork.size()]); // Period
+        case 1179136563: /*usualWork*/ return this.usualWork == null ? new Base[0] : new Base[] {this.usualWork}; // OccupationalDataUsualWorkComponent
+        case -1024719753: /*pastOrPresentJob*/ return this.pastOrPresentJob == null ? new Base[0] : this.pastOrPresentJob.toArray(new Base[this.pastOrPresentJob.size()]); // OccupationalDataPastOrPresentJobComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2927,17 +2229,17 @@ public class OccupationalData extends DomainResource {
         case 418561790: // employmentStatus
           this.employmentStatus = (OccupationalDataEmploymentStatusComponent) value; // OccupationalDataEmploymentStatusComponent
           return value;
-        case -274416309: // retirementStatus
-          this.retirementStatus = (OccupationalDataRetirementStatusComponent) value; // OccupationalDataRetirementStatusComponent
+        case 1617125191: // retirementDate
+          this.getRetirementDate().add(castToDateTime(value)); // DateTimeType
           return value;
-        case -855561583: // combatZoneHazardousDuty
-          this.getCombatZoneHazardousDuty().add((OccupationalDataCombatZoneHazardousDutyComponent) value); // OccupationalDataCombatZoneHazardousDutyComponent
+        case -16394255: // combatZoneWork
+          this.getCombatZoneWork().add(castToPeriod(value)); // Period
           return value;
-        case 464548589: // usualOccupation
-          this.usualOccupation = (OccupationalDataUsualOccupationComponent) value; // OccupationalDataUsualOccupationComponent
+        case 1179136563: // usualWork
+          this.usualWork = (OccupationalDataUsualWorkComponent) value; // OccupationalDataUsualWorkComponent
           return value;
-        case 1442028369: // pastOrPresentOccupation
-          this.pastOrPresentOccupation = (OccupationalDataPastOrPresentOccupationComponent) value; // OccupationalDataPastOrPresentOccupationComponent
+        case -1024719753: // pastOrPresentJob
+          this.getPastOrPresentJob().add((OccupationalDataPastOrPresentJobComponent) value); // OccupationalDataPastOrPresentJobComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2959,14 +2261,14 @@ public class OccupationalData extends DomainResource {
           this.getAuthor().add(castToReference(value));
         } else if (name.equals("employmentStatus")) {
           this.employmentStatus = (OccupationalDataEmploymentStatusComponent) value; // OccupationalDataEmploymentStatusComponent
-        } else if (name.equals("retirementStatus")) {
-          this.retirementStatus = (OccupationalDataRetirementStatusComponent) value; // OccupationalDataRetirementStatusComponent
-        } else if (name.equals("combatZoneHazardousDuty")) {
-          this.getCombatZoneHazardousDuty().add((OccupationalDataCombatZoneHazardousDutyComponent) value);
-        } else if (name.equals("usualOccupation")) {
-          this.usualOccupation = (OccupationalDataUsualOccupationComponent) value; // OccupationalDataUsualOccupationComponent
-        } else if (name.equals("pastOrPresentOccupation")) {
-          this.pastOrPresentOccupation = (OccupationalDataPastOrPresentOccupationComponent) value; // OccupationalDataPastOrPresentOccupationComponent
+        } else if (name.equals("retirementDate")) {
+          this.getRetirementDate().add(castToDateTime(value));
+        } else if (name.equals("combatZoneWork")) {
+          this.getCombatZoneWork().add(castToPeriod(value));
+        } else if (name.equals("usualWork")) {
+          this.usualWork = (OccupationalDataUsualWorkComponent) value; // OccupationalDataUsualWorkComponent
+        } else if (name.equals("pastOrPresentJob")) {
+          this.getPastOrPresentJob().add((OccupationalDataPastOrPresentJobComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -2981,10 +2283,10 @@ public class OccupationalData extends DomainResource {
         case 3076014:  return getDateElement();
         case -1406328437:  return addAuthor(); 
         case 418561790:  return getEmploymentStatus(); 
-        case -274416309:  return getRetirementStatus(); 
-        case -855561583:  return addCombatZoneHazardousDuty(); 
-        case 464548589:  return getUsualOccupation(); 
-        case 1442028369:  return getPastOrPresentOccupation(); 
+        case 1617125191:  return addRetirementDateElement();
+        case -16394255:  return addCombatZoneWork(); 
+        case 1179136563:  return getUsualWork(); 
+        case -1024719753:  return addPastOrPresentJob(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2999,10 +2301,10 @@ public class OccupationalData extends DomainResource {
         case 3076014: /*date*/ return new String[] {"dateTime"};
         case -1406328437: /*author*/ return new String[] {"Reference"};
         case 418561790: /*employmentStatus*/ return new String[] {};
-        case -274416309: /*retirementStatus*/ return new String[] {};
-        case -855561583: /*combatZoneHazardousDuty*/ return new String[] {};
-        case 464548589: /*usualOccupation*/ return new String[] {};
-        case 1442028369: /*pastOrPresentOccupation*/ return new String[] {};
+        case 1617125191: /*retirementDate*/ return new String[] {"dateTime"};
+        case -16394255: /*combatZoneWork*/ return new String[] {"Period"};
+        case 1179136563: /*usualWork*/ return new String[] {};
+        case -1024719753: /*pastOrPresentJob*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -3031,20 +2333,18 @@ public class OccupationalData extends DomainResource {
           this.employmentStatus = new OccupationalDataEmploymentStatusComponent();
           return this.employmentStatus;
         }
-        else if (name.equals("retirementStatus")) {
-          this.retirementStatus = new OccupationalDataRetirementStatusComponent();
-          return this.retirementStatus;
+        else if (name.equals("retirementDate")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OccupationalData.retirementDate");
         }
-        else if (name.equals("combatZoneHazardousDuty")) {
-          return addCombatZoneHazardousDuty();
+        else if (name.equals("combatZoneWork")) {
+          return addCombatZoneWork();
         }
-        else if (name.equals("usualOccupation")) {
-          this.usualOccupation = new OccupationalDataUsualOccupationComponent();
-          return this.usualOccupation;
+        else if (name.equals("usualWork")) {
+          this.usualWork = new OccupationalDataUsualWorkComponent();
+          return this.usualWork;
         }
-        else if (name.equals("pastOrPresentOccupation")) {
-          this.pastOrPresentOccupation = new OccupationalDataPastOrPresentOccupationComponent();
-          return this.pastOrPresentOccupation;
+        else if (name.equals("pastOrPresentJob")) {
+          return addPastOrPresentJob();
         }
         else
           return super.addChild(name);
@@ -3068,14 +2368,22 @@ public class OccupationalData extends DomainResource {
             dst.author.add(i.copy());
         };
         dst.employmentStatus = employmentStatus == null ? null : employmentStatus.copy();
-        dst.retirementStatus = retirementStatus == null ? null : retirementStatus.copy();
-        if (combatZoneHazardousDuty != null) {
-          dst.combatZoneHazardousDuty = new ArrayList<OccupationalDataCombatZoneHazardousDutyComponent>();
-          for (OccupationalDataCombatZoneHazardousDutyComponent i : combatZoneHazardousDuty)
-            dst.combatZoneHazardousDuty.add(i.copy());
+        if (retirementDate != null) {
+          dst.retirementDate = new ArrayList<DateTimeType>();
+          for (DateTimeType i : retirementDate)
+            dst.retirementDate.add(i.copy());
         };
-        dst.usualOccupation = usualOccupation == null ? null : usualOccupation.copy();
-        dst.pastOrPresentOccupation = pastOrPresentOccupation == null ? null : pastOrPresentOccupation.copy();
+        if (combatZoneWork != null) {
+          dst.combatZoneWork = new ArrayList<Period>();
+          for (Period i : combatZoneWork)
+            dst.combatZoneWork.add(i.copy());
+        };
+        dst.usualWork = usualWork == null ? null : usualWork.copy();
+        if (pastOrPresentJob != null) {
+          dst.pastOrPresentJob = new ArrayList<OccupationalDataPastOrPresentJobComponent>();
+          for (OccupationalDataPastOrPresentJobComponent i : pastOrPresentJob)
+            dst.pastOrPresentJob.add(i.copy());
+        };
         return dst;
       }
 
@@ -3092,8 +2400,8 @@ public class OccupationalData extends DomainResource {
         OccupationalData o = (OccupationalData) other_;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(subject, o.subject, true)
            && compareDeep(date, o.date, true) && compareDeep(author, o.author, true) && compareDeep(employmentStatus, o.employmentStatus, true)
-           && compareDeep(retirementStatus, o.retirementStatus, true) && compareDeep(combatZoneHazardousDuty, o.combatZoneHazardousDuty, true)
-           && compareDeep(usualOccupation, o.usualOccupation, true) && compareDeep(pastOrPresentOccupation, o.pastOrPresentOccupation, true)
+           && compareDeep(retirementDate, o.retirementDate, true) && compareDeep(combatZoneWork, o.combatZoneWork, true)
+           && compareDeep(usualWork, o.usualWork, true) && compareDeep(pastOrPresentJob, o.pastOrPresentJob, true)
           ;
       }
 
@@ -3104,13 +2412,14 @@ public class OccupationalData extends DomainResource {
         if (!(other_ instanceof OccupationalData))
           return false;
         OccupationalData o = (OccupationalData) other_;
-        return compareValues(status, o.status, true) && compareValues(date, o.date, true);
+        return compareValues(status, o.status, true) && compareValues(date, o.date, true) && compareValues(retirementDate, o.retirementDate, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, subject
-          , date, author, employmentStatus, retirementStatus, combatZoneHazardousDuty, usualOccupation
-          , pastOrPresentOccupation);
+          , date, author, employmentStatus, retirementDate, combatZoneWork, usualWork, pastOrPresentJob
+          );
       }
 
   @Override
@@ -3119,19 +2428,59 @@ public class OccupationalData extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>Obtained date/time. If the obtained element is a period, a date that falls in the period</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OccupationalData.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="OccupationalData.date", description="Obtained date/time. If the obtained element is a period, a date that falls in the period", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>Obtained date/time. If the obtained element is a period, a date that falls in the period</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OccupationalData.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>A business identifier for a particular occupational data record</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OccupationalData.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="OccupationalData.identifier", description="A business identifier for a particular occupational data record", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>A business identifier for a particular occupational data record</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OccupationalData.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
    * Search parameter: <b>subject</b>
    * <p>
-   * Description: <b>Who the occupational data is collected about</b><br>
+   * Description: <b>The subject that the occupational data record is about</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>OccupationalData.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="OccupationalData.subject", description="Who the occupational data is collected about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="subject", path="OccupationalData.subject", description="The subject that the occupational data record is about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class, RelatedPerson.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
    * <p>
-   * Description: <b>Who the occupational data is collected about</b><br>
+   * Description: <b>The subject that the occupational data record is about</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>OccupationalData.subject</b><br>
    * </p>
@@ -3143,6 +2492,52 @@ public class OccupationalData extends DomainResource {
    * the path value of "<b>OccupationalData:subject</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("OccupationalData:subject").toLocked();
+
+ /**
+   * Search parameter: <b>author</b>
+   * <p>
+   * Description: <b>The person who authored the occupational data record</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OccupationalData.author</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="author", path="OccupationalData.author", description="The person who authored the occupational data record", type="reference", target={Patient.class, Practitioner.class, PractitionerRole.class, RelatedPerson.class } )
+  public static final String SP_AUTHOR = "author";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <p>
+   * Description: <b>The person who authored the occupational data record</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OccupationalData.author</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OccupationalData:author</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("OccupationalData:author").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The status of the occupational data record</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OccupationalData.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="OccupationalData.status", description="The status of the occupational data record", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The status of the occupational data record</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OccupationalData.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1130,14 +1130,6 @@ public class StructureDefinition extends MetadataResource {
 
   }
 
-  public ElementDefinition addElement(boolean notModifier, boolean notInSummary) {
-    ElementDefinition t = new ElementDefinition(true, notModifier, notInSummary);
-    if (this.element == null)
-      this.element = new ArrayList<ElementDefinition>();
-    this.element.add(t);
-    return t;
-  }
-
   }
 
     /**
@@ -1232,9 +1224,9 @@ public class StructureDefinition extends MetadataResource {
     /**
      * An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
      */
-    @Child(name = "baseDefinition", type = {UriType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "baseDefinition", type = {CanonicalType.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Definition that this type is constrained/specialized from", formalDefinition="An absolute URI that is the base structure from which this type is derived, either by specialization or constraint." )
-    protected UriType baseDefinition;
+    protected CanonicalType baseDefinition;
 
     /**
      * How the type relates to the baseDefinition.
@@ -1258,7 +1250,7 @@ public class StructureDefinition extends MetadataResource {
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies." )
     protected StructureDefinitionDifferentialComponent differential;
 
-    private static final long serialVersionUID = -1511739381L;
+    private static final long serialVersionUID = 795798787L;
 
   /**
    * Constructor
@@ -2479,12 +2471,12 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @return {@link #baseDefinition} (An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.). This is the underlying object with id, value and extensions. The accessor "getBaseDefinition" gives direct access to the value
      */
-    public UriType getBaseDefinitionElement() { 
+    public CanonicalType getBaseDefinitionElement() { 
       if (this.baseDefinition == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.baseDefinition");
         else if (Configuration.doAutoCreate())
-          this.baseDefinition = new UriType(); // bb
+          this.baseDefinition = new CanonicalType(); // bb
       return this.baseDefinition;
     }
 
@@ -2499,7 +2491,7 @@ public class StructureDefinition extends MetadataResource {
     /**
      * @param value {@link #baseDefinition} (An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.). This is the underlying object with id, value and extensions. The accessor "getBaseDefinition" gives direct access to the value
      */
-    public StructureDefinition setBaseDefinitionElement(UriType value) { 
+    public StructureDefinition setBaseDefinitionElement(CanonicalType value) { 
       this.baseDefinition = value;
       return this;
     }
@@ -2519,7 +2511,7 @@ public class StructureDefinition extends MetadataResource {
         this.baseDefinition = null;
       else {
         if (this.baseDefinition == null)
-          this.baseDefinition = new UriType();
+          this.baseDefinition = new CanonicalType();
         this.baseDefinition.setValue(value);
       }
       return this;
@@ -2648,7 +2640,7 @@ public class StructureDefinition extends MetadataResource {
         children.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
         children.add(new Property("contextInvariant", "string", "A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).", 0, java.lang.Integer.MAX_VALUE, contextInvariant));
         children.add(new Property("type", "code", "The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).", 0, 1, type));
-        children.add(new Property("baseDefinition", "uri", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, 1, baseDefinition));
+        children.add(new Property("baseDefinition", "canonical(StructureDefinition)", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, 1, baseDefinition));
         children.add(new Property("derivation", "code", "How the type relates to the baseDefinition.", 0, 1, derivation));
         children.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, 1, snapshot));
         children.add(new Property("differential", "", "A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.", 0, 1, differential));
@@ -2681,7 +2673,7 @@ public class StructureDefinition extends MetadataResource {
         case 951530927: /*context*/  return new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context);
         case -802505007: /*contextInvariant*/  return new Property("contextInvariant", "string", "A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).", 0, java.lang.Integer.MAX_VALUE, contextInvariant);
         case 3575610: /*type*/  return new Property("type", "code", "The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).", 0, 1, type);
-        case 1139771140: /*baseDefinition*/  return new Property("baseDefinition", "uri", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, 1, baseDefinition);
+        case 1139771140: /*baseDefinition*/  return new Property("baseDefinition", "canonical(StructureDefinition)", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, 1, baseDefinition);
         case -1353885513: /*derivation*/  return new Property("derivation", "code", "How the type relates to the baseDefinition.", 0, 1, derivation);
         case 284874180: /*snapshot*/  return new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, 1, snapshot);
         case -1196150917: /*differential*/  return new Property("differential", "", "A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.", 0, 1, differential);
@@ -2717,7 +2709,7 @@ public class StructureDefinition extends MetadataResource {
         case 951530927: /*context*/ return this.context == null ? new Base[0] : this.context.toArray(new Base[this.context.size()]); // StringType
         case -802505007: /*contextInvariant*/ return this.contextInvariant == null ? new Base[0] : this.contextInvariant.toArray(new Base[this.contextInvariant.size()]); // StringType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
-        case 1139771140: /*baseDefinition*/ return this.baseDefinition == null ? new Base[0] : new Base[] {this.baseDefinition}; // UriType
+        case 1139771140: /*baseDefinition*/ return this.baseDefinition == null ? new Base[0] : new Base[] {this.baseDefinition}; // CanonicalType
         case -1353885513: /*derivation*/ return this.derivation == null ? new Base[0] : new Base[] {this.derivation}; // Enumeration<TypeDerivationRule>
         case 284874180: /*snapshot*/ return this.snapshot == null ? new Base[0] : new Base[] {this.snapshot}; // StructureDefinitionSnapshotComponent
         case -1196150917: /*differential*/ return this.differential == null ? new Base[0] : new Base[] {this.differential}; // StructureDefinitionDifferentialComponent
@@ -2805,7 +2797,7 @@ public class StructureDefinition extends MetadataResource {
           this.type = castToCode(value); // CodeType
           return value;
         case 1139771140: // baseDefinition
-          this.baseDefinition = castToUri(value); // UriType
+          this.baseDefinition = castToCanonical(value); // CanonicalType
           return value;
         case -1353885513: // derivation
           value = new TypeDerivationRuleEnumFactory().fromType(castToCode(value));
@@ -2876,7 +2868,7 @@ public class StructureDefinition extends MetadataResource {
         } else if (name.equals("type")) {
           this.type = castToCode(value); // CodeType
         } else if (name.equals("baseDefinition")) {
-          this.baseDefinition = castToUri(value); // UriType
+          this.baseDefinition = castToCanonical(value); // CanonicalType
         } else if (name.equals("derivation")) {
           value = new TypeDerivationRuleEnumFactory().fromType(castToCode(value));
           this.derivation = (Enumeration) value; // Enumeration<TypeDerivationRule>
@@ -2952,7 +2944,7 @@ public class StructureDefinition extends MetadataResource {
         case 951530927: /*context*/ return new String[] {"string"};
         case -802505007: /*contextInvariant*/ return new String[] {"string"};
         case 3575610: /*type*/ return new String[] {"code"};
-        case 1139771140: /*baseDefinition*/ return new String[] {"uri"};
+        case 1139771140: /*baseDefinition*/ return new String[] {"canonical"};
         case -1353885513: /*derivation*/ return new String[] {"code"};
         case 284874180: /*snapshot*/ return new String[] {};
         case -1196150917: /*differential*/ return new String[] {};
@@ -3153,8 +3145,7 @@ public class StructureDefinition extends MetadataResource {
         return compareValues(purpose, o.purpose, true) && compareValues(copyright, o.copyright, true) && compareValues(fhirVersion, o.fhirVersion, true)
            && compareValues(kind, o.kind, true) && compareValues(abstract_, o.abstract_, true) && compareValues(contextType, o.contextType, true)
            && compareValues(context, o.context, true) && compareValues(contextInvariant, o.contextInvariant, true)
-           && compareValues(type, o.type, true) && compareValues(baseDefinition, o.baseDefinition, true) && compareValues(derivation, o.derivation, true)
-          ;
+           && compareValues(type, o.type, true) && compareValues(derivation, o.derivation, true);
       }
 
       public boolean isEmpty() {
@@ -3598,21 +3589,27 @@ public class StructureDefinition extends MetadataResource {
    * Search parameter: <b>base</b>
    * <p>
    * Description: <b>Definition that this type is constrained/specialized from</b><br>
-   * Type: <b>uri</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>StructureDefinition.baseDefinition</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="base", path="StructureDefinition.baseDefinition", description="Definition that this type is constrained/specialized from", type="uri" )
+  @SearchParamDefinition(name="base", path="StructureDefinition.baseDefinition", description="Definition that this type is constrained/specialized from", type="reference", target={StructureDefinition.class } )
   public static final String SP_BASE = "base";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>base</b>
    * <p>
    * Description: <b>Definition that this type is constrained/specialized from</b><br>
-   * Type: <b>uri</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>StructureDefinition.baseDefinition</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam BASE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_BASE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BASE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BASE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>StructureDefinition:base</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASE = new ca.uhn.fhir.model.api.Include("StructureDefinition:base").toLocked();
 
 
 }

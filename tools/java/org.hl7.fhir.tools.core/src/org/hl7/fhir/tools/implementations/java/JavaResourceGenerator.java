@@ -1007,7 +1007,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write(indent+"    case "+propId(n)+": /*"+n+"*/ ");
           write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
           if (e.typeCode().equals("*")) {
-            for (String t : new String[] {"boolean", "integer", "decimal", "base64Binary", "instant", "string", "uri", "date", "dateTime", 
+            for (String t : new String[] {"boolean", "integer", "decimal", "base64Binary", "instant", "string", "uri", "date", "dateTime", "url", "canonical",
                 "time", "code", "oid", "id", "unsignedInt", "positiveInt", "markdown", "Annotation", "Attachment", "Identifier", "CodeableConcept", "Coding", 
                 "Quantity", "Range", "Period", "Ratio", "SampledData", "Signature", "HumanName", "Address", "ContactPoint", "Timing", "Reference", "Meta", 
                 "Dosage", "ContactDetail", "Contributor", "DataRequirement", "ParameterDefinition", "RelatedArtifact", "TriggerDefinition", "UsageContext"}) {
@@ -1050,9 +1050,11 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   private void genPropMaker(String indent, ElementDefn e, String tn, String elementname) throws IOException {
     write(indent+"    case "+propId(elementname)+": ");
     String name = e.getName().replace("[x]", "");
-    if (isPrimitive(e.typeCode())) {
+    if (isPrimitive(e.typeCode()) || e.typeCode().startsWith("canonical(")) {
       if (e.unbounded())
         write(" return add"+upFirst(getElementName(name, false))+"Element();\r\n");
+//      else if (e.getPath().equals("Reference.reference"))
+//        write(" return get"+upFirst(getElementName(name, false))+"Element_();\r\n");
       else
         write(" return get"+upFirst(getElementName(name, false))+"Element();\r\n");
     } else if (e.typeCode().equals("Resource") || e.typeCode().equals("DomainResource")) {
@@ -1149,7 +1151,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         if (e.unbounded()) {
           write("return this."+getElementName(name, true)+" == null ? new Base[0] : this."+getElementName(name, true)+".toArray(new Base[this."+getElementName(name, true)+".size()]); // "+tn+"\r\n");
         } else if (e.typeCode().equals("xhtml")) {
-          write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {new StringType(new org.hl7.fhir.utilities.xhtml.XhtmlComposer().setXmlOnly(true).composeEx(this."+getElementName(name, true)+"))}; // "+tn+"\r\n");
+          write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {new StringType(new org.hl7.fhir.utilities.xhtml.XhtmlComposer(true).composeEx(this."+getElementName(name, true)+"))}; // "+tn+"\r\n");
         } else {
           write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {this."+getElementName(name, true)+"}; // "+tn+"\r\n");
         }
@@ -1228,7 +1230,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write(indent+"    else ");
     first = false;
     write(           "if (name.equals(\""+namet+"\")) {\r\n");
-    if (isPrimitive(e.typeCode()))
+    if (isPrimitive(e.typeCode()) || e.typeCode().startsWith("canonical("))
       write(indent+"      throw new FHIRException(\"Cannot call addChild on a primitive type "+parent+"."+e.getName()+"\");\r\n"); 
     else if (isAbstract(e.typeCode()))
       write(indent+"      throw new FHIRException(\"Cannot call addChild on an abstract type "+parent+"."+e.getName()+"\");\r\n"); 
@@ -1252,6 +1254,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       t.add(new TypeRef("instant"));
       t.add(new TypeRef("string"));
       t.add(new TypeRef("uri"));
+      t.add(new TypeRef("url"));
+      t.add(new TypeRef("canonical"));
       t.add(new TypeRef("date"));
       t.add(new TypeRef("dateTime"));
       t.add(new TypeRef("time"));
@@ -1347,7 +1351,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private boolean hasString(ElementDefn root) {
     for (ElementDefn e : root.getElements()) {
-      if (e.typeCode().equals("string") || e.typeCode().equals("id") || e.typeCode().equals("code") || e.typeCode().equals("uri") || e.typeCode().equals("oid") || e.typeCode().equals("uuid") || hasString(e))
+      if (Utilities.existsInList(e.typeCode(), "string", "id", "code", "uri", "oid", "uuid", "url", "canonical") || hasString(e))
         return true;
     }
     return false;
@@ -1969,6 +1973,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       return "byte[]";
     if (n.equals("UriType"))
       return "String";
+    if (n.equals("UrlType"))
+      return "String";
+    if (n.equals("CanonicalType"))
+      return "String";
     if (n.equals("OidType"))
       return "String";
     if (n.equals("IntegerType"))
@@ -2048,7 +2056,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		  write(indent+"}\r\n");
 
 		  write("\r\n");
-		  if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.typeCode().equals("xml:lang"))) {
+		  if (e.getTypes().size() == 1 && (definitions.getPrimitives().containsKey(e.typeCode()) || e.typeCode().equals("xml:lang") || e.typeCode().startsWith("canonical("))) {
 		    /*
 		     * addXXXElement() for repeatable primitive
 		     */
@@ -2084,8 +2092,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		    write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
 		    write(indent+"    return false;\r\n");
 		    write(indent+"  for ("+tn+" v : this."+getElementName(e.getName(), true)+")\r\n");
-		    if (isJavaPrimitive(e) && !tn.startsWith("Enum")) 
-		      write(indent+"    if (v.equals(value)) // "+e.typeCode()+"\r\n");
+		    if (isJavaPrimitive(e) && !tn.startsWith("Enum")) // GG: not sure why this is different? 
+		      write(indent+"    if (v.getValue().equals(value)) // "+e.typeCode()+"\r\n");
 		    else
 		      write(indent+"    if (v.getValue().equals(value)) // "+e.typeCode()+"\r\n");
 		    write(indent+"      return true;\r\n");
@@ -2182,7 +2190,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		    }
 		  }
 		} else {
-      if (isJavaPrimitive(e)) {
+      if (isJavaPrimitive(e) || e.typeCode().startsWith("canonical(")) {
         jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+"). This is the underlying object with id, value and extensions. The accessor \"get"+getTitle(getElementName(e.getName(), false))+"\" gives direct access to the value");
         if (isReferenceRefField) {
           /*
@@ -2360,7 +2368,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   }
 
   private boolean isString(String tn) {
-    return tn.equals("StringType") || tn.equals("CodeType") || tn.equals("IdType") || tn.equals("UriType") || tn.equals("OidType") || tn.equals("UuidType");
+    return tn.equals("StringType") || tn.equals("CodeType") || tn.equals("IdType") || tn.equals("UriType") || tn.equals("OidType") || tn.equals("CanonicalType") || tn.equals("UrlType") || tn.equals("UuidType");
   }
 
   public long getHashSum() {

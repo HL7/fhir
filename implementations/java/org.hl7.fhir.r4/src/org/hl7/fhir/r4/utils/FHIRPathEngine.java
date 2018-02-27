@@ -2041,8 +2041,8 @@ public class FHIRPathEngine {
   }
 
   private void checkContextReference(TypeDetails focus, String name) throws PathEngineException {
-    if (!focus.hasType(worker, "string") && !focus.hasType(worker, "uri") && !focus.hasType(worker, "Reference"))
-      throw new PathEngineException("The function '"+name+"'() can only be used on string, uri, Reference"); 
+    if (!focus.hasType(worker, "string") && !focus.hasType(worker, "uri") && !focus.hasType(worker, "Reference") && !focus.hasType(worker, "canonical"))
+      throw new PathEngineException("The function '"+name+"'() can only be used on string, uri, canonical, Reference"); 
   }
 
 
@@ -2480,6 +2480,9 @@ public class FHIRPathEngine {
             s = convertToString(p.getValues().get(0));
           else
             s = null; // a reference without any valid actual reference (just identifier or display, but we can't resolve it)
+        }
+        if (item.fhirType().equals("canonical")) {
+          s = item.primitiveValue();
         }
         if (s != null) {
           Base res = null;
@@ -2959,7 +2962,7 @@ public class FHIRPathEngine {
           throw new DefinitionException("illegal use of resolve() in discriminator - Multiple possible types on "+element.getId());
         if (element.getType().get(0).getTargetProfile().size() > 1)
           throw new DefinitionException("illegal use of resolve() in discriminator - Multiple possible target type profiles on "+element.getId());
-        if (!"Reference".equals(element.getType().get(0).getCode()))
+        if (!element.getType().get(0).hasTarget())
           throw new DefinitionException("illegal use of resolve() in discriminator - type on "+element.getId()+" is not Reference ("+element.getType().get(0).getCode()+")");
         sd = worker.fetchResource(StructureDefinition.class, element.getType().get(0).getTargetProfile().get(0).getValue());
         if (sd == null)

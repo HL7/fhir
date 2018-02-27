@@ -110,10 +110,10 @@ public class ResourceDependencyGenerator  extends BaseGenerator {
           row.setIcon("icon_reuse.png", HierarchicalTableGenerator.TEXT_ICON_REUSE);
           row.getCells().add(c = gen.new Cell("see ", "#"+t.substring(1), t.substring(t.lastIndexOf(".")+1), t.substring(1), null));
           row.getCells().add(dc = gen.new Cell()); // analysis 
-        } else if (t.equals("Reference")) {
+        } else if (t.equals("Reference") || t.equals("canonical")) {
           row.setIcon("icon_reference.png", HierarchicalTableGenerator.TEXT_ICON_REFERENCE);
           row.getCells().add(c = gen.new Cell());
-          c.getPieces().add(gen.new Piece(prefix+"references.html", "Reference", null));
+          c.getPieces().add(gen.new Piece(prefix+"references.html", t, null));
           c.getPieces().add(gen.new Piece(null, "(", null));
           boolean first = true;
           for (String rt : e.getTypes().get(0).getParams()) {

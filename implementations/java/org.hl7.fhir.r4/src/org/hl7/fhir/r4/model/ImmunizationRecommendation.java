@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -77,7 +77,7 @@ public class ImmunizationRecommendation extends DomainResource {
         /**
          * Indicates the patient status with respect to the path to immunity for the target disease.
          */
-        @Child(name = "forecastStatus", type = {CodeableConcept.class}, order=4, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "forecastStatus", type = {CodeableConcept.class}, order=4, min=1, max=1, modifier=true, summary=true)
         @Description(shortDefinition="Vaccine recommendation status", formalDefinition="Indicates the patient status with respect to the path to immunity for the target disease." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/immunization-recommendation-status")
         protected CodeableConcept forecastStatus;

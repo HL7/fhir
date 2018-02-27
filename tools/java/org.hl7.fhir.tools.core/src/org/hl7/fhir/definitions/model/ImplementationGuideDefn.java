@@ -263,7 +263,7 @@ public class ImplementationGuideDefn {
       for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
         if (src.equals(r.getSourceUriType().asStringValue())) {
           if (r.hasExampleFor()) {
-            String psrc = r.getExampleFor().getReference().substring(r.getExampleFor().getReference().lastIndexOf("/")+1)+".html";
+            String psrc = r.getExampleFor().substring(r.getExampleFor().lastIndexOf("/")+1)+".html";
             if (findPage(psrc, res, page)) {
               res.add(new LinkTriple(null, r.getName(), null));
               return true;

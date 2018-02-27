@@ -120,6 +120,18 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td>A JSON string - a URI</td>
  </tr>
  <tr>
+   <td>url<a name="uri"></a></td>
+   <td>A Uniform Resource Locator (<a href="http://tools.ietf.org/html/rfc1738">RFC 1738</a>). Note URLs are accessed directly using the specified protocol. Common URL protocols are <code>http(s):</code>, <code>ftp:</code>, <code>mailto:</code> and <code>mllp:</code>, though many others are defined</td>
+    <td>xs:anyURI</td>
+   <td>A JSON string - a URL</td>
+ </tr>
+ <tr>
+   <td>canonical<a name="uri"></a></td>
+   <td>A URI that refers to a <a href="references.html#canonical">canonical URI</a>. The <code>canonical</code> type differs from a <code>uri</code> in that it has special meaning in this specification, and in that it may have a version appended, separated y a vertical bar (|)</td>
+    <td>xs:anyURI</td>
+   <td>A JSON string - a canonical URI</td>
+ </tr>
+ <tr>
    <td style="border-top: 0px silver solid"></td>
    <td colspan="3" style="border-top: 0px silver solid">Regex: \S*</td>
  </tr>
@@ -278,6 +290,14 @@ Notes:
      <li>The ID type includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.</li>
      <li>In a typical FHIR URL, like <code>http://example.com/fhir/Patient/<span style="color: maroon">1234</span></code>, the last part "1234" (highlighted in red) is the part that is an id datatype</li>
      <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b)</li>
+   </ul>
+ </li>
+ <li>About the <code>uri</code>, <code>url</code> and <code>canonical</code> datatypes:
+   <ul>
+     <li>They all contain URIs, but differ in how applications resolve the reference</li>
+     <li>Although the <code>url</code> and <code>canonical</code> are specializations of <code>uri</code>, they are never substituted for each other</li>
+     <li>They are all case sensitive for comparison purposes. Applications SHOULD not create URIs that only differ by case</li>
+     <li>A general URI may be either a URL or a canonical URI or some other kind of URI</li>
    </ul>
  </li>
  <li>About the markdown datatype:
@@ -1438,6 +1458,8 @@ Some elements do not have a specified type. The type is represented by the wildc
  <li><a href="datatypes.html#instant">instant</a></li>
  <li><a href="datatypes.html#string">string</a></li>
  <li><a href="datatypes.html#uri">uri</a></li>
+ <li><a href="datatypes.html#url">url</a></li>
+ <li><a href="datatypes.html#canonical">canonical</a></li>
  <li><a href="datatypes.html#date">date</a></li>
  <li><a href="datatypes.html#dateTime">dateTime</a></li>
  <li><a href="datatypes.html#time">time</a></li>

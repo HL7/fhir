@@ -163,7 +163,7 @@ public class TypeParser {
             TypeRefComponent childType = getTypeComponent(list, t.getName());
             if (t.getVersioning() != null)
               childType.setVersioning(t.getVersioning());
-            if (t.getName().equals("Reference"))
+            if (t.getName().equals("Reference") || t.getName().equals("canonical"))
               childType.addTargetProfile("http://hl7.org/fhir/StructureDefinition/"+param);
             else
               childType.addProfile("http://hl7.org/fhir/StructureDefinition/"+param);
@@ -237,6 +237,8 @@ public class TypeParser {
     res.add("time");
     res.add("unsignedInt");
     res.add("uri");
+    res.add("url");
+    res.add("canonical");
 
     res.add("Address");
     res.add("Age");

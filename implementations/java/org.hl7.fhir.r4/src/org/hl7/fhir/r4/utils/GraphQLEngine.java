@@ -22,6 +22,7 @@ import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.r4.model.Bundle.BundleLinkComponent;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.DomainResource;
 import org.hl7.fhir.r4.model.Element;
 import org.hl7.fhir.r4.model.ExpressionNode;
@@ -515,7 +516,7 @@ public class GraphQLEngine {
   }
 
   private boolean isPrimitive(String typename) {
-    return Utilities.existsInList(typename, "boolean", "integer", "string", "decimal", "uri", "base64Binary", "instant", "date", "dateTime", "time", "code", "oid", "id", "markdown", "unsignedInt", "positiveInt");
+    return Utilities.existsInList(typename, "boolean", "integer", "string", "decimal", "uri", "base64Binary", "instant", "date", "dateTime", "time", "code", "oid", "id", "markdown", "unsignedInt", "positiveInt", "url", "canonical");
   }
 
   private boolean isResourceName(String name, String suffix) {
@@ -537,6 +538,8 @@ public class GraphQLEngine {
               target.addField("resourceType", listStatus(sel.getField(), false)).addValue(new StringValue(source.fhirType()));
             else if ((sel.getField().getName().equals("resource") && source.fhirType().equals("Reference")))
               processReference(context, source, sel.getField(), target, inheritedList, suffix);
+            else if ((sel.getField().getName().equals("resource") && source.fhirType().equals("canonical")))
+              processCanonicalReference(context, source, sel.getField(), target, inheritedList, suffix);
             else if (isResourceName(sel.getField().getName(), "List") && (source instanceof Resource))
               processReverseReferenceList((Resource) source, sel.getField(), target, inheritedList, suffix);
             else if (isResourceName(sel.getField().getName(), "Connection") && (source instanceof Resource))
@@ -589,6 +592,26 @@ public class GraphQLEngine {
       throw new EGraphQLException("Resource Referencing services not provided");
 
     Reference ref = (Reference) source;
+    ReferenceResolution res = services.lookup(appInfo, context, ref);
+    if (res != null) {
+      if (targetTypeOk(field.getArguments(), res.target)) {
+        Argument arg = target.addField(field.getAlias() + suffix, listStatus(field, inheritedList));
+        ObjectValue obj = new ObjectValue();
+        arg.addValue(obj);
+        processObject(res.targetContext, res.target, obj, field.getSelectionSet(), inheritedList, suffix);
+      }
+    }
+    else if (!hasArgument(field.getArguments(), "optional", "true"))
+      throw new EGraphQLException("Unable to resolve reference to "+ref.getReference());
+  }
+
+  private void processCanonicalReference(Resource context, Base source, Field field, ObjectValue target, boolean inheritedList, String suffix) throws EGraphQLException, FHIRException {
+    if (!(source instanceof CanonicalType))
+      throw new EGraphQLException("Not done yet");
+    if (services == null)
+      throw new EGraphQLException("Resource Referencing services not provided");
+
+    Reference ref = new Reference(source.primitiveValue());
     ReferenceResolution res = services.lookup(appInfo, context, ref);
     if (res != null) {
       if (targetTypeOk(field.getArguments(), res.target)) {

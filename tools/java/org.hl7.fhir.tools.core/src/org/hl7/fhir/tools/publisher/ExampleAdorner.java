@@ -165,6 +165,8 @@ public class ExampleAdorner implements XhtmlGeneratorAdorner {
           return new ExampleAdornerState(State.Unknown, s.getPath(), null, "", "");
         if (!e.isBaseResourceElement() && e.typeCode().contains("Reference"))
           return new ExampleAdornerState(State.Reference, p, e, "", "");
+        else if (!e.isBaseResourceElement() && e.typeCode().contains("canonical"))
+          return new ExampleAdornerState(State.Reference, p, e, "", "");
         else if (!e.isBaseResourceElement() && e.typeCode().equals("uri"))
           return new ExampleAdornerState(State.Reference, p, e, "", "");
         else

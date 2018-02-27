@@ -7,12 +7,8 @@
       <id value="map"/>
       <name value="NHIN / V3 Mapping"/>
       <status value="draft"/>
-      <sourceReference>
-        <reference value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
-      </sourceReference>
-      <targetReference>
-        <reference value="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"/>
-      </targetReference>
+      <sourceCanonical value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
+      <targetCanonical value="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"/>
       <group>
         <source value="http://healthit.gov/nhin/purposeofuse"/>
         <target value="http://hl7.org/fhir/v3/ActReason"/>

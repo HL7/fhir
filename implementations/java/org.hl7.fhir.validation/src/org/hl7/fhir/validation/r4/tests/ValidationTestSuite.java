@@ -22,10 +22,12 @@ import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
 import org.hl7.fhir.r4.elementmodel.Element;
 import org.hl7.fhir.r4.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.r4.elementmodel.ObjectConverter;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ExpansionProfile;
+import org.hl7.fhir.r4.model.Patient;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.test.support.TestingUtilities;
@@ -196,17 +198,24 @@ public class ValidationTestSuite implements IEvaluationContext, IValidatorResour
 
   @Override
   public Base resolveReference(Object appContext, String url) {
+    if (url.equals("Patient/test"))
+      return new Patient();
     return null;
   }
 
   @Override
   public Element fetch(Object appContext, String url) throws FHIRFormatError, DefinitionException, IOException, FHIRException {
+    if (url.equals("Patient/test"))
+      return new ObjectConverter(TestingUtilities.context).convert(new Patient());
     return null;
   }
 
   @Override
   public ReferenceValidationPolicy validationPolicy(Object appContext, String path, String url) {
-    return ReferenceValidationPolicy.IGNORE;
+    if (content.has("validate"))
+      return ReferenceValidationPolicy.valueOf(content.get("validate").getAsString());
+    else
+      return ReferenceValidationPolicy.IGNORE;
   }
 
   @Override

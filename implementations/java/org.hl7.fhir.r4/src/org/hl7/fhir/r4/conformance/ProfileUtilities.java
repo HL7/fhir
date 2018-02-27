@@ -200,7 +200,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     boolean isResource(String typeSimple);
     boolean hasLinkFor(String typeSimple);
     String getLinkFor(String corePath, String typeSimple);
-    BindingResolution resolveBinding(StructureDefinition def, ElementDefinitionBindingComponent binding, String path);
+    BindingResolution resolveBinding(StructureDefinition def, ElementDefinitionBindingComponent binding, String path) throws FHIRException;
     String getLinkForProfile(StructureDefinition profile, String url);
     boolean prependLinks();
   }
@@ -1098,8 +1098,8 @@ public class ProfileUtilities extends TranslatingUtilities {
   private ElementDefinition updateURLs(String url, ElementDefinition element) {
     if (element != null) {
       ElementDefinition defn = element;
-      if (defn.hasBinding() && defn.getBinding().getValueSet() instanceof Reference && ((Reference)defn.getBinding().getValueSet()).getReference().startsWith("#"))
-        ((Reference)defn.getBinding().getValueSet()).setReference(url+((Reference)defn.getBinding().getValueSet()).getReference());
+      if (defn.hasBinding() && defn.getBinding().hasValueSetCanonical() && defn.getBinding().getValueSet().primitiveValue().startsWith("#"))
+        ((Reference)defn.getBinding().getValueSet()).setReference(url+defn.getBinding().getValueSet().primitiveValue());
       for (TypeRefComponent t : defn.getType()) {
         for (UriType u : t.getProfile()) {
           if (u.getValue().startsWith("#"))
@@ -1457,15 +1457,15 @@ public class ProfileUtilities extends TranslatingUtilities {
           if (base.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && derived.getBinding().getStrength() != BindingStrength.REQUIRED)
             messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "illegal attempt to change the binding on "+derived.getPath()+" from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode(), ValidationMessage.IssueSeverity.ERROR));
 //            throw new DefinitionException("StructureDefinition "+pn+" at "+derived.getPath()+": illegal attempt to change a binding from "+base.getBinding().getStrength().toCode()+" to "+derived.getBinding().getStrength().toCode());
-          else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && base.getBinding().hasValueSetReference() && derived.getBinding().hasValueSetReference()) {
-            ValueSetExpansionOutcome expBase = context.expandVS(context.fetchResource(ValueSet.class, base.getBinding().getValueSetReference().getReference()), true, false);
-            ValueSetExpansionOutcome expDerived = context.expandVS(context.fetchResource(ValueSet.class, derived.getBinding().getValueSetReference().getReference()), true, false);
+          else if (base.hasBinding() && derived.hasBinding() && base.getBinding().getStrength() == BindingStrength.REQUIRED && base.getBinding().hasValueSetCanonical() && derived.getBinding().hasValueSetCanonical()) {
+            ValueSetExpansionOutcome expBase = context.expandVS(context.fetchResource(ValueSet.class, base.getBinding().getValueSetCanonical().getValue()), true, false);
+            ValueSetExpansionOutcome expDerived = context.expandVS(context.fetchResource(ValueSet.class, derived.getBinding().getValueSetCanonical().getValue()), true, false);
             if (expBase.getValueset() == null)
-              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetReference().getReference()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
+              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+base.getPath(), "Binding "+base.getBinding().getValueSetCanonical().getValue()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
             else if (expDerived.getValueset() == null)
-              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
+              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetCanonical().getValue()+" could not be expanded", ValidationMessage.IssueSeverity.WARNING));
             else if (!isSubset(expBase.getValueset(), expDerived.getValueset()))
-              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetReference().getReference()+" is not a subset of binding "+base.getBinding().getValueSetReference().getReference(), ValidationMessage.IssueSeverity.ERROR));
+              messages.add(new ValidationMessage(Source.ProfileValidator, ValidationMessage.IssueType.BUSINESSRULE, pn+"."+derived.getPath(), "Binding "+derived.getBinding().getValueSetCanonical().getValue()+" is not a subset of binding "+base.getBinding().getValueSetCanonical().getValue(), ValidationMessage.IssueSeverity.ERROR));
           }
           base.setBinding(derived.getBinding().copy());
         } else if (trimDifferential)
@@ -1823,57 +1823,17 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
 
     boolean first = true;
-    Element source = types.get(0); // either all types are the same, or we don't consider any of them the same
-    int aggMode = AGG_NONE;
 
-    boolean allReference = !types.isEmpty();
-    Set<AggregationMode> aggs = new HashSet<ElementDefinition.AggregationMode>();
-    for (TypeRefComponent t : types) {
-      if (t.getCode()!=null && t.getCode().equals("Reference") && t.hasProfile()) {
-        for (Enumeration<AggregationMode> en : t.getAggregation())
-          aggs.add(en.getValue());
-      } else
-        allReference = false;
-      
-    }
-    if (allReference) {
-      if (aggs.size() > 0) {
-        boolean allSame = true;
-        for (TypeRefComponent t : types) {
-          for (AggregationMode agg : aggs) {
-            boolean found = false;
-            for (Enumeration<AggregationMode> en : t.getAggregation())
-              if (en.getValue() == agg)
-                found = true;
-            if (!found)
-              allSame = false;
-          }
-        }
-        aggMode = allSame ? AGG_GR : AGG_IND;
-        if (aggMode != AGG_GR)
-          allReference = false;
-      }
-    } else 
-      aggMode = aggs.size() == 0 ? AGG_NONE : AGG_IND;
-
-    if (allReference) {
-      c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
-      c.getPieces().add(gen.new Piece(null, "(", null));
-    }
     TypeRefComponent tl = null;
     for (TypeRefComponent t : types) {
       if (first)
         first = false;
-      else if (allReference)
-        c.addPiece(checkForNoChange(tl, gen.new Piece(null," | ", null)));
       else
         c.addPiece(checkForNoChange(tl, gen.new Piece(null,", ", null)));
       tl = t;
-      if (t.getCode()!= null && t.getCode().equals("Reference")) {
-        if (!allReference) {
-          c.getPieces().add(gen.new Piece(corePath+"references.html", "Reference", null));
-          c.getPieces().add(gen.new Piece(null, "(", null));
-        }
+      if (t.hasTarget()) {
+        c.getPieces().add(gen.new Piece(corePath+"references.html", t.getCode(), null));
+        c.getPieces().add(gen.new Piece(null, "(", null));
         for (UriType u : t.getTargetProfile()) {
           if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
             StructureDefinition sd = context.fetchResource(StructureDefinition.class, u.getValue());
@@ -1915,21 +1875,6 @@ public class ProfileUtilities extends TranslatingUtilities {
         c.addPiece(checkForNoChange(t, gen.new Piece(pkp.getLinkFor(corePath, t.getCode()), t.getCode(), null)));
       } else
         c.addPiece(checkForNoChange(t, gen.new Piece(null, t.getCode(), null)));
-    }
-    if (allReference) {
-      c.getPieces().add(gen.new Piece(null, ")", null));
-      if (aggs.size() > 0) {
-        c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", " {", null));
-        boolean firstA = true;
-        for (AggregationMode a : aggs) {
-          if (firstA = true)
-            firstA = false;
-          else
-            c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", ", ", null));
-          c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", codeForAggregation(a), null));
-        }
-        c.getPieces().add(gen.new Piece(corePath+"valueset-resource-aggregation-mode.html", "}", null));
-      }
     }
     return c;
   }
@@ -2090,7 +2035,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
-  private void genElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath, String imagePath, boolean root, boolean logicalModel, boolean isConstraintMode, boolean allInvariants) throws IOException {
+  private void genElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath, String imagePath, boolean root, boolean logicalModel, boolean isConstraintMode, boolean allInvariants) throws IOException, FHIRException {
     StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
     List<ElementDefinition> children = getChildren(all, element);
@@ -2124,7 +2069,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       } else if (!hasDef || element.getType().size() == 0)
         row.setIcon("icon_element.gif", HierarchicalTableGenerator.TEXT_ICON_ELEMENT);
       else if (hasDef && element.getType().size() > 1) {
-        if (allTypesAre(element.getType(), "Reference"))
+        if (allAreReference(element.getType()))
           row.setIcon("icon_reference.png", HierarchicalTableGenerator.TEXT_ICON_REFERENCE);
         else
           row.setIcon("icon_choice.gif", HierarchicalTableGenerator.TEXT_ICON_CHOICE);
@@ -2132,7 +2077,7 @@ public class ProfileUtilities extends TranslatingUtilities {
         row.setIcon("icon_reuse.png", HierarchicalTableGenerator.TEXT_ICON_REUSE);
       else if (hasDef && isPrimitive(element.getType().get(0).getCode()))
         row.setIcon("icon_primitive.png", HierarchicalTableGenerator.TEXT_ICON_PRIMITIVE);
-      else if (hasDef && isReference(element.getType().get(0).getCode()))
+      else if (hasDef && element.getType().get(0).hasTarget())
         row.setIcon("icon_reference.png", HierarchicalTableGenerator.TEXT_ICON_REFERENCE);
       else if (hasDef && isDataType(element.getType().get(0).getCode()))
         row.setIcon("icon_datatype.gif", HierarchicalTableGenerator.TEXT_ICON_DATATYPE);
@@ -2226,7 +2171,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
   }
 
-  private void genGridElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, String corePath, String imagePath, boolean root, boolean isConstraintMode) throws IOException {
+  private void genGridElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, String corePath, String imagePath, boolean root, boolean isConstraintMode) throws IOException, FHIRException {
     StructureDefinition profile = profiles == null ? null : profiles.get(profiles.size()-1);
     String s = tail(element.getPath());
     List<ElementDefinition> children = getChildren(all, element);
@@ -2367,11 +2312,11 @@ public class ProfileUtilities extends TranslatingUtilities {
           && element.getSlicing().getRules() != SlicingRules.CLOSED && element.getSlicing().getDiscriminator().size() == 1 && element.getSlicing().getDiscriminator().get(0).getPath().equals("url") && element.getSlicing().getDiscriminator().get(0).getType().equals(DiscriminatorType.VALUE);
   }
 
-  private Cell generateDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, boolean logicalModel, boolean allInvariants) throws IOException {
+  private Cell generateDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, boolean logicalModel, boolean allInvariants) throws IOException, FHIRException {
     return generateDescription(gen, row, definition, fallback, used, baseURL, url, profile, corePath, imagePath, root, logicalModel, allInvariants, null);
   }
   
-  private Cell generateDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, boolean logicalModel, boolean allInvariants, ElementDefinition valueDefn) throws IOException {
+  private Cell generateDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, boolean logicalModel, boolean allInvariants, ElementDefinition valueDefn) throws IOException, FHIRException {
     Cell c = gen.new Cell();
     row.getCells().add(c);
 
@@ -2545,7 +2490,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
-  private Cell generateGridDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, ElementDefinition valueDefn) throws IOException {
+  private Cell generateGridDescription(HierarchicalTableGenerator gen, Row row, ElementDefinition definition, ElementDefinition fallback, boolean used, String baseURL, String url, StructureDefinition profile, String corePath, String imagePath, boolean root, ElementDefinition valueDefn) throws IOException, FHIRException {
     Cell c = gen.new Cell();
     row.getCells().add(c);
 
@@ -2707,9 +2652,9 @@ public class ProfileUtilities extends TranslatingUtilities {
         !d.hasBinding();
   }
 
-  private boolean allTypesAre(List<TypeRefComponent> types, String name) {
+  private boolean allAreReference(List<TypeRefComponent> types) {
     for (TypeRefComponent t : types) {
-      if (!t.getCode().equals(name))
+      if (!t.hasTarget())
         return false;
     }
     return true;
@@ -2738,9 +2683,6 @@ public class ProfileUtilities extends TranslatingUtilities {
     return sd != null && sd.getKind() == StructureDefinitionKind.COMPLEXTYPE;
   }
 
-  private boolean isReference(String value) {
-    return "Reference".equals(value);
-  }
 
   public boolean isPrimitive(String value) {
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+value);
@@ -3663,7 +3605,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     List<String> res = new ArrayList<String>();
     for (TypeRefComponent tr : ed.getType()) {
       // code is null if we're dealing with "value" and profile is null if we just have Reference()
-      if (tr.getCode()!= null && "Reference".equals(tr.getCode()) && tr.hasTargetProfile())
+      if (tr.hasTarget() && tr.hasTargetProfile())
         for (UriType u : tr.getTargetProfile())
           res.add(u.getValue());
     }

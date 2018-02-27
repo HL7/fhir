@@ -18248,7 +18248,7 @@ end = Registration_State.until_date"/>
         <abstract value="false"/>
         <contextType value="resource"/>
         <context value="StructureDefinition.snapshot.element.binding.valueSetReference"/>
-        <context value="StructureDefinition.differential.element.binding.valueSetReference"/>
+        <context value="StructureDefinition.differential.element.binding.valueSetCanonical"/>
         <context value="DataElement.element.binding.valueSetReference"/>
         <context value="Questionnaire.group.question.options"/>
         <base value="http://hl7.org/fhir/StructureDefinition/Extension"/>
@@ -65348,7 +65348,7 @@ There can be multiple contacts on an Organizations record with this value set to
         <abstract value="false"/>
         <contextType value="resource"/>
         <context value="StructureDefinition.snapshot.element.binding.valueSetReference"/>
-        <context value="StructureDefinition.differential.element.binding.valueSetReference"/>
+        <context value="StructureDefinition.differential.element.binding.valueSetCanonical"/>
         <context value="DataElement.element.binding.valueSetReference"/>
         <context value="Questionnaire.group.question.options"/>
         <base value="http://hl7.org/fhir/StructureDefinition/Extension"/>

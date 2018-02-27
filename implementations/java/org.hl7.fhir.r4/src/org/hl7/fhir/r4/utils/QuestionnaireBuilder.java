@@ -10,6 +10,7 @@ import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.DateTimeType;
 import org.hl7.fhir.r4.model.DateType;
@@ -229,7 +230,7 @@ public class QuestionnaireBuilder {
 
     if (response != null) {
       // no identifier - this is transient
-      response.setQuestionnaire(factory.makeReference("#"+questionnaire.getId()));
+      response.setQuestionnaire("#"+questionnaire.getId());
       response.getContained().add(questionnaire);
       response.setStatus(QuestionnaireResponseStatus.INPROGRESS);
       QuestionnaireResponse.QuestionnaireResponseItemComponent item = new QuestionnaireResponse.QuestionnaireResponseItemComponent();
@@ -301,7 +302,7 @@ public class QuestionnaireBuilder {
     return type.size() == 1 && !Utilities.existsInList(type.get(0).getCode(), "code", "string", "id", "oid", "markdown", "uri", "boolean", "decimal", "dateTime", "date", "instant", "time", "CodeableConcept", "Period", "Ratio",
         "HumanName", "Address", "ContactPoint", "Identifier", "integer", "positiveInt", "unsignedInt", "Coding", "Quantity",  "Count",  "Age",  "Duration", 
         "Distance",  "Money", "Money", "Reference", "Duration", "base64Binary", "Attachment", "Age", "Range", "Timing", "Annotation", "SampledData", "Extension",
-        "SampledData", "Narrative", "Resource", "Meta");
+        "SampledData", "Narrative", "Resource", "Meta", "url", "canonical");
   }
 
   private boolean isExempt(ElementDefinition element, ElementDefinition child) {
@@ -426,7 +427,7 @@ public class QuestionnaireBuilder {
     vs.getExpansion().setIdentifier(Factory.createUUID());
     vs.getExpansion().setTimestampElement(DateTimeType.now());
     for (TypeRefComponent t : types) {
-      if (t.getCode().equals("Reference")) {
+      if (t.hasTarget()) {
         for (UriType u : t.getTargetProfile()) {
 	        if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) { 
 	          ValueSetExpansionContainsComponent cc = vs.getExpansion().addContains();
@@ -471,7 +472,7 @@ public class QuestionnaireBuilder {
       q.setText("type");
 
       QuestionnaireResponseItemAnswerComponent a = q.addAnswer();
-      if (t.getCode().equals("Reference")) {
+      if (t.hasTarget()) {
         for (UriType u : t.getTargetProfile()) {
           if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
             Coding cc = new Coding();
@@ -533,9 +534,8 @@ public class QuestionnaireBuilder {
   private QuestionnaireItemComponent addQuestion(QuestionnaireItemComponent group, QuestionnaireItemType af, String path, String id, String name, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups, ValueSet vs) throws FHIRException {
     QuestionnaireItemComponent result = group.addItem();
     if (vs != null) {
-      result.setOptions(new Reference());
       if (vs.getExpansion() == null) {
-        result.getOptions().setReference(vs.getUrl());
+        result.setOptions(vs.getUrl());
         ToolingExtensions.addControl(result, "lookup"); 
       } else {
         if (Utilities.noString(vs.getId())) {
@@ -548,7 +548,7 @@ public class QuestionnaireBuilder {
           vs.setPublisherElement(null);
           vs.setCopyrightElement(null);
         }
-        result.getOptions().setReference("#"+vs.getId());
+        result.setOptions("#"+vs.getId());
       }
     }
   
@@ -692,7 +692,7 @@ public class QuestionnaireBuilder {
       addCodeQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("string") || t.getCode().equals("id") || t.getCode().equals("oid") || t.getCode().equals("markdown"))
       addStringQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("uri"))
+    else if (t.getCode().equals("uri") || t.getCode().equals("url") || t.getCode().equals("canonical"))
       addUriQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("boolean"))
       addBooleanQuestions(group, element, path, answerGroups);
@@ -984,7 +984,7 @@ public class QuestionnaireBuilder {
     }
   // Special Types ---------------------------------------------------------------
 
-    private void addReferenceQuestions(QuestionnaireItemComponent group, ElementDefinition element, String path, List<UriType> profileURL, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups) throws FHIRException {
+    private void addReferenceQuestions(QuestionnaireItemComponent group, ElementDefinition element, String path, List<CanonicalType> profileURL, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups) throws FHIRException {
       //  var
       //    rn : String;
       //    i : integer;

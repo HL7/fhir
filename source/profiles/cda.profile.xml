@@ -312,9 +312,7 @@
             <binding>
               <strength value="required"/>
               <description value="The way in which a person authenticated a composition"/>
-              <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
-              </valueSetReference>
+              <valueSetCanonical value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
             </binding>
             <mapping>
               <identity value="cda"/>
@@ -452,9 +450,7 @@
             <binding>
               <strength value="required"/>
               <description value="This list of codes represents the main clinical acts being documented"/>
-              <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/v3-ActCode"/>
-              </valueSetReference>
+              <valueSetCanonical value="http://hl7.org/fhir/ValueSet/v3-ActCode"/>
             </binding>
             <mapping>
               <identity value="cda"/>
@@ -605,9 +601,7 @@
             <binding>
               <strength value="required"/>
               <description value="Classification of a composition / document"/>
-              <valueSetReference>
-                <reference value="http://hl7.org/fhir/ValueSet/doc-section-codes"/>
-              </valueSetReference>
+              <valueSetCanonical value="http://hl7.org/fhir/ValueSet/doc-section-codes"/>
             </binding>
             <mapping>
               <identity value="cda"/>

@@ -17,6 +17,7 @@ import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider.Bin
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
@@ -244,7 +245,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       ext.add(s);
   }
 
-  private String summariseExtension(List<UriType> profiles, boolean modifier, String prefix) throws Exception {
+  private String summariseExtension(List<CanonicalType> profiles, boolean modifier, String prefix) throws Exception {
     if (profiles.size() != 1)
       throw new Exception("Multiple profiles are not supported at this time (#1)");
     String url = profiles.get(0).getValue();
@@ -268,10 +269,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   private String describeReference(ElementDefinitionBindingComponent binding) {
-    if (binding.getValueSet() instanceof UriType) {
-      UriType uri = (UriType) binding.getValueSet();
-      return "<a href=\""+uri.asStringValue()+"\">"+uri.asStringValue()+"</a>";
-    } if (binding.getValueSet() instanceof Reference) {
+    if (binding.getValueSet() instanceof CanonicalType) {
       Reference ref = (Reference) binding.getValueSet();
       String disp = gt(ref.getDisplayElement());
       ValueSet vs = context.fetchResource(ValueSet.class, ref.getReference());
@@ -279,7 +277,10 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         disp = vs.getName();
       return "<a href=\""+(vs == null ? ref.getReference() : vs.getUserData("filename"))+"\">"+disp+"</a>";
     }
-    else
+    else if (binding.getValueSet() instanceof UriType) {
+      UriType uri = (UriType) binding.getValueSet();
+      return "<a href=\""+uri.asStringValue()+"\">"+uri.asStringValue()+"</a>";
+    } else 
       return "??";
   }
 
@@ -1352,7 +1353,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     List<ElementDefinition> slices = getSlices(elem, children);
     int c = 0;
     for (ElementDefinition slice : slices) {
-      List<UriType> profiles = slice.getTypeFirstRep().getProfile();
+      List<CanonicalType> profiles = slice.getTypeFirstRep().getProfile();
       // Won't have a profile if this slice is part of a complex extension
       String url = profiles.isEmpty() ? null : profiles.get(0).getValue();
       StructureDefinition sdExt = url == null ? null : context.fetchResource(StructureDefinition.class, url);

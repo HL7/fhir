@@ -1082,7 +1082,7 @@ public class ProfileGenerator {
       }
       if (sp.getType() == SearchParamType.COMPOSITE) {
         for (CompositeDefinition cs : spd.getComposites()) {
-          sp.addComponent().setExpression(cs.getExpression()).setDefinition(new Reference("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs.getDefinition()));
+          sp.addComponent().setExpression(cs.getExpression()).setDefinition("http://hl7.org/fhir/SearchParameter/"+rn+"-"+cs.getDefinition());
         }
       } 
       sp.addBase(p.getType());
@@ -1159,7 +1159,7 @@ public class ProfileGenerator {
     dst.setDescription(src.getDefinition());
     if (src.getBinding() != BindingMethod.Unbound) {
       dst.setStrength(src.getStrength());    
-      dst.setValueSet(buildReference(src));
+      dst.setValueSet(buildValueSetReference(src));
       if (src.hasMax()) {
         dst.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").setValue(new Reference(src.getMaxReference() != null ? src.getMaxReference() : src.getMaxValueSet().getUrl()));
       }
@@ -1172,31 +1172,31 @@ public class ProfileGenerator {
     return dst;
   }
 
-  private Type buildReference(BindingSpecification src) throws Exception {
+  private Type buildValueSetReference(BindingSpecification src) throws Exception {
     switch (src.getBinding()) {
     case Unbound: return null;
     case CodeList:
       if (src.getValueSet()!= null)
-        return Factory.makeReference(src.getValueSet().getUrl());
+        return Factory.newCanonical(src.getValueSet().getUrl());
       else if (src.getReference().startsWith("#"))
-        return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1));
+        return Factory.newCanonical("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1));
       else
         throw new Exception("not done yet");
     case ValueSet: 
       if (!Utilities.noString(src.getReference()))
         if (src.getReference().startsWith("http"))
-          return Factory.makeReference(src.getReference());
+          return Factory.newCanonical(src.getReference());
         else if (src.getValueSet()!= null)
-          return Factory.makeReference(src.getValueSet().getUrl());
+          return Factory.newCanonical(src.getValueSet().getUrl());
         else if (src.getReference().startsWith("valueset-"))
-          return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(9));
+          return Factory.newCanonical("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(9));
         else
-          return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference());
+          return Factory.newCanonical("http://hl7.org/fhir/ValueSet/"+src.getReference());
       else
         return null; // throw new Exception("not done yet");
     case Reference: return Factory.newUri(src.getReference());
     case Special: 
-      return Factory.makeReference("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1));
+      return Factory.newCanonical("http://hl7.org/fhir/ValueSet/"+src.getReference().substring(1));
     default: 
       throw new Exception("not done yet");
     }
@@ -1287,7 +1287,7 @@ public class ProfileGenerator {
         List<TypeRef> expandedTypes = new ArrayList<TypeRef>();
         for (TypeRef t : e.getTypes()) {
           // Expand any Resource(A|B|C) references
-          if(t.hasParams() && !"Reference".equals(t.getName())) {
+          if (t.hasParams() && !Utilities.existsInList(t.getName(), "Reference", "canonical")) {
             throw new Exception("Only resource types can specify parameters.  Path " + path + " in profile " + p.getName());
           }
           if(t.getParams().size() > 1)
@@ -1351,7 +1351,7 @@ public class ProfileGenerator {
               pr = profile;
             } else 
               pr = "http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile);
-            if (type.getCode().equals("Reference"))
+            if (type.getCode().equals("Reference") || type.getCode().equals("canonical") )
               type.addTargetProfile(pr);
             else
               type.addProfile(pr);
@@ -1682,7 +1682,7 @@ public class ProfileGenerator {
     ce.getType(src.typeCode());
     // this one should never be used
     if (!Utilities.noString(src.getTypes().get(0).getProfile())) {
-      if (ce.getType().equals("Reference")) throw new Error("Should not happen");
+      if (ce.getType().equals("Reference") || ce.getType().equals("canonical") ) throw new Error("Should not happen");
       ce.getType().get(0).addProfile(src.getTypes().get(0).getProfile());
     }
     // todo? conditions, constraints, binding, mapping
@@ -1752,7 +1752,7 @@ public class ProfileGenerator {
           String pr = t.hasProfile() ? t.getProfile() :
              // this should only happen if t.getParams().size() == 1
             "http://hl7.org/fhir/StructureDefinition/"+(tp.equals("Any") ? "Resource" : tp);
-          if (type.getCode().equals("Reference"))
+          if (type.getCode().equals("Reference") || type.getCode().equals("canonical") )
             type.addTargetProfile(pr); 
           else
             type.addProfile(pr);
@@ -1922,7 +1922,7 @@ public class ProfileGenerator {
     if (p.getBs() != null) {
       if (p.getBs().hasMax())
         throw new Error("Max binding not handled yet");
-      pp.setBinding(new OperationDefinitionParameterBindingComponent().setStrength(p.getBs().getStrength()).setValueSet(buildReference(p.getBs())));
+      pp.setBinding(new OperationDefinitionParameterBindingComponent().setStrength(p.getBs().getStrength()).setValueSet(buildValueSetReference(p.getBs())));
     }
     if (!Utilities.noString(p.getProfile())) {
       pp.addTargetProfile(p.getProfile());

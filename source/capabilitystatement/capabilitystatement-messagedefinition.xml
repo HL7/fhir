@@ -38,9 +38,7 @@
 		<documentation value="ADT A08 equivalent for external system notifications"/>
 		<supportedMessage>
       <mode value="receiver"/>
-      <definition>
-        <reference value="MessageDefinition/example"/>
-      </definition>
+      <definition value="MessageDefinition/example"/>
     </supportedMessage>
 	</messaging>
 </CapabilityStatement>

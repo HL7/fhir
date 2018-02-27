@@ -14,6 +14,7 @@ import java.util.Set;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.BooleanType;
@@ -159,7 +160,7 @@ public class CDAGenerator {
     }    
   }
 
-  private void processDataTypes(String filename) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException {
+  private void processDataTypes(String filename) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException, FHIRFormatError {
     System.out.println("Process Data Types");
     Document dtMif = XMLUtil.parseFileToDom(filename);
     List<Element> dts = new ArrayList<Element>();
@@ -335,7 +336,7 @@ public class CDAGenerator {
   }
 
 
-  private void processDataType(Element dt, String n, String p) throws FileNotFoundException, IOException {
+  private void processDataType(Element dt, String n, String p) throws FileNotFoundException, IOException, FHIRFormatError {
 
     if (!Utilities.existsInList(n, "TYPE", "BN", "BIN", "CO", "UID", "OID", "UUID", "RUID", "URL", "ADXP", "ENXP", "PN", 
         "TN", "ON", "RTO", "CAL", "CLCY", "SET", "LIST", "GLIST", "SLIST", "BAG", "HXIT", "HIST", "UVP", "NPPD", "PPD")) {
@@ -540,7 +541,7 @@ public class CDAGenerator {
     list.add(ed);
   }
 
-  private void processProperty(List<ElementDefinition> list, String dtn, Element prop, String param) {
+  private void processProperty(List<ElementDefinition> list, String dtn, Element prop, String param) throws FHIRFormatError {
     ElementDefinition ed = new ElementDefinition();
     String n = prop.getAttribute("name");
     PropStatus p = getPropStatus(dtn, n);
@@ -772,7 +773,7 @@ public class CDAGenerator {
   private Set<String> processed = new HashSet<String>();
   private Set<String> waiting = new HashSet<String>();
   
-  private void processCDA(String filename) throws ParserConfigurationException, SAXException, IOException {
+  private void processCDA(String filename) throws ParserConfigurationException, SAXException, IOException, FHIRFormatError {
     System.out.println("Process Structure");
 
     Document pocd = XMLUtil.parseFileToDom(filename);
@@ -825,7 +826,7 @@ public class CDAGenerator {
     return id; //.replace("_", ".");
   }
 
-  private void processClass(List<Element> classes, List<Element> associations, String className) {
+  private void processClass(List<Element> classes, List<Element> associations, String className) throws FHIRFormatError {
     Element cclass = null;
     for (Element cclss : classes) {
       String cname = XMLUtil.getNamedChildAttribute(cclss, "class", "name");
@@ -869,7 +870,7 @@ public class CDAGenerator {
   }
 
 
-  private void processClassAttributes(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss, String path, Element parentTarget) {
+  private void processClassAttributes(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss, String path, Element parentTarget) throws FHIRFormatError {
 //    System.out.println("  ... "+path);
     addInfrastructureRootAttributes(snapshot, path);
     List<Element> attrs = new ArrayList<Element>();
@@ -918,7 +919,7 @@ public class CDAGenerator {
   }
 
 
-  private void processAttribute(List<Element> classes, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss, String path, Element attr) {
+  private void processAttribute(List<Element> classes, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss, String path, Element attr) throws FHIRFormatError {
     String n = attr.getAttribute("name");
     ElementDefinition ed = new ElementDefinition();
     ed.setPath(path+"."+n);
@@ -993,7 +994,7 @@ public class CDAGenerator {
     snapshot.add(ed);    
   }
 
-  private void processAssociation(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss, String path, Element tc) {
+  private void processAssociation(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss, String path, Element tc) throws FHIRFormatError {
     Element target = getClass(classes, tc.getAttribute("participantClassName"));
     if (isChoice(target)) {
       // we create an element for each participant choice, and use the child class instead
@@ -1020,7 +1021,7 @@ public class CDAGenerator {
       return der.getAttribute("className");
   }
 
-  private void processAssociationClass(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, String path, Element tc, Element target, String t, String derivation, String n, Element parentTarget) {
+  private void processAssociationClass(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, String path, Element tc, Element target, String t, String derivation, String n, Element parentTarget) throws FHIRFormatError {
     ElementDefinition ed = new ElementDefinition();
     String ipath = (path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path)+"."+n;
     

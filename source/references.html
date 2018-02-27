@@ -27,18 +27,7 @@ Many of the defined elements in a resource are references to other resources. Us
 references, the resources combine to build a web of information about healthcare.
 </p>
 <p>
-Resources contain two types of references:
-</p>
-<ul>
- <li><b>Internal "contained" references</b> - references to other resources packaged inside the source resource</li>
- <li><b>External references</b> - references to resources found elsewhere</li>
-</ul>
-<p>
 References are always defined and represented in one particular direction - from one resource (source) to another (target).
-References are either provided as a literal URL, which may either be absolute or relative, or as a logical identifier.
-Resolving the references is discussed below.
-</p>
-<p>
 The corresponding reverse relationship from the target to the source exists in a logical sense, but is
 not represented explicitly in the target resource. For external references, navigating these reverse relationships requires some
 external infrastructure to track the relationship between resources (the <a href="http.html">REST API</a> provides one such
@@ -50,18 +39,30 @@ Because resources are processed independently, relationships are not considered 
 For example, if a <a href="condition.html">Condition</a> resource references a particular
 <a href="patient.html">Patient</a> as its subject, and references a <a href="procedure.html">Procedure</a>
 resource as its cause, there is no automatic rule or implication that the procedure
-has the same patient for its subject. Instead, the subject of the procedure must be established
+has or must have the same patient for its subject. Instead, the subject of the procedure must be established
 directly in the Procedure resource itself. Another way to state this is that the context of the subject
 is not "inherited", nor does it "conduct" along the relationship to procedure.
 The only exception to this is the case of contained resources (see below). Note that in
 practice, the relationships need to describe a logical and coherent record, and in the
 case of the Condition and Procedure described here, they would usually be required to have
-the same patient for their subjects, and profiles may make rules about this.
+the same patient for their subjects, and profiles and/or implementation guides may make rules 
+about this (and see <a href="graphdefinition.html">GraphDefinition</a>).
 </p>
-
 <p>
-In a resource, references are represented with a <code>reference</code> (literal reference),
+Resolving the references is discussed below.
+</p>
+<p>
+Resources contain two types of references to other resources:
+</p>
+<ul>
+ <li><b>Resource references</b> - general references between resources</li>
+ <li><b>Canonical references</b> - references to resources by their canonical URL</li>
+</ul>
+<p>
+For canonical references, see below. The general references are handled by the <code>Reference</code> type.
+which contains at least one of a <code>reference</code> (literal reference),
 an <code>identifier</code> (logical reference), and a <code>display</code> (text description of target).
+In addition, it may a contain a target <code>type</code>
 </p>
 
 [%dt Reference 1%]
@@ -78,6 +79,42 @@ At least one of <code>reference</code>, <code>identifier</code> and <code>displa
 [%dt.constraints Reference%]
 </p>
 </div>
+
+<a name="type"></a>
+<h3>Target Type</h3>
+
+<p>
+In resources, a <code>Reference</code> always point to another resource, which has 
+a fixed and known type. If appropriate, this type can be specified in the reference
+itself. In principle, the type of the target reference can be determined by resolving 
+the reference (using the approaches described below), and examining the content 
+returned to determine the type; for this reason specifying the type is almost always 
+duplication of information. However resolving references may be a very slow 
+operation, or impossible in practice due to various practical concerns. For this 
+reason, the reference may indicate directly what the type of the  target resource is:
+</p>
+<pre class="json">
+ "subject": {
+   "reference" : "http://someserver/some-path",
+   "type" : "Patient"
+ }
+</pre>
+<p>
+When the type is provided directly, it SHALL agree with the type determined by resolving
+the resource.
+</p>
+<p>
+Note that in practice, it is often not necessary to know the type of the target resource is,
+unless it's going to be resolved anyway, so in many cases, specifying the type of the 
+target resource is unnecessary.
+</p>
+<p>
+In order to support <a href="structuredefinition.html#logical">Logical Models</a>, 
+the <code>type</code> element has the type of "uri". Whenever <code>type</code> 
+appears in resources, the uri is represented relative to the base URI 
+<code>http://hl7.org/fhir/StructureDefinition/</code>. For resources, then, the 
+value is simply a code that is the type of resource - e.g. "Patient".
+</p>
 
 <a name="literal"></a>
 <h3>Literal References</h3>
@@ -125,6 +162,13 @@ Notes:
   &lt;/profile&gt;
 </pre>
 </div>
+
+<p>
+Note that in a bundle during a <a href="http.html#transaction">transaction</a>, reference URLs may actually contain 
+logical URIs (e.g. OIDs it UUIDSs) that resolve within the transaction. When processing the transaction, the server 
+replaces the logical URL with what is the correct literal URL at the completion of the transaction.
+</p>
+
 
 <a name="logical"></a>
 <h3>Logical References</h3>
@@ -226,35 +270,39 @@ being referenced, not to more fully describe it.
 <a name="canonical"></a>
 <h3>Canonical URLs</h3>
 <p>
-Many resource types have a defined element "url" which is the canonical URL that always identifies the
+Many resource types have a defined element "url" which is the canonical URI that always identifies the
 resource. These include all the conformance and knowledge resources (most of the resources
-not found in the <a href="compartmentdefinition-patient.html">Patient Compartment</a>).
+not found in the <a href="compartmentdefinition-patient.html">Patient Compartment</a>). Note: the
+element actually contains a URI, but is named <code>url</code> for legacy reasons.
 </p>
 <p>
-The canonical URL remains the same when the resource is copied from server to server, while the logical
-id of the resource - its local identifier - usually changes as the resource is copied. The canonical
-URL serves as a stable logical identifier for the conformance artifact, and <b>is the preferred
-way to reference a conformance or knowledge resource</b>. The canonical URL is also the location where the master copy of
-the artifact is found.
-</p>
-<p>
-References to these resources may use the <code>Reference</code> type described above,
-but they can also be referenced using a <a href="datatypes.html#uri"><code>uri</code></a>.
-</p>
-<p>
-When the type of the canonical reference is a <code>uri</code>, the URL may include a
-version, in order be precise about which version of the resource is being referred to.
-To do this, append the version to the canonical url with a '|' like this:
+Canonical references use the <a href="datatypes.html#canonical"><code>canonical</code></a>.
 </p>
 <pre>
-&lt;valueSetUri value=&quot;http://hl7.org/fhir/ValueSet/my-valueset|0.8&quot;/&gt;
+&lt;valueSetCanonical value=&quot;http://hl7.org/fhir/ValueSet/my-valueset&quot;/&gt;
 </pre>
 <p>
-This is a version specific reference to a profile. Note that this is the <code>StructureDefinition.version</code>
-not the <code>StructureDefinition.meta.versionId</code>. Searching for this on a FHIR server would look like this:
+The canonical URI remains the same when the resource is copied from server to server, while the logical
+id of the resource - its local identifier - usually changes as the resource is copied. The canonical
+URI serves as a stable logical identifier for the conformance artifact, and <b>is the preferred
+way to reference a conformance or knowledge resource</b>. The canonical URI SHOULD also the location 
+where the master copy of the artifact is found, though it is not always possible to arrange this. 
+The canonical URL SHALL NOT contain some other resource (though it may resolve to a different 
+version of the same resource).
+</p>
+<p>
+Canonical URLs may include a version, in order be precise about which version of the 
+resource is being referred to. To do this, append the version to the canonical url with a '|' like this:
 </p>
 <pre>
-GET fhir/ValueSet?url=http://hl7.org/fhir/ValueSet/clinical-findings&amp;version=0.8
+&lt;valueSetCanonical value=&quot;http://hl7.org/fhir/ValueSet/my-valueset|0.8&quot;/&gt;
+</pre>
+<p>
+This is a version specific reference to a value set. Note that this refers to the <code>ValueSet.version</code>
+not the <code>ValueSet.meta.versionId</code>. Searching for this on a FHIR server would look like this:
+</p>
+<pre>
+GET fhir/ValueSet?url=http://hl7.org/fhir/ValueSet/my-valueset&amp;version=0.8
 </pre>
 <p>
 Note that if a canonical reference does not have a version, and the server finds multiple
@@ -264,12 +312,13 @@ URLs by automatically detecting the presence of a |[version] and performing the 
 search.
 </p>
 <p>
-Systems resolving references to resources that might have canonical URLs SHOULD first
-try to resolve the reference using the canonical URL, and then fall back to direct
-resolution using the URL as a literal reference if a local version of the canonical
-resource cannot be found. This approach is safe because the local version cannot be
-a different artifact than the master copy, though implementations will need to make
-appropriate arrangements regarding the currency of their local copy of the artifact.
+Systems resolving canonical references SHOULD first try to resolve the reference using 
+the canonical URL (e.g. search on a known registry of terminology, conformance, or knowledge
+resources as appropriate), and then fall back to direct resolution using the URL as 
+a literal reference if a local version of the canonical resource cannot be found. 
+This approach is safe because the all the approaches must refer to the same 
+artifact, though implementations will need to make appropriate arrangements regarding 
+the version and/or currency of their local copy of the artifact.
 </p>
 
 
@@ -364,11 +413,12 @@ Some notes about use and interpretation of contained resources:
   <li>The <code>contained</code> element SHALL NOT have extensions on it (though contained resources can still contain extensions).</li>
   <li>The contained resource can be put in any resource that inherits from DomainResource. The contained element is then located at the
   beginning of the resource after any text narrative and before any extension.</li>
-  <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below).</li>
+  <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see <a href="#ids">below</a>).</li>
   <li>When resolving references, references are resolved by looking through the 'container' resource - the one that contains the other
   resources. Since there are no nested contained resources, there is only one container resource.</li>
   <li>References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
   Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained.</li>
+  <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
   <li>Contained resources SHALL NOT contain additional contained resources.</li>
   <li>Contained resources SHALL NOT contain any narrative.</li>
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it.</li>
@@ -415,6 +465,11 @@ Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specificat
 </p>
 </blockquote>
 
+<a name="ids"></a>
+<h3>Internal references using ids</h3>
+<p>
+Todo: document this.
+</p>
 
 
 <a name="circular"></a>

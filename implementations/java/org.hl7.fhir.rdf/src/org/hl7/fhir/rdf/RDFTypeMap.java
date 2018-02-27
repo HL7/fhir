@@ -34,6 +34,8 @@ public class RDFTypeMap {
         ptMap.put("time", XSD.time);
         ptMap.put("unsignedInt", XSD.nonNegativeInteger);
         ptMap.put("uri", XSD.anyURI);
+        ptMap.put("url", XSD.anyURI);
+        ptMap.put("canonical", XSD.anyURI);
         ptMap.put("uuid", XSD.anyURI);
         ptMap.put("anyURI", XSD.anyURI);
         ptMap.put("token", RDFNamespace.FHIR.resourceRef("token"));

@@ -286,9 +286,7 @@
     </security>
     <resource>
       <type value="Provenance"/>
-      <profile>
-        <reference value="http://hl7.org/fhir/StructureDefinition/ehrsrle-provenance"/>
-      </profile>
+      <profile value="http://hl7.org/fhir/StructureDefinition/ehrsrle-provenance"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>
@@ -299,9 +297,7 @@
     </resource>
     <resource>
       <type value="AuditEvent"/>
-      <profile>
-        <reference value="http://hl7.org/fhir/StructureDefinition/ehrsrle-auditevent"/>
-      </profile>
+      <profile value="http://hl7.org/fhir/StructureDefinition/ehrsrle-auditevent"/>
       <interaction>
         <extension url="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation">
           <valueCode value="SHALL"/>

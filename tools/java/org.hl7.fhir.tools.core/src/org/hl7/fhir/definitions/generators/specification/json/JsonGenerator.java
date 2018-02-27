@@ -167,6 +167,8 @@ public class JsonGenerator  {
     allTypes.add("instant");
     allTypes.add("string");
     allTypes.add("uri");
+    allTypes.add("url");
+    allTypes.add("canonical");
     allTypes.add("date");
     allTypes.add("dateTime");
     allTypes.add("time");
@@ -402,8 +404,10 @@ public class JsonGenerator  {
 	}
 
 	private String encodeType(ElementDefn e, TypeRef type, boolean params) throws Exception {
-		if (type.isResourceReference())
-			return "Reference";
+    if (type.isResourceReference())
+      return "Reference";
+    else if (type.isCanonical())
+      return "canonical";
 		else if (type.getName().equals("code")) {
 			String en = null;
 			if (e.hasBinding()) {

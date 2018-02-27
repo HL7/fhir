@@ -113,13 +113,9 @@
         This application simply uses a profile registered directly with HL7. For the simplest 
         case of a FHIR REST Server, just delete this profile reference. Profile references do 
         not need to be a UUID, though a profile registry could insist that they are  -->
-			<profile>
-				<reference value="http://registry.fhir.org/r4/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
-			</profile>
+			<profile value="http://registry.fhir.org/r4/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
       <!--  this system supports a specific profile for animals -->
-      <supportedProfile>
-        <reference value="http://registry.fhir.org/r4/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347"/>
-      </supportedProfile>
+      <supportedProfile value="http://registry.fhir.org/r4/StructureDefinition/00ab9e7a-06c7-4f77-9234-4154ca1e3347"/>
 			<documentation value="This server does not let the clients create identities."/>
 			<interaction>
 				<code value="read"/>
@@ -187,9 +183,7 @@
 		<documentation value="ADT A08 equivalent for external system notifications"/>
     <supportedMessage>
       <mode value="receiver"/>
-      <definition>
-         <reference value="MessageDefinition/example"/>
-      </definition>
+      <definition value="MessageDefinition/example"/>
     </supportedMessage>
 	</messaging>
 	<!--  a document capability statement  -->
@@ -198,8 +192,6 @@
 		<documentation value="Basic rules for all documents in the EHR system"/>
 		<!--  this is the important element: a reference to a published document profile 
        note that this is a version specific reference. -->
-		<profile>
-			<reference value="http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796"/>
-		</profile>
+		<profile value="http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796"/>
 	</document>
 </CapabilityStatement>

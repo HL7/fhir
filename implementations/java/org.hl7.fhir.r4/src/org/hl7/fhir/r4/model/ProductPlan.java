@@ -29,11 +29,12 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.r4.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
 import ca.uhn.fhir.model.api.annotation.Child;
@@ -47,130 +48,6 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="ProductPlan", profile="http://hl7.org/fhir/Profile/ProductPlan")
 public class ProductPlan extends DomainResource {
-
-    public enum Status {
-        /**
-         * This resource is still under development and is not yet considered to be ready for normal use.
-         */
-        DRAFT, 
-        /**
-         * This resource is ready for normal use.
-         */
-        ACTIVE, 
-        /**
-         * This resource has been withdrawn or superseded and should no longer be used.
-         */
-        RETIRED, 
-        /**
-         * The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
-         */
-        UNKNOWN, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static Status fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return DRAFT;
-        if ("active".equals(codeString))
-          return ACTIVE;
-        if ("retired".equals(codeString))
-          return RETIRED;
-        if ("unknown".equals(codeString))
-          return UNKNOWN;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown Status code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case DRAFT: return "draft";
-            case ACTIVE: return "active";
-            case RETIRED: return "retired";
-            case UNKNOWN: return "unknown";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case DRAFT: return "http://hl7.org/fhir/publication-status";
-            case ACTIVE: return "http://hl7.org/fhir/publication-status";
-            case RETIRED: return "http://hl7.org/fhir/publication-status";
-            case UNKNOWN: return "http://hl7.org/fhir/publication-status";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case DRAFT: return "This resource is still under development and is not yet considered to be ready for normal use.";
-            case ACTIVE: return "This resource is ready for normal use.";
-            case RETIRED: return "This resource has been withdrawn or superseded and should no longer be used.";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case DRAFT: return "Draft";
-            case ACTIVE: return "Active";
-            case RETIRED: return "Retired";
-            case UNKNOWN: return "Unknown";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class StatusEnumFactory implements EnumFactory<Status> {
-    public Status fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("draft".equals(codeString))
-          return Status.DRAFT;
-        if ("active".equals(codeString))
-          return Status.ACTIVE;
-        if ("retired".equals(codeString))
-          return Status.RETIRED;
-        if ("unknown".equals(codeString))
-          return Status.UNKNOWN;
-        throw new IllegalArgumentException("Unknown Status code '"+codeString+"'");
-        }
-        public Enumeration<Status> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<Status>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("draft".equals(codeString))
-          return new Enumeration<Status>(this, Status.DRAFT);
-        if ("active".equals(codeString))
-          return new Enumeration<Status>(this, Status.ACTIVE);
-        if ("retired".equals(codeString))
-          return new Enumeration<Status>(this, Status.RETIRED);
-        if ("unknown".equals(codeString))
-          return new Enumeration<Status>(this, Status.UNKNOWN);
-        throw new FHIRException("Unknown Status code '"+codeString+"'");
-        }
-    public String toCode(Status code) {
-      if (code == Status.DRAFT)
-        return "draft";
-      if (code == Status.ACTIVE)
-        return "active";
-      if (code == Status.RETIRED)
-        return "retired";
-      if (code == Status.UNKNOWN)
-        return "unknown";
-      return "?";
-      }
-    public String toSystem(Status code) {
-      return code.getSystem();
-      }
-    }
 
     @Block()
     public static class ProductPlanContactComponent extends BackboneElement implements IBaseBackboneElement {
@@ -2370,9 +2247,9 @@ public class ProductPlan extends DomainResource {
      * Whether the organization's record is still in active use.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="Whether the organization's record is still in active use", formalDefinition="Whether the organization's record is still in active use." )
+    @Description(shortDefinition="draft | active | retired | unknown", formalDefinition="Whether the organization's record is still in active use." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/publication-status")
-    protected Enumeration<Status> status;
+    protected Enumeration<PublicationStatus> status;
 
     /**
      * The type of product/plan.
@@ -2479,7 +2356,7 @@ public class ProductPlan extends DomainResource {
     protected List<Endpoint> endpointTarget;
 
 
-    private static final long serialVersionUID = 31628744L;
+    private static final long serialVersionUID = -840176614L;
 
   /**
    * Constructor
@@ -2544,12 +2421,12 @@ public class ProductPlan extends DomainResource {
     /**
      * @return {@link #status} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<Status> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ProductPlan.status");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<Status>(new StatusEnumFactory()); // bb
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory()); // bb
       return this.status;
     }
 
@@ -2564,7 +2441,7 @@ public class ProductPlan extends DomainResource {
     /**
      * @param value {@link #status} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ProductPlan setStatusElement(Enumeration<Status> value) { 
+    public ProductPlan setStatusElement(Enumeration<PublicationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -2572,19 +2449,19 @@ public class ProductPlan extends DomainResource {
     /**
      * @return Whether the organization's record is still in active use.
      */
-    public Status getStatus() { 
+    public PublicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Whether the organization's record is still in active use.
      */
-    public ProductPlan setStatus(Status value) { 
+    public ProductPlan setStatus(PublicationStatus value) { 
       if (value == null)
         this.status = null;
       else {
         if (this.status == null)
-          this.status = new Enumeration<Status>(new StatusEnumFactory());
+          this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
       }
       return this;
@@ -3240,7 +3117,7 @@ public class ProductPlan extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<Status>
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeableConcept
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 92902992: /*alias*/ return this.alias == null ? new Base[0] : this.alias.toArray(new Base[this.alias.size()]); // StringType
@@ -3265,8 +3142,8 @@ public class ProductPlan extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          value = new StatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<Status>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case 3575610: // type
           this.getType().add(castToCodeableConcept(value)); // CodeableConcept
@@ -3314,8 +3191,8 @@ public class ProductPlan extends DomainResource {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("status")) {
-          value = new StatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<Status>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
         } else if (name.equals("type")) {
           this.getType().add(castToCodeableConcept(value));
         } else if (name.equals("name")) {

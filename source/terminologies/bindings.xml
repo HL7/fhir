@@ -2634,7 +2634,7 @@
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Reference</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">A reference to another resource.</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">A reference to another resource (Reference or canonical).</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s110"/>

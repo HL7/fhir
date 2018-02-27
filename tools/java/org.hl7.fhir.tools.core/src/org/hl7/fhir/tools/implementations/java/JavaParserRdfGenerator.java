@@ -960,7 +960,7 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
       if (name.endsWith("[x]"))
         name = name.substring(0, name.length()-3);
       gname = "get"+upFirst(name)+"()";
-    } else if (isJavaPrimitive(e)) {
+    } else if (isJavaPrimitive(e) || e.typeCode().startsWith("canonical(")) {
       BindingSpecification cd = e.getBinding();
       if (e.typeCode().equals("code") && cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList)
         tname = "Enum"; 

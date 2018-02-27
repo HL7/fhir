@@ -191,7 +191,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -208,11 +207,11 @@
    <NamedRange ss:Name="code" ss:RefersTo="=Patterns!R2C1"/>
    <NamedRange ss:Name="date" ss:RefersTo="=Imports!R9C1"/>
    <NamedRange ss:Name="dateTime" ss:RefersTo="=Imports!R10C1"/>
-   <NamedRange ss:Name="id" ss:RefersTo="=Patterns!R5C1"/>
+   <NamedRange ss:Name="id" ss:RefersTo="=Patterns!R7C1"/>
    <NamedRange ss:Name="oid" ss:RefersTo="=Patterns!R3C1"/>
    <NamedRange ss:Name="uuid" ss:RefersTo="=Patterns!R4C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="8" ss:StyleID="s71" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="10" ss:StyleID="s71" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s71" ss:Width="74.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s71" ss:Width="233.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="3" ss:StyleID="s71" ss:Width="142.0"/>
@@ -253,6 +252,23 @@
     <Cell><Data ss:Type="String">xs:anyURI+</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="47">
+    <Cell><Data ss:Type="String">url</Data></Cell>
+    <Cell><Data ss:Type="String">A URI that is a literal reference</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">uri</Data></Cell>
+    <Cell><Data ss:Type="String">xs:anyURI+</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">\S*</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="47">
+    <Cell><Data ss:Type="String">canonical</Data></Cell>
+    <Cell><Data ss:Type="String">A URI that is a reference to a canonical URI on a FHIR resource</Data></Cell>
+    <Cell><Data ss:Type="String">see [Canonical References](references.html#canonical)</Data></Cell>
+    <Cell><Data ss:Type="String">uri</Data></Cell>
+    <Cell><Data ss:Type="String">xs:anyURI+</Data></Cell>
+    <Cell><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s62"><Data ss:Type="String">\S*</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">id</Data><NamedCell ss:Name="id"/></Cell>
@@ -295,7 +311,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>

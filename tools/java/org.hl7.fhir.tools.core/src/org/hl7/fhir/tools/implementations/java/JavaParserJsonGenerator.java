@@ -391,6 +391,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
           prsr = "parseReference(json.getAsJsonObject(\""+name+"\"))";
           aprsr = "parseReference(array.get(i).getAsJsonObject())";
           anprsr = "parseReference(null)";
+        } else if (tn.contains("canonical(")) {
+          prsr = "parseCanonical(json.get(\""+name+"\").getAsString())";
+          aprsr = "parseCanonical(array.get(i).getAsString())";
+          anprsr = "parseCanonical(null)";
         } else if (tn.startsWith(context) && !tn.equals(context) && !definitions.hasType(tn)) {
           if (bUseOwner) {
             prsr = "parse"+upFirst(tn)+"(json.getAsJsonObject(\""+name+"\"), owner)";
@@ -421,7 +425,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
       }
 
       if (e.unbounded()) {
-        if (isPrimitive(e)) {
+        if (isPrimitive(e) || e.typeCode().startsWith("canonical(")) {
           write("    if (json.has(\""+name+"\")) {\r\n");
           write("      JsonArray array = json.getAsJsonArray(\""+name+"\");\r\n");
           write("      for (int i = 0; i < array.size(); i++) {\r\n");
@@ -447,7 +451,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
         }
       } else {
         write("    if (json.has(\""+name+"\"))\r\n");
-        if (isPrimitive(e)) {
+        if (isPrimitive(e) || e.typeCode().startsWith("canonical(")) {
           write("      res.set"+upFirst(getElementName(name, false))+"Element("+prsr+");\r\n");
           write("    if (json.has(\"_"+name+"\"))\r\n");
           write("      parseElementProperties(json.getAsJsonObject(\"_"+name+"\"), res.get"+upFirst(getElementName(name, false))+"Element());\r\n");
@@ -937,6 +941,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
         if (tn.contains("Reference(")) {
           comp = "composeReference";
           tn = "Reference";
+        } else if (tn.contains("canonical(")) {
+          comp = "composeCanonical";
+          tn = "CanonicalType"; 
         } else if (tn.contains("("))
           comp = "compose"+tn;
         else if (tn.startsWith(context) && !tn.equals(context)) {
@@ -952,7 +959,11 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
         if (tn.contains("Reference(")) {
           comp = "composeReference";
           tn = "Reference";
+        } else if (tn.contains("canonical(")) {
+          comp = "composeCanonical";
+          tn = "CanonicalType";
         }
+
         write("      if (element.has"+upFirst(getElementName(name, false))+"()) {\r\n");
         if (en == null) {
           if (tn.equals("String"))
@@ -960,7 +971,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
           if (definitions.hasPrimitiveType(tn))
             tn = upFirst(tn)+"Type";
 
-          if (isPrimitive(e)) {
+          if (isPrimitive(e) || e.typeCode().startsWith("canonical(")) {
             write("        openArray(\""+name+"\");\r\n");
             write("        for ("+(tn.contains("(") ? tn : upFirst(tn))+" e : element.get"+upFirst(getElementName(name, false))+"()) \r\n");
             write("          "+comp+"Core(null, e, true);\r\n");
@@ -1016,7 +1027,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
         write("          "+comp+"(element.get"+upFirst(getElementName(name, false))+"());\r\n");
         write("          close();\r\n");
         write("        }\r\n");
-      } else if (isPrimitive(e)) {
+      } else if (isPrimitive(e) || e.typeCode().startsWith("canonical(")) {
         write("      if (element.has"+upFirst(getElementName(name, false))+"Element()) {\r\n");
         write("        "+comp+"Core(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), false);\r\n");
         write("        "+comp+"Extras(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), false);\r\n");

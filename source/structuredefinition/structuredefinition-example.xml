@@ -164,9 +164,7 @@
 			<isModifier value="false"/>
 			<binding>
 				<strength value="required"/>
-				<valueSetReference>
-					<reference value="http://hl7.org/fhir/ValueSet/observation-status"/>
-				</valueSetReference>
+				<valueSetCanonical value="http://hl7.org/fhir/ValueSet/observation-status"/>
 			</binding>
 		</element>
 		<element id="DiagnosticReport.issued">
@@ -278,9 +276,7 @@
 			<isModifier value="false"/>
 			<binding>
 				<strength value="preferred"/>
-				<valueSetReference>
-					<reference value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
-				</valueSetReference>
+				<valueSetCanonical value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
 			</binding>
 		</element>
 		<element id="DiagnosticReport.effectiveDateTime">

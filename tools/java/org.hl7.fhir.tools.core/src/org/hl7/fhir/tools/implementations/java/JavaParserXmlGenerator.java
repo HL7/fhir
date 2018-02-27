@@ -482,6 +482,8 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
           tn = "xhtml";
         if (tn.contains("Reference("))
           prsr = "parseReference(xpp)";
+        else if (tn.contains("canonical("))
+          prsr = "parseCanonical(xpp)";
         else if (tn.contains("("))
           prsr = "parse"+tn+"(xpp)";
         else if (tn.startsWith(context) && !tn.equals(context) && !definitions.hasType(tn)) {
@@ -519,7 +521,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         write("        res.get"+upFirst(getElementName(name, false))+"().add("+prsr+");\r\n");
       } else {
         write("      "+(!first ? "} else " : "")+"if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\""+name+"\")) {\r\n");
-        write("        res.set"+upFirst(getElementName(name, false))+(isJavaPrimitive(e) ? "Element" : "")+"("+prsr+");\r\n");
+        write("        res.set"+upFirst(getElementName(name, false))+(isJavaPrimitive(e) || e.typeCode().startsWith("canonical(") ? "Element" : "")+"("+prsr+");\r\n");
       }
     }
   }
@@ -1076,6 +1078,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         if (tn.contains("Reference(")) {
           comp = "composeReference";
           tn = "Reference";
+        } else if (tn.contains("canonical(")) {
+          comp = "composeCanonical";
+          tn = "CanonicalType";
         } else if (tn.contains("("))
           comp = "compose"+tn;
         else if (tn.startsWith(context) && !tn.equals(context)) {
@@ -1093,7 +1098,11 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         if (tn.contains("Reference(")) {
           comp = "composeReference";
           tn = "Reference";
+        } else if (tn.contains("canonical(")) {
+          comp = "composeCanonical";
+          tn = "CanonicalType";
         };
+
         if (en == null) {
           if (tn.equalsIgnoreCase("string"))
             tn = "StringType";
@@ -1125,7 +1134,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
         else
           write("        composeEnumeration(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element(), new "+mainName+"."+upFirst(en.substring(en.indexOf(".")+1))+"EnumFactory());\r\n");
 //        write("        composeString(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"().toCode());\r\n");        
-      } else if (isJavaPrimitive(e)) {
+      } else if (isJavaPrimitive(e) || e.typeCode().startsWith("canonical(")) {
         write("      if (element.has"+upFirst(getElementName(name, false))+"Element()) {\r\n");
         write("        "+comp+"(\""+name+"\", element.get"+upFirst(getElementName(name, false))+"Element());\r\n");
         write("      }\r\n");

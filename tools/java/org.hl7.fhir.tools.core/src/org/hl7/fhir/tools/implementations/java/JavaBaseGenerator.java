@@ -82,14 +82,16 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 		if (type.getParams().size() == 1) {
 			if (type.isResourceReference())
 				return "Reference";
-			else if (type.getName().equals("Interval"))
-				return "Interval<"+getTypeName(type.getParams().get(0))+">";
+			else if (type.isCanonical())
+        return "CanonicalType";
 			else
 				throw new Exception("not supported");
 		} else if (type.getParams().size() > 1) {
 			if (type.isResourceReference())
 				return "Reference";
-			else
+			else if (type.isCanonical())
+        return "CanonicalType";
+      else
 				throw new Exception("not supported");
 		} else {
 			return getTypeName(type.getName());

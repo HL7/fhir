@@ -223,8 +223,9 @@ public interface IWorkerContext {
    * find concept maps for a source
    * @param url
    * @return
+   * @throws FHIRException 
    */
-  public List<ConceptMap> findMapsForSource(String url);  
+  public List<ConceptMap> findMapsForSource(String url) throws FHIRException;  
 
   /**
    * ValueSet Expansion - see $expand

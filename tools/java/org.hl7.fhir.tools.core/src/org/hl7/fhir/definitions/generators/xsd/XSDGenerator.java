@@ -379,8 +379,10 @@ public class XSDGenerator  {
 	}
 
 	private String encodeType(ElementDefn e, TypeRef type, boolean params) throws Exception {
-		if (type.isResourceReference())
-			return "Reference";
+    if (type.isResourceReference())
+      return "Reference";
+    else if (type.isCanonical())
+      return "canonical";
 		else if (type.getName().equals("code")) {
 			String en = null;
 			if (e.hasBinding()) {

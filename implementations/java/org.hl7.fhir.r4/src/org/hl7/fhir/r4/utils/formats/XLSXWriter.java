@@ -42,6 +42,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.formats.JsonParser;
 import org.hl7.fhir.r4.formats.XmlParser;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionConstraintComponent;
@@ -198,8 +199,8 @@ public class XLSXWriter  extends TextStreamWriter  {
       addCell(row, i++, ed.getBinding().getDescription());
       if (ed.getBinding().getValueSet()==null)
         addCell(row, i++, "");
-      else if (ed.getBinding().getValueSet() instanceof Reference)
-        addCell(row, i++, ed.getBinding().getValueSetReference().getReference());
+      else if (ed.getBinding().getValueSet() instanceof CanonicalType)
+        addCell(row, i++, ed.getBinding().getValueSetCanonical().getValue());
       else
         addCell(row, i++, ed.getBinding().getValueSetUriType().getValue());
     } else {

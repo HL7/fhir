@@ -108,9 +108,7 @@
 		<name value="Questionnaire - PHQ-9"/>
 		<description value="Questionnaire used to define the questions involved in the PHQ-9 health questionnaire"/>
 		<sourceUri value="questionnaire-cqif-example.xml"/>
-		<exampleFor>
-			<reference value="StructureDefinition/cqif-questionnaire"/>
-		</exampleFor>
+		<exampleFor value="StructureDefinition/cqif-questionnaire"/>
     </resource>
 	<!--    
     <resource>

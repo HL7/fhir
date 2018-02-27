@@ -16,6 +16,7 @@ import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.r4.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
@@ -674,22 +675,11 @@ public class SpecDifferenceEvaluator {
   }
 
   private String describeReference(Type ref) {
-    if (ref instanceof UriType) {
-      return ((UriType) ref).asStringValue();
-    } else if (ref instanceof Reference) {
-      return ((Reference) ref).getReference();
-    }
-    return "??";
+    return ref.primitiveValue();
   }
 
   private ValueSet getValueSet(Type ref, Map<String, ValueSet> expansions) {
-    if (ref instanceof UriType) {
-      String url = ((UriType) ref).asStringValue();
-      for (ValueSet ve : expansions.values()) {
-        if (ve.getUrl().equals(url))
-          return ve;
-      }
-    } else if (ref instanceof Reference) {
+    if (ref instanceof CanonicalType) {
       String id = ((Reference) ref).getReference();
       if (Utilities.isAbsoluteUrl(id)) {
         for (ValueSet ve : expansions.values()) {
@@ -703,7 +693,13 @@ public class SpecDifferenceEvaluator {
             return ve;
         }
       }
-    }
+    } else if (ref instanceof UriType) {
+      String url = ((UriType) ref).asStringValue();
+      for (ValueSet ve : expansions.values()) {
+        if (ve.getUrl().equals(url))
+          return ve;
+      }
+    } 
     return null;
   }
 

@@ -1400,7 +1400,7 @@ public class VersionConvertor_14_30 {
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
     for (org.hl7.fhir.dstu2016may.model.UriType t : src.getProfile()) {
-      if (src.getCode().equals("Reference"))
+      if (src.hasTarget())
         tgt.setTargetProfile(t.getValueAsString());
       else
         tgt.setProfile(t.getValueAsString());
@@ -1417,7 +1417,7 @@ public class VersionConvertor_14_30 {
     org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu2016may.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
     tgt.setCode(src.getCode());
-    if (src.hasCode() && "Reference".equals(src.getCode()))
+    if (src.hasTarget())
       tgt.addProfile(src.getTargetProfile());
     else
       tgt.addProfile(src.getProfile());

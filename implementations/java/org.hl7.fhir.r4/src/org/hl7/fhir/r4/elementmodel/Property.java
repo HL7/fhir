@@ -18,6 +18,7 @@ import junit.framework.Assert;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public class Property {
 
@@ -217,7 +218,7 @@ public class Property {
   }
 
 
-  protected List<Property> getChildProperties(String elementName, String statedType) throws DefinitionException {
+  protected List<Property> getChildProperties(String elementName, String statedType) throws FHIRException {
     ElementDefinition ed = definition;
     StructureDefinition sd = structure;
     List<ElementDefinition> children = ProfileUtilities.getChildMap(sd, ed);
@@ -271,7 +272,7 @@ public class Property {
           }
         }
         if (url==null)
-          throw new Error("Unable to find type " + t + " for element " + elementName + " with path " + ed.getPath());
+          throw new FHIRException("Unable to find type " + t + " for element " + elementName + " with path " + ed.getPath());
         sd = context.fetchResource(StructureDefinition.class, url);        
         if (sd == null)
           throw new DefinitionException("Unable to find type '"+t+"' for name '"+elementName+"' on property "+definition.getPath());
@@ -328,7 +329,7 @@ public class Property {
     return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;
   }
 
-  public Property getChild(String elementName, String childName) throws DefinitionException {
+  public Property getChild(String elementName, String childName) throws FHIRException {
     List<Property> children = getChildProperties(elementName, null);
     for (Property p : children) {
       if (p.getName().equals(childName)) {
@@ -348,7 +349,7 @@ public class Property {
     return null;
   }
 
-  public Property getChild(String name) throws DefinitionException {
+  public Property getChild(String name) throws FHIRException {
     List<Property> children = getChildProperties(name, null);
     for (Property p : children) {
       if (p.getName().equals(name)) {
@@ -358,7 +359,7 @@ public class Property {
     return null;
   }
 
-  public Property getChildSimpleName(String elementName, String name) throws DefinitionException {
+  public Property getChildSimpleName(String elementName, String name) throws FHIRException {
     List<Property> children = getChildProperties(elementName, null);
     for (Property p : children) {
       if (p.getName().equals(name) || p.getName().equals(name+"[x]")) {
@@ -370,6 +371,11 @@ public class Property {
 
   public IWorkerContext getContext() {
     return context;
+  }
+
+  @Override
+  public String toString() {
+    return definition.getPath();
   }
 
 

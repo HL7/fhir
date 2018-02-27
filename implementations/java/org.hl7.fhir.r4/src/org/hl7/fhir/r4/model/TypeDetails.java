@@ -59,7 +59,7 @@ public class TypeDetails {
       return false; // todo: do we need to do this?
     }
 
-    public void addProfiles(List<UriType> list) {
+    public void addProfiles(List<CanonicalType> list) {
       if (profiles == null)
         profiles = new ArrayList<String>();
       for (UriType u : list)

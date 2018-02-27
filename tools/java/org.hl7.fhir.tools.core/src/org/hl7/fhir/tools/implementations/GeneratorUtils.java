@@ -208,8 +208,12 @@ public class GeneratorUtils {
 			return "DateTimeOffset?";
 		else if (name.equals("string"))
 			return "string";
-		else if (name.equals("uri"))
-			return "string";
+    else if (name.equals("uri"))
+      return "string";
+    else if (name.equals("url"))
+      return "string";
+    else if (name.equals("canonical"))
+      return "string";
 		else if (name.equals("code"))
 			return "string";
 		else if (name.equals("oid"))
@@ -254,8 +258,12 @@ public class GeneratorUtils {
       return "FhirString";
     else if (name.equals("markdown"))
       return "Markdown";
-		else if (name.equals("uri"))
-			return "FhirUri";
+    else if (name.equals("uri"))
+      return "FhirUri";
+    else if (name.equals("url"))
+      return "FhirUrl";
+    else if (name.equals("canonical"))
+      return "FhirCanonical";
 		else if (name.equals("code"))
 			return "Code";
 		else if (name.equals("oid"))

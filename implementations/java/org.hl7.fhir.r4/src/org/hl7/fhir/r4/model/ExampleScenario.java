@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * Example of workflow instance.
  */
 @ResourceDef(name="ExampleScenario", profile="http://hl7.org/fhir/Profile/ExampleScenario")
-@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "useContext", "jurisdiction", "copyright", "description", "purpose", "actor", "instance", "process", "workflow"})
+@ChildOrder(names={"url", "identifier", "version", "name", "status", "experimental", "date", "publisher", "contact", "useContext", "jurisdiction", "copyright", "purpose", "actor", "instance", "process", "workflow"})
 public class ExampleScenario extends MetadataResource {
 
     public enum ExampleScenarioActorType {
@@ -221,7 +221,7 @@ into another (possibly the same) biological entity.
          */
         CLINICALIMPRESSION, 
         /**
-         * A code system resource specifies a set of codes drawn from one or more code systems.
+         * The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
          */
         CODESYSTEM, 
         /**
@@ -237,7 +237,7 @@ into another (possibly the same) biological entity.
          */
         COMPARTMENTDEFINITION, 
         /**
-         * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
+         * A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.).
          */
         COMPOSITION, 
         /**
@@ -513,7 +513,7 @@ into another (possibly the same) biological entity.
          */
         OBSERVATIONDEFINITION, 
         /**
-         * Patient’s or family member's work information.
+         * A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.
          */
         OCCUPATIONALDATA, 
         /**
@@ -1331,11 +1331,11 @@ into another (possibly the same) biological entity.
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
-            case CODESYSTEM: return "A code system resource specifies a set of codes drawn from one or more code systems.";
+            case CODESYSTEM: return "The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.";
             case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.";
             case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
             case COMPARTMENTDEFINITION: return "A compartment definition that defines how resources are accessed on a server.";
-            case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.";
+            case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.).";
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.";
             case CONSENT: return "A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.";
@@ -1404,7 +1404,7 @@ into another (possibly the same) biological entity.
             case NUTRITIONORDER: return "A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.";
             case OBSERVATION: return "Measurements and simple assertions made about a patient, device or other subject.";
             case OBSERVATIONDEFINITION: return "Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.";
-            case OCCUPATIONALDATA: return "Patient’s or family member's work information.";
+            case OCCUPATIONALDATA: return "A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.";
             case OPERATIONDEFINITION: return "A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).";
             case OPERATIONOUTCOME: return "A collection of error, warning or information messages that result from a system action.";
             case ORGANIZATION: return "A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.";
@@ -6140,23 +6140,18 @@ into another (possibly the same) biological entity.
     /**
      * Each major process - a group of operations.
      */
-    @Child(name = "process", type = {}, order=5, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "process", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Each major process - a group of operations", formalDefinition="Each major process - a group of operations." )
-    protected ExampleScenarioProcessComponent process;
+    protected List<ExampleScenarioProcessComponent> process;
 
     /**
      * Another nested workflow.
      */
-    @Child(name = "workflow", type = {ExampleScenario.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "workflow", type = {CanonicalType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Another nested workflow", formalDefinition="Another nested workflow." )
-    protected List<Reference> workflow;
-    /**
-     * The actual objects that are the target of the reference (Another nested workflow.)
-     */
-    protected List<ExampleScenario> workflowTarget;
+    protected List<CanonicalType> workflow;
 
-
-    private static final long serialVersionUID = -1982575274L;
+    private static final long serialVersionUID = 758248907L;
 
   /**
    * Constructor
@@ -6168,10 +6163,9 @@ into another (possibly the same) biological entity.
   /**
    * Constructor
    */
-    public ExampleScenario(Enumeration<PublicationStatus> status, ExampleScenarioProcessComponent process) {
+    public ExampleScenario(Enumeration<PublicationStatus> status) {
       super();
       this.status = status;
-      this.process = process;
     }
 
     /**
@@ -6370,55 +6364,6 @@ into another (possibly the same) biological entity.
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #title} (The name of the example as showin in the title page.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
-     */
-    public StringType getTitleElement() { 
-      if (this.title == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ExampleScenario.title");
-        else if (Configuration.doAutoCreate())
-          this.title = new StringType(); // bb
-      return this.title;
-    }
-
-    public boolean hasTitleElement() { 
-      return this.title != null && !this.title.isEmpty();
-    }
-
-    public boolean hasTitle() { 
-      return this.title != null && !this.title.isEmpty();
-    }
-
-    /**
-     * @param value {@link #title} (The name of the example as showin in the title page.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
-     */
-    public ExampleScenario setTitleElement(StringType value) { 
-      this.title = value;
-      return this;
-    }
-
-    /**
-     * @return The name of the example as showin in the title page.
-     */
-    public String getTitle() { 
-      return this.title == null ? null : this.title.getValue();
-    }
-
-    /**
-     * @param value The name of the example as showin in the title page.
-     */
-    public ExampleScenario setTitle(String value) { 
-      if (Utilities.noString(value))
-        this.title = null;
-      else {
-        if (this.title == null)
-          this.title = new StringType();
-        this.title.setValue(value);
       }
       return this;
     }
@@ -6820,55 +6765,6 @@ into another (possibly the same) biological entity.
     }
 
     /**
-     * @return {@link #description} (Description of behaviour of the workflow example.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-     */
-    public MarkdownType getDescriptionElement() { 
-      if (this.description == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ExampleScenario.description");
-        else if (Configuration.doAutoCreate())
-          this.description = new MarkdownType(); // bb
-      return this.description;
-    }
-
-    public boolean hasDescriptionElement() { 
-      return this.description != null && !this.description.isEmpty();
-    }
-
-    public boolean hasDescription() { 
-      return this.description != null && !this.description.isEmpty();
-    }
-
-    /**
-     * @param value {@link #description} (Description of behaviour of the workflow example.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-     */
-    public ExampleScenario setDescriptionElement(MarkdownType value) { 
-      this.description = value;
-      return this;
-    }
-
-    /**
-     * @return Description of behaviour of the workflow example.
-     */
-    public String getDescription() { 
-      return this.description == null ? null : this.description.getValue();
-    }
-
-    /**
-     * @param value Description of behaviour of the workflow example.
-     */
-    public ExampleScenario setDescription(String value) { 
-      if (value == null)
-        this.description = null;
-      else {
-        if (this.description == null)
-          this.description = new MarkdownType();
-        this.description.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #purpose} (What is the example scenario resource created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
     public MarkdownType getPurposeElement() { 
@@ -7026,40 +6922,69 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #process} (Each major process - a group of operations.)
      */
-    public ExampleScenarioProcessComponent getProcess() { 
+    public List<ExampleScenarioProcessComponent> getProcess() { 
       if (this.process == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ExampleScenario.process");
-        else if (Configuration.doAutoCreate())
-          this.process = new ExampleScenarioProcessComponent(); // cc
+        this.process = new ArrayList<ExampleScenarioProcessComponent>();
       return this.process;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ExampleScenario setProcess(List<ExampleScenarioProcessComponent> theProcess) { 
+      this.process = theProcess;
+      return this;
+    }
+
     public boolean hasProcess() { 
-      return this.process != null && !this.process.isEmpty();
+      if (this.process == null)
+        return false;
+      for (ExampleScenarioProcessComponent item : this.process)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public ExampleScenarioProcessComponent addProcess() { //3
+      ExampleScenarioProcessComponent t = new ExampleScenarioProcessComponent();
+      if (this.process == null)
+        this.process = new ArrayList<ExampleScenarioProcessComponent>();
+      this.process.add(t);
+      return t;
+    }
+
+    public ExampleScenario addProcess(ExampleScenarioProcessComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.process == null)
+        this.process = new ArrayList<ExampleScenarioProcessComponent>();
+      this.process.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #process} (Each major process - a group of operations.)
+     * @return The first repetition of repeating field {@link #process}, creating it if it does not already exist
      */
-    public ExampleScenario setProcess(ExampleScenarioProcessComponent value) { 
-      this.process = value;
-      return this;
+    public ExampleScenarioProcessComponent getProcessFirstRep() { 
+      if (getProcess().isEmpty()) {
+        addProcess();
+      }
+      return getProcess().get(0);
     }
 
     /**
      * @return {@link #workflow} (Another nested workflow.)
      */
-    public List<Reference> getWorkflow() { 
+    public List<CanonicalType> getWorkflow() { 
       if (this.workflow == null)
-        this.workflow = new ArrayList<Reference>();
+        this.workflow = new ArrayList<CanonicalType>();
       return this.workflow;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ExampleScenario setWorkflow(List<Reference> theWorkflow) { 
+    public ExampleScenario setWorkflow(List<CanonicalType> theWorkflow) { 
       this.workflow = theWorkflow;
       return this;
     }
@@ -7067,59 +6992,45 @@ into another (possibly the same) biological entity.
     public boolean hasWorkflow() { 
       if (this.workflow == null)
         return false;
-      for (Reference item : this.workflow)
+      for (CanonicalType item : this.workflow)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addWorkflow() { //3
-      Reference t = new Reference();
+    /**
+     * @return {@link #workflow} (Another nested workflow.)
+     */
+    public CanonicalType addWorkflowElement() {//2 
+      CanonicalType t = new CanonicalType();
       if (this.workflow == null)
-        this.workflow = new ArrayList<Reference>();
+        this.workflow = new ArrayList<CanonicalType>();
       this.workflow.add(t);
       return t;
     }
 
-    public ExampleScenario addWorkflow(Reference t) { //3
-      if (t == null)
-        return this;
+    /**
+     * @param value {@link #workflow} (Another nested workflow.)
+     */
+    public ExampleScenario addWorkflow(String value) { //1
+      CanonicalType t = new CanonicalType();
+      t.setValue(value);
       if (this.workflow == null)
-        this.workflow = new ArrayList<Reference>();
+        this.workflow = new ArrayList<CanonicalType>();
       this.workflow.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #workflow}, creating it if it does not already exist
+     * @param value {@link #workflow} (Another nested workflow.)
      */
-    public Reference getWorkflowFirstRep() { 
-      if (getWorkflow().isEmpty()) {
-        addWorkflow();
-      }
-      return getWorkflow().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<ExampleScenario> getWorkflowTarget() { 
-      if (this.workflowTarget == null)
-        this.workflowTarget = new ArrayList<ExampleScenario>();
-      return this.workflowTarget;
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public ExampleScenario addWorkflowTarget() { 
-      ExampleScenario r = new ExampleScenario();
-      if (this.workflowTarget == null)
-        this.workflowTarget = new ArrayList<ExampleScenario>();
-      this.workflowTarget.add(r);
-      return r;
+    public boolean hasWorkflow(String value) { 
+      if (this.workflow == null)
+        return false;
+      for (CanonicalType v : this.workflow)
+        if (v.getValue().equals(value)) // canonical(ExampleScenario)
+          return true;
+      return false;
     }
 
       protected void listChildren(List<Property> children) {
@@ -7128,7 +7039,6 @@ into another (possibly the same) biological entity.
         children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
-        children.add(new Property("title", "string", "The name of the example as showin in the title page.", 0, 1, title));
         children.add(new Property("status", "code", "The status of this example scenario. Enables tracking the life-cycle of the content.", 0, 1, status));
         children.add(new Property("experimental", "boolean", "A boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental));
         children.add(new Property("date", "dateTime", "The date  (and optionally time) when the example scenario was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').", 0, 1, date));
@@ -7137,12 +7047,11 @@ into another (possibly the same) biological entity.
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate example scenario instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the example scenario is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.", 0, 1, copyright));
-        children.add(new Property("description", "markdown", "Description of behaviour of the workflow example.", 0, 1, description));
         children.add(new Property("purpose", "markdown", "What is the example scenario resource created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario.", 0, 1, purpose));
         children.add(new Property("actor", "", "Actor participating in the resource.", 0, java.lang.Integer.MAX_VALUE, actor));
         children.add(new Property("instance", "", "Each resource and each version that is present in the workflow.", 0, java.lang.Integer.MAX_VALUE, instance));
-        children.add(new Property("process", "", "Each major process - a group of operations.", 0, 1, process));
-        children.add(new Property("workflow", "Reference(ExampleScenario)", "Another nested workflow.", 0, java.lang.Integer.MAX_VALUE, workflow));
+        children.add(new Property("process", "", "Each major process - a group of operations.", 0, java.lang.Integer.MAX_VALUE, process));
+        children.add(new Property("workflow", "canonical(ExampleScenario)", "Another nested workflow.", 0, java.lang.Integer.MAX_VALUE, workflow));
       }
 
       @Override
@@ -7152,7 +7061,6 @@ into another (possibly the same) biological entity.
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this example scenario when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the example scenario. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
-        case 110371416: /*title*/  return new Property("title", "string", "The name of the example as showin in the title page.", 0, 1, title);
         case -892481550: /*status*/  return new Property("status", "code", "The status of this example scenario. Enables tracking the life-cycle of the content.", 0, 1, status);
         case -404562712: /*experimental*/  return new Property("experimental", "boolean", "A boolean value to indicate that this example scenario is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the example scenario was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition').", 0, 1, date);
@@ -7161,12 +7069,11 @@ into another (possibly the same) biological entity.
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate example scenario instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the example scenario is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the example scenario and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the example scenario.", 0, 1, copyright);
-        case -1724546052: /*description*/  return new Property("description", "markdown", "Description of behaviour of the workflow example.", 0, 1, description);
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "What is the example scenario resource created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario.", 0, 1, purpose);
         case 92645877: /*actor*/  return new Property("actor", "", "Actor participating in the resource.", 0, java.lang.Integer.MAX_VALUE, actor);
         case 555127957: /*instance*/  return new Property("instance", "", "Each resource and each version that is present in the workflow.", 0, java.lang.Integer.MAX_VALUE, instance);
-        case -309518737: /*process*/  return new Property("process", "", "Each major process - a group of operations.", 0, 1, process);
-        case 35379135: /*workflow*/  return new Property("workflow", "Reference(ExampleScenario)", "Another nested workflow.", 0, java.lang.Integer.MAX_VALUE, workflow);
+        case -309518737: /*process*/  return new Property("process", "", "Each major process - a group of operations.", 0, java.lang.Integer.MAX_VALUE, process);
+        case 35379135: /*workflow*/  return new Property("workflow", "canonical(ExampleScenario)", "Another nested workflow.", 0, java.lang.Integer.MAX_VALUE, workflow);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 
@@ -7179,7 +7086,6 @@ into another (possibly the same) biological entity.
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
@@ -7188,12 +7094,11 @@ into another (possibly the same) biological entity.
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // UsageContext
         case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // MarkdownType
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 92645877: /*actor*/ return this.actor == null ? new Base[0] : this.actor.toArray(new Base[this.actor.size()]); // ExampleScenarioActorComponent
         case 555127957: /*instance*/ return this.instance == null ? new Base[0] : this.instance.toArray(new Base[this.instance.size()]); // ExampleScenarioInstanceComponent
-        case -309518737: /*process*/ return this.process == null ? new Base[0] : new Base[] {this.process}; // ExampleScenarioProcessComponent
-        case 35379135: /*workflow*/ return this.workflow == null ? new Base[0] : this.workflow.toArray(new Base[this.workflow.size()]); // Reference
+        case -309518737: /*process*/ return this.process == null ? new Base[0] : this.process.toArray(new Base[this.process.size()]); // ExampleScenarioProcessComponent
+        case 35379135: /*workflow*/ return this.workflow == null ? new Base[0] : this.workflow.toArray(new Base[this.workflow.size()]); // CanonicalType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -7213,9 +7118,6 @@ into another (possibly the same) biological entity.
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          return value;
-        case 110371416: // title
-          this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
           value = new PublicationStatusEnumFactory().fromType(castToCode(value));
@@ -7242,9 +7144,6 @@ into another (possibly the same) biological entity.
         case 1522889671: // copyright
           this.copyright = castToMarkdown(value); // MarkdownType
           return value;
-        case -1724546052: // description
-          this.description = castToMarkdown(value); // MarkdownType
-          return value;
         case -220463842: // purpose
           this.purpose = castToMarkdown(value); // MarkdownType
           return value;
@@ -7255,10 +7154,10 @@ into another (possibly the same) biological entity.
           this.getInstance().add((ExampleScenarioInstanceComponent) value); // ExampleScenarioInstanceComponent
           return value;
         case -309518737: // process
-          this.process = (ExampleScenarioProcessComponent) value; // ExampleScenarioProcessComponent
+          this.getProcess().add((ExampleScenarioProcessComponent) value); // ExampleScenarioProcessComponent
           return value;
         case 35379135: // workflow
-          this.getWorkflow().add(castToReference(value)); // Reference
+          this.getWorkflow().add(castToCanonical(value)); // CanonicalType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -7275,8 +7174,6 @@ into another (possibly the same) biological entity.
           this.version = castToString(value); // StringType
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        } else if (name.equals("title")) {
-          this.title = castToString(value); // StringType
         } else if (name.equals("status")) {
           value = new PublicationStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<PublicationStatus>
@@ -7294,8 +7191,6 @@ into another (possibly the same) biological entity.
           this.getJurisdiction().add(castToCodeableConcept(value));
         } else if (name.equals("copyright")) {
           this.copyright = castToMarkdown(value); // MarkdownType
-        } else if (name.equals("description")) {
-          this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
         } else if (name.equals("actor")) {
@@ -7303,9 +7198,9 @@ into another (possibly the same) biological entity.
         } else if (name.equals("instance")) {
           this.getInstance().add((ExampleScenarioInstanceComponent) value);
         } else if (name.equals("process")) {
-          this.process = (ExampleScenarioProcessComponent) value; // ExampleScenarioProcessComponent
+          this.getProcess().add((ExampleScenarioProcessComponent) value);
         } else if (name.equals("workflow")) {
-          this.getWorkflow().add(castToReference(value));
+          this.getWorkflow().add(castToCanonical(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -7318,7 +7213,6 @@ into another (possibly the same) biological entity.
         case -1618432855:  return addIdentifier(); 
         case 351608024:  return getVersionElement();
         case 3373707:  return getNameElement();
-        case 110371416:  return getTitleElement();
         case -892481550:  return getStatusElement();
         case -404562712:  return getExperimentalElement();
         case 3076014:  return getDateElement();
@@ -7327,12 +7221,11 @@ into another (possibly the same) biological entity.
         case -669707736:  return addUseContext(); 
         case -507075711:  return addJurisdiction(); 
         case 1522889671:  return getCopyrightElement();
-        case -1724546052:  return getDescriptionElement();
         case -220463842:  return getPurposeElement();
         case 92645877:  return addActor(); 
         case 555127957:  return addInstance(); 
-        case -309518737:  return getProcess(); 
-        case 35379135:  return addWorkflow(); 
+        case -309518737:  return addProcess(); 
+        case 35379135:  return addWorkflowElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -7345,7 +7238,6 @@ into another (possibly the same) biological entity.
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case 351608024: /*version*/ return new String[] {"string"};
         case 3373707: /*name*/ return new String[] {"string"};
-        case 110371416: /*title*/ return new String[] {"string"};
         case -892481550: /*status*/ return new String[] {"code"};
         case -404562712: /*experimental*/ return new String[] {"boolean"};
         case 3076014: /*date*/ return new String[] {"dateTime"};
@@ -7354,12 +7246,11 @@ into another (possibly the same) biological entity.
         case -669707736: /*useContext*/ return new String[] {"UsageContext"};
         case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
         case 1522889671: /*copyright*/ return new String[] {"markdown"};
-        case -1724546052: /*description*/ return new String[] {"markdown"};
         case -220463842: /*purpose*/ return new String[] {"markdown"};
         case 92645877: /*actor*/ return new String[] {};
         case 555127957: /*instance*/ return new String[] {};
         case -309518737: /*process*/ return new String[] {};
-        case 35379135: /*workflow*/ return new String[] {"Reference"};
+        case 35379135: /*workflow*/ return new String[] {"canonical"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -7378,9 +7269,6 @@ into another (possibly the same) biological entity.
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.name");
-        }
-        else if (name.equals("title")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.title");
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.status");
@@ -7406,9 +7294,6 @@ into another (possibly the same) biological entity.
         else if (name.equals("copyright")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.copyright");
         }
-        else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.description");
-        }
         else if (name.equals("purpose")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.purpose");
         }
@@ -7419,11 +7304,10 @@ into another (possibly the same) biological entity.
           return addInstance();
         }
         else if (name.equals("process")) {
-          this.process = new ExampleScenarioProcessComponent();
-          return this.process;
+          return addProcess();
         }
         else if (name.equals("workflow")) {
-          return addWorkflow();
+          throw new FHIRException("Cannot call addChild on a primitive type ExampleScenario.workflow");
         }
         else
           return super.addChild(name);
@@ -7445,7 +7329,6 @@ into another (possibly the same) biological entity.
         };
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
-        dst.title = title == null ? null : title.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
         dst.date = date == null ? null : date.copy();
@@ -7466,7 +7349,6 @@ into another (possibly the same) biological entity.
             dst.jurisdiction.add(i.copy());
         };
         dst.copyright = copyright == null ? null : copyright.copy();
-        dst.description = description == null ? null : description.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
         if (actor != null) {
           dst.actor = new ArrayList<ExampleScenarioActorComponent>();
@@ -7478,10 +7360,14 @@ into another (possibly the same) biological entity.
           for (ExampleScenarioInstanceComponent i : instance)
             dst.instance.add(i.copy());
         };
-        dst.process = process == null ? null : process.copy();
+        if (process != null) {
+          dst.process = new ArrayList<ExampleScenarioProcessComponent>();
+          for (ExampleScenarioProcessComponent i : process)
+            dst.process.add(i.copy());
+        };
         if (workflow != null) {
-          dst.workflow = new ArrayList<Reference>();
-          for (Reference i : workflow)
+          dst.workflow = new ArrayList<CanonicalType>();
+          for (CanonicalType i : workflow)
             dst.workflow.add(i.copy());
         };
         return dst;
@@ -7604,26 +7490,6 @@ into another (possibly the same) biological entity.
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
 
  /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>The description of the example scenario</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ExampleScenario.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="ExampleScenario.description", description="The description of the example scenario", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>The description of the example scenario</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ExampleScenario.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
    * Search parameter: <b>publisher</b>
    * <p>
    * Description: <b>Name of the publisher of the example scenario</b><br>
@@ -7642,26 +7508,6 @@ into another (possibly the same) biological entity.
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
-
- /**
-   * Search parameter: <b>title</b>
-   * <p>
-   * Description: <b>The human-friendly name of the example scenario</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ExampleScenario.title</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="title", path="ExampleScenario.title", description="The human-friendly name of the example scenario", type="string" )
-  public static final String SP_TITLE = "title";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
-   * <p>
-   * Description: <b>The human-friendly name of the example scenario</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ExampleScenario.title</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
    * Search parameter: <b>version</b>

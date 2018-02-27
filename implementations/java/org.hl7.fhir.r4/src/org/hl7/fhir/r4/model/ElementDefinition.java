@@ -29,12 +29,11 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Feb 15, 2018 15:51+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.ChildOrder;
@@ -43,6 +42,7 @@ import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 // added from java-adornments.txt:
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 
@@ -1724,18 +1724,18 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected UriType code;
 
         /**
-         * Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.
+         * Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.
          */
-        @Child(name = "profile", type = {UriType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Profile (StructureDefinition or IG) that applies", formalDefinition="Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide." )
-        protected List<UriType> profile;
+        @Child(name = "profile", type = {CanonicalType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Profiles (StructureDefinition or IG) - one must apply", formalDefinition="Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide." )
+        protected List<CanonicalType> profile;
 
         /**
-         * Used when the type is "Reference", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.
+         * Used when the type is "Reference", and Identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.
          */
-        @Child(name = "targetProfile", type = {UriType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Profile (StructureDefinition or IG) that applies to the Reference target", formalDefinition="Used when the type is \"Reference\", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide." )
-        protected List<UriType> targetProfile;
+        @Child(name = "targetProfile", type = {CanonicalType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Profile (StructureDefinition or IG) on the Reference target - one must apply", formalDefinition="Used when the type is \"Reference\", and Identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide." )
+        protected List<CanonicalType> targetProfile;
 
         /**
          * If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
@@ -1753,7 +1753,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reference-version-rules")
         protected Enumeration<ReferenceVersionRules> versioning;
 
-        private static final long serialVersionUID = -1841488747L;
+        private static final long serialVersionUID = 957891653L;
 
     /**
      * Constructor
@@ -1816,18 +1816,18 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.)
+         * @return {@link #profile} (Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.)
          */
-        public List<UriType> getProfile() { 
+        public List<CanonicalType> getProfile() { 
           if (this.profile == null)
-            this.profile = new ArrayList<UriType>();
+            this.profile = new ArrayList<CanonicalType>();
           return this.profile;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public TypeRefComponent setProfile(List<UriType> theProfile) { 
+        public TypeRefComponent setProfile(List<CanonicalType> theProfile) { 
           this.profile = theProfile;
           return this;
         }
@@ -1835,60 +1835,60 @@ public class ElementDefinition extends Type implements ICompositeType {
         public boolean hasProfile() { 
           if (this.profile == null)
             return false;
-          for (UriType item : this.profile)
+          for (CanonicalType item : this.profile)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.)
+         * @return {@link #profile} (Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.)
          */
-        public UriType addProfileElement() {//2 
-          UriType t = new UriType();
+        public CanonicalType addProfileElement() {//2 
+          CanonicalType t = new CanonicalType();
           if (this.profile == null)
-            this.profile = new ArrayList<UriType>();
+            this.profile = new ArrayList<CanonicalType>();
           this.profile.add(t);
           return t;
         }
 
         /**
-         * @param value {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.)
+         * @param value {@link #profile} (Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.)
          */
         public TypeRefComponent addProfile(String value) { //1
-          UriType t = new UriType();
+          CanonicalType t = new CanonicalType();
           t.setValue(value);
           if (this.profile == null)
-            this.profile = new ArrayList<UriType>();
+            this.profile = new ArrayList<CanonicalType>();
           this.profile.add(t);
           return this;
         }
 
         /**
-         * @param value {@link #profile} (Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.)
+         * @param value {@link #profile} (Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.)
          */
         public boolean hasProfile(String value) { 
           if (this.profile == null)
             return false;
-          for (UriType v : this.profile)
-            if (v.equals(value)) // uri
+          for (CanonicalType v : this.profile)
+            if (v.getValue().equals(value)) // canonical(StructureDefinition|ImplementationGuide)
               return true;
           return false;
         }
 
         /**
-         * @return {@link #targetProfile} (Used when the type is "Reference", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.)
+         * @return {@link #targetProfile} (Used when the type is "Reference", and Identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.)
          */
-        public List<UriType> getTargetProfile() { 
+        public List<CanonicalType> getTargetProfile() { 
           if (this.targetProfile == null)
-            this.targetProfile = new ArrayList<UriType>();
+            this.targetProfile = new ArrayList<CanonicalType>();
           return this.targetProfile;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public TypeRefComponent setTargetProfile(List<UriType> theTargetProfile) { 
+        public TypeRefComponent setTargetProfile(List<CanonicalType> theTargetProfile) { 
           this.targetProfile = theTargetProfile;
           return this;
         }
@@ -1896,43 +1896,43 @@ public class ElementDefinition extends Type implements ICompositeType {
         public boolean hasTargetProfile() { 
           if (this.targetProfile == null)
             return false;
-          for (UriType item : this.targetProfile)
+          for (CanonicalType item : this.targetProfile)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #targetProfile} (Used when the type is "Reference", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.)
+         * @return {@link #targetProfile} (Used when the type is "Reference", and Identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.)
          */
-        public UriType addTargetProfileElement() {//2 
-          UriType t = new UriType();
+        public CanonicalType addTargetProfileElement() {//2 
+          CanonicalType t = new CanonicalType();
           if (this.targetProfile == null)
-            this.targetProfile = new ArrayList<UriType>();
+            this.targetProfile = new ArrayList<CanonicalType>();
           this.targetProfile.add(t);
           return t;
         }
 
         /**
-         * @param value {@link #targetProfile} (Used when the type is "Reference", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.)
+         * @param value {@link #targetProfile} (Used when the type is "Reference", and Identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.)
          */
         public TypeRefComponent addTargetProfile(String value) { //1
-          UriType t = new UriType();
+          CanonicalType t = new CanonicalType();
           t.setValue(value);
           if (this.targetProfile == null)
-            this.targetProfile = new ArrayList<UriType>();
+            this.targetProfile = new ArrayList<CanonicalType>();
           this.targetProfile.add(t);
           return this;
         }
 
         /**
-         * @param value {@link #targetProfile} (Used when the type is "Reference", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.)
+         * @param value {@link #targetProfile} (Used when the type is "Reference", and Identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.)
          */
         public boolean hasTargetProfile(String value) { 
           if (this.targetProfile == null)
             return false;
-          for (UriType v : this.targetProfile)
-            if (v.equals(value)) // uri
+          for (CanonicalType v : this.targetProfile)
+            if (v.getValue().equals(value)) // canonical(StructureDefinition|ImplementationGuide)
               return true;
           return false;
         }
@@ -2050,8 +2050,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("code", "uri", "URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.", 0, 1, code));
-          children.add(new Property("profile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, profile));
-          children.add(new Property("targetProfile", "uri", "Used when the type is \"Reference\", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, targetProfile));
+          children.add(new Property("profile", "canonical(StructureDefinition|ImplementationGuide)", "Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, profile));
+          children.add(new Property("targetProfile", "canonical(StructureDefinition|ImplementationGuide)", "Used when the type is \"Reference\", and Identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, targetProfile));
           children.add(new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation));
           children.add(new Property("versioning", "code", "Whether this reference needs to be version specific or version independent, or whether either can be used.", 0, 1, versioning));
         }
@@ -2060,8 +2060,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3059181: /*code*/  return new Property("code", "uri", "URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.", 0, 1, code);
-          case -309425751: /*profile*/  return new Property("profile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for the datatype this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, profile);
-          case 1994521304: /*targetProfile*/  return new Property("targetProfile", "uri", "Used when the type is \"Reference\", and Identifies a profile structure or implementation Guide that SHALL be true for the target of the reference this element refers to. Can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, targetProfile);
+          case -309425751: /*profile*/  return new Property("profile", "canonical(StructureDefinition|ImplementationGuide)", "Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, profile);
+          case 1994521304: /*targetProfile*/  return new Property("targetProfile", "canonical(StructureDefinition|ImplementationGuide)", "Used when the type is \"Reference\", and Identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, targetProfile);
           case 841524962: /*aggregation*/  return new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation);
           case -670487542: /*versioning*/  return new Property("versioning", "code", "Whether this reference needs to be version specific or version independent, or whether either can be used.", 0, 1, versioning);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -2073,8 +2073,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // UriType
-        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : this.profile.toArray(new Base[this.profile.size()]); // UriType
-        case 1994521304: /*targetProfile*/ return this.targetProfile == null ? new Base[0] : this.targetProfile.toArray(new Base[this.targetProfile.size()]); // UriType
+        case -309425751: /*profile*/ return this.profile == null ? new Base[0] : this.profile.toArray(new Base[this.profile.size()]); // CanonicalType
+        case 1994521304: /*targetProfile*/ return this.targetProfile == null ? new Base[0] : this.targetProfile.toArray(new Base[this.targetProfile.size()]); // CanonicalType
         case 841524962: /*aggregation*/ return this.aggregation == null ? new Base[0] : this.aggregation.toArray(new Base[this.aggregation.size()]); // Enumeration<AggregationMode>
         case -670487542: /*versioning*/ return this.versioning == null ? new Base[0] : new Base[] {this.versioning}; // Enumeration<ReferenceVersionRules>
         default: return super.getProperty(hash, name, checkValid);
@@ -2089,10 +2089,10 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.code = castToUri(value); // UriType
           return value;
         case -309425751: // profile
-          this.getProfile().add(castToUri(value)); // UriType
+          this.getProfile().add(castToCanonical(value)); // CanonicalType
           return value;
         case 1994521304: // targetProfile
-          this.getTargetProfile().add(castToUri(value)); // UriType
+          this.getTargetProfile().add(castToCanonical(value)); // CanonicalType
           return value;
         case 841524962: // aggregation
           value = new AggregationModeEnumFactory().fromType(castToCode(value));
@@ -2112,9 +2112,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (name.equals("code")) {
           this.code = castToUri(value); // UriType
         } else if (name.equals("profile")) {
-          this.getProfile().add(castToUri(value));
+          this.getProfile().add(castToCanonical(value));
         } else if (name.equals("targetProfile")) {
-          this.getTargetProfile().add(castToUri(value));
+          this.getTargetProfile().add(castToCanonical(value));
         } else if (name.equals("aggregation")) {
           value = new AggregationModeEnumFactory().fromType(castToCode(value));
           this.getAggregation().add((Enumeration) value);
@@ -2143,8 +2143,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return new String[] {"uri"};
-        case -309425751: /*profile*/ return new String[] {"uri"};
-        case 1994521304: /*targetProfile*/ return new String[] {"uri"};
+        case -309425751: /*profile*/ return new String[] {"canonical"};
+        case 1994521304: /*targetProfile*/ return new String[] {"canonical"};
         case 841524962: /*aggregation*/ return new String[] {"code"};
         case -670487542: /*versioning*/ return new String[] {"code"};
         default: return super.getTypesForProperty(hash, name);
@@ -2178,13 +2178,13 @@ public class ElementDefinition extends Type implements ICompositeType {
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
         if (profile != null) {
-          dst.profile = new ArrayList<UriType>();
-          for (UriType i : profile)
+          dst.profile = new ArrayList<CanonicalType>();
+          for (CanonicalType i : profile)
             dst.profile.add(i.copy());
         };
         if (targetProfile != null) {
-          dst.targetProfile = new ArrayList<UriType>();
-          for (UriType i : targetProfile)
+          dst.targetProfile = new ArrayList<CanonicalType>();
+          for (CanonicalType i : targetProfile)
             dst.targetProfile.add(i.copy());
         };
         if (aggregation != null) {
@@ -2215,8 +2215,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other_ instanceof TypeRefComponent))
           return false;
         TypeRefComponent o = (TypeRefComponent) other_;
-        return compareValues(code, o.code, true) && compareValues(profile, o.profile, true) && compareValues(targetProfile, o.targetProfile, true)
-           && compareValues(aggregation, o.aggregation, true) && compareValues(versioning, o.versioning, true)
+        return compareValues(code, o.code, true) && compareValues(aggregation, o.aggregation, true) && compareValues(versioning, o.versioning, true)
           ;
       }
 
@@ -2228,6 +2227,10 @@ public class ElementDefinition extends Type implements ICompositeType {
   public String fhirType() {
     return "ElementDefinition.type";
 
+  }
+
+  public boolean hasTarget() {
+    return Utilities.existsInList(getCode(), "Reference", "canonical");
   }
 
   }
@@ -2351,6 +2354,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           case -1410172357: /*valueUri*/  return new Property("value[x]", "*", "The actual value for the element, which must be one of the types allowed for this element.", 0, 1, value);
           case -766192449: /*valueDate*/  return new Property("value[x]", "*", "The actual value for the element, which must be one of the types allowed for this element.", 0, 1, value);
           case 1047929900: /*valueDateTime*/  return new Property("value[x]", "*", "The actual value for the element, which must be one of the types allowed for this element.", 0, 1, value);
+          case -1410172354: /*valueUrl*/  return new Property("value[x]", "*", "The actual value for the element, which must be one of the types allowed for this element.", 0, 1, value);
+          case -786218365: /*valueCanonical*/  return new Property("value[x]", "*", "The actual value for the element, which must be one of the types allowed for this element.", 0, 1, value);
           case -765708322: /*valueTime*/  return new Property("value[x]", "*", "The actual value for the element, which must be one of the types allowed for this element.", 0, 1, value);
           case -766209282: /*valueCode*/  return new Property("value[x]", "*", "The actual value for the element, which must be one of the types allowed for this element.", 0, 1, value);
           case -1410178407: /*valueOid*/  return new Property("value[x]", "*", "The actual value for the element, which must be one of the types allowed for this element.", 0, 1, value);
@@ -2475,6 +2480,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         else if (name.equals("valueUri")) {
           this.value = new UriType();
+          return this.value;
+        }
+        else if (name.equals("valueUrl")) {
+          this.value = new UrlType();
+          return this.value;
+        }
+        else if (name.equals("valueCanonical")) {
+          this.value = new CanonicalType();
           return this.value;
         }
         else if (name.equals("valueDate")) {
@@ -2704,11 +2717,11 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * A reference to the original source of the constraint, for traceability purposes.
          */
-        @Child(name = "source", type = {UriType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "source", type = {CanonicalType.class}, order=7, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Reference to original source of constraint", formalDefinition="A reference to the original source of the constraint, for traceability purposes." )
-        protected UriType source;
+        protected CanonicalType source;
 
-        private static final long serialVersionUID = 1860862205L;
+        private static final long serialVersionUID = 1048354565L;
 
     /**
      * Constructor
@@ -3009,12 +3022,12 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @return {@link #source} (A reference to the original source of the constraint, for traceability purposes.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
          */
-        public UriType getSourceElement() { 
+        public CanonicalType getSourceElement() { 
           if (this.source == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.source");
             else if (Configuration.doAutoCreate())
-              this.source = new UriType(); // bb
+              this.source = new CanonicalType(); // bb
           return this.source;
         }
 
@@ -3029,7 +3042,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @param value {@link #source} (A reference to the original source of the constraint, for traceability purposes.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
          */
-        public ElementDefinitionConstraintComponent setSourceElement(UriType value) { 
+        public ElementDefinitionConstraintComponent setSourceElement(CanonicalType value) { 
           this.source = value;
           return this;
         }
@@ -3049,7 +3062,7 @@ public class ElementDefinition extends Type implements ICompositeType {
             this.source = null;
           else {
             if (this.source == null)
-              this.source = new UriType();
+              this.source = new CanonicalType();
             this.source.setValue(value);
           }
           return this;
@@ -3063,7 +3076,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           children.add(new Property("human", "string", "Text that can be used to describe the constraint in messages identifying that the constraint has been violated.", 0, 1, human));
           children.add(new Property("expression", "string", "A [FHIRPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.", 0, 1, expression));
           children.add(new Property("xpath", "string", "An XPath expression of constraint that can be executed to see if this constraint is met.", 0, 1, xpath));
-          children.add(new Property("source", "uri", "A reference to the original source of the constraint, for traceability purposes.", 0, 1, source));
+          children.add(new Property("source", "canonical(StructureDefinition)", "A reference to the original source of the constraint, for traceability purposes.", 0, 1, source));
         }
 
         @Override
@@ -3075,7 +3088,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           case 99639597: /*human*/  return new Property("human", "string", "Text that can be used to describe the constraint in messages identifying that the constraint has been violated.", 0, 1, human);
           case -1795452264: /*expression*/  return new Property("expression", "string", "A [FHIRPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met.", 0, 1, expression);
           case 114256029: /*xpath*/  return new Property("xpath", "string", "An XPath expression of constraint that can be executed to see if this constraint is met.", 0, 1, xpath);
-          case -896505829: /*source*/  return new Property("source", "uri", "A reference to the original source of the constraint, for traceability purposes.", 0, 1, source);
+          case -896505829: /*source*/  return new Property("source", "canonical(StructureDefinition)", "A reference to the original source of the constraint, for traceability purposes.", 0, 1, source);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -3090,7 +3103,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 99639597: /*human*/ return this.human == null ? new Base[0] : new Base[] {this.human}; // StringType
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
         case 114256029: /*xpath*/ return this.xpath == null ? new Base[0] : new Base[] {this.xpath}; // StringType
-        case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // UriType
+        case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // CanonicalType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -3119,7 +3132,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.xpath = castToString(value); // StringType
           return value;
         case -896505829: // source
-          this.source = castToUri(value); // UriType
+          this.source = castToCanonical(value); // CanonicalType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -3142,7 +3155,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         } else if (name.equals("xpath")) {
           this.xpath = castToString(value); // StringType
         } else if (name.equals("source")) {
-          this.source = castToUri(value); // UriType
+          this.source = castToCanonical(value); // CanonicalType
         } else
           return super.setProperty(name, value);
         return value;
@@ -3172,7 +3185,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 99639597: /*human*/ return new String[] {"string"};
         case -1795452264: /*expression*/ return new String[] {"string"};
         case 114256029: /*xpath*/ return new String[] {"string"};
-        case -896505829: /*source*/ return new String[] {"uri"};
+        case -896505829: /*source*/ return new String[] {"canonical"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -3239,7 +3252,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other_;
         return compareValues(key, o.key, true) && compareValues(requirements, o.requirements, true) && compareValues(severity, o.severity, true)
            && compareValues(human, o.human, true) && compareValues(expression, o.expression, true) && compareValues(xpath, o.xpath, true)
-           && compareValues(source, o.source, true);
+          ;
       }
 
       public boolean isEmpty() {
@@ -3274,7 +3287,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.
          */
-        @Child(name = "valueSet", type = {UriType.class, ValueSet.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "valueSet", type = {UriType.class, CanonicalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Source of value set", formalDefinition="Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri." )
         protected Type valueSet;
 
@@ -3412,14 +3425,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
          */
-        public Reference getValueSetReference() throws FHIRException { 
-          if (!(this.valueSet instanceof Reference))
-            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.valueSet.getClass().getName()+" was encountered");
-          return (Reference) this.valueSet;
+        public CanonicalType getValueSetCanonical() throws FHIRException { 
+          if (!(this.valueSet instanceof CanonicalType))
+            throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
+          return (CanonicalType) this.valueSet;
         }
 
-        public boolean hasValueSetReference() { 
-          return this.valueSet instanceof Reference;
+        public boolean hasValueSetCanonical() { 
+          return this.valueSet instanceof CanonicalType;
         }
 
         public boolean hasValueSet() { 
@@ -3428,8 +3441,11 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         /**
          * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
+         * @throws Exception 
          */
-        public ElementDefinitionBindingComponent setValueSet(Type value) { 
+        public ElementDefinitionBindingComponent setValueSet(Type value) throws FHIRFormatError { 
+          if (value != null && !(value instanceof CanonicalType || value instanceof UriType))
+            throw new FHIRFormatError("Not the right type for ElementDefinition.binding.valueSet: "+value.fhirType()); 
           this.valueSet = value;
           return this;
         }
@@ -3438,7 +3454,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           super.listChildren(children);
           children.add(new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, 1, strength));
           children.add(new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, 1, description));
-          children.add(new Property("valueSet[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet));
+          children.add(new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet));
         }
 
         @Override
@@ -3446,10 +3462,10 @@ public class ElementDefinition extends Type implements ICompositeType {
           switch (_hash) {
           case 1791316033: /*strength*/  return new Property("strength", "code", "Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.", 0, 1, strength);
           case -1724546052: /*description*/  return new Property("description", "string", "Describes the intended use of this particular set of codes.", 0, 1, description);
-          case -1438410321: /*valueSet[x]*/  return new Property("valueSet[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
-          case -1410174671: /*valueSet*/  return new Property("valueSet[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
-          case -1438416261: /*valueSetUri*/  return new Property("valueSet[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
-          case 295220506: /*valueSetReference*/  return new Property("valueSet[x]", "uri|Reference(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
+          case -1438410321: /*valueSet[x]*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
+          case -1410174671: /*valueSet*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
+          case -1438416261: /*valueSetUri*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
+          case 2048727747: /*valueSetCanonical*/  return new Property("valueSet[x]", "uri|canonical(ValueSet)", "Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.", 0, 1, valueSet);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -3515,7 +3531,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         switch (hash) {
         case 1791316033: /*strength*/ return new String[] {"code"};
         case -1724546052: /*description*/ return new String[] {"string"};
-        case -1410174671: /*valueSet*/ return new String[] {"uri", "Reference"};
+        case -1410174671: /*valueSet*/ return new String[] {"uri", "canonical"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -3533,8 +3549,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.valueSet = new UriType();
           return this.valueSet;
         }
-        else if (name.equals("valueSetReference")) {
-          this.valueSet = new Reference();
+        else if (name.equals("valueSetCanonical")) {
+          this.valueSet = new CanonicalType();
           return this.valueSet;
         }
         else
@@ -4208,7 +4224,6 @@ public class ElementDefinition extends Type implements ICompositeType {
 
     private static final long serialVersionUID = 158101607L;
 
-
   /**
    * Constructor
    */
@@ -4223,7 +4238,6 @@ public class ElementDefinition extends Type implements ICompositeType {
       super();
       this.path = path;
     }
-
 
     /**
      * @return {@link #path} (The path identifies the element and is expressed as a "."-separated list of ancestor elements, beginning with the name of the resource or extension.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
@@ -5950,6 +5964,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 587916188: /*defaultValueUri*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);
         case 1045010302: /*defaultValueDate*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);
         case 1220374379: /*defaultValueDateTime*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);
+        case 587916191: /*defaultValueUrl*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);
+        case 264593188: /*defaultValueCanonical*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);
         case 1045494429: /*defaultValueTime*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);
         case 1044993469: /*defaultValueCode*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);
         case 587910138: /*defaultValueOid*/  return new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, 1, defaultValue);
@@ -5995,6 +6011,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -391528104: /*fixedUri*/  return new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, 1, fixed);
         case 747008322: /*fixedDate*/  return new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, 1, fixed);
         case -1246771409: /*fixedDateTime*/  return new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, 1, fixed);
+        case -391528101: /*fixedUrl*/  return new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, 1, fixed);
+        case 1092485088: /*fixedCanonical*/  return new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, 1, fixed);
         case 747492449: /*fixedTime*/  return new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, 1, fixed);
         case 746991489: /*fixedCode*/  return new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, 1, fixed);
         case -391534154: /*fixedOid*/  return new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, 1, fixed);
@@ -6038,6 +6056,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -885131332: /*patternUri*/  return new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).", 0, 1, pattern);
         case -1669789858: /*patternDate*/  return new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).", 0, 1, pattern);
         case 535949131: /*patternDateTime*/  return new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).", 0, 1, pattern);
+        case -885131329: /*patternUrl*/  return new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).", 0, 1, pattern);
+        case 522246980: /*patternCanonical*/  return new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).", 0, 1, pattern);
         case -1669305731: /*patternTime*/  return new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).", 0, 1, pattern);
         case -1669806691: /*patternCode*/  return new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).", 0, 1, pattern);
         case -885137382: /*patternOid*/  return new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).", 0, 1, pattern);
@@ -6497,6 +6517,14 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.defaultValue = new UriType();
           return this.defaultValue;
         }
+        else if (name.equals("defaultValueUrl")) {
+          this.defaultValue = new UrlType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueCanonical")) {
+          this.defaultValue = new CanonicalType();
+          return this.defaultValue;
+        }
         else if (name.equals("defaultValueDate")) {
           this.defaultValue = new DateType();
           return this.defaultValue;
@@ -6667,6 +6695,14 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.fixed = new UriType();
           return this.fixed;
         }
+        else if (name.equals("fixedUrl")) {
+          this.fixed = new UrlType();
+          return this.fixed;
+        }
+        else if (name.equals("fixedCanonical")) {
+          this.fixed = new CanonicalType();
+          return this.fixed;
+        }
         else if (name.equals("fixedDate")) {
           this.fixed = new DateType();
           return this.fixed;
@@ -6829,6 +6865,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         else if (name.equals("patternUri")) {
           this.pattern = new UriType();
+          return this.pattern;
+        }
+        else if (name.equals("patternUrl")) {
+          this.pattern = new UrlType();
+          return this.pattern;
+        }
+        else if (name.equals("patternCanonical")) {
+          this.pattern = new CanonicalType();
           return this.pattern;
         }
         else if (name.equals("patternDate")) {
@@ -7227,7 +7271,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
     return b.toString();
    }
-
+  
   public TypeRefComponent getType(String code) {
     for (TypeRefComponent tr : getType()) 
       if (tr.getCode().equals(code))

@@ -869,7 +869,12 @@ public class SourceParser {
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()), ap.getCategory(), issues, wg);
       errors.addAll(sparser.getErrors());
     } else if (ap.getSourceType() == ConformancePackageSourceType.StructureDefinition) {
-      Resource rf = new XmlParser().parse(new CSFileInputStream(ap.getSource()));
+      Resource rf;
+      try {
+        rf = new XmlParser().parse(new CSFileInputStream(ap.getSource()));
+      } catch (Exception e) {
+        throw new Exception("Error parsing "+ap.getSource()+": "+e.getMessage(), e);
+      }
       if (!(rf instanceof StructureDefinition)) 
         throw new Exception("Error parsing Profile: not a structure definition");
       StructureDefinition sd = (StructureDefinition) rf;

@@ -1259,6 +1259,11 @@ public class ElementDefinition extends Type implements ICompositeType {
 
   }
 
+  public boolean hasTarget() {
+    return Utilities.existsInList(getCode(), "Reference");
+
+  }
+
   }
 
     @Block()

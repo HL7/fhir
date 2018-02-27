@@ -1140,7 +1140,7 @@ public class VersionConvertor_10_30 {
     copyElement(src, tgt);
     tgt.setCodeElement(convertCodeToUri(src.getCodeElement()));
     for (org.hl7.fhir.dstu2.model.UriType t : src.getProfile())
-      if (src.hasCode() && "Reference".equals(src.getCode()))
+      if (src.hasTarget())
         tgt.setTargetProfile(t.getValueAsString());
       else
         tgt.setProfile(t.getValue());
@@ -1155,7 +1155,7 @@ public class VersionConvertor_10_30 {
     org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent tgt = new org.hl7.fhir.dstu2.model.ElementDefinition.TypeRefComponent();
     copyElement(src, tgt);
     tgt.setCodeElement(convertUriToCode(src.getCodeElement()));
-    if (src.hasCode() && "Reference".equals(src.getCode())) {
+    if (src.hasTarget()) {
       if (src.hasTargetProfile())
         tgt.addProfile(src.getTargetProfile());
     } else if (src.hasProfile())
@@ -11194,7 +11194,7 @@ public class VersionConvertor_10_30 {
       return null;
     switch (src) {
     case DATATYPE:
-      if (Utilities.existsInList(dtName, "boolean", "integer", "decimal", "base64Binary", "instant", "string", "uri", "date", "dateTime", "time", "code", "oid", "uuid", "id", "unsignedInt", "positiveInt", "markdown", "xhtml"))
+      if (Utilities.existsInList(dtName, "boolean", "integer", "decimal", "base64Binary", "instant", "string", "uri", "date", "dateTime", "time", "code", "oid", "uuid", "id", "unsignedInt", "positiveInt", "markdown", "xhtml", "url", "canonical"))
         return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.PRIMITIVETYPE;
       else
         return org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind.COMPLEXTYPE;

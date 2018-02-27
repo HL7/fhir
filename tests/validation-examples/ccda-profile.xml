@@ -43,10 +43,7 @@
             </type>
             <binding>
                 <strength value="required"/>
-                <valueSetReference>
-                    <reference value="ValueSet/2.16.840.1.113883.1.11.20.2.3"/>
-                    <display value="ReferralDocumentType"/>
-                </valueSetReference>
+                <valueSetCanonical value="ValueSet/2.16.840.1.113883.1.11.20.2.3"/>
             </binding>
         </element>
         <element id="7055-02">

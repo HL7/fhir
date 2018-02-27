@@ -838,7 +838,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   }
 
   @Override
-  public List<ConceptMap> findMapsForSource(String url) {
+  public List<ConceptMap> findMapsForSource(String url) throws FHIRException {
     synchronized (lock) {
       List<ConceptMap> res = new ArrayList<ConceptMap>();
       for (ConceptMap map : maps.values())
@@ -1135,10 +1135,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public ValueSetExpansionOutcome expandVS(ElementDefinitionBindingComponent binding, boolean cacheOk, boolean heirarchical) throws FHIRException {
     ValueSet vs = null;
-    if (binding.hasValueSetReference()) {
-      vs = fetchResource(ValueSet.class, binding.getValueSetReference().getReference());
+    if (binding.hasValueSetCanonical()) {
+      vs = fetchResource(ValueSet.class, binding.getValueSetCanonical().getValue());
       if (vs == null)
-        throw new FHIRException("Unable to resolve value Set "+binding.getValueSetReference().getReference());
+        throw new FHIRException("Unable to resolve value Set "+binding.getValueSetCanonical().getValue());
     } else {
       vs = fetchResource(ValueSet.class, binding.getValueSetUriType().asStringValue());
       if (vs == null)

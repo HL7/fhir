@@ -239,10 +239,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   @Override
-  public List<ConceptMap> findMapsForSource(String url) {
+  public List<ConceptMap> findMapsForSource(String url) throws FHIRException {
     List<ConceptMap> res = new ArrayList<ConceptMap>();
     for (ConceptMap map : listMaps())
-      if (((Reference) map.getSource()).getReference().equals(url)) 
+      if (map.getSourceCanonical().getValue().equals(url)) 
         res.add(map);
     return res;
   }
@@ -897,7 +897,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   @Override
   public Set<String> typeTails() {
-    return new HashSet<String>(Arrays.asList("Integer","UnsignedInt","PositiveInt","Decimal","DateTime","Date","Time","Instant","String","Uri","Oid","Uuid","Id","Boolean","Code","Markdown","Base64Binary","Coding","CodeableConcept","Attachment","Identifier","Quantity","SampledData","Range","Period","Ratio","HumanName","Address","ContactPoint","Timing","Reference","Annotation","Signature","Meta"));
+    return new HashSet<String>(Arrays.asList("Integer","UnsignedInt","PositiveInt","Decimal","DateTime","Date","Time","Instant","String","Uri","Url","Canonical","Oid","Uuid","Id","Boolean","Code","Markdown","Base64Binary","Coding","CodeableConcept","Attachment","Identifier","Quantity","SampledData","Range","Period","Ratio","HumanName","Address","ContactPoint","Timing","Reference","Annotation","Signature","Meta"));
   }
 
   @Override

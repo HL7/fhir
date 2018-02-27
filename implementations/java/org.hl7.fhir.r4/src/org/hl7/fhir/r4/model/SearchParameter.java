@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -619,14 +619,9 @@ public class SearchParameter extends MetadataResource {
         /**
          * The definition of the search parameter that describes this part.
          */
-        @Child(name = "definition", type = {SearchParameter.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "definition", type = {CanonicalType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Defines how the part works", formalDefinition="The definition of the search parameter that describes this part." )
-        protected Reference definition;
-
-        /**
-         * The actual object that is the target of the reference (The definition of the search parameter that describes this part.)
-         */
-        protected SearchParameter definitionTarget;
+        protected CanonicalType definition;
 
         /**
          * A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.
@@ -635,7 +630,7 @@ public class SearchParameter extends MetadataResource {
         @Description(shortDefinition="Subexpression relative to main expression", formalDefinition="A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression." )
         protected StringType expression;
 
-        private static final long serialVersionUID = -1105563614L;
+        private static final long serialVersionUID = -1469435618L;
 
     /**
      * Constructor
@@ -647,22 +642,26 @@ public class SearchParameter extends MetadataResource {
     /**
      * Constructor
      */
-      public SearchParameterComponentComponent(Reference definition, StringType expression) {
+      public SearchParameterComponentComponent(CanonicalType definition, StringType expression) {
         super();
         this.definition = definition;
         this.expression = expression;
       }
 
         /**
-         * @return {@link #definition} (The definition of the search parameter that describes this part.)
+         * @return {@link #definition} (The definition of the search parameter that describes this part.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
-        public Reference getDefinition() { 
+        public CanonicalType getDefinitionElement() { 
           if (this.definition == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SearchParameterComponentComponent.definition");
             else if (Configuration.doAutoCreate())
-              this.definition = new Reference(); // cc
+              this.definition = new CanonicalType(); // bb
           return this.definition;
+        }
+
+        public boolean hasDefinitionElement() { 
+          return this.definition != null && !this.definition.isEmpty();
         }
 
         public boolean hasDefinition() { 
@@ -670,30 +669,27 @@ public class SearchParameter extends MetadataResource {
         }
 
         /**
-         * @param value {@link #definition} (The definition of the search parameter that describes this part.)
+         * @param value {@link #definition} (The definition of the search parameter that describes this part.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
-        public SearchParameterComponentComponent setDefinition(Reference value) { 
+        public SearchParameterComponentComponent setDefinitionElement(CanonicalType value) { 
           this.definition = value;
           return this;
         }
 
         /**
-         * @return {@link #definition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The definition of the search parameter that describes this part.)
+         * @return The definition of the search parameter that describes this part.
          */
-        public SearchParameter getDefinitionTarget() { 
-          if (this.definitionTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SearchParameterComponentComponent.definition");
-            else if (Configuration.doAutoCreate())
-              this.definitionTarget = new SearchParameter(); // aa
-          return this.definitionTarget;
+        public String getDefinition() { 
+          return this.definition == null ? null : this.definition.getValue();
         }
 
         /**
-         * @param value {@link #definition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The definition of the search parameter that describes this part.)
+         * @param value The definition of the search parameter that describes this part.
          */
-        public SearchParameterComponentComponent setDefinitionTarget(SearchParameter value) { 
-          this.definitionTarget = value;
+        public SearchParameterComponentComponent setDefinition(String value) { 
+            if (this.definition == null)
+              this.definition = new CanonicalType();
+            this.definition.setValue(value);
           return this;
         }
 
@@ -744,14 +740,14 @@ public class SearchParameter extends MetadataResource {
 
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
-          children.add(new Property("definition", "Reference(SearchParameter)", "The definition of the search parameter that describes this part.", 0, 1, definition));
+          children.add(new Property("definition", "canonical(SearchParameter)", "The definition of the search parameter that describes this part.", 0, 1, definition));
           children.add(new Property("expression", "string", "A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.", 0, 1, expression));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
-          case -1014418093: /*definition*/  return new Property("definition", "Reference(SearchParameter)", "The definition of the search parameter that describes this part.", 0, 1, definition);
+          case -1014418093: /*definition*/  return new Property("definition", "canonical(SearchParameter)", "The definition of the search parameter that describes this part.", 0, 1, definition);
           case -1795452264: /*expression*/  return new Property("expression", "string", "A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression.", 0, 1, expression);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -761,7 +757,7 @@ public class SearchParameter extends MetadataResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // Reference
+        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // CanonicalType
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -772,7 +768,7 @@ public class SearchParameter extends MetadataResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1014418093: // definition
-          this.definition = castToReference(value); // Reference
+          this.definition = castToCanonical(value); // CanonicalType
           return value;
         case -1795452264: // expression
           this.expression = castToString(value); // StringType
@@ -785,7 +781,7 @@ public class SearchParameter extends MetadataResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("definition")) {
-          this.definition = castToReference(value); // Reference
+          this.definition = castToCanonical(value); // CanonicalType
         } else if (name.equals("expression")) {
           this.expression = castToString(value); // StringType
         } else
@@ -796,7 +792,7 @@ public class SearchParameter extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1014418093:  return getDefinition(); 
+        case -1014418093:  return getDefinitionElement();
         case -1795452264:  return getExpressionElement();
         default: return super.makeProperty(hash, name);
         }
@@ -806,7 +802,7 @@ public class SearchParameter extends MetadataResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1014418093: /*definition*/ return new String[] {"Reference"};
+        case -1014418093: /*definition*/ return new String[] {"canonical"};
         case -1795452264: /*expression*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -816,8 +812,7 @@ public class SearchParameter extends MetadataResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("definition")) {
-          this.definition = new Reference();
-          return this.definition;
+          throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.definition");
         }
         else if (name.equals("expression")) {
           throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.expression");
@@ -899,9 +894,9 @@ public class SearchParameter extends MetadataResource {
     /**
      * Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter.
      */
-    @Child(name = "derivedFrom", type = {UriType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "derivedFrom", type = {CanonicalType.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Original Definition for the search parameter", formalDefinition="Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter." )
-    protected UriType derivedFrom;
+    protected CanonicalType derivedFrom;
 
     /**
      * A FHIRPath expression that returns a set of elements for the search parameter.
@@ -963,7 +958,7 @@ public class SearchParameter extends MetadataResource {
     @Description(shortDefinition="For Composite resources to define the parts", formalDefinition="Used to define the parts of a composite search parameter." )
     protected List<SearchParameterComponentComponent> component;
 
-    private static final long serialVersionUID = -769368159L;
+    private static final long serialVersionUID = 302835049L;
 
   /**
    * Constructor
@@ -1674,12 +1669,12 @@ public class SearchParameter extends MetadataResource {
     /**
      * @return {@link #derivedFrom} (Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter.). This is the underlying object with id, value and extensions. The accessor "getDerivedFrom" gives direct access to the value
      */
-    public UriType getDerivedFromElement() { 
+    public CanonicalType getDerivedFromElement() { 
       if (this.derivedFrom == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.derivedFrom");
         else if (Configuration.doAutoCreate())
-          this.derivedFrom = new UriType(); // bb
+          this.derivedFrom = new CanonicalType(); // bb
       return this.derivedFrom;
     }
 
@@ -1694,7 +1689,7 @@ public class SearchParameter extends MetadataResource {
     /**
      * @param value {@link #derivedFrom} (Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter.). This is the underlying object with id, value and extensions. The accessor "getDerivedFrom" gives direct access to the value
      */
-    public SearchParameter setDerivedFromElement(UriType value) { 
+    public SearchParameter setDerivedFromElement(CanonicalType value) { 
       this.derivedFrom = value;
       return this;
     }
@@ -1714,7 +1709,7 @@ public class SearchParameter extends MetadataResource {
         this.derivedFrom = null;
       else {
         if (this.derivedFrom == null)
-          this.derivedFrom = new UriType();
+          this.derivedFrom = new CanonicalType();
         this.derivedFrom.setValue(value);
       }
       return this;
@@ -2225,7 +2220,7 @@ public class SearchParameter extends MetadataResource {
         children.add(new Property("code", "code", "The code used in the URL or the parameter name in a parameters resource for this search parameter.", 0, 1, code));
         children.add(new Property("base", "code", "The base resource type(s) that this search parameter can be used against.", 0, java.lang.Integer.MAX_VALUE, base));
         children.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, 1, type));
-        children.add(new Property("derivedFrom", "uri", "Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter.", 0, 1, derivedFrom));
+        children.add(new Property("derivedFrom", "canonical(SearchParameter)", "Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter.", 0, 1, derivedFrom));
         children.add(new Property("description", "markdown", "A free text natural language description of the search parameter from a consumer's perspective. and how it used.", 0, 1, description));
         children.add(new Property("expression", "string", "A FHIRPath expression that returns a set of elements for the search parameter.", 0, 1, expression));
         children.add(new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, 1, xpath));
@@ -2254,7 +2249,7 @@ public class SearchParameter extends MetadataResource {
         case 3059181: /*code*/  return new Property("code", "code", "The code used in the URL or the parameter name in a parameters resource for this search parameter.", 0, 1, code);
         case 3016401: /*base*/  return new Property("base", "code", "The base resource type(s) that this search parameter can be used against.", 0, java.lang.Integer.MAX_VALUE, base);
         case 3575610: /*type*/  return new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, 1, type);
-        case 1077922663: /*derivedFrom*/  return new Property("derivedFrom", "uri", "Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter.", 0, 1, derivedFrom);
+        case 1077922663: /*derivedFrom*/  return new Property("derivedFrom", "canonical(SearchParameter)", "Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. I.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter.", 0, 1, derivedFrom);
         case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the search parameter from a consumer's perspective. and how it used.", 0, 1, description);
         case -1795452264: /*expression*/  return new Property("expression", "string", "A FHIRPath expression that returns a set of elements for the search parameter.", 0, 1, expression);
         case 114256029: /*xpath*/  return new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, 1, xpath);
@@ -2286,7 +2281,7 @@ public class SearchParameter extends MetadataResource {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeType
         case 3016401: /*base*/ return this.base == null ? new Base[0] : this.base.toArray(new Base[this.base.size()]); // CodeType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<SearchParamType>
-        case 1077922663: /*derivedFrom*/ return this.derivedFrom == null ? new Base[0] : new Base[] {this.derivedFrom}; // UriType
+        case 1077922663: /*derivedFrom*/ return this.derivedFrom == null ? new Base[0] : new Base[] {this.derivedFrom}; // CanonicalType
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
         case 114256029: /*xpath*/ return this.xpath == null ? new Base[0] : new Base[] {this.xpath}; // StringType
@@ -2349,7 +2344,7 @@ public class SearchParameter extends MetadataResource {
           this.type = (Enumeration) value; // Enumeration<SearchParamType>
           return value;
         case 1077922663: // derivedFrom
-          this.derivedFrom = castToUri(value); // UriType
+          this.derivedFrom = castToCanonical(value); // CanonicalType
           return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
@@ -2419,7 +2414,7 @@ public class SearchParameter extends MetadataResource {
           value = new SearchParamTypeEnumFactory().fromType(castToCode(value));
           this.type = (Enumeration) value; // Enumeration<SearchParamType>
         } else if (name.equals("derivedFrom")) {
-          this.derivedFrom = castToUri(value); // UriType
+          this.derivedFrom = castToCanonical(value); // CanonicalType
         } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("expression")) {
@@ -2495,7 +2490,7 @@ public class SearchParameter extends MetadataResource {
         case 3059181: /*code*/ return new String[] {"code"};
         case 3016401: /*base*/ return new String[] {"code"};
         case 3575610: /*type*/ return new String[] {"code"};
-        case 1077922663: /*derivedFrom*/ return new String[] {"uri"};
+        case 1077922663: /*derivedFrom*/ return new String[] {"canonical"};
         case -1724546052: /*description*/ return new String[] {"markdown"};
         case -1795452264: /*expression*/ return new String[] {"string"};
         case 114256029: /*xpath*/ return new String[] {"string"};
@@ -2685,10 +2680,9 @@ public class SearchParameter extends MetadataResource {
           return false;
         SearchParameter o = (SearchParameter) other_;
         return compareValues(purpose, o.purpose, true) && compareValues(code, o.code, true) && compareValues(base, o.base, true)
-           && compareValues(type, o.type, true) && compareValues(derivedFrom, o.derivedFrom, true) && compareValues(expression, o.expression, true)
-           && compareValues(xpath, o.xpath, true) && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true)
-           && compareValues(comparator, o.comparator, true) && compareValues(modifier, o.modifier, true) && compareValues(chain, o.chain, true)
-          ;
+           && compareValues(type, o.type, true) && compareValues(expression, o.expression, true) && compareValues(xpath, o.xpath, true)
+           && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true) && compareValues(comparator, o.comparator, true)
+           && compareValues(modifier, o.modifier, true) && compareValues(chain, o.chain, true);
       }
 
       public boolean isEmpty() {
@@ -2786,21 +2780,27 @@ public class SearchParameter extends MetadataResource {
    * Search parameter: <b>derived-from</b>
    * <p>
    * Description: <b>Original Definition for the search parameter</b><br>
-   * Type: <b>uri</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>SearchParameter.derivedFrom</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="derived-from", path="SearchParameter.derivedFrom", description="Original Definition for the search parameter", type="uri" )
+  @SearchParamDefinition(name="derived-from", path="SearchParameter.derivedFrom", description="Original Definition for the search parameter", type="reference", target={SearchParameter.class } )
   public static final String SP_DERIVED_FROM = "derived-from";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>derived-from</b>
    * <p>
    * Description: <b>Original Definition for the search parameter</b><br>
-   * Type: <b>uri</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>SearchParameter.derivedFrom</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam DERIVED_FROM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DERIVED_FROM);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DERIVED_FROM = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DERIVED_FROM);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>SearchParameter:derived-from</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DERIVED_FROM = new ca.uhn.fhir.model.api.Include("SearchParameter:derived-from").toLocked();
 
  /**
    * Search parameter: <b>context-type</b>

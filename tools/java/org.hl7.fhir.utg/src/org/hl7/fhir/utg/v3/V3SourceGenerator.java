@@ -21,6 +21,7 @@ import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
 import org.hl7.fhir.r4.model.BooleanType;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.Coding;
@@ -935,7 +936,7 @@ public class V3SourceGenerator extends BaseGenerator {
         processCombinedContent(child, vs, url);
       } else if (child.getNodeName().equals("valueSetRef")) {
         ConceptSetComponent vset = include ? vs.getCompose().addInclude() : vs.getCompose().addExclude() ;
-        UriType vsref = new UriType();
+        CanonicalType vsref = new CanonicalType();
         vset.getValueSet().add(vsref);
         vsref.setUserData("vsref", child.getAttribute("id"));
         vsref.setUserData("vsname", child.getAttribute("name"));

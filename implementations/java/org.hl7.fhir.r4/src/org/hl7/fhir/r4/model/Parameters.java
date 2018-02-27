@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Wed, Dec 20, 2017 11:37+1100 for FHIR v3.2.0
+// Generated on Tue, Feb 27, 2018 04:52+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -254,6 +254,8 @@ public class Parameters extends Resource implements IBaseParameters {
           case -1410172357: /*valueUri*/  return new Property("value[x]", "*", "If the parameter is a data type.", 0, 1, value);
           case -766192449: /*valueDate*/  return new Property("value[x]", "*", "If the parameter is a data type.", 0, 1, value);
           case 1047929900: /*valueDateTime*/  return new Property("value[x]", "*", "If the parameter is a data type.", 0, 1, value);
+          case -1410172354: /*valueUrl*/  return new Property("value[x]", "*", "If the parameter is a data type.", 0, 1, value);
+          case -786218365: /*valueCanonical*/  return new Property("value[x]", "*", "If the parameter is a data type.", 0, 1, value);
           case -765708322: /*valueTime*/  return new Property("value[x]", "*", "If the parameter is a data type.", 0, 1, value);
           case -766209282: /*valueCode*/  return new Property("value[x]", "*", "If the parameter is a data type.", 0, 1, value);
           case -1410178407: /*valueOid*/  return new Property("value[x]", "*", "If the parameter is a data type.", 0, 1, value);
@@ -396,6 +398,14 @@ public class Parameters extends Resource implements IBaseParameters {
         }
         else if (name.equals("valueUri")) {
           this.value = new UriType();
+          return this.value;
+        }
+        else if (name.equals("valueUrl")) {
+          this.value = new UrlType();
+          return this.value;
+        }
+        else if (name.equals("valueCanonical")) {
+          this.value = new CanonicalType();
           return this.value;
         }
         else if (name.equals("valueDate")) {

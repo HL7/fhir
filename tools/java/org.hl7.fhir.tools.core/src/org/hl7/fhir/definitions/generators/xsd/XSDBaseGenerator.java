@@ -771,6 +771,8 @@ public class XSDBaseGenerator {
       throws Exception {
     if (type.isResourceReference())
       return "Reference";
+    if (type.isCanonical())
+      return "canonical";
     //    else if (params
     //        && definitions.getPrimitives().containsKey(type.getName())
     //        && definitions.getPrimitives().get(type.getName()) instanceof PrimitiveType)
