@@ -201,7 +201,10 @@ public class XmlParser extends XmlParserBase {
     int eventType = nextNoWhitespace(xpp);
     while (eventType != XmlPullParser.END_TAG) {
       if (!parseElementContent(eventType, xpp, res))
-        unknownContent(xpp);
+        if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("reference")) {
+          res.setValue(parseUri(xpp).getValue());
+        } else
+          unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
     }
     next(xpp);
@@ -3351,6 +3354,8 @@ public class XmlParser extends XmlParserBase {
         res.setPublisherElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contact")) {
         res.getContact().add(parseContactDetail(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("acceptUnknown")) {
+        parseCode(xpp);
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseMarkdown(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {

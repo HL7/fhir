@@ -526,7 +526,7 @@ public class IgSpreadsheetParser {
           valuesetsToLoad.put(id, ref);
           ref = Utilities.pathURL(base, "ValueSet", id);
         }
-        bs.setValueSet(new Reference(ref));
+        bs.setValueSet(new CanonicalType(ref));
       } else {
         throw new Exception("Unknown Binding: "+type+ getLocation(row));
       }
