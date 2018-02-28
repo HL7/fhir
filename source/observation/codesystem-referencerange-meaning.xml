@@ -83,7 +83,7 @@
       <definition value="An expected range in an individual during the luteal stage of the cycle."/>
     </concept>
     <concept>
-      <code value="postmeopausal"/>
+      <code value="postmenopausal"/>
       <display value="Post-Menopause"/>
       <definition value="An expected range in an individual post-menopause."/>
     </concept>

@@ -10,7 +10,7 @@
 	</a>
 	<h3>Subject of an Observation</h3>
 	<p>
-	Typically an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately.  However,  three attributes may be used for representing the focus of the observation if it is not the subject itself.  The <code>specimen</code> and <code>bodySite</code>  elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and the <a href="extension-observation-focal-subject.html">observation-focal-subject</a> extension represents other observation targets such as an observation about a device implanted in a patient.
+	Typically an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately.  However,  three attributes may be used for representing the focus of the observation if it is not the subject itself.  The <code>specimen</code> and <code>bodySite</code>  elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and the <code>focal-subject</code> represents other observation targets such as another observation or a device implanted in a patient.
 	 </p>	
 			<a name="obsgrouping">
 	</a>
@@ -126,7 +126,7 @@
 		<li>The result of the observation.  For example: 14 g/dl.
 	  </li>
 	</ul>
-	<p>Several different ways of representing the same information exist using different combinations of the <code>Observation.code</code> and <code>Observation.value</code>. Unconstrained use of the alternatives presents a major challenge for computation of semantic equivalence and for safe interpretation of observations originating from different applications and users. The following four patterns could reasonably represent the same case:</p>
+	<p>Several different ways of representing the same information exist using different combinations of the <code>Observation.code</code> and <code>Observation.value</code>. Unconstrained use of the alternatives presents a major challenge for computation of semantic equivalence and for safe interpretation of observations originating from different applications and users. The following four patterns could reasonably represent the same case. Considering that the Observation resource needs to support many use cases, the appropriate place to define the specific pattern is expected to be done through  profiles adn implementation guides as specified by the jurisdictions and/or organizations implementing FHIR:</p>
 	<ol>
 		<li>
 			<code>Observation.code</code> represents the nature of the observation and the <code>Observation.value</code> a code represents the non-numeric result value. These are two distinct facets that are central to a FHIR Observations.  For example:

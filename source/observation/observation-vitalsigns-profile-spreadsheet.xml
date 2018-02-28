@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2018-02-23T00:35:54Z</LastSaved>
+  <LastSaved>2018-02-28T00:35:59Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>808</TabRatio>
-  <ActiveSheet>16</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -780,16 +780,6 @@
    <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s160" ss:Parent="s62">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="2"/>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="2"/>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="2"/>
-    <Border ss:Color="#000000" ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="2"/>
-   </Borders>
-   <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
-  </Style>
   <Style ss:ID="s161">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
@@ -866,9 +856,6 @@
     <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
    </Borders>
    <Interior/>
-  </Style>
-  <Style ss:ID="s172">
-   <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="9" x:Family="Swiss"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
@@ -1027,7 +1014,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">summary-VitalSigns</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One status in `Observation.status`which has a [required](http://build.fhir.org/terminologies.html#extensible) binding to:&#xD;    -    [ObservationStatus] value set.&#xD;1.  A category in `Observation.category` which must have:&#xD;    -   a fixed `Observation.category.coding.system`="http://hl7.org/fhir/observation-category"&#xD;    -   a fixed `Observation.category.coding.code`= "vital-signs"&#xD;&#xD;1.  A code in `Observation.code`&#xD;    -   a fixed `Observation.code.coding.system`= "http://loinc.org"&#xD;    -   a LOINC code in `Observation.code.coding.code` which has an [extensible](http://build.fhir.org/terminologies.html#extensible) binding to:&#xD;         -   [Vital Signs] value set.&#xD;                &#xD;1.  One patient in `Observation.subject`&#xD;1.  A date and time in `effectiveDateTime` or `effectivePeriod`&#xD;1.  Either one `Observation.valueQuantity` or, if there is no value, one code in `Observation.DataAbsentReason`&#xD;    -   Observation.DataAbsentReason is bound to [Observation Value&#xD;        Absent Reason] value set.&#xD;&#xD;1.  When using a panel code to group component observations (Note: See&#xD;    the comments regarding blood pressure in the table above), one or&#xD;    more `Observation.component.code` each of which must have:&#xD;    -   a fixed&#xD;        `Observation.component.code.coding.system` ="http://loinc.org"&#xD;         -   a LOINC code in `Observation.code.coding.code` which has an [extensible] binding to:&#xD;             -   [Vital Signs Units] value set.&#xD;&#xD;1.  Either one `Observation.component.valueQuantity` or, if there is&#xD;    no value, one code in `Observation.component.DataAbsentReason`&#xD;    -   Observation.component.DataAbsentReason is bound to [Observation&#xD;        Value Absent Reason] value set.&#xD;&#xD;1.  When using a panel code to group observations, one or more reference&#xD;    to Vitals Signs Observations in `Observation.related.target`&#xD;    -   a fixed `Observation.related.type`= "has-member"&#xD;&#xD; [Vital Signs]: valueset-observation-vitalsignresult.html&#xD;  [Vital Signs Units]: valueset-ucum-vitals-common.html&#xD;  [extensible]: terminologies.html#extensible&#xD;  [ObservationStatus]: valueset-observation-status.html&#xD; [Observation Value Absent Reason]: valueset-data-absent-reason.html&#xD;[required]: terminologies.html#required</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">"#### Complete Summary of the Mandatory Requirements&#10;&#10;1.  One status in `Observation.status`which has a [required](http://build.fhir.org/terminologies.html#extensible) binding to:&#10;    -    [ObservationStatus] value set.&#10;1.  A category in `Observation.category` which must have:&#10;    -   a fixed `Observation.category.coding.system`=""http://hl7.org/fhir/observation-category""&#10;    -   a fixed `Observation.category.coding.code`= ""vital-signs""&#10;&#10;1.  A code in `Observation.code`&#10;    -   a fixed `Observation.code.coding.system`= ""http://loinc.org""&#10;    -   a LOINC code in `Observation.code.coding.code` which has an [extensible](http://build.fhir.org/terminologies.html#extensible) binding to:&#10;         -   [Vital Signs] value set.&#10;                &#10;1.  One patient in `Observation.subject`&#10;1.  A date and time in `effectiveDateTime` or `effectivePeriod`&#10;1.  Either one `Observation.value[x]` or, if there is no value, one code in `Observation.DataAbsentReason`&#10;    -   if a vital sign measure then:&#10;        -  One numeric value in Observation.valueQuantity.value&#10;        - a fixed Observation.valueQuantity.system="http://unitsofmeasure"&#10;        - a UCUM unit code in Observation.valueQuantity.code which has an required binding to the [Vital Signs Units] value set.&#10;    -   Observation.DataAbsentReason is bound to [Observation Value&#10;        Absent Reason] value set.&#10;&#10;1.  When using a panel code to group component observations (Note: See&#10;    the comments regarding blood pressure in the table above), one or&#10;    more `Observation.component.code` each of which must have:&#10;    -   a fixed&#10;        `Observation.component.code.coding.system` =""http://loinc.org""&#10;         -   a LOINC code in `Observation.code.coding.code` which has an [extensible] binding to:&#10;             -   [Vital Signs Units] value set.&#10;&#10;1.  Either one `Observation.component.valueQuantity` or, if there is&#10;    no value, one code in `Observation.component.DataAbsentReason`&#10;    -   Observation.component.DataAbsentReason is bound to [Observation&#10;        Value Absent Reason] value set.&#10;&#10;1.  When using a panel code to group observations, one or more reference&#10;    to Vitals Signs Observations in `Observation.related.target`&#10;    -   a fixed `Observation.related.type`= ""has-member""&#10;&#10; [Vital Signs]: valueset-observation-vitalsignresult.html&#10;  [Vital Signs Units]: valueset-ucum-vitals-common.html&#10;  [extensible]: terminologies.html#extensible&#10;  [ObservationStatus]: valueset-observation-status.html&#10; [Observation Value Absent Reason]: valueset-data-absent-reason.html&#10;[required]: terminologies.html#required"&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">summary-BodyWeight</Data></Cell>
@@ -1093,6 +1080,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1460,7 +1448,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">vs-2</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">DAR</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1617,7 +1605,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">vs-3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">DAR</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3969,7 +3957,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
@@ -11602,7 +11589,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Zoom>130</Zoom>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -14198,7 +14184,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Zoom>110</Zoom>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -16793,7 +16778,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -19388,7 +19372,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -21983,7 +21966,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -24578,7 +24560,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -27173,7 +27154,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -29764,7 +29744,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -32355,7 +32334,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -34946,7 +34924,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -35358,7 +35335,7 @@
     <Cell ss:StyleID="s108"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">8480-6</Data></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">8480-6</Data></Cell>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s108"/>
@@ -37660,8 +37637,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:Print>    </x:Print>
@@ -40064,14 +40039,14 @@
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R7C13"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R6C13"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="33" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="32" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s84" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="275.0"/>
    <Column ss:StyleID="s84" ss:Width="51.0"/>
    <Column ss:StyleID="s84" ss:Width="68.0"/>
-   <Column ss:StyleID="s84" ss:Width="146.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="208.0"/>
    <Column ss:StyleID="s84" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="98.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="89.0"/>
@@ -40108,21 +40083,6 @@
     <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s139"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s140"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">DAR</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">value set</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">extensible</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/data-absent-reason" ss:StyleID="s160"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/data-absent-reason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s142"><Data ss:Type="String">Commonly encountered UCUM units for recording Vital Signs.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s143"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s93"><Data ss:Type="String">VitalSigns</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -40585,7 +40545,7 @@
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R7C13">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R6C13">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="some-code-list">
