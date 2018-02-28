@@ -93,7 +93,7 @@
   
   
   
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3917,9 +3917,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>29</TopRowBottomPane>
+   <TopRowBottomPane>25</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -3990,8 +3990,8 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure defines an extension then the structure must have context information</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">type != 'Extension' or derivation = 'specialization' or (context.exists() and contextType.exists())</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:type/@value = 'extension') or (f:derivation/@value = 'specialization') or (exists(f:context) and exists(f:contextType))</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">type != 'Extension' or derivation = 'specialization' or (context.exists())</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">not(f:type/@value = 'extension') or (f:derivation/@value = 'specialization') or (exists(f:context))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">6</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4016,8 +4016,8 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">In any snapshot, all the elements must be in the specified type</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().path = %resource.type and element.tail().all(path.startsWith(%resource.type&amp;'.'))</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">In any snapshot, all the elements must be in the specified type, and must have a base definition</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">element.first().path = %resource.type and element.tail().all(path.startsWith(%resource.type&amp;'.')) and element.all(base.exists())</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">f:element[1]/f:path/@value=parent::f:StructureDefinition/f:type/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, '.'))])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
@@ -4375,12 +4375,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4456,7 +4457,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">context-type</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">!context-type</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">StructureDefinition.contextType</Data></Cell>
@@ -5243,7 +5244,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

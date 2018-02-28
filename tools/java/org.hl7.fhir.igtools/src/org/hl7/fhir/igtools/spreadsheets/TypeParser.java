@@ -37,6 +37,7 @@ import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.utilities.Utilities;
 
 public class TypeParser {
@@ -170,7 +171,7 @@ public class TypeParser {
           }
       } else if (t.isWildcardType()) {
         // this list is filled out manually because it may be running before the types referred to have been loaded
-        for (String n : wildcardTypes()) {
+        for (String n : TypesUtilities.wildcardTypes()) {
           TypeRefComponent tc = new TypeRefComponent().setCode(n);
           if (t.getVersioning() != null)
             tc.setVersioning(t.getVersioning());
@@ -219,59 +220,6 @@ public class TypeParser {
     return tr;
   }
 
-  public static List<String> wildcardTypes() {
-    List<String> res = new ArrayList<String>();
-    res.add("base64Binary");
-    res.add("boolean");
-    res.add("code");
-    res.add("date");
-    res.add("dateTime");
-    res.add("decimal");
-    res.add("id");
-    res.add("instant");
-    res.add("integer");
-    res.add("markdown");
-    res.add("oid");
-    res.add("positiveInt");
-    res.add("string");
-    res.add("time");
-    res.add("unsignedInt");
-    res.add("uri");
-    res.add("url");
-    res.add("canonical");
 
-    res.add("Address");
-    res.add("Age");
-    res.add("Annotation");
-    res.add("Attachment");
-    res.add("CodeableConcept");
-    res.add("Coding");
-    res.add("ContactPoint");
-    res.add("Count");
-    res.add("Distance");
-    res.add("Duration");
-    res.add("HumanName");
-    res.add("Identifier");
-    res.add("Money");
-    res.add("Period");
-    res.add("Quantity");
-    res.add("Range");
-    res.add("Ratio");
-    res.add("Reference");
-    res.add("SampledData");
-    res.add("Signature");
-    res.add("Timing");
-    res.add("Dosage");
-    res.add("ContactDetail"); 
-    res.add("Contributor"); 
-    res.add("DataRequirement"); 
-    res.add("ParameterDefinition");
-    res.add("RelatedArtifact"); 
-    res.add("TriggerDefinition"); 
-    res.add("UsageContext");
-
-    res.add("Meta");
-    return res;
-  }
 
 }

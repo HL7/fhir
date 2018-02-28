@@ -52,6 +52,7 @@ import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
@@ -632,7 +633,7 @@ public class XSDBaseGenerator {
       }
       close = "/>";
     }
-    for (String t : TypeParser.wildcardTypes()) {
+    for (String t : TypesUtilities.wildcardTypes()) {
       if (!definitions.getInfrastructure().containsKey(t) && !definitions.getConstraints().containsKey(t) && !definitions.getShared().contains(t)) {
         if (t.equals("ReferenceXX")) {
           write("           <xs:element name=\""+prefix+"Resource\" type=\"Reference\""+close+"\r\n");        

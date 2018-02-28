@@ -45,8 +45,10 @@ import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.r4.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.r4.model.ContactDetail;
+import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Timing.EventTiming;
 import org.hl7.fhir.utilities.Utilities;
@@ -1580,7 +1582,10 @@ public class VersionConvertor_14_40 {
     tgt.setStrength(convertBindingStrength(src.getStrength()));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    tgt.setValueSet(convertType(src.getValueSet()));
+    if (src.hasValueSet()) {
+      org.hl7.fhir.r4.model.Type vs = convertType(src.getValueSet());
+      tgt.setValueSet(vs instanceof org.hl7.fhir.r4.model.Reference ? new CanonicalType(((org.hl7.fhir.r4.model.Reference) vs).getReference()) : vs);      
+    }
     return tgt;
   }
 
@@ -1592,7 +1597,7 @@ public class VersionConvertor_14_40 {
     tgt.setStrength(convertBindingStrength(src.getStrength()));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    tgt.setValueSet(convertType(src.getValueSet()));
+    tgt.setValueSet(src.hasValueSetCanonicalType() ? new org.hl7.fhir.dstu2016may.model.Reference(src.getValueSetCanonicalType().getValue()) : convertType(src.getValueSet()));
     return tgt;
   }
 
@@ -5477,6 +5482,13 @@ public class VersionConvertor_14_40 {
     if (src.hasDifferential()) {
       tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
       tgt.getDifferential().getElementFirstRep().getType().clear();
+    }
+    if (tgt.getDerivation() == TypeDerivationRule.SPECIALIZATION) {
+      for (ElementDefinition ed : tgt.getSnapshot().getElement()) {
+        if (!ed.hasBase()) {
+          ed.getBase().setPath(ed.getPath()).setMin(ed.getMin()).setMax(ed.getMax());
+        }
+      }
     }
     return tgt;
   }

@@ -112,29 +112,30 @@ public class ISO21090Importer {
     sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
     ElementDefinition ed = sd.getDifferential().addElement();
     ed.setPath(dt.name);
-    produceProperties(sd.getDifferential().getElement(), dt.name, dt.properties, true);
-    produceProperties(sd.getDifferential().getElement(), dt.name, dt.properties, false);
+    produceProperties(sd.getDifferential().getElement(), dt.name, dt.properties, true, false);
+    produceProperties(sd.getDifferential().getElement(), dt.name, dt.properties, false, false);
     ed = sd.getSnapshot().addElement();
     ed.setPath(dt.name);
     if (dt.parent != null)
-      addParentProperties(sd.getSnapshot().getElement(), dt.name, dt.parent, true);
-    produceProperties(sd.getSnapshot().getElement(), dt.name, dt.properties, true);
+      addParentProperties(sd.getSnapshot().getElement(), dt.name, dt.parent, true, true);
+    produceProperties(sd.getSnapshot().getElement(), dt.name, dt.properties, true, true);
     if (dt.parent != null)
-      addParentProperties(sd.getSnapshot().getElement(), dt.name, dt.parent, false);
-    produceProperties(sd.getSnapshot().getElement(), dt.name, dt.properties, false);
+      addParentProperties(sd.getSnapshot().getElement(), dt.name, dt.parent, false, true);
+    produceProperties(sd.getSnapshot().getElement(), dt.name, dt.properties, false, true);
+    ed.getBase().setPath(ed.getPath()).setMin(ed.getMin()).setMax(ed.getMax());
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("c:\\temp\\iso21090\\StructureDefinition-"+dt.name+".xml"), sd);    
   }
   
-  private void addParentProperties(List<ElementDefinition> elements, String name, String parent, boolean attrMode) {
+  private void addParentProperties(List<ElementDefinition> elements, String name, String parent, boolean attrMode, boolean snapshot) {
     DataType dt = types.get(parent);
     if (dt == null)
       throw new Error("No find "+parent);
     if (dt.parent != null)
-      addParentProperties(elements, name, dt.parent, attrMode);
-    produceProperties(elements, name, dt.properties, attrMode);
+      addParentProperties(elements, name, dt.parent, attrMode, snapshot);
+    produceProperties(elements, name, dt.properties, attrMode, snapshot);
   }
 
-  private void produceProperties(List<ElementDefinition> elements, String name, List<Property> properties, boolean attrMode) {
+  private void produceProperties(List<ElementDefinition> elements, String name, List<Property> properties, boolean attrMode, boolean snapshot) {
     for (Property p : properties) {
       if (p.isattr == attrMode) {
         ElementDefinition ed = new ElementDefinition();
@@ -151,6 +152,8 @@ public class ISO21090Importer {
           ed.addRepresentation(PropertyRepresentation.XMLATTR);
         if (p.binding != null)
           ed.getBinding().setStrength(BindingStrength.REQUIRED).setValueSet(new UriType("http://hl7.org/fhir/iso21090/ValueSet/"+p.binding));
+        if (snapshot)
+          ed.getBase().setPath(ed.getPath()).setMin(ed.getMin()).setMax(ed.getMax());
       }
     }
   }

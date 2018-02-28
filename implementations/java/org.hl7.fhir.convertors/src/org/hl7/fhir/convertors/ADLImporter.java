@@ -183,7 +183,8 @@ public class ADLImporter {
 	    ed.addType().setCode(te.getAttribute("fhir")).setProfile(te.getAttribute("profile"));
 	  else
 	  	ed.addType().setCode(te.getAttribute("fhir"));
-	  
+    ed.getBase().setPath(ed.getPath()).setMin(ed.getMin()).setMax(ed.getMax());
+
   	for (NodeTreeEntry child : item.children) {
   		genElements(sd, path+"."+child.name, child);
   	}

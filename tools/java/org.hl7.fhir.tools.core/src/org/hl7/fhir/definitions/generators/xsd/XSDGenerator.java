@@ -49,6 +49,7 @@ import org.hl7.fhir.r4.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
@@ -246,7 +247,7 @@ public class XSDGenerator  {
 
 
 	private void generateAny(ElementDefn root, ElementDefn e, String prefix, String close) throws Exception {
-		for (String t : TypeParser.wildcardTypes()) {
+		for (String t : TypesUtilities.wildcardTypes()) {
 			if (!definitions.getInfrastructure().containsKey(t) && !definitions.getConstraints().containsKey(t)) {
 			  String en = prefix != null ? prefix + upFirst(t) : t;
 			  //write("       <xs:element name=\""+t.getName()+"\" type=\""+t.getName()+"\"/>\r\n");        

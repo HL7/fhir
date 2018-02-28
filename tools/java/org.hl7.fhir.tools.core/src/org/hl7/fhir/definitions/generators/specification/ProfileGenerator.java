@@ -1,5 +1,5 @@
 package org.hl7.fhir.definitions.generators.specification;
-import java.io.File;
+
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -28,6 +28,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
  */
+
+import java.io.File;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -109,6 +111,7 @@ import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
+import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -199,10 +202,7 @@ public class ProfileGenerator {
       if (dataElements != null)
         dataElements.addEntry().setResource(de).setFullUrl(de.getUrl());
     }
-    
-    if (ed.hasBase())
-      throw new Exception("attempt to add derived element to data elements");
-    
+      
     if (!de.hasMeta())
       de.setMeta(new Meta());
     de.getMeta().setLastUpdatedElement(new InstantType(genDate));
@@ -224,6 +224,7 @@ public class ProfileGenerator {
     de.getMapping().addAll(source.getMapping());
     ElementDefinition ted = ed.copy();
     de.getSnapshot().addElement(ted);
+    ted.makeBase();
   }
 
   private String tail(String path) {
@@ -305,6 +306,7 @@ public class ProfileGenerator {
     ec1.setComment(type.getComment());
     ec1.setMin(0);
     ec1.setMax("*");
+    ec1.makeBase();
     addElementConstraints("Element", ec1);
 
     ElementDefinition ec2 = new ElementDefinition(true, ElementDefinition.NOT_MODIFIER, ElementDefinition.NOT_IN_SUMMARY);
@@ -331,6 +333,7 @@ public class ProfileGenerator {
     ec3.setMin(0);
     ec3.setMax("1");
     ec3.setShort("Primitive value for " +type.getCode());
+    ec3.makeBase();
     t = ec3.addType();
     t.setCodeElement(new UriType());
     t.getFormatCommentsPre().add("Note: primitive values do not have an assigned type. e.g. this is compiler magic. XML, JSON and RDF types provided by extension");
@@ -442,6 +445,7 @@ public class ProfileGenerator {
     ec1.setMin(0);
     ec1.setMin(0);
     ec1.setMax("*");
+    ec1.makeBase();
     generateElementDefinition(p, ec1, null);
 
     ElementDefinition ec2 = new ElementDefinition(true, ElementDefinition.NOT_MODIFIER, ElementDefinition.NOT_IN_SUMMARY);
@@ -475,6 +479,7 @@ public class ProfileGenerator {
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_JSON_TYPE, "string");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_XML_TYPE, "xhtml:div");
     ToolingExtensions.addStringExtension(t.getCodeElement(), ToolingExtensions.EXT_RDF_TYPE, "string");
+    ec3.makeBase();
     generateElementDefinition(p, ec3, ec);
 
     containedSlices.clear();
@@ -625,7 +630,7 @@ public class ProfileGenerator {
     p.setUserData("filename", t.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+t.getName());
     assert !Utilities.noString(t.typeCode());
-    String b = (t.typeCode().equals("Type") || t.typeCode().equals("Structure")) ? "Element" : t.typeCode();
+    String b = (t.typeCode().equals("Type") ? "Element" : t.typeCode().equals("Structure") ? "BackboneElement" : t.typeCode());
     if (!Utilities.noString(b)) {
       p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+b);
       p.setDerivation(TypeDerivationRule.SPECIALIZATION);
@@ -656,7 +661,7 @@ public class ProfileGenerator {
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     defineElement(null, p, p.getSnapshot().getElement(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType, true, "Element", b, true);
     for (ElementDefinition ed : p.getSnapshot().getElement())
-      if (!ed.hasBase() && ed.getPath().contains("."))
+      if (ed.getBase().getPath().equals(ed.getPath()) && ed.getPath().contains("."))
         generateElementDefinition(p, ed, getParent(ed, p.getSnapshot().getElement()));
 
     containedSlices.clear();
@@ -1306,7 +1311,7 @@ public class ProfileGenerator {
             }
           } else if (t.isWildcardType()) {
             // this list is filled out manually because it may be running before the types referred to have been loaded
-            for (String n : TypeParser.wildcardTypes()) 
+            for (String n : TypesUtilities.wildcardTypes()) 
               expandedTypes.add(new TypeRef(n));
 
           } else if (!t.getName().startsWith("=")) {
@@ -1390,6 +1395,8 @@ public class ProfileGenerator {
       //        }
       //      }
     }
+    if (defaults)
+      ce.makeBase();
     Set<String> containedSlices = new HashSet<String>();
     if (snapshot != SnapShotMode.None) {
       if (!root && Utilities.noString(e.typeCode())) {
@@ -1561,7 +1568,7 @@ public class ProfileGenerator {
     if (type.equals("Type"))
       return "Element";
     if (type.equals("Structure"))
-      return "Element";
+      return "BackboneElement";
     return type;
   }
   private void defineAncestorElements(String type, String path, SnapShotMode snapshot, Set<String> containedSlices, StructureDefinition p, List<ElementDefinition> elements, String dt, boolean defaults) throws Exception {
@@ -1761,7 +1768,7 @@ public class ProfileGenerator {
             type.addProfile(pr);
         }
       } else if (t.isWildcardType()) {
-        for (String n : TypeParser.wildcardTypes()) 
+        for (String n : TypesUtilities.wildcardTypes()) 
           dst.getType(n);
       } else {
         if (definitions != null && definitions.getConstraints().containsKey(t.getName())) {

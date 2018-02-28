@@ -220,7 +220,7 @@ public class SourceParser {
     for (String n : ini.getPropertyNames("types"))
       loadCompositeType(n, definitions.getTypes(), "5");	
     for (String n : ini.getPropertyNames("structures"))
-      loadCompositeType(n, definitions.getStructures(), "5");
+      loadCompositeType(n, definitions.getStructures(), "2");
 
     String[] shared = ini.getPropertyNames("shared"); 
     if(shared != null)

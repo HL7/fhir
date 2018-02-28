@@ -24,21 +24,50 @@ resource elements. There are four categories of data types:
 <ol>
   <li>Simple / primitive types, which are single elements with a primitive value (<a href="#primitive">below</a>)</li>
   <li>General purpose complex types, which are re-usable clusters of elements (<a href="#xomplex">below</a>)</li>
-  <li><a href="metadatatypes.html">Complex data types for metadata</a></li>
-  <li>Special purpose data types: <a href="references.html#Reference">Reference</a>, <a href="narrative.html#Narrative">Narrative</a>, <a href="extensibility.html#Extension">Extension</a>, <a href="resource.html#Meta">Meta</a>, and <a href="dosage.html#Dosage">Dosage</a></li>
+  <li>Special purpose data types - defined elsewhere in the specification for specific usages</li>
+  <li>Reusable structures: defined to allow sharing of content between specific resources</li>
 </ol>
 <p>
-This page describes the general purpose data types.
+This page describes the general purpose data types (categories one and two).
 </p>
 
-<p><b>Table of Contents</b></p>
+<p><b>Table of Contents</b> (Legend: see <a href="ballot-intro.html#mixed">Standards Status Colors</a>).
+</p>
+<p>General Purpose Data types</p>
 <div class="row">
     <div class="col-6" style="width: auto"><b>Primitive Types</b><br />[%diagram datatypes/allprimitivetypes.diagram 1dt%]</div>
     <div class="col-6" style="width: auto; padding-right: 0px; margin-right: -25px;"><b>Complex Types</b><br />[%diagram datatypes/alltypes.diagram 2dt%]</div>
 </div>
-
+<p>Special purpose data types (defined elsewhere):</p>
+<table class="grid">
+ <tr>
+  <td style="background-color: #e6ffe6"><a href="references.html#Reference">Reference</a></td>
+  <td style="background-color: #e6ffe6"><a href="narrative.html#Narrative">Narrative</a></td>
+  <td style="background-color: #e6ffe6"><a href="extensibility.html#Extension">Extension</a></td>
+  <td style="background-color: #e6ffe6"><a href="resource.html#Meta">Meta</a></td>
+ </tr>
+ <tr>
+  <td style="background-color: #e6ffe6"><a href="metadatatypes.html#ContactDetail">ContactDetail</a></td>
+  <td style="background-color: #fff5e6"><a href="metadatatypes.html#Contributor">Contributor</a></td>
+  <td style="background-color: #fff5e6"><a href="metadatatypes.html#DataRequirement">DataRequirement</a></td>
+  <td style="background-color: #fff5e6"><a href="metadatatypes.html#ParameterDefinition">ParameterDefinition</a></td>
+ </tr>
+ <tr> 
+  <td style="background-color: #fff5e6"><a href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a></td>
+  <td style="background-color: #fff5e6"><a href="metadatatypes.html#TriggerDefinition">TriggerDefinition</a></td>
+  <td style="background-color: #fff5e6"><a href="metadatatypes.html#UsageContext">UsageContext</a></td>
+ </tr>
+</table>
 <p>
-Legend: White = abstract type. Light blue = concrete types. Light Pink = Profile on Type.
+Reusable Structures:<a name="reusable"> </a>
+</p>
+<table class="grid">
+[%structure-list-index%]
+</table>
+<p>
+The reusable structures allow <a href="extensibility.html#modifier">Modifier Extensions</a>, 
+unlike all the other types do. Only a few of the reusable structures may appear in 
+extensions (see <a href="extensibility.html#list">list</a>).
 </p>
 
 <a name="primitive"></a>
@@ -1450,51 +1479,59 @@ Annotation is used in the following places: [%dtusage Annotation%]
 <p>
 Some elements do not have a specified type. The type is represented by the wildcard symbol "*". In these cases, the element type may be one of the following:
 </p>
+<!-- 
+  any changes to this list must also be made in 
+    extensibility.html
+    TypesUtilities.java
+-->  
+ 
 <ul class="dense">
- <li><a href="datatypes.html#boolean">boolean</a></li>
- <li><a href="datatypes.html#integer">integer</a></li>
- <li><a href="datatypes.html#decimal">decimal</a></li>
+ <!-- primitive types -->
  <li><a href="datatypes.html#base64Binary">base64Binary</a></li>
- <li><a href="datatypes.html#instant">instant</a></li>
- <li><a href="datatypes.html#string">string</a></li>
- <li><a href="datatypes.html#uri">uri</a></li>
- <li><a href="datatypes.html#url">url</a></li>
+ <li><a href="datatypes.html#boolean">boolean</a></li>
  <li><a href="datatypes.html#canonical">canonical</a></li>
+ <li><a href="datatypes.html#code">code</a></li>
  <li><a href="datatypes.html#date">date</a></li>
  <li><a href="datatypes.html#dateTime">dateTime</a></li>
- <li><a href="datatypes.html#time">time</a></li>
- <li><a href="datatypes.html#code">code</a></li>
- <li><a href="datatypes.html#oid">oid</a></li>
+ <li><a href="datatypes.html#decimal">decimal</a></li>
  <li><a href="datatypes.html#id">id</a></li>
- <li><a href="datatypes.html#unsignedInt">unsignedInt</a></li>
- <li><a href="datatypes.html#positiveInt">positiveInt</a></li>
+ <li><a href="datatypes.html#instant">instant</a></li>
+ <li><a href="datatypes.html#integer">integer</a></li>
  <li><a href="datatypes.html#markdown">markdown</a></li>
+ <li><a href="datatypes.html#oid">oid</a></li>
+ <li><a href="datatypes.html#positiveInt">positiveInt</a></li>
+ <li><a href="datatypes.html#string">string</a></li>
+ <li><a href="datatypes.html#time">time</a></li>
+ <li><a href="datatypes.html#unsignedInt">unsignedInt</a></li>
+ <li><a href="datatypes.html#uri">uri</a></li>
+ <li><a href="datatypes.html#url">url</a></li>
+ <li><a href="datatypes.html#url">uuid</a></li>
+ 
+ <!-- general purpose types -->
+ <li><a href="datatypes.html#Address">Address</a></li>
+ <li><a href="datatypes.html#Age">Age</a></li>
  <li><a href="datatypes.html#Annotation">Annotation</a></li>
  <li><a href="datatypes.html#Attachment">Attachment</a></li>
- <li><a href="datatypes.html#Identifier">Identifier</a></li>
  <li><a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
  <li><a href="datatypes.html#Coding">Coding</a></li>
+ <li><a href="datatypes.html#ContactPoint">ContactPoint</a></li>
+ <li><a href="datatypes.html#Count">Count</a></li>
+ <li><a href="datatypes.html#Distance">Distance</a></li>
+ <li><a href="datatypes.html#Duration">Duration</a></li>
+ <li><a href="datatypes.html#HumanName">HumanName</a></li>
+ <li><a href="datatypes.html#Identifier">Identifier</a></li>
+ <li><a href="datatypes.html#Money">Money</a></li>
+ <li><a href="datatypes.html#Period">Period</a></li>
  <li><a href="datatypes.html#Quantity">Quantity</a></li>
  <li><a href="datatypes.html#Range">Range</a></li>
- <li><a href="datatypes.html#Period">Period</a></li>
  <li><a href="datatypes.html#Ratio">Ratio</a></li>
+ <li><a href="references.html#Reference">Reference</a> - a reference to another resource</li>
  <li><a href="datatypes.html#SampledData">SampledData</a></li>
  <li><a href="datatypes.html#Signature">Signature</a></li>
- <li><a href="datatypes.html#HumanName">HumanName</a></li>
- <li><a href="datatypes.html#Address">Address</a></li>
- <li><a href="datatypes.html#ContactPoint">ContactPoint</a></li>
  <li><a href="datatypes.html#Timing">Timing</a></li>
- <li><a href="references.html#Reference">Reference</a> - a reference to another resource</li>
- <li><a href="dosage.html#Dosage">Meta</a></li>
+ 
+ <!-- selected other types, by MnM choice -->
  <li><a href="datatypes.html#Dosage">Dosage</a></li>
- <li><a href="metadatatypes.html#ContactDetail">ContactDetail</a></li>
- <li><a href="metadatatypes.html#Contributor">Contributor</a></li>
- <li><a href="metadatatypes.html#DataRequirement">DataRequirement</a></li>
- <li><a href="metadatatypes.html#ParameterDefinition">ParameterDefinition</a></li>
- <li><a href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a></li>
- <li><a href="metadatatypes.html#TriggerDefinition">TriggerDefinition</a></li>
- <li><a href="metadatatypes.html#UsageContext">UsageContext</a></li>
-
 </ul>
 <p>
 The element name ends with "[x]", and this is replaced with the Title cased name of the data type.

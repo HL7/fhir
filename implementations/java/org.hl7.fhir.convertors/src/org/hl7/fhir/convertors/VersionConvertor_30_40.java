@@ -5,6 +5,7 @@ import java.util.List;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.model.CanonicalType;
+import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
 import org.hl7.fhir.r4.model.Dosage.DosageDoseAndRateComponent;
@@ -1787,8 +1788,10 @@ public class VersionConvertor_30_40 {
       tgt.setStrength(convertBindingStrength(src.getStrength()));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
-    if (src.hasValueSet())
-      tgt.setValueSet(convertType(src.getValueSet()));
+    if (src.hasValueSet()) {
+      org.hl7.fhir.r4.model.Type vs = convertType(src.getValueSet());
+      tgt.setValueSet(vs instanceof org.hl7.fhir.r4.model.Reference ? new CanonicalType(((org.hl7.fhir.r4.model.Reference) vs).getReference()) : vs);      
+    }
     return tgt;
   }
 
@@ -1802,7 +1805,7 @@ public class VersionConvertor_30_40 {
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     if (src.hasValueSet())
-      tgt.setValueSet(convertType(src.getValueSet()));
+      tgt.setValueSet(src.hasValueSetCanonicalType() ? new org.hl7.fhir.dstu3.model.Reference(src.getValueSetCanonicalType().getValue()) : convertType(src.getValueSet()));
     return tgt;
   }
 
@@ -18246,6 +18249,13 @@ public class VersionConvertor_30_40 {
       tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));
     if (src.hasDifferential())
       tgt.setDifferential(convertStructureDefinitionDifferentialComponent(src.getDifferential()));
+    if (tgt.getDerivation() == TypeDerivationRule.SPECIALIZATION) {
+      for (ElementDefinition ed : tgt.getSnapshot().getElement()) {
+        if (!ed.hasBase()) {
+          ed.getBase().setPath(ed.getPath()).setMin(ed.getMin()).setMax(ed.getMax());
+        }
+      }
+    }
     return tgt;
   }
 

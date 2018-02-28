@@ -12,6 +12,7 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.PageProcessor;
@@ -174,7 +175,7 @@ public class TurtleSpecGenerator extends OutputStreamWriter {
   private List<TypeRef> getTypes(ElementDefn elem) {
     if (elem.getTypes().size() == 1 && elem.getTypes().get(0).isWildcardType()) {
       List<TypeRef> res = new ArrayList<TypeRef>();
-      for (String t : TypeParser.wildcardTypes()) {
+      for (String t : TypesUtilities.wildcardTypes()) {
         TypeRef tr = new TypeRef();
         tr.setName(t);
         res.add(tr);

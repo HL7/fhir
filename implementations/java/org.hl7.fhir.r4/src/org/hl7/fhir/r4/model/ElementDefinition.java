@@ -7261,6 +7261,14 @@ public class ElementDefinition extends Type implements ICompositeType {
     self.setMax(max);
   }
   
+  public void makeBase() {
+    ElementDefinitionBaseComponent self = getBase();
+    self.setPath(getPath());
+    self.setMin(getMin());
+    self.setMax(getMax());
+  }
+  
+  
   
   public String typeSummary() {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();

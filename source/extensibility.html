@@ -68,45 +68,54 @@ Notes:
  <li>The structure definitions for the extension SHOULD be available to consumers of an instance.  The preferred mechanisms for achieving this availability are the direct resolvability of the extension's canonical URL and/or the publishing of the extension definition on a registry that is available and known to those systems that will be consuming the instances containing the extension</li>
  <li>An extension SHALL have either a value (i.e. a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
  <li>If it is not safe for an application processing the content of the resource to ignore the extension it must be represented differently using a <a href="#isModifier">Modifier Extension</a></li>
- <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type:
+ <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type: <a name="list"> </a>
   <ul class="dense">
-   <li>valueInteger : <a href="datatypes.html#integer">integer</a></li>
-   <li>valueUnsignedInt : <a href="datatypes.html#unsignedInt">unsignedInt</a></li>
-   <li>valuePositiveInt : <a href="datatypes.html#positiveInt">positiveInt</a></li>
-   <li>valueDecimal : <a href="datatypes.html#decimal">decimal</a></li>
-   <li>valueDateTime : <a href="datatypes.html#dateTime">dateTime</a></li>
+  
+   <!-- see master list in datatypes.html -->  
+   
+   <li>valueBase64Binary : <a href="datatypes.html#base64Binary">base64Binary</a></li>
+   <li>valueBoolean : <a href="datatypes.html#boolean">boolean</a></li>
+   <li>valueCanonical : <a href="datatypes.html#canonical">canonical</a></li>
+   <li>valueCode : <a href="datatypes.html#code">code</a> (only if the extension definition provides a <a href="terminologies.html#code">fixed</a> binding to a suitable set of codes)</li>
    <li>valueDate : <a href="datatypes.html#date">date</a></li>
-   <li>valueTime : <a href="datatypes.html#time">time</a></li>
+   <li>valueDateTime : <a href="datatypes.html#dateTime">dateTime</a></li>
+   <li>valueDecimal : <a href="datatypes.html#decimal">decimal</a></li>
+   <li>valueId : <a href="datatypes.html#id">id</a></li>
    <li>valueInstant : <a href="datatypes.html#instant">instant</a></li>
+   <li>valueInteger : <a href="datatypes.html#integer">integer</a></li>
+   <li>valueMarkdown : <a href="datatypes.html#markdown">markdown</a></li>
+   <li>valueOid : <a href="datatypes.html#oid">oid</a></li>
+   <li>valuePositiveInt : <a href="datatypes.html#positiveInt">positiveInt</a></li>
    <li>valueString : <a href="datatypes.html#string">string</a></li>
+   <li>valueTime : <a href="datatypes.html#time">time</a></li>
+   <li>valueUnsignedInt : <a href="datatypes.html#unsignedInt">unsignedInt</a></li>
    <li>valueUri : <a href="datatypes.html#uri">uri</a></li>
    <li>valueUrl : <a href="datatypes.html#url">url</a></li>
-   <li>valueCanonical : <a href="datatypes.html#canonical">canonical</a></li>
-   <li>valueOid : <a href="datatypes.html#oid">oid</a></li>
    <li>valueUuid : <a href="datatypes.html#uuid">uuid</a></li>
-   <li>valueId : <a href="datatypes.html#id">id</a></li>
-   <li>valueBoolean : <a href="datatypes.html#boolean">boolean</a></li>
-   <li>valueCode : <a href="datatypes.html#code">code</a> (only if the extension definition provides a <a href="terminologies.html#code">fixed</a> binding to a suitable set of codes)</li>
-   <li>valueMarkdown : <a href="datatypes.html#markdown">markdown</a></li>
-   <li>valueBase64Binary : <a href="datatypes.html#base64Binary">base64Binary</a></li>
-   <li>valueCoding : <a href="datatypes.html#Coding">Coding</a></li>
-   <li>valueCodeableConcept : <a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
-   <li>valueAttachment : <a href="datatypes.html#Attachment">Attachment</a></li>
-   <li>valueIdentifier : <a href="datatypes.html#Identifier">Identifier</a></li>
-   <li>valueQuantity : <a href="datatypes.html#Quantity">Quantity</a></li>
-   <li>valueSampledData : <a href="datatypes.html#SampledData">SampledData</a></li>
-   <li>valueRange : <a href="datatypes.html#Range">Range</a></li>
-   <li>valuePeriod : <a href="datatypes.html#Period">Period</a></li>
-   <li>valueRatio : <a href="datatypes.html#Ratio">Ratio</a></li>
-   <li>valueHumanName : <a href="datatypes.html#HumanName">HumanName</a></li>
+   
    <li>valueAddress : <a href="datatypes.html#Address">Address</a></li>
-   <li>valueContactPoint : <a href="datatypes.html#ContactPoint">ContactPoint</a></li>
-   <li>valueTiming : <a href="datatypes.html#Timing">Timing</a></li>
-   <li>valueReference : <a href="references.html#Reference">Reference</a> - a reference to another resource</li>
+   <li>valueAge : <a href="datatypes.html#Age">Age</a></li>
    <li>valueAnnotation : <a href="datatypes.html#Annotation">Annotation</a></li>
+   <li>valueAttachment : <a href="datatypes.html#Attachment">Attachment</a></li>
+   <li>valueCodeableConcept : <a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
+   <li>valueCoding : <a href="datatypes.html#Coding">Coding</a></li>
+   <li>valueContactPoint : <a href="datatypes.html#ContactPoint">ContactPoint</a></li>
+   <li>valueCount : <a href="datatypes.html#Count">Count</a></li>
+   <li>valueDistance : <a href="datatypes.html#Distance">Distance</a></li>
+   <li>valueDuration : <a href="datatypes.html#Duration">Duration</a></li>
+   <li>valueHumanName : <a href="datatypes.html#HumanName">HumanName</a></li>
+   <li>valueIdentifier : <a href="datatypes.html#Identifier">Identifier</a></li>
+   <li>valueMoney : <a href="datatypes.html#Money">Money</a></li>
+   <li>valuePeriod : <a href="datatypes.html#Period">Period</a></li>
+   <li>valueQuantity : <a href="datatypes.html#Quantity">Quantity</a></li>
+   <li>valueRange : <a href="datatypes.html#Range">Range</a></li>
+   <li>valueRatio : <a href="datatypes.html#Ratio">Ratio</a></li>
+   <li>valueReference : <a href="references.html#Reference">Reference</a> - a reference to another resource</li>
+   <li>valueSampledData : <a href="datatypes.html#SampledData">SampledData</a></li>
    <li>valueSignature : <a href="datatypes.html#Signature">Signature</a></li>
-   <li>valueMeta : A <a href="resource.html#Meta">Meta</a> heading from a resource</li>
-
+   <li>valueTiming : <a href="datatypes.html#Timing">Timing</a></li>
+   
+   <li>valueDosage : <a href="dosage.html#Dosage">Dosage</a></li>   
   </ul>
  </li>
 </ul>
@@ -305,8 +314,10 @@ what the extension means for its own use of the data.
 <p>
 This specification allows for such modifier elements to be included at the base of a resource or in any elements
 that do not have a data type (e.g. the elements that correspond to classes in the resource UML
-diagrams). Elements that are data types, or that are inside data types SHALL NOT have modifier extensions, 
-and extensions SHALL NOT have modifier extensions internally.
+diagrams), and on <a href="datatypes.html#reusable">the reusable structures</a>. 
+Elements that are data types, or that are inside data types SHALL NOT have modifier extensions, 
+and extensions SHALL NOT have modifier extensions internally (except for the reusable structures
+allowed to appear in extensions, listed above).
 </p>
 <p>
 Note that complex extensions are allowed to have elements in the complex extension that are marked 

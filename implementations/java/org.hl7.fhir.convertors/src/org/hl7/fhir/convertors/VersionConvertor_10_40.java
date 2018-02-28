@@ -10208,6 +10208,8 @@ public class VersionConvertor_10_40 {
       tgt.getSnapshot().getElementFirstRep().getType().clear();
     if (tgt.hasDifferential())
       tgt.getDifferential().getElementFirstRep().getType().clear();
+    
+    
     if (tgt.getKind() == StructureDefinitionKind.PRIMITIVETYPE && !tgt.getType().equals(tgt.getId())) {
       tgt.setDerivation(TypeDerivationRule.SPECIALIZATION);
       tgt.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+tgt.getType());
@@ -10218,6 +10220,13 @@ public class VersionConvertor_10_40 {
 //        ed.setPath(ed.getPath().replace(tgt.getType()+".", tgt.getId()+"."));
 //      }
       tgt.setType(tgt.getId());
+    }
+    if (tgt.getDerivation() == TypeDerivationRule.SPECIALIZATION) {
+      for (ElementDefinition ed : tgt.getSnapshot().getElement()) {
+        if (!ed.hasBase()) {
+          ed.getBase().setPath(ed.getPath()).setMin(ed.getMin()).setMax(ed.getMax());
+        }
+      }
     }
     return tgt;
   }

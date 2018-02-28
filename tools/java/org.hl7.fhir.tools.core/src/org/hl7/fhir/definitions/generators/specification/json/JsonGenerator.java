@@ -44,6 +44,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
@@ -159,52 +160,8 @@ public class JsonGenerator  {
   }
 
   private void generateAny(ElementDefn root, ElementDefn e, String prefix, JsonObject props, boolean relative) throws Exception {
-    List<String> allTypes = new ArrayList<String>();
-    allTypes.add("boolean");
-    allTypes.add("integer");
-    allTypes.add("decimal");
-    allTypes.add("base64Binary");
-    allTypes.add("instant");
-    allTypes.add("string");
-    allTypes.add("uri");
-    allTypes.add("url");
-    allTypes.add("canonical");
-    allTypes.add("date");
-    allTypes.add("dateTime");
-    allTypes.add("time");
-    allTypes.add("code");
-    allTypes.add("oid");
-    allTypes.add("id");
-    allTypes.add("unsignedInt");
-    allTypes.add("positiveInt");
-    allTypes.add("markdown");
-    allTypes.add("Annotation");
-    allTypes.add("Attachment");
-    allTypes.add("Identifier");
-    allTypes.add("CodeableConcept");
-    allTypes.add("Coding");
-    allTypes.add("Quantity");
-    allTypes.add("Range");
-    allTypes.add("Period");
-    allTypes.add("Ratio");
-    allTypes.add("SampledData");
-    allTypes.add("Signature");
-    allTypes.add("HumanName");
-    allTypes.add("Address");
-    allTypes.add("ContactPoint");
-    allTypes.add("Timing");
-    allTypes.add("Reference");
-    allTypes.add("Meta");
-    allTypes.add("Dosage");
-    allTypes.add("ContactDetail");
-    allTypes.add("Contributor");
-    allTypes.add("DataRequirement");
-    allTypes.add("ParameterDefinition");
-    allTypes.add("RelatedArtifact");
-    allTypes.add("TriggerDefinition");
-    allTypes.add("UsageContext");
-    
-    
+    List<String> allTypes = TypesUtilities.wildcardTypes();
+        
     for (String s : allTypes) {
       JsonObject property = new JsonObject();
       JsonObject property_ = null;

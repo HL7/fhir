@@ -386,6 +386,13 @@ public class ProfileUtilities extends TranslatingUtilities {
 //        System.out.println("**BAD Differential element: " + profileName + ":" + e.getId());
       }
     }
+    if (derived.getDerivation() == TypeDerivationRule.SPECIALIZATION) {
+      for (ElementDefinition ed : derived.getSnapshot().getElement()) {
+        if (!ed.hasBase()) {
+          ed.getBase().setPath(ed.getPath()).setMin(ed.getMin()).setMax(ed.getMax());
+        }
+      }
+    }
   }
 
   private String constraintSummary(ElementDefinition ed) {

@@ -1213,6 +1213,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+rd.getName()+s3;
       else if (com[0].equals("operation-summary"))
         src = s1+((Operation) object).getName()+" summary"+s3;
+      else if (com[0].equals("structure-list-index"))
+        src = s1+genStructureList()+s3;
       else if (com[0].equals("operation")) {
         Operation op = (Operation) object;
         src = s1+genOperation(op, rd.getName(), rd.getName().toLowerCase(), false, rd.getStatus(), genlevel(level), rd.getNormativePackage())+s3;
@@ -5355,6 +5357,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildCommitteeList()+s3;
       else if (com[0].equals("choice-elements"))
         src = s1+buildChoiceElementList()+s3;
+      else if (com[0].equals("structure-list-index"))
+        src = s1+genStructureList()+s3;
       else if (com[0].equals("circular-references"))
         src = s1+buildCircularReferenceList()+s3;
       else
@@ -9847,5 +9851,29 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return normativePackages;
   }
 
-  
+  private String genStructureList() {
+    StringBuilder b = new StringBuilder();
+    b.append("<tr>");
+    int i = 0;
+    for (String s : sorted(definitions.getStructures().keySet())) {
+      TypeDefn td = definitions.getStructures().get(s);
+      if (td.typeCode().equals("Structure")) {
+        b.append("<td style=\"background-color: ");
+        b.append(td.getStandardsStatus().getColor());
+        b.append("\"><a href=\"");
+        b.append(definitions.getSrcFile(s)+".html#"+s);
+        b.append("\">");
+        b.append(s);      
+        b.append("</a></td>");
+        i++;
+        if (i == 4) {
+          b.append("</tr>");
+          b.append("<tr>");
+          i = 0;
+        }
+      }
+    }
+    b.append("</tr>");
+    return b.toString();
+  }
 }

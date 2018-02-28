@@ -56,6 +56,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.StringType;
+import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -1007,10 +1008,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write(indent+"    case "+propId(n)+": /*"+n+"*/ ");
           write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
           if (e.typeCode().equals("*")) {
-            for (String t : new String[] {"boolean", "integer", "decimal", "base64Binary", "instant", "string", "uri", "date", "dateTime", "url", "canonical",
-                "time", "code", "oid", "id", "unsignedInt", "positiveInt", "markdown", "Annotation", "Attachment", "Identifier", "CodeableConcept", "Coding", 
-                "Quantity", "Range", "Period", "Ratio", "SampledData", "Signature", "HumanName", "Address", "ContactPoint", "Timing", "Reference", "Meta", 
-                "Dosage", "ContactDetail", "Contributor", "DataRequirement", "ParameterDefinition", "RelatedArtifact", "TriggerDefinition", "UsageContext"}) {
+            // master list in datatypes.html
+            for (String t : new String[] {
+                "base64Binary", "boolean", "canonical", "code", "date", "dateTime", "decimal", "id", "instant", "integer", "markdown", "oid", 
+                "positiveInt", "string", "time", "unsignedInt", "uri", "url", "uuid", "Address", "Annotation", "Attachment", "CodeableConcept", 
+                "Coding", "ContactPoint", "HumanName", "Identifier", "Period", "Quantity", "Range", "Ratio", "Reference", "SampledData", 
+                "Signature", "Timing", "Dosage"
+                }) {
               String tn = n + Utilities.capitalize(t);
               write(indent+"    case "+propId(tn)+": /*"+tn+"*/ ");
               write(" return new Property(\""+e.getName()+"\", \""+e.typeCode()+"\", \""+Utilities.escapeJava(e.getDefinition())+"\", 0, "+(e.unbounded() ? "java.lang.Integer.MAX_VALUE" : Integer.toString(e.getMaxCardinality()))+", "+getElementName(e.getName(), true)+");\r\n");
@@ -1247,49 +1251,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   private List<TypeRef> getTypes(List<TypeRef> types) {
     if (types.size() == 1 && types.get(0).getName().equals("*")) {
       List<TypeRef> t = new ArrayList<TypeRef>();
-      t.add(new TypeRef("boolean"));
-      t.add(new TypeRef("integer"));
-      t.add(new TypeRef("decimal"));
-      t.add(new TypeRef("base64Binary"));
-      t.add(new TypeRef("instant"));
-      t.add(new TypeRef("string"));
-      t.add(new TypeRef("uri"));
-      t.add(new TypeRef("url"));
-      t.add(new TypeRef("canonical"));
-      t.add(new TypeRef("date"));
-      t.add(new TypeRef("dateTime"));
-      t.add(new TypeRef("time"));
-      t.add(new TypeRef("code"));
-      t.add(new TypeRef("oid"));
-      t.add(new TypeRef("id"));
-      t.add(new TypeRef("unsignedInt"));
-      t.add(new TypeRef("positiveInt"));
-      t.add(new TypeRef("markdown"));
-      t.add(new TypeRef("Annotation"));
-      t.add(new TypeRef("Attachment"));
-      t.add(new TypeRef("Identifier"));
-      t.add(new TypeRef("CodeableConcept"));
-      t.add(new TypeRef("Coding"));
-      t.add(new TypeRef("Quantity"));
-      t.add(new TypeRef("Range"));
-      t.add(new TypeRef("Period"));
-      t.add(new TypeRef("Ratio"));
-      t.add(new TypeRef("SampledData"));
-      t.add(new TypeRef("Signature"));
-      t.add(new TypeRef("HumanName"));
-      t.add(new TypeRef("Address"));
-      t.add(new TypeRef("ContactPoint"));
-      t.add(new TypeRef("Timing"));
-      t.add(new TypeRef("Reference"));
-      t.add(new TypeRef("Meta"));
-      t.add(new TypeRef("Dosage"));
-      t.add(new TypeRef("ContactDetail")); 
-      t.add(new TypeRef("Contributor")); 
-      t.add(new TypeRef("DataRequirement")); 
-      t.add(new TypeRef("ParameterDefinition"));
-      t.add(new TypeRef("RelatedArtifact")); 
-      t.add(new TypeRef("TriggerDefinition")); 
-      t.add(new TypeRef("UsageContext"));
+      for (String s : TypesUtilities.wildcardTypes())
+      t.add(new TypeRef(s));
 
       return t;
     }
