@@ -22,12 +22,14 @@ of <code>1.2.250.1.59.40211.12345678.678910</code> is expressed as <code>“urn:
 The ImagingStudy.endpoint elements and ImagingStudy.series.endpoint elements indicate network 
 services that can be used to access the studies, series, or instances; for example, a DICOM WADO-RS server. An 
 ImagingStudy.series.endpoint of a particular Endpoint.connectionType provides that service for that 
-series, and all contained instances. An ImagingStudy.endpoint of a particularconnection type provides 
+series, and all contained instances. An ImagingStudy.endpoint of a particular connection type provides 
 that service for all series in that study that do not have a specified Endpoint of that type, and their 
 contained instances. That is, an ImagingStudy.series.endpoint overrides a ImagingStudy.endpoint 
-of the same connection type. (Since each study, or individual series of a study can be stored on different imaging 
+of the same connection type. 
+Systems can determine if a particular study, series, or instance is available or offline by interacting with the endpoint.
+Since each study, or individual series of a study can be stored on different imaging 
 archive servers, per-series endpoints are required. For the identified services and use cases, all instances within 
-a series would be stored together, and thus instance-level endpoints are not defined.)
+a series would be stored together, and thus instance-level endpoints are not defined.
 </p>
 <p>
 Different Endpoint connection types may have different capabilities, protocols or requirements; and the specified 

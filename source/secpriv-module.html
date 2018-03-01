@@ -160,6 +160,15 @@ approaches to authorization.
 For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
 
 </p>
+
+<a name="query-parameters"></a>
+<h5>Query Parameters Considerations</h5>
+<p>
+<em>Use-Case:</em> when a user has restricted rights, but attempts to do a query they should not have rights to. They should not be given the data, but policy should be used to determine if the user query should results in an error, zero results, or the results one would get after removing the non-authorized parameters.
+</p><p>
+<em>Example:</em> Using _include or _revinc to get at resources beyond those authorized. Ignoring (removing) the _include parameter would give some results, just not the _include Resources. This could be silently handled and thus give some results, or it could be returned as error.
+</p>
+
 <a name="User Identity and Access Context"></a>
 <h4>
 User Identity and Access Context

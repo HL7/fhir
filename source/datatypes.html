@@ -497,6 +497,11 @@ Where protection against malicious threats a digital signature should be conside
 <a href="provenance-definitions.html#Provenance.signature">Provenance.signature</a> for mechanism to protect a resource with a digital signature.
 </p>
 <p>
+Attachment <code>data</code> are not constrained, and therefore can be of any content type and encoding. 
+Therefore extra care needs to be taken to validate the content against 
+malicious or malformed content. For more details see <a href="security.html#narrative">Security of Narrative</a>.
+</p>
+<p>
 In many cases where Attachment is used, the cardinality is &gt;1. A valid use of repeats is to convey the same content in different mime types and languages.
 Guidance on the meaning of repeating elements SHALL be provided in the definition of the repeating resource element or extension that references this type.
 The language element describes the language of the attachment using the <a href="http://tools.ietf.org/html/bcp47">codes defined in BCP 47</a>.

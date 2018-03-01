@@ -4,8 +4,12 @@
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">XR Wrist 3+ Views. John Smith (MRN: 09236). Accession: W12342398. Performed: 2017-01-01. 1 series, 2 images.</div>
 	</text>
-	<uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"/>
-	<accession>
+	<identifier>
+		<use value="official"/>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430046"/>
+	</identifier>
+	<identifier>
 		<use value="usual"/>
 		<type>
 			<coding>
@@ -17,7 +21,7 @@
 		<assigner>
 			<reference value="Organization/dicom-organization"/>
 		</assigner>
-	</accession>
+	</identifier>
 	<identifier>
 		<use value="secondary"/>
 		<value value="55551234"/>
@@ -25,11 +29,11 @@
 			<reference value="Organization/dicom-organization"/>
 		</assigner>
 	</identifier>
-	<availability value="ONLINE"/>
-	<modalityList>
+	<status value="available"/>
+	<modality>
 		<system value="http://dicom.nema.org/resources/ontology/DCM"/>
 		<code value="DX"/>
-	</modalityList>
+	</modality>
 	<subject>
 		<reference value="Patient/dicom"/>
 	</subject>
@@ -62,16 +66,22 @@
 		</coding>
 		<text value="XR Wrist 3+ Views"/>
 	</procedureCode>
-	<reason>
+	<reasonCode>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="357009"/>
 			<display value="Closed fracture of trapezoidal bone of wrist"/>
 		</coding>
-	</reason>
-	<description value="XR Wrist 3+ Views"/>
+	</reasonCode>
+	<note>
+	    <text value="XR Wrist 3+ Views"/>
+	</note>
 	<series>
-		<uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1"/>
+		<identifier>
+			<use value="official"/>
+			<system value="urn:ietf:rfc:3986"/>
+			<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1"/>
+		</identifier>
 		<number value="3"/>
 		<modality>
 			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -79,7 +89,6 @@
 		</modality>
 		<description value="XR Wrist 3+ Views"/>
 		<numberOfInstances value="2"/>
-		<availability value="ONLINE"/>
 		<endpoint>
 			<reference value="Endpoint/example-wadors"/>
 		</endpoint>
@@ -96,18 +105,41 @@
 		</laterality>
 		<started value="2011-01-01T11:01:20+03:00"/>
 		<performer>
+			<function>
+			<coding>
+			<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+			<code  value="PRF"/>
+			</coding>
+			</function>
+			<actor>
 			<reference value="Practitioner/example"/>
+			</actor>
 		</performer>
 		<instance>
-			<uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1"/>
+			<identifier>
+				<use value="official"/>
+				<system value="urn:ietf:rfc:3986"/>
+				<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.1"/>
+			</identifier>
 			<number value="1"/>
-			<sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+			<sopClass>
+				<system value="urn:ietf:rfc:3986"/>
+				<code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+			</sopClass> 
+
 			<title value="PA VIEW"/>
 		</instance>
 		<instance>
-			<uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2"/>
+			<identifier>
+				<use value="official"/>
+				<system value="urn:ietf:rfc:3986"/>
+				<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045.1.2"/>
+			</identifier>
 			<number value="2"/>
-			<sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+			<sopClass>
+				<system value="urn:ietf:rfc:3986"/>
+				<code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+			</sopClass> 
 			<title value="LL VIEW"/>
 		</instance>
 	</series>

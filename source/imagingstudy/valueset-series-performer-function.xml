@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="valueset-series-performer-function"/>
+
+	<name value="ImagingStudy series performer function"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="HL7 (FHIR Project)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description value="Performer function of an agent in an imaging study series"/>
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+			<concept>
+				<code value="CON"/>
+				<display value="consultant"/>
+			</concept>
+			<concept>
+				<code value="VRF"/>
+				<display value="verifier"/>
+			</concept>
+			<concept>
+				<code value="PRF"/>
+				<display value="performer"/>
+			</concept>
+			<concept>
+				<code value="SPRF"/>
+				<display value="secondary performer"/>
+			</concept>
+			<concept>
+				<code value="REF"/>
+				<display value="referrer"/>
+			</concept>
+
+		</include>
+	</compose>
+</ValueSet>
