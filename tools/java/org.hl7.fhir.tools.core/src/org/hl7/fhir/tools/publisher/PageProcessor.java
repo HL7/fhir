@@ -182,10 +182,12 @@ import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
+import org.hl7.fhir.r4.utils.TypesUtilities.WildcardInformation;
 import org.hl7.fhir.r4.utils.ResourceUtilities;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.Translations;
+import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.r4.utils.client.FHIRToolingClient;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -1215,6 +1217,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+((Operation) object).getName()+" summary"+s3;
       else if (com[0].equals("structure-list-index"))
         src = s1+genStructureList()+s3;
+      else if (com[0].equals("extension-type-list"))
+        src = s1+genExtensionTypeList()+s3;
+      else if (com[0].equals("wildcard-type-list"))
+        src = s1+genWildcardTypeList()+s3;
+      
       else if (com[0].equals("operation")) {
         Operation op = (Operation) object;
         src = s1+genOperation(op, rd.getName(), rd.getName().toLowerCase(), false, rd.getStatus(), genlevel(level), rd.getNormativePackage())+s3;
@@ -5359,6 +5366,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildChoiceElementList()+s3;
       else if (com[0].equals("structure-list-index"))
         src = s1+genStructureList()+s3;
+      else if (com[0].equals("extension-type-list"))
+        src = s1+genExtensionTypeList()+s3;
+      else if (com[0].equals("wildcard-type-list"))
+        src = s1+genWildcardTypeList()+s3;
       else if (com[0].equals("circular-references"))
         src = s1+buildCircularReferenceList()+s3;
       else
@@ -9876,4 +9887,35 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append("</tr>");
     return b.toString();
   }
+  
+  private String genWildcardTypeList() {
+    StringBuilder b = new StringBuilder();
+    for (String s : TypesUtilities.wildcardTypes()) {
+      b.append("<li><a href=\"");
+      b.append(definitions.getSrcFile(s)+".html#"+s);
+      b.append("\">");
+      b.append(s);      
+      b.append("</a></li>");
+    }
+    return b.toString();
+  }
+  
+  private String genExtensionTypeList() {
+    StringBuilder b = new StringBuilder();
+    for (WildcardInformation wi : TypesUtilities.wildcards()) {
+      b.append("<li>value");
+      b.append(Utilities.capitalize(wi.getTypeName()));
+      b.append(": <a href=\"");
+      b.append(definitions.getSrcFile(wi.getTypeName())+".html#"+wi.getTypeName());
+      b.append("\">");
+      b.append(wi.getTypeName());      
+      b.append("</a>");
+      if (!Utilities.noString(wi.getComment())) {
+        b.append(" " +wi.getComment());      
+      }
+      b.append("</li>");
+    }
+    return b.toString();
+  }
+
 }

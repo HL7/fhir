@@ -66,7 +66,7 @@ Reusable Structures:<a name="reusable"> </a>
 </table>
 <p>
 The reusable structures allow <a href="extensibility.html#modifier">Modifier Extensions</a>, 
-unlike all the other types do. Only a few of the reusable structures may appear in 
+while all the other types do not. Only a few of the reusable structures may appear in 
 extensions (see <a href="extensibility.html#list">list</a>).
 </p>
 
@@ -1484,6 +1484,7 @@ Annotation is used in the following places: [%dtusage Annotation%]
 <p>
 Some elements do not have a specified type. The type is represented by the wildcard symbol "*". In these cases, the element type may be one of the following:
 </p>
+
 <!-- 
   any changes to this list must also be made in 
     extensibility.html
@@ -1491,52 +1492,7 @@ Some elements do not have a specified type. The type is represented by the wildc
 -->  
  
 <ul class="dense">
- <!-- primitive types -->
- <li><a href="datatypes.html#base64Binary">base64Binary</a></li>
- <li><a href="datatypes.html#boolean">boolean</a></li>
- <li><a href="datatypes.html#canonical">canonical</a></li>
- <li><a href="datatypes.html#code">code</a></li>
- <li><a href="datatypes.html#date">date</a></li>
- <li><a href="datatypes.html#dateTime">dateTime</a></li>
- <li><a href="datatypes.html#decimal">decimal</a></li>
- <li><a href="datatypes.html#id">id</a></li>
- <li><a href="datatypes.html#instant">instant</a></li>
- <li><a href="datatypes.html#integer">integer</a></li>
- <li><a href="datatypes.html#markdown">markdown</a></li>
- <li><a href="datatypes.html#oid">oid</a></li>
- <li><a href="datatypes.html#positiveInt">positiveInt</a></li>
- <li><a href="datatypes.html#string">string</a></li>
- <li><a href="datatypes.html#time">time</a></li>
- <li><a href="datatypes.html#unsignedInt">unsignedInt</a></li>
- <li><a href="datatypes.html#uri">uri</a></li>
- <li><a href="datatypes.html#url">url</a></li>
- <li><a href="datatypes.html#url">uuid</a></li>
- 
- <!-- general purpose types -->
- <li><a href="datatypes.html#Address">Address</a></li>
- <li><a href="datatypes.html#Age">Age</a></li>
- <li><a href="datatypes.html#Annotation">Annotation</a></li>
- <li><a href="datatypes.html#Attachment">Attachment</a></li>
- <li><a href="datatypes.html#CodeableConcept">CodeableConcept</a></li>
- <li><a href="datatypes.html#Coding">Coding</a></li>
- <li><a href="datatypes.html#ContactPoint">ContactPoint</a></li>
- <li><a href="datatypes.html#Count">Count</a></li>
- <li><a href="datatypes.html#Distance">Distance</a></li>
- <li><a href="datatypes.html#Duration">Duration</a></li>
- <li><a href="datatypes.html#HumanName">HumanName</a></li>
- <li><a href="datatypes.html#Identifier">Identifier</a></li>
- <li><a href="datatypes.html#Money">Money</a></li>
- <li><a href="datatypes.html#Period">Period</a></li>
- <li><a href="datatypes.html#Quantity">Quantity</a></li>
- <li><a href="datatypes.html#Range">Range</a></li>
- <li><a href="datatypes.html#Ratio">Ratio</a></li>
- <li><a href="references.html#Reference">Reference</a> - a reference to another resource</li>
- <li><a href="datatypes.html#SampledData">SampledData</a></li>
- <li><a href="datatypes.html#Signature">Signature</a></li>
- <li><a href="datatypes.html#Timing">Timing</a></li>
- 
- <!-- selected other types, by MnM choice -->
- <li><a href="datatypes.html#Dosage">Dosage</a></li>
+  [%wildcard-type-list%]
 </ul>
 <p>
 The element name ends with "[x]", and this is replaced with the Title cased name of the data type.
