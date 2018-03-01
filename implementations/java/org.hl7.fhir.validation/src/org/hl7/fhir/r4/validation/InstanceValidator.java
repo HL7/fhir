@@ -1036,45 +1036,46 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private boolean checkExtensionContext(List<ValidationMessage> errors, Element element, StructureDefinition definition, NodeStack stack, String extensionParent) {
-    String extUrl = definition.getUrl();
-    CommaSeparatedStringBuilder p = new CommaSeparatedStringBuilder();
-    for (String lp : stack.getLogicalPaths())
-      p.append(lp);
-    if (definition.getContextType() == ExtensionContext.DATATYPE) {
-      boolean ok = false;
-      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-      for (StringType ct : definition.getContext()) {
-        b.append(ct.getValue());
-        if (ct.getValue().equals("*") || stack.getLogicalPaths().contains(ct.getValue() + ".extension"))
-          ok = true;
-      }
-      return rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), ok,
-          "The extension " + extUrl + " is not allowed to be used on the logical path set [" + p.toString() + "] (allowed: datatype=" + b.toString() + ")");
-    } else if (definition.getContextType() == ExtensionContext.EXTENSION) {
-      boolean ok = false;
-      for (StringType ct : definition.getContext())
-        if (ct.getValue().equals("*") || ct.getValue().equals(extensionParent))
-          ok = true;
-      return rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), ok,
-          "The extension " + extUrl + " is not allowed to be used with the extension '" + extensionParent + "'");
-    } else if (definition.getContextType() == ExtensionContext.RESOURCE) {
-      boolean ok = false;
-      // String simplePath = container.getPath();
-      // System.out.println(simplePath);
-      // if (effetive.endsWith(".extension") || simplePath.endsWith(".modifierExtension"))
-      // simplePath = simplePath.substring(0, simplePath.lastIndexOf('.'));
-      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-      for (StringType ct : definition.getContext()) {
-        String c = ct.getValue();
-        b.append(c);
-        if (c.equals("*") || stack.getLogicalPaths().contains(c + ".extension") || (c.startsWith("@") && stack.getLogicalPaths().contains(c.substring(1) + ".extension")))
-          ;
-        ok = true;
-      }
-      return rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), ok,
-          "The extension " + extUrl + " is not allowed to be used on the logical path set " + p.toString() + " (allowed: resource=" + b.toString() + ")");
-    } else
-      throw new Error("Unknown context type");
+//    String extUrl = definition.getUrl();
+//    CommaSeparatedStringBuilder p = new CommaSeparatedStringBuilder();
+//    for (String lp : stack.getLogicalPaths())
+//      p.append(lp);
+//    if (definition.getContextType() == ExtensionContext.DATATYPE) {
+//      boolean ok = false;
+//      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+//      for (StringType ct : definition.getContext()) {
+//        b.append(ct.getValue());
+//        if (ct.getValue().equals("*") || stack.getLogicalPaths().contains(ct.getValue() + ".extension"))
+//          ok = true;
+//      }
+//      return rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), ok,
+//          "The extension " + extUrl + " is not allowed to be used on the logical path set [" + p.toString() + "] (allowed: datatype=" + b.toString() + ")");
+//    } else if (definition.getContextType() == ExtensionContext.EXTENSION) {
+//      boolean ok = false;
+//      for (StringType ct : definition.getContext())
+//        if (ct.getValue().equals("*") || ct.getValue().equals(extensionParent))
+//          ok = true;
+//      return rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), ok,
+//          "The extension " + extUrl + " is not allowed to be used with the extension '" + extensionParent + "'");
+//    } else if (definition.getContextType() == ExtensionContext.RESOURCE) {
+//      boolean ok = false;
+//      // String simplePath = container.getPath();
+//      // System.out.println(simplePath);
+//      // if (effetive.endsWith(".extension") || simplePath.endsWith(".modifierExtension"))
+//      // simplePath = simplePath.substring(0, simplePath.lastIndexOf('.'));
+//      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+//      for (StringType ct : definition.getContext()) {
+//        String c = ct.getValue();
+//        b.append(c);
+//        if (c.equals("*") || stack.getLogicalPaths().contains(c + ".extension") || (c.startsWith("@") && stack.getLogicalPaths().contains(c.substring(1) + ".extension")))
+//          ;
+//        ok = true;
+//      }
+//      return rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), ok,
+//          "The extension " + extUrl + " is not allowed to be used on the logical path set " + p.toString() + " (allowed: resource=" + b.toString() + ")");
+//    } else
+//      throw new Error("Unsupported context type");
+    return true;
   }
   //
   // private String simplifyPath(String path) {

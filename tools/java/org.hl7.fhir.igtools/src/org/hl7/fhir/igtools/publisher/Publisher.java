@@ -109,6 +109,7 @@ import org.hl7.fhir.r4.model.ResourceFactory;
 import org.hl7.fhir.r4.model.ResourceType;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.StructureMap;
@@ -1814,77 +1815,82 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     try {        
       if (file.getContentType().contains("json"))
         e = loadFromJson(file);
-      else if (file.getContentType().contains("xml"))
-        e = loadFromXml(file);
-      else
+      else if (file.getContentType().contains("xml")) {
+        if (version.equals(Constants.VERSION))
+          e = loadFromXml(file);
+        else
+          e = loadFromXmlWithVersionChange(file, version, Constants.VERSION);
+      } else
         throw new Exception("Unable to determine file type for "+file.getName());
     } catch (Exception ex) {
       throw new Exception("Unable to parse "+file.getName()+": " +ex.getMessage(), ex);
     }
-    try {
-      boolean altered = false;
+    if (e != null) {
+      try {
+        boolean altered = false;
 
-      String id = e.getChildValue("id");
-      if (Utilities.noString(id)) {
-        if (e.hasChild("url")) {
-          String url = e.getChildValue("url");
-          String prefix = Utilities.pathURL(igpkp.getCanonical(), e.fhirType())+"/";
-          if (url.startsWith(prefix)) {
-            id = e.getChildValue("url").substring(prefix.length());
-            e.setChildValue("id", id);
-            altered = true;
-          } 
-          if (Utilities.noString(id)) {
-            throw new Exception("Resource has no id in "+file.getPath());
+        String id = e.getChildValue("id");
+        if (Utilities.noString(id)) {
+          if (e.hasChild("url")) {
+            String url = e.getChildValue("url");
+            String prefix = Utilities.pathURL(igpkp.getCanonical(), e.fhirType())+"/";
+            if (url.startsWith(prefix)) {
+              id = e.getChildValue("url").substring(prefix.length());
+              e.setChildValue("id", id);
+              altered = true;
+            } 
+            if (Utilities.noString(id)) {
+              throw new Exception("Resource has no id in "+file.getPath());
+            }
           }
         }
-      }
-      r.setElement(e).setId(id);
-      igpkp.findConfiguration(file, r);
+        r.setElement(e).setId(id);
+        igpkp.findConfiguration(file, r);
 
-      String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
-      if (ver == null)
-        ver = version; // fall back to global version
+        String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
+        if (ver == null)
+          ver = version; // fall back to global version
 
-      // version check: for some conformance resources, they may be saved in a different vrsion from that stated for the IG. 
-      // so we might need to convert them prior to loading. Note that this is different to the conversion below - we need to 
-      // convert to the current version. Here, we need to convert to the stated version. Note that we need to do this after
-      // the first load above because above, we didn't have enough data to get the configuration, but we do now. 
-      if (!ver.equals(version)) {
-        //          System.out.println("Need to do version conversion on "+r.getElement().fhirType()+" from "+ver+" to "+version);
-        if (file.getContentType().contains("json"))
-          e = loadFromJsonWithVersionChange(file, ver, version);
-        else if (file.getContentType().contains("xml"))
-          e = loadFromXmlWithVersionChange(file, ver, version);
-        else
-          throw new Exception("Unable to determine file type for "+file.getName());
-        r.setElement(e);
-      }
+        // version check: for some conformance resources, they may be saved in a different vrsion from that stated for the IG. 
+        // so we might need to convert them prior to loading. Note that this is different to the conversion below - we need to 
+        // convert to the current version. Here, we need to convert to the stated version. Note that we need to do this after
+        // the first load above because above, we didn't have enough data to get the configuration, but we do now. 
+        if (!ver.equals(version)) {
+          //          System.out.println("Need to do version conversion on "+r.getElement().fhirType()+" from "+ver+" to "+version);
+          if (file.getContentType().contains("json"))
+            e = loadFromJsonWithVersionChange(file, ver, version);
+          else if (file.getContentType().contains("xml"))
+            e = loadFromXmlWithVersionChange(file, ver, version);
+          else
+            throw new Exception("Unable to determine file type for "+file.getName());
+          r.setElement(e);
+        }
 
-      r.setTitle(e.getChildValue("name"));
-      Element m = e.getNamedChild("meta");
-      if (m != null) {
-        List<Element> profiles = m.getChildrenByName("profile");
-        for (Element p : profiles)
-          r.getProfiles().add(p.getValue());
-      }
-      if ("1.0.1".equals(ver)) {
-        file.getErrors().clear();
-        org.hl7.fhir.dstu2.model.Resource res2 = null;
-        if (file.getContentType().contains("json"))
-          res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
-        else if (file.getContentType().contains("xml"))
-          res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
-        org.hl7.fhir.r4.model.Resource res = new VersionConvertor_10_40(null).convertResource(res2);
-        e = convertToElement(res);
-        r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
-        r.setResource(res);
-      }
-      if (altered || (ver.equals(Constants.VERSION) && r.getResource() == null))
-        r.setResource(new ObjectConverter(context).convert(r.getElement()));
+        r.setTitle(e.getChildValue("name"));
+        Element m = e.getNamedChild("meta");
+        if (m != null) {
+          List<Element> profiles = m.getChildrenByName("profile");
+          for (Element p : profiles)
+            r.getProfiles().add(p.getValue());
+        }
+        if ("1.0.1".equals(ver)) {
+          file.getErrors().clear();
+          org.hl7.fhir.dstu2.model.Resource res2 = null;
+          if (file.getContentType().contains("json"))
+            res2 = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
+          else if (file.getContentType().contains("xml"))
+            res2 = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
+          org.hl7.fhir.r4.model.Resource res = new VersionConvertor_10_40(null).convertResource(res2);
+          e = convertToElement(res);
+          r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
+          r.setResource(res);
+        }
+        if (altered || (ver.equals(Constants.VERSION) && r.getResource() == null))
+          r.setResource(new ObjectConverter(context).convert(r.getElement()));
 
-    } catch ( Exception ex ) {
-      throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
+      } catch ( Exception ex ) {
+        throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
+      }
     }
   }
 
@@ -1911,6 +1917,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       org.hl7.fhir.dstu3.model.Resource r3 = new org.hl7.fhir.dstu3.formats.XmlParser().parse(src);
       org.hl7.fhir.dstu2016may.model.Resource r14 = VersionConvertor_14_30.convertResource(r3);
       new org.hl7.fhir.dstu2016may.formats.XmlParser().compose(dst, r14);
+    } else if ("3.0.1".equals(srcV) && Constants.VERSION.equals(dstV)) {
+      org.hl7.fhir.dstu3.model.Resource r3 = new org.hl7.fhir.dstu3.formats.XmlParser().parse(src);
+      org.hl7.fhir.r4.model.Resource r4 = VersionConvertor_30_40.convertResource(r3);
+      new org.hl7.fhir.r4.formats.XmlParser().compose(dst, r4);
     } else 
       throw new Exception("Conversion from "+srcV+" to "+dstV+" is not supported yet"); // because the only know reason to do this is 3.0.1 --> 1.40
     org.hl7.fhir.r4.elementmodel.XmlParser xp = new org.hl7.fhir.r4.elementmodel.XmlParser(context);
@@ -2717,13 +2727,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           item.addProperty("publisher", sd.getPublisher());
           item.addProperty("copyright", sd.getCopyright());
           item.addProperty("description", sd.getDescription());
-          if (sd.getContextType() != null)
-            item.addProperty("contextType", sd.getContextType().getDisplay());
-          if (!sd.getContext().isEmpty()) {
+          if (sd.hasContext()) {
             JsonArray contexts = new JsonArray();
             item.add("contexts", contexts);
-            for (StringType context : sd.getContext()) {
-              contexts.add(new JsonPrimitive(context.asStringValue()));
+            for (StructureDefinitionContextComponent ec : sd.getContext()) {
+              JsonObject citem = new JsonObject();
+              contexts.add(citem);
+              citem.addProperty("type", ec.getType().getDisplay());
+              citem.addProperty("type", ec.getExpression());
             }
           }
           i++;

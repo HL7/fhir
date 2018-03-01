@@ -94,6 +94,7 @@ import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.SearchParameter;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.model.ValueSet;
@@ -824,8 +825,8 @@ public class SourceParser {
           pack.loadFromComposition((Composition) ae.getResource(), file.getAbsolutePath());
         else if (ae.getResource() instanceof StructureDefinition && !((StructureDefinition) ae.getResource()).getType().equals("Extension")) {
           StructureDefinition ed = (StructureDefinition) ae.getResource();
-          for (StringType s : ed.getContext())
-            definitions.checkContextValid(ed.getContextType(), s.getValue(), file.getName());
+          for (StructureDefinitionContextComponent s : ed.getContext())
+            definitions.checkContextValid(s, file.getName(), this.context);
           ToolResourceUtilities.updateUsage(ed, pack.getCategory());
           pack.getProfiles().add(new ConstraintStructure(ed, definitions.getUsageIG(usage, "Parsing "+file.getAbsolutePath()), wg == null ? wg(ed) : wg, fmm(ed), ed.getExperimental()));
         } else if (ae.getResource() instanceof StructureDefinition) {

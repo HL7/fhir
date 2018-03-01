@@ -66,44 +66,33 @@ even for elements that are likely to be supported as part of the core specificat
 <a name="context"></a>
 <h3>Context</h3>
 <p>
-Extensions are always defined against some particular context - the type of element
-that they may be used to extend. The following are possible contexts for an extension:
+Extensions are always defined against some particular context - which elements
+they can extend. There are three different ways to specify which elements an
+extension can be found on:
 </p>
 <table class="codes">
  <tr><th>Code</th><th>Context type</th><th>Context format</th><th>Examples</th></tr>
  <tr>
-   <td>resource</td>
-   <td>A particular element (including the root) in a single resource</td>
-   <td>The element path for that element, using the standard dotted notation</td>
-   <td>Condition<br/>Condition.code</td>
+   <td>fhirpath</td>
+   <td>A <a href="http://hl7.org/fhirpath">FHIRPath</a> expression that selects the set of elements on which the extension can appear </td>
+   <td>The FHIRPath statement always starts from the root of the resource that might contain the element</td>
+   <td>Condition<br/>(Condition | Observation).code</td>
   </tr>
  <tr>
-   <td>datatype</td>
-   <td>A particular element (including the root) in a particular data type</td>
-   <td>The data type name for primitive types or the element path for complex data types. These extensions can be used anywhere the data type is used</td>
-   <td>Address.part.value<br/>string</td></tr>
- <tr>
-   <td>mapping</td>
-   <td>A particular context in one of the mapped reference models</td>
-   <td>The name of the reference model followed by the mapping path. The details of the path depend on the named mapping</td>
-   <td>RIM: Act[moodCode="EVN"]</td>
+   <td>element</td>
+   <td>Formal <a href="elementdefinition.html#id">Element Id</a> for the element</td>
+   <td>Element Ids are unique within the base specification, and within a structure definition. The full path for the element is [url]#[elementid]. If there is no #</td>
+   <td>Address.part.value<br/>http://hl7.org/fhir/StructureDefinition/resprate#Observation.category:vscat.coding</td>
  </tr>
  <tr>
    <td>extension</td>
    <td>Another extension</td>
-   <td>The profile URI of the extension followed by the extension code</td>
-   <td>http://myextensions.org/someExtension</td>
+   <td>The canonical URI of the extension, optionally followed by #code for extension that appear within a complex extension</td>
+   <td>http://hl7.org/fhir/StructureDefinition/device-din</td>
  </tr>
 </table>
 <p>
-Note: For type 'resource' and 'datatype', if the context is an element that can have multiple types,
-then use either the [x] qualified name (e.g. Observation.value[x]) if the extension works on all choice types,
-or an enumeration of explicitly named elements if not (e.g. Observation.valueQuantity)
-</p>
-<p>
-In addition, the extension definition might apply additional constraints with
-regards to particular element values of the target that make its use appropriate.
-Extensions SHALL only be used on a target for which they are defined.
+Extensions SHALL only be used on a target that appears in their context list.
 </p>
 
 <a name="cardinality"></a>

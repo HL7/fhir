@@ -163,7 +163,8 @@ import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.SearchParameter;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContextType;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.r4.model.Type;
 import org.hl7.fhir.r4.model.TypeDetails;
@@ -2070,36 +2071,26 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     s.append("<td>"+determineExtensionType(ed)+"</td>");
     s.append("<td>");
     boolean first = true;
-    if (ed.getContextType() == ExtensionContext.RESOURCE) {
-      for (StringType t : ed.getContext()) {
-        if (first)
-          first = false;
-        else
-          s.append(",<br/> ");
-        String ref = Utilities.oidRoot(t.getValue());
+    for (StructureDefinitionContextComponent ec : ed.getContext()) {
+      if (first)
+        first = false;
+      else
+        s.append(",<br/> ");
+      if (ec.getType() == ExtensionContextType.ELEMENT) {
+        String ref = Utilities.oidRoot(ec.getExpression());
         if (ref.startsWith("@"))
           ref = ref.substring(1);
-        if (definitions.hasResource(ref))
-          s.append("<a href=\""+ref.toLowerCase()+".html\">"+t.getValue()+"</a>");
+        if (definitions.hasElementDefn(ref)) 
+          s.append("<a href=\""+definitions.getSrcFile(ref)+".html#"+Utilities.oidRoot(ec.getExpression())+"\">"+ec.getExpression()+"</a>");
+        else if (definitions.hasResource(ref))
+          s.append("<a href=\""+ref.toLowerCase()+".html\">"+ec.getExpression()+"</a>");
         else
-          s.append(t.getValue());
-      }
-    } else if (ed.getContextType() == ExtensionContext.DATATYPE) {
-        for (StringType t : ed.getContext()) {
-          if (first)
-            first = false;
-          else
-            s.append(",<br/> ");
-          String ref = Utilities.oidRoot(t.getValue());
-          if (ref.startsWith("@"))
-            ref = ref.substring(1);
-          if (definitions.hasElementDefn(ref)) {
-            s.append("<a href=\""+definitions.getSrcFile(ref)+".html#"+Utilities.oidRoot(t.getValue())+"\">"+t.getValue()+"</a>");
-          } else
-            s.append(t.getValue());
-        }
-    } else
-      throw new Error("Not done yet");
+          s.append(ec.getExpression());
+      } else if (ec.getType() == ExtensionContextType.FHIRPATH) {
+          s.append(Utilities.escapeXml(ec.getExpression()));
+      } else
+        throw new Error("Not done yet");
+    }
     s.append("</td>");
     String fmm = ToolingExtensions.readStringExtension(ed, ToolingExtensions.EXT_FMM_LEVEL);
     s.append("<td>"+(Utilities.noString(fmm) ? "0" : fmm)+"</td>");
@@ -6015,9 +6006,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     
     for (StructureDefinition ext : workerContext.getExtensionDefinitions()) {
       boolean ok = false;
-      if (ext.getContextType() == ExtensionContext.RESOURCE) {
-        for (StringType c : ext.getContext()) {
-          if (rn.equals(c.getValue()))
+      for (StructureDefinitionContextComponent ec : ext.getContext()) {
+        if (ec.getType() == ExtensionContextType.ELEMENT) {
+          if (rn.equals(ec.getExpression()))
             ok = true;
         }
         if (ok) {
@@ -6789,10 +6780,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     int count = 0;
     Map<String, StructureDefinition> map = new HashMap<String, StructureDefinition>();
     for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
-      if (sd.getContextType() == ExtensionContext.RESOURCE) {
-        boolean inc = false;
-        for (StringType s : sd.getContext()) {
-          inc = inc || (s.getValue().equals(resource.getName()) || s.getValue().startsWith(resource.getName()+"."));
+      boolean inc = false;
+      for (StructureDefinitionContextComponent ec : sd.getContext()) {
+        if (ec.getType() == ExtensionContextType.ELEMENT) {
+          inc = inc || (ec.getExpression().equals(resource.getName()) || ec.getExpression().startsWith(resource.getName()+"."));
         }
         if (inc)
           map.put(sd.getId(), sd);
@@ -6823,14 +6814,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     map.clear();
     
     for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
-      if (sd.getContextType() == ExtensionContext.RESOURCE) {
-        boolean inc = false;
-        for (StringType s : sd.getContext()) {
-          inc = inc || (s.getValue().equals("Resource") || s.getValue().equals("DomainResource") || s.getValue().equals("Any"));
-        }
-        if (inc)
-          map.put(sd.getId(), sd);
-      }
+      boolean inc = false;
+      for (StructureDefinitionContextComponent ec : sd.getContext()) 
+        inc = inc || (ec.getExpression().equals("Resource") || ec.getExpression().equals("DomainResource") || ec.getExpression().equals("Any"));
+      if (inc)
+        map.put(sd.getId(), sd);
     }
 
     b.append("<tr><td colspan=\"3\">Extensions for all resources or elements</td></tr>");
@@ -6930,14 +6918,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     int count = 0;
     Map<String, StructureDefinition> map = new HashMap<String, StructureDefinition>();
     for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
-      if (sd.getContextType() == ExtensionContext.DATATYPE) {
-        boolean inc = false;
-        for (StringType s : sd.getContext()) {
-          inc = inc || matchesType(tn, s.getValue());
+      boolean inc = false;
+      for (StructureDefinitionContextComponent ec : sd.getContext()) {
+        if (ec.getType() == ExtensionContextType.ELEMENT) {
+          inc = inc || matchesType(tn, ec.getExpression());
         }
-        if (inc)
-          map.put(sd.getId(), sd);
       }
+      if (inc)
+        map.put(sd.getId(), sd);
     }
 
     StringBuilder b = new StringBuilder();

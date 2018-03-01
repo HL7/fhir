@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Feb 27, 2018 18:45+1100 for FHIR v3.2.0
+// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -3544,49 +3544,42 @@ public class StructureMap extends MetadataResource {
           case 3575610: /*type*/  return new Property("type", "string", "Specified type for the element. This works as a condition on the mapping - use for polymorphic elements.", 0, 1, type);
           case 587922128: /*defaultValue[x]*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -659125328: /*defaultValue*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 600437336: /*defaultValueBoolean*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -1801189522: /*defaultValueInteger*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 2077989249: /*defaultValueDecimal*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case 1470297600: /*defaultValueBase64Binary*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -1801671663: /*defaultValueInstant*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -320515103: /*defaultValueString*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 587916188: /*defaultValueUri*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 600437336: /*defaultValueBoolean*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 264593188: /*defaultValueCanonical*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 1044993469: /*defaultValueCode*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case 1045010302: /*defaultValueDate*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case 1220374379: /*defaultValueDateTime*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 587916191: /*defaultValueUrl*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 264593188: /*defaultValueCanonical*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 1045494429: /*defaultValueTime*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 1044993469: /*defaultValueCode*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 587910138: /*defaultValueOid*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 2077989249: /*defaultValueDecimal*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -2059245333: /*defaultValueId*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 539117290: /*defaultValueUnsignedInt*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -737344154: /*defaultValuePositiveInt*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1801671663: /*defaultValueInstant*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1801189522: /*defaultValueInteger*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -325436225: /*defaultValueMarkdown*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 587910138: /*defaultValueOid*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -737344154: /*defaultValuePositiveInt*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -320515103: /*defaultValueString*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 1045494429: /*defaultValueTime*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 539117290: /*defaultValueUnsignedInt*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 587916188: /*defaultValueUri*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 587916191: /*defaultValueUrl*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case 1045535627: /*defaultValueUuid*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -611966428: /*defaultValueAddress*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -1851689217: /*defaultValueAnnotation*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case 2034820339: /*defaultValueAttachment*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -1915078535: /*defaultValueIdentifier*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -410434095: /*defaultValueCodeableConcept*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -783616198: /*defaultValueCoding*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -344740576: /*defaultValueContactPoint*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -975393912: /*defaultValueHumanName*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1915078535: /*defaultValueIdentifier*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -420255343: /*defaultValuePeriod*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -1857379237: /*defaultValueQuantity*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -1951495315: /*defaultValueRange*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -420255343: /*defaultValuePeriod*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -1951489477: /*defaultValueRatio*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
+          case -1488914053: /*defaultValueReference*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -449641228: /*defaultValueSampledData*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case 509825768: /*defaultValueSignature*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -975393912: /*defaultValueHumanName*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -611966428: /*defaultValueAddress*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -344740576: /*defaultValueContactPoint*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -302193638: /*defaultValueTiming*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -1488914053: /*defaultValueReference*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 1045282261: /*defaultValueMeta*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -754548089: /*defaultValueDosage*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 1845473985: /*defaultValueContactDetail*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 1793609483: /*defaultValueContributor*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 375217257: /*defaultValueDataRequirement*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -701053940: /*defaultValueParameterDefinition*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 412877133: /*defaultValueRelatedArtifact*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case 1913203547: /*defaultValueTriggerDefinition*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
-          case -701644642: /*defaultValueUsageContext*/  return new Property("defaultValue[x]", "*", "A value to use if there is no existing value in the source object.", 0, 1, defaultValue);
           case -1662836996: /*element*/  return new Property("element", "string", "Optional field for this source.", 0, 1, element);
           case 1345445729: /*listMode*/  return new Property("listMode", "code", "How to handle the list mode for this element.", 0, 1, listMode);
           case -1249586564: /*variable*/  return new Property("variable", "id", "Named context for field, if a field is specified.", 0, 1, variable);
@@ -3733,40 +3726,20 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("type")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.type");
         }
-        else if (name.equals("defaultValueBoolean")) {
-          this.defaultValue = new BooleanType();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueInteger")) {
-          this.defaultValue = new IntegerType();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueDecimal")) {
-          this.defaultValue = new DecimalType();
-          return this.defaultValue;
-        }
         else if (name.equals("defaultValueBase64Binary")) {
           this.defaultValue = new Base64BinaryType();
           return this.defaultValue;
         }
-        else if (name.equals("defaultValueInstant")) {
-          this.defaultValue = new InstantType();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueString")) {
-          this.defaultValue = new StringType();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueUri")) {
-          this.defaultValue = new UriType();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueUrl")) {
-          this.defaultValue = new UrlType();
+        else if (name.equals("defaultValueBoolean")) {
+          this.defaultValue = new BooleanType();
           return this.defaultValue;
         }
         else if (name.equals("defaultValueCanonical")) {
           this.defaultValue = new CanonicalType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueCode")) {
+          this.defaultValue = new CodeType();
           return this.defaultValue;
         }
         else if (name.equals("defaultValueDate")) {
@@ -3777,32 +3750,64 @@ public class StructureMap extends MetadataResource {
           this.defaultValue = new DateTimeType();
           return this.defaultValue;
         }
-        else if (name.equals("defaultValueTime")) {
-          this.defaultValue = new TimeType();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueCode")) {
-          this.defaultValue = new CodeType();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueOid")) {
-          this.defaultValue = new OidType();
+        else if (name.equals("defaultValueDecimal")) {
+          this.defaultValue = new DecimalType();
           return this.defaultValue;
         }
         else if (name.equals("defaultValueId")) {
           this.defaultValue = new IdType();
           return this.defaultValue;
         }
-        else if (name.equals("defaultValueUnsignedInt")) {
-          this.defaultValue = new UnsignedIntType();
+        else if (name.equals("defaultValueInstant")) {
+          this.defaultValue = new InstantType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueInteger")) {
+          this.defaultValue = new IntegerType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueMarkdown")) {
+          this.defaultValue = new MarkdownType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueOid")) {
+          this.defaultValue = new OidType();
           return this.defaultValue;
         }
         else if (name.equals("defaultValuePositiveInt")) {
           this.defaultValue = new PositiveIntType();
           return this.defaultValue;
         }
-        else if (name.equals("defaultValueMarkdown")) {
-          this.defaultValue = new MarkdownType();
+        else if (name.equals("defaultValueString")) {
+          this.defaultValue = new StringType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueTime")) {
+          this.defaultValue = new TimeType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueUnsignedInt")) {
+          this.defaultValue = new UnsignedIntType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueUri")) {
+          this.defaultValue = new UriType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueUrl")) {
+          this.defaultValue = new UrlType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueUuid")) {
+          this.defaultValue = new UuidType();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueAddress")) {
+          this.defaultValue = new Address();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueAge")) {
+          this.defaultValue = new Age();
           return this.defaultValue;
         }
         else if (name.equals("defaultValueAnnotation")) {
@@ -3813,16 +3818,44 @@ public class StructureMap extends MetadataResource {
           this.defaultValue = new Attachment();
           return this.defaultValue;
         }
-        else if (name.equals("defaultValueIdentifier")) {
-          this.defaultValue = new Identifier();
-          return this.defaultValue;
-        }
         else if (name.equals("defaultValueCodeableConcept")) {
           this.defaultValue = new CodeableConcept();
           return this.defaultValue;
         }
         else if (name.equals("defaultValueCoding")) {
           this.defaultValue = new Coding();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueContactPoint")) {
+          this.defaultValue = new ContactPoint();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueCount")) {
+          this.defaultValue = new Count();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueDistance")) {
+          this.defaultValue = new Distance();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueDuration")) {
+          this.defaultValue = new Duration();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueHumanName")) {
+          this.defaultValue = new HumanName();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueIdentifier")) {
+          this.defaultValue = new Identifier();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueMoney")) {
+          this.defaultValue = new Money();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValuePeriod")) {
+          this.defaultValue = new Period();
           return this.defaultValue;
         }
         else if (name.equals("defaultValueQuantity")) {
@@ -3833,12 +3866,12 @@ public class StructureMap extends MetadataResource {
           this.defaultValue = new Range();
           return this.defaultValue;
         }
-        else if (name.equals("defaultValuePeriod")) {
-          this.defaultValue = new Period();
-          return this.defaultValue;
-        }
         else if (name.equals("defaultValueRatio")) {
           this.defaultValue = new Ratio();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueReference")) {
+          this.defaultValue = new Reference();
           return this.defaultValue;
         }
         else if (name.equals("defaultValueSampledData")) {
@@ -3849,60 +3882,12 @@ public class StructureMap extends MetadataResource {
           this.defaultValue = new Signature();
           return this.defaultValue;
         }
-        else if (name.equals("defaultValueHumanName")) {
-          this.defaultValue = new HumanName();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueAddress")) {
-          this.defaultValue = new Address();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueContactPoint")) {
-          this.defaultValue = new ContactPoint();
-          return this.defaultValue;
-        }
         else if (name.equals("defaultValueTiming")) {
           this.defaultValue = new Timing();
           return this.defaultValue;
         }
-        else if (name.equals("defaultValueReference")) {
-          this.defaultValue = new Reference();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueMeta")) {
-          this.defaultValue = new Meta();
-          return this.defaultValue;
-        }
         else if (name.equals("defaultValueDosage")) {
           this.defaultValue = new Dosage();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueContactDetail")) {
-          this.defaultValue = new ContactDetail();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueContributor")) {
-          this.defaultValue = new Contributor();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueDataRequirement")) {
-          this.defaultValue = new DataRequirement();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueParameterDefinition")) {
-          this.defaultValue = new ParameterDefinition();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueRelatedArtifact")) {
-          this.defaultValue = new RelatedArtifact();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueTriggerDefinition")) {
-          this.defaultValue = new TriggerDefinition();
-          return this.defaultValue;
-        }
-        else if (name.equals("defaultValueUsageContext")) {
-          this.defaultValue = new UsageContext();
           return this.defaultValue;
         }
         else if (name.equals("element")) {

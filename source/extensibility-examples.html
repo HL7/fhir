@@ -76,37 +76,39 @@ From this table, we can build a formal extension definition. In this case, it lo
 
 <pre class="xml" fragment="StructureDefinition">
 &lt;StructureDefinition xmlns="http://hl7.org/fhir">
-  &lt;url value="http://example.org/fhir/StructureDefinition/participation-agreement" /&gt;
-  &lt;name value="Example Extension Definition" /&gt;
+  &lt;url value="http://example.org/fhir/StructureDefinition/participation-agreement"/&gt;
+  &lt;name value="Example Extension Definition"/&gt;
   &lt;!-- snip other metadata -->
-  &lt;kind value="datatype" /&gt;
-  &lt;contextType value="resource" /&gt;
-  &lt;context value="Patient" /&gt;
-  &lt;type value="Extension" /&gt;
-  &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Extension" /&gt;
-  &lt;derivation value="constraint" /&gt;
+  &lt;kind value="datatype"/&gt;
+  &lt;context&gt;
+    &lt;type value="fhirpath"/&gt;
+    &lt;expression value="Patient"/&gt;
+  &lt;/context&gt;
+  &lt;type value="Extension"/&gt;
+  &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Extension"/&gt;
+  &lt;derivation value="constraint"/&gt;
 
   &lt;differential>
     &lt;element>
       &lt;path value="Extension"/>
-      &lt;short value="Agreed agreement/policy" /&gt;
+      &lt;short value="Agreed agreement/policy"/&gt;
       &lt;definition value="A URI that identifies a participation agreement/policy
-        to which the patient has agreed" /&gt;
+        to which the patient has agreed"/&gt;
       &lt;comment value="URI is a literal reference to agreement text (html).
         Systems SHALL conform to the policies as indicated.
-        For further information, see the partnership agreement..." /&gt;
-      &lt;mustSupport value="true" /&gt;
-      &lt;isModifier value="false" /&gt;
+        For further information, see the partnership agreement..."/&gt;
+      &lt;mustSupport value="true"/&gt;
+      &lt;isModifier value="false"/&gt;
     &lt;/element>
     &lt;element>
       &lt;path value="Extension.valueUri"/>
-      &lt;short value="The URI value" /&gt;
-      &lt;min value="1" /&gt;
-      &lt;max value="*" /&gt;
+      &lt;short value="The URI value"/&gt;
+      &lt;min value="1"/&gt;
+      &lt;max value="*"/&gt;
       &lt;type>
-         &lt;code value="uri" /&gt;
+         &lt;code value="uri"/&gt;
       &lt;/type>
-      &lt;mustSupport value="true" /&gt;
+      &lt;mustSupport value="true"/&gt;
     &lt;/element>
   &lt;/differential>
 &lt;/StructureDefinition>
@@ -136,7 +138,7 @@ fragment identifier.
 <pre class="xml" fragment="Patient">
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
   &lt;extension url=&quot;http://example.org/phr/documents/fhir/extensions/participation-agreement&quot; &gt;
-    &lt;valueUri value=&quot;http://example.org/phr/documents/patient/general/v1&quot; /&gt;
+    &lt;valueUri value=&quot;http://example.org/phr/documents/patient/general/v1&quot;/&gt;
   &lt;/extension&gt;
   &lt;!-- ... --&gt;
 &lt;/Patient&gt;
@@ -153,7 +155,7 @@ will use this resource, a StructureDefinition on the patient resource is used:
 
 <pre class="xml" fragment="StructureDefinition">
 &lt;StructureDefinition xmlns="http://hl7.org/fhir">
-  &lt;id value="patient-profile" /&gt;
+  &lt;id value="patient-profile"/&gt;
   &lt;!-- snip other metadata, narrative -->
   &lt;differential&gt;
 
@@ -283,47 +285,58 @@ and their associated bindings. In this case, the definition looks like this:
 
 <pre class="xml" fragment="StructureDefinition">
 &lt;StructureDefinition xmlns="http://hl7.org/fhir">
-  &lt;url value="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier" /&gt;
-  &lt;name value="Iso21090NameQualifier" /&gt;
-  &lt;title value="iso-21090 Name Qualifier" /&gt;
+  &lt;url value="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"/&gt;
+  &lt;name value="Iso21090NameQualifier"/&gt;
+  &lt;title value="iso-21090 Name Qualifier"/&gt;
   &lt;!-- snip other metadata, including definition of RIM Mapping -->
-  &lt;kind value="datatype" /&gt;
-  &lt;contextType value="datatype" /&gt;
-  &lt;context value="HumanName.given" /&gt;
-  &lt;context value="HumanName.prefix" /&gt;
-  &lt;context value="HumanName.family" /&gt;
-  &lt;context value="HumanName.suffix" /&gt;
-  &lt;type value="Extension" /&gt;
-  &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Extension" /&gt;
-  &lt;derivation value="constraint" /&gt;
+  &lt;kind value="datatype"/&gt;
+  &lt;context&gt;
+    &lt;type value="element"/&gt;
+    &lt;expression value="HumanName.given"/&gt;
+  &lt;/context&gt;    
+  &lt;context&gt;
+    &lt;type value="element"/&gt;
+    &lt;expression value="HumanName.prefix"/&gt;
+  &lt;/context&gt;    
+  &lt;context&gt;
+    &lt;type value="element"/&gt;
+    &lt;expression value="HumanName.family"/&gt;
+  &lt;/context&gt;    
+  &lt;context&gt;
+    &lt;type value="element"/&gt;
+    &lt;expression value="HumanName.suffix"/&gt;
+  &lt;/context&gt;    
+  &lt;type value="Extension"/&gt;
+  &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Extension"/&gt;
+  &lt;derivation value="constraint"/&gt;
   &lt;differential>
     &lt;element>
       &lt;path value="Extension"/>
-      &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
+      &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN"/&gt;
       &lt;definition value="A set of codes each of which specifies a certain subcategory
-          of the name part in addition to the main name part type" /&gt;
+          of the name part in addition to the main name part type"/&gt;
       &lt;comment value="Used to indicate additional information about the
-             name part and how it should be used" /&gt;
-      &lt;mustSupport value="false" /&gt;
-      &lt;isModifier value="false" /&gt;
+             name part and how it should be used"/&gt;
+      &lt;mustSupport value="false"/&gt;
+      &lt;isModifier value="false"/&gt;
     &lt;/element>
     &lt;element>
       &lt;path value="Extension.value"/>
-      &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN" /&gt;
-      &lt;min value="0" /&gt;
-      &lt;max value="*" /&gt;
+      &lt;short value="LS | AC | NB | PR | HON | BR | AD | SP | MID | CL | IN"/&gt;
+      &lt;min value="0"/&gt;
+      &lt;max value="*"/&gt;
       &lt;type>
-         &lt;code value="code" /&gt;
+         &lt;code value="code"/&gt;
       &lt;/type>
       &lt;binding&gt;
-        &lt;strength value="required" /&gt;
+        &lt;strength value="required"/&gt;
         &lt;description value="A set of codes each of which specifies a certain subcategory
-            of the name part in addition to the main name part type" /&gt;
-        &lt;valueSetCanonical value="ValueSet/name-part-qualifier" /&gt;
+            of the name part in addition to the main name part type"/&gt;
+        &lt;valueSetCanonical value="ValueSet/name-part-qualifier"/&gt;
       &lt;/binding&gt;
       &lt;mapping>
-         &lt;identity value="RIM" /&gt;
-         &lt;map value="ENXP.qualifier" /&gt;
+         &lt;identity value="RIM"/&gt;
+         &lt;map value="ENXP.qualifier"/&gt;
       &lt;/mapping>
     &lt;/element>
   &lt;/differential>
@@ -346,10 +359,10 @@ fragment identifier.
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;
+  &lt;use value=&quot;official&quot;/&gt;
   &lt;given value=&quot;Östlund&quot;&gt;
      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
-        &lt;valueCode value=&quot;MID&quot; /&gt;
+        &lt;valueCode value=&quot;MID&quot;/&gt;
      &lt;/extension&gt;
   &lt;/given&gt;
 &lt;/name&gt;
@@ -390,11 +403,13 @@ Tthe relevant parts of the definition of this extension are as follows:
   &lt;url value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
   &lt;name value=&quot;ClinicalTrialParticipation&quot;/&gt;
   &lt;title value=&quot;The patient's participation in clinical trials&quot;/&gt;
-  &lt;contextType value=&quot;resource&quot;/&gt;
-  &lt;context value=&quot;Patient&quot;/&gt;
-  &lt;type value="Extension" /&gt;
-  &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Extension" /&gt;
-  &lt;derivation value="constraint" /&gt;
+  &lt;context&gt;
+    &lt;type value=&quot;element&quot;/&gt;
+    &lt;expression value=&quot;Patient&quot;/&gt;
+  &lt;/context&gt;
+  &lt;type value="Extension"/&gt;
+  &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Extension"/&gt;
+  &lt;derivation value="constraint"/&gt;
   &lt;snapshot&gt;
     &lt;element&gt;
       &lt;path value=&quot;Extension&quot;/&gt;
@@ -516,17 +531,17 @@ With complex extensions, only the first URL is an absolute URL:
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
   &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
     &lt;extension url=&quot;NCT&quot; &gt;
-      &lt;valueString value=&quot;NCT00000419&quot; /&gt;
+      &lt;valueString value=&quot;NCT00000419&quot;/&gt;
     &lt;/extension&gt;
     &lt;extension url=&quot;period&quot; &gt;
       &lt;valuePeriod&gt;
-        &lt;start value=&quot;200140105&quot; /&gt;
-        &lt;end value=&quot;20120105&quot; /&gt;
+        &lt;start value=&quot;200140105&quot;/&gt;
+        &lt;end value=&quot;20120105&quot;/&gt;
       &lt;/valuePeriod&gt;
     &lt;/extension&gt;
     &lt;extension url=&quot;reason&quot; &gt;
       &lt;valueCodeableConcept&gt;
-        &lt;text value=&quot;NCT00000419&quot; /&gt;
+        &lt;text value=&quot;NCT00000419&quot;/&gt;
       &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
   &lt;/extension&gt;
@@ -542,7 +557,7 @@ This is the same as for a simple extension:
 
 <pre class="xml" fragment="StructureDefinition">
 &lt;StructureDefinition xmlns="http://hl7.org/fhir">
-  &lt;id value="patient-profile" /&gt;
+  &lt;id value="patient-profile"/&gt;
   &lt;!-- snip other metadata, narrative -->
   &lt;differential&gt;
 

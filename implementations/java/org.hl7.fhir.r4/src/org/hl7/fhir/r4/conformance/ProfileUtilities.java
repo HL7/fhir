@@ -51,6 +51,7 @@ import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.Resource;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent;
@@ -1920,18 +1921,17 @@ public class ProfileUtilities extends TranslatingUtilities {
 
 
   public static String describeExtensionContext(StructureDefinition ext) {
-    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-    for (StringType t : ext.getContext())
-      b.append(t.getValue());
-    if (!ext.hasContextType())
-      throw new Error("no context type on "+ext.getUrl());
-    switch (ext.getContextType()) {
-    case DATATYPE: return "Use on data type: "+b.toString();
-    case EXTENSION: return "Use on extension: "+b.toString();
-    case RESOURCE: return "Use on element: "+b.toString();
-    default:
-      return "??";
+    StringBuilder b = new StringBuilder();
+    b.append("Use on ");
+    for (int i = 0; i < ext.getContext().size(); i++) {
+      StructureDefinitionContextComponent ec = ext.getContext().get(i);
+      if (i > 0) 
+        b.append(i < ext.getContext().size() - 1 ? ", " : " or ");
+      b.append(ec.getType().getDisplay());
+      b.append(" ");
+      b.append(ec.getExpression());
     }
+    return b.toString(); 
   }
 
   private String describeCardinality(ElementDefinition definition, ElementDefinition fallback, UnusedTracker tracker) {

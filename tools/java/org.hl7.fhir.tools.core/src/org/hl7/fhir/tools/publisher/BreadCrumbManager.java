@@ -13,7 +13,7 @@ import org.hl7.fhir.definitions.model.Profile;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContextType;
 import org.hl7.fhir.r4.utils.Translations;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -477,21 +477,20 @@ public class BreadCrumbManager {
         } else if ((name.startsWith("extension-") || name.startsWith("cqif\\extension-")) && name.endsWith(".html")) {
           String url = title;
           StructureDefinition ext = context.fetchResource(StructureDefinition.class, url);
-          if (ext == null || ext.getContextType() == ExtensionContext.EXTENSION || !ext.hasContext()) {
+          if (!ext.hasContext() || ext.getContextFirstRep().getType() != ExtensionContextType.ELEMENT) { 
             b.append("        <li>??? "+Utilities.escapeXml(name)+" / "+Utilities.escapeXml(type)+"</li>\r\n");
             System.out.println("no breadcrumb: name = "+name+", type = "+type+", prefix = "+prefix+", title = '"+title+"'");
           } else {
             String[] path;
             String ttl;
             String fn;
-            if (ext.getContextType() == ExtensionContext.DATATYPE) {
+            String[] p = ext.getContextFirstRep().getExpression().split("\\.");
+            if (definitions.hasType(p[0])) {
               path = map.get("datatypes.html").split("\\.");
               ttl = "Data Types";
               fn = "datatypes";
             } else {
-              String rn = ext.getContext().get(0).asStringValue();
-              if (rn.contains("."))
-                rn = rn.substring(0, rn.indexOf("."));
+              String rn = p[0];
               ttl = rn;
               if (ttl.equals("*"))
                 ttl = "Resource";

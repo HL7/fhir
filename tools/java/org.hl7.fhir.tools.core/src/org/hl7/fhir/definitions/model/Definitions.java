@@ -36,12 +36,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.model.CodeSystem;
 import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContextType;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
+import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.model.ValueSet;
+import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.igtools.spreadsheets.MappingSpace;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
@@ -536,34 +541,42 @@ public class Definitions {
     return igs.get(usage);
   }
 
-  public void checkContextValid(ExtensionContext contextType, String value, String context) throws Exception {
-    if (contextType == ExtensionContext.DATATYPE) {
-      if (value.equals("*") || value.equals("Any"))
+  public void checkContextValid(StructureDefinitionContextComponent ec, String context, IWorkerContext worker) throws Exception {
+    if (ec.getType() == ExtensionContextType.ELEMENT) {
+      if (ec.getExpression().equals("*")) {
+        ec.setExpression("Element");
+      }
+      if (ec.getExpression().equals("Any")) {
+        ec.setExpression("Resource");
+      }
+
+      if (ec.getExpression().equals("Element")) {
         return;
-      if (primitives.containsKey(value))
+      }
+      if (ec.getExpression().equals("Resource")) {
         return;
-      String[] parts = value.split("\\.");
+      }
+      
+      if (primitives.containsKey(ec.getExpression()))
+        return;
+      String[] parts = ec.getExpression().split("\\.");
       if (hasType(parts[0]) && getElementByPath(parts, "check extension context", true) != null)
         return;
       if (hasResource(parts[0])  && getElementByPath(parts, "check extension context", true) != null)
         return;
-      throw new Error("The data type context '"+value+"' is not valid @ "+context);
-      
-    } else if (contextType == ExtensionContext.RESOURCE) {
-      if (value.startsWith("@"))
-        value = value.substring(1);
-      if (value.equals("*") || value.equals("Any"))
-        return;
-      String[] parts = value.split("\\.");
-      if (sortedResourceNames().contains(value))
-        return;
-      if (getElementByPath(parts, "check extension context", true) != null)
-        return;
-      
-      throw new Error("The resource context '"+value+"' is not valid @ "+context);
+      throw new Error("The element context '"+ec.getExpression()+"' is not valid @ "+context);      
+    } else if (ec.getType() == ExtensionContextType.FHIRPATH) {
+      FHIRPathEngine fpe = new FHIRPathEngine(worker);
+      TypeDetails td = fpe.check(null, null, null, ec.getExpression());
+      if (td.hasNoTypes())
+        throw new Error("The resource context '"+ec.getExpression()+"' is not valid @ "+context);
+      else
+        ec.setUserData("type-details", td);
+    } else if (ec.getType() == ExtensionContextType.EXTENSION) {
+      if (!Utilities.isAbsoluteUrl(ec.getExpression()))
+        throw new Error("The extension context '"+ec.getExpression()+"' is not valid @ "+context);
     } else
-    throw new Error("not checked yet @ "+context);
-    
+      throw new Error("not checked yet @ "+context);    
   }
 
   public ElementDefn getElementByPath(String[] parts, String purpose, boolean followType) throws Exception {

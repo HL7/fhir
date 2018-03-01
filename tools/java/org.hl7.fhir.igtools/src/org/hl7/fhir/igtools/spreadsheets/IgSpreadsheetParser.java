@@ -61,7 +61,8 @@ import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.SearchParameter;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContextType;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
@@ -1062,15 +1063,17 @@ public class IgSpreadsheetParser {
     // ap.getExtensions().add(ex);
 
     if (context == null) {
-      ex.setContextType(readContextType(sheet.getColumn(row, "Context Type"), row));
+      ExtensionContextType ct = readContextType(sheet.getColumn(row, "Context Type"), row);
       if (sheet.hasColumn("Context Invariant"))
         for (String s : sheet.getColumn(row, "Context Invariant").split("~"))
           ex.addContextInvariant(s);
       String cc = sheet.getColumn(row, "Context");
       if (!Utilities.noString(cc))
         for (String c : cc.split("\\;")) {
-          checkContextValid(ex.getContextType(), c.trim(), this.name);
-          ex.addContext(c.trim());
+          StructureDefinitionContextComponent ec = ex.addContext();
+          ec.setType(ct);
+          ec.setExpression(c.trim());
+          checkContextValid(ec, this.name);
         }
     }
     ex.setTitle(sheet.getColumn(row, "Display"));
@@ -1181,37 +1184,40 @@ public class IgSpreadsheetParser {
       return "";
   }
 
-  private ExtensionContext readContextType(String value, int row) throws Exception {
+  private ExtensionContextType readContextType(String value, int row) throws Exception {
     if (value.equals("Resource"))
-      return ExtensionContext.RESOURCE;
+      return ExtensionContextType.ELEMENT;
     if (value.equals("DataType") || value.equals("Data Type"))
-      return ExtensionContext.DATATYPE;
+      return ExtensionContextType.ELEMENT;
     if (value.equals("Elements"))
-      return ExtensionContext.RESOURCE;
+      return ExtensionContextType.ELEMENT;
     if (value.equals("Element"))
-      return ExtensionContext.RESOURCE;
+      return ExtensionContextType.ELEMENT;
     if (value.equals("Extension"))
-      return ExtensionContext.EXTENSION;
+      return ExtensionContextType.ELEMENT;
     throw new Exception("Unable to read context type '"+value+"' at "+getLocation(row));
   }
 
-  public void checkContextValid(ExtensionContext contextType, String value, String context) throws Exception {
-    if (contextType == ExtensionContext.DATATYPE || contextType == ExtensionContext.RESOURCE) {
-      if (value.equals("*") || value.equals("Any"))
-        return;
-      String[] parts = value.split("\\.");
+  public void checkContextValid(StructureDefinitionContextComponent ec, String context) throws Exception {
+    if (ec.getType() == ExtensionContextType.ELEMENT) {
+      if (ec.getExpression().equals("*"))
+        ec.setExpression("Element");
+      if (ec.getExpression().equals("Any"))
+        ec.setExpression("Resource");
+
+      String[] parts = ec.getExpression().split("\\.");
       StructureDefinition sd = this.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+parts[0]);
       if (sd != null) {
         for (ElementDefinition ed : sd.getSnapshot().getElement())
-          if (ed.getPath().equals(value))
+          if (ed.getPath().equals(ec.getExpression()))
             return;
       }
-      throw new Error("The context '"+value+"' is not valid @ "+context);
-    } else {
-      if (!value.startsWith("http://"))
-        throw new Error("The context '" + value + "' needs to be a full URL");
-//      throw new Error("not checked yet @ "+context);
-    }
+      throw new Error("The element context '"+ec.getExpression()+"' is not valid @ "+context);
+    } else if (ec.getType() == ExtensionContextType.EXTENSION) {
+      if (!Utilities.isAbsoluteUrl(ec.getExpression()))
+        throw new Error("The extension context '" + ec.getExpression() + "' is not valid @ "+context);
+    } else
+      throw new Error("The extension context '" + ec.getExpression() + "' is not supported yet @ "+context);
   }
 
   private void parseExtensionElement(Sheet sheet, int row, StructureDefinition sd, ElementDefinition exe, boolean nested) throws Exception {

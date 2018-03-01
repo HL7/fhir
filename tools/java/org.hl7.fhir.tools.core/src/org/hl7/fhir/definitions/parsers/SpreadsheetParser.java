@@ -106,7 +106,8 @@ import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.SearchParameter;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
-import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.r4.model.StructureDefinition.ExtensionContextType;
+import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.TimeType;
@@ -804,9 +805,9 @@ public class SpreadsheetParser {
               if (ex == null)
                 throw new Exception("Search Param "+pack.getTitle()+"/"+n+" refers to unknown extension '"+p+"' "+ getLocation(row));
               e = definitions.getElementDefn("Extension");
-              if (ex.getContextType() != ExtensionContext.RESOURCE || !ex.hasContext())
-                throw new Exception("Search Param "+pack.getTitle()+"/"+n+" refers to an extension that is not tied to a particular resource path '"+p+"' "+ getLocation(row));
-              path = ex.getContext().get(0).getValue();
+              if (ex.getContext().size() != 1 || ex.getContext().get(0).getType() != ExtensionContextType.ELEMENT)
+                throw new Exception("Search Param "+pack.getTitle()+"/"+n+" refers to an extension with multiple contexts, not not an element context - not supported '"+p+"' "+ getLocation(row));
+              path = ex.getContext().get(0).getExpression();
               if (Utilities.noString(path))
                 throw new Exception("Search Param "+pack.getTitle()+"/"+n+" has no path");
               if (path.contains("."))
@@ -819,8 +820,7 @@ public class SpreadsheetParser {
                 throw new Exception("Search Param "+root2.getName()+"/"+n+": duplicate name "+ getLocation(row));
               sp.setId(pack.getId()+"-"+path+"-"+sp.getName());
 
-              for (StringType t : ex.getContext())
-                pn.add(t.getValue()+".extension{"+ex.getUrl()+"}");
+                pn.add(ex.getContext().get(0).getExpression()+".extension{"+ex.getUrl()+"}");
             } else if (p.contains(".extension{")) {
               String url = extractExtensionUrl(p);
               StructureDefinition ex = context.fetchResource(StructureDefinition.class, url); // not created yet?
@@ -2048,17 +2048,20 @@ public class SpreadsheetParser {
     ex.setId(tail(ex.getUrl()));
 	  ap.getExtensions().add(ex);
 	  if (context == null) {
-      ex.setContextType(readContextType(sheet.getColumn(row, "Context Type"), row));
-      if (sheet.hasColumn("Context Invariant"))
-        for (String s : sheet.getColumn(row, "Context Invariant").split("~"))
-          ex.addContextInvariant(s);
-      String cc = sheet.getColumn(row, "Context");
-      if (!Utilities.noString(cc))
-        for (String c : cc.split("\\;")) {
-          if (definitions != null) // igtodo: what to do about this?
-            definitions.checkContextValid(ex.getContextType(), c.trim(), this.name);
-          ex.addContext(c.trim());
-        }
+	    ExtensionContextType ct = readContextType(sheet.getColumn(row, "Context Type"), row);
+	    if (sheet.hasColumn("Context Invariant"))
+	      for (String s : sheet.getColumn(row, "Context Invariant").split("~"))
+	        ex.addContextInvariant(s);
+	    String cc = sheet.getColumn(row, "Context");
+	    if (!Utilities.noString(cc))
+	      for (String c : cc.split("\\;")) {
+	        StructureDefinitionContextComponent ec = ex.addContext();
+	        ec.setExpression(c.trim());
+	        ec.setType(ct);
+	        if (definitions != null) { 
+	          definitions.checkContextValid(ec, this.name, this.context);
+	        }
+	      }
 	  }
 	  ex.setTitle(sheet.getColumn(row, "Display"));
 
@@ -2241,17 +2244,17 @@ public class SpreadsheetParser {
     }
   }
 
-	private ExtensionContext readContextType(String value, int row) throws Exception {
+	private ExtensionContextType readContextType(String value, int row) throws Exception {
     if (value.equals("Resource"))
-      return ExtensionContext.RESOURCE;
+      return ExtensionContextType.ELEMENT;
     if (value.equals("DataType") || value.equals("Data Type"))
-      return ExtensionContext.DATATYPE;
+      return ExtensionContextType.ELEMENT;
     if (value.equals("Elements"))
-      return ExtensionContext.RESOURCE;
+      return ExtensionContextType.ELEMENT;
     if (value.equals("Element"))
-      return ExtensionContext.RESOURCE;
+      return ExtensionContextType.ELEMENT;
     if (value.equals("Extension"))
-      return ExtensionContext.EXTENSION;
+      return ExtensionContextType.EXTENSION;
     throw new Exception("Unable to read context type '"+value+"' at "+getLocation(row));
   }
 
