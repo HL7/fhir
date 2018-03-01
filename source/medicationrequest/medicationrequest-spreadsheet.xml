@@ -5,7 +5,7 @@
   <LastPrinted>2016-01-26T17:36:52Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2018-02-20T05:13:16Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -16,7 +16,7 @@
   
   
   <TabRatio>732</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -821,6 +821,12 @@
   </Style>
   <Style ss:ID="s168">
    <Font ss:Color="#333333" ss:FontName="Verdana" ss:Size="12" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s169">
+   <Font ss:Color="#000000" ss:FontName="Helvetica" ss:Size="12" x:Family="Swiss"/>
+  </Style>
+  <Style ss:ID="s170">
+   <Font ss:Color="#021DA7" ss:FontName="Helvetica" ss:Size="12" x:Family="Swiss"/>
   </Style>
  </Styles>
  <Names>
@@ -3698,7 +3704,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5605,7 +5610,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="39" ss:StyleID="s142" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="43" ss:StyleID="s142" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s142" ss:Width="89.0"/>
    <Column ss:StyleID="s142" ss:Width="28.0"/>
    <Column ss:StyleID="s142" ss:Width="328.0"/>
@@ -5944,15 +5949,35 @@
     <Cell ss:StyleID="s151"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">Wt Based</Data></Cell>
     <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s158"/>
-    <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">Order for Intravenous Dopamine - Weight based calculation with rateQuantity</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">medrx0336</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">medicationrequest0336.xml</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s159"/>
    </Row>
-   <Row ss:AutoFitHeight="0"/>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">RateQuantity</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Order for Intravenous Admixture Dopamine - with rateQuantity</Data></Cell>
+    <Cell><Data ss:Type="String">medrx0337</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">medicationrequest0337.xml</Data></Cell>
+   </Row>
+   <Row ss:Height="32">
+    <Cell><Data ss:Type="String">RateQty and DoseQty</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">Order for Intravenous Admixture Dopamine - with doseQuantity and rateQuantity</Data></Cell>
+    <Cell><Data ss:Type="String">medrx0338</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">medicationrequest0338.xml</Data></Cell>
+   </Row>
+   <Row ss:Height="17">
+    <Cell ss:Index="3" ss:StyleID="s170"/>
+   </Row>
+   <Row ss:Height="16">
+    <Cell ss:Index="3" ss:StyleID="s169"/>
+   </Row>
+   <Row ss:Height="16">
+    <Cell ss:Index="3" ss:StyleID="s169"/>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -5965,10 +5990,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>9</TopRowBottomPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

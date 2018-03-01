@@ -77,6 +77,14 @@
         <li><a href="medicationrequest0333.html">Order for a medication that is intended to be given in the morning</a></li>
         <li><a href="medicationrequest0334.html">Order that includes a dosage instruction for a medication that is intended to be given once only as single dose</a></li>
         <li><a href="medicationrequest0335.html">Order that includes a dosage instruction for a medication that is intended to be given once only as single dose</a></li>
+        <li><a href="medicationrequest0301.html">Order with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution</a></li>
+        <li><a href="medicationrequest0303.html">Order for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod</a></li>
+        <li><a href="medicationrequest0305.html">Order with Dosage with a Pre-Condition - Alprazolam - dosageInstructions includes boundsPeriod with periodMax and asNeededCodeableConcept</a></li>
+        <li><a href="medicationrequest0315.html">Order for an injectable medication - Lorazepam with Dosage Rate (as rateRange) - active - with link to encounter, reasonCode and dosageInstruction</a></li>
+        <li><a href="medicationrequest0322.html">Order for Intravenous Admixture with Dosage Rate (as rateRatio) - Potassium Chloride in D5W - completed with reason code</a></li>
+        <li><a href="medicationrequest0336.html">Order for Intravenous Dopamine - Weight based calculation with rateQuantity</a></li>
+        <li><a href="medicationrequest0337.html">Order for Intravenous Admixture Dopamine - with rateQuantity</a></li>
+        <li><a href="medicationrequest0338.html">Order for Intravenous Admixture Dopamine - with doseQuantity and rateQuantity</a></li>
     </ul>
     
 </div>
