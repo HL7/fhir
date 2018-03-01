@@ -20,7 +20,7 @@
 
 <p>Note that these mechanisms are provided on both the ActivityDefinition and the PlanDefinition to allow both reusable transformation descriptions, as well as customization of those descriptions within specific contexts. As such, the transform descriptions specified on the PlanDefinition <i>override</i> transform descriptions defined on the ActivityDefinition.</p>
 
-<p>Dynamic values within the definitions can be provided by specifying the expression directly, or by referencing an expression defined within a library. For more information on how to reference expressions within resources, refer to the <a href="cqif/cqif-topics-using-expressions.html">Using Expressions</a> topic.</p>
+<p>Dynamic values within the definitions can be provided by specifying the expression directly, or by referencing an expression defined within a library. For more information on how to reference expressions within resources, refer to the <a href="clinicalreasoning-topics-using-expressions.html">Using Expressions</a> topic.</p>
 
 <p>As an example, the Low Suicide Risk example order set from the Clinical Decision Support Knowledge Artifact Specification can be represented using the PlanDefinition and ActivityDefinition structures: <a href="plandefinition-example.html">Low Suicide Risk Example Order Set</a>.</p>
 

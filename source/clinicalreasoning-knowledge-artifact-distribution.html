@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+      
+[%settitle Clinical Reasoning%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body> 
+[%file newnavbar%]
+
+<div class="col-12">
+
+<a name="knowledge-artifact-distribution"> </a>
+<h3>Sharing Knowledge Artifacts</h3>
+<table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
+
+<p>One of the primary use cases of the Clincal Reasoning Module is to enable the sharing and distribution of computable clinical knowledge artifacts:</p>
+
+<img alt="Knowledge Artifact Sharing" src="clinicalreasoning-knowledge-artifact-distribution.png"/>
+
+<p>The distribution use case involves enabling knowledge artifacts to be distributed as resources via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="library.html">Library</a>, <a href="activitydefinition.html">ActivityDefinition</a>, <a href="plandefinition.html">PlanDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and <a href="measure.html">Measure</a> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
+
+<p>In particular, the <code>useContext</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the <code>useContext</code> element to indicate semantic usage context for an example suicide risk order set:</p>
+
+<pre><code>  &lt;coverage&gt;
+    &lt;patientAgeGroup&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;133936004&quot;/&gt;
+        &lt;display value=&quot;Adult&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/patientAgeGroup&gt;
+    &lt;clinicalFocus&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;87512008&quot;/&gt;
+        &lt;display value=&quot;Mild major depression&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/clinicalFocus&gt;
+    &lt;clinicalFocus&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;394687007&quot;/&gt;
+        &lt;display value=&quot;Low suicide risk&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/clinicalFocus&gt;
+    &lt;targetUser&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;309343006&quot;/&gt;
+        &lt;display value=&quot;Physician&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/targetUser&gt;
+    &lt;clinicalVenue&gt;
+      &lt;coding&gt;
+        &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+        &lt;code value=&quot;440655000&quot;/&gt;
+        &lt;display value=&quot;Outpatient environment&quot;/&gt;
+      &lt;/coding&gt;
+    &lt;/clinicalVenue&gt;
+  &lt;/coverage&gt;
+</code></pre>
+
+<p>The <code>useContext</code> element can contain any number of characteristics that define the particular context of use for the artifact. Note that the base resource does not communicate the intended semantics when multiple useContext elements are present. To accomplish this, a core extension is defined, <a href="extension-usagecontext-group.html">usagecontext-group</a>. All use contexts within a group apply, while groups of use contexts indicate that any group applies.</p>
+
+<p>In addition, the <code>useContext</code> element is intended to convey <i>prescriptive</i> semantics about the appropriate context of use for an artifact, while the <code>topic</code> element is intended to convey <i>descriptive</i> semantics suitable for indexing and searching using the <code>topic</code> search parameter.</p>
+
+<p>The FHIR search interaction specifies that search results are returned in a Bundle, and the entries in that bundle allow a score to be specified, consistent with the Decision Support Service (DSS) relevance result. Note that the DSS score range is 1 to 100, while the FHIR score range is 0..1.</p>
+
+<p>The algorithm for determining relevance is not prescribed by this guidance. When calculating relevance, implementations are encouraged to take advantage of the metadata represented within the artifact to help users understand the relevance of the returned artifacts to their search criteria.</p>
+
+<p>To reduce the size of returned results and ensure efficient searching and retrieval, the Bundle returned SHOULD consist only of resources of the requested type. Dependencies of the resources returned SHOULD NOT be included unless specifically referenced by <a href="search.html#include">including</a>  the resources using the <code>_include</code> and <code>_revinclude</code> parameters.</p>
+
+<p>Support for two different distribution use cases can be provided using the basic GET interaction:</p>
+
+<ul>
+	<li>Summary - Using the <code>_summary</code> parameter, the resources returned represent only the basic information and metadata about each matching artifact.</li>
+	<li>Full - Using the <code>_include</code> and <code>_revinclude</code> search parameters to include related resources in the result.</li>
+</ul>
+
+<p>The following table lists the search criteria elements defined by the Decision Support Service (DSS) standard along with their appropriate representation in FHIR:</p>
+
+<table class="grid">
+	<thead>
+		<tr><th>DSS Search Criteria</th><th>FHIR Equivalent</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>Maximum Results</td><td>_count global search parameter</td></tr>
+		<tr><td>Minimum Score</td><td>KnowledgeArtifact.minScore search parameter</td></tr>
+		<tr><td>Knowledge Artifact Trait</td><td>Knowledge search parameters (identifier, topic, title, description, version)</td></tr>
+		<tr><td>Knowledge Artifact Status</td><td>KnowledgeArtifact.status search parameter</td></tr>
+		<tr><td>Evaluation Result Semantics</td><td>Not Implemented</td></tr>
+		<tr><td>Data Requirements</td><td>Not Implemented</td></tr>
+		<tr><td>Relationships to specific Knowledge Artifacts</td><td>Not Implemented</td></tr>
+	</tbody>
+</table>
+
+<p>Support for exclusion criteria as described in the DSS is provided by the :not search parameter modifier of FHIR.</p>
+
+<p>Implementing at least the FHIR search and get interactions for the clinical reasoning resources (Library, ActivityDefinition, PlanDefinition, and Measure) is then a basic implementation of a Knowledge Artifact Repository. For example, the following GET retrieves all measures that reference a specific value set:</p>
+
+<pre><code>GET [base]/ValueSet/zika-affected-areas?_revinclude=Library:depends-on&amp;_revinclude:recurse=Measure:depends-on</code></pre>
+
+<p>More sophisticated management functionality including semantic indexing, change management, and dependency tracking can be provided on top of this basic functionality using the same resource structures.</p>
+
+</div>
+[%file newfooter%]
+</body>
+</html>
