@@ -75,8 +75,8 @@
     <ul>
         <li><a href="medicationrequest0332.html">Order that includes a dosage instruction for a medication that is intended to be given once only as single dose</a></li>
         <li><a href="medicationrequest0333.html">Order for a medication that is intended to be given in the morning</a></li>
-        <li><a href="medicationrequest0334.html">Order that includes a dosage instruction for a medication that is intended to be given once only as single dose</a></li>
-        <li><a href="medicationrequest0335.html">Order that includes a dosage instruction for a medication that is intended to be given once only as single dose</a></li>
+        <li><a href="medicationrequest0334.html">Order that includes a dosage instruction for a medication that is given on a specific day of the week</a></li>
+        <li><a href="medicationrequest0335.html">Order that includes a dosage instruction for a medication that is given at a specific time of the day</a></li>
         <li><a href="medicationrequest0301.html">Order with as needed (PRN) dosage with pre-condition - Oxycodone - active with reasonCode, note, dispenseRequest and substitution</a></li>
         <li><a href="medicationrequest0303.html">Order for Tapering Dose - Prednisone - active with note and multiple DosageInstructions with boundsPeriod</a></li>
         <li><a href="medicationrequest0305.html">Order with Dosage with a Pre-Condition - Alprazolam - dosageInstructions includes boundsPeriod with periodMax and asNeededCodeableConcept</a></li>
@@ -85,6 +85,10 @@
         <li><a href="medicationrequest0336.html">Order for Intravenous Dopamine - Weight based calculation with rateQuantity</a></li>
         <li><a href="medicationrequest0337.html">Order for Intravenous Admixture Dopamine - with rateQuantity</a></li>
         <li><a href="medicationrequest0338.html">Order for Intravenous Admixture Dopamine - with doseQuantity and rateQuantity</a></li>
+        <li><a href="medicationrequest0321.html">Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text</a></li>
+        <li><a href="medicationrequest0319.html">Order for Intravenous Antibiotic with a Dosage Rate (as RateQuantity) - Piperacillin - completed with reason code</a></li>
+        <li><a href="medicationrequest0309.html">Oral Chemotherapy Order - Capecitabine - active medication with dosing by Body Surface Area (BSA) (mg/m2)</a></li>
+        <li><a href="medicationrequest0308.html">Order for as needed (PRN) dosage - Vicodin - completed with dosageInstruction with additionalInstruction (coded) and as needed with reason, dispenseRequest and substitution</a></li>
     </ul>
     
 </div>
