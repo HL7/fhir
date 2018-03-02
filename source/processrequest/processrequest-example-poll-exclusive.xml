@@ -17,9 +17,9 @@
  
   <created value="2014-08-16"/>
 
-  <organization>
+  <provider>
     <reference value="Organization/1"/>
-  </organization>
+  </provider>
   
   <exclude value="Communication"/>
   <exclude value="PaymentReconciliation"/>

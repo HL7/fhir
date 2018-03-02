@@ -106,17 +106,10 @@
 
 	<requestProvider>
 		<identifier>
-			<system value="http://national.org/provider"/>
-			<value value="PR9876"/>
-		</identifier>  
-	</requestProvider>
-
-	<requestOrganization> 
-		<identifier>
 			<system value="http://national.org/clinic"/>
 			<value value="OR1234"/>
 		</identifier>   
-	</requestOrganization>
+	</requestProvider>
 
 	<request>
 		<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332405"/>

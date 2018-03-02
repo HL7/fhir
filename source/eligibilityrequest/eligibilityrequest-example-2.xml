@@ -35,15 +35,8 @@
 	</enterer>
 
 	<provider>
-		<identifier>
-			<system value="http://happyvalleyclinic.com/staff"/>
-			<value value="18"/>
-		</identifier>
-	</provider>
-
-	<organization>
 		<reference value="Organization/1"/>
-	</organization>
+	</provider>
 
 	<insurer>
 		<reference value="Organization/2"/>

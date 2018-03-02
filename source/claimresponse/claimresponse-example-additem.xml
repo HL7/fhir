@@ -37,12 +37,8 @@
 	</insurer>
 
 	<requestProvider>
-		<reference value="Practitioner/1"/>
-	</requestProvider>
-
-	<requestOrganization>
 		<reference value="Organization/1"/>
-	</requestOrganization>
+	</requestProvider>
 
 	<request>
 		<identifier>

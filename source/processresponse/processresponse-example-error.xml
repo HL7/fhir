@@ -34,10 +34,6 @@
 		</identifier>
 	</requestProvider>
 
-	<requestOrganization>
-		<reference value="Organization/1"/>
-	</requestOrganization>
-
 	<form>
 		<coding>
 			<system value="http://ncforms.org/formid"/>

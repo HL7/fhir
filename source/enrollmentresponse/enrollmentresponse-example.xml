@@ -30,11 +30,7 @@
   </organization>
   
   <requestProvider>
-    <reference value="Practitioner/f201"/>
+    <reference value="Organization/1"/>
   </requestProvider>
 
-  <requestOrganization>
-    <reference value="Organization/1"/>
-  </requestOrganization>
- 
 </EnrollmentResponse>

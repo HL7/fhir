@@ -27,8 +27,8 @@
   
   <disposition value="Adjudication processing completed, ClaimResponse and EOB ready for retrieval."/>
  
-  <requestOrganization>
+  <requestProvider>
     <reference value="Organization/1"/>
-  </requestOrganization>
+  </requestProvider>
 
 </ProcessResponse>

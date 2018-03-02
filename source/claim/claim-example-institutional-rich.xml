@@ -52,10 +52,6 @@
 		</identifier>
 	</provider>
 
-	<organization>
-		<reference value="Organization/1"/>
-	</organization>
-
 	<priority>
 		<coding>
 			<code value="normal"/>

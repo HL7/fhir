@@ -41,10 +41,6 @@
 		<reference value="Practitioner/1"/>
 	</requestProvider>
 
-	<requestOrganization>
-		<reference value="Organization/1"/>
-	</requestOrganization>
-
 	<request>
 		<reference value="Claim/100156"/>
 	</request>

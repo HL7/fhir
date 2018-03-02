@@ -39,12 +39,12 @@
 		</identifier>
 	</insurer>
 
-	<organization>
+	<provider>
 		<identifier>
 			<system value="http://www.jurisdiction.com/careorganizations"/>
 			<value value="HOSP12345"/>
 		</identifier>
-	</organization>
+	</provider>
 
 	<priority>
 		<coding>

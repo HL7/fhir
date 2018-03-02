@@ -152,9 +152,9 @@
 		<reference value="#org-insurer"/>
 	</insurer>
 
-	<organization>
+	<provider>
 		<reference value="#org-org"/>
-	</organization>  
+	</provider>  
 
 	<priority>
 		<coding>

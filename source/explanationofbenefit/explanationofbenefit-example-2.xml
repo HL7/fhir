@@ -49,12 +49,8 @@
 	</insurer>
 
 	<provider>
-		<reference value="Practitioner/1"/>
-	</provider>
-
-	<organization>
 		<reference value="Organization/2"/>
-	</organization>
+	</provider>
 
 	<facility>
 		<reference value="Location/1"/>

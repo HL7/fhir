@@ -24,9 +24,9 @@
 		<reference value="Organization/2"/>
 	</insurer>
 
-	<requestOrganization>
+	<requestProvider>
 		<reference value="Organization/1"/>
-	</requestOrganization>
+	</requestProvider>
 
 	<request>
 		<identifier> 

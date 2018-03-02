@@ -33,12 +33,8 @@
 	<disposition value="2014 August mid-month settlement."/>
 
 	<requestProvider>
-		<reference value="Practitioner/example"/>
-	</requestProvider>
-
-	<requestOrganization>
 		<reference value="Organization/1"/>
-	</requestOrganization>
+	</requestProvider>
 
 	<detail>
 		<type>

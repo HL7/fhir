@@ -20,13 +20,9 @@
   </insurer>
   
   <provider>
-    <reference value="Practitioner/f201"/>
+    <reference value="Organization/1"/>
   </provider>
 
-  <organization>
-    <reference value="Organization/1"/>
-  </organization>
-  
   <candidate>
     <reference value="Patient/1"/>
   </candidate>

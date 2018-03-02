@@ -67,9 +67,9 @@
 
 	<disposition value="Additional information required."/>
 
-	<requestOrganization>
+	<requestProvider>
 		<reference value="Organization/1"/>
-	</requestOrganization>
+	</requestProvider>
 
 	<communicationRequest>
 		<reference value="#comreq-1"/>

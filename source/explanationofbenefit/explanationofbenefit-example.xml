@@ -36,10 +36,6 @@
 		<reference value="Practitioner/1"/>
 	</provider>
 
-	<organization>
-		<reference value="Organization/2"/>
-	</organization>
-
 	<facility>
 		<reference value="Location/1"/>
 	</facility>
