@@ -79,7 +79,7 @@
         </coding>
       </code>
       <status value="completed"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledString value="daily"/>
       <!--TODO Isn't <performer> redundant when considering <participant> that was defined before?-->
       <productReference>
@@ -106,7 +106,7 @@
         </coding>
       </code>
       <status value="completed"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
     </detail>
   </activity>
 </CarePlan>

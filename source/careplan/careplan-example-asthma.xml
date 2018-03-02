@@ -246,7 +246,7 @@
         </coding>
         <text value="Peak Flow"/>
       </code>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledTiming>
         <repeat>
           <period value="1"/>
@@ -287,7 +287,7 @@
       </extension>
 	  <kind value="MedicationRequest"/>
       <status value="not-started"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <description value="Eve will start oral steroids if the peakflow drops below 350"/>
     </detail>
   </activity>
@@ -313,7 +313,7 @@
         </extension>
       </extension>
       <status value="not-started"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <description value="Get Medical assistance immediately"/>
     </detail>
   </activity>

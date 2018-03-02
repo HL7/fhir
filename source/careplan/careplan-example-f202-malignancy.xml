@@ -124,7 +124,7 @@
         </coding>
       </code>
       <status value="in-progress"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <productReference>
         <reference value="#tpf"/>
       </productReference>

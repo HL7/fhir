@@ -277,7 +277,7 @@
         <reference value="#g1"/>
       </goal>
       <status value="not-started"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-09-10"/>
       </scheduledPeriod>
@@ -298,7 +298,7 @@
         <reference value="#g1"/>
       </goal>
       <status value="not-started"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-09-10"/>
       </scheduledPeriod>
@@ -314,7 +314,7 @@
         <reference value="#g2"/>
       </goal>
       <status value="in-progress"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-09-10"/>
       </scheduledPeriod>
@@ -338,7 +338,7 @@
         <reference value="#g3"/>
       </goal>
       <status value="in-progress"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-08-27"/>
       </scheduledPeriod>
@@ -362,7 +362,7 @@
         <reference value="#g3"/>
       </goal>
       <status value="in-progress"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
@@ -378,7 +378,7 @@
         <reference value="#g4"/>
       </goal>
       <status value="in-progress"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
@@ -402,7 +402,7 @@
         <reference value="#g5"/>
       </goal>
       <status value="in-progress"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
@@ -422,7 +422,7 @@
         <reference value="#g4"/>
       </goal>
       <status value="in-progress"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-07-10"/>
       </scheduledPeriod>
@@ -446,7 +446,7 @@
         <reference value="#g3"/>
       </goal>
       <status value="on-hold"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>
@@ -462,7 +462,7 @@
         <reference value="#g4"/>
       </goal>
       <status value="completed"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-07-10"/>
       </scheduledPeriod>
@@ -482,7 +482,7 @@
         <reference value="#g4"/>
       </goal>
       <status value="completed"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-07-10"/>
       </scheduledPeriod>
@@ -506,7 +506,7 @@
         <reference value="#g3"/>
       </goal>
       <status value="on-hold"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <start value="2012-07-23"/>
       </scheduledPeriod>

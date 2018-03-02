@@ -76,7 +76,7 @@
         </coding>
       </code>
       <status value="not-started"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
     </detail>
   </activity>
 </CarePlan>

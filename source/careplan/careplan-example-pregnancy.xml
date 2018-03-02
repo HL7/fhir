@@ -136,7 +136,7 @@
         <text value="First Antenatal encounter"/>
       </code>
       <status value="scheduled"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledTiming>
         <!-- The encounter should occur between 14 feb and 28 feb -->
         <repeat>
@@ -173,7 +173,7 @@
         <text value="Follow-up Antenatal encounter"/>
       </code>
       <status value="not-started"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledTiming>
         <!-- The encounter should occur between 1 march and 14 march -->
         <repeat>
@@ -209,7 +209,7 @@
         <text value="Delivery"/>
       </code>
       <status value="not-started"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledTiming>
         <!-- The delivery should occur between 1 September and 14 September -->
         <repeat>

@@ -93,7 +93,7 @@
 		</code>
 		<status value="completed"/>
 		<statusReason value="Achieved weight loss to mitigate diabetes risk." />
-		<prohibited value="false"/>
+		<doNotPerform value="false"/>
 		<scheduledTiming>
 			<repeat>
 				<frequency value="1"/>

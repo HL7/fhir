@@ -141,7 +141,7 @@
         <text value="Nurse Consultation"/>
       </code>
       <status value="completed"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <scheduledPeriod>
         <!-- the nurse saw the patient between 10:38 and 10:50 -->
         <start value="2013-01-01T10:38:00+00:00"/>
@@ -167,7 +167,7 @@
         <text value="Doctor Consultation"/>
       </code>
       <status value="scheduled"/>
-      <prohibited value="false"/>
+      <doNotPerform value="false"/>
       <!-- The status is 'scheduled' so the doctor knows the patient is waiting.  -->
       <performer>
         <!-- refer to the participant (the nurse) in this resource-->
