@@ -4,7 +4,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2018-02-21T00:36:14Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -19,7 +19,7 @@
   
   
   <TabRatio>736</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1057,15 +1057,15 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s86"/>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">category</Data></Cell>
-    <Cell ss:Formula="=R2C3&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s86"><Data ss:Type="String">Media.category</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">type</Data></Cell>
+    <Cell ss:Formula="=R2C3&amp;&#34;.&#34;&amp;RC[-1]" ss:StyleID="s86"><Data ss:Type="String">Media.type</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">MediaCategory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">MediaType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">class</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4063,13 +4063,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>3</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4631,10 +4630,10 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">Description</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Explanation of param.  Will default if omitted and Path is specified, otherwise it is required</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">category</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">type</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Media.category</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Media.type</Data></Cell>
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4839,6 +4838,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6408,11 +6408,11 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unpublished notes</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">MediaCategory</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">MediaType</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">Codes for high level media categories.</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">valueset-media-category</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">valueset-media-type</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>

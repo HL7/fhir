@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="media-category"/>
-  <url value="http://hl7.org/fhir/CodeSystem/media-category"/>
+  <id value="media-type"/>
+  <url value="http://hl7.org/fhir/CodeSystem/media-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.1.326"/>
   </identifier>
   <version value="3.0.1"/>
   <name value="DigitalMediaType"/>
+  <title value="Digital Media Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2017-04-19T07:44:43+10:00"/>
@@ -22,7 +23,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Codes for high level media categories - whether the media is an image, video, or audio."/>
+  <description value="Codes for high level media types - whether the media is an image, video, or audio."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/media-category"/>
   <content value="complete"/>

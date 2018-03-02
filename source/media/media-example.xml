@@ -2,13 +2,13 @@
 <Media xmlns="http://hl7.org/fhir">
 	<id value="example"/>
 	<status value="completed"/>
-	<category>
+	<type>
 		<coding>
 			<system value="http://hl7.org/fhir/CodeSystem/media-category"/>
 			<code value="image"/>
 			<display value="Image"/>
 		</coding>
-	</category>
+	</type>
 	<modality>
 		<coding>
 			<system value="http://hl7.org/fhir/media-modality"/>
