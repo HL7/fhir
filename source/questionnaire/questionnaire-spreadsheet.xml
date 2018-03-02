@@ -18,7 +18,7 @@
   
   
   <TabRatio>613</TabRatio>
-  <ActiveSheet>6</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4300,7 +4300,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">Questionnaire.item.enableWhen</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">enableWhen must contain either a 'answer' or a 'hasAnswer' element</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">hasAnswer.exists() xor answer.exists()</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">count(f:*[starts-with(local-name(.), 'answer')]|self::f:hasAnswer) = 1</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">count(f:*[starts-with(local-name(.), 'answer')]|f:hasAnswer) = 1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s110"><Data ss:Type="Number">8</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4684,12 +4684,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -6054,7 +6055,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
