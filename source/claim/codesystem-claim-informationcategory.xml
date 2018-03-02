@@ -59,4 +59,14 @@
     <display value="Other"/>
     <definition value="Other information identified by the type.system."/>
   </concept>
+  <concept>
+    <code value="hospitalized"/>
+    <display value="Hospitalized"/>
+    <definition value="An indication that the patient was hospitalized, the period if known otherwise a Yes/No (boolean)."/>
+  </concept>
+  <concept>
+    <code value="employmentimpacted"/>
+    <display value="EmploymentImpacted"/>
+    <definition value="An indication that the patient was unable to work, the period if known otherwise a Yes/No (boolean)."/>
+  </concept>
 </CodeSystem>

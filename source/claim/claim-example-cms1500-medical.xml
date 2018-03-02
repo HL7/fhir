@@ -157,6 +157,20 @@
 		<category>
 			<coding>
 				<system value="http://hl7.org/fhir/claiminformationcategory"/>
+				<code value="hospitalized"/>
+			</coding>
+		</category>
+		<timingPeriod>
+			<start value="2015-10-01T00:00:00-07:00"/>
+			<end value="2015-10-05T00:00:00-07:00"/>
+		</timingPeriod>
+	</information>
+
+	<information>
+		<sequence value="2"/>
+		<category>
+			<coding>
+				<system value="http://hl7.org/fhir/claiminformationcategory"/>
 				<code value="discharge"/>
 			</coding>
 		</category>
@@ -223,11 +237,6 @@
 			<reference value="#coverage-1"/>
 		</coverage>
 	</insurance>
-
-	<hospitalization>
-		<start value="2015-10-01T00:00:00-07:00"/>
-		<end value="2015-10-05T00:00:00-07:00"/>
-	</hospitalization>
 
 	<item>
 		<sequence value="1"/>

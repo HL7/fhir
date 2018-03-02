@@ -28,7 +28,7 @@
 	</subType>
 
 	<use value="complete"/>
-	
+
 	<patient>
 		<reference value="Patient/pat1"/>
 	</patient>
@@ -87,6 +87,34 @@
 		<reference value="MedicationRequest/medrx0301"/>
 	</originalPrescription>
 
+	<information>
+		<sequence value="1"/>
+		<category>
+			<coding>
+				<system value="http://hl7.org/fhir/claiminformationcategory"/>
+				<code value="employmentimpacted"/>
+			</coding>
+		</category>
+		<timingPeriod>
+			<start value="2014-02-14"/>
+			<end value="2014-02-28"/>
+		</timingPeriod>
+	</information>
+
+	<information>
+		<sequence value="2"/>
+		<category>
+			<coding>
+				<system value="http://hl7.org/fhir/ValueSet/claiminformationcategory"/>
+				<code value="hospitalized"/>
+			</coding>
+		</category>
+		<timingPeriod>
+			<start value="2014-02-14"/>
+			<end value="2014-02-16"/>
+		</timingPeriod>
+	</information>
+
 	<procedure>
 		<sequence value="1"/>
 		<date value="2014-02-14"/>
@@ -119,16 +147,6 @@
 		</locationReference>
 	</accident>
 
-	<employmentImpacted>
-		<start value="2014-02-14"/>
-		<end value="2014-02-28"/>
-	</employmentImpacted>
-
-	<hospitalization>
-		<start value="2014-02-14"/>
-		<end value="2014-02-16"/>
-	</hospitalization>
-
 	<total>
 		<category>
 			<coding>
@@ -141,7 +159,7 @@
 			<code value="USD"/> 
 		</amount> 
 	</total>
-	
+
 	<total>
 		<category>
 			<coding>

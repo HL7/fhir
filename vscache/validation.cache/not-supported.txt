@@ -103,6 +103,7 @@ urn:iso:std:iso:3166
 http://example.com
 http://hl7.org/fhir/service-uscls
 http://www.ama-assn.org/go/cpt
+http://hl7.org/fhir/ValueSet/claiminformationcategory
 http://snomed.info
 http://hl7.org.fhir/substance-category
 http://acme.org/devices/clinical-codes
