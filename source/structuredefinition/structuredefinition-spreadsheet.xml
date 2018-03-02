@@ -93,7 +93,7 @@
   
   
   
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4594,7 +4594,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7296,7 +7295,7 @@
     <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">FHIRPath</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">The context is all elements that match the FHIRPath query found in the expression.</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
@@ -7307,8 +7306,8 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Datatype</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The context is any element that has an elementDefinition.id that matches that found in the expression</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Element ID</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The context is any element that has an ElementDefinition.id that matches that found in the expression. This includes ElementDefinition Ids that have slicing identifiers</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -7318,7 +7317,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Extension</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Extension URL</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">The context is a particular extension from a particular profile, and the expression is just a uri that identifies the extension</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -7827,6 +7826,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
