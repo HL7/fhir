@@ -27,6 +27,8 @@
 		</coding>
 	</subType>
 
+	<use value="complete"/>
+	
 	<patient>
 		<reference value="Patient/pat1"/>
 	</patient>

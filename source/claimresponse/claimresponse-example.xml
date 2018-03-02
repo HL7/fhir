@@ -14,6 +14,22 @@
 
 	<status value="active"/>
 
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/claim-type"/>
+			<code value="oral"/>
+		</coding>
+	</type>
+
+	<subType>
+		<coding>
+			<system value="http://hl7.org/fhir/ex-claimsubtype"/>
+			<code value="emergency"/>
+		</coding>
+	</subType>
+
+	<use value="complete"/>
+	
 	<patient>
 		<reference value="Patient/1"/>
 	</patient>

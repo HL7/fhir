@@ -17,9 +17,6 @@ provides the additional supporting information to support that action. The actio
 reprocess, and status. 
 </p>
 <p>
-
-</p>
-<p>
 <b>Cancel</b> indicates the resource which is to be reversed and provides both supporting 
 information for the reversal and whether the receiving system is permitted to retain a copy of the 
 reversed resource.
@@ -28,18 +25,17 @@ reversed resource.
 The Cancel is the formal request to cease processing an incomplete prior request or to reverse 
 and/or nullify a complete prior request or information submission. When nullify=true then all copies 
 of the original submission are to be purged, although audit logs may be retained. When Nullify=false 
-a copy of the original request may be retained. A ProcessResponse may be craeated or returned to indicate 
-whether the requestion action was accepted and successful.
+a copy of the original request may be retained. A ProcessResponse may be created or returned to indicate 
+whether the requested action was accepted and successful.
 </p>
-
 <p>
 <b>Poll</b> provides supporting information for the poll request. The response to 
-this is a previously undelivered response or a ProcessResponse which may 
+a Poll is a previously undelivered response Resource or a ProcessResponse which may 
 contain errors. 
 </p>
 <p>
-This is a formal request for payors or systems which require such and/or transports which don't 
-support a 'Get Operation', for the retrieval of pended, held, resources.
+This is a formal request for systems which require requisition-level information or transports which don't 
+support a 'Get Operation', for the retrieval of pended, or held, resources.
 </p>
 <p>
 A simple Poll request, one which doesn't specify: request, include, exclude or period; would return
@@ -55,9 +51,8 @@ filtering elements, for example:
 creation date, and specify 'PaymentReconciliation' as an 'include'</li> 
 </ul>
 
-
 <p>
-<b>Reprocess</b> indicates the resource which is to be reprocessed, for example a claim to be readjudicated or a specimen or diagnostic image to be re-examined, 
+<b>Reprocess</b> indicates the resource which is to be reprocessed, for example a claim to be re-adjudicated or a specimen or diagnostic image to be re-examined, 
 and provides both supporting information for the reprocessing and the line items which are to be reprocessed.
 </p>
 <p>
@@ -68,10 +63,9 @@ reprocessing of specified service sub-trees from an already processed resource s
 <p>
 <b>Status</b> indicates the resource for which the processing status is requested and 
 provides supporting information for the status request.
-
 </p>
 <p>
-This is a formal request for payors which require such and/or transports which don't support a
+This is a formal request for systems which require requisition-level information or transports which don't support a
 'Get Operation', for the processing status of a previously submitted processing request.
 </p>
 

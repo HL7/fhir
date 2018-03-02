@@ -19,6 +19,8 @@
 			<code value="oral"/>
 		</coding>
 	</type>
+	
+	<use value="complete"/>
 
 	<patient>
 		<reference value="Patient/pat1"/>
