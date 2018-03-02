@@ -4318,7 +4318,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">Questionnaire.item</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Read-only can't be specified for "display" items</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">type!='display' or readOnly.empty()</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">not(f:type/@value='display' and f:readOnly)</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">not(f:type/@value=('group', 'display') and f:*[starts-with(local-name(.), 'initial')])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s110"><Data ss:Type="Number">10</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4326,7 +4326,7 @@
     <Cell ss:StyleID="s111"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Questionnaire.item</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">Maximum length can only be declared for simple question types</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">(type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url')) or maxLength.empty()</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">(type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url' | 'open-choice')) or maxLength.empty()</Data></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">f:type/@value=('boolean', 'decimal', 'integer', 'open-choice', 'string', 'text', 'url') or not(f:maxLength)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
