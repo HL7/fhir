@@ -2278,7 +2278,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">received | complete | error | partial</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">queued | complete | error | partial</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Processing outcome errror, partial or complete processing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -11430,9 +11430,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>69</TopRowBottomPane>
+   <TopRowBottomPane>23</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -11448,8 +11448,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>79</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>11</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -10,8 +10,8 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="received"/>
-    <display value="Received but not Processed"/>
+    <code value="queued"/>
+    <display value="Queued"/>
     <definition value="The Claim/Pre-authorization/Pre-determination has been received but processing has not begun."/>
   </concept>
   <concept>
