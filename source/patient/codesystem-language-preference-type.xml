@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+	<url value="http://hl7.org/fhir/language-preference-type"/>
+	<name value="LanguagePreferenceType"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<description value="This code system defines a defines the set of codes for describing the type or mode of the patient's preferred language."/>
+	<caseSensitive value="true"/>
+	<content value="complete"/>
+	<concept>
+		<code value="verbal"/>
+		<display value="verbal"/>
+		<definition value="The patient prefers to verbally communicate with the associated language."/>
+	</concept>
+	<concept>
+		<code value="written"/>
+		<display value="written"/>
+		<definition value="The patient prefers to communicate in writing with the associated language."/>
+	</concept>
+</CodeSystem>
