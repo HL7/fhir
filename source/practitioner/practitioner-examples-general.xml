@@ -15,6 +15,36 @@
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">Dr. Beverly Crusher</div>
         </text>
+		<identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="333333333"/>
+        </identifier>
+		<identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="NPI"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-npi"/>
+		  <value value="1122334499"/>
+        </identifier>
+		<identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="DEA"/>
+            </coding>
+          </type>
+          <system value="https://www.deanumber.com/"/>
+		  <value value="F91234567-001AB"/>
+        </identifier>
         <name>
           <family value="Beverly"/>
           <given value="Crusher"/>
