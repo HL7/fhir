@@ -125,17 +125,31 @@
 
 	</item>
 
-	<totalCost>
-		<value value="135.57"/>
-		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/>
-	</totalCost>	
-
-	<totalBenefit>
-		<value value="90.47"/>
-		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/>
-	</totalBenefit>
+	<total>
+		<category>
+			<coding>
+				<code value="submitted"/>
+			</coding>
+		</category>
+		<amount>
+			<value value="135.57"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</amount> 
+	</total>
+	
+	<total>
+		<category>
+			<coding>
+				<code value="benefit"/>
+			</coding>
+		</category>
+		<amount>
+			<value value="90.47"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</amount> 
+	</total>
 
 	<!-- Payment details -->
 	<payment>
