@@ -7307,7 +7307,7 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Element ID</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The context is any element that has an ElementDefinition.id that matches that found in the expression. This includes ElementDefinition Ids that have slicing identifiers</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The context is any element that has an ElementDefinition.id that matches that found in the expression. This includes ElementDefinition Ids that have slicing identifiers. The full path for the element is [url]#[elementid]. If there is no #, the Element id is one defined in the base specification</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
