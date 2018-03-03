@@ -9,6 +9,7 @@ import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestComponent;
 import org.hl7.fhir.r4.model.CapabilityStatement.CapabilityStatementRestResourceComponent;
 import org.hl7.fhir.r4.model.Dosage.DosageDoseAndRateComponent;
+import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOperator;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.utilities.Utilities;
@@ -16835,7 +16836,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent t : src.getOption())
       tgt.addOption(convertQuestionnaireItemOptionComponent(t));
     if (src.hasInitial())
-      tgt.setInitial(convertType(src.getInitial()));
+      tgt.addInitial().setValue(convertType(src.getInitial()));
     for (org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent t : src.getItem())
       tgt.addItem(convertQuestionnaireItemComponent(t));
     return tgt;
@@ -16873,7 +16874,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOptionComponent t : src.getOption())
       tgt.addOption(convertQuestionnaireItemOptionComponent(t));
     if (src.hasInitial())
-      tgt.setInitial(convertType(src.getInitial()));
+      tgt.setInitial(convertType(src.getInitialFirstRep().getValue()));
     for (org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemComponent t : src.getItem())
       tgt.addItem(convertQuestionnaireItemComponent(t));
     return tgt;
@@ -16936,9 +16937,11 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     if (src.hasQuestion())
       tgt.setQuestion(src.getQuestion());
-    if (src.hasHasAnswer())
-      tgt.setHasAnswer(src.getHasAnswer());
-    if (src.hasAnswer())
+    if (src.hasHasAnswer()) {
+      tgt.setOperator(QuestionnaireItemOperator.EXISTS);
+      tgt.setAnswer(convertType(src.getHasAnswerElement()));
+    }
+    else if (src.hasAnswer())
       tgt.setAnswer(convertType(src.getAnswer()));
     return tgt;
   }
@@ -16950,9 +16953,9 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     if (src.hasQuestion())
       tgt.setQuestion(src.getQuestion());
-    if (src.hasHasAnswer())
-      tgt.setHasAnswer(src.getHasAnswer());
-    if (src.hasAnswer())
+    if (src.hasOperator() && src.getOperator() == QuestionnaireItemOperator.EXISTS)
+      tgt.setHasAnswer(src.getAnswerBooleanType().getValue());
+    else if (src.hasAnswer())
       tgt.setAnswer(convertType(src.getAnswer()));
     return tgt;
   }

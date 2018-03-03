@@ -528,8 +528,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       tester.initialTests();
       page.setFolders(new FolderManager(folder));
 
-      if (isGenerate && page.getSvnRevision() == null)
-        page.setSvnRevision(checkSubversion(folder));
       registerReferencePlatforms();
 
       if (!initialize(folder))
@@ -581,6 +579,8 @@ public class Publisher implements URIResolver, SectionNumberer {
           Utilities.tone(1200, 30);
         page.log("Full Build", LogMessageType.Process);
       }
+      if (isGenerate && page.getSvnRevision() == null)
+        page.setSvnRevision(checkSubversion(folder));
       Utilities.createDirectory(page.getFolders().dstDir);
       Utilities.deleteTempFiles();
 

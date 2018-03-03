@@ -48,6 +48,7 @@
         <type value="group"/>
         <enableWhen>
           <question value="1.1"/>
+          <operator value="="/>
           <answerCoding>
             <system value="http://hl7.org/fhir/v2/0136"/>
             <code value="Y"/>

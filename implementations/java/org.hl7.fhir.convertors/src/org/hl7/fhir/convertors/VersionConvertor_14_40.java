@@ -34,6 +34,7 @@ package org.hl7.fhir.convertors;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.dstu2016may.model.BooleanType;
 import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionPropertyComponent;
 import org.hl7.fhir.dstu2016may.model.Reference;
 import org.hl7.fhir.dstu2016may.model.CodeableConcept;
@@ -50,6 +51,7 @@ import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscrimin
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.Enumeration;
+import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOperator;
 import org.hl7.fhir.r4.model.Timing.EventTiming;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.r4.model.UsageContext;
@@ -5050,7 +5052,7 @@ public class VersionConvertor_14_40 {
     tgt.setOptionsElement(convertReferenceToCanonical(src.getOptions()));
     for (org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemOptionComponent t : src.getOption())
       tgt.addOption(convertQuestionnaireItemOptionComponent(t));
-    tgt.setInitial(convertType(src.getInitial()));
+    tgt.addInitial().setValue(convertType(src.getInitial()));
     for (org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemComponent t : src.getItem())
       tgt.addItem(convertQuestionnaireItemComponent(t));
     return tgt;
@@ -5083,7 +5085,8 @@ public class VersionConvertor_14_40 {
     tgt.setOptions(convertCanonicalToReference(src.getOptionsElement()));
     for (org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOptionComponent t : src.getOption())
       tgt.addOption(convertQuestionnaireItemOptionComponent(t));
-    tgt.setInitial(convertType(src.getInitial()));
+    if (src.hasInitial())
+      tgt.setInitial(convertType(src.getInitialFirstRep().getValue()));
     for (org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemComponent t : src.getItem())
       tgt.addItem(convertQuestionnaireItemComponent(t));
     return tgt;
@@ -5146,8 +5149,10 @@ public class VersionConvertor_14_40 {
     org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemEnableWhenComponent tgt = new org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemEnableWhenComponent();
     copyElement(src, tgt);
     tgt.setQuestion(src.getQuestion());
-    if (src.hasAnswered())
-      tgt.setHasAnswer(src.getAnswered());
+    if (src.hasAnswered()) {
+      tgt.setOperator(QuestionnaireItemOperator.EXISTS);
+      tgt.setAnswer(convertType(src.getAnsweredElement()));
+    }
     tgt.setAnswer(convertType(src.getAnswer()));
     return tgt;
   }
@@ -5158,9 +5163,10 @@ public class VersionConvertor_14_40 {
     org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemEnableWhenComponent tgt = new org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemEnableWhenComponent();
     copyElement(src, tgt);
     tgt.setQuestion(src.getQuestion());
-    if (src.hasHasAnswer())
-      tgt.setAnswered(src.getHasAnswer());
-    tgt.setAnswer(convertType(src.getAnswer()));
+    if (src.hasOperator() && src.getOperator() == QuestionnaireItemOperator.EXISTS)
+      tgt.setAnswered(src.getAnswerBooleanType().getValue());
+    else 
+      tgt.setAnswer(convertType(src.getAnswer()));
     return tgt;
   }
 

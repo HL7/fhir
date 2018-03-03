@@ -347,6 +347,7 @@ public class ProfileUtilities extends TranslatingUtilities {
 
     derived.setSnapshot(new StructureDefinitionSnapshotComponent());
 
+    
     // so we have two lists - the base list, and the differential list
     // the differential list is only allowed to include things that are in the base list, but
     // is allowed to include them multiple times - thereby slicing them

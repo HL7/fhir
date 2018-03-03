@@ -12253,6 +12253,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "Questionnaire", "type", element.getTypeElement(), -1);
     for (int i = 0; i < element.getEnableWhen().size(); i++)
       composeQuestionnaireQuestionnaireItemEnableWhenComponent(t, "Questionnaire", "enableWhen", element.getEnableWhen().get(i), i);
+    if (element.hasEnableBehaviorElement())
+      composeEnum(t, "Questionnaire", "enableBehavior", element.getEnableBehaviorElement(), -1);
     if (element.hasRequiredElement())
       composeBoolean(t, "Questionnaire", "required", element.getRequiredElement(), -1);
     if (element.hasRepeatsElement())
@@ -12265,8 +12267,8 @@ public class RdfParser extends RdfParserBase {
       composeCanonical(t, "Questionnaire", "options", element.getOptionsElement(), -1);
     for (int i = 0; i < element.getOption().size(); i++)
       composeQuestionnaireQuestionnaireItemOptionComponent(t, "Questionnaire", "option", element.getOption().get(i), i);
-    if (element.hasInitial())
-      composeType(t, "Questionnaire", "initial", element.getInitial(), -1);
+    for (int i = 0; i < element.getInitial().size(); i++)
+      composeQuestionnaireQuestionnaireItemInitialComponent(t, "Questionnaire", "initial", element.getInitial().get(i), i);
     for (int i = 0; i < element.getItem().size(); i++)
       composeQuestionnaireQuestionnaireItemComponent(t, "Questionnaire", "item", element.getItem().get(i), i);
   }
@@ -12283,8 +12285,8 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "enableWhen", name, element, index);
     if (element.hasQuestionElement())
       composeString(t, "Questionnaire", "question", element.getQuestionElement(), -1);
-    if (element.hasHasAnswerElement())
-      composeBoolean(t, "Questionnaire", "hasAnswer", element.getHasAnswerElement(), -1);
+    if (element.hasOperatorElement())
+      composeEnum(t, "Questionnaire", "operator", element.getOperatorElement(), -1);
     if (element.hasAnswer())
       composeType(t, "Questionnaire", "answer", element.getAnswer(), -1);
   }
@@ -12303,6 +12305,20 @@ public class RdfParser extends RdfParserBase {
       composeType(t, "Questionnaire", "value", element.getValue(), -1);
     if (element.hasInitialSelectedElement())
       composeBoolean(t, "Questionnaire", "initialSelected", element.getInitialSelectedElement(), -1);
+  }
+
+  protected void composeQuestionnaireQuestionnaireItemInitialComponent(Complex parent, String parentType, String name, Questionnaire.QuestionnaireItemInitialComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "initial", name, element, index);
+    if (element.hasValue())
+      composeType(t, "Questionnaire", "value", element.getValue(), -1);
   }
 
   protected void composeQuestionnaireResponse(Complex parent, String parentType, String name, QuestionnaireResponse element, int index) {

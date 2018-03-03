@@ -18500,6 +18500,10 @@ public class JsonParser extends JsonParserBase {
         res.getEnableWhen().add(parseQuestionnaireQuestionnaireItemEnableWhenComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
+    if (json.has("enableBehavior"))
+      res.setEnableBehaviorElement(parseEnumeration(json.get("enableBehavior").getAsString(), Questionnaire.EnableWhenBehavior.NULL, new Questionnaire.EnableWhenBehaviorEnumFactory()));
+    if (json.has("_enableBehavior"))
+      parseElementProperties(json.getAsJsonObject("_enableBehavior"), res.getEnableBehaviorElement());
     if (json.has("required"))
       res.setRequiredElement(parseBoolean(json.get("required").getAsBoolean()));
     if (json.has("_required"))
@@ -18526,9 +18530,12 @@ public class JsonParser extends JsonParserBase {
         res.getOption().add(parseQuestionnaireQuestionnaireItemOptionComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
-    Type initial = parseType("initial", json);
-    if (initial != null)
-      res.setInitial(initial);
+    if (json.has("initial")) {
+      JsonArray array = json.getAsJsonArray("initial");
+      for (int i = 0; i < array.size(); i++) {
+        res.getInitial().add(parseQuestionnaireQuestionnaireItemInitialComponent(array.get(i).getAsJsonObject(), owner));
+      }
+    };
     if (json.has("item")) {
       JsonArray array = json.getAsJsonArray("item");
       for (int i = 0; i < array.size(); i++) {
@@ -18549,10 +18556,10 @@ public class JsonParser extends JsonParserBase {
       res.setQuestionElement(parseString(json.get("question").getAsString()));
     if (json.has("_question"))
       parseElementProperties(json.getAsJsonObject("_question"), res.getQuestionElement());
-    if (json.has("hasAnswer"))
-      res.setHasAnswerElement(parseBoolean(json.get("hasAnswer").getAsBoolean()));
-    if (json.has("_hasAnswer"))
-      parseElementProperties(json.getAsJsonObject("_hasAnswer"), res.getHasAnswerElement());
+    if (json.has("operator"))
+      res.setOperatorElement(parseEnumeration(json.get("operator").getAsString(), Questionnaire.QuestionnaireItemOperator.NULL, new Questionnaire.QuestionnaireItemOperatorEnumFactory()));
+    if (json.has("_operator"))
+      parseElementProperties(json.getAsJsonObject("_operator"), res.getOperatorElement());
     Type answer = parseType("answer", json);
     if (answer != null)
       res.setAnswer(answer);
@@ -18573,6 +18580,19 @@ public class JsonParser extends JsonParserBase {
       res.setInitialSelectedElement(parseBoolean(json.get("initialSelected").getAsBoolean()));
     if (json.has("_initialSelected"))
       parseElementProperties(json.getAsJsonObject("_initialSelected"), res.getInitialSelectedElement());
+  }
+
+  protected Questionnaire.QuestionnaireItemInitialComponent parseQuestionnaireQuestionnaireItemInitialComponent(JsonObject json, Questionnaire owner) throws IOException, FHIRFormatError {
+    Questionnaire.QuestionnaireItemInitialComponent res = new Questionnaire.QuestionnaireItemInitialComponent();
+    parseQuestionnaireQuestionnaireItemInitialComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseQuestionnaireQuestionnaireItemInitialComponentProperties(JsonObject json, Questionnaire owner, Questionnaire.QuestionnaireItemInitialComponent res) throws IOException, FHIRFormatError {
+    parseBackboneProperties(json, res);
+    Type value = parseType("value", json);
+    if (value != null)
+      res.setValue(value);
   }
 
   protected QuestionnaireResponse parseQuestionnaireResponse(JsonObject json) throws IOException, FHIRFormatError {
@@ -45475,6 +45495,10 @@ public class JsonParser extends JsonParserBase {
           composeQuestionnaireQuestionnaireItemEnableWhenComponent(null, e);
         closeArray();
       };
+      if (element.hasEnableBehaviorElement()) {
+        composeEnumerationCore("enableBehavior", element.getEnableBehaviorElement(), new Questionnaire.EnableWhenBehaviorEnumFactory(), false);
+        composeEnumerationExtras("enableBehavior", element.getEnableBehaviorElement(), new Questionnaire.EnableWhenBehaviorEnumFactory(), false);
+      }
       if (element.hasRequiredElement()) {
         composeBooleanCore("required", element.getRequiredElement(), false);
         composeBooleanExtras("required", element.getRequiredElement(), false);
@@ -45502,8 +45526,11 @@ public class JsonParser extends JsonParserBase {
         closeArray();
       };
       if (element.hasInitial()) {
-        composeType("initial", element.getInitial());
-      }
+        openArray("initial");
+        for (Questionnaire.QuestionnaireItemInitialComponent e : element.getInitial()) 
+          composeQuestionnaireQuestionnaireItemInitialComponent(null, e);
+        closeArray();
+      };
       if (element.hasItem()) {
         openArray("item");
         for (Questionnaire.QuestionnaireItemComponent e : element.getItem()) 
@@ -45526,9 +45553,9 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("question", element.getQuestionElement(), false);
         composeStringExtras("question", element.getQuestionElement(), false);
       }
-      if (element.hasHasAnswerElement()) {
-        composeBooleanCore("hasAnswer", element.getHasAnswerElement(), false);
-        composeBooleanExtras("hasAnswer", element.getHasAnswerElement(), false);
+      if (element.hasOperatorElement()) {
+        composeEnumerationCore("operator", element.getOperatorElement(), new Questionnaire.QuestionnaireItemOperatorEnumFactory(), false);
+        composeEnumerationExtras("operator", element.getOperatorElement(), new Questionnaire.QuestionnaireItemOperatorEnumFactory(), false);
       }
       if (element.hasAnswer()) {
         composeType("answer", element.getAnswer());
@@ -45551,6 +45578,21 @@ public class JsonParser extends JsonParserBase {
       if (element.hasInitialSelectedElement()) {
         composeBooleanCore("initialSelected", element.getInitialSelectedElement(), false);
         composeBooleanExtras("initialSelected", element.getInitialSelectedElement(), false);
+      }
+  }
+
+  protected void composeQuestionnaireQuestionnaireItemInitialComponent(String name, Questionnaire.QuestionnaireItemInitialComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeQuestionnaireQuestionnaireItemInitialComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeQuestionnaireQuestionnaireItemInitialComponentInner(Questionnaire.QuestionnaireItemInitialComponent element) throws IOException {
+      composeBackbone(element);
+      if (element.hasValue()) {
+        composeType("value", element.getValue());
       }
   }
 

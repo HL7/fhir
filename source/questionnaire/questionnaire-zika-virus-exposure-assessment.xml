@@ -51,6 +51,7 @@
 	<type value="boolean"/>
 	<enableWhen>
 		<question value="1"/>
+    <operator value="="/>
 		<answerBoolean value="false"/>
 	</enableWhen>
   </item>
@@ -64,6 +65,7 @@
 	<type value="quantity"/>
 	<enableWhen>
 		<question value="2"/>
+    <operator value="="/>
 		<answerBoolean value="true"/>
 	</enableWhen>
   </item>
@@ -83,6 +85,7 @@
 	<type value="boolean"/>
 	<enableWhen>
 		<question value="2"/>
+    <operator value="="/>
 		<answerBoolean value="false"/>
 	</enableWhen>
   </item>
@@ -96,6 +99,7 @@
 	<type value="quantity"/>
 	<enableWhen>
 		<question value="4"/>
+    <operator value="="/>
 		<answerBoolean value="true"/>
 	</enableWhen>
   </item>
@@ -115,6 +119,7 @@
 	<type value="boolean"/>
 	<enableWhen>
 		<question value="4"/>
+    <operator value="="/>
 		<answerBoolean value="false"/>
 	</enableWhen>
   </item>

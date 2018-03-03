@@ -43,6 +43,7 @@
         <type value="group"/>
         <enableWhen>
           <question value="1.1"/>
+          <operator value="="/>
           <answerCoding>
             <code value="M1"/>
           </answerCoding>

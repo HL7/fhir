@@ -379,11 +379,13 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<text value="Were you born a twin?"/>
 							<type value="choice"/>
 							<options value="http://hl7.org/fhir/us/sdc/ValueSet/LL623-0"/>
-							<initialCoding>
-                <system value="http://loinc.org"/>
-                <code value="LA32-8"/>
-                <display value="No"/>
-							</initialCoding>
+							<initial>
+                <valueCoding>
+                  <system value="http://loinc.org"/>
+                  <code value="LA32-8"/>
+                  <display value="No"/>
+                 </valueCoding>
+							</initial>
 						</item>
 						<item>
 							<linkId value="1.1.5"/>

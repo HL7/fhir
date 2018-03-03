@@ -16588,6 +16588,8 @@ public class XmlParser extends XmlParserBase {
         res.setTypeElement(parseEnumeration(xpp, Questionnaire.QuestionnaireItemType.NULL, new Questionnaire.QuestionnaireItemTypeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("enableWhen")) {
         res.getEnableWhen().add(parseQuestionnaireQuestionnaireItemEnableWhenComponent(xpp, owner));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("enableBehavior")) {
+        res.setEnableBehaviorElement(parseEnumeration(xpp, Questionnaire.EnableWhenBehavior.NULL, new Questionnaire.EnableWhenBehaviorEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("required")) {
         res.setRequiredElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("repeats")) {
@@ -16600,8 +16602,8 @@ public class XmlParser extends XmlParserBase {
         res.setOptionsElement(parseCanonical(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("option")) {
         res.getOption().add(parseQuestionnaireQuestionnaireItemOptionComponent(xpp, owner));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "initial")) {
-        res.setInitial(parseType("initial", xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("initial")) {
+        res.getInitial().add(parseQuestionnaireQuestionnaireItemInitialComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("item")) {
         res.getItem().add(parseQuestionnaireQuestionnaireItemComponent(xpp, owner));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -16627,8 +16629,8 @@ public class XmlParser extends XmlParserBase {
   protected boolean parseQuestionnaireQuestionnaireItemEnableWhenComponentContent(int eventType, XmlPullParser xpp, Questionnaire owner, Questionnaire.QuestionnaireItemEnableWhenComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("question")) {
         res.setQuestionElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("hasAnswer")) {
-        res.setHasAnswerElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("operator")) {
+        res.setOperatorElement(parseEnumeration(xpp, Questionnaire.QuestionnaireItemOperator.NULL, new Questionnaire.QuestionnaireItemOperatorEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "answer")) {
         res.setAnswer(parseType("answer", xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -16656,6 +16658,29 @@ public class XmlParser extends XmlParserBase {
         res.setValue(parseType("value", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("initialSelected")) {
         res.setInitialSelectedElement(parseBoolean(xpp));
+      } else if (!parseBackboneContent(eventType, xpp, res))
+        return false;
+    return true;
+  }
+
+  protected Questionnaire.QuestionnaireItemInitialComponent parseQuestionnaireQuestionnaireItemInitialComponent(XmlPullParser xpp, Questionnaire owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    Questionnaire.QuestionnaireItemInitialComponent res = new Questionnaire.QuestionnaireItemInitialComponent();
+    parseBackboneAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+  if (!parseQuestionnaireQuestionnaireItemInitialComponentContent(eventType, xpp, owner, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    parseElementClose(res);
+    return res;
+  }
+
+  protected boolean parseQuestionnaireQuestionnaireItemInitialComponentContent(int eventType, XmlPullParser xpp, Questionnaire owner, Questionnaire.QuestionnaireItemInitialComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+      if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "value")) {
+        res.setValue(parseType("value", xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -40243,6 +40268,8 @@ public class XmlParser extends XmlParserBase {
         for (Questionnaire.QuestionnaireItemEnableWhenComponent e : element.getEnableWhen()) 
           composeQuestionnaireQuestionnaireItemEnableWhenComponent("enableWhen", e);
       }
+      if (element.hasEnableBehaviorElement())
+        composeEnumeration("enableBehavior", element.getEnableBehaviorElement(), new Questionnaire.EnableWhenBehaviorEnumFactory());
       if (element.hasRequiredElement()) {
         composeBoolean("required", element.getRequiredElement());
       }
@@ -40263,8 +40290,10 @@ public class XmlParser extends XmlParserBase {
           composeQuestionnaireQuestionnaireItemOptionComponent("option", e);
       }
       if (element.hasInitial()) {
-        composeType("initial", element.getInitial());
-      }      if (element.hasItem()) { 
+        for (Questionnaire.QuestionnaireItemInitialComponent e : element.getInitial()) 
+          composeQuestionnaireQuestionnaireItemInitialComponent("initial", e);
+      }
+      if (element.hasItem()) { 
         for (Questionnaire.QuestionnaireItemComponent e : element.getItem()) 
           composeQuestionnaireQuestionnaireItemComponent("item", e);
       }
@@ -40285,9 +40314,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasQuestionElement()) {
         composeString("question", element.getQuestionElement());
       }
-      if (element.hasHasAnswerElement()) {
-        composeBoolean("hasAnswer", element.getHasAnswerElement());
-      }
+      if (element.hasOperatorElement())
+        composeEnumeration("operator", element.getOperatorElement(), new Questionnaire.QuestionnaireItemOperatorEnumFactory());
       if (element.hasAnswer()) {
         composeType("answer", element.getAnswer());
       }  }
@@ -40310,6 +40338,22 @@ public class XmlParser extends XmlParserBase {
         composeBoolean("initialSelected", element.getInitialSelectedElement());
       }
   }
+
+  protected void composeQuestionnaireQuestionnaireItemInitialComponent(String name, Questionnaire.QuestionnaireItemInitialComponent element) throws IOException {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.enter(FHIR_NS, name);
+      composeQuestionnaireQuestionnaireItemInitialComponentElements(element);
+      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
+    }
+  }
+
+  protected void composeQuestionnaireQuestionnaireItemInitialComponentElements(Questionnaire.QuestionnaireItemInitialComponent element) throws IOException {
+      composeBackboneElements(element);
+      if (element.hasValue()) {
+        composeType("value", element.getValue());
+      }  }
 
   protected void composeQuestionnaireResponse(String name, QuestionnaireResponse element) throws IOException {
     if (element != null) {

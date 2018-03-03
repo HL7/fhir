@@ -172,7 +172,7 @@ public class TerminologyNotesGenerator extends OutputStreamWriter {
       List<CDUsage> list = txusages.get(cd);
       for (int i = 2; i < list.size(); i++) {
         if (!list.get(i).element.typeCode().equals(list.get(1).element.typeCode()))
-          throw new Exception("Mixed types on one concept domain in one type - not yet supported by the build process for binding "+cd.getName());
+          throw new Exception("Mixed types on one concept domain in one type - not yet supported by the build process for binding "+cd.getName()+" ("+list.get(i).element.typeCode()+" vs "+list.get(1).element.typeCode()+")");
       }
       String name = cd.getValueSet() != null ? cd.getValueSet().getName() : cd.getName();
       write(" <tr><td valign=\"top\" title=\""+name+"\">");

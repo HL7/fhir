@@ -100,7 +100,8 @@
           <type value="group"/>
           <enableWhen>
             <question value="vitaminKgiven"/>
-            <hasAnswer value="true"/>
+            <operator value="exists"/>
+            <answerBoolean value="true"/>
           </enableWhen>
           <item>
             <linkId value="vitaminiKDose1"/>
