@@ -14,8 +14,6 @@ import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 
-import junit.framework.Assert;
-
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
