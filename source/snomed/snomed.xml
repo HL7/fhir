@@ -604,6 +604,23 @@
     <display value="Puncture - action"/>
     <display value="Puncture - action (qualifier value)"/>
   </concept>
+  <concept id="129304002" display="Excision - action">
+    <display value="Excision - action"/>
+    <display value="Excision - action (qualifier value)"/>
+  </concept>
+  <concept id="129314006" display="Biopsy - action">
+    <display value="Biopsy - action"/>
+    <display value="Biopsy - action (qualifier value)"/>
+    <display value="BX - Biopsy"/>
+  </concept>
+  <concept id="129316008" display="Aspiration - action">
+    <display value="Aspiration - action"/>
+    <display value="Aspiration - action (qualifier value)"/>
+  </concept>
+  <concept id="129323009" display="Scraping - action">
+    <display value="Scraping - action"/>
+    <display value="Scraping - action (qualifier value)"/>
+  </concept>
   <concept id="129472003" display="Alemtuzumab">
     <display value="Alemtuzumab"/>
     <display value="Alemtuzumab (substance)"/>
@@ -11183,6 +11200,10 @@
     <display value="Collection of nephrostomy urine specimen"/>
     <display value="Collection of nephrostomy urine specimen (procedure)"/>
   </concept>
+  <concept id="225113003" display="Timed urine collection">
+    <display value="Timed urine collection"/>
+    <display value="Timed urine collection (procedure)"/>
+  </concept>
   <concept id="225164002" display="Removal of ligature">
     <display value="Removal of ligature"/>
     <display value="Removal of ligature (procedure)"/>
@@ -12946,6 +12967,10 @@
     <display value="Assessment"/>
     <display value="Clinical evaluation"/>
     <display value="Determination of a value, conclusion, or inference by evaluating evidence"/>
+  </concept>
+  <concept id="386089008" display="Collection of coughed sputum">
+    <display value="Collection of coughed sputum (procedure)"/>
+    <display value="Collection of coughed sputum"/>
   </concept>
   <concept id="386144009" display="Line insertion site">
     <display value="Line insertion site (morphologic abnormality)"/>
@@ -15571,6 +15596,14 @@
     <display value="Eating/Drinking assistive device"/>
     <display value="Eating/Drinking assistive device (physical object)"/>
   </concept>
+  <concept id="70777001" display="Urine specimen collection, catheterized">
+    <display value="Urine specimen collection, catheterized"/>
+    <display value="CSU - Collection of catheter specimen of urine"/>
+    <display value="Collecting catheter specimen of urine"/>
+    <display value="Collection of catheter specimen of urine"/>
+    <display value="Urine specimen collection, catheterised"/>
+    <display value="Urine specimen collection, catheterized (procedure)"/>
+  </concept>
   <concept id="70881005" display="Anser anser anser">
     <display value="Anser anser anser"/>
     <display value="Greylag goose"/>
@@ -15674,6 +15707,11 @@
     <display value="Diabetes mellitus"/>
     <display value="DM - Diabetes mellitus"/>
     <display value="Diabetes mellitus (disorder)"/>
+  </concept>
+  <concept id="73416001" display="Urine specimen collection, clean catch">
+    <display value="Urine specimen collection, clean catch"/>
+    <display value="Collection of clean catch urine specimen"/>
+    <display value="Urine specimen collection, clean catch (procedure)"/>
   </concept>
   <concept id="73644007" display="Hospital-based outpatient endocrinology clinic">
     <display value="Hospital-based outpatient endocrinology clinic"/>
