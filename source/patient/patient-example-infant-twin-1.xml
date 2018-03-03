@@ -1,0 +1,63 @@
+<Patient xmlns="http://hl7.org/fhir">
+	<!-- newborn twin example -->
+	<id value='infant-twin-1'/>
+	<!-- The details of the child -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName">
+		<valueString value="Organa"/>
+	</extension>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0203"/>
+				<code value="MR"/>
+			</coding>
+		</type>
+		<system value="http://coruscanthealth.org/main-hospital/patient-identifier"/>
+		<value value="MRN7465737865"/>
+	</identifier>
+	<identifier>
+		<system value="http://new-republic.gov/galactic-citizen-identifier"/>
+		<value value="7465737865"/>
+	</identifier>	
+	<name>
+		<use value="official"/>
+		<family value="Solo"/>
+		<given value="Jaina"/>
+	</name>
+	<gender value="female"/>
+	<birthDate value="2017-05-15">
+		<extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+			<valueDateTime value="2017-05-15T17:11:00+01:00"/>
+		</extension>
+	</birthDate>
+	<multipleBirthInteger value="1"/>
+	<contact>
+		<!-- Contact of the patient -->
+		<relationship>
+			<!-- Indicates that the contact is the patient's mother -->
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="72705000"/>
+				<display value="Mother"/>
+			</coding>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0131"/>
+				<code value="N"/>
+			</coding>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/RoleCode" />
+				<code value="MTH" />
+			</coding>    
+		</relationship>
+		<name>
+			<use value="maiden"/>
+			<family value="Organa"/>
+			<given value="Leia"/>
+		</name>
+		<telecom>
+			<system value="phone"/>
+			<value value="+31201234567"/>
+			<use value="mobile"/>
+		</telecom>
+	</contact>
+</Patient>

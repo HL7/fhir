@@ -1,0 +1,48 @@
+<Patient xmlns="http://hl7.org/fhir">
+	<!-- example of a fetal (pre-birth) patient -->
+	<id value='infant-fetal'/>
+	<!-- The details of the child -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName">
+		<valueString value="Organa"/>
+	</extension>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0203"/>
+				<code value="MR"/>
+			</coding>
+		</type>
+		<system value="http://coruscanthealth.org/main-hospital/patient-identifier"/>
+		<value value="MRN657865757378"/>
+	</identifier>
+	<gender value="male"/>
+	<contact>
+		<!-- Contact of the patient -->
+		<relationship>
+			<!-- Indicates that the contact is the patient's mother -->
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="72705000"/>
+				<display value="Mother"/>
+			</coding>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0131"/>
+				<code value="N"/>
+			</coding>
+			<coding>
+				<system value="http://hl7.org/fhir/v3/RoleCode" />
+				<code value="MTH" />
+			</coding>    
+		</relationship>
+		<name>
+			<use value="maiden"/>
+			<family value="Organa"/>
+			<given value="Leia"/>
+		</name>
+		<telecom>
+			<system value="phone"/>
+			<value value="+31201234567"/>
+			<use value="mobile"/>
+		</telecom>
+	</contact>
+</Patient>

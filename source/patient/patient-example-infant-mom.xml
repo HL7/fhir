@@ -1,0 +1,27 @@
+<Patient xmlns="http://hl7.org/fhir">
+	<!-- mother of infant twins and fetal patient -->
+	<id value='infant-mom'/>
+	<name>
+		<use value="official"/>
+		<family value="Solo"/>
+		<given value="Leia"/>
+	</name>
+	<name>
+		<use value="maiden"/>
+		<family value="Organa"/>
+		<given value="Leia"/>
+	</name>
+	<gender value="female"/>
+	<birthDate value="1995-10-12"/>
+	<maritalStatus>
+		<coding>
+			<system value="http://hl7.org/fhir/v3/MaritalStatus"/>
+			<code value="M"/>
+			<display value="Married"/>
+		</coding>
+	</maritalStatus>
+	<generalPractitioner>
+		<reference value="Practitioner/21B"/>
+		<display value="Too-Onebee"/>
+	</generalPractitioner>
+</Patient>
