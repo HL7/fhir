@@ -397,10 +397,10 @@
   </library>
   <action>
     <title value="Zika Virus Assessment"/>
-    <triggerDefinition>
+    <trigger>
       <type value="named-event"/>
       <name value="patient-view"/>
-    </triggerDefinition>
+    </trigger>
     <condition>
       <kind value="applicability"/>
       <expression value="Is Patient Pregnant"/>

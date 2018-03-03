@@ -159,22 +159,22 @@
   </library>
   <action>
     <title value="Mother should be referred to a lactation specialist for consultation."/>
-    <triggerDefinition>
+    <trigger>
       <type value="named-event"/>
       <name value="Admission"/>
-    </triggerDefinition>
-    <triggerDefinition>
+    </trigger>
+    <trigger>
       <type value="named-event"/>
       <name value="Birth"/>
-    </triggerDefinition>
-    <triggerDefinition>
+    </trigger>
+    <trigger>
       <type value="named-event"/>
       <name value="Infant Transfer to Recovery"/>
-    </triggerDefinition>
-    <triggerDefinition>
+    </trigger>
+    <trigger>
       <type value="named-event"/>
       <name value="Transfer to Post-Partum"/>
-    </triggerDefinition>
+    </trigger>
     <condition>
       <kind value="applicability"/>
       <expression value="Should Create Lactation Consult"/>
