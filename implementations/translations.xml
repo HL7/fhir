@@ -848,11 +848,11 @@
 		<translation lang="es">Secuencia</translation>
 		<translation lang="zh">序列</translation>
 	</item>
-	<item id="ServiceDefinition">
+	<!--item id="ServiceDefinition">
 		<translation lang="en">ServiceDefinition</translation>
 		<translation lang="es">DefinicionDeServicio</translation>
 		<translation lang="zh">服务项目定义</translation>
-	</item>
+	</item-->
 	<item id="ServiceRequest">
 		<translation lang="en">ServiceRequest</translation>
 		<translation lang="es">PeticiónServicio</translation>

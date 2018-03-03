@@ -389,7 +389,6 @@ signatures.html
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
       <page type="resource" resource="EventDefinition"/>
       <page type="resource" resource="Library"/>
-      <page type="resource" resource="ServiceDefinition"/>
       <page type="resource" resource="GuidanceResponse"/>
       <page type="resource" resource="RequestGroup"/>
       <page type="resource" resource="Measure"/>

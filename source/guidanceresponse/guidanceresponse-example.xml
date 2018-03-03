@@ -36,9 +36,7 @@
     <system value="http://example.org"/>
     <value value="guidanceResponse1"/>
   </identifier>
-  <module>
-    <reference value="ServiceDefinition/example"/>
-  </module>
+  <moduleUri value="http://someguidelineprovider.org/radiology-appropriateness-guidelines.html"/>
   <status value="success"/>
   <subject>
     <reference value="Patient/example"/>

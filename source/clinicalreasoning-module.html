@@ -34,10 +34,6 @@ in order to support consistent definitions for schema and UML derived code.
 	<li><b>Evaluation</b> - The ability to evaluate clinical knowledge artifacts in the context of a specific patient or population, including the ability to request decision support guidance, impact clinical workflow, and retrospectively assess quality metrics.</li>
 </ol>
 
-<p><i>Note to implementers: The user-facing external clinical decision support use case supported by the ServiceDefinition/$evaluate operation of the Clinical Reasoning module has significant overlap with the functionality provided by the <a href="http://cds-hooks.org">CDS Hooks</a> specification. As part of FHIR Release 4, it is the intention to unify the CDS Hooks specification with the Clinical Reasoning module, ensuring that implementers have a single consistent mechanism to support this use case that meets the requirements of both the Clinical Quality Framework and CDS Hooks communities. Although the functionality in both specifications is conceptually aligned, this unification will likely result in changes to both specifications. The CQF and CDS Hooks project teams are committed to this unification and will work to ensure that the resulting changes have as little impact as possible on current and ongoing implementation efforts, while meeting the needs of both communities. The project team is planning on a workable implementation tested at the connectathon in May of 2017, with a trial ballot following in September 2017, targeting publication as part of the FHIR Release 4 specification.</i></p>
-
-<p><i>Specifically, the CDS Hooks/Clinical Reasoning work will impact the ServiceDefinition and GuidanceResponse resources. The ActivityDefinition, PlanDefinition, Library, RequestGroup, Measure, and MeasureReport resources are not expected to be impacted by this work.</i></p>
-
 <p>To enable these use cases, the module defines several components that can each be used independently, or combined to enable more complex functionality. These components are:</p>
 
 <ul>
@@ -93,7 +89,6 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="measurereport.html">MeasureReport</a></td><td>Represents the response to a specific measure evaluation request returned by the $evaluate-measure operation.</td></tr>
 		<tr><td><a href="plandefinition.html">PlanDefinition</a></td><td>Represents the description of a plan for accomplishing a particular goal. This resource is used to represent a broad variety of clinical knowledge artifacts including decision support rules, order sets, and protocols.</td></tr>
 		<tr><td><a href="requestgroup.html">RequestGroup</a></td><td>Represents a group of options for a particular subject that can be used to accomplish a particular goal. This resource is often, but not always, the result of applying a PlanDefinition to a particular patient.</td></tr>
-		<tr><td><a href="servicedefinition.html">ServiceDefinition</a></td><td>Describes a specific clinical decision support service and supports evaluation using the $evaluate operation.</td></tr>
 	</tbody>
 </table>
 
@@ -182,7 +177,6 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="clinicalreasoning-knowledge-artifact-representation.html#order-set">Defining an Order Set</a></td><td>Using the PlanDefinition resource to represent an order set.</td></tr>
 		<tr><td><a href="clinicalreasoning-knowledge-artifact-representation.html#protocol">Defining a Protocol</a></td><td>Using the PlanDefinition resource to represent a protocol.</td></tr>
 		<tr><td><a href="clinicalreasoning-knowledge-artifact-representation.html#documentation-template">Defining a Questionnaire with dynamic content</a></td><td>Using the Questionnaire resource and expression extensions to add dynamic functionality to a FHIR Questionnaire.</td></tr>
-		<tr><td><a href="clinicalreasoning-cds-on-fhir.html#service-modules">Defining a Service Module</a></td><td>Using the ServiceDefinition resource to define a decision support service module.</td></tr>
 		<tr><td><a href="clinicalreasoning-cds-on-fhir.html#guidance-request">Obtaining guidance from a Decision Support Service</a></td><td>Using the $evaluate operation to request and process guidance from a decision support service.</td></tr>
 		<tr><td><a href="clinicalreasoning-quality-reporting.html#representing-quality-measures">Defining a Measure</a></td><td>Using the Measure resource to represent a clinical quality measure.</td></tr>
 		<tr><td><a href="clinicalreasoning-quality-reporting.html#invoking-measures">Evaluating a Measure</a></td><td>Using the $evaluate-measure operation to request calculation of a clinical quality measure.</td></tr>

@@ -16,91 +16,9 @@
 
 <p>This section of the clinical reasoning module discusses the evaluation use case for clinical decision support and how the various knowledge artifacts can be integrated into clinical workflow.</p>
 
-<p><i>Note to implementers: The user-facing external clinical decision support use case supported by the ServiceDefinition/$evaluate operation of the Clinical Reasoning module has significant overlap with the functionality provided by the <a href="http://cds-hooks.org">CDS Hooks</a> specification. As part of FHIR STU4, it is the intention to unify the CDS Hooks specification with the Clinical Reasoning module, ensuring that implementers have a single consistent mechanism to support this use case that meets the requirements of both the Clinical Quality Framework and CDS Hooks communities. Although the functionality in both specifications is conceptually aligned, this unification will likely result in changes to both specifications. The CQF and CDS Hooks project teams are committed to this unification and will work to ensure that the resulting changes have as little impact as possible on current and ongoing implementation efforts, while meeting the needs of both communities. The project team is planning on a workable implementation tested at the connectathon in May of 2017, with a trial ballot following in September 2017, targeting publication as part of the STU4 FHIR specification.</i></p>
-
-<a name="service-definitions"> </a>
-<h4>Service Definitions</h4>
-
-<p>The <a href="servicedefinition.html">ServiceDefinition</a> resource provides a mechanism for describing the functionality made available by a particular service. For example, a service may provide an immunization forecasting module or a drug-drug interaction checking module. From the perspective of the consumer, how this functionality is performed is irrelevant; the only aspect of interest is a description of what the service module does, the required inputs and the outputs it produces.</p>
-
-<p>As such, this resource uses the same metadata elements to define the common information relevant to all knowledge artifacts, and then defines the input and output parameters as well as any data requirements for the service module in the same way that parameters and data requirements are defined for expression logic in general.</p>
-
-<p>As an example, the functionality defined by the Guideline Appropriate Ordering IG can be expressed as a ServiceDefinition: <a href="servicedefinition-example.html">Service Definition Example</a>.</p>
-
-<pre><code>&lt;ServiceDefinition&gt;
-  &lt;id value=&quot;example&quot;/&gt;
-  &lt;text&gt;
-  &lt;status value=&quot;generated&quot; /&gt;
-  &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;Guideline Appropriate Ordering Module&lt;/div&gt;
-  &lt;/text&gt;
-    
-  &lt;identifier&gt;
-    &lt;use value=&quot;official&quot;/&gt;
-    &lt;value value=&quot;guideline-appropriate-ordering&quot;/&gt;
-  &lt;/identifier&gt;
-  &lt;version value=&quot;1.0.0&quot;/&gt;
-  &lt;title value=&quot;Guideline Appropriate Ordering Module&quot;/&gt;
-  &lt;status value=&quot;draft&quot;/&gt;
-  &lt;description value=&quot;Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications.&quot;/&gt;
-  &lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
-  &lt;topic&gt;
-    &lt;text value=&quot;Guideline Appropriate Ordering&quot;/&gt;
-  &lt;/topic&gt;
-  &lt;topic&gt;
-    &lt;text value=&quot;Appropriate Use Criteria&quot;/&gt;
-  &lt;/topic&gt;
-    
-  &lt;!-- Patient Parameter --&gt;
-  &lt;parameter&gt;
-    &lt;name value=&quot;patient&quot;/&gt;
-    &lt;use value=&quot;in&quot;/&gt;
-    &lt;type value=&quot;Patient&quot;/&gt;
-    &lt;profile&gt;
-      &lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-patient&quot;/&gt;
-    &lt;/profile&gt;
-  &lt;/parameter&gt;
-
-  &lt;!-- Order Parameter --&gt;
-  &lt;parameter&gt;
-    &lt;name value=&quot;order&quot;/&gt;
-    &lt;use value=&quot;in&quot;/&gt;
-    &lt;type value=&quot;Order&quot;/&gt;
-    &lt;profile&gt;
-      &lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
-    &lt;/profile&gt;
-  &lt;/parameter&gt;
-  
-  &lt;!-- Order Output --&gt;
-  &lt;parameter&gt;
-    &lt;name value=&quot;order&quot;/&gt;
-    &lt;use value=&quot;out&quot;/&gt;
-    &lt;type value=&quot;Order&quot;/&gt;
-    &lt;profile&gt;
-      &lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
-    &lt;/profile&gt;
-  &lt;/parameter&gt;
-  
-  &lt;!-- Result --&gt;
-  &lt;parameter&gt;
-    &lt;name value=&quot;result&quot;/&gt;
-    &lt;use value=&quot;out&quot;/&gt;
-    &lt;type value=&quot;Basic&quot;/&gt;
-    &lt;profile&gt;
-      &lt;reference value=&quot;http://hl7.org/fhir/StructureDefinition/gao-result&quot;/&gt;
-    &lt;/profile&gt;
-  &lt;/parameter&gt;
-    
-&lt;/ServiceDefinition&gt;
-</code></pre>
-
-<a name="guidance-request"> </a>
-<h4>Guidance Request</h4>
-
-<p>The ServiceDefinition resource defines an <a href="servicedefinition-operations.html#evaluate">$evaluate</a> operation that allows for consistent invocation of decision support functionality across a broad range of decision support artifacts. This consistency enables consumers to implement the request/response pipeline once to enable access to any decision support functionality provided by the service.</p>
+<p>Using CDS Hooks</p>
 
 <p>The <a href="guidanceresponse.html">GuidanceResponse</a> structure provides a general mechanism for representing the actions to be performed in response to a guidance evaluation request.</p>
-
-<p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="servicedefinition-operations.html#4.10.8.1.1">$evaluate operation example</a>.</p>
 
 <p>In the simplest case, an application requests guidance from a decision support service as part of a particular trigger, usually a specific point in a clinical workflow.</p>
 
@@ -290,7 +208,7 @@
 <a name="evaluation-context-contextual-information"> </a>
 <h5>Contextual Information</h5>
 
-<p>Contextual information for every decision support service module is defined by the parameters on the base <a href="servicedefinition-operations.html#evaluate">$evaluate</a> operation. This contextual information includes the patient, the encounter, and workflow information.</p>
+<p>Contextual information for every decision support service module is defined by the parameters on the hook. This contextual information includes the patient, the encounter, and workflow information.</p>
 
 <p>The client provides this information using the normal mechanism for passing parameters using the <a href="parameters.html">Parameters</a> resource.</p>
 
