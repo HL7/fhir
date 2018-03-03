@@ -182,7 +182,7 @@
       <title value="Notify the provider to sign the order."/>
       <textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please authorize or reject the order."/>
       <type>
-        <code value="create"/>
+        <coding><code value="create"/></coding>
       </type>
       <dynamicValue>
         <path value="/"/>

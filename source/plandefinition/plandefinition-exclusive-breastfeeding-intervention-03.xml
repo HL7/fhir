@@ -197,7 +197,7 @@
       <title value="Notify the charge nurse to perform the assessment."/>
       <textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please administer the assessment."/>
       <type>
-        <code value="create"/>
+        <coding><code value="create"/></coding>
       </type>
       <dynamicValue>
         <path value="/"/>
@@ -208,7 +208,7 @@
       <title value="Notify the bedside nurse to perform the assessment."/>
       <textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please administer the assessment."/>
       <type>
-        <code value="create"/>
+        <coding><code value="create"/></coding>
       </type>
       <dynamicValue>
         <path value="/"/>

@@ -74,7 +74,7 @@
     <action id="medication-action-1">
       <description value="Administer medication 1"/>
       <type>
-	    <code value="create"/>
+	    <coding><code value="create"/></coding>
       </type>
       <resource>
         <reference value="#medicationrequest-1"/>
@@ -91,7 +91,7 @@
         </offsetDuration>
       </relatedAction>
       <type>
-	    <code value="create"/>
+	    <coding><code value="create"/></coding>
       </type>
       <resource>
         <reference value="#medicationrequest-2"/>

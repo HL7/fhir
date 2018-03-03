@@ -183,7 +183,7 @@
       <title value="Create a lactation consult request."/>
       <textEquivalent value="Create a lactation consult request"/>
       <type>
-        <code value="create"/>
+        <coding><code value="create"/></coding>
       </type>
       <dynamicValue>
         <path value="/"/>
