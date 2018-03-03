@@ -48,7 +48,42 @@
     
     </div>
   </text>
-<!--  Dog tag, under Maroondah City council  -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/patient-animal">
+		<extension url="species">
+			<valueCodeableConcept>
+			  <coding>
+				<system value="http://hl7.org/fhir/animal-species"/>
+				<code value="canislf"/>
+				<display value="Dog"/>
+			  </coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="breed">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="58108001"/>
+					<display value="Golden retriever"/>
+				</coding>
+				<coding>
+					<system value="http://hl7.org/fhir/animal-breed"/>
+					<code value="gret"/>
+					<display value="Golden Retriever"/>
+				</coding>
+			</valueCodeableConcept>
+		</extension>
+		<extension url="genderStatus">
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://hl7.org/fhir/animal-genderstatus"/>
+					<code value="neutered"/>
+				</coding>
+			</valueCodeableConcept>
+		</extension>
+	</extension>
+	
+  <!--  Dog tag, under Maroondah City council  -->
+  
   <identifier>
     <type>
       <text value="Dog Tag"/>
@@ -88,33 +123,6 @@
       <use value="work"/>
     </telecom>
   </contact>
-  <animal>
-    <species>
-      <coding>
-        <system value="http://hl7.org/fhir/animal-species"/>
-        <code value="canislf"/>
-        <display value="Dog"/>
-      </coding>
-    </species>
-    <breed>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="58108001"/>
-        <display value="Golden retriever"/>
-      </coding>
-      <coding>
-        <system value="http://hl7.org/fhir/animal-breed"/>
-        <code value="gret"/>
-        <display value="Golden Retriever"/>
-      </coding>
-    </breed>
-    <genderStatus>
-      <coding>
-        <system value="http://hl7.org/fhir/animal-genderstatus"/>
-        <code value="neutered"/>
-      </coding>
-    </genderStatus>
-  </animal>
   <managingOrganization>
     <display value="Pete&#39;s Vetinary Services"/>
   </managingOrganization>
