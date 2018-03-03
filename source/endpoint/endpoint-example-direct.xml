@@ -1,0 +1,18 @@
+<Endpoint xmlns="http://hl7.org/fhir">
+	<id value="direct-endpoint"/>
+	<status value="active"/>
+	<connectionType>
+		<code value="direct-project"/>
+	</connectionType>
+	<name value="MARTIN SMIETANKA"/>
+	<managingOrganization>
+		<reference value="Organization/299"/>
+	</managingOrganization>
+	<payloadType>
+		<coding>
+			<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
+			<code value="urn:hl7-org:sdwg:ccda-structuredBody:1.1"/>
+		</coding>
+	</payloadType>
+	<address value="mailto:MARTIN.SMIETANKA@directnppes.com"/>	
+</Endpoint>
