@@ -1816,10 +1816,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (file.getContentType().contains("json"))
         e = loadFromJson(file);
       else if (file.getContentType().contains("xml")) {
-        if (version.equals(Constants.VERSION))
-          e = loadFromXml(file);
-        else
-          e = loadFromXmlWithVersionChange(file, version, Constants.VERSION);
+        e = loadFromXml(file);
       } else
         throw new Exception("Unable to determine file type for "+file.getName());
     } catch (Exception ex) {
@@ -1885,9 +1882,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           r.setElement(e).setId(id).setTitle(e.getChildValue("name"));
           r.setResource(res);
         }
-        if (altered || (ver.equals(Constants.VERSION) && r.getResource() == null))
+        if ((altered && r.getResource() != null) || (ver.equals(Constants.VERSION) && r.getResource() == null))
           r.setResource(new ObjectConverter(context).convert(r.getElement()));
-
+        if ((altered && r.getResource() == null))
+          if (file.getContentType().contains("json"))
+            saveToJson(file, e);
+          else if (file.getContentType().contains("xml"))
+            saveToXml(file, e);
       } catch ( Exception ex ) {
         throw new Exception("Unable to determine type for  "+file.getName()+": " +ex.getMessage(), ex);
       }
@@ -1908,6 +1909,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     org.hl7.fhir.r4.elementmodel.JsonParser jp = new org.hl7.fhir.r4.elementmodel.JsonParser(context);
     jp.setupValidation(ValidationPolicy.EVERYTHING, file.getErrors());
     return jp.parse(new ByteArrayInputStream(file.getSource()));
+  }
+
+  private void saveToXml(FetchedFile file, Element e) throws Exception {
+    org.hl7.fhir.r4.elementmodel.XmlParser xp = new org.hl7.fhir.r4.elementmodel.XmlParser(context);
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    xp.compose(e, bs, OutputStyle.PRETTY, null);
+    file.setSource(bs.toByteArray());
+  }
+
+  private void saveToJson(FetchedFile file, Element e) throws Exception {
+    org.hl7.fhir.r4.elementmodel.JsonParser jp = new org.hl7.fhir.r4.elementmodel.JsonParser(context);
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    jp.compose(e, bs, OutputStyle.PRETTY, null);
+    file.setSource(bs.toByteArray());
   }
 
   private Element loadFromXmlWithVersionChange(FetchedFile file, String srcV, String dstV) throws Exception {
