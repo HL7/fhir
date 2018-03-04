@@ -6,7 +6,7 @@
 	<p>   At its simplest, a resource instances can consist of only a code and a value, and status flag.    The relevance of other properties will vary based on the type of observation.
 
 		<a href="observation-profiles.html">Profiles</a> are created to provide guidance on capturing certain types of observations for a given use case.  The Observation resource focuses on the level of detail    captured by most systems.  However, for a given use case there may be additional constraints and additional information relevant in certain circumstances.  As with other resources, <a href="extensibility.html">extensions</a> can be used to introduce this additional complexity. </p>
-			<a name="focalsubject">
+			<a name="observationsubject">
 	</a>
 	<h3>Subject of an Observation</h3>
 	<p>
@@ -77,7 +77,7 @@
 	</pre>
 	<h4>Text values for coded results:</h4>
 	<p>When the data element is usually coded or the type associated with the <code>code</code> element defines a coded value, use <code>valueCodeableConcept</code>
-		<em>even if</em> there is no appropriate code and only un-coded text is available. For example using text only, the <code>valueCodeableConcept</code> element would be:</p>
+		<em>even if</em> there is no appropriate code and only free text is available. For example using text only, the <code>valueCodeableConcept</code> element would be:</p>
 	<pre class="json">
 
 	"valueCodeableConcept": {
@@ -126,7 +126,7 @@
 		<li>The result of the observation.  For example: 14 g/dl.
 	  </li>
 	</ul>
-	<p>Several different ways of representing the same information exist using different combinations of the <code>Observation.code</code> and <code>Observation.value</code>. Unconstrained use of the alternatives presents a major challenge for computation of semantic equivalence and for safe interpretation of observations originating from different applications and users. The following four patterns could reasonably represent the same case. Considering that the Observation resource needs to support many use cases, the appropriate place to define the specific pattern is expected to be done through  profiles adn implementation guides as specified by the jurisdictions and/or organizations implementing FHIR:</p>
+	<p>Several different ways of representing the same information exist using different combinations of the <code>Observation.code</code> and <code>Observation.value</code>. Unconstrained use of the alternatives presents a major challenge for computation of semantic equivalence and for safe interpretation of observations originating from different applications and users. The following four patterns could reasonably represent the same case. Considering that the Observation resource needs to support many use cases, the appropriate place to define the specific pattern is expected to be done through  profiles and implementation guides as specified by the jurisdictions and/or organizations implementing FHIR:</p>
 	<ol>
 		<li>
 			<code>Observation.code</code> represents the nature of the observation and the <code>Observation.value</code> a code represents the non-numeric result value. These are two distinct facets that are central to a FHIR Observations.  For example:
@@ -173,7 +173,11 @@
 		</li>
 		<li>Recommended rules for case 3 pattern:
 	    <ul>
-				<li>The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
+				<li>The Observation.code is preferably a LOINC or SNOMED CT concept code.
+				<ul>
+				<li>If a SNOMED CT concept code is used, the expression SHOULD represent a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
+				</li>
+				</ul>
 	      </li>
 				<li>The Observation.value is represented by either
 	        <ul>
