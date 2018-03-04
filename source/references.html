@@ -475,17 +475,37 @@ Todo: document this.
 <a name="circular"></a>
 <h3>Circular Resources</h3>
 <p>
-There's a few places where circular references can arise. These fall into several
-categories:
+Some references are circular - that is, the reference points to another resource of the same type. 
+There are several reasons why a resource may refer to other resources of the same type:
 </p>
 <ul>
- <li>References that refer to  something.. .</li>
+ <li>part-of: the resources describe a complex hierarchy compose of parts e.g. an organization structure</li>
+ <li>builds-on: resources may add additional content to another resource by deriving from it e.g. extending type declarations</li>
+ <li>replaces: one resource may be replaced by another due to changes over time e.g. replacing a prescription or to support patient merging </li>
+ <li>uses/re-uses: a resource may use another resource in some kind of modular arrangement e.g. library references or value sets including other value sets</li>
 </ul>
 <p>
-Here's a list of resources where a reference refers to the same kind of resource (excluding references to any resource):
+For parameters where the relationship is a strict hierarchy (i.e. where it would be wrong to have circular
+references, even transitively), there is <a href="search.html#recursive">additional search support</a> for traversing the
+hierarchy using :above and :below modifiers on the search parameters. 
+</p>
+<p>
+Hierarchical references with search parameters (can have :above and :below modifiers on search parameters):
 </p>
 <ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
- [%circular-references%]
+ [%circular-references true%]
+</ul>
+<p>
+References that may refer back to the source instance:
+</p>
+<ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
+ [%circular-references false%]
+</ul>
+<p>
+References for which the hierarchical behavior is not specified:
+</p>
+<ul style="-moz-column-count: 3; -moz-column-gap: 10px; -webkit-column-count: 3; -webkit-column-gap: 10px; column-count: 3; column-gap: 10px">
+ [%circular-references null%]
 </ul>
 
 </div>

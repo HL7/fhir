@@ -92,7 +92,8 @@ images and internally contained style attributes.
 The XHTML content SHALL NOT contain
 a <code>head</code>, a <code>body</code> element, external stylesheet references, deprecated elements, scripts, forms, base/link/xlink, frames, iframes, objects or event related attributes (e.g. <code>onClick</code>).
 This is to ensure that the content of the narrative is contained within the resource and that there is no active content.  Such content would introduce
-<a href="security.html#narrative">security issues</a> and potentially safety issues with regard to extracting text from the XHTML.
+security issues and potentially safety issues with regard to extracting text from the XHTML. Note that 
+even with these restrictions, there are still several important <a href="security.html#narrative">security risks</a> associated with displaying the narrative.
 </p>
 <p>
 The div element SHALL have some non-whitespace content (text or an image).

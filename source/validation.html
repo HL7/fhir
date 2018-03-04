@@ -17,8 +17,7 @@
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#levels">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-This page provides a quick overview of how the FHIR specification supports 
-validation of resources. 
+This page provides an overview of how the FHIR specification supports validation of resources. 
 </p>
 
 <p>
@@ -181,6 +180,40 @@ prove conformance to the specification. For further information, see
 <a href="http://fhir.org/conformance-testing">FHIR Conformance Testing</a>.
 </p>
 
+<a name="correct-use"></a>
+<h3>Correct Use of Validation</h3>
+
+<p>
+Servers and clients may be configured to validate content when it is received (e.g. some of 
+the public testing services validate resources on create/update). This can be done both 
+during development and in production use of applications in healthcare processes. 
+While use during the development cycle is highly recommended, use during production 
+might not always be a good idea:
+</p>
+<ul>
+ <li>Validation - particularly full validation including terminology - can be quite computationally demanding. 
+   This can impose unacceptable time delays in a production system</li>
+ <li>In production, validation can cause the loss of critical health care data (e.g. one field 
+    has an unexpected value due to poor data entry, so all data associated with the resource is lost)</li>
+ <li>Validation may fail poor historical data that cannot be fixed - and this is usually difficult to test (and poorly tested)</li>
+</ul>
+<p>
+On the other hand, validation during production use may be very important:
+</p>
+<ul>
+ <li>Validation may be required for security reasons - particular validation of narrative may be required to prevent active content or external references</li>
+ <li>Validating resources at specific control points in the data flow can allow for better detection and recovery as opposed to specific application logic failing on bad data</li>
+</ul>
+<p>
+Generally, following <a href="https://tools.ietf.org/html/rfc760">Postel's law</a> is recommended:
+</p>
+<blockquote>
+An implementation should be conservative in its sending behavior, and liberal in its receiving behavior.
+</blockquote>
+<p>
+Applications should consider carefully how much validation beyond the security related issues to perform at run-time, and how errors will be handled.
+</p>
+
 <a name="schema"></a>
 <h3>Using the XML schema</h3>
 
@@ -275,7 +308,8 @@ Note that it is not necessary to download the resource first; the http address c
 </pre>
 <p>
 The validator requires an underlying terminology server. By default, this is http://fhir3.healthintersections.com.au. Use the parameter -tx to specify another
-server. For a full list of parameters and options, just run the validator.jar without any parameters.
+server. For a full list of parameters and options, including the parameters available to restrict the validator to minimal run-time validation, just 
+run the validator.jar without any parameters.
 </p>
 
 <a name="op"></a>

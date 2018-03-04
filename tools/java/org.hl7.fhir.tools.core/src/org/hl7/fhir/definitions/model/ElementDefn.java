@@ -95,6 +95,7 @@ public class ElementDefn {
 	private boolean translatable;
 	private String orderMeaning;
 	private StandardsStatus standardsStatus; // defaults to container value
+	private Boolean hierarchy;
 	
 	public ElementDefn() {
 		super();
@@ -980,7 +981,20 @@ public class ElementDefn {
 
   public void setModifierReason(String modifierReason) {
     this.modifierReason = modifierReason;
+  }
+
+  public Boolean getHierarchy() {
+    return hierarchy;
+  }
+
+  public boolean hasHierarchy() {
+    return hierarchy != null;
+  }
+
+  public void setHierarchy(Boolean hierarchy) {
+    this.hierarchy = hierarchy;
   }	
+  
   
   
 }

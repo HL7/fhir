@@ -284,6 +284,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
             <value value="http://loinc.org"/>
           </telecom>
 				</contact>
+				<description value="This represents an implementation of the &quot;US Surgeon General family health portrait&quot; form found at https://lforms-demo.nlm.nih.gov"/>
 				<useContext>
           <code>
             <system value="http://hl7.org/fhir/usage-context-type"/>
@@ -303,7 +304,6 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
             <code value="US"/>
           </coding>
 				</jurisdiction>
-				<description value="This represents an implementation of the &quot;US Surgeon General family health portrait&quot; form found at https://lforms-demo.nlm.nih.gov"/>
 				<purpose value="Captures basic family history information"/>
 				<copyright value="(c) 2015 Regenstrief Institute"/>
 				<approvalDate value="2015-10-31"/>

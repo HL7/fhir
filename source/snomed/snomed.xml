@@ -11435,6 +11435,12 @@
     <display value="Boar power pig 414"/>
     <display value="Boar power pig 414 (organism)"/>
   </concept>
+  <concept id="243796009" display="Context-dependent categories">
+    <display value="Context-dependent categories"/>
+    <display value="Context-dependent category"/>
+    <display value="Situation with explicit context (situation)"/>
+    <display value="Situation with explicit context"/>
+  </concept>
   <concept id="24438005" display="Pekin duck">
     <display value="Pekin duck"/>
     <display value="Pekin duck (organism)"/>
@@ -11942,6 +11948,11 @@
     <display value="Urinalysis"/>
     <display value="Urinalysis procedure"/>
     <display value="Urinalysis (procedure)"/>
+  </concept>
+  <concept id="272379006" display="Events">
+    <display value="Events"/>
+    <display value="Event"/>
+    <display value="Event (event)"/>
   </concept>
   <concept id="272394005" display="Technique">
     <display value="Technique"/>

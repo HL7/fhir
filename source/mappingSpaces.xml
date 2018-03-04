@@ -205,6 +205,7 @@
 		<sort>17</sort>
 		<publish>true</publish>
 	</space>
+  <!-- GG: why twice? -->
 	<space>
 		<url>http://www.cdisc.org/define-xml</url>
 		<columnName>CDISC Define.xml 2.0 Mapping</columnName>

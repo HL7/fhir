@@ -81,6 +81,7 @@ public class SearchParameterDefn {
   private boolean XPathDone;
   private List<String> otherResources = new ArrayList<String>();
   private String commonId;
+  private boolean hierarchy;
   
   // operational tracking
   private String xPath;
@@ -249,6 +250,14 @@ public class SearchParameterDefn {
 
   public void setCommonId(String commonId) {
     this.commonId = commonId;
+  }
+
+  public boolean isHierarchy() {
+    return hierarchy;
+  }
+
+  public void setHierarchy(boolean hierarchy) {
+    this.hierarchy = hierarchy;
   }
   
 }

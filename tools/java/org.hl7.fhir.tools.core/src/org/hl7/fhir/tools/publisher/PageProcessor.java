@@ -867,6 +867,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1+(rd == null ? "" : getCompLinks(rd, com.length > 1 ? com[1] : null))+s3;
       } else if (com[0].equals("StandardsStatus")) {
         src = s1+getStandardsStatusNote(genlevel(level), com[1], com[2], com[3])+s3;
+      } else if (com[0].equals("circular-references")) {
+          src = s1+buildCircularReferenceList(com[1].equals("null") ? null : Boolean.valueOf(com[1]))+s3;
       } else if (com[0].equals("diff-analysis")) {
         if ("*".equals(com[1])) {
           updateDiffEngineDefinitions();
@@ -1208,8 +1210,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+buildCommitteeList()+s3;
       else if (com[0].equals("choice-elements"))
         src = s1+buildChoiceElementList()+s3;
-      else if (com[0].equals("circular-references"))
-        src = s1+buildCircularReferenceList()+s3;
       else if (com[0].equals("opName"))
         src = s1+((Operation) object).getName()+s3;
       else if (com[0].equals("rName"))
@@ -1239,30 +1239,59 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return src;
   }
 
-  private String buildCircularReferenceList() {
+  private String buildCircularReferenceList(Boolean hierarchy) {
     StringBuilder b = new StringBuilder();
     
     for (String s : sorted(definitions.getResources().keySet())) {
       ResourceDefn t = definitions.getResources().get(s);
-      buildCircularReferenceList(b, s, t.getRoot());
+      buildCircularReferenceList(b, s, t.getRoot(), t, hierarchy);
     }
 
     return b.toString();
   }
 
-  private void buildCircularReferenceList(StringBuilder b, String s, ElementDefn t) {
-    for (TypeRef tr : t.getTypes()) {
-      if (tr.getName().equals("Reference") || tr.getName().equals("canonical") )
-        for (String p : tr.getParams()) { 
-          if (s.equals(p))
-            b.append("<li><a href=\""+s.toLowerCase()+"-definitions.html#"+t.getPath()+"\">"+t.getPath()+"</a></li>");
-        }
-    }
+  private void buildCircularReferenceList(StringBuilder b, String s, ElementDefn t, ResourceDefn rd, Boolean hierarchy) {
+    if (t.getHierarchy() == hierarchy)
+      for (TypeRef tr : t.getTypes()) {
+        if (tr.getName().equals("Reference") || tr.getName().equals("canonical") )
+          for (String p : tr.getParams()) { 
+            if (s.equals(p)) {
+              b.append("<li><a href=\""+s.toLowerCase()+"-definitions.html#"+t.getPath()+"\">");
+              b.append(t.getPath());
+              b.append("</a>");
+              boolean first = true;
+              for (String spn : sorted(rd.getSearchParams().keySet())) {
+                SearchParameterDefn sp = rd.getSearchParams().get(spn);
+                if (pointsAtElement(sp, t)) {
+                  if (first) {
+                    b.append(" (");
+                    first = false;
+                  } else
+                    b.append(",");
+                  b.append(sp.getCode());
+                }
+              } 
+              if (!first) 
+                b.append(")");
+              b.append("</li>");
+            }
+          }
+      }
     for (ElementDefn e : t.getElements())
-      buildCircularReferenceList(b, s, e);    
+      buildCircularReferenceList(b, s, e, rd, hierarchy);    
   }
 
   
+  private boolean pointsAtElement(SearchParameterDefn sp, ElementDefn t) {
+    if (sp.getType() != SearchType.reference)
+      return false;
+    for (String s : sp.getPaths()) {
+      if (s.equals(t.getPath()))
+        return true;
+    }
+    return false;
+  }
+
   private String buildChoiceElementList() {
     StringBuilder b = new StringBuilder();
     for (String s : sorted(definitions.getTypes().keySet())) {
@@ -5011,6 +5040,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+getSnomedCTVsList()+s3;
       else if (com[0].equals("sct-concept-list"))
         src = s1+getSnomedCTConceptList()+s3;
+      else if (com[0].equals("circular-references")) 
+      src = s1+buildCircularReferenceList(com[1].equals("null") ? null : Boolean.valueOf(com[1]))+s3;
       else if (com[0].equals("dtusage"))
         src = s1 + genDataTypeUsage(com[1]) + s3;
       else if (com[0].equals("w5"))
@@ -5361,8 +5392,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+genExtensionTypeList()+s3;
       else if (com[0].equals("wildcard-type-list"))
         src = s1+genWildcardTypeList()+s3;
-      else if (com[0].equals("circular-references"))
-        src = s1+buildCircularReferenceList()+s3;
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }

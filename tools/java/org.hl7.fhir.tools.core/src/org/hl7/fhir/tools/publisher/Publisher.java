@@ -533,7 +533,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (!initialize(folder))
         throw new Exception("Unable to publish as preconditions aren't met");
 
-      page.log("Version " + page.getVersion() + "-" + page.getSvnRevision(), LogMessageType.Hint);
 
       cache = new IniFile(page.getFolders().rootDir + "temp" + File.separator + "build.cache");
       loadSuppressedMessages(page.getFolders().rootDir);
@@ -581,6 +580,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       if (isGenerate && page.getSvnRevision() == null)
         page.setSvnRevision(checkSubversion(folder));
+      page.log("Version " + page.getVersion() + "-" + page.getSvnRevision(), LogMessageType.Hint);
       Utilities.createDirectory(page.getFolders().dstDir);
       Utilities.deleteTempFiles();
 

@@ -61,6 +61,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
+import org.hl7.fhir.dstu2.model.Conformance.SearchModifierCode;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r4.formats.FormatUtilities;
@@ -83,6 +84,7 @@ import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingComponent
 import org.hl7.fhir.r4.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.r4.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Enumerations.BindingStrength;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
@@ -100,6 +102,7 @@ import org.hl7.fhir.r4.model.OperationDefinition.OperationKind;
 import org.hl7.fhir.r4.model.OperationDefinition.OperationParameterUse;
 import org.hl7.fhir.r4.model.Reference;
 import org.hl7.fhir.r4.model.SearchParameter;
+import org.hl7.fhir.r4.model.SearchParameter.SearchModifierCodeEnumFactory;
 import org.hl7.fhir.r4.model.StringType;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionDifferentialComponent;
@@ -1074,6 +1077,10 @@ public class ProfileGenerator {
       if (!definitions.hasResource(p.getType()) && !p.getType().equals("Resource") && !p.getType().equals("DomainResource"))
         throw new Exception("unknown resource type "+p.getType());
       sp.setType(getSearchParamType(spd.getType()));
+      if (sp.getType() == SearchParamType.REFERENCE && spd.isHierarchy()) {
+        sp.addModifier(SearchParameter.SearchModifierCode.BELOW);
+        sp.addModifier(SearchParameter.SearchModifierCode.ABOVE);
+      }
       if (shared) {
         sp.setDescription("Multiple Resources: \r\n\r\n* ["+rn+"]("+rn.toLowerCase()+".html): " + spd.getDescription()+"\r\n");
       } else
@@ -1359,9 +1366,11 @@ public class ProfileGenerator {
               pr = profile;
             } else 
               pr = "http://hl7.org/fhir/StructureDefinition/" + (profile.equals("Any") ? "Resource" : profile);
-            if (type.getCode().equals("Reference") || type.getCode().equals("canonical") )
+            if (type.getCode().equals("Reference") || type.getCode().equals("canonical") ) {
               type.addTargetProfile(pr);
-            else
+              if (e.hasHierarchy())
+                ToolingExtensions.addBooleanExtension(type, ToolingExtensions.EXT_HIERARCHY, e.getHierarchy());
+            } else
               type.addProfile(pr);
           }
 

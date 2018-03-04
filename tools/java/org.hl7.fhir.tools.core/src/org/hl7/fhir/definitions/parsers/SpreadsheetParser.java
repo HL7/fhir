@@ -923,12 +923,15 @@ public class SpreadsheetParser {
             List<String> pn = new ArrayList<String>();
             String xp = sheet.getColumn(row, "XPath");
             String[] pl = sheet.getColumn(row, "Path").split("\\|");
+            boolean hierarchy = false;
             for (String pi : pl) {
               String p = pi.trim();
               ElementDefn e = null;
               if (!Utilities.noString(p) && !p.startsWith("!") && !p.startsWith("Extension{") && definitions != null ) {
                 e = root2.getRoot().getElementForPath(trimIndexes(p), definitions, "search param", true, true);
               }
+              if (e != null && e.hasHierarchy() && e.getHierarchy())
+                hierarchy = true;
               if (Utilities.noString(d) && e != null)
                 d = e.getShortDefn();
               if (p.startsWith("Extension(")) {
@@ -973,6 +976,7 @@ public class SpreadsheetParser {
             if (!Utilities.noString(sheet.getColumn(row, "Target Types"))) {
               sp.setManualTypes(sheet.getColumn(row, "Target Types").split("\\,"));
             }
+            sp.setHierarchy(hierarchy);
             CommonSearchParameter csp = definitions.getCommonSearchParameters().get(root2.getName()+"::"+n);
             if (csp != null)
               for (String s : csp.getResources()) {
@@ -1800,6 +1804,8 @@ public class SpreadsheetParser {
         e.addMapping(n, sheet.getColumn(row, pack.getMappingSpaces().get(n).getColumnName()));
       }
     }
+    if (sheet.hasColumn("Hierarchy"))
+      e.setHierarchy(parseBoolean(sheet.getColumn(row, "Hierarchy"), row, null));
     if (sheet.hasColumn(row, "To Do"))
       e.setTodo(Utilities.appendPeriod(sheet.getColumn(row, "To Do")));
     if (sheet.hasColumn(row, "Example"))

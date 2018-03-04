@@ -15,12 +15,12 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
+  <description value="Search by condition subject"/>
   
   <purpose value="Need to search Condition by subject"/>
   <code value="subject"/>
   <base value="Condition"/>
   <type value="reference"/>
-  <description value="Search by condition subject"/>
   <expression value="Condition.subject"/>
   <xpathUsage value="normal"/>
   <target value="Organization"/>

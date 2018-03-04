@@ -310,7 +310,7 @@ The modifiers are separated from the parameter name by a colon. Modifiers are:</
   </li>
  <li>For string: <code>:exact</code> (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), or <code>:contains</code> (case insensitive and accent-insensitive, partial match at start or end), instead of the default behavior (case insensitive and accent-insensitive, partial matches at the end of the string).</li>
  <li>For token: <code>:text</code> (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other defined modifiers are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below.</li>
- <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, and :above and :below</li>
+ <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, and, for some parameters, :above and :below</li>
  <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left matches the value, or vice-versa.</li>
 </ul>
 <p>
@@ -653,7 +653,7 @@ that partial matching is used. For example:
  <li>The fourth line shows an example of searching by an OID. Note that the :above and :below modifiers only apply to URLs, and not URNS such as OIDs</li>
 </ul>
 <p>
-Note that for <a href="references.html#canonical">Canonical URLs</a>, servers SHOULD support searching by
+Note that for <code>uri</code> parameters that refer to <a href="references.html#canonical">Canonical URLs</a>, servers SHOULD support searching by
 Canonical URL, and SHOULD support automatically detecting a <code>|[version]</code> portion as part of the
 Canonical URL, and interpreting that portion as a search on the version.
 </p>
@@ -903,11 +903,39 @@ the patient search parameter, there is no need to specify ":Patient" as a modifi
 in the search value, as this must always be true.
 </p>
 <p>
-The reference search parameter is mostly used for resource elements of type Reference. 
+The reference search parameter is mostly used for resource elements of type <code>Reference</code> or <code>canonical</code>. 
 However, it is also be used to search resource elements of type Resource - i.e. where 
 one resource is directly nested within another - see the <a href="bundle.html#search">Bundle 
 search parameters</a> 'message' and 'composition' as an example of this.
 </p>
+
+<a name="recursive"></a>
+<h4>Searching Hierarchies</h4>
+<p>
+Some references are <a href="references.html#circular">circular</a> - that is, the reference 
+points to another resource of the same type. When the reference establishes a strict hierarchy,
+the modifiers :above and :below may be used to search transitively through the hierarchy:
+</p>
+<pre>
+GET [base]/Procedure?location:below=42
+</pre>
+<p>
+This search returns no only all procedures that occurred at location with id 42, but also any procedures
+that occurred in locations that are part of location with id 42. 
+</p>
+<pre>
+GET [base]/MedicationAdministration?encounter:above=21
+</pre>
+<p>
+Returns all medication administrations that happened during encounter with id 21 or during any "parent" 
+encounter of that encounter.
+</p>
+<p>
+Servers indicate that :above/:below is supported on a search parameter by defining them as 
+<a href="searchparameter-definitions.html#SearchParameter.modifier">Modifiers</a> on the 
+Search Parameter definition.
+</p>
+
 
 <a name="chaining"></a>
 <h4>Chained parameters</h4>
