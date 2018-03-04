@@ -26,6 +26,7 @@ import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Base;
 import org.hl7.fhir.r4.model.BooleanType;
 import org.hl7.fhir.r4.model.CodeType;
+import org.hl7.fhir.r4.model.CanonicalType;
 import org.hl7.fhir.r4.model.CodeableConcept;
 import org.hl7.fhir.r4.model.Coding;
 import org.hl7.fhir.r4.model.Element;
@@ -1866,7 +1867,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           } else if (t.hasTargetProfile() && u.getValue().startsWith("#"))
             c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+u.getValue().substring(1).toLowerCase()+".html", u.getValue(), null)));
         }
-      } else if (t.hasProfile() && (!t.getCode().equals("Extension") || t.getProfile().contains(":"))) { // a profiled type
+      } else if (t.hasProfile() && (!t.getCode().equals("Extension") || isProfiledType(t.getProfile()))) { // a profiled type
         String ref;
         ref = pkp.getLinkForProfile(profile, t.getProfile().get(0).getValue());
         if (ref != null) {
@@ -1887,6 +1888,16 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
     return c;
   }
+
+  private boolean isProfiledType(List<CanonicalType> theProfile) {
+    for (CanonicalType next : theProfile){
+      if (StringUtils.defaultString(next.getValueAsString()).contains(":")) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 
   private String codeForAggregation(AggregationMode a) {
     switch (a) {
