@@ -1,21 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<h3>Notes</h3>
-	<h4>Device Types</h4>
-	<p>
-		The example binding used for the device element is from SNOMED CT. However, there are many other sources of possible codes for device type including:</p>
+	<a name="identifierandtype"></a>
+	<h4>Device Identifier and Device Type</h4>
+
+	<p>Nearly all devices are assigned a string of characters to represent one or more identifiers or codes, which are usually printed or affixed to the device using either barcodes or RFIDs.   The identifier or code can come from the manufacturer (for example, a 'serial number', 'reference number', or 'catalog number'), various institution and registries. Any of these identifiers or codes assigned to the device can and should be recorded in the device resource.   However, there can there can be confusion where to represent them in the resource because codes and identifiers are represented in FHIR as semantically distinct elements and because organizations may conflate the term 'code' for an identifier or 'identifier' for a code in their names.</p>
+
+	<p>The <code>identifier</code> element is <em>only</em> intended for use when it's an actual identifier for a specific instance of a device. That would mean that each device would have a separate serial number and would be represented using this element - devices without serial numbers (for example, a box of syringes) would not.  Concepts such as a reference number or catalog number or GTIN describe a code which represents a <em>kind</em> of device and are conveyed using the <code>type</code> element.  Some sources of standard codes for devices and translations within <code>type</code> are listed below:</p>
+
+
 		<ul>
+		<li><a href="valueset-device-kind.html">SNOMED CT</a> - the example binding used here</li>
 			<li><a href="https://www.gmdnagency.org/">Global Medical Device Nomenclature (GMDN&reg;)</a></li>
 			<li><a href="https://rtmms.nist.gov/rtmms/index.htm">Rosetta Terminology Mapping (RTM)</a></li>
 		</ul>
-		<p>Note that there may be translations of type code using one or more of these and other vocabularies</p>
 
-	<h4>Device Identifiers</h4>
-	<p>
-Nearly all devices are assigned one or more identifiers, which are usually printed or affixed to the device using either barcodes or RFIDs.
-The identifiers can come from the manufacturer (often called the "serial number," "reference number," or "catalog number"),  various institution and registries. Any of
-these identifiers assigned to the device can and should be recorded in the device resource. The different identifiers are
-differentiated by their use, label, and system values.
-</p>
 <a name="udi"></a>
 <h4>Unique Device Identifier (UDI)</h4>
 	<p>
