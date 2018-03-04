@@ -7,5 +7,15 @@
       <p>Todo - e.g. probable number of infections in a given region over a time period for a given disease based on vaccination rates and other factors</p>
     </div>
   </text>
+  <contained>
+    <Group>
+      <id value="group1"/>
+      <type value="person"/>
+      <actual value="false"/>
+	</Group>
+  </contained>
   <status value="final"/>
+  <subject>
+	  <reference value="#group1"/>
+  </subject>
 </RiskAssessment>

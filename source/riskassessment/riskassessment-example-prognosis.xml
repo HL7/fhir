@@ -8,6 +8,9 @@
     </div>
   </text>
   <status value="final"/>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
   <occurrenceDateTime value="2010-11-22"/>
   <condition>
     <reference value="Condition/stroke"/>
