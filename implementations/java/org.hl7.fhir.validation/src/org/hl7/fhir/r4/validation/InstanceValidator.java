@@ -141,7 +141,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private IWorkerContext context;
-  private FHIRPathEngine fpe; 
+  private FHIRPathEngine fpe;
 
   // configuration items
   private CheckDisplayOption checkDisplay;
@@ -2475,9 +2475,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private void validateQuestionannaireResponse(List<ValidationMessage> errors, Element element, NodeStack stack) {
     Element q = element.getNamedChild("questionnaire");
-    if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), q != null && isNotBlank(q.getNamedChildValue("reference")), "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
+    if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), q != null && isNotBlank(q.getValue()), "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
       long t = System.nanoTime();
-      Questionnaire qsrc = context.fetchResource(Questionnaire.class, q.getNamedChildValue("reference"));
+      Questionnaire qsrc = context.fetchResource(Questionnaire.class, q.getValue());
       sdTime = sdTime + (System.nanoTime() - t);
       if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire could not be resolved, so no validation can be performed against the base questionnaire")) {
         boolean inProgress = "in-progress".equals(element.getNamedChildValue("status"));
@@ -3295,7 +3295,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         if (ed.getMin() > 0) {
           if (problematicPaths.contains(ed.getPath()))
             hint(errors, IssueType.NOTSUPPORTED, element.line(), element.col(), stack.getLiteralPath(), count >= ed.getMin(),
-            location + ": Unable to check minimum required (" + Integer.toString(ed.getMin()) + ") due to lack of slicing validation");
+            location + "': Unable to check minimum required (" + Integer.toString(ed.getMin()) + ") due to lack of slicing validation");
           else
             rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), count >= ed.getMin(),
             location + ": minimum required = " + Integer.toString(ed.getMin()) + ", but only found " + Integer.toString(count));
