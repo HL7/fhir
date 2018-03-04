@@ -2475,9 +2475,23 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   private void validateQuestionannaireResponse(List<ValidationMessage> errors, Element element, NodeStack stack) {
     Element q = element.getNamedChild("questionnaire");
-    if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), q != null && isNotBlank(q.getValue()), "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
+    String questionnaire = null;
+    if (q != null) {
+    	/*
+    	 * q.getValue() is correct for R4 content, but we'll also accept the second
+    	 * option just in case we're validating raw STU3 content. Being lenient here
+    	 * isn't the end of the world since if someone is actually doing the reference
+    	 * wrong in R4 content it'll get flagged elsewhere by the validator too
+    	 */
+    	if (isNotBlank(q.getValue())) {
+    		questionnaire = q.getValue();
+		} else if (isNotBlank(q.getChildValue("reference"))) {
+    		questionnaire = q.getChildValue("reference");
+		}
+	 }
+    if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), questionnaire != null, "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
       long t = System.nanoTime();
-      Questionnaire qsrc = context.fetchResource(Questionnaire.class, q.getValue());
+      Questionnaire qsrc = context.fetchResource(Questionnaire.class, questionnaire);
       sdTime = sdTime + (System.nanoTime() - t);
       if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire could not be resolved, so no validation can be performed against the base questionnaire")) {
         boolean inProgress = "in-progress".equals(element.getNamedChildValue("status"));
