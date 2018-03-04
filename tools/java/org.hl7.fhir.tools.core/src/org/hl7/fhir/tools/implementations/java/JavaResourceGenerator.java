@@ -2251,13 +2251,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
             jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
             String ttn = getTypename(t);
             write(indent+"public "+ttn+" get"+getTitle(getElementName(e.getName(), false))+ttn+"() throws FHIRException { \r\n");
+            write(indent+"  if (this."+getElementName(e.getName(), true)+" == null))\r\n");
+            write(indent+"    return null;\r\n");
             write(indent+"  if (!(this."+getElementName(e.getName(), true)+" instanceof "+ttn+"))\r\n");
             write(indent+"    throw new FHIRException(\"Type mismatch: the type "+ttn+" was expected, but \"+this."+getElementName(e.getName(), true)+".getClass().getName()+\" was encountered\");\r\n");
             write(indent+"  return ("+ttn+") this."+getElementName(e.getName(), true)+";\r\n");
             write(indent+"}\r\n");
             write("\r\n");
             write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+ttn+"() { \r\n");
-            write(indent+"  return this."+getElementName(e.getName(), true)+" instanceof "+ttn+";\r\n");
+            write(indent+"  return this != null && this."+getElementName(e.getName(), true)+" instanceof "+ttn+";\r\n");
             write(indent+"}\r\n");
             write("\r\n");
           }
@@ -2268,6 +2270,17 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write("\r\n");
         jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
         write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+tn+" value) { \r\n");
+        if (e.getTypes().size() > 1 && (tn.equals("Type") || !tn.endsWith(".Type"))) {
+          write(indent+"  if (value != null && !(");
+          boolean first = true;
+          for (TypeRef t : e.getTypes()) {
+            if (first) first = false; else write(" || ");
+            write("value instanceof ");
+            write(getTypename(t));            
+          }
+          write("))\r\n");
+          write(indent+"    throw new FHIRFormatError(\"Not the right type for "+e.getPath()+": \"+value.fhirType());\r\n");         
+        }
         write(indent+"  this."+getElementName(e.getName(), true)+" = value;\r\n");
         write(indent+"  return this;\r\n");
         write(indent+"}\r\n");
