@@ -9,9 +9,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">PHQ-9 Questionnaire with dynamic logic</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/cqif-library">
-    <valueReference>
-      <reference value="Library/phq-9-logic"/>
-    </valueReference>
+    <valueCanonical value="Library/phq-9-logic"/>
   </extension>
   <identifier>
     <use value="official"/>
