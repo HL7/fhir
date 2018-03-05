@@ -167,7 +167,7 @@
   </type>
   <status value="draft" />
   <experimental value="true" />
-  <publisherString value="National Comprehensive Cancer Network, Inc." />
+  <publisher value="National Comprehensive Cancer Network, Inc." />
   <!-- Indications -->
 	<useContext>
 		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">

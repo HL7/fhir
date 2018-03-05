@@ -22,7 +22,7 @@
   <status value="active"/>
   <experimental value="true"/>
   <date value="2017-03-10"/>
-  <publisherString value="National Committee for Quality Assurance"/>
+  <publisher value="National Committee for Quality Assurance"/>
   <contact>
     <telecom>
       <system value="url"/>

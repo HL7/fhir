@@ -385,7 +385,7 @@
     </coding>
   </type>
   <date value="2015-07-22"/>
-  <publisherString value="Motive Medical Intelligence"/>
+  <publisher value="Motive Medical Intelligence"/>
   <contact>
     <telecom>
       <system value="phone"/>
