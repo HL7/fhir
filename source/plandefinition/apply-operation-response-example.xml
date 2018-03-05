@@ -13,29 +13,27 @@
 	  <id value="referralrequest"/>
 	  <status value="draft"/>
       <intent value="proposal"/>
-      <serviceRequested>
+      <code>
 		<coding>
 		  <system value="http://snomed.info/sct"/>
 		  <code value="306206005"/>
 		</coding>
 		<text value="Referral to service (procedure)"/>
-      </serviceRequested>
+      </code>
       <subject>
         <reference value="Patient/124"/>
       </subject>
-      <occurrenceDateTime value="2017-02-26T11:47:00.00"/>
+      <occurrenceDateTime value="2017-02-26T11:47:00.000Z"/>
       <requester>
-		<agent>
-			<reference value="Practitioner/123"/>
-		</agent>
+		<reference value="Practitioner/123"/>
 	  </requester>
-      <specialty>
+      <performerType>
 		  <coding>
 			  <system value="http://nucc.org/provider-taxonomy"/>
 			  <code value="261QM0850X"/>
 			  <display value="Adult Mental Health"/>
 		  </coding>
-      </specialty>
+      </performerType>
 	  <reasonCode>
 		  <coding>
 			  <system value="http://example.org/CodeSystem/suicide-risk-assessment-score"/>
@@ -99,9 +97,6 @@
   <contained>
 	<MedicationRequest>
 	  <id value="citalopramPrescription"/>
-	  <definition>
-		<reference value="ActivityDefinition/citalopramPrescription"/>
-	  </definition>
 	  <status value="draft"/>
 	  <intent value="proposal"/>
 	  <medicationReference>
@@ -111,9 +106,7 @@
 		  <reference value="Patient/124"/>
 	  </subject>
 	  <requester>
-		<agent>
-			<reference value="Practitioner/123"/>
-		</agent>
+		<reference value="Practitioner/123"/>
 	  </requester>
 	  <reasonCode>
 		  <coding>
@@ -126,6 +119,10 @@
 	  <reasonReference>
 		  <reference value="RiskAssessment/suicide-risk-assessment"/>
 	  </reasonReference>
+	  <!--definition>
+		<reference value="ActivityDefinition/citalopramPrescription"/>
+	  </definition-->
+	  <instantiates value="ActivityDefinition/citalopramPrescription"/>
 	  <dosageInstruction>
 		<text value="1 tablet oral 1 time daily"/>
 		<timing>
@@ -142,10 +139,13 @@
 			</coding>
 			<text value="Oral route (qualifier value)"/>
 		</route>
-		<doseQuantity>
-			<value value="1"/>
-			<unit value="{tbl}"/>
-		</doseQuantity>
+		<doseAndRate>
+			<type><text value="ordered"/></type>
+			<doseQuantity>
+				<value value="1"/>
+				<unit value="{tbl}"/>
+			</doseQuantity>
+		</doseAndRate>
 	  </dosageInstruction>
 	  <dispenseRequest>
 		  <numberOfRepeatsAllowed value="3"/>
@@ -156,9 +156,10 @@
 	  </dispenseRequest>
 	</MedicationRequest>
   </contained>
-  <definition>
+  <!--definition>
     <reference value="PlanDefinition/example"/>
-  </definition>
+  </definition-->
+  <instantiates value="PlanDefinition/example"/>
   <status value="draft"/>
   <intent value="proposal"/>
   <subject>

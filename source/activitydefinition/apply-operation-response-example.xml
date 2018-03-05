@@ -55,9 +55,6 @@
       </code>
     </Substance>
   </contained>
-  <definition>
-    <reference value="ActivityDefinition/citalopramPrescription"/>
-  </definition>
   <status value="draft"/>
   <intent value="proposal"/>
   <medicationReference>
@@ -66,6 +63,10 @@
   <subject>
 	  <reference value="Patient/124"/>
   </subject>
+  <!--definition>
+    <reference value="ActivityDefinition/citalopramPrescription"/>
+  </definition-->
+  <instantiates value="ActivityDefinition/citalopramPrescription"/>
   <dosageInstruction>
 	<text value="1 tablet oral 1 time daily"/>
 	<timing>
@@ -82,10 +83,15 @@
 		</coding>
 		<text value="Oral route (qualifier value)"/>
 	</route>
-	<doseQuantity>
-		<value value="1"/>
-		<unit value="{tbl}"/>
-	</doseQuantity>
+	<doseAndRate>
+	    <type>
+	      <text value="ordered"/>
+	    </type>
+	    <doseQuantity>
+			<value value="1"/>
+			<unit value="{tbl}"/>
+	    </doseQuantity>
+	</doseAndRate>
   </dosageInstruction>
   <dispenseRequest>
 	  <numberOfRepeatsAllowed value="3"/>

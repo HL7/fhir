@@ -62,16 +62,20 @@
 	<status value="active"/>
 	<experimental value="true"/>
   <date value="2015-08-15"/>
-  <publisher value="Motive Medical Intelligence"/>
+  <publisherString value="Motive Medical Intelligence"/>
+  <contact>
+    <telecom>
+      <system value="phone"/>
+      <value value="415-362-4007"/>
+      <use value="work"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="info@motivemi.com"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
   <description value="Citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills"/>
-  <purpose value="Defines a guideline supported prescription for the treatment of depressive disorders"/>
-  <usage value="This activity definition is used as part of various suicide risk order sets"/>
-  <approvalDate value="2016-03-12"/>
-  <lastReviewDate value="2016-08-15"/>
-  <effectivePeriod>
-    <start value="2016-01-01"/>
-    <end value="2017-12-31"/>
-  </effectivePeriod>
   <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
@@ -169,6 +173,15 @@
       <code value="US"/>
     </coding>
   </jurisdiction>
+  <purpose value="Defines a guideline supported prescription for the treatment of depressive disorders"/>
+  <usage value="This activity definition is used as part of various suicide risk order sets"/>
+  <copyright value="© Copyright 2016 Motive Medical Intelligence. All rights reserved."/>
+  <approvalDate value="2016-03-12"/>
+  <lastReviewDate value="2016-08-15"/>
+  <effectivePeriod>
+    <start value="2016-01-01"/>
+    <end value="2017-12-31"/>
+  </effectivePeriod>
   <topic>
     <text value="Mental Health Treatment"/>
   </topic>
@@ -188,19 +201,6 @@
       </telecom>
     </contact>
   </contributor>
-  <contact>
-    <telecom>
-      <system value="phone"/>
-      <value value="415-362-4007"/>
-      <use value="work"/>
-    </telecom>
-    <telecom>
-      <system value="email"/>
-      <value value="info@motivemi.com"/>
-      <use value="work"/>
-    </telecom>
-  </contact>
-  <copyright value="© Copyright 2016 Motive Medical Intelligence. All rights reserved."/>
     <relatedArtifact>
       <type value="citation"/>
       <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>

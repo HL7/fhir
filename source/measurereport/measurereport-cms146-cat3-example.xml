@@ -973,9 +973,9 @@
   <measure>
     <reference value="Measure/CMS146"/>
   </measure>
-  <reportingOrganization>
+  <reporter>
     <reference value="#reporter"/>
-  </reportingOrganization>
+  </reporter>
   <period>
       <start value="2014-01-01" />
       <end value="2014-03-31" />

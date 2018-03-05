@@ -216,5 +216,7 @@
       </high>
     </whenRange>
   </prediction>
-  <comment value="High degree of certainty"/>
+  <note>
+    <text value="High degree of certainty"/>
+  </note>
 </RiskAssessment>

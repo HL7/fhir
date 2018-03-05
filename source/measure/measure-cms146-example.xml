@@ -22,15 +22,14 @@
   <status value="active"/>
   <experimental value="true"/>
   <date value="2017-03-10"/>
-  <publisher value="National Committee for Quality Assurance"/>
+  <publisherString value="National Committee for Quality Assurance"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.ncqa.org/"/>
+    </telecom>
+  </contact>
   <description value="Percentage of children 3-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
-  <purpose value="Measure of children with a group A streptococcus test in the 7-day period from 3 days prior through 3 days after the diagnosis of pharyngitis"/>
-  <approvalDate value="2016-01-01"/>
-  <lastReviewDate value="2016-09-01"/>
-  <effectivePeriod>
-    <start value="2017-01-01"/>
-    <end value="2017-12-31"/>
-  </effectivePeriod>
   <useContext>
     <code>
       <code value="program"/>
@@ -45,6 +44,22 @@
       <code value="US"/>
     </coding>
   </jurisdiction>
+  <purpose value="Measure of children with a group A streptococcus test in the 7-day period from 3 days prior through 3 days after the diagnosis of pharyngitis"/>
+  <copyright value="Physician Performance Measure (Measures) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). 
+
+The Measures are copyrighted but can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices). Commercial use is defined as the sale, licensing, or distribution of the Measures for commercial gain, or incorporation of the Measures into a product or service that is sold, licensed or distributed for commercial gain. Commercial use of the Measures requires a license agreement between the user and NCQA. NCQA is not responsible for any use of the Measures. 
+
+(c) 2008-2016 National Committee for Quality Assurance. All Rights Reserved. 
+
+Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any CPT or other codes contained in the specifications.
+
+CPT(R) contained in the Measure specifications is copyright 2004-2015 American Medical Association. LOINC(R) copyright 2004-2015 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2015 International Health Terminology Standards Development Organisation. ICD-10 copyright 2015 World Health Organization. All Rights Reserved."/>
+  <approvalDate value="2016-01-01"/>
+  <lastReviewDate value="2016-09-01"/>
+  <effectivePeriod>
+    <start value="2017-01-01"/>
+    <end value="2017-12-31"/>
+  </effectivePeriod>
   <topic>
     <coding>
       <system value="http://hl7.org/fhir/c80-doc-typecodes" />
@@ -55,21 +70,6 @@
     <type value="author"/>
     <name value="National Committee for Quality Assurance"/>
   </contributor>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.ncqa.org/"/>
-    </telecom>
-  </contact>
-  <copyright value="Physician Performance Measure (Measures) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). 
-
-The Measures are copyrighted but can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices). Commercial use is defined as the sale, licensing, or distribution of the Measures for commercial gain, or incorporation of the Measures into a product or service that is sold, licensed or distributed for commercial gain. Commercial use of the Measures requires a license agreement between the user and NCQA. NCQA is not responsible for any use of the Measures. 
-
-(c) 2008-2016 National Committee for Quality Assurance. All Rights Reserved. 
-
-Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any CPT or other codes contained in the specifications.
-
-CPT(R) contained in the Measure specifications is copyright 2004-2015 American Medical Association. LOINC(R) copyright 2004-2015 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2015 International Health Terminology Standards Development Organisation. ICD-10 copyright 2015 World Health Organization. All Rights Reserved."/>
   <relatedArtifact>
 	<type value="documentation"/>
 	<citation value="Linder, J.A., D.W. Bates, G.M. Lee, J.A. Finkelstein. 2005. &quot;Antibiotic treatment of children with sore throat.&quot; JAMA 294(18):2315-2322. "/>

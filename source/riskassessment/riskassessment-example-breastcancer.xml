@@ -65,7 +65,9 @@
 			<text value="Unknown risk of developing breast cancer"/>
 		</outcome>
 	</prediction>
-  
-  <comment value="This risk assessment is based on BRCA1 and BRCA2 genetic mutation test"/>
+
+  <note>
+		<text value="This risk assessment is based on BRCA1 and BRCA2 genetic mutation test"/>
+  </note>  
   
 </RiskAssessment>

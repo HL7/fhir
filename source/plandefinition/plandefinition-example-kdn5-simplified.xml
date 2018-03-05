@@ -167,9 +167,7 @@
   </type>
   <status value="draft" />
   <experimental value="true" />
-  <publisher value="National Comprehensive Cancer Network, Inc." />
-  <approvalDate value="2016-07-27" />
-  <lastReviewDate value="2016-07-27" />
+  <publisherString value="National Comprehensive Cancer Network, Inc." />
   <!-- Indications -->
 	<useContext>
 		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
@@ -243,11 +241,13 @@
 			<text value="Kidney Cancer – Collecting Duct/Medullary Subtypes - Metastatic"/>
 		</valueCodeableConcept>
 	</useContext>
+  <copyright value="All rights reserved." />
+  <approvalDate value="2016-07-27" />
+  <lastReviewDate value="2016-07-27" />
   <contributor>
     <type value="author" />
     <name value="Lee Surprenant" />
   </contributor>
-  <copyright value="All rights reserved." />
   <!-- list of references for the order template -->
   <relatedArtifact>
     <type value="derived-from" />

@@ -73,13 +73,11 @@
   <!--A code that classifies the general type of context to which these behavior definitions apply. This is used for searching, sorting and display purposes.-->
   <type>
     <coding>
-      <code value="protocol"/>
+      <code value="clinical-protocol"/>
     </coding>
   </type>
 <!--The status of the protocol.draft | active | retired-->
   <status value="draft"/>
-  <!--When is the protocol to be used-->
-  <purpose value="Example of A medical algorithm for assessment and treatment of overweight and obesity"/>
   <useContext>
 	<code>
 	  <code value="focus"/>
@@ -92,6 +90,8 @@
 	  </coding>
 	</valueCodeableConcept>
   </useContext>
+  <!--When is the protocol to be used-->
+  <purpose value="Example of A medical algorithm for assessment and treatment of overweight and obesity"/>
   <!--Who wrote the Protocol-->
   <contributor>
     <type value="author"/>

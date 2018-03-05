@@ -66,6 +66,8 @@
       </high>
     </whenRange>
   </prediction>
-  <comment value="This risk assessment is for reference only"/>
+  <note>
+	<text value="This risk assessment is for reference only"/>
+  </note>
   
 </RiskAssessment>
