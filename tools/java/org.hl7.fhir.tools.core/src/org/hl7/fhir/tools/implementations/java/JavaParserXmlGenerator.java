@@ -171,6 +171,15 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    return true;\r\n");    
     write("  }\r\n");
     write("\r\n");
+    write("  protected boolean parseBackboneElementContent(int eventType, XmlPullParser xpp, BackboneType res) throws XmlPullParserException, IOException, FHIRFormatError {\r\n");
+    write("    if (eventType == XmlPullParser.START_TAG && xpp.getName().equals(\"modifierExtension\")) \r\n");
+    write("      res.getModifierExtension().add(parseExtension(xpp));\r\n");
+    write("    else\r\n");
+    write("      return parseElementContent(eventType, xpp, res);\r\n");
+    write("      \r\n");
+    write("    return true;\r\n");    
+    write("  }\r\n");
+    write("\r\n");
   }
 
 //  private void genReference() throws Exception {
@@ -394,9 +403,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
       write("      ");
     if (clss == JavaGenClass.Resource)
       write("if (!parse"+n.typeCode()+"Content(eventType, xpp, res))\r\n");
-    else if (clss == JavaGenClass.BackboneElement)
+    else if (clss == JavaGenClass.BackboneElement || n.typeCode().equals("Structure") )
         write("if (!parseBackboneElementContent(eventType, xpp, res))\r\n");
-    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type") || n.typeCode().equals("Structure") )
+    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type"))
       write("if (!parseElementContent(eventType, xpp, res))\r\n");
     else
       write("if (!parse"+n.typeCode()+"Content(eventType, xpp, res))\r\n");
@@ -855,6 +864,13 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
+    write("  protected void composeBackboneElementElements(BackboneType element) throws IOException {\r\n");
+    write("    composeElementElements(element);\r\n");    
+    write("    for (Extension e : element.getModifierExtension()) {\r\n");
+    write("      composeExtension(\"modifierExtension\", e);\r\n");
+    write("    }\r\n");
+    write("  }\r\n");
+    write("\r\n");
   }
 
   private void generateEnumComposer() throws Exception {
@@ -998,9 +1014,9 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
     write("  protected void compose"+upFirst(tn).replace(".", "")+"Elements("+tn+" element) throws IOException {\r\n");
     if (type == JavaGenClass.Resource) 
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
-    else if (type == JavaGenClass.BackboneElement) 
+    else if (type == JavaGenClass.BackboneElement || n.typeCode().equals("Structure")) 
       write("      composeBackboneElementElements(element);\r\n");
-    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Structure") || n.typeCode().equals("Type") )
+    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type") )
       write("      composeElementElements(element);\r\n");
     else
       write("      compose"+n.typeCode()+"Elements(element);\r\n");

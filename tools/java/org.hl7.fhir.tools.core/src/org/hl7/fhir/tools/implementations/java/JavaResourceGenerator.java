@@ -255,7 +255,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       write("public class "+upFirst(name)+" extends BaseReference implements IBaseReference, ICompositeType ");
 		} else {
       write("@DatatypeDef(name=\""+upFirst(name)+"\")\r\n");
-			write("public class "+upFirst(name)+" extends "+(root.typeCode().equals("Structure") ? "Type" : root.typeCode())+" implements ICompositeType ");
+			write("public class "+upFirst(name)+" extends "+(root.typeCode().equals("Structure") ? "BackboneType" : root.typeCode())+" implements ICompositeType ");
 		}
 		
 		write("{\r\n");

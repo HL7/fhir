@@ -178,6 +178,16 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
+    write("  protected void parseBackboneElementProperties(JsonObject json, BackboneType element) throws IOException, FHIRFormatError {\r\n");
+    write("    parseElementProperties(json, element);\r\n");
+    write("    if (json.has(\"modifierExtension\")) {\r\n");
+    write("      JsonArray array = json.getAsJsonArray(\"modifierExtension\");\r\n");
+    write("      for (int i = 0; i < array.size(); i++) {\r\n");
+    write("        element.getModifierExtension().add(parseExtension(array.get(i).getAsJsonObject()));\r\n");
+    write("      }\r\n");
+    write("    }\r\n");
+    write("  }\r\n");
+    write("\r\n");
     write("  protected void parseTypeProperties(JsonObject json, Element element) throws IOException, FHIRFormatError {\r\n");
     write("    parseElementProperties(json, element);\r\n");
     write("  }\r\n");
@@ -317,11 +327,11 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     }
     if (clss == JavaGenClass.Resource)
       write("    parse"+n.typeCode()+"Properties(json, res);\r\n");
-    else if (clss == JavaGenClass.Backbone)
+    else if (clss == JavaGenClass.Backbone || n.typeCode().equals("Structure"))
       write("    parseBackboneElementProperties(json, res);\r\n");
 //    else if (clss == JavaGenClass.Type && !tn.contains("."))
 //      write("    parseTypeProperties(json, res);\r\n");
-    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type") || n.typeCode().equals("Structure"))
+    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type"))
       write("    parseTypeProperties(json, res);\r\n");
     else
       write("    parse"+n.typeCode()+"Properties(json, res);\r\n");
@@ -738,8 +748,17 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("\r\n");
     write("  protected void composeBackboneElementInner(BackboneElement element) throws IOException {\r\n");
     write("    composeBackbone(element);\r\n");
-    write("  }\r\n");
+    write("  }\r\n\r\n");
     write("  protected void composeBackbone(BackboneElement element) throws IOException {\r\n");
+    write("    composeElement(element);\r\n");
+    write("    if (element.hasModifierExtension()) {\r\n");
+    write("      openArray(\"modifierExtension\");\r\n");
+    write("      for (Extension e : element.getModifierExtension())\r\n");
+    write("        composeExtension(null, e);\r\n");
+    write("      closeArray();\r\n");
+    write("    }\r\n");
+    write("  }\r\n\r\n");
+    write("  protected void composeBackbone(BackboneType element) throws IOException {\r\n");
     write("    composeElement(element);\r\n");
     write("    if (element.hasModifierExtension()) {\r\n");
     write("      openArray(\"modifierExtension\");\r\n");
@@ -880,9 +899,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("  protected void compose"+upFirst(tn).replace(".", "")+"Inner("+tn+" element) throws IOException {\r\n");
     if (clss == JavaGenClass.Resource)
       write("      compose"+n.typeCode()+"Elements(element);\r\n");
-    else if (clss == JavaGenClass.Backbone)
+    else if (clss == JavaGenClass.Backbone || n.typeCode().equals("Structure"))
       write("      composeBackbone(element);\r\n");
-    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type") || n.typeCode().equals("Structure") || n.typeCode().equals("Element"))
+    else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type") || n.typeCode().equals("Element"))
       write("      composeElement(element);\r\n");
     else
       write("      compose"+n.typeCode()+"Inner(element);\r\n");

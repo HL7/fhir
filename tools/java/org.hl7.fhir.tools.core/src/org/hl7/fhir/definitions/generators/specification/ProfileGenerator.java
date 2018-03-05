@@ -361,8 +361,10 @@ public class ProfileGenerator {
   }
 
   private void addElementConstraints(String name, ElementDefinition ed) throws Exception {
-    if (definitions.hasPrimitiveType(name) || name.equals("Type") || name.equals("Structure") || name.equals("Logical"))
+    if (definitions.hasPrimitiveType(name) || name.equals("Type") || name.equals("Logical"))
       addElementConstraints("Element", ed);
+    else if (name.equals("Structure"))
+      addElementConstraints("BackboneElement", ed);
     else {
       ElementDefn element = definitions.getElementDefn(name);
       if (!Utilities.noString(element.typeCode()))

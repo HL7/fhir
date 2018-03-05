@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 18:26+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -446,22 +446,23 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
     return false;
     }
     
+       public Extension getExtensionByUrl(String theUrl) {
+     org.apache.commons.lang3.Validate.notBlank(theUrl, "theUrl must not be blank or null");
+     ArrayList<Extension> retVal = new ArrayList<Extension>();
+     for (Extension next : getExtension()) {
+       if (theUrl.equals(next.getUrl())) {
+         retVal.add(next);
+       }
+     }
+     if (retVal.size() == 0)
+       return null;
+     else {
+       org.apache.commons.lang3.Validate.isTrue(retVal.size() == 1, "Url "+theUrl+" must have only one match");
+       return retVal.get(0);
+     }
+   }
+  
 
-  public Extension getExtensionByUrl(String theUrl) {
-    org.apache.commons.lang3.Validate.notBlank(theUrl, "theUrl must not be blank or null");
-    ArrayList<Extension> retVal = new ArrayList<Extension>();
-    for (Extension next : getExtension()) {
-      if (theUrl.equals(next.getUrl())) {
-        retVal.add(next);
-      }
-    }
-    if (retVal.size() == 0)
-      return null;
-    else {
-      org.apache.commons.lang3.Validate.isTrue(retVal.size() == 1, "Url "+theUrl+" must have only one match");
-      return retVal.get(0);
-    }
-  }
 
 // end addition
 
