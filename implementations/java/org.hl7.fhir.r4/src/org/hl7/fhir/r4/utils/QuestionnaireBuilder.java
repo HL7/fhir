@@ -691,9 +691,9 @@ public class QuestionnaireBuilder {
   private void processDataType(StructureDefinition profile, QuestionnaireItemComponent group, ElementDefinition element, String path, TypeRefComponent t, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups) throws FHIRException {
     if (t.getCode().equals("code"))
       addCodeQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("string") || t.getCode().equals("id") || t.getCode().equals("oid") || t.getCode().equals("markdown"))
+    else if (Utilities.existsInList(t.getCode(), "string", "id", "oid", "uuid", "markdown"))
       addStringQuestions(group, element, path, answerGroups);
-    else if (t.getCode().equals("uri") || t.getCode().equals("url") || t.getCode().equals("canonical"))
+    else if (Utilities.existsInList(t.getCode(), "uri", "url", "canonical"))
       addUriQuestions(group, element, path, answerGroups);
     else if (t.getCode().equals("boolean"))
       addBooleanQuestions(group, element, path, answerGroups);
