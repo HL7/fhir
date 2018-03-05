@@ -24,17 +24,12 @@
   </topic>
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource>
-      <reference value="Library/fhir-model-definition"/>
-    </resource>
+    <resource value="Library/fhir-model-definition"/>
   </relatedArtifact>
 
   <relatedArtifact>
   	<type value="depends-on"/>
-  	<resource>
-  		<reference value="ValueSet/zika-affected-area"/>
-  		<display value="Zika Affected Area"/>
-  	</resource>
+  	<resource value="ValueSet/zika-affected-area"/>
   </relatedArtifact>
 
   <parameter>

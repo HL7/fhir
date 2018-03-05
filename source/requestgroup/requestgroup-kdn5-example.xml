@@ -101,9 +101,7 @@
   <identifier>
     <value value="requestgroup-kdn5"/>
   </identifier>  
-  <definition>
-    <reference value="PlanDefinition/KDN5"/>
-  </definition>
+  <instantiatesCanonical value="PlanDefinition/KDN5"/>
   <status value="draft"/>
   <intent value="plan"/>
   <priority value="routine"/>

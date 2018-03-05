@@ -249,9 +249,7 @@
   </relatedArtifact>
   <relatedArtifact>
     <type value="predecessor"/>
-    <resource>
-      <reference value="ActivityDefinition/referralPrimaryCareMentalHealth-initial"/>
-    </resource>
+    <resource value="ActivityDefinition/referralPrimaryCareMentalHealth-initial"/>
   </relatedArtifact>
   <!-- Kind indicates the type of resource that is defined by this activity, a ServiceRequest in this case -->
   <kind value="ServiceRequest"/>

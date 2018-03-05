@@ -20,7 +20,5 @@
   <quantity>
     <value value="10"/>
   </quantity>
-  <transform>
-    <reference value="StructureMap/supplyrequest-transform"/>
-  </transform>
+  <transform value="StructureMap/supplyrequest-transform"/>
 </ActivityDefinition>

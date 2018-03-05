@@ -32,9 +32,7 @@
     <selectionBehavior value="all"/>
     <action id="medication-action-1">
       <title value="Administer Medication 1"/>
-      <definition>
-        <reference value="#activitydefinition-medicationrequest-1"/>
-      </definition>
+      <definition value="#activitydefinition-medicationrequest-1"/>
     </action>
     <action id="medication-action-2">
       <title value="Administer Medication 2"/>
@@ -46,9 +44,7 @@
           <unit value="h"/>
         </offsetDuration>
       </relatedAction>
-      <definition>
-        <reference value="#activitydefinition-medicationrequest-2"/>
-      </definition>
+      <definition value="#activitydefinition-medicationrequest-2"/>
     </action>
   </action>
 </PlanDefinition>

@@ -1004,9 +1004,7 @@
   </identifier>
   <status value="complete"/>
   <type value="individual"/>
-  <measure>
-    <reference value="Measure/CMS146"/>
-  </measure>
+  <measure value="Measure/CMS146"/>
   <subject>
     <reference value="Patient/123"/>
   </subject>

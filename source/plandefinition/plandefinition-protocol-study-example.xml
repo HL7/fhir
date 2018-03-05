@@ -306,9 +306,7 @@
       <kind value="applicability"/>
       <description value="Screening"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -319,9 +317,7 @@
 	  <kind value="applicability"/>
       <description value="single-blind placebo start"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -332,9 +328,7 @@
 	  <kind value="applicability"/>
       <description value="Treatment start"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -345,9 +339,7 @@
 	  <kind value="applicability"/>
       <description value="5 weeks after treatment start"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -358,9 +350,7 @@
 	  <kind value="applicability"/>
       <description value="10 weeks after treatment start"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -371,9 +361,7 @@
 	  <kind value="applicability"/>
       <description value="15 weeks after treatment start"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -384,9 +372,7 @@
 	  <kind value="applicability"/>
       <description value="20 weeks after treatment start"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -397,9 +383,7 @@
 	  <kind value="applicability"/>
       <description value="25 weeks after treatment start"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -410,9 +394,7 @@
 	  <kind value="applicability"/>
       <description value="30 weeks after treatment start"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -423,8 +405,6 @@
 	  <kind value="applicability"/>
       <description value="start of follow-up"/>
     </condition>
-    <definition>
-      <reference value="#encounter"/>
-    </definition>
+    <definition value="#encounter"/>
   </action>
 </PlanDefinition>

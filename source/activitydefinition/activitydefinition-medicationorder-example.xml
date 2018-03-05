@@ -208,9 +208,7 @@
 	</relatedArtifact>
 	<relatedArtifact>
       <type value="composed-of"/>
-      <resource>
-        <reference value="#citalopramMedication"/>
-      </resource>
+      <resource value="#citalopramMedication"/>
 	</relatedArtifact>
 	<kind value="MedicationRequest"/>
 	<productReference>

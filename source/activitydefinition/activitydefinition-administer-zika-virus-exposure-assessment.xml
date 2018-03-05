@@ -96,13 +96,9 @@
   </relatedArtifact>
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource>
-      <reference value="Questionnaire/zika-virus-exposure-assessment"/>
-    </resource>
+    <resource value="Questionnaire/zika-virus-exposure-assessment"/>
   </relatedArtifact>
-  <library>
-    <reference value="Library/zika-virus-intervention-logic"/>
-  </library>
+  <library value="Library/zika-virus-intervention-logic"/>
   <kind value="ServiceRequest"/>
   <code>
     <coding>

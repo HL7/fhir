@@ -519,32 +519,22 @@
 	
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource>
-      <reference value="Library/library-fhir-model-definition"/>
-    </resource>
+    <resource value="Library/library-fhir-model-definition"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource>
-      <reference value="Library/library-fhir-helpers"/>
-      <display value="FHIRHelpers"/>
-    </resource>
+    <resource value="Library/library-fhir-helpers"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource>
-      <reference value="http://nucc.org/provider-taxonomy"/>
-    </resource>
+    <resource value="http://nucc.org/provider-taxonomy"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource>
-      <reference value="ValueSet/1.2.3.4.5"/>
-      <display value="Suicide Risk Assessment"/>
-    </resource>
+    <resource value="ValueSet/1.2.3.4.5"/>
   </relatedArtifact>
 
   <parameter>

@@ -28,44 +28,32 @@
   
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource>
-      <reference value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
-    </resource>
+    <resource value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource>
-      <reference value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
-    </resource>
+    <resource value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource>
-      <reference value="ActivityDefinition/provide-mosquito-prevention-advice"/>
-    </resource>
+    <resource value="ActivityDefinition/provide-mosquito-prevention-advice"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource>
-      <reference value="Library/zika-virus-intervention-logic"/>
-    </resource>
+    <resource value="Library/zika-virus-intervention-logic"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource>
-      <reference value="PlanDefinition/zika-virus-intervention"/>
-    </resource>
+    <resource value="PlanDefinition/zika-virus-intervention"/>
   </relatedArtifact>
 
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource>
-      <reference value="Questionnaire/zika-virus-exposure-assessment"/>
-    </resource>
+    <resource value="Questionnaire/zika-virus-exposure-assessment"/>
   </relatedArtifact>
 
   <relatedArtifact>

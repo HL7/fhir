@@ -1546,9 +1546,7 @@
   </identifier>
   <status value="complete"/>
   <type value="subject-list"/>
-  <measure>
-    <reference value="Measure/CMS146"/>
-  </measure>
+  <measure value="Measure/CMS146"/>
   <reporter>
     <reference value="#reporter"/>
   </reporter>

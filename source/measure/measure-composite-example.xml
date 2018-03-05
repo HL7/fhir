@@ -10,15 +10,11 @@
   <status value="draft"/>
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource>
-      <reference value="Measure/component-a-example"/>
-    </resource>
+    <resource value="Measure/component-a-example"/>
   </relatedArtifact>
   <relatedArtifact>
     <type value="composed-of"/>
-    <resource>
-      <reference value="Measure/component-b-example"/>
-    </resource>
+    <resource value="Measure/component-b-example"/>
   </relatedArtifact>
   <scoring><coding><code value="proportion"/></coding></scoring>
   <compositeScoring><coding><code value="opportunity"/></coding></compositeScoring>

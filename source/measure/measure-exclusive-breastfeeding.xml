@@ -65,23 +65,18 @@
 	<type value="documentation"/>
 	<citation value="World Health Organization. (1991). Indicators for assessing breastfeeding practices. Geneva, Switzerland: World Health Organization. Available at: http://whqlibdoc.who.int/hq/1991/WHO_CDD_SER_91.14.pdf?ua=1."/>
   </relatedArtifact>
+
+  <!-- This measure replaces the previous version of the exclusive breastmilk feeding measure -->
   <relatedArtifact>
     <type value="predecessor"/>
-    <resource>
-      <!-- This measure replaces the previous version of the exclusive breastmilk feeding measure -->
-      <reference value="Measure/measure-predecessor-example"/>
-    </resource>
+    <resource value="Measure/measure-predecessor-example"/>
   </relatedArtifact>
+  <!-- This measure derives from the previous version, and changes the logic to add ACOG revitalize guidelines for gestational age calculation -->
   <relatedArtifact>
     <type value="derived-from"/>
-    <resource>
-      <!-- This measure derives from the previous version, and changes the logic to add ACOG revitalize guidelines for gestational age calculation -->
-      <reference value="Measure/measure-predecessor-example"/>
-    </resource>
+    <resource value="Measure/measure-predecessor-example"/>
   </relatedArtifact>
-  <library>
-    <reference value="Library/library-exclusive-breastfeeding-cqm-logic"/>
-  </library>
+  <library value="Library/library-exclusive-breastfeeding-cqm-logic"/>
   <disclaimer value="These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. The measures and specifications are provided without warranty."/>
   <scoring>
 	<coding>

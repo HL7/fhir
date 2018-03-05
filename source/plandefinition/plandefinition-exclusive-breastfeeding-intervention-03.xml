@@ -164,13 +164,9 @@
   </topic>
   <relatedArtifact>
     <type value="derived-from"/>
-    <resource>
-      <reference value="Measure/measure-exclusive-breastfeeding"/>
-    </resource>
+    <resource value="Measure/measure-exclusive-breastfeeding"/>
   </relatedArtifact>
-  <library>
-    <reference value="Library/library-exclusive-breastfeeding-cds-logic"/>
-  </library>
+  <library value="Library/library-exclusive-breastfeeding-cds-logic"/>
   <action>
     <title value="Mother should be administered a breastfeeding readiness assessment."/>
     <trigger>

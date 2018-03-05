@@ -485,9 +485,7 @@
   <description value="Logic for CMS 146: Appropriate Testing for Children with Pharyngitis"/>
   <relatedArtifact>
     <type value="depends-on"/>
-    <resource>
-      <reference value="Library/library-quick-model-definition"/>
-    </resource>
+    <resource value="Library/library-quick-model-definition"/>
   </relatedArtifact>
 
   <dataRequirement>

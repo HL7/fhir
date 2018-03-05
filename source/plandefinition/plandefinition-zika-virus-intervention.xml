@@ -388,13 +388,9 @@
   </relatedArtifact>
   <relatedArtifact>
     <type value="predecessor"/>
-    <resource>
-      <reference value="PlanDefinition/zika-virus-intervention-initial"/>
-    </resource>
+    <resource value="PlanDefinition/zika-virus-intervention-initial"/>
   </relatedArtifact>
-  <library>
-    <reference value="Library/zika-virus-intervention-logic"/>
-  </library>
+  <library value="Library/zika-virus-intervention-logic"/>
   <action>
     <title value="Zika Virus Assessment"/>
     <trigger>
@@ -410,36 +406,28 @@
 			<kind value="applicability"/>
 			<expression value="Should Administer Zika Virus Exposure Assessment"/>
 		</condition>
-		<definition>
-			<reference value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
-		</definition>
+		<definition value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
     </action>
     <action>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Order Serum + Urine rRT-PCR Test"/>
 		</condition>
-		<definition>
-			<reference value="ActivityDefinition/order-serum-urine-rrt-pcr-test"/>
-		</definition>
+		<definition value="ActivityDefinition/order-serum-urine-rrt-pcr-test"/>
     </action>
     <action>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Order Serum Zika Virus IgM + Dengue Virus IgM"/>
 		</condition>
-		<definition>
-			<reference value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
-		</definition>
+		<definition value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
     </action>
     <action>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Consider IgM Antibody Testing"/>
 		</condition>
-		<definition>
-			<reference value="ActivityDefinition/consider-igm-antibody-testing"/>
-		</definition>
+		<definition value="ActivityDefinition/consider-igm-antibody-testing"/>
     </action>
     <action>
 		<condition>
@@ -447,14 +435,10 @@
 			<expression value="Should Provide Mosquito Prevention and Contraception Advice"/>
 		</condition>
 		<action>
-			<definition>
-				<reference value="ActivityDefinition/provide-mosquito-prevention-advice"/>
-			</definition>
+			<definition value="ActivityDefinition/provide-mosquito-prevention-advice"/>
 		</action>
 		<action>
-			<definition>
-				<reference value="ActivityDefinition/provide-contraception-advice"/>
-			</definition>
+			<definition value="ActivityDefinition/provide-contraception-advice"/>
 		</action>
     </action>
   </action>
