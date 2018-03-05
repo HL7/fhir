@@ -157,7 +157,7 @@ public class Dosage extends BackboneType implements ICompositeType {
          * @param value {@link #dose} (Amount of medication per dose.)
          */
         public DosageDoseAndRateComponent setDose(Type value) { 
-          if (value != null && !(value instanceof Range || value instanceof SimpleQuantity))
+          if (value != null && !(value instanceof Range || value instanceof Quantity))
             throw new Error("Not the right type for Dosage.doseAndRate.dose[x]: "+value.fhirType());
           this.dose = value;
           return this;
@@ -223,7 +223,7 @@ public class Dosage extends BackboneType implements ICompositeType {
          * @param value {@link #rate} (Amount of medication per unit of time.)
          */
         public DosageDoseAndRateComponent setRate(Type value) { 
-          if (value != null && !(value instanceof Ratio || value instanceof Range || value instanceof SimpleQuantity))
+          if (value != null && !(value instanceof Ratio || value instanceof Range || value instanceof Quantity))
             throw new Error("Not the right type for Dosage.doseAndRate.rate[x]: "+value.fhirType());
           this.rate = value;
           return this;
