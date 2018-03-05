@@ -8,10 +8,11 @@
       <br/>Status: active
       <br/>Subject: Peter James Chalmers ("Jim")
       <br/>Date: 2/5/2012 9:10 AM EST
-      <br/>Author: Dr Adam Careful
+      <br/>Recorder: Dr Adam Careful
+      <br/>Informant: Peter James Chalmers
       <br/>Employment Status: Employed
       <br/>Employment Period: 4/1/1980 - present
-      <br/>Combat Zone Work: 2/15/1983 - 5/30/1983
+      <br/>Combat Zone Work Period: 2/15/1983 - 5/30/1983
       </p>
       <p><b>Usual Work</b></p>
       <p>Occupation: Patrol officer
@@ -103,9 +104,12 @@
     <reference value="Patient/example"/> 
   </subject> 
   <date value="2012-05-02T14:10:00Z"/>
-  <author>
+  <recorder>
     <reference value="Practitioner/example"/>
-  </author>
+  </recorder>
+  <informant>
+    <reference value="Patient/example"/>
+  </informant>
   <employmentStatus>
     <code>
       <coding> 
@@ -114,15 +118,15 @@
         <display value="Employed"/> 
       </coding>       
     </code>
-    <effectivePeriod>
+    <effective>
       <start value="1980-04-01"/>
-    </effectivePeriod>
+    </effective>
   </employmentStatus>
   <!-- <retirementDate value="[dateTime]"/> 0..* Retirement date -->
-  <combatZoneWork>
+  <combatZonePeriod>
     <start value="1983-02-15"/>
     <end value="1983-05-30"/>    
-  </combatZoneWork>
+  </combatZonePeriod>
   <usualWork>
     <occupation>
       <coding> 
@@ -166,9 +170,9 @@
       </coding>
       <text value="City police department"/>      
     </industry>
-    <effectivePeriod>
+    <effective>
       <start value="1989-04-02"/>      
-    </effectivePeriod>
+    </effective>
       <employer>
         <reference value="Organization/odh-1-example"/>         
       </employer>
@@ -212,10 +216,10 @@
       </coding>
       <text value="County sheriff's office"/>      
     </industry>
-    <effectivePeriod>
+    <effective>
       <start value="1986-09-14"/>      
       <end value="1989-04-01"/>      
-    </effectivePeriod>
+    </effective>
     <employer>
       <reference value="Organization/odh-2-example"/>         
     </employer>
@@ -252,10 +256,10 @@
       </coding>
       <text value="County sheriff's office"/>      
     </industry>
-    <effectivePeriod>
+    <effective>
       <start value="1986-06-08"/>      
       <end value="1986-09-13"/>      
-    </effectivePeriod>
+    </effective>
     <employer>
       <reference value="Organization/odh-2-example"/>         
     </employer>
@@ -292,10 +296,10 @@
       </coding>
       <text value="US Marines"/>      
     </industry>
-    <effectivePeriod>
+    <effective>
       <start value="1985-10-27"/>      
       <end value="1986-06-07"/>      
-    </effectivePeriod>
+    </effective>
     <employer>
       <reference value="Organization/odh-3-example"/>         
     </employer>
@@ -334,10 +338,10 @@
       </coding>
       <text value="US Marines"/>      
     </industry>
-    <effectivePeriod>
+    <effective>
       <start value="1983-09-18"/>      
       <end value="1985-10-26"/>      
-    </effectivePeriod>
+    </effective>
     <employer>
       <reference value="Organization/odh-3-example"/>         
     </employer>
@@ -376,10 +380,10 @@
       </coding>
       <text value="US Marines"/>      
     </industry>
-    <effectivePeriod>
+    <effective>
       <start value="1983-01-16"/>      
       <end value="1983-08-17"/>      
-    </effectivePeriod>
+    </effective>
     <employer>
       <reference value="Organization/odh-3-example"/>         
     </employer>
@@ -418,10 +422,10 @@
       </coding>
       <text value="US Marines"/>      
     </industry>
-    <effectivePeriod>
+    <effective>
       <start value="1982-06-06"/>      
       <end value="1983-01-15"/>      
-    </effectivePeriod>
+    </effective>
     <employer>
       <reference value="Organization/odh-3-example"/>         
     </employer>
@@ -460,10 +464,10 @@
       </coding>
       <text value="Fast food restaurant"/>      
     </industry>
-    <effectivePeriod>
+    <effective>
       <start value="1980-04-01"/>      
       <end value="1982-06-05"/>      
-    </effectivePeriod>
+    </effective>
     <employer>
       <reference value="Organization/odh-4-example"/>         
     </employer>
