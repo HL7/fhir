@@ -2029,8 +2029,6 @@ public class VersionConvertor_14_40 {
       return convertAddress((org.hl7.fhir.dstu2016may.model.Address) src);
     if (src instanceof org.hl7.fhir.dstu2016may.model.ContactPoint)
       return convertContactPoint((org.hl7.fhir.dstu2016may.model.ContactPoint) src);
-    if (src instanceof org.hl7.fhir.dstu2016may.model.ElementDefinition)
-      return convertElementDefinition((org.hl7.fhir.dstu2016may.model.ElementDefinition) src, new ArrayList<org.hl7.fhir.dstu2016may.model.ElementDefinition>(), 0);
     if (src instanceof org.hl7.fhir.dstu2016may.model.HumanName)
       return convertHumanName((org.hl7.fhir.dstu2016may.model.HumanName) src);
     if (src instanceof org.hl7.fhir.dstu2016may.model.Meta)
@@ -2119,8 +2117,6 @@ public class VersionConvertor_14_40 {
       return convertAddress((org.hl7.fhir.r4.model.Address) src);
     if (src instanceof org.hl7.fhir.r4.model.ContactPoint)
       return convertContactPoint((org.hl7.fhir.r4.model.ContactPoint) src);
-    if (src instanceof org.hl7.fhir.r4.model.ElementDefinition)
-      return convertElementDefinition((org.hl7.fhir.r4.model.ElementDefinition) src);
     if (src instanceof org.hl7.fhir.r4.model.HumanName)
       return convertHumanName((org.hl7.fhir.r4.model.HumanName) src);
     if (src instanceof org.hl7.fhir.r4.model.Meta)

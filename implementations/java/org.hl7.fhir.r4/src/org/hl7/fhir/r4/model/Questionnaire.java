@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sat, Mar 3, 2018 19:35+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
  */
 @ResourceDef(name="Questionnaire", profile="http://hl7.org/fhir/Profile/Questionnaire")
-@ChildOrder(names={"url", "identifier", "version", "name", "title", "derivedFrom", "status", "experimental", "subjectType", "date", "publisher", "contact", "useContext", "jurisdiction", "description", "purpose", "copyright", "approvalDate", "lastReviewDate", "effectivePeriod", "code", "item"})
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "derivedFrom", "status", "experimental", "subjectType", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "approvalDate", "lastReviewDate", "effectivePeriod", "code", "item"})
 public class Questionnaire extends MetadataResource {
 
     public enum QuestionnaireItemType {
@@ -1544,7 +1544,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
         public QuestionnaireItemInitialComponent getInitialFirstRep() { 
           if (getInitial().isEmpty()) {
             addInitial();
-        }
+          }
           return getInitial().get(0);
         }
 
@@ -2098,130 +2098,150 @@ Any information provided in these elements on a Questionnaire Item overrides the
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public BooleanType getAnswerBooleanType() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (BooleanType) this.answer;
         }
 
         public boolean hasAnswerBooleanType() { 
-          return this.answer instanceof BooleanType;
+          return this != null && this.answer instanceof BooleanType;
         }
 
         /**
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public DecimalType getAnswerDecimalType() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof DecimalType))
             throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (DecimalType) this.answer;
         }
 
         public boolean hasAnswerDecimalType() { 
-          return this.answer instanceof DecimalType;
+          return this != null && this.answer instanceof DecimalType;
         }
 
         /**
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public IntegerType getAnswerIntegerType() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof IntegerType))
             throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (IntegerType) this.answer;
         }
 
         public boolean hasAnswerIntegerType() { 
-          return this.answer instanceof IntegerType;
+          return this != null && this.answer instanceof IntegerType;
         }
 
         /**
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public DateType getAnswerDateType() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (DateType) this.answer;
         }
 
         public boolean hasAnswerDateType() { 
-          return this.answer instanceof DateType;
+          return this != null && this.answer instanceof DateType;
         }
 
         /**
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public DateTimeType getAnswerDateTimeType() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (DateTimeType) this.answer;
         }
 
         public boolean hasAnswerDateTimeType() { 
-          return this.answer instanceof DateTimeType;
+          return this != null && this.answer instanceof DateTimeType;
         }
 
         /**
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public TimeType getAnswerTimeType() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof TimeType))
             throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (TimeType) this.answer;
         }
 
         public boolean hasAnswerTimeType() { 
-          return this.answer instanceof TimeType;
+          return this != null && this.answer instanceof TimeType;
         }
 
         /**
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public StringType getAnswerStringType() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (StringType) this.answer;
         }
 
         public boolean hasAnswerStringType() { 
-          return this.answer instanceof StringType;
+          return this != null && this.answer instanceof StringType;
         }
 
         /**
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public Coding getAnswerCoding() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof Coding))
             throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (Coding) this.answer;
         }
 
         public boolean hasAnswerCoding() { 
-          return this.answer instanceof Coding;
+          return this != null && this.answer instanceof Coding;
         }
 
         /**
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public Quantity getAnswerQuantity() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (Quantity) this.answer;
         }
 
         public boolean hasAnswerQuantity() { 
-          return this.answer instanceof Quantity;
+          return this != null && this.answer instanceof Quantity;
         }
 
         /**
          * @return {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public Reference getAnswerReference() throws FHIRException { 
+          if (this.answer == null)
+            return null;
           if (!(this.answer instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.answer.getClass().getName()+" was encountered");
           return (Reference) this.answer;
         }
 
         public boolean hasAnswerReference() { 
-          return this.answer instanceof Reference;
+          return this != null && this.answer instanceof Reference;
         }
 
         public boolean hasAnswer() { 
@@ -2232,6 +2252,8 @@ Any information provided in these elements on a Questionnaire Item overrides the
          * @param value {@link #answer} (A value that the referenced question is tested using the specified operator in order for the item to be enabled.)
          */
         public QuestionnaireItemEnableWhenComponent setAnswer(Type value) { 
+          if (value != null && !(value instanceof BooleanType || value instanceof DecimalType || value instanceof IntegerType || value instanceof DateType || value instanceof DateTimeType || value instanceof TimeType || value instanceof StringType || value instanceof Coding || value instanceof Quantity || value instanceof Reference))
+            throw new Error("Not the right type for Questionnaire.item.enableWhen.answer[x]: "+value.fhirType());
           this.answer = value;
           return this;
         }
@@ -2470,65 +2492,75 @@ Any information provided in these elements on a Questionnaire Item overrides the
          * @return {@link #value} (A potential answer that's allowed as the answer to this question.)
          */
         public IntegerType getValueIntegerType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof IntegerType))
             throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (IntegerType) this.value;
         }
 
         public boolean hasValueIntegerType() { 
-          return this.value instanceof IntegerType;
+          return this != null && this.value instanceof IntegerType;
         }
 
         /**
          * @return {@link #value} (A potential answer that's allowed as the answer to this question.)
          */
         public DateType getValueDateType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateType) this.value;
         }
 
         public boolean hasValueDateType() { 
-          return this.value instanceof DateType;
+          return this != null && this.value instanceof DateType;
         }
 
         /**
          * @return {@link #value} (A potential answer that's allowed as the answer to this question.)
          */
         public TimeType getValueTimeType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof TimeType))
             throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (TimeType) this.value;
         }
 
         public boolean hasValueTimeType() { 
-          return this.value instanceof TimeType;
+          return this != null && this.value instanceof TimeType;
         }
 
         /**
          * @return {@link #value} (A potential answer that's allowed as the answer to this question.)
          */
         public StringType getValueStringType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (StringType) this.value;
         }
 
         public boolean hasValueStringType() { 
-          return this.value instanceof StringType;
+          return this != null && this.value instanceof StringType;
         }
 
         /**
          * @return {@link #value} (A potential answer that's allowed as the answer to this question.)
          */
         public Coding getValueCoding() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Coding))
             throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Coding) this.value;
         }
 
         public boolean hasValueCoding() { 
-          return this.value instanceof Coding;
+          return this != null && this.value instanceof Coding;
         }
 
         public boolean hasValue() { 
@@ -2539,6 +2571,8 @@ Any information provided in these elements on a Questionnaire Item overrides the
          * @param value {@link #value} (A potential answer that's allowed as the answer to this question.)
          */
         public QuestionnaireItemOptionComponent setValue(Type value) { 
+          if (value != null && !(value instanceof IntegerType || value instanceof DateType || value instanceof TimeType || value instanceof StringType || value instanceof Coding))
+            throw new Error("Not the right type for Questionnaire.item.option.value[x]: "+value.fhirType());
           this.value = value;
           return this;
         }
@@ -2773,156 +2807,180 @@ Any information provided in these elements on a Questionnaire Item overrides the
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public BooleanType getValueBooleanType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
         }
 
         public boolean hasValueBooleanType() { 
-          return this.value instanceof BooleanType;
+          return this != null && this.value instanceof BooleanType;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public DecimalType getValueDecimalType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof DecimalType))
             throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DecimalType) this.value;
         }
 
         public boolean hasValueDecimalType() { 
-          return this.value instanceof DecimalType;
+          return this != null && this.value instanceof DecimalType;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public IntegerType getValueIntegerType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof IntegerType))
             throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (IntegerType) this.value;
         }
 
         public boolean hasValueIntegerType() { 
-          return this.value instanceof IntegerType;
+          return this != null && this.value instanceof IntegerType;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public DateType getValueDateType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateType) this.value;
         }
 
         public boolean hasValueDateType() { 
-          return this.value instanceof DateType;
+          return this != null && this.value instanceof DateType;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public DateTimeType getValueDateTimeType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateTimeType) this.value;
         }
 
         public boolean hasValueDateTimeType() { 
-          return this.value instanceof DateTimeType;
+          return this != null && this.value instanceof DateTimeType;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public TimeType getValueTimeType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof TimeType))
             throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (TimeType) this.value;
         }
 
         public boolean hasValueTimeType() { 
-          return this.value instanceof TimeType;
+          return this != null && this.value instanceof TimeType;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public StringType getValueStringType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (StringType) this.value;
         }
 
         public boolean hasValueStringType() { 
-          return this.value instanceof StringType;
+          return this != null && this.value instanceof StringType;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public UriType getValueUriType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (UriType) this.value;
         }
 
         public boolean hasValueUriType() { 
-          return this.value instanceof UriType;
+          return this != null && this.value instanceof UriType;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public Attachment getValueAttachment() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Attachment) this.value;
         }
 
         public boolean hasValueAttachment() { 
-          return this.value instanceof Attachment;
+          return this != null && this.value instanceof Attachment;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public Coding getValueCoding() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Coding))
             throw new FHIRException("Type mismatch: the type Coding was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Coding) this.value;
         }
 
         public boolean hasValueCoding() { 
-          return this.value instanceof Coding;
+          return this != null && this.value instanceof Coding;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public Quantity getValueQuantity() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Quantity) this.value;
         }
 
         public boolean hasValueQuantity() { 
-          return this.value instanceof Quantity;
+          return this != null && this.value instanceof Quantity;
         }
 
         /**
          * @return {@link #value} (The actual value to for an initial answer.)
          */
         public Reference getValueReference() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Reference) this.value;
         }
 
         public boolean hasValueReference() { 
-          return this.value instanceof Reference;
+          return this != null && this.value instanceof Reference;
         }
 
         public boolean hasValue() { 
@@ -2933,6 +2991,8 @@ Any information provided in these elements on a Questionnaire Item overrides the
          * @param value {@link #value} (The actual value to for an initial answer.)
          */
         public QuestionnaireItemInitialComponent setValue(Type value) { 
+          if (value != null && !(value instanceof BooleanType || value instanceof DecimalType || value instanceof IntegerType || value instanceof DateType || value instanceof DateTimeType || value instanceof TimeType || value instanceof StringType || value instanceof UriType || value instanceof Attachment || value instanceof Coding || value instanceof Quantity || value instanceof Reference))
+            throw new Error("Not the right type for Questionnaire.item.initial.value[x]: "+value.fhirType());
           this.value = value;
           return this;
         }
@@ -3194,7 +3254,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -3214,7 +3274,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public Questionnaire setUrlElement(UriType value) { 
       this.url = value;
@@ -3222,14 +3282,14 @@ Any information provided in these elements on a Questionnaire Item overrides the
     }
 
     /**
-     * @return An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.
+     * @return An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.
+     * @param value An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.
      */
     public Questionnaire setUrl(String value) { 
       if (Utilities.noString(value))
@@ -3806,6 +3866,55 @@ Any information provided in these elements on a Questionnaire Item overrides the
     }
 
     /**
+     * @return {@link #description} (A free text natural language description of the questionnaire from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     */
+    public MarkdownType getDescriptionElement() { 
+      if (this.description == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Questionnaire.description");
+        else if (Configuration.doAutoCreate())
+          this.description = new MarkdownType(); // bb
+      return this.description;
+    }
+
+    public boolean hasDescriptionElement() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    public boolean hasDescription() { 
+      return this.description != null && !this.description.isEmpty();
+    }
+
+    /**
+     * @param value {@link #description} (A free text natural language description of the questionnaire from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     */
+    public Questionnaire setDescriptionElement(MarkdownType value) { 
+      this.description = value;
+      return this;
+    }
+
+    /**
+     * @return A free text natural language description of the questionnaire from a consumer's perspective.
+     */
+    public String getDescription() { 
+      return this.description == null ? null : this.description.getValue();
+    }
+
+    /**
+     * @param value A free text natural language description of the questionnaire from a consumer's perspective.
+     */
+    public Questionnaire setDescription(String value) { 
+      if (value == null)
+        this.description = null;
+      else {
+        if (this.description == null)
+          this.description = new MarkdownType();
+        this.description.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate questionnaire instances.)
      */
     public List<UsageContext> getUseContext() { 
@@ -3909,55 +4018,6 @@ Any information provided in these elements on a Questionnaire Item overrides the
         addJurisdiction();
       }
       return getJurisdiction().get(0);
-    }
-
-    /**
-     * @return {@link #description} (A free text natural language description of the questionnaire from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-     */
-    public MarkdownType getDescriptionElement() { 
-      if (this.description == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Questionnaire.description");
-        else if (Configuration.doAutoCreate())
-          this.description = new MarkdownType(); // bb
-      return this.description;
-    }
-
-    public boolean hasDescriptionElement() { 
-      return this.description != null && !this.description.isEmpty();
-    }
-
-    public boolean hasDescription() { 
-      return this.description != null && !this.description.isEmpty();
-    }
-
-    /**
-     * @param value {@link #description} (A free text natural language description of the questionnaire from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-     */
-    public Questionnaire setDescriptionElement(MarkdownType value) { 
-      this.description = value;
-      return this;
-    }
-
-    /**
-     * @return A free text natural language description of the questionnaire from a consumer's perspective.
-     */
-    public String getDescription() { 
-      return this.description == null ? null : this.description.getValue();
-    }
-
-    /**
-     * @param value A free text natural language description of the questionnaire from a consumer's perspective.
-     */
-    public Questionnaire setDescription(String value) { 
-      if (value == null)
-        this.description = null;
-      else {
-        if (this.description == null)
-          this.description = new MarkdownType();
-        this.description.setValue(value);
-      }
-      return this;
     }
 
     /**
@@ -4288,7 +4348,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.", 0, 1, url));
         children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the questionnaire. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
@@ -4300,9 +4360,9 @@ Any information provided in these elements on a Questionnaire Item overrides the
         children.add(new Property("date", "dateTime", "The date  (and optionally time) when the questionnaire was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes.", 0, 1, date));
         children.add(new Property("publisher", "string", "The name of the individual or organization that published the questionnaire.", 0, 1, publisher));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
+        children.add(new Property("description", "markdown", "A free text natural language description of the questionnaire from a consumer's perspective.", 0, 1, description));
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate questionnaire instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the questionnaire is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
-        children.add(new Property("description", "markdown", "A free text natural language description of the questionnaire from a consumer's perspective.", 0, 1, description));
         children.add(new Property("purpose", "markdown", "Explaination of why this questionnaire is needed and why it has been designed as it has.", 0, 1, purpose));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the questionnaire and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the questionnaire.", 0, 1, copyright));
         children.add(new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, 1, approvalDate));
@@ -4315,7 +4375,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this questionnaire is (or will be) published.", 0, 1, url);
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the questionnaire. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
@@ -4327,9 +4387,9 @@ Any information provided in these elements on a Questionnaire Item overrides the
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the questionnaire was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes.", 0, 1, date);
         case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the questionnaire.", 0, 1, publisher);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
+        case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the questionnaire from a consumer's perspective.", 0, 1, description);
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate questionnaire instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the questionnaire is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
-        case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the questionnaire from a consumer's perspective.", 0, 1, description);
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explaination of why this questionnaire is needed and why it has been designed as it has.", 0, 1, purpose);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the questionnaire and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the questionnaire.", 0, 1, copyright);
         case 223539345: /*approvalDate*/  return new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, 1, approvalDate);
@@ -4357,9 +4417,9 @@ Any information provided in these elements on a Questionnaire Item overrides the
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -669707736: /*useContext*/ return this.useContext == null ? new Base[0] : this.useContext.toArray(new Base[this.useContext.size()]); // UsageContext
         case -507075711: /*jurisdiction*/ return this.jurisdiction == null ? new Base[0] : this.jurisdiction.toArray(new Base[this.jurisdiction.size()]); // CodeableConcept
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // MarkdownType
         case -220463842: /*purpose*/ return this.purpose == null ? new Base[0] : new Base[] {this.purpose}; // MarkdownType
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // MarkdownType
         case 223539345: /*approvalDate*/ return this.approvalDate == null ? new Base[0] : new Base[] {this.approvalDate}; // DateType
@@ -4412,14 +4472,14 @@ Any information provided in these elements on a Questionnaire Item overrides the
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
           return value;
+        case -1724546052: // description
+          this.description = castToMarkdown(value); // MarkdownType
+          return value;
         case -669707736: // useContext
           this.getUseContext().add(castToUsageContext(value)); // UsageContext
           return value;
         case -507075711: // jurisdiction
           this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
-          return value;
-        case -1724546052: // description
-          this.description = castToMarkdown(value); // MarkdownType
           return value;
         case -220463842: // purpose
           this.purpose = castToMarkdown(value); // MarkdownType
@@ -4474,12 +4534,12 @@ Any information provided in these elements on a Questionnaire Item overrides the
           this.publisher = castToString(value); // StringType
         } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
+        } else if (name.equals("description")) {
+          this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
         } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        } else if (name.equals("description")) {
-          this.description = castToMarkdown(value); // MarkdownType
         } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
         } else if (name.equals("copyright")) {
@@ -4514,9 +4574,9 @@ Any information provided in these elements on a Questionnaire Item overrides the
         case 3076014:  return getDateElement();
         case 1447404028:  return getPublisherElement();
         case 951526432:  return addContact(); 
+        case -1724546052:  return getDescriptionElement();
         case -669707736:  return addUseContext(); 
         case -507075711:  return addJurisdiction(); 
-        case -1724546052:  return getDescriptionElement();
         case -220463842:  return getPurposeElement();
         case 1522889671:  return getCopyrightElement();
         case 223539345:  return getApprovalDateElement();
@@ -4544,9 +4604,9 @@ Any information provided in these elements on a Questionnaire Item overrides the
         case 3076014: /*date*/ return new String[] {"dateTime"};
         case 1447404028: /*publisher*/ return new String[] {"string"};
         case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
         case -669707736: /*useContext*/ return new String[] {"UsageContext"};
         case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
-        case -1724546052: /*description*/ return new String[] {"markdown"};
         case -220463842: /*purpose*/ return new String[] {"markdown"};
         case 1522889671: /*copyright*/ return new String[] {"markdown"};
         case 223539345: /*approvalDate*/ return new String[] {"date"};
@@ -4597,14 +4657,14 @@ Any information provided in these elements on a Questionnaire Item overrides the
         else if (name.equals("contact")) {
           return addContact();
         }
+        else if (name.equals("description")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Questionnaire.description");
+        }
         else if (name.equals("useContext")) {
           return addUseContext();
         }
         else if (name.equals("jurisdiction")) {
           return addJurisdiction();
-        }
-        else if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Questionnaire.description");
         }
         else if (name.equals("purpose")) {
           throw new FHIRException("Cannot call addChild on a primitive type Questionnaire.purpose");
@@ -4668,6 +4728,7 @@ Any information provided in these elements on a Questionnaire Item overrides the
           for (ContactDetail i : contact)
             dst.contact.add(i.copy());
         };
+        dst.description = description == null ? null : description.copy();
         if (useContext != null) {
           dst.useContext = new ArrayList<UsageContext>();
           for (UsageContext i : useContext)
@@ -4678,7 +4739,6 @@ Any information provided in these elements on a Questionnaire Item overrides the
           for (CodeableConcept i : jurisdiction)
             dst.jurisdiction.add(i.copy());
         };
-        dst.description = description == null ? null : description.copy();
         dst.purpose = purpose == null ? null : purpose.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
         dst.approvalDate = approvalDate == null ? null : approvalDate.copy();

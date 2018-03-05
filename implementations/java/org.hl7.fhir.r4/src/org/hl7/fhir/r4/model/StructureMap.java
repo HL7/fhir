@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -3886,6 +3886,34 @@ public class StructureMap extends MetadataResource {
           this.defaultValue = new Timing();
           return this.defaultValue;
         }
+        else if (name.equals("defaultValueParameterDefinition")) {
+          this.defaultValue = new ParameterDefinition();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueDataRequirement")) {
+          this.defaultValue = new DataRequirement();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueRelatedArtifact")) {
+          this.defaultValue = new RelatedArtifact();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueContactDetail")) {
+          this.defaultValue = new ContactDetail();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueContributor")) {
+          this.defaultValue = new Contributor();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueTriggerDefinition")) {
+          this.defaultValue = new TriggerDefinition();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueUsageContext")) {
+          this.defaultValue = new UsageContext();
+          return this.defaultValue;
+        }
         else if (name.equals("defaultValueDosage")) {
           this.defaultValue = new Dosage();
           return this.defaultValue;
@@ -4719,65 +4747,75 @@ public class StructureMap extends MetadataResource {
          * @return {@link #value} (Parameter value - variable or literal.)
          */
         public IdType getValueIdType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof IdType))
             throw new FHIRException("Type mismatch: the type IdType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (IdType) this.value;
         }
 
         public boolean hasValueIdType() { 
-          return this.value instanceof IdType;
+          return this != null && this.value instanceof IdType;
         }
 
         /**
          * @return {@link #value} (Parameter value - variable or literal.)
          */
         public StringType getValueStringType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (StringType) this.value;
         }
 
         public boolean hasValueStringType() { 
-          return this.value instanceof StringType;
+          return this != null && this.value instanceof StringType;
         }
 
         /**
          * @return {@link #value} (Parameter value - variable or literal.)
          */
         public BooleanType getValueBooleanType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
         }
 
         public boolean hasValueBooleanType() { 
-          return this.value instanceof BooleanType;
+          return this != null && this.value instanceof BooleanType;
         }
 
         /**
          * @return {@link #value} (Parameter value - variable or literal.)
          */
         public IntegerType getValueIntegerType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof IntegerType))
             throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (IntegerType) this.value;
         }
 
         public boolean hasValueIntegerType() { 
-          return this.value instanceof IntegerType;
+          return this != null && this.value instanceof IntegerType;
         }
 
         /**
          * @return {@link #value} (Parameter value - variable or literal.)
          */
         public DecimalType getValueDecimalType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof DecimalType))
             throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DecimalType) this.value;
         }
 
         public boolean hasValueDecimalType() { 
-          return this.value instanceof DecimalType;
+          return this != null && this.value instanceof DecimalType;
         }
 
         public boolean hasValue() { 
@@ -4788,6 +4826,8 @@ public class StructureMap extends MetadataResource {
          * @param value {@link #value} (Parameter value - variable or literal.)
          */
         public StructureMapGroupRuleTargetParameterComponent setValue(Type value) { 
+          if (value != null && !(value instanceof IdType || value instanceof StringType || value instanceof BooleanType || value instanceof IntegerType || value instanceof DecimalType))
+            throw new Error("Not the right type for StructureMap.group.rule.target.parameter.value[x]: "+value.fhirType());
           this.value = value;
           return this;
         }
@@ -5260,7 +5300,7 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -5280,7 +5320,7 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public StructureMap setUrlElement(UriType value) { 
       this.url = value;
@@ -5288,14 +5328,14 @@ public class StructureMap extends MetadataResource {
     }
 
     /**
-     * @return An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.
+     * @return An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.
+     * @param value An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.
      */
     public StructureMap setUrl(String value) { 
         if (this.url == null)
@@ -6163,7 +6203,7 @@ public class StructureMap extends MetadataResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.", 0, 1, url));
         children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
@@ -6186,7 +6226,7 @@ public class StructureMap extends MetadataResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this structure map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this structure map is (or will be) published.", 0, 1, url);
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this structure map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the structure map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -404,52 +404,60 @@ public class SupplyRequest extends DomainResource {
          * @return {@link #value} (The value of the device detail.)
          */
         public CodeableConcept getValueCodeableConcept() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.value.getClass().getName()+" was encountered");
           return (CodeableConcept) this.value;
         }
 
         public boolean hasValueCodeableConcept() { 
-          return this.value instanceof CodeableConcept;
+          return this != null && this.value instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #value} (The value of the device detail.)
          */
         public Quantity getValueQuantity() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Quantity) this.value;
         }
 
         public boolean hasValueQuantity() { 
-          return this.value instanceof Quantity;
+          return this != null && this.value instanceof Quantity;
         }
 
         /**
          * @return {@link #value} (The value of the device detail.)
          */
         public Range getValueRange() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Range) this.value;
         }
 
         public boolean hasValueRange() { 
-          return this.value instanceof Range;
+          return this != null && this.value instanceof Range;
         }
 
         /**
          * @return {@link #value} (The value of the device detail.)
          */
         public BooleanType getValueBooleanType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
         }
 
         public boolean hasValueBooleanType() { 
-          return this.value instanceof BooleanType;
+          return this != null && this.value instanceof BooleanType;
         }
 
         public boolean hasValue() { 
@@ -460,6 +468,8 @@ public class SupplyRequest extends DomainResource {
          * @param value {@link #value} (The value of the device detail.)
          */
         public SupplyRequestParameterComponent setValue(Type value) { 
+          if (value != null && !(value instanceof CodeableConcept || value instanceof Quantity || value instanceof Range || value instanceof BooleanType))
+            throw new Error("Not the right type for SupplyRequest.parameter.value[x]: "+value.fhirType());
           this.value = value;
           return this;
         }
@@ -916,26 +926,30 @@ public class SupplyRequest extends DomainResource {
      * @return {@link #item} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
      */
     public CodeableConcept getItemCodeableConcept() throws FHIRException { 
+      if (this.item == null)
+        return null;
       if (!(this.item instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.item.getClass().getName()+" was encountered");
       return (CodeableConcept) this.item;
     }
 
     public boolean hasItemCodeableConcept() { 
-      return this.item instanceof CodeableConcept;
+      return this != null && this.item instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #item} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
      */
     public Reference getItemReference() throws FHIRException { 
+      if (this.item == null)
+        return null;
       if (!(this.item instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.item.getClass().getName()+" was encountered");
       return (Reference) this.item;
     }
 
     public boolean hasItemReference() { 
-      return this.item instanceof Reference;
+      return this != null && this.item instanceof Reference;
     }
 
     public boolean hasItem() { 
@@ -946,6 +960,8 @@ public class SupplyRequest extends DomainResource {
      * @param value {@link #item} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
      */
     public SupplyRequest setItem(Type value) { 
+      if (value != null && !(value instanceof CodeableConcept || value instanceof Reference))
+        throw new Error("Not the right type for SupplyRequest.item[x]: "+value.fhirType());
       this.item = value;
       return this;
     }
@@ -1038,39 +1054,45 @@ public class SupplyRequest extends DomainResource {
      * @return {@link #occurrence} (When the request should be fulfilled.)
      */
     public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
+      if (this.occurrence == null)
+        return null;
       if (!(this.occurrence instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (DateTimeType) this.occurrence;
     }
 
     public boolean hasOccurrenceDateTimeType() { 
-      return this.occurrence instanceof DateTimeType;
+      return this != null && this.occurrence instanceof DateTimeType;
     }
 
     /**
      * @return {@link #occurrence} (When the request should be fulfilled.)
      */
     public Period getOccurrencePeriod() throws FHIRException { 
+      if (this.occurrence == null)
+        return null;
       if (!(this.occurrence instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (Period) this.occurrence;
     }
 
     public boolean hasOccurrencePeriod() { 
-      return this.occurrence instanceof Period;
+      return this != null && this.occurrence instanceof Period;
     }
 
     /**
      * @return {@link #occurrence} (When the request should be fulfilled.)
      */
     public Timing getOccurrenceTiming() throws FHIRException { 
+      if (this.occurrence == null)
+        return null;
       if (!(this.occurrence instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (Timing) this.occurrence;
     }
 
     public boolean hasOccurrenceTiming() { 
-      return this.occurrence instanceof Timing;
+      return this != null && this.occurrence instanceof Timing;
     }
 
     public boolean hasOccurrence() { 
@@ -1081,6 +1103,8 @@ public class SupplyRequest extends DomainResource {
      * @param value {@link #occurrence} (When the request should be fulfilled.)
      */
     public SupplyRequest setOccurrence(Type value) { 
+      if (value != null && !(value instanceof DateTimeType || value instanceof Period || value instanceof Timing))
+        throw new Error("Not the right type for SupplyRequest.occurrence[x]: "+value.fhirType());
       this.occurrence = value;
       return this;
     }

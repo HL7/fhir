@@ -115,10 +115,10 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     }
     for (ElementDefn n : definitions.getStructures().values()) {
       generateParser(n, JavaGenClass.Structure);
-      regt.append("    else if (json.has(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json.getAsJsonObject(prefix+\""+n.getName()+"\"));\r\n");
-      regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json);\r\n");
-      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
-      regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
+//      regt.append("    else if (json.has(prefix+\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json.getAsJsonObject(prefix+\""+n.getName()+"\"));\r\n");
+//      regt2.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(json);\r\n");
+//      regf.append("    else if (type.equals(\""+n.getName()+"\"))\r\n      return parse"+n.getName()+"(xpp);\r\n");
+//      regn.append("    if (json.has(prefix+\""+n.getName()+"\"))\r\n      return true;\r\n");
     }
 
     for (String s : definitions.getBaseResources().keySet()) {
@@ -168,7 +168,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    };\r\n");
     write("  }\r\n");
     write("\r\n");
-    write("  protected void parseBackboneProperties(JsonObject json, BackboneElement element) throws IOException, FHIRFormatError {\r\n");
+    write("  protected void parseBackboneElementProperties(JsonObject json, BackboneElement element) throws IOException, FHIRFormatError {\r\n");
     write("    parseElementProperties(json, element);\r\n");
     write("    if (json.has(\"modifierExtension\")) {\r\n");
     write("      JsonArray array = json.getAsJsonArray(\"modifierExtension\");\r\n");
@@ -318,7 +318,7 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     if (clss == JavaGenClass.Resource)
       write("    parse"+n.typeCode()+"Properties(json, res);\r\n");
     else if (clss == JavaGenClass.Backbone)
-      write("    parseBackboneProperties(json, res);\r\n");
+      write("    parseBackboneElementProperties(json, res);\r\n");
 //    else if (clss == JavaGenClass.Type && !tn.contains("."))
 //      write("    parseTypeProperties(json, res);\r\n");
     else if (Utilities.noString(n.typeCode()) || n.typeCode().equals("Type") || n.typeCode().equals("Structure"))
@@ -668,8 +668,8 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     }
     for (ElementDefn n : definitions.getStructures().values()) {
         generateComposer(n, JavaGenClass.Structure);
-        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
-        regti.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"Inner(("+n.getName()+") type);\r\n");
+//        regtn.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"(prefix+\""+n.getName()+"\", ("+n.getName()+") type);\r\n");
+//        regti.append("    else if (type instanceof "+n.getName()+")\r\n       compose"+n.getName()+"Inner(("+n.getName()+") type);\r\n");
     }
 
     for (String s : definitions.getBaseResources().keySet()) {
@@ -736,6 +736,9 @@ public class JavaParserJsonGenerator extends JavaBaseGenerator {
     write("    }\r\n");
     write("  }\r\n");
     write("\r\n");
+    write("  protected void composeBackboneElementInner(BackboneElement element) throws IOException {\r\n");
+    write("    composeBackbone(element);\r\n");
+    write("  }\r\n");
     write("  protected void composeBackbone(BackboneElement element) throws IOException {\r\n");
     write("    composeElement(element);\r\n");
     write("    if (element.hasModifierExtension()) {\r\n");

@@ -116,6 +116,7 @@ import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.TypesUtilities;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
@@ -370,7 +371,7 @@ public class ProfileGenerator {
     }
   }
   
-  private void addSpecificDetails(PrimitiveType type, ElementDefinition ed) {
+  private void addSpecificDetails(PrimitiveType type, ElementDefinition ed) throws FHIRFormatError {
     if (type.getCode().equals("integer")) {
       ed.setMinValue(new IntegerType(-2147483648));
       ed.setMaxValue(new IntegerType(2147483647));       

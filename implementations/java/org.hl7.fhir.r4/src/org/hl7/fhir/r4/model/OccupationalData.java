@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -120,26 +120,30 @@ public class OccupationalData extends DomainResource {
          * @return {@link #effective} (The start and end dates for a person's current economic relationship to a job.)
          */
         public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
+          if (this.effective == null)
+            return null;
           if (!(this.effective instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
           return (DateTimeType) this.effective;
         }
 
         public boolean hasEffectiveDateTimeType() { 
-          return this.effective instanceof DateTimeType;
+          return this != null && this.effective instanceof DateTimeType;
         }
 
         /**
          * @return {@link #effective} (The start and end dates for a person's current economic relationship to a job.)
          */
         public Period getEffectivePeriod() throws FHIRException { 
+          if (this.effective == null)
+            return null;
           if (!(this.effective instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
           return (Period) this.effective;
         }
 
         public boolean hasEffectivePeriod() { 
-          return this.effective instanceof Period;
+          return this != null && this.effective instanceof Period;
         }
 
         public boolean hasEffective() { 
@@ -150,6 +154,8 @@ public class OccupationalData extends DomainResource {
          * @param value {@link #effective} (The start and end dates for a person's current economic relationship to a job.)
          */
         public OccupationalDataEmploymentStatusComponent setEffective(Type value) { 
+          if (value != null && !(value instanceof DateTimeType || value instanceof Period))
+            throw new Error("Not the right type for OccupationalData.employmentStatus.effective[x]: "+value.fhirType());
           this.effective = value;
           return this;
         }
@@ -763,26 +769,30 @@ public class OccupationalData extends DomainResource {
          * @return {@link #effective} (The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.)
          */
         public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
+          if (this.effective == null)
+            return null;
           if (!(this.effective instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
           return (DateTimeType) this.effective;
         }
 
         public boolean hasEffectiveDateTimeType() { 
-          return this.effective instanceof DateTimeType;
+          return this != null && this.effective instanceof DateTimeType;
         }
 
         /**
          * @return {@link #effective} (The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.)
          */
         public Period getEffectivePeriod() throws FHIRException { 
+          if (this.effective == null)
+            return null;
           if (!(this.effective instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
           return (Period) this.effective;
         }
 
         public boolean hasEffectivePeriod() { 
-          return this.effective instanceof Period;
+          return this != null && this.effective instanceof Period;
         }
 
         public boolean hasEffective() { 
@@ -793,6 +803,8 @@ public class OccupationalData extends DomainResource {
          * @param value {@link #effective} (The start and end dates for one job.  A change in occupation, supervisory level, industry, employer, or employer location is considered a new job.)
          */
         public OccupationalDataPastOrPresentJobComponent setEffective(Type value) { 
+          if (value != null && !(value instanceof DateTimeType || value instanceof Period))
+            throw new Error("Not the right type for OccupationalData.pastOrPresentJob.effective[x]: "+value.fhirType());
           this.effective = value;
           return this;
         }

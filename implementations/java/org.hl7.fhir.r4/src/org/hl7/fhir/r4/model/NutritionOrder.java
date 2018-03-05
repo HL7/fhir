@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -2518,26 +2518,30 @@ public class NutritionOrder extends DomainResource {
          * @return {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
         public SimpleQuantity getRateSimpleQuantity() throws FHIRException { 
+          if (this.rate == null)
+            return null;
           if (!(this.rate instanceof SimpleQuantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (SimpleQuantity) this.rate;
         }
 
         public boolean hasRateSimpleQuantity() { 
-          return this.rate instanceof SimpleQuantity;
+          return this != null && this.rate instanceof SimpleQuantity;
         }
 
         /**
          * @return {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
         public Ratio getRateRatio() throws FHIRException { 
+          if (this.rate == null)
+            return null;
           if (!(this.rate instanceof Ratio))
             throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Ratio) this.rate;
         }
 
         public boolean hasRateRatio() { 
-          return this.rate instanceof Ratio;
+          return this != null && this.rate instanceof Ratio;
         }
 
         public boolean hasRate() { 
@@ -2548,6 +2552,8 @@ public class NutritionOrder extends DomainResource {
          * @param value {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
         public NutritionOrderEnteralFormulaAdministrationComponent setRate(Type value) { 
+          if (value != null && !(value instanceof SimpleQuantity || value instanceof Ratio))
+            throw new Error("Not the right type for NutritionOrder.enteralFormula.administration.rate[x]: "+value.fhirType());
           this.rate = value;
           return this;
         }

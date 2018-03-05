@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -999,39 +999,45 @@ public class Timing extends Type implements ICompositeType {
          * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
         public Duration getBoundsDuration() throws FHIRException { 
+          if (this.bounds == null)
+            return null;
           if (!(this.bounds instanceof Duration))
             throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.bounds.getClass().getName()+" was encountered");
           return (Duration) this.bounds;
         }
 
         public boolean hasBoundsDuration() { 
-          return this.bounds instanceof Duration;
+          return this != null && this.bounds instanceof Duration;
         }
 
         /**
          * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
         public Range getBoundsRange() throws FHIRException { 
+          if (this.bounds == null)
+            return null;
           if (!(this.bounds instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.bounds.getClass().getName()+" was encountered");
           return (Range) this.bounds;
         }
 
         public boolean hasBoundsRange() { 
-          return this.bounds instanceof Range;
+          return this != null && this.bounds instanceof Range;
         }
 
         /**
          * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
         public Period getBoundsPeriod() throws FHIRException { 
+          if (this.bounds == null)
+            return null;
           if (!(this.bounds instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.bounds.getClass().getName()+" was encountered");
           return (Period) this.bounds;
         }
 
         public boolean hasBoundsPeriod() { 
-          return this.bounds instanceof Period;
+          return this != null && this.bounds instanceof Period;
         }
 
         public boolean hasBounds() { 
@@ -1042,6 +1048,8 @@ public class Timing extends Type implements ICompositeType {
          * @param value {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
         public TimingRepeatComponent setBounds(Type value) { 
+          if (value != null && !(value instanceof Duration || value instanceof Range || value instanceof Period))
+            throw new Error("Not the right type for Timing.repeat.bounds[x]: "+value.fhirType());
           this.bounds = value;
           return this;
         }

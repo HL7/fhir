@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1276,6 +1276,34 @@ public class Task extends DomainResource {
           this.value = new Timing();
           return this.value;
         }
+        else if (name.equals("valueParameterDefinition")) {
+          this.value = new ParameterDefinition();
+          return this.value;
+        }
+        else if (name.equals("valueDataRequirement")) {
+          this.value = new DataRequirement();
+          return this.value;
+        }
+        else if (name.equals("valueRelatedArtifact")) {
+          this.value = new RelatedArtifact();
+          return this.value;
+        }
+        else if (name.equals("valueContactDetail")) {
+          this.value = new ContactDetail();
+          return this.value;
+        }
+        else if (name.equals("valueContributor")) {
+          this.value = new Contributor();
+          return this.value;
+        }
+        else if (name.equals("valueTriggerDefinition")) {
+          this.value = new TriggerDefinition();
+          return this.value;
+        }
+        else if (name.equals("valueUsageContext")) {
+          this.value = new UsageContext();
+          return this.value;
+        }
         else if (name.equals("valueDosage")) {
           this.value = new Dosage();
           return this.value;
@@ -1675,6 +1703,34 @@ public class Task extends DomainResource {
           this.value = new Timing();
           return this.value;
         }
+        else if (name.equals("valueParameterDefinition")) {
+          this.value = new ParameterDefinition();
+          return this.value;
+        }
+        else if (name.equals("valueDataRequirement")) {
+          this.value = new DataRequirement();
+          return this.value;
+        }
+        else if (name.equals("valueRelatedArtifact")) {
+          this.value = new RelatedArtifact();
+          return this.value;
+        }
+        else if (name.equals("valueContactDetail")) {
+          this.value = new ContactDetail();
+          return this.value;
+        }
+        else if (name.equals("valueContributor")) {
+          this.value = new Contributor();
+          return this.value;
+        }
+        else if (name.equals("valueTriggerDefinition")) {
+          this.value = new TriggerDefinition();
+          return this.value;
+        }
+        else if (name.equals("valueUsageContext")) {
+          this.value = new UsageContext();
+          return this.value;
+        }
         else if (name.equals("valueDosage")) {
           this.value = new Dosage();
           return this.value;
@@ -2049,26 +2105,30 @@ public class Task extends DomainResource {
      * @return {@link #instantiates} (A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.)
      */
     public UriType getInstantiatesUriType() throws FHIRException { 
+      if (this.instantiates == null)
+        return null;
       if (!(this.instantiates instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.instantiates.getClass().getName()+" was encountered");
       return (UriType) this.instantiates;
     }
 
     public boolean hasInstantiatesUriType() { 
-      return this.instantiates instanceof UriType;
+      return this != null && this.instantiates instanceof UriType;
     }
 
     /**
      * @return {@link #instantiates} (A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.)
      */
     public Reference getInstantiatesReference() throws FHIRException { 
+      if (this.instantiates == null)
+        return null;
       if (!(this.instantiates instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.instantiates.getClass().getName()+" was encountered");
       return (Reference) this.instantiates;
     }
 
     public boolean hasInstantiatesReference() { 
-      return this.instantiates instanceof Reference;
+      return this != null && this.instantiates instanceof Reference;
     }
 
     public boolean hasInstantiates() { 
@@ -2079,6 +2139,8 @@ public class Task extends DomainResource {
      * @param value {@link #instantiates} (A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.)
      */
     public Task setInstantiates(Type value) { 
+      if (value != null && !(value instanceof UriType || value instanceof Reference))
+        throw new Error("Not the right type for Task.instantiates[x]: "+value.fhirType());
       this.instantiates = value;
       return this;
     }

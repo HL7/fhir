@@ -2,7 +2,7 @@ package org.hl7.fhir.r4.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 public enum ResourceType {
     Account,
@@ -124,7 +124,6 @@ public enum ResourceType {
     Schedule,
     SearchParameter,
     Sequence,
-    ServiceDefinition,
     ServiceRequest,
     Slot,
     Specimen,
@@ -388,8 +387,6 @@ public enum ResourceType {
       return "searchparameter";
     case Sequence:
       return "sequence";
-    case ServiceDefinition:
-      return "servicedefinition";
     case ServiceRequest:
       return "servicerequest";
     case Slot:
@@ -676,8 +673,6 @@ public enum ResourceType {
       return SearchParameter;
     if ("Sequence".equals(code))
       return Sequence;
-    if ("ServiceDefinition".equals(code))
-      return ServiceDefinition;
     if ("ServiceRequest".equals(code))
       return ServiceRequest;
     if ("Slot".equals(code))

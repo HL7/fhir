@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1873,65 +1873,75 @@ public class AllergyIntolerance extends DomainResource {
      * @return {@link #onset} (Estimated or actual date,  date-time, or age when allergy or intolerance was identified.)
      */
     public DateTimeType getOnsetDateTimeType() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (DateTimeType) this.onset;
     }
 
     public boolean hasOnsetDateTimeType() { 
-      return this.onset instanceof DateTimeType;
+      return this != null && this.onset instanceof DateTimeType;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date,  date-time, or age when allergy or intolerance was identified.)
      */
     public Age getOnsetAge() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Age) this.onset;
     }
 
     public boolean hasOnsetAge() { 
-      return this.onset instanceof Age;
+      return this != null && this.onset instanceof Age;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date,  date-time, or age when allergy or intolerance was identified.)
      */
     public Period getOnsetPeriod() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Period) this.onset;
     }
 
     public boolean hasOnsetPeriod() { 
-      return this.onset instanceof Period;
+      return this != null && this.onset instanceof Period;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date,  date-time, or age when allergy or intolerance was identified.)
      */
     public Range getOnsetRange() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Range) this.onset;
     }
 
     public boolean hasOnsetRange() { 
-      return this.onset instanceof Range;
+      return this != null && this.onset instanceof Range;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date,  date-time, or age when allergy or intolerance was identified.)
      */
     public StringType getOnsetStringType() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (StringType) this.onset;
     }
 
     public boolean hasOnsetStringType() { 
-      return this.onset instanceof StringType;
+      return this != null && this.onset instanceof StringType;
     }
 
     public boolean hasOnset() { 
@@ -1942,6 +1952,8 @@ public class AllergyIntolerance extends DomainResource {
      * @param value {@link #onset} (Estimated or actual date,  date-time, or age when allergy or intolerance was identified.)
      */
     public AllergyIntolerance setOnset(Type value) { 
+      if (value != null && !(value instanceof DateTimeType || value instanceof Age || value instanceof Period || value instanceof Range || value instanceof StringType))
+        throw new Error("Not the right type for AllergyIntolerance.onset[x]: "+value.fhirType());
       this.onset = value;
       return this;
     }

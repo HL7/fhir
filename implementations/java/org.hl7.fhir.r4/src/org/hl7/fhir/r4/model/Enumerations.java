@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2924,10 +2924,6 @@ into another (possibly the same) biological entity.
          */
         SEQUENCE, 
         /**
-         * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
-         */
-        SERVICEDEFINITION, 
-        /**
          * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
          */
         SERVICEREQUEST, 
@@ -3390,8 +3386,6 @@ into another (possibly the same) biological entity.
           return SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return SEQUENCE;
-        if ("ServiceDefinition".equals(codeString))
-          return SERVICEDEFINITION;
         if ("ServiceRequest".equals(codeString))
           return SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -3624,7 +3618,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
-            case SERVICEDEFINITION: return "ServiceDefinition";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -3835,7 +3828,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
             case SEQUENCE: return "http://hl7.org/fhir/resource-types";
-            case SERVICEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case SERVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
@@ -4046,7 +4038,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
-            case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
             case SERVICEREQUEST: return "A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
@@ -4257,7 +4248,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
-            case SERVICEDEFINITION: return "ServiceDefinition";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -4655,8 +4645,6 @@ into another (possibly the same) biological entity.
           return FHIRAllTypes.SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return FHIRAllTypes.SEQUENCE;
-        if ("ServiceDefinition".equals(codeString))
-          return FHIRAllTypes.SERVICEDEFINITION;
         if ("ServiceRequest".equals(codeString))
           return FHIRAllTypes.SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -5077,8 +5065,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SEARCHPARAMETER);
         if ("Sequence".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SEQUENCE);
-        if ("ServiceDefinition".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SERVICEDEFINITION);
         if ("ServiceRequest".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.SERVICEREQUEST);
         if ("Slot".equals(codeString))
@@ -5492,8 +5478,6 @@ into another (possibly the same) biological entity.
         return "SearchParameter";
       if (code == FHIRAllTypes.SEQUENCE)
         return "Sequence";
-      if (code == FHIRAllTypes.SERVICEDEFINITION)
-        return "ServiceDefinition";
       if (code == FHIRAllTypes.SERVICEREQUEST)
         return "ServiceRequest";
       if (code == FHIRAllTypes.SLOT)
@@ -6278,10 +6262,6 @@ into another (possibly the same) biological entity.
          */
         SEQUENCE, 
         /**
-         * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
-         */
-        SERVICEDEFINITION, 
-        /**
          * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
          */
         SERVICEREQUEST, 
@@ -6736,8 +6716,6 @@ into another (possibly the same) biological entity.
           return SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return SEQUENCE;
-        if ("ServiceDefinition".equals(codeString))
-          return SERVICEDEFINITION;
         if ("ServiceRequest".equals(codeString))
           return SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -6966,7 +6944,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
-            case SERVICEDEFINITION: return "ServiceDefinition";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -7175,7 +7152,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
             case SEQUENCE: return "http://hl7.org/fhir/resource-types";
-            case SERVICEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case SERVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
@@ -7384,7 +7360,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
-            case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
             case SERVICEREQUEST: return "A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
@@ -7593,7 +7568,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
-            case SERVICEDEFINITION: return "ServiceDefinition";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -7989,8 +7963,6 @@ into another (possibly the same) biological entity.
           return FHIRDefinedType.SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return FHIRDefinedType.SEQUENCE;
-        if ("ServiceDefinition".equals(codeString))
-          return FHIRDefinedType.SERVICEDEFINITION;
         if ("ServiceRequest".equals(codeString))
           return FHIRDefinedType.SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -8407,8 +8379,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SEARCHPARAMETER);
         if ("Sequence".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SEQUENCE);
-        if ("ServiceDefinition".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SERVICEDEFINITION);
         if ("ServiceRequest".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SERVICEREQUEST);
         if ("Slot".equals(codeString))
@@ -8818,8 +8788,6 @@ into another (possibly the same) biological entity.
         return "SearchParameter";
       if (code == FHIRDefinedType.SEQUENCE)
         return "Sequence";
-      if (code == FHIRDefinedType.SERVICEDEFINITION)
-        return "ServiceDefinition";
       if (code == FHIRDefinedType.SERVICEREQUEST)
         return "ServiceRequest";
       if (code == FHIRDefinedType.SLOT)
@@ -9156,7 +9124,7 @@ into another (possibly the same) biological entity.
         /**
          * The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.
          */
-        RECEIVED, 
+        QUEUED, 
         /**
          * The processing has completed without errors
          */
@@ -9176,8 +9144,8 @@ into another (possibly the same) biological entity.
         public static RemittanceOutcome fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("received".equals(codeString))
-          return RECEIVED;
+        if ("queued".equals(codeString))
+          return QUEUED;
         if ("complete".equals(codeString))
           return COMPLETE;
         if ("error".equals(codeString))
@@ -9188,7 +9156,7 @@ into another (possibly the same) biological entity.
         }
         public String toCode() {
           switch (this) {
-            case RECEIVED: return "received";
+            case QUEUED: return "queued";
             case COMPLETE: return "complete";
             case ERROR: return "error";
             case PARTIAL: return "partial";
@@ -9197,7 +9165,7 @@ into another (possibly the same) biological entity.
         }
         public String getSystem() {
           switch (this) {
-            case RECEIVED: return "http://hl7.org/fhir/remittance-outcome";
+            case QUEUED: return "http://hl7.org/fhir/remittance-outcome";
             case COMPLETE: return "http://hl7.org/fhir/remittance-outcome";
             case ERROR: return "http://hl7.org/fhir/remittance-outcome";
             case PARTIAL: return "http://hl7.org/fhir/remittance-outcome";
@@ -9206,7 +9174,7 @@ into another (possibly the same) biological entity.
         }
         public String getDefinition() {
           switch (this) {
-            case RECEIVED: return "The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.";
+            case QUEUED: return "The Claim/Pre-authorization/Pre-determination has been received but processing has not begun.";
             case COMPLETE: return "The processing has completed without errors";
             case ERROR: return "One or more errors have been detected in the Claim";
             case PARTIAL: return "No errors have been detected in the Claim and some of the adjudication has been performed.";
@@ -9215,7 +9183,7 @@ into another (possibly the same) biological entity.
         }
         public String getDisplay() {
           switch (this) {
-            case RECEIVED: return "Received but not Processed";
+            case QUEUED: return "Queued";
             case COMPLETE: return "Processing Complete";
             case ERROR: return "Error";
             case PARTIAL: return "Partial Processing";
@@ -9229,8 +9197,8 @@ into another (possibly the same) biological entity.
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("received".equals(codeString))
-          return RemittanceOutcome.RECEIVED;
+        if ("queued".equals(codeString))
+          return RemittanceOutcome.QUEUED;
         if ("complete".equals(codeString))
           return RemittanceOutcome.COMPLETE;
         if ("error".equals(codeString))
@@ -9247,8 +9215,8 @@ into another (possibly the same) biological entity.
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("received".equals(codeString))
-          return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.RECEIVED);
+        if ("queued".equals(codeString))
+          return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.QUEUED);
         if ("complete".equals(codeString))
           return new Enumeration<RemittanceOutcome>(this, RemittanceOutcome.COMPLETE);
         if ("error".equals(codeString))
@@ -9258,8 +9226,8 @@ into another (possibly the same) biological entity.
         throw new FHIRException("Unknown RemittanceOutcome code '"+codeString+"'");
         }
     public String toCode(RemittanceOutcome code) {
-      if (code == RemittanceOutcome.RECEIVED)
-        return "received";
+      if (code == RemittanceOutcome.QUEUED)
+        return "queued";
       if (code == RemittanceOutcome.COMPLETE)
         return "complete";
       if (code == RemittanceOutcome.ERROR)
@@ -9760,10 +9728,6 @@ into another (possibly the same) biological entity.
          */
         SEQUENCE, 
         /**
-         * The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
-         */
-        SERVICEDEFINITION, 
-        /**
          * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
          */
         SERVICEREQUEST, 
@@ -10096,8 +10060,6 @@ into another (possibly the same) biological entity.
           return SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return SEQUENCE;
-        if ("ServiceDefinition".equals(codeString))
-          return SERVICEDEFINITION;
         if ("ServiceRequest".equals(codeString))
           return SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -10265,7 +10227,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
-            case SERVICEDEFINITION: return "ServiceDefinition";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -10413,7 +10374,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "http://hl7.org/fhir/resource-types";
             case SEARCHPARAMETER: return "http://hl7.org/fhir/resource-types";
             case SEQUENCE: return "http://hl7.org/fhir/resource-types";
-            case SERVICEDEFINITION: return "http://hl7.org/fhir/resource-types";
             case SERVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
@@ -10561,7 +10521,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
-            case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
             case SERVICEREQUEST: return "A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.";
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
@@ -10709,7 +10668,6 @@ into another (possibly the same) biological entity.
             case SCHEDULE: return "Schedule";
             case SEARCHPARAMETER: return "SearchParameter";
             case SEQUENCE: return "Sequence";
-            case SERVICEDEFINITION: return "ServiceDefinition";
             case SERVICEREQUEST: return "ServiceRequest";
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
@@ -10983,8 +10941,6 @@ into another (possibly the same) biological entity.
           return ResourceType.SEARCHPARAMETER;
         if ("Sequence".equals(codeString))
           return ResourceType.SEQUENCE;
-        if ("ServiceDefinition".equals(codeString))
-          return ResourceType.SERVICEDEFINITION;
         if ("ServiceRequest".equals(codeString))
           return ResourceType.SERVICEREQUEST;
         if ("Slot".equals(codeString))
@@ -11279,8 +11235,6 @@ into another (possibly the same) biological entity.
           return new Enumeration<ResourceType>(this, ResourceType.SEARCHPARAMETER);
         if ("Sequence".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.SEQUENCE);
-        if ("ServiceDefinition".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.SERVICEDEFINITION);
         if ("ServiceRequest".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.SERVICEREQUEST);
         if ("Slot".equals(codeString))
@@ -11568,8 +11522,6 @@ into another (possibly the same) biological entity.
         return "SearchParameter";
       if (code == ResourceType.SEQUENCE)
         return "Sequence";
-      if (code == ResourceType.SERVICEDEFINITION)
-        return "ServiceDefinition";
       if (code == ResourceType.SERVICEREQUEST)
         return "ServiceRequest";
       if (code == ResourceType.SLOT)

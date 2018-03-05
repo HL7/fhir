@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -381,39 +381,45 @@ public class CommunicationRequest extends DomainResource {
          * @return {@link #content} (The communicated content (or for multi-part communications, one portion of the communication).)
          */
         public StringType getContentStringType() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.content.getClass().getName()+" was encountered");
           return (StringType) this.content;
         }
 
         public boolean hasContentStringType() { 
-          return this.content instanceof StringType;
+          return this != null && this.content instanceof StringType;
         }
 
         /**
          * @return {@link #content} (The communicated content (or for multi-part communications, one portion of the communication).)
          */
         public Attachment getContentAttachment() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
         }
 
         public boolean hasContentAttachment() { 
-          return this.content instanceof Attachment;
+          return this != null && this.content instanceof Attachment;
         }
 
         /**
          * @return {@link #content} (The communicated content (or for multi-part communications, one portion of the communication).)
          */
         public Reference getContentReference() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
         }
 
         public boolean hasContentReference() { 
-          return this.content instanceof Reference;
+          return this != null && this.content instanceof Reference;
         }
 
         public boolean hasContent() { 
@@ -424,6 +430,8 @@ public class CommunicationRequest extends DomainResource {
          * @param value {@link #content} (The communicated content (or for multi-part communications, one portion of the communication).)
          */
         public CommunicationRequestPayloadComponent setContent(Type value) { 
+          if (value != null && !(value instanceof StringType || value instanceof Attachment || value instanceof Reference))
+            throw new Error("Not the right type for CommunicationRequest.payload.content[x]: "+value.fhirType());
           this.content = value;
           return this;
         }
@@ -1440,26 +1448,30 @@ public class CommunicationRequest extends DomainResource {
      * @return {@link #occurrence} (The time when this communication is to occur.)
      */
     public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
+      if (this.occurrence == null)
+        return null;
       if (!(this.occurrence instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (DateTimeType) this.occurrence;
     }
 
     public boolean hasOccurrenceDateTimeType() { 
-      return this.occurrence instanceof DateTimeType;
+      return this != null && this.occurrence instanceof DateTimeType;
     }
 
     /**
      * @return {@link #occurrence} (The time when this communication is to occur.)
      */
     public Period getOccurrencePeriod() throws FHIRException { 
+      if (this.occurrence == null)
+        return null;
       if (!(this.occurrence instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.occurrence.getClass().getName()+" was encountered");
       return (Period) this.occurrence;
     }
 
     public boolean hasOccurrencePeriod() { 
-      return this.occurrence instanceof Period;
+      return this != null && this.occurrence instanceof Period;
     }
 
     public boolean hasOccurrence() { 
@@ -1470,6 +1482,8 @@ public class CommunicationRequest extends DomainResource {
      * @param value {@link #occurrence} (The time when this communication is to occur.)
      */
     public CommunicationRequest setOccurrence(Type value) { 
+      if (value != null && !(value instanceof DateTimeType || value instanceof Period))
+        throw new Error("Not the right type for CommunicationRequest.occurrence[x]: "+value.fhirType());
       this.occurrence = value;
       return this;
     }

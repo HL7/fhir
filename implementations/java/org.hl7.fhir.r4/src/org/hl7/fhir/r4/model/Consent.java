@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -2940,39 +2940,45 @@ public class Consent extends DomainResource {
      * @return {@link #source} (The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.)
      */
     public Attachment getSourceAttachment() throws FHIRException { 
+      if (this.source == null)
+        return null;
       if (!(this.source instanceof Attachment))
         throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.source.getClass().getName()+" was encountered");
       return (Attachment) this.source;
     }
 
     public boolean hasSourceAttachment() { 
-      return this.source instanceof Attachment;
+      return this != null && this.source instanceof Attachment;
     }
 
     /**
      * @return {@link #source} (The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.)
      */
     public Identifier getSourceIdentifier() throws FHIRException { 
+      if (this.source == null)
+        return null;
       if (!(this.source instanceof Identifier))
         throw new FHIRException("Type mismatch: the type Identifier was expected, but "+this.source.getClass().getName()+" was encountered");
       return (Identifier) this.source;
     }
 
     public boolean hasSourceIdentifier() { 
-      return this.source instanceof Identifier;
+      return this != null && this.source instanceof Identifier;
     }
 
     /**
      * @return {@link #source} (The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.)
      */
     public Reference getSourceReference() throws FHIRException { 
+      if (this.source == null)
+        return null;
       if (!(this.source instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.source.getClass().getName()+" was encountered");
       return (Reference) this.source;
     }
 
     public boolean hasSourceReference() { 
-      return this.source instanceof Reference;
+      return this != null && this.source instanceof Reference;
     }
 
     public boolean hasSource() { 
@@ -2983,6 +2989,8 @@ public class Consent extends DomainResource {
      * @param value {@link #source} (The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document.)
      */
     public Consent setSource(Type value) { 
+      if (value != null && !(value instanceof Attachment || value instanceof Identifier || value instanceof Reference))
+        throw new Error("Not the right type for Consent.source[x]: "+value.fhirType());
       this.source = value;
       return this;
     }

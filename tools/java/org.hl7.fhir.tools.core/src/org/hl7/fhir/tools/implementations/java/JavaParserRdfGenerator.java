@@ -754,7 +754,7 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     for (ElementDefn n : definitions.getStructures().values()) {
       generateComposer(n, JavaGenClass.Structure);
       String nn = javaClassName(n.getName());
-      regtn.append("    else if (value instanceof "+nn+")\r\n      compose"+nn+"(parent, parentType, name, ("+nn+")value, index);\r\n");
+//      regtn.append("    else if (value instanceof "+nn+")\r\n      compose"+nn+"(parent, parentType, name, ("+nn+")value, index);\r\n");
     }
 
     for (String s : definitions.getBaseResources().keySet()) {

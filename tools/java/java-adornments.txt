@@ -42,6 +42,13 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 
 ----
 
+-- TypeRefComponent --
+
+  public boolean hasTarget() {
+    return Utilities.existsInList(getCode(), "Reference", "canonical");
+  }
+----
+
 // todo: should this be .getId()> 
 -- ElementDefinition --
   
@@ -61,6 +68,14 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
     self.setMax(max);
   }
   
+  public void makeBase() {
+    ElementDefinitionBaseComponent self = getBase();
+    self.setPath(getPath());
+    self.setMin(getMin());
+    self.setMax(getMax());
+  }
+  
+  
   
   public String typeSummary() {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -71,6 +86,27 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
     return b.toString();
    }
   
+  public TypeRefComponent getType(String code) {
+    for (TypeRefComponent tr : getType()) 
+      if (tr.getCode().equals(code))
+        return tr;
+    TypeRefComponent tr = new TypeRefComponent();
+    tr.setCode(code);
+    type.add(tr);
+    return tr;
+  }
+
+  public static final boolean NOT_MODIFIER = false;
+  public static final boolean NOT_IN_SUMMARY = false;
+  public static final boolean IS_MODIFIER = true;
+  public static final boolean IS_IN_SUMMARY = true;
+  public ElementDefinition(boolean defaults, boolean modifier, boolean inSummary) {
+    super();
+    if (defaults) {
+      setIsModifier(modifier);
+      setIsSummary(inSummary);
+    }
+  }  
 
 ----
 

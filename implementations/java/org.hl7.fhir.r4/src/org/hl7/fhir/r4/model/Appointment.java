@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1080,13 +1080,13 @@ public class Appointment extends DomainResource {
     protected StringType patientInstruction;
 
     /**
-     * The referral request this appointment is allocated to assess (incoming referral).
+     * The service request this appointment is allocated to assess (e.g. incoming referral or procedure request).
      */
     @Child(name = "basedOn", type = {ServiceRequest.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="The ServiceRequest provided as information to allocate to the Encounter", formalDefinition="The referral request this appointment is allocated to assess (incoming referral)." )
+    @Description(shortDefinition="The service request this appointment is allocated to assess", formalDefinition="The service request this appointment is allocated to assess (e.g. incoming referral or procedure request)." )
     protected List<Reference> basedOn;
     /**
-     * The actual objects that are the target of the reference (The referral request this appointment is allocated to assess (incoming referral).)
+     * The actual objects that are the target of the reference (The service request this appointment is allocated to assess (e.g. incoming referral or procedure request).)
      */
     protected List<ServiceRequest> basedOnTarget;
 
@@ -2042,7 +2042,7 @@ public class Appointment extends DomainResource {
     }
 
     /**
-     * @return {@link #basedOn} (The referral request this appointment is allocated to assess (incoming referral).)
+     * @return {@link #basedOn} (The service request this appointment is allocated to assess (e.g. incoming referral or procedure request).)
      */
     public List<Reference> getBasedOn() { 
       if (this.basedOn == null)
@@ -2242,7 +2242,7 @@ public class Appointment extends DomainResource {
         children.add(new Property("created", "dateTime", "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.", 0, 1, created));
         children.add(new Property("comment", "string", "Additional comments about the appointment.", 0, 1, comment));
         children.add(new Property("patientInstruction", "string", "While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).", 0, 1, patientInstruction));
-        children.add(new Property("basedOn", "Reference(ServiceRequest)", "The referral request this appointment is allocated to assess (incoming referral).", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        children.add(new Property("basedOn", "Reference(ServiceRequest)", "The service request this appointment is allocated to assess (e.g. incoming referral or procedure request).", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));
         children.add(new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod));
       }
@@ -2268,7 +2268,7 @@ public class Appointment extends DomainResource {
         case 1028554472: /*created*/  return new Property("created", "dateTime", "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.", 0, 1, created);
         case 950398559: /*comment*/  return new Property("comment", "string", "Additional comments about the appointment.", 0, 1, comment);
         case 737543241: /*patientInstruction*/  return new Property("patientInstruction", "string", "While Appointment.comment contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).", 0, 1, patientInstruction);
-        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(ServiceRequest)", "The referral request this appointment is allocated to assess (incoming referral).", 0, java.lang.Integer.MAX_VALUE, basedOn);
+        case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(ServiceRequest)", "The service request this appointment is allocated to assess (e.g. incoming referral or procedure request).", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case 767422259: /*participant*/  return new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant);
         case -897241393: /*requestedPeriod*/  return new Property("requestedPeriod", "Period", "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within. When using these values, the minutes duration should be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time.", 0, java.lang.Integer.MAX_VALUE, requestedPeriod);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -2745,6 +2745,32 @@ public class Appointment extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>based-on</b>
+   * <p>
+   * Description: <b>The service request this appointment is allocated to assess</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Appointment.basedOn</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="based-on", path="Appointment.basedOn", description="The service request this appointment is allocated to assess", type="reference", target={ServiceRequest.class } )
+  public static final String SP_BASED_ON = "based-on";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>based-on</b>
+   * <p>
+   * Description: <b>The service request this appointment is allocated to assess</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Appointment.basedOn</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BASED_ON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BASED_ON);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Appointment:based-on</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASED_ON = new ca.uhn.fhir.model.api.Include("Appointment:based-on").toLocked();
+
+ /**
    * Search parameter: <b>practitioner</b>
    * <p>
    * Description: <b>One of the individuals of the appointment is this practitioner</b><br>
@@ -2881,32 +2907,6 @@ public class Appointment extends DomainResource {
    * the path value of "<b>Appointment:location</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Appointment:location").toLocked();
-
- /**
-   * Search parameter: <b>basedon</b>
-   * <p>
-   * Description: <b>The ServiceRequest provided as information to allocate to the Encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Appointment.basedOn</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="basedon", path="Appointment.basedOn", description="The ServiceRequest provided as information to allocate to the Encounter", type="reference", target={ServiceRequest.class } )
-  public static final String SP_BASEDON = "basedon";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>basedon</b>
-   * <p>
-   * Description: <b>The ServiceRequest provided as information to allocate to the Encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Appointment.basedOn</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BASEDON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BASEDON);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Appointment:basedon</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASEDON = new ca.uhn.fhir.model.api.Include("Appointment:basedon").toLocked();
 
  /**
    * Search parameter: <b>status</b>

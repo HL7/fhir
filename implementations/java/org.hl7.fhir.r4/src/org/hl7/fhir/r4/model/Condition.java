@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1519,65 +1519,75 @@ public class Condition extends DomainResource {
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
     public DateTimeType getOnsetDateTimeType() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (DateTimeType) this.onset;
     }
 
     public boolean hasOnsetDateTimeType() { 
-      return this.onset instanceof DateTimeType;
+      return this != null && this.onset instanceof DateTimeType;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
     public Age getOnsetAge() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Age) this.onset;
     }
 
     public boolean hasOnsetAge() { 
-      return this.onset instanceof Age;
+      return this != null && this.onset instanceof Age;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
     public Period getOnsetPeriod() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Period) this.onset;
     }
 
     public boolean hasOnsetPeriod() { 
-      return this.onset instanceof Period;
+      return this != null && this.onset instanceof Period;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
     public Range getOnsetRange() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (Range) this.onset;
     }
 
     public boolean hasOnsetRange() { 
-      return this.onset instanceof Range;
+      return this != null && this.onset instanceof Range;
     }
 
     /**
      * @return {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
     public StringType getOnsetStringType() throws FHIRException { 
+      if (this.onset == null)
+        return null;
       if (!(this.onset instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.onset.getClass().getName()+" was encountered");
       return (StringType) this.onset;
     }
 
     public boolean hasOnsetStringType() { 
-      return this.onset instanceof StringType;
+      return this != null && this.onset instanceof StringType;
     }
 
     public boolean hasOnset() { 
@@ -1588,6 +1598,8 @@ public class Condition extends DomainResource {
      * @param value {@link #onset} (Estimated or actual date or date-time  the condition began, in the opinion of the clinician.)
      */
     public Condition setOnset(Type value) { 
+      if (value != null && !(value instanceof DateTimeType || value instanceof Age || value instanceof Period || value instanceof Range || value instanceof StringType))
+        throw new Error("Not the right type for Condition.onset[x]: "+value.fhirType());
       this.onset = value;
       return this;
     }
@@ -1603,65 +1615,75 @@ public class Condition extends DomainResource {
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
     public DateTimeType getAbatementDateTimeType() throws FHIRException { 
+      if (this.abatement == null)
+        return null;
       if (!(this.abatement instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (DateTimeType) this.abatement;
     }
 
     public boolean hasAbatementDateTimeType() { 
-      return this.abatement instanceof DateTimeType;
+      return this != null && this.abatement instanceof DateTimeType;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
     public Age getAbatementAge() throws FHIRException { 
+      if (this.abatement == null)
+        return null;
       if (!(this.abatement instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (Age) this.abatement;
     }
 
     public boolean hasAbatementAge() { 
-      return this.abatement instanceof Age;
+      return this != null && this.abatement instanceof Age;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
     public Period getAbatementPeriod() throws FHIRException { 
+      if (this.abatement == null)
+        return null;
       if (!(this.abatement instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (Period) this.abatement;
     }
 
     public boolean hasAbatementPeriod() { 
-      return this.abatement instanceof Period;
+      return this != null && this.abatement instanceof Period;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
     public Range getAbatementRange() throws FHIRException { 
+      if (this.abatement == null)
+        return null;
       if (!(this.abatement instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (Range) this.abatement;
     }
 
     public boolean hasAbatementRange() { 
-      return this.abatement instanceof Range;
+      return this != null && this.abatement instanceof Range;
     }
 
     /**
      * @return {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
     public StringType getAbatementStringType() throws FHIRException { 
+      if (this.abatement == null)
+        return null;
       if (!(this.abatement instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.abatement.getClass().getName()+" was encountered");
       return (StringType) this.abatement;
     }
 
     public boolean hasAbatementStringType() { 
-      return this.abatement instanceof StringType;
+      return this != null && this.abatement instanceof StringType;
     }
 
     public boolean hasAbatement() { 
@@ -1672,6 +1694,8 @@ public class Condition extends DomainResource {
      * @param value {@link #abatement} (The date or estimated date that the condition resolved or went into remission. This is called "abatement" because of the many overloaded connotations associated with "remission" or "resolution" - Conditions are never really resolved, but they can abate.)
      */
     public Condition setAbatement(Type value) { 
+      if (value != null && !(value instanceof DateTimeType || value instanceof Age || value instanceof Period || value instanceof Range || value instanceof StringType))
+        throw new Error("Not the right type for Condition.abatement[x]: "+value.fhirType());
       this.abatement = value;
       return this;
     }

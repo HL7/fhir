@@ -71,6 +71,7 @@ import org.hl7.fhir.r4.utils.formats.CSVWriter;
 import org.hl7.fhir.r4.utils.formats.XLSXWriter;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -902,7 +903,7 @@ public class ProfileUtilities extends TranslatingUtilities {
   }
 
 
-  private ElementDefinition overWriteWithCurrent(ElementDefinition profile, ElementDefinition usage) {
+  private ElementDefinition overWriteWithCurrent(ElementDefinition profile, ElementDefinition usage) throws FHIRFormatError {
     ElementDefinition res = profile.copy();
     if (usage.hasSliceName())
       res.setSliceName(usage.getSliceName());

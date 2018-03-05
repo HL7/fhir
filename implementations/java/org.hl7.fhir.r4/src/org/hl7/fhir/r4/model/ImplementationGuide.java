@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1172,26 +1172,30 @@ public class ImplementationGuide extends MetadataResource {
          * @return {@link #source} (Where this resource is found.)
          */
         public UriType getSourceUriType() throws FHIRException { 
+          if (this.source == null)
+            return null;
           if (!(this.source instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.source.getClass().getName()+" was encountered");
           return (UriType) this.source;
         }
 
         public boolean hasSourceUriType() { 
-          return this.source instanceof UriType;
+          return this != null && this.source instanceof UriType;
         }
 
         /**
          * @return {@link #source} (Where this resource is found.)
          */
         public Reference getSourceReference() throws FHIRException { 
+          if (this.source == null)
+            return null;
           if (!(this.source instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.source.getClass().getName()+" was encountered");
           return (Reference) this.source;
         }
 
         public boolean hasSourceReference() { 
-          return this.source instanceof Reference;
+          return this != null && this.source instanceof Reference;
         }
 
         public boolean hasSource() { 
@@ -1202,6 +1206,8 @@ public class ImplementationGuide extends MetadataResource {
          * @param value {@link #source} (Where this resource is found.)
          */
         public ImplementationGuidePackageResourceComponent setSource(Type value) { 
+          if (value != null && !(value instanceof UriType || value instanceof Reference))
+            throw new Error("Not the right type for ImplementationGuide.package.resource.source[x]: "+value.fhirType());
           this.source = value;
           return this;
         }
@@ -2404,7 +2410,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -2424,7 +2430,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ImplementationGuide setUrlElement(UriType value) { 
       this.url = value;
@@ -2432,14 +2438,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.
+     * @return An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.
+     * @param value An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.
      */
     public ImplementationGuide setUrl(String value) { 
         if (this.url == null)
@@ -3282,7 +3288,7 @@ public class ImplementationGuide extends MetadataResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
         children.add(new Property("status", "code", "The status of this implementation guide. Enables tracking the life-cycle of the content.", 0, 1, status));
@@ -3305,7 +3311,7 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
         case -892481550: /*status*/  return new Property("status", "code", "The status of this implementation guide. Enables tracking the life-cycle of the content.", 0, 1, status);

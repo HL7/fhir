@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1267,9 +1267,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         /**
          * If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.
          */
-        @Child(name = "prohibited", type = {BooleanType.class}, order=9, min=0, max=1, modifier=true, summary=false)
-        @Description(shortDefinition="Do NOT do", formalDefinition="If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan." )
-        protected BooleanType prohibited;
+        @Child(name = "doNotPerform", type = {BooleanType.class}, order=9, min=0, max=1, modifier=true, summary=false)
+        @Description(shortDefinition="If true, activity is prohibiting action", formalDefinition="If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan." )
+        protected BooleanType doNotPerform;
 
         /**
          * The period, timing or frequency upon which the described activity is to occur.
@@ -1331,7 +1331,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         @Description(shortDefinition="Extra info describing activity to perform", formalDefinition="This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc." )
         protected StringType description;
 
-        private static final long serialVersionUID = 825546117L;
+        private static final long serialVersionUID = 447443434L;
 
     /**
      * Constructor
@@ -1756,47 +1756,47 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
 
         /**
-         * @return {@link #prohibited} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getProhibited" gives direct access to the value
+         * @return {@link #doNotPerform} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
          */
-        public BooleanType getProhibitedElement() { 
-          if (this.prohibited == null)
+        public BooleanType getDoNotPerformElement() { 
+          if (this.doNotPerform == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CarePlanActivityDetailComponent.prohibited");
+              throw new Error("Attempt to auto-create CarePlanActivityDetailComponent.doNotPerform");
             else if (Configuration.doAutoCreate())
-              this.prohibited = new BooleanType(); // bb
-          return this.prohibited;
+              this.doNotPerform = new BooleanType(); // bb
+          return this.doNotPerform;
         }
 
-        public boolean hasProhibitedElement() { 
-          return this.prohibited != null && !this.prohibited.isEmpty();
+        public boolean hasDoNotPerformElement() { 
+          return this.doNotPerform != null && !this.doNotPerform.isEmpty();
         }
 
-        public boolean hasProhibited() { 
-          return this.prohibited != null && !this.prohibited.isEmpty();
+        public boolean hasDoNotPerform() { 
+          return this.doNotPerform != null && !this.doNotPerform.isEmpty();
         }
 
         /**
-         * @param value {@link #prohibited} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getProhibited" gives direct access to the value
+         * @param value {@link #doNotPerform} (If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
          */
-        public CarePlanActivityDetailComponent setProhibitedElement(BooleanType value) { 
-          this.prohibited = value;
+        public CarePlanActivityDetailComponent setDoNotPerformElement(BooleanType value) { 
+          this.doNotPerform = value;
           return this;
         }
 
         /**
          * @return If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.
          */
-        public boolean getProhibited() { 
-          return this.prohibited == null || this.prohibited.isEmpty() ? false : this.prohibited.getValue();
+        public boolean getDoNotPerform() { 
+          return this.doNotPerform == null || this.doNotPerform.isEmpty() ? false : this.doNotPerform.getValue();
         }
 
         /**
          * @param value If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.
          */
-        public CarePlanActivityDetailComponent setProhibited(boolean value) { 
-            if (this.prohibited == null)
-              this.prohibited = new BooleanType();
-            this.prohibited.setValue(value);
+        public CarePlanActivityDetailComponent setDoNotPerform(boolean value) { 
+            if (this.doNotPerform == null)
+              this.doNotPerform = new BooleanType();
+            this.doNotPerform.setValue(value);
           return this;
         }
 
@@ -1811,39 +1811,45 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          * @return {@link #scheduled} (The period, timing or frequency upon which the described activity is to occur.)
          */
         public Timing getScheduledTiming() throws FHIRException { 
+          if (this.scheduled == null)
+            return null;
           if (!(this.scheduled instanceof Timing))
             throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.scheduled.getClass().getName()+" was encountered");
           return (Timing) this.scheduled;
         }
 
         public boolean hasScheduledTiming() { 
-          return this.scheduled instanceof Timing;
+          return this != null && this.scheduled instanceof Timing;
         }
 
         /**
          * @return {@link #scheduled} (The period, timing or frequency upon which the described activity is to occur.)
          */
         public Period getScheduledPeriod() throws FHIRException { 
+          if (this.scheduled == null)
+            return null;
           if (!(this.scheduled instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.scheduled.getClass().getName()+" was encountered");
           return (Period) this.scheduled;
         }
 
         public boolean hasScheduledPeriod() { 
-          return this.scheduled instanceof Period;
+          return this != null && this.scheduled instanceof Period;
         }
 
         /**
          * @return {@link #scheduled} (The period, timing or frequency upon which the described activity is to occur.)
          */
         public StringType getScheduledStringType() throws FHIRException { 
+          if (this.scheduled == null)
+            return null;
           if (!(this.scheduled instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.scheduled.getClass().getName()+" was encountered");
           return (StringType) this.scheduled;
         }
 
         public boolean hasScheduledStringType() { 
-          return this.scheduled instanceof StringType;
+          return this != null && this.scheduled instanceof StringType;
         }
 
         public boolean hasScheduled() { 
@@ -1854,6 +1860,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          * @param value {@link #scheduled} (The period, timing or frequency upon which the described activity is to occur.)
          */
         public CarePlanActivityDetailComponent setScheduled(Type value) { 
+          if (value != null && !(value instanceof Timing || value instanceof Period || value instanceof StringType))
+            throw new Error("Not the right type for CarePlan.activity.detail.scheduled[x]: "+value.fhirType());
           this.scheduled = value;
           return this;
         }
@@ -1976,26 +1984,30 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          * @return {@link #product} (Identifies the food, drug or other product to be consumed or supplied in the activity.)
          */
         public CodeableConcept getProductCodeableConcept() throws FHIRException { 
+          if (this.product == null)
+            return null;
           if (!(this.product instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.product.getClass().getName()+" was encountered");
           return (CodeableConcept) this.product;
         }
 
         public boolean hasProductCodeableConcept() { 
-          return this.product instanceof CodeableConcept;
+          return this != null && this.product instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #product} (Identifies the food, drug or other product to be consumed or supplied in the activity.)
          */
         public Reference getProductReference() throws FHIRException { 
+          if (this.product == null)
+            return null;
           if (!(this.product instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.product.getClass().getName()+" was encountered");
           return (Reference) this.product;
         }
 
         public boolean hasProductReference() { 
-          return this.product instanceof Reference;
+          return this != null && this.product instanceof Reference;
         }
 
         public boolean hasProduct() { 
@@ -2006,6 +2018,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          * @param value {@link #product} (Identifies the food, drug or other product to be consumed or supplied in the activity.)
          */
         public CarePlanActivityDetailComponent setProduct(Type value) { 
+          if (value != null && !(value instanceof CodeableConcept || value instanceof Reference))
+            throw new Error("Not the right type for CarePlan.activity.detail.product[x]: "+value.fhirType());
           this.product = value;
           return this;
         }
@@ -2117,7 +2131,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           children.add(new Property("goal", "Reference(Goal)", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal));
           children.add(new Property("status", "code", "Identifies what progress is being made for the specific activity.", 0, 1, status));
           children.add(new Property("statusReason", "string", "Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.", 0, 1, statusReason));
-          children.add(new Property("prohibited", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.", 0, 1, prohibited));
+          children.add(new Property("doNotPerform", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.", 0, 1, doNotPerform));
           children.add(new Property("scheduled[x]", "Timing|Period|string", "The period, timing or frequency upon which the described activity is to occur.", 0, 1, scheduled));
           children.add(new Property("location", "Reference(Location)", "Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.", 0, 1, location));
           children.add(new Property("performer", "Reference(Practitioner|PractitionerRole|Organization|RelatedPerson|Patient|CareTeam|HealthcareService|Device)", "Identifies who's expected to be involved in the activity.", 0, java.lang.Integer.MAX_VALUE, performer));
@@ -2138,7 +2152,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           case 3178259: /*goal*/  return new Property("goal", "Reference(Goal)", "Internal reference that identifies the goals that this activity is intended to contribute towards meeting.", 0, java.lang.Integer.MAX_VALUE, goal);
           case -892481550: /*status*/  return new Property("status", "code", "Identifies what progress is being made for the specific activity.", 0, 1, status);
           case 2051346646: /*statusReason*/  return new Property("statusReason", "string", "Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.", 0, 1, statusReason);
-          case 663275198: /*prohibited*/  return new Property("prohibited", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.", 0, 1, prohibited);
+          case -1788508167: /*doNotPerform*/  return new Property("doNotPerform", "boolean", "If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.", 0, 1, doNotPerform);
           case 1162627251: /*scheduled[x]*/  return new Property("scheduled[x]", "Timing|Period|string", "The period, timing or frequency upon which the described activity is to occur.", 0, 1, scheduled);
           case -160710483: /*scheduled*/  return new Property("scheduled[x]", "Timing|Period|string", "The period, timing or frequency upon which the described activity is to occur.", 0, 1, scheduled);
           case 998483799: /*scheduledTiming*/  return new Property("scheduled[x]", "Timing|Period|string", "The period, timing or frequency upon which the described activity is to occur.", 0, 1, scheduled);
@@ -2169,7 +2183,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 3178259: /*goal*/ return this.goal == null ? new Base[0] : this.goal.toArray(new Base[this.goal.size()]); // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CarePlanActivityStatus>
         case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : new Base[] {this.statusReason}; // StringType
-        case 663275198: /*prohibited*/ return this.prohibited == null ? new Base[0] : new Base[] {this.prohibited}; // BooleanType
+        case -1788508167: /*doNotPerform*/ return this.doNotPerform == null ? new Base[0] : new Base[] {this.doNotPerform}; // BooleanType
         case -160710483: /*scheduled*/ return this.scheduled == null ? new Base[0] : new Base[] {this.scheduled}; // Type
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // Reference
@@ -2211,8 +2225,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 2051346646: // statusReason
           this.statusReason = castToString(value); // StringType
           return value;
-        case 663275198: // prohibited
-          this.prohibited = castToBoolean(value); // BooleanType
+        case -1788508167: // doNotPerform
+          this.doNotPerform = castToBoolean(value); // BooleanType
           return value;
         case -160710483: // scheduled
           this.scheduled = castToType(value); // Type
@@ -2260,8 +2274,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.status = (Enumeration) value; // Enumeration<CarePlanActivityStatus>
         } else if (name.equals("statusReason")) {
           this.statusReason = castToString(value); // StringType
-        } else if (name.equals("prohibited")) {
-          this.prohibited = castToBoolean(value); // BooleanType
+        } else if (name.equals("doNotPerform")) {
+          this.doNotPerform = castToBoolean(value); // BooleanType
         } else if (name.equals("scheduled[x]")) {
           this.scheduled = castToType(value); // Type
         } else if (name.equals("location")) {
@@ -2292,7 +2306,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 3178259:  return addGoal(); 
         case -892481550:  return getStatusElement();
         case 2051346646:  return getStatusReasonElement();
-        case 663275198:  return getProhibitedElement();
+        case -1788508167:  return getDoNotPerformElement();
         case 1162627251:  return getScheduled(); 
         case -160710483:  return getScheduled(); 
         case 1901043637:  return getLocation(); 
@@ -2318,7 +2332,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 3178259: /*goal*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
         case 2051346646: /*statusReason*/ return new String[] {"string"};
-        case 663275198: /*prohibited*/ return new String[] {"boolean"};
+        case -1788508167: /*doNotPerform*/ return new String[] {"boolean"};
         case -160710483: /*scheduled*/ return new String[] {"Timing", "Period", "string"};
         case 1901043637: /*location*/ return new String[] {"Reference"};
         case 481140686: /*performer*/ return new String[] {"Reference"};
@@ -2358,8 +2372,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         else if (name.equals("statusReason")) {
           throw new FHIRException("Cannot call addChild on a primitive type CarePlan.statusReason");
         }
-        else if (name.equals("prohibited")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CarePlan.prohibited");
+        else if (name.equals("doNotPerform")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CarePlan.doNotPerform");
         }
         else if (name.equals("scheduledTiming")) {
           this.scheduled = new Timing();
@@ -2426,7 +2440,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         };
         dst.status = status == null ? null : status.copy();
         dst.statusReason = statusReason == null ? null : statusReason.copy();
-        dst.prohibited = prohibited == null ? null : prohibited.copy();
+        dst.doNotPerform = doNotPerform == null ? null : doNotPerform.copy();
         dst.scheduled = scheduled == null ? null : scheduled.copy();
         dst.location = location == null ? null : location.copy();
         if (performer != null) {
@@ -2451,9 +2465,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         return compareDeep(kind, o.kind, true) && compareDeep(instantiates, o.instantiates, true) && compareDeep(code, o.code, true)
            && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(goal, o.goal, true) && compareDeep(status, o.status, true) && compareDeep(statusReason, o.statusReason, true)
-           && compareDeep(prohibited, o.prohibited, true) && compareDeep(scheduled, o.scheduled, true) && compareDeep(location, o.location, true)
-           && compareDeep(performer, o.performer, true) && compareDeep(product, o.product, true) && compareDeep(dailyAmount, o.dailyAmount, true)
-           && compareDeep(quantity, o.quantity, true) && compareDeep(description, o.description, true);
+           && compareDeep(doNotPerform, o.doNotPerform, true) && compareDeep(scheduled, o.scheduled, true)
+           && compareDeep(location, o.location, true) && compareDeep(performer, o.performer, true) && compareDeep(product, o.product, true)
+           && compareDeep(dailyAmount, o.dailyAmount, true) && compareDeep(quantity, o.quantity, true) && compareDeep(description, o.description, true)
+          ;
       }
 
       @Override
@@ -2464,13 +2479,13 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return false;
         CarePlanActivityDetailComponent o = (CarePlanActivityDetailComponent) other_;
         return compareValues(kind, o.kind, true) && compareValues(instantiates, o.instantiates, true) && compareValues(status, o.status, true)
-           && compareValues(statusReason, o.statusReason, true) && compareValues(prohibited, o.prohibited, true)
+           && compareValues(statusReason, o.statusReason, true) && compareValues(doNotPerform, o.doNotPerform, true)
            && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, instantiates, code
-          , reasonCode, reasonReference, goal, status, statusReason, prohibited, scheduled
+          , reasonCode, reasonReference, goal, status, statusReason, doNotPerform, scheduled
           , location, performer, product, dailyAmount, quantity, description);
       }
 

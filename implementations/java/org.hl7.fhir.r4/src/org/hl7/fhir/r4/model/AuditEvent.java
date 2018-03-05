@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -2722,26 +2722,30 @@ public class AuditEvent extends DomainResource {
          * @return {@link #value} (The details value.)
          */
         public StringType getValueStringType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (StringType) this.value;
         }
 
         public boolean hasValueStringType() { 
-          return this.value instanceof StringType;
+          return this != null && this.value instanceof StringType;
         }
 
         /**
          * @return {@link #value} (The details value.)
          */
         public Base64BinaryType getValueBase64BinaryType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Base64BinaryType))
             throw new FHIRException("Type mismatch: the type Base64BinaryType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Base64BinaryType) this.value;
         }
 
         public boolean hasValueBase64BinaryType() { 
-          return this.value instanceof Base64BinaryType;
+          return this != null && this.value instanceof Base64BinaryType;
         }
 
         public boolean hasValue() { 
@@ -2752,6 +2756,8 @@ public class AuditEvent extends DomainResource {
          * @param value {@link #value} (The details value.)
          */
         public AuditEventEntityDetailComponent setValue(Type value) { 
+          if (value != null && !(value instanceof StringType || value instanceof Base64BinaryType))
+            throw new Error("Not the right type for AuditEvent.entity.detail.value[x]: "+value.fhirType());
           this.value = value;
           return this;
         }

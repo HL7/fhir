@@ -145,6 +145,8 @@ public class JavaBaseGenerator extends OutputStreamWriter {
       cc = "greater_Or_Equal";
     else if (cc.equals("="))
       cc = "equal";
+    else if (cc.equals("!="))
+      cc = "not_equal";
     else if (allPlusMinus(cc))
       cc = cc.replace("-", "Minus").replace("+", "Plus");
     else

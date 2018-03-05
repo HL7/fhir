@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -397,39 +397,45 @@ public class Communication extends DomainResource {
          * @return {@link #content} (A communicated content (or for multi-part communications, one portion of the communication).)
          */
         public StringType getContentStringType() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.content.getClass().getName()+" was encountered");
           return (StringType) this.content;
         }
 
         public boolean hasContentStringType() { 
-          return this.content instanceof StringType;
+          return this != null && this.content instanceof StringType;
         }
 
         /**
          * @return {@link #content} (A communicated content (or for multi-part communications, one portion of the communication).)
          */
         public Attachment getContentAttachment() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
         }
 
         public boolean hasContentAttachment() { 
-          return this.content instanceof Attachment;
+          return this != null && this.content instanceof Attachment;
         }
 
         /**
          * @return {@link #content} (A communicated content (or for multi-part communications, one portion of the communication).)
          */
         public Reference getContentReference() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
         }
 
         public boolean hasContentReference() { 
-          return this.content instanceof Reference;
+          return this != null && this.content instanceof Reference;
         }
 
         public boolean hasContent() { 
@@ -440,6 +446,8 @@ public class Communication extends DomainResource {
          * @param value {@link #content} (A communicated content (or for multi-part communications, one portion of the communication).)
          */
         public CommunicationPayloadComponent setContent(Type value) { 
+          if (value != null && !(value instanceof StringType || value instanceof Attachment || value instanceof Reference))
+            throw new Error("Not the right type for Communication.payload.content[x]: "+value.fhirType());
           this.content = value;
           return this;
         }

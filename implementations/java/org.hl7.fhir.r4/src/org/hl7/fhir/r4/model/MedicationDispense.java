@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1323,26 +1323,30 @@ public class MedicationDispense extends DomainResource {
      * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
     public CodeableConcept getMedicationCodeableConcept() throws FHIRException { 
+      if (this.medication == null)
+        return null;
       if (!(this.medication instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (CodeableConcept) this.medication;
     }
 
     public boolean hasMedicationCodeableConcept() { 
-      return this.medication instanceof CodeableConcept;
+      return this != null && this.medication instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
     public Reference getMedicationReference() throws FHIRException { 
+      if (this.medication == null)
+        return null;
       if (!(this.medication instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (Reference) this.medication;
     }
 
     public boolean hasMedicationReference() { 
-      return this.medication instanceof Reference;
+      return this != null && this.medication instanceof Reference;
     }
 
     public boolean hasMedication() { 
@@ -1353,6 +1357,8 @@ public class MedicationDispense extends DomainResource {
      * @param value {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
     public MedicationDispense setMedication(Type value) { 
+      if (value != null && !(value instanceof CodeableConcept || value instanceof Reference))
+        throw new Error("Not the right type for MedicationDispense.medication[x]: "+value.fhirType());
       this.medication = value;
       return this;
     }
@@ -2163,26 +2169,30 @@ public class MedicationDispense extends DomainResource {
      * @return {@link #statusReason} (Indicates the reason why a dispense was not performed.)
      */
     public CodeableConcept getStatusReasonCodeableConcept() throws FHIRException { 
+      if (this.statusReason == null)
+        return null;
       if (!(this.statusReason instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.statusReason.getClass().getName()+" was encountered");
       return (CodeableConcept) this.statusReason;
     }
 
     public boolean hasStatusReasonCodeableConcept() { 
-      return this.statusReason instanceof CodeableConcept;
+      return this != null && this.statusReason instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #statusReason} (Indicates the reason why a dispense was not performed.)
      */
     public Reference getStatusReasonReference() throws FHIRException { 
+      if (this.statusReason == null)
+        return null;
       if (!(this.statusReason instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.statusReason.getClass().getName()+" was encountered");
       return (Reference) this.statusReason;
     }
 
     public boolean hasStatusReasonReference() { 
-      return this.statusReason instanceof Reference;
+      return this != null && this.statusReason instanceof Reference;
     }
 
     public boolean hasStatusReason() { 
@@ -2193,6 +2203,8 @@ public class MedicationDispense extends DomainResource {
      * @param value {@link #statusReason} (Indicates the reason why a dispense was not performed.)
      */
     public MedicationDispense setStatusReason(Type value) { 
+      if (value != null && !(value instanceof CodeableConcept || value instanceof Reference))
+        throw new Error("Not the right type for MedicationDispense.statusReason[x]: "+value.fhirType());
       this.statusReason = value;
       return this;
     }

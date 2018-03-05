@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1708,26 +1708,30 @@ public class ImplementationGuideInput extends MetadataResource {
          * @return {@link #example} (If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.)
          */
         public BooleanType getExampleBooleanType() throws FHIRException { 
+          if (this.example == null)
+            return null;
           if (!(this.example instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.example.getClass().getName()+" was encountered");
           return (BooleanType) this.example;
         }
 
         public boolean hasExampleBooleanType() { 
-          return this.example instanceof BooleanType;
+          return this != null && this.example instanceof BooleanType;
         }
 
         /**
          * @return {@link #example} (If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.)
          */
         public Reference getExampleReference() throws FHIRException { 
+          if (this.example == null)
+            return null;
           if (!(this.example instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.example.getClass().getName()+" was encountered");
           return (Reference) this.example;
         }
 
         public boolean hasExampleReference() { 
-          return this.example instanceof Reference;
+          return this != null && this.example instanceof Reference;
         }
 
         public boolean hasExample() { 
@@ -1738,6 +1742,8 @@ public class ImplementationGuideInput extends MetadataResource {
          * @param value {@link #example} (If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.)
          */
         public ImplementationGuideInputDefinitionResourceComponent setExample(Type value) { 
+          if (value != null && !(value instanceof BooleanType || value instanceof Reference))
+            throw new Error("Not the right type for ImplementationGuideInput.definition.resource.example[x]: "+value.fhirType());
           this.example = value;
           return this;
         }
@@ -2020,26 +2026,30 @@ public class ImplementationGuideInput extends MetadataResource {
          * @return {@link #name} (The source address for the page.)
          */
         public UriType getNameUriType() throws FHIRException { 
+          if (this.name == null)
+            return null;
           if (!(this.name instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.name.getClass().getName()+" was encountered");
           return (UriType) this.name;
         }
 
         public boolean hasNameUriType() { 
-          return this.name instanceof UriType;
+          return this != null && this.name instanceof UriType;
         }
 
         /**
          * @return {@link #name} (The source address for the page.)
          */
         public Reference getNameReference() throws FHIRException { 
+          if (this.name == null)
+            return null;
           if (!(this.name instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.name.getClass().getName()+" was encountered");
           return (Reference) this.name;
         }
 
         public boolean hasNameReference() { 
-          return this.name instanceof Reference;
+          return this != null && this.name instanceof Reference;
         }
 
         public boolean hasName() { 
@@ -2050,6 +2060,8 @@ public class ImplementationGuideInput extends MetadataResource {
          * @param value {@link #name} (The source address for the page.)
          */
         public ImplementationGuideInputDefinitionPageComponent setName(Type value) { 
+          if (value != null && !(value instanceof UriType || value instanceof Reference))
+            throw new Error("Not the right type for ImplementationGuideInput.definition.page.name[x]: "+value.fhirType());
           this.name = value;
           return this;
         }
@@ -2924,7 +2936,7 @@ public class ImplementationGuideInput extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -2944,7 +2956,7 @@ public class ImplementationGuideInput extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ImplementationGuideInput setUrlElement(UriType value) { 
       this.url = value;
@@ -2952,14 +2964,14 @@ public class ImplementationGuideInput extends MetadataResource {
     }
 
     /**
-     * @return An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.
+     * @return An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.
+     * @param value An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.
      */
     public ImplementationGuideInput setUrl(String value) { 
         if (this.url == null)
@@ -3688,7 +3700,7 @@ public class ImplementationGuideInput extends MetadataResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.", 0, 1, url));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the implementation guide input when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide input author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the implementation guide input. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
         children.add(new Property("status", "code", "The status of this implementation guide input. Enables tracking the life-cycle of the content.", 0, 1, status));
@@ -3709,7 +3721,7 @@ public class ImplementationGuideInput extends MetadataResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this implementation guide input when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide input is (or will be) published.", 0, 1, url);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the implementation guide input when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide input author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the implementation guide input. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
         case -892481550: /*status*/  return new Property("status", "code", "The status of this implementation guide input. Enables tracking the life-cycle of the content.", 0, 1, status);

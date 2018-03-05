@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -2543,26 +2543,30 @@ public class Contract extends DomainResource {
          * @return {@link #entity} (Specific type of Contract Valued Item that may be priced.)
          */
         public CodeableConcept getEntityCodeableConcept() throws FHIRException { 
+          if (this.entity == null)
+            return null;
           if (!(this.entity instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.entity.getClass().getName()+" was encountered");
           return (CodeableConcept) this.entity;
         }
 
         public boolean hasEntityCodeableConcept() { 
-          return this.entity instanceof CodeableConcept;
+          return this != null && this.entity instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #entity} (Specific type of Contract Valued Item that may be priced.)
          */
         public Reference getEntityReference() throws FHIRException { 
+          if (this.entity == null)
+            return null;
           if (!(this.entity instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.entity.getClass().getName()+" was encountered");
           return (Reference) this.entity;
         }
 
         public boolean hasEntityReference() { 
-          return this.entity instanceof Reference;
+          return this != null && this.entity instanceof Reference;
         }
 
         public boolean hasEntity() { 
@@ -2573,6 +2577,8 @@ public class Contract extends DomainResource {
          * @param value {@link #entity} (Specific type of Contract Valued Item that may be priced.)
          */
         public ValuedItemComponent setEntity(Type value) { 
+          if (value != null && !(value instanceof CodeableConcept || value instanceof Reference))
+            throw new Error("Not the right type for Contract.term.asset.valuedItem.entity[x]: "+value.fhirType());
           this.entity = value;
           return this;
         }
@@ -3680,26 +3686,30 @@ public class Contract extends DomainResource {
          * @return {@link #content} (Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.)
          */
         public Attachment getContentAttachment() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
         }
 
         public boolean hasContentAttachment() { 
-          return this.content instanceof Attachment;
+          return this != null && this.content instanceof Attachment;
         }
 
         /**
          * @return {@link #content} (Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.)
          */
         public Reference getContentReference() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
         }
 
         public boolean hasContentReference() { 
-          return this.content instanceof Reference;
+          return this != null && this.content instanceof Reference;
         }
 
         public boolean hasContent() { 
@@ -3710,6 +3720,8 @@ public class Contract extends DomainResource {
          * @param value {@link #content} (Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.)
          */
         public FriendlyLanguageComponent setContent(Type value) { 
+          if (value != null && !(value instanceof Attachment || value instanceof Reference))
+            throw new Error("Not the right type for Contract.friendly.content[x]: "+value.fhirType());
           this.content = value;
           return this;
         }
@@ -3868,26 +3880,30 @@ public class Contract extends DomainResource {
          * @return {@link #content} (Contract legal text in human renderable form.)
          */
         public Attachment getContentAttachment() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
         }
 
         public boolean hasContentAttachment() { 
-          return this.content instanceof Attachment;
+          return this != null && this.content instanceof Attachment;
         }
 
         /**
          * @return {@link #content} (Contract legal text in human renderable form.)
          */
         public Reference getContentReference() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
         }
 
         public boolean hasContentReference() { 
-          return this.content instanceof Reference;
+          return this != null && this.content instanceof Reference;
         }
 
         public boolean hasContent() { 
@@ -3898,6 +3914,8 @@ public class Contract extends DomainResource {
          * @param value {@link #content} (Contract legal text in human renderable form.)
          */
         public LegalLanguageComponent setContent(Type value) { 
+          if (value != null && !(value instanceof Attachment || value instanceof Reference))
+            throw new Error("Not the right type for Contract.legal.content[x]: "+value.fhirType());
           this.content = value;
           return this;
         }
@@ -4056,26 +4074,30 @@ public class Contract extends DomainResource {
          * @return {@link #content} (Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).)
          */
         public Attachment getContentAttachment() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
         }
 
         public boolean hasContentAttachment() { 
-          return this.content instanceof Attachment;
+          return this != null && this.content instanceof Attachment;
         }
 
         /**
          * @return {@link #content} (Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).)
          */
         public Reference getContentReference() throws FHIRException { 
+          if (this.content == null)
+            return null;
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
         }
 
         public boolean hasContentReference() { 
-          return this.content instanceof Reference;
+          return this != null && this.content instanceof Reference;
         }
 
         public boolean hasContent() { 
@@ -4086,6 +4108,8 @@ public class Contract extends DomainResource {
          * @param value {@link #content} (Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).)
          */
         public ComputableLanguageComponent setContent(Type value) { 
+          if (value != null && !(value instanceof Attachment || value instanceof Reference))
+            throw new Error("Not the right type for Contract.rule.content[x]: "+value.fhirType());
           this.content = value;
           return this;
         }
@@ -5083,26 +5107,30 @@ public class Contract extends DomainResource {
      * @return {@link #legallyBinding} (Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.)
      */
     public Attachment getLegallyBindingAttachment() throws FHIRException { 
+      if (this.legallyBinding == null)
+        return null;
       if (!(this.legallyBinding instanceof Attachment))
         throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.legallyBinding.getClass().getName()+" was encountered");
       return (Attachment) this.legallyBinding;
     }
 
     public boolean hasLegallyBindingAttachment() { 
-      return this.legallyBinding instanceof Attachment;
+      return this != null && this.legallyBinding instanceof Attachment;
     }
 
     /**
      * @return {@link #legallyBinding} (Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.)
      */
     public Reference getLegallyBindingReference() throws FHIRException { 
+      if (this.legallyBinding == null)
+        return null;
       if (!(this.legallyBinding instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.legallyBinding.getClass().getName()+" was encountered");
       return (Reference) this.legallyBinding;
     }
 
     public boolean hasLegallyBindingReference() { 
-      return this.legallyBinding instanceof Reference;
+      return this != null && this.legallyBinding instanceof Reference;
     }
 
     public boolean hasLegallyBinding() { 
@@ -5113,6 +5141,8 @@ public class Contract extends DomainResource {
      * @param value {@link #legallyBinding} (Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.)
      */
     public Contract setLegallyBinding(Type value) { 
+      if (value != null && !(value instanceof Attachment || value instanceof Reference))
+        throw new Error("Not the right type for Contract.legallyBinding[x]: "+value.fhirType());
       this.legallyBinding = value;
       return this;
     }

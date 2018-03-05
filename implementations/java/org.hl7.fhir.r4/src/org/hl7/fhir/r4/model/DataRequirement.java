@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -144,26 +144,30 @@ public class DataRequirement extends Type implements ICompositeType {
          * @return {@link #valueSet} (The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
         public UriType getValueSetUriType() throws FHIRException { 
+          if (this.valueSet == null)
+            return null;
           if (!(this.valueSet instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (UriType) this.valueSet;
         }
 
         public boolean hasValueSetUriType() { 
-          return this.valueSet instanceof UriType;
+          return this != null && this.valueSet instanceof UriType;
         }
 
         /**
          * @return {@link #valueSet} (The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
         public Reference getValueSetReference() throws FHIRException { 
+          if (this.valueSet == null)
+            return null;
           if (!(this.valueSet instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (Reference) this.valueSet;
         }
 
         public boolean hasValueSetReference() { 
-          return this.valueSet instanceof Reference;
+          return this != null && this.valueSet instanceof Reference;
         }
 
         public boolean hasValueSet() { 
@@ -174,6 +178,8 @@ public class DataRequirement extends Type implements ICompositeType {
          * @param value {@link #valueSet} (The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
         public DataRequirementCodeFilterComponent setValueSet(Type value) { 
+          if (value != null && !(value instanceof UriType || value instanceof Reference))
+            throw new Error("Not the right type for DataRequirement.codeFilter.valueSet[x]: "+value.fhirType());
           this.valueSet = value;
           return this;
         }
@@ -470,39 +476,45 @@ public class DataRequirement extends Type implements ICompositeType {
          * @return {@link #value} (The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration before now.)
          */
         public DateTimeType getValueDateTimeType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateTimeType) this.value;
         }
 
         public boolean hasValueDateTimeType() { 
-          return this.value instanceof DateTimeType;
+          return this != null && this.value instanceof DateTimeType;
         }
 
         /**
          * @return {@link #value} (The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration before now.)
          */
         public Period getValuePeriod() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Period) this.value;
         }
 
         public boolean hasValuePeriod() { 
-          return this.value instanceof Period;
+          return this != null && this.value instanceof Period;
         }
 
         /**
          * @return {@link #value} (The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration before now.)
          */
         public Duration getValueDuration() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Duration))
             throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Duration) this.value;
         }
 
         public boolean hasValueDuration() { 
-          return this.value instanceof Duration;
+          return this != null && this.value instanceof Duration;
         }
 
         public boolean hasValue() { 
@@ -513,6 +525,8 @@ public class DataRequirement extends Type implements ICompositeType {
          * @param value {@link #value} (The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration before now.)
          */
         public DataRequirementDateFilterComponent setValue(Type value) { 
+          if (value != null && !(value instanceof DateTimeType || value instanceof Period || value instanceof Duration))
+            throw new Error("Not the right type for DataRequirement.dateFilter.value[x]: "+value.fhirType());
           this.value = value;
           return this;
         }

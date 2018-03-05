@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1468,7 +1468,7 @@ public class RequestGroup extends DomainResource {
         /**
          * The participant that should perform or be responsible for this action.
          */
-        @Child(name = "participant", type = {Patient.class, Person.class, Practitioner.class, RelatedPerson.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "participant", type = {Patient.class, Practitioner.class, RelatedPerson.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Who should perform the action", formalDefinition="The participant that should perform or be responsible for this action." )
         protected List<Reference> participant;
         /**
@@ -1480,10 +1480,10 @@ public class RequestGroup extends DomainResource {
         /**
          * The type of action to perform (create, update, remove).
          */
-        @Child(name = "type", type = {Coding.class}, order=11, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "type", type = {CodeableConcept.class}, order=11, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="create | update | remove | fire-event", formalDefinition="The type of action to perform (create, update, remove)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-type")
-        protected Coding type;
+        protected CodeableConcept type;
 
         /**
          * Defines the grouping behavior for the action and its children.
@@ -1544,7 +1544,7 @@ public class RequestGroup extends DomainResource {
         @Description(shortDefinition="Sub action", formalDefinition="Sub actions." )
         protected List<RequestGroupActionComponent> action;
 
-        private static final long serialVersionUID = -1597629210L;
+        private static final long serialVersionUID = 427957403L;
 
     /**
      * Constructor
@@ -1972,78 +1972,90 @@ public class RequestGroup extends DomainResource {
          * @return {@link #timing} (An optional value describing when the action should be performed.)
          */
         public DateTimeType getTimingDateTimeType() throws FHIRException { 
+          if (this.timing == null)
+            return null;
           if (!(this.timing instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.timing.getClass().getName()+" was encountered");
           return (DateTimeType) this.timing;
         }
 
         public boolean hasTimingDateTimeType() { 
-          return this.timing instanceof DateTimeType;
+          return this != null && this.timing instanceof DateTimeType;
         }
 
         /**
          * @return {@link #timing} (An optional value describing when the action should be performed.)
          */
         public Age getTimingAge() throws FHIRException { 
+          if (this.timing == null)
+            return null;
           if (!(this.timing instanceof Age))
             throw new FHIRException("Type mismatch: the type Age was expected, but "+this.timing.getClass().getName()+" was encountered");
           return (Age) this.timing;
         }
 
         public boolean hasTimingAge() { 
-          return this.timing instanceof Age;
+          return this != null && this.timing instanceof Age;
         }
 
         /**
          * @return {@link #timing} (An optional value describing when the action should be performed.)
          */
         public Period getTimingPeriod() throws FHIRException { 
+          if (this.timing == null)
+            return null;
           if (!(this.timing instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
           return (Period) this.timing;
         }
 
         public boolean hasTimingPeriod() { 
-          return this.timing instanceof Period;
+          return this != null && this.timing instanceof Period;
         }
 
         /**
          * @return {@link #timing} (An optional value describing when the action should be performed.)
          */
         public Duration getTimingDuration() throws FHIRException { 
+          if (this.timing == null)
+            return null;
           if (!(this.timing instanceof Duration))
             throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.timing.getClass().getName()+" was encountered");
           return (Duration) this.timing;
         }
 
         public boolean hasTimingDuration() { 
-          return this.timing instanceof Duration;
+          return this != null && this.timing instanceof Duration;
         }
 
         /**
          * @return {@link #timing} (An optional value describing when the action should be performed.)
          */
         public Range getTimingRange() throws FHIRException { 
+          if (this.timing == null)
+            return null;
           if (!(this.timing instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.timing.getClass().getName()+" was encountered");
           return (Range) this.timing;
         }
 
         public boolean hasTimingRange() { 
-          return this.timing instanceof Range;
+          return this != null && this.timing instanceof Range;
         }
 
         /**
          * @return {@link #timing} (An optional value describing when the action should be performed.)
          */
         public Timing getTimingTiming() throws FHIRException { 
+          if (this.timing == null)
+            return null;
           if (!(this.timing instanceof Timing))
             throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.timing.getClass().getName()+" was encountered");
           return (Timing) this.timing;
         }
 
         public boolean hasTimingTiming() { 
-          return this.timing instanceof Timing;
+          return this != null && this.timing instanceof Timing;
         }
 
         public boolean hasTiming() { 
@@ -2054,6 +2066,8 @@ public class RequestGroup extends DomainResource {
          * @param value {@link #timing} (An optional value describing when the action should be performed.)
          */
         public RequestGroupActionComponent setTiming(Type value) { 
+          if (value != null && !(value instanceof DateTimeType || value instanceof Age || value instanceof Period || value instanceof Duration || value instanceof Range || value instanceof Timing))
+            throw new Error("Not the right type for RequestGroup.action.timing[x]: "+value.fhirType());
           this.timing = value;
           return this;
         }
@@ -2124,12 +2138,12 @@ public class RequestGroup extends DomainResource {
         /**
          * @return {@link #type} (The type of action to perform (create, update, remove).)
          */
-        public Coding getType() { 
+        public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create RequestGroupActionComponent.type");
             else if (Configuration.doAutoCreate())
-              this.type = new Coding(); // cc
+              this.type = new CodeableConcept(); // cc
           return this.type;
         }
 
@@ -2140,7 +2154,7 @@ public class RequestGroup extends DomainResource {
         /**
          * @param value {@link #type} (The type of action to perform (create, update, remove).)
          */
-        public RequestGroupActionComponent setType(Coding value) { 
+        public RequestGroupActionComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -2493,8 +2507,8 @@ public class RequestGroup extends DomainResource {
           children.add(new Property("condition", "", "An expression that describes applicability criteria, or start/stop conditions for the action.", 0, java.lang.Integer.MAX_VALUE, condition));
           children.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
           children.add(new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing));
-          children.add(new Property("participant", "Reference(Patient|Person|Practitioner|RelatedPerson)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant));
-          children.add(new Property("type", "Coding", "The type of action to perform (create, update, remove).", 0, 1, type));
+          children.add(new Property("participant", "Reference(Patient|Practitioner|RelatedPerson)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant));
+          children.add(new Property("type", "CodeableConcept", "The type of action to perform (create, update, remove).", 0, 1, type));
           children.add(new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, 1, groupingBehavior));
           children.add(new Property("selectionBehavior", "code", "Defines the selection behavior for the action and its children.", 0, 1, selectionBehavior));
           children.add(new Property("requiredBehavior", "code", "Defines the requiredness behavior for the action.", 0, 1, requiredBehavior));
@@ -2523,8 +2537,8 @@ public class RequestGroup extends DomainResource {
           case -1327253506: /*timingDuration*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
           case -710871277: /*timingRange*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
           case -497554124: /*timingTiming*/  return new Property("timing[x]", "dateTime|Age|Period|Duration|Range|Timing", "An optional value describing when the action should be performed.", 0, 1, timing);
-          case 767422259: /*participant*/  return new Property("participant", "Reference(Patient|Person|Practitioner|RelatedPerson)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant);
-          case 3575610: /*type*/  return new Property("type", "Coding", "The type of action to perform (create, update, remove).", 0, 1, type);
+          case 767422259: /*participant*/  return new Property("participant", "Reference(Patient|Practitioner|RelatedPerson)", "The participant that should perform or be responsible for this action.", 0, java.lang.Integer.MAX_VALUE, participant);
+          case 3575610: /*type*/  return new Property("type", "CodeableConcept", "The type of action to perform (create, update, remove).", 0, 1, type);
           case 586678389: /*groupingBehavior*/  return new Property("groupingBehavior", "code", "Defines the grouping behavior for the action and its children.", 0, 1, groupingBehavior);
           case 168639486: /*selectionBehavior*/  return new Property("selectionBehavior", "code", "Defines the selection behavior for the action and its children.", 0, 1, selectionBehavior);
           case -1163906287: /*requiredBehavior*/  return new Property("requiredBehavior", "code", "Defines the requiredness behavior for the action.", 0, 1, requiredBehavior);
@@ -2550,7 +2564,7 @@ public class RequestGroup extends DomainResource {
         case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : this.relatedAction.toArray(new Base[this.relatedAction.size()]); // RequestGroupActionRelatedActionComponent
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // Reference
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case 586678389: /*groupingBehavior*/ return this.groupingBehavior == null ? new Base[0] : new Base[] {this.groupingBehavior}; // Enumeration<ActionGroupingBehavior>
         case 168639486: /*selectionBehavior*/ return this.selectionBehavior == null ? new Base[0] : new Base[] {this.selectionBehavior}; // Enumeration<ActionSelectionBehavior>
         case -1163906287: /*requiredBehavior*/ return this.requiredBehavior == null ? new Base[0] : new Base[] {this.requiredBehavior}; // Enumeration<ActionRequiredBehavior>
@@ -2597,7 +2611,7 @@ public class RequestGroup extends DomainResource {
           this.getParticipant().add(castToReference(value)); // Reference
           return value;
         case 3575610: // type
-          this.type = castToCoding(value); // Coding
+          this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 586678389: // groupingBehavior
           value = new ActionGroupingBehaviorEnumFactory().fromType(castToCode(value));
@@ -2653,7 +2667,7 @@ public class RequestGroup extends DomainResource {
         } else if (name.equals("participant")) {
           this.getParticipant().add(castToReference(value));
         } else if (name.equals("type")) {
-          this.type = castToCoding(value); // Coding
+          this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("groupingBehavior")) {
           value = new ActionGroupingBehaviorEnumFactory().fromType(castToCode(value));
           this.groupingBehavior = (Enumeration) value; // Enumeration<ActionGroupingBehavior>
@@ -2718,7 +2732,7 @@ public class RequestGroup extends DomainResource {
         case -384107967: /*relatedAction*/ return new String[] {};
         case -873664438: /*timing*/ return new String[] {"dateTime", "Age", "Period", "Duration", "Range", "Timing"};
         case 767422259: /*participant*/ return new String[] {"Reference"};
-        case 3575610: /*type*/ return new String[] {"Coding"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case 586678389: /*groupingBehavior*/ return new String[] {"code"};
         case 168639486: /*selectionBehavior*/ return new String[] {"code"};
         case -1163906287: /*requiredBehavior*/ return new String[] {"code"};
@@ -2785,7 +2799,7 @@ public class RequestGroup extends DomainResource {
           return addParticipant();
         }
         else if (name.equals("type")) {
-          this.type = new Coding();
+          this.type = new CodeableConcept();
           return this.type;
         }
         else if (name.equals("groupingBehavior")) {
@@ -3445,26 +3459,30 @@ public class RequestGroup extends DomainResource {
          * @return {@link #offset} (A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.)
          */
         public Duration getOffsetDuration() throws FHIRException { 
+          if (this.offset == null)
+            return null;
           if (!(this.offset instanceof Duration))
             throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.offset.getClass().getName()+" was encountered");
           return (Duration) this.offset;
         }
 
         public boolean hasOffsetDuration() { 
-          return this.offset instanceof Duration;
+          return this != null && this.offset instanceof Duration;
         }
 
         /**
          * @return {@link #offset} (A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.)
          */
         public Range getOffsetRange() throws FHIRException { 
+          if (this.offset == null)
+            return null;
           if (!(this.offset instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.offset.getClass().getName()+" was encountered");
           return (Range) this.offset;
         }
 
         public boolean hasOffsetRange() { 
-          return this.offset instanceof Range;
+          return this != null && this.offset instanceof Range;
         }
 
         public boolean hasOffset() { 
@@ -3475,6 +3493,8 @@ public class RequestGroup extends DomainResource {
          * @param value {@link #offset} (A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.)
          */
         public RequestGroupActionRelatedActionComponent setOffset(Type value) { 
+          if (value != null && !(value instanceof Duration || value instanceof Range))
+            throw new Error("Not the right type for RequestGroup.action.relatedAction.offset[x]: "+value.fhirType());
           this.offset = value;
           return this;
         }
@@ -3763,7 +3783,7 @@ public class RequestGroup extends DomainResource {
     /**
      * Indicates another resource whose existence justifies this request group.
      */
-    @Child(name = "reasonReference", type = {Reference.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class, DiagnosticReport.class, DocumentReference.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Why the request group is needed", formalDefinition="Indicates another resource whose existence justifies this request group." )
     protected List<Reference> reasonReference;
     /**
@@ -4637,7 +4657,7 @@ public class RequestGroup extends DomainResource {
         children.add(new Property("authoredOn", "dateTime", "Indicates when the request group was created.", 0, 1, authoredOn));
         children.add(new Property("author", "Reference(Device|Practitioner)", "Provides a reference to the author of the request group.", 0, 1, author));
         children.add(new Property("reasonCode", "CodeableConcept", "Describes the reason for the request group in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
-        children.add(new Property("reasonReference", "Reference(Any)", "Indicates another resource whose existence justifies this request group.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
+        children.add(new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Indicates another resource whose existence justifies this request group.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         children.add(new Property("note", "Annotation", "Provides a mechanism to communicate additional information about the response.", 0, java.lang.Integer.MAX_VALUE, note));
         children.add(new Property("action", "", "The actions, if any, produced by the evaluation of the artifact.", 0, java.lang.Integer.MAX_VALUE, action));
       }
@@ -4659,7 +4679,7 @@ public class RequestGroup extends DomainResource {
         case -1500852503: /*authoredOn*/  return new Property("authoredOn", "dateTime", "Indicates when the request group was created.", 0, 1, authoredOn);
         case -1406328437: /*author*/  return new Property("author", "Reference(Device|Practitioner)", "Provides a reference to the author of the request group.", 0, 1, author);
         case 722137681: /*reasonCode*/  return new Property("reasonCode", "CodeableConcept", "Describes the reason for the request group in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode);
-        case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Any)", "Indicates another resource whose existence justifies this request group.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
+        case -1146218137: /*reasonReference*/  return new Property("reasonReference", "Reference(Condition|Observation|DiagnosticReport|DocumentReference)", "Indicates another resource whose existence justifies this request group.", 0, java.lang.Integer.MAX_VALUE, reasonReference);
         case 3387378: /*note*/  return new Property("note", "Annotation", "Provides a mechanism to communicate additional information about the response.", 0, java.lang.Integer.MAX_VALUE, note);
         case -1422950858: /*action*/  return new Property("action", "", "The actions, if any, produced by the evaluation of the artifact.", 0, java.lang.Integer.MAX_VALUE, action);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -5198,7 +5218,7 @@ public class RequestGroup extends DomainResource {
    * Path: <b>RequestGroup.action.participant</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participant", path="RequestGroup.action.participant", description="The participant in the requests in the group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Person.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="participant", path="RequestGroup.action.participant", description="The participant in the requests in the group", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_PARTICIPANT = "participant";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>participant</b>

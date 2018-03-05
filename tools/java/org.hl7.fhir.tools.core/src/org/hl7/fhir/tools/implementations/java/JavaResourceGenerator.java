@@ -157,7 +157,6 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("import ca.uhn.fhir.model.api.annotation.Block;\r\n");
     write("import org.hl7.fhir.instance.model.api.*;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
-    write("import org.hl7.fhir.exceptions.FHIRFormatError;\r\n");
     
     classname = upFirst(name);
     if (adornments.containsKey(classname+".imports")) {
@@ -2270,7 +2269,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"}\r\n");
         write("\r\n");
         jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
-        write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+tn+" value) "+((e.getTypes().size() > 1 && (tn.equals("Type") || !tn.endsWith(".Type"))) ? "throws FHIRFormatError " : " ")+"{ \r\n");
+        write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+tn+" value) { \r\n");
         if (e.getTypes().size() > 1 && (tn.equals("Type") || !tn.endsWith(".Type"))) {
           write(indent+"  if (value != null && !(");
           boolean first = true;
@@ -2280,7 +2279,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
             write(getTypename(t));            
           }
           write("))\r\n");
-          write(indent+"    throw new FHIRFormatError(\"Not the right type for "+e.getPath()+": \"+value.fhirType());\r\n");         
+          write(indent+"    throw new Error(\"Not the right type for "+e.getPath()+": \"+value.fhirType());\r\n");         
         }
         write(indent+"  this."+getElementName(e.getName(), true)+" = value;\r\n");
         write(indent+"  return this;\r\n");

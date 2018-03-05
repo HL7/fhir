@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -136,8 +136,6 @@ public class ResourceFactory extends Factory {
             return new SubstanceSpecification();
         if ("SearchParameter".equals(name))
             return new SearchParameter();
-        if ("ServiceDefinition".equals(name))
-            return new ServiceDefinition();
         if ("Communication".equals(name))
             return new Communication();
         if ("ActivityDefinition".equals(name))
@@ -596,7 +594,6 @@ public class ResourceFactory extends Factory {
         case -633276745: return new Schedule();
         case -912457023: return new SearchParameter();
         case 1414192097: return new Sequence();
-        case 194378184: return new ServiceDefinition();
         case -1944810950: return new ServiceRequest();
         case -1217415016: return new Signature();
         case -1097468803: return new SimpleQuantity();

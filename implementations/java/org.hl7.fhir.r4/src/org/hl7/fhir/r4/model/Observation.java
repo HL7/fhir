@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -770,143 +770,165 @@ public class Observation extends DomainResource {
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public Quantity getValueQuantity() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Quantity) this.value;
         }
 
         public boolean hasValueQuantity() { 
-          return this.value instanceof Quantity;
+          return this != null && this.value instanceof Quantity;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public CodeableConcept getValueCodeableConcept() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.value.getClass().getName()+" was encountered");
           return (CodeableConcept) this.value;
         }
 
         public boolean hasValueCodeableConcept() { 
-          return this.value instanceof CodeableConcept;
+          return this != null && this.value instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public StringType getValueStringType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (StringType) this.value;
         }
 
         public boolean hasValueStringType() { 
-          return this.value instanceof StringType;
+          return this != null && this.value instanceof StringType;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public BooleanType getValueBooleanType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof BooleanType))
             throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (BooleanType) this.value;
         }
 
         public boolean hasValueBooleanType() { 
-          return this.value instanceof BooleanType;
+          return this != null && this.value instanceof BooleanType;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public IntegerType getValueIntegerType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof IntegerType))
             throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (IntegerType) this.value;
         }
 
         public boolean hasValueIntegerType() { 
-          return this.value instanceof IntegerType;
+          return this != null && this.value instanceof IntegerType;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public Range getValueRange() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Range) this.value;
         }
 
         public boolean hasValueRange() { 
-          return this.value instanceof Range;
+          return this != null && this.value instanceof Range;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public Ratio getValueRatio() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Ratio))
             throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Ratio) this.value;
         }
 
         public boolean hasValueRatio() { 
-          return this.value instanceof Ratio;
+          return this != null && this.value instanceof Ratio;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public SampledData getValueSampledData() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof SampledData))
             throw new FHIRException("Type mismatch: the type SampledData was expected, but "+this.value.getClass().getName()+" was encountered");
           return (SampledData) this.value;
         }
 
         public boolean hasValueSampledData() { 
-          return this.value instanceof SampledData;
+          return this != null && this.value instanceof SampledData;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public TimeType getValueTimeType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof TimeType))
             throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (TimeType) this.value;
         }
 
         public boolean hasValueTimeType() { 
-          return this.value instanceof TimeType;
+          return this != null && this.value instanceof TimeType;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public DateTimeType getValueDateTimeType() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateTimeType) this.value;
         }
 
         public boolean hasValueDateTimeType() { 
-          return this.value instanceof DateTimeType;
+          return this != null && this.value instanceof DateTimeType;
         }
 
         /**
          * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public Period getValuePeriod() throws FHIRException { 
+          if (this.value == null)
+            return null;
           if (!(this.value instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Period) this.value;
         }
 
         public boolean hasValuePeriod() { 
-          return this.value instanceof Period;
+          return this != null && this.value instanceof Period;
         }
 
         public boolean hasValue() { 
@@ -917,6 +939,8 @@ public class Observation extends DomainResource {
          * @param value {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
          */
         public ObservationComponentComponent setValue(Type value) { 
+          if (value != null && !(value instanceof Quantity || value instanceof CodeableConcept || value instanceof StringType || value instanceof BooleanType || value instanceof IntegerType || value instanceof Range || value instanceof Ratio || value instanceof SampledData || value instanceof TimeType || value instanceof DateTimeType || value instanceof Period))
+            throw new Error("Not the right type for Observation.component.value[x]: "+value.fhirType());
           this.value = value;
           return this;
         }
@@ -1922,39 +1946,45 @@ public class Observation extends DomainResource {
      * @return {@link #effective} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.)
      */
     public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
+      if (this.effective == null)
+        return null;
       if (!(this.effective instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (DateTimeType) this.effective;
     }
 
     public boolean hasEffectiveDateTimeType() { 
-      return this.effective instanceof DateTimeType;
+      return this != null && this.effective instanceof DateTimeType;
     }
 
     /**
      * @return {@link #effective} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.)
      */
     public Period getEffectivePeriod() throws FHIRException { 
+      if (this.effective == null)
+        return null;
       if (!(this.effective instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (Period) this.effective;
     }
 
     public boolean hasEffectivePeriod() { 
-      return this.effective instanceof Period;
+      return this != null && this.effective instanceof Period;
     }
 
     /**
      * @return {@link #effective} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.)
      */
     public Timing getEffectiveTiming() throws FHIRException { 
+      if (this.effective == null)
+        return null;
       if (!(this.effective instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.effective.getClass().getName()+" was encountered");
       return (Timing) this.effective;
     }
 
     public boolean hasEffectiveTiming() { 
-      return this.effective instanceof Timing;
+      return this != null && this.effective instanceof Timing;
     }
 
     public boolean hasEffective() { 
@@ -1965,6 +1995,8 @@ public class Observation extends DomainResource {
      * @param value {@link #effective} (The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the "physiologically relevant time". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.)
      */
     public Observation setEffective(Type value) { 
+      if (value != null && !(value instanceof DateTimeType || value instanceof Period || value instanceof Timing))
+        throw new Error("Not the right type for Observation.effective[x]: "+value.fhirType());
       this.effective = value;
       return this;
     }
@@ -2092,143 +2124,165 @@ public class Observation extends DomainResource {
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public Quantity getValueQuantity() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof Quantity))
         throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Quantity) this.value;
     }
 
     public boolean hasValueQuantity() { 
-      return this.value instanceof Quantity;
+      return this != null && this.value instanceof Quantity;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public CodeableConcept getValueCodeableConcept() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.value.getClass().getName()+" was encountered");
       return (CodeableConcept) this.value;
     }
 
     public boolean hasValueCodeableConcept() { 
-      return this.value instanceof CodeableConcept;
+      return this != null && this.value instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public StringType getValueStringType() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (StringType) this.value;
     }
 
     public boolean hasValueStringType() { 
-      return this.value instanceof StringType;
+      return this != null && this.value instanceof StringType;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public BooleanType getValueBooleanType() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof BooleanType))
         throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (BooleanType) this.value;
     }
 
     public boolean hasValueBooleanType() { 
-      return this.value instanceof BooleanType;
+      return this != null && this.value instanceof BooleanType;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public IntegerType getValueIntegerType() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof IntegerType))
         throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (IntegerType) this.value;
     }
 
     public boolean hasValueIntegerType() { 
-      return this.value instanceof IntegerType;
+      return this != null && this.value instanceof IntegerType;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public Range getValueRange() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Range) this.value;
     }
 
     public boolean hasValueRange() { 
-      return this.value instanceof Range;
+      return this != null && this.value instanceof Range;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public Ratio getValueRatio() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof Ratio))
         throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Ratio) this.value;
     }
 
     public boolean hasValueRatio() { 
-      return this.value instanceof Ratio;
+      return this != null && this.value instanceof Ratio;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public SampledData getValueSampledData() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof SampledData))
         throw new FHIRException("Type mismatch: the type SampledData was expected, but "+this.value.getClass().getName()+" was encountered");
       return (SampledData) this.value;
     }
 
     public boolean hasValueSampledData() { 
-      return this.value instanceof SampledData;
+      return this != null && this.value instanceof SampledData;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public TimeType getValueTimeType() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof TimeType))
         throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (TimeType) this.value;
     }
 
     public boolean hasValueTimeType() { 
-      return this.value instanceof TimeType;
+      return this != null && this.value instanceof TimeType;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public DateTimeType getValueDateTimeType() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
       return (DateTimeType) this.value;
     }
 
     public boolean hasValueDateTimeType() { 
-      return this.value instanceof DateTimeType;
+      return this != null && this.value instanceof DateTimeType;
     }
 
     /**
      * @return {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public Period getValuePeriod() throws FHIRException { 
+      if (this.value == null)
+        return null;
       if (!(this.value instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.value.getClass().getName()+" was encountered");
       return (Period) this.value;
     }
 
     public boolean hasValuePeriod() { 
-      return this.value instanceof Period;
+      return this != null && this.value instanceof Period;
     }
 
     public boolean hasValue() { 
@@ -2239,6 +2293,8 @@ public class Observation extends DomainResource {
      * @param value {@link #value} (The information determined as a result of making the observation, if the information has a simple value.)
      */
     public Observation setValue(Type value) { 
+      if (value != null && !(value instanceof Quantity || value instanceof CodeableConcept || value instanceof StringType || value instanceof BooleanType || value instanceof IntegerType || value instanceof Range || value instanceof Ratio || value instanceof SampledData || value instanceof TimeType || value instanceof DateTimeType || value instanceof Period))
+        throw new Error("Not the right type for Observation.value[x]: "+value.fhirType());
       this.value = value;
       return this;
     }

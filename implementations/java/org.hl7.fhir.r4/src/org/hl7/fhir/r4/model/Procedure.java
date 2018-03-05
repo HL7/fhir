@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1484,65 +1484,75 @@ public class Procedure extends DomainResource {
      * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public DateTimeType getPerformedDateTimeType() throws FHIRException { 
+      if (this.performed == null)
+        return null;
       if (!(this.performed instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (DateTimeType) this.performed;
     }
 
     public boolean hasPerformedDateTimeType() { 
-      return this.performed instanceof DateTimeType;
+      return this != null && this.performed instanceof DateTimeType;
     }
 
     /**
      * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public Period getPerformedPeriod() throws FHIRException { 
+      if (this.performed == null)
+        return null;
       if (!(this.performed instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (Period) this.performed;
     }
 
     public boolean hasPerformedPeriod() { 
-      return this.performed instanceof Period;
+      return this != null && this.performed instanceof Period;
     }
 
     /**
      * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public StringType getPerformedStringType() throws FHIRException { 
+      if (this.performed == null)
+        return null;
       if (!(this.performed instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (StringType) this.performed;
     }
 
     public boolean hasPerformedStringType() { 
-      return this.performed instanceof StringType;
+      return this != null && this.performed instanceof StringType;
     }
 
     /**
      * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public Age getPerformedAge() throws FHIRException { 
+      if (this.performed == null)
+        return null;
       if (!(this.performed instanceof Age))
         throw new FHIRException("Type mismatch: the type Age was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (Age) this.performed;
     }
 
     public boolean hasPerformedAge() { 
-      return this.performed instanceof Age;
+      return this != null && this.performed instanceof Age;
     }
 
     /**
      * @return {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public Range getPerformedRange() throws FHIRException { 
+      if (this.performed == null)
+        return null;
       if (!(this.performed instanceof Range))
         throw new FHIRException("Type mismatch: the type Range was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (Range) this.performed;
     }
 
     public boolean hasPerformedRange() { 
-      return this.performed instanceof Range;
+      return this != null && this.performed instanceof Range;
     }
 
     public boolean hasPerformed() { 
@@ -1553,6 +1563,8 @@ public class Procedure extends DomainResource {
      * @param value {@link #performed} (Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
     public Procedure setPerformed(Type value) { 
+      if (value != null && !(value instanceof DateTimeType || value instanceof Period || value instanceof StringType || value instanceof Age || value instanceof Range))
+        throw new Error("Not the right type for Procedure.performed[x]: "+value.fhirType());
       this.performed = value;
       return this;
     }

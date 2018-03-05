@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1564,7 +1564,7 @@ public class ConceptMap extends MetadataResource {
         protected CanonicalType system;
 
         /**
-         * Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.
+         * Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.
          */
         @Child(name = "value", type = {StringType.class}, order=3, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Value of the referenced element", formalDefinition="Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to." )
@@ -1574,10 +1574,10 @@ public class ConceptMap extends MetadataResource {
          * The display for the code. The display is only provided to help editors when editing the concept map.
          */
         @Child(name = "display", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Display for the code", formalDefinition="The display for the code. The display is only provided to help editors when editing the concept map." )
+        @Description(shortDefinition="Display for the code (if value is a code)", formalDefinition="The display for the code. The display is only provided to help editors when editing the concept map." )
         protected StringType display;
 
-        private static final long serialVersionUID = 1597034403L;
+        private static final long serialVersionUID = -1836341923L;
 
     /**
      * Constructor
@@ -1690,7 +1690,7 @@ public class ConceptMap extends MetadataResource {
         }
 
         /**
-         * @return {@link #value} (Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #value} (Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public StringType getValueElement() { 
           if (this.value == null)
@@ -1710,7 +1710,7 @@ public class ConceptMap extends MetadataResource {
         }
 
         /**
-         * @param value {@link #value} (Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #value} (Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
         public OtherElementComponent setValueElement(StringType value) { 
           this.value = value;
@@ -1796,7 +1796,7 @@ public class ConceptMap extends MetadataResource {
           switch (_hash) {
           case -993141291: /*property*/  return new Property("property", "uri", "A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labeled to correspond with a code system property.", 0, 1, property);
           case -887328209: /*system*/  return new Property("system", "canonical(CodeSystem)", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).", 0, 1, system);
-          case 3059181: /*value*/  return new Property("value", "string", "Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.", 0, 1, value);
+          case 111972721: /*value*/  return new Property("value", "string", "Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.", 0, 1, value);
           case 1671764162: /*display*/  return new Property("display", "string", "The display for the code. The display is only provided to help editors when editing the concept map.", 0, 1, display);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -1808,7 +1808,7 @@ public class ConceptMap extends MetadataResource {
         switch (hash) {
         case -993141291: /*property*/ return this.property == null ? new Base[0] : new Base[] {this.property}; // UriType
         case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // CanonicalType
-        case 3059181: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
         case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1824,7 +1824,7 @@ public class ConceptMap extends MetadataResource {
         case -887328209: // system
           this.system = castToCanonical(value); // CanonicalType
           return value;
-        case 3059181: // value
+        case 111972721: // value
           this.value = castToString(value); // StringType
           return value;
         case 1671764162: // display
@@ -1855,7 +1855,7 @@ public class ConceptMap extends MetadataResource {
         switch (hash) {
         case -993141291:  return getPropertyElement();
         case -887328209:  return getSystemElement();
-        case 3059181:  return getValueElement();
+        case 111972721:  return getValueElement();
         case 1671764162:  return getDisplayElement();
         default: return super.makeProperty(hash, name);
         }
@@ -1867,7 +1867,7 @@ public class ConceptMap extends MetadataResource {
         switch (hash) {
         case -993141291: /*property*/ return new String[] {"uri"};
         case -887328209: /*system*/ return new String[] {"canonical"};
-        case 3059181: /*value*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"string"};
         case 1671764162: /*display*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1925,8 +1925,8 @@ public class ConceptMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, system, value, display
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, system, value
+          , display);
       }
 
   public String fhirType() {
@@ -2391,7 +2391,7 @@ public class ConceptMap extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() { 
       if (this.url == null)
@@ -2411,7 +2411,7 @@ public class ConceptMap extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ConceptMap setUrlElement(UriType value) { 
       this.url = value;
@@ -2419,14 +2419,14 @@ public class ConceptMap extends MetadataResource {
     }
 
     /**
-     * @return An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.
+     * @return An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.
      */
     public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.
+     * @param value An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.
      */
     public ConceptMap setUrl(String value) { 
       if (Utilities.noString(value))
@@ -3115,26 +3115,30 @@ public class ConceptMap extends MetadataResource {
      * @return {@link #source} (The source value set that specifies the concepts that are being mapped.)
      */
     public UriType getSourceUriType() throws FHIRException { 
+      if (this.source == null)
+        return null;
       if (!(this.source instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.source.getClass().getName()+" was encountered");
       return (UriType) this.source;
     }
 
     public boolean hasSourceUriType() { 
-      return this.source instanceof UriType;
+      return this != null && this.source instanceof UriType;
     }
 
     /**
      * @return {@link #source} (The source value set that specifies the concepts that are being mapped.)
      */
     public CanonicalType getSourceCanonicalType() throws FHIRException { 
+      if (this.source == null)
+        return null;
       if (!(this.source instanceof CanonicalType))
         throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.source.getClass().getName()+" was encountered");
       return (CanonicalType) this.source;
     }
 
     public boolean hasSourceCanonicalType() { 
-      return this.source instanceof CanonicalType;
+      return this != null && this.source instanceof CanonicalType;
     }
 
     public boolean hasSource() { 
@@ -3145,6 +3149,8 @@ public class ConceptMap extends MetadataResource {
      * @param value {@link #source} (The source value set that specifies the concepts that are being mapped.)
      */
     public ConceptMap setSource(Type value) { 
+      if (value != null && !(value instanceof UriType || value instanceof CanonicalType))
+        throw new Error("Not the right type for ConceptMap.source[x]: "+value.fhirType());
       this.source = value;
       return this;
     }
@@ -3160,26 +3166,30 @@ public class ConceptMap extends MetadataResource {
      * @return {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
     public UriType getTargetUriType() throws FHIRException { 
+      if (this.target == null)
+        return null;
       if (!(this.target instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.target.getClass().getName()+" was encountered");
       return (UriType) this.target;
     }
 
     public boolean hasTargetUriType() { 
-      return this.target instanceof UriType;
+      return this != null && this.target instanceof UriType;
     }
 
     /**
      * @return {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
     public CanonicalType getTargetCanonicalType() throws FHIRException { 
+      if (this.target == null)
+        return null;
       if (!(this.target instanceof CanonicalType))
         throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.target.getClass().getName()+" was encountered");
       return (CanonicalType) this.target;
     }
 
     public boolean hasTargetCanonicalType() { 
-      return this.target instanceof CanonicalType;
+      return this != null && this.target instanceof CanonicalType;
     }
 
     public boolean hasTarget() { 
@@ -3190,6 +3200,8 @@ public class ConceptMap extends MetadataResource {
      * @param value {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
     public ConceptMap setTarget(Type value) { 
+      if (value != null && !(value instanceof UriType || value instanceof CanonicalType))
+        throw new Error("Not the right type for ConceptMap.target[x]: "+value.fhirType());
       this.target = value;
       return this;
     }
@@ -3249,7 +3261,7 @@ public class ConceptMap extends MetadataResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.", 0, 1, url));
         children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, 1, identifier));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the concept map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the concept map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
@@ -3272,7 +3284,7 @@ public class ConceptMap extends MetadataResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this concept map is (or will be) published.", 0, 1, url);
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, 1, identifier);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the concept map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the concept map. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
@@ -4092,3 +4104,4 @@ public class ConceptMap extends MetadataResource {
 
 
 }
+

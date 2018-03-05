@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Thu, Mar 1, 2018 20:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 17:12+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -42,7 +42,6 @@ import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 // added from java-adornments.txt:
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 
@@ -52,7 +51,7 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
  * Captures constraints on each element within the resource, profile, or extension.
  */
 @DatatypeDef(name="ElementDefinition")
-public class ElementDefinition extends Type implements ICompositeType {
+public class ElementDefinition extends BackboneElement implements ICompositeType {
 
     public enum PropertyRepresentation {
         /**
@@ -2229,10 +2228,13 @@ public class ElementDefinition extends Type implements ICompositeType {
 
   }
 
+// added from java-adornments.txt:
+
   public boolean hasTarget() {
     return Utilities.existsInList(getCode(), "Reference", "canonical");
   }
 
+// end addition
   }
 
     @Block()
@@ -2605,6 +2607,34 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         else if (name.equals("valueTiming")) {
           this.value = new Timing();
+          return this.value;
+        }
+        else if (name.equals("valueParameterDefinition")) {
+          this.value = new ParameterDefinition();
+          return this.value;
+        }
+        else if (name.equals("valueDataRequirement")) {
+          this.value = new DataRequirement();
+          return this.value;
+        }
+        else if (name.equals("valueRelatedArtifact")) {
+          this.value = new RelatedArtifact();
+          return this.value;
+        }
+        else if (name.equals("valueContactDetail")) {
+          this.value = new ContactDetail();
+          return this.value;
+        }
+        else if (name.equals("valueContributor")) {
+          this.value = new Contributor();
+          return this.value;
+        }
+        else if (name.equals("valueTriggerDefinition")) {
+          this.value = new TriggerDefinition();
+          return this.value;
+        }
+        else if (name.equals("valueUsageContext")) {
+          this.value = new UsageContext();
           return this.value;
         }
         else if (name.equals("valueDosage")) {
@@ -3398,26 +3428,30 @@ public class ElementDefinition extends Type implements ICompositeType {
          * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
          */
         public UriType getValueSetUriType() throws FHIRException { 
+          if (this.valueSet == null)
+            return null;
           if (!(this.valueSet instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (UriType) this.valueSet;
         }
 
         public boolean hasValueSetUriType() { 
-          return this.valueSet instanceof UriType;
+          return this != null && this.valueSet instanceof UriType;
         }
 
         /**
          * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
          */
         public CanonicalType getValueSetCanonicalType() throws FHIRException { 
+          if (this.valueSet == null)
+            return null;
           if (!(this.valueSet instanceof CanonicalType))
             throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (CanonicalType) this.valueSet;
         }
 
         public boolean hasValueSetCanonicalType() { 
-          return this.valueSet instanceof CanonicalType;
+          return this != null && this.valueSet instanceof CanonicalType;
         }
 
         public boolean hasValueSet() { 
@@ -3427,9 +3461,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used. If the binding refers to an explicit value set - the normal case - then use a Reference(ValueSet) preferably containing the canonical URL for the value set. If the reference is to an implicit value set - usually, an IETF RFC that defines a grammar, such as mime types - then use a uri.)
          */
-        public ElementDefinitionBindingComponent setValueSet(Type value) throws FHIRFormatError { 
-          if (value != null && !(value instanceof CanonicalType || value instanceof UriType))
-            throw new FHIRFormatError("Not the right type for ElementDefinition.binding.valueSet: "+value.fhirType()); 
+        public ElementDefinitionBindingComponent setValueSet(Type value) { 
+          if (value != null && !(value instanceof UriType || value instanceof CanonicalType))
+            throw new Error("Not the right type for ElementDefinition.binding.valueSet[x]: "+value.fhirType());
           this.valueSet = value;
           return this;
         }
@@ -5200,117 +5234,135 @@ public class ElementDefinition extends Type implements ICompositeType {
      * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public DateType getMinValueDateType() throws FHIRException { 
+      if (this.minValue == null)
+        return null;
       if (!(this.minValue instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (DateType) this.minValue;
     }
 
     public boolean hasMinValueDateType() { 
-      return this.minValue instanceof DateType;
+      return this != null && this.minValue instanceof DateType;
     }
 
     /**
      * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public DateTimeType getMinValueDateTimeType() throws FHIRException { 
+      if (this.minValue == null)
+        return null;
       if (!(this.minValue instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (DateTimeType) this.minValue;
     }
 
     public boolean hasMinValueDateTimeType() { 
-      return this.minValue instanceof DateTimeType;
+      return this != null && this.minValue instanceof DateTimeType;
     }
 
     /**
      * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public InstantType getMinValueInstantType() throws FHIRException { 
+      if (this.minValue == null)
+        return null;
       if (!(this.minValue instanceof InstantType))
         throw new FHIRException("Type mismatch: the type InstantType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (InstantType) this.minValue;
     }
 
     public boolean hasMinValueInstantType() { 
-      return this.minValue instanceof InstantType;
+      return this != null && this.minValue instanceof InstantType;
     }
 
     /**
      * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public TimeType getMinValueTimeType() throws FHIRException { 
+      if (this.minValue == null)
+        return null;
       if (!(this.minValue instanceof TimeType))
         throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (TimeType) this.minValue;
     }
 
     public boolean hasMinValueTimeType() { 
-      return this.minValue instanceof TimeType;
+      return this != null && this.minValue instanceof TimeType;
     }
 
     /**
      * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public DecimalType getMinValueDecimalType() throws FHIRException { 
+      if (this.minValue == null)
+        return null;
       if (!(this.minValue instanceof DecimalType))
         throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (DecimalType) this.minValue;
     }
 
     public boolean hasMinValueDecimalType() { 
-      return this.minValue instanceof DecimalType;
+      return this != null && this.minValue instanceof DecimalType;
     }
 
     /**
      * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public IntegerType getMinValueIntegerType() throws FHIRException { 
+      if (this.minValue == null)
+        return null;
       if (!(this.minValue instanceof IntegerType))
         throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (IntegerType) this.minValue;
     }
 
     public boolean hasMinValueIntegerType() { 
-      return this.minValue instanceof IntegerType;
+      return this != null && this.minValue instanceof IntegerType;
     }
 
     /**
      * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public PositiveIntType getMinValuePositiveIntType() throws FHIRException { 
+      if (this.minValue == null)
+        return null;
       if (!(this.minValue instanceof PositiveIntType))
         throw new FHIRException("Type mismatch: the type PositiveIntType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (PositiveIntType) this.minValue;
     }
 
     public boolean hasMinValuePositiveIntType() { 
-      return this.minValue instanceof PositiveIntType;
+      return this != null && this.minValue instanceof PositiveIntType;
     }
 
     /**
      * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public UnsignedIntType getMinValueUnsignedIntType() throws FHIRException { 
+      if (this.minValue == null)
+        return null;
       if (!(this.minValue instanceof UnsignedIntType))
         throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (UnsignedIntType) this.minValue;
     }
 
     public boolean hasMinValueUnsignedIntType() { 
-      return this.minValue instanceof UnsignedIntType;
+      return this != null && this.minValue instanceof UnsignedIntType;
     }
 
     /**
      * @return {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public Quantity getMinValueQuantity() throws FHIRException { 
+      if (this.minValue == null)
+        return null;
       if (!(this.minValue instanceof Quantity))
         throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.minValue.getClass().getName()+" was encountered");
       return (Quantity) this.minValue;
     }
 
     public boolean hasMinValueQuantity() { 
-      return this.minValue instanceof Quantity;
+      return this != null && this.minValue instanceof Quantity;
     }
 
     public boolean hasMinValue() { 
@@ -5321,6 +5373,8 @@ public class ElementDefinition extends Type implements ICompositeType {
      * @param value {@link #minValue} (The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public ElementDefinition setMinValue(Type value) { 
+      if (value != null && !(value instanceof DateType || value instanceof DateTimeType || value instanceof InstantType || value instanceof TimeType || value instanceof DecimalType || value instanceof IntegerType || value instanceof PositiveIntType || value instanceof UnsignedIntType || value instanceof Quantity))
+        throw new Error("Not the right type for ElementDefinition.minValue[x]: "+value.fhirType());
       this.minValue = value;
       return this;
     }
@@ -5336,117 +5390,135 @@ public class ElementDefinition extends Type implements ICompositeType {
      * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public DateType getMaxValueDateType() throws FHIRException { 
+      if (this.maxValue == null)
+        return null;
       if (!(this.maxValue instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (DateType) this.maxValue;
     }
 
     public boolean hasMaxValueDateType() { 
-      return this.maxValue instanceof DateType;
+      return this != null && this.maxValue instanceof DateType;
     }
 
     /**
      * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public DateTimeType getMaxValueDateTimeType() throws FHIRException { 
+      if (this.maxValue == null)
+        return null;
       if (!(this.maxValue instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (DateTimeType) this.maxValue;
     }
 
     public boolean hasMaxValueDateTimeType() { 
-      return this.maxValue instanceof DateTimeType;
+      return this != null && this.maxValue instanceof DateTimeType;
     }
 
     /**
      * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public InstantType getMaxValueInstantType() throws FHIRException { 
+      if (this.maxValue == null)
+        return null;
       if (!(this.maxValue instanceof InstantType))
         throw new FHIRException("Type mismatch: the type InstantType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (InstantType) this.maxValue;
     }
 
     public boolean hasMaxValueInstantType() { 
-      return this.maxValue instanceof InstantType;
+      return this != null && this.maxValue instanceof InstantType;
     }
 
     /**
      * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public TimeType getMaxValueTimeType() throws FHIRException { 
+      if (this.maxValue == null)
+        return null;
       if (!(this.maxValue instanceof TimeType))
         throw new FHIRException("Type mismatch: the type TimeType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (TimeType) this.maxValue;
     }
 
     public boolean hasMaxValueTimeType() { 
-      return this.maxValue instanceof TimeType;
+      return this != null && this.maxValue instanceof TimeType;
     }
 
     /**
      * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public DecimalType getMaxValueDecimalType() throws FHIRException { 
+      if (this.maxValue == null)
+        return null;
       if (!(this.maxValue instanceof DecimalType))
         throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (DecimalType) this.maxValue;
     }
 
     public boolean hasMaxValueDecimalType() { 
-      return this.maxValue instanceof DecimalType;
+      return this != null && this.maxValue instanceof DecimalType;
     }
 
     /**
      * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public IntegerType getMaxValueIntegerType() throws FHIRException { 
+      if (this.maxValue == null)
+        return null;
       if (!(this.maxValue instanceof IntegerType))
         throw new FHIRException("Type mismatch: the type IntegerType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (IntegerType) this.maxValue;
     }
 
     public boolean hasMaxValueIntegerType() { 
-      return this.maxValue instanceof IntegerType;
+      return this != null && this.maxValue instanceof IntegerType;
     }
 
     /**
      * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public PositiveIntType getMaxValuePositiveIntType() throws FHIRException { 
+      if (this.maxValue == null)
+        return null;
       if (!(this.maxValue instanceof PositiveIntType))
         throw new FHIRException("Type mismatch: the type PositiveIntType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (PositiveIntType) this.maxValue;
     }
 
     public boolean hasMaxValuePositiveIntType() { 
-      return this.maxValue instanceof PositiveIntType;
+      return this != null && this.maxValue instanceof PositiveIntType;
     }
 
     /**
      * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public UnsignedIntType getMaxValueUnsignedIntType() throws FHIRException { 
+      if (this.maxValue == null)
+        return null;
       if (!(this.maxValue instanceof UnsignedIntType))
         throw new FHIRException("Type mismatch: the type UnsignedIntType was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (UnsignedIntType) this.maxValue;
     }
 
     public boolean hasMaxValueUnsignedIntType() { 
-      return this.maxValue instanceof UnsignedIntType;
+      return this != null && this.maxValue instanceof UnsignedIntType;
     }
 
     /**
      * @return {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public Quantity getMaxValueQuantity() throws FHIRException { 
+      if (this.maxValue == null)
+        return null;
       if (!(this.maxValue instanceof Quantity))
         throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.maxValue.getClass().getName()+" was encountered");
       return (Quantity) this.maxValue;
     }
 
     public boolean hasMaxValueQuantity() { 
-      return this.maxValue instanceof Quantity;
+      return this != null && this.maxValue instanceof Quantity;
     }
 
     public boolean hasMaxValue() { 
@@ -5457,6 +5529,8 @@ public class ElementDefinition extends Type implements ICompositeType {
      * @param value {@link #maxValue} (The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.)
      */
     public ElementDefinition setMaxValue(Type value) { 
+      if (value != null && !(value instanceof DateType || value instanceof DateTimeType || value instanceof InstantType || value instanceof TimeType || value instanceof DecimalType || value instanceof IntegerType || value instanceof PositiveIntType || value instanceof UnsignedIntType || value instanceof Quantity))
+        throw new Error("Not the right type for ElementDefinition.maxValue[x]: "+value.fhirType());
       this.maxValue = value;
       return this;
     }
@@ -6612,6 +6686,34 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.defaultValue = new Timing();
           return this.defaultValue;
         }
+        else if (name.equals("defaultValueParameterDefinition")) {
+          this.defaultValue = new ParameterDefinition();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueDataRequirement")) {
+          this.defaultValue = new DataRequirement();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueRelatedArtifact")) {
+          this.defaultValue = new RelatedArtifact();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueContactDetail")) {
+          this.defaultValue = new ContactDetail();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueContributor")) {
+          this.defaultValue = new Contributor();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueTriggerDefinition")) {
+          this.defaultValue = new TriggerDefinition();
+          return this.defaultValue;
+        }
+        else if (name.equals("defaultValueUsageContext")) {
+          this.defaultValue = new UsageContext();
+          return this.defaultValue;
+        }
         else if (name.equals("defaultValueDosage")) {
           this.defaultValue = new Dosage();
           return this.defaultValue;
@@ -6782,6 +6884,34 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.fixed = new Timing();
           return this.fixed;
         }
+        else if (name.equals("fixedParameterDefinition")) {
+          this.fixed = new ParameterDefinition();
+          return this.fixed;
+        }
+        else if (name.equals("fixedDataRequirement")) {
+          this.fixed = new DataRequirement();
+          return this.fixed;
+        }
+        else if (name.equals("fixedRelatedArtifact")) {
+          this.fixed = new RelatedArtifact();
+          return this.fixed;
+        }
+        else if (name.equals("fixedContactDetail")) {
+          this.fixed = new ContactDetail();
+          return this.fixed;
+        }
+        else if (name.equals("fixedContributor")) {
+          this.fixed = new Contributor();
+          return this.fixed;
+        }
+        else if (name.equals("fixedTriggerDefinition")) {
+          this.fixed = new TriggerDefinition();
+          return this.fixed;
+        }
+        else if (name.equals("fixedUsageContext")) {
+          this.fixed = new UsageContext();
+          return this.fixed;
+        }
         else if (name.equals("fixedDosage")) {
           this.fixed = new Dosage();
           return this.fixed;
@@ -6944,6 +7074,34 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         else if (name.equals("patternTiming")) {
           this.pattern = new Timing();
+          return this.pattern;
+        }
+        else if (name.equals("patternParameterDefinition")) {
+          this.pattern = new ParameterDefinition();
+          return this.pattern;
+        }
+        else if (name.equals("patternDataRequirement")) {
+          this.pattern = new DataRequirement();
+          return this.pattern;
+        }
+        else if (name.equals("patternRelatedArtifact")) {
+          this.pattern = new RelatedArtifact();
+          return this.pattern;
+        }
+        else if (name.equals("patternContactDetail")) {
+          this.pattern = new ContactDetail();
+          return this.pattern;
+        }
+        else if (name.equals("patternContributor")) {
+          this.pattern = new Contributor();
+          return this.pattern;
+        }
+        else if (name.equals("patternTriggerDefinition")) {
+          this.pattern = new TriggerDefinition();
+          return this.pattern;
+        }
+        else if (name.equals("patternUsageContext")) {
+          this.pattern = new UsageContext();
           return this.pattern;
         }
         else if (name.equals("patternDosage")) {
@@ -7239,7 +7397,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       setIsModifier(modifier);
       setIsSummary(inSummary);
     }
-  }
+  }  
+
 
 // end addition
 
