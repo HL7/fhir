@@ -15784,8 +15784,8 @@ public class VersionConvertor_30_40 {
       tgt.addPhoto(convertAttachment(t));
     for (org.hl7.fhir.dstu3.model.Patient.ContactComponent t : src.getContact())
       tgt.addContact(convertContactComponent(t));
-//    if (src.hasAnimal())
-//      tgt.setAnimal(convertAnimalComponent(src.getAnimal()));
+    if (src.hasAnimal())
+      tgt.addExtension(convertAnimalComponent(src.getAnimal()));
     for (org.hl7.fhir.dstu3.model.Patient.PatientCommunicationComponent t : src.getCommunication())
       tgt.addCommunication(convertPatientCommunicationComponent(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getGeneralPractitioner())
@@ -15826,8 +15826,8 @@ public class VersionConvertor_30_40 {
       tgt.addPhoto(convertAttachment(t));
     for (org.hl7.fhir.r4.model.Patient.ContactComponent t : src.getContact())
       tgt.addContact(convertContactComponent(t));
-//    if (src.hasAnimal())
-//      tgt.setAnimal(convertAnimalComponent(src.getAnimal()));
+    if (src.hasExtension("http://hl7.org/fhir/StructureDefinition/patient-animal"))
+      tgt.setAnimal(convertAnimalComponent(src.getExtensionByUrl("http://hl7.org/fhir/StructureDefinition/patient-animal")));
     for (org.hl7.fhir.r4.model.Patient.PatientCommunicationComponent t : src.getCommunication())
       tgt.addCommunication(convertPatientCommunicationComponent(t));
     for (org.hl7.fhir.r4.model.Reference t : src.getGeneralPractitioner())
@@ -15883,33 +15883,34 @@ public class VersionConvertor_30_40 {
     return tgt;
   }
 
-//  public static org.hl7.fhir.r4.model.Patient.AnimalComponent convertAnimalComponent(org.hl7.fhir.dstu3.model.Patient.AnimalComponent src) throws FHIRException {
-//    if (src == null)
-//      return null;
-//    org.hl7.fhir.r4.model.Patient.AnimalComponent tgt = new org.hl7.fhir.r4.model.Patient.AnimalComponent();
-//    copyElement(src, tgt);
-//    if (src.hasSpecies())
-//      tgt.setSpecies(convertCodeableConcept(src.getSpecies()));
-//    if (src.hasBreed())
-//      tgt.setBreed(convertCodeableConcept(src.getBreed()));
-//    if (src.hasGenderStatus())
-//      tgt.setGenderStatus(convertCodeableConcept(src.getGenderStatus()));
-//    return tgt;
-//  }
-//
-//  public static org.hl7.fhir.dstu3.model.Patient.AnimalComponent convertAnimalComponent(org.hl7.fhir.r4.model.Patient.AnimalComponent src) throws FHIRException {
-//    if (src == null)
-//      return null;
-//    org.hl7.fhir.dstu3.model.Patient.AnimalComponent tgt = new org.hl7.fhir.dstu3.model.Patient.AnimalComponent();
-//    copyElement(src, tgt);
-//    if (src.hasSpecies())
-//      tgt.setSpecies(convertCodeableConcept(src.getSpecies()));
-//    if (src.hasBreed())
-//      tgt.setBreed(convertCodeableConcept(src.getBreed()));
-//    if (src.hasGenderStatus())
-//      tgt.setGenderStatus(convertCodeableConcept(src.getGenderStatus()));
-//    return tgt;
-//  }
+  public static org.hl7.fhir.r4.model.Extension convertAnimalComponent(org.hl7.fhir.dstu3.model.Patient.AnimalComponent src) throws FHIRException {
+    if (src == null)
+      return null;
+    org.hl7.fhir.r4.model.Extension tgt = new org.hl7.fhir.r4.model.Extension();
+    tgt.setUrl("http://hl7.org/fhir/StructureDefinition/patient-animal");
+    copyElement(src, tgt);
+    if (src.hasSpecies())
+      tgt.addExtension("species", convertCodeableConcept(src.getSpecies()));
+    if (src.hasBreed())
+      tgt.addExtension("breed", convertCodeableConcept(src.getBreed()));
+    if (src.hasGenderStatus())
+      tgt.addExtension("genderStatus", convertCodeableConcept(src.getGenderStatus()));
+    return tgt;
+  }
+
+  public static org.hl7.fhir.dstu3.model.Patient.AnimalComponent convertAnimalComponent(org.hl7.fhir.r4.model.Extension src) throws FHIRException {
+    if (src == null || src.isEmpty())
+      return null;
+    org.hl7.fhir.dstu3.model.Patient.AnimalComponent tgt = new org.hl7.fhir.dstu3.model.Patient.AnimalComponent();
+    copyElement(src, tgt);
+    if (src.hasExtension("species"))
+      tgt.setSpecies(convertCodeableConcept((org.hl7.fhir.r4.model.CodeableConcept) src.getExtensionByUrl("species").getValue()));
+    if (src.hasExtension("breed"))
+      tgt.setBreed(convertCodeableConcept((org.hl7.fhir.r4.model.CodeableConcept) src.getExtensionByUrl("breed").getValue()));
+    if (src.hasExtension("genderStatus"))
+      tgt.setGenderStatus(convertCodeableConcept((org.hl7.fhir.r4.model.CodeableConcept) src.getExtensionByUrl("genderStatus").getValue()));
+    return tgt;
+  }
 
   public static org.hl7.fhir.r4.model.Patient.PatientCommunicationComponent convertPatientCommunicationComponent(org.hl7.fhir.dstu3.model.Patient.PatientCommunicationComponent src) throws FHIRException {
     if (src == null)

@@ -424,6 +424,7 @@ public abstract class Resource extends BaseResource implements IAnyResource {
     return hasLanguage() ? getLanguage() : defValue;
   }
 
+ 
 
 // end addition
 

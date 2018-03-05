@@ -189,7 +189,8 @@ public abstract class Element extends Base implements IBaseHasExtensions, IBaseE
      }
      return java.util.Collections.unmodifiableList(retVal);
    }
-  public boolean hasExtension(String theUrl) {
+
+   public boolean hasExtension(String theUrl) {
     return !getExtensionsByUrl(theUrl).isEmpty(); 
   }
 
