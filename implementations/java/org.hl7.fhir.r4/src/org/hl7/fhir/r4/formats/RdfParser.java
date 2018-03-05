@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Mon, Mar 5, 2018 18:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -1298,8 +1298,8 @@ public class RdfParser extends RdfParserBase {
       composeUrl(t, "RelatedArtifact", "url", element.getUrlElement(), -1);
     if (element.hasDocument())
       composeAttachment(t, "RelatedArtifact", "document", element.getDocument(), -1);
-    if (element.hasResource())
-      composeReference(t, "RelatedArtifact", "resource", element.getResource(), -1);
+    if (element.hasResourceElement())
+      composeCanonical(t, "RelatedArtifact", "resource", element.getResourceElement(), -1);
   }
 
   protected void composeSubstanceMoiety(Complex parent, String parentType, String name, SubstanceMoiety element, int index) {
@@ -1566,7 +1566,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getRelatedArtifact().size(); i++)
       composeRelatedArtifact(t, "ActivityDefinition", "relatedArtifact", element.getRelatedArtifact().get(i), i);
     for (int i = 0; i < element.getLibrary().size(); i++)
-      composeReference(t, "ActivityDefinition", "library", element.getLibrary().get(i), i);
+      composeCanonical(t, "ActivityDefinition", "library", element.getLibrary().get(i), i);
     if (element.hasKindElement())
       composeEnum(t, "ActivityDefinition", "kind", element.getKindElement(), -1);
     if (element.hasCode())
@@ -1589,8 +1589,8 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "ActivityDefinition", "bodySite", element.getBodySite().get(i), i);
     for (int i = 0; i < element.getSpecimenRequirement().size(); i++)
       composeReference(t, "ActivityDefinition", "specimenRequirement", element.getSpecimenRequirement().get(i), i);
-    if (element.hasTransform())
-      composeReference(t, "ActivityDefinition", "transform", element.getTransform(), -1);
+    if (element.hasTransformElement())
+      composeCanonical(t, "ActivityDefinition", "transform", element.getTransformElement(), -1);
     for (int i = 0; i < element.getDynamicValue().size(); i++)
       composeActivityDefinitionActivityDefinitionDynamicValueComponent(t, "ActivityDefinition", "dynamicValue", element.getDynamicValue().get(i), i);
   }
@@ -8698,7 +8698,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getRelatedArtifact().size(); i++)
       composeRelatedArtifact(t, "Measure", "relatedArtifact", element.getRelatedArtifact().get(i), i);
     for (int i = 0; i < element.getLibrary().size(); i++)
-      composeReference(t, "Measure", "library", element.getLibrary().get(i), i);
+      composeCanonical(t, "Measure", "library", element.getLibrary().get(i), i);
     if (element.hasDisclaimerElement())
       composeMarkdown(t, "Measure", "disclaimer", element.getDisclaimerElement(), -1);
     if (element.hasScoring())
@@ -8825,8 +8825,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "MeasureReport", "status", element.getStatusElement(), -1);
     if (element.hasTypeElement())
       composeEnum(t, "MeasureReport", "type", element.getTypeElement(), -1);
-    if (element.hasMeasure())
-      composeReference(t, "MeasureReport", "measure", element.getMeasure(), -1);
+    if (element.hasMeasureElement())
+      composeCanonical(t, "MeasureReport", "measure", element.getMeasureElement(), -1);
     if (element.hasSubject())
       composeReference(t, "MeasureReport", "subject", element.getSubject(), -1);
     if (element.hasDateElement())
@@ -11392,7 +11392,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getRelatedArtifact().size(); i++)
       composeRelatedArtifact(t, "PlanDefinition", "relatedArtifact", element.getRelatedArtifact().get(i), i);
     for (int i = 0; i < element.getLibrary().size(); i++)
-      composeReference(t, "PlanDefinition", "library", element.getLibrary().get(i), i);
+      composeCanonical(t, "PlanDefinition", "library", element.getLibrary().get(i), i);
     for (int i = 0; i < element.getGoal().size(); i++)
       composePlanDefinitionPlanDefinitionGoalComponent(t, "PlanDefinition", "goal", element.getGoal().get(i), i);
     for (int i = 0; i < element.getAction().size(); i++)
@@ -11495,10 +11495,10 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "PlanDefinition", "precheckBehavior", element.getPrecheckBehaviorElement(), -1);
     if (element.hasCardinalityBehaviorElement())
       composeEnum(t, "PlanDefinition", "cardinalityBehavior", element.getCardinalityBehaviorElement(), -1);
-    if (element.hasDefinition())
-      composeReference(t, "PlanDefinition", "definition", element.getDefinition(), -1);
-    if (element.hasTransform())
-      composeReference(t, "PlanDefinition", "transform", element.getTransform(), -1);
+    if (element.hasDefinitionElement())
+      composeCanonical(t, "PlanDefinition", "definition", element.getDefinitionElement(), -1);
+    if (element.hasTransformElement())
+      composeCanonical(t, "PlanDefinition", "transform", element.getTransformElement(), -1);
     for (int i = 0; i < element.getDynamicValue().size(); i++)
       composePlanDefinitionPlanDefinitionActionDynamicValueComponent(t, "PlanDefinition", "dynamicValue", element.getDynamicValue().get(i), i);
     for (int i = 0; i < element.getAction().size(); i++)
@@ -12431,8 +12431,10 @@ public class RdfParser extends RdfParserBase {
     composeDomainResource(t, "RequestGroup", name, element, index);
     for (int i = 0; i < element.getIdentifier().size(); i++)
       composeIdentifier(t, "RequestGroup", "identifier", element.getIdentifier().get(i), i);
-    for (int i = 0; i < element.getDefinition().size(); i++)
-      composeReference(t, "RequestGroup", "definition", element.getDefinition().get(i), i);
+    for (int i = 0; i < element.getInstantiatesCanonical().size(); i++)
+      composeCanonical(t, "RequestGroup", "instantiatesCanonical", element.getInstantiatesCanonical().get(i), i);
+    for (int i = 0; i < element.getInstantiatesUri().size(); i++)
+      composeUri(t, "RequestGroup", "instantiatesUri", element.getInstantiatesUri().get(i), i);
     for (int i = 0; i < element.getBasedOn().size(); i++)
       composeReference(t, "RequestGroup", "basedOn", element.getBasedOn().get(i), i);
     for (int i = 0; i < element.getReplaces().size(); i++)
@@ -14017,8 +14019,6 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "SubstanceReferenceInformation", "comment", element.getCommentElement(), -1);
     for (int i = 0; i < element.getGene().size(); i++)
       composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(t, "SubstanceReferenceInformation", "gene", element.getGene().get(i), i);
-    for (int i = 0; i < element.getGene().size(); i++)
-      composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(t, "SubstanceReferenceInformation", "geneElement", element.getGene().get(i), i);
     for (int i = 0; i < element.getClassification().size(); i++)
       composeSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponent(t, "SubstanceReferenceInformation", "classification", element.getClassification().get(i), i);
     for (int i = 0; i < element.getRelationship().size(); i++)

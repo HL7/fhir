@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 18:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -3657,21 +3657,23 @@ public class RequestGroup extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
+     * A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
      */
-    @Child(name = "definition", type = {Reference.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Instantiates protocol or definition", formalDefinition="A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request." )
-    protected List<Reference> definition;
-    /**
-     * The actual objects that are the target of the reference (A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
-     */
-    protected List<Resource> definitionTarget;
+    @Child(name = "instantiatesCanonical", type = {CanonicalType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Instantiates FHIR protocol or definition", formalDefinition="A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request." )
+    protected List<CanonicalType> instantiatesCanonical;
 
+    /**
+     * A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
+     */
+    @Child(name = "instantiatesUri", type = {UriType.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Instantiates external protocol or definition", formalDefinition="A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request." )
+    protected List<UriType> instantiatesUri;
 
     /**
      * A plan, proposal or order that is fulfilled in whole or in part by this request.
      */
-    @Child(name = "basedOn", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "basedOn", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Fulfills plan, proposal, or order", formalDefinition="A plan, proposal or order that is fulfilled in whole or in part by this request." )
     protected List<Reference> basedOn;
     /**
@@ -3683,7 +3685,7 @@ public class RequestGroup extends DomainResource {
     /**
      * Completed or terminated request(s) whose function is taken by this new request.
      */
-    @Child(name = "replaces", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "replaces", type = {Reference.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Request(s) replaced by this request", formalDefinition="Completed or terminated request(s) whose function is taken by this new request." )
     protected List<Reference> replaces;
     /**
@@ -3695,14 +3697,14 @@ public class RequestGroup extends DomainResource {
     /**
      * A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form.
      */
-    @Child(name = "groupIdentifier", type = {Identifier.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "groupIdentifier", type = {Identifier.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Composite request this is part of", formalDefinition="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form." )
     protected Identifier groupIdentifier;
 
     /**
      * The current state of the request. For request groups, the status reflects the status of all the requests in the group.
      */
-    @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | active | suspended | cancelled | completed | entered-in-error | unknown", formalDefinition="The current state of the request. For request groups, the status reflects the status of all the requests in the group." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-status")
     protected Enumeration<RequestStatus> status;
@@ -3710,7 +3712,7 @@ public class RequestGroup extends DomainResource {
     /**
      * Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain.
      */
-    @Child(name = "intent", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "intent", type = {CodeType.class}, order=7, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="proposal | plan | order", formalDefinition="Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-intent")
     protected Enumeration<RequestIntent> intent;
@@ -3718,7 +3720,7 @@ public class RequestGroup extends DomainResource {
     /**
      * Indicates how quickly the request should be addressed with respect to other requests.
      */
-    @Child(name = "priority", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "priority", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="routine | urgent | asap | stat", formalDefinition="Indicates how quickly the request should be addressed with respect to other requests." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-priority")
     protected Enumeration<RequestPriority> priority;
@@ -3726,14 +3728,14 @@ public class RequestGroup extends DomainResource {
     /**
      * A code that identifies what the overall request group is.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What's being requested/ordered", formalDefinition="A code that identifies what the overall request group is." )
     protected CodeableConcept code;
 
     /**
      * The subject for which the request group was created.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Who the request group is about", formalDefinition="The subject for which the request group was created." )
     protected Reference subject;
 
@@ -3745,7 +3747,7 @@ public class RequestGroup extends DomainResource {
     /**
      * Describes the context of the request group, if any.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Encounter or Episode for the request group", formalDefinition="Describes the context of the request group, if any." )
     protected Reference context;
 
@@ -3757,14 +3759,14 @@ public class RequestGroup extends DomainResource {
     /**
      * Indicates when the request group was created.
      */
-    @Child(name = "authoredOn", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "authoredOn", type = {DateTimeType.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When the request group was authored", formalDefinition="Indicates when the request group was created." )
     protected DateTimeType authoredOn;
 
     /**
      * Provides a reference to the author of the request group.
      */
-    @Child(name = "author", type = {Device.class, Practitioner.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "author", type = {Device.class, Practitioner.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Device or practitioner that authored the request group", formalDefinition="Provides a reference to the author of the request group." )
     protected Reference author;
 
@@ -3776,14 +3778,14 @@ public class RequestGroup extends DomainResource {
     /**
      * Describes the reason for the request group in coded or textual form.
      */
-    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Why the request group is needed", formalDefinition="Describes the reason for the request group in coded or textual form." )
     protected List<CodeableConcept> reasonCode;
 
     /**
      * Indicates another resource whose existence justifies this request group.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class, DiagnosticReport.class, DocumentReference.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class, DiagnosticReport.class, DocumentReference.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Why the request group is needed", formalDefinition="Indicates another resource whose existence justifies this request group." )
     protected List<Reference> reasonReference;
     /**
@@ -3795,18 +3797,18 @@ public class RequestGroup extends DomainResource {
     /**
      * Provides a mechanism to communicate additional information about the response.
      */
-    @Child(name = "note", type = {Annotation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional notes about the response", formalDefinition="Provides a mechanism to communicate additional information about the response." )
     protected List<Annotation> note;
 
     /**
      * The actions, if any, produced by the evaluation of the artifact.
      */
-    @Child(name = "action", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "action", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Proposed actions, if any", formalDefinition="The actions, if any, produced by the evaluation of the artifact." )
     protected List<RequestGroupActionComponent> action;
 
-    private static final long serialVersionUID = -998106621L;
+    private static final long serialVersionUID = 1622280601L;
 
   /**
    * Constructor
@@ -3878,66 +3880,125 @@ public class RequestGroup extends DomainResource {
     }
 
     /**
-     * @return {@link #definition} (A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
+     * @return {@link #instantiatesCanonical} (A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
      */
-    public List<Reference> getDefinition() { 
-      if (this.definition == null)
-        this.definition = new ArrayList<Reference>();
-      return this.definition;
+    public List<CanonicalType> getInstantiatesCanonical() { 
+      if (this.instantiatesCanonical == null)
+        this.instantiatesCanonical = new ArrayList<CanonicalType>();
+      return this.instantiatesCanonical;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public RequestGroup setDefinition(List<Reference> theDefinition) { 
-      this.definition = theDefinition;
+    public RequestGroup setInstantiatesCanonical(List<CanonicalType> theInstantiatesCanonical) { 
+      this.instantiatesCanonical = theInstantiatesCanonical;
       return this;
     }
 
-    public boolean hasDefinition() { 
-      if (this.definition == null)
+    public boolean hasInstantiatesCanonical() { 
+      if (this.instantiatesCanonical == null)
         return false;
-      for (Reference item : this.definition)
+      for (CanonicalType item : this.instantiatesCanonical)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addDefinition() { //3
-      Reference t = new Reference();
-      if (this.definition == null)
-        this.definition = new ArrayList<Reference>();
-      this.definition.add(t);
+    /**
+     * @return {@link #instantiatesCanonical} (A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
+     */
+    public CanonicalType addInstantiatesCanonicalElement() {//2 
+      CanonicalType t = new CanonicalType();
+      if (this.instantiatesCanonical == null)
+        this.instantiatesCanonical = new ArrayList<CanonicalType>();
+      this.instantiatesCanonical.add(t);
       return t;
     }
 
-    public RequestGroup addDefinition(Reference t) { //3
-      if (t == null)
-        return this;
-      if (this.definition == null)
-        this.definition = new ArrayList<Reference>();
-      this.definition.add(t);
+    /**
+     * @param value {@link #instantiatesCanonical} (A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
+     */
+    public RequestGroup addInstantiatesCanonical(String value) { //1
+      CanonicalType t = new CanonicalType();
+      t.setValue(value);
+      if (this.instantiatesCanonical == null)
+        this.instantiatesCanonical = new ArrayList<CanonicalType>();
+      this.instantiatesCanonical.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #definition}, creating it if it does not already exist
+     * @param value {@link #instantiatesCanonical} (A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
      */
-    public Reference getDefinitionFirstRep() { 
-      if (getDefinition().isEmpty()) {
-        addDefinition();
-      }
-      return getDefinition().get(0);
+    public boolean hasInstantiatesCanonical(String value) { 
+      if (this.instantiatesCanonical == null)
+        return false;
+      for (CanonicalType v : this.instantiatesCanonical)
+        if (v.getValue().equals(value)) // canonical
+          return true;
+      return false;
     }
 
     /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
+     * @return {@link #instantiatesUri} (A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
      */
-    @Deprecated
-    public List<Resource> getDefinitionTarget() { 
-      if (this.definitionTarget == null)
-        this.definitionTarget = new ArrayList<Resource>();
-      return this.definitionTarget;
+    public List<UriType> getInstantiatesUri() { 
+      if (this.instantiatesUri == null)
+        this.instantiatesUri = new ArrayList<UriType>();
+      return this.instantiatesUri;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public RequestGroup setInstantiatesUri(List<UriType> theInstantiatesUri) { 
+      this.instantiatesUri = theInstantiatesUri;
+      return this;
+    }
+
+    public boolean hasInstantiatesUri() { 
+      if (this.instantiatesUri == null)
+        return false;
+      for (UriType item : this.instantiatesUri)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #instantiatesUri} (A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
+     */
+    public UriType addInstantiatesUriElement() {//2 
+      UriType t = new UriType();
+      if (this.instantiatesUri == null)
+        this.instantiatesUri = new ArrayList<UriType>();
+      this.instantiatesUri.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #instantiatesUri} (A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
+     */
+    public RequestGroup addInstantiatesUri(String value) { //1
+      UriType t = new UriType();
+      t.setValue(value);
+      if (this.instantiatesUri == null)
+        this.instantiatesUri = new ArrayList<UriType>();
+      this.instantiatesUri.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #instantiatesUri} (A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
+     */
+    public boolean hasInstantiatesUri(String value) { 
+      if (this.instantiatesUri == null)
+        return false;
+      for (UriType v : this.instantiatesUri)
+        if (v.getValue().equals(value)) // uri
+          return true;
+      return false;
     }
 
     /**
@@ -4644,7 +4705,8 @@ public class RequestGroup extends DomainResource {
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
         children.add(new Property("identifier", "Identifier", "Allows a service to provide a unique, business identifier for the request.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        children.add(new Property("definition", "Reference(Any)", "A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
+        children.add(new Property("instantiatesCanonical", "canonical", "A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical));
+        children.add(new Property("instantiatesUri", "uri", "A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, instantiatesUri));
         children.add(new Property("basedOn", "Reference(Any)", "A plan, proposal or order that is fulfilled in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         children.add(new Property("replaces", "Reference(Any)", "Completed or terminated request(s) whose function is taken by this new request.", 0, java.lang.Integer.MAX_VALUE, replaces));
         children.add(new Property("groupIdentifier", "Identifier", "A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form.", 0, 1, groupIdentifier));
@@ -4666,7 +4728,8 @@ public class RequestGroup extends DomainResource {
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "Allows a service to provide a unique, business identifier for the request.", 0, java.lang.Integer.MAX_VALUE, identifier);
-        case -1014418093: /*definition*/  return new Property("definition", "Reference(Any)", "A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, definition);
+        case 8911915: /*instantiatesCanonical*/  return new Property("instantiatesCanonical", "canonical", "A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, instantiatesCanonical);
+        case -1926393373: /*instantiatesUri*/  return new Property("instantiatesUri", "uri", "A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, instantiatesUri);
         case -332612366: /*basedOn*/  return new Property("basedOn", "Reference(Any)", "A plan, proposal or order that is fulfilled in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn);
         case -430332865: /*replaces*/  return new Property("replaces", "Reference(Any)", "Completed or terminated request(s) whose function is taken by this new request.", 0, java.lang.Integer.MAX_VALUE, replaces);
         case -445338488: /*groupIdentifier*/  return new Property("groupIdentifier", "Identifier", "A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form.", 0, 1, groupIdentifier);
@@ -4691,7 +4754,8 @@ public class RequestGroup extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : this.definition.toArray(new Base[this.definition.size()]); // Reference
+        case 8911915: /*instantiatesCanonical*/ return this.instantiatesCanonical == null ? new Base[0] : this.instantiatesCanonical.toArray(new Base[this.instantiatesCanonical.size()]); // CanonicalType
+        case -1926393373: /*instantiatesUri*/ return this.instantiatesUri == null ? new Base[0] : this.instantiatesUri.toArray(new Base[this.instantiatesUri.size()]); // UriType
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
         case -430332865: /*replaces*/ return this.replaces == null ? new Base[0] : this.replaces.toArray(new Base[this.replaces.size()]); // Reference
         case -445338488: /*groupIdentifier*/ return this.groupIdentifier == null ? new Base[0] : new Base[] {this.groupIdentifier}; // Identifier
@@ -4718,8 +4782,11 @@ public class RequestGroup extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
-        case -1014418093: // definition
-          this.getDefinition().add(castToReference(value)); // Reference
+        case 8911915: // instantiatesCanonical
+          this.getInstantiatesCanonical().add(castToCanonical(value)); // CanonicalType
+          return value;
+        case -1926393373: // instantiatesUri
+          this.getInstantiatesUri().add(castToUri(value)); // UriType
           return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
@@ -4778,8 +4845,10 @@ public class RequestGroup extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        } else if (name.equals("definition")) {
-          this.getDefinition().add(castToReference(value));
+        } else if (name.equals("instantiatesCanonical")) {
+          this.getInstantiatesCanonical().add(castToCanonical(value));
+        } else if (name.equals("instantiatesUri")) {
+          this.getInstantiatesUri().add(castToUri(value));
         } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
         } else if (name.equals("replaces")) {
@@ -4822,7 +4891,8 @@ public class RequestGroup extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case -1014418093:  return addDefinition(); 
+        case 8911915:  return addInstantiatesCanonicalElement();
+        case -1926393373:  return addInstantiatesUriElement();
         case -332612366:  return addBasedOn(); 
         case -430332865:  return addReplaces(); 
         case -445338488:  return getGroupIdentifier(); 
@@ -4847,7 +4917,8 @@ public class RequestGroup extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -1014418093: /*definition*/ return new String[] {"Reference"};
+        case 8911915: /*instantiatesCanonical*/ return new String[] {"canonical"};
+        case -1926393373: /*instantiatesUri*/ return new String[] {"uri"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
         case -430332865: /*replaces*/ return new String[] {"Reference"};
         case -445338488: /*groupIdentifier*/ return new String[] {"Identifier"};
@@ -4873,8 +4944,11 @@ public class RequestGroup extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
-        else if (name.equals("definition")) {
-          return addDefinition();
+        else if (name.equals("instantiatesCanonical")) {
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.instantiatesCanonical");
+        }
+        else if (name.equals("instantiatesUri")) {
+          throw new FHIRException("Cannot call addChild on a primitive type RequestGroup.instantiatesUri");
         }
         else if (name.equals("basedOn")) {
           return addBasedOn();
@@ -4943,10 +5017,15 @@ public class RequestGroup extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        if (definition != null) {
-          dst.definition = new ArrayList<Reference>();
-          for (Reference i : definition)
-            dst.definition.add(i.copy());
+        if (instantiatesCanonical != null) {
+          dst.instantiatesCanonical = new ArrayList<CanonicalType>();
+          for (CanonicalType i : instantiatesCanonical)
+            dst.instantiatesCanonical.add(i.copy());
+        };
+        if (instantiatesUri != null) {
+          dst.instantiatesUri = new ArrayList<UriType>();
+          for (UriType i : instantiatesUri)
+            dst.instantiatesUri.add(i.copy());
         };
         if (basedOn != null) {
           dst.basedOn = new ArrayList<Reference>();
@@ -5001,8 +5080,9 @@ public class RequestGroup extends DomainResource {
         if (!(other_ instanceof RequestGroup))
           return false;
         RequestGroup o = (RequestGroup) other_;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
-           && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(instantiatesCanonical, o.instantiatesCanonical, true)
+           && compareDeep(instantiatesUri, o.instantiatesUri, true) && compareDeep(basedOn, o.basedOn, true)
+           && compareDeep(replaces, o.replaces, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true)
            && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(author, o.author, true) && compareDeep(reasonCode, o.reasonCode, true)
@@ -5017,14 +5097,16 @@ public class RequestGroup extends DomainResource {
         if (!(other_ instanceof RequestGroup))
           return false;
         RequestGroup o = (RequestGroup) other_;
-        return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
+        return compareValues(instantiatesCanonical, o.instantiatesCanonical, true) && compareValues(instantiatesUri, o.instantiatesUri, true)
+           && compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
            && compareValues(authoredOn, o.authoredOn, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
-          , replaces, groupIdentifier, status, intent, priority, code, subject, context
-          , authoredOn, author, reasonCode, reasonReference, note, action);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, instantiatesCanonical
+          , instantiatesUri, basedOn, replaces, groupIdentifier, status, intent, priority
+          , code, subject, context, authoredOn, author, reasonCode, reasonReference, note
+          , action);
       }
 
   @Override
@@ -5143,6 +5225,32 @@ public class RequestGroup extends DomainResource {
    * the path value of "<b>RequestGroup:author</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("RequestGroup:author").toLocked();
+
+ /**
+   * Search parameter: <b>instantiates-canonical</b>
+   * <p>
+   * Description: <b>The FHIR-based definition from which the request group is realized</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RequestGroup.instantiatesCanonical</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="instantiates-canonical", path="RequestGroup.instantiatesCanonical", description="The FHIR-based definition from which the request group is realized", type="reference" )
+  public static final String SP_INSTANTIATES_CANONICAL = "instantiates-canonical";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>instantiates-canonical</b>
+   * <p>
+   * Description: <b>The FHIR-based definition from which the request group is realized</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>RequestGroup.instantiatesCanonical</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INSTANTIATES_CANONICAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INSTANTIATES_CANONICAL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>RequestGroup:instantiates-canonical</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INSTANTIATES_CANONICAL = new ca.uhn.fhir.model.api.Include("RequestGroup:instantiates-canonical").toLocked();
 
  /**
    * Search parameter: <b>encounter</b>
@@ -5309,30 +5417,24 @@ public class RequestGroup extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("RequestGroup:context").toLocked();
 
  /**
-   * Search parameter: <b>definition</b>
+   * Search parameter: <b>instantiates-uri</b>
    * <p>
-   * Description: <b>The definition from which the request group is realized</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RequestGroup.definition</b><br>
+   * Description: <b>The external definition from which the request group is realized</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>RequestGroup.instantiatesUri</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="definition", path="RequestGroup.definition", description="The definition from which the request group is realized", type="reference" )
-  public static final String SP_DEFINITION = "definition";
+  @SearchParamDefinition(name="instantiates-uri", path="RequestGroup.instantiatesUri", description="The external definition from which the request group is realized", type="uri" )
+  public static final String SP_INSTANTIATES_URI = "instantiates-uri";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>definition</b>
+   * <b>Fluent Client</b> search parameter constant for <b>instantiates-uri</b>
    * <p>
-   * Description: <b>The definition from which the request group is realized</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>RequestGroup.definition</b><br>
+   * Description: <b>The external definition from which the request group is realized</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>RequestGroup.instantiatesUri</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEFINITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEFINITION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>RequestGroup:definition</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEFINITION = new ca.uhn.fhir.model.api.Include("RequestGroup:definition").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam INSTANTIATES_URI = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_INSTANTIATES_URI);
 
  /**
    * Search parameter: <b>status</b>

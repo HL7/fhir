@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 18:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1624,14 +1624,9 @@ public class Measure extends MetadataResource {
     /**
      * A reference to a Library resource containing the formal logic used by the measure.
      */
-    @Child(name = "library", type = {Library.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "library", type = {CanonicalType.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Logic used by the measure", formalDefinition="A reference to a Library resource containing the formal logic used by the measure." )
-    protected List<Reference> library;
-    /**
-     * The actual objects that are the target of the reference (A reference to a Library resource containing the formal logic used by the measure.)
-     */
-    protected List<Library> libraryTarget;
-
+    protected List<CanonicalType> library;
 
     /**
      * Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure.
@@ -1734,7 +1729,7 @@ public class Measure extends MetadataResource {
     @Description(shortDefinition="What other data should be reported with the measure", formalDefinition="The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path." )
     protected List<MeasureSupplementalDataComponent> supplementalData;
 
-    private static final long serialVersionUID = 1052747632L;
+    private static final long serialVersionUID = 990527178L;
 
   /**
    * Constructor
@@ -2240,7 +2235,7 @@ public class Measure extends MetadataResource {
     }
 
     /**
-     * @return {@link #publisher} (The individual or organization that published the measure.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the individual or organization that published the measure.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
       if (this.publisher == null)
@@ -2260,7 +2255,7 @@ public class Measure extends MetadataResource {
     }
 
     /**
-     * @param value {@link #publisher} (The individual or organization that published the measure.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the individual or organization that published the measure.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public Measure setPublisherElement(StringType value) { 
       this.publisher = value;
@@ -2268,14 +2263,14 @@ public class Measure extends MetadataResource {
     }
 
     /**
-     * @return The individual or organization that published the measure.
+     * @return The name of the individual or organization that published the measure.
      */
     public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value The individual or organization that published the measure.
+     * @param value The name of the individual or organization that published the measure.
      */
     public Measure setPublisher(String value) { 
       if (Utilities.noString(value))
@@ -2927,16 +2922,16 @@ public class Measure extends MetadataResource {
     /**
      * @return {@link #library} (A reference to a Library resource containing the formal logic used by the measure.)
      */
-    public List<Reference> getLibrary() { 
+    public List<CanonicalType> getLibrary() { 
       if (this.library == null)
-        this.library = new ArrayList<Reference>();
+        this.library = new ArrayList<CanonicalType>();
       return this.library;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Measure setLibrary(List<Reference> theLibrary) { 
+    public Measure setLibrary(List<CanonicalType> theLibrary) { 
       this.library = theLibrary;
       return this;
     }
@@ -2944,59 +2939,45 @@ public class Measure extends MetadataResource {
     public boolean hasLibrary() { 
       if (this.library == null)
         return false;
-      for (Reference item : this.library)
+      for (CanonicalType item : this.library)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addLibrary() { //3
-      Reference t = new Reference();
+    /**
+     * @return {@link #library} (A reference to a Library resource containing the formal logic used by the measure.)
+     */
+    public CanonicalType addLibraryElement() {//2 
+      CanonicalType t = new CanonicalType();
       if (this.library == null)
-        this.library = new ArrayList<Reference>();
+        this.library = new ArrayList<CanonicalType>();
       this.library.add(t);
       return t;
     }
 
-    public Measure addLibrary(Reference t) { //3
-      if (t == null)
-        return this;
+    /**
+     * @param value {@link #library} (A reference to a Library resource containing the formal logic used by the measure.)
+     */
+    public Measure addLibrary(String value) { //1
+      CanonicalType t = new CanonicalType();
+      t.setValue(value);
       if (this.library == null)
-        this.library = new ArrayList<Reference>();
+        this.library = new ArrayList<CanonicalType>();
       this.library.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #library}, creating it if it does not already exist
+     * @param value {@link #library} (A reference to a Library resource containing the formal logic used by the measure.)
      */
-    public Reference getLibraryFirstRep() { 
-      if (getLibrary().isEmpty()) {
-        addLibrary();
-      }
-      return getLibrary().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Library> getLibraryTarget() { 
-      if (this.libraryTarget == null)
-        this.libraryTarget = new ArrayList<Library>();
-      return this.libraryTarget;
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public Library addLibraryTarget() { 
-      Library r = new Library();
-      if (this.libraryTarget == null)
-        this.libraryTarget = new ArrayList<Library>();
-      this.libraryTarget.add(r);
-      return r;
+    public boolean hasLibrary(String value) { 
+      if (this.library == null)
+        return false;
+      for (CanonicalType v : this.library)
+        if (v.getValue().equals(value)) // canonical(Library)
+          return true;
+      return false;
     }
 
     /**
@@ -3671,7 +3652,7 @@ public class Measure extends MetadataResource {
         children.add(new Property("experimental", "boolean", "A boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental));
         children.add(new Property("subject[x]", "CodeableConcept|Reference(Group)", "The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything.", 0, 1, subject));
         children.add(new Property("date", "dateTime", "The date  (and optionally time) when the measure was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes.", 0, 1, date));
-        children.add(new Property("publisher", "string", "The individual or organization that published the measure.", 0, 1, publisher));
+        children.add(new Property("publisher", "string", "The name of the individual or organization that published the measure.", 0, 1, publisher));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         children.add(new Property("description", "markdown", "A free text natural language description of the measure from a consumer's perspective.", 0, 1, description));
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate measure instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
@@ -3685,7 +3666,7 @@ public class Measure extends MetadataResource {
         children.add(new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic));
         children.add(new Property("contributor", "Contributor", "A contributor to the content of the measure, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
         children.add(new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
-        children.add(new Property("library", "Reference(Library)", "A reference to a Library resource containing the formal logic used by the measure.", 0, java.lang.Integer.MAX_VALUE, library));
+        children.add(new Property("library", "canonical(Library)", "A reference to a Library resource containing the formal logic used by the measure.", 0, java.lang.Integer.MAX_VALUE, library));
         children.add(new Property("disclaimer", "markdown", "Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure.", 0, 1, disclaimer));
         children.add(new Property("scoring", "CodeableConcept", "Indicates how the calculation is performed for the measure, including proportion, ratio, continuous variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented.", 0, 1, scoring));
         children.add(new Property("compositeScoring", "CodeableConcept", "If this is a composite measure, the scoring method used to combine the component measures to determine the composite score.", 0, 1, compositeScoring));
@@ -3718,7 +3699,7 @@ public class Measure extends MetadataResource {
         case -1257122603: /*subjectCodeableConcept*/  return new Property("subject[x]", "CodeableConcept|Reference(Group)", "The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything.", 0, 1, subject);
         case 772938623: /*subjectReference*/  return new Property("subject[x]", "CodeableConcept|Reference(Group)", "The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything.", 0, 1, subject);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the measure was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes.", 0, 1, date);
-        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The individual or organization that published the measure.", 0, 1, publisher);
+        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the measure.", 0, 1, publisher);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
         case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the measure from a consumer's perspective.", 0, 1, description);
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate measure instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
@@ -3732,7 +3713,7 @@ public class Measure extends MetadataResource {
         case 110546223: /*topic*/  return new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic);
         case -1895276325: /*contributor*/  return new Property("contributor", "Contributor", "A contributor to the content of the measure, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor);
         case 666807069: /*relatedArtifact*/  return new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact);
-        case 166208699: /*library*/  return new Property("library", "Reference(Library)", "A reference to a Library resource containing the formal logic used by the measure.", 0, java.lang.Integer.MAX_VALUE, library);
+        case 166208699: /*library*/  return new Property("library", "canonical(Library)", "A reference to a Library resource containing the formal logic used by the measure.", 0, java.lang.Integer.MAX_VALUE, library);
         case 432371099: /*disclaimer*/  return new Property("disclaimer", "markdown", "Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure.", 0, 1, disclaimer);
         case 1924005583: /*scoring*/  return new Property("scoring", "CodeableConcept", "Indicates how the calculation is performed for the measure, including proportion, ratio, continuous variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented.", 0, 1, scoring);
         case 569347656: /*compositeScoring*/  return new Property("compositeScoring", "CodeableConcept", "If this is a composite measure, the scoring method used to combine the component measures to determine the composite score.", 0, 1, compositeScoring);
@@ -3779,7 +3760,7 @@ public class Measure extends MetadataResource {
         case 110546223: /*topic*/ return this.topic == null ? new Base[0] : this.topic.toArray(new Base[this.topic.size()]); // CodeableConcept
         case -1895276325: /*contributor*/ return this.contributor == null ? new Base[0] : this.contributor.toArray(new Base[this.contributor.size()]); // Contributor
         case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
-        case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // Reference
+        case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // CanonicalType
         case 432371099: /*disclaimer*/ return this.disclaimer == null ? new Base[0] : new Base[] {this.disclaimer}; // MarkdownType
         case 1924005583: /*scoring*/ return this.scoring == null ? new Base[0] : new Base[] {this.scoring}; // CodeableConcept
         case 569347656: /*compositeScoring*/ return this.compositeScoring == null ? new Base[0] : new Base[] {this.compositeScoring}; // CodeableConcept
@@ -3876,7 +3857,7 @@ public class Measure extends MetadataResource {
           this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
           return value;
         case 166208699: // library
-          this.getLibrary().add(castToReference(value)); // Reference
+          this.getLibrary().add(castToCanonical(value)); // CanonicalType
           return value;
         case 432371099: // disclaimer
           this.disclaimer = castToMarkdown(value); // MarkdownType
@@ -3977,7 +3958,7 @@ public class Measure extends MetadataResource {
         } else if (name.equals("relatedArtifact")) {
           this.getRelatedArtifact().add(castToRelatedArtifact(value));
         } else if (name.equals("library")) {
-          this.getLibrary().add(castToReference(value));
+          this.getLibrary().add(castToCanonical(value));
         } else if (name.equals("disclaimer")) {
           this.disclaimer = castToMarkdown(value); // MarkdownType
         } else if (name.equals("scoring")) {
@@ -4039,7 +4020,7 @@ public class Measure extends MetadataResource {
         case 110546223:  return addTopic(); 
         case -1895276325:  return addContributor(); 
         case 666807069:  return addRelatedArtifact(); 
-        case 166208699:  return addLibrary(); 
+        case 166208699:  return addLibraryElement();
         case 432371099:  return getDisclaimerElement();
         case 1924005583:  return getScoring(); 
         case 569347656:  return getCompositeScoring(); 
@@ -4086,7 +4067,7 @@ public class Measure extends MetadataResource {
         case 110546223: /*topic*/ return new String[] {"CodeableConcept"};
         case -1895276325: /*contributor*/ return new String[] {"Contributor"};
         case 666807069: /*relatedArtifact*/ return new String[] {"RelatedArtifact"};
-        case 166208699: /*library*/ return new String[] {"Reference"};
+        case 166208699: /*library*/ return new String[] {"canonical"};
         case 432371099: /*disclaimer*/ return new String[] {"markdown"};
         case 1924005583: /*scoring*/ return new String[] {"CodeableConcept"};
         case 569347656: /*compositeScoring*/ return new String[] {"CodeableConcept"};
@@ -4187,7 +4168,7 @@ public class Measure extends MetadataResource {
           return addRelatedArtifact();
         }
         else if (name.equals("library")) {
-          return addLibrary();
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.library");
         }
         else if (name.equals("disclaimer")) {
           throw new FHIRException("Cannot call addChild on a primitive type Measure.disclaimer");
@@ -4298,8 +4279,8 @@ public class Measure extends MetadataResource {
             dst.relatedArtifact.add(i.copy());
         };
         if (library != null) {
-          dst.library = new ArrayList<Reference>();
-          for (Reference i : library)
+          dst.library = new ArrayList<CanonicalType>();
+          for (CanonicalType i : library)
             dst.library.add(i.copy());
         };
         dst.disclaimer = disclaimer == null ? null : disclaimer.copy();
@@ -4660,7 +4641,7 @@ public class Measure extends MetadataResource {
    * Path: <b>Measure.relatedArtifact.resource, Measure.library</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="depends-on", path="Measure.relatedArtifact.where(type='depends-on').resource | Measure.library", description="What resource is being referenced", type="reference" )
+  @SearchParamDefinition(name="depends-on", path="Measure.relatedArtifact.where(type='depends-on').resource | Measure.library", description="What resource is being referenced", type="reference", target={Library.class } )
   public static final String SP_DEPENDS_ON = "depends-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 18:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1739,14 +1739,9 @@ public class MeasureReport extends DomainResource {
     /**
      * A reference to the Measure that was evaluated to produce this report.
      */
-    @Child(name = "measure", type = {Measure.class}, order=3, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "measure", type = {CanonicalType.class}, order=3, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What measure was evaluated", formalDefinition="A reference to the Measure that was evaluated to produce this report." )
-    protected Reference measure;
-
-    /**
-     * The actual object that is the target of the reference (A reference to the Measure that was evaluated to produce this report.)
-     */
-    protected Measure measureTarget;
+    protected CanonicalType measure;
 
     /**
      * Optional subject identifying the individual or individuals the report is for.
@@ -1805,7 +1800,7 @@ public class MeasureReport extends DomainResource {
      */
     protected Bundle evaluatedResourcesTarget;
 
-    private static final long serialVersionUID = -1869838818L;
+    private static final long serialVersionUID = -439606594L;
 
   /**
    * Constructor
@@ -1817,7 +1812,7 @@ public class MeasureReport extends DomainResource {
   /**
    * Constructor
    */
-    public MeasureReport(Enumeration<MeasureReportStatus> status, Enumeration<MeasureReportType> type, Reference measure, Period period) {
+    public MeasureReport(Enumeration<MeasureReportStatus> status, Enumeration<MeasureReportType> type, CanonicalType measure, Period period) {
       super();
       this.status = status;
       this.type = type;
@@ -1969,15 +1964,19 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @return {@link #measure} (A reference to the Measure that was evaluated to produce this report.)
+     * @return {@link #measure} (A reference to the Measure that was evaluated to produce this report.). This is the underlying object with id, value and extensions. The accessor "getMeasure" gives direct access to the value
      */
-    public Reference getMeasure() { 
+    public CanonicalType getMeasureElement() { 
       if (this.measure == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MeasureReport.measure");
         else if (Configuration.doAutoCreate())
-          this.measure = new Reference(); // cc
+          this.measure = new CanonicalType(); // bb
       return this.measure;
+    }
+
+    public boolean hasMeasureElement() { 
+      return this.measure != null && !this.measure.isEmpty();
     }
 
     public boolean hasMeasure() { 
@@ -1985,30 +1984,27 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @param value {@link #measure} (A reference to the Measure that was evaluated to produce this report.)
+     * @param value {@link #measure} (A reference to the Measure that was evaluated to produce this report.). This is the underlying object with id, value and extensions. The accessor "getMeasure" gives direct access to the value
      */
-    public MeasureReport setMeasure(Reference value) { 
+    public MeasureReport setMeasureElement(CanonicalType value) { 
       this.measure = value;
       return this;
     }
 
     /**
-     * @return {@link #measure} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the Measure that was evaluated to produce this report.)
+     * @return A reference to the Measure that was evaluated to produce this report.
      */
-    public Measure getMeasureTarget() { 
-      if (this.measureTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MeasureReport.measure");
-        else if (Configuration.doAutoCreate())
-          this.measureTarget = new Measure(); // aa
-      return this.measureTarget;
+    public String getMeasure() { 
+      return this.measure == null ? null : this.measure.getValue();
     }
 
     /**
-     * @param value {@link #measure} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the Measure that was evaluated to produce this report.)
+     * @param value A reference to the Measure that was evaluated to produce this report.
      */
-    public MeasureReport setMeasureTarget(Measure value) { 
-      this.measureTarget = value;
+    public MeasureReport setMeasure(String value) { 
+        if (this.measure == null)
+          this.measure = new CanonicalType();
+        this.measure.setValue(value);
       return this;
     }
 
@@ -2265,7 +2261,7 @@ public class MeasureReport extends DomainResource {
         children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this report when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("status", "code", "The report status. No data will be available until the report status is complete.", 0, 1, status));
         children.add(new Property("type", "code", "The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.", 0, 1, type));
-        children.add(new Property("measure", "Reference(Measure)", "A reference to the Measure that was evaluated to produce this report.", 0, 1, measure));
+        children.add(new Property("measure", "canonical(Measure)", "A reference to the Measure that was evaluated to produce this report.", 0, 1, measure));
         children.add(new Property("subject", "Reference(Patient|Practitioner|Location|Device|RelatedPerson|Group)", "Optional subject identifying the individual or individuals the report is for.", 0, 1, subject));
         children.add(new Property("date", "dateTime", "The date this measure report was generated.", 0, 1, date));
         children.add(new Property("reporter", "Reference(Practitioner|PractitionerRole|Location|Organization|Group)", "The individiual, location, group, or organization that is reporting the data.", 0, 1, reporter));
@@ -2280,7 +2276,7 @@ public class MeasureReport extends DomainResource {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this report when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -892481550: /*status*/  return new Property("status", "code", "The report status. No data will be available until the report status is complete.", 0, 1, status);
         case 3575610: /*type*/  return new Property("type", "code", "The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.", 0, 1, type);
-        case 938321246: /*measure*/  return new Property("measure", "Reference(Measure)", "A reference to the Measure that was evaluated to produce this report.", 0, 1, measure);
+        case 938321246: /*measure*/  return new Property("measure", "canonical(Measure)", "A reference to the Measure that was evaluated to produce this report.", 0, 1, measure);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Practitioner|Location|Device|RelatedPerson|Group)", "Optional subject identifying the individual or individuals the report is for.", 0, 1, subject);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date this measure report was generated.", 0, 1, date);
         case -427039519: /*reporter*/  return new Property("reporter", "Reference(Practitioner|PractitionerRole|Location|Organization|Group)", "The individiual, location, group, or organization that is reporting the data.", 0, 1, reporter);
@@ -2298,7 +2294,7 @@ public class MeasureReport extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MeasureReportStatus>
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<MeasureReportType>
-        case 938321246: /*measure*/ return this.measure == null ? new Base[0] : new Base[] {this.measure}; // Reference
+        case 938321246: /*measure*/ return this.measure == null ? new Base[0] : new Base[] {this.measure}; // CanonicalType
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case -427039519: /*reporter*/ return this.reporter == null ? new Base[0] : new Base[] {this.reporter}; // Reference
@@ -2325,7 +2321,7 @@ public class MeasureReport extends DomainResource {
           this.type = (Enumeration) value; // Enumeration<MeasureReportType>
           return value;
         case 938321246: // measure
-          this.measure = castToReference(value); // Reference
+          this.measure = castToCanonical(value); // CanonicalType
           return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
@@ -2361,7 +2357,7 @@ public class MeasureReport extends DomainResource {
           value = new MeasureReportTypeEnumFactory().fromType(castToCode(value));
           this.type = (Enumeration) value; // Enumeration<MeasureReportType>
         } else if (name.equals("measure")) {
-          this.measure = castToReference(value); // Reference
+          this.measure = castToCanonical(value); // CanonicalType
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
         } else if (name.equals("date")) {
@@ -2385,7 +2381,7 @@ public class MeasureReport extends DomainResource {
         case -1618432855:  return addIdentifier(); 
         case -892481550:  return getStatusElement();
         case 3575610:  return getTypeElement();
-        case 938321246:  return getMeasure(); 
+        case 938321246:  return getMeasureElement();
         case -1867885268:  return getSubject(); 
         case 3076014:  return getDateElement();
         case -427039519:  return getReporter(); 
@@ -2403,7 +2399,7 @@ public class MeasureReport extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -892481550: /*status*/ return new String[] {"code"};
         case 3575610: /*type*/ return new String[] {"code"};
-        case 938321246: /*measure*/ return new String[] {"Reference"};
+        case 938321246: /*measure*/ return new String[] {"canonical"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 3076014: /*date*/ return new String[] {"dateTime"};
         case -427039519: /*reporter*/ return new String[] {"Reference"};
@@ -2427,8 +2423,7 @@ public class MeasureReport extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type MeasureReport.type");
         }
         else if (name.equals("measure")) {
-          this.measure = new Reference();
-          return this.measure;
+          throw new FHIRException("Cannot call addChild on a primitive type MeasureReport.measure");
         }
         else if (name.equals("subject")) {
           this.subject = new Reference();

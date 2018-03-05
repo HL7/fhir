@@ -2058,7 +2058,7 @@ public class VersionConvertor_30_40 {
     if (src.hasDocument())
       tgt.setDocument(convertAttachment(src.getDocument()));
     if (src.hasResource())
-      tgt.setResource(convertReference(src.getResource()));
+      tgt.setResourceElement(convertReferenceToCanonical(src.getResource()));
     return tgt;
   }
 
@@ -2078,7 +2078,7 @@ public class VersionConvertor_30_40 {
     if (src.hasDocument())
       tgt.setDocument(convertAttachment(src.getDocument()));
     if (src.hasResource())
-      tgt.setResource(convertReference(src.getResource()));
+      tgt.setResource(convertCanonicalToReference(src.getResourceElement()));
     return tgt;
   }
 
@@ -2899,7 +2899,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.RelatedArtifact t : src.getRelatedArtifact())
       tgt.addRelatedArtifact(convertRelatedArtifact(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getLibrary())
-      tgt.addLibrary(convertReference(t));
+      tgt.getLibrary().add(convertReferenceToCanonical(t));
     if (src.hasKind())
       tgt.setKind(convertActivityDefinitionKind(src.getKind()));
     if (src.hasCode())
@@ -2919,7 +2919,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getBodySite())
       tgt.addBodySite(convertCodeableConcept(t));
     if (src.hasTransform())
-      tgt.setTransform(convertReference(src.getTransform()));
+      tgt.setTransformElement(convertReferenceToCanonical(src.getTransform()));
     for (org.hl7.fhir.dstu3.model.ActivityDefinition.ActivityDefinitionDynamicValueComponent t : src.getDynamicValue())
       tgt.addDynamicValue(convertActivityDefinitionDynamicValueComponent(t));
     return tgt;
@@ -2974,8 +2974,8 @@ public class VersionConvertor_30_40 {
       tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.r4.model.RelatedArtifact t : src.getRelatedArtifact())
       tgt.addRelatedArtifact(convertRelatedArtifact(t));
-    for (org.hl7.fhir.r4.model.Reference t : src.getLibrary())
-      tgt.addLibrary(convertReference(t));
+    for (org.hl7.fhir.r4.model.CanonicalType t : src.getLibrary())
+      tgt.addLibrary(convertCanonicalToReference(t));
     if (src.hasKind())
       tgt.setKind(convertActivityDefinitionKind(src.getKind()));
     if (src.hasCode())
@@ -2995,7 +2995,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.r4.model.CodeableConcept t : src.getBodySite())
       tgt.addBodySite(convertCodeableConcept(t));
     if (src.hasTransform())
-      tgt.setTransform(convertReference(src.getTransform()));
+      tgt.setTransform(convertCanonicalToReference(src.getTransformElement()));
     for (org.hl7.fhir.r4.model.ActivityDefinition.ActivityDefinitionDynamicValueComponent t : src.getDynamicValue())
       tgt.addDynamicValue(convertActivityDefinitionDynamicValueComponent(t));
     return tgt;
@@ -21484,7 +21484,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.RelatedArtifact t : src.getRelatedArtifact())
       tgt.addRelatedArtifact(convertRelatedArtifact(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getLibrary())
-      tgt.addLibrary(convertReference(t));
+      tgt.getLibrary().add(convertReferenceToCanonical(t));
     for (org.hl7.fhir.dstu3.model.PlanDefinition.PlanDefinitionGoalComponent t : src.getGoal())
       tgt.addGoal(convertPlanDefinitionGoalComponent(t));
     for (org.hl7.fhir.dstu3.model.PlanDefinition.PlanDefinitionActionComponent t : src.getAction())
@@ -21543,8 +21543,8 @@ public class VersionConvertor_30_40 {
       tgt.setCopyright(src.getCopyright());
     for (org.hl7.fhir.r4.model.RelatedArtifact t : src.getRelatedArtifact())
       tgt.addRelatedArtifact(convertRelatedArtifact(t));
-    for (org.hl7.fhir.r4.model.Reference t : src.getLibrary())
-      tgt.addLibrary(convertReference(t));
+    for (org.hl7.fhir.r4.model.CanonicalType t : src.getLibrary())
+      tgt.addLibrary(convertCanonicalToReference(t));
     for (org.hl7.fhir.r4.model.PlanDefinition.PlanDefinitionGoalComponent t : src.getGoal())
       tgt.addGoal(convertPlanDefinitionGoalComponent(t));
     for (org.hl7.fhir.r4.model.PlanDefinition.PlanDefinitionActionComponent t : src.getAction())
@@ -21672,9 +21672,9 @@ public class VersionConvertor_30_40 {
     if (src.hasCardinalityBehavior())
       tgt.setCardinalityBehavior(convertActionCardinalityBehavior(src.getCardinalityBehavior()));
     if (src.hasDefinition())
-      tgt.setDefinition(convertReference(src.getDefinition()));
+      tgt.setDefinitionElement(convertReferenceToCanonical(src.getDefinition()));
     if (src.hasTransform())
-      tgt.setTransform(convertReference(src.getTransform()));
+      tgt.setTransformElement(convertReferenceToCanonical(src.getTransform()));
     for (org.hl7.fhir.dstu3.model.PlanDefinition.PlanDefinitionActionDynamicValueComponent t : src.getDynamicValue())
       tgt.addDynamicValue(convertPlanDefinitionActionDynamicValueComponent(t));
     for (org.hl7.fhir.dstu3.model.PlanDefinition.PlanDefinitionActionComponent t : src.getAction())
@@ -21730,9 +21730,9 @@ public class VersionConvertor_30_40 {
     if (src.hasCardinalityBehavior())
       tgt.setCardinalityBehavior(convertActionCardinalityBehavior(src.getCardinalityBehavior()));
     if (src.hasDefinition())
-      tgt.setDefinition(convertReference(src.getDefinition()));
+      tgt.setDefinition(convertCanonicalToReference(src.getDefinitionElement()));
     if (src.hasTransform())
-      tgt.setTransform(convertReference(src.getTransform()));
+      tgt.setTransform(convertCanonicalToReference(src.getTransformElement()));
     for (org.hl7.fhir.r4.model.PlanDefinition.PlanDefinitionActionDynamicValueComponent t : src.getDynamicValue())
       tgt.addDynamicValue(convertPlanDefinitionActionDynamicValueComponent(t));
     for (org.hl7.fhir.r4.model.PlanDefinition.PlanDefinitionActionComponent t : src.getAction())

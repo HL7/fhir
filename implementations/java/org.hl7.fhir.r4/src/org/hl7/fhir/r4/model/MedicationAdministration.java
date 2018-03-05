@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 18:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -692,7 +692,7 @@ public class MedicationAdministration extends DomainResource {
          * @param value {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
         public MedicationAdministrationDosageComponent setRate(Type value) { 
-          if (value != null && !(value instanceof Ratio || value instanceof Quantity))
+          if (value != null && !(value instanceof Ratio || value instanceof SimpleQuantity))
             throw new Error("Not the right type for MedicationAdministration.dosage.rate[x]: "+value.fhirType());
           this.rate = value;
           return this;

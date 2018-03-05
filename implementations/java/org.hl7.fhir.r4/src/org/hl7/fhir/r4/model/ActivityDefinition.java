@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 18:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -3196,14 +3196,9 @@ into another (possibly the same) biological entity.
     /**
      * A reference to a Library resource containing any formal logic used by the activity definition.
      */
-    @Child(name = "library", type = {Library.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "library", type = {CanonicalType.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Logic used by the activity definition", formalDefinition="A reference to a Library resource containing any formal logic used by the activity definition." )
-    protected List<Reference> library;
-    /**
-     * The actual objects that are the target of the reference (A reference to a Library resource containing any formal logic used by the activity definition.)
-     */
-    protected List<Library> libraryTarget;
-
+    protected List<CanonicalType> library;
 
     /**
      * A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.
@@ -3299,14 +3294,9 @@ into another (possibly the same) biological entity.
     /**
      * A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
      */
-    @Child(name = "transform", type = {StructureMap.class}, order=24, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "transform", type = {CanonicalType.class}, order=24, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Transform to apply the template", formalDefinition="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input." )
-    protected Reference transform;
-
-    /**
-     * The actual object that is the target of the reference (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
-     */
-    protected StructureMap transformTarget;
+    protected CanonicalType transform;
 
     /**
      * Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result.
@@ -3315,7 +3305,7 @@ into another (possibly the same) biological entity.
     @Description(shortDefinition="Dynamic aspects of the definition", formalDefinition="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result." )
     protected List<ActivityDefinitionDynamicValueComponent> dynamicValue;
 
-    private static final long serialVersionUID = -1160607235L;
+    private static final long serialVersionUID = 1445953102L;
 
   /**
    * Constructor
@@ -3821,7 +3811,7 @@ into another (possibly the same) biological entity.
     }
 
     /**
-     * @return {@link #publisher} (The the individual or organization that published the activity definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the individual or organization that published the activity definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
       if (this.publisher == null)
@@ -3841,7 +3831,7 @@ into another (possibly the same) biological entity.
     }
 
     /**
-     * @param value {@link #publisher} (The the individual or organization that published the activity definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the individual or organization that published the activity definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public ActivityDefinition setPublisherElement(StringType value) { 
       this.publisher = value;
@@ -3849,14 +3839,14 @@ into another (possibly the same) biological entity.
     }
 
     /**
-     * @return The the individual or organization that published the activity definition.
+     * @return The name of the individual or organization that published the activity definition.
      */
     public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value The the individual or organization that published the activity definition.
+     * @param value The name of the individual or organization that published the activity definition.
      */
     public ActivityDefinition setPublisher(String value) { 
       if (Utilities.noString(value))
@@ -4508,16 +4498,16 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #library} (A reference to a Library resource containing any formal logic used by the activity definition.)
      */
-    public List<Reference> getLibrary() { 
+    public List<CanonicalType> getLibrary() { 
       if (this.library == null)
-        this.library = new ArrayList<Reference>();
+        this.library = new ArrayList<CanonicalType>();
       return this.library;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setLibrary(List<Reference> theLibrary) { 
+    public ActivityDefinition setLibrary(List<CanonicalType> theLibrary) { 
       this.library = theLibrary;
       return this;
     }
@@ -4525,59 +4515,45 @@ into another (possibly the same) biological entity.
     public boolean hasLibrary() { 
       if (this.library == null)
         return false;
-      for (Reference item : this.library)
+      for (CanonicalType item : this.library)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addLibrary() { //3
-      Reference t = new Reference();
+    /**
+     * @return {@link #library} (A reference to a Library resource containing any formal logic used by the activity definition.)
+     */
+    public CanonicalType addLibraryElement() {//2 
+      CanonicalType t = new CanonicalType();
       if (this.library == null)
-        this.library = new ArrayList<Reference>();
+        this.library = new ArrayList<CanonicalType>();
       this.library.add(t);
       return t;
     }
 
-    public ActivityDefinition addLibrary(Reference t) { //3
-      if (t == null)
-        return this;
+    /**
+     * @param value {@link #library} (A reference to a Library resource containing any formal logic used by the activity definition.)
+     */
+    public ActivityDefinition addLibrary(String value) { //1
+      CanonicalType t = new CanonicalType();
+      t.setValue(value);
       if (this.library == null)
-        this.library = new ArrayList<Reference>();
+        this.library = new ArrayList<CanonicalType>();
       this.library.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #library}, creating it if it does not already exist
+     * @param value {@link #library} (A reference to a Library resource containing any formal logic used by the activity definition.)
      */
-    public Reference getLibraryFirstRep() { 
-      if (getLibrary().isEmpty()) {
-        addLibrary();
-      }
-      return getLibrary().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Library> getLibraryTarget() { 
-      if (this.libraryTarget == null)
-        this.libraryTarget = new ArrayList<Library>();
-      return this.libraryTarget;
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public Library addLibraryTarget() { 
-      Library r = new Library();
-      if (this.libraryTarget == null)
-        this.libraryTarget = new ArrayList<Library>();
-      this.libraryTarget.add(r);
-      return r;
+    public boolean hasLibrary(String value) { 
+      if (this.library == null)
+        return false;
+      for (CanonicalType v : this.library)
+        if (v.getValue().equals(value)) // canonical(Library)
+          return true;
+      return false;
     }
 
     /**
@@ -5163,15 +5139,19 @@ into another (possibly the same) biological entity.
     }
 
     /**
-     * @return {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
+     * @return {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.). This is the underlying object with id, value and extensions. The accessor "getTransform" gives direct access to the value
      */
-    public Reference getTransform() { 
+    public CanonicalType getTransformElement() { 
       if (this.transform == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.transform");
         else if (Configuration.doAutoCreate())
-          this.transform = new Reference(); // cc
+          this.transform = new CanonicalType(); // bb
       return this.transform;
+    }
+
+    public boolean hasTransformElement() { 
+      return this.transform != null && !this.transform.isEmpty();
     }
 
     public boolean hasTransform() { 
@@ -5179,30 +5159,31 @@ into another (possibly the same) biological entity.
     }
 
     /**
-     * @param value {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
+     * @param value {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.). This is the underlying object with id, value and extensions. The accessor "getTransform" gives direct access to the value
      */
-    public ActivityDefinition setTransform(Reference value) { 
+    public ActivityDefinition setTransformElement(CanonicalType value) { 
       this.transform = value;
       return this;
     }
 
     /**
-     * @return {@link #transform} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
+     * @return A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
      */
-    public StructureMap getTransformTarget() { 
-      if (this.transformTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ActivityDefinition.transform");
-        else if (Configuration.doAutoCreate())
-          this.transformTarget = new StructureMap(); // aa
-      return this.transformTarget;
+    public String getTransform() { 
+      return this.transform == null ? null : this.transform.getValue();
     }
 
     /**
-     * @param value {@link #transform} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
+     * @param value A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
      */
-    public ActivityDefinition setTransformTarget(StructureMap value) { 
-      this.transformTarget = value;
+    public ActivityDefinition setTransform(String value) { 
+      if (Utilities.noString(value))
+        this.transform = null;
+      else {
+        if (this.transform == null)
+          this.transform = new CanonicalType();
+        this.transform.setValue(value);
+      }
       return this;
     }
 
@@ -5271,7 +5252,7 @@ into another (possibly the same) biological entity.
         children.add(new Property("experimental", "boolean", "A boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental));
         children.add(new Property("subject[x]", "CodeableConcept|Reference(Group)", "A code or group definition that describes the intended subject of the activity being defined.", 0, 1, subject));
         children.add(new Property("date", "dateTime", "The date  (and optionally time) when the activity definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.", 0, 1, date));
-        children.add(new Property("publisher", "string", "The the individual or organization that published the activity definition.", 0, 1, publisher));
+        children.add(new Property("publisher", "string", "The name of the individual or organization that published the activity definition.", 0, 1, publisher));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         children.add(new Property("description", "markdown", "A free text natural language description of the activity definition from a consumer's perspective.", 0, 1, description));
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate activity definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
@@ -5285,7 +5266,7 @@ into another (possibly the same) biological entity.
         children.add(new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic));
         children.add(new Property("contributor", "Contributor", "A contributor to the content of the activity definition, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
         children.add(new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
-        children.add(new Property("library", "Reference(Library)", "A reference to a Library resource containing any formal logic used by the activity definition.", 0, java.lang.Integer.MAX_VALUE, library));
+        children.add(new Property("library", "canonical(Library)", "A reference to a Library resource containing any formal logic used by the activity definition.", 0, java.lang.Integer.MAX_VALUE, library));
         children.add(new Property("kind", "code", "A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.", 0, 1, kind));
         children.add(new Property("code", "CodeableConcept", "Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.", 0, 1, code));
         children.add(new Property("doNotPerform", "boolean", "Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action.", 0, 1, doNotPerform));
@@ -5297,7 +5278,7 @@ into another (possibly the same) biological entity.
         children.add(new Property("dosage", "Dosage", "Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.", 0, java.lang.Integer.MAX_VALUE, dosage));
         children.add(new Property("bodySite", "CodeableConcept", "Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         children.add(new Property("specimenRequirement", "Reference(SpecimenDefinition)", "Defines specimen requirements for the action to be performed, such as required specimens for a lab test.", 0, java.lang.Integer.MAX_VALUE, specimenRequirement));
-        children.add(new Property("transform", "Reference(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, 1, transform));
+        children.add(new Property("transform", "canonical(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, 1, transform));
         children.add(new Property("dynamicValue", "", "Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result.", 0, java.lang.Integer.MAX_VALUE, dynamicValue));
       }
 
@@ -5317,7 +5298,7 @@ into another (possibly the same) biological entity.
         case -1257122603: /*subjectCodeableConcept*/  return new Property("subject[x]", "CodeableConcept|Reference(Group)", "A code or group definition that describes the intended subject of the activity being defined.", 0, 1, subject);
         case 772938623: /*subjectReference*/  return new Property("subject[x]", "CodeableConcept|Reference(Group)", "A code or group definition that describes the intended subject of the activity being defined.", 0, 1, subject);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the activity definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.", 0, 1, date);
-        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The the individual or organization that published the activity definition.", 0, 1, publisher);
+        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the activity definition.", 0, 1, publisher);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
         case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the activity definition from a consumer's perspective.", 0, 1, description);
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate activity definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
@@ -5331,7 +5312,7 @@ into another (possibly the same) biological entity.
         case 110546223: /*topic*/  return new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic);
         case -1895276325: /*contributor*/  return new Property("contributor", "Contributor", "A contributor to the content of the activity definition, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor);
         case 666807069: /*relatedArtifact*/  return new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact);
-        case 166208699: /*library*/  return new Property("library", "Reference(Library)", "A reference to a Library resource containing any formal logic used by the activity definition.", 0, java.lang.Integer.MAX_VALUE, library);
+        case 166208699: /*library*/  return new Property("library", "canonical(Library)", "A reference to a Library resource containing any formal logic used by the activity definition.", 0, java.lang.Integer.MAX_VALUE, library);
         case 3292052: /*kind*/  return new Property("kind", "code", "A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.", 0, 1, kind);
         case 3059181: /*code*/  return new Property("code", "CodeableConcept", "Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.", 0, 1, code);
         case -1788508167: /*doNotPerform*/  return new Property("doNotPerform", "boolean", "Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action.", 0, 1, doNotPerform);
@@ -5353,7 +5334,7 @@ into another (possibly the same) biological entity.
         case -1326018889: /*dosage*/  return new Property("dosage", "Dosage", "Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.", 0, java.lang.Integer.MAX_VALUE, dosage);
         case 1702620169: /*bodySite*/  return new Property("bodySite", "CodeableConcept", "Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).", 0, java.lang.Integer.MAX_VALUE, bodySite);
         case 1498467355: /*specimenRequirement*/  return new Property("specimenRequirement", "Reference(SpecimenDefinition)", "Defines specimen requirements for the action to be performed, such as required specimens for a lab test.", 0, java.lang.Integer.MAX_VALUE, specimenRequirement);
-        case 1052666732: /*transform*/  return new Property("transform", "Reference(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, 1, transform);
+        case 1052666732: /*transform*/  return new Property("transform", "canonical(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, 1, transform);
         case 572625010: /*dynamicValue*/  return new Property("dynamicValue", "", "Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result.", 0, java.lang.Integer.MAX_VALUE, dynamicValue);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
@@ -5387,7 +5368,7 @@ into another (possibly the same) biological entity.
         case 110546223: /*topic*/ return this.topic == null ? new Base[0] : this.topic.toArray(new Base[this.topic.size()]); // CodeableConcept
         case -1895276325: /*contributor*/ return this.contributor == null ? new Base[0] : this.contributor.toArray(new Base[this.contributor.size()]); // Contributor
         case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
-        case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // Reference
+        case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // CanonicalType
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<ActivityDefinitionKind>
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1788508167: /*doNotPerform*/ return this.doNotPerform == null ? new Base[0] : new Base[] {this.doNotPerform}; // BooleanType
@@ -5399,7 +5380,7 @@ into another (possibly the same) biological entity.
         case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : this.dosage.toArray(new Base[this.dosage.size()]); // Dosage
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case 1498467355: /*specimenRequirement*/ return this.specimenRequirement == null ? new Base[0] : this.specimenRequirement.toArray(new Base[this.specimenRequirement.size()]); // Reference
-        case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Reference
+        case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // CanonicalType
         case 572625010: /*dynamicValue*/ return this.dynamicValue == null ? new Base[0] : this.dynamicValue.toArray(new Base[this.dynamicValue.size()]); // ActivityDefinitionDynamicValueComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -5483,7 +5464,7 @@ into another (possibly the same) biological entity.
           this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
           return value;
         case 166208699: // library
-          this.getLibrary().add(castToReference(value)); // Reference
+          this.getLibrary().add(castToCanonical(value)); // CanonicalType
           return value;
         case 3292052: // kind
           value = new ActivityDefinitionKindEnumFactory().fromType(castToCode(value));
@@ -5520,7 +5501,7 @@ into another (possibly the same) biological entity.
           this.getSpecimenRequirement().add(castToReference(value)); // Reference
           return value;
         case 1052666732: // transform
-          this.transform = castToReference(value); // Reference
+          this.transform = castToCanonical(value); // CanonicalType
           return value;
         case 572625010: // dynamicValue
           this.getDynamicValue().add((ActivityDefinitionDynamicValueComponent) value); // ActivityDefinitionDynamicValueComponent
@@ -5582,7 +5563,7 @@ into another (possibly the same) biological entity.
         } else if (name.equals("relatedArtifact")) {
           this.getRelatedArtifact().add(castToRelatedArtifact(value));
         } else if (name.equals("library")) {
-          this.getLibrary().add(castToReference(value));
+          this.getLibrary().add(castToCanonical(value));
         } else if (name.equals("kind")) {
           value = new ActivityDefinitionKindEnumFactory().fromType(castToCode(value));
           this.kind = (Enumeration) value; // Enumeration<ActivityDefinitionKind>
@@ -5607,7 +5588,7 @@ into another (possibly the same) biological entity.
         } else if (name.equals("specimenRequirement")) {
           this.getSpecimenRequirement().add(castToReference(value));
         } else if (name.equals("transform")) {
-          this.transform = castToReference(value); // Reference
+          this.transform = castToCanonical(value); // CanonicalType
         } else if (name.equals("dynamicValue")) {
           this.getDynamicValue().add((ActivityDefinitionDynamicValueComponent) value);
         } else
@@ -5643,7 +5624,7 @@ into another (possibly the same) biological entity.
         case 110546223:  return addTopic(); 
         case -1895276325:  return addContributor(); 
         case 666807069:  return addRelatedArtifact(); 
-        case 166208699:  return addLibrary(); 
+        case 166208699:  return addLibraryElement();
         case 3292052:  return getKindElement();
         case 3059181:  return getCode(); 
         case -1788508167:  return getDoNotPerformElement();
@@ -5657,7 +5638,7 @@ into another (possibly the same) biological entity.
         case -1326018889:  return addDosage(); 
         case 1702620169:  return addBodySite(); 
         case 1498467355:  return addSpecimenRequirement(); 
-        case 1052666732:  return getTransform(); 
+        case 1052666732:  return getTransformElement();
         case 572625010:  return addDynamicValue(); 
         default: return super.makeProperty(hash, name);
         }
@@ -5691,7 +5672,7 @@ into another (possibly the same) biological entity.
         case 110546223: /*topic*/ return new String[] {"CodeableConcept"};
         case -1895276325: /*contributor*/ return new String[] {"Contributor"};
         case 666807069: /*relatedArtifact*/ return new String[] {"RelatedArtifact"};
-        case 166208699: /*library*/ return new String[] {"Reference"};
+        case 166208699: /*library*/ return new String[] {"canonical"};
         case 3292052: /*kind*/ return new String[] {"code"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1788508167: /*doNotPerform*/ return new String[] {"boolean"};
@@ -5703,7 +5684,7 @@ into another (possibly the same) biological entity.
         case -1326018889: /*dosage*/ return new String[] {"Dosage"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case 1498467355: /*specimenRequirement*/ return new String[] {"Reference"};
-        case 1052666732: /*transform*/ return new String[] {"Reference"};
+        case 1052666732: /*transform*/ return new String[] {"canonical"};
         case 572625010: /*dynamicValue*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -5791,7 +5772,7 @@ into another (possibly the same) biological entity.
           return addRelatedArtifact();
         }
         else if (name.equals("library")) {
-          return addLibrary();
+          throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.library");
         }
         else if (name.equals("kind")) {
           throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.kind");
@@ -5856,8 +5837,7 @@ into another (possibly the same) biological entity.
           return addSpecimenRequirement();
         }
         else if (name.equals("transform")) {
-          this.transform = new Reference();
-          return this.transform;
+          throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.transform");
         }
         else if (name.equals("dynamicValue")) {
           return addDynamicValue();
@@ -5927,8 +5907,8 @@ into another (possibly the same) biological entity.
             dst.relatedArtifact.add(i.copy());
         };
         if (library != null) {
-          dst.library = new ArrayList<Reference>();
-          for (Reference i : library)
+          dst.library = new ArrayList<CanonicalType>();
+          for (CanonicalType i : library)
             dst.library.add(i.copy());
         };
         dst.kind = kind == null ? null : kind.copy();
@@ -6309,7 +6289,7 @@ into another (possibly the same) biological entity.
    * Path: <b>ActivityDefinition.relatedArtifact.resource, ActivityDefinition.library</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="depends-on", path="ActivityDefinition.relatedArtifact.where(type='depends-on').resource | ActivityDefinition.library", description="What resource is being referenced", type="reference" )
+  @SearchParamDefinition(name="depends-on", path="ActivityDefinition.relatedArtifact.where(type='depends-on').resource | ActivityDefinition.library", description="What resource is being referenced", type="reference", target={Library.class } )
   public static final String SP_DEPENDS_ON = "depends-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>

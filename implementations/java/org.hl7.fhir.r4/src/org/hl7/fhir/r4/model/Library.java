@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 18:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -695,7 +695,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return {@link #publisher} (The the individual or organization that published the Library.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the individual or organization that published the library.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
       if (this.publisher == null)
@@ -715,7 +715,7 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @param value {@link #publisher} (The the individual or organization that published the Library.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the individual or organization that published the library.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public Library setPublisherElement(StringType value) { 
       this.publisher = value;
@@ -723,14 +723,14 @@ public class Library extends MetadataResource {
     }
 
     /**
-     * @return The the individual or organization that published the Library.
+     * @return The name of the individual or organization that published the library.
      */
     public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value The the individual or organization that published the Library.
+     * @param value The name of the individual or organization that published the library.
      */
     public Library setPublisher(String value) { 
       if (Utilities.noString(value))
@@ -1551,7 +1551,7 @@ public class Library extends MetadataResource {
         children.add(new Property("type", "CodeableConcept", "Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition.", 0, 1, type));
         children.add(new Property("subject[x]", "CodeableConcept|Reference(Group)", "A code or group definition that describes the intended subject of the contents of the library.", 0, 1, subject));
         children.add(new Property("date", "dateTime", "The date  (and optionally time) when the library was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.", 0, 1, date));
-        children.add(new Property("publisher", "string", "The the individual or organization that published the Library.", 0, 1, publisher));
+        children.add(new Property("publisher", "string", "The name of the individual or organization that published the library.", 0, 1, publisher));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         children.add(new Property("description", "markdown", "A free text natural language description of the library from a consumer's perspective.", 0, 1, description));
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate library instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
@@ -1587,7 +1587,7 @@ public class Library extends MetadataResource {
         case -1257122603: /*subjectCodeableConcept*/  return new Property("subject[x]", "CodeableConcept|Reference(Group)", "A code or group definition that describes the intended subject of the contents of the library.", 0, 1, subject);
         case 772938623: /*subjectReference*/  return new Property("subject[x]", "CodeableConcept|Reference(Group)", "A code or group definition that describes the intended subject of the contents of the library.", 0, 1, subject);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the library was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the library changes.", 0, 1, date);
-        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The the individual or organization that published the Library.", 0, 1, publisher);
+        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the library.", 0, 1, publisher);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
         case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the library from a consumer's perspective.", 0, 1, description);
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate library instances.", 0, java.lang.Integer.MAX_VALUE, useContext);

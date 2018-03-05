@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 18:26+1100 for FHIR v3.2.0
+// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -2023,26 +2023,16 @@ public class PlanDefinition extends MetadataResource {
         /**
          * A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.
          */
-        @Child(name = "definition", type = {ActivityDefinition.class, PlanDefinition.class, Questionnaire.class}, order=22, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "definition", type = {CanonicalType.class}, order=22, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Description of the activity to be performed", formalDefinition="A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken." )
-        protected Reference definition;
-
-        /**
-         * The actual object that is the target of the reference (A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.)
-         */
-        protected Resource definitionTarget;
+        protected CanonicalType definition;
 
         /**
          * A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
          */
-        @Child(name = "transform", type = {StructureMap.class}, order=23, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "transform", type = {CanonicalType.class}, order=23, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Transform to apply the template", formalDefinition="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input." )
-        protected Reference transform;
-
-        /**
-         * The actual object that is the target of the reference (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
-         */
-        protected StructureMap transformTarget;
+        protected CanonicalType transform;
 
         /**
          * Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.
@@ -2058,7 +2048,7 @@ public class PlanDefinition extends MetadataResource {
         @Description(shortDefinition="A sub-action", formalDefinition="Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition." )
         protected List<PlanDefinitionActionComponent> action;
 
-        private static final long serialVersionUID = 1019524960L;
+        private static final long serialVersionUID = 427693088L;
 
     /**
      * Constructor
@@ -3182,15 +3172,19 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @return {@link #definition} (A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.)
+         * @return {@link #definition} (A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
-        public Reference getDefinition() { 
+        public CanonicalType getDefinitionElement() { 
           if (this.definition == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionComponent.definition");
             else if (Configuration.doAutoCreate())
-              this.definition = new Reference(); // cc
+              this.definition = new CanonicalType(); // bb
           return this.definition;
+        }
+
+        public boolean hasDefinitionElement() { 
+          return this.definition != null && !this.definition.isEmpty();
         }
 
         public boolean hasDefinition() { 
@@ -3198,38 +3192,48 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @param value {@link #definition} (A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.)
+         * @param value {@link #definition} (A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
          */
-        public PlanDefinitionActionComponent setDefinition(Reference value) { 
+        public PlanDefinitionActionComponent setDefinitionElement(CanonicalType value) { 
           this.definition = value;
           return this;
         }
 
         /**
-         * @return {@link #definition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.)
+         * @return A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.
          */
-        public Resource getDefinitionTarget() { 
-          return this.definitionTarget;
+        public String getDefinition() { 
+          return this.definition == null ? null : this.definition.getValue();
         }
 
         /**
-         * @param value {@link #definition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.)
+         * @param value A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.
          */
-        public PlanDefinitionActionComponent setDefinitionTarget(Resource value) { 
-          this.definitionTarget = value;
+        public PlanDefinitionActionComponent setDefinition(String value) { 
+          if (Utilities.noString(value))
+            this.definition = null;
+          else {
+            if (this.definition == null)
+              this.definition = new CanonicalType();
+            this.definition.setValue(value);
+          }
           return this;
         }
 
         /**
-         * @return {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
+         * @return {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.). This is the underlying object with id, value and extensions. The accessor "getTransform" gives direct access to the value
          */
-        public Reference getTransform() { 
+        public CanonicalType getTransformElement() { 
           if (this.transform == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionComponent.transform");
             else if (Configuration.doAutoCreate())
-              this.transform = new Reference(); // cc
+              this.transform = new CanonicalType(); // bb
           return this.transform;
+        }
+
+        public boolean hasTransformElement() { 
+          return this.transform != null && !this.transform.isEmpty();
         }
 
         public boolean hasTransform() { 
@@ -3237,30 +3241,31 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @param value {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
+         * @param value {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.). This is the underlying object with id, value and extensions. The accessor "getTransform" gives direct access to the value
          */
-        public PlanDefinitionActionComponent setTransform(Reference value) { 
+        public PlanDefinitionActionComponent setTransformElement(CanonicalType value) { 
           this.transform = value;
           return this;
         }
 
         /**
-         * @return {@link #transform} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
+         * @return A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
          */
-        public StructureMap getTransformTarget() { 
-          if (this.transformTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PlanDefinitionActionComponent.transform");
-            else if (Configuration.doAutoCreate())
-              this.transformTarget = new StructureMap(); // aa
-          return this.transformTarget;
+        public String getTransform() { 
+          return this.transform == null ? null : this.transform.getValue();
         }
 
         /**
-         * @param value {@link #transform} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.)
+         * @param value A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
          */
-        public PlanDefinitionActionComponent setTransformTarget(StructureMap value) { 
-          this.transformTarget = value;
+        public PlanDefinitionActionComponent setTransform(String value) { 
+          if (Utilities.noString(value))
+            this.transform = null;
+          else {
+            if (this.transform == null)
+              this.transform = new CanonicalType();
+            this.transform.setValue(value);
+          }
           return this;
         }
 
@@ -3393,8 +3398,8 @@ public class PlanDefinition extends MetadataResource {
           children.add(new Property("requiredBehavior", "code", "Defines the requiredness behavior for the action.", 0, 1, requiredBehavior));
           children.add(new Property("precheckBehavior", "code", "Defines whether the action should usually be preselected.", 0, 1, precheckBehavior));
           children.add(new Property("cardinalityBehavior", "code", "Defines whether the action can be selected multiple times.", 0, 1, cardinalityBehavior));
-          children.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition|Questionnaire)", "A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.", 0, 1, definition));
-          children.add(new Property("transform", "Reference(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, 1, transform));
+          children.add(new Property("definition", "canonical(ActivityDefinition|PlanDefinition|Questionnaire)", "A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.", 0, 1, definition));
+          children.add(new Property("transform", "canonical(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, 1, transform));
           children.add(new Property("dynamicValue", "", "Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.", 0, java.lang.Integer.MAX_VALUE, dynamicValue));
           children.add(new Property("action", "@PlanDefinition.action", "Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.", 0, java.lang.Integer.MAX_VALUE, action));
         }
@@ -3430,8 +3435,8 @@ public class PlanDefinition extends MetadataResource {
           case -1163906287: /*requiredBehavior*/  return new Property("requiredBehavior", "code", "Defines the requiredness behavior for the action.", 0, 1, requiredBehavior);
           case -1174249033: /*precheckBehavior*/  return new Property("precheckBehavior", "code", "Defines whether the action should usually be preselected.", 0, 1, precheckBehavior);
           case -922577408: /*cardinalityBehavior*/  return new Property("cardinalityBehavior", "code", "Defines whether the action can be selected multiple times.", 0, 1, cardinalityBehavior);
-          case -1014418093: /*definition*/  return new Property("definition", "Reference(ActivityDefinition|PlanDefinition|Questionnaire)", "A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.", 0, 1, definition);
-          case 1052666732: /*transform*/  return new Property("transform", "Reference(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, 1, transform);
+          case -1014418093: /*definition*/  return new Property("definition", "canonical(ActivityDefinition|PlanDefinition|Questionnaire)", "A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken.", 0, 1, definition);
+          case 1052666732: /*transform*/  return new Property("transform", "canonical(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, 1, transform);
           case 572625010: /*dynamicValue*/  return new Property("dynamicValue", "", "Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.", 0, java.lang.Integer.MAX_VALUE, dynamicValue);
           case -1422950858: /*action*/  return new Property("action", "@PlanDefinition.action", "Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.", 0, java.lang.Integer.MAX_VALUE, action);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -3463,8 +3468,8 @@ public class PlanDefinition extends MetadataResource {
         case -1163906287: /*requiredBehavior*/ return this.requiredBehavior == null ? new Base[0] : new Base[] {this.requiredBehavior}; // Enumeration<ActionRequiredBehavior>
         case -1174249033: /*precheckBehavior*/ return this.precheckBehavior == null ? new Base[0] : new Base[] {this.precheckBehavior}; // Enumeration<ActionPrecheckBehavior>
         case -922577408: /*cardinalityBehavior*/ return this.cardinalityBehavior == null ? new Base[0] : new Base[] {this.cardinalityBehavior}; // Enumeration<ActionCardinalityBehavior>
-        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // Reference
-        case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Reference
+        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : new Base[] {this.definition}; // CanonicalType
+        case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // CanonicalType
         case 572625010: /*dynamicValue*/ return this.dynamicValue == null ? new Base[0] : this.dynamicValue.toArray(new Base[this.dynamicValue.size()]); // PlanDefinitionActionDynamicValueComponent
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // PlanDefinitionActionComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -3544,10 +3549,10 @@ public class PlanDefinition extends MetadataResource {
           this.cardinalityBehavior = (Enumeration) value; // Enumeration<ActionCardinalityBehavior>
           return value;
         case -1014418093: // definition
-          this.definition = castToReference(value); // Reference
+          this.definition = castToCanonical(value); // CanonicalType
           return value;
         case 1052666732: // transform
-          this.transform = castToReference(value); // Reference
+          this.transform = castToCanonical(value); // CanonicalType
           return value;
         case 572625010: // dynamicValue
           this.getDynamicValue().add((PlanDefinitionActionDynamicValueComponent) value); // PlanDefinitionActionDynamicValueComponent
@@ -3610,9 +3615,9 @@ public class PlanDefinition extends MetadataResource {
           value = new ActionCardinalityBehaviorEnumFactory().fromType(castToCode(value));
           this.cardinalityBehavior = (Enumeration) value; // Enumeration<ActionCardinalityBehavior>
         } else if (name.equals("definition")) {
-          this.definition = castToReference(value); // Reference
+          this.definition = castToCanonical(value); // CanonicalType
         } else if (name.equals("transform")) {
-          this.transform = castToReference(value); // Reference
+          this.transform = castToCanonical(value); // CanonicalType
         } else if (name.equals("dynamicValue")) {
           this.getDynamicValue().add((PlanDefinitionActionDynamicValueComponent) value);
         } else if (name.equals("action")) {
@@ -3647,8 +3652,8 @@ public class PlanDefinition extends MetadataResource {
         case -1163906287:  return getRequiredBehaviorElement();
         case -1174249033:  return getPrecheckBehaviorElement();
         case -922577408:  return getCardinalityBehaviorElement();
-        case -1014418093:  return getDefinition(); 
-        case 1052666732:  return getTransform(); 
+        case -1014418093:  return getDefinitionElement();
+        case 1052666732:  return getTransformElement();
         case 572625010:  return addDynamicValue(); 
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
@@ -3680,8 +3685,8 @@ public class PlanDefinition extends MetadataResource {
         case -1163906287: /*requiredBehavior*/ return new String[] {"code"};
         case -1174249033: /*precheckBehavior*/ return new String[] {"code"};
         case -922577408: /*cardinalityBehavior*/ return new String[] {"code"};
-        case -1014418093: /*definition*/ return new String[] {"Reference"};
-        case 1052666732: /*transform*/ return new String[] {"Reference"};
+        case -1014418093: /*definition*/ return new String[] {"canonical"};
+        case 1052666732: /*transform*/ return new String[] {"canonical"};
         case 572625010: /*dynamicValue*/ return new String[] {};
         case -1422950858: /*action*/ return new String[] {"@PlanDefinition.action"};
         default: return super.getTypesForProperty(hash, name);
@@ -3777,12 +3782,10 @@ public class PlanDefinition extends MetadataResource {
           throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.cardinalityBehavior");
         }
         else if (name.equals("definition")) {
-          this.definition = new Reference();
-          return this.definition;
+          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.definition");
         }
         else if (name.equals("transform")) {
-          this.transform = new Reference();
-          return this.transform;
+          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.transform");
         }
         else if (name.equals("dynamicValue")) {
           return addDynamicValue();
@@ -5362,14 +5365,9 @@ public class PlanDefinition extends MetadataResource {
     /**
      * A reference to a Library resource containing any formal logic used by the plan definition.
      */
-    @Child(name = "library", type = {Library.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "library", type = {CanonicalType.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Logic used by the plan definition", formalDefinition="A reference to a Library resource containing any formal logic used by the plan definition." )
-    protected List<Reference> library;
-    /**
-     * The actual objects that are the target of the reference (A reference to a Library resource containing any formal logic used by the plan definition.)
-     */
-    protected List<Library> libraryTarget;
-
+    protected List<CanonicalType> library;
 
     /**
      * Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
@@ -5385,7 +5383,7 @@ public class PlanDefinition extends MetadataResource {
     @Description(shortDefinition="Action defined by the plan", formalDefinition="An action to be taken as part of the plan." )
     protected List<PlanDefinitionActionComponent> action;
 
-    private static final long serialVersionUID = -136572982L;
+    private static final long serialVersionUID = 98193584L;
 
   /**
    * Constructor
@@ -5915,7 +5913,7 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #publisher} (The individual or organization that published the plan definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the individual or organization that published the plan definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
       if (this.publisher == null)
@@ -5935,7 +5933,7 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #publisher} (The individual or organization that published the plan definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the individual or organization that published the plan definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public PlanDefinition setPublisherElement(StringType value) { 
       this.publisher = value;
@@ -5943,14 +5941,14 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @return The individual or organization that published the plan definition.
+     * @return The name of the individual or organization that published the plan definition.
      */
     public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value The individual or organization that published the plan definition.
+     * @param value The name of the individual or organization that published the plan definition.
      */
     public PlanDefinition setPublisher(String value) { 
       if (Utilities.noString(value))
@@ -6602,16 +6600,16 @@ public class PlanDefinition extends MetadataResource {
     /**
      * @return {@link #library} (A reference to a Library resource containing any formal logic used by the plan definition.)
      */
-    public List<Reference> getLibrary() { 
+    public List<CanonicalType> getLibrary() { 
       if (this.library == null)
-        this.library = new ArrayList<Reference>();
+        this.library = new ArrayList<CanonicalType>();
       return this.library;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PlanDefinition setLibrary(List<Reference> theLibrary) { 
+    public PlanDefinition setLibrary(List<CanonicalType> theLibrary) { 
       this.library = theLibrary;
       return this;
     }
@@ -6619,59 +6617,45 @@ public class PlanDefinition extends MetadataResource {
     public boolean hasLibrary() { 
       if (this.library == null)
         return false;
-      for (Reference item : this.library)
+      for (CanonicalType item : this.library)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addLibrary() { //3
-      Reference t = new Reference();
+    /**
+     * @return {@link #library} (A reference to a Library resource containing any formal logic used by the plan definition.)
+     */
+    public CanonicalType addLibraryElement() {//2 
+      CanonicalType t = new CanonicalType();
       if (this.library == null)
-        this.library = new ArrayList<Reference>();
+        this.library = new ArrayList<CanonicalType>();
       this.library.add(t);
       return t;
     }
 
-    public PlanDefinition addLibrary(Reference t) { //3
-      if (t == null)
-        return this;
+    /**
+     * @param value {@link #library} (A reference to a Library resource containing any formal logic used by the plan definition.)
+     */
+    public PlanDefinition addLibrary(String value) { //1
+      CanonicalType t = new CanonicalType();
+      t.setValue(value);
       if (this.library == null)
-        this.library = new ArrayList<Reference>();
+        this.library = new ArrayList<CanonicalType>();
       this.library.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #library}, creating it if it does not already exist
+     * @param value {@link #library} (A reference to a Library resource containing any formal logic used by the plan definition.)
      */
-    public Reference getLibraryFirstRep() { 
-      if (getLibrary().isEmpty()) {
-        addLibrary();
-      }
-      return getLibrary().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Library> getLibraryTarget() { 
-      if (this.libraryTarget == null)
-        this.libraryTarget = new ArrayList<Library>();
-      return this.libraryTarget;
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public Library addLibraryTarget() { 
-      Library r = new Library();
-      if (this.libraryTarget == null)
-        this.libraryTarget = new ArrayList<Library>();
-      this.libraryTarget.add(r);
-      return r;
+    public boolean hasLibrary(String value) { 
+      if (this.library == null)
+        return false;
+      for (CanonicalType v : this.library)
+        if (v.getValue().equals(value)) // canonical(Library)
+          return true;
+      return false;
     }
 
     /**
@@ -6793,7 +6777,7 @@ public class PlanDefinition extends MetadataResource {
         children.add(new Property("experimental", "boolean", "A boolean value to indicate that this plan definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental));
         children.add(new Property("subject[x]", "CodeableConcept|Reference(Group)", "A code or group definition that describes the intended subject of the plan definition.", 0, 1, subject));
         children.add(new Property("date", "dateTime", "The date  (and optionally time) when the plan definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes.", 0, 1, date));
-        children.add(new Property("publisher", "string", "The individual or organization that published the plan definition.", 0, 1, publisher));
+        children.add(new Property("publisher", "string", "The name of the individual or organization that published the plan definition.", 0, 1, publisher));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         children.add(new Property("description", "markdown", "A free text natural language description of the plan definition from a consumer's perspective.", 0, 1, description));
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate plan definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
@@ -6807,7 +6791,7 @@ public class PlanDefinition extends MetadataResource {
         children.add(new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic));
         children.add(new Property("contributor", "Contributor", "A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
         children.add(new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
-        children.add(new Property("library", "Reference(Library)", "A reference to a Library resource containing any formal logic used by the plan definition.", 0, java.lang.Integer.MAX_VALUE, library));
+        children.add(new Property("library", "canonical(Library)", "A reference to a Library resource containing any formal logic used by the plan definition.", 0, java.lang.Integer.MAX_VALUE, library));
         children.add(new Property("goal", "", "Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.", 0, java.lang.Integer.MAX_VALUE, goal));
         children.add(new Property("action", "", "An action to be taken as part of the plan.", 0, java.lang.Integer.MAX_VALUE, action));
       }
@@ -6829,7 +6813,7 @@ public class PlanDefinition extends MetadataResource {
         case -1257122603: /*subjectCodeableConcept*/  return new Property("subject[x]", "CodeableConcept|Reference(Group)", "A code or group definition that describes the intended subject of the plan definition.", 0, 1, subject);
         case 772938623: /*subjectReference*/  return new Property("subject[x]", "CodeableConcept|Reference(Group)", "A code or group definition that describes the intended subject of the plan definition.", 0, 1, subject);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the plan definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the plan definition changes.", 0, 1, date);
-        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The individual or organization that published the plan definition.", 0, 1, publisher);
+        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the plan definition.", 0, 1, publisher);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
         case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the plan definition from a consumer's perspective.", 0, 1, description);
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate plan definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
@@ -6843,7 +6827,7 @@ public class PlanDefinition extends MetadataResource {
         case 110546223: /*topic*/  return new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic);
         case -1895276325: /*contributor*/  return new Property("contributor", "Contributor", "A contributor to the content of the plan definition, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor);
         case 666807069: /*relatedArtifact*/  return new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact);
-        case 166208699: /*library*/  return new Property("library", "Reference(Library)", "A reference to a Library resource containing any formal logic used by the plan definition.", 0, java.lang.Integer.MAX_VALUE, library);
+        case 166208699: /*library*/  return new Property("library", "canonical(Library)", "A reference to a Library resource containing any formal logic used by the plan definition.", 0, java.lang.Integer.MAX_VALUE, library);
         case 3178259: /*goal*/  return new Property("goal", "", "Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.", 0, java.lang.Integer.MAX_VALUE, goal);
         case -1422950858: /*action*/  return new Property("action", "", "An action to be taken as part of the plan.", 0, java.lang.Integer.MAX_VALUE, action);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
@@ -6879,7 +6863,7 @@ public class PlanDefinition extends MetadataResource {
         case 110546223: /*topic*/ return this.topic == null ? new Base[0] : this.topic.toArray(new Base[this.topic.size()]); // CodeableConcept
         case -1895276325: /*contributor*/ return this.contributor == null ? new Base[0] : this.contributor.toArray(new Base[this.contributor.size()]); // Contributor
         case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
-        case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // Reference
+        case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // CanonicalType
         case 3178259: /*goal*/ return this.goal == null ? new Base[0] : this.goal.toArray(new Base[this.goal.size()]); // PlanDefinitionGoalComponent
         case -1422950858: /*action*/ return this.action == null ? new Base[0] : this.action.toArray(new Base[this.action.size()]); // PlanDefinitionActionComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -6967,7 +6951,7 @@ public class PlanDefinition extends MetadataResource {
           this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
           return value;
         case 166208699: // library
-          this.getLibrary().add(castToReference(value)); // Reference
+          this.getLibrary().add(castToCanonical(value)); // CanonicalType
           return value;
         case 3178259: // goal
           this.getGoal().add((PlanDefinitionGoalComponent) value); // PlanDefinitionGoalComponent
@@ -7034,7 +7018,7 @@ public class PlanDefinition extends MetadataResource {
         } else if (name.equals("relatedArtifact")) {
           this.getRelatedArtifact().add(castToRelatedArtifact(value));
         } else if (name.equals("library")) {
-          this.getLibrary().add(castToReference(value));
+          this.getLibrary().add(castToCanonical(value));
         } else if (name.equals("goal")) {
           this.getGoal().add((PlanDefinitionGoalComponent) value);
         } else if (name.equals("action")) {
@@ -7073,7 +7057,7 @@ public class PlanDefinition extends MetadataResource {
         case 110546223:  return addTopic(); 
         case -1895276325:  return addContributor(); 
         case 666807069:  return addRelatedArtifact(); 
-        case 166208699:  return addLibrary(); 
+        case 166208699:  return addLibraryElement();
         case 3178259:  return addGoal(); 
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
@@ -7109,7 +7093,7 @@ public class PlanDefinition extends MetadataResource {
         case 110546223: /*topic*/ return new String[] {"CodeableConcept"};
         case -1895276325: /*contributor*/ return new String[] {"Contributor"};
         case 666807069: /*relatedArtifact*/ return new String[] {"RelatedArtifact"};
-        case 166208699: /*library*/ return new String[] {"Reference"};
+        case 166208699: /*library*/ return new String[] {"canonical"};
         case 3178259: /*goal*/ return new String[] {};
         case -1422950858: /*action*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
@@ -7202,7 +7186,7 @@ public class PlanDefinition extends MetadataResource {
           return addRelatedArtifact();
         }
         else if (name.equals("library")) {
-          return addLibrary();
+          throw new FHIRException("Cannot call addChild on a primitive type PlanDefinition.library");
         }
         else if (name.equals("goal")) {
           return addGoal();
@@ -7276,8 +7260,8 @@ public class PlanDefinition extends MetadataResource {
             dst.relatedArtifact.add(i.copy());
         };
         if (library != null) {
-          dst.library = new ArrayList<Reference>();
-          for (Reference i : library)
+          dst.library = new ArrayList<CanonicalType>();
+          for (CanonicalType i : library)
             dst.library.add(i.copy());
         };
         if (goal != null) {
@@ -7628,7 +7612,7 @@ public class PlanDefinition extends MetadataResource {
    * Path: <b>PlanDefinition.relatedArtifact.resource, PlanDefinition.library</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="depends-on", path="PlanDefinition.relatedArtifact.where(type='depends-on').resource | PlanDefinition.library", description="What resource is being referenced", type="reference" )
+  @SearchParamDefinition(name="depends-on", path="PlanDefinition.relatedArtifact.where(type='depends-on').resource | PlanDefinition.library", description="What resource is being referenced", type="reference", target={Library.class } )
   public static final String SP_DEPENDS_ON = "depends-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>depends-on</b>
