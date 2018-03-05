@@ -81,6 +81,8 @@ public class TableGenerator extends BaseGenerator {
           row.getCells().add(gen.new Cell(null, prefix+"backboneelement.html", "BackboneElement", null, null));
         else if (e.getName().equals("Element"))
           row.getCells().add(gen.new Cell(null, null, "n/a", null, null)); 
+        else if (e.typeCode().equals("BackboneElement"))
+          row.getCells().add(gen.new Cell(null, prefix+"backboneelement.html", "BackBoneElement", null, null));   
         else
           row.getCells().add(gen.new Cell(null, prefix+"element.html", "Element", null, null));   
       } else if (e.getTypes().size() == 1) {

@@ -223,6 +223,11 @@ public class TypeRef {
   public void setVersioning(ReferenceVersionRules versioning) {
     this.versioning = versioning;
   }
+
+  @Override
+  public String toString() {
+    return summary();
+  }
   
   
 }

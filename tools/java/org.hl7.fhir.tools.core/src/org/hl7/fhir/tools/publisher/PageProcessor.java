@@ -445,7 +445,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 		  throw new Exception("unable to find definition for "+ dt);
 	  }
 	  else {
-		  gen.generate(e, e.getName().equals("Element") || e.getName().equals("BackboneElement"));
+		  gen.generate(e, e.getName().equals("Element") || e.getName().equals("BackboneElement"), false);
 		  gen.close();
 	  }
 	  String val = TextFile.fileToString(tmp.getAbsolutePath())+"\r\n";

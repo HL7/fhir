@@ -3940,7 +3940,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String n = resource.getName().toLowerCase();
     ByteArrayOutputStream bs = new ByteArrayOutputStream();
     XmlSpecGenerator gen = new XmlSpecGenerator(bs, n + "-definitions.html", null, page, "");
-    gen.generate(resource.getRoot(), isAbstract);
+    gen.generate(resource.getRoot(), isAbstract, true);
     gen.close();
     String xml = new String(bs.toByteArray());
 

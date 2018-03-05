@@ -199,7 +199,10 @@ public class JsonSpecGenerator extends OutputStreamWriter {
           write("  // from <a href=\""+prefix+"domainresource.html\">DomainResource</a>: <a href=\""+prefix+"narrative.html#Narrative\">text</a>, <a href=\""+prefix+"references.html#contained\">contained</a>, <a href=\""+prefix+"extensibility.html\">extension</a>, and <a href=\""+prefix+"extensibility.html#modifierExtension\">modifierExtension</a>\r\n");
       }
     } else if (!resource) {
-      write("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
+      if (root.typeCode().equals("BackboneElement"))
+        write("  // from BackboneElement: <a href=\""+prefix+"extensibility.html\">extension</a>, <a href=\""+prefix+"extensibility.html\">modifierExtension</a>\r\n");
+      else
+        write("  // from Element: <a href=\""+prefix+"extensibility.html\">extension</a>\r\n");
     }
 //    if (root.getName().equals("Extension")) {
 //      ElementDefn urld = root.getElements().get(0);

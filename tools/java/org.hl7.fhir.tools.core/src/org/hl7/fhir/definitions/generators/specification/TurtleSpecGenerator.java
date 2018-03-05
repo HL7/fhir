@@ -109,7 +109,10 @@ public class TurtleSpecGenerator extends OutputStreamWriter {
           write("  # from <a href=\""+prefix+"domainresource.html\">DomainResource</a>: <a href=\""+prefix+"narrative.html#Narrative\">.text</a>, <a href=\""+prefix+"references.html#contained\">.contained</a>, <a href=\""+prefix+"extensibility.html\">.extension</a>, and <a href=\""+prefix+"extensibility.html#modifierExtension\">.modifierExtension</a>\r\n");
       }
     } else {
-      write(" # from Element: <a href=\""+prefix+"extensibility.html\">Element.extension</a>\r\n");
+      if (root.typeCode().equals("BackboneElement"))
+        write(" # from BackboneElement: <a href=\""+prefix+"extensibility.html\">Element.extension</a>, <a href=\""+prefix+"extensibility.html\">BackboneElement.modifierextension</a>\r\n");
+      else
+        write(" # from Element: <a href=\""+prefix+"extensibility.html\">Element.extension</a>\r\n");
     }
 		for (ElementDefn elem : root.getElements()) {
 		  generateCoreElem(elem, 1, root.getName(), rn.equals(root.getName()) && resource);

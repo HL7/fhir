@@ -90,10 +90,10 @@ public class XmlSpecGenerator extends OutputStreamWriter {
       return "terminologies.html#unbound";
   }
 
-	public void generate(ElementDefn root, boolean isAbstract) throws Exception {
+	public void generate(ElementDefn root, boolean isAbstract, boolean isResource) throws Exception {
 		write("<pre class=\"spec\">\r\n");
 
-		generateInner(root, true, isAbstract);
+		generateInner(root, isResource, isAbstract);
 
 		write("</pre>\r\n");
 		flush();
@@ -206,6 +206,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
         if (root.typeCode().equals("DomainResource"))
           write(" &lt;!-- from <a href=\""+prefix+"domainresource.html\">DomainResource</a>: <a href=\""+prefix+"narrative.html#Narrative\">text</a>, <a href=\""+prefix+"references.html#contained\">contained</a>, <a href=\""+prefix+"extensibility.html\">extension</a>, and <a href=\""+prefix+"extensibility.html#modifierExtension\">modifierExtension</a> -->\r\n");
       }
+    } else if (root.typeCode().equals("BackboneElement")) {
+      write(" &lt;!-- from BackboneElement: <a href=\""+prefix+"extensibility.html\">extension</a>, <a href=\""+prefix+"extensibility.html\">modifierExtension</a> -->\r\n");
     } else {
       write(" &lt;!-- from Element: <a href=\""+prefix+"extensibility.html\">extension</a> -->\r\n");
     }

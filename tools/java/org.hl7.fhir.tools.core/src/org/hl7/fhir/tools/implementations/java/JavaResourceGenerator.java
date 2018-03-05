@@ -157,6 +157,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("import ca.uhn.fhir.model.api.annotation.Block;\r\n");
     write("import org.hl7.fhir.instance.model.api.*;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
+    write("import org.hl7.fhir.exceptions.FHIRFormatError;\r\n");
     
     classname = upFirst(name);
     if (adornments.containsKey(classname+".imports")) {
@@ -2251,7 +2252,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
             jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
             String ttn = getTypename(t);
             write(indent+"public "+ttn+" get"+getTitle(getElementName(e.getName(), false))+ttn+"() throws FHIRException { \r\n");
-            write(indent+"  if (this."+getElementName(e.getName(), true)+" == null))\r\n");
+            write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
             write(indent+"    return null;\r\n");
             write(indent+"  if (!(this."+getElementName(e.getName(), true)+" instanceof "+ttn+"))\r\n");
             write(indent+"    throw new FHIRException(\"Type mismatch: the type "+ttn+" was expected, but \"+this."+getElementName(e.getName(), true)+".getClass().getName()+\" was encountered\");\r\n");
@@ -2269,7 +2270,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"}\r\n");
         write("\r\n");
         jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
-        write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+tn+" value) { \r\n");
+        write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+tn+" value) "+((e.getTypes().size() > 1 && (tn.equals("Type") || !tn.endsWith(".Type"))) ? "throws FHIRFormatError " : " ")+"{ \r\n");
         if (e.getTypes().size() > 1 && (tn.equals("Type") || !tn.endsWith(".Type"))) {
           write(indent+"  if (value != null && !(");
           boolean first = true;

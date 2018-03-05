@@ -632,13 +632,14 @@ public class SvgGenerator extends BaseGenerator {
     
     xml.enter("g");
     ClassItem item = classes.get(null);
-    String tn = "Element";
+    boolean be = !definitions.hasPrimitiveType(classNames[0]) && definitions.getElementDefn(classNames[0]).typeCode().equals("BackboneElement");
+    String tn = be ? "BackboneElement" : "Element";
     xml.attribute("x", Double.toString(item.left));
     xml.attribute("y", Double.toString(item.top));
     xml.attribute("rx", "4");
     xml.attribute("ry", "4");
-    xml.attribute("width", Double.toString(item.width));
-    xml.attribute("height", Double.toString(item.height));
+    xml.attribute("width", Double.toString(be ? item.width + 10 : item.width));
+    xml.attribute("height", Double.toString(be ? item.height + LINE_HEIGHT : item.height));
     xml.attribute("filter", "url(#shadow"+id+")");
     xml.attribute("style", "fill:"+StandardsStatus.NORMATIVE.getColorSvg()+";stroke:black;stroke-width:1");
     xml.element("rect", null);    
@@ -657,6 +658,8 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("style", "stroke:dimgrey;stroke-width:1");
       xml.element("line", null);    
       addExtension(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT);
+      if (be)
+        addModifierExtension(xml, item.left, item.top+HEADER_HEIGHT + GAP_HEIGHT*2 + LINE_HEIGHT);
     }
 
     for (String cn : classNames) {
@@ -1098,6 +1101,24 @@ public class SvgGenerator extends BaseGenerator {
     xml.enter("a");
     xml.element("title", "Extensions - as described for all elements: additional information that is not part of the basic definition of the resource / type");
     xml.text("extension");
+    xml.exit("a");
+    xml.text(" : ");
+    xml.attribute("xlink:href", prefix+"extensibility.html");
+    xml.element("a", "Extension");
+    xml.text(" 0..*");
+    xml.exit("text");
+  }
+
+  private void addModifierExtension(XMLWriter xml, double left, double top) throws Exception  {
+    xml.attribute("x", Double.toString(left + LEFT_MARGIN));
+    xml.attribute("y", Double.toString(top+ LINE_HEIGHT));
+    xml.attribute("fill", "black");
+    xml.attribute("class", "diagram-class-detail");
+    xml.enter("text");
+    xml.attribute("xlink:href", prefix+"extensibility.html");
+    xml.enter("a");
+    xml.element("title", "Modifier Extensions - as described for some elements: additional information that is not part of the basic definition of the resource / type that modifies the interpretation of the containing element");
+    xml.text("modifierExtension");
     xml.exit("a");
     xml.text(" : ");
     xml.attribute("xlink:href", prefix+"extensibility.html");
