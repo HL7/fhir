@@ -17,7 +17,6 @@
     </telecom>
   </contact>
   <description value="The set of resources associated with a particular Device (example with Communication and CommunicationRequest resourses only)."/>
-  <purpose value="Provides an example of a FHIR compartment definition based on the Device resource type."/>
   <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
@@ -37,6 +36,7 @@
       <display value="United States of America (the)"/>
     </coding>
   </jurisdiction>
+  <purpose value="Provides an example of a FHIR compartment definition based on the Device resource type."/>
   <code value="Device"/>
   <search value="true"/>
   <resource>

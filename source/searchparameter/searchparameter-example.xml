@@ -5,6 +5,7 @@
 	<url value="http://hl7.org/fhir/SearchParameter/example"/>
 	<version value="1"/>
 	<name value="ID-SEARCH-PARAMETER"/>
+	<derivedFrom value="http://hl7.org/fhir/SearchParameter/Resource-id"/>
 	<status value="draft"/>
 	<experimental value="true"/>
 	<date value="2013-10-23"/>
@@ -42,7 +43,6 @@
 	<code value="_id"/>
 	<base value="Resource"/>
 	<type value="token"/>
-	<derivedFrom value="http://hl7.org/fhir/SearchParameter/Resource-id"/>
 	<expression value="id"/>
 	<xpath value="f:*/f:id"/>
 	<xpathUsage value="normal"/>
