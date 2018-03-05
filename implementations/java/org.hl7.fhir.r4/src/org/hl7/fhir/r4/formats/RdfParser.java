@@ -4227,8 +4227,8 @@ public class RdfParser extends RdfParserBase {
       composeUri(t, "ConceptMap", "property", element.getPropertyElement(), -1);
     if (element.hasSystemElement())
       composeCanonical(t, "ConceptMap", "system", element.getSystemElement(), -1);
-    if (element.hasCodeElement())
-      composeString(t, "ConceptMap", "code", element.getCodeElement(), -1);
+    if (element.hasValueElement())
+      composeString(t, "ConceptMap", "value", element.getValueElement(), -1);
     if (element.hasDisplayElement())
       composeString(t, "ConceptMap", "display", element.getDisplayElement(), -1);
   }

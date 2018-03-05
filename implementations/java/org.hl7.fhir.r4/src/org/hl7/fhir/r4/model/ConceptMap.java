@@ -1566,9 +1566,9 @@ public class ConceptMap extends MetadataResource {
         /**
          * Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.
          */
-        @Child(name = "code", type = {StringType.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Value of the referenced element", formalDefinition="Identity (code or path) or the element/item/ValueSet that the map depends on / refers to." )
-        protected StringType code;
+        @Child(name = "value", type = {StringType.class}, order=3, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Value of the referenced element", formalDefinition="Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to." )
+        protected StringType value;
 
         /**
          * The display for the code. The display is only provided to help editors when editing the concept map.
@@ -1589,10 +1589,10 @@ public class ConceptMap extends MetadataResource {
     /**
      * Constructor
      */
-      public OtherElementComponent(UriType property, StringType code) {
+      public OtherElementComponent(UriType property, StringType value) {
         super();
         this.property = property;
-        this.code = code;
+        this.value = value;
       }
 
         /**
@@ -1690,47 +1690,47 @@ public class ConceptMap extends MetadataResource {
         }
 
         /**
-         * @return {@link #code} (Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @return {@link #value} (Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public StringType getCodeElement() { 
-          if (this.code == null)
+        public StringType getValueElement() { 
+          if (this.value == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OtherElementComponent.code");
+              throw new Error("Attempt to auto-create OtherElementComponent.value");
             else if (Configuration.doAutoCreate())
-              this.code = new StringType(); // bb
-          return this.code;
+              this.value = new StringType(); // bb
+          return this.value;
         }
 
-        public boolean hasCodeElement() { 
-          return this.code != null && !this.code.isEmpty();
+        public boolean hasValueElement() { 
+          return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+        public boolean hasValue() { 
+          return this.value != null && !this.value.isEmpty();
         }
 
         /**
-         * @param value {@link #code} (Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
+         * @param value {@link #value} (Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public OtherElementComponent setCodeElement(StringType value) { 
-          this.code = value;
+        public OtherElementComponent setValueElement(StringType value) { 
+          this.value = value;
           return this;
         }
 
         /**
-         * @return Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.
+         * @return Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.
          */
-        public String getCode() { 
-          return this.code == null ? null : this.code.getValue();
+        public String getValue() { 
+          return this.value == null ? null : this.value.getValue();
         }
 
         /**
-         * @param value Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.
+         * @param value Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.
          */
-        public OtherElementComponent setCode(String value) { 
-            if (this.code == null)
-              this.code = new StringType();
-            this.code.setValue(value);
+        public OtherElementComponent setValue(String value) { 
+            if (this.value == null)
+              this.value = new StringType();
+            this.value.setValue(value);
           return this;
         }
 
@@ -1787,7 +1787,7 @@ public class ConceptMap extends MetadataResource {
           super.listChildren(children);
           children.add(new Property("property", "uri", "A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labeled to correspond with a code system property.", 0, 1, property));
           children.add(new Property("system", "canonical(CodeSystem)", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).", 0, 1, system));
-          children.add(new Property("code", "string", "Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.", 0, 1, code));
+          children.add(new Property("value", "string", "Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.", 0, 1, value));
           children.add(new Property("display", "string", "The display for the code. The display is only provided to help editors when editing the concept map.", 0, 1, display));
         }
 
@@ -1796,7 +1796,7 @@ public class ConceptMap extends MetadataResource {
           switch (_hash) {
           case -993141291: /*property*/  return new Property("property", "uri", "A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labeled to correspond with a code system property.", 0, 1, property);
           case -887328209: /*system*/  return new Property("system", "canonical(CodeSystem)", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).", 0, 1, system);
-          case 3059181: /*code*/  return new Property("code", "string", "Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.", 0, 1, code);
+          case 3059181: /*value*/  return new Property("value", "string", "Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to.", 0, 1, value);
           case 1671764162: /*display*/  return new Property("display", "string", "The display for the code. The display is only provided to help editors when editing the concept map.", 0, 1, display);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -1808,7 +1808,7 @@ public class ConceptMap extends MetadataResource {
         switch (hash) {
         case -993141291: /*property*/ return this.property == null ? new Base[0] : new Base[] {this.property}; // UriType
         case -887328209: /*system*/ return this.system == null ? new Base[0] : new Base[] {this.system}; // CanonicalType
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // StringType
+        case 3059181: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
         case 1671764162: /*display*/ return this.display == null ? new Base[0] : new Base[] {this.display}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1824,8 +1824,8 @@ public class ConceptMap extends MetadataResource {
         case -887328209: // system
           this.system = castToCanonical(value); // CanonicalType
           return value;
-        case 3059181: // code
-          this.code = castToString(value); // StringType
+        case 3059181: // value
+          this.value = castToString(value); // StringType
           return value;
         case 1671764162: // display
           this.display = castToString(value); // StringType
@@ -1841,8 +1841,8 @@ public class ConceptMap extends MetadataResource {
           this.property = castToUri(value); // UriType
         } else if (name.equals("system")) {
           this.system = castToCanonical(value); // CanonicalType
-        } else if (name.equals("code")) {
-          this.code = castToString(value); // StringType
+        } else if (name.equals("value")) {
+          this.value = castToString(value); // StringType
         } else if (name.equals("display")) {
           this.display = castToString(value); // StringType
         } else
@@ -1855,7 +1855,7 @@ public class ConceptMap extends MetadataResource {
         switch (hash) {
         case -993141291:  return getPropertyElement();
         case -887328209:  return getSystemElement();
-        case 3059181:  return getCodeElement();
+        case 3059181:  return getValueElement();
         case 1671764162:  return getDisplayElement();
         default: return super.makeProperty(hash, name);
         }
@@ -1867,7 +1867,7 @@ public class ConceptMap extends MetadataResource {
         switch (hash) {
         case -993141291: /*property*/ return new String[] {"uri"};
         case -887328209: /*system*/ return new String[] {"canonical"};
-        case 3059181: /*code*/ return new String[] {"string"};
+        case 3059181: /*value*/ return new String[] {"string"};
         case 1671764162: /*display*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1882,8 +1882,8 @@ public class ConceptMap extends MetadataResource {
         else if (name.equals("system")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.system");
         }
-        else if (name.equals("code")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.code");
+        else if (name.equals("value")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.value");
         }
         else if (name.equals("display")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.display");
@@ -1897,7 +1897,7 @@ public class ConceptMap extends MetadataResource {
         copyValues(dst);
         dst.property = property == null ? null : property.copy();
         dst.system = system == null ? null : system.copy();
-        dst.code = code == null ? null : code.copy();
+        dst.value = value == null ? null : value.copy();
         dst.display = display == null ? null : display.copy();
         return dst;
       }
@@ -1909,7 +1909,7 @@ public class ConceptMap extends MetadataResource {
         if (!(other_ instanceof OtherElementComponent))
           return false;
         OtherElementComponent o = (OtherElementComponent) other_;
-        return compareDeep(property, o.property, true) && compareDeep(system, o.system, true) && compareDeep(code, o.code, true)
+        return compareDeep(property, o.property, true) && compareDeep(system, o.system, true) && compareDeep(value, o.value, true)
            && compareDeep(display, o.display, true);
       }
 
@@ -1920,12 +1920,12 @@ public class ConceptMap extends MetadataResource {
         if (!(other_ instanceof OtherElementComponent))
           return false;
         OtherElementComponent o = (OtherElementComponent) other_;
-        return compareValues(property, o.property, true) && compareValues(code, o.code, true) && compareValues(display, o.display, true)
+        return compareValues(property, o.property, true) && compareValues(value, o.value, true) && compareValues(display, o.display, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, system, code, display
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, system, value, display
           );
       }
 
@@ -4092,4 +4092,3 @@ public class ConceptMap extends MetadataResource {
 
 
 }
-

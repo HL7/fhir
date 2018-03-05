@@ -2281,7 +2281,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           for (String s : sources.keySet()) {
             if (!s.equals("code")) {
               td = tr.td();
-              td.addText(getCode(ccm.getDependsOn(), s, sources.get(s).size() != 1));
+              td.addText(getValue(ccm.getDependsOn(), s, sources.get(s).size() != 1));
               display = getDisplay(ccm.getDependsOn(), s);
               if (display != null)
                 td.tx(" ("+display+")");
@@ -2303,7 +2303,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           for (String s : targets.keySet()) {
             if (!s.equals("code")) {
               td = tr.td();
-              td.addText(getCode(ccm.getProduct(), s, targets.get(s).size() != 1));
+              td.addText(getValue(ccm.getProduct(), s, targets.get(s).size() != 1));
               display = getDisplay(ccm.getProduct(), s);
               if (display != null)
                 td.tx(" ("+display+")");
@@ -2416,15 +2416,15 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String getDisplay(List<OtherElementComponent> list, String s) {
     for (OtherElementComponent c : list) {
       if (s.equals(c.getProperty()))
-        return getDisplayForConcept(c.getSystem(), c.getCode());
+        return getDisplayForConcept(c.getSystem(), c.getValue());
     }
     return null;
   }
 
-  private String getDisplayForConcept(String system, String code) {
-    if (code == null)
+  private String getDisplayForConcept(String system, String value) {
+    if (value == null || system == null)
       return null;
-    ValidationResult cl = context.validateCode(system, code, null);
+    ValidationResult cl = context.validateCode(system, value, null);
     return cl == null ? null : cl.getDisplay();
   }
 
@@ -2436,13 +2436,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return s;
   }
 
-  private String getCode(List<OtherElementComponent> list, String s, boolean withSystem) {
+  private String getValue(List<OtherElementComponent> list, String s, boolean withSystem) {
     for (OtherElementComponent c : list) {
       if (s.equals(c.getProperty()))
         if (withSystem)
-          return c.getSystem()+" / "+c.getCode();
+          return c.getSystem()+" / "+c.getValue();
         else
-          return c.getCode();
+          return c.getValue();
     }
     return null;
   }

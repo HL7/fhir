@@ -5817,8 +5817,8 @@ public class XmlParser extends XmlParserBase {
         res.setPropertyElement(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("system")) {
         res.setSystemElement(parseCanonical(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
-        res.setCodeElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("value")) {
+        res.setValueElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("display")) {
         res.setDisplayElement(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
@@ -28974,8 +28974,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasSystemElement()) {
         composeCanonical("system", element.getSystemElement());
       }
-      if (element.hasCodeElement()) {
-        composeString("code", element.getCodeElement());
+      if (element.hasValueElement()) {
+        composeString("value", element.getValueElement());
       }
       if (element.hasDisplayElement()) {
         composeString("display", element.getDisplayElement());

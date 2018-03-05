@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<ConceptMap xmlns="http://hl7.org/fhir">
+<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
   <id value="102"/>
   <url value="http://hl7.org/fhir/ConceptMap/102"/>
   <version value="20130725"/>
@@ -42,7 +41,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="47002008"/>
+          <value value="47002008"/>
         </product>
       </target>
     </element>
@@ -61,7 +60,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="7970006"/>
+          <value value="7970006"/>
         </product>
       </target>
     </element>
@@ -73,7 +72,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="81723002"/>
+          <value value="81723002"/>
         </product>
       </target>
     </element>
@@ -108,7 +107,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="14766002"/>
+          <value value="14766002"/>
         </product>
       </target>
     </element>
@@ -148,7 +147,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="32361000"/>
+          <value value="32361000"/>
         </product>
       </target>
     </element>
@@ -167,7 +166,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="339008"/>
+          <value value="339008"/>
         </product>
       </target>
     </element>
@@ -179,7 +178,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="339008"/>
+          <value value="339008"/>
         </product>
       </target>
     </element>
@@ -191,12 +190,12 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="59843005"/>
+          <value value="59843005"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="14766002"/>
+          <value value="14766002"/>
         </product>
       </target>
     </element>
@@ -236,7 +235,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="439336003"/>
+          <value value="439336003"/>
         </product>
       </target>
     </element>
@@ -255,7 +254,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="80657008"/>
+          <value value="80657008"/>
         </product>
       </target>
     </element>
@@ -267,12 +266,12 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="11585000"/>
+          <value value="11585000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="14766002"/>
+          <value value="14766002"/>
         </product>
       </target>
     </element>
@@ -284,7 +283,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="339008"/>
+          <value value="339008"/>
         </product>
       </target>
     </element>
@@ -296,7 +295,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="86273004"/>
+          <value value="86273004"/>
         </product>
       </target>
     </element>
@@ -315,7 +314,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="41570003"/>
+          <value value="41570003"/>
         </product>
       </target>
     </element>
@@ -377,12 +376,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="54535009"/>
+          <value value="54535009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="71252005"/>
+          <value value="71252005"/>
         </product>
       </target>
     </element>
@@ -409,12 +408,12 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="386144009"/>
+          <value value="386144009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="285570007"/>
+          <value value="285570007"/>
         </product>
       </target>
     </element>
@@ -463,7 +462,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="445085009"/>
+          <value value="445085009"/>
         </product>
       </target>
     </element>
@@ -475,7 +474,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="27925004"/>
+          <value value="27925004"/>
         </product>
       </target>
     </element>
@@ -536,7 +535,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="31113003"/>
+          <value value="31113003"/>
         </product>
       </target>
     </element>
@@ -556,7 +555,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
       </target>
     </element>
@@ -569,7 +568,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
       </target>
     </element>
@@ -588,12 +587,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="36213007"/>
+          <value value="36213007"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="32849002"/>
+          <value value="32849002"/>
         </product>
       </target>
     </element>
@@ -675,12 +674,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="14766002"/>
+          <value value="14766002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="321667001"/>
+          <value value="321667001"/>
         </product>
       </target>
     </element>
@@ -700,12 +699,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="14766002"/>
+          <value value="14766002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="321667001"/>
+          <value value="321667001"/>
         </product>
       </target>
     </element>
@@ -752,7 +751,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="303112003"/>
+          <value value="303112003"/>
         </product>
       </target>
     </element>
@@ -764,7 +763,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="83670000"/>
+          <value value="83670000"/>
         </product>
       </target>
     </element>
@@ -820,7 +819,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="272626006"/>
+          <value value="272626006"/>
         </product>
       </target>
     </element>
@@ -832,7 +831,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="41695006"/>
+          <value value="41695006"/>
         </product>
       </target>
     </element>
@@ -845,7 +844,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="59843005"/>
+          <value value="59843005"/>
         </product>
       </target>
     </element>
@@ -864,12 +863,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="14766002"/>
+          <value value="14766002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="69695003"/>
+          <value value="69695003"/>
         </product>
       </target>
     </element>
@@ -881,7 +880,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="66051006"/>
+          <value value="66051006"/>
         </product>
       </target>
     </element>
@@ -893,12 +892,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="235157009"/>
+          <value value="235157009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="69695003"/>
+          <value value="69695003"/>
         </product>
       </target>
     </element>
@@ -911,12 +910,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="69695003"/>
+          <value value="69695003"/>
         </product>
       </target>
     </element>
@@ -949,7 +948,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="45647009"/>
+          <value value="45647009"/>
         </product>
       </target>
     </element>
@@ -976,12 +975,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="79121003"/>
+          <value value="79121003"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="69695003"/>
+          <value value="69695003"/>
         </product>
       </target>
     </element>
@@ -1001,17 +1000,17 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="127490009"/>
+          <value value="127490009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="69695003"/>
+          <value value="69695003"/>
         </product>
       </target>
     </element>
@@ -1030,7 +1029,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="303113008"/>
+          <value value="303113008"/>
         </product>
       </target>
     </element>
@@ -1073,7 +1072,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="445085009"/>
+          <value value="445085009"/>
         </product>
       </target>
     </element>
@@ -1085,7 +1084,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="55434001"/>
+          <value value="55434001"/>
         </product>
       </target>
     </element>
@@ -1127,7 +1126,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="419954003"/>
+          <value value="419954003"/>
         </product>
       </target>
     </element>
@@ -1197,7 +1196,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="255560000"/>
+          <value value="255560000"/>
         </product>
       </target>
     </element>
@@ -1224,12 +1223,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="21306003"/>
+          <value value="21306003"/>
         </product>
       </target>
     </element>
@@ -1249,7 +1248,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
       </target>
     </element>
@@ -1261,7 +1260,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="67889009"/>
+          <value value="67889009"/>
         </product>
       </target>
     </element>
@@ -1273,7 +1272,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="64033007"/>
+          <value value="64033007"/>
         </product>
       </target>
     </element>
@@ -1285,7 +1284,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="397394009"/>
+          <value value="397394009"/>
         </product>
       </target>
     </element>
@@ -1297,12 +1296,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="173830003"/>
+          <value value="173830003"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="69695003"/>
+          <value value="69695003"/>
         </product>
       </target>
     </element>
@@ -1321,12 +1320,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="67889009"/>
+          <value value="67889009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="44567001"/>
+          <value value="44567001"/>
         </product>
       </target>
     </element>
@@ -1375,7 +1374,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="303949008"/>
+          <value value="303949008"/>
         </product>
       </target>
     </element>
@@ -1395,7 +1394,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="4147007"/>
+          <value value="4147007"/>
         </product>
       </target>
     </element>
@@ -1414,7 +1413,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="414781009"/>
+          <value value="414781009"/>
         </product>
       </target>
     </element>
@@ -1434,12 +1433,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="2095001"/>
+          <value value="2095001"/>
         </product>
       </target>
     </element>
@@ -1465,12 +1464,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="6853008"/>
+          <value value="6853008"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="69695003"/>
+          <value value="69695003"/>
         </product>
       </target>
     </element>
@@ -1483,17 +1482,17 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="127492001"/>
+          <value value="127492001"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="69695003"/>
+          <value value="69695003"/>
         </product>
       </target>
     </element>
@@ -1533,7 +1532,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="74262004"/>
+          <value value="74262004"/>
         </product>
       </target>
     </element>
@@ -1580,7 +1579,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="12921003"/>
+          <value value="12921003"/>
         </product>
       </target>
     </element>
@@ -1592,7 +1591,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="18911002"/>
+          <value value="18911002"/>
         </product>
       </target>
     </element>
@@ -1604,7 +1603,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="397158004"/>
+          <value value="397158004"/>
         </product>
       </target>
     </element>
@@ -1658,7 +1657,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="255587001"/>
+          <value value="255587001"/>
         </product>
       </target>
     </element>
@@ -1671,12 +1670,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="13648007"/>
+          <value value="13648007"/>
         </product>
       </target>
     </element>
@@ -1688,7 +1687,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="41329004"/>
+          <value value="41329004"/>
         </product>
       </target>
     </element>
@@ -1700,7 +1699,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="6902008"/>
+          <value value="6902008"/>
         </product>
       </target>
     </element>
@@ -1712,7 +1711,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="6902008"/>
+          <value value="6902008"/>
         </product>
       </target>
     </element>
@@ -1767,7 +1766,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="129300006"/>
+          <value value="129300006"/>
         </product>
       </target>
     </element>
@@ -1786,7 +1785,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="47002008"/>
+          <value value="47002008"/>
         </product>
       </target>
     </element>
@@ -1798,7 +1797,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="47002008"/>
+          <value value="47002008"/>
         </product>
       </target>
     </element>
@@ -1832,12 +1831,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="34402009"/>
+          <value value="34402009"/>
         </product>
       </target>
     </element>
@@ -1849,7 +1848,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="34402009"/>
+          <value value="34402009"/>
         </product>
       </target>
     </element>
@@ -1861,7 +1860,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="64033007"/>
+          <value value="64033007"/>
         </product>
       </target>
     </element>
@@ -1873,7 +1872,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="64033007"/>
+          <value value="64033007"/>
         </product>
       </target>
     </element>
@@ -1907,7 +1906,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="9454009"/>
+          <value value="9454009"/>
         </product>
       </target>
     </element>
@@ -1919,7 +1918,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="20233005"/>
+          <value value="20233005"/>
         </product>
       </target>
     </element>
@@ -1946,12 +1945,12 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="257351008"/>
+          <value value="257351008"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="14766002"/>
+          <value value="14766002"/>
         </product>
       </target>
     </element>
@@ -1963,12 +1962,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="446860008"/>
+          <value value="446860008"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="279107003"/>
+          <value value="279107003"/>
         </product>
       </target>
     </element>
@@ -1994,7 +1993,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="240977001"/>
+          <value value="240977001"/>
         </product>
       </target>
     </element>
@@ -2013,7 +2012,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="4147007"/>
+          <value value="4147007"/>
         </product>
       </target>
     </element>
@@ -2118,7 +2117,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="64033007"/>
+          <value value="64033007"/>
         </product>
       </target>
     </element>
@@ -2130,7 +2129,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="5713008"/>
+          <value value="5713008"/>
         </product>
       </target>
     </element>
@@ -2142,7 +2141,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="4335006"/>
+          <value value="4335006"/>
         </product>
       </target>
     </element>
@@ -2155,7 +2154,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
       </target>
     </element>
@@ -2167,7 +2166,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="58088002"/>
+          <value value="58088002"/>
         </product>
       </target>
     </element>
@@ -2194,12 +2193,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="129112001"/>
+          <value value="129112001"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="44567001"/>
+          <value value="44567001"/>
         </product>
       </target>
     </element>
@@ -2247,7 +2246,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="255588006"/>
+          <value value="255588006"/>
         </product>
       </target>
     </element>
@@ -2259,7 +2258,7 @@
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="279572002"/>
+          <value value="279572002"/>
         </product>
       </target>
     </element>
@@ -2271,7 +2270,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="129112001"/>
+          <value value="129112001"/>
         </product>
       </target>
     </element>
@@ -2325,7 +2324,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="78533007"/>
+          <value value="78533007"/>
         </product>
       </target>
     </element>
@@ -2344,12 +2343,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="225271002"/>
+          <value value="225271002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="431938005"/>
+          <value value="431938005"/>
         </product>
       </target>
     </element>
@@ -2361,12 +2360,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="225109005"/>
+          <value value="225109005"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="25990002"/>
+          <value value="25990002"/>
         </product>
       </target>
     </element>
@@ -2392,12 +2391,12 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="176178006"/>
+          <value value="176178006"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="89837001"/>
+          <value value="89837001"/>
         </product>
       </target>
     </element>
@@ -2502,7 +2501,7 @@
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="122462000"/>
+          <value value="122462000"/>
         </product>
       </target>
     </element>
@@ -2556,17 +2555,17 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="119295008"/>
+          <value value="119295008"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="386144009"/>
+          <value value="386144009"/>
         </product>
         <product>
           <property value="http://snomed.info/id/3006873018"/>
           <system value="http://snomed.info/sct"/>
-          <code value="14766002"/>
+          <value value="14766002"/>
         </product>
       </target>
     </element>
@@ -2578,7 +2577,7 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="119326000"/>
+          <value value="119326000"/>
         </product>
       </target>
     </element>
@@ -2590,12 +2589,12 @@
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
-          <code value="438660002"/>
+          <value value="438660002"/>
         </product>
         <product>
           <property value="http://snomed.info/id/246380002"/>
           <system value="http://snomed.info/sct"/>
-          <code value="257351008"/>
+          <value value="257351008"/>
         </product>
       </target>
     </element>

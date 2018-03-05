@@ -6390,10 +6390,10 @@ public class JsonParser extends JsonParserBase {
       res.setSystemElement(parseCanonical(json.get("system").getAsString()));
     if (json.has("_system"))
       parseElementProperties(json.getAsJsonObject("_system"), res.getSystemElement());
-    if (json.has("code"))
-      res.setCodeElement(parseString(json.get("code").getAsString()));
-    if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
+    if (json.has("value"))
+      res.setValueElement(parseString(json.get("value").getAsString()));
+    if (json.has("_value"))
+      parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
     if (json.has("display"))
       res.setDisplayElement(parseString(json.get("display").getAsString()));
     if (json.has("_display"))
@@ -32292,9 +32292,9 @@ public class JsonParser extends JsonParserBase {
         composeCanonicalCore("system", element.getSystemElement(), false);
         composeCanonicalExtras("system", element.getSystemElement(), false);
       }
-      if (element.hasCodeElement()) {
-        composeStringCore("code", element.getCodeElement(), false);
-        composeStringExtras("code", element.getCodeElement(), false);
+      if (element.hasValueElement()) {
+        composeStringCore("value", element.getValueElement(), false);
+        composeStringExtras("value", element.getValueElement(), false);
       }
       if (element.hasDisplayElement()) {
         composeStringCore("display", element.getDisplayElement(), false);

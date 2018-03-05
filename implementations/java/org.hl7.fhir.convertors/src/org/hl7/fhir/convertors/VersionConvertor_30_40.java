@@ -7792,7 +7792,7 @@ public class VersionConvertor_30_40 {
     if (src.hasSystem())
       tgt.setSystem(src.getSystem());
     if (src.hasCode())
-      tgt.setCode(src.getCode());
+      tgt.setValue(src.getCode());
     if (src.hasDisplay())
       tgt.setDisplay(src.getDisplay());
     return tgt;
@@ -7807,8 +7807,8 @@ public class VersionConvertor_30_40 {
       tgt.setProperty(src.getProperty());
     if (src.hasSystem())
       tgt.setSystem(src.getSystem());
-    if (src.hasCode())
-      tgt.setCode(src.getCode());
+    if (src.hasValue())
+      tgt.setCode(src.getValue());
     if (src.hasDisplay())
       tgt.setDisplay(src.getDisplay());
     return tgt;

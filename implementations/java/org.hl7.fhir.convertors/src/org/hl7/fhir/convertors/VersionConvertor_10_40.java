@@ -3908,7 +3908,7 @@ public class VersionConvertor_10_40 {
     copyElement(src, tgt);
     tgt.setProperty(src.getElement());
     tgt.setSystem(src.getCodeSystem());
-    tgt.setCode(src.getCode());
+    tgt.setValue(src.getCode());
     return tgt;
   }
 
@@ -3919,7 +3919,7 @@ public class VersionConvertor_10_40 {
     copyElement(src, tgt);
     tgt.setElement(src.getProperty());
     tgt.setCodeSystem(src.getSystem());
-    tgt.setCode(src.getCode());
+    tgt.setCode(src.getValue());
     return tgt;
   }
 

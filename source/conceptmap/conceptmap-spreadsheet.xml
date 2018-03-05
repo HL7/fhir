@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame Grieve</LastAuthor>
+  <LastAuthor>Rob Hausam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-02-13T10:59:23Z</LastSaved>
+  <LastSaved>2018-03-04T04:19:37Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>690</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1712,7 +1712,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ConceptMap.group.element.target.dependsOn.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">ConceptMap.group.element.target.dependsOn.value</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1726,7 +1726,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Value of the referenced element</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Identity (code or path) or the element/item/ValueSet that the map depends on / refers to</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Identity (code or path) or the element/item/ValueSet/text that the map depends on / refers to</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1751,7 +1751,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Display for the code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Display for the code (if value is a code)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The display for the code. The display is only provided to help editors when editing the concept map</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The display is ignored when processing the map</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3728,7 +3728,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>18</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4434,7 +4434,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5677,7 +5676,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="42" ss:StyleID="s138" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" ss:StyleID="s138" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s138" ss:Width="88.0"/>
    <Column ss:StyleID="s138" ss:Width="28.0"/>
    <Column ss:StyleID="s138" ss:Width="328.0"/>
@@ -5728,15 +5727,6 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">conceptmap-example-2.xml</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">y</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s142"/>
@@ -7131,6 +7121,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
