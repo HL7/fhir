@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
+// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1789,11 +1789,11 @@ public class ValueSet extends MetadataResource {
         /**
          * The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.
          */
-        @Child(name = "value", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "value", type = {StringType.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Code from the system, or regex criteria, or boolean value for exists", formalDefinition="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'." )
-        protected CodeType value;
+        protected StringType value;
 
-        private static final long serialVersionUID = 1985515000L;
+        private static final long serialVersionUID = 1259153492L;
 
     /**
      * Constructor
@@ -1805,7 +1805,7 @@ public class ValueSet extends MetadataResource {
     /**
      * Constructor
      */
-      public ConceptSetFilterComponent(CodeType property, Enumeration<FilterOperator> op, CodeType value) {
+      public ConceptSetFilterComponent(CodeType property, Enumeration<FilterOperator> op, StringType value) {
         super();
         this.property = property;
         this.op = op;
@@ -1905,12 +1905,12 @@ public class ValueSet extends MetadataResource {
         /**
          * @return {@link #value} (The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public CodeType getValueElement() { 
+        public StringType getValueElement() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptSetFilterComponent.value");
             else if (Configuration.doAutoCreate())
-              this.value = new CodeType(); // bb
+              this.value = new StringType(); // bb
           return this.value;
         }
 
@@ -1925,7 +1925,7 @@ public class ValueSet extends MetadataResource {
         /**
          * @param value {@link #value} (The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public ConceptSetFilterComponent setValueElement(CodeType value) { 
+        public ConceptSetFilterComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -1942,7 +1942,7 @@ public class ValueSet extends MetadataResource {
          */
         public ConceptSetFilterComponent setValue(String value) { 
             if (this.value == null)
-              this.value = new CodeType();
+              this.value = new StringType();
             this.value.setValue(value);
           return this;
         }
@@ -1951,7 +1951,7 @@ public class ValueSet extends MetadataResource {
           super.listChildren(children);
           children.add(new Property("property", "code", "A code that identifies a property defined in the code system.", 0, 1, property));
           children.add(new Property("op", "code", "The kind of operation to perform as a part of the filter criteria.", 0, 1, op));
-          children.add(new Property("value", "code", "The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.", 0, 1, value));
+          children.add(new Property("value", "string", "The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.", 0, 1, value));
         }
 
         @Override
@@ -1959,7 +1959,7 @@ public class ValueSet extends MetadataResource {
           switch (_hash) {
           case -993141291: /*property*/  return new Property("property", "code", "A code that identifies a property defined in the code system.", 0, 1, property);
           case 3553: /*op*/  return new Property("op", "code", "The kind of operation to perform as a part of the filter criteria.", 0, 1, op);
-          case 111972721: /*value*/  return new Property("value", "code", "The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.", 0, 1, value);
+          case 111972721: /*value*/  return new Property("value", "string", "The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'.", 0, 1, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -1970,7 +1970,7 @@ public class ValueSet extends MetadataResource {
         switch (hash) {
         case -993141291: /*property*/ return this.property == null ? new Base[0] : new Base[] {this.property}; // CodeType
         case 3553: /*op*/ return this.op == null ? new Base[0] : new Base[] {this.op}; // Enumeration<FilterOperator>
-        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // CodeType
+        case 111972721: /*value*/ return this.value == null ? new Base[0] : new Base[] {this.value}; // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1987,7 +1987,7 @@ public class ValueSet extends MetadataResource {
           this.op = (Enumeration) value; // Enumeration<FilterOperator>
           return value;
         case 111972721: // value
-          this.value = castToCode(value); // CodeType
+          this.value = castToString(value); // StringType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2002,7 +2002,7 @@ public class ValueSet extends MetadataResource {
           value = new FilterOperatorEnumFactory().fromType(castToCode(value));
           this.op = (Enumeration) value; // Enumeration<FilterOperator>
         } else if (name.equals("value")) {
-          this.value = castToCode(value); // CodeType
+          this.value = castToString(value); // StringType
         } else
           return super.setProperty(name, value);
         return value;
@@ -2024,7 +2024,7 @@ public class ValueSet extends MetadataResource {
         switch (hash) {
         case -993141291: /*property*/ return new String[] {"code"};
         case 3553: /*op*/ return new String[] {"code"};
-        case 111972721: /*value*/ return new String[] {"code"};
+        case 111972721: /*value*/ return new String[] {"string"};
         default: return super.getTypesForProperty(hash, name);
         }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
+// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -51,7 +51,7 @@ import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
  * Captures constraints on each element within the resource, profile, or extension.
  */
 @DatatypeDef(name="ElementDefinition")
-public class ElementDefinition extends BackboneElement implements ICompositeType {
+public class ElementDefinition extends BackboneType implements ICompositeType {
 
     public enum PropertyRepresentation {
         /**

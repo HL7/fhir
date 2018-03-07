@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Mon, Mar 5, 2018 19:26+1100 for FHIR v3.2.0
+// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -807,6 +807,30 @@ public class RdfParser extends RdfParserBase {
       composeQuantity(t, "Range", "high", element.getHigh(), -1);
   }
 
+  protected void composeRelatedArtifact(Complex parent, String parentType, String name, RelatedArtifact element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "RelatedArtifact", name, element, index);
+    if (element.hasTypeElement())
+      composeEnum(t, "RelatedArtifact", "type", element.getTypeElement(), -1);
+    if (element.hasDisplayElement())
+      composeString(t, "RelatedArtifact", "display", element.getDisplayElement(), -1);
+    if (element.hasCitationElement())
+      composeString(t, "RelatedArtifact", "citation", element.getCitationElement(), -1);
+    if (element.hasUrlElement())
+      composeUrl(t, "RelatedArtifact", "url", element.getUrlElement(), -1);
+    if (element.hasDocument())
+      composeAttachment(t, "RelatedArtifact", "document", element.getDocument(), -1);
+    if (element.hasResourceElement())
+      composeCanonical(t, "RelatedArtifact", "resource", element.getResourceElement(), -1);
+  }
+
   protected void composeAnnotation(Complex parent, String parentType, String name, Annotation element, int index) {
     if (element == null) 
       return;
@@ -1276,30 +1300,6 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ElementDefinition", "map", element.getMapElement(), -1);
     if (element.hasCommentElement())
       composeString(t, "ElementDefinition", "comment", element.getCommentElement(), -1);
-  }
-
-  protected void composeRelatedArtifact(Complex parent, String parentType, String name, RelatedArtifact element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeElement(t, "RelatedArtifact", name, element, index);
-    if (element.hasTypeElement())
-      composeEnum(t, "RelatedArtifact", "type", element.getTypeElement(), -1);
-    if (element.hasDisplayElement())
-      composeString(t, "RelatedArtifact", "display", element.getDisplayElement(), -1);
-    if (element.hasCitationElement())
-      composeString(t, "RelatedArtifact", "citation", element.getCitationElement(), -1);
-    if (element.hasUrlElement())
-      composeUrl(t, "RelatedArtifact", "url", element.getUrlElement(), -1);
-    if (element.hasDocument())
-      composeAttachment(t, "RelatedArtifact", "document", element.getDocument(), -1);
-    if (element.hasResourceElement())
-      composeCanonical(t, "RelatedArtifact", "resource", element.getResourceElement(), -1);
   }
 
   protected void composeSubstanceMoiety(Complex parent, String parentType, String name, SubstanceMoiety element, int index) {
@@ -10679,14 +10679,16 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "OccupationalData", "subject", element.getSubject(), -1);
     if (element.hasDateElement())
       composeDateTime(t, "OccupationalData", "date", element.getDateElement(), -1);
-    for (int i = 0; i < element.getAuthor().size(); i++)
-      composeReference(t, "OccupationalData", "author", element.getAuthor().get(i), i);
-    if (element.hasEmploymentStatus())
-      composeOccupationalDataOccupationalDataEmploymentStatusComponent(t, "OccupationalData", "employmentStatus", element.getEmploymentStatus(), -1);
+    for (int i = 0; i < element.getRecorder().size(); i++)
+      composeReference(t, "OccupationalData", "recorder", element.getRecorder().get(i), i);
+    for (int i = 0; i < element.getInformant().size(); i++)
+      composeReference(t, "OccupationalData", "informant", element.getInformant().get(i), i);
+    for (int i = 0; i < element.getEmploymentStatus().size(); i++)
+      composeOccupationalDataOccupationalDataEmploymentStatusComponent(t, "OccupationalData", "employmentStatus", element.getEmploymentStatus().get(i), i);
     for (int i = 0; i < element.getRetirementDate().size(); i++)
       composeDateTime(t, "OccupationalData", "retirementDate", element.getRetirementDate().get(i), i);
-    for (int i = 0; i < element.getCombatZoneWork().size(); i++)
-      composePeriod(t, "OccupationalData", "combatZoneWork", element.getCombatZoneWork().get(i), i);
+    for (int i = 0; i < element.getCombatZonePeriod().size(); i++)
+      composePeriod(t, "OccupationalData", "combatZonePeriod", element.getCombatZonePeriod().get(i), i);
     if (element.hasUsualWork())
       composeOccupationalDataOccupationalDataUsualWorkComponent(t, "OccupationalData", "usualWork", element.getUsualWork(), -1);
     for (int i = 0; i < element.getPastOrPresentJob().size(); i++)
@@ -10706,7 +10708,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasCode())
       composeCodeableConcept(t, "OccupationalData", "code", element.getCode(), -1);
     if (element.hasEffective())
-      composeType(t, "OccupationalData", "effective", element.getEffective(), -1);
+      composePeriod(t, "OccupationalData", "effective", element.getEffective(), -1);
   }
 
   protected void composeOccupationalDataOccupationalDataUsualWorkComponent(Complex parent, String parentType, String name, OccupationalData.OccupationalDataUsualWorkComponent element, int index) {
@@ -10744,7 +10746,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasIndustry())
       composeCodeableConcept(t, "OccupationalData", "industry", element.getIndustry(), -1);
     if (element.hasEffective())
-      composeType(t, "OccupationalData", "effective", element.getEffective(), -1);
+      composePeriod(t, "OccupationalData", "effective", element.getEffective(), -1);
     if (element.hasEmployer())
       composeReference(t, "OccupationalData", "employer", element.getEmployer(), -1);
     if (element.hasWorkClassification())
@@ -14019,6 +14021,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "SubstanceReferenceInformation", "comment", element.getCommentElement(), -1);
     for (int i = 0; i < element.getGene().size(); i++)
       composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(t, "SubstanceReferenceInformation", "gene", element.getGene().get(i), i);
+    for (int i = 0; i < element.getGene().size(); i++)
+      composeSubstanceReferenceInformationSubstanceReferenceInformationGeneComponent(t, "SubstanceReferenceInformation", "geneElement", element.getGene().get(i), i);
     for (int i = 0; i < element.getClassification().size(); i++)
       composeSubstanceReferenceInformationSubstanceReferenceInformationClassificationComponent(t, "SubstanceReferenceInformation", "classification", element.getClassification().get(i), i);
     for (int i = 0; i < element.getRelationship().size(); i++)
@@ -15740,7 +15744,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasOpElement())
       composeEnum(t, "ValueSet", "op", element.getOpElement(), -1);
     if (element.hasValueElement())
-      composeCode(t, "ValueSet", "value", element.getValueElement(), -1);
+      composeString(t, "ValueSet", "value", element.getValueElement(), -1);
   }
 
   protected void composeValueSetValueSetExpansionComponent(Complex parent, String parentType, String name, ValueSet.ValueSetExpansionComponent element, int index) {
@@ -16382,6 +16386,8 @@ public class RdfParser extends RdfParserBase {
       composeDuration(parent, parentType, name, (Duration)value, index);
     else if (value instanceof Range)
       composeRange(parent, parentType, name, (Range)value, index);
+    else if (value instanceof RelatedArtifact)
+      composeRelatedArtifact(parent, parentType, name, (RelatedArtifact)value, index);
     else if (value instanceof Annotation)
       composeAnnotation(parent, parentType, name, (Annotation)value, index);
     else if (value instanceof ContactDetail)

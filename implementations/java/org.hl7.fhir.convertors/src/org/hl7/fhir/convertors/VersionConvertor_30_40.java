@@ -7581,10 +7581,14 @@ public class VersionConvertor_30_40 {
       tgt.setPurpose(src.getPurpose());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
-    if (src.hasSource())
-      tgt.setSource(convertType(src.getSource()));
-    if (src.hasTarget())
-      tgt.setTarget(convertType(src.getTarget()));
+    if (src.hasSource()) {
+      Type t = convertType(src.getSource());
+      tgt.setSource(t instanceof org.hl7.fhir.r4.model.Reference ? new CanonicalType(((org.hl7.fhir.r4.model.Reference) t).getReference()) : t);
+    }
+    if (src.hasTarget()) {
+      Type t = convertType(src.getTarget());
+      tgt.setTarget(t instanceof org.hl7.fhir.r4.model.Reference ? new CanonicalType(((org.hl7.fhir.r4.model.Reference) t).getReference()) : t);
+    }
     for (org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent t : src.getGroup())
       tgt.addGroup(convertConceptMapGroupComponent(t));
     return tgt;
@@ -15468,8 +15472,10 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     if (src.hasStrength())
       tgt.setStrength(convertBindingStrength(src.getStrength()));
-    if (src.hasValueSet())
-      tgt.setValueSet(convertType(src.getValueSet()));
+    if (src.hasValueSet()) {
+      Type t = convertType(src.getValueSet());
+      tgt.setValueSet(t instanceof org.hl7.fhir.r4.model.Reference ? new CanonicalType(((org.hl7.fhir.r4.model.Reference) t).getReference()) : t);
+    }
     return tgt;
   }
 
