@@ -1,7 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="bnc"></a>
+
+<a name="dstu"></a>
+<blockquote class="stu-note">
+    <p>
+        <b>STU Note:</b> The Public Health work group wants to draw the attention of reviewers and implementers to the following issues for feedback:
+	</p>
+    <ol>
+		<li>The ImmunizationEvaluation resource can be thought of as a specialization of a generic evaluation against a set of standardized recommendations (for a medication or a procedure, etc). Is it better to have a single generic evaluation resource that is then profiled for use in specific domains (immunization evaluation, medication evaluation, etc) or individual, specific resources for each domain which require less profiling and may be easier for domain implementers to understand?</li>
+		<li>Should the ImmunizationEvaluation resource be harmonized with the CDS Hooks project?</li>
+	</ol>
+</blockquote>
+
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
 The ImmunizationEvaluation resource is intended to cover communicating the results of an evaluation of a vaccine administration event (documented using the Immunization resource) against a set of published recommendations (protocols). Evaluating administered doses in a patient's immunization history is central to ensuring that the patient if fully protected against vaccine-preventable diseases. It is also a necessary prerequisite to generating a customized set of immunization recommendations for the patient.
