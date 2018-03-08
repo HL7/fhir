@@ -6,6 +6,37 @@
 
 <img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
 
+<p>The PlanDefinition and ActivityDefinition resources support the representation of a broad range of use cases including order sets, flow sheets, event-condition-action rules, clinical protocols, and research trials. In order to support this range of use cases, as well as the variability in capabilities of systems that use these types of artifacts, this specification is not prescriptive about exactly how these definitions are applied to produce request and event resources. However, the approach depicted above provides a general framework for the process, and the following steps provide more detail on the potential approach:</p>
+
+<ol>
+	<li>Create a CarePlan resource focused on the Patient in context and linked to the PlanDefinition using the <code>instantiates</code> element</li>
+	<li>Create <code>goal</code> elements in the CarePlan based on the <code>goal</code> definitions in the plan</li>
+	<li>Create a RequestGroup resource focused on the Patient in context and linked to the PlanDefinition using the <code>instantiatesCanonical</code> element</li>
+	<li>Create an <code>activity</code> in the CarePlan to <code>reference</code> the RequestGroup</li>
+	<li>Process each <code>action</code> element of the PlanDefinition</li>
+</ol>
+
+<p>Processing for each action proceeds according to the following steps:</p>
+
+<ol>
+	<li>Determine applicability by evaluating the <i>applicability</i> conditions defined for the element</li>
+	<li>If the action is applicable, determine whether the action is a group or a single, atomic activity (does the action have child actions?)</li>
+	<li>If the action is atomic:
+		<ol>
+			<li>Create an <code>action</code> element in the RequestGroup with the same <code>id</code> as the action being processed</li>
+			<li>Apply the elements of the <code>action</code> to the corresponding elements of the newly created <code>action</code> in the RequestGroup such as <code>title</code>, <code>description</code>, <code>textEquivalent</code>, <code>timing</code>, and so on</li>
+			<li>Carry any <i>start</i> and <i>stop</i> conditions defined in the plan action forward to the request group action.</li>
+			<li>Create the target resource as described in the Applying an ActivityDefinition topic</li>
+			<li>Reference the resulting resource in the <code>resource</code> element of the action. Note that the target resource can be set as a <code>contained</code> resource in the RequestGroup, or it can be persisted independently, as appropriate for the environment</li>
+			<li>Set the <code>status</code> of the target resource to <i>option</i> so that it is clearly indicated as part of a RequestGroup. Note that the ActivityDefinition/$apply operation will not necessarily produce resource with this status, so this is an important step.</li>
+			<li>Apply any overrides based on the elements of the <code>action</code> (see the section on Overlap below for details)</li>
+		</ol>
+	</li>
+	<li>If the action is a group, determine which actions to process based on the behaviors specified in the group. Note that this aspect of the process may require input from a user. In these cases either the choices made by the user can be provided as input to the process, or the process can be performed as part of a user-entry workflow that enables user input to be provided as necessary.</li>
+</ol>
+
+<h3>Overlap with ActivityDefinition</h3>
+
 <p>As noted in the Boundaries section, there is some overlap between the content that can be represented within the <code>action</code> element of a PlanDefinition, and the elements of the ActivityDefinition resource. This overlap allows for both resources to be used independently, as well as in combination. For example, a PlanDefinition may be used without any supporting ActivityDefinitions to describe a particular workflow, where it is sufficient to describe the actions simply as textual descriptions of what needs to take place. On the other hand, the PlanDefinition may be used together with ActivityDefinition to provide a detailed structural representation of the activities to be performed.</p>
 
 <p>In general, where there is overlap, the elements from the PlanDefinition provide overriding behavior. Specifically, the following elements of <code>action</code> overlap with ActivityDefinition:</p>

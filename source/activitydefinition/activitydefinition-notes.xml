@@ -16,6 +16,18 @@
 
 <img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
 
+<p>To accommodate the variability in systems and use cases, this specification is not prescriptive about exactly how an ActivityDefinition is applied to produce target request or event resources. However, the approach depicted above provides a general framework for the process, and the following steps provide more detail on the potential approach:</p>
+
+<ol>
+	<li>Create the target resource of the type specified by the <code>kind</code> element and focused on the Patient in context</li>
+	<li>Set the <code>status</code> of the target resource to <i>draft</i></li>
+	<li>Apply the structural elements of the ActivityDefinition to the target resource such as <code>code</code>, <code>timing</code>, <code>doNotPerform</code>, <code>product</code>, <code>quantity</code>, <code>dosage</code>, and so on</li>
+	<li>Resolve the <code>participant</code> element based on the user in context</li>
+	<li>Resolve the <code>location</code> element based on the location in context</li>
+	<li>If the <code>transform</code> element is specified, apply the transform to the resource. Note that the referenced StructureMap may actually construct the resource, rather than taking an instance. See the StructureMap for more information</li>
+	<li>Apply any <code>dynamicValue</code> elements by evaluating the expression and setting the value of the appropriate element of the target resource (as specified by the <code>dynamicValue.path</code> element)</li>
+</ol>
+
 <h3>Profiling ActivityDefinition</h3>
 
 <p>Because the ActivityDefinition resource can be used to describe many different types of request resources, profiles of the resource will be useful in communicating additional constraints and expectations about how the resource should be used in a particular context. For example, a profile of ActivityDefinition may specify that it is intended to describe medication orders within an order set. Such a profile would indicate that the <code>quantity</code> element should not be used, but the <code>dosage</code> element must be.</p>
