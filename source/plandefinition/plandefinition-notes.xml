@@ -1,5 +1,56 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
+<h3>Applying a PlanDefinition</h3>
+
+<p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical application to CarePlan, RequestGroup, and Request resources. The resources depicted on the left side of the arrow are <i>definition</i> resources, while the ones on the right side of the arrow are <i>request</i> resources, with the arrow representing the <code>$apply</code> operation:</p>
+
+<img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
+
+<p>As noted in the Boundaries section, there is some overlap between the content that can be represented within the <code>action</code> element of a PlanDefinition, and the elements of the ActivityDefinition resource. This overlap allows for both resources to be used independently, as well as in combination. For example, a PlanDefinition may be used without any supporting ActivityDefinitions to describe a particular workflow, where it is sufficient to describe the actions simply as textual descriptions of what needs to take place. On the other hand, the PlanDefinition may be used together with ActivityDefinition to provide a detailed structural representation of the activities to be performed.</p>
+
+<p>In general, where there is overlap, the elements from the PlanDefinition provide overriding behavior. Specifically, the following elements of <code>action</code> overlap with ActivityDefinition:</p>
+
+<table>
+    <thead>
+		<tr>
+			<th><b>Element</b></th>
+			<th><b>Behavior</b></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>title</td>
+			<td>The <code>title</code> element in ActivityDefinition is the title of the activity "as defined", where the <code>title</code> element in PlanDefinition reflects the title in the scope of the plan.</td>
+		</tr>
+		<tr>
+			<td>description</td>
+			<td>The <code>description</code> element in ActivityDefinition is the description of the activity "as defined", where the <code>description</code> element in PlanDefinition reflects the description in the scope of the plan.</td>
+		</tr>
+		<tr>
+			<td>code</td>
+			<td>The <code>code</code> element in ActivityDefinition represents the meaning of the activity "as defined", where the <code>code</code> element in PlanDefinition represents the meaning in the scope of the plan.</td>
+		</tr>
+		<tr>
+			<td>documentation</td>
+			<td>The <code>documentation</code> element in PlanDefinition represents additional documentation for the action specific to the scope of the plan, where the <code>relatedArtifact</code> element in ActivityDefinition provides documentation specific to the activity itself.</td>
+		</tr>
+		<tr>
+			<td>timing</td>
+			<td>The <code>timing</code> element in ActivityDefinition represents timings associated within the activity itself, where the <code>timing</code> element in PlanDefinition represents the timing of the activity with respect to the plan and its other actions. When a timing is provided on both, the timing defined in the plan generally takes precedence.</td>
+		</tr>
+		<tr>
+			<td>participant</td>
+			<td>The <code>participant</code> element in ActivityDefinition represents what type of actor is expected to perform the activity generally, where the <code>participant</code> element in PlanDefinition represents the type of actor that is expected to perform the activity in the context of the plan.</td>
+		</tr>
+		<tr>
+			<td>transform</td>
+			<td>The <code>transform</code> element in ActivityDefinition describes the transformation of the definition to a request or event resource in general, where the <code>transform</code> element in PlanDefinition describes the transformation within the scope of the plan. When a transform is present in both, the transform in the plan takes precedence.</td>
+		</tr>
+		<tr>
+			<td>dynamicValue</td>
+			<td>The <code>dynamicValue</code> element in ActivityDefinition defines values for elements of the target request or event resource in general, where the <code>dynamicValue</code> element in PlanDefinition defines values within the scope of the plan. When dynamic values are present in both, the dynamic values from the ActivityDefinition are applied first, followed by the dynamic values from the PlanDefinition.</td>
+		</tr>
+	</tbody>
+</table>
 
 </div>

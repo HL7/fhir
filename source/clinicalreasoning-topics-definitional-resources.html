@@ -24,6 +24,7 @@
 	<li>What - What type of activity should be performed, often specified simply as a category or a concept.</li>
 	<li>When - When the activity should be performed, often specified relative to the time the plan is applied.</li>
 	<li>Where - Where the activity should take place, often specified as a facility role.</li>
+	<li>Why - Why the activity should be performed</li>
 </ul>
 
 <p>However, this level of conceptual description often does not carry enough information to enable computable description of activities. For example, medication activities will often involve specific drug and dosage information that must be captured as part of the definition. Further, it is often the case that the values for the elements of resources to be created cannot be specified exactly as part of the definition, but must be specified using a formula that allows for the calculation to be based on patient- or context-specific information.</p>
@@ -33,9 +34,10 @@
 <table class="grid">
 	<tbody>
 		<tr><td>Who</td><td>participantType</td><td>Specifies the type of participant that should perform the activity.</td></tr>
-		<tr><td>What</td><td>category and code</td><td>Specifies the type of activity to be performed.</td></tr>
+		<tr><td>What</td><td>kind and code</td><td>Specifies the type of activity to be performed.</td></tr>
 		<tr><td>When</td><td>timing</td><td>Specifies when the activity should occur.</td></tr>
 		<tr><td>Where</td><td>location</td><td>Specifies where the activity should occur.</td></tr>
+		<tr><td>Why</td><td>reason, documentation</td><td>Specifies why the activity should be performed.</td></tr>
 	</tbody>
 </table>
 
@@ -45,7 +47,7 @@
 <pre><code>&lt;ActivityDefinition&gt;
   &lt;description value=&quot;refer to primary care mental-health integrated care program for evaluation and treatment
    of mental health conditions now&quot;/&gt;
-  &lt;category value=&quot;referral&quot;/&gt;
+  &lt;kind value=&quot;ServiceRequest&quot;/&gt;
   &lt;code&gt;
     &lt;coding&gt;
       &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;

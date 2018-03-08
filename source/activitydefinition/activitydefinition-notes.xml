@@ -2,21 +2,19 @@
 
 <!-- insert xhtml content here -->
 
-<h3>Realizing an ActivityDefinition</h3>
+<h3>Applying an ActivityDefinition</h3>
 
-<p>An ActivityDefinition resource provides a description, or template, of an action to performed. These actions can be purely text-based descriptions of the action to be performed, only interpretable by a human user, or they can be structured definitions with enough information to construct a resource to represent the request directly. This process of converting the ActivityDefinition into a specific request resource in a particular context is performed with the <code>$apply</code> operation.</p>
+<p>An ActivityDefinition resource provides a description, or template, of an action to performed. These actions can be purely text-based descriptions of the action to be performed, only interpretable by a human user, or they can be structured definitions with enough information to construct a resource to represent the request or activity directly. This process of converting the ActivityDefinition into a specific resource in a particular context is performed with the <code>$apply</code> operation.</p>
 
-<p>In the simplest case, the process maps the elements specified in the ActivityDefinition to the corresponding elements on the request resource of the appropriate type, using the <code>kind</code> element of the definition to determine the type of resource to be created.</p>
+<p>In the simplest case, the process maps the elements specified in the ActivityDefinition to the corresponding elements on a resource of the appropriate type, using the <code>kind</code> element of the definition to determine the type of resource to be created.</p>
 
 <p>More dynamic scenarios can be achieved in one of two ways, either by providing <code>dynamicValue</code> expressions, or by specifying a <a href="structuremap.html">StructureMap</a> that transforms the definition into the appropriate request resource.</p>
 
 <p>Note that systems will likely vary widely in the degree of support they provide for the <code>$apply</code> operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated support for MedicationRequest activities, but no support at all for the ServiceRequest activities.</p>
 
-<p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical realization to CarePlan, RequestGroup, and Request resources:</p>
+<p>The following diagram illustrates the relationship between the PlanDefinition and ActivityDefinition resources, as well as a typical application to CarePlan, RequestGroup, and Request resources:</p>
 
 <img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
-
-<p><i>Note to implementers: There is some overlap between the content that can be specified in PlanDefinition.actionDefinition and the ActivityDefinition resource. Part of the work for FHIR Release 4 will be to resolve the overlap and this will likely result in some minor changes to the structures.</i></p>
 
 <h3>Profiling ActivityDefinition</h3>
 
