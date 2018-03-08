@@ -83,32 +83,28 @@
 
 <pre><code>&lt;dynamicValue&gt;
   &lt;path value=&quot;reasonCode&quot;/&gt;
+  &lt;language value=&quot;text/cql&quot;/&gt;
   &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
 &lt;/dynamicValue&gt;
 </code></pre>
 
 <p>The example specifies that the <code>reasonCode</code> element should be set to the result of evaluating the <code>RiskAssessmentScore</code> expression. This expression is expected to be present in a Library referenced by the containing resource:</p>
 
-<pre><code>&lt;library&gt;
-  &lt;reference value=&quot;Library/mmi-suiciderisk-orderset-logic&quot;/&gt;
-&lt;/library&gt;
-</code></pre>
+<pre><code>&lt;library value=&quot;Library/mmi-suiciderisk-orderset-logic&quot;/&gt;</code></pre>
 
 <p>If the containing resource has a <code>library</code> element (such as ActivityDefinition and PlanDefinition), and only specifies a single library, the expression is evaluated as though it is in scope in that library. However, if the resource references multiple libraries, the referenced expression must be qualified with the name of the library in order to ensure unambiguous resolution. For example, the following fragment illustrates multiple libraries being referenced by the containing resource:</p>
 
-<pre><code>&lt;library&gt;
-  &lt;reference value=&quot;Library/mmi-suiciderisk-orderset-logic&quot;/&gt;
-&lt;/library&gt;
-&lt;library&gt;
-  &lt;reference value=&quot;Library/another-orderset-logic&quot;/&gt;
-&lt;/library&gt;
+<pre><code>
+&lt;library value=&quot;Library/mmi-suiciderisk-orderset-logic&quot;/&gt;
+&lt;library value=&quot;Library/another-orderset-logic&quot;/&gt;
 </code></pre>
 
 <p>The following fragment illustrates how an expression reference (reasonCode) would be qualified in the case of multiple library references:</p>
 
 <pre><code>&lt;dynamicValue&gt;
-  &lt;path value=&quot;mmi-suiciderisk-orderset-logic.reasonCode&quot;/&gt;
-  &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
+  &lt;path value=&quot;reasonCode&quot;/&gt;
+  &lt;language value=&quot;text/cql&quot;/&gt;
+  &lt;expression value=&quot;&amp;quot;mmi-suiciderisk-orderset-logic&amp;quot;.RiskAssessmentScore&quot;/&gt;
 &lt;/dynamicValue&gt;
 </code></pre>
 
@@ -162,7 +158,7 @@
 <h4>Clinical Quality Language</h4>
 <p>Clinical Quality Language (CQL) defines a high-level clinically-oriented syntax to enable formal representation of clinical logic. It is defined as a general purpose specification available here:</p>
 
-<p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1.1</a>.</p>
+<p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1.2</a>.</p>
 
 <p>CQL is used to describe the logic used by knowledge artifacts such as clinical decision support rules, quality measure logic, and conditions and actions within order sets and protocols. CQL expressions generally provide a means of computing new information from existing data.</p>
 
