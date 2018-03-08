@@ -284,4 +284,11 @@ a deployment choice.
 A <a href="operation-patient-match.html">formal definition</a> for the MPI $match operation is published.
 </p>
 
+<a name="veterinary"></a>
+<h2>Veterinary Care</h2>
+<p>
+Veterinary care is very much within the scope of FHIR, and the Patient resource can be used to communicate information about animal patients. To support this, there is a standard <a href="extension-patient-animal.html">patient-animal extension</a> which can be used for recording details about species, breed, and gender status. This extension is not intended to cover all relevant properties for veterinary care, and the use of additional domain-relevant extensions is expected for areas such as laboratory, zoological and livestock care.
+
+</p>
+
 </div>
