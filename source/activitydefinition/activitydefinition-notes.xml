@@ -25,7 +25,7 @@
 	<li>Resolve the <code>participant</code> element based on the user in context</li>
 	<li>Resolve the <code>location</code> element based on the location in context</li>
 	<li>If the <code>transform</code> element is specified, apply the transform to the resource. Note that the referenced StructureMap may actually construct the resource, rather than taking an instance. See the StructureMap for more information</li>
-	<li>Apply any <code>dynamicValue</code> elements by evaluating the expression and setting the value of the appropriate element of the target resource (as specified by the <code>dynamicValue.path</code> element)</li>
+	<li>Apply any <code>dynamicValue</code> elements (in the order in which they appear in the ActivityDefinition resource) by evaluating the expression and setting the value of the appropriate element of the target resource (as specified by the <code>dynamicValue.path</code> element)</li>
 </ol>
 
 <h3>Profiling ActivityDefinition</h3>

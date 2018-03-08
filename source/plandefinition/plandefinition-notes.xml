@@ -79,7 +79,7 @@
 		</tr>
 		<tr>
 			<td>dynamicValue</td>
-			<td>The <code>dynamicValue</code> element in ActivityDefinition defines values for elements of the target request or event resource in general, where the <code>dynamicValue</code> element in PlanDefinition defines values within the scope of the plan. When dynamic values are present in both, the dynamic values from the ActivityDefinition are applied first, followed by the dynamic values from the PlanDefinition.</td>
+			<td>The <code>dynamicValue</code> element in ActivityDefinition defines values for elements of the target request or event resource in general, where the <code>dynamicValue</code> element in PlanDefinition defines values within the scope of the plan. When dynamic values are present in both, the dynamic values from the ActivityDefinition are applied first (in the order in which they appear on the ActivityDefinition), followed by the dynamic values from the PlanDefinition (in the order in which they appear on the PlanDefinition).</td>
 		</tr>
 	</tbody>
 </table>
