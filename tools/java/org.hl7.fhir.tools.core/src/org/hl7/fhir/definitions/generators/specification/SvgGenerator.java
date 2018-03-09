@@ -111,18 +111,21 @@ public class SvgGenerator extends BaseGenerator {
       return top + height;
     }
   }
+  private enum LinkType {SPECIALIZATION, CONSTRAINT, COMPOSITION};
   private class Link {
     private String path;
     private String description;
-    public Link(ClassItem source, ClassItem target, String name, String cardinality, PointKind kind, String path, String description) {
+    public Link(ClassItem source, ClassItem target, LinkType type, String name, String cardinality, PointKind kind, String path, String description) {
       this.source = source;
       this.target = target;
+      this.type = type;
       this.name = name;
       this.cardinality = cardinality;
       this.kind = kind;
       this.path = path;
       this.description = description;
     }
+    private LinkType type;
     private ClassItem source;
     private ClassItem target;
     private String name;
@@ -460,7 +463,10 @@ public class SvgGenerator extends BaseGenerator {
         xml.attribute("y1", Double.toString(start.y));
         xml.attribute("x2", Double.toString(end.x));
         xml.attribute("y2", Double.toString(end.y));
-        xml.attribute("style", "stroke:navy;stroke-width:1");
+        if (l.type == LinkType.CONSTRAINT)
+          xml.attribute("style", "stroke:orange;stroke-width:1");
+        else
+          xml.attribute("style", "stroke:navy;stroke-width:1");
         xml.element("line", null);    
       }
     }
@@ -667,22 +673,24 @@ public class SvgGenerator extends BaseGenerator {
         DefinedCode cd = definitions.getPrimitives().get(cn);
         ElementDefn fake = fakes.get(cn);
         if (cd instanceof DefinedStringPattern)
-          links.add(new Link(classes.get(fakes.get(((DefinedStringPattern) cd).getBase())), drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), null, null, PointKind.unknown, null, null));        
+          links.add(new Link(classes.get(fakes.get(((DefinedStringPattern) cd).getBase())), drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
         else
-          links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), null, null, PointKind.unknown, null, null));        
+          links.add(new Link(item, drawClass(xml, fake, false, null, true, null, cd, StandardsStatus.NORMATIVE), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));        
       } else if (definitions.getConstraints().containsKey(cn)) {
         ProfiledType cd = definitions.getConstraints().get(cn);
         ElementDefn fake = fakes.get(cn);
         ClassItem parent = classes.get(definitions.getElementDefn(cd.getBaseType()));
-        links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, null, StandardsStatus.NORMATIVE), null, null, PointKind.unknown, null, null));        
+        links.add(new Link(parent, drawClass(xml, fake, false, null, true, null, null, StandardsStatus.NORMATIVE), LinkType.CONSTRAINT, null, null, PointKind.unknown, null, null));        
       } else if (!onlyElement) {
         ElementDefn e = definitions.getElementDefn(cn);
         ClassItem parent = item;
-        if (!(Utilities.noString(e.typeCode()) || e.typeCode().equals("Type") || e.typeCode().equals("Structure")))
+        if (e.typeCode().equals("Structure"))
+          parent = classes.get(definitions.getElementDefn("BackboneElement"));
+        else if (!(Utilities.noString(e.typeCode()) || e.typeCode().equals("Type") || e.typeCode().equals("Structure")))
           parent = classes.get(definitions.getElementDefn(e.typeCode()));
         if (parent == null)
           parent = item;
-        links.add(new Link(parent, drawClass(xml, e, false, null, true, cn, null, e.getStandardsStatus()), null, null, PointKind.unknown, null, null));
+        links.add(new Link(parent, drawClass(xml, e, false, null, true, cn, null, e.getStandardsStatus()), LinkType.SPECIALIZATION, null, null, PointKind.unknown, null, null));
       }
     }
     xml.exit("g");
@@ -731,10 +739,7 @@ public class SvgGenerator extends BaseGenerator {
       xml.attribute("class", "diagram-class-title");
     if (link) {
       xml.enter("text");
-      if (tn.equals("Extension") || tn.equals("Reference") || tn.equals("Narrative"))
-        xml.attribute("xlink:href", prefix+definitions.getSrcFile(tn) + ".html#"+tn);
-      else
-        xml.attribute("xlink:href", "#"+tn);
+      xml.attribute("xlink:href", definitions.getSrcFile(tn)+".html#"+tn);
       xml.enter("a");
       xml.text(tn);
       xml.exit("a");
@@ -782,10 +787,10 @@ public class SvgGenerator extends BaseGenerator {
       for (ElementDefn c : e.getElements()) {  
         if (!isAttribute(c)) {
           if (Utilities.noString(c.typeCode()) || !c.typeCode().startsWith("@")) {
-            links.add(new Link(item, drawClass(xml, c, false, resource, false, path+"."+c.getName(), null, status), c.getName(), c.describeCardinality(), PointKind.unknown, baseUrl(path)+path+"."+c.getName(), c.getEnhancedDefinition()));        
+            links.add(new Link(item, drawClass(xml, c, false, resource, false, path+"."+c.getName(), null, status), LinkType.COMPOSITION, c.getName(), c.describeCardinality(), PointKind.unknown, baseUrl(path)+path+"."+c.getName(), c.getEnhancedDefinition()));        
           } else {
             ClassItem target = getItemForPath(resource, c.typeCode().substring(1));
-            links.add(new Link(item, target, c.getName(), c.describeCardinality(), PointKind.unknown, baseUrl(path)+path+"."+c.getName(), c.getEnhancedDefinition()));                  
+            links.add(new Link(item, target, LinkType.COMPOSITION, c.getName(), c.describeCardinality(), PointKind.unknown, baseUrl(path)+path+"."+c.getName(), c.getEnhancedDefinition()));                  
           }
         }
       }

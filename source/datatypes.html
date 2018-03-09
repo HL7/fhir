@@ -10,7 +10,7 @@
 
 <div class="col-12">
 
-<%dtheader base%>
+<%dtheader base%> 
 
 <h1>Data Types</h1>
 <table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
@@ -18,57 +18,41 @@
 [%mostlynormative infrastructure%]
 
 <p>
-The FHIR specification defines a set of data types that are used for the
+The FHIR specification defines a set of data types that are used for the 
 resource elements. There are four categories of data types:
 </p>
 <ol>
   <li>Simple / primitive types, which are single elements with a primitive value (<a href="#primitive">below</a>)</li>
   <li>General purpose complex types, which are re-usable clusters of elements (<a href="#xomplex">below</a>)</li>
+  <li>Metadata types: A set of types for use with metadata resources (todo: provide link when pattern is defined)</li>
   <li>Special purpose data types - defined elsewhere in the specification for specific usages</li>
-  <li>Reusable structures: defined to allow sharing of content between specific resources</li>
 </ol>
 <p>
-This page describes the general purpose data types (categories one and two).
+This page describes the general purpose data types (categories 1 and 2). 
 </p>
-
-<p><b>Table of Contents</b> (Legend: see <a href="ballot-intro.html#mixed">Standards Status Colors</a>).
+ 
+<p><b>Data Types Summary</b>. 
 </p>
-<p>General Purpose Data types</p>
+<p>Legend: see <a href="ballot-intro.html#mixed">Standards Status Colors</a></p>
 <div class="row">
-    <div class="col-6" style="width: auto"><b>Primitive Types</b><br />[%diagram datatypes/allprimitivetypes.diagram 1dt%]</div>
-    <div class="col-6" style="width: auto; padding-right: 0px; margin-right: -25px;"><b>Complex Types</b><br />[%diagram datatypes/alltypes.diagram 2dt%]</div>
+    <div class="col-6" style="width: auto; border: #efefef 1px solid"><b>Primitive Types</b><br />[%diagram datatypes/allprimitivetypes.diagram 1dt%]</div>
+    <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>General Purpose Data types</b><br />[%diagram datatypes/alltypes.diagram 2dt%]</div>
 </div>
-<p>Special purpose data types (defined elsewhere):</p>
-<table class="grid">
- <tr>
-  <td style="background-color: #e6ffe6"><a href="references.html#Reference">Reference</a></td>
-  <td style="background-color: #e6ffe6"><a href="narrative.html#Narrative">Narrative</a></td>
-  <td style="background-color: #e6ffe6"><a href="extensibility.html#Extension">Extension</a></td>
-  <td style="background-color: #e6ffe6"><a href="resource.html#Meta">Meta</a></td>
- </tr>
- <tr>
-  <td style="background-color: #e6ffe6"><a href="metadatatypes.html#ContactDetail">ContactDetail</a></td>
-  <td style="background-color: #fff5e6"><a href="metadatatypes.html#Contributor">Contributor</a></td>
-  <td style="background-color: #fff5e6"><a href="metadatatypes.html#DataRequirement">DataRequirement</a></td>
-  <td style="background-color: #fff5e6"><a href="metadatatypes.html#ParameterDefinition">ParameterDefinition</a></td>
- </tr>
- <tr> 
-  <td style="background-color: #fff5e6"><a href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a></td>
-  <td style="background-color: #fff5e6"><a href="metadatatypes.html#TriggerDefinition">TriggerDefinition</a></td>
-  <td style="background-color: #fff5e6"><a href="metadatatypes.html#UsageContext">UsageContext</a></td>
- </tr>
-</table>
+<div class="row">
+    <div class="col-6" style="width: auto; border: #efefef 1px solid"><b>Metadata Types</b><br />[%diagram datatypes/metadatatypes.diagram 3dt%]</div>
+    <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>Special Purpose Data types</b><br />[%diagram datatypes/specialtypes.diagram 4dt%]</div>
+</div>
+<a name="modifiers"></a>
 <p>
-Reusable Structures:<a name="reusable"> </a>
+A <a href="extensibility.html#list">limited set</a> of these data types may 
+appear in extensions. All data types (including primitives) may have
+extensions, but only the following data types may include <a href="extensibility.html#modifier">Modifier Extensions</a>:
 </p>
-<table class="grid">
-[%structure-list-index%]
-</table>
-<p>
-The reusable structures allow <a href="extensibility.html#modifier">Modifier Extensions</a>, 
-while all the other types do not. Only a few of the reusable structures may appear in 
-extensions (see <a href="extensibility.html#list">list</a>).
-</p>
+<ul>
+ <li><a href="datatypes.html#timing">Timing</a></li>
+ <li><a href="dosage.html#Dosage">Dosage</a></li>
+ <li><a href="elementdefinition.html#ElementDefinition">ElementDefinition</a></li>
+</ul>
 
 <a name="primitive"></a>
 <h2>Primitive Types</h2>
@@ -456,9 +440,9 @@ values are.
 <p><b>UML Diagrams of the Data types</b></p>
 
 [%diagram datatypes/types.diagram 4dt%]
-
+<hr/>
 [%diagram datatypes/types2.diagram 5dt%]
-
+ 
 <a name="Attachment"></a>
 <a name="attachment"></a>
 <h2 style="margin-bottom: 1px">
@@ -1247,7 +1231,7 @@ follow the order in which the contacts are represented in the instance.
 <p><b>Constraints</b></p>
 [%dt.constraints ContactPoint%]
 [%tx ContactPoint%]
-</div>
+</div> 
 
 <p>
 ContactPoint is used in the following places: [%dtusage ContactPoint%]
@@ -1274,6 +1258,7 @@ can be expressed in a structured form and/or as a code. When both event and a re
 specification are provided, the list of events should be understood as an interpretation 
 of the information in the repeat structure.
 </p>
+<p>Note: the Timing data type allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
 [%dt Timing 13%]
 <p>
 If the timing schedule has repeating criteria, the repeat can occur a given number of times per

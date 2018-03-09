@@ -769,4 +769,13 @@ public class Definitions {
     return commonSearchParameters;
   }
 
+  public Set<String> getAllTypeNames() {
+    Set<String> res = new HashSet<String>();
+    res.add("Element");
+    res.addAll(types.keySet());
+    res.addAll(structures.keySet());
+    res.addAll(infrastructure.keySet());
+    return res;
+  }
+
 }

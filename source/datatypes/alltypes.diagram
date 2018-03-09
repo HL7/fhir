@@ -1,32 +1,33 @@
 [diagram]
-classes=Identifier,HumanName,Address,ContactPoint,Timing,Quantity,SimpleQuantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money,Annotation,Signature
+classes=Identifier,HumanName,Address,ContactPoint,Timing,Quantity,SimpleQuantity,Attachment,Range,Period,Ratio,CodeableConcept,Coding,SampledData,Age,Distance,Duration,Count,Money,Annotation,Signature,BackboneElement
 attributes=false
 
 [size]
 width=440
-height=258
+height=248
 
 [directions]
-CodeableConcept=-150;80
-Coding=-150;00
-Timing=-150;-40
-Ratio=-150;-80
-Period=-95;-80
-Range=-25;-80
-Attachment=20;-80
-Identifier=110;-80
-HumanName=175;-40
+Coding=-150;40
+CodeableConcept=-160;00
+Timing=-160;80
+BackboneElement=-95;80
+Ratio=-140;-80
+Period=-85;-80
+Range=-20;-80
+Attachment=30;-80
+Identifier=130;-80
+HumanName=160;-40
 Address=175;40
-Signature=-150;40
-Annotation=170;0
-ContactPoint=180;80
-Quantity=-30;80
-SampledData=90;80
+Signature=190;80
+Annotation=-150;-40
+ContactPoint=170;0
+Quantity=30;80
+SampledData=95;80
 Age=-150;130
-Distance=-115;130
-SimpleQuantity=-10;130
-Duration=90;130
-Count=125;130
-Money=170;130
+Distance=-100;130
+Duration=-20;130
+Count=60;130
+Money=110;130
+SimpleQuantity=160;130
 
 

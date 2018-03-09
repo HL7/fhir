@@ -1,0 +1,16 @@
+[diagram]
+classes=ContactDetail,Contributor,DataRequirement,ParameterDefinition,RelatedArtifact,TriggerDefinition,UsageContext
+attributes=false
+
+[size]
+width=350
+height=148
+
+[directions]
+ContactDetail=-150;-50
+Contributor=-30;-50
+DataRequirement=70;-50
+RelatedArtifact=-150;0
+UsageContext=100;0
+ParameterDefinition=-130;50
+TriggerDefinition=50;50

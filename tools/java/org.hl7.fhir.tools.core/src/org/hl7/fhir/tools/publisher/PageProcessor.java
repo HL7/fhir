@@ -1696,13 +1696,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return wg == null ? "??" : "<a _target=\"blank\" href=\""+wg.getUrl()+"\">"+wg.getName()+"</a> Work Group";
   }
 
-  private String genBackboneelementList() {
+  private String genBackboneelementList() throws Exception {
     List<String> classes = new ArrayList<String>();
     listAllbackboneClasses(classes);
 
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"none\">\r\n");
     b.append(" <tr><td><b>Path</b></td></tr>\r\n");
+    b.append(" <tr style=\"background-color: #eeeeee\"><td colspan=\"2\"><a href=\"datatypes.html\">Data Types</a></td></tr>\r\n");
+    for (String tn : sorted(definitions.getAllTypeNames())) {
+      ElementDefn ed = definitions.getElementDefn(tn);
+      String pl = "<a href=\""+definitions.getSrcFile(tn)+".html#"+tn+"\">"+tn+"</a>";
+      b.append(" <tr><td>"+pl+"</td></tr>\r\n");      
+    }
     for (String rn : definitions.sortedResourceNames()) {
       boolean first = true;
       for (String pn : classes) {
@@ -2039,6 +2045,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private String umlForDt(String dt, String id) throws Exception {
+    if ("Timing".equals(dt))
+      dt = dt+",BackboneElement";
+      
     File tmp = Utilities.createTempFile("tmp", ".tmp");
     tmp.deleteOnExit();
     try {
