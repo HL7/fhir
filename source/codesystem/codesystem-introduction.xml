@@ -70,7 +70,7 @@ would be only one authoritative <code>CodeSystem</code> resource (identified by 
 <p>
 When using code systems and value sets, proper differentiation between a code system and a value set is important. 
 This is one very common area where significant clinical safety risks occur in practice. Implementers
-should be familiar with the content in <a href="terminologies.html">Using Codes in resources</a>.
+should be familiar with the content in <a href="terminologies.html">Using Codes in Resources</a>.
 </p>
 
 <h3>CodeSystem Identification</h3>
