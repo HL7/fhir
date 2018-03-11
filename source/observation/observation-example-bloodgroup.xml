@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
+	<id value="bloodgroup"/>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="laboratory"/>
+			<display value="Laboratory"/>
+		</coding>
+		<text value="Laboratory"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="883-9"/>
+			<display value="ABO group [Type] in Blood"/>
+		</coding>
+		<text value="Blood Group"/>
+	</code>
+	<subject>
+		<reference value="Patient/infant"/>
+	</subject>
+	<effectiveDateTime value="2018-03-11T16:07:54+00:00"/>
+	<valueCodeableConcept>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="112144000"/>
+			<display value="Blood group A (finding)"/>
+		</coding>
+				<text value="A"/>
+	</valueCodeableConcept>
+</Observation>

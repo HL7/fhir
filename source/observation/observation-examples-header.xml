@@ -33,6 +33,23 @@
 		<li>
 			<a href="observation-example-date-lastmp.html">An "ask at order" response using the datetime datetype for the result value</a>
 		</li>
+		<li>
+			<p>Simple blood typing example:</p>
+			
+				<ul>
+				<li>
+					<a href="observation-example-bgpanel.html">A simple blood typing panel.</a> 
+				</li>
+				<li>
+					<a href="observation-example-bloodgroup.html"> An example of a  blood group (ABO) measurement.</a> 
+				</li>
+				<li>
+					<a href="observation-example-rhstatus.html"> An example of a blood Rh antigen measurement.</a> 
+				</li>
+			</ul>
+
+		</li>
+
 	</ul>
 	<h3>Exam and Simple Assessments</h3>
 	<p>The following Observations shows examples of physical exams finding and simple assessments:
