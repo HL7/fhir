@@ -59,7 +59,7 @@ by the owner or publisher of the code system, who can properly define the code s
 <code>NamingSystem</code> resources, on the other hand, are frequently defined by 3rd parties that encounter the
 code system in use, and need to describe the use, but do not have the authority to define the features and content. 
 Additionally, there may be multiple authoritative <code>NamingSystem</code> resources for a code system, but ideally there
-would be only be one authoritative <code>CodeSystem</code> resource (identified by its canonical URI) from the code system publisher (with multiple copies distributed and used where needed).
+would be only one authoritative <code>CodeSystem</code> resource (identified by its canonical URI) that is provided by the code system publisher, with multiple copies distributed on additional FHIR servers or elsewhere and used where needed.
 </p>
 </div>
 
@@ -104,8 +104,7 @@ For further information regarding resource identification, see <a href="resource
 
 <p>
 This means that each code system has 2 different URIs that can be used to reference it - 
-its canonical URI (the <code>url</code> element), and its local location from which it may be retrieved. 
-Because it is common practice to copy (cache) code systems locally, most references to 
+its canonical URI (the <code>url</code> element), and its local location from which it may be retrieved (which includes the <code>id</code> element). Because it is common practice to copy (cache) code systems locally, most references to 
 code systems use the canonical URI. 
 </p>
 <p>
