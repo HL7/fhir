@@ -15,8 +15,7 @@
   
   
   <TabRatio>839</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4825,7 +4824,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6875,7 +6873,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="60" ss:StyleID="s182" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="61" ss:StyleID="s182" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s182" ss:Width="143.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s182" ss:Width="112.0"/>
    <Column ss:StyleID="s182" ss:Width="328.0"/>
@@ -7371,6 +7369,12 @@
     <Cell ss:StyleID="s190"><Data ss:Type="String">secondsmoke</Data></Cell>
     <Cell ss:StyleID="s190"><Data ss:Type="String">observation-example-secondsmoke.xml</Data></Cell>
    </Row>
+   <Row ss:Height="45">
+    <Cell ss:StyleID="s190"><Data ss:Type="String">Tracheostomy care assessment</Data></Cell>
+    <Cell ss:Index="3" ss:StyleID="s190"><Data ss:Type="String"> An example of capturing whether the mother is trained to change her child's trachestomy tube. In this example, the child is the patient of record and the mother is the focus.</Data></Cell>
+    <Cell ss:StyleID="s190"><Data ss:Type="String">trachcare</Data></Cell>
+    <Cell ss:StyleID="s190"><Data ss:Type="String">observation-example-trachcare.xml</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -7383,6 +7387,7 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

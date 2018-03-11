@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
+	<id value="trachcare"/>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="exam"/>
+			<display value="Exam"/>
+		</coding>
+		<text value="Exam"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="410211008"/>
+			<display value="Tracheostomy care assessment (procedure)"/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/infant"/>
+	</subject>
+	<focus>
+		<reference value="Patient/infant-mom"/>
+	</focus>
+	<effectiveDateTime value="2018-03-11T16:07:54+00:00"/>
+	<valueString value="Mother is trained to change her child's trachestomy tube">
+
+	</valueString>
+</Observation>

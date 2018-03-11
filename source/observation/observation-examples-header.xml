@@ -34,7 +34,15 @@
 			<a href="observation-example-date-lastmp.html">An "ask at order" response using the datetime datetype for the result value</a>
 		</li>
 	</ul>
-	<h3>Imaging Studies</h3>
+	<h3>Exam and Simple Assessments</h3>
+	<p>The following Observations shows examples of physical exams finding and simple assessments:
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-trachcare.html"> Observation to capture whether the mother is trained to change her child's trachestomy tube.</a> Note that in this example, the child is the patient of record and the mother is the focus.
+		</li>
+	</ul>
+		<h3>Imaging Studies</h3>
 	<p>The following Observations show examples of imaging results:
     </p>
 	<ul>
@@ -42,6 +50,7 @@
 			<a href="observation-example-bmd.html">Example of an encoded BMD measurements of left femur</a>
 		</li>
 	</ul>
+
 	<h3>Genomics</h3>
 	<p>The following Observations show examples of genomics observations:
     </p>
