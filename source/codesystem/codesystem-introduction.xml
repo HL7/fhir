@@ -11,7 +11,7 @@ The FHIR terminology specification is based on two key concepts, originally defi
 <li> <b>value set</b> - selects a set of codes from those defined by one or more code systems</li>
 </ul>
 <p>
-Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value Sets 
+Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value sets 
 select a set of codes from one or more code systems to specify which codes can be used in a particular context.
 </p>
 <p>
