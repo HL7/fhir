@@ -201,13 +201,11 @@ The parent and child properties above are mostly only used when performing conce
 <a name="subsumption"></a>
 <h3>Subsumption Testing</h3>
 <p>
-The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in relation to the type of hierarchy identified for the code system represented by the CodeSystem resource (i.e. the value of <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>).
+The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in relation to the type of hierarchy  (i.e. the value of <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>) identified for the code system that is being represented by the CodeSystem resource.
 Concept A is considered to be subsumed by Concept B if it comes under Concept B in the hierarchy, or if subsumption is declared explicitly using the <a href="extension-codesystem-subsumes.html">subsumes extension</a>).
 </p>
 <p>
-Where a CodeSystem does not declare its hierarchy meaning directly, then
-the code system documentation must be consulted manually to determine how subsumption is determined. If there is no definition, none of the
-subsumption based features can be used with the code system.
+Where a CodeSystem does not declare its hierarchy meaning directly, then the code system documentation must be consulted manually to determine how subsumption is determined. If there is no definition, none of the subsumption based features can be used with the code system.
 </p>
 <p>
 Subsumption based logic arises explicitly or implicitly in the following places in the FHIR specification:
