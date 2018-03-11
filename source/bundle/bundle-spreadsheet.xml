@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -772,8 +772,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3681,13 +3679,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3775,7 +3771,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.where(fullUrl).select(fullUrl&amp;resource.meta.versionId).isDistinct()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.where(fullUrl.exists()).select(fullUrl&amp;resource.meta.versionId).isDistinct()</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">count(for $entry in f:entry[f:resource] return $entry[count(parent::f:Bundle/f:entry[f:fullUrl/@value=$entry/f:fullUrl/@value and ((not(f:resource/*/f:meta/f:versionId/@value) and not($entry/f:resource/*/f:meta/f:versionId/@value)) or f:resource/*/f:meta/f:versionId/@value=$entry/f:resource/*/f:meta/f:versionId/@value)])!=1])=0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4101,12 +4097,12 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4446,7 +4442,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5031,7 +5026,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5287,7 +5281,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -5566,7 +5559,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5960,7 +5952,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -6411,7 +6402,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -7023,7 +7013,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7608,7 +7597,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8065,7 +8053,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8650,7 +8637,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8665,4 +8651,4 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>
  </Worksheet>
-<!--canonicalized--><!--canonicalized--><!--canonicalized--></Workbook>
+<!--canonicalized--></Workbook>
