@@ -14,267 +14,334 @@
 <h3>Clinical Decision Support Services</h3>
 <table class="cols"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
 
-<p>This section of the clinical reasoning module discusses the evaluation use case for clinical decision support and how the various knowledge artifacts can be integrated into clinical workflow.</p>
+<p>This section of the clinical reasoning module discusses the evaluation use case for clinical decision support and how the various knowledge artifacts can be integrated into clinical workflow. The topic focuses on two main scenarios:</p>
 
-<p>Using CDS Hooks</p>
+<ol>
+	<li>Using CDS Hooks to evaluate remote clinical decision support</li>
+	<li>Using CDS Hooks to surface clinical decision support behavior</li>
+</ol>
 
-<p>The <a href="guidanceresponse.html">GuidanceResponse</a> structure provides a general mechanism for representing the actions to be performed in response to a guidance evaluation request.</p>
+<p>Note that this topic is a very high-level approach to using CDS Hooks to suport these two use cases. It is not a normative description of any of the CDS Hooks content. Please refer to the <a href="https://cds-hooks.org">CDS Hooks</a> specification itself for more details.</p>
 
-<p>In the simplest case, an application requests guidance from a decision support service as part of a particular trigger, usually a specific point in a clinical workflow.</p>
+<h4>Consuming Decision Support Using CDS Hooks</h4>
 
-<img alt="Synchronous, Direct Guidance Request" src="clinicalreasoning-integrating-decision-support-simple-request.png"/>
+<p>CDS Hooks is an open source specification focused on user-facing remote clinical decision support. CDS Hooks can use FHIR to represent patient information and recommendations, but is architecturally an independent specification. The basic components of CDS Hooks are:</p>
 
-<p>For example, on the placement of an order for a specific imaging study, the application performs an $evaluate on the Guideline Appropriate Ordering service module:</p>
+<table>
+  <tr>
+    <td><b>Service</b></td><td>A decision support service that accepts requests containing patient information, and provides responses</td>
+  </tr>
+  <tr>
+    <td><b>Hook</b></td><td>A defined point within the client system's workflow with well-known contextual information provided as part of the request</td>
+  </tr>
+    <td><b>EHR</b></td><td>An electronic health record, or other clinical information system that consumes decision support in the form of services</td>
+  </tr>
+  <tr>
+    <td><b>Card</b></td><td>Guidance from decision support services is returned in the form of cards, representing discrete recommendations or suggestions that are presented to the user within the EHR</th>
+  </td>
+</table>
 
-<img alt="EHR Radiology Workflow Example" src="clinicalreasoning-integrating-decision-support-radiology-request.png"/>
+<h5>Configuration</h5>
 
-<pre><code>POST [base]/ServiceDefinition/example/$evaluate
-  
-&lt;Parameters&gt;
-  &lt;id value=&quot;evaluate-operation-request-example&quot;/&gt;
-  &lt;!--  This example demonstrates the $evaluate operation against a ServiceDefinition resource. --&gt;
-  &lt;parameter&gt;
-    &lt;name value=&quot;requestId&quot;/&gt;
-    &lt;valueString value=&quot;guidanceRequest1&quot;/&gt;
-  &lt;/parameter&gt;
-  &lt;parameter&gt;
-    &lt;name value=&quot;setting&quot;/&gt;
-    &lt;valueCoding&gt;
-      &lt;system value=&quot;http://hl7.org/fhir/encounter-class&quot;/&gt;
-      &lt;code value=&quot;inpatient&quot;/&gt;
-    &lt;/valueCoding&gt;
-  &lt;/parameter&gt;
-  &lt;parameter&gt;
-    &lt;name value=&quot;patient&quot;/&gt;
-    &lt;resource&gt;
-      &lt;Patient&gt;
-        &lt;id value=&quot;example&quot;/&gt;
-        &lt;meta&gt;
-          &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/qicore-patient&quot;/&gt;
-          &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-patient&quot;/&gt;
-        &lt;/meta&gt;
-        ... &lt;!-- Excluded for brevity --&gt;
-      &lt;/Patient&gt;
-    &lt;/resource&gt;
-  &lt;/parameter&gt;
-  &lt;parameter&gt;
-    &lt;name value=&quot;order&quot;/&gt;
-    &lt;resource&gt;
-      &lt;Order&gt;
-        &lt;id value=&quot;order1&quot;/&gt;
-        &lt;meta&gt;
-          &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-order&quot;/&gt;
-        &lt;/meta&gt;
-        &lt;contained&gt;
-          &lt;DiagnosticRequest&gt;
-            &lt;id value=&quot;DiagnosticRequest1&quot;/&gt;
-            &lt;meta&gt;
-              &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/gao-diagnosticrequest&quot;/&gt;
-            &lt;/meta&gt;
-            &lt;subject&gt;
-              &lt;reference value=&quot;Patient/example&quot;/&gt;
-            &lt;/subject&gt;
-            &lt;item&gt;
-              &lt;code&gt;
-                &lt;coding&gt;
-                  &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
-                  &lt;code value=&quot;70450&quot;/&gt;
-                  &lt;display value=&quot;CT, head, wo iv contrast&quot;/&gt;
-                &lt;/coding&gt;
-              &lt;/code&gt;
-            &lt;/item&gt;
-          &lt;/DiagnosticRequest&gt;
-        &lt;/contained&gt;
-        &lt;date value=&quot;2012-12-28T09:03:04+11:00&quot;/&gt;
-        &lt;subject&gt;
-          &lt;reference value=&quot;Patient/example&quot;/&gt;
-        &lt;/subject&gt;
-        &lt;source&gt;
-          &lt;reference value=&quot;Practitioner/example&quot;/&gt;
-        &lt;/source&gt;
-        &lt;reasonCodeableConcept&gt;
-          &lt;coding&gt;
-            &lt;system value=&quot;http://hl7.org/fhir/sid/icd-9&quot;/&gt;
-            &lt;code value=&quot;70450&quot;/&gt;
-            &lt;display value=&quot;Headache, Chronic, no new features&quot;/&gt;
-          &lt;/coding&gt;
-        &lt;/reasonCodeableConcept&gt;
-        &lt;detail&gt;
-          &lt;reference value=&quot;#DiagnosticRequest1&quot;/&gt;
-        &lt;/detail&gt;
-      &lt;/Order&gt;
-    &lt;/resource&gt;
-  &lt;/parameter&gt;
-&lt;/Parameters&gt;
-</code></pre>
+<p>The first phase in consuming a CDS Service using CDS Hooks is to configure the integration from the EHR. The CDS Service publishes a set of endpoints to advertise available functionality using the Discovery endpoint. For each endpoint, the service declares the <i>hook</i> during which it expects to be invoked, and optionally, any <i>prefetch</i> information that could be provided to the service.</p>
 
-<p>The above example uses the profiles defined in the Guideline Appropriate Ordering IG. In this specific case, the request includes the patient information, and the order being assessed includes the indication and the procedure.</p>
+<p>Each <i>hook</i> identifies contextual information that is available within the EHR. For example, the <code>medication-prescribe</code> hook specifies the patient in context, as well as the medications being prescribed. When invoking the service from this hook, the EHR is expected to provide this contextual information as part of the request.</p>
 
-<p>The decision support service processes the request and determines whether the order is appropriate given the patient information and indication for the requested procedure. The result is returned as a GuidanceResponse resource with a status of success, and the calling application examines the appropriateness score and determines the appropriate action to take: either proceed with placing the order, or prompt the user that the requested procedure is not appropriate based on the guidelines returned in the response.  An example response is shown below.</p>
+<p>In addition, the CDS Service may specify additional information using <i>prefetch</i> templates. Each prefetch template is a FHIR query URL, parameterized by the data available in context, and describing information needed by the CDS Service to perform its processing. By providing this information as part of the request, the EHR alleviates the need for the CDS Service to request the additional information.</p>
 
-<pre><code>&lt;GuidanceResponse&gt;
-  &lt;!-- This example demonstrates the response to an $evaluate operation using the GuidanceResponse resource. --&gt;
-  &lt;contained&gt;
-    &lt;Parameters&gt;
-      &lt;id value=&quot;outputParameters1&quot;/&gt;
-      &lt;parameter&gt;
-        &lt;name value=&quot;order&quot;/&gt;
-        &lt;valueReference&gt;
-          &lt;reference value=&quot;#order1&quot;/&gt;
-        &lt;/valueReference&gt;
-      &lt;/parameter&gt;
-      &lt;parameter&gt;
-        &lt;name value=&quot;result&quot;/&gt;
-        &lt;resource&gt;
-          &lt;!-- GAO Result, profile of Basic --&gt;
-          &lt;Basic&gt;
-            &lt;id value=&quot;result1&quot;/&gt;
-            &lt;meta&gt;
-              &lt;profile value=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-gao-result&quot;/&gt;
-            &lt;/meta&gt;
-            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-score&quot;&gt;
-              &lt;valueDecimal value=&quot;7&quot;/&gt;
-            &lt;/extension&gt;
-            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-item&quot;&gt;
-              &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-item#code&quot;&gt;
-                &lt;valueCodeableConcept&gt;
-                  &lt;coding&gt;
-                    &lt;system value=&quot;http://www.ama-assn.org/go/cpt&quot;/&gt;
-                    &lt;code value=&quot;70450&quot;/&gt;
-                    &lt;display value=&quot;CT, head, wo iv contrast&quot;/&gt;
-                  &lt;/coding&gt;  
-                &lt;/valueCodeableConcept&gt;
-              &lt;/extension&gt;
-            &lt;/extension&gt;
-            &lt;!-- Appropriate Use Criteria Identifier --&gt;
-            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-guideline&quot;&gt;
-              &lt;valueUri value=&quot;http://someguidelineprovider.org/radiology-appropriateness-guidelines.html&quot;/&gt;
-            &lt;/extension&gt;
-            &lt;!-- Certified HealthCare Information Technology Identifier --&gt;
-            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-device&quot;&gt;
-              &lt;valueReference&gt;
-                &lt;reference value=&quot;#device1&quot;/&gt;
-              &lt;/valueReference&gt;
-            &lt;/extension&gt;
-            &lt;!-- Provider NPI --&gt;
-            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/result-gao-practitioner&quot;&gt;
-              &lt;valueIdentifier&gt;
-                &lt;value value=&quot;exampleNPI&quot;/&gt;
-              &lt;/valueIdentifier&gt;
-            &lt;/extension&gt;
-            &lt;identifier&gt;
-              &lt;value value=&quot;result1&quot;/&gt;
-            &lt;/identifier&gt;
-            &lt;code&gt;
-              &lt;coding&gt;
-                &lt;code value=&quot;within&quot;/&gt;
-                &lt;display value=&quot;Order is within identified guidelines&quot;/&gt;
-              &lt;/coding&gt;
-            &lt;/code&gt;
-            &lt;subject&gt;
-              &lt;reference value=&quot;#order1&quot;/&gt;
-            &lt;/subject&gt;
-          &lt;/Basic&gt;
-        &lt;/resource&gt;
-      &lt;/parameter&gt;
-    &lt;/Parameters&gt;
-  &lt;/contained&gt;
-  &lt;requestId value=&quot;guidanceRequest1&quot;/&gt;
-  &lt;module&gt;
-    &lt;reference value=&quot;ServiceDefinition/example&quot;/&gt;
-  &lt;/module&gt;
-  &lt;status value=&quot;success&quot;/&gt;
-  &lt;outputParameters&gt;
-    &lt;reference value=&quot;#outputParameters1&quot;/&gt;
-  &lt;/outputParameters&gt;
-&lt;/GuidanceResponse&gt;
-</code></pre>
+<p>The following example illustrates a typical service discovery response:</p>
 
-<p>Note that this example is incomplete and reproduced here for illustration purposes only. Refer to the Guideline Appropriate Ordering Implementation Guide for a more complete description of GAO.</p>
+<pre><code>{
+  "services": [
+    {
+      "hook": "medication-prescribe",
+      "prefetch": {
+        "medication": "MedicationOrder?patient\u003d{{Patient.id}}\u0026status\u003dactive"
+      },
+      "name": "Opioid Morphine Milligram Equivalence (MME) Guidance Service",
+      "description": "CDS Service that finds the MME of an opioid medication and provides guidance to the prescriber if the MME exceeds the recommended range.",
+      "id": "cdc-opioid-guidance"
+    },
+    {
+      "hook": "patient-view",
+      "prefetch": {
+        "patient": "Patient/{{Patient.id}}"
+      },
+      "name": "Zika Virus Intervention",
+      "description": "Identifies possible Zika exposure and offers suggestions for suggested actions for pregnant patients",
+      "id": "zika-virus-intervention"
+    },
+}</code></pre>
 
-<a name="evaluation-context"> </a>
-<h4>Evaluation Context</h4>
+<h5>Evaluation</h5>
 
-<p>There are three types of data that can be provided as part of a decision support service module evaluation request:</p>
+<p>The second phase is the actual request/response. Once the integration has been configured using the above information, the EHR can make requests to decision support services at the appropriate times based on the <i>hooks</i> it supports. To make a request, the EHR prepares a <i>request</i> object containing the contextual information required for the hook, as well as any additional prefetch information.</p>
+
+<p>For example, the following request illustrates a call to the <code>cdc-opioid-guidance</code> service:</p>
+
+<pre><code>{
+  "hookInstance": "d1577c69-dfbe-44ad-ba6d-3e05e953b2ea",
+  "fhirServer": "https://example.org/fhir",
+  "hook": "medication-prescribe",
+  "user": "Practitioner/example",
+  "context":
+    {
+      "resourceType": "MedicationOrder",
+      "id": "medrx001",
+      "dateWritten": "2017-05-05",
+      "status": "draft",
+      "patient": {
+        "reference": "Patient/Patient-12214"
+      },
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "197696"
+          }
+        ]
+      },
+      "dosageInstruction": [
+        {
+          "text": "Take 40mg three times daily",
+          "timing": {
+            "repeat": {
+              "frequency": 3,
+              "frequencyMax": 3,
+              "period": 1,
+              "periodUnits": "d"
+            }
+          },
+          "asNeededBoolean": false,
+          "doseQuantity": {
+            "value": 40,
+            "unit": "mg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mg"
+          }
+        }
+      ],
+      "dispenseRequest": {
+        "quantity": {
+          "value": 3000,
+          "unit": "mg",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg"
+        }
+      }
+    },
+  "patient": "Patient/Patient-12214",
+  "prefetch": {
+    "medication": {
+      "resource": {
+        "resourceType": "Bundle",
+        "entry": [
+          {
+            "fullUrl": "https://example.org/fhir/open/MedicationOrder/medrx002",
+            "resource": {
+              "resourceType": "MedicationOrder",
+              "id": "medrx002",
+              "meta": {
+                "versionId": "1",
+                "lastUpdated": "2017-10-21T20:55:38.000+00:00"
+              },
+              "dateWritten": "2017-04-25",
+              "status": "active",
+              "patient": {
+                "reference": "Patient/Patient-12214"
+              },
+              "medicationCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                    "code": "199789"
+                  }
+                ]
+              },
+              "dosageInstruction": [
+                {
+                  "text": "Take 50mg twice daily",
+                  "timing": {
+                    "repeat": {
+                      "frequency": 2,
+                      "period": 1,
+                      "periodUnits": "d"
+                    }
+                  },
+                  "asNeededBoolean": false,
+                  "doseQuantity": {
+                    "value": 55,
+                    "unit": "mg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mg"
+                  }
+                }
+              ],
+              "dispenseRequest": {
+                "quantity": {
+                  "value": 3000,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}</code></pre>
+
+<p>This request identifies:</p>
 
 <ul>
-	<li><b>Context</b> - Context information such as the patient and encounter in context.</li>
-	<li><b>Parameters</b> - Service Module specific parameters.</li>
-	<li><b>Data Requirements</b> - Service Module specific data, described using the DataRequirement structure.</li>
+	<li><b>hookInstance</b> - A unique identifier for this instance of the hook invocation.</li>
+	<li><b>fhirServer</b> - The base URL for the FHIR server that the CDS Service can use to request any additional information required</li>
+	<li><b>hook</b> - The hook being invoked, <code>medication-prescribe</code> in this case</li>
+	<li><b>user</b> - The identifier of the current user, a Practitioner in this case</li>
+	<li><b>context</b> - The contextual information as defined by the <i>hook</i>, the <code>MedicationOrder</code> being prescribed in this case</li>
+	<li><b>prefetch</b> - The prefetch information as defined by the <i>service</i>, the active <code>MedicationOrder</code>s for the patient in this case</li>
 </ul>
 
-<p>In the same way that parameters and data requirements are both supported for expressions in general (see the <a href="clinicalreasoning-topics-using-expressions.html#parameters">Parameters</a> and <a href="clinicalreasoning-topics-using-expressions.html#data-requirements">Data Requirements</a> topics in the Using Expressions section), decision support service modules can describe data inputs as input parameters, or as data requirements.</p>
+<p>The service responds with a set of <i>cards</i> describing any recommendations or suggestions that should be presented to the user:</p>
 
-<a name="evaluation-context-contextual-information"> </a>
-<h5>Contextual Information</h5>
+<pre><code>{
+   "cards":[
+      {
+         "links":[
+            {
+               "label":"CDC guideline for prescribing opioids for chronic pain",
+               "url":"https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"
+            },
+            {
+               "label":"MME Conversion Tables",
+               "url":"https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
+            }
+         ]
+      },
+      {
+         "summary":"High risk for opioid overdose - taper now",
+         "indicator":"warning",
+         "detail":"Total morphine milligram equivalent (MME) is 110 mg/d. Taper to less than 50.",
+         "suggestions":[
+            {
+               "actions":[
+                  {
+                     "description":"Total morphine milligram equivalent (MME) is 110 mg/d. Taper to less than 50."
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}</code></pre>
 
-<p>Contextual information for every decision support service module is defined by the parameters on the hook. This contextual information includes the patient, the encounter, and workflow information.</p>
+<p>Each card contains:</p>
 
-<p>The client provides this information using the normal mechanism for passing parameters using the <a href="parameters.html">Parameters</a> resource.</p>
+<ul>
+  <li><b>summary</b> - A short description of the result</li>
+  <li><b>detail</b> - A more detailed description of the information for the card</li>
+  <li><b>indicator</b> - The urgency/importance of the card, <code>info</code>, <code>warning</code> or <code>hard-stop</code></li>
+  <li><b>source</b> - The source of the information</li>
+  <li><b>suggestions</b> - An array of suggestions, allowing the service to suggest a set of changes in the context of the current activity</li>
+  <li><b>links</b> - A set of links allowing the service to provide links to further information about the response</li>
+</ul>
 
-<p>Note that contextual information is defined as completely optional on the base $evaluate operation definition. However, specific service modules may override this behavior by redefining a contextual parameter, providing constraints on its use. This approach may only be used to apply cardinality and profile constraints. The type of a parameter SHALL not be changed.</p>
+<p>At this point, the EHR processes the response and determines the most appropriate mechanism for displaying the results to the end-user. However, it is often the case that the results of the decision support interaction need to be presisted for future reference. The <a href="guidanceresponse.html">GuidanceResponse</a> and <a href="requestgroup.html">RequestGroup</a>resources provide a general mechanism that supports this use case.</p>
 
-<a name="evaluation-context-parameters"> </a>
-<h5>Parameters</h5>
+<p>In general, the GuidanceResponse represents the overall response from the CDS Service, and the RequestGroup represents the individual cards and suggestions returned as part of the response, as illustrated by the following basic mapping:</p>
 
-<p>Input parameters allow the service module to declare specific data, usually patient-independent, such as configuration parameters. For example, a Diabetes Control service module may expose an A1C threshold as a parameter to allow for institutional and practitioner variance.</p>
+<table>
+  <tr><th><b>CDS Hooks Element</b></th><th><b>FHIR Resource Mapping</b></th></tr>
+  <tr><td>Request.hookInstance</td><td>GuidanceResponse.requestId &amp; RequestGroup.identifier</td></tr>
+  <tr><td>Request URL</td><td>GuidanceResponse.moduleUri &amp; RequestGroup.instantiatesUri</td></tr>
+  <tr><td>Response status</td><td>GuidanceResponse.status</td></tr>
+  <tr><td>Request Patient</td><td>GuidanceResponse.subject &amp; RequestGroup.subject</td></tr>
+  <tr><td>Request time</td><td>GuidanceResponse.occurrenceDateTime &amp; RequestGroup.authoredOn</td></tr>
+  <tr><td>Request service</td><td>GuidanceResponse.performer &amp; RequestGroup.author (as a Device)</td></tr>
+  <tr><td>Response.summary</td><td>RequestGroup.action.title</td></tr>
+  <tr><td>Response.detail</td><td>RequestGroup.action.description</td></tr>
+  <tr><td>Response.indicator</td><td>RequestGroup.priority | RequestGroup.action.resource.priority</td></tr>
+  <tr><td>Response.source</td><td>RequestGroup.action.relatedArtifact.where(type = 'documentation')</td></tr>
+  <tr><td>Response.suggestion.label</td><td>RequestGroup.action.title</td></tr>
+  <tr><td>Response.suggestion.uuid</td><td>RequestGroup.action.id</td></tr>
+  <tr><td>Response.suggestion.action.type</td><td>RequestGroup.action.type</td></tr>
+  <tr><td>Response.suggestion.action.description</td><td>RequestGroup.action.description</td></tr>
+  <tr><td>Response.suggestion.action.resource</td><td>RequestGroup.action.resource</td></tr>
+</table>
 
-<p>The client provides this information in the same way as the contextual parameters (i.e. additional parameter elements in the Parameters resource for the request), but these parameters are provided in addition to the ones defined by the $evaluate operation definition. This means that the set of parameters provided to the request may vary based on the service module being invoked.</p>
+<p>Note that these examples all assume a FHIR DSTU2 service is being used. This is because most EHRs currently support DSTU2 in their production versions.</p>
 
-<a name="evaluation-context-data-requirements"> </a>
-<h5>Data Requirements</h5>
+<h4>Surfacing Clinical Decision Support Guidance Using CDS Hooks</h4>
 
-<p>Data requirements, on the other hand, allow the service module to declare input requirements in terms of the type of data involved, as well as constraints on that data. For example, a service module may declare that it requires A1C Observations for the past year in order to perform a successful evaluation.</p>
+<p>In addition to supporting the user-facing remote decision support use case, CDS Hooks can be used to surface clinical decision support behavior represented by knowledge artifacts in the Clinical Reasoning module. In this use case, a FHIR server functioning as a knowledge provider exposes CDS Hooks Services using the discovery endpoint, and provides guidance using the CDS Service endpoint. To support this, several mappings from Clinical Reasoning functionality to CDS Hooks services are used:</p>
 
-<p>Both options are provided to support a broad variety of service modules. However, note that declaring specific input parameters requires that a client build implementation logic specific to each service module. The data requirements approach allows for a generic data retrieval mechanism, independent of the specific service module being invoked.</p>
+<ol>
+  <li><b>Hooks</b> - Hooks in CDS Hooks are mapped to the TriggerDefinition structure in FHIR</li>
+  <li><b>Services</b> - Services in CDS Hooks are mapped to the PlanDefinition resource in FHIR to provide evaluation behavior</li>
+  <li><b>Prefetch</b> - Prefetch templates in CDS Hooks are mapped to the DataRequirement structure in FHIR</li>
+</ol>
 
-<a name="Evaluation Results"> </a>
-<h4>Evaluation Results</h4>
+<h5>Representing Hooks in FHIR</h5>
 
-<p>Similar to the mechanism for any FHIR operation, evaluation results may be provided by defining specific output parameters on the service module. This is the approach taken by the GAO example provided above, where the results of the evaluation are provided as output parameters. However, as with the input parameters, defining specific output parameters on the service module requires that consumers build implementation logic specific to each service module.</p>
+<p>A <i>hook</i> in CDS Hooks is a pre-defined point in the workflow of a clinical information system such as an EHR. Each hook defines <i>context</i>, which is the information available as part of the current activity in the system. Each hook represents a point in the workflow that can be augmented by decision support from an external system. Within CDS Hooks, each hook defines the set of available context values, along with whether or not that context value can be used as a prefetch token.</p>
 
-<p>In addition to results as output parameters, the GuidanceResponse resource allows <i>actions</i> to be described that indicate what actions should be performed. The <code>action</code> element of the GuidanceResponse mirrors the structure of the <code>actionDefinition</code> elements in a <a href="plandefinition.html">PlanDefinition</a>, providing the ability to describe actions that should be performed in terms of creating, updating, or deleting a resource, or invoking a specific event.</p>
+<p>For example, the <code>patient-view</code> hook defines <code>patientId</code> and <code>encounterId</code> as context values, and indicates that they are both available for use as prefetch tokens (meaning that they can be used to parameterize prefetch templates).</p>
 
-<p>Again, both options are provided to support a broad variety of service modules and implementation approaches.</p>
+<p>Within FHIR, the concept of a hook can be represented using a combination of TriggerDefinition and ParameterDefinition:</p>
 
-<a name="asynchronous-evaluation"> </a>
-<h4>Asynchronous Evaluation</h4>
+<table>
+  <tr><th><b>CDS Hooks Element</b></th><th><b>FHIR Mapping</b></th></tr>
+  <tr><td>Hook.name</td><td>TriggerDefinition.where(type = 'named-event').name</td></tr>
+  <tr><td>Hook.context.field</td><td>ParameterDefinition.name</td></tr>
+  <tr><td>Hook.context.priority</td><td>ParameterDefinition.min &amp; ParameterDefinition.max</td></tr>
+  <tr><td>Hook.context.description</td>ParameterDefinition.documentation &amp; ParameterDefinition.type &amp; ParameterDefinition.profile</tr>
+</table>
 
-<p>To enable asynchronous request/response, the GuidanceResponse supports a status of <code>in-progress</code>. For this result, the HTTP response SHOULD include the <code>Retry After</code> header with an appropriate indication for the expected wait time.</p>
+<p>Note that using TriggerDefinition to represent hook information requires that hook details be duplicated everywhere they are used. Another approach would be to use the EventDefinition resource to capture the hook information once, and then reuse that by reference wherever it is needed.</p>
 
-<p>In this case, the client is expected to reissue the request with the same <code>requestId</code>. To reduce bandwidth requirements, when reissuing a request the client need not send the input information. If the request is complete, a GuidanceResponse with an appropriate completion status (<code>success</code>, <code>failure</code>, or one of the data statuses) will be returned. If the request is still pending, a GuidanceResponse with a status of <code>in-progress</code> is returned.</p>
+<h5>Representing Services in FHIR</h5>
 
-<a name="conversational-evaluation"> </a>
-<h4>Conversational Request/Response</h4>
-<p>In some cases, the decision support service may determine that additional information is required in order to continue processing, or that additional information may result in a more accurate or more appropriate result:</p>
+<p>A <i>service</i> in CDS Hooks is a clinical decision support service that can be used to provide guidance to users at pre-defined points in a workflow. The PlanDefinition resource can be used to describe the behavior of decision support functionality, which can then be exposed via a CDS Hooks service. In the simplest case, there is a one-to-one correspondence between a PlanDefinition and a CDS Service:</p>
 
-<img alt="Synchronous, Direct Guidance Conversation" src="clinicalreasoning-integrating-decision-support-conversation.png"/>
+<table>
+  <tr><th><b>CDS Hooks Element</b></th><th><b>FHIR Mapping</b></th></tr>
+  <tr><td>Service.id</td><td>PlanDefinition.url (without the base)</td></tr>
+  <tr><td>Service.title</td><td>PlanDefinition.title</td></tr>
+  <tr><td>Service.description</td><td>PlanDefinition.description</td></tr>
+  <tr><td>Service.hook</td><td>PlanDefinition.action.trigger</td></tr>
+  <tr><td>Service.prefetch</td>PlanDefinition.data-requirement</tr>
+</table>
 
-<p>In these cases, the GuidanceResponse will be returned with a status of <code>data-requested</code> or <code>data-required</code>, to indicate the particular scenario. In these cases, the GuidanceResponse will contain additional information, stated in the form of additional DataRequirement specifications, to let the calling application know what data is needed. The calling application then repeats the request, providing the additional requested information, and the service continues processing.</p>
+<p>The PlanDefinition/$apply operation can then be used to provide the behavior of the CDS Hooks service, as described in the Processing CDS Hooks Requests section below.</p>
 
-<p>The <code>data-requested</code> status is used to indicate that although the request was processed successfully and a result is provided, a more accurate or relevant result may be obtained by sending the additional requested information.</p>
+<h5>Representing Prefetch in FHIR</h5>
 
-<p>The <code>data-required</code> status is used to indicate that the request cannot be completed successfully without the additional required information.</p>
+<p>In addition to the contextual information defined by the <i>hook</i>, services in CDS Hooks can request that additional information be supplied with each request in the form of <i>prefetch</i> templates. These templates are parameterized FHIR query URLs that can be fulfilled by the EHR as part of the request, reducing the number of round-trips between the CDS Service and the EHR's FHIR server.</p>
 
-<p>Both these statuses may be used to coordinate conversational request/response.</p>
+<p>The concept of prefetch data is represented within Clinical Reasoning as a DataRequirement, which can be transformed to an instance level read or type level search interaction as follows:</p>
 
-<a name="bundling-multiple-requests"> </a>
-<h4>Bundling Multiple Requests</h4>
+<table>
+  <tr><th><b>DataRequirement Element</b></th><th><b>Mapping to FHIR URL</b></th></tr>
+  <tr><td>type</td><td>[type]{[id] | ?[parameters]}</td></tr>
+  <tr><td>subject</td><td>subject={{patientId}}</td></tr>
+  <tr><td>codeFilter</td><td>[path]{=|:in}[code|valueSet]</td></tr>
+  <tr><td>dateFilter</td><td>[path]{eq|lt|gt|ge|le}[valueDateTime|valuePeriod|valueDuration]</td></tr>
+  <tr><td>sort</td><td>_sort=[sort]</td></tr>
+  <tr><td>limit</td>_limit=[limit]</tr>
+  <tr><td></td></tr>
+</table>
 
-<p>To support the ability to issue multiple requests, use a <a href="bundle.html">Bundle</a> of type <code>batch</code>. In this case, the input data is provided as resource entries in the bundle, with the operations specified as request entries.</p>
+<p>This prefetch data can be automatically determined from the data requirements of the PlanDefinition, and provided as part of the service definition to the CDS Hooks discovery response.</p>
 
-<p>The response to posting a batch Bundle containing $evaluate requests is a batch Bundle containing the GuidanceResponse resource results of each $evaluate, as though each request had been submitted independently. Note that this does not imply that the requests must be performed serially; the service is free to implement the requests in any order, including parallelizing the requests.</p>
+<h5>Processing CDS Hooks Requests</h5>
 
-<a name="service-integration"> </a>
-<h4>Service Integration</h4>
+<p>Once the available PlanDefinition resources are advertised through the discovery endpoint, a CDS Hooks endpoint can be used to perform the actual evaluation, as illustrated in the following diagram:</p>
 
-<p>In addition to direct integration, the $evaluate operation can be used as a component within a larger infrastructure. For example:</p>
+<img alt="Surfacing Clinical Reasoning Behavior via CDS Hooks" src="clinicalreasoning-cdshooks-approach.png"/>
 
-<img alt="Decision Support Service Scenario" src="clinicalreasoning-integrating-decision-support-service-scenario.jpg"/>
-
-<p>In this scenario, the decision support service registers with an Event Publishing Service (EPS) to be notified when events of interest occur. An EHR subscribed to the same EPS system can then integrate with the decision support service without needing to know anything about the servicing system (or systems).</p>
-
-<p>Note that whether the integration uses the direct or conversational approach is independent of whether the infrastructure used is direct through a synchronous call, or indirect through an EPS system or messaging bus. This is possible because from the perspective of the consumer, the service is stateless; conversational coordination is based on requests for additional information.</p>
+<p>As depicted in the above diagram, an EHR invokes a CDS Hooks request at the appropriate point in the workflow, providing the requested context and data. The CDS Service responds by performing an $apply operation against the specified PlanDefinition, and transforming the resulting RequestGroup into a CDS Hooks response.</p>
 
 </div>
 [%file newfooter%]

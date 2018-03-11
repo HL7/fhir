@@ -149,7 +149,7 @@
 		<tr><td>Description</td><td>Descriptive information such as identifier, label, title, and textEquivalent.</td></tr>
 		<tr><td>Documentation</td><td>Supporting documentation, citations, or evidence in support of the action.</td></tr>
 		<tr><td>Related Action Definitions</td><td>Each action definition can specify relationships to other actions, allowing timings and offsets to be expressed.</td></tr>
-		<tr><td>Trigger Definition</td><td>Triggering events for the action. See the section on trigger definitions below for more information.</td></tr>
+		<tr><td>Trigger Definitions</td><td>Triggering events for the action. See the section on trigger definitions below for more information.</td></tr>
 		<tr><td>Condition</td><td>An optional condition specifying whether the action definition applies.</td></tr>
 		<tr><td>Timing</td><td>A description of when the action definition should occur.</td></tr>
 		<tr><td>Behavior</td><td>Various behaviors that communicate the intended semantics of groups and actions (e.g. selection behavior, grouping behavior, etc.)</td></tr>
@@ -232,19 +232,19 @@
 
 <p>As examples, the following fragments illustrate the use of a named event, a scheduled event, and a data event as part of an ECA rule definition:</p>
 
-<pre><code>&lt;triggerDefinition&gt;
+<pre><code>&lt;trigger&gt;
   &lt;type value=&quot;named-event&quot;/&gt;
   &lt;eventName value=&quot;Admission&quot;/&gt;
-&lt;/triggerDefinition&gt;
+&lt;/trigger&gt;
 </code></pre>
 
-<pre><code>&lt;triggerDefinition&gt;
+<pre><code>&lt;trigger&gt;
   &lt;type value=&quot;scheduled-event&quot;/&gt;
   &lt;eventTimingDate&gt;10/12/2015&lt;/eventTimingDate&gt;
-&lt;/triggerDefinition&gt;
+&lt;/trigger&gt;
 </code></pre>
 
-<pre><code>&lt;triggerDefinition&gt;
+<pre><code>&lt;trigger&gt;
   &lt;type value=&quot;data-added&quot;/&gt;
   &lt;eventData&gt;
     &lt;dataRequirement&gt;
@@ -255,7 +255,7 @@
       &lt;/codeFilter&gt;
     &lt;/dataRequirement&gt;
   &lt;/eventData&gt;
-&lt;/triggerDefinition&gt;
+&lt;/trigger&gt;
 </code></pre>
 
 <a name="expression-logic"> </a>
@@ -343,7 +343,7 @@
 
 <p>Note that the "activity" to be performed may be to document a patient-specific assessment performed by a clinical decision support service (e.g. patient has a 37% chance of a heart attack in the next 5 years), not just recommendations/recommended actions. In this case, the action would be to "create" a RiskAssessment.</p>
 
-<p>The <a href="plandefinition.html">PlanDefinition</a> resource can be used to represent an ECA rule using the <code>action</code> element. A single, top-level <code>action</code> represents the overall rule, with the <code>triggerDefinition</code> element used to specify the triggering event(s), the <code>condition</code> element used to specify the applicable condition for the rule, and the <code>action</code> element describing the action to be performed.</p>
+<p>The <a href="plandefinition.html">PlanDefinition</a> resource can be used to represent an ECA rule using the <code>action</code> element. A single, top-level <code>action</code> represents the overall rule, with the <code>trigger</code> element used to specify the triggering event(s), the <code>condition</code> element used to specify the applicable condition for the rule, and the <code>action</code> element describing the action to be performed.</p>
 
 <p>For example, the following fragment illustrates a simple use of PlanDefinition to expose a Chlamydia Screening ECA rule:</p>
 
@@ -366,10 +366,10 @@
   &lt;/library&gt;
   &lt;action&gt;
     &lt;title value=&quot;Patient has not had chlamydia screening within the recommended timeframe...&quot;/&gt;
-    &lt;triggerDefinition&gt;
+    &lt;trigger&gt;
       &lt;type value=&quot;scheduled-event&quot;/&gt;
       &lt;eventTimingDate&gt;10/12/2015&lt;/eventTimingDate&gt;
-    &lt;/triggerDefinition&gt;
+    &lt;/trigger&gt;
     &lt;condition&gt;
       &lt;expression value=&quot;NoScreening&quot;/&gt;
     &lt;/condition&gt;
