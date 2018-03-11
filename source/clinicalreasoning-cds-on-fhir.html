@@ -297,7 +297,7 @@
   <tr><td>Hook.name</td><td>TriggerDefinition.where(type = 'named-event').name</td></tr>
   <tr><td>Hook.context.field</td><td>ParameterDefinition.name</td></tr>
   <tr><td>Hook.context.priority</td><td>ParameterDefinition.min &amp; ParameterDefinition.max</td></tr>
-  <tr><td>Hook.context.description</td>ParameterDefinition.documentation &amp; ParameterDefinition.type &amp; ParameterDefinition.profile</tr>
+  <tr><td>Hook.context.description</td><td>ParameterDefinition.documentation &amp; ParameterDefinition.type &amp; ParameterDefinition.profile</td></tr>
 </table>
 
 <p>Note that using TriggerDefinition to represent hook information requires that hook details be duplicated everywhere they are used. Another approach would be to use the EventDefinition resource to capture the hook information once, and then reuse that by reference wherever it is needed.</p>
@@ -312,7 +312,7 @@
   <tr><td>Service.title</td><td>PlanDefinition.title</td></tr>
   <tr><td>Service.description</td><td>PlanDefinition.description</td></tr>
   <tr><td>Service.hook</td><td>PlanDefinition.action.trigger</td></tr>
-  <tr><td>Service.prefetch</td>PlanDefinition.data-requirement</tr>
+  <tr><td>Service.prefetch</td><td>PlanDefinition.data-requirement</td></tr>
 </table>
 
 <p>The PlanDefinition/$apply operation can then be used to provide the behavior of the CDS Hooks service, as described in the Processing CDS Hooks Requests section below.</p>
@@ -330,8 +330,7 @@
   <tr><td>codeFilter</td><td>[path]{=|:in}[code|valueSet]</td></tr>
   <tr><td>dateFilter</td><td>[path]{eq|lt|gt|ge|le}[valueDateTime|valuePeriod|valueDuration]</td></tr>
   <tr><td>sort</td><td>_sort=[sort]</td></tr>
-  <tr><td>limit</td>_limit=[limit]</tr>
-  <tr><td></td></tr>
+  <tr><td>limit</td><td>_limit=[limit]</td></tr>
 </table>
 
 <p>This prefetch data can be automatically determined from the data requirements of the PlanDefinition, and provided as part of the service definition to the CDS Hooks discovery response.</p>
