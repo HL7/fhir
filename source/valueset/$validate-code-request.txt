@@ -28,10 +28,3 @@ POST [base]/ValueSet/$validate-code
   }
   ]
 }
-
---------------------------------------
-// Test whether a Snomed Concept 399211009 (History of myocardial infarction) is subsumed by 22298006 (Myocardial infarction)
-
-GET [base]/ValueSet/$validate-code?system=http://snomed.info/sct&code=399211009&url=http://snomed.info/sct?fhir_vs%3Disa/22298006
-
-

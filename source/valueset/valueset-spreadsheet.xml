@@ -1428,7 +1428,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="88">
     <Cell ss:StyleID="s86"><Data ss:Type="String">ValueSet.compose</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Content Logical Definition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Content Logical Definition;CLD</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="Number">5</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1440,8 +1440,8 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Definition of the content of the value set (CLD)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the "Content Logical Definition" (CLD)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Definition of the content of the value set</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1908,8 +1908,8 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Select only contents included in this value set</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Select the contents included in this value set</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.&#10;&#10;</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The value set URI is either a logical reference to a defined value set such as a [SNOMED CT reference set](snomedct.html#implicit), or a direct reference to a value set definition using ValueSet.url. The reference might not refer to an actual FHIR ValueSet resource; in this case, whatever is referred to is an implicit definition of a value set that needs to be clear about how versions are resolved</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3548,7 +3548,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>15</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4223,7 +4223,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">operation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s133"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Value Set Expansion</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. &#10;&#10;If the operation is not called at the instance level, one of the in parameters constraint, context or valueset must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s135"><Data ss:Type="String">The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. &#10;&#10;If the operation is not called at the instance level, one of the in parameters url, context or valueSet must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.  &#10;&#10;If the expansion is too large (at the discretion of the server), the server will return an error (OperationOutcome with code too-costly). Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters. Servers are not obliged to support paging, but if they do, SHALL support both the offset and count parameters. Hierarchical expansions are not subject to paging and servers simply return the entire expansion.  &#10;&#10;Different servers may return different results from expanding a value set for the following reasons:  &#10;&#10;* The underlying code systems are different (e.g. different versions, possibly with different defined behavior) &#10;* The server optimizes filter includes differently, such as sorting by code frequency &#10;* Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server&#10;&#10;When a server cannot correctly expand a value set because it does not fully understand the code systems (e.g. it has the wrong version, or incomplete definitions) then it SHALL return an error. If the value set itself is unbounded due to the inclusion of post-coordinated value sets (e.g. SNOMED CT, UCUM), then the extension [[[http://hl7.org/fhir/StructureDefinition/valueset-unclosed]]] can be used to indicate that the expansion is incomplete</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">$expand-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$expand-response.txt</Data></Cell>
@@ -4534,7 +4534,7 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete. Overrides the value in the expansion profile if there is one</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that the expansion is incomplete (can use an OperationOutcome plus ValueSet.expansion.total, if the total number of codes is known). The selection and number of codes that are returned in a limited expansion is at the discretion of the server.  This operation parameter overrides the value of ExpansionProfile.limitedExpansion, if there is one.</Data></Cell>
     <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s87"/>
@@ -4573,7 +4573,7 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">Value Set based Validation</Data></Cell>
-    <Cell ss:StyleID="s138"><Data ss:Type="String">Validate that a coded value is in the set of codes allowed by a value set.&#10;&#10;If the operation is not called at the instance level, one of the in parameters "constraint" or "valueset" must be provided.  One (and only one) of the in parameters (code, coding, codeableConcept) must be provided.  The operation returns a result (true / false), an error message, and the recommended display for the code</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Validate that a coded value is in the set of codes allowed by a value set.&#10;&#10;If the operation is not called at the instance level, one of the in parameters url, context or  valueSet must be provided.  One (and only one) of the in parameters code, coding, or codeableConcept must be provided.  The operation returns a result (true / false), an error message, and the recommended display for the code</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell><Data ss:Type="String">$validate-code-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$validate-code-response.txt</Data></Cell>
@@ -5030,9 +5030,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>9</TopRowBottomPane>
+   <TopRowBottomPane>8</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
