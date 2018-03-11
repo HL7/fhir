@@ -1,8 +1,8 @@
-// Simple validation of a code/system against a known value set
+// Simple validation of a code against a known code system
 GET [base]/CodeSystem/loinc/$validate-code?code=1963-8&display=test
 
 --------------------------------------
-// Validate a CodeableConcept against a client specified value set
+// Validate a CodeableConcept against a client specified code system
 POST [base]/CodeSystem/$validate-code
 [other headers]
 
@@ -28,10 +28,3 @@ POST [base]/CodeSystem/$validate-code
   }
   ]
 }
-
---------------------------------------
-// Test whether a Snomed Concept 399211009 (History of myocardial infarction) is subsumed by 22298006 (Myocardial infarction)
-
-GET [base]/CodeSystem/$validate-code?code=399211009&url=http://snomed.info/sct
-
-

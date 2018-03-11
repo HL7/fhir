@@ -201,7 +201,7 @@ The parent and child properties above are mostly only used when performing conce
 <a name="subsumption"></a>
 <h3>Subsumption Testing</h3>
 <p>
-The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in terms of the CodeSystem hierarchy (i.e. <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>).
+The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in relation to the type of hierarchy identified for the code system represented by the CodeSystem resource (i.e. the value of <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>).
 Concept A is considered to be subsumed by Concept B if it comes under Concept B in the hierarchy, or if subsumption is declared explicitly using the <a href="extension-codesystem-subsumes.html">subsumes extension</a>).
 </p>
 <p>
