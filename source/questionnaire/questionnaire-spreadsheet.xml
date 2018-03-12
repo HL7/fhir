@@ -18,7 +18,7 @@
   
   
   <TabRatio>613</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4238,11 +4238,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4342,7 +4341,7 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">Questionnaire.item.enableWhen</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">If the operator is 'exists', the value must be a boolean</Data></Cell>
     <Cell ss:StyleID="s112"><Data ss:Type="String">operator = 'exists' implies answer is boolean</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">(f:operator/value != 'operator') or (exists(f:answerBoolean)</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">(f:operator/value != 'exists') or (exists(f:answerBoolean)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s111"><Data ss:Type="Number">8</Data><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4726,6 +4725,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

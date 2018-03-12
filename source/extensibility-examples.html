@@ -79,7 +79,7 @@ From this table, we can build a formal extension definition. In this case, it lo
   &lt;url value="http://example.org/fhir/StructureDefinition/participation-agreement"/&gt;
   &lt;name value="Example Extension Definition"/&gt;
   &lt;!-- snip other metadata -->
-  &lt;kind value="datatype"/&gt;
+  &lt;kind value="complex-type"/&gt;
   &lt;context&gt;
     &lt;type value="fhirpath"/&gt;
     &lt;expression value="Patient"/&gt;
@@ -99,6 +99,10 @@ From this table, we can build a formal extension definition. In this case, it lo
         For further information, see the partnership agreement..."/&gt;
       &lt;mustSupport value="true"/&gt;
       &lt;isModifier value="false"/&gt;
+    &lt;/element>
+    &lt;element>
+      &lt;path value="Extension.url"/>
+      &lt;fixedUri value="http://example.org/fhir/StructureDefinition/participation-agreement"/>
     &lt;/element>
     &lt;element>
       &lt;path value="Extension.valueUri"/>
@@ -289,7 +293,7 @@ and their associated bindings. In this case, the definition looks like this:
   &lt;name value="Iso21090NameQualifier"/&gt;
   &lt;title value="iso-21090 Name Qualifier"/&gt;
   &lt;!-- snip other metadata, including definition of RIM Mapping -->
-  &lt;kind value="datatype"/&gt;
+  &lt;kind value="complex-type"/&gt;
   &lt;context&gt;
     &lt;type value="element"/&gt;
     &lt;expression value="HumanName.given"/&gt;
@@ -319,6 +323,10 @@ and their associated bindings. In this case, the definition looks like this:
              name part and how it should be used"/&gt;
       &lt;mustSupport value="false"/&gt;
       &lt;isModifier value="false"/&gt;
+    &lt;/element>
+    &lt;element>
+      &lt;path value="Extension.url"/>
+      &lt;fixedUri value="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"/>
     &lt;/element>
     &lt;element>
       &lt;path value="Extension.value"/>

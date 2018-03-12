@@ -229,7 +229,7 @@ remain identical:
 </pre>
 
 <p>
-Another useful approach is to walk any link:
+Another useful approach is to walk any link * (e.g wildcard support):
 </p>
 <pre class="xml">
   &lt;link&gt;
@@ -240,6 +240,27 @@ Another useful approach is to walk any link:
     &lt;target&gt;
       &lt;type value=&quot;List&quot;/&gt;      
       &lt;!-- and inside this list, follow any references --&gt;
+      &lt;link&gt;
+        &lt;path value=&quot;*&quot;/&gt;
+        &lt;target&gt;
+          &lt;type value=&quot;Resource&quot;/&gt; 
+        &lt;/target&gt;
+      &lt;/link&gt;      
+    &lt;/target&gt;
+  &lt;/link&gt;
+</pre>
+<p>
+or you can follow any links in any resource:
+</p>
+<pre class="xml">
+  &lt;link&gt;
+    &lt;!-- 
+      follow all links 
+    --&gt;
+    &lt;path value=&quot;*&quot;/&gt;
+    &lt;target&gt;
+      &lt;type value=&quot;Resource&quot;/&gt;      
+      &lt;!-- and inside the target, follow any links --&gt;
       &lt;link&gt;
         &lt;path value=&quot;*&quot;/&gt;
         &lt;target&gt;
