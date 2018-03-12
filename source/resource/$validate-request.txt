@@ -14,11 +14,11 @@ POST /open/Patient/example/$validate
   <parameter>
     <name value="mode"/>
     <valueCode value="update"/>
+  </parameter>
   <parameter>
-  <parameter>
-    <name value="mode"/>
+    <name value="resource"/>
     <resource>
 $include 6 ../patient/patient-example.xml
     </resource>
-  <parameter>
+  </parameter>
 </Parameters>
