@@ -518,6 +518,7 @@ Servers can choose whether or not to support client defined ids, and indicate su
 using <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.updateCreate">CapabilityStatement.rest.resource.updateCreate</a>.
 </p>
 
+<a name="rejecting-updates"> </a>
 <h4>Rejecting Updates</h4>
 <p>
 Servers are permitted to reject update interactions because of integrity concerns or other business rules, and return HTTP status codes accordingly (usually a <code>422</code>).
@@ -535,6 +536,10 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 </ul>
 <p>
 Any of these errors SHOULD be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail concerning the issue.
+In general, if an instance fails the constraints documented in the CapabilityStatement then the response should be a 400,
+whereas if the instance fails other non-externally described business rules, the response would be a 422 error. However, 
+there's no expectation that servers will tightly adhere to this differentiation (nor is it clear that it makes much difference 
+whether they do or not). In practice, servers may also return 5xx errors in these cases without being deemed non-conformant.
 </p>
 <p>
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
@@ -792,6 +797,9 @@ When the server rejects the content of the resource because of business rules, t
 In either case, the server SHOULD include a response body containing an <a href="operationoutcome.html">OperationOutcome</a> with detailed error messages describing the reason for the error.
 </p>
 <p>
+Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+</p>
+<p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
 </p>
 <ul>
@@ -800,7 +808,10 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
  <li><b><code>422</code> Unprocessable Entity</b> - the proposed resource violated applicable FHIR profiles or server business rules. This should be accompanied by an <a href="operationoutcome.html">OperationOutcome</a> resource providing additional detail</li>
 </ul>
 <p>
-Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+In general, if an instance fails the constraints documented in the CapabilityStatement then the response should be a 400,
+whereas if the instance fails other non-externally described business rules, the response would be a 422 error. However, 
+there's no expectation that servers will tightly adhere to this differentiation (nor is it clear that it makes much difference 
+whether they do or not). In practice, servers may also return 5xx errors in these cases without being deemed non-conformant.
 </p>
 <p>
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
