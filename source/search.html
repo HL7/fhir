@@ -823,15 +823,19 @@ The prefix is optional, and is as described <a href="#prefix">above</a>, both re
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
  <tr><td><pre> GET [base]/Observation?value-quantity=5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations with a value of 5.4 mg where mg is understood as a UCUM unit (<code>system</code>/<code>code</code>)</td></tr>
- <tr><td><pre> GET [base]/Observation?value-quantity=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the unit - either the code or the stated human unit (<code>unit</code>) are "mg"</td></tr>
+ <tr><td><pre> GET [base]/Observation?value-quantity=5.4||mg</pre></td><td>Search for all the observations with a value of 5.4 mg where the unit - either the code (<code>code</code>) or the stated human unit (<code>unit</code>) are "mg"</td></tr>
  <tr><td><pre> GET [base]/Observation?value-quantity=le5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is less than 5.4 mg where mg is understood as a UCUM unit</td></tr>
  <tr><td><pre> GET [base]/Observation?value-quantity=ap5.4|http://unitsofmeasure.org|mg</pre></td><td>Search for all the observations where the value of is about 5.4 mg where mg is understood as a UCUM unit</td></tr>
 </table>
+<p>
+Specifying a system and a code for the search implies that the search is based on a particular code system - usually <a href="http://unitsofmeasure.org">UCUM</a>, and 
+that a precise (and potentially canonical) match is desired. In this case, it is inappropriate to search on the human display for the unit, which can be 
+is uncontrolled and may unpredictable. 
+</p>
 
 <p>
 The search processor may choose to perform a search based on <a href="datatypes.html#quantity">canonical units</a> (e.g. any value where the units can be converted to a value in mg in the case above).
 </p>
-
 
 <a name="reference"></a>
 <h4>reference</h4>
