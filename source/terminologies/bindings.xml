@@ -4,7 +4,7 @@
   <LastAuthor>Rob Hausam</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
   <LastSaved>2018-02-20T18:22:29Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">8b803d46-4659-4184-8eea-2715290b80f6</WorkbookGuid>
@@ -14,234 +14,20 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>\\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
-   <SheetName>Instructions</SheetName>
-   <SheetName>Data Elements</SheetName>
+   <Path>\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\conceptmap-spreadsheet.xml</Path>
    <SheetName>Invariants</SheetName>
-   <SheetName>Search</SheetName>
-   <SheetName>Operations</SheetName>
-   <SheetName>Events</SheetName>
-   <SheetName>Profiles</SheetName>
-   <SheetName>Examples</SheetName>
-   <SheetName>Bindings</SheetName>
-   <SheetName>some-code-list</SheetName>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>0</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>1</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>1</Count>
-    <SheetIndex>2</SheetIndex>
-    <Crn>
-     <Row>1</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>1</Number>
-    </Crn>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>3</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>4</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>5</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>6</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>7</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>8</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>9</SheetIndex>
-   </Xct>
   </SupBook>
   <SupBook>
-   <Path>\\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
-   <SheetName>Instructions</SheetName>
-   <SheetName>Data Elements</SheetName>
+   <Path>\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\elementdefinition.xml</Path>
    <SheetName>Invariants</SheetName>
-   <SheetName>Search</SheetName>
-   <SheetName>Operations</SheetName>
-   <SheetName>Events</SheetName>
-   <SheetName>Profiles</SheetName>
-   <SheetName>Examples</SheetName>
-   <SheetName>Bindings</SheetName>
-   <SheetName>constraint-severity</SheetName>
-   <SheetName>resource-slicing-rules</SheetName>
-   <SheetName>resource-aggregation-mode</SheetName>
-   <SheetName>property-representation</SheetName>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>0</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>1</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>16</Count>
-    <SheetIndex>2</SheetIndex>
-    <Crn>
-     <Row>1</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>1</Number>
-    </Crn>
-    <Crn>
-     <Row>2</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>2</Number>
-    </Crn>
-    <Crn>
-     <Row>3</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>3</Number>
-    </Crn>
-    <Crn>
-     <Row>4</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>4</Number>
-    </Crn>
-    <Crn>
-     <Row>5</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>5</Number>
-    </Crn>
-    <Crn>
-     <Row>6</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>6</Number>
-    </Crn>
-    <Crn>
-     <Row>7</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>7</Number>
-    </Crn>
-    <Crn>
-     <Row>8</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>8</Number>
-    </Crn>
-    <Crn>
-     <Row>9</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>9</Number>
-    </Crn>
-    <Crn>
-     <Row>10</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>10</Number>
-    </Crn>
-    <Crn>
-     <Row>11</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>11</Number>
-    </Crn>
-    <Crn>
-     <Row>12</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>12</Number>
-    </Crn>
-    <Crn>
-     <Row>13</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>13</Number>
-    </Crn>
-    <Crn>
-     <Row>14</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>14</Number>
-    </Crn>
-    <Crn>
-     <Row>15</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Number>15</Number>
-    </Crn>
-    <Crn>
-     <Row>16</Row>
-     <ColFirst>0</ColFirst>
-     <ColLast>0</ColLast>
-     <Text>!16</Text>
-    </Crn>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>3</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>4</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>5</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>6</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>7</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>8</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>9</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>10</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>11</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>12</SheetIndex>
-   </Xct>
   </SupBook>
   
   
   
   
   <TabRatio>780</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -600,14 +386,13 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="='\\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="='\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="35" ss:StyleID="s64" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="230.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="65.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="219.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="4" ss:StyleID="s64" ss:Width="219.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s64" ss:Width="245.0"/>
    <Column ss:Index="7" ss:StyleID="s64" ss:Width="113.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s64" ss:Width="174.0"/>
@@ -1051,7 +836,6 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <TopRowVisible>24</TopRowVisible>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -1127,7 +911,7 @@
  </Worksheet>
  <Worksheet ss:Name="data-absent-reason">
   <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="16" x:FullColumns="1" x:FullRows="1">
-   <Column ss:Width="16.0"/>
+   <Column ss:Width="19.0"/>
    <Column ss:Width="84.0"/>
    <Column ss:Width="49.0"/>
    <Column ss:Width="109.0"/>
@@ -1276,8 +1060,6 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -3315,7 +3097,7 @@
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s109"/>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Unmatched</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">There is no match for this concept in the destination concept system.</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">There is no match for this concept in the target code system.</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
@@ -3827,6 +3609,7 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4428,7 +4211,7 @@
  <Worksheet ss:Name="binding-strength">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
-   <NamedRange ss:Name="Invariantids" ss:RefersTo="='\\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
+   <NamedRange ss:Name="Invariantids" ss:RefersTo="='\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s105" ss:Width="80.0"/>
