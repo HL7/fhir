@@ -1073,6 +1073,11 @@ should not matter given the previous rule.
 Static references within a <code>Bundle.entry.resource</code> to another <code>Bundle.entry.resource</code> that is being
 created within the batch are considered to be non-conformant.
 </p>
+<p>
+When processing the batch, the HTTP response code is 200 Ok if the batch was processed correctly, regardless of the success of the 
+operations within the Batch. To determine the status of the operations, look inside the returned Bundle. A response code of other 
+than 200 indicates that processing the batch itself failed, and means that none of the operations in the batch succeeded.
+</p>
 
 <h4>Transaction Processing Rules</h4>
 <p>
