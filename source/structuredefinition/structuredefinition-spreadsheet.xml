@@ -93,7 +93,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3941,7 +3941,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4000,7 +3999,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition.snapshot</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Each element definition in a snapshot must have a formal definition and cardinalities</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">element.all(definition and min and max)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">element.all(definition.exists() and min.exists() and max.exists())</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">count(f:element) = count(f:element[exists(f:definition) and exists(f:min) and exists(f:max)])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43">
@@ -4403,10 +4402,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

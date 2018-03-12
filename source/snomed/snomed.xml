@@ -118,6 +118,11 @@
     <display value="Viking horse"/>
     <display value="Viking horse (organism)"/>
   </concept>
+  <concept id="112144000" display="Blood group A">
+    <display value="Blood group A"/>
+    <display value="Group A - blood"/>
+    <display value="Blood group A (finding)"/>
+  </concept>
   <concept id="112485003" display="Gujarati cattle">
     <display value="Gujarati cattle breed (organism)"/>
     <display value="Gujarati cattle"/>
@@ -13863,6 +13868,11 @@
     <display value="Physical therapy assessment"/>
     <display value="Assess physical therapist service"/>
     <display value="Physical therapy assessment (procedure)"/>
+  </concept>
+  <concept id="410211008" display="Tracheostomy care assessment">
+    <display value="Tracheostomy care assessment"/>
+    <display value="Assess tracheostomy care"/>
+    <display value="Tracheostomy care assessment (procedure)"/>
   </concept>
   <concept id="410684002" display="Drug therapy status">
     <display value="Drug therapy status"/>

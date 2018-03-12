@@ -44,6 +44,7 @@ and clients SHOULD be prepared to receive either format.
 Note that the _summary parameter does not apply when the mime type is not one of the standard FHIR content types.
 </p>
 
+<a name="rest"></a>
 <h3>Security Considerations</h3>
 <p>
 Binary resources are not constrained, and therefore can be of any content type and encoding. 
@@ -59,6 +60,13 @@ the server itself, it uses the <code>securityContext</code> element (or the matc
 should be treated as if it was the other resource. Typically, the other resource is a 
 DocumentReference or similar resource that refers directly to the Binary resource, but 
 that is not mandatory.
+</p>
+
+<a name="search"></a>
+<h3>Search</h3>
+
+<p>
+This specification does not support searching on Binary resources.
 </p>
 
 </div>
