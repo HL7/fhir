@@ -233,7 +233,10 @@ They include the following:
 Access Denied Response Handling
 </h3>
 <p>
-A web-server, especially hosting FHIR, must choose the response carefully when an Access Denied condition exists. Returning too much information may expose details that should not be communicated. The Access Denied condition might be because of missing but required Authentication, the user is not authorized to access the endpoint, the user is not authorized to access specific data, or other policy reasons. 
+A web-server, especially hosting FHIR, must choose the response carefully when an Access Denied condition exists. 
+Returning too much information may expose details that should not be communicated. The Access Denied condition 
+might be because of missing but required Authentication, the user is not authorized to access the endpoint, 
+the user is not authorized to access specific data, or other policy reasons. 
 </p>
 <p>
 To balance usability of the returned result vs appropriate protection, the actual result method used needs to be controlled by policy and context. 
@@ -250,6 +253,12 @@ Typical methods of handling Access Denied used are:
 </p>
 <p>
 <b>Return a 401 “Unauthorized”</b> – This communicates that user authentication was attempted and failed to be authenticated. 
+</p>
+<p>
+Note that if a server allows <a href="http.html#upsert">PUT to a new location</a>, 
+it is not feasible to return 404 Not Found. This means that clients can use this to 
+test whether content exists that they are not able to access, which is a minor, but 
+potentially significant, leak of information.
 </p>
 
 <a name="audit"></a>
