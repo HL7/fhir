@@ -16,7 +16,7 @@
             <li>Subject (patient or related person)</li>
             <li>Employment Status</li>
             <li>Retirement Date(s)</li>
-            <li>Combat Zone Work</li>
+            <li>Combat Zone Period</li>
             <li>Usual Work, which includes:<ul>
                     <li>Usual Occupation</li>
                     <li>Usual Industry</li>
@@ -31,7 +31,7 @@
                             <li>Weekly Work Days</li>
                             <li>Daily Work Hours</li>
                         </ul></li>
-                    <li>Job Duties</li>
+                    <li>Job Duty</li>
                     <li>Occupational Hazards</li>
                     <li>Employer Details (e.g., name, address)</li>
                 </ul></li>
