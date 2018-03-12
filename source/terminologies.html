@@ -368,6 +368,10 @@ The following rules apply when required bindings are used with the <a href="data
  <li><code>text</code> can be provided as well, and is always recommended, but is not an acceptable substitute for the required code</li>
 </ul>
 <p>
+If a required binding is applied to an element with maximum cardinality &gt 1, the binding applies to
+all the elements.
+</p>
+<p>
 The following  rules apply when required bindings are used with the <a href="datatypes.html#code">code</a> data type:
 </p>
 <ul>
@@ -391,6 +395,10 @@ system.code may be used instead.</i>
 If the data type is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the <i>coding</i> values SHALL
 be from the specified value set if a code applies, but if no suitable code exists in the value set, alternate code(s) may
 be provided in its place. If no codes, including local codes, are available, then just text may be used.
+</p>
+<p>
+If an extensible binding is applied to an element with maximum cardinality &gt 1, the binding applies to
+all the elements.
 </p>
 <p>
 If the data type is <a href="datatypes.html#Coding">Coding</a>, then the code/system SHALL be from the specified value set
