@@ -4297,7 +4297,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="72">
     <Cell><Data ss:Type="String">PerformerType</Data></Cell>
-    <Cell><Data ss:Type="String">Identifies types of practitioners, devices or others that should fulfill a request.  While the detailed constraints of relevant providers will vary by resource, some degree of consistency around recommended codes across request and definition resources would be desirable</Data></Cell>
+    <Cell><Data ss:Type="String">Identifies types of practitioners, devices or other agents that should fulfill a request.  While the detailed constraints of relevant agents will vary by resource, some degree of consistency around recommended codes across request and definition resources would be desirable</Data></Cell>
     <Cell><Data ss:Type="String">unbound</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="86">
