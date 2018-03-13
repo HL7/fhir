@@ -1,6 +1,63 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+  <blockquote class="stu-note">
+  
+    <a name="dstu">
+    </a>
+
+
+    <p><strong>Note to balloters</strong> The Orders and Observations work-group wants to draw the attention of reviewers and implementers to the following active discussions which may result in significant changes to this resource.  We would appreciate your feedback on these issues.</p>
+    <ul>
+    <li><p><strong>How to distinguish between the device “instance” or the “kind”</strong></p>
+    <p> Current list of device 'kind' elements:</p>
+    <ul>
+    <li><code>deviceIdentifier</code> </li>
+    <li><code>type</code></li>
+    <li><code>name</code></li>
+    <li><code>jurisdiction</code></li>
+    <li><code>issuer</code></li>
+    <li><code>manufacturer</code></li>
+    <li><code>model</code></li>
+    <li><code>version</code></li>
+    <li><code>safety</code></li>
+    </ul>
+    <p>Current list of device 'instance' elements:</p>
+    <ul>
+    <li><code>identifier</code> (serial number)</li>
+    <li><code>carrierAIDC</code></li>
+    <li><code>carrierHRF</code></li>
+    <li><code>entryType</code></li>
+    <li><code>lotNumber</code></li>
+    <li><code>manufactureDate</code></li>
+    <li><code>expirationDate</code></li>
+    <li><code>status</code></li>
+    </ul>
+    <p>Currently, the Device resource represents both an ‘instance’ of a device (e.g., an IM pin with serial number 123) and a ‘kind’ of device (e.g.,  3ml syringes). The lists above identify the Device elements associated with kind and instance respectively.  Note that <em>both</em> kind and instance related elements are typically present when representing instance of a device.   To clearly differentiate the kind of device from the instance of a device, several proposals have been put forth:</p>
+    <ol>
+    <li>Create separate resources for kind vs instance of Device</li>
+    <li>Create a Device profile to represent a Device Kind</li>
+    <li>Reorder the elements and group by kind and instance within the Device resource. </li>
+    </ol>
+    </li>
+    </ul>
+    <ul>
+    <li><p><strong>Representation of UDI for multipart devices</strong></p>
+    <p>Currently, the Device resource only permits a single UDI, which does not allow for devices that are composed of multiple parts each with a separate UDI.  The following options are proposed to allow representation of UDI for multipart devices.</p>
+    <ol>
+    <li>Group individual Devices using the Procedure resource <code>focalDevice</code> element.  There would be as many devices as necessary represented, but each device will have zero to one DI and UDI.  There is no way to define the relationship between devices with DeviceComponent unless add a reference of DeviceComponent in Procedure.  </li>
+    <li>Change Device to support a device that has zero to one DIs (represent type) with multiple UDIs (instance). </li>
+    <li>In addition to option 2 above, add an element to Device to be able reference other Devices resources. This would allow representation of a number of inter-related devices within a device system.  This option is similar to the Device harmonization discussion below.</li>
+    </ol>
+    </li>
+    <li><p><strong>Harmonization between Personal Healthcare Devices (PHD) with Point of Care Device (POCD)</strong></p>
+    <p>  Similar to the 3rd option above for UDI for multipart devices,  there is active discussion within the Devices working group to harmonize the representation of simpler Personal Healthcare Devices (PHD) with Point of Care Device (POCD) by merging DeviceComponent within Device and allow multiple component Devices reference the 'parent' device.</p>
+    </li>
+    </ul>
+
+
+  </blockquote>
+
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
