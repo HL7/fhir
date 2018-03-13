@@ -942,7 +942,15 @@ one resource is directly nested within another - see the <a href="bundle.html#se
 search parameters</a> 'message' and 'composition' as an example of this.
 </p>
 
-
+<p>
+Implementation note: <a href="references.html#versions">References are allowed to be version specific</a>. 
+When searching on version specific references, the following rules apply:
+</p>
+<ul>
+ <li>If a resource has a reference that is version-specific and chaining is performed, the criteria should ideally be evaluated against the version referenced, but most systems will not be capable of this because search is only defined to function against the current version of a resource</li>
+ <li>Where a search does not act on the referenced version, search results SHOULD contain a OperationOutcome with a warning that indicates the discrepancy</li>
+ <li>If a resource has a reference that is version-specific and _include is performed, the specified version SHOULD be provided.</li>
+</ul>
 
 <a name="recursive"></a>
 <h4>Searching Hierarchies</h4>

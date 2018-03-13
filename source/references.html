@@ -169,6 +169,18 @@ logical URIs (e.g. OIDs it UUIDSs) that resolve within the transaction. When pro
 replaces the logical URL with what is the correct literal URL at the completion of the transaction.
 </p>
 
+<p>
+<a name="versions"></a>References are allowed to be version specific - that is, a reference may point to a specific version of a resource. e.g. 
+</p>
+<pre class="xml" fragment="Reference">
+  &lt;target&gt;
+    &lt;reference value="http://example.org/fhir/Observation/1x2/_history/2" /&gt;
+  &lt;/profile&gt;
+</pre>
+<p>
+This is usually associated with audit trail or provenance information where it is important to 
+reference a particular version of a record, not the most current information. 
+</p>
 
 <a name="logical"></a>
 <h3>Logical References</h3>
