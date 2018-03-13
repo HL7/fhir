@@ -11,6 +11,8 @@
 
 [%profilesheader examples%]
 
+[%onthispage Patient Contact Details#contacts|Blood Pressure#blood-pressure|Extensions#extensions|Diagnostic Report#lipids|Composition Sections#composition|Re-slicing#reslicing%]
+
 <div class="col-12">
 
 <h2>Slicing and Discriminator Examples</h2>
@@ -945,11 +947,198 @@ In a StructureDefinition, this will look like:
     &lt;/fixedCodeableConcept&gt;
   &lt;/element&gt;
 </pre>  
+
+<a name="reslicing"></a>
+<h3>Reslicing</h3>
   
+<p>
+For some use cases, it is necessary to further reslice in a derivative profile. This is when 
+Profile A derives from Profile B, Profile A slices an element in Slice A and B, and Profile
+B further slices Slice A into A1 and A2. 
+</p>
+<p>
+As an example, assume that institution implementation guide specifies that a medication 
+list is represented by a List resource, where the items into the list are split up into 
+3 slices, based on resource type: 
+</p>
+<ul>
+  <li>MedicationRequest</li>
+  <li>MedicationAdministration</li>
+  <li>MedicationStatement</li>
+</ul>
+<p>
+These slices must come in order.
+</p>
+<p>
+Now, a particular application creates an additional profile that specifies the following
+rules in addition to the base rules of the institution:
+</p>
+<ol>
+ <li>the  medicationRequests will be sliced into active and non-active, where all the active requests will come first, and then the inactive ones</li>
+ <li>only active MedicationAdministrations will be encountered</li>
+ <li>Medication statements are not supported</li>
+</ol>
+
+<p>
+An example of a List resource that meets these rules:
+</p>
+<pre class="xml">
+&lt;List&gt;                         
+... snip ...
+  &lt;entry&gt;                       
+    &lt;item&gt;  
+      &lt;reference value="MedicationRequest/ex-active-1"/&gt;  
+    &lt;/item&gt;  
+  &lt;/entry&gt;
+  &lt;entry&gt;                       
+    &lt;item&gt;  
+      &lt;reference value="MedicationRequest/ex-active-2"/&gt;  
+    &lt;/item&gt;  
+  &lt;/entry&gt;
+  &lt;entry&gt;                       
+    &lt;item&gt;  
+      &lt;reference value="MedicationRequest/ex-inactive-1"/&gt;  
+    &lt;/item&gt;  
+  &lt;/entry&gt;
+  &lt;entry&gt;                       
+    &lt;item&gt;  
+      &lt;reference value="MedicationAdministration/ex-any-1"/&gt;  
+    &lt;/item&gt;  
+  &lt;/entry&gt;
+
+  ... snip ...
+&lt;/List&gt;
+</pre>
+<p>
+The StructureDefinition differential for the first profile sets up the slicing, and then defines 3 slices:
+</p>
+<pre class="xml">
+  &lt;!-- setting up the slicing --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry&quot;/&gt;
+    &lt;slicing&gt;
+      &lt;discriminator&gt;
+        &lt;type value=&quot;profile&quot;/&gt;
+        &lt;path value=&quot;entry.item.resolve()&quot;/&gt;
+      &lt;/discriminator&gt;
+      &lt;ordered value=&quot;true&quot;/&gt;
+      &lt;rules value=&quot;closed&quot;/&gt;
+    &lt;/slicing&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- first slice: medrequest --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry&quot;/&gt;
+    &lt;name value=&quot;medrequest&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry.item&quot;/&gt;
+    &lt;type&gt;
+      &lt;code value=&quot;Reference&quot;/&gt;
+      &lt;targetProfile value=&quot;http://example.org/StructureDefinition/medrequest&quot;/&gt;
+    &lt;/type&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- second slice: medadmin --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry&quot;/&gt;
+    &lt;name value=&quot;medadmin&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry.item&quot;/&gt;
+    &lt;type&gt;
+      &lt;code value=&quot;Reference&quot;/&gt;
+      &lt;targetProfile value=&quot;http://example.org/StructureDefinition/medadmin&quot;/&gt;
+    &lt;/type&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- third slice: medstmt --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry&quot;/&gt;
+    &lt;name value=&quot;medstmt&quot;/&gt; &lt;!-- mandatory - gives the slice a name --&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry.item&quot;/&gt;
+    &lt;type&gt;
+      &lt;code value=&quot;Reference&quot;/&gt;
+      &lt;targetProfile value=&quot;http://example.org/StructureDefinition/medstmt&quot;/&gt;
+    &lt;/type&gt;
+  &lt;/element&gt;
+</pre>  
+
+<p>
+The derived StructureDefinition differential reslices
+the first slice into 2 slices, constrains the second slice, and 
+prohibits the 3rd:
+</p>
+<pre class="xml">
+  &lt;!-- setting up the slicing - this profile doesn't change the slicing 
+    (though it could add new discriminators if it needed) --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry&quot;/&gt;
+    &lt;slicing&gt;
+      &lt;discriminator&gt;
+        &lt;type value=&quot;profile&quot;/&gt;
+        &lt;path value=&quot;entry.item.resolve()&quot;/&gt;
+      &lt;/discriminator&gt;
+      &lt;ordered value=&quot;true&quot;/&gt;
+      &lt;rules value=&quot;closed&quot;/&gt;
+    &lt;/slicing&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- first slice: medrequest/active --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry&quot;/&gt;
+    &lt;!-- name/sub-name: splitting an existing slice into new slices  --&gt;
+    &lt;name value=&quot;medrequest/active&quot;/&gt; 
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry.item&quot;/&gt;
+    &lt;type&gt;
+      &lt;code value=&quot;Reference&quot;/&gt;
+      &lt;targetProfile value=&quot;http://example.org/StructureDefinition/medrequest-active&quot;/&gt;
+    &lt;/type&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- second slice: medrequest/inactive --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry&quot;/&gt;
+    &lt;name value=&quot;medrequest/inactive&quot;/&gt;
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry.item&quot;/&gt;
+    &lt;type&gt;
+      &lt;code value=&quot;Reference&quot;/&gt;
+      &lt;targetProfile value=&quot;http://example.org/StructureDefinition/medrequest-active&quot;/&gt;
+    &lt;/type&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- third slice: medadmin (rule on the second slice in the parent profile) --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry&quot;/&gt;
+    &lt;!-- use the same name - constraining the existing slice --&gt;
+    &lt;name value=&quot;medadmin&quot;/&gt; 
+  &lt;/element&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry.item&quot;/&gt;
+    &lt;type&gt;
+      &lt;code value=&quot;Reference&quot;/&gt;
+      &lt;targetProfile value=&quot;http://example.org/StructureDefinition/medadmin-active&quot;/&gt;
+    &lt;/type&gt;
+  &lt;/element&gt;
+  
+  &lt;!-- fourth slice: medstmt --&gt;
+  &lt;element&gt; 
+    &lt;path value=&quot;List.entry&quot;/&gt;
+    &lt;!-- use the same name - constraining the existing slice --&gt;
+    &lt;name value=&quot;medstmt&quot;/&gt; 
+    &lt;max value=&quot;0&quot;/&gt;
+  &lt;/element&gt;
+</pre>  
+
 </div>
 
 
-[%onthispage Patient Contact Details#contacts|Blood Pressure#blood-pressure|Extensions#extensions|Diagnostic Report#lipids|Composition Sections#composition%]
 
 
 [%file newfooter%]
