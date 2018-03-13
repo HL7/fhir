@@ -168,7 +168,7 @@ Given this, the patient resources can be interpreted to mean that they describe 
 patient. For this reason, systems SHOULD:
 </p>
 <ul>
- <li>Only assign identifiers to resources when they uniquely identify the real world entity that that the resources match (e.g. do not use account numbers as patient identifiers when multiple different patients share the same account number)</li>
+ <li>Only assign identifiers to resources when they uniquely identify the real world entity that the resources match (e.g. do not use account numbers as patient identifiers when multiple different patients share the same account number)</li>
  <li>Preserve identifiers as much as possible and not throw them away. Even if the identifiers are not useful to the system itself, they are likely to be useful to downstream consumers</li>
  <li>When serving resources, use consistent identifiers from the master persistent store where ever possible (e.g. when a resource is created from a primary record, populate the identifier, and store the identifier somewhere so the same identifier is used next time)</li>
 </ul>
