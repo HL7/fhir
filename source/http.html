@@ -687,6 +687,9 @@ is performed by an HTTP <code>DELETE</code> command as shown:
   DELETE [base]/[type]/[id]
 </pre>
 <p>
+The request body SHALL be empty. 
+</p>
+<p>
 A delete interaction means that subsequent <a href="#read">non-version specific reads</a> of a resource
 return a <code>410</code> HTTP status code and that the resource is no longer found through <a href="#search">search</a>
 interactions. Upon successful deletion, or if the resource does not exist at all, the server should return either a
