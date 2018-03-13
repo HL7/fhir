@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="bundle-search-warning"/>
+  <meta>
+    <lastUpdated value="2017-03-14T08:23:30+11:00"/>
+  </meta> 
+
+  <type value="searchset"/>  
+  <total value="0"/>
+  <link>
+    <relation value="self"/>
+    <url value="https://example.org/fhir/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456"/>
+  </link>
+
+  <entry>
+    <!-- the matching resource -->
+    <resource>
+      <OperationOutcome>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">There is no matching patient for MRN 123456</div>
+        </text>
+        <issue>
+          <severity value="warning"/>
+          <code value="not-found"/>
+          <details>
+            <text value="There is no matching patient for MRN 123456"/>
+          </details>
+        </issue>
+      </OperationOutcome>
+    </resource>
+    <search>
+      <!-- this is not a match - it's about the search -->   
+      <mode value="outcome"/> 
+    </search>
+  </entry>
+</Bundle>
+
