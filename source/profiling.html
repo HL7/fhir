@@ -129,7 +129,7 @@ Some examples of the uses for these kind of profiles:
 These profiles represent different use cases leading to handling the resources differently. For instance:
 </p>
 <ul>
- <li>An expert service that provides analysis on several different sets of data conforming to a particular pattern - tests x,y and z with particular codes and units</li>
+ <li>An decision support service that provides analysis on several different sets of data conforming to a particular pattern - tests x,y and z with particular codes and units</li>
 </ul>
 <p>
 For a producer system and a consumer system to exchange data successfully based on
@@ -143,16 +143,16 @@ to the use case.
 As an example, consider a laboratory system generating thousands of reports
 a day. 1% of those reports are a particular endocrine report that a
 decision support system knows how to process. Both systems declare that
-they support the particular endocrine report profile, but how does the expert
+they support the particular endocrine report profile, but how does the decision support
 system actually find the endocrine reports that it knows how to process?
 </p>
 <p>
-One possible option is for the expert system to receive every single
+One possible option is for the decision support system to receive every single
 report coming from the lab system, check whether it conforms to the
 profile or not, and then decide whether to process it. Checking whether
 a resource conforms to a particular profile or not is a straight
 forward operation (one option is to use the <a href="downloads.html">provided tools for this</a>),
-but this is very inefficient way - the expert system has to receive
+but this is very inefficient way - the decision support system has to receive
 and process 100 times many resources as it uses. To help a consumer
 find the correct set of reports for a use-case, a producer of
 resources also SHALL, for any profile declared in Conformance.profile:
