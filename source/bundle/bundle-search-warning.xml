@@ -16,6 +16,7 @@
     <!-- the matching resource -->
     <resource>
       <OperationOutcome>
+        <id value="warning"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">There is no matching patient for MRN 123456</div>
