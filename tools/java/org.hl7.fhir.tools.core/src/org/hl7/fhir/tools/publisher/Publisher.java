@@ -4561,7 +4561,11 @@ public class Publisher implements URIResolver, SectionNumberer {
           if ((parts.length == 2) || (parts.length == 4 && parts[2].equals("_history")) && page.getDefinitions().hasResource(parts[0])) {
 
             node.setAttribute("href", determineLink(path, parts[0], parts[1]));
-          } else
+          } else if (page.getDefinitions().hasType(link)) { 
+            node.setAttribute("href", page.getDefinitions().getSrcFile(link)+".html#"+link);
+         } else if (page.getDefinitions().hasResource(link)) 
+          node.setAttribute("href", link.toLowerCase()+".html#"+link);
+          else
             throw new Exception("Unknown example narrative href pattern: "+link);
         }
       } else
