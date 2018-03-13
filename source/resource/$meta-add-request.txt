@@ -3,7 +3,7 @@
 POST /fhir/Patient/example/$meta-add
 [Other headers]
 
-<Parameters>
+<Parameters xmlns="http://hl7.org/fhir">
   <parameter>
     <name value="meta"/>
     <valueMeta>

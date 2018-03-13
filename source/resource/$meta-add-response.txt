@@ -3,7 +3,7 @@
 HTTP/1.1 200 OK
 [other headers]
 
-<Parameters>
+<Parameters xmlns="http://hl7.org/fhir">
   <parameter>
     <name value="return"/>
     <valueMeta>
