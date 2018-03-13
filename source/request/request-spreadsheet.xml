@@ -4247,7 +4247,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell ss:StyleID="s160"><Data ss:Type="String">RequestStatus</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">Codes identifying the stage lifecycle stage of a request</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Codes identifying the lifecycle stage of a request</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"><Data ss:Type="String">#request-status</Data></Cell>
