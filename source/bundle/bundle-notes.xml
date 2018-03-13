@@ -82,9 +82,7 @@ See <a href="http.html#history">History</a> for further information.
 In addition, <a href="bundle-definitions.html#Bundle.total">Bundle.total</a> may be 
 used to return the total number of resources that are included in the change history, 
 and that may be returned by following the "next" <a href="bundle-definitions.html#Bundle.link">link</a>.
-</p>4
-
-<p>Example to do</p>
+</p>
 
 <a name="transaction"></a>
 <h4>Transaction / Batch</h4>
