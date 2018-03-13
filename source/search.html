@@ -1112,17 +1112,17 @@ AllergyIntolerance resources with either an explicit value for clinicalStatus, o
 </p>
 <pre>
 GET [base]/AllergyIntolerance?clinical-status=active
-GET [base]/AllergyIntolerance?clinical-status:exists=false
+GET [base]/AllergyIntolerance?clinical-status:missing=true
 </pre>
 <p>
 Note that this is 2 separate queries. They can be <a href="http.html#transaction">combined in a batch</a>,
 but not in a single operation. This query will always return an empty list, as no resource can satisfy both criteria at once:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?clinical-status=active&amp;clinical-status:exists=false
+GET [base]/AllergyIntolerance?clinical-status=active&amp;clinical-status:missing=true
 </pre>
 <p>
-There is no way to use the :exists modifier and mix with a value using the
+There is no way to use the :missing modifier and mix with a value using the
 comma syntax documented above for for composite search parameters.
 </p>
 <p>
