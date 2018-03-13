@@ -10,35 +10,24 @@
   "relatedArtifact": [
     {
       "type": "depends-on",
-      "display": "Zika Affected Areas",
-      "resource": {
-        "reference": "ValueSet/zika-affected-areas"
-      }
+      "display": "Zika Affected Areas"
+      "resource": "ValueSet/zika-affected-areas"
     },
     {
       "type": "depends-on",
       "display": "Pregnancy",
-      "resource": {
-        "identifier": "urn:oid:X.Y.Z",
-        "display": "Pregnancy value set"
-      }
+      "resource": "urn:oid:X.Y.Z"
     },
     {
       "type": "depends-on",
       "display": "Zika Exposure Assessment",
-      "resource": {
-        "identifier": "urn:oid:X.Y.Z",
-        "display": "Zika Virus Exposure Assessment value set"
-      }
+      "resource": "urn:oid:X.Y.Z"
     },
     {
       "type": "depends-on",
       "display": "Zika Virus Signs and Symptoms",
       "url": "https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7459",
-      "resource": {
-        "identifier": "urn:oid:2.16.840.1.114222.4.11.7459",
-        "display": "Zika Virus Signs and Symptoms value set"
-      }
+      "resource": "urn:oid:2.16.840.1.114222.4.11.7459"
     },
   ]
   "dataRequirement": [
@@ -59,9 +48,7 @@
       "codeFilter": [
         {
           "path": "code",
-          "valueSetUri": [
-            "http://example.org/valueset/zika-exposure-assessment"
-          ]
+          "valueSetUri": "http://example.org/valueset/zika-exposure-assessment"
         },
         {
           "path": "status",

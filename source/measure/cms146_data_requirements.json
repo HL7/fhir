@@ -10,9 +10,7 @@
   "relatedArtifact": [
     {
       "type": "depends-on",
-      "resource": {
-        "reference": "Library/library-quick-model-definition"
-      }
+      "resource": "Library/library-quick-model-definition"
     }
   ],
   "dataRequirement": [
