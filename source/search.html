@@ -310,7 +310,7 @@ The modifiers are separated from the parameter name by a colon. Modifiers are:</
   </li>
  <li>For string: <code>:exact</code> (the match needs to be exact, no partial matches, case sensitive and accent-sensitive), or <code>:contains</code> (case insensitive and accent-insensitive, partial match at start or end), instead of the default behavior (case insensitive and accent-insensitive, partial matches at the start of the string).</li>
  <li>For token: <code>:text</code> (the match does a partial searches on the text portion of a CodeableConcept or the display portion of a Coding), instead of the default search which uses codes. Other defined modifiers are <code>:in</code>, <code>:below</code>, <code>:above</code> and <code>:not-in</code> which are described below.</li>
- <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, and, for some parameters, :above and :below</li>
+ <li>For reference: <code>:[type]</code> where [type] is the name of a type of resource, :identifier, and, for some parameters, :above and :below</li>
  <li>For uri: <code>:below</code>, <code>:above</code> indicate that instead of an exact match, either the search term left matches the value, or vice-versa.</li>
 </ul>
 <p>
@@ -910,11 +910,29 @@ the patient search parameter, there is no need to specify ":Patient" as a modifi
 in the search value, as this must always be true.
 </p>
 <p>
+References are also allowed to have an <code>identifier</code>. The modifier :identifier 
+allows for searching by the identifier rather than the literal reference:
+</p>
+<pre>
+ GET [base]/Observation?subject:identifier=http://acme.org/fhir/identifier/mrn|123456
+</pre>
+<p>
+This is a search for all observations that reference a patient by a particular patient MRN.
+When the :identifier modifier is used, the search value works as a <a href="#token">token search</a>.
+</p>
+<p>
+Chaining is not supported when using the :identifier modifier, nor are chaining, includes
+or reverse includes supported for reference elements that do not have a <code>reference</code>
+element.
+</p>
+<p>
 The reference search parameter is mostly used for resource elements of type <code>Reference</code> or <code>canonical</code>. 
 However, it is also be used to search resource elements of type Resource - i.e. where 
 one resource is directly nested within another - see the <a href="bundle.html#search">Bundle 
 search parameters</a> 'message' and 'composition' as an example of this.
 </p>
+
+
 
 <a name="recursive"></a>
 <h4>Searching Hierarchies</h4>
