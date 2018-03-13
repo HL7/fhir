@@ -3269,36 +3269,25 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
 
     for (ResourceDefn r : definitions.getBaseResources().values()) {
-      scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def", prefix);
+      scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+"-definitions.html", prefix);
       scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operation-", prefix);
       scanForProfileUsage(b, vs, r, prefix);
     }
     for (ResourceDefn r : definitions.getResources().values()) {
-      scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+".html#def", prefix);
+      scanForUsage(b, vs, r.getRoot(), r.getName().toLowerCase()+"-definitions.html", prefix);
       scanForOperationUsage(b, vs, r, r.getName().toLowerCase()+"-operation-", prefix);
       scanForProfileUsage(b, vs, r, prefix);
     }
     for (ElementDefn e : definitions.getInfrastructure().values()) {
-      if (e.getName().equals("Reference")) {
-        scanForUsage(b, vs, e, "references.html#"+e.getName(), prefix);
-      } else if (e.getName().equals("Extension")) {
-        scanForUsage(b, vs, e, "extensibility.html#"+e.getName(), prefix);
-      } else if (e.getName().equals("Narrative")) {
-        scanForUsage(b, vs, e, "narrative.html#"+e.getName(), prefix);
-      } else {
-        scanForUsage(b, vs, e, "formats.html#"+e.getName(), prefix);
-      }
+        scanForUsage(b, vs, e, definitions.getSrcFile(e.getName())+"-definitions.html", prefix);
     }
     for (ElementDefn e : definitions.getTypes().values())
       if (!definitions.dataTypeIsSharedInfo(e.getName())) {
-        if (e.getName().equals("Reference"))
-          scanForUsage(b, vs, e, "references.html#"+e.getName(), prefix);
-        else
-          scanForUsage(b, vs, e, "datatypes.html#"+e.getName(), prefix);
+        scanForUsage(b, vs, e, definitions.getSrcFile(e.getName())+"-definitions.html", prefix);
       }
     for (ElementDefn e : definitions.getStructures().values())
       if (!definitions.dataTypeIsSharedInfo(e.getName()))
-        scanForUsage(b, vs, e, "datatypes.html#"+e.getName(), prefix);
+        scanForUsage(b, vs, e, definitions.getSrcFile(e.getName())+"-definitions.html", prefix);
 
 
     for (StructureDefinition sd : workerContext.getExtensionDefinitions()) {
@@ -3410,10 +3399,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private void scanForUsage(StringBuilder b, ValueSet vs, ElementDefn e, String path, String ref, String prefix) {
     path = path.equals("") ? e.getName() : path+"."+e.getName();
     if (e.hasBinding() && e.getBinding().getValueSet() == vs) {
-      b.append(" <li><a href=\"").append(prefix+ref).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding(), prefix)).append("</li>\r\n");
+      b.append(" <li><a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding(), prefix)).append("</li>\r\n");
     }
     if (e.hasBinding() && e.getBinding().getMaxValueSet() == vs) {
-      b.append(" <li>Max: <a href=\"").append(prefix+ref).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding(), prefix)).append("</li>\r\n");
+      b.append(" <li>Max: <a href=\"").append(prefix+ref+"#"+path).append("\">").append(path).append("</a> ").append(getBSTypeDesc(e.getBinding(), prefix)).append("</li>\r\n");
     }
     for (ElementDefn c : e.getElements()) {
       scanForUsage(b, vs, c, path, ref, prefix);
