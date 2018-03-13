@@ -3,10 +3,12 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p><strong>
-This resource has not yet undergone proper review by the appropriate Workgroups. At this time, is  considered only as a draft resource proposal for potential submission
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-</strong></p>
+<blockquote class="stu-note">
+  <a name="dstu"/>
+<strong>This resource has not yet undergone proper review by the appropriate Workgroups. At this time, is  considered only as a draft resource proposal for potential submission</strong>
+</blockquote>
+
+
 <p>
 Different resources have different ways to handle “physical instances”
 </p>
@@ -21,7 +23,7 @@ Different resources have different ways to handle “physical instances”
  <p>
  If the resources that represent physical entities were split into a "kind" resource and an "instance" resource, this resource would represent the instance that would be referenced by the "kind" resource. For example,  Device would be split into Device ( representing the kind or type of Device ) + ItemInstance ( representing the instance of  a Device ).
 
-</p> 
+</p>
 <p>Resources impacted:</p>
 <ul>
 	<li>Substance</li>
@@ -33,7 +35,7 @@ Different resources have different ways to handle “physical instances”
 
 </div>
 
-<!-- (recommended): 
+<!-- (recommended):
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>

@@ -3,6 +3,12 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
+<blockquote class="stu-note">
+  <a name="dstu"/>
+<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
+</blockquote>
+
+
 <p>
 An instance of ObservationDefinition represents the definitional aspects of a kind of observation. This resource is used in a catalog of products or services for healthcare. It provides the definition of observations, which are used as input or produced as outcome of these products and services. The focus of the definitional aspects of ObservationDefinition is not on the action of performing observations of that kind. Rather, it is on the outcome of the observations. An instance of ObservationDefinition represents a set of constraints applicable to the value produced by observations of this kind. This set of constraints may have two utilities: 1) It guides the entry of the result of an observation of the kind defined. 2) It helps the consumer of the results of observations of that kind, to interpret properly these results.
 </p>
@@ -28,7 +34,7 @@ This resource relates to these other resource:.
 </p>
  <ul>
 		<li>Resource ObservationDefinition is referenced by resource CatalogEntry. This enables items of catalogs, representing healthcare services or products, to declare the observations, which are consumed or produced by these items.</li>
-		
+
 <li>Observation.basedOn references ObservationDefinition resource.</li>
 
 	</ul>

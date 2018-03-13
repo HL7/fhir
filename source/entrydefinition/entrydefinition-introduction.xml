@@ -5,6 +5,13 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+
+<blockquote class="stu-note">
+  <a name="dstu"/>
+<strong>Note that this content is preliminary has not undergone proper review by the appropriate Workgroups.</strong>
+</blockquote>
+
+
 <p>
 This resource is an administrative resource for using definitional resources in the scope of a catalog.
 This resource contains additional information about each catalog entry, in the scope of a specific catalog, such as attributes and relations to other entries.
@@ -19,7 +26,7 @@ This resource contains additional information about each catalog entry, in the s
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
- This resource is used in a Catalog which is a profile on Composition (link) and contains reference to a definitional resource, such as 
+ This resource is used in a Catalog which is a profile on Composition (link) and contains reference to a definitional resource, such as
 <ul>
 <li><a href="medication.html">Medication</a></li>
 <li><a href="device.html">Device</a></li>
