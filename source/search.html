@@ -124,10 +124,11 @@ the search fails, a server SHOULD return an <a href="operationoutcome.html">Oper
 detailing the cause of the failure. Note: An empty search result is not a failure.
 </p>
 <p>
-In some cases, parameters may cause an error. For instance:
+In some cases, parameters may cause an error, or may not be able to match anything. For instance:
 </p>
 <ul>
  <li>A parameter may refer to a non-existent resource e.g. <code>GET [base]/Observation?subject=101</code>, where "101" does not exist</li>
+ <li>A parameter may refer to a non-existent resource e.g. <code>GET [base]/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456</code>, where there is no patient for MRN 123456</li>
  <li>A parameter may refer to an unknown code e.g. <code>GET [base]/Observation?code=loinc|1234-1</code>, where the LOINC code "1234-1" is not known to the server</li>
  <li>A parameter may refer to a time that is out of scope e.g. <code>GET [base]/Condition?onset=le1995</code>, where the system only has data going back to 2001</li>
  <li>A parameter may use an illegal or unacceptable modifier e.g. <code>GET [base]/Condition?onset:text=1995</code>, where the modifier cannot be processed by the server</li>
@@ -141,13 +142,20 @@ In some cases, parameters may cause an error. For instance:
 Where the content of the parameter is syntactically incorrect, servers SHOULD return an error.
 However, where the issue is a logical condition (e.g. unknown subject or code), the server
 SHOULD process the search, including processing the parameter - with the result of returning
-an empty search set, since the parameter cannot be satisfied.
+an empty search set, since the parameter cannot be satisfied. 
 </p>
 <p>
 In such cases, the search process MAY include an <a href="operationoutcome.html">OperationOutcome</a>
 in the search set that contains additional hints and warnings about the search process.
 This is included in the search results as an entry with <a href="bundle-definitions.html#Bundle.entry.search.mode">search mode</a> = <a href="valueset-search-entry-mode.html"><code>outcome</code></a>.
-Clients can use this information to improve future searches.
+Clients can use this information to improve future searches. If, for example, a client 
+performed the following search:
+</p>
+<pre>
+GET [base]/Observation?patient.identifier=http://example.com/fhir/identifier/mrn|123456
+</pre>
+<p>
+and there is no patient for MRN 123456, the server would return <a href="bundle-search-warning.html">a bundle with a warning</a>.
 </p>
 
 <p><b>Unknown and unsupported parameters</b></p>

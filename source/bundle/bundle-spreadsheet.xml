@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4102,7 +4102,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5578,8 +5577,8 @@
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="41" ss:StyleID="s139" x:FullColumns="1" x:FullRows="1">
-   <Column ss:StyleID="s139" ss:Width="89.0"/>
-   <Column ss:StyleID="s139" ss:Width="28.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s139" ss:Width="120.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s139" ss:Width="73.0"/>
    <Column ss:StyleID="s139" ss:Width="328.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s139" ss:Width="103.0"/>
    <Column ss:Span="1" ss:StyleID="s139" ss:Width="206.0"/>
@@ -5657,11 +5656,11 @@
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">search-warning</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">xml</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">An example an empty search result with a warning</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-search-warning</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">bundle-search-warning.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
    </Row>
@@ -5958,6 +5957,7 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
