@@ -183,8 +183,9 @@ email:
 The server would send a new message for each matching resource.
 The body of the email may be empty, or it may contain a reference
 to the search or the matching resource. It is at the discretion
-of the server as to how much information to provide. The email
-should be secured appropriately, such as using Direct, as specified
+of the server as to how much information to provide. 
+<code>Subscription.channel.header</code> sets the subject of the 
+email. The email should be secured appropriately, such as using Direct, as specified
 by the rules of the applicable jurisdictions.
 </p>
 
