@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3783,7 +3783,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3833,7 +3832,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">RiskAssessment.prediction</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Must be &lt;= 100</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">probability is decimal implies probability.as(decimal) &lt;= 100</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">probability is decimal implies (probability as decimal) &lt;= 100</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">not(f:probabilityDecimal) or f:probabilityDecimal/@value &lt;= 100</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4272,6 +4271,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
