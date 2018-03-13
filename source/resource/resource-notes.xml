@@ -25,7 +25,7 @@ cases, it might not actually exist (e.g. use of resource outside a RESTful envir
 Resources reference each other by their identity. These references are allowed to be absolute 
 or relative (see <a href="references.html">Resource References</a> for further discussion).
 Copying or moving resources from one server to another means that resources acquire a new identity. For further details, 
-see <a href="managing.html">Managing Resource Identity</a>.
+see <a href="managing.html">Managing Resource Identity</a> (including "Consistent Resource Identification").
 </p>
 
 <p>
