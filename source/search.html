@@ -1002,8 +1002,8 @@ referred to by at least one Observation where the observation has a code of 1234
 where the Observation refers to the patient resource in the patient search parameter.
 </p>
 <p>
-"Or" searches are allowed (e.g. GET [base]/Patient?_has:Observation:subject:code=123,456), and multiple _has
-parameters are allowed (e.g. GET [base]/Patient?_has:Observation:subject:code=123&amp;_has:Observation:subject:code=456).
+"Or" searches are allowed (e.g. GET [base]/Patient?_has:Observation:patient:code=123,456), and multiple _has
+parameters are allowed (e.g. GET [base]/Patient?_has:Observation:patient:code=123&amp;_has:Observation:patient:code=456).
 Note that each _has parameter is processed independently of other _has parameters.
 </p>
 <p>
