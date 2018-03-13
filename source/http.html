@@ -1105,18 +1105,6 @@ together and the order of the entries doesn't matter, there is a particular orde
 If any resource identities (including resolved identities from conditional update/delete) overlap in steps 1-3,
 then the transaction SHALL fail.
 </p>
-<blockquote class="stu-note">
-<a name="dstu-2"></a>
-<p>
-<b>STU Note:</b>  clients are able to request that operations be executed as part of a transaction.
-Some transactions can cause side effects, such as the creation of new resources or other
-actions that may be difficult to fit into a transaction framework. Input regarding this
-issue is sought during the STU period.
-</p>
-<p>
-Provide feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(STU_3)">here</a>.
-</p>
-</blockquote>
 
 <p>
 A transaction may include references from one resource to another in the bundle, including
@@ -1127,7 +1115,10 @@ are processed. References to resources that are not
 part of the bundle are left untouched. Version-specific references should remain
 as version-specific references after the references have been updated.
 Servers SHALL replace all matching links in the bundle, whether they are found in the resource ids,
-resource references, url elements, or <code>&lt;a href=""</code> &amp; <code>&lt;img src=""</code> in the narrative.
+<a href="references.html">resource references</a>, 
+elements of type <a href="datatypes.html#uri">uri</a>, <a href="datatypes.html#url">url</a>, <a href="datatypes.html#oid">oid</a>, 
+<a href="datatypes.html#uuid">uuid</a>, and <code>&lt;a href=""</code> &amp; <code>&lt;img src=""</code> in the narrative.
+Elements of type <a href="datatypes.html#canonical">canonical</a> are not replaced.
 </p>
 <p>
 When processing a "POST" (create), the full URL is treated as the id of the resource on the
