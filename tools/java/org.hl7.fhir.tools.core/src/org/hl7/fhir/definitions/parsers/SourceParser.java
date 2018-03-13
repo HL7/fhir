@@ -694,7 +694,7 @@ public class SourceParser {
       while (e != null) {
         MappingSpace m = new MappingSpace(XMLUtil.getNamedChild(e, "columnName").getTextContent(), XMLUtil.getNamedChild(e, "title").getTextContent(), 
             XMLUtil.getNamedChild(e, "id").getTextContent(), Integer.parseInt(XMLUtil.getNamedChild(e, "sort").getTextContent()), 
-            isTrue(XMLUtil.getNamedChild(e, "publish")), isTrue(XMLUtil.getNamedChild(e, "sparse")), isTrue(XMLUtil.getNamedChild(e, "pattern")));
+            isTrue(XMLUtil.getNamedChild(e, "publish")), isTrue(XMLUtil.getNamedChild(e, "sparse")), isTrue(XMLUtil.getNamedChild(e, "pattern")), XMLUtil.getNamedChild(e, "link") != null ? XMLUtil.getNamedChild(e, "link").getTextContent() : XMLUtil.getNamedChild(e, "url").getTextContent());
         definitions.getMapTypes().put(XMLUtil.getNamedChild(e, "url").getTextContent(), m);
         Element p = XMLUtil.getNamedChild(e, "preamble");
         if (p != null)

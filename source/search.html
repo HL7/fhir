@@ -919,6 +919,8 @@ allows for searching by the identifier rather than the literal reference:
 <p>
 This is a search for all observations that reference a patient by a particular patient MRN.
 When the :identifier modifier is used, the search value works as a <a href="#token">token search</a>.
+The :identifier modifier is not supported on canonical elements since they do not have an identifier
+separate from the reference itself.
 </p>
 <p>
 Chaining is not supported when using the :identifier modifier, nor are chaining, includes

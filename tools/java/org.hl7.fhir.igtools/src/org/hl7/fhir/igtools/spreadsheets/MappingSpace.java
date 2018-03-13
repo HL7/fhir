@@ -1,5 +1,6 @@
 package org.hl7.fhir.igtools.spreadsheets;
 
+import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public class MappingSpace {
@@ -12,8 +13,9 @@ public class MappingSpace {
   private boolean publish;
   private boolean sparse;
   private boolean pattern;
+  private String link;
   
-  public MappingSpace(String columnName, String title, String id, int sortOrder, boolean publish, boolean sparse, boolean pattern) {
+  public MappingSpace(String columnName, String title, String id, int sortOrder, boolean publish, boolean sparse, boolean pattern, String link) {
     super();
     this.columnName = columnName;
     this.title = title;
@@ -23,6 +25,7 @@ public class MappingSpace {
     this.publish = publish;
     this.sparse = sparse;
     this.pattern = pattern;
+    this.link = link;
   }
 
   public String getColumnName() {
@@ -81,4 +84,11 @@ public class MappingSpace {
     return pattern;
   }   
   
+  public String getLink() {
+    return link;
+  }
+
+  public boolean hasLink() {
+    return !Utilities.noString(link);
+  }
 }

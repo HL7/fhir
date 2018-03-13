@@ -1674,13 +1674,25 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return new XhtmlComposer(XhtmlComposer.HTML).compose(dr.getText().getDiv());
   }
 
-  private String genMappingsTable() {
+  private String genMappingsTable() throws IOException {
     StringBuilder b = new  StringBuilder();
-    b.append("<table class=\"lines\">\r\n");
+    b.append("<table class=\"rows\">\r\n");
+    b.append(" <tr>\r\n");
+    b.append("  <th width=\"250\">Name</th>\r\n");
+    b.append("  <th>Details</th>\r\n");
+    b.append(" </tr>\r\n");
     for (String s : definitions.getMapTypes().keySet()) {
       MappingSpace m = definitions.getMapTypes().get(s);
-      if (m.isPublish())
-        b.append("<tr><td>"+s+"</td><td>"+Utilities.escapeXml(m.getTitle())+"</td></tr>\r\n");
+      if (m.isPublish()) {
+        b.append(" <tr>\r\n");
+        b.append("  <td><a name=\""+m.getId()+"\"></a>");
+        if (m.hasLink())
+          b.append("<a href=\""+m.getLink()+"\">"+Utilities.escapeXml(m.getTitle())+"</a></td>\r\n");
+        else
+          b.append(Utilities.escapeXml(m.getTitle())+"</td>\r\n");
+        b.append("  <td>Formal URL: "+s+ (m.getPreamble() != null ? "<br/>"+new XhtmlComposer(false, true).compose(m.getPreamble()) : "")+"</td>\r\n");
+        b.append(" </tr>\r\n");
+      }        
     }
     b.append("</table>\r\n");
     return b.toString();

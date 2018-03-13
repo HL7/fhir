@@ -136,7 +136,7 @@ public class IgSpreadsheetParser {
       Element e = XMLUtil.getFirstChild(doc.getDocumentElement());
       while (e != null) {
         MappingSpace m = new MappingSpace(XMLUtil.getNamedChild(e, "columnName").getTextContent(), XMLUtil.getNamedChild(e, "title").getTextContent(),
-            XMLUtil.getNamedChild(e, "id").getTextContent(), Integer.parseInt(XMLUtil.getNamedChild(e, "sort").getTextContent()), true, false, false);
+            XMLUtil.getNamedChild(e, "id").getTextContent(), Integer.parseInt(XMLUtil.getNamedChild(e, "sort").getTextContent()), true, false, false, XMLUtil.getNamedChild(e, "link") != null ? XMLUtil.getNamedChild(e, "link").getTextContent(): XMLUtil.getNamedChild(e, "url").getTextContent());
         mappings.put(XMLUtil.getNamedChild(e, "url").getTextContent(), m);
         Element p = XMLUtil.getNamedChild(e, "preamble");
         if (p != null)
@@ -224,7 +224,7 @@ public class IgSpreadsheetParser {
     for (String column : mappingNames) {
       i++;
       String mapname = column.substring(0, column.length() - 8);
-      MappingSpace m = new MappingSpace(column, mapname, mapname.toLowerCase().replace(' ',  '-'), i, true, false, false);
+      MappingSpace m = new MappingSpace(column, mapname, mapname.toLowerCase().replace(' ',  '-'), i, true, false, false, null);
       mappings.put("http://unknown.org/" + mapname, m);
     }
   }
@@ -463,7 +463,7 @@ public class IgSpreadsheetParser {
     if (sheet != null) {
       for (int row = 0; row < sheet.rows.size(); row++) {
         String uri = sheet.getNonEmptyColumn(row, "Uri");
-        MappingSpace ms = new MappingSpace(sheet.getNonEmptyColumn(row, "Column"), sheet.getNonEmptyColumn(row, "Title"), sheet.getNonEmptyColumn(row, "Id"), sheet.getIntColumn(row, "Sort Order"), true, false, false);
+        MappingSpace ms = new MappingSpace(sheet.getNonEmptyColumn(row, "Column"), sheet.getNonEmptyColumn(row, "Title"), sheet.getNonEmptyColumn(row, "Id"), sheet.getIntColumn(row, "Sort Order"), true, false, false, sheet.hasColumn(row, "Link") ?  sheet.getColumn(row, "Link") : uri);
         mappings.put(uri, ms);
       }
     }
