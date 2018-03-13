@@ -44,11 +44,11 @@
 
 <h5>Configuration</h5>
 
-<p>The first phase in consuming a CDS Service using CDS Hooks is to configure the integration from the EHR. The CDS Service publishes a set of endpoints to advertise available functionality using the Discovery endpoint. For each endpoint, the service declares the <i>hook</i> during which it expects to be invoked, and optionally, any <i>prefetch</i> information that could be provided to the service.</p>
+<p>The first phase in consuming a CDS Service using CDS Hooks is to configure the integration from the EHR. The CDS Service publishes a set of endpoints to advertise available functionality using the <a href="http://cds-hooks.org/specification/1.0/#discovery"><i>discovery</i></a> endpoint. For each endpoint, the service declares the <i>hook</i> during which it expects to be invoked, and optionally, any <i>prefetch</i> information that could be provided to the service.</p>
 
-<p>Each <i>hook</i> identifies contextual information that is available within the EHR. For example, the <code>medication-prescribe</code> hook specifies the patient in context, as well as the medications being prescribed. When invoking the service from this hook, the EHR is expected to provide this contextual information as part of the request.</p>
+<p>Each <a href="http://cds-hooks.org/hooks/"><i>hook</i></a> identifies contextual information that is available within the EHR. For example, the <code>medication-prescribe</code> hook specifies the patient in context, as well as the medications being prescribed. When invoking the service from this hook, the EHR is expected to provide this contextual information as part of the request.</p>
 
-<p>In addition, the CDS Service may specify additional information using <i>prefetch</i> templates. Each prefetch template is a FHIR query URL, parameterized by the data available in context, and describing information needed by the CDS Service to perform its processing. By providing this information as part of the request, the EHR alleviates the need for the CDS Service to request the additional information.</p>
+<p>In addition, the CDS Service may specify additional information using <a href="http://cds-hooks.org/specification/1.0/#prefetch-template"><i>prefetch</i></a> templates. Each prefetch template is a FHIR query URL, parameterized by the data available in context, and describing information needed by the CDS Service to perform its processing. By providing this information as part of the request, the EHR alleviates the need for the CDS Service to request the additional information.</p>
 
 <p>The following example illustrates a typical service discovery response:</p>
 
@@ -57,18 +57,18 @@
     {
       "hook": "medication-prescribe",
       "prefetch": {
-        "medication": "MedicationOrder?patient\u003d{{Patient.id}}\u0026status\u003dactive"
+        "medication": "MedicationOrder?patient\u003d{{context.patientId}}\u0026status\u003dactive"
       },
-      "name": "Opioid Morphine Milligram Equivalence (MME) Guidance Service",
+      "title": "Opioid Morphine Milligram Equivalence (MME) Guidance Service",
       "description": "CDS Service that finds the MME of an opioid medication and provides guidance to the prescriber if the MME exceeds the recommended range.",
       "id": "cdc-opioid-guidance"
     },
     {
       "hook": "patient-view",
       "prefetch": {
-        "patient": "Patient/{{Patient.id}}"
+        "patient": "Patient/{{context.patientId}}"
       },
-      "name": "Zika Virus Intervention",
+      "title": "Zika Virus Intervention",
       "description": "Identifies possible Zika exposure and offers suggestions for suggested actions for pregnant patients",
       "id": "zika-virus-intervention"
     },
@@ -76,7 +76,7 @@
 
 <h5>Evaluation</h5>
 
-<p>The second phase is the actual request/response. Once the integration has been configured using the above information, the EHR can make requests to decision support services at the appropriate times based on the <i>hooks</i> it supports. To make a request, the EHR prepares a <i>request</i> object containing the contextual information required for the hook, as well as any additional prefetch information.</p>
+<p>The second phase is the actual request/response call to the CDS Service. Once the integration has been configured using the above information, the EHR can make requests to decision support services at the appropriate times based on the <i>hooks</i> it supports. To make a request, the EHR prepares a <a href="http://cds-hooks.org/specification/1.0/#http-request_1"><i>request</i></a> object containing the contextual information required for the hook, as well as any additional prefetch information.</p>
 
 <p>For example, the following request illustrates a call to the <code>cdc-opioid-guidance</code> service:</p>
 
@@ -89,47 +89,7 @@
     {
       "resourceType": "MedicationOrder",
       "id": "medrx001",
-      "dateWritten": "2017-05-05",
-      "status": "draft",
-      "patient": {
-        "reference": "Patient/Patient-12214"
-      },
-      "medicationCodeableConcept": {
-        "coding": [
-          {
-            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-            "code": "197696"
-          }
-        ]
-      },
-      "dosageInstruction": [
-        {
-          "text": "Take 40mg three times daily",
-          "timing": {
-            "repeat": {
-              "frequency": 3,
-              "frequencyMax": 3,
-              "period": 1,
-              "periodUnits": "d"
-            }
-          },
-          "asNeededBoolean": false,
-          "doseQuantity": {
-            "value": 40,
-            "unit": "mg",
-            "system": "http://unitsofmeasure.org",
-            "code": "mg"
-          }
-        }
-      ],
-      "dispenseRequest": {
-        "quantity": {
-          "value": 3000,
-          "unit": "mg",
-          "system": "http://unitsofmeasure.org",
-          "code": "mg"
-        }
-      }
+      ... &lt;FHIR Resource - snipped for brevity&gt;
     },
   "patient": "Patient/Patient-12214",
   "prefetch": {
@@ -142,51 +102,7 @@
             "resource": {
               "resourceType": "MedicationOrder",
               "id": "medrx002",
-              "meta": {
-                "versionId": "1",
-                "lastUpdated": "2017-10-21T20:55:38.000+00:00"
-              },
-              "dateWritten": "2017-04-25",
-              "status": "active",
-              "patient": {
-                "reference": "Patient/Patient-12214"
-              },
-              "medicationCodeableConcept": {
-                "coding": [
-                  {
-                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                    "code": "199789"
-                  }
-                ]
-              },
-              "dosageInstruction": [
-                {
-                  "text": "Take 50mg twice daily",
-                  "timing": {
-                    "repeat": {
-                      "frequency": 2,
-                      "period": 1,
-                      "periodUnits": "d"
-                    }
-                  },
-                  "asNeededBoolean": false,
-                  "doseQuantity": {
-                    "value": 55,
-                    "unit": "mg",
-                    "system": "http://unitsofmeasure.org",
-                    "code": "mg"
-                  }
-                }
-              ],
-              "dispenseRequest": {
-                "quantity": {
-                  "value": 3000,
-                  "unit": "mg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mg"
-                }
-              }
-            }
+              ... &lt;FHIR Resource - snipped for brevity&gt;
           }
         ]
       }
@@ -205,33 +121,39 @@
 	<li><b>prefetch</b> - The prefetch information as defined by the <i>service</i>, the active <code>MedicationOrder</code>s for the patient in this case</li>
 </ul>
 
-<p>The service responds with a set of <i>cards</i> describing any recommendations or suggestions that should be presented to the user:</p>
+<p>The service responds with a set of <a href="http://cds-hooks.org/specification/1.0/#card-attributes"><i>cards</i></a> describing any recommendations or suggestions that should be presented to the user:</p>
 
 <pre><code>{
    "cards":[
       {
-         "links":[
-            {
-               "label":"CDC guideline for prescribing opioids for chronic pain",
-               "url":"https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"
-            },
-            {
-               "label":"MME Conversion Tables",
-               "url":"https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
-            }
-         ]
-      },
-      {
          "summary":"High risk for opioid overdose - taper now",
-         "indicator":"warning",
          "detail":"Total morphine milligram equivalent (MME) is 110 mg/d. Taper to less than 50.",
+         "indicator":"warning",
+         "source": {
+           "label": "Centers for Comprehensive Disease Control (CDC)",
+           "url": "http://cdc.gov"
+         },
          "suggestions":[
             {
                "actions":[
                   {
-                     "description":"Total morphine milligram equivalent (MME) is 110 mg/d. Taper to less than 50."
+				     "type": "update",
+                     "description":"Total morphine milligram equivalent (MME) is 110 mg/d. Taper to less than 50.",
+                     "resource": { ... &lt;Updated FHIR Resource - snipped for brevity&gt; ... }
                   }
                ]
+            }
+         ],
+         "links":[
+            {
+               "label":"CDC guideline for prescribing opioids for chronic pain",
+               "type": "absolute",
+               "url":"https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"
+            },
+            {
+               "label":"MME Conversion Tables",
+               "type": "absolute",
+               "url":"https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"
             }
          ]
       }
