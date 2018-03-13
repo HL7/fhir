@@ -54,6 +54,7 @@ signatures.html
       <page title="Change Management and Versioning" filename="versions.html">
         <page title="Timelines" filename="timelines.html"/>
       </page>
+      <page title="Simple FHIRPath Subset" filename="simplefhirpath.html"/>
       <page title="Version History" filename="history.html"/>
       <page title="Differences from DSTU Release 2" filename="diff.html"/>
       <page title="Release 2/3 Transforms" filename="r2maps.html"/>
