@@ -90,7 +90,7 @@ There are several good practices to follow when making use of the Basic resource
   your use-case.</li>
   
   <li>Use a <a href="structuredefinition.html">StructureDefinition</a> to define the extensions relevant to each type of other resource used.
-  Profile can also be used to define additional search criteria appropriate for the resource.</li>
+  Profiles can also be used to define additional search criteria appropriate for the resource.</li>
   
   <li>When defining a profile on Basic, include mappings to the w5 categories to allow systems to easily manage 
   <a href="auditevent.html">AuditEvent</a> and <a href="provenance.html">Provenance</a> uses as well as other potential
