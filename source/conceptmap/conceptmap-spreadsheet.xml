@@ -15,7 +15,7 @@
   
   
   <TabRatio>690</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3725,7 +3725,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3783,7 +3782,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">ConceptMap.group.unmapped</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If the mode is 'other-map', a code must be provided</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If the mode is 'other-map', a url must be provided</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">(mode = 'other-map') implies url.exists()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">(f:mode/@value != 'other-map') or exists(f:url)</Data></Cell>
    </Row>
@@ -4214,6 +4213,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
