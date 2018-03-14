@@ -9957,7 +9957,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (cs != null && !hasInactiveCodes(cs)) 
       return "";
     StringBuilder b = new StringBuilder();
-    b.append("<p>a current expansion is provided for this table because it is not simply 'all codes in the table', or because some codes have been deprecated</p>\r\n");
+    b.append("<p>A current expansion is provided for this table because it is not simply 'all codes in the table', or because some codes have been deprecated</p>\r\n");
     b.append(expandValueSet(name, vs, prefix));
     return b.toString();
   }
