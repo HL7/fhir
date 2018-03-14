@@ -1868,6 +1868,7 @@ public class ProfileUtilities extends TranslatingUtilities {
           } else if (t.hasTargetProfile() && u.getValue().startsWith("#"))
             c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+u.getValue().substring(1).toLowerCase()+".html", u.getValue(), null)));
         }
+        c.getPieces().add(gen.new Piece(null, ")", null));
       } else if (t.hasProfile() && (!t.getCode().equals("Extension") || isProfiledType(t.getProfile()))) { // a profiled type
         String ref;
         ref = pkp.getLinkForProfile(profile, t.getProfile().get(0).getValue());
