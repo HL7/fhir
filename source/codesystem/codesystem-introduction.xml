@@ -20,7 +20,7 @@ The CodeSystem resource is used to declare the existence of a code system, and i
 <ul>
  <li>Identifying URL and version</li>
  <li>Description, Copyright, publication date, and other metadata</li>
- <li>Some key properties of the code system itself - e.g. whether it is version safe, whether it defines a compositional grammar, and whether the codes that it defines are case sensitive</li>
+ <li>Some key properties of the code system itself - e.g. whether it exhibits concept permanence, whether it defines a compositional grammar, and whether the codes that it defines are case sensitive</li>
  <li>What filters can be used in value sets that use the code system in a ValueSet.compose element</li> 
  <li>What properties the concepts defined by the code system</li>
 </ul>
