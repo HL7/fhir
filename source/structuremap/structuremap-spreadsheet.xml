@@ -6058,7 +6058,7 @@
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"><Data ss:Type="String">evaluate</Data></Cell>
-    <Cell ss:StyleID="s141"><Data ss:Type="String">Execute the supplied fluentpath expression and use the value returned by that</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">Execute the supplied FHIRPath expression and use the value returned by that</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s135"/>

@@ -281,8 +281,8 @@ context.element { : type {min..max}} {default [value]} { list-option } as variab
  <li><b>default</b>: A default value, used if there is no source value found. If there's a default value on an item that can repeat, it will only be used once</li>
  <li><b>list-option</b>: by default, the rule will apply once for each occurrence of the element in context. The list option can override this to specify only to apply the first, last, or not to those</li>
  <li><b>as variable</b>: if an element is specified, a variable must be assigned. This variable name may be used in the target statement, and may be re-used in other dependent rules (see below). There is one special case described below (simple form) where the variable name is provided explicitly</li>
- <li><b>where [condition]</b>: a fluent path (ref) expression that is evaluated to boolean on the context. If the expression returns false, the source element has no match</li>
- <li><b>check [condition]</b>: a fluent path (ref) expression that is evaluated to boolean on the context. If the expression returns false, the mapping engine terminates execution with an error. Note: it's usual to have either a where or a check clause, but possible to have both. If both are provided, the where clause is evaluated first, and the check only applies if the where expression is true</li>
+ <li><b>where [condition]</b>: a FHIRPath (ref) expression that is evaluated to boolean on the context. If the expression returns false, the source element has no match</li>
+ <li><b>check [condition]</b>: a FHIRPath (ref) expression that is evaluated to boolean on the context. If the expression returns false, the mapping engine terminates execution with an error. Note: it's usual to have either a where or a check clause, but possible to have both. If both are provided, the where clause is evaluated first, and the check only applies if the where expression is true</li>
 </ul>
 <p>
 If all the source elements have a match the rule applies for the permutation of the source

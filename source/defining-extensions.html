@@ -133,6 +133,27 @@ A <a href="profiling.html#resource">profile</a> that defines the use of an
 extension may make the maximum cardinality any value up to the specified maximum.
 Example: <a href="extension-patient-disability.html">Patient Disability</a>.
 </p>
+<p><b>Context Invariants</b></p>
+<p>
+Extensions are also able to define context invariants, which is a rule that 
+is executed on the element that contains the extension when it is present to 
+check that local requirements around cardinality and other business rules are 
+met. 
+</p>
+<p>
+For example, if you use <a href="extension-iso21090-adxp-housenumber.html">the extension for house number</a>, 
+the Address.line needs to be filled as well:
+</p>
+<pre>
+  &lt;contextInvariant value=&quot;line.exists()&quot;/&gt;
+</pre>
+<p>
+Note that since the context invariant is only evaluated when the extension is present, there is an implicit
+<code>"line.extension('http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName').exists() implies"</code> at 
+the start of the expression. A context invariant that enforces that the extension is present under certain
+circumstances cannot be defined in the extension itself - it must be defined in a profile that makes use 
+of the extension.
+</p>
 
 <a name="ed"></a>
 <h3>Use of ElementDefinition in Extension Definitions</h3>

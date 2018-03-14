@@ -26,7 +26,7 @@ ModelMap
       context : id [1..1] the source variable this is taken from (may not be the same as the sourceVariable, but has the same rules - if null, source = null. if not defined, error  
       field : code [1..1] the field of the source variable to take a value from (e.g. an element in the object that is the context)
       variable : id [0..] a variable name assigned to this source so that it can be used as a context in dependent rules
-    condition [0..1] : String Fluent path that runs in the context of the source Variable
+    condition [0..1] : String FHIRPath that runs in the context of the source Variable
     target [0..*]: a field to produce in the target model. Note: each target must have at least one of (field, variable)
       context : id [1..1] the target that the field will be added to 
       field : code [0..1] a field that will be assigned the value as specified in the transform. 
