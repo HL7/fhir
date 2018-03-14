@@ -32,22 +32,22 @@
    Note: When <a href="https://confluence.ihtsdotools.org/display/DOCGLOSS/term">SNOMED CT Terms</a> must be exchanged, use the <a href="extension-coding-sctdescid.html">Description Id Extension.
  </a></td></tr>
  <tr><td>Display</td><td>
-  <p>The correct display for a <a
+  The correct display for a <a
   href="https://confluence.ihtsdotools.org/display/DOCGLOSS/Concept">SNOMED CT
   concept </a>is one of the <a
   href="https://confluence.ihtsdotools.org/display/DOCGLOSS/term">terms</a>
   associated with that concept. The best display is the preferred term in the
   relevant language or dialect, as specified in the associated language
-  reference set. SNOMED CT synonyms may be case sensitive.</p>
-  <p>SNOMED International does not define terms for expressions. If a SNOMED
+  reference set. SNOMED CT synonyms may be case sensitive.
+  <br/><br/>SNOMED International does not define terms for expressions. If a SNOMED
   terminology producer publishes human-readable terms for expressions in an
   expression repository, this term may be used as the display. Similarly, if a
   SNOMED terminology producer publishes an official template for generating
   terms from an expression, a term generated using the template may be used as
   the display. If no term or description template has been published, the full
-  expression with terms embedded may be used.</p>
-  <p>Note that Display is not intended to contain terms entered by the user
-  that have not been officially published by a SNOMED CT Terminology Producer.</p>
+  expression with terms embedded may be used.
+  <br/><br/>Note that Display is not intended to contain terms entered by the user
+  that have not been officially published by a SNOMED CT Terminology Producer.
 	</td></tr>
  <tr><td>Inactive</td><td>Inactive codes are identified using the 'inactive' property (see below)</td></tr>
  <tr><td>Subsumption</td><td>SNOMED CT Subsumption testing is based in the |is a| relationship defined by SNOMED CT</td></tr>
@@ -157,14 +157,9 @@ For example, the laterality property is represented using the concept id
 <table class="grid">
 <tr><td><strong>Property Name</strong></td><td><strong>Data Type</strong></td><td><strong>Comments</strong></td></tr>
 <tr><td>272741003</td><td>code</td><td>
-In this case, the URI (See the <a href="codesystem-snomedct.html">code system definition</a>) is <code>http://snomed.info/id/272741003</code>, which can be used to unambiguously map to the underlying concept
-
-  <p>The value of the laterality attribute in the definition of the given code
-  or expression.</p>
   <p>The equivalent URI for the Laterality property is <code><a href="http://snomed.info/id/272741003">http://snomed.info/id/272741003</a>
   (see the&nbsp;<a href="http://build.fhir.org/codesystem-snomedct.html">code
   system definition</a>).</code></p>
-
 </td></tr>
 </table>
 <p>
@@ -205,7 +200,7 @@ of the <a href="http://snomed.org/ecl">SNOMED CT Expression Constraint Language<
  <tr><td>Operations Allowed</td><td>in</td></tr>
  <tr><td>Values Allowed</td><td>[concept id]</td></tr>
  <tr><td>Comments</td><td>Includes all concept ids that are active members of the reference set identified by the concept Id provided as the value</td></tr>
- <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>^[concept] (Long syntax: memberOf [concept])</pre></td></tr>
+ <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>^ [concept] (Long syntax: memberOf [concept])</pre></td></tr>
 </table>
 
 <h4>By SNOMED Expression Constraint</h4>
@@ -272,11 +267,11 @@ by a literal value set reference).
 A SNOMED CT implicit value set URL has two parts:
 </p>
 <ul>
-  <li>The base URL is either <pre>http://snomed.info/sct</pre>, or the URI for the edition version, in the format specified by SNOMED International in the <a href="http://snomed.org/uristandard">SNOMED CT URI Specification</a></li>
+  <li>The base URL is either <a href="http://snomed.info/sct">http://snomed.info/sct</a>, or the URI for the edition version, in the format specified by SNOMED International in the <a href="http://snomed.org/uristandard">SNOMED CT URI Specification</a></li>
   <li>A query portion that specifies the scope of the content</li>
 </ul>
 <p>
-The URL <pre>http://snomed.info/sct</pre> should be understood to mean an unspecified edition/version. This defines an incomplete value set whose
+The URL <a href="http://snomed.info/sct">http://snomed.info/sct</a> should be understood to mean an unspecified edition/version. This defines an incomplete value set whose
 actual membership will depend on the particular edition used when it is expanded. If no version or edition is specified, the terminology
 service SHALL use the latest version available for its default edition (or the International Edition, if no other edition is the default).
 </p>
@@ -284,7 +279,7 @@ service SHALL use the latest version available for its default edition (or the I
 For the second part of the URL (the query part), the 5 possible values are:
 </p>
 <ul>
-  <li>?fhir_vs - all Concept IDs in the edition/version. If the base URI is http://snomed.info/sct, this means all possible SNOMED CT concepts</li>
+  <li>?fhir_vs - all Concept IDs in the edition/version. If the base URI is <a href="http://snomed.info/sct">http://snomed.info/sct</a>, this means all possible SNOMED CT concepts</li>
   <li>?fhir_vs=isa/[sctid] - all concept IDs that are subsumed by the specified concept.</li>
   <li>?fhir_vs=refset - all concept IDs that correspond to reference sets that are explicitly defined in the specified SNOMED CT edition</li>
   <li>?fhir_vs=refset/[sctid] - all concept IDs in the specified reference set</li>
@@ -351,11 +346,11 @@ The value set with a url that follows the pattern "[edition/version]?fhir_vs=ref
 &lt;/ValueSet&gt;
 </pre>
 <p>
-For each concept that is associated with a reference set, there will be one <pre>concept</pre> element with a
-contained <pre>code</pre> element that contains the sctid.
+For each concept that is associated with a reference set, there will be one 'concept' element with a
+contained 'code' element that contains the sctid.
 </p>
 <p>
-A value set with a <pre>url</pre> that follows the pattern "[edition/version]?fhir_vs=refset/[sctid]" follows this template:
+A value set with a url that follows the pattern "[edition/version]?fhir_vs=refset/[sctid]" follows this template:
 </p>
 <pre class="xml" id="e3" fragment="ValueSet">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -441,21 +436,23 @@ concept maps:
  <tr><td>ALTERNATIVE</td><td>900000000000530003</td><td>inexact</td></tr>
 </table>
 <p>
-If any concept map resources exist with an identifier that conforms to the URL pattern
+<p>
+<a href="https://confluence.ihtsdotools.org/display/DOCRELFMT/4.2.8.+Simple+Map+Reference+Set">Simple Map Reference Sets</a>
+(reference sets which are descendants of 900000000000496009 "Simple map") also define an implicit concept map.
+</p>
+If any ConceptMap resources exist with an identifier that conforms to the URL pattern
 specified below, the content of the resource must conform to the template provided.
-Canonical references to concept maps are allowed to reference these concept maps directly by referring to their URI.
+Canonical references to ConceptMap resource instances are made using their URI.
 </p>
 <p>
 A SNOMED CT implicit concept map URL has two parts:
 </p>
 <ul>
-  <li>The base URL is either "http://snomed.info/sct", or the URI for the edition version, in the format specified by SNOMED International in the <a href="http://snomed.org/uristandard">SNOMED CT URI Specification</a></li>
+  <li>The base URL is either <a href="http://snomed.info/sct">http://snomed.info/sct</a>, or the URI for the edition version, in the format specified by SNOMED International in the <a href="http://snomed.org/uristandard">SNOMED CT URI Specification</a></li>
   <li>A query portion that specifies the scope of the content</li>
 </ul>
 <p>
-The URL <pre>http://snomed.info/sct</pre> should be understood to mean an unspecified edition/version. This defines an incomplete concept map whose
-actual membership will depend on the particular edition being used. If no version or edition is specified, the terminology
-service SHALL use the latest version available for its default edition (or the International Edition, if no other edition is the default).
+The URL <a href="http://snomed.info/sct">http://snomed.info/sct</a> should be understood to mean an unspecified edition/version. This defines an incomplete concept map whose actual membership will depend on the particular edition being used. If no version or edition is specified, the terminology service SHALL use the latest version available for its default edition (or the International Edition, if no other edition is the default).
 </p>
 <p>
 For the second part of the URL (the query part), there is only one possible value:
@@ -501,14 +498,6 @@ A concept map with a URL that follows the pattern "[edition/version]?fhir_cm=[sc
   &lt;/group&gt;
 &lt;/ConceptMap&gt;
 </pre>
-
-<p>
-<a href="https://confluence.ihtsdotools.org/display/DOCRELFMT/4.2.8.+Simple+Map+Reference+Set">Simple Map Reference Sets</a>
-(reference sets which are descendants of 900000000000496009 "Simple map") also define an implicit concept map. However,
-at this time, these cannot be converted to Concept Maps because there is no source for the target code system. Another
-reference set has been proposed to SNOMED International, and this section will be revisited once it is adopted.
-</p>
-
 
 </div>
 
