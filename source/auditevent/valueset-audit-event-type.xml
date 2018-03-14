@@ -65,7 +65,7 @@
       <system value="http://hl7.org/fhir/audit-event-type"/>
     </include>
     <include>
-      <system value="http://hl7.org/fhir/CodeSystem/ehr-lifecycle-events"/>
+      <system value="http://hl7.org/fhir/iso-21089-lifecycle"/>
     </include>
   </compose>
 </ValueSet>
