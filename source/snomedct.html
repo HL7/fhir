@@ -66,12 +66,26 @@ how to unambiguously reference a particular version of a distribution:
 <p>
 where [sctid] is the concept id of the SNOMED CT distribution (e.g. 32506021000036107 for Australia), and
 the tail is the date of release (by custom, this is usually the last
-day of the month). Note that many implementations are in the habit of
-simple using the date of release in the form YYYYMMDD (e.g. "20140531"),
+day of the month). Note that the time of release may be found in the 
+version in the format YYMMDDThhmmssZ per the SNOMED CT URI Specification. 
+</p>
+<p>
+Many implementations are in the habit of simply using the date of release in the form YYYYMMDD (e.g. "20140531"),
 and assuming that the distribution is known. However this is not always
 safe, so implementations that populate the <i>version</i> element
-SHOULD use the URI form. Note also that time may be found in the 
-version in the format YYMMDDThhmmssZ per the SNOMED CT URI Specification.
+SHOULD use the URI form (as shown above). Servers SHOULD regard provision of the date only for the 
+version as an error, and refuse to process the interaction or operation. At minimum the URI SHOULD 
+contain the concept id of the SNOMED CT distribution:
+</p>
+<pre>
+http://snomed.info/sct/[sctid]
+</pre>
+<p>
+Implementers must note, if no version URI is provided when utilizing SNOMED CT, the Terminology Service 
+may default to the most recent version of the SNOMED CT International Edition available on the service 
+(or the latest available of another Edition that may be preferred for the locale). Further, if the date 
+of release is not provided, the Terminology Service may default to the most recent version of the named 
+SNOMED CT distribution (e.g. 32506021000036107 for Australia).
 </p>
 
 <h3>Copyright/License Issues</h3>
