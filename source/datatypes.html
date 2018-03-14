@@ -648,16 +648,41 @@ provision of text. This is a common pattern in healthcare data.
 This data type can be <a href="terminologies.html#CodeableConcept">bound to a value set</a>.
 </p>
 [%dt CodeableConcept 3%]
+<p><b>Code Translations</b></p>
 <p>
-Each <code>coding</code> is a representation of the concept as described above. The concept may be coded multiple times in different code systems (or even
+More than one code may be used in <code>CodeableConcept</code>. The concept may be coded multiple times in different code systems (or even
 multiple times in the same code systems, where multiple forms are possible, such as
-with SNOMED CT). The different codings may have slightly different granularity due to the differences
+with SNOMED CT). Each <code>coding</code> (also referred to as a 'translation') is a representation of the concept as described above and may have slightly different granularity due to the differences
 in the definitions of the underlying codes. There is no meaning associated with the ordering of <code>coding</code> within a <code>CodeableConcept</code>.
 A typical use of <code>CodeableConcept</code> is to send the local code that the concept was coded with, and also one or more translations to publicly defined
-code systems such as LOINC or SNOMED CT. Sending local codes is useful and important for the purposes of debugging and integrity auditing.
+code systems such as LOINC or SNOMED CT. Sending local codes is useful and important for the purposes of debugging and integrity auditing. 
 </p>
+	<p>For example many qualitative laboratory test results values are typically represented with coded presence/absence concepts. Using the coded value for 'negative' with a standard SNOMED CT code translation, <code>valueCodeableConcept</code> would be:</p>
+	<pre class="json">
+
+	"valueCodeableConcept": {
+		"coding": [
+			{
+				"system": "http://snomed.info/sct",
+				"code": "260385009",
+				"display": "Negative"
+			}, {
+				"system": "https://acme.lab/resultcodes",
+				"code": "NEG",
+				"display": "Negative"
+			}
+		],
+		"text": "Negative for Chlamydia Trachomatis rRNA"
+	}
+
+	</pre>
+	
+	<p> Note that these concepts may be cross mapped using the <a href="conceptmap.html">ConceptMap</a> resource <em>instead of </em> or <em>in addition to</em> being represented as translations directly in the  in <code>CodeableConcept</code>.</p>
+	
+	<p><b>Using Text in CodeableConcept</b></p>
+
 <p>
-Whether or not <code>coding</code> elements are present, the <code>text</code>
+The <code>text</code>
 is the representation of the concept as entered or chosen by the user, and which most closely
 represents the intended meaning of the user or concept. Very often the <code>text</code>
 is the same as a <code>display</code> of one of the codings. One of the codings
@@ -665,6 +690,14 @@ may be flagged as the userSelected - the code or concept that the user actually 
 When none of the <code>coding</code> elements is marked as userSelected, the text (if present)
 is the preferred source of meaning.
 </p>
+	<p>A free text only representation of the concept without any <code>coding</code> elements is permitted if there is no appropriate code and only free text is available (and not prohibited by the implementation). For example using text only, the <code>Observation.valueCodeableConcept</code> element would be:</p>
+	<pre class="json">
+
+	"valueCodeableConcept": {
+		"text": "uncoded free text result"
+	}
+
+			</pre>
 
 <div class="use">
 <p><b>Constraints</b></p>
