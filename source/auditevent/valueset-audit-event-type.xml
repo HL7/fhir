@@ -64,5 +64,8 @@
     <include>
       <system value="http://hl7.org/fhir/audit-event-type"/>
     </include>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/ehr-lifecycle-events"/>
+    </include>
   </compose>
 </ValueSet>
