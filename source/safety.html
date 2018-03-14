@@ -66,6 +66,9 @@ list underlying assumptions about deployment
  <li><input type="checkbox"/> My system ensures that system clocks are synchronised using a protocol like NTP or SNTP, or my server is robust against clients that have the wrong clock set</li>
  <li><input type="checkbox"/> My system ensures checks for patient links (and/or merges) and handles data that is linked to patients accordingly</li>
  <li><input type="checkbox"/> My system publishes a <a href="capabilitystatement.html">Capability Statement</a> with <a href="structuredefinition.html">StructureDefinitions</a>, <a href="valueset.html">ValueSets</a>, and <a href="operationdefinition.html">OperationDefinitions</a>, etc., so other implementers know how the system functions</li>
+ <li><input type="checkbox"/> My system checks for timezones, and adjusts times appropriately. (note: timezones are extremely difficult to get correct - see <a href="https://www.w3.org/TR/timezone/">W3C Timezone Advice</a>, and note that some fields should be timezone corrected, and others should not be)</li>
+ <li><input type="checkbox"/> My system renders dates safely for changes in culture and language (the date formats D-M-Y and M-D-Y are not differentiated for many dates, and this is a well known source of confusion. Systems should use the month name, or otherwise be specific for each date when rendering, unless 
+   there is solid confidence that such confusion cannot arise, even in the future when information/narrative from resources will be shared much more widely)</li>
 </ol>
 <p>
 Obviously this list is only a small part of the overall safety check list for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.

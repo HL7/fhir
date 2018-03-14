@@ -8671,6 +8671,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           br.display = "Rosetta";
         else if (ref.equals("http://www.iso.org/iso/country_codes.htm"))
           br.display = "ISO Country Codes";
+        else if (ref.equals("http://www.ncbi.nlm.nih.gov/clinvar/variation"))
+          br.display = "ClinVar";
+        else if (!Utilities.noString(binding.getDescription()))
+          br.display = binding.getDescription();
         else
           br.display = "????";
       }
