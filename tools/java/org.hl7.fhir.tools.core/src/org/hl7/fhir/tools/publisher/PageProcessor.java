@@ -939,6 +939,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+(name.contains("|") ? name.substring(name.indexOf("|")+1) : "??")+s3;
       else if (com[0].equals("v2Table"))
         src = s1+genV2Table(name)+s3;
+      else if (com[0].equals("v2Expansion"))
+        src = s1+genV2Expansion(name, genlevel(level))+s3;
       else if (com[0].equals("v2TableVer"))
         src = s1+genV2TableVer(name)+s3;
       else if (com[0].equals("v3CodeSystem"))
@@ -9949,4 +9951,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
+  private String genV2Expansion(String name, String prefix) throws Exception {
+    ValueSet vs = definitions.getValuesets().get("http://hl7.org/fhir/ValueSet/v2-"+name);
+    CodeSystem cs = definitions.getCodeSystems().get("http://hl7.org/fhir/v2/"+name);
+    if (cs != null && !hasInactiveCodes(cs)) 
+      return "";
+    StringBuilder b = new StringBuilder();
+    b.append("<p>a current expansion is provided for this table because it is not simply 'all codes in the table', or because some codes have been deprecated</p>\r\n");
+    b.append(expandValueSet(name, vs, prefix));
+    return b.toString();
+  }
+
+  private boolean hasInactiveCodes(CodeSystem cs) {
+    for (ConceptDefinitionComponent cc : cs.getConcept()) {
+      if (CodeSystemUtilities.isDeprecated(cs, cc))
+        return true;
+    }
+    return false;
+  }
+  
 }

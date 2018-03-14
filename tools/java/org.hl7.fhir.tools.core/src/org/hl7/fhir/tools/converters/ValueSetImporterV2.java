@@ -762,7 +762,10 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
       if (comments.containsKey(cd))
         ToolingExtensions.addCSComment(concept, comments.get(cd));
-      
+      if (!(MAX_VER.equals(max))) {
+        CodeSystemUtilities.setDeprecated(cs, concept, dateForVersion(max));
+      }
+
       
       // be display name, not
       // definition. Open for
