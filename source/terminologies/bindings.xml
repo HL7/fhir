@@ -3085,7 +3085,7 @@
     <Cell ss:StyleID="s108"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">relatedto</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Inexact</Data></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.</Data></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is inexact SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Inexact relationships are symmetric</Data></Cell>
