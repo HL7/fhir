@@ -4717,7 +4717,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">A code indicating the equivalence of the translation, using values from [ConceptMapEquivalence]{concept-map-equivalence.html}</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">A code indicating the equivalence of the translation, using values from [ConceptMapEquivalence](valueset-concept-map-equivalence.html)</Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
