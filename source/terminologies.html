@@ -70,11 +70,15 @@ see the FHIR wiki for <a href="http://wiki.hl7.org/index.php?title=FHIR_Guide_to
 </ul>
 
 <a name="valuesets"></a>
-<h2>Coded Values, Systems, and Value Sets</h2>
+<h2>Coded Values, Code Systems, and Value Sets</h2>
 <p>
-The set of coded values that is allowed in an element is known as a <a href="valueset.html">"value set"</a>. Anywhere these four data types are used, the
-specification "binds" a value set to the element.
+The set of coded values that is allowed in an element is known as a <a href="valueset.html">"value set"</a>. Anywhere these data types are used, the
+specification "binds" a value set to the element, and for the types code, Coding, and CodeableConcept, always does.
 </p>
+<ul>
+ <li><b><a href="codesystem.html">Code Systems</a></b> define concepts and give them meaning through formal definitions, and assign codes that represent the concepts</li>
+ <li><b><a href="valueset.html">Valaue Sets</a></b> specifies a particular set of codes defined by code systems that can be used in a specific context</li>
+</ul>
 <p>
 The difference between a code system and a value set is an important distinction that is easily
 missed by implementers, since the difference is often overlooked in system
@@ -166,7 +170,7 @@ When an element is bound to a value set, the binding has these properties:
  <tr><td>Description</td><td>A text description of the use of the codes. If there is no reference, this must be populated. When there is a reference, this can be used to make additional notes about the use and implementation of the value set</td></tr>
 </table>
 <p>
-In the FHIR declarative datatypes, a binding is always represented using an <a href="elementdefinition-definitions.html#ElementDefinition.binding">ElementDefinition.binding</a>.
+A binding is always represented using an <a href="elementdefinition-definitions.html#ElementDefinition.binding">ElementDefinition.binding</a>.
 </p>
 
 <a name="references"></a>
@@ -180,6 +184,7 @@ There are a number of places in the specification where value sets are reference
  <tr><td><a href="conceptmap.html">ConceptMap</a>.source[x] and .target[x]</td><td>used to indicate the scope of the mapping in the Concept Map - from one value set to another</td></tr>
  <tr><td><a href="questionnaire.html">Questionnaire</a>.group.question.options</td><td>Indicates that answers to a set of questions come from a value set</td></tr>
  <tr><td><a href="valueset.html">ValueSet</a>.compose.import</td><td>The content of a value set includes the content in the imported value set too</td></tr>
+ <tr><td><a href="operationdefinition.html">OperationDefinition</a>.parameter.binding</td><td>Used to bind a defined parameter to a value set</td></tr>
  <tr><td><a href="extension-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a particular coded value was chosen from the specified value set</td></tr>
 </table>
 <p>
