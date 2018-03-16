@@ -176,11 +176,26 @@ public class JsonParser extends ParserBase {
 				parseChildComplexInstance(npath, object, context, property, name, am);
 			}
 		} else {
+		  if (property.isList()) {
+	      logError(line(e), col(e), npath, IssueType.INVALID, "This property must be an Array, not "+describeType(e), IssueSeverity.ERROR);
+		  }
 			parseChildComplexInstance(npath, object, context, property, name, e);
 		}
 	}
 
-	private void parseChildComplexInstance(String npath, JsonObject object, Element context, Property property, String name, JsonElement e) throws FHIRException {
+	private String describeType(JsonElement e) {
+	  if (e.isJsonArray())
+	    return "an Array";
+	  if (e.isJsonObject())
+      return "an Object";
+    if (e.isJsonPrimitive())
+      return "a primitive property";
+    if (e.isJsonNull())
+      return "a Null";
+    return null;
+  }
+
+  private void parseChildComplexInstance(String npath, JsonObject object, Element context, Property property, String name, JsonElement e) throws FHIRException {
 		if (e instanceof JsonObject) {
 			JsonObject child = (JsonObject) e;
 			Element n = new Element(name, property).markLocation(line(child), col(child));
