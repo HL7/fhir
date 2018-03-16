@@ -8,12 +8,12 @@
       "resource": {
           "resourceType": "Patient",
           "id" : "pat1",
-          "link" : {
+          "link" : [{
             "type" : "refer",
             "other" : {
               "reference" : "Patient/pat2"
             }
-          }
+          }]
         }
     },
     {
