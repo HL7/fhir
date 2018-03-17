@@ -15,6 +15,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.CSVReader;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -50,7 +51,7 @@ public class NUCCConvertor {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("c:\\temp\\nucc.xml"), cs);
   }
 
-  private void processLine(CodeSystem cs, String[] values) {
+  private void processLine(CodeSystem cs, String[] values) throws FHIRFormatError {
     if (!values[1].equals(last[0])) {
       last[1] = "";
       last[0] = values[1];

@@ -14,6 +14,7 @@ import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.Meta;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 
 public class CodeSystemUtilities {
@@ -36,17 +37,17 @@ public class CodeSystemUtilities {
     return false;
   }
 
-  public static void setNotSelectable(CodeSystem cs, ConceptDefinitionComponent concept) {
+  public static void setNotSelectable(CodeSystem cs, ConceptDefinitionComponent concept) throws FHIRFormatError {
     defineNotSelectableProperty(cs);
     concept.addProperty().setCode("notSelectable").setValue(new BooleanType(true));    
   }
 
-  public static void setInactive(CodeSystem cs, ConceptDefinitionComponent concept) {
+  public static void setInactive(CodeSystem cs, ConceptDefinitionComponent concept) throws FHIRFormatError {
     defineInactiveProperty(cs);
     concept.addProperty().setCode("inactive").setValue(new BooleanType(true));    
   }
 
-  public static void setDeprecated(CodeSystem cs, ConceptDefinitionComponent concept, DateTimeType date) {
+  public static void setDeprecated(CodeSystem cs, ConceptDefinitionComponent concept, DateTimeType date) throws FHIRFormatError {
     defineDeprecatedProperty(cs);
     concept.addProperty().setCode("deprecationDate").setValue(date);    
   }

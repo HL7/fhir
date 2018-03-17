@@ -20,6 +20,7 @@ import org.hl7.fhir.dstu3.model.Quantity;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 
 public class ObservationStatsBuilder {
 
@@ -29,7 +30,7 @@ public class ObservationStatsBuilder {
   
   }
 
-  private static void buildVitalSignsSet() throws FileNotFoundException, IOException {
+  private static void buildVitalSignsSet() throws FileNotFoundException, IOException, FHIRFormatError {
     Calendar base = Calendar.getInstance();
     base.add(Calendar.DAY_OF_MONTH, -1);
     Bundle b = new Bundle();
@@ -50,7 +51,7 @@ public class ObservationStatsBuilder {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("c:\\temp\\vitals.xml"), b);
   }
 
-  private static void vitals(Bundle b,  Calendar base, int minutes, int diastolic, int systolic, int sat, double temp) {
+  private static void vitals(Bundle b,  Calendar base, int minutes, int diastolic, int systolic, int sat, double temp) throws FHIRFormatError {
     Calendar when = (Calendar) base.clone();
     when.add(Calendar.MINUTE, minutes);
     
@@ -87,7 +88,7 @@ public class ObservationStatsBuilder {
     return q;
   }
   
-  private static Observation baseVitals(Bundle b, Calendar when, int min, String name, String lCode, String text) {
+  private static Observation baseVitals(Bundle b, Calendar when, int min, String name, String lCode, String text) throws FHIRFormatError {
     Observation obs = new Observation();
     obs.setId("obs-vitals-"+name+"-"+Integer.toString(min));
     obs.setSubject(new Reference().setReference("Patient/123"));

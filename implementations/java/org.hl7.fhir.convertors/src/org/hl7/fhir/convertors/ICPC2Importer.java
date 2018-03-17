@@ -21,6 +21,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -137,7 +138,7 @@ public class ICPC2Importer {
     xml.compose(new FileOutputStream(targetFileNameCS), cs);
   }
   
-  private void processClass(Element cls, Map<String, ConceptDefinitionComponent> concepts, CodeSystem define) {
+  private void processClass(Element cls, Map<String, ConceptDefinitionComponent> concepts, CodeSystem define) throws FHIRFormatError {
     ConceptDefinitionComponent concept = new ConceptDefinitionComponent();
     concept.setCode(cls.getAttribute("code"));
     concept.setDefinition(getRubric(cls, "preferred"));

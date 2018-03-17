@@ -29,6 +29,7 @@ import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
@@ -126,7 +127,7 @@ public class ISO21090Importer {
     new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream("c:\\temp\\iso21090\\StructureDefinition-"+dt.name+".xml"), sd);    
   }
   
-  private void addParentProperties(List<ElementDefinition> elements, String name, String parent, boolean attrMode, boolean snapshot) {
+  private void addParentProperties(List<ElementDefinition> elements, String name, String parent, boolean attrMode, boolean snapshot) throws FHIRFormatError {
     DataType dt = types.get(parent);
     if (dt == null)
       throw new Error("No find "+parent);
@@ -135,7 +136,7 @@ public class ISO21090Importer {
     produceProperties(elements, name, dt.properties, attrMode, snapshot);
   }
 
-  private void produceProperties(List<ElementDefinition> elements, String name, List<Property> properties, boolean attrMode, boolean snapshot) {
+  private void produceProperties(List<ElementDefinition> elements, String name, List<Property> properties, boolean attrMode, boolean snapshot) throws FHIRFormatError {
     for (Property p : properties) {
       if (p.isattr == attrMode) {
         ElementDefinition ed = new ElementDefinition();

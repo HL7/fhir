@@ -4498,7 +4498,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">StructureDefinition.context</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">The system is the URL for the context-type: e.g. http://hl7.org/fhir/ValueSet/extension-context-type#element|CodeableConcept.text</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">The system is the URL for the context-type: e.g. http://hl7.org/fhir/extension-context-type#element|CodeableConcept.text</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">base</Data></Cell>
