@@ -2505,12 +2505,39 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "definitions."+fmt.getExtension()+".zip"));
       for (FetchedResource r : files) {
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
-        if (fmt.equals(FhirFormat.JSON))
-          new JsonParser().compose(bs, r.getResource());
-        else if (fmt.equals(FhirFormat.XML))
-          new XmlParser().compose(bs, r.getResource());
-        else if (fmt.equals(FhirFormat.TURTLE))
-          new TurtleParser(context).compose(r.getElement(), bs, OutputStyle.PRETTY, igpkp.getCanonical());
+        if (version.equals("3.0.1")) {
+          org.hl7.fhir.dstu3.model.Resource r3 = VersionConvertor_30_40.convertResource(r.getResource());
+          if (fmt.equals(FhirFormat.JSON))
+            new org.hl7.fhir.dstu3.formats.JsonParser().compose(bs, r3);
+          else if (fmt.equals(FhirFormat.XML))
+            new org.hl7.fhir.dstu3.formats.XmlParser().compose(bs, r3);
+          else if (fmt.equals(FhirFormat.TURTLE))
+            new org.hl7.fhir.dstu3.formats.RdfParser().compose(bs, r3);
+        } else if (version.equals("1.4.0")) {
+          org.hl7.fhir.dstu2016may.model.Resource r14 = VersionConvertor_14_40.convertResource(r.getResource());
+          if (fmt.equals(FhirFormat.JSON))
+            new org.hl7.fhir.dstu2016may.formats.JsonParser().compose(bs, r14);
+          else if (fmt.equals(FhirFormat.XML))
+            new org.hl7.fhir.dstu2016may.formats.XmlParser().compose(bs, r14);
+          else if (fmt.equals(FhirFormat.TURTLE))
+            new org.hl7.fhir.dstu2016may.formats.RdfParser().compose(bs, r14);
+        } else if (version.equals("1.0.2")) {
+          VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
+          org.hl7.fhir.dstu2.model.Resource r14 = new VersionConvertor_10_40(advisor).convertResource(r.getResource());
+          if (fmt.equals(FhirFormat.JSON))
+            new org.hl7.fhir.dstu2.formats.JsonParser().compose(bs, r14);
+          else if (fmt.equals(FhirFormat.XML))
+            new org.hl7.fhir.dstu2.formats.XmlParser().compose(bs, r14);
+          else if (fmt.equals(FhirFormat.TURTLE))
+            throw new Exception("Turtle is not supported for releases < 3");
+        } else {
+          if (fmt.equals(FhirFormat.JSON))
+            new JsonParser().compose(bs, r.getResource());
+          else if (fmt.equals(FhirFormat.XML))
+            new XmlParser().compose(bs, r.getResource());
+          else if (fmt.equals(FhirFormat.TURTLE))
+            new TurtleParser(context).compose(r.getElement(), bs, OutputStyle.PRETTY, igpkp.getCanonical());
+        }
         zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+"."+fmt.getExtension(), bs.toByteArray(), false);
       }
       zip.addFileName("spec.internals", specFile, false);
