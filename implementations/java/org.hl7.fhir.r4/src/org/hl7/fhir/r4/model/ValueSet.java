@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A value set specifies a set of codes drawn from one or more code systems.
+ * A ValueSet resource specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
  */
 @ResourceDef(name="ValueSet", profile="http://hl7.org/fhir/Profile/ValueSet")
 @ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "immutable", "purpose", "copyright", "extensible", "compose", "expansion"})
@@ -679,15 +679,15 @@ public class ValueSet extends MetadataResource {
         /**
          * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.
          */
-        @Child(name = "filter", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=true, summary=true)
+        @Child(name = "filter", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Select codes/concepts by their properties (including relationships)", formalDefinition="Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true." )
         protected List<ConceptSetFilterComponent> filter;
 
         /**
-         * Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.
+         * Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.
          */
         @Child(name = "valueSet", type = {CanonicalType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Select only contents included in this value set", formalDefinition="Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url." )
+        @Description(shortDefinition="Select the contents included in this value set", formalDefinition="Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets." )
         protected List<CanonicalType> valueSet;
 
         private static final long serialVersionUID = 969391146L;
@@ -904,7 +904,7 @@ public class ValueSet extends MetadataResource {
         }
 
         /**
-         * @return {@link #valueSet} (Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         * @return {@link #valueSet} (Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.)
          */
         public List<CanonicalType> getValueSet() { 
           if (this.valueSet == null)
@@ -930,7 +930,7 @@ public class ValueSet extends MetadataResource {
         }
 
         /**
-         * @return {@link #valueSet} (Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         * @return {@link #valueSet} (Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.)
          */
         public CanonicalType addValueSetElement() {//2 
           CanonicalType t = new CanonicalType();
@@ -941,7 +941,7 @@ public class ValueSet extends MetadataResource {
         }
 
         /**
-         * @param value {@link #valueSet} (Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         * @param value {@link #valueSet} (Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.)
          */
         public ConceptSetComponent addValueSet(String value) { //1
           CanonicalType t = new CanonicalType();
@@ -953,7 +953,7 @@ public class ValueSet extends MetadataResource {
         }
 
         /**
-         * @param value {@link #valueSet} (Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.)
+         * @param value {@link #valueSet} (Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.)
          */
         public boolean hasValueSet(String value) { 
           if (this.valueSet == null)
@@ -970,7 +970,7 @@ public class ValueSet extends MetadataResource {
           children.add(new Property("version", "string", "The version of the code system that the codes are selected from.", 0, 1, version));
           children.add(new Property("concept", "", "Specifies a concept to be included or excluded.", 0, java.lang.Integer.MAX_VALUE, concept));
           children.add(new Property("filter", "", "Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.", 0, java.lang.Integer.MAX_VALUE, filter));
-          children.add(new Property("valueSet", "canonical(ValueSet)", "Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.", 0, java.lang.Integer.MAX_VALUE, valueSet));
+          children.add(new Property("valueSet", "canonical(ValueSet)", "Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.", 0, java.lang.Integer.MAX_VALUE, valueSet));
         }
 
         @Override
@@ -980,7 +980,7 @@ public class ValueSet extends MetadataResource {
           case 351608024: /*version*/  return new Property("version", "string", "The version of the code system that the codes are selected from.", 0, 1, version);
           case 951024232: /*concept*/  return new Property("concept", "", "Specifies a concept to be included or excluded.", 0, java.lang.Integer.MAX_VALUE, concept);
           case -1274492040: /*filter*/  return new Property("filter", "", "Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.", 0, java.lang.Integer.MAX_VALUE, filter);
-          case -1410174671: /*valueSet*/  return new Property("valueSet", "canonical(ValueSet)", "Selects concepts found in this value set. This is an absolute URI that is a reference to ValueSet.url.", 0, java.lang.Integer.MAX_VALUE, valueSet);
+          case -1410174671: /*valueSet*/  return new Property("valueSet", "canonical(ValueSet)", "Selects the concepts found in this value set (based on its value set definition). This is an absolute URI that is a reference to ValueSet.url.  If multiple value sets are specified this includes the union of the contents of all of the referenced value sets.", 0, java.lang.Integer.MAX_VALUE, valueSet);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2092,7 +2092,7 @@ public class ValueSet extends MetadataResource {
         /**
          * An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.
          */
-        @Child(name = "identifier", type = {UriType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "identifier", type = {UriType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Uniquely identifies this expansion", formalDefinition="An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so." )
         protected UriType identifier;
 
@@ -2143,9 +2143,8 @@ public class ValueSet extends MetadataResource {
     /**
      * Constructor
      */
-      public ValueSetExpansionComponent(UriType identifier, DateTimeType timestamp) {
+      public ValueSetExpansionComponent(DateTimeType timestamp) {
         super();
-        this.identifier = identifier;
         this.timestamp = timestamp;
       }
 
@@ -2188,9 +2187,13 @@ public class ValueSet extends MetadataResource {
          * @param value An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so.
          */
         public ValueSetExpansionComponent setIdentifier(String value) { 
+          if (Utilities.noString(value))
+            this.identifier = null;
+          else {
             if (this.identifier == null)
               this.identifier = new UriType();
             this.identifier.setValue(value);
+          }
           return this;
         }
 
@@ -3647,7 +3650,7 @@ public class ValueSet extends MetadataResource {
      * A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Additional identifier for the value set", formalDefinition="A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance." )
+    @Description(shortDefinition="Additional identifier for the value set (business identifier)", formalDefinition="A formal identifier that is used to identify this value set when it is represented in other formats, or referenced in a specification, model, design or an instance." )
     protected List<Identifier> identifier;
 
     /**
@@ -3679,10 +3682,10 @@ public class ValueSet extends MetadataResource {
     protected BooleanType extensible;
 
     /**
-     * A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the "Content Logical Definition" (CLD).
+     * A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD).
      */
     @Child(name = "compose", type = {}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Definition of the content of the value set (CLD)", formalDefinition="A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the \"Content Logical Definition\" (CLD)." )
+    @Description(shortDefinition="Definition of the content of the value set", formalDefinition="A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD)." )
     protected ValueSetComposeComponent compose;
 
     /**
@@ -4543,7 +4546,7 @@ public class ValueSet extends MetadataResource {
     }
 
     /**
-     * @return {@link #compose} (A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the "Content Logical Definition" (CLD).)
+     * @return {@link #compose} (A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD).)
      */
     public ValueSetComposeComponent getCompose() { 
       if (this.compose == null)
@@ -4559,7 +4562,7 @@ public class ValueSet extends MetadataResource {
     }
 
     /**
-     * @param value {@link #compose} (A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the "Content Logical Definition" (CLD).)
+     * @param value {@link #compose} (A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD).)
      */
     public ValueSet setCompose(ValueSetComposeComponent value) { 
       this.compose = value;
@@ -4609,7 +4612,7 @@ public class ValueSet extends MetadataResource {
         children.add(new Property("purpose", "markdown", "Explaination of why this value set is needed and why it has been designed as it has.", 0, 1, purpose));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.", 0, 1, copyright));
         children.add(new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, 1, extensible));
-        children.add(new Property("compose", "", "A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the \"Content Logical Definition\" (CLD).", 0, 1, compose));
+        children.add(new Property("compose", "", "A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD).", 0, 1, compose));
         children.add(new Property("expansion", "", "A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, 1, expansion));
       }
 
@@ -4633,7 +4636,7 @@ public class ValueSet extends MetadataResource {
         case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explaination of why this value set is needed and why it has been designed as it has.", 0, 1, purpose);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set.", 0, 1, copyright);
         case -1809433861: /*extensible*/  return new Property("extensible", "boolean", "Whether this is intended to be used with an extensible binding or not.", 0, 1, extensible);
-        case 950497682: /*compose*/  return new Property("compose", "", "A set of criteria that define the content logical definition of the value set by including or excluding codes from outside this value set. This I also known as the \"Content Logical Definition\" (CLD).", 0, 1, compose);
+        case 950497682: /*compose*/  return new Property("compose", "", "A set of criteria that define the contents of the value set by including or excluding codes selected from the specified code system(s) that the value set draws from. This is also known as the Content Logical Definition (CLD).", 0, 1, compose);
         case 17878207: /*expansion*/  return new Property("expansion", "", "A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed.", 0, 1, expansion);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }

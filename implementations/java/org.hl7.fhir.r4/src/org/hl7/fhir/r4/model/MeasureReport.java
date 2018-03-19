@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * The MeasureReport resource contains the results of evaluating a measure.
+ * The MeasureReport resource contains the results of the calculation of a measure, and optionally a reference to the resources involved in that calculation.
  */
 @ResourceDef(name="MeasureReport", profile="http://hl7.org/fhir/Profile/MeasureReport")
 public class MeasureReport extends DomainResource {
@@ -1737,10 +1737,10 @@ public class MeasureReport extends DomainResource {
     protected Enumeration<MeasureReportType> type;
 
     /**
-     * A reference to the Measure that was evaluated to produce this report.
+     * A reference to the Measure that was calculated to produce this report.
      */
     @Child(name = "measure", type = {CanonicalType.class}, order=3, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="What measure was evaluated", formalDefinition="A reference to the Measure that was evaluated to produce this report." )
+    @Description(shortDefinition="What measure was calculated", formalDefinition="A reference to the Measure that was calculated to produce this report." )
     protected CanonicalType measure;
 
     /**
@@ -1789,14 +1789,14 @@ public class MeasureReport extends DomainResource {
     protected List<MeasureReportGroupComponent> group;
 
     /**
-     * A reference to a Bundle containing the Resources that were used in the evaluation of this report.
+     * A reference to a Bundle containing the Resources that were used in the calculation of this measure.
      */
     @Child(name = "evaluatedResources", type = {Bundle.class}, order=9, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="What data was evaluated to produce the measure score", formalDefinition="A reference to a Bundle containing the Resources that were used in the evaluation of this report." )
+    @Description(shortDefinition="What data was used to calculate the measure score", formalDefinition="A reference to a Bundle containing the Resources that were used in the calculation of this measure." )
     protected Reference evaluatedResources;
 
     /**
-     * The actual object that is the target of the reference (A reference to a Bundle containing the Resources that were used in the evaluation of this report.)
+     * The actual object that is the target of the reference (A reference to a Bundle containing the Resources that were used in the calculation of this measure.)
      */
     protected Bundle evaluatedResourcesTarget;
 
@@ -1964,7 +1964,7 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @return {@link #measure} (A reference to the Measure that was evaluated to produce this report.). This is the underlying object with id, value and extensions. The accessor "getMeasure" gives direct access to the value
+     * @return {@link #measure} (A reference to the Measure that was calculated to produce this report.). This is the underlying object with id, value and extensions. The accessor "getMeasure" gives direct access to the value
      */
     public CanonicalType getMeasureElement() { 
       if (this.measure == null)
@@ -1984,7 +1984,7 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @param value {@link #measure} (A reference to the Measure that was evaluated to produce this report.). This is the underlying object with id, value and extensions. The accessor "getMeasure" gives direct access to the value
+     * @param value {@link #measure} (A reference to the Measure that was calculated to produce this report.). This is the underlying object with id, value and extensions. The accessor "getMeasure" gives direct access to the value
      */
     public MeasureReport setMeasureElement(CanonicalType value) { 
       this.measure = value;
@@ -1992,14 +1992,14 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @return A reference to the Measure that was evaluated to produce this report.
+     * @return A reference to the Measure that was calculated to produce this report.
      */
     public String getMeasure() { 
       return this.measure == null ? null : this.measure.getValue();
     }
 
     /**
-     * @param value A reference to the Measure that was evaluated to produce this report.
+     * @param value A reference to the Measure that was calculated to produce this report.
      */
     public MeasureReport setMeasure(String value) { 
         if (this.measure == null)
@@ -2213,7 +2213,7 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @return {@link #evaluatedResources} (A reference to a Bundle containing the Resources that were used in the evaluation of this report.)
+     * @return {@link #evaluatedResources} (A reference to a Bundle containing the Resources that were used in the calculation of this measure.)
      */
     public Reference getEvaluatedResources() { 
       if (this.evaluatedResources == null)
@@ -2229,7 +2229,7 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @param value {@link #evaluatedResources} (A reference to a Bundle containing the Resources that were used in the evaluation of this report.)
+     * @param value {@link #evaluatedResources} (A reference to a Bundle containing the Resources that were used in the calculation of this measure.)
      */
     public MeasureReport setEvaluatedResources(Reference value) { 
       this.evaluatedResources = value;
@@ -2237,7 +2237,7 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @return {@link #evaluatedResources} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a Bundle containing the Resources that were used in the evaluation of this report.)
+     * @return {@link #evaluatedResources} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a Bundle containing the Resources that were used in the calculation of this measure.)
      */
     public Bundle getEvaluatedResourcesTarget() { 
       if (this.evaluatedResourcesTarget == null)
@@ -2249,7 +2249,7 @@ public class MeasureReport extends DomainResource {
     }
 
     /**
-     * @param value {@link #evaluatedResources} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a Bundle containing the Resources that were used in the evaluation of this report.)
+     * @param value {@link #evaluatedResources} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a Bundle containing the Resources that were used in the calculation of this measure.)
      */
     public MeasureReport setEvaluatedResourcesTarget(Bundle value) { 
       this.evaluatedResourcesTarget = value;
@@ -2261,13 +2261,13 @@ public class MeasureReport extends DomainResource {
         children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this report when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("status", "code", "The report status. No data will be available until the report status is complete.", 0, 1, status));
         children.add(new Property("type", "code", "The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.", 0, 1, type));
-        children.add(new Property("measure", "canonical(Measure)", "A reference to the Measure that was evaluated to produce this report.", 0, 1, measure));
+        children.add(new Property("measure", "canonical(Measure)", "A reference to the Measure that was calculated to produce this report.", 0, 1, measure));
         children.add(new Property("subject", "Reference(Patient|Practitioner|Location|Device|RelatedPerson|Group)", "Optional subject identifying the individual or individuals the report is for.", 0, 1, subject));
         children.add(new Property("date", "dateTime", "The date this measure report was generated.", 0, 1, date));
         children.add(new Property("reporter", "Reference(Practitioner|PractitionerRole|Location|Organization|Group)", "The individiual, location, group, or organization that is reporting the data.", 0, 1, reporter));
         children.add(new Property("period", "Period", "The reporting period for which the report was calculated.", 0, 1, period));
         children.add(new Property("group", "", "The results of the calculation, one for each population group in the measure.", 0, java.lang.Integer.MAX_VALUE, group));
-        children.add(new Property("evaluatedResources", "Reference(Bundle)", "A reference to a Bundle containing the Resources that were used in the evaluation of this report.", 0, 1, evaluatedResources));
+        children.add(new Property("evaluatedResources", "Reference(Bundle)", "A reference to a Bundle containing the Resources that were used in the calculation of this measure.", 0, 1, evaluatedResources));
       }
 
       @Override
@@ -2276,13 +2276,13 @@ public class MeasureReport extends DomainResource {
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this report when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case -892481550: /*status*/  return new Property("status", "code", "The report status. No data will be available until the report status is complete.", 0, 1, status);
         case 3575610: /*type*/  return new Property("type", "code", "The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; or a summary report, which returns a population count for each of the criteria in the measure.", 0, 1, type);
-        case 938321246: /*measure*/  return new Property("measure", "canonical(Measure)", "A reference to the Measure that was evaluated to produce this report.", 0, 1, measure);
+        case 938321246: /*measure*/  return new Property("measure", "canonical(Measure)", "A reference to the Measure that was calculated to produce this report.", 0, 1, measure);
         case -1867885268: /*subject*/  return new Property("subject", "Reference(Patient|Practitioner|Location|Device|RelatedPerson|Group)", "Optional subject identifying the individual or individuals the report is for.", 0, 1, subject);
         case 3076014: /*date*/  return new Property("date", "dateTime", "The date this measure report was generated.", 0, 1, date);
         case -427039519: /*reporter*/  return new Property("reporter", "Reference(Practitioner|PractitionerRole|Location|Organization|Group)", "The individiual, location, group, or organization that is reporting the data.", 0, 1, reporter);
         case -991726143: /*period*/  return new Property("period", "Period", "The reporting period for which the report was calculated.", 0, 1, period);
         case 98629247: /*group*/  return new Property("group", "", "The results of the calculation, one for each population group in the measure.", 0, java.lang.Integer.MAX_VALUE, group);
-        case 1599836026: /*evaluatedResources*/  return new Property("evaluatedResources", "Reference(Bundle)", "A reference to a Bundle containing the Resources that were used in the evaluation of this report.", 0, 1, evaluatedResources);
+        case 1599836026: /*evaluatedResources*/  return new Property("evaluatedResources", "Reference(Bundle)", "A reference to a Bundle containing the Resources that were used in the calculation of this measure.", 0, 1, evaluatedResources);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 

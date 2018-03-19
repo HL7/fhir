@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -2552,7 +2552,7 @@ public class NutritionOrder extends DomainResource {
          * @param value {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
         public NutritionOrderEnteralFormulaAdministrationComponent setRate(Type value) { 
-          if (value != null && !(value instanceof Quantity || value instanceof Ratio))
+          if (value != null && !(value instanceof SimpleQuantity || value instanceof Ratio))
             throw new Error("Not the right type for NutritionOrder.enteralFormula.administration.rate[x]: "+value.fhirType());
           this.rate = value;
           return this;

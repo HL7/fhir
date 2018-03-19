@@ -1995,8 +1995,9 @@ public class VersionConvertor_30_40 {
       tgt.setDocumentation(src.getDocumentation());
     if (src.hasType())
       tgt.setType(src.getType());
-    if (src.hasProfile())
-      tgt.setProfile(convertReference(src.getProfile()));
+    if (src.hasProfile()) {
+      tgt.setProfile(convertReference(src.getProfile()).getReference());
+    }
     return tgt;
   }
 
@@ -2018,7 +2019,7 @@ public class VersionConvertor_30_40 {
     if (src.hasType())
       tgt.setType(src.getType());
     if (src.hasProfile())
-      tgt.setProfile(convertReference(src.getProfile()));
+      tgt.setProfile(new org.hl7.fhir.dstu3.model.Reference(src.getProfile()));
     return tgt;
   }
 
@@ -2467,8 +2468,13 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     if (src.hasPath())
       tgt.setPath(src.getPath());
-    if (src.hasValueSet())
-      tgt.setValueSet(convertType(src.getValueSet()));
+    if (src.hasValueSet()) {
+      Type t = convertType(src.getValueSet());
+      if (t instanceof org.hl7.fhir.r4.model.StringType)
+        tgt.setValueSet(new org.hl7.fhir.r4.model.UriType(t.primitiveValue()));
+      if (t instanceof org.hl7.fhir.r4.model.Reference)
+        tgt.setValueSet(new org.hl7.fhir.r4.model.CanonicalType(((org.hl7.fhir.r4.model.Reference)t).getReference()));
+    }
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getValueCode())
       tgt.addCode(convertCoding(t));
     for (org.hl7.fhir.dstu3.model.Coding t : src.getValueCoding())
@@ -2485,8 +2491,12 @@ public class VersionConvertor_30_40 {
     copyElement(src, tgt);
     if (src.hasPath())
       tgt.setPath(src.getPath());
-    if (src.hasValueSet())
-      tgt.setValueSet(convertType(src.getValueSet()));
+    if (src.hasValueSet()) {
+      if (src.getValueSet() instanceof org.hl7.fhir.r4.model.UriType)
+        tgt.setValueSet(new org.hl7.fhir.dstu3.model.StringType(src.getValueSetUriType().primitiveValue()));
+      else if (src.getValueSet() instanceof org.hl7.fhir.r4.model.CanonicalType)
+        tgt.setValueSet(new org.hl7.fhir.dstu3.model.Reference(src.getValueSetCanonicalType().primitiveValue()));
+    }
     for (org.hl7.fhir.r4.model.Coding t : src.getCode()) {
       tgt.addValueCoding(convertCoding(t));
     }

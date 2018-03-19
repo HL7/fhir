@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -544,6 +544,10 @@ public class CodeSystem extends MetadataResource {
          */
         DATETIME, 
         /**
+         * The property value is a decimal number
+         */
+        DECIMAL, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -562,6 +566,8 @@ public class CodeSystem extends MetadataResource {
           return BOOLEAN;
         if ("dateTime".equals(codeString))
           return DATETIME;
+        if ("decimal".equals(codeString))
+          return DECIMAL;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -575,6 +581,7 @@ public class CodeSystem extends MetadataResource {
             case INTEGER: return "integer";
             case BOOLEAN: return "boolean";
             case DATETIME: return "dateTime";
+            case DECIMAL: return "decimal";
             default: return "?";
           }
         }
@@ -586,6 +593,7 @@ public class CodeSystem extends MetadataResource {
             case INTEGER: return "http://hl7.org/fhir/concept-property-type";
             case BOOLEAN: return "http://hl7.org/fhir/concept-property-type";
             case DATETIME: return "http://hl7.org/fhir/concept-property-type";
+            case DECIMAL: return "http://hl7.org/fhir/concept-property-type";
             default: return "?";
           }
         }
@@ -597,6 +605,7 @@ public class CodeSystem extends MetadataResource {
             case INTEGER: return "The property value is a string (often used to assign ranking values to concepts for supporting score assessments)";
             case BOOLEAN: return "The property value is a boolean true | false";
             case DATETIME: return "The property is a date or a date + time";
+            case DECIMAL: return "The property value is a decimal number";
             default: return "?";
           }
         }
@@ -608,6 +617,7 @@ public class CodeSystem extends MetadataResource {
             case INTEGER: return "integer";
             case BOOLEAN: return "boolean";
             case DATETIME: return "dateTime";
+            case DECIMAL: return "decimal";
             default: return "?";
           }
         }
@@ -630,6 +640,8 @@ public class CodeSystem extends MetadataResource {
           return PropertyType.BOOLEAN;
         if ("dateTime".equals(codeString))
           return PropertyType.DATETIME;
+        if ("decimal".equals(codeString))
+          return PropertyType.DECIMAL;
         throw new IllegalArgumentException("Unknown PropertyType code '"+codeString+"'");
         }
         public Enumeration<PropertyType> fromType(Base code) throws FHIRException {
@@ -652,6 +664,8 @@ public class CodeSystem extends MetadataResource {
           return new Enumeration<PropertyType>(this, PropertyType.BOOLEAN);
         if ("dateTime".equals(codeString))
           return new Enumeration<PropertyType>(this, PropertyType.DATETIME);
+        if ("decimal".equals(codeString))
+          return new Enumeration<PropertyType>(this, PropertyType.DECIMAL);
         throw new FHIRException("Unknown PropertyType code '"+codeString+"'");
         }
     public String toCode(PropertyType code) {
@@ -667,6 +681,8 @@ public class CodeSystem extends MetadataResource {
         return "boolean";
       if (code == PropertyType.DATETIME)
         return "dateTime";
+      if (code == PropertyType.DECIMAL)
+        return "decimal";
       return "?";
       }
     public String toSystem(PropertyType code) {
@@ -1109,7 +1125,7 @@ public class CodeSystem extends MetadataResource {
          * The type of the property value. Properties of type "code" contain a code defined by the code system (e.g. a reference to another defined concept).
          */
         @Child(name = "type", type = {CodeType.class}, order=4, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="code | Coding | string | integer | boolean | dateTime", formalDefinition="The type of the property value. Properties of type \"code\" contain a code defined by the code system (e.g. a reference to another defined concept)." )
+        @Description(shortDefinition="code | Coding | string | integer | boolean | dateTime | decimal", formalDefinition="The type of the property value. Properties of type \"code\" contain a code defined by the code system (e.g. a reference to another defined concept)." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/concept-property-type")
         protected Enumeration<PropertyType> type;
 
@@ -2341,7 +2357,7 @@ public class CodeSystem extends MetadataResource {
         /**
          * The value of this property.
          */
-        @Child(name = "value", type = {CodeType.class, Coding.class, StringType.class, IntegerType.class, BooleanType.class, DateTimeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {CodeType.class, Coding.class, StringType.class, IntegerType.class, BooleanType.class, DateTimeType.class, DecimalType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Value of the property for this concept", formalDefinition="The value of this property." )
         protected Type value;
 
@@ -2505,6 +2521,21 @@ public class CodeSystem extends MetadataResource {
           return this != null && this.value instanceof DateTimeType;
         }
 
+        /**
+         * @return {@link #value} (The value of this property.)
+         */
+        public DecimalType getValueDecimalType() throws FHIRException { 
+          if (this.value == null)
+            return null;
+          if (!(this.value instanceof DecimalType))
+            throw new FHIRException("Type mismatch: the type DecimalType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (DecimalType) this.value;
+        }
+
+        public boolean hasValueDecimalType() { 
+          return this != null && this.value instanceof DecimalType;
+        }
+
         public boolean hasValue() { 
           return this.value != null && !this.value.isEmpty();
         }
@@ -2513,7 +2544,7 @@ public class CodeSystem extends MetadataResource {
          * @param value {@link #value} (The value of this property.)
          */
         public ConceptPropertyComponent setValue(Type value) { 
-          if (value != null && !(value instanceof CodeType || value instanceof Coding || value instanceof StringType || value instanceof IntegerType || value instanceof BooleanType || value instanceof DateTimeType))
+          if (value != null && !(value instanceof CodeType || value instanceof Coding || value instanceof StringType || value instanceof IntegerType || value instanceof BooleanType || value instanceof DateTimeType || value instanceof DecimalType))
             throw new Error("Not the right type for CodeSystem.concept.property.value[x]: "+value.fhirType());
           this.value = value;
           return this;
@@ -2522,21 +2553,22 @@ public class CodeSystem extends MetadataResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("code", "code", "A code that is a reference to CodeSystem.property.code.", 0, 1, code));
-          children.add(new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, 1, value));
+          children.add(new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value));
         }
 
         @Override
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case 3059181: /*code*/  return new Property("code", "code", "A code that is a reference to CodeSystem.property.code.", 0, 1, code);
-          case -1410166417: /*value[x]*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, 1, value);
-          case 111972721: /*value*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, 1, value);
-          case -766209282: /*valueCode*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, 1, value);
-          case -1887705029: /*valueCoding*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, 1, value);
-          case -1424603934: /*valueString*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, 1, value);
-          case -1668204915: /*valueInteger*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, 1, value);
-          case 733421943: /*valueBoolean*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, 1, value);
-          case 1047929900: /*valueDateTime*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, 1, value);
+          case -1410166417: /*value[x]*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value);
+          case 111972721: /*value*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value);
+          case -766209282: /*valueCode*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value);
+          case -1887705029: /*valueCoding*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value);
+          case -1424603934: /*valueString*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value);
+          case -1668204915: /*valueInteger*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value);
+          case 733421943: /*valueBoolean*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value);
+          case 1047929900: /*valueDateTime*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value);
+          case -2083993440: /*valueDecimal*/  return new Property("value[x]", "code|Coding|string|integer|boolean|dateTime|decimal", "The value of this property.", 0, 1, value);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2592,7 +2624,7 @@ public class CodeSystem extends MetadataResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return new String[] {"code"};
-        case 111972721: /*value*/ return new String[] {"code", "Coding", "string", "integer", "boolean", "dateTime"};
+        case 111972721: /*value*/ return new String[] {"code", "Coding", "string", "integer", "boolean", "dateTime", "decimal"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2625,6 +2657,10 @@ public class CodeSystem extends MetadataResource {
         }
         else if (name.equals("valueDateTime")) {
           this.value = new DateTimeType();
+          return this.value;
+        }
+        else if (name.equals("valueDecimal")) {
+          this.value = new DecimalType();
           return this.value;
         }
         else
@@ -2736,10 +2772,10 @@ public class CodeSystem extends MetadataResource {
     protected Enumeration<CodeSystemContentMode> content;
 
     /**
-     * Defines the code system that this code system supplement is adding designations and properties too.
+     * References the code system that this code system supplement is adding designations and properties to.
      */
     @Child(name = "supplements", type = {CanonicalType.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Code System this adds designations and properties to", formalDefinition="Defines the code system that this code system supplement is adding designations and properties too." )
+    @Description(shortDefinition="Code System this adds designations and properties to", formalDefinition="References the code system that this code system supplement is adding designations and properties to." )
     protected CanonicalType supplements;
 
     /**
@@ -3781,7 +3817,7 @@ public class CodeSystem extends MetadataResource {
     }
 
     /**
-     * @return {@link #supplements} (Defines the code system that this code system supplement is adding designations and properties too.). This is the underlying object with id, value and extensions. The accessor "getSupplements" gives direct access to the value
+     * @return {@link #supplements} (References the code system that this code system supplement is adding designations and properties to.). This is the underlying object with id, value and extensions. The accessor "getSupplements" gives direct access to the value
      */
     public CanonicalType getSupplementsElement() { 
       if (this.supplements == null)
@@ -3801,7 +3837,7 @@ public class CodeSystem extends MetadataResource {
     }
 
     /**
-     * @param value {@link #supplements} (Defines the code system that this code system supplement is adding designations and properties too.). This is the underlying object with id, value and extensions. The accessor "getSupplements" gives direct access to the value
+     * @param value {@link #supplements} (References the code system that this code system supplement is adding designations and properties to.). This is the underlying object with id, value and extensions. The accessor "getSupplements" gives direct access to the value
      */
     public CodeSystem setSupplementsElement(CanonicalType value) { 
       this.supplements = value;
@@ -3809,14 +3845,14 @@ public class CodeSystem extends MetadataResource {
     }
 
     /**
-     * @return Defines the code system that this code system supplement is adding designations and properties too.
+     * @return References the code system that this code system supplement is adding designations and properties to.
      */
     public String getSupplements() { 
       return this.supplements == null ? null : this.supplements.getValue();
     }
 
     /**
-     * @param value Defines the code system that this code system supplement is adding designations and properties too.
+     * @param value References the code system that this code system supplement is adding designations and properties to.
      */
     public CodeSystem setSupplements(String value) { 
       if (Utilities.noString(value))
@@ -4056,7 +4092,7 @@ public class CodeSystem extends MetadataResource {
         children.add(new Property("compositional", "boolean", "True If code system defines a post-composition grammar.", 0, 1, compositional));
         children.add(new Property("versionNeeded", "boolean", "This flag is used to signify that the code system has not (or does not) maintain the definitions, and a version must be specified when referencing this code system.", 0, 1, versionNeeded));
         children.add(new Property("content", "code", "How much of the content of the code system - the concepts and codes it defines - are represented in this resource.", 0, 1, content));
-        children.add(new Property("supplements", "canonical(CodeSystem)", "Defines the code system that this code system supplement is adding designations and properties too.", 0, 1, supplements));
+        children.add(new Property("supplements", "canonical(CodeSystem)", "References the code system that this code system supplement is adding designations and properties to.", 0, 1, supplements));
         children.add(new Property("count", "unsignedInt", "The total number of concepts defined by the code system. Where the code system has a compositional grammar, the count refers to the number of base (primitive) concepts.", 0, 1, count));
         children.add(new Property("filter", "", "A filter that can be used in a value set compose statement when selecting concepts using a filter.", 0, java.lang.Integer.MAX_VALUE, filter));
         children.add(new Property("property", "", "A property defines an additional slot through which additional information can be provided about a concept.", 0, java.lang.Integer.MAX_VALUE, property));
@@ -4087,7 +4123,7 @@ public class CodeSystem extends MetadataResource {
         case 1248023381: /*compositional*/  return new Property("compositional", "boolean", "True If code system defines a post-composition grammar.", 0, 1, compositional);
         case 617270957: /*versionNeeded*/  return new Property("versionNeeded", "boolean", "This flag is used to signify that the code system has not (or does not) maintain the definitions, and a version must be specified when referencing this code system.", 0, 1, versionNeeded);
         case 951530617: /*content*/  return new Property("content", "code", "How much of the content of the code system - the concepts and codes it defines - are represented in this resource.", 0, 1, content);
-        case -596951334: /*supplements*/  return new Property("supplements", "canonical(CodeSystem)", "Defines the code system that this code system supplement is adding designations and properties too.", 0, 1, supplements);
+        case -596951334: /*supplements*/  return new Property("supplements", "canonical(CodeSystem)", "References the code system that this code system supplement is adding designations and properties to.", 0, 1, supplements);
         case 94851343: /*count*/  return new Property("count", "unsignedInt", "The total number of concepts defined by the code system. Where the code system has a compositional grammar, the count refers to the number of base (primitive) concepts.", 0, 1, count);
         case -1274492040: /*filter*/  return new Property("filter", "", "A filter that can be used in a value set compose statement when selecting concepts using a filter.", 0, java.lang.Integer.MAX_VALUE, filter);
         case -993141291: /*property*/  return new Property("property", "", "A property defines an additional slot through which additional information can be provided about a concept.", 0, java.lang.Integer.MAX_VALUE, property);

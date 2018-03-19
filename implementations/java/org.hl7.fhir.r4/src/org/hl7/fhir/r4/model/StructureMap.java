@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -780,7 +780,7 @@ public class StructureMap extends MetadataResource {
          */
         POINTER, 
         /**
-         * Execute the supplied fluentpath expression and use the value returned by that
+         * Execute the supplied FHIRPath expression and use the value returned by that
          */
         EVALUATE, 
         /**
@@ -906,7 +906,7 @@ public class StructureMap extends MetadataResource {
             case DATEOP: return "Perform a date operation. *Parameters to be documented*";
             case UUID: return "Generate a random UUID (in lowercase). No Parameters";
             case POINTER: return "Return the appropriate string to put in a reference that refers to the resource provided as a parameter";
-            case EVALUATE: return "Execute the supplied fluentpath expression and use the value returned by that";
+            case EVALUATE: return "Execute the supplied FHIRPath expression and use the value returned by that";
             case CC: return "Create a CodeableConcept. Parameters = (text) or (system. Code[, display])";
             case C: return "Create a Coding. Parameters = (system. Code[, display])";
             case QTY: return "Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit";

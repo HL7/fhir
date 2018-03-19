@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -442,6 +442,9 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getProfile().get(i));
       }
     };
+    Type subject = parseType("subject", json);
+    if (subject != null)
+      res.setSubject(subject);
     if (json.has("mustSupport")) {
       JsonArray array = json.getAsJsonArray("mustSupport");
       for (int i = 0; i < array.size(); i++) {
@@ -467,6 +470,16 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("dateFilter");
       for (int i = 0; i < array.size(); i++) {
         res.getDateFilter().add(parseDataRequirementDataRequirementDateFilterComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("limit"))
+      res.setLimitElement(parsePositiveInt(json.get("limit").getAsString()));
+    if (json.has("_limit"))
+      parseElementProperties(json.getAsJsonObject("_limit"), res.getLimitElement());
+    if (json.has("sort")) {
+      JsonArray array = json.getAsJsonArray("sort");
+      for (int i = 0; i < array.size(); i++) {
+        res.getSort().add(parseDataRequirementDataRequirementSortComponent(array.get(i).getAsJsonObject(), res));
       }
     };
   }
@@ -509,6 +522,24 @@ public class JsonParser extends JsonParserBase {
     Type value = parseType("value", json);
     if (value != null)
       res.setValue(value);
+  }
+
+  protected DataRequirement.DataRequirementSortComponent parseDataRequirementDataRequirementSortComponent(JsonObject json, DataRequirement owner) throws IOException, FHIRFormatError {
+    DataRequirement.DataRequirementSortComponent res = new DataRequirement.DataRequirementSortComponent();
+    parseDataRequirementDataRequirementSortComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseDataRequirementDataRequirementSortComponentProperties(JsonObject json, DataRequirement owner, DataRequirement.DataRequirementSortComponent res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    if (json.has("path"))
+      res.setPathElement(parseString(json.get("path").getAsString()));
+    if (json.has("_path"))
+      parseElementProperties(json.getAsJsonObject("_path"), res.getPathElement());
+    if (json.has("direction"))
+      res.setDirectionElement(parseEnumeration(json.get("direction").getAsString(), DataRequirement.SortDirection.NULL, new DataRequirement.SortDirectionEnumFactory()));
+    if (json.has("_direction"))
+      parseElementProperties(json.getAsJsonObject("_direction"), res.getDirectionElement());
   }
 
   protected Dosage parseDosage(JsonObject json) throws IOException, FHIRFormatError {
@@ -1268,7 +1299,9 @@ public class JsonParser extends JsonParserBase {
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("profile"))
-      res.setProfile(parseReference(json.getAsJsonObject("profile")));
+      res.setProfileElement(parseCanonical(json.get("profile").getAsString()));
+    if (json.has("_profile"))
+      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
   }
 
   protected SimpleQuantity parseSimpleQuantity(JsonObject json) throws IOException, FHIRFormatError {
@@ -9538,7 +9571,7 @@ public class JsonParser extends JsonParserBase {
   protected void parseExpansionProfileExpansionProfileFixedVersionComponentProperties(JsonObject json, ExpansionProfile owner, ExpansionProfile.ExpansionProfileFixedVersionComponent res) throws IOException, FHIRFormatError {
     parseBackboneElementProperties(json, res);
     if (json.has("system"))
-      res.setSystemElement(parseCanonical(json.get("system").getAsString()));
+      res.setSystemElement(parseUri(json.get("system").getAsString()));
     if (json.has("_system"))
       parseElementProperties(json.getAsJsonObject("_system"), res.getSystemElement());
     if (json.has("version"))
@@ -11634,14 +11667,12 @@ public class JsonParser extends JsonParserBase {
       res.setSeriesElement(parseString(json.get("series").getAsString()));
     if (json.has("_series"))
       parseElementProperties(json.getAsJsonObject("_series"), res.getSeriesElement());
-    if (json.has("doseNumber"))
-      res.setDoseNumberElement(parsePositiveInt(json.get("doseNumber").getAsString()));
-    if (json.has("_doseNumber"))
-      parseElementProperties(json.getAsJsonObject("_doseNumber"), res.getDoseNumberElement());
-    if (json.has("seriesDoses"))
-      res.setSeriesDosesElement(parsePositiveInt(json.get("seriesDoses").getAsString()));
-    if (json.has("_seriesDoses"))
-      parseElementProperties(json.getAsJsonObject("_seriesDoses"), res.getSeriesDosesElement());
+    Type doseNumber = parseType("doseNumber", json);
+    if (doseNumber != null)
+      res.setDoseNumber(doseNumber);
+    Type seriesDoses = parseType("seriesDoses", json);
+    if (seriesDoses != null)
+      res.setSeriesDoses(seriesDoses);
   }
 
   protected ImmunizationRecommendation parseImmunizationRecommendation(JsonObject json) throws IOException, FHIRFormatError {
@@ -11718,14 +11749,12 @@ public class JsonParser extends JsonParserBase {
       res.setSeriesElement(parseString(json.get("series").getAsString()));
     if (json.has("_series"))
       parseElementProperties(json.getAsJsonObject("_series"), res.getSeriesElement());
-    if (json.has("doseNumber"))
-      res.setDoseNumberElement(parsePositiveInt(json.get("doseNumber").getAsString()));
-    if (json.has("_doseNumber"))
-      parseElementProperties(json.getAsJsonObject("_doseNumber"), res.getDoseNumberElement());
-    if (json.has("seriesDoses"))
-      res.setSeriesDosesElement(parsePositiveInt(json.get("seriesDoses").getAsString()));
-    if (json.has("_seriesDoses"))
-      parseElementProperties(json.getAsJsonObject("_seriesDoses"), res.getSeriesDosesElement());
+    Type doseNumber = parseType("doseNumber", json);
+    if (doseNumber != null)
+      res.setDoseNumber(doseNumber);
+    Type seriesDoses = parseType("seriesDoses", json);
+    if (seriesDoses != null)
+      res.setSeriesDoses(seriesDoses);
     if (json.has("supportingImmunization")) {
       JsonArray array = json.getAsJsonArray("supportingImmunization");
       for (int i = 0; i < array.size(); i++) {
@@ -12010,462 +12039,6 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("page");
       for (int i = 0; i < array.size(); i++) {
         res.getPage().add(parseImplementationGuideImplementationGuidePageComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-  }
-
-  protected ImplementationGuideInput parseImplementationGuideInput(JsonObject json) throws IOException, FHIRFormatError {
-    ImplementationGuideInput res = new ImplementationGuideInput();
-    parseImplementationGuideInputProperties(json, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideInputProperties(JsonObject json, ImplementationGuideInput res) throws IOException, FHIRFormatError {
-    parseDomainResourceProperties(json, res);
-    if (json.has("url"))
-      res.setUrlElement(parseUri(json.get("url").getAsString()));
-    if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
-    if (json.has("version"))
-      res.setVersionElement(parseString(json.get("version").getAsString()));
-    if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionElement());
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("status"))
-      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
-    if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
-    if (json.has("experimental"))
-      res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
-    if (json.has("_experimental"))
-      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
-    if (json.has("date"))
-      res.setDateElement(parseDateTime(json.get("date").getAsString()));
-    if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
-    if (json.has("publisher"))
-      res.setPublisherElement(parseString(json.get("publisher").getAsString()));
-    if (json.has("_publisher"))
-      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherElement());
-    if (json.has("contact")) {
-      JsonArray array = json.getAsJsonArray("contact");
-      for (int i = 0; i < array.size(); i++) {
-        res.getContact().add(parseContactDetail(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("description"))
-      res.setDescriptionElement(parseMarkdown(json.get("description").getAsString()));
-    if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    if (json.has("useContext")) {
-      JsonArray array = json.getAsJsonArray("useContext");
-      for (int i = 0; i < array.size(); i++) {
-        res.getUseContext().add(parseUsageContext(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("jurisdiction")) {
-      JsonArray array = json.getAsJsonArray("jurisdiction");
-      for (int i = 0; i < array.size(); i++) {
-        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("copyright"))
-      res.setCopyrightElement(parseMarkdown(json.get("copyright").getAsString()));
-    if (json.has("_copyright"))
-      parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyrightElement());
-    if (json.has("fhirVersion"))
-      res.setFhirVersionElement(parseId(json.get("fhirVersion").getAsString()));
-    if (json.has("_fhirVersion"))
-      parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionElement());
-    if (json.has("dependsOn")) {
-      JsonArray array = json.getAsJsonArray("dependsOn");
-      for (int i = 0; i < array.size(); i++) {
-        res.getDependsOn().add(parseImplementationGuideInputImplementationGuideInputDependsOnComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("global")) {
-      JsonArray array = json.getAsJsonArray("global");
-      for (int i = 0; i < array.size(); i++) {
-        res.getGlobal().add(parseImplementationGuideInputImplementationGuideInputGlobalComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("definition"))
-      res.setDefinition(parseImplementationGuideInputImplementationGuideInputDefinitionComponent(json.getAsJsonObject("definition"), res));
-  }
-
-  protected ImplementationGuideInput.ImplementationGuideInputDependsOnComponent parseImplementationGuideInputImplementationGuideInputDependsOnComponent(JsonObject json, ImplementationGuideInput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideInput.ImplementationGuideInputDependsOnComponent res = new ImplementationGuideInput.ImplementationGuideInputDependsOnComponent();
-    parseImplementationGuideInputImplementationGuideInputDependsOnComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideInputImplementationGuideInputDependsOnComponentProperties(JsonObject json, ImplementationGuideInput owner, ImplementationGuideInput.ImplementationGuideInputDependsOnComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("definition"))
-      res.setDefinition(parseReference(json.getAsJsonObject("definition")));
-    if (json.has("version"))
-      res.setVersionElement(parseString(json.get("version").getAsString()));
-    if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionElement());
-  }
-
-  protected ImplementationGuideInput.ImplementationGuideInputGlobalComponent parseImplementationGuideInputImplementationGuideInputGlobalComponent(JsonObject json, ImplementationGuideInput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideInput.ImplementationGuideInputGlobalComponent res = new ImplementationGuideInput.ImplementationGuideInputGlobalComponent();
-    parseImplementationGuideInputImplementationGuideInputGlobalComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideInputImplementationGuideInputGlobalComponentProperties(JsonObject json, ImplementationGuideInput owner, ImplementationGuideInput.ImplementationGuideInputGlobalComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseCode(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("profile"))
-      res.setProfileElement(parseCanonical(json.get("profile").getAsString()));
-    if (json.has("_profile"))
-      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
-  }
-
-  protected ImplementationGuideInput.ImplementationGuideInputDefinitionComponent parseImplementationGuideInputImplementationGuideInputDefinitionComponent(JsonObject json, ImplementationGuideInput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideInput.ImplementationGuideInputDefinitionComponent res = new ImplementationGuideInput.ImplementationGuideInputDefinitionComponent();
-    parseImplementationGuideInputImplementationGuideInputDefinitionComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideInputImplementationGuideInputDefinitionComponentProperties(JsonObject json, ImplementationGuideInput owner, ImplementationGuideInput.ImplementationGuideInputDefinitionComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("package")) {
-      JsonArray array = json.getAsJsonArray("package");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPackage().add(parseImplementationGuideInputImplementationGuideInputDefinitionPackageComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("resource")) {
-      JsonArray array = json.getAsJsonArray("resource");
-      for (int i = 0; i < array.size(); i++) {
-        res.getResource().add(parseImplementationGuideInputImplementationGuideInputDefinitionResourceComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("page"))
-      res.setPage(parseImplementationGuideInputImplementationGuideInputDefinitionPageComponent(json.getAsJsonObject("page"), owner));
-    if (json.has("parameter")) {
-      JsonArray array = json.getAsJsonArray("parameter");
-      for (int i = 0; i < array.size(); i++) {
-        res.getParameter().add(parseImplementationGuideInputImplementationGuideInputDefinitionParameterComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-    if (json.has("template")) {
-      JsonArray array = json.getAsJsonArray("template");
-      for (int i = 0; i < array.size(); i++) {
-        res.getTemplate().add(parseImplementationGuideInputImplementationGuideInputDefinitionTemplateComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-  }
-
-  protected ImplementationGuideInput.ImplementationGuideInputDefinitionPackageComponent parseImplementationGuideInputImplementationGuideInputDefinitionPackageComponent(JsonObject json, ImplementationGuideInput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideInput.ImplementationGuideInputDefinitionPackageComponent res = new ImplementationGuideInput.ImplementationGuideInputDefinitionPackageComponent();
-    parseImplementationGuideInputImplementationGuideInputDefinitionPackageComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideInputImplementationGuideInputDefinitionPackageComponentProperties(JsonObject json, ImplementationGuideInput owner, ImplementationGuideInput.ImplementationGuideInputDefinitionPackageComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("description"))
-      res.setDescriptionElement(parseString(json.get("description").getAsString()));
-    if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-  }
-
-  protected ImplementationGuideInput.ImplementationGuideInputDefinitionResourceComponent parseImplementationGuideInputImplementationGuideInputDefinitionResourceComponent(JsonObject json, ImplementationGuideInput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideInput.ImplementationGuideInputDefinitionResourceComponent res = new ImplementationGuideInput.ImplementationGuideInputDefinitionResourceComponent();
-    parseImplementationGuideInputImplementationGuideInputDefinitionResourceComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideInputImplementationGuideInputDefinitionResourceComponentProperties(JsonObject json, ImplementationGuideInput owner, ImplementationGuideInput.ImplementationGuideInputDefinitionResourceComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("reference"))
-      res.setReference(parseReference(json.getAsJsonObject("reference")));
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("description"))
-      res.setDescriptionElement(parseString(json.get("description").getAsString()));
-    if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    Type example = parseType("example", json);
-    if (example != null)
-      res.setExample(example);
-    if (json.has("package"))
-      res.setPackageElement(parseId(json.get("package").getAsString()));
-    if (json.has("_package"))
-      parseElementProperties(json.getAsJsonObject("_package"), res.getPackageElement());
-  }
-
-  protected ImplementationGuideInput.ImplementationGuideInputDefinitionPageComponent parseImplementationGuideInputImplementationGuideInputDefinitionPageComponent(JsonObject json, ImplementationGuideInput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideInput.ImplementationGuideInputDefinitionPageComponent res = new ImplementationGuideInput.ImplementationGuideInputDefinitionPageComponent();
-    parseImplementationGuideInputImplementationGuideInputDefinitionPageComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideInputImplementationGuideInputDefinitionPageComponentProperties(JsonObject json, ImplementationGuideInput owner, ImplementationGuideInput.ImplementationGuideInputDefinitionPageComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    Type name = parseType("name", json);
-    if (name != null)
-      res.setName(name);
-    if (json.has("title"))
-      res.setTitleElement(parseString(json.get("title").getAsString()));
-    if (json.has("_title"))
-      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
-    if (json.has("page")) {
-      JsonArray array = json.getAsJsonArray("page");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPage().add(parseImplementationGuideInputImplementationGuideInputDefinitionPageComponent(array.get(i).getAsJsonObject(), owner));
-      }
-    };
-  }
-
-  protected ImplementationGuideInput.ImplementationGuideInputDefinitionParameterComponent parseImplementationGuideInputImplementationGuideInputDefinitionParameterComponent(JsonObject json, ImplementationGuideInput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideInput.ImplementationGuideInputDefinitionParameterComponent res = new ImplementationGuideInput.ImplementationGuideInputDefinitionParameterComponent();
-    parseImplementationGuideInputImplementationGuideInputDefinitionParameterComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideInputImplementationGuideInputDefinitionParameterComponentProperties(JsonObject json, ImplementationGuideInput owner, ImplementationGuideInput.ImplementationGuideInputDefinitionParameterComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("code"))
-      res.setCodeElement(parseEnumeration(json.get("code").getAsString(), ImplementationGuideInput.GuideParameterCode.NULL, new ImplementationGuideInput.GuideParameterCodeEnumFactory()));
-    if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
-    if (json.has("value"))
-      res.setValueElement(parseString(json.get("value").getAsString()));
-    if (json.has("_value"))
-      parseElementProperties(json.getAsJsonObject("_value"), res.getValueElement());
-  }
-
-  protected ImplementationGuideInput.ImplementationGuideInputDefinitionTemplateComponent parseImplementationGuideInputImplementationGuideInputDefinitionTemplateComponent(JsonObject json, ImplementationGuideInput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideInput.ImplementationGuideInputDefinitionTemplateComponent res = new ImplementationGuideInput.ImplementationGuideInputDefinitionTemplateComponent();
-    parseImplementationGuideInputImplementationGuideInputDefinitionTemplateComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideInputImplementationGuideInputDefinitionTemplateComponentProperties(JsonObject json, ImplementationGuideInput owner, ImplementationGuideInput.ImplementationGuideInputDefinitionTemplateComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("code"))
-      res.setCodeElement(parseCode(json.get("code").getAsString()));
-    if (json.has("_code"))
-      parseElementProperties(json.getAsJsonObject("_code"), res.getCodeElement());
-    if (json.has("source"))
-      res.setSourceElement(parseString(json.get("source").getAsString()));
-    if (json.has("_source"))
-      parseElementProperties(json.getAsJsonObject("_source"), res.getSourceElement());
-    if (json.has("scope"))
-      res.setScopeElement(parseString(json.get("scope").getAsString()));
-    if (json.has("_scope"))
-      parseElementProperties(json.getAsJsonObject("_scope"), res.getScopeElement());
-  }
-
-  protected ImplementationGuideOutput parseImplementationGuideOutput(JsonObject json) throws IOException, FHIRFormatError {
-    ImplementationGuideOutput res = new ImplementationGuideOutput();
-    parseImplementationGuideOutputProperties(json, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideOutputProperties(JsonObject json, ImplementationGuideOutput res) throws IOException, FHIRFormatError {
-    parseDomainResourceProperties(json, res);
-    if (json.has("url"))
-      res.setUrlElement(parseUri(json.get("url").getAsString()));
-    if (json.has("_url"))
-      parseElementProperties(json.getAsJsonObject("_url"), res.getUrlElement());
-    if (json.has("version"))
-      res.setVersionElement(parseString(json.get("version").getAsString()));
-    if (json.has("_version"))
-      parseElementProperties(json.getAsJsonObject("_version"), res.getVersionElement());
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("status"))
-      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Enumerations.PublicationStatus.NULL, new Enumerations.PublicationStatusEnumFactory()));
-    if (json.has("_status"))
-      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
-    if (json.has("experimental"))
-      res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
-    if (json.has("_experimental"))
-      parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
-    if (json.has("date"))
-      res.setDateElement(parseDateTime(json.get("date").getAsString()));
-    if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
-    if (json.has("publisher"))
-      res.setPublisherElement(parseString(json.get("publisher").getAsString()));
-    if (json.has("_publisher"))
-      parseElementProperties(json.getAsJsonObject("_publisher"), res.getPublisherElement());
-    if (json.has("contact")) {
-      JsonArray array = json.getAsJsonArray("contact");
-      for (int i = 0; i < array.size(); i++) {
-        res.getContact().add(parseContactDetail(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("description"))
-      res.setDescriptionElement(parseMarkdown(json.get("description").getAsString()));
-    if (json.has("_description"))
-      parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
-    if (json.has("useContext")) {
-      JsonArray array = json.getAsJsonArray("useContext");
-      for (int i = 0; i < array.size(); i++) {
-        res.getUseContext().add(parseUsageContext(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("jurisdiction")) {
-      JsonArray array = json.getAsJsonArray("jurisdiction");
-      for (int i = 0; i < array.size(); i++) {
-        res.getJurisdiction().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("copyright"))
-      res.setCopyrightElement(parseMarkdown(json.get("copyright").getAsString()));
-    if (json.has("_copyright"))
-      parseElementProperties(json.getAsJsonObject("_copyright"), res.getCopyrightElement());
-    if (json.has("fhirVersion"))
-      res.setFhirVersionElement(parseId(json.get("fhirVersion").getAsString()));
-    if (json.has("_fhirVersion"))
-      parseElementProperties(json.getAsJsonObject("_fhirVersion"), res.getFhirVersionElement());
-    if (json.has("dependsOn")) {
-      JsonArray array = json.getAsJsonArray("dependsOn");
-      for (int i = 0; i < array.size(); i++) {
-        res.getDependsOn().add(parseReference(array.get(i).getAsJsonObject()));
-      }
-    };
-    if (json.has("resource")) {
-      JsonArray array = json.getAsJsonArray("resource");
-      for (int i = 0; i < array.size(); i++) {
-        res.getResource().add(parseImplementationGuideOutputImplementationGuideOutputResourceComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("global")) {
-      JsonArray array = json.getAsJsonArray("global");
-      for (int i = 0; i < array.size(); i++) {
-        res.getGlobal().add(parseImplementationGuideOutputImplementationGuideOutputGlobalComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("rendering"))
-      res.setRenderingElement(parseUri(json.get("rendering").getAsString()));
-    if (json.has("_rendering"))
-      parseElementProperties(json.getAsJsonObject("_rendering"), res.getRenderingElement());
-    if (json.has("page")) {
-      JsonArray array = json.getAsJsonArray("page");
-      for (int i = 0; i < array.size(); i++) {
-        res.getPage().add(parseImplementationGuideOutputImplementationGuideOutputPageComponent(array.get(i).getAsJsonObject(), res));
-      }
-    };
-    if (json.has("image")) {
-      JsonArray array = json.getAsJsonArray("image");
-      for (int i = 0; i < array.size(); i++) {
-        res.getImage().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_image")) {
-      JsonArray array = json.getAsJsonArray("_image");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getImage().size())
-          res.getImage().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getImage().get(i));
-      }
-    };
-    if (json.has("other")) {
-      JsonArray array = json.getAsJsonArray("other");
-      for (int i = 0; i < array.size(); i++) {
-        res.getOther().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_other")) {
-      JsonArray array = json.getAsJsonArray("_other");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getOther().size())
-          res.getOther().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getOther().get(i));
-      }
-    };
-  }
-
-  protected ImplementationGuideOutput.ImplementationGuideOutputResourceComponent parseImplementationGuideOutputImplementationGuideOutputResourceComponent(JsonObject json, ImplementationGuideOutput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideOutput.ImplementationGuideOutputResourceComponent res = new ImplementationGuideOutput.ImplementationGuideOutputResourceComponent();
-    parseImplementationGuideOutputImplementationGuideOutputResourceComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideOutputImplementationGuideOutputResourceComponentProperties(JsonObject json, ImplementationGuideOutput owner, ImplementationGuideOutput.ImplementationGuideOutputResourceComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("reference"))
-      res.setReference(parseReference(json.getAsJsonObject("reference")));
-    Type example = parseType("example", json);
-    if (example != null)
-      res.setExample(example);
-    if (json.has("relativePath"))
-      res.setRelativePathElement(parseString(json.get("relativePath").getAsString()));
-    if (json.has("_relativePath"))
-      parseElementProperties(json.getAsJsonObject("_relativePath"), res.getRelativePathElement());
-  }
-
-  protected ImplementationGuideOutput.ImplementationGuideOutputGlobalComponent parseImplementationGuideOutputImplementationGuideOutputGlobalComponent(JsonObject json, ImplementationGuideOutput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideOutput.ImplementationGuideOutputGlobalComponent res = new ImplementationGuideOutput.ImplementationGuideOutputGlobalComponent();
-    parseImplementationGuideOutputImplementationGuideOutputGlobalComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideOutputImplementationGuideOutputGlobalComponentProperties(JsonObject json, ImplementationGuideOutput owner, ImplementationGuideOutput.ImplementationGuideOutputGlobalComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("type"))
-      res.setTypeElement(parseCode(json.get("type").getAsString()));
-    if (json.has("_type"))
-      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
-    if (json.has("profile"))
-      res.setProfileElement(parseCanonical(json.get("profile").getAsString()));
-    if (json.has("_profile"))
-      parseElementProperties(json.getAsJsonObject("_profile"), res.getProfileElement());
-  }
-
-  protected ImplementationGuideOutput.ImplementationGuideOutputPageComponent parseImplementationGuideOutputImplementationGuideOutputPageComponent(JsonObject json, ImplementationGuideOutput owner) throws IOException, FHIRFormatError {
-    ImplementationGuideOutput.ImplementationGuideOutputPageComponent res = new ImplementationGuideOutput.ImplementationGuideOutputPageComponent();
-    parseImplementationGuideOutputImplementationGuideOutputPageComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseImplementationGuideOutputImplementationGuideOutputPageComponentProperties(JsonObject json, ImplementationGuideOutput owner, ImplementationGuideOutput.ImplementationGuideOutputPageComponent res) throws IOException, FHIRFormatError {
-    parseBackboneElementProperties(json, res);
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    if (json.has("title"))
-      res.setTitleElement(parseString(json.get("title").getAsString()));
-    if (json.has("_title"))
-      parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
-    if (json.has("anchor")) {
-      JsonArray array = json.getAsJsonArray("anchor");
-      for (int i = 0; i < array.size(); i++) {
-        res.getAnchor().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_anchor")) {
-      JsonArray array = json.getAsJsonArray("_anchor");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getAnchor().size())
-          res.getAnchor().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getAnchor().get(i));
       }
     };
   }
@@ -20660,7 +20233,7 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("type"))
-      res.setTypeElement(parseCode(json.get("type").getAsString()));
+      res.setTypeElement(parseUri(json.get("type").getAsString()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
     if (json.has("baseDefinition"))
@@ -24440,10 +24013,6 @@ public class JsonParser extends JsonParserBase {
       return parseImmunizationRecommendation(json);
     else if (t.equals("ImplementationGuide"))
       return parseImplementationGuide(json);
-    else if (t.equals("ImplementationGuideInput"))
-      return parseImplementationGuideInput(json);
-    else if (t.equals("ImplementationGuideOutput"))
-      return parseImplementationGuideOutput(json);
     else if (t.equals("Invoice"))
       return parseInvoice(json);
     else if (t.equals("ItemInstance"))
@@ -25045,10 +24614,6 @@ public class JsonParser extends JsonParserBase {
     if (json.has(prefix+"ImmunizationRecommendation"))
       return true;
     if (json.has(prefix+"ImplementationGuide"))
-      return true;
-    if (json.has(prefix+"ImplementationGuideInput"))
-      return true;
-    if (json.has(prefix+"ImplementationGuideOutput"))
       return true;
     if (json.has(prefix+"Invoice"))
       return true;
@@ -25946,6 +25511,9 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
+      if (element.hasSubject()) {
+        composeType("subject", element.getSubject());
+      }
       if (element.hasMustSupport()) {
         openArray("mustSupport");
         for (StringType e : element.getMustSupport()) 
@@ -25968,6 +25536,16 @@ public class JsonParser extends JsonParserBase {
         openArray("dateFilter");
         for (DataRequirement.DataRequirementDateFilterComponent e : element.getDateFilter()) 
           composeDataRequirementDataRequirementDateFilterComponent(null, e);
+        closeArray();
+      };
+      if (element.hasLimitElement()) {
+        composePositiveIntCore("limit", element.getLimitElement(), false);
+        composePositiveIntExtras("limit", element.getLimitElement(), false);
+      }
+      if (element.hasSort()) {
+        openArray("sort");
+        for (DataRequirement.DataRequirementSortComponent e : element.getSort()) 
+          composeDataRequirementDataRequirementSortComponent(null, e);
         closeArray();
       };
   }
@@ -26013,6 +25591,26 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasValue()) {
         composeType("value", element.getValue());
+      }
+  }
+
+  protected void composeDataRequirementDataRequirementSortComponent(String name, DataRequirement.DataRequirementSortComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeDataRequirementDataRequirementSortComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeDataRequirementDataRequirementSortComponentInner(DataRequirement.DataRequirementSortComponent element) throws IOException {
+      composeElement(element);
+      if (element.hasPathElement()) {
+        composeStringCore("path", element.getPathElement(), false);
+        composeStringExtras("path", element.getPathElement(), false);
+      }
+      if (element.hasDirectionElement()) {
+        composeEnumerationCore("direction", element.getDirectionElement(), new DataRequirement.SortDirectionEnumFactory(), false);
+        composeEnumerationExtras("direction", element.getDirectionElement(), new DataRequirement.SortDirectionEnumFactory(), false);
       }
   }
 
@@ -26782,8 +26380,9 @@ public class JsonParser extends JsonParserBase {
         composeCodeCore("type", element.getTypeElement(), false);
         composeCodeExtras("type", element.getTypeElement(), false);
       }
-      if (element.hasProfile()) {
-        composeReference("profile", element.getProfile());
+      if (element.hasProfileElement()) {
+        composeCanonicalCore("profile", element.getProfileElement(), false);
+        composeCanonicalExtras("profile", element.getProfileElement(), false);
       }
   }
 
@@ -35739,8 +35338,8 @@ public class JsonParser extends JsonParserBase {
   protected void composeExpansionProfileExpansionProfileFixedVersionComponentInner(ExpansionProfile.ExpansionProfileFixedVersionComponent element) throws IOException {
       composeBackbone(element);
       if (element.hasSystemElement()) {
-        composeCanonicalCore("system", element.getSystemElement(), false);
-        composeCanonicalExtras("system", element.getSystemElement(), false);
+        composeUriCore("system", element.getSystemElement(), false);
+        composeUriExtras("system", element.getSystemElement(), false);
       }
       if (element.hasVersionElement()) {
         composeStringCore("version", element.getVersionElement(), false);
@@ -38011,13 +37610,11 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("series", element.getSeriesElement(), false);
         composeStringExtras("series", element.getSeriesElement(), false);
       }
-      if (element.hasDoseNumberElement()) {
-        composePositiveIntCore("doseNumber", element.getDoseNumberElement(), false);
-        composePositiveIntExtras("doseNumber", element.getDoseNumberElement(), false);
+      if (element.hasDoseNumber()) {
+        composeType("doseNumber", element.getDoseNumber());
       }
-      if (element.hasSeriesDosesElement()) {
-        composePositiveIntCore("seriesDoses", element.getSeriesDosesElement(), false);
-        composePositiveIntExtras("seriesDoses", element.getSeriesDosesElement(), false);
+      if (element.hasSeriesDoses()) {
+        composeType("seriesDoses", element.getSeriesDoses());
       }
   }
 
@@ -38102,13 +37699,11 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("series", element.getSeriesElement(), false);
         composeStringExtras("series", element.getSeriesElement(), false);
       }
-      if (element.hasDoseNumberElement()) {
-        composePositiveIntCore("doseNumber", element.getDoseNumberElement(), false);
-        composePositiveIntExtras("doseNumber", element.getDoseNumberElement(), false);
+      if (element.hasDoseNumber()) {
+        composeType("doseNumber", element.getDoseNumber());
       }
-      if (element.hasSeriesDosesElement()) {
-        composePositiveIntCore("seriesDoses", element.getSeriesDosesElement(), false);
-        composePositiveIntExtras("seriesDoses", element.getSeriesDosesElement(), false);
+      if (element.hasSeriesDoses()) {
+        composeType("seriesDoses", element.getSeriesDoses());
       }
       if (element.hasSupportingImmunization()) {
         openArray("supportingImmunization");
@@ -38238,7 +37833,7 @@ public class JsonParser extends JsonParserBase {
           for (UriType e : element.getBinary()) 
             composeUriExtras(null, e, true);
           closeArray();
-        }
+      }
       };
       if (element.hasPage()) {
         composeImplementationGuideImplementationGuidePageComponent("page", element.getPage());
@@ -38404,481 +37999,6 @@ public class JsonParser extends JsonParserBase {
       };
   }
 
-  protected void composeImplementationGuideInput(String name, ImplementationGuideInput element) throws IOException {
-    if (element != null) {
-      prop("resourceType", name);
-      composeImplementationGuideInputInner(element);
-    }
-  }
-
-  protected void composeImplementationGuideInputInner(ImplementationGuideInput element) throws IOException {
-      composeDomainResourceElements(element);
-      if (element.hasUrlElement()) {
-        composeUriCore("url", element.getUrlElement(), false);
-        composeUriExtras("url", element.getUrlElement(), false);
-      }
-      if (element.hasVersionElement()) {
-        composeStringCore("version", element.getVersionElement(), false);
-        composeStringExtras("version", element.getVersionElement(), false);
-      }
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasStatusElement()) {
-        composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
-      }
-      if (element.hasExperimentalElement()) {
-        composeBooleanCore("experimental", element.getExperimentalElement(), false);
-        composeBooleanExtras("experimental", element.getExperimentalElement(), false);
-      }
-      if (element.hasDateElement()) {
-        composeDateTimeCore("date", element.getDateElement(), false);
-        composeDateTimeExtras("date", element.getDateElement(), false);
-      }
-      if (element.hasPublisherElement()) {
-        composeStringCore("publisher", element.getPublisherElement(), false);
-        composeStringExtras("publisher", element.getPublisherElement(), false);
-      }
-      if (element.hasContact()) {
-        openArray("contact");
-        for (ContactDetail e : element.getContact()) 
-          composeContactDetail(null, e);
-        closeArray();
-      };
-      if (element.hasDescriptionElement()) {
-        composeMarkdownCore("description", element.getDescriptionElement(), false);
-        composeMarkdownExtras("description", element.getDescriptionElement(), false);
-      }
-      if (element.hasUseContext()) {
-        openArray("useContext");
-        for (UsageContext e : element.getUseContext()) 
-          composeUsageContext(null, e);
-        closeArray();
-      };
-      if (element.hasJurisdiction()) {
-        openArray("jurisdiction");
-        for (CodeableConcept e : element.getJurisdiction()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasCopyrightElement()) {
-        composeMarkdownCore("copyright", element.getCopyrightElement(), false);
-        composeMarkdownExtras("copyright", element.getCopyrightElement(), false);
-      }
-      if (element.hasFhirVersionElement()) {
-        composeIdCore("fhirVersion", element.getFhirVersionElement(), false);
-        composeIdExtras("fhirVersion", element.getFhirVersionElement(), false);
-      }
-      if (element.hasDependsOn()) {
-        openArray("dependsOn");
-        for (ImplementationGuideInput.ImplementationGuideInputDependsOnComponent e : element.getDependsOn()) 
-          composeImplementationGuideInputImplementationGuideInputDependsOnComponent(null, e);
-        closeArray();
-      };
-      if (element.hasGlobal()) {
-        openArray("global");
-        for (ImplementationGuideInput.ImplementationGuideInputGlobalComponent e : element.getGlobal()) 
-          composeImplementationGuideInputImplementationGuideInputGlobalComponent(null, e);
-        closeArray();
-      };
-      if (element.hasDefinition()) {
-        composeImplementationGuideInputImplementationGuideInputDefinitionComponent("definition", element.getDefinition());
-      }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDependsOnComponent(String name, ImplementationGuideInput.ImplementationGuideInputDependsOnComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideInputImplementationGuideInputDependsOnComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDependsOnComponentInner(ImplementationGuideInput.ImplementationGuideInputDependsOnComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasDefinition()) {
-        composeReference("definition", element.getDefinition());
-      }
-      if (element.hasVersionElement()) {
-        composeStringCore("version", element.getVersionElement(), false);
-        composeStringExtras("version", element.getVersionElement(), false);
-      }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputGlobalComponent(String name, ImplementationGuideInput.ImplementationGuideInputGlobalComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideInputImplementationGuideInputGlobalComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputGlobalComponentInner(ImplementationGuideInput.ImplementationGuideInputGlobalComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeCodeCore("type", element.getTypeElement(), false);
-        composeCodeExtras("type", element.getTypeElement(), false);
-      }
-      if (element.hasProfileElement()) {
-        composeCanonicalCore("profile", element.getProfileElement(), false);
-        composeCanonicalExtras("profile", element.getProfileElement(), false);
-      }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionComponent(String name, ImplementationGuideInput.ImplementationGuideInputDefinitionComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideInputImplementationGuideInputDefinitionComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionComponentInner(ImplementationGuideInput.ImplementationGuideInputDefinitionComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasPackage()) {
-        openArray("package");
-        for (ImplementationGuideInput.ImplementationGuideInputDefinitionPackageComponent e : element.getPackage()) 
-          composeImplementationGuideInputImplementationGuideInputDefinitionPackageComponent(null, e);
-        closeArray();
-      };
-      if (element.hasResource()) {
-        openArray("resource");
-        for (ImplementationGuideInput.ImplementationGuideInputDefinitionResourceComponent e : element.getResource()) 
-          composeImplementationGuideInputImplementationGuideInputDefinitionResourceComponent(null, e);
-        closeArray();
-      };
-      if (element.hasPage()) {
-        composeImplementationGuideInputImplementationGuideInputDefinitionPageComponent("page", element.getPage());
-      }
-      if (element.hasParameter()) {
-        openArray("parameter");
-        for (ImplementationGuideInput.ImplementationGuideInputDefinitionParameterComponent e : element.getParameter()) 
-          composeImplementationGuideInputImplementationGuideInputDefinitionParameterComponent(null, e);
-        closeArray();
-      };
-      if (element.hasTemplate()) {
-        openArray("template");
-        for (ImplementationGuideInput.ImplementationGuideInputDefinitionTemplateComponent e : element.getTemplate()) 
-          composeImplementationGuideInputImplementationGuideInputDefinitionTemplateComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionPackageComponent(String name, ImplementationGuideInput.ImplementationGuideInputDefinitionPackageComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideInputImplementationGuideInputDefinitionPackageComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionPackageComponentInner(ImplementationGuideInput.ImplementationGuideInputDefinitionPackageComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasDescriptionElement()) {
-        composeStringCore("description", element.getDescriptionElement(), false);
-        composeStringExtras("description", element.getDescriptionElement(), false);
-      }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionResourceComponent(String name, ImplementationGuideInput.ImplementationGuideInputDefinitionResourceComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideInputImplementationGuideInputDefinitionResourceComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionResourceComponentInner(ImplementationGuideInput.ImplementationGuideInputDefinitionResourceComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasReference()) {
-        composeReference("reference", element.getReference());
-      }
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasDescriptionElement()) {
-        composeStringCore("description", element.getDescriptionElement(), false);
-        composeStringExtras("description", element.getDescriptionElement(), false);
-      }
-      if (element.hasExample()) {
-        composeType("example", element.getExample());
-      }
-      if (element.hasPackageElement()) {
-        composeIdCore("package", element.getPackageElement(), false);
-        composeIdExtras("package", element.getPackageElement(), false);
-      }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionPageComponent(String name, ImplementationGuideInput.ImplementationGuideInputDefinitionPageComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideInputImplementationGuideInputDefinitionPageComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionPageComponentInner(ImplementationGuideInput.ImplementationGuideInputDefinitionPageComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasName()) {
-        composeType("name", element.getName());
-      }
-      if (element.hasTitleElement()) {
-        composeStringCore("title", element.getTitleElement(), false);
-        composeStringExtras("title", element.getTitleElement(), false);
-      }
-      if (element.hasPage()) {
-        openArray("page");
-        for (ImplementationGuideInput.ImplementationGuideInputDefinitionPageComponent e : element.getPage()) 
-          composeImplementationGuideInputImplementationGuideInputDefinitionPageComponent(null, e);
-        closeArray();
-      };
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionParameterComponent(String name, ImplementationGuideInput.ImplementationGuideInputDefinitionParameterComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideInputImplementationGuideInputDefinitionParameterComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionParameterComponentInner(ImplementationGuideInput.ImplementationGuideInputDefinitionParameterComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasCodeElement()) {
-        composeEnumerationCore("code", element.getCodeElement(), new ImplementationGuideInput.GuideParameterCodeEnumFactory(), false);
-        composeEnumerationExtras("code", element.getCodeElement(), new ImplementationGuideInput.GuideParameterCodeEnumFactory(), false);
-      }
-      if (element.hasValueElement()) {
-        composeStringCore("value", element.getValueElement(), false);
-        composeStringExtras("value", element.getValueElement(), false);
-      }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionTemplateComponent(String name, ImplementationGuideInput.ImplementationGuideInputDefinitionTemplateComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideInputImplementationGuideInputDefinitionTemplateComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionTemplateComponentInner(ImplementationGuideInput.ImplementationGuideInputDefinitionTemplateComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasCodeElement()) {
-        composeCodeCore("code", element.getCodeElement(), false);
-        composeCodeExtras("code", element.getCodeElement(), false);
-      }
-      if (element.hasSourceElement()) {
-        composeStringCore("source", element.getSourceElement(), false);
-        composeStringExtras("source", element.getSourceElement(), false);
-      }
-      if (element.hasScopeElement()) {
-        composeStringCore("scope", element.getScopeElement(), false);
-        composeStringExtras("scope", element.getScopeElement(), false);
-      }
-  }
-
-  protected void composeImplementationGuideOutput(String name, ImplementationGuideOutput element) throws IOException {
-    if (element != null) {
-      prop("resourceType", name);
-      composeImplementationGuideOutputInner(element);
-    }
-  }
-
-  protected void composeImplementationGuideOutputInner(ImplementationGuideOutput element) throws IOException {
-      composeDomainResourceElements(element);
-      if (element.hasUrlElement()) {
-        composeUriCore("url", element.getUrlElement(), false);
-        composeUriExtras("url", element.getUrlElement(), false);
-      }
-      if (element.hasVersionElement()) {
-        composeStringCore("version", element.getVersionElement(), false);
-        composeStringExtras("version", element.getVersionElement(), false);
-      }
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasStatusElement()) {
-        composeEnumerationCore("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
-        composeEnumerationExtras("status", element.getStatusElement(), new Enumerations.PublicationStatusEnumFactory(), false);
-      }
-      if (element.hasExperimentalElement()) {
-        composeBooleanCore("experimental", element.getExperimentalElement(), false);
-        composeBooleanExtras("experimental", element.getExperimentalElement(), false);
-      }
-      if (element.hasDateElement()) {
-        composeDateTimeCore("date", element.getDateElement(), false);
-        composeDateTimeExtras("date", element.getDateElement(), false);
-      }
-      if (element.hasPublisherElement()) {
-        composeStringCore("publisher", element.getPublisherElement(), false);
-        composeStringExtras("publisher", element.getPublisherElement(), false);
-      }
-      if (element.hasContact()) {
-        openArray("contact");
-        for (ContactDetail e : element.getContact()) 
-          composeContactDetail(null, e);
-        closeArray();
-      };
-      if (element.hasDescriptionElement()) {
-        composeMarkdownCore("description", element.getDescriptionElement(), false);
-        composeMarkdownExtras("description", element.getDescriptionElement(), false);
-      }
-      if (element.hasUseContext()) {
-        openArray("useContext");
-        for (UsageContext e : element.getUseContext()) 
-          composeUsageContext(null, e);
-        closeArray();
-      };
-      if (element.hasJurisdiction()) {
-        openArray("jurisdiction");
-        for (CodeableConcept e : element.getJurisdiction()) 
-          composeCodeableConcept(null, e);
-        closeArray();
-      };
-      if (element.hasCopyrightElement()) {
-        composeMarkdownCore("copyright", element.getCopyrightElement(), false);
-        composeMarkdownExtras("copyright", element.getCopyrightElement(), false);
-      }
-      if (element.hasFhirVersionElement()) {
-        composeIdCore("fhirVersion", element.getFhirVersionElement(), false);
-        composeIdExtras("fhirVersion", element.getFhirVersionElement(), false);
-      }
-      if (element.hasDependsOn()) {
-        openArray("dependsOn");
-        for (Reference e : element.getDependsOn()) 
-          composeReference(null, e);
-        closeArray();
-      };
-      if (element.hasResource()) {
-        openArray("resource");
-        for (ImplementationGuideOutput.ImplementationGuideOutputResourceComponent e : element.getResource()) 
-          composeImplementationGuideOutputImplementationGuideOutputResourceComponent(null, e);
-        closeArray();
-      };
-      if (element.hasGlobal()) {
-        openArray("global");
-        for (ImplementationGuideOutput.ImplementationGuideOutputGlobalComponent e : element.getGlobal()) 
-          composeImplementationGuideOutputImplementationGuideOutputGlobalComponent(null, e);
-        closeArray();
-      };
-      if (element.hasRenderingElement()) {
-        composeUriCore("rendering", element.getRenderingElement(), false);
-        composeUriExtras("rendering", element.getRenderingElement(), false);
-      }
-      if (element.hasPage()) {
-        openArray("page");
-        for (ImplementationGuideOutput.ImplementationGuideOutputPageComponent e : element.getPage()) 
-          composeImplementationGuideOutputImplementationGuideOutputPageComponent(null, e);
-        closeArray();
-      };
-      if (element.hasImage()) {
-        openArray("image");
-        for (StringType e : element.getImage()) 
-          composeStringCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getImage())) {
-          openArray("_image");
-          for (StringType e : element.getImage()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
-      };
-      if (element.hasOther()) {
-        openArray("other");
-        for (StringType e : element.getOther()) 
-          composeStringCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getOther())) {
-          openArray("_other");
-          for (StringType e : element.getOther()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
-      };
-  }
-
-  protected void composeImplementationGuideOutputImplementationGuideOutputResourceComponent(String name, ImplementationGuideOutput.ImplementationGuideOutputResourceComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideOutputImplementationGuideOutputResourceComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideOutputImplementationGuideOutputResourceComponentInner(ImplementationGuideOutput.ImplementationGuideOutputResourceComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasReference()) {
-        composeReference("reference", element.getReference());
-      }
-      if (element.hasExample()) {
-        composeType("example", element.getExample());
-      }
-      if (element.hasRelativePathElement()) {
-        composeStringCore("relativePath", element.getRelativePathElement(), false);
-        composeStringExtras("relativePath", element.getRelativePathElement(), false);
-      }
-  }
-
-  protected void composeImplementationGuideOutputImplementationGuideOutputGlobalComponent(String name, ImplementationGuideOutput.ImplementationGuideOutputGlobalComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideOutputImplementationGuideOutputGlobalComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideOutputImplementationGuideOutputGlobalComponentInner(ImplementationGuideOutput.ImplementationGuideOutputGlobalComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasTypeElement()) {
-        composeCodeCore("type", element.getTypeElement(), false);
-        composeCodeExtras("type", element.getTypeElement(), false);
-      }
-      if (element.hasProfileElement()) {
-        composeCanonicalCore("profile", element.getProfileElement(), false);
-        composeCanonicalExtras("profile", element.getProfileElement(), false);
-      }
-  }
-
-  protected void composeImplementationGuideOutputImplementationGuideOutputPageComponent(String name, ImplementationGuideOutput.ImplementationGuideOutputPageComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeImplementationGuideOutputImplementationGuideOutputPageComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeImplementationGuideOutputImplementationGuideOutputPageComponentInner(ImplementationGuideOutput.ImplementationGuideOutputPageComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasTitleElement()) {
-        composeStringCore("title", element.getTitleElement(), false);
-        composeStringExtras("title", element.getTitleElement(), false);
-      }
-      if (element.hasAnchor()) {
-        openArray("anchor");
-        for (StringType e : element.getAnchor()) 
-          composeStringCore(null, e, true);
-        closeArray();
-        if (anyHasExtras(element.getAnchor())) {
-          openArray("_anchor");
-          for (StringType e : element.getAnchor()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
-      };
-  }
 
   protected void composeInvoice(String name, Invoice element) throws IOException {
     if (element != null) {
@@ -47697,8 +46817,8 @@ public class JsonParser extends JsonParserBase {
         }
       };
       if (element.hasTypeElement()) {
-        composeCodeCore("type", element.getTypeElement(), false);
-        composeCodeExtras("type", element.getTypeElement(), false);
+        composeUriCore("type", element.getTypeElement(), false);
+        composeUriExtras("type", element.getTypeElement(), false);
       }
       if (element.hasBaseDefinitionElement()) {
         composeCanonicalCore("baseDefinition", element.getBaseDefinitionElement(), false);
@@ -51778,10 +50898,6 @@ public class JsonParser extends JsonParserBase {
       composeImmunizationRecommendation("ImmunizationRecommendation", (ImmunizationRecommendation)resource);
     else if (resource instanceof ImplementationGuide)
       composeImplementationGuide("ImplementationGuide", (ImplementationGuide)resource);
-    else if (resource instanceof ImplementationGuideInput)
-      composeImplementationGuideInput("ImplementationGuideInput", (ImplementationGuideInput)resource);
-    else if (resource instanceof ImplementationGuideOutput)
-      composeImplementationGuideOutput("ImplementationGuideOutput", (ImplementationGuideOutput)resource);
     else if (resource instanceof Invoice)
       composeInvoice("Invoice", (Invoice)resource);
     else if (resource instanceof ItemInstance)
@@ -52065,10 +51181,6 @@ public class JsonParser extends JsonParserBase {
       composeImmunizationRecommendation(name, (ImmunizationRecommendation)resource);
     else if (resource instanceof ImplementationGuide)
       composeImplementationGuide(name, (ImplementationGuide)resource);
-    else if (resource instanceof ImplementationGuideInput)
-      composeImplementationGuideInput(name, (ImplementationGuideInput)resource);
-    else if (resource instanceof ImplementationGuideOutput)
-      composeImplementationGuideOutput(name, (ImplementationGuideOutput)resource);
     else if (resource instanceof Invoice)
       composeInvoice(name, (Invoice)resource);
     else if (resource instanceof ItemInstance)

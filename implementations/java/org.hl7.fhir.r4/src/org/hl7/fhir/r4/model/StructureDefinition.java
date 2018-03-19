@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1448,19 +1448,19 @@ public class StructureDefinition extends MetadataResource {
     protected List<StructureDefinitionContextComponent> context;
 
     /**
-     * A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).
+     * A set of rules as FHIRPath Invariants about when the extension can be used (e.g. co-occurrence variants for the extension). All the rules must be true.
      */
     @Child(name = "contextInvariant", type = {StringType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="FHIRPath invariants - when the extension can be used", formalDefinition="A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension)." )
+    @Description(shortDefinition="FHIRPath invariants - when the extension can be used", formalDefinition="A set of rules as FHIRPath Invariants about when the extension can be used (e.g. co-occurrence variants for the extension). All the rules must be true." )
     protected List<StringType> contextInvariant;
 
     /**
-     * The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).
+     * The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.
      */
-    @Child(name = "type", type = {CodeType.class}, order=10, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Type defined or constrained by this structure", formalDefinition="The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type)." )
+    @Child(name = "type", type = {UriType.class}, order=10, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Type defined or constrained by this structure", formalDefinition="The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/defined-types")
-    protected CodeType type;
+    protected UriType type;
 
     /**
      * An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
@@ -1491,7 +1491,7 @@ public class StructureDefinition extends MetadataResource {
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies." )
     protected StructureDefinitionDifferentialComponent differential;
 
-    private static final long serialVersionUID = -722490126L;
+    private static final long serialVersionUID = -68406827L;
 
   /**
    * Constructor
@@ -1503,7 +1503,7 @@ public class StructureDefinition extends MetadataResource {
   /**
    * Constructor
    */
-    public StructureDefinition(UriType url, StringType name, Enumeration<PublicationStatus> status, Enumeration<StructureDefinitionKind> kind, BooleanType abstract_, CodeType type) {
+    public StructureDefinition(UriType url, StringType name, Enumeration<PublicationStatus> status, Enumeration<StructureDefinitionKind> kind, BooleanType abstract_, UriType type) {
       super();
       this.url = url;
       this.name = name;
@@ -2547,7 +2547,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #contextInvariant} (A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).)
+     * @return {@link #contextInvariant} (A set of rules as FHIRPath Invariants about when the extension can be used (e.g. co-occurrence variants for the extension). All the rules must be true.)
      */
     public List<StringType> getContextInvariant() { 
       if (this.contextInvariant == null)
@@ -2573,7 +2573,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #contextInvariant} (A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).)
+     * @return {@link #contextInvariant} (A set of rules as FHIRPath Invariants about when the extension can be used (e.g. co-occurrence variants for the extension). All the rules must be true.)
      */
     public StringType addContextInvariantElement() {//2 
       StringType t = new StringType();
@@ -2584,7 +2584,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #contextInvariant} (A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).)
+     * @param value {@link #contextInvariant} (A set of rules as FHIRPath Invariants about when the extension can be used (e.g. co-occurrence variants for the extension). All the rules must be true.)
      */
     public StructureDefinition addContextInvariant(String value) { //1
       StringType t = new StringType();
@@ -2596,7 +2596,7 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #contextInvariant} (A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).)
+     * @param value {@link #contextInvariant} (A set of rules as FHIRPath Invariants about when the extension can be used (e.g. co-occurrence variants for the extension). All the rules must be true.)
      */
     public boolean hasContextInvariant(String value) { 
       if (this.contextInvariant == null)
@@ -2608,14 +2608,14 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #type} (The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @return {@link #type} (The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public CodeType getTypeElement() { 
+    public UriType getTypeElement() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.type");
         else if (Configuration.doAutoCreate())
-          this.type = new CodeType(); // bb
+          this.type = new UriType(); // bb
       return this.type;
     }
 
@@ -2628,26 +2628,26 @@ public class StructureDefinition extends MetadataResource {
     }
 
     /**
-     * @param value {@link #type} (The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @param value {@link #type} (The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public StructureDefinition setTypeElement(CodeType value) { 
+    public StructureDefinition setTypeElement(UriType value) { 
       this.type = value;
       return this;
     }
 
     /**
-     * @return The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).
+     * @return The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.
      */
     public String getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
-     * @param value The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).
+     * @param value The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.
      */
     public StructureDefinition setType(String value) { 
         if (this.type == null)
-          this.type = new CodeType();
+          this.type = new UriType();
         this.type.setValue(value);
       return this;
     }
@@ -2821,8 +2821,8 @@ public class StructureDefinition extends MetadataResource {
         children.add(new Property("kind", "code", "Defines the kind of structure that this definition is describing.", 0, 1, kind));
         children.add(new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not  - that is, whether the structure is not intended to be instantiated. For Resources and Data types, abstract types will never be exchanged  between systems.", 0, 1, abstract_));
         children.add(new Property("context", "", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
-        children.add(new Property("contextInvariant", "string", "A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).", 0, java.lang.Integer.MAX_VALUE, contextInvariant));
-        children.add(new Property("type", "code", "The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).", 0, 1, type));
+        children.add(new Property("contextInvariant", "string", "A set of rules as FHIRPath Invariants about when the extension can be used (e.g. co-occurrence variants for the extension). All the rules must be true.", 0, java.lang.Integer.MAX_VALUE, contextInvariant));
+        children.add(new Property("type", "uri", "The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.", 0, 1, type));
         children.add(new Property("baseDefinition", "canonical(StructureDefinition)", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, 1, baseDefinition));
         children.add(new Property("derivation", "code", "How the type relates to the baseDefinition.", 0, 1, derivation));
         children.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, 1, snapshot));
@@ -2853,8 +2853,8 @@ public class StructureDefinition extends MetadataResource {
         case 3292052: /*kind*/  return new Property("kind", "code", "Defines the kind of structure that this definition is describing.", 0, 1, kind);
         case 1732898850: /*abstract*/  return new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not  - that is, whether the structure is not intended to be instantiated. For Resources and Data types, abstract types will never be exchanged  between systems.", 0, 1, abstract_);
         case 951530927: /*context*/  return new Property("context", "", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context);
-        case -802505007: /*contextInvariant*/  return new Property("contextInvariant", "string", "A set of rules as Fluent Invariants about when the extension can be used (e.g. co-occurrence variants for the extension).", 0, java.lang.Integer.MAX_VALUE, contextInvariant);
-        case 3575610: /*type*/  return new Property("type", "code", "The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).", 0, 1, type);
+        case -802505007: /*contextInvariant*/  return new Property("contextInvariant", "string", "A set of rules as FHIRPath Invariants about when the extension can be used (e.g. co-occurrence variants for the extension). All the rules must be true.", 0, java.lang.Integer.MAX_VALUE, contextInvariant);
+        case 3575610: /*type*/  return new Property("type", "uri", "The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. \"string\" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.", 0, 1, type);
         case 1139771140: /*baseDefinition*/  return new Property("baseDefinition", "canonical(StructureDefinition)", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, 1, baseDefinition);
         case -1353885513: /*derivation*/  return new Property("derivation", "code", "How the type relates to the baseDefinition.", 0, 1, derivation);
         case 284874180: /*snapshot*/  return new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, 1, snapshot);
@@ -2889,7 +2889,7 @@ public class StructureDefinition extends MetadataResource {
         case 1732898850: /*abstract*/ return this.abstract_ == null ? new Base[0] : new Base[] {this.abstract_}; // BooleanType
         case 951530927: /*context*/ return this.context == null ? new Base[0] : this.context.toArray(new Base[this.context.size()]); // StructureDefinitionContextComponent
         case -802505007: /*contextInvariant*/ return this.contextInvariant == null ? new Base[0] : this.contextInvariant.toArray(new Base[this.contextInvariant.size()]); // StringType
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeType
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // UriType
         case 1139771140: /*baseDefinition*/ return this.baseDefinition == null ? new Base[0] : new Base[] {this.baseDefinition}; // CanonicalType
         case -1353885513: /*derivation*/ return this.derivation == null ? new Base[0] : new Base[] {this.derivation}; // Enumeration<TypeDerivationRule>
         case 284874180: /*snapshot*/ return this.snapshot == null ? new Base[0] : new Base[] {this.snapshot}; // StructureDefinitionSnapshotComponent
@@ -2971,7 +2971,7 @@ public class StructureDefinition extends MetadataResource {
           this.getContextInvariant().add(castToString(value)); // StringType
           return value;
         case 3575610: // type
-          this.type = castToCode(value); // CodeType
+          this.type = castToUri(value); // UriType
           return value;
         case 1139771140: // baseDefinition
           this.baseDefinition = castToCanonical(value); // CanonicalType
@@ -3040,7 +3040,7 @@ public class StructureDefinition extends MetadataResource {
         } else if (name.equals("contextInvariant")) {
           this.getContextInvariant().add(castToString(value));
         } else if (name.equals("type")) {
-          this.type = castToCode(value); // CodeType
+          this.type = castToUri(value); // UriType
         } else if (name.equals("baseDefinition")) {
           this.baseDefinition = castToCanonical(value); // CanonicalType
         } else if (name.equals("derivation")) {
@@ -3115,7 +3115,7 @@ public class StructureDefinition extends MetadataResource {
         case 1732898850: /*abstract*/ return new String[] {"boolean"};
         case 951530927: /*context*/ return new String[] {};
         case -802505007: /*contextInvariant*/ return new String[] {"string"};
-        case 3575610: /*type*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"uri"};
         case 1139771140: /*baseDefinition*/ return new String[] {"canonical"};
         case -1353885513: /*derivation*/ return new String[] {"code"};
         case 284874180: /*snapshot*/ return new String[] {};
@@ -3516,21 +3516,21 @@ public class StructureDefinition extends MetadataResource {
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>Type defined or constrained by this structure</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>StructureDefinition.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="StructureDefinition.type", description="Type defined or constrained by this structure", type="token" )
+  @SearchParamDefinition(name="type", path="StructureDefinition.type", description="Type defined or constrained by this structure", type="uri" )
   public static final String SP_TYPE = "type";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>type</b>
    * <p>
    * Description: <b>Type defined or constrained by this structure</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>uri</b><br>
    * Path: <b>StructureDefinition.type</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam TYPE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_TYPE);
 
  /**
    * Search parameter: <b>version</b>
@@ -3595,17 +3595,17 @@ public class StructureDefinition extends MetadataResource {
  /**
    * Search parameter: <b>ext-context</b>
    * <p>
-   * Description: <b>The system is the URL for the context-type: e.g. http://hl7.org/fhir/ValueSet/extension-context-type#element|CodeableConcept.text</b><br>
+   * Description: <b>The system is the URL for the context-type: e.g. http://hl7.org/fhir/extension-context-type#element|CodeableConcept.text</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureDefinition.context</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ext-context", path="StructureDefinition.context", description="The system is the URL for the context-type: e.g. http://hl7.org/fhir/ValueSet/extension-context-type#element|CodeableConcept.text", type="token" )
+  @SearchParamDefinition(name="ext-context", path="StructureDefinition.context", description="The system is the URL for the context-type: e.g. http://hl7.org/fhir/extension-context-type#element|CodeableConcept.text", type="token" )
   public static final String SP_EXT_CONTEXT = "ext-context";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ext-context</b>
    * <p>
-   * Description: <b>The system is the URL for the context-type: e.g. http://hl7.org/fhir/ValueSet/extension-context-type#element|CodeableConcept.text</b><br>
+   * Description: <b>The system is the URL for the context-type: e.g. http://hl7.org/fhir/extension-context-type#element|CodeableConcept.text</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureDefinition.context</b><br>
    * </p>

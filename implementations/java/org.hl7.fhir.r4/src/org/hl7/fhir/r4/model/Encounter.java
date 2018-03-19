@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1468,14 +1468,14 @@ public class Encounter extends DomainResource {
         /**
          * Location/organization to which the patient is discharged.
          */
-        @Child(name = "destination", type = {Location.class}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "destination", type = {Location.class, Organization.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Location/organization to which the patient is discharged", formalDefinition="Location/organization to which the patient is discharged." )
         protected Reference destination;
 
         /**
          * The actual object that is the target of the reference (Location/organization to which the patient is discharged.)
          */
-        protected Location destinationTarget;
+        protected Resource destinationTarget;
 
         /**
          * Category or kind of location after discharge.
@@ -1485,7 +1485,7 @@ public class Encounter extends DomainResource {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/encounter-discharge-disposition")
         protected CodeableConcept dischargeDisposition;
 
-        private static final long serialVersionUID = -904132115L;
+        private static final long serialVersionUID = 1350555270L;
 
     /**
      * Constructor
@@ -1791,19 +1791,14 @@ public class Encounter extends DomainResource {
         /**
          * @return {@link #destination} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Location/organization to which the patient is discharged.)
          */
-        public Location getDestinationTarget() { 
-          if (this.destinationTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create EncounterHospitalizationComponent.destination");
-            else if (Configuration.doAutoCreate())
-              this.destinationTarget = new Location(); // aa
+        public Resource getDestinationTarget() { 
           return this.destinationTarget;
         }
 
         /**
          * @param value {@link #destination} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Location/organization to which the patient is discharged.)
          */
-        public EncounterHospitalizationComponent setDestinationTarget(Location value) { 
+        public EncounterHospitalizationComponent setDestinationTarget(Resource value) { 
           this.destinationTarget = value;
           return this;
         }
@@ -1841,7 +1836,7 @@ public class Encounter extends DomainResource {
           children.add(new Property("dietPreference", "CodeableConcept", "Diet preferences reported by the patient.", 0, java.lang.Integer.MAX_VALUE, dietPreference));
           children.add(new Property("specialCourtesy", "CodeableConcept", "Special courtesies (VIP, board member).", 0, java.lang.Integer.MAX_VALUE, specialCourtesy));
           children.add(new Property("specialArrangement", "CodeableConcept", "Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things.", 0, java.lang.Integer.MAX_VALUE, specialArrangement));
-          children.add(new Property("destination", "Reference(Location)", "Location/organization to which the patient is discharged.", 0, 1, destination));
+          children.add(new Property("destination", "Reference(Location|Organization)", "Location/organization to which the patient is discharged.", 0, 1, destination));
           children.add(new Property("dischargeDisposition", "CodeableConcept", "Category or kind of location after discharge.", 0, 1, dischargeDisposition));
         }
 
@@ -1855,7 +1850,7 @@ public class Encounter extends DomainResource {
           case -1360641041: /*dietPreference*/  return new Property("dietPreference", "CodeableConcept", "Diet preferences reported by the patient.", 0, java.lang.Integer.MAX_VALUE, dietPreference);
           case 1583588345: /*specialCourtesy*/  return new Property("specialCourtesy", "CodeableConcept", "Special courtesies (VIP, board member).", 0, java.lang.Integer.MAX_VALUE, specialCourtesy);
           case 47410321: /*specialArrangement*/  return new Property("specialArrangement", "CodeableConcept", "Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things.", 0, java.lang.Integer.MAX_VALUE, specialArrangement);
-          case -1429847026: /*destination*/  return new Property("destination", "Reference(Location)", "Location/organization to which the patient is discharged.", 0, 1, destination);
+          case -1429847026: /*destination*/  return new Property("destination", "Reference(Location|Organization)", "Location/organization to which the patient is discharged.", 0, 1, destination);
           case 528065941: /*dischargeDisposition*/  return new Property("dischargeDisposition", "CodeableConcept", "Category or kind of location after discharge.", 0, 1, dischargeDisposition);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -157,7 +157,7 @@ public class Dosage extends BackboneType implements ICompositeType {
          * @param value {@link #dose} (Amount of medication per dose.)
          */
         public DosageDoseAndRateComponent setDose(Type value) { 
-          if (value != null && !(value instanceof Range || value instanceof Quantity))
+          if (value != null && !(value instanceof Range || value instanceof SimpleQuantity))
             throw new Error("Not the right type for Dosage.doseAndRate.dose[x]: "+value.fhirType());
           this.dose = value;
           return this;
@@ -223,7 +223,7 @@ public class Dosage extends BackboneType implements ICompositeType {
          * @param value {@link #rate} (Amount of medication per unit of time.)
          */
         public DosageDoseAndRateComponent setRate(Type value) { 
-          if (value != null && !(value instanceof Ratio || value instanceof Range || value instanceof Quantity))
+          if (value != null && !(value instanceof Ratio || value instanceof Range || value instanceof SimpleQuantity))
             throw new Error("Not the right type for Dosage.doseAndRate.rate[x]: "+value.fhirType());
           this.rate = value;
           return this;

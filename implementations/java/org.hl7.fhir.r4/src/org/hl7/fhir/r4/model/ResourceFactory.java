@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -78,8 +78,6 @@ public class ResourceFactory extends Factory {
             return new GraphDefinition();
         if ("Parameters".equals(name))
             return new Parameters();
-        if ("ImplementationGuideOutput".equals(name))
-            return new ImplementationGuideOutput();
         if ("MeasureReport".equals(name))
             return new MeasureReport();
         if ("PractitionerRole".equals(name))
@@ -146,8 +144,6 @@ public class ResourceFactory extends Factory {
             return new ImmunizationEvaluation();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
-        if ("ImplementationGuideInput".equals(name))
-            return new ImplementationGuideInput();
         if ("RequestGroup".equals(name))
             return new RequestGroup();
         if ("DeviceRequest".equals(name))
@@ -523,8 +519,6 @@ public class ResourceFactory extends Factory {
         case -1768794370: return new ImmunizationEvaluation();
         case 1728372347: return new ImmunizationRecommendation();
         case 1410262602: return new ImplementationGuide();
-        case 30400416: return new ImplementationGuideInput();
-        case 1120766955: return new ImplementationGuideOutput();
         case -670115059: return new Invoice();
         case 1347880168: return new ItemInstance();
         case 1830861979: return new Library();

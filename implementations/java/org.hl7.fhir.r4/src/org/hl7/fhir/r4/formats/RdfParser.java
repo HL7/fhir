@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.formats;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import org.hl7.fhir.r4.model.DateType;
 import org.hl7.fhir.r4.model.DateTimeType;
@@ -410,12 +410,18 @@ public class RdfParser extends RdfParserBase {
       composeCode(t, "DataRequirement", "type", element.getTypeElement(), -1);
     for (int i = 0; i < element.getProfile().size(); i++)
       composeCanonical(t, "DataRequirement", "profile", element.getProfile().get(i), i);
+    if (element.hasSubject())
+      composeType(t, "DataRequirement", "subject", element.getSubject(), -1);
     for (int i = 0; i < element.getMustSupport().size(); i++)
       composeString(t, "DataRequirement", "mustSupport", element.getMustSupport().get(i), i);
     for (int i = 0; i < element.getCodeFilter().size(); i++)
       composeDataRequirementDataRequirementCodeFilterComponent(t, "DataRequirement", "codeFilter", element.getCodeFilter().get(i), i);
     for (int i = 0; i < element.getDateFilter().size(); i++)
       composeDataRequirementDataRequirementDateFilterComponent(t, "DataRequirement", "dateFilter", element.getDateFilter().get(i), i);
+    if (element.hasLimitElement())
+      composePositiveInt(t, "DataRequirement", "limit", element.getLimitElement(), -1);
+    for (int i = 0; i < element.getSort().size(); i++)
+      composeDataRequirementDataRequirementSortComponent(t, "DataRequirement", "sort", element.getSort().get(i), i);
   }
 
   protected void composeDataRequirementDataRequirementCodeFilterComponent(Complex parent, String parentType, String name, DataRequirement.DataRequirementCodeFilterComponent element, int index) {
@@ -450,6 +456,22 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "DataRequirement", "path", element.getPathElement(), -1);
     if (element.hasValue())
       composeType(t, "DataRequirement", "value", element.getValue(), -1);
+  }
+
+  protected void composeDataRequirementDataRequirementSortComponent(Complex parent, String parentType, String name, DataRequirement.DataRequirementSortComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "sort", name, element, index);
+    if (element.hasPathElement())
+      composeString(t, "DataRequirement", "path", element.getPathElement(), -1);
+    if (element.hasDirectionElement())
+      composeEnum(t, "DataRequirement", "direction", element.getDirectionElement(), -1);
   }
 
   protected void composeDosage(Complex parent, String parentType, String name, Dosage element, int index) {
@@ -1006,8 +1028,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ParameterDefinition", "documentation", element.getDocumentationElement(), -1);
     if (element.hasTypeElement())
       composeCode(t, "ParameterDefinition", "type", element.getTypeElement(), -1);
-    if (element.hasProfile())
-      composeReference(t, "ParameterDefinition", "profile", element.getProfile(), -1);
+    if (element.hasProfileElement())
+      composeCanonical(t, "ParameterDefinition", "profile", element.getProfileElement(), -1);
   }
 
   protected void composeMarketingStatus(Complex parent, String parentType, String name, MarketingStatus element, int index) {
@@ -6396,7 +6418,7 @@ public class RdfParser extends RdfParserBase {
     }
     composeBackboneElement(t, "fixedVersion", name, element, index);
     if (element.hasSystemElement())
-      composeCanonical(t, "ExpansionProfile", "system", element.getSystemElement(), -1);
+      composeUri(t, "ExpansionProfile", "system", element.getSystemElement(), -1);
     if (element.hasVersionElement())
       composeString(t, "ExpansionProfile", "version", element.getVersionElement(), -1);
     if (element.hasModeElement())
@@ -7745,10 +7767,10 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ImmunizationEvaluation", "description", element.getDescriptionElement(), -1);
     if (element.hasSeriesElement())
       composeString(t, "ImmunizationEvaluation", "series", element.getSeriesElement(), -1);
-    if (element.hasDoseNumberElement())
-      composePositiveInt(t, "ImmunizationEvaluation", "doseNumber", element.getDoseNumberElement(), -1);
-    if (element.hasSeriesDosesElement())
-      composePositiveInt(t, "ImmunizationEvaluation", "seriesDoses", element.getSeriesDosesElement(), -1);
+    if (element.hasDoseNumber())
+      composeType(t, "ImmunizationEvaluation", "doseNumber", element.getDoseNumber(), -1);
+    if (element.hasSeriesDoses())
+      composeType(t, "ImmunizationEvaluation", "seriesDoses", element.getSeriesDoses(), -1);
   }
 
   protected void composeImmunizationRecommendation(Complex parent, String parentType, String name, ImmunizationRecommendation element, int index) {
@@ -7799,10 +7821,10 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "ImmunizationRecommendation", "description", element.getDescriptionElement(), -1);
     if (element.hasSeriesElement())
       composeString(t, "ImmunizationRecommendation", "series", element.getSeriesElement(), -1);
-    if (element.hasDoseNumberElement())
-      composePositiveInt(t, "ImmunizationRecommendation", "doseNumber", element.getDoseNumberElement(), -1);
-    if (element.hasSeriesDosesElement())
-      composePositiveInt(t, "ImmunizationRecommendation", "seriesDoses", element.getSeriesDosesElement(), -1);
+    if (element.hasDoseNumber())
+      composeType(t, "ImmunizationRecommendation", "doseNumber", element.getDoseNumber(), -1);
+    if (element.hasSeriesDoses())
+      composeType(t, "ImmunizationRecommendation", "seriesDoses", element.getSeriesDoses(), -1);
     for (int i = 0; i < element.getSupportingImmunization().size(); i++)
       composeReference(t, "ImmunizationRecommendation", "supportingImmunization", element.getSupportingImmunization().get(i), i);
     for (int i = 0; i < element.getSupportingPatientInformation().size(); i++)
@@ -7973,297 +7995,6 @@ public class RdfParser extends RdfParserBase {
       composeImplementationGuideImplementationGuidePageComponent(t, "ImplementationGuide", "page", element.getPage().get(i), i);
   }
 
-  protected void composeImplementationGuideInput(Complex parent, String parentType, String name, ImplementationGuideInput element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeDomainResource(t, "ImplementationGuideInput", name, element, index);
-    if (element.hasUrlElement())
-      composeUri(t, "ImplementationGuideInput", "url", element.getUrlElement(), -1);
-    if (element.hasVersionElement())
-      composeString(t, "ImplementationGuideInput", "version", element.getVersionElement(), -1);
-    if (element.hasNameElement())
-      composeString(t, "ImplementationGuideInput", "name", element.getNameElement(), -1);
-    if (element.hasStatusElement())
-      composeEnum(t, "ImplementationGuideInput", "status", element.getStatusElement(), -1);
-    if (element.hasExperimentalElement())
-      composeBoolean(t, "ImplementationGuideInput", "experimental", element.getExperimentalElement(), -1);
-    if (element.hasDateElement())
-      composeDateTime(t, "ImplementationGuideInput", "date", element.getDateElement(), -1);
-    if (element.hasPublisherElement())
-      composeString(t, "ImplementationGuideInput", "publisher", element.getPublisherElement(), -1);
-    for (int i = 0; i < element.getContact().size(); i++)
-      composeContactDetail(t, "ImplementationGuideInput", "contact", element.getContact().get(i), i);
-    if (element.hasDescriptionElement())
-      composeMarkdown(t, "ImplementationGuideInput", "description", element.getDescriptionElement(), -1);
-    for (int i = 0; i < element.getUseContext().size(); i++)
-      composeUsageContext(t, "ImplementationGuideInput", "useContext", element.getUseContext().get(i), i);
-    for (int i = 0; i < element.getJurisdiction().size(); i++)
-      composeCodeableConcept(t, "ImplementationGuideInput", "jurisdiction", element.getJurisdiction().get(i), i);
-    if (element.hasCopyrightElement())
-      composeMarkdown(t, "ImplementationGuideInput", "copyright", element.getCopyrightElement(), -1);
-    if (element.hasFhirVersionElement())
-      composeId(t, "ImplementationGuideInput", "fhirVersion", element.getFhirVersionElement(), -1);
-    for (int i = 0; i < element.getDependsOn().size(); i++)
-      composeImplementationGuideInputImplementationGuideInputDependsOnComponent(t, "ImplementationGuideInput", "dependsOn", element.getDependsOn().get(i), i);
-    for (int i = 0; i < element.getGlobal().size(); i++)
-      composeImplementationGuideInputImplementationGuideInputGlobalComponent(t, "ImplementationGuideInput", "global", element.getGlobal().get(i), i);
-    if (element.hasDefinition())
-      composeImplementationGuideInputImplementationGuideInputDefinitionComponent(t, "ImplementationGuideInput", "definition", element.getDefinition(), -1);
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDependsOnComponent(Complex parent, String parentType, String name, ImplementationGuideInput.ImplementationGuideInputDependsOnComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "dependsOn", name, element, index);
-    if (element.hasDefinition())
-      composeReference(t, "ImplementationGuideInput", "definition", element.getDefinition(), -1);
-    if (element.hasVersionElement())
-      composeString(t, "ImplementationGuideInput", "version", element.getVersionElement(), -1);
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputGlobalComponent(Complex parent, String parentType, String name, ImplementationGuideInput.ImplementationGuideInputGlobalComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "global", name, element, index);
-    if (element.hasTypeElement())
-      composeCode(t, "ImplementationGuideInput", "type", element.getTypeElement(), -1);
-    if (element.hasProfileElement())
-      composeCanonical(t, "ImplementationGuideInput", "profile", element.getProfileElement(), -1);
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionComponent(Complex parent, String parentType, String name, ImplementationGuideInput.ImplementationGuideInputDefinitionComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "definition", name, element, index);
-    for (int i = 0; i < element.getPackage().size(); i++)
-      composeImplementationGuideInputImplementationGuideInputDefinitionPackageComponent(t, "ImplementationGuideInput", "package", element.getPackage().get(i), i);
-    for (int i = 0; i < element.getResource().size(); i++)
-      composeImplementationGuideInputImplementationGuideInputDefinitionResourceComponent(t, "ImplementationGuideInput", "resource", element.getResource().get(i), i);
-    if (element.hasPage())
-      composeImplementationGuideInputImplementationGuideInputDefinitionPageComponent(t, "ImplementationGuideInput", "page", element.getPage(), -1);
-    for (int i = 0; i < element.getParameter().size(); i++)
-      composeImplementationGuideInputImplementationGuideInputDefinitionParameterComponent(t, "ImplementationGuideInput", "parameter", element.getParameter().get(i), i);
-    for (int i = 0; i < element.getTemplate().size(); i++)
-      composeImplementationGuideInputImplementationGuideInputDefinitionTemplateComponent(t, "ImplementationGuideInput", "template", element.getTemplate().get(i), i);
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionPackageComponent(Complex parent, String parentType, String name, ImplementationGuideInput.ImplementationGuideInputDefinitionPackageComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "package", name, element, index);
-    if (element.hasNameElement())
-      composeString(t, "ImplementationGuideInput", "name", element.getNameElement(), -1);
-    if (element.hasDescriptionElement())
-      composeString(t, "ImplementationGuideInput", "description", element.getDescriptionElement(), -1);
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionResourceComponent(Complex parent, String parentType, String name, ImplementationGuideInput.ImplementationGuideInputDefinitionResourceComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "resource", name, element, index);
-    if (element.hasReference())
-      composeReference(t, "ImplementationGuideInput", "reference", element.getReference(), -1);
-    if (element.hasNameElement())
-      composeString(t, "ImplementationGuideInput", "name", element.getNameElement(), -1);
-    if (element.hasDescriptionElement())
-      composeString(t, "ImplementationGuideInput", "description", element.getDescriptionElement(), -1);
-    if (element.hasExample())
-      composeType(t, "ImplementationGuideInput", "example", element.getExample(), -1);
-    if (element.hasPackageElement())
-      composeId(t, "ImplementationGuideInput", "package", element.getPackageElement(), -1);
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionPageComponent(Complex parent, String parentType, String name, ImplementationGuideInput.ImplementationGuideInputDefinitionPageComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "page", name, element, index);
-    if (element.hasName())
-      composeType(t, "ImplementationGuideInput", "name", element.getName(), -1);
-    if (element.hasTitleElement())
-      composeString(t, "ImplementationGuideInput", "title", element.getTitleElement(), -1);
-    for (int i = 0; i < element.getPage().size(); i++)
-      composeImplementationGuideInputImplementationGuideInputDefinitionPageComponent(t, "ImplementationGuideInput", "page", element.getPage().get(i), i);
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionParameterComponent(Complex parent, String parentType, String name, ImplementationGuideInput.ImplementationGuideInputDefinitionParameterComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "parameter", name, element, index);
-    if (element.hasCodeElement())
-      composeEnum(t, "ImplementationGuideInput", "code", element.getCodeElement(), -1);
-    if (element.hasValueElement())
-      composeString(t, "ImplementationGuideInput", "value", element.getValueElement(), -1);
-  }
-
-  protected void composeImplementationGuideInputImplementationGuideInputDefinitionTemplateComponent(Complex parent, String parentType, String name, ImplementationGuideInput.ImplementationGuideInputDefinitionTemplateComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "template", name, element, index);
-    if (element.hasCodeElement())
-      composeCode(t, "ImplementationGuideInput", "code", element.getCodeElement(), -1);
-    if (element.hasSourceElement())
-      composeString(t, "ImplementationGuideInput", "source", element.getSourceElement(), -1);
-    if (element.hasScopeElement())
-      composeString(t, "ImplementationGuideInput", "scope", element.getScopeElement(), -1);
-  }
-
-  protected void composeImplementationGuideOutput(Complex parent, String parentType, String name, ImplementationGuideOutput element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeDomainResource(t, "ImplementationGuideOutput", name, element, index);
-    if (element.hasUrlElement())
-      composeUri(t, "ImplementationGuideOutput", "url", element.getUrlElement(), -1);
-    if (element.hasVersionElement())
-      composeString(t, "ImplementationGuideOutput", "version", element.getVersionElement(), -1);
-    if (element.hasNameElement())
-      composeString(t, "ImplementationGuideOutput", "name", element.getNameElement(), -1);
-    if (element.hasStatusElement())
-      composeEnum(t, "ImplementationGuideOutput", "status", element.getStatusElement(), -1);
-    if (element.hasExperimentalElement())
-      composeBoolean(t, "ImplementationGuideOutput", "experimental", element.getExperimentalElement(), -1);
-    if (element.hasDateElement())
-      composeDateTime(t, "ImplementationGuideOutput", "date", element.getDateElement(), -1);
-    if (element.hasPublisherElement())
-      composeString(t, "ImplementationGuideOutput", "publisher", element.getPublisherElement(), -1);
-    for (int i = 0; i < element.getContact().size(); i++)
-      composeContactDetail(t, "ImplementationGuideOutput", "contact", element.getContact().get(i), i);
-    if (element.hasDescriptionElement())
-      composeMarkdown(t, "ImplementationGuideOutput", "description", element.getDescriptionElement(), -1);
-    for (int i = 0; i < element.getUseContext().size(); i++)
-      composeUsageContext(t, "ImplementationGuideOutput", "useContext", element.getUseContext().get(i), i);
-    for (int i = 0; i < element.getJurisdiction().size(); i++)
-      composeCodeableConcept(t, "ImplementationGuideOutput", "jurisdiction", element.getJurisdiction().get(i), i);
-    if (element.hasCopyrightElement())
-      composeMarkdown(t, "ImplementationGuideOutput", "copyright", element.getCopyrightElement(), -1);
-    if (element.hasFhirVersionElement())
-      composeId(t, "ImplementationGuideOutput", "fhirVersion", element.getFhirVersionElement(), -1);
-    for (int i = 0; i < element.getDependsOn().size(); i++)
-      composeReference(t, "ImplementationGuideOutput", "dependsOn", element.getDependsOn().get(i), i);
-    for (int i = 0; i < element.getResource().size(); i++)
-      composeImplementationGuideOutputImplementationGuideOutputResourceComponent(t, "ImplementationGuideOutput", "resource", element.getResource().get(i), i);
-    for (int i = 0; i < element.getGlobal().size(); i++)
-      composeImplementationGuideOutputImplementationGuideOutputGlobalComponent(t, "ImplementationGuideOutput", "global", element.getGlobal().get(i), i);
-    if (element.hasRenderingElement())
-      composeUri(t, "ImplementationGuideOutput", "rendering", element.getRenderingElement(), -1);
-    for (int i = 0; i < element.getPage().size(); i++)
-      composeImplementationGuideOutputImplementationGuideOutputPageComponent(t, "ImplementationGuideOutput", "page", element.getPage().get(i), i);
-    for (int i = 0; i < element.getImage().size(); i++)
-      composeString(t, "ImplementationGuideOutput", "image", element.getImage().get(i), i);
-    for (int i = 0; i < element.getOther().size(); i++)
-      composeString(t, "ImplementationGuideOutput", "other", element.getOther().get(i), i);
-  }
-
-  protected void composeImplementationGuideOutputImplementationGuideOutputResourceComponent(Complex parent, String parentType, String name, ImplementationGuideOutput.ImplementationGuideOutputResourceComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "resource", name, element, index);
-    if (element.hasReference())
-      composeReference(t, "ImplementationGuideOutput", "reference", element.getReference(), -1);
-    if (element.hasExample())
-      composeType(t, "ImplementationGuideOutput", "example", element.getExample(), -1);
-    if (element.hasRelativePathElement())
-      composeString(t, "ImplementationGuideOutput", "relativePath", element.getRelativePathElement(), -1);
-  }
-
-  protected void composeImplementationGuideOutputImplementationGuideOutputGlobalComponent(Complex parent, String parentType, String name, ImplementationGuideOutput.ImplementationGuideOutputGlobalComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "global", name, element, index);
-    if (element.hasTypeElement())
-      composeCode(t, "ImplementationGuideOutput", "type", element.getTypeElement(), -1);
-    if (element.hasProfileElement())
-      composeCanonical(t, "ImplementationGuideOutput", "profile", element.getProfileElement(), -1);
-  }
-
-  protected void composeImplementationGuideOutputImplementationGuideOutputPageComponent(Complex parent, String parentType, String name, ImplementationGuideOutput.ImplementationGuideOutputPageComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "page", name, element, index);
-    if (element.hasNameElement())
-      composeString(t, "ImplementationGuideOutput", "name", element.getNameElement(), -1);
-    if (element.hasTitleElement())
-      composeString(t, "ImplementationGuideOutput", "title", element.getTitleElement(), -1);
-    for (int i = 0; i < element.getAnchor().size(); i++)
-      composeString(t, "ImplementationGuideOutput", "anchor", element.getAnchor().get(i), i);
-  }
 
   protected void composeInvoice(Complex parent, String parentType, String name, Invoice element, int index) {
     if (element == null) 
@@ -13462,7 +13193,7 @@ public class RdfParser extends RdfParserBase {
     for (int i = 0; i < element.getContextInvariant().size(); i++)
       composeString(t, "StructureDefinition", "contextInvariant", element.getContextInvariant().get(i), i);
     if (element.hasTypeElement())
-      composeCode(t, "StructureDefinition", "type", element.getTypeElement(), -1);
+      composeUri(t, "StructureDefinition", "type", element.getTypeElement(), -1);
     if (element.hasBaseDefinitionElement())
       composeCanonical(t, "StructureDefinition", "baseDefinition", element.getBaseDefinitionElement(), -1);
     if (element.hasDerivationElement())
@@ -16139,10 +15870,6 @@ public class RdfParser extends RdfParserBase {
       composeImmunizationRecommendation(parent, null, "ImmunizationRecommendation", (ImmunizationRecommendation)resource, -1);
     else if (resource instanceof ImplementationGuide)
       composeImplementationGuide(parent, null, "ImplementationGuide", (ImplementationGuide)resource, -1);
-    else if (resource instanceof ImplementationGuideInput)
-      composeImplementationGuideInput(parent, null, "ImplementationGuideInput", (ImplementationGuideInput)resource, -1);
-    else if (resource instanceof ImplementationGuideOutput)
-      composeImplementationGuideOutput(parent, null, "ImplementationGuideOutput", (ImplementationGuideOutput)resource, -1);
     else if (resource instanceof Invoice)
       composeInvoice(parent, null, "Invoice", (Invoice)resource, -1);
     else if (resource instanceof ItemInstance)

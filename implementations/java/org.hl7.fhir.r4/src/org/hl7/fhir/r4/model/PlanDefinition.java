@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -5296,6 +5296,7 @@ public class PlanDefinition extends MetadataResource {
      */
     @Child(name = "subject", type = {CodeableConcept.class, Group.class}, order=3, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Type of individual the plan definition is focused on", formalDefinition="A code or group definition that describes the intended subject of the plan definition." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/subject-type")
     protected Type subject;
 
     /**
@@ -5377,10 +5378,10 @@ public class PlanDefinition extends MetadataResource {
     protected List<PlanDefinitionGoalComponent> goal;
 
     /**
-     * An action to be taken as part of the plan.
+     * An action or group of actions to be taken as part of the plan.
      */
     @Child(name = "action", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Action defined by the plan", formalDefinition="An action to be taken as part of the plan." )
+    @Description(shortDefinition="Action defined by the plan", formalDefinition="An action or group of actions to be taken as part of the plan." )
     protected List<PlanDefinitionActionComponent> action;
 
     private static final long serialVersionUID = 98193584L;
@@ -6712,7 +6713,7 @@ public class PlanDefinition extends MetadataResource {
     }
 
     /**
-     * @return {@link #action} (An action to be taken as part of the plan.)
+     * @return {@link #action} (An action or group of actions to be taken as part of the plan.)
      */
     public List<PlanDefinitionActionComponent> getAction() { 
       if (this.action == null)
@@ -6793,7 +6794,7 @@ public class PlanDefinition extends MetadataResource {
         children.add(new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
         children.add(new Property("library", "canonical(Library)", "A reference to a Library resource containing any formal logic used by the plan definition.", 0, java.lang.Integer.MAX_VALUE, library));
         children.add(new Property("goal", "", "Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.", 0, java.lang.Integer.MAX_VALUE, goal));
-        children.add(new Property("action", "", "An action to be taken as part of the plan.", 0, java.lang.Integer.MAX_VALUE, action));
+        children.add(new Property("action", "", "An action or group of actions to be taken as part of the plan.", 0, java.lang.Integer.MAX_VALUE, action));
       }
 
       @Override
@@ -6829,7 +6830,7 @@ public class PlanDefinition extends MetadataResource {
         case 666807069: /*relatedArtifact*/  return new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact);
         case 166208699: /*library*/  return new Property("library", "canonical(Library)", "A reference to a Library resource containing any formal logic used by the plan definition.", 0, java.lang.Integer.MAX_VALUE, library);
         case 3178259: /*goal*/  return new Property("goal", "", "Goals that describe what the activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.", 0, java.lang.Integer.MAX_VALUE, goal);
-        case -1422950858: /*action*/  return new Property("action", "", "An action to be taken as part of the plan.", 0, java.lang.Integer.MAX_VALUE, action);
+        case -1422950858: /*action*/  return new Property("action", "", "An action or group of actions to be taken as part of the plan.", 0, java.lang.Integer.MAX_VALUE, action);
         default: return super.getNamedProperty(_hash, _name, _checkValid);
         }
 

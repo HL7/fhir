@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Tue, Mar 6, 2018 18:38+1100 for FHIR v3.2.0
+// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -6342,10 +6342,10 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         protected StringType documentation;
 
         /**
-         * A constraint on a resource used in the document.
+         * A profile on the document bundle that constrains which resources are present, and their contents.
          */
         @Child(name = "profile", type = {CanonicalType.class}, order=3, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Constraint on a resource used in the document", formalDefinition="A constraint on a resource used in the document." )
+        @Description(shortDefinition="Constraint on the resources used in the document", formalDefinition="A profile on the document bundle that constrains which resources are present, and their contents." )
         protected CanonicalType profile;
 
         private static final long serialVersionUID = -47853274L;
@@ -6461,7 +6461,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
 
         /**
-         * @return {@link #profile} (A constraint on a resource used in the document.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
+         * @return {@link #profile} (A profile on the document bundle that constrains which resources are present, and their contents.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
         public CanonicalType getProfileElement() { 
           if (this.profile == null)
@@ -6481,7 +6481,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
 
         /**
-         * @param value {@link #profile} (A constraint on a resource used in the document.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
+         * @param value {@link #profile} (A profile on the document bundle that constrains which resources are present, and their contents.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
         public CapabilityStatementDocumentComponent setProfileElement(CanonicalType value) { 
           this.profile = value;
@@ -6489,14 +6489,14 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         }
 
         /**
-         * @return A constraint on a resource used in the document.
+         * @return A profile on the document bundle that constrains which resources are present, and their contents.
          */
         public String getProfile() { 
           return this.profile == null ? null : this.profile.getValue();
         }
 
         /**
-         * @param value A constraint on a resource used in the document.
+         * @param value A profile on the document bundle that constrains which resources are present, and their contents.
          */
         public CapabilityStatementDocumentComponent setProfile(String value) { 
             if (this.profile == null)
@@ -6509,7 +6509,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           super.listChildren(children);
           children.add(new Property("mode", "code", "Mode of this document declaration - whether an application is a producer or consumer.", 0, 1, mode));
           children.add(new Property("documentation", "string", "A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.", 0, 1, documentation));
-          children.add(new Property("profile", "canonical(StructureDefinition)", "A constraint on a resource used in the document.", 0, 1, profile));
+          children.add(new Property("profile", "canonical(StructureDefinition)", "A profile on the document bundle that constrains which resources are present, and their contents.", 0, 1, profile));
         }
 
         @Override
@@ -6517,7 +6517,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
           switch (_hash) {
           case 3357091: /*mode*/  return new Property("mode", "code", "Mode of this document declaration - whether an application is a producer or consumer.", 0, 1, mode);
           case 1587405498: /*documentation*/  return new Property("documentation", "string", "A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.", 0, 1, documentation);
-          case -309425751: /*profile*/  return new Property("profile", "canonical(StructureDefinition)", "A constraint on a resource used in the document.", 0, 1, profile);
+          case -309425751: /*profile*/  return new Property("profile", "canonical(StructureDefinition)", "A profile on the document bundle that constrains which resources are present, and their contents.", 0, 1, profile);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
