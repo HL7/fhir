@@ -1641,11 +1641,13 @@ public class VersionConvertor_30_40 {
     } else {
       list.add(tgt);
       for (org.hl7.fhir.r4.model.UriType u : src.getProfile()) {
-        list.add(tgt);
+        if (tgt.hasProfile()) {
+          tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent();
+          list.add(tgt);
+          copyElement(src, tgt);
+          tgt.setCode(src.getCode());        
+        }
         tgt.setProfile(u.getValue());
-        tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent();
-        copyElement(src, tgt);
-        tgt.setCode(src.getCode());
       }      
     }
   }

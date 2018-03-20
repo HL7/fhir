@@ -30,8 +30,10 @@ public class ConstraintJavaGenerator {
 
   public String generate(StructureDefinition sd) throws FHIRException, IOException {
     String name = sd.getName();
-    if (!Utilities.nmtokenize(name).equals(name))
-      throw new FHIRException("Cannot generate Java code for profile "+sd.getUrl()+" because the name \""+name+"\" is not a valid Java class name");
+    if (!Utilities.nmtokenize(name).equals(name)) {
+      System.out.println("Cannot generate Java code for profile "+sd.getUrl()+" because the name \""+name+"\" is not a valid Java class name");
+      return null;
+    }
     File destFile = new File(Utilities.path(folder, name+".java"));
     OutputStreamWriter dest = new OutputStreamWriter(new FileOutputStream(destFile), "UTF-8");
     
