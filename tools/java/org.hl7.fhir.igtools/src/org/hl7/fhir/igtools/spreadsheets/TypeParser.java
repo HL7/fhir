@@ -186,7 +186,6 @@ public class TypeParser {
           tc.addTargetProfile(t.getProfile());
         else  
           tc.addProfile(t.getProfile());
-        list.add(tc);
       } else if (t.getName().startsWith("=")){
         if (resource)
           list.add(new TypeRefComponent().setCode("BackboneElement"));
@@ -207,6 +206,15 @@ public class TypeParser {
           tc.addProfile(t.getProfile());
       }
     }    
+    // no duplicates
+    for (TypeRefComponent tr1 : list) {
+      for (TypeRefComponent tr2 : list) {
+        if (tr1 != tr2) {
+          if (!tr1.getCode().equals(tr2.getCode()))
+            throw new Exception("duplicate code "+tr1.getCode()+" in "+list.toString());
+        }
+      }
+    }
     return list;
   }
 
