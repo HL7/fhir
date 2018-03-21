@@ -1390,7 +1390,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     needToBuild = loadPrePages() || needToBuild;
     needToBuild = loadPages() || needToBuild;
 
-    loadIgPages(sourceIg.getDefinition().getPage(), igPages);
+    if (sourceIg.getDefinition().hasPage())
+      loadIgPages(sourceIg.getDefinition().getPage(), igPages);
 
     for (FetchedFile f: fileList) {
       for (FetchedResource r: f.getResources()) {
