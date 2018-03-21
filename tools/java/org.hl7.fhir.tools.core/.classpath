@@ -54,6 +54,6 @@
 	<classpathentry kind="lib" path="../imports/guava-23.6-jre.jar"/>
 	<classpathentry kind="lib" path="../imports/json-20171018.jar"/>
 	<classpathentry kind="lib" path="../imports/handy-uri-templates-2.1.6.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/commons-net-3.6.jar"/>
+	<classpathentry kind="lib" path="../imports/commons-net-3.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
