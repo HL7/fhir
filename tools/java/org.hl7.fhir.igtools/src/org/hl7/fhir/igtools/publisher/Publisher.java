@@ -1209,9 +1209,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (source.startsWith("http:") || source.startsWith("https:"))
       filename = fetchFromURL(source, name);
     else if (Utilities.isAbsoluteFileName(source))
-      filename = Utilities.path(source, "definitions.json.zip");
+      filename = Utilities.path(source, "validator.pack");
     else 
-      filename = Utilities.path(fetcher.pathForFile(configFile), source, "definitions.json.zip");
+      filename = Utilities.path(fetcher.pathForFile(configFile), source, "validator.pack");
     ZipInputStream zip = null;
     try {
       InputStream stream = fetcher.openAsStream(filename);
