@@ -31,22 +31,22 @@
 <!--
       <kind value="page"/>
 -->
+<!--
       <page>
         <nameUrl value="ehrsrle-auditevent.html"/>
         <title value="AuditEvent Profile"/>
-<!--
         <kind value="resource"/>
         <format value="generated"/> 
--->
       </page>
+-->
+<!--
       <page>
         <nameUrl value="ehrsrle-provenance.html"/>
         <title value="Provenance Profile"/>
-<!--
         <kind value="resource"/>
         <format value="generated"/>
--->
       </page>
+-->
       <page>
         <nameUrl value="registry.html"/>
         <title value="Registry"/>

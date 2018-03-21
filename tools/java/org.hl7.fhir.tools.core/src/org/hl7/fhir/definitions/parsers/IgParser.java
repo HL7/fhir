@@ -432,7 +432,7 @@ return null;
   private void processPage(ImplementationGuideDefinitionPageComponent page, ImplementationGuideDefn igd) throws Exception {
     if (!page.hasTitle())
       throw new Exception("Page "+page.getNameUrlType().getValue()+" has no name");
-    if (getKind(page) == GuidePageKind.PAGE || getKind(page) == GuidePageKind.DIRECTORY || getKind(page) == GuidePageKind.LIST || getKind(page) == GuidePageKind.RESOURCE) {
+    if (getKind(page) == null || getKind(page) == GuidePageKind.PAGE || getKind(page) == GuidePageKind.DIRECTORY || getKind(page) == GuidePageKind.LIST || getKind(page) == GuidePageKind.RESOURCE) {
       checkExists(igd, page.getNameUrlType().getValue());
       igd.getPageList().add(page.getNameUrlType().getValue());
     }
