@@ -1,5 +1,5 @@
 package org.hl7.fhir.definitions.model;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.StructureDefinition;
 
 // publishing details about a profile + the profile
@@ -11,7 +11,7 @@ public class ConstraintStructure {
   private ResourceDefn defn; // temporary, until we get around to building the resource 
   private ImplementationGuideDefn usage;
   private String owner; // id of the AP that owns this
-  private ImplementationGuidePackageResourceComponent resourceInfo;
+  private ImplementationGuideDefinitionResourceComponent resourceInfo;
   private WorkGroup wg;
   private String fmm;
   private boolean experimental;
@@ -88,12 +88,12 @@ public class ConstraintStructure {
     this.owner = owner;
   }
 
-  public void setResourceInfo(ImplementationGuidePackageResourceComponent resourceInfo) {
+  public void setResourceInfo(ImplementationGuideDefinitionResourceComponent resourceInfo) {
     this.resourceInfo = resourceInfo;
     
   }
 
-  public ImplementationGuidePackageResourceComponent getResourceInfo() {
+  public ImplementationGuideDefinitionResourceComponent getResourceInfo() {
     return resourceInfo;
   }
 

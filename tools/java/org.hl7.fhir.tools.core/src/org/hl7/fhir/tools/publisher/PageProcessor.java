@@ -148,9 +148,8 @@ import org.hl7.fhir.r4.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r4.model.ExpressionNode.CollectionStatus;
 import org.hl7.fhir.r4.model.Extension;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.MarkdownType;
 import org.hl7.fhir.r4.model.MetadataResource;
 import org.hl7.fhir.r4.model.NamingSystem;
@@ -1652,13 +1651,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
       if (ig.getIg() != null) {
-        for (ImplementationGuidePackageComponent pp : ig.getIg().getPackage()) {
-          for (ImplementationGuidePackageResourceComponent res : pp.getResource()) {
-            Example e = (Example) res.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
-            if (res.getExample() && e != null && e.getResourceName().equals(resource.getName()))
-              if (id.equals(e.getId()))
-                return e;
-          }
+        for (ImplementationGuideDefinitionResourceComponent res : ig.getIg().getDefinition().getResource()) {
+          Example e = (Example) res.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
+          if (res.hasExample() && e != null && e.getResourceName().equals(resource.getName()))
+            if (id.equals(e.getId()))
+              return e;
         }
       }
     }
@@ -1772,21 +1769,19 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       boolean usedPurpose = false;
       for (String type : types.split("\\,")) {
         List<String> ids = new ArrayList<String>();
-        Map<String, ImplementationGuidePackageResourceComponent> map = new HashMap<String, ImplementationGuidePackageResourceComponent>();
-        for (ImplementationGuidePackageComponent p : ig.getIg().getPackage()) {
-          for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
-            Resource ar = (Resource) r.getUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE);
-            if (ar != null && ar.getResourceType().toString().equals(type) && r.getExample() == example) {
-              String id = ar.getId();
-              ids.add(id);
-              map.put(id, r);
-            }
-            Example ex = (Example) r.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
-            if (ex != null && ex.getResourceName().equals(type) && r.getExample() == example) {
-              String id = ex.getId();
-              ids.add(id);
-              map.put(id, r);
-            }
+        Map<String, ImplementationGuideDefinitionResourceComponent> map = new HashMap<String, ImplementationGuideDefinitionResourceComponent>();
+        for (ImplementationGuideDefinitionResourceComponent r : ig.getIg().getDefinition().getResource()) {
+          Resource ar = (Resource) r.getUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE);
+          if (ar != null && ar.getResourceType().toString().equals(type) && r.hasExample() == example) {
+            String id = ar.getId();
+            ids.add(id);
+            map.put(id, r);
+          }
+          Example ex = (Example) r.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
+          if (ex != null && ex.getResourceName().equals(type) && r.hasExample() == example) {
+            String id = ex.getId();
+            ids.add(id);
+            map.put(id, r);
           }
         }
         if (ids.size() > 0) {
@@ -1797,8 +1792,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           Collections.sort(ids);
           b.append("<tr><td colspan=\"3\" style=\"background: #EFEFEF\">"+getTypePluralDesc(type)+"</td></tr>\r\n");
           for (String id : ids) {
-            ImplementationGuidePackageResourceComponent r = map.get(id);
-            b.append("<tr><td><a href=\""+Utilities.changeFileExt(r.getSourceUriType().asStringValue(), ".html")+"\">"+id+"</a></td><td>"+Utilities.escapeXml(r.getName())+"</td><td>"+Utilities.escapeXml(r.getDescription())+"</td></tr>\r\n");
+            ImplementationGuideDefinitionResourceComponent r = map.get(id);
+            b.append("<tr><td><a href=\""+Utilities.changeFileExt(r.getReference().getReference(), ".html")+"\">"+id+"</a></td><td>"+Utilities.escapeXml(r.getName())+"</td><td>"+Utilities.escapeXml(r.getDescription())+"</td></tr>\r\n");
           }
         }
       }
@@ -2035,7 +2030,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return c;
   }
 
-  private String genExampleProfileLink(Resource resource) {
+  private String genExampleProfileLink(Resource resource) throws FHIRException {
     if (resource == null || !(resource instanceof StructureDefinition))
       return "";
     StructureDefinition sd = (StructureDefinition) resource;
@@ -4298,7 +4293,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return path;
   }
 
-  private String usageSummary(ValueSet vs) {
+  private String usageSummary(ValueSet vs) throws FHIRException {
     String s = (String) vs.getUserData(ToolResourceUtilities.NAME_SPEC_USAGE);
     if (Utilities.noString(s))
       return "??";
@@ -5597,7 +5592,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           }
         } else
           throw new Exception("Purpose "+purpose+" not supported yet");
-        ImplementationGuidePageComponent p = ig.getRegistryPage(type);
+        ImplementationGuideDefinitionPageComponent p = ig.getRegistryPage(type);
         if (found && p != null) {
           if (first)
             first = false;
@@ -5605,7 +5600,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
             b.append(" | ");
           b.append("<a href=\"");
           b.append(ig.getCode());
-          b.append("/"+p.getSource()+"#"+purpose+"\">");
+          b.append("/"+p.getNameUrlType().getValue()+"#"+purpose+"\">");
           b.append(ig.getBrief());
           b.append("</a>");
         }
@@ -7107,12 +7102,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       }
       for (ImplementationGuideDefn ig : definitions.getSortedIgs()) {
         if (ig.getIg() != null) {
-          for (ImplementationGuidePackageComponent pp : ig.getIg().getPackage()) {
-            for (ImplementationGuidePackageResourceComponent res : pp.getResource()) {
-              Example e = (Example) res.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
-              if (res.getExample() && e != null && e.getResourceName().equals(resource.getName()))
-                produceExampleListEntry(s, res, pp, ig);
-            }
+          for (ImplementationGuideDefinitionResourceComponent res : ig.getIg().getDefinition().getResource()) {
+            Example e = (Example) res.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
+            if (res.hasExample() && e != null && e.getResourceName().equals(resource.getName()))
+              produceExampleListEntry(s, res, ig);
           }
         }
       }
@@ -7121,9 +7114,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
   }
 
-  private void produceExampleListEntry(StringBuilder s, ImplementationGuidePackageResourceComponent res, ImplementationGuidePackageComponent pp, ImplementationGuideDefn ig) throws Exception {
+  private void produceExampleListEntry(StringBuilder s, ImplementationGuideDefinitionResourceComponent res, ImplementationGuideDefn ig) throws Exception {
     String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
-    String n = res.getSourceUriType().getValue();
+    String n = res.getReference().getReference();
     s.append("<tr><td><a href=\""+prefix+Utilities.changeFileExt(n, ".html")+"\">"+Utilities.escapeXml(res.getDescription())+"</a></td>");
     s.append("<td>"+res.getId()+"</td>");
     s.append("<td><a href=\""+prefix+Utilities.changeFileExt(n, ".xml.html")+"\">XML</a></td>");

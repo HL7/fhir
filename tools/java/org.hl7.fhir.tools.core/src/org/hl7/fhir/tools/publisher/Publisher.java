@@ -101,6 +101,8 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
 import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.WorkGroup;
+import org.hl7.fhir.definitions.parsers.IgParser;
+import org.hl7.fhir.definitions.parsers.IgParser.GuidePageKind;
 import org.hl7.fhir.definitions.parsers.SourceParser;
 import org.hl7.fhir.definitions.validation.ConceptMapValidator;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
@@ -158,8 +160,7 @@ import org.hl7.fhir.r4.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.Enumerations.SearchParamType;
 import org.hl7.fhir.r4.model.Factory;
-import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageKind;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.Meta;
 import org.hl7.fhir.r4.model.NamingSystem;
 import org.hl7.fhir.r4.model.NamingSystem.NamingSystemIdentifierType;
@@ -2429,7 +2430,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.log(" ...ig page " + n, LogMessageType.Process);
         produceIgPage(n, ig);
       }
-      for (ImplementationGuidePageComponent page : ig.getSpecialPages()) {
+      for (ImplementationGuideDefinitionPageComponent page : ig.getSpecialPages()) {
         produceIgPage(ig, page);
       }
       for (Profile p : ig.getProfiles()) {
@@ -5123,14 +5124,14 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
 
-  private void produceIgPage(ImplementationGuideDefn ig, ImplementationGuidePageComponent p) throws Exception {
-    String actualName = Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()), p.getSource());
+  private void produceIgPage(ImplementationGuideDefn ig, ImplementationGuideDefinitionPageComponent p) throws Exception {
+    String actualName = Utilities.path(page.getFolders().rootDir, Utilities.getDirectoryForFile(ig.getSource()), p.getNameUrlType().getValue());
     String logicalName = Utilities.fileTitle(actualName);
     String src;
-    if (p.getKind() == GuidePageKind.TOC)
+    if (IgParser.getKind(p) == GuidePageKind.TOC)
       src = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "template-ig-toc.html"));
     else
-      throw new Exception("Unsupported special page kind "+p.getKind().toCode());
+      throw new Exception("Unsupported special page kind "+IgParser.getKind(p).toCode());
 
     String file = ig.getCode()+File.separator+logicalName +".html";
 

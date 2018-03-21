@@ -7,12 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.ToolResourceUtilities;
+import org.hl7.fhir.definitions.parsers.IgParser;
+import org.hl7.fhir.definitions.parsers.IgParser.GuidePageKind;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.r4.model.CodeType;
 import org.hl7.fhir.r4.model.ImplementationGuide;
-import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageKind;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
-import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
 import org.hl7.fhir.r4.model.StructureDefinition;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.utilities.Utilities;
@@ -25,6 +27,8 @@ import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 
 public class ImplementationGuideDefn {
+
+
 
   private class LinkTriple {
     private String url;
@@ -220,19 +224,19 @@ public class ImplementationGuideDefn {
 
   private List<LinkTriple> determinePath(String n, String type, String crumbTitle) throws Exception {
     List<LinkTriple> res = new ArrayList<ImplementationGuideDefn.LinkTriple>();
-    res.add(new LinkTriple(ig.getPage().getSource(), ig.getId().toUpperCase(), ig.getName()));
+    res.add(new LinkTriple(ig.getDefinition().getPage().getNameUrlType().getValue(), ig.getId().toUpperCase(), ig.getName()));
 
     if (type.equals("valueSet") && hasVSRegistry()) {
-      findPage(getVSRegistry().getSource(), res, ig.getPage().getPage());
+      findPage(getVSRegistry().getNameUrlType().getValue(), res, ig.getDefinition().getPage().getPage());
       res.add(new LinkTriple(null, crumbTitle, null));
     } else if (type.startsWith("extension:")) {
-      if (findRegistryPage("StructureDefinition", res, ig.getPage().getPage())) 
+      if (findRegistryPage("StructureDefinition", res, ig.getDefinition().getPage().getPage())) 
         res.add(new LinkTriple(null, "Extension", null));
       else
         res.add(new LinkTriple(null, "Extension Stuff", "Work in Progress yet"));
     } else if (type.startsWith("search-parameter:")) {
       String[] p = type.split("\\/");
-      if (p.length >= 2 && findPage(p[1]+".html", res, ig.getPage().getPage())) {
+      if (p.length >= 2 && findPage(p[1]+".html", res, ig.getDefinition().getPage().getPage())) {
         res.add(new LinkTriple(null, "Search Parameter", null));
       } else
         res.add(new LinkTriple(null, "Search Parameter Stuff", "Work in Progress yet"));        
@@ -244,8 +248,8 @@ public class ImplementationGuideDefn {
       else if (n.endsWith(".json.html"))
         n = n.substring(0, n.length()-10)+".html";
       
-      if (!n.equals(ig.getPage().getSource())) {
-        if (!findPage(n, res, ig.getPage().getPage()) && !findLogicalPage(n, type, res, ig.getPage().getPage())) {
+      if (!n.equals(ig.getDefinition().getPage().getNameUrlType().getValue())) {
+        if (!findPage(n, res, ig.getDefinition().getPage().getPage()) && !findLogicalPage(n, type, res, ig.getDefinition().getPage().getPage())) {
           // we didn't find it as a simple page. Figure out what 
          
           issues.add(new ValidationMessage(Source.Publisher, IssueType.PROCESSING, code+"/"+n, "The page "+n+" is not assigned a bread crumb yet", IssueSeverity.WARNING));
@@ -256,18 +260,16 @@ public class ImplementationGuideDefn {
     return res;
   }
 
-  private boolean findLogicalPage(String n, String type, List<LinkTriple> res, List<ImplementationGuidePageComponent> page) throws Exception {
+  private boolean findLogicalPage(String n, String type, List<LinkTriple> res, List<ImplementationGuideDefinitionPageComponent> page) throws Exception {
     // see if we can find it as an example of an existing profile
     String src = Utilities.fileTitle(n)+ ".html";
-    for (ImplementationGuidePackageComponent p : ig.getPackage()) {
-      for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
-        if (src.equals(r.getSourceUriType().asStringValue())) {
-          if (r.hasExampleFor()) {
-            String psrc = r.getExampleFor().substring(r.getExampleFor().lastIndexOf("/")+1)+".html";
-            if (findPage(psrc, res, page)) {
-              res.add(new LinkTriple(null, r.getName(), null));
-              return true;
-            }
+    for (ImplementationGuideDefinitionResourceComponent r : ig.getDefinition().getResource()) {
+      if (src.equals(r.getReference().getReference())) {
+        if (r.hasExampleReference()) {
+          String psrc = r.getExampleReference().getReference().substring(r.getExampleReference().getReference().lastIndexOf("/")+1)+".html";
+          if (findPage(psrc, res, page)) {
+            res.add(new LinkTriple(null, r.getName(), null));
+            return true;
           }
         }
       }
@@ -296,7 +298,7 @@ public class ImplementationGuideDefn {
     return false;
   }
 
-  private boolean findModified(String n, String suffix, String title, List<LinkTriple> res, List<ImplementationGuidePageComponent> page) {
+  private boolean findModified(String n, String suffix, String title, List<LinkTriple> res, List<ImplementationGuideDefinitionPageComponent> page) throws FHIRException {
     // now, see if we can drop -operations...
     if (n.endsWith(suffix)) {
       if (findPage(n.substring(0, n.length()-suffix.length())+".html", res, page)) {
@@ -309,14 +311,14 @@ public class ImplementationGuideDefn {
     
   }
 
-  private boolean findRegistryPage(String n, List<LinkTriple> res, List<ImplementationGuidePageComponent> list) {
-    for (ImplementationGuidePageComponent page : list) {
-      if (page.getKind() == GuidePageKind.LIST && isListFor(page, n)) {
-        res.add(new LinkTriple(page.getSource(), page.getTitle(), null));
+  private boolean findRegistryPage(String n, List<LinkTriple> res, List<ImplementationGuideDefinitionPageComponent> list) throws FHIRException {
+    for (ImplementationGuideDefinitionPageComponent page : list) {
+      if (IgParser.getKind(page) == GuidePageKind.LIST && isListFor(page, n)) {
+        res.add(new LinkTriple(page.getNameUrlType().getValue(), page.getTitle(), null));
         return true;
       }
       if (page.hasPage()) {
-        res.add(new LinkTriple(page.getSource(), page.getTitle(), null));
+        res.add(new LinkTriple(page.getNameUrlType().getValue(), page.getTitle(), null));
         if (findPage(n, res, page.getPage()))
           return true;
         else {
@@ -327,22 +329,23 @@ public class ImplementationGuideDefn {
     return false;
   }
 
-  private boolean isListFor(ImplementationGuidePageComponent page, String n) {
-    for (CodeType s : page.getType()) {
+
+  private boolean isListFor(ImplementationGuideDefinitionPageComponent page, String n) {
+    for (CodeType s : IgParser.getType(page)) {
       if (s.getValue().equals(n))
         return true;
     }
     return false;
   }
 
-  private boolean findPage(String n, List<LinkTriple> res, List<ImplementationGuidePageComponent> list) {
-    for (ImplementationGuidePageComponent page : list) {
-      if (n.equals(page.getSource())) {
-        res.add(new LinkTriple(page.getSource(), page.getTitle(), null));
+  private boolean findPage(String n, List<LinkTriple> res, List<ImplementationGuideDefinitionPageComponent> list) throws FHIRException {
+    for (ImplementationGuideDefinitionPageComponent page : list) {
+      if (n.equals(page.getNameUrlType().getValue())) {
+        res.add(new LinkTriple(page.getNameUrlType().getValue(), page.getTitle(), null));
         return true;
       }
       if (page.hasPage()) {
-        res.add(new LinkTriple(page.getSource(), page.getTitle(), null));
+        res.add(new LinkTriple(page.getNameUrlType().getValue(), page.getTitle(), null));
         if (findPage(n, res, page.getPage()))
           return true;
         else {
@@ -360,37 +363,37 @@ public class ImplementationGuideDefn {
   public boolean hasVSRegistry() {
     return getRegistryPage("ValueSet") != null;
   }
-  public ImplementationGuidePageComponent getVSRegistry() {
+  public ImplementationGuideDefinitionPageComponent getVSRegistry() {
     return getRegistryPage("ValueSet");
   }
-  public ImplementationGuidePageComponent getRegistryPage(String type) {
-    return getRegistryPage(ig.getPage().getPage(), type);
+  public ImplementationGuideDefinitionPageComponent getRegistryPage(String type) {
+    return getRegistryPage(ig.getDefinition().getPage().getPage(), type);
   }
 
-  private ImplementationGuidePageComponent getRegistryPage(List<ImplementationGuidePageComponent> pages, String type) {
-    for (ImplementationGuidePageComponent page : pages) {
-      if ((page.getKind().equals(GuidePageKind.LIST) || page.getKind().equals(GuidePageKind.DIRECTORY)) && hasType(page, type)) 
+  private ImplementationGuideDefinitionPageComponent getRegistryPage(List<ImplementationGuideDefinitionPageComponent> pages, String type) {
+    for (ImplementationGuideDefinitionPageComponent page : pages) {
+      if ((IgParser.getKind(page).equals(GuidePageKind.LIST) || IgParser.getKind(page).equals(GuidePageKind.DIRECTORY)) && hasType(page, type)) 
           return page;
-      ImplementationGuidePageComponent p = getRegistryPage(page.getPage(), type);
+      ImplementationGuideDefinitionPageComponent p = getRegistryPage(page.getPage(), type);
       if (p != null)
         return p;
     }
     return null;
   }
 
-  private boolean hasType(ImplementationGuidePageComponent page, String value) {
-    for (CodeType t : page.getType()) {
+  private boolean hasType(ImplementationGuideDefinitionPageComponent page, String value) {
+    for (CodeType t : IgParser.getType(page)) {
       if (t.getValue().equals(value))
         return true;
     }
     return false;
   }
 
-  private ImplementationGuidePageComponent getPage(String n, ImplementationGuidePageComponent node) {
-    if (n.equals(node.getSource()))
+  private ImplementationGuideDefinitionPageComponent getPage(String n, ImplementationGuideDefinitionPageComponent node) throws FHIRException {
+    if (n.equals(node.getNameUrlType().getValue()))
       return node;
-    for (ImplementationGuidePageComponent page : node.getPage()) {
-      ImplementationGuidePageComponent p = getPage(n, page);
+    for (ImplementationGuideDefinitionPageComponent page : node.getPage()) {
+      ImplementationGuideDefinitionPageComponent p = getPage(n, page);
       if (p != null)
         return p;
     }
@@ -398,10 +401,10 @@ public class ImplementationGuideDefn {
   }
 
   
-  public String getIndexPrefixForFile(String page, String logicalName) {
+  public String getIndexPrefixForFile(String page, String logicalName) throws FHIRException {
     if (page.startsWith(code+"\\") || page.startsWith(code+"/") )
       page = page.substring(code.length()+1);
-    ImplementationGuidePageComponent p = getPage(page, ig.getPage());
+    ImplementationGuideDefinitionPageComponent p = getPage(page, ig.getDefinition().getPage());
     if (p == null)
       return sectionId+".??";
     else
@@ -415,41 +418,41 @@ public class ImplementationGuideDefn {
       return code+"/";
   }
 
-  public List<ImplementationGuidePageComponent> getSpecialPages() {
-    List<ImplementationGuidePageComponent> res = new ArrayList<ImplementationGuide.ImplementationGuidePageComponent>();
+  public List<ImplementationGuideDefinitionPageComponent> getSpecialPages() {
+    List<ImplementationGuideDefinitionPageComponent> res = new ArrayList<ImplementationGuide.ImplementationGuideDefinitionPageComponent>();
     if (ig != null)
-      listSpecialPages(res, ig.getPage().getPage());
+      listSpecialPages(res, ig.getDefinition().getPage().getPage());
     return res;
   }
 
-  private void listSpecialPages(List<ImplementationGuidePageComponent> res, List<ImplementationGuidePageComponent> pages) {
-    for (ImplementationGuidePageComponent page : pages) {
-      if (page.getKind() == GuidePageKind.TOC)
+  private void listSpecialPages(List<ImplementationGuideDefinitionPageComponent> res, List<ImplementationGuideDefinitionPageComponent> pages) {
+    for (ImplementationGuideDefinitionPageComponent page : pages) {
+      if (IgParser.getKind(page) == GuidePageKind.TOC)
         res.add(page);
     }
   }
   
-  public TableModel genToc(HierarchicalTableGenerator gen) {
+  public TableModel genToc(HierarchicalTableGenerator gen) throws FHIRException {
     TableModel model = gen.new TableModel();
     
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Table Of Contents", null, null, 0));
-    addPage(gen, model.getRows(), ig.getPage());    
+    addPage(gen, model.getRows(), ig.getDefinition().getPage());    
     return model;
 
    }
 
-  private void addPage(HierarchicalTableGenerator gen, List<Row> rows, ImplementationGuidePageComponent page) {
+  private void addPage(HierarchicalTableGenerator gen, List<Row> rows, ImplementationGuideDefinitionPageComponent page) throws FHIRException {
     Row row = gen.new Row();
     rows.add(row);
-    row.setIcon(getIcon(page.getKind()), page.getKind().getDisplay());
+    row.setIcon(getIcon(IgParser.getKind(page)), IgParser.getKind(page).getDisplay());
     
     String ndx = page.getUserString(ToolResourceUtilities.NAME_PAGE_INDEX);
     if (ndx == null)
       ndx = "";
     else
       ndx = ndx + " ";
-    row.getCells().add(gen.new Cell("", page.getSource(), ndx + page.getTitle(), null, null));
-    for (ImplementationGuidePageComponent p : page.getPage()) {
+    row.getCells().add(gen.new Cell("", page.getNameUrlType().getValue(), ndx + page.getTitle(), null, null));
+    for (ImplementationGuideDefinitionPageComponent p : page.getPage()) {
       addPage(gen, row.getSubRows(), p);
     }
   }
@@ -469,13 +472,13 @@ public class ImplementationGuideDefn {
   }
   
   public void numberPages() {
-    ig.getPage().setUserData(ToolResourceUtilities.NAME_PAGE_INDEX, sectionId+".0");
-    numberPages(ig.getPage().getPage(), sectionId+".");
+    ig.getDefinition().getPage().setUserData(ToolResourceUtilities.NAME_PAGE_INDEX, sectionId+".0");
+    numberPages(ig.getDefinition().getPage().getPage(), sectionId+".");
   }
 
-  private void numberPages(List<ImplementationGuidePageComponent> list, String prefix) {
+  private void numberPages(List<ImplementationGuideDefinitionPageComponent> list, String prefix) {
     for (int i = 0; i < list.size(); i++) {
-      ImplementationGuidePageComponent page = list.get(i);
+      ImplementationGuideDefinitionPageComponent page = list.get(i);
       page.setUserData(ToolResourceUtilities.NAME_PAGE_INDEX, prefix+Integer.toString(i+1)+(page.hasPage() ? ".0" : ""));
       numberPages(page.getPage(), prefix+Integer.toString(i+1)+".");
     }
@@ -485,8 +488,8 @@ public class ImplementationGuideDefn {
     return brief;
   }
 
-  public String getHomePage() {
-    return ig == null ? null : code+"/"+ig.getPage().getSource();
+  public String getHomePage() throws FHIRException {
+    return ig == null ? null : code+"/"+ig.getDefinition().getPage().getNameUrlType().getValue();
   }
 
   public Example getExample(String rn, String id) {

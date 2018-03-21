@@ -210,8 +210,8 @@ public class TypeParser {
     for (TypeRefComponent tr1 : list) {
       for (TypeRefComponent tr2 : list) {
         if (tr1 != tr2) {
-          if (!tr1.getCode().equals(tr2.getCode()))
-            throw new Exception("duplicate code "+tr1.getCode()+" in "+list.toString());
+          if (tr1.getCode().equals(tr2.getCode()))
+            throw new Exception("duplicate code "+tr1.getCode());
         }
       }
     }
