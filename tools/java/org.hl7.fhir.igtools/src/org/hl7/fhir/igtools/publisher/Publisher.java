@@ -124,6 +124,7 @@ import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.ITypeParser;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceWithReference;
 import org.hl7.fhir.r4.utils.StructureMapUtilities;
@@ -140,6 +141,7 @@ import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
 import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
 import org.hl7.fhir.igtools.publisher.Publisher.LinkTargetType;
+import org.hl7.fhir.igtools.publisher.Publisher.TypeParserR3;
 import org.hl7.fhir.igtools.renderers.BaseRenderer;
 import org.hl7.fhir.igtools.renderers.CodeSystemRenderer;
 import org.hl7.fhir.igtools.renderers.JsonXhtmlRenderer;
@@ -149,6 +151,7 @@ import org.hl7.fhir.igtools.renderers.SwaggerGenerator;
 import org.hl7.fhir.igtools.renderers.ValidationPresenter;
 import org.hl7.fhir.igtools.renderers.ValueSetRenderer;
 import org.hl7.fhir.igtools.renderers.XmlXHtmlRenderer;
+import org.hl7.fhir.igtools.spreadsheets.CodeSystemConvertor;
 import org.hl7.fhir.igtools.spreadsheets.IgSpreadsheetParser;
 import org.hl7.fhir.igtools.ui.GraphicalPublisher;
 import org.hl7.fhir.instance.model.api.IBaseResource;
@@ -213,6 +216,35 @@ import com.google.gson.JsonPrimitive;
  */
 
 public class Publisher implements IWorkerContext.ILoggingService, IReferenceResolver {
+
+  public class TypeParserR3 implements ITypeParser {
+
+    @Override
+    public Base parseType(String xml, String type) throws IOException, FHIRException {
+      org.hl7.fhir.dstu3.model.Type t = new org.hl7.fhir.dstu3.formats.XmlParser().parseType(xml, type); 
+      return VersionConvertor_30_40.convertType(t);
+    }
+  }
+
+  public class TypeParserR14 implements ITypeParser {
+
+    @Override
+    public Base parseType(String xml, String type) throws IOException, FHIRException {
+      org.hl7.fhir.dstu2016may.model.Type t = new org.hl7.fhir.dstu2016may.formats.XmlParser().parseType(xml, type); 
+      return VersionConvertor_14_40.convertType(t);
+    }
+  }
+
+
+  public class TypeParserR2 implements ITypeParser {
+
+    @Override
+    public Base parseType(String xml, String type) throws IOException, FHIRException {
+      org.hl7.fhir.dstu2.model.Type t = new org.hl7.fhir.dstu2.formats.XmlParser().parseType(xml, type); 
+      return new VersionConvertor_10_40(null).convertType(t);
+    }
+  }
+
 
   public enum IGBuildMode { MANUAL, AUTOBUILD, WEBSERVER }
 
@@ -438,7 +470,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   }
 
-  private void generateNarratives() throws IOException, EOperationOutcome, FHIRException {
+  private void generateNarratives() throws Exception {
     dlog(LogCategory.PROGRESS, "gen narratives");
     gen = new NarrativeGenerator("", "", context, this);
     gen.setCorePath(checkAppendSlash(specPath));
@@ -458,12 +490,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             r.setElement(convertToElement(r.getResource()));
         } else {
           if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(r.getElement().getProperty().getStructure().getBaseDefinition()) && !hasNarrative(r.getElement())) {
-            gen.generate(r.getElement(), true);
+            gen.generate(r.getElement(), true, getTypeLoader(f,r));
           } else if (r.getElement().fhirType().equals("Bundle")) {
             for (Element e : r.getElement().getChildrenByName("entry")) {
               Element res = e.getNamedChild("resource");
               if (res!=null && "http://hl7.org/fhir/StructureDefinition/DomainResource".equals(res.getProperty().getStructure().getBaseDefinition()) && !hasNarrative(res)) {
-                gen.generate(gen.new ResourceContext(r.getElement(), res), res, true);
+                gen.generate(gen.new ResourceContext(r.getElement(), res), res, true, getTypeLoader(f,r));
               }
             }
           }
@@ -471,6 +503,23 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
   }
+
+  private ITypeParser getTypeLoader(FetchedFile f, FetchedResource r) throws Exception {
+    String ver = r.getConfig() == null ? null : ostr(r.getConfig(), "version");
+    if (ver == null)
+      ver = version; // fall back to global version
+    if (ver.equals("3.0.1") || ver.equals("3.0.0")) {
+      return new TypeParserR3();
+    } else if (ver.equals("1.4.0")) {
+      return new TypeParserR14();
+    } else if (ver.equals("1.0.2")) {
+      return new TypeParserR2();
+    } else if (ver.equals(Constants.VERSION)) {
+      return null;
+    } else
+      throw new FHIRException("Unsupported version "+ver);
+  }
+
 
   private void log(LogCategory progress, String message) {
     log(message);

@@ -53,6 +53,7 @@ import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.context.IWorkerContext.ValidationResult;
 import org.hl7.fhir.r4.formats.FormatUtilities;
 import org.hl7.fhir.r4.formats.IParser.OutputStyle;
+import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Address;
 import org.hl7.fhir.r4.model.Annotation;
 import org.hl7.fhir.r4.model.Attachment;
@@ -152,6 +153,7 @@ import org.hl7.fhir.r4.model.ValueSet.ValueSetExpansionParameterComponent;
 import org.hl7.fhir.r4.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ConceptMapRenderInstructions;
+import org.hl7.fhir.r4.utils.NarrativeGenerator.ITypeParser;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ResourceContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.UsedConceptMap;
 import org.hl7.fhir.exceptions.DefinitionException;
@@ -161,7 +163,6 @@ import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.MarkDownProcessor;
 import org.hl7.fhir.utilities.MarkDownProcessor.Dialect;
-import org.hl7.fhir.utilities.TranslationServices;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
@@ -171,10 +172,11 @@ import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XmlGenerator;
 import org.w3c.dom.Element;
 
-import com.github.rjeschke.txtmark.Processor;
-import com.sun.webkit.BackForwardList;
-
 public class NarrativeGenerator implements INarrativeGenerator {
+
+  public interface ITypeParser {
+    Base parseType(String xml, String type) throws FHIRFormatError, IOException, FHIRException ;
+  }
 
   public class ConceptMapRenderInstructions {
     private String name;
@@ -272,6 +274,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String destDir;
   private ProfileKnowledgeProvider pkp;
   private MarkDownProcessor markdown = new MarkDownProcessor(Dialect.COMMON_MARK);
+  private ITypeParser parser; // when generating for an element model
   
   public boolean generate(Bundle b, boolean evenIfAlreadyHasNarrative, Set<String> outputTracker) throws EOperationOutcome, FHIRException, IOException {
     boolean res = false;
@@ -384,7 +387,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 		} catch (org.hl7.fhir.exceptions.FHIRException e) {
 			throw new FHIRException(e.getMessage(), e);
 		}
-      return context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).parseType(xml, type);
+      return parseType(xml, type);
     }
 
     @Override
@@ -534,7 +537,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       } catch (Exception e) {
         throw new FHIRException(e.getMessage(), e);
       }
-      return context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).parseType(xml.toString(), type);
+      return parseType(xml.toString(), type); 
     }
 
     @Override
@@ -951,6 +954,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
     init();
   }
 
+  public Base parseType(String xml, String type) throws IOException, FHIRException {
+    if (parser != null)
+      return parser.parseType(xml, type);
+    else
+      return new XmlParser().parseType(xml, type);
+  }
+
   public NarrativeGenerator(String prefix, String basePath, IWorkerContext context, IReferenceResolver resolver) {
     super();
     this.prefix = prefix;
@@ -1013,13 +1023,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   // dom based version, for build program
-  public String generate(org.hl7.fhir.r4.elementmodel.Element er, boolean showCodeDetails) throws IOException, FHIRException {
-    return generate(null, er, showCodeDetails);
+  public String generate(org.hl7.fhir.r4.elementmodel.Element er, boolean showCodeDetails, ITypeParser parser) throws IOException, FHIRException {
+    return generate(null, er, showCodeDetails, parser);
   }
   
-  public String generate(ResourceContext rcontext, org.hl7.fhir.r4.elementmodel.Element er, boolean showCodeDetails) throws IOException, FHIRException {
+  public String generate(ResourceContext rcontext, org.hl7.fhir.r4.elementmodel.Element er, boolean showCodeDetails, ITypeParser parser) throws IOException, FHIRException {
     if (rcontext == null)
       rcontext = new ResourceContext(null, er);
+    this.parser = parser;
     
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.para().b().tx("Generated Narrative"+(showCodeDetails ? " with Details" : ""));
