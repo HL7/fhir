@@ -860,7 +860,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (copyTemplate)
       copyTemplate();
     
-    loadSpecDetails(context.getBinaries().get("spec.internals"));
+    loadSpecDetails(context.getBinaries().get("spec.internals"), context.getBinaries().get("version.info"));
     igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
     igpkp.loadSpecPaths(specMaps.get(0));
     fetcher.setPkp(igpkp);
@@ -1135,12 +1135,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       source = location;
     log("Load "+name+" ("+location+") from "+source);
     Map<String, byte[]> files = fetchDefinitions(source, name);
-    SpecMapManager igm = new SpecMapManager(files.get("spec.internals"));
+    SpecMapManager igm = new SpecMapManager(files.get("spec.internals"), files.get("version.info"));
     igm.setName(name);
     igm.setBase(location);
     specMaps.add(igm);
-    if (!Constants.VERSION.equals(igm.getVersion())) {
-      log("Version mismatch. This IG is version "+Constants.VERSION+", while the IG '"+name+"' is from version "+igm.getVersion()+". Will try to run anyway)");
+    if (!version.equals(igm.getVersion())) {
+      log("Version mismatch. This IG is version "+version+", while the IG '"+name+"' is from version "+igm.getVersion()+". Will try to run anyway)");
       deleteFromCache(source, name);
     }
 
@@ -1148,8 +1148,20 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       if (fn.endsWith(".json")) {
         Resource r;
         try {
-          org.hl7.fhir.r4.formats.JsonParser jp = new org.hl7.fhir.r4.formats.JsonParser();
-          r = jp.parse(new ByteArrayInputStream(files.get(fn)));
+          if (igm.getVersion().equals("3.0.1") || igm.getVersion().equals("3.0.0")) {
+            org.hl7.fhir.dstu3.model.Resource res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(new ByteArrayInputStream(files.get(fn)));
+            r = VersionConvertor_30_40.convertResource(res);
+          } else if (igm.getVersion().equals("1.4.0")) {
+            org.hl7.fhir.dstu2016may.model.Resource res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(new ByteArrayInputStream(files.get(fn)));
+            r = VersionConvertor_14_40.convertResource(res);
+          } else if (igm.getVersion().equals("1.0.2")) {
+            org.hl7.fhir.dstu2.model.Resource res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(new ByteArrayInputStream(files.get(fn)));
+            VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
+            r = new VersionConvertor_10_40(advisor ).convertResource(res);
+          } else if (igm.getVersion().equals(Constants.VERSION)) {
+            r = new JsonParser().parse(new ByteArrayInputStream(files.get(fn)));
+          } else
+            throw new Exception("Unsupported version "+igm.getVersion());
         } catch (Exception e) {
           throw new Exception("Unable to parse "+fn+" from IG "+name, e);
         }
@@ -1214,27 +1226,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     else 
       filename = Utilities.path(fetcher.pathForFile(configFile), source, "validator.pack");
     ZipInputStream zip = null;
-    try {
-      InputStream stream = fetcher.openAsStream(filename);
-      zip = new ZipInputStream(stream);
-    } catch (Exception e) {
-      if (source.startsWith("http:") || source.startsWith("https:"))
-        throw e;
-      else {
-        if (Utilities.isAbsoluteFileName(source))
-          filename = Utilities.path(source, "definitions.xml.zip");
-        else
-          filename = Utilities.path(Utilities.getDirectoryForFile(configFile), source, "definitions.xml.zip");
-        try {
-          zip = new ZipInputStream(new FileInputStream(filename));
-        } catch (Exception e2) {
-          if (Utilities.isAbsoluteFileName(source))
-            filename = Utilities.path(source, "definitions.json.zip");
-          else
-            filename = Utilities.path(Utilities.getDirectoryForFile(configFile), source, "definitions.json.zip");          
-        }
-      }
-    }
+    InputStream stream = fetcher.openAsStream(filename);
+    zip = new ZipInputStream(stream);
     ZipEntry ze;
     while ((ze = zip.getNextEntry()) != null) {
       int size;
@@ -1261,8 +1254,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (new File(filename).exists())
       return filename;
 
-    if (!source.endsWith("definitions.json.zip") && !source.endsWith("definitions.xml.zip"))
-      source = Utilities.pathURL(source, "definitions.json.zip");
+    if (!source.endsWith("validator.pack"))
+      source = Utilities.pathURL(source, "validator.pack");
     try {
       URL url = new URL(source);
       URLConnection c = url.openConnection();
@@ -1337,8 +1330,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return false;
   }
 
-  public void loadSpecDetails(byte[] bs) throws IOException {
-    SpecMapManager map = new SpecMapManager(bs);
+  public void loadSpecDetails(byte[] bs, byte[] vi) throws IOException {
+    SpecMapManager map = new SpecMapManager(bs, vi);
     map.setBase(specPath);
     specMaps.add(map);
   }
@@ -2434,7 +2427,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateZips() throws Exception {
-    SpecMapManager map = new SpecMapManager(Constants.VERSION, Constants.REVISION, execTime, igpkp.getCanonical());
+    SpecMapManager map = new SpecMapManager(version, Constants.VERSION, Constants.REVISION, execTime, igpkp.getCanonical());
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         String u = igpkp.getCanonical()+r.getUrlTail();
@@ -2591,13 +2584,23 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     String shex = makeTempZip(".shex");
 
     ZipGenerator zip = new ZipGenerator(Utilities.path(outputDir, "validator.pack"));
-    zip.addBytes("version.info", context.getBinaries().get("version.info"), false);
+    zip.addBytes("version.info", makeNewVersionInfo(context.getBinaries().get("version.info")), false);
     zip.addFileName("spec.internals", specFile, false);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
           ByteArrayOutputStream bs = new ByteArrayOutputStream();
-          new JsonParser().compose(bs, r.getResource());
+          if (version.equals("3.0.1") || version.equals("3.0.0")) {
+            new org.hl7.fhir.dstu3.formats.JsonParser().compose(bs, VersionConvertor_30_40.convertResource(r.getResource()));
+          } else if (version.equals("1.4.0")) {
+            new org.hl7.fhir.dstu2016may.formats.JsonParser().compose(bs, VersionConvertor_14_40.convertResource(r.getResource()));
+          } else if (version.equals("1.0.2")) {
+            VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
+            new org.hl7.fhir.dstu2.formats.JsonParser().compose(bs, new VersionConvertor_10_40(advisor ).convertResource(r.getResource()));
+          } else if (version.equals(Constants.VERSION)) {
+            new JsonParser().compose(bs, r.getResource());
+          } else
+            throw new Exception("Unsupported version "+version);
           zip.addBytes(r.getElement().fhirType()+"-"+r.getId()+".json", bs.toByteArray(), false);
         }
       }
@@ -2610,6 +2613,18 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       zip.addFileName("shex.zip", sch, false);
     zip.close();
   }
+
+  private byte[] makeNewVersionInfo(byte[] bs) throws IOException {
+    String is = TextFile.bytesToString(bs);
+    is = is.trim();
+    IniFile ini = new IniFile(new ByteArrayInputStream(TextFile.stringToBytes(is, false)));
+    ini.setStringProperty("IG", "version", version, null);
+    ini.setStringProperty("IG", "date",  new SimpleDateFormat("yyyyMMddhhmmssZ").format(execTime.getTime()), null);
+    ByteArrayOutputStream b = new ByteArrayOutputStream();
+    ini.save(b);
+    return b.toByteArray();
+  }
+
 
   private String makeTempZip(String ext) throws IOException {
     File tmp = File.createTempFile("fhir", "zip");

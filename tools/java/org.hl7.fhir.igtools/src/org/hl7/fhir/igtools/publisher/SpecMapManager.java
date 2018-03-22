@@ -1,5 +1,6 @@
 package org.hl7.fhir.igtools.publisher;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -7,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -29,13 +31,16 @@ public class SpecMapManager {
   private String name;
   private Set<String> targetSet = new HashSet<String>();
   private Set<String> imageSet = new HashSet<String>();
+  private IniFile ini;
 
-  public SpecMapManager(String version, String svnRevision, Calendar genDate, String webUrl) {
+  public SpecMapManager(String igVersion, String toolVersion, String toolRevision, Calendar genDate, String webUrl) {
     spec = new JsonObject();
-    spec.addProperty("version", version);
-    spec.addProperty("build", svnRevision);
+    spec.addProperty("ig-version", igVersion);
+    spec.addProperty("tool-version", toolVersion);
+    spec.addProperty("tool-build", toolRevision);
     spec.addProperty("webUrl", webUrl);
     spec.addProperty("date", new SimpleDateFormat("yyyy-MM-dd").format(genDate.getTime()));
+    spec.addProperty("date-time", new SimpleDateFormat("yyyyMMddhhmmssZ").format(genDate.getTime()));
     paths = new JsonObject();
     spec.add("paths", paths);
     pages = new JsonObject();
@@ -46,7 +51,7 @@ public class SpecMapManager {
     spec.add("images", images);
   }
 
-  public SpecMapManager(byte[] bytes) throws JsonSyntaxException, IOException {
+  public SpecMapManager(byte[] bytes, byte[] versionInfo) throws JsonSyntaxException, IOException {
     spec = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.bytesToString(bytes));
     paths = spec.getAsJsonObject("paths");
     pages = spec.getAsJsonObject("pages");
@@ -60,6 +65,9 @@ public class SpecMapManager {
       for (JsonElement e : images) {
         imageSet.add(((JsonPrimitive) e).getAsString());
     }
+    String is = TextFile.bytesToString(versionInfo);
+    is = is.trim();
+    ini = new IniFile(new ByteArrayInputStream(TextFile.stringToBytes(is, false)));
   }
 
   public void path(String url, String path) {
@@ -73,7 +81,10 @@ public class SpecMapManager {
   }
 
   public String getVersion() throws FHIRException {
-    return str(spec, "version");
+    if (spec.has("tool-version")) 
+      return str(spec, "ig-version");
+    else
+      return ini.getStringProperty("FHIR", "version");
   }
 
   public String getBuild() throws FHIRException {

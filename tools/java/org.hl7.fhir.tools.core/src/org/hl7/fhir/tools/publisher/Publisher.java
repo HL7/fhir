@@ -2954,7 +2954,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceSpecMap() throws IOException {
-    SpecMapManager spm = new SpecMapManager(page.getVersion(), page.getSvnRevision(), page.getGenDate(), CANONICAL_BASE);
+    SpecMapManager spm = new SpecMapManager(page.getVersion(), page.getVersion(), page.getSvnRevision(), page.getGenDate(), CANONICAL_BASE);
         
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
       if (sd.hasUserData("path")) {
