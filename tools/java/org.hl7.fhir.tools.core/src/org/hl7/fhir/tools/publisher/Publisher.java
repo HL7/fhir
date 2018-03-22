@@ -149,6 +149,7 @@ import org.hl7.fhir.r4.model.ConceptMap;
 import org.hl7.fhir.r4.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.r4.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.r4.model.ConceptMap.TargetElementComponent;
+import org.hl7.fhir.r4.model.Constants;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ContactPoint;
 import org.hl7.fhir.r4.model.ContactPoint.ContactPointSystem;
@@ -227,6 +228,7 @@ import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CloseProtectedZipInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.IniFile;
+import org.hl7.fhir.utilities.PackageGenerator;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -2691,6 +2693,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
       produceComparisons();
+      generateNPMPackage();
       produceSpecMap();
 
       page.log("....version maps", LogMessageType.Process);
@@ -2953,8 +2956,21 @@ public class Publisher implements URIResolver, SectionNumberer {
     }    
   }
 
+  private void generateNPMPackage() throws Exception {
+    PackageGenerator npm = new PackageGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "package.json")));
+    
+    npm.name("fhir");
+    npm.version(Constants.VERSION);
+    npm.description("Base FHIR specification Package");
+    npm.license("CC0-1.0");
+    npm.author("HL7, Inc", null, "http://hl7.org");
+    npm.file("igpack.zip");
+    npm.commit();
+  }
+
+
   private void produceSpecMap() throws IOException {
-    SpecMapManager spm = new SpecMapManager(page.getVersion(), page.getVersion(), page.getSvnRevision(), page.getGenDate(), CANONICAL_BASE);
+    SpecMapManager spm = new SpecMapManager("fhir", page.getVersion(), page.getVersion(), page.getSvnRevision(), page.getGenDate(), CANONICAL_BASE);
         
     for (StructureDefinition sd : page.getWorkerContext().allStructures()) {
       if (sd.hasUserData("path")) {

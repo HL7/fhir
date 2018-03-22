@@ -2426,7 +2426,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateZips() throws Exception {
-    SpecMapManager map = new SpecMapManager(version, Constants.VERSION, Constants.REVISION, execTime, igpkp.getCanonical());
+    SpecMapManager map = new SpecMapManager(configuration.has("npm-name") ? configuration.get("npm-name").getAsString(): null, version, Constants.VERSION, Constants.REVISION, execTime, igpkp.getCanonical());
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         String u = igpkp.getCanonical()+r.getUrlTail();
@@ -2846,15 +2846,27 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       npm = new PackageGenerator(new FileOutputStream(Utilities.path(tempDir, "package.json")));
     
     npm.name(configuration.get("npm-name").getAsString());
-    npm.version(publishedIg.getVersion());
-    npm.description(publishedIg.getTitle()+": "+publishedIg.getDescription());
+    if (Utilities.noString(publishedIg.getVersion()))
+      npm.version(version);
+    else
+      npm.version(publishedIg.getVersion());
+    StringBuilder b = new StringBuilder();
+    if (publishedIg.hasTitle())
+      b.append(publishedIg.getTitle());
+    else
+      b.append(publishedIg.getName());
+    if (publishedIg.hasDescription())
+      b.append(": "+publishedIg.getDescription());
+    npm.description(b.toString());
     npm.license(license);
     npm.author(publishedIg.getPublisher(), null, null);
     for (ContactDetail t : publishedIg.getContact()) {
       npm.contributor(t.getName(), email(t.getTelecom()), url(t.getTelecom()));
     }
     npm.file("validation.pack");
-    npm.dependency("fhir", version);
+    for (SpecMapManager m : specMaps) {
+      npm.dependency("@fhir/"+m.getNpmName(), m.getVersion());
+    }
     npm.commit();
     otherFilesRun.add(Utilities.path(tempDir, "package.json"));
   }

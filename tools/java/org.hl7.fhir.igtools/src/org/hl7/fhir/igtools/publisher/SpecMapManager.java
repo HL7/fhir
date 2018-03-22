@@ -33,8 +33,10 @@ public class SpecMapManager {
   private Set<String> imageSet = new HashSet<String>();
   private IniFile ini;
 
-  public SpecMapManager(String igVersion, String toolVersion, String toolRevision, Calendar genDate, String webUrl) {
+  public SpecMapManager(String npmName, String igVersion, String toolVersion, String toolRevision, Calendar genDate, String webUrl) {
     spec = new JsonObject();
+    if (npmName != null)
+      spec.addProperty("npm-name", npmName);
     spec.addProperty("ig-version", igVersion);
     spec.addProperty("tool-version", toolVersion);
     spec.addProperty("tool-build", toolRevision);
@@ -87,8 +89,15 @@ public class SpecMapManager {
       return ini.getStringProperty("FHIR", "version");
   }
 
+  public String getNpmName() throws FHIRException {
+    return strOpt(spec, "npm-name", "fhir");
+  }
+  
   public String getBuild() throws FHIRException {
-    return str(spec, "build");
+    if (spec.has("tool-build")) 
+      return str(spec, "tool-build");
+    else
+      return str(spec, "build");
   }
 
   /**
@@ -124,6 +133,17 @@ public class SpecMapManager {
   private String strOpt(JsonObject obj, String name) throws FHIRException {
     if (!obj.has(name))
       return null;
+    if (!(obj.get(name) instanceof JsonPrimitive))
+      throw new FHIRException("Property "+name+" not a primitive");
+    JsonPrimitive p = (JsonPrimitive) obj.get(name);
+    if (!p.isString())
+      throw new FHIRException("Property "+name+" not a string");
+    return p.getAsString();
+  }
+
+  private String strOpt(JsonObject obj, String name, String def) throws FHIRException {
+    if (!obj.has(name))
+      return def;
     if (!(obj.get(name) instanceof JsonPrimitive))
       throw new FHIRException("Property "+name+" not a primitive");
     JsonPrimitive p = (JsonPrimitive) obj.get(name);
