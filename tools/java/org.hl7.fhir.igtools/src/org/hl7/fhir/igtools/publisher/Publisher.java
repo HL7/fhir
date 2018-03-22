@@ -62,6 +62,7 @@ import org.hl7.fhir.convertors.VersionConvertor_10_40;
 import org.hl7.fhir.convertors.VersionConvertor_14_30;
 import org.hl7.fhir.convertors.VersionConvertor_14_40;
 import org.hl7.fhir.convertors.VersionConvertor_30_40;
+import org.hl7.fhir.dstu2016may.utils.ToolingExtensions;
 import org.hl7.fhir.r4.conformance.ConstraintJavaGenerator;
 import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.context.IWorkerContext;
@@ -1224,7 +1225,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           filename = Utilities.path(source, "definitions.xml.zip");
         else
           filename = Utilities.path(Utilities.getDirectoryForFile(configFile), source, "definitions.xml.zip");
-        zip = new ZipInputStream(new FileInputStream(filename));        
+        try {
+          zip = new ZipInputStream(new FileInputStream(filename));
+        } catch (Exception e2) {
+          if (Utilities.isAbsoluteFileName(source))
+            filename = Utilities.path(source, "definitions.json.zip");
+          else
+            filename = Utilities.path(Utilities.getDirectoryForFile(configFile), source, "definitions.json.zip");          
+        }
       }
     }
     ZipEntry ze;
@@ -2866,7 +2874,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void applyPageTemplate(String template, ImplementationGuideDefinitionPageComponent page) throws Exception {
     String p = page.getNameUrlType().getValue();
-    if (!relativeNames.keySet().contains(p) && p.endsWith(".html")) {
+    if (!(page.hasExtension(ToolingExtensions.EXT_GENERATED_PAGE) && page.getExtensionString(ToolingExtensions.EXT_GENERATED_PAGE).equals("true"))
+    && !relativeNames.keySet().contains(p) && p.endsWith(".html")) {
       String sourceName = p.substring(0, p.indexOf(".html")) + ".xml";
       String sourcePath = Utilities.path("_includes", sourceName);
       if (!relativeNames.keySet().contains(sourcePath) && !sourceName.equals("toc.xml"))

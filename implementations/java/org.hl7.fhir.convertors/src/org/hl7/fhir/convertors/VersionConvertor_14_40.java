@@ -36,6 +36,7 @@ import java.util.List;
 
 import org.hl7.fhir.dstu2016may.model.BooleanType;
 import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionPropertyComponent;
+import org.hl7.fhir.dstu2016may.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu2016may.model.Reference;
 import org.hl7.fhir.dstu2016may.model.CodeableConcept;
@@ -74,7 +75,8 @@ public class VersionConvertor_14_40 {
     if (src.hasId())
       tgt.setId(src.getId());
     for (org.hl7.fhir.r4.model.Extension  e : src.getExtension()) {
-      tgt.addExtension(convertExtension(e));
+      if (!e.getUrl().equals(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE))
+        tgt.addExtension(convertExtension(e));
     }
   }
 
@@ -334,6 +336,14 @@ public class VersionConvertor_14_40 {
 
   public static org.hl7.fhir.r4.model.UriType convertUri(org.hl7.fhir.dstu2016may.model.UriType src) throws FHIRException {
     org.hl7.fhir.r4.model.UriType tgt = new org.hl7.fhir.r4.model.UriType();
+    if (src.hasValue())
+      tgt.setValue(src.getValue());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
+  public static org.hl7.fhir.r4.model.UrlType convertUriToUrl(org.hl7.fhir.dstu2016may.model.UriType src) throws FHIRException {
+    org.hl7.fhir.r4.model.UrlType tgt = new org.hl7.fhir.r4.model.UrlType();
     if (src.hasValue())
       tgt.setValue(src.getValue());
     copyElement(src, tgt);
@@ -4271,7 +4281,7 @@ public class VersionConvertor_14_40 {
     org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent tgt = new org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent();
     copyElement(src, tgt);
     if (src.hasExampleFor())
-      tgt.setExample(convertReferenceToCanonical(src.getExampleFor()));
+      tgt.setExample(convertType(src.getExampleFor()));
     else if (src.hasExample())
       tgt.setExample(new org.hl7.fhir.r4.model.BooleanType(src.getExample()));
     if (src.hasName())
@@ -4330,8 +4340,10 @@ public class VersionConvertor_14_40 {
     org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent tgt = new org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent();
     copyElement(src, tgt);
     if (src.hasSource())
-      tgt.setName(convertUri(src.getSourceElement()));
+      tgt.setName(convertUriToUrl(src.getSourceElement()));
     tgt.setTitle(src.getName());
+    if (!src.getKind().equals(org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind.PAGE))
+      tgt.addExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE, new org.hl7.fhir.r4.model.BooleanType(true));
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;
@@ -4345,6 +4357,14 @@ public class VersionConvertor_14_40 {
     if (src.hasNameUrlType())
       tgt.setSource(src.getNameUrlType().getValue());
     tgt.setName(src.getTitle());
+    if (src.hasExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE) 
+    && src.getExtensionString(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE).equals("true"))
+      tgt.setKind(org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind.PAGE);
+    else {
+      // todo: need to define a standard extension so we can retain this information and propagate it properly
+      tgt.setKind(org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind.RESOURCE);      
+    }
+      
     for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;

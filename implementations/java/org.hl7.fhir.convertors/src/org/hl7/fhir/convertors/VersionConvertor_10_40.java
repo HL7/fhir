@@ -91,7 +91,8 @@ public class VersionConvertor_10_40 {
   public void copyElement(org.hl7.fhir.r4.model.Element src, org.hl7.fhir.dstu2.model.Element tgt) throws FHIRException {
     tgt.setId(src.getId());
     for (org.hl7.fhir.r4.model.Extension  e : src.getExtension()) {
-      tgt.addExtension(convertExtension(e));
+      if (!e.getUrl().equals(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE))
+        tgt.addExtension(convertExtension(e));
     }
   }
 
@@ -7319,6 +7320,8 @@ public class VersionConvertor_10_40 {
     if (src.hasSource())
       tgt.setName(convertUri(src.getSourceElement()));
     tgt.setTitle(src.getName());
+    if (!src.getKind().equals(org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind.PAGE))
+      tgt.addExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE, new org.hl7.fhir.r4.model.BooleanType(true));
     for (org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;
@@ -7332,6 +7335,9 @@ public class VersionConvertor_10_40 {
     if (src.hasNameUrlType())
       tgt.setSource(src.getNameUrlType().getValue());
     tgt.setName(src.getTitle());
+    if (src.hasExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE) 
+    && src.getExtensionString(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE).equals("true"))
+      tgt.setKind(org.hl7.fhir.dstu2.model.ImplementationGuide.GuidePageKind.PAGE);
     for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;
