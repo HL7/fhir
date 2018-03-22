@@ -29,7 +29,7 @@ public class ConstraintJavaGenerator {
   }
 
   public String generate(StructureDefinition sd) throws FHIRException, IOException {
-    String name = sd.getName();
+    String name = Utilities.titleize(sd.getName().replace(".", "").replace("-", "").replace("\"", "")).replace(" ", "");
     if (!Utilities.nmtokenize(name).equals(name)) {
       System.out.println("Cannot generate Java code for profile "+sd.getUrl()+" because the name \""+name+"\" is not a valid Java class name");
       return null;

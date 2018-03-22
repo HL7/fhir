@@ -1140,7 +1140,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igm.setBase(location);
     specMaps.add(igm);
     if (!version.equals(igm.getVersion())) {
-      log("Version mismatch. This IG is version "+version+", while the IG '"+name+"' is from version "+igm.getVersion()+". Will try to run anyway)");
+      log("Version mismatch. This IG is version "+version+", while the IG '"+name+"' is from version "+igm.getVersion()+" (will try to run anyway)");
       deleteFromCache(source, name);
     }
 
@@ -1211,7 +1211,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       File f = new File(filename);
       if (f.exists())
         f.delete();
-
     }
   }
 

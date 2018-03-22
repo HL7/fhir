@@ -1147,6 +1147,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     boolean unbounded = elem.hasBase() && elem.getBase().hasMax() ? elem.getBase().getMax().equals("*") : "*".equals(elem.getMax());
     String defPage = igp.getLinkForProfile(sd, sd.getUrl());
     // 1. name
+    if (defPage.contains("|"))
+      defPage = defPage.substring(0, defPage.indexOf("|"));
     b.append("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
         + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
     
@@ -1169,12 +1171,12 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       if (elem.hasFixed()) 
         b.append(Utilities.escapeJson(((PrimitiveType) elem.getFixed()).asStringValue()));
       else
-        b.append("&lt;<span style=\"color: darkgreen\"><a href=\"" + prefix+(getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>&gt;");
+        b.append("&lt;<span style=\"color: darkgreen\"><a href=\"" +suffix(getSrcFile(type.getCode()), type.getCode()) + "\">" + type.getCode()+ "</a></span>&gt;");
       if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
         b.append("\"");
     } else {
       b.append("{");
-      b.append("<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(type.getCode())+ ".html#" + type.getCode()) + "\">" + type.getCode()+ "</a></span>");
+      b.append("<span style=\"color: darkgreen\"><a href=\"" +suffix(getSrcFile(type.getCode()), type.getCode()) + "\">" + type.getCode()+ "</a></span>");
       if (type.hasProfile()) {
         StructureDefinition tsd = context.fetchResource(StructureDefinition.class, type.getProfile().get(0).getValue());
         if (tsd != null)
@@ -1186,7 +1188,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         if (type.getTargetProfile().get(0).getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
           String t = type.getTargetProfile().get(0).getValue().substring(40);
           if (hasType(t))
-            b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+( getSrcFile(t)+ "#" + t) + "\">" + t+ "</a></span>)");
+            b.append("(<span style=\"color: darkgreen\"><a href=\"" +suffix(getSrcFile(t), t) + "\">" + t+ "</a></span>)");
           else if (hasResource(t))
             b.append("(<span style=\"color: darkgreen\"><a href=\"" + prefix+ t.toLowerCase()+ ".html\">" + t+ "</a></span>)");
           else
@@ -1259,6 +1261,15 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
+  private String suffix(String link, String suffix) {
+    if (link.contains("|"))
+      link = link.substring(0, link.indexOf("|"));
+    if (link.contains("#"))
+      return link;
+    else
+      return link+"#"+suffix;
+  }
+
   private void generateCoreElemSliced(StringBuilder b, List<ElementDefinition> elements, ElementDefinition elem, List<ElementDefinition> children, int indent, String pathName, boolean asValue, TypeRefComponent type, boolean last, boolean complex) throws Exception {
     if (elem.getMax().equals("0"))
       return;
@@ -1274,6 +1285,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       indentS += "  ";
     }
     String defPage = igp.getLinkForProfile(sd, sd.getUrl());
+    if (defPage.contains("|"))
+      defPage = defPage.substring(0, defPage.indexOf("|"));
     b.append(indentS);
     b.append("\"<a href=\"" + (defPage + "#" + pathName + "." + en)+ "\" title=\"" + Utilities .escapeXml(getEnhancedDefinition(elem)) 
     + "\" class=\"dict\"><span style=\"text-decoration: underline\">"+en+"</span></a>\" : ");
@@ -1425,7 +1438,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
   private String getSrcFile(String code) {
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
-    return sd != null ? "??" : igp.getLinkForProfile(this.sd, sd.getUrl());
+    if (sd == null)
+      return "??";
+    else {
+      String l = igp.getLinkForProfile(this.sd, sd.getUrl());
+      if (l.contains("|"))
+        l = l.substring(0, l.indexOf("|"));
+      return l;
+    }
   }
 
   private boolean isPrimitive(String code) {
