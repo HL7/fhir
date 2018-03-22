@@ -4342,8 +4342,9 @@ public class VersionConvertor_14_40 {
     if (src.hasSource())
       tgt.setName(convertUriToUrl(src.getSourceElement()));
     tgt.setTitle(src.getName());
-    if (!src.getKind().equals(org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind.PAGE))
-      tgt.addExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE, new org.hl7.fhir.r4.model.BooleanType(true));
+    if (src.hasKind())
+      if (!src.getKind().equals(org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind.PAGE))
+        tgt.addExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE, new org.hl7.fhir.r4.model.BooleanType(true));
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;
