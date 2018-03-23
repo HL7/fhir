@@ -50,6 +50,8 @@ public class OpenApiGenerator {
   }
   
   private void generateResource(CapabilityStatementRestResourceComponent r) {
+    if (hasOp(r, TypeRestfulInteraction.SEARCHTYPE)) 
+      generateSearch(r);
     if (hasOp(r, TypeRestfulInteraction.READ))
       generateRead(r);
     if (hasOp(r, TypeRestfulInteraction.VREAD)) 
@@ -71,6 +73,21 @@ public class OpenApiGenerator {
       resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/"+r.getType());
     if (isXml())
       resp.content("application/fhir+xml").schemaRef(specRef()+"/"+r.getType()+".xsd");
+  }
+
+  private void generateSearch(CapabilityStatementRestResourceComponent r) {
+    OperationWriter op = makePathResType(r).operation("get");
+    op.summary("Search all resources based on a set of criteria");
+    op.operationId("search"+r.getType());
+    opOutcome(op.responses().defaultResponse());
+    ResponseObjectWriter resp = op.responses().httpResponse("200");
+    resp.description("the resource being returned");
+    if (r.getVersioning() != ResourceVersionPolicy.NOVERSION)
+      resp.header("ETag").description("Version from Resource.meta.version as a weak ETag");
+    if (isJson())
+      resp.content("application/fhir+json").schemaRef(specRef()+"/fhir.json.schema/definitions/Bundle");
+    if (isXml())
+      resp.content("application/fhir+xml").schemaRef(specRef()+"/Bundle.xsd");
   }
 
   private void generateVRead(CapabilityStatementRestResourceComponent r) {
@@ -151,6 +168,13 @@ public class OpenApiGenerator {
     PathItemWriter p = dest.path("/"+r.getType()+"/{rid}");
     p.summary("Read/Write/etc resource instance of type "+r.getType());
     p.description("Access to services to manage the state of a single resource of type "+r.getType());
+    return p;
+  }
+
+  public PathItemWriter makePathResType(CapabilityStatementRestResourceComponent r) {
+    PathItemWriter p = dest.path("/"+r.getType());
+    p.summary("manage the collection of resources of type "+r.getType());
+    p.description("Access to services to manage the collection of all resources of type "+r.getType());
     return p;
   }
 
