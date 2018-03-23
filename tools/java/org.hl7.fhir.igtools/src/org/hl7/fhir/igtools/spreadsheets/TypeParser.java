@@ -202,7 +202,7 @@ public class TypeParser {
         if (t.getName().equals("Reference")) {
           if(t.hasProfile())
             tc.addTargetProfile(t.getProfile());
-        } else  
+        } else if (t.hasProfile())
           tc.addProfile(t.getProfile());
       }
     }    
