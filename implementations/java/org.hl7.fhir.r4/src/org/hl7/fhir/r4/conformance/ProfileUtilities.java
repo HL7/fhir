@@ -1845,6 +1845,7 @@ public class ProfileUtilities extends TranslatingUtilities {
       if (t.hasTarget()) {
         c.getPieces().add(gen.new Piece(corePath+"references.html", t.getCode(), null));
         c.getPieces().add(gen.new Piece(null, "(", null));
+        boolean tfirst = true;
         for (UriType u : t.getTargetProfile()) {
           if (u.getValue().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
             StructureDefinition sd = context.fetchResource(StructureDefinition.class, u.getValue());
@@ -1867,6 +1868,10 @@ public class ProfileUtilities extends TranslatingUtilities {
               c.addPiece(checkForNoChange(t, gen.new Piece(null, u.getValue(), null)));        
           } else if (t.hasTargetProfile() && u.getValue().startsWith("#"))
             c.addPiece(checkForNoChange(t, gen.new Piece(corePath+profileBaseFileName+"."+u.getValue().substring(1).toLowerCase()+".html", u.getValue(), null)));
+          if (tfirst)
+            tfirst = false;
+          else
+            c.addPiece(gen.new Piece(null, "|", null));
         }
         c.getPieces().add(gen.new Piece(null, ")", null));
       } else if (t.hasProfile() && (!t.getCode().equals("Extension") || isProfiledType(t.getProfile()))) { // a profiled type
