@@ -737,7 +737,8 @@ public class ProfileUtilities extends TranslatingUtilities {
             int ndl = findEndOfElement(differential, ndc);
             processPaths(indent+"  ", result, base, differential, baseCursor+1, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, 0), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true, null);
 //            throw new Error("Not done yet");
-          } else if (currentBase.getType().get(0).getCode().equals("BackboneElement") && diffMatches.size() > 0 && diffMatches.get(0).hasSliceName()) {
+//          } else if (currentBase.getType().get(0).getCode().equals("BackboneElement") && diffMatches.size() > 0 && diffMatches.get(0).hasSliceName()) {
+          } else if (currentBase.getType().get(0).getCode().equals("BackboneElement")) {
             // We need to copy children of the backbone element before we start messing around with slices
             int nbl = findEndOfElement(base, baseCursor);
             for (int i = baseCursor+1; i<=nbl; i++) {
