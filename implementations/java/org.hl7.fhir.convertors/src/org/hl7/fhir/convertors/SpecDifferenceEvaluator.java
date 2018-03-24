@@ -85,6 +85,7 @@ public class SpecDifferenceEvaluator {
   private SpecPackage original = new SpecPackage();
   private SpecPackage revision = new SpecPackage();
   private Map<String, String> renames = new HashMap<String, String>();
+  private List<String> moves = new ArrayList<String>();
   
   private XhtmlNode tbl;
   private TypeLinkProvider linker;
@@ -93,10 +94,10 @@ public class SpecDifferenceEvaluator {
   
   
   public void loadFromIni(IniFile ini) {
-    String[] names = ini.getPropertyNames("r2-renames");
+    String[] names = ini.getPropertyNames("r3-renames");
     for (String n : names)
       // note reverse of order
-      renames.put(ini.getStringProperty("r2-renames", n), n);
+      renames.put(ini.getStringProperty("r3-renames", n), n);
   }
   
   public SpecPackage getOriginal() {
@@ -113,11 +114,11 @@ public class SpecDifferenceEvaluator {
 //    loadVS2(self.original.valuesets, "C:\\work\\org.hl7.fhir.dstu2.original\\build\\publish\\valuesets.xml");
 //    loadVS(self.revision.valuesets, "C:\\work\\org.hl7.fhir.dstu2.original\\build\\publish\\valuesets.xml");
 
-    loadSD2(self.original.types, "C:\\work\\org.hl7.fhir\\build\\source\\release2\\profiles-types.xml");
+    loadSD3(self.original.types, "C:\\work\\org.hl7.fhir\\build\\source\\release3\\profiles-types.xml");
     loadSD(self.revision.types, "C:\\work\\org.hl7.fhir\\build\\publish\\profiles-types.xml");
-    loadSD2(self.original.resources, "C:\\work\\org.hl7.fhir\\build\\source\\release2\\profiles-resources.xml");
+    loadSD3(self.original.resources, "C:\\work\\org.hl7.fhir\\build\\source\\release3\\profiles-resources.xml");
     loadSD(self.revision.resources, "C:\\work\\org.hl7.fhir\\build\\publish\\profiles-resources.xml");
-    loadVS2(self.original.expansions, "C:\\work\\org.hl7.fhir\\build\\source\\release2\\expansions.xml");
+    loadVS3(self.original.expansions, "C:\\work\\org.hl7.fhir\\build\\source\\release3\\expansions.xml");
     loadVS(self.revision.expansions, "C:\\work\\org.hl7.fhir\\build\\publish\\expansions.xml");
     StringBuilder b = new StringBuilder();
     b.append("<html>\r\n");
@@ -132,12 +133,12 @@ public class SpecDifferenceEvaluator {
     System.out.println("done");
   }
   
-  private static void loadSD2(Map<String, StructureDefinition> map, String fn) throws FHIRException, FileNotFoundException, IOException {
-    org.hl7.fhir.dstu2.model.Bundle bundle = (org.hl7.fhir.dstu2.model.Bundle) new org.hl7.fhir.dstu2.formats.XmlParser().parse(new FileInputStream(fn));
-    for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
-      if (be.getResource() instanceof org.hl7.fhir.dstu2.model.StructureDefinition) {
-        org.hl7.fhir.dstu2.model.StructureDefinition sd = (org.hl7.fhir.dstu2.model.StructureDefinition) be.getResource();
-        map.put(sd.getName(), new VersionConvertor_10_40(null).convertStructureDefinition(sd));
+  private static void loadSD3(Map<String, StructureDefinition> map, String fn) throws FHIRException, FileNotFoundException, IOException {
+    org.hl7.fhir.dstu3.model.Bundle bundle = (org.hl7.fhir.dstu3.model.Bundle) new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(fn));
+    for (org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
+      if (be.getResource() instanceof org.hl7.fhir.dstu3.model.StructureDefinition) {
+        org.hl7.fhir.dstu3.model.StructureDefinition sd = (org.hl7.fhir.dstu3.model.StructureDefinition) be.getResource();
+        map.put(sd.getName(), VersionConvertor_30_40.convertStructureDefinition(sd));
       }
     }
     
@@ -152,12 +153,12 @@ public class SpecDifferenceEvaluator {
     }
   }
 
-  private static void loadVS2(Map<String, ValueSet> map, String fn) throws FHIRException, FileNotFoundException, IOException {
-    org.hl7.fhir.dstu2.model.Bundle bundle = (org.hl7.fhir.dstu2.model.Bundle) new org.hl7.fhir.dstu2.formats.XmlParser().parse(new FileInputStream(fn));
-    for (org.hl7.fhir.dstu2.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
-      if (be.getResource() instanceof org.hl7.fhir.dstu2.model.ValueSet) {
-        org.hl7.fhir.dstu2.model.ValueSet sd = (org.hl7.fhir.dstu2.model.ValueSet) be.getResource();
-        map.put(sd.getName(), new VersionConvertor_10_40(null).convertValueSet(sd));
+  private static void loadVS3(Map<String, ValueSet> map, String fn) throws FHIRException, FileNotFoundException, IOException {
+    org.hl7.fhir.dstu3.model.Bundle bundle = (org.hl7.fhir.dstu3.model.Bundle) new org.hl7.fhir.dstu3.formats.XmlParser().parse(new FileInputStream(fn));
+    for (org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent be : bundle.getEntry()) {
+      if (be.getResource() instanceof org.hl7.fhir.dstu3.model.ValueSet) {
+        org.hl7.fhir.dstu3.model.ValueSet sd = (org.hl7.fhir.dstu3.model.ValueSet) be.getResource();
+        map.put(sd.getName(), VersionConvertor_30_40.convertValueSet(sd));
       }
     }    
   }
@@ -448,6 +449,7 @@ public class SpecDifferenceEvaluator {
   }
 
   private void compare(StructureDefinition orig, StructureDefinition rev) {
+    moves.clear();
     XhtmlNode tr = tbl.addTag("tr").setAttribute("class", "diff-item");
     XhtmlNode left = tr.addTag("td").setAttribute("class", "diff-left");
     String link = linker == null ? null : linker.getLink(rev.getName());
@@ -545,6 +547,12 @@ public class SpecDifferenceEvaluator {
     
     if (!rn.equals(on) && rev.getPath().contains("."))
       b.append("Renamed from "+on+" to " +rn);
+    else if (!rev.getPath().equals(orig.getPath())) {
+      if (!moveAlreadyNoted(rev.getPath(), orig.getPath())) {
+        noteMove(rev.getPath(), orig.getPath());
+        b.append("Moved from "+head(orig.getPath())+" to " +head(rev.getPath()));
+      }
+    }
     
     if (rev.getMin() != orig.getMin())
       b.append("Min Cardinality changed from "+Integer.toString(orig.getMin())+" to " +Integer.toString(rev.getMin()));
@@ -600,6 +608,18 @@ public class SpecDifferenceEvaluator {
     return b.length() > 0;
   }
   
+  private void noteMove(String revpath, String origpath) {
+    moves.add(revpath+"="+origpath);    
+  }
+
+  private boolean moveAlreadyNoted(String revpath, String origpath) {
+    if (moves.contains(revpath+"="+origpath))
+      return true;
+    if (!revpath.contains(".") || !origpath.contains("."))
+      return false;
+    return moveAlreadyNoted(head(revpath), head(origpath));
+  }
+
   @SuppressWarnings("rawtypes")
   private String describeValue(Type v) {
     if (v instanceof PrimitiveType) {
@@ -722,6 +742,10 @@ public class SpecDifferenceEvaluator {
 
   private String tail(String path) {
     return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;
+  }
+  
+  private String head(String path) {
+    return path.contains(".") ? path.substring(0, path.lastIndexOf(".")) : path;
   }
   
   private String analyseTypes(ElementDefinition rev, ElementDefinition orig) {

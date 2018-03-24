@@ -6256,7 +6256,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     StringBuilder b = new StringBuilder();
     if (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", name+".map")).exists()) {
       String st = r2r3StatusForResource(name);
-      return "<p>See <a href=\""+name.toLowerCase()+"-version-maps.html\">R2 &lt;--&gt; R3 Conversion Maps</a> (status = "+st+").</p>\r\n";
+      return "<p>See <a href=\""+name.toLowerCase()+"-version-maps.html\">R2 &lt;--&gt; R3 Conversion Maps</a> (status = "+st+"). <b>Note: these have note yet been updated to be R3 to R4</b></p>\r\n";
     } else
     return "";
   }
