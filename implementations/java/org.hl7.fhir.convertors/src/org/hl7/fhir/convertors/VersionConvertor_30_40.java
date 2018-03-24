@@ -1645,6 +1645,7 @@ public class VersionConvertor_30_40 {
       for (org.hl7.fhir.r4.model.UriType u : src.getTargetProfile()) {
         if (tgt.hasTargetProfile()) {
           tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent();
+          list.add(tgt);
           copyElement(src, tgt);
           tgt.setCode(src.getCode());
           if (src.hasProfile())
