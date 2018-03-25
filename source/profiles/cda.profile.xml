@@ -767,7 +767,7 @@
             <max value="1"/>
             <type>
               <code value="Extension"/>
-              <profile value="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity"/>
+              <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"/>
             </type>
             <isModifier value="false"/>
             <mapping>

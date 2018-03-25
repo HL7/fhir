@@ -5524,7 +5524,7 @@
     <Cell ss:StyleID="s132"><Data ss:Type="String">ethnicity</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Patient.extension{http://hl7.org/fhir/StructureDefinition/us-core-ethnicity}</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Patient.extension{http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity}</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">Returns patients with an ethnicity extension matching the specified code.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
