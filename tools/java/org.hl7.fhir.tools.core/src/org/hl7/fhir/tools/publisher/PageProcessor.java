@@ -7363,11 +7363,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           } else if (x.getChildNodes().isEmpty()) {
             log("file \""+filename+"\": div/div["+Integer.toString(doc.getChildNodes().indexOf(x))+"] must have at least an h2", LogMessageType.Error);
             return;
-          } else if (!x.getFirstElement().getName().equals("h2") && !(x.getFirstElement().getName().equals("a") && x.getElementByIndex(1).getName().equals("h2"))) {
+          } else if (!isFirstChildElementH2(x)) {
             log("file \""+filename+"\": div/div["+Integer.toString(doc.getChildNodes().indexOf(x))+"] must start with an h2", LogMessageType.Error);
             return;
           } else {
-            XhtmlNode fn = x.getFirstElement().getName().equals("h2") ? x.getFirstElement() : x.getElementByIndex(1);
+            XhtmlNode fn = getH2Element(x);
             String s = fn.allText();
             if (! ((s.equals("Scope and Usage")) || (s.equals("Boundaries and Relationships")) || (s.equals("Background and Context")) ) ) {
               log("file \""+filename+"\": div/div["+Integer.toString(doc.getChildNodes().indexOf(x))+"]/h2 must be either 'Scope and Usage', 'Boundaries and Relationships', or 'Background and Context'", LogMessageType.Error);
@@ -7410,6 +7410,20 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
     List<String> allowed = Arrays.asList("div", "h2", "h3", "h4", "h5", "i", "b", "code", "pre", "blockquote", "p", "a", "img", "table", "thead", "tbody", "tr", "th", "td", "ol", "ul", "li", "br", "span", "em", "strong");
     iterateAllChildNodes(doc, allowed);
+  }
+
+  private XhtmlNode getH2Element(XhtmlNode x) {
+    XhtmlNode c = x.getFirstElement();
+    while (c.getName().equals("a") || c.getName().equals("blockquote") )
+      c = x.getNextElement(c);
+    return c;
+  }
+
+  private boolean isFirstChildElementH2(XhtmlNode x) {
+    XhtmlNode c = x.getFirstElement();
+    while (c.getName().equals("a") || c.getName().equals("blockquote") )
+      c = x.getNextElement(c);
+    return c != null && c.getName().equals("h2");
   }
 
   private boolean iterateAllChildNodes(XhtmlNode node, List<String> allowed) {
