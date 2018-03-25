@@ -22038,8 +22038,8 @@ public class XmlParser extends XmlParserBase {
       return parseCodeableConcept(xpp);
     else if (type.equals("ParameterDefinition"))
       return parseParameterDefinition(xpp);
-    else if (type.equals("SimpleQuantity"))
-      return parseSimpleQuantity(xpp);
+    else if (type.equals("ElementDefinition"))
+      return parseElementDefinition(xpp);
     throw new FHIRFormatError("Unknown type "+type);
   }
 

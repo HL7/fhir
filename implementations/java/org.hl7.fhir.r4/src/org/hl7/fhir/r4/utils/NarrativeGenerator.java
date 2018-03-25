@@ -381,7 +381,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (type == null || type.equals("Resource") || type.equals("BackboneElement") || type.equals("Element"))
         return null;
 
-      String xml;
+    String xml;
 		try {
 			xml = new XmlGenerator().generate(element);
 		} catch (org.hl7.fhir.exceptions.FHIRException e) {
