@@ -197,7 +197,7 @@ public class ExampleInspector implements IValidatorResourceFetcher {
     validator.setSuppressLoincSnomedMessages(true);
     validator.setResourceIdRule(IdStatus.REQUIRED);
     validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);
-    validator.getExtensionDomains().add("http://hl7.org/fhir/StructureDefinition/us-core-");
+    validator.getExtensionDomains().add("http://hl7.org/fhir/us");
     validator.setFetcher(this);
 
     xml = new XmlValidator(errorsInt, loadSchemas(), loadTransforms());
