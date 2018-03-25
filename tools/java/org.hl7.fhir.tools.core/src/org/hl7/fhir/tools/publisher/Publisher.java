@@ -1645,6 +1645,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           + "capabilitystatement-" + name + ".xml"));
     }
     if (buildFlags.get("all")) {
+      new NarrativeGenerator("",  "", page.getWorkerContext()).generate(null, cpbs);
       deletefromFeed(ResourceType.CapabilityStatement, name, page.getResourceBundle());
       addToResourceFeed(cpbs, page.getResourceBundle());
     }
