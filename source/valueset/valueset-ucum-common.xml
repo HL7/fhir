@@ -596,10 +596,12 @@
         <code value="[MPL&#39;U]"/>
         <display value="IgM anticardiolipin unit"/>
       </concept>
+<!-- GG 25/03/2018 this is not legal
       <concept>
         <code value="[M&#39;U]"/>
         <display value="M unit"/>
       </concept>
+-->      
       <concept>
         <code value="[nmi_i]"/>
         <display value="nautical mile"/>
@@ -633,7 +635,7 @@
         <display value="part per million in volume per volume"/>
       </concept>
       <concept>
-        <code value="[ppt]"/>
+        <code value="[pptr]"/>
         <display value="part per trillion"/>
       </concept>
       <concept>
@@ -1801,7 +1803,7 @@
         <display value="Hertz"/>
       </concept>
       <concept>
-        <code value="iU"/>
+        <code value="[iU]"/>
         <display value="international unit"/>
       </concept>
       <concept>
