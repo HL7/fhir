@@ -726,14 +726,21 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
     if (t.hasTargetProfile()) {
       b.append("(");
-      StructureDefinition p = context.fetchResource(StructureDefinition.class, t.getTargetProfile().get(0).getValue());
-      if (p == null)
-        b.append(t.getTargetProfile());
-      else {
-        String pth = p.getUserString("path");
-        b.append("<a href=\""+pth+"\" title=\""+t.getTargetProfile()+"\">");
-        b.append(p.getName());
-        b.append("</a>");
+      boolean first = true;
+      for (CanonicalType tp : t.getTargetProfile()) {
+        if (first)
+          first = false;
+        else
+          b.append(" | ");
+        StructureDefinition p = context.fetchResource(StructureDefinition.class, tp.getValue());
+        if (p == null)
+          b.append(tp.getValue());
+        else {
+          String pth = p.getUserString("path");
+          b.append("<a href=\""+pth+"\" title=\""+tp.getValue()+"\">");
+          b.append(p.getName());
+          b.append("</a>");
+        }
       }
       b.append(")");
     }
