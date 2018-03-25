@@ -32,7 +32,7 @@
         <display value="milliseconds"/>
       </concept>
       <concept>
-        <code value="sec"/>
+        <code value="s"/>
         <display value="seconds"/>
       </concept>
       <concept>
