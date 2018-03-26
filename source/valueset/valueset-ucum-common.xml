@@ -943,7 +943,7 @@
         <display value="Ehrlich unit per 2 hour"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}/100g"/>
+        <code value="{Ehrlich&#39;U}/100.g"/>
         <display value="Ehrlich unit per 100 gram"/>
       </concept>
       <concept>
@@ -1003,7 +1003,7 @@
         <display value="FluorescenceIntensity&#39;U"/>
       </concept>
       <concept>
-        <code value="{G}U"/>
+        <code value="U{G}"/>
         <display value="G unit"/>
       </concept>
       <concept>
@@ -2491,7 +2491,7 @@
         <display value="millimole per kilogram per minute"/>
       </concept>
       <concept>
-        <code value="mmol/kg[H20]"/>
+        <code value="mmol/kg{H20}"/>  <!-- GG: was mmol/kg[H20] but that is not valid ucum -->
         <display value="millimole per kilogram of water"/>
       </concept>
       <concept>
