@@ -327,6 +327,12 @@ public class VersionConvertor_10_40 {
     return tgt;
   }
 
+  public org.hl7.fhir.r4.model.UrlType convertUriToUrl(org.hl7.fhir.dstu2.model.UriType src) throws FHIRException {
+    org.hl7.fhir.r4.model.UrlType tgt = new org.hl7.fhir.r4.model.UrlType(src.getValue());
+    copyElement(src, tgt);
+    return tgt;
+  }
+
   public org.hl7.fhir.dstu2.model.UriType convertUri(org.hl7.fhir.r4.model.UriType src) throws FHIRException {
     org.hl7.fhir.dstu2.model.UriType tgt = new org.hl7.fhir.dstu2.model.UriType(src.getValue());
     copyElement(src, tgt);
@@ -1000,6 +1006,8 @@ public class VersionConvertor_10_40 {
       tgt.setBinding(convertElementDefinitionBindingComponent(src.getBinding()));
     for (org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertElementDefinitionMappingComponent(t));
+    if (!tgt.hasId())
+      tgt.setId(tgt.getPath());
     return tgt;
   }
 
@@ -7178,9 +7186,10 @@ public class VersionConvertor_10_40 {
   }
 
   private static org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePackageComponent findPackage(List<org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePackageComponent> definition, String id) {
-    for (org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePackageComponent t : definition)
-      if (t.getId().equals(id))
-        return t;
+    if (id != null)
+      for (org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePackageComponent t : definition)
+        if (id.equals(t.getId()))
+          return t;
     org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePackageComponent t = new org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePackageComponent();
     t.setName("Default Package");
     t.setId(id);
@@ -7317,8 +7326,9 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent tgt = new org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent();
     copyElement(src, tgt);
-    if (src.hasSource())
-      tgt.setName(convertUri(src.getSourceElement()));
+    if (src.hasSource()) {
+      tgt.setName(convertUriToUrl(src.getSourceElement()));
+    }
     tgt.setTitle(src.getName());
     if (src.hasKind())
       if (!src.getKind().equals(org.hl7.fhir.dstu2.model.ImplementationGuide.GuidePageKind.PAGE))
@@ -8724,7 +8734,11 @@ public class VersionConvertor_10_40 {
     org.hl7.fhir.r4.model.OperationDefinition.OperationDefinitionParameterBindingComponent tgt = new org.hl7.fhir.r4.model.OperationDefinition.OperationDefinitionParameterBindingComponent();
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
-    tgt.setValueSet(convertType(src.getValueSet()));
+    Type t = convertType(src.getValueSet());
+    if (t instanceof org.hl7.fhir.r4.model.Reference)
+      tgt.setValueSet(new CanonicalType(((org.hl7.fhir.r4.model.Reference) t).getReference()));
+    else
+      tgt.setValueSet(t);
     return tgt;
   }
 

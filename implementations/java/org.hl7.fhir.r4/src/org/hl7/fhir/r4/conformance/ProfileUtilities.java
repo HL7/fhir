@@ -271,6 +271,11 @@ public class ProfileUtilities extends TranslatingUtilities {
       capturing = true;
     
     for (ElementDefinition e : profile.getSnapshot().getElement()) {
+      if (e == null)
+        throw new Error("element = null: "+profile.getUrl());
+      if (e.getId() == null)
+        throw new Error("element id = null: "+e.toString()+" on "+profile.getUrl());
+      
       if (!capturing && id!=null && e.getId().equals(id)) {
         capturing = true;
       }

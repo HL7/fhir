@@ -2504,7 +2504,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       generateDefinitions(FhirFormat.XML, df.getCanonicalPath());
     if (generateExampleZip(FhirFormat.JSON))
       generateDefinitions(FhirFormat.JSON, df.getCanonicalPath());
-    if (generateExampleZip(FhirFormat.TURTLE))
+    if (supportsTurtle() && generateExampleZip(FhirFormat.TURTLE))
       generateDefinitions(FhirFormat.TURTLE, df.getCanonicalPath());
     generateExpansions();
     generateValidationPack(df.getCanonicalPath());
@@ -2514,6 +2514,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generateExcelZip();
     generateRegistryUploadZip(df.getCanonicalPath());
   }
+
+  private boolean supportsTurtle() {
+    return !Utilities.existsInList(version, "1.0.2", "1.4.0");
+  }
+
 
   private void generateExpansions() throws FileNotFoundException, IOException {
     Bundle exp = new Bundle();
