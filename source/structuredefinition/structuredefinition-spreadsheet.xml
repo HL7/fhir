@@ -4064,7 +4064,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Because these 3 fields seem to be have overlapping meaning with the ones in the root of StructureDefinition</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">In any snapshot or differential, no label, code or requirements on the an element without a "." in the path (e.g. the first element)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">In any snapshot or differential, no label, code or requirements on an element without a "." in the path (e.g. the first element)</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">children().element.where(path.contains('.').not()).label.empty() and children().element.where(path.contains('.').not()).code.empty() and children().element.where(path.contains('.').not()).requirements.empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:snapshot/f:element[not(contains(f:path/@value, '.')) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, '.')) and (f:label or f:code or f:requirements)]))</Data></Cell>
    </Row>

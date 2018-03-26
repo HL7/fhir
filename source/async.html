@@ -93,7 +93,7 @@ After a bulk data request has been kicked-off, clients can poll the <code>url</c
 <code>Content-Location</code> header to obtain the status of the request.
 </p>
 <p>
-Note: Clients SHOULD follow the an <a href="https://en.wikipedia.org/wiki/Exponential_backoff" rel="nofollow">exponential backoff</a> 
+Note: Clients SHOULD follow an <a href="https://en.wikipedia.org/wiki/Exponential_backoff" rel="nofollow">exponential backoff</a> 
 approach when polling for status. Servers may supply a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After">Retry-After header</a> 
 with a http date or a delay time in seconds. When provided, clients should use this information to inform the timing of future polling requests.
 </p>

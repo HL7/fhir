@@ -49,7 +49,7 @@
       <label value="Simple"/>
       <valueDecimal value="10.0"/>
     </example>
-		<!--  Is this the an example result like "10.0"  for the observation/dataelement?  -->
+		<!--  Is this an example result like "10.0"  for the observation/dataelement?  -->
 		<mapping>
 			<identity value="loinc"/>
 			<map value="5964-2"/>
