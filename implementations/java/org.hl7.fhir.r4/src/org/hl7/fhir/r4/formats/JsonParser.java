@@ -51802,5 +51802,14 @@ public class JsonParser extends JsonParserBase {
       throw new Error("Unhandled type");
   }
 
+  protected Type parseAnyType(JsonObject json, String type) throws IOException, FHIRFormatError {
+    if (type.equals("ElementDefinition"))
+      return parseElementDefinition(json);
+    else if (type.equals("DataRequirement"))
+      return parseDataRequirement(json);
+    else
+      return parseType(json, type);
+  }
+
 }
 

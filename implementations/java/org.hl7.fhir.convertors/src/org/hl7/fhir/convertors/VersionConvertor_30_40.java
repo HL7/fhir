@@ -2672,8 +2672,10 @@ public class VersionConvertor_30_40 {
       return convertTiming((org.hl7.fhir.dstu3.model.Timing) src);
     if (src instanceof org.hl7.fhir.dstu3.model.UsageContext)
       return convertUsageContext((org.hl7.fhir.dstu3.model.UsageContext) src);
-    if (src instanceof org.hl7.fhir.dstu3.model.SimpleQuantity)
-      return convertSimpleQuantity((org.hl7.fhir.dstu3.model.SimpleQuantity) src);
+    if (src instanceof org.hl7.fhir.dstu3.model.ElementDefinition)
+      return convertElementDefinition((org.hl7.fhir.dstu3.model.ElementDefinition) src);
+    if (src instanceof org.hl7.fhir.dstu3.model.DataRequirement)
+      return convertDataRequirement((org.hl7.fhir.dstu3.model.DataRequirement) src);
     throw new Error("Unknown type "+src.fhirType());
   }
 
@@ -2774,8 +2776,10 @@ public class VersionConvertor_30_40 {
       return convertTiming((org.hl7.fhir.r4.model.Timing) src);
     if (src instanceof org.hl7.fhir.r4.model.UsageContext)
       return convertUsageContext((org.hl7.fhir.r4.model.UsageContext) src);
-    if (src instanceof org.hl7.fhir.r4.model.SimpleQuantity)
-      return convertSimpleQuantity((org.hl7.fhir.r4.model.SimpleQuantity) src);
+    if (src instanceof org.hl7.fhir.r4.model.ElementDefinition)
+      return convertElementDefinition((org.hl7.fhir.r4.model.ElementDefinition) src);
+    if (src instanceof org.hl7.fhir.r4.model.DataRequirement)
+      return convertDataRequirement((org.hl7.fhir.r4.model.DataRequirement) src);
     throw new Error("Unknown type "+src.fhirType());
   }
 

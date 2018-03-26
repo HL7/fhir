@@ -958,7 +958,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (parser != null)
       return parser.parseType(xml, type);
     else
-      return new XmlParser().parseType(xml, type);
+      return new XmlParser().parseAnyType(xml, type);
   }
 
   public NarrativeGenerator(String prefix, String basePath, IWorkerContext context, IReferenceResolver resolver) {

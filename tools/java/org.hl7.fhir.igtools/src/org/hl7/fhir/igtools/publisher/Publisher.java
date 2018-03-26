@@ -2291,7 +2291,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void validate(FetchedFile file, FetchedResource r) throws Exception {
-    assert resources.isEmpty();
     List<ValidationMessage> errs = new ArrayList<ValidationMessage>();
     if (r.isValidateByUserData()) {
       Resource res = r.getResource();
@@ -3986,7 +3985,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     });
   }
 
-  private void setTxServer(String s) {
+  public void setTxServer(String s) {
     if (!Utilities.noString(s))
       txServer = s;
   }
