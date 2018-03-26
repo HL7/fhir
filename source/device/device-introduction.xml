@@ -2,7 +2,7 @@
 
 <div>
   <blockquote class="stu-note">
-  
+
     <a name="dstu">
     </a>
 
@@ -39,6 +39,9 @@
     <li>Create a Device profile to represent a Device Kind</li>
     <li>Reorder the elements and group by kind and instance within the Device resource. </li>
     </ol>
+
+     <p>More details on these options can be found <a href="http://confluence.hl7.org:8090/display/OO/Device+Resource+Harmonization">here</a>.</p>
+
     </li>
     </ul>
     <ul>
