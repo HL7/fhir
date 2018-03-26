@@ -12829,8 +12829,7 @@ public class VersionConvertor_30_40 {
     if (src.hasTitle())
       tgt.setTitle(src.getTitle());
     if (src.hasKind())
-      if (!src.getKind().equals(org.hl7.fhir.dstu3.model.ImplementationGuide.GuidePageKind.PAGE))
-        tgt.addExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE, new org.hl7.fhir.r4.model.BooleanType(true));
+      tgt.addExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE, new org.hl7.fhir.r4.model.BooleanType(!src.getKind().equals(org.hl7.fhir.dstu3.model.ImplementationGuide.GuidePageKind.PAGE)));
     for (org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;
@@ -12845,9 +12844,12 @@ public class VersionConvertor_30_40 {
       tgt.setSource(src.getNameUrlType().getValue());
     if (src.hasTitle())
       tgt.setTitle(src.getTitle());
-    if (src.hasExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE) 
-    && src.getExtensionString(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE).equals("true"))
-      tgt.setKind(org.hl7.fhir.dstu3.model.ImplementationGuide.GuidePageKind.PAGE);
+    if (src.hasExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE)) {
+      if (src.getExtensionString(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE).equals("true"))
+        tgt.setKind(org.hl7.fhir.dstu3.model.ImplementationGuide.GuidePageKind.RESOURCE);
+      else
+        tgt.setKind(org.hl7.fhir.dstu3.model.ImplementationGuide.GuidePageKind.PAGE);
+    }
     for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;
