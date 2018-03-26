@@ -8,7 +8,18 @@
     <fullUrl value="urn:uuid:267b18ce-3d37-4581-9baa-6fada338038b"/>
     <resource>
       <MessageHeader>
-        <id value="efdd254b-0e09-4164-883e-35cf3871715f"/>
+        <!-- 
+          Note about the id: according to the spec, the fullUrl must not 
+          disagree with the id in the resource. For instance, if the fullUrl 
+          was http://server/path/MessageHeader/267b18ce-3d37-4581-9baa-6fada338038b,
+          then the id of the resource must be 267b18ce-3d37-4581-9baa-6fada338038b.
+          
+          However, in this case, a fullUrl of urn:uuid:[x] makes no claim about
+          the id of the resource, and it can be different, or missing. Note, though
+          that this doesn't really make sense; if it's present, there's less 
+          potential for confusion if they match, like in this case
+        -->
+        <id value="267b18ce-3d37-4581-9baa-6fada338038b"/>
         <text>
           <status value="generated"/>
           <div xmlns="http://www.w3.org/1999/xhtml">
