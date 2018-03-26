@@ -137,6 +137,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.openapi.OpenApiGenerator;
 import org.hl7.fhir.igtools.openapi.Writer;
+import org.hl7.fhir.igtools.publisher.FetchedFile.FetchedBundleType;
 import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
 import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
@@ -1577,6 +1578,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     boolean changed = noteFile("Bundle/"+be.getAsString(), f);
     if (changed) {
       f.setBundle(new FetchedResource());
+      f.setBundleType(FetchedBundleType.NATIVE);
       loadAsElementModel(f, f.getBundle());
       List<Element> entries = new ArrayList<Element>();
       f.getBundle().getElement().getNamedChildren("entry", entries);
@@ -1652,6 +1654,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       dlog(LogCategory.PROGRESS, "load "+f.getPath());
       Bundle bnd = new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details"), knownValueSetIds).parse(f);
       f.setBundle(new FetchedResource());
+      f.setBundleType(FetchedBundleType.SPREADSHEET);
       f.getBundle().setResource(bnd);
       for (BundleEntryComponent b : bnd.getEntry()) {
         FetchedResource r = f.addResource();
@@ -2013,7 +2016,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             validate(f, r);
           if (r.getResource() == null)
             try {
-              r.setResource(parse(f)); // we won't get to here if we're a bundle
+              if (f.getBundleType() == FetchedBundleType.NATIVE)
+                r.setResource(parseInternal(f, r));
+              else
+                r.setResource(parse(f)); 
               r.getResource().setUserData("element", r.getElement());
             } catch (Exception e) {
               throw new Exception("Error parsing "+f.getName()+": "+e.getMessage(), e);
@@ -2232,48 +2238,62 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private Resource parse(FetchedFile file) throws Exception {
-    String parseVersion = version;
-    if (!file.getResources().isEmpty())
-      parseVersion = str(file.getResources().get(0).getConfig(), "version", version);
+  private Resource parseContent(String name, String contentType, String parseVersion, byte[] source) throws Exception {
     if (parseVersion.equals("3.0.1") || parseVersion.equals("3.0.0")) {
       org.hl7.fhir.dstu3.model.Resource res;
-      if (file.getContentType().contains("json"))
-        res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(file.getSource());
-      else if (file.getContentType().contains("xml"))
-        res = new org.hl7.fhir.dstu3.formats.XmlParser().parse(file.getSource());
+      if (contentType.contains("json"))
+        res = new org.hl7.fhir.dstu3.formats.JsonParser().parse(source);
+      else if (contentType.contains("xml"))
+        res = new org.hl7.fhir.dstu3.formats.XmlParser().parse(source);
       else
-        throw new Exception("Unable to determine file type for "+file.getName());
+        throw new Exception("Unable to determine file type for "+name);
       return VersionConvertor_30_40.convertResource(res);
     } else if (parseVersion.equals("1.4.0")) {
       org.hl7.fhir.dstu2016may.model.Resource res;
-      if (file.getContentType().contains("json"))
-        res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(file.getSource());
-      else if (file.getContentType().contains("xml"))
-        res = new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(file.getSource());
+      if (contentType.contains("json"))
+        res = new org.hl7.fhir.dstu2016may.formats.JsonParser().parse(source);
+      else if (contentType.contains("xml"))
+        res = new org.hl7.fhir.dstu2016may.formats.XmlParser().parse(source);
       else
-        throw new Exception("Unable to determine file type for "+file.getName());
+        throw new Exception("Unable to determine file type for "+name);
       return VersionConvertor_14_40.convertResource(res);
     } else if (parseVersion.equals("1.0.2")) {
       org.hl7.fhir.dstu2.model.Resource res;
-      if (file.getContentType().contains("json"))
-        res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(file.getSource());
-      else if (file.getContentType().contains("xml"))
-        res = new org.hl7.fhir.dstu2.formats.XmlParser().parse(file.getSource());
+      if (contentType.contains("json"))
+        res = new org.hl7.fhir.dstu2.formats.JsonParser().parse(source);
+      else if (contentType.contains("xml"))
+        res = new org.hl7.fhir.dstu2.formats.XmlParser().parse(source);
       else
-        throw new Exception("Unable to determine file type for "+file.getName());
+        throw new Exception("Unable to determine file type for "+name);
 
       VersionConvertorAdvisor40 advisor = new IGR2ConvertorAdvisor();
       return new VersionConvertor_10_40(advisor ).convertResource(res);
     } else if (parseVersion.equals(Constants.VERSION)) {
-      if (file.getContentType().contains("json"))
-        return new JsonParser().parse(file.getSource());
-      else if (file.getContentType().contains("xml"))
-        return new XmlParser().parse(file.getSource());
+      if (contentType.contains("json"))
+        return new JsonParser().parse(source);
+      else if (contentType.contains("xml"))
+        return new XmlParser().parse(source);
       else
-        throw new Exception("Unable to determine file type for "+file.getName());
+        throw new Exception("Unable to determine file type for "+name);
     } else
       throw new Exception("Unsupported version "+parseVersion);
+    
+  }
+
+  private Resource parseInternal(FetchedFile file, FetchedResource res) throws Exception {
+    String parseVersion = version;
+    if (!file.getResources().isEmpty())
+      parseVersion = str(file.getResources().get(0).getConfig(), "version", version);
+    ByteArrayOutputStream bs = new ByteArrayOutputStream();
+    new org.hl7.fhir.r4.elementmodel.XmlParser(context).compose(res.getElement(), bs, OutputStyle.NORMAL, null);
+    return parseContent("Entry "+res.getId()+" in "+file.getName(), "xml", parseVersion, bs.toByteArray());
+  }
+  
+  private Resource parse(FetchedFile file) throws Exception {
+    String parseVersion = version;
+    if (!file.getResources().isEmpty())
+      parseVersion = str(file.getResources().get(0).getConfig(), "version", version);
+    return parseContent(file.getName(), file.getContentType(), parseVersion, file.getSource());
   }
 
   private void validate() throws Exception {
@@ -3436,7 +3456,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateOutputs(FetchedFile f, boolean regen) throws TransformerException {
-  //      log(" * "+f.getName());
+      log(" * "+f.getName()+" : " +f.getPath());
 
     if (f.getProcessMode() == FetchedFile.PROCESS_NONE) {
       String dst = tempDir;

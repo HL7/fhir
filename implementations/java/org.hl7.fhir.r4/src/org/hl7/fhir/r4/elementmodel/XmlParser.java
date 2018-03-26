@@ -388,7 +388,7 @@ public class XmlParser extends ParserBase {
     xml.setPretty(style == OutputStyle.PRETTY);
     xml.start();
     xml.setDefaultNamespace(e.getProperty().getNamespace());
-    composeElement(xml, e, e.getType());
+    composeElement(xml, e, e.getType(), true);
     xml.end();
 
   }
@@ -396,11 +396,11 @@ public class XmlParser extends ParserBase {
   public void compose(Element e, IXMLWriter xml) throws Exception {
     xml.start();
     xml.setDefaultNamespace(e.getProperty().getNamespace());
-    composeElement(xml, e, e.getType());
+    composeElement(xml, e, e.getType(), true);
     xml.end();
   }
 
-  private void composeElement(IXMLWriter xml, Element element, String elementName) throws IOException {
+  private void composeElement(IXMLWriter xml, Element element, String elementName, boolean root) throws IOException {
     for (String s : element.getComments()) {
       xml.comment(s, true);
     }
@@ -428,7 +428,7 @@ public class XmlParser extends ParserBase {
 				if (element.hasChildren()) {
 					xml.enter(elementName);
 					for (Element child : element.getChildren()) 
-						composeElement(xml, child, child.getName());
+						composeElement(xml, child, child.getName(), false);
 					xml.exit(elementName);
 				} else
         xml.element(elementName);
@@ -444,7 +444,7 @@ public class XmlParser extends ParserBase {
       if (linkResolver != null)
         xml.link(linkResolver.resolveProperty(element.getProperty()));
       xml.enter(elementName);
-      if (element.getSpecial() != null) {
+      if (!root && element.getSpecial() != null) {
         if (linkResolver != null)
           xml.link(linkResolver.resolveProperty(element.getProperty()));
         xml.enter(element.getType());
@@ -455,9 +455,9 @@ public class XmlParser extends ParserBase {
             xml.link(linkResolver.resolveProperty(element.getProperty()));
           xml.text(child.getValue());
         } else if (!isAttr(child.getProperty()))
-          composeElement(xml, child, child.getName());
+          composeElement(xml, child, child.getName(), false);
       }
-	    if (element.getSpecial() != null)
+	    if (!root && element.getSpecial() != null)
         xml.exit(element.getType());
       xml.exit(elementName);
     }

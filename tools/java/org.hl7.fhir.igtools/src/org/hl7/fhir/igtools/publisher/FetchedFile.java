@@ -13,6 +13,9 @@ import org.hl7.fhir.r4.model.Bundle;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 
 public class FetchedFile {
+  public enum FetchedBundleType {
+    NATIVE, SPREADSHEET
+  }
   public final static int PROCESS_RESOURCE = 0;
   public final static int PROCESS_XSLT = 1;
   public final static int PROCESS_NONE = 2;
@@ -31,12 +34,13 @@ public class FetchedFile {
   private List<FetchedResource> resources = new ArrayList<FetchedResource>();
   private List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
   private FetchedResource bundle;
+  private FetchedBundleType bundleType;
   private Map<String, String> valuesetsToLoad = new HashMap<String, String>();
   private boolean folder;
   private List<String> files; // if it's a folder
   private int processMode;
   private Set<String> outputNames = new HashSet<String>();
-
+  
   public String getPath() {
     return path;
   }
@@ -150,4 +154,11 @@ public class FetchedFile {
   public boolean matches(FetchedFile other) {
     return this.path.equals(other.path);
   }
+  public FetchedBundleType getBundleType() {
+    return bundleType;
+  }
+  public void setBundleType(FetchedBundleType bundleType) {
+    this.bundleType = bundleType;
+  }
+  
 }
