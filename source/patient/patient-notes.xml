@@ -84,7 +84,7 @@ When a Patient resource is linked/merged then it needs to have an internal indic
 patient resource that should be considered when referencing other records, which is achieved using the patient.link property.<br/>
 Not detecting/checking for a potential linkage could mean that related clinical records are not discovered, potentially impacting patient safety.
 (which is why using the Linkage resource is not appropriate, as its use in this manner would force the use of either another
-query to potentially locate other patient resources to consider, or use _revInclude)
+query to potentially locate other patient resources to consider, or use _revinclude)
 </p>
 
 <a name="contact"></a>
