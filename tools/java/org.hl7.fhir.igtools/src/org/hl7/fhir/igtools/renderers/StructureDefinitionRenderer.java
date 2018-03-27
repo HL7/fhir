@@ -405,7 +405,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       }
     }
     if (vsn.equals("?ext"))
-      System.out.println("No value set at "+path+" (url = '"+tx.getValueSet().primitiveValue()+"')");
+      System.out.println("No value set at "+path+ (tx.hasValueSet() ? " (url = '"+tx.getValueSet().primitiveValue()+"')" : ""));
     b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
     append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).
     append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
