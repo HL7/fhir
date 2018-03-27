@@ -3487,7 +3487,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           Utilities.createDirectory(dst);
         } else
           checkMakeFile(transform(f.getSource(), f.getXslt()), dst, f.getOutputNames());
-      } catch (IOException e) {
+      } catch (Exception e) {
         log("Exception generating page "+dst+": "+e.getMessage());
       }
     } else {
