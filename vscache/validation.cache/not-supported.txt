@@ -54,6 +54,7 @@ http://www.ihe.net/xds/connectathon/practiceSettingCodes
 http://hl7.org/fhir/contract-term-type
 http://www.ebi.ac.uk/ipd/imgt/hla
 http://acme.lab
+https://www.usps.com/
 http://ihe.net/xds/connectathon/classCodes
 http://acme.org/lab/codes/panels
 http://acme.org/lab/codes/tests
