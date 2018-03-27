@@ -2827,6 +2827,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     }
 
     private int find(String path) {
+      int lc = 0;
       String actual = base+path.substring(prefixLength);
       for (int i = 0; i < snapshot.size(); i++) {
         String p = snapshot.get(i).getPath();
@@ -2846,6 +2847,9 @@ public class ProfileUtilities extends TranslatingUtilities {
           }
             
           i = 0;
+          lc++;
+          if (lc > 5)
+            throw new Error("Error sorting: find() loop count > 5 - check paths are valid");
         }
       }
       if (prefixLength == 0)

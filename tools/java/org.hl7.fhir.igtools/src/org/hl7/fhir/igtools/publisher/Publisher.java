@@ -2012,7 +2012,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals(type)) {
           log(LogCategory.PROGRESS, "process res: "+r.getId());
-          if (!r.isValidated())
+           if (!r.isValidated())
             validate(f, r);
           if (r.getResource() == null)
             try {
@@ -3456,7 +3456,6 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateOutputs(FetchedFile f, boolean regen) throws TransformerException {
-      log(" * "+f.getName()+" : " +f.getPath());
 
     if (f.getProcessMode() == FetchedFile.PROCESS_NONE) {
       String dst = tempDir;
