@@ -10,12 +10,13 @@ Hidden IG for de facto IG publishing
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project"/>
-  <package>
-    <name value="base"/>
-  </package>
-  <page>
-    <source value="index.html"/>
-    <title value="Home Page"/>
-    <kind value="page"/>
-  </page>
+  <definition>
+    <package>
+      <name value="base"/>
+    </package>
+    <page>
+      <nameUrl value="index.html"/>
+      <title value="Home Page"/>
+    </page>
+  </definition>
 </ImplementationGuide>

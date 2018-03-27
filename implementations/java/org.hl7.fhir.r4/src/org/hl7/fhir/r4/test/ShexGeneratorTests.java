@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.conformance.ShExGenerator;
 import org.hl7.fhir.r4.conformance.ShExGenerator.HTMLLinkPolicy;
 import org.hl7.fhir.r4.context.SimpleWorkerContext;
@@ -24,7 +25,7 @@ public class ShexGeneratorTests {
       Path path = FileSystems.getDefault().getPath(workingDirectory, "definitions.xml.zip");
       TestingUtilities.context = SimpleWorkerContext.fromPack(path.toString());
     }
-    StructureDefinition sd = TestingUtilities.context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
+    StructureDefinition sd = TestingUtilities.context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(name));
     if(sd == null) {
       throw new FHIRException("StructuredDefinition for " + name + "was null");
     }

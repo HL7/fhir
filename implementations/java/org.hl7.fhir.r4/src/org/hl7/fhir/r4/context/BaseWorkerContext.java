@@ -1020,8 +1020,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @SuppressWarnings("unchecked")
   @Override
   public <T extends Resource> T fetchResourceWithException(Class<T> class_, String uri) throws FHIRException {
-       if (class_ == StructureDefinition.class && !uri.contains("/"))
-      uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
+       if (class_ == StructureDefinition.class)
+      uri = ProfileUtilities.sdNs(uri);
     synchronized (lock) {
 
       if (uri.startsWith("http:") || uri.startsWith("https:")) {

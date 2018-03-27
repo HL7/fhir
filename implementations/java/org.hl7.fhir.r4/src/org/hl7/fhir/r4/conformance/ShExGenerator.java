@@ -388,7 +388,7 @@ public class ShExGenerator {
       for (String dt : new HashSet<String>(datatypes)) {
         if (!emittedDatatypes.contains(dt)) {
           StructureDefinition sd = context.fetchResource(StructureDefinition.class,
-                  "http://hl7.org/fhir/StructureDefinition/" + dt);
+              ProfileUtilities.sdNs(dt));
           // TODO: Figure out why the line below doesn't work
           // if (sd != null && !uniq_structures.contains(sd))
           if(sd != null && !uniq_structure_urls.contains(sd.getUrl()))

@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.r4.conformance.ProfileUtilities;
 import org.hl7.fhir.r4.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.r4.context.IWorkerContext;
 import org.hl7.fhir.r4.elementmodel.ParserBase;
@@ -80,7 +81,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
           throw new Exception("Bad Resource Identity - should have the format [Type]/[id]:" + s);
         String type = s.substring(0,  s.indexOf("/"));
         String id = s.substring(s.indexOf("/")+1); 
-        if (!context.hasResource(StructureDefinition.class , "http://hl7.org/fhir/StructureDefinition/"+type) && !(context.hasResource(StructureDefinition.class , "http://hl7.org/fhir/StructureDefinition/Conformance") && type.equals("CapabilityStatement")))
+        if (!context.hasResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+type) && !(context.hasResource(StructureDefinition.class , "http://hl7.org/fhir/StructureDefinition/Conformance") && type.equals("CapabilityStatement")))
           throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where Type is a valid resource type:" + s);
         if (!id.matches(FormatUtilities.ID_REGEX))
           throw new Exception("Bad Resource Identity - should have the format [Type]/[id] where id is a valid FHIR id type:" + s);
@@ -279,8 +280,6 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   private void brokenLinkWarning(String location, String ref) {
-    if (ref.equals("http://loinc.org"))
-      return;
     String s = "The reference "+ref+" could not be resolved";
     if (!msgs.contains(s)) {
       msgs.add(s);
@@ -315,7 +314,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   public String getLinkFor(String corepath, String name) {
     if (noXhtml && name.equals("xhtml"))
       return null;
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, name.contains("http:") ? name : "http://hl7.org/fhir/StructureDefinition/"+name);
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(name));
     if (sd != null && sd.hasUserData("path"))
         return sd.getUserString("path");
     brokenLinkWarning(name, name);

@@ -405,7 +405,10 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       }
     }
     if (vsn.equals("?ext"))
-      System.out.println("No value set at "+path+ (tx.hasValueSet() ? " (url = '"+tx.getValueSet().primitiveValue()+"')" : ""));
+      if (tx.getValueSet() != null)
+        System.out.println("No value set at "+path+" (url = '"+tx.getValueSet().primitiveValue()+"')");
+      else
+        System.out.println("No value set at "+path+" (no url)");
     b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
     append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).
     append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
@@ -1449,12 +1452,12 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   }
 
   private boolean hasType(String code) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(code));
     return sd != null && (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE || sd.getKind() == StructureDefinitionKind.COMPLEXTYPE);
   }
 
   private String getSrcFile(String code) {
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+code);
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, ProfileUtilities.sdNs(code));
     if (sd == null)
       return "??";
     else {
