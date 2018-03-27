@@ -924,6 +924,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     validator = new InstanceValidator(context, null); // todo: host services for reference resolution....
     validator.setAllowXsiLocation(true);
     validator.setNoBindingMsgSuppressed(true);
+    validator.setNoExtensibleWarnings(true);
+    
     if (paths.get("extension-domains") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("extension-domains"))
         validator.getExtensionDomains().add(((JsonPrimitive) e).getAsString());

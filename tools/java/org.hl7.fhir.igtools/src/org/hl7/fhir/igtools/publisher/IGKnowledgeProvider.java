@@ -279,6 +279,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   }
 
   private void brokenLinkWarning(String location, String ref) {
+    if (ref.equals("http://loinc.org"))
+      return;
     String s = "The reference "+ref+" could not be resolved";
     if (!msgs.contains(s)) {
       msgs.add(s);
@@ -313,7 +315,7 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   public String getLinkFor(String corepath, String name) {
     if (noXhtml && name.equals("xhtml"))
       return null;
-    StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, name.contains("http:") ? name : "http://hl7.org/fhir/StructureDefinition/"+name);
     if (sd != null && sd.hasUserData("path"))
         return sd.getUserString("path");
     brokenLinkWarning(name, name);

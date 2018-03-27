@@ -2467,7 +2467,7 @@ public class StructureMapUtilities {
   }
 
   private boolean profilesMatch(List<String> profiles, List<CanonicalType> profile) {
-    return profiles == null || profiles.size() == 0 || (profiles.size() == 1 && profiles.get(0).equals(profile.get(0).getValue()));
+    return profiles == null || profiles.size() == 0 || profile.size() == 0 || (profiles.size() == 1 && profiles.get(0).equals(profile.get(0).getValue()));
   }
 
   private boolean isCompatibleType(String t, String code) {
