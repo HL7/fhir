@@ -17,6 +17,7 @@ import org.hl7.fhir.r4.utils.OperationOutcomeUtilities;
 import org.hl7.fhir.r4.utils.ToolingExtensions;
 import org.hl7.fhir.r4.utils.TranslatingUtilities;
 import org.hl7.fhir.igtools.publisher.FetchedFile;
+import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
@@ -27,10 +28,12 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
 
   private static final String INTERNAL_LINK = "internal";
   private String statedVersion;
+  private IGKnowledgeProvider provider;
 
-  public ValidationPresenter(String statedVersion) {
+  public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider) {
     super();
     this.statedVersion = statedVersion;
+    this.provider = provider;
   }
 
   private List<FetchedFile> sorted(List<FetchedFile> files) {
@@ -178,7 +181,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private final String startTemplate = 
       "<hr/>\r\n"+
       "<a name=\"$link$\"> </a>\r\n"+
-      "<h2>$path$</h2>\r\n"+
+      "<h2><a href=\"$xlink$\">$path$</a></h2>\r\n"+
       " <table class=\"grid\">\r\n"+
       "   <tr>\r\n"+
       "     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td>\r\n"+
@@ -364,6 +367,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     t.add("link", makelink(f));
     t.add("filename", f.getName());
     t.add("path", f.getPath());
+    t.add("xlink", provider.getLinkFor(f.getResources().get(0)));
     return t.render();
   }
   private String genStartInternal() {
@@ -371,6 +375,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
     t.add("link", INTERNAL_LINK);
     t.add("filename", "Build Errors");
     t.add("path", "n/a");
+    t.add("xlink", "");
     return t.render();
   }
 

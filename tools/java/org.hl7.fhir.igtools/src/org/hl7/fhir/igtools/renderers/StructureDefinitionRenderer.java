@@ -370,43 +370,45 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>"+translate("sd.tx", "Path")+"</b></td><td><b>"+translate("sd.tx", "Name")+"</b></td><td><b>"+translate("sd.tx", "Conformance")+"</b></td><td><b>"+translate("sd.tx", "ValueSet")+"</b></td></tr>\r\n");
       for (String path : txlist)  {
-        ElementDefinitionBindingComponent tx = txmap.get(path);
-        String vss = "";
-        String vsn = "?ext";
-        if (tx.hasValueSet()) {
-          if (tx.getValueSet() instanceof UriType) {
-            vss = "<a href=\""+((UriType)tx.getValueSet()).asStringValue()+"\">"+Utilities.escapeXml(((UriType)tx.getValueSet()).asStringValue())+"</a>";
-          } else {
-            String uri = ((Reference)tx.getValueSet()).getReference();
-            ValueSet vs = context.fetchResource(ValueSet.class, canonicalise(uri));
-            if (vs == null) {
-              BindingResolution br = igp.resolveActualUrl(uri);
-              if (br.url == null)
-                vss = "<code>"+Utilities.escapeXml(br.display)+"</code>";
-              else if (Utilities.isAbsoluteUrl(br.url))
-                vss = "<a href=\""+br.url+"\">"+Utilities.escapeXml(br.display)+"</a>";
-              else
-                vss = "<a href=\""+prefix+br.url+"\">"+Utilities.escapeXml(br.display)+"</a>";
-            } else { 
-              String p = vs.getUserString("path");
-              if (p == null)
-                vss = "<a href=\"??\">"+Utilities.escapeXml(gt(vs.getNameElement()))+" ("+translate("sd.tx", "missing link")+")</a>";
-              else if (p.startsWith("http:"))
-                vss = "<a href=\""+p+"\">"+Utilities.escapeXml(gt(vs.getNameElement()))+"</a>";
-              else
-                vss = "<a href=\""+p+"\">"+Utilities.escapeXml(gt(vs.getNameElement()))+"</a>";
-              vsn = gt(vs.getNameElement());
-            }
-          }
-        }
-        b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
-        append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).
-        append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
+        txItem(txmap, b, path);
       }
       b.append("</table>\r\n");
       return b.toString();
 
     }
+  }
+
+  public void txItem(Map<String, ElementDefinitionBindingComponent> txmap, StringBuilder b, String path) {
+    ElementDefinitionBindingComponent tx = txmap.get(path);
+    String vss = "";
+    String vsn = "?ext";
+    if (tx.hasValueSet()) {
+      String uri = tx.getValueSet().primitiveValue();
+      ValueSet vs = context.fetchResource(ValueSet.class, canonicalise(uri));
+      if (vs == null) {
+        BindingResolution br = igp.resolveActualUrl(uri);
+        if (br.url == null)
+          vss = "<code>"+Utilities.escapeXml(br.display)+"</code>";
+        else if (Utilities.isAbsoluteUrl(br.url))
+          vss = "<a href=\""+br.url+"\">"+Utilities.escapeXml(br.display)+"</a>";
+        else
+          vss = "<a href=\""+prefix+br.url+"\">"+Utilities.escapeXml(br.display)+"</a>";
+      } else { 
+        String p = vs.getUserString("path");
+        if (p == null)
+          vss = "<a href=\"??\">"+Utilities.escapeXml(gt(vs.getNameElement()))+" ("+translate("sd.tx", "missing link")+")</a>";
+        else if (p.startsWith("http:"))
+          vss = "<a href=\""+p+"\">"+Utilities.escapeXml(gt(vs.getNameElement()))+"</a>";
+        else
+          vss = "<a href=\""+p+"\">"+Utilities.escapeXml(gt(vs.getNameElement()))+"</a>";
+        vsn = gt(vs.getNameElement());
+      }
+    }
+    if (vsn.equals("?ext"))
+      System.out.println("No value set at "+path+" (url = '"+tx.getValueSet().primitiveValue()+"')");
+    b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
+    append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).
+    append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
   }
 
   public String inv() {

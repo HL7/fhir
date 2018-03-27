@@ -8134,35 +8134,41 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       b.append("<table class=\"list\">\r\n");
       b.append("<tr><td><b>Path</b></td><td><b>Name</b></td><td><b>Conformance</b></td><td><b>ValueSet</b></td></tr>\r\n");
       for (String path : txlist)  {
-        ElementDefinitionBindingComponent tx = txmap.get(path);
-        String vss = "";
-        String vsn = "?ext";
-        if (tx.hasValueSet()) {
-          if (tx.hasValueSetCanonicalType()) {
-            String uri = tx.getValueSetCanonicalType().getValue();
-            ValueSet vs = definitions.getValuesets().get(uri);
-            if (vs == null) {
-              if (uri.startsWith("http://hl7.org/fhir/ValueSet/")) {
-                vss = "<a href=\""+genlevel(level)+"valueset-"+uri.substring(29)+".html\">"+Utilities.escapeXml(uri.substring(29))+"</a><!-- b -->";
-              } else {
-                vss = "<a href=\""+genlevel(level)+uri+"\">"+Utilities.escapeXml(uri)+"</a><!-- c -->";
-              }
-            } else {
-              vss = "<a href=\""+genlevel(level)+vs.getUserData("path")+"\">"+Utilities.escapeXml(vs.getName())+"</a><!-- d -->";
-              vsn = vs.getName();
-            }
-          } else {
-            vss = "<a href=\""+tx.getValueSetUriType().asStringValue()+"\">"+Utilities.escapeXml(tx.getValueSetUriType().asStringValue())+"</a><!-- a -->";
-          }
-        }
-        b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
-                  append(genlevel(level)).append("terminologies.html#").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).
-                  append("\">").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
+        txItem(level, txmap, b, path);
       }
       b.append("</table>\r\n");
       return b.toString();
 
     }
+  }
+
+  public void txItem(int level, Map<String, ElementDefinitionBindingComponent> txmap, StringBuilder b, String path) throws FHIRException {
+    ElementDefinitionBindingComponent tx = txmap.get(path);
+    String vss = "";
+    String vsn = "?ext";
+    if (tx.hasValueSet()) {
+      if (tx.hasValueSetCanonicalType()) {
+        String uri = tx.getValueSetCanonicalType().getValue();
+        ValueSet vs = definitions.getValuesets().get(uri);
+        if (vs == null) {
+          if (uri.startsWith("http://hl7.org/fhir/ValueSet/")) {
+            vss = "<a href=\""+genlevel(level)+"valueset-"+uri.substring(29)+".html\">"+Utilities.escapeXml(uri.substring(29))+"</a><!-- b -->";
+          } else {
+            vss = "<a href=\""+genlevel(level)+uri+"\">"+Utilities.escapeXml(uri)+"</a><!-- c -->";
+          }
+        } else {
+          vss = "<a href=\""+genlevel(level)+vs.getUserData("path")+"\">"+Utilities.escapeXml(vs.getName())+"</a><!-- d -->";
+          vsn = vs.getName();
+        }
+      } else {
+        vss = "<a href=\""+tx.getValueSetUriType().asStringValue()+"\">"+Utilities.escapeXml(tx.getValueSetUriType().asStringValue())+"</a><!-- a -->";
+      }
+    }
+    if (vsn.equals("?ext"))
+      System.out.println("No value set at "+path);
+    b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
+              append(genlevel(level)).append("terminologies.html#").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).
+              append("\">").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
   }
 
   private String getInvariantList(StructureDefinition profile) {
