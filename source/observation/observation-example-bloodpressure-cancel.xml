@@ -7,7 +7,7 @@
  be offered to the parts individually
 
  Technically, though, a blood pressure is a pair of component
- observations. LOINC code 55284-4 notes say:
+ observations. LOINC code 85354-9 notes say:
    This term is intended as a section header for various
    blood pressure measurements (e.g. systolic, diastolic).
    LOINC discourages the reporting of two numbers, such as
@@ -45,7 +45,7 @@
 	<code><!-- replaced by 85354-9
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="55284-4"/>
+			<code value="85354-9"/>
 			<display value="Blood pressure systolic &amp; diastolic"/>
 		</coding>
 --><coding>
