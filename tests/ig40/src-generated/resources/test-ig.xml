@@ -12,143 +12,139 @@
     </coding>
   </useContext>
   <fhirVersion value="1.4.0"/>
-  <package>
-    <name value="Conformance Statements"/>
-    <description value="Test conformance statement - this will be in 1.4.0."/>
+  <definition>
+    <package id="conf">
+      <name value="Conformance Statements"/>
+      <description value="Test conformance statement - this will be in 1.4.0."/>
+    </package>
+    <package id="srch">
+      <name value="Search Parameters"/>
+      <description value="Test search parameter - this will be in 1.4.0"/>
+    </package>
+    <package id="vs">
+      <name value="Value Sets"/>
+      <description value="Test ValueSet - this will be in 1.4.0."/>
+    </package>
+    <package id="ext">
+      <name value="Extensions"/>
+      <description value="3.0.1 extension"/>
+    </package>
+    <package id="dt">
+      <name value="Data Type Profiles"/>
+      <description value="3.0.1 Data type profile"/>
+    </package>
+    <package id="pld">
+      <name value="Payload Resource Profiles"/>
+      <description value="3.0.1 resource profile"/>
+    </package>
+    <package id="ex">
+      <name value="Examples"/>
+      <description value="Test example instance."/>
+    </package>
+    
     <resource>
-      <example value="false"/>
+      <reference>
+        <reference value="CapabilityStatement/conformance-test"/>
+      </reference>
       <name value="Test conformance statement"/>
       <description value="Tests handling of the switch from CapabilityStatement to Conformance and 1.4.0 source files"/>
-      <sourceReference>
-        <reference value="CapabilityStatement/conformance-test"/>
-      </sourceReference>
+      <exampleBoolean value="false"/>
+      <package value="conf"/>
     </resource>
-  </package>
-  <package>
-    <name value="Search Parameters"/>
-    <description value="Test search parameter - this will be in 1.4.0"/>
     <resource>
-      <example value="false"/>
+      <reference>
+        <reference value="SearchParameter/sp-test"/>
+      </reference>
       <name value="Test search parameter"/>
       <description value="Tests handling of another type of 1.4.0 source files"/>
-      <sourceReference>
-        <reference value="SearchParameter/sp-test"/>
-      </sourceReference>
+      <exampleBoolean value="false"/>
+      <package value="srch"/>
     </resource>
-  </package>
-  <package>
-    <name value="Value Sets"/>
-    <description value="Test ValueSet - this will be in 1.4.0."/>
     <resource>
-      <example value="false"/>
+      <reference>
+        <reference value="ValueSet/name-confirmation-codes"/>
+      </reference>
       <name value="Name Confirmation Codes"/>
       <description value="Sample value set"/>
-      <sourceReference>
-        <reference value="ValueSet/name-confirmation-codes"/>
-      </sourceReference>
+      <exampleBoolean value="false"/>
+      <package value="vs"/>
     </resource>
-  </package>
-  <package>
-    <name value="Extensions"/>
-    <description value="3.0.1 extension"/>
     <resource>
-      <example value="false"/>
+      <reference>
+        <reference value="StructureDefinition/ext-name-confirmation"/>
+      </reference>
       <name value="Name Confirmation"/>
       <description value="Test extension"/>
-      <sourceReference>
-        <reference value="StructureDefinition/ext-name-confirmation"/>
-      </sourceReference>
+      <exampleBoolean value="false"/>
+      <package value="ext"/>
     </resource>
-  </package>
-  <package>
-    <name value="Data Type Profiles"/>
-    <description value="3.0.1 Data type profile"/>
     <resource>
-      <example value="false"/>
+      <reference>
+        <reference value="StructureDefinition/dtprofile-name"/>
+      </reference>
       <name value="Test Name"/>
       <description value="Sample data type profile"/>
-      <sourceReference>
-        <reference value="StructureDefinition/dtprofile-name"/>
-      </sourceReference>
+      <exampleBoolean value="false"/>
+       <package value="dt"/>
     </resource>
-  </package>
-  <package>
-    <name value="Payload Resource Profiles"/>
-    <description value="3.0.1 resource profile"/>
     <resource>
-      <example value="false"/>
+      <reference>
+        <reference value="StructureDefinition/profile-patient"/>
+      </reference>
       <name value="Test Patient"/>
       <description value="Sample resource profile"/>
-      <sourceReference>
-        <reference value="StructureDefinition/profile-patient"/>
-      </sourceReference>
+      <exampleBoolean value="false"/>
+      <package value="pld"/>
     </resource>
-  </package>
-  <package>
-    <name value="Examples"/>
-    <description value="Test example instance."/>
     <resource>
+      <reference>
+        <reference value="Patient/example-patient"/>
+      </reference>
       <example value="true"/>
       <name value="Test patient instance"/>
       <description value="A 1.4.0 patient"/>
-      <sourceReference>
-        <reference value="Patient/example-patient"/>
-      </sourceReference>
-      <exampleFor>
+      <exampleReference>
         <reference value="StructureDefinition/profile-patient"/>
-      </exampleFor>
+      </exampleReference>
+      <package value="ex"/>
     </resource>
-  </package>
-  <page>
-    <source value="test-ig.html"/>
-    <name value="IG Home page"/>
-    <kind value="page"/>
+       
     <page>
-      <source value="artifacts.html"/>
-      <name value="List of artifacts"/>
+      <nameUrl value="test-ig.html"/>
+      <title value="IG Home page"/>
       <kind value="page"/>
       <page>
-        <source value="conformance-test.html"/>
-        <name value="Test conformance example"/>
-        <kind value="example"/>
-        <format value="generated-resource"/>
-      </page>
-      <page>
-        <source value="sp-test.html"/>
-        <name value="Test search parameter"/>
-        <kind value="example"/>
-        <format value="generated-resource"/>
-      </page>
-      <page>
-        <source value="Name-confirmation-codes.html"/>
-        <name value="Name Confirmation Codes"/>
-        <kind value="resource"/>
-        <format value="generated"/>
-      </page>
-      <page>
-        <source value="extension-ext-Name-confirmation.html"/>
-        <name value="Name Confirmation"/>
-        <kind value="resource"/>
-        <format value="generated"/>
-      </page>
-      <page>
-        <source value="dtprofile-Name.html"/>
-        <name value="Test Name"/>
-        <kind value="resource"/>
-        <format value="generated"/>
-      </page>
-      <page>
-        <source value="profile-patient.html"/>
-        <name value="Test Patient"/>
-        <kind value="resource"/>
-        <format value="generated"/>
-      </page>
-      <page>
-        <source value="example-patient.html"/>
-        <name value="Test Patient 1.4 instance"/>
-        <kind value="example"/>
-        <format value="generated"/>
+        <nameUrl value="artifacts.html"/>
+        <title value="List of artifacts"/>
+        <page>
+          <nameUrl value="conformance-test.html"/>
+          <title value="Test conformance example"/>
+        </page>
+        <page>
+          <nameUrl value="sp-test.html"/>
+          <title value="Test search parameter"/>
+        </page>
+        <page>
+          <nameUrl value="Name-confirmation-codes.html"/>
+          <title value="Name Confirmation Codes"/>
+        </page>
+        <page>
+          <nameUrl value="extension-ext-Name-confirmation.html"/>
+          <title value="Name Confirmation"/>
+        </page>
+        <page>
+          <nameUrl value="dtprofile-Name.html"/>
+          <title value="Test Name"/>
+        </page>
+        <page>
+          <nameUrl value="profile-patient.html"/>
+          <title value="Test Patient"/>
+        </page>
+        <page>
+          <nameUrl value="example-patient.html"/>
+          <title value="Test Patient 1.4 instance"/>
+        </page>
       </page>
     </page>
-  </page>
+  </definition>
 </ImplementationGuide>

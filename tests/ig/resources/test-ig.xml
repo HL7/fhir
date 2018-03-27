@@ -7,60 +7,58 @@
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project"/>
-  <package>
-    <name value="base"/>
+  <definition>
 
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <exampleBoolean value="false"/>
+      <reference>
         <reference value="CodeSystem/test-ig-cs"/>
-      </sourceReference>
+      </reference>
     </resource>
 
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <exampleBoolean value="false"/>
+      <reference>
         <reference value="ValueSet/test-ig-vs"/>
-      </sourceReference>
+      </reference>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <exampleBoolean value="false"/>
+      <reference>
         <reference value="ValueSet/test-ig-vsint"/>
-      </sourceReference>
+      </reference>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <exampleBoolean value="false"/>
+      <reference>
         <reference value="ValueSet/test-ig-vsext"/>
-      </sourceReference>
+      </reference>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <exampleBoolean value="false"/>
+      <reference>
         <reference value="ValueSet/test-ig-bnd1"/>
-      </sourceReference>
+      </reference>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <exampleBoolean value="false"/>
+      <reference>
         <reference value="ValueSet/test-ig-bnd2"/>
-      </sourceReference>
+      </reference>
     </resource>
 
     
     <!-- Profiles --> 
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <exampleBoolean value="false"/>
+      <reference>
         <reference value="StructureDefinition/test-ig-sd"/>
-      </sourceReference>
+      </reference>
     </resource>
     
-  </package>
-  <page>
-    <source value="index.html"/>
-    <title value="Home Page"/>
-    <kind value="page"/>
-  </page>
+    <page>
+      <nameUrl value="index.html"/>
+      <title value="Home Page"/>
+    </page>
+  </definition>
 </ImplementationGuide>
