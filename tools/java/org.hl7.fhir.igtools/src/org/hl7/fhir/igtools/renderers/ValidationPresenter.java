@@ -2,11 +2,14 @@ package org.hl7.fhir.igtools.renderers;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.hl7.fhir.r4.formats.XmlParser;
 import org.hl7.fhir.r4.model.Bundle;
@@ -29,11 +32,15 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   private static final String INTERNAL_LINK = "internal";
   private String statedVersion;
   private IGKnowledgeProvider provider;
+  int err = 0;
+  int warn = 0;
+  int info = 0;
 
   public ValidationPresenter(String statedVersion, IGKnowledgeProvider provider) {
     super();
     this.statedVersion = statedVersion;
     this.provider = provider;
+
   }
 
   private List<FetchedFile> sorted(List<FetchedFile> files) {
@@ -44,9 +51,6 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   }
   
   public String generate(String title, List<ValidationMessage> allErrors, List<FetchedFile> files, String path, List<String> filteredMessages) throws IOException {
-    int err = 0;
-    int warn = 0;
-    int info = 0;
     
     for (FetchedFile f : files) {
       for (ValidationMessage vm : removeDupMessages(f.getErrors())) {
@@ -431,5 +435,19 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
   @Override
   public int compare(FetchedFile f1, FetchedFile f2) {
     return f1.getName().compareTo(f2.getName());
+  }
+
+  public int getErr() {
+    return err;
+  }
+
+  public int getWarn() {
+    return warn;
+  }
+
+  public int getInfo() {
+    return info;
   }  
+  
+  
 }

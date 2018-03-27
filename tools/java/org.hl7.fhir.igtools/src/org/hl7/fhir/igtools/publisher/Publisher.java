@@ -385,7 +385,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     globalStart = System.nanoTime();
     initialize();
     log("Load Content");
-    createIg();
+    try {
+      createIg();
+    } catch (Exception e) {
+      recordOutcome(e, null);
+      throw e;
+    }
 
     if (watch) {
       first = false;
@@ -402,7 +407,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           generate();
           clean();
           long endTime = System.nanoTime();
-          log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version, igpkp).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
+          ValidationPresenter val = new ValidationPresenter(version, igpkp);
+          log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
+          recordOutcome(null, val);
         }
       }
     } else
@@ -429,10 +436,35 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     generate();
     long endTime = System.nanoTime();
     clean();
-    log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+new ValidationPresenter(version, igpkp).generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
+    ValidationPresenter val = new ValidationPresenter(version, igpkp);
+    log("Finished. "+presentDuration(endTime - startTime)+". Validation output in "+val.generate(sourceIg.getName(), errors, fileList, Utilities.path(destDir != null ? destDir : outputDir, "qa.html"), suppressedMessages));
+    recordOutcome(null, val);
   }
 
-
+  private void recordOutcome(Exception ex, ValidationPresenter val) {
+    try {
+      StringBuilder b = new StringBuilder();
+      b.append("{\r\n");
+      if (sourceIg != null) {
+        b.append("  \"url\" : \""+Utilities.escapeJson(sourceIg.getUrl())+"\",\r\n");
+        b.append("  \"name\" : \""+Utilities.escapeJson(sourceIg.getName())+"\",\r\n");
+      }
+      b.append("  \"date\" : \""+new SimpleDateFormat("EEE, dd MMM, yyyy HH:mm:ss Z", new Locale("en", "US")).format(execTime.getTime())+"\",\r\n");
+      if (val != null) {
+        b.append("  \"errs\" : \""+val.getErr()+"\",\r\n");
+        b.append("  \"warnings\" : \""+val.getWarn()+"\",\r\n");
+        b.append("  \"hints\" : \""+val.getInfo()+"\",\r\n");
+      }
+      if (ex != null)
+        b.append("  \"exception\" : \""+ex.getMessage()+"\",\r\n");
+      b.append("  \"version\" : \""+version+"\"\r\n");
+      b.append("}\r\n");
+      TextFile.stringToFile(b.toString(), Utilities.path(destDir != null ? destDir : outputDir, "qa.json"));
+    } catch (Exception e) {
+      // nothing at all
+    }
+  }
+  
   public CacheOption getCacheOption() {
     return cacheOption;
   }
