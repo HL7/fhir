@@ -46,14 +46,16 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   private JsonObject resourceConfig;
   private String pathPattern;
   private boolean autoPath = false;
+  private boolean noXhtml;
   
-  public IGKnowledgeProvider(IWorkerContext context, String pathToSpec, JsonObject igs, List<ValidationMessage> errors) throws Exception {
+  public IGKnowledgeProvider(IWorkerContext context, String pathToSpec, JsonObject igs, List<ValidationMessage> errors, boolean noXhtml) throws Exception {
     super();
     this.context = context;
     this.pathToSpec = pathToSpec;
     if (this.pathToSpec.endsWith("/"))
       this.pathToSpec = this.pathToSpec.substring(0, this.pathToSpec.length()-1);
     this.errors = errors;
+    this.noXhtml = noXhtml;
     loadPaths(igs);
   }
 
@@ -309,6 +311,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
 
   @Override
   public String getLinkFor(String corepath, String name) {
+    if (noXhtml && name.equals("xhtml"))
+      return null;
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+name);
     if (sd != null && sd.hasUserData("path"))
         return sd.getUserString("path");
@@ -420,8 +424,10 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
   @Override
   public String getLinkForProfile(StructureDefinition profile, String url) {
     StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
+    if (noXhtml && sd != null && sd.getType().equals("xhtml"))
+      return null;
     if (sd != null && sd.hasUserData("path"))
-        return sd.getUserString("path")+"|"+sd.getName();
+      return sd.getUserString("path")+"|"+sd.getName();
     brokenLinkWarning("??", url);
     return "unknown.html|??";
   }

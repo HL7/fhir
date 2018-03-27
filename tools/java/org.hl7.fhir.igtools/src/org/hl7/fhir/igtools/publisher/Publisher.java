@@ -911,7 +911,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       copyTemplate();
     
     loadSpecDetails(context.getBinaries().get("spec.internals"), context.getBinaries().get("version.info"));
-    igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors);
+    igpkp = new IGKnowledgeProvider(context, specPath, configuration, errors, version.equals("1.0.2"));
     igpkp.loadSpecPaths(specMaps.get(0));
     fetcher.setPkp(igpkp);
     JsonArray deps = configuration.getAsJsonArray("dependencyList");

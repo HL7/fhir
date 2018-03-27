@@ -693,23 +693,26 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     if (t.getCode().startsWith("xs:")) {
       b.append(t.getCode());
     } else {
-      b.append("<a href=\"");
       String s = igp.getLinkFor("", t.getCode());
-//    GG 13/12/2016 - I think that this is always wrong now. 
-//      if (!s.startsWith("http:") && !s.startsWith("https:") && !s.startsWith(".."))
-//        b.append(prefix);         
-      b.append(s);
-      if (!s.contains(".html")) {
- //     b.append(".html#");
- //     String type = t.getCode();
- //     if (type.equals("*"))
- //       b.append("open");
- //     else 
- //       b.append(t.getCode());
-      }
-      b.append("\">");
-      b.append(t.getCode());
-      b.append("</a>");
+      if (s != null) {
+        b.append("<a href=\"");
+        //    GG 13/12/2016 - I think that this is always wrong now. 
+        //      if (!s.startsWith("http:") && !s.startsWith("https:") && !s.startsWith(".."))
+        //        b.append(prefix);         
+        b.append(s);
+        if (!s.contains(".html")) {
+          //     b.append(".html#");
+          //     String type = t.getCode();
+          //     if (type.equals("*"))
+          //       b.append("open");
+          //     else 
+          //       b.append(t.getCode());
+        }
+        b.append("\">");
+        b.append(t.getCode());
+        b.append("</a>");
+      } else 
+        b.append(t.getCode());
     }
     if (t.hasProfile()) {
       b.append("(");
@@ -1177,8 +1180,13 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         b.append("\"");
       if (elem.hasFixed()) 
         b.append(Utilities.escapeJson(((PrimitiveType) elem.getFixed()).asStringValue()));
-      else
-        b.append("&lt;<span style=\"color: darkgreen\"><a href=\"" +suffix(getSrcFile(type.getCode()), type.getCode()) + "\">" + type.getCode()+ "</a></span>&gt;");
+      else {
+        String l = getSrcFile(type.getCode());
+        if (l == null)
+            b.append("&lt;<span style=\"color: darkgreen\">" + type.getCode()+ "</span>&gt;");
+        else
+          b.append("&lt;<span style=\"color: darkgreen\"><a href=\"" +suffix(l, type.getCode()) + "\">" + type.getCode()+ "</a></span>&gt;");
+      }
       if (!(type.getCode().equals("integer") || type.getCode().equals("boolean") || type.getCode().equals("decimal")))
         b.append("\"");
     } else {
@@ -1449,6 +1457,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return "??";
     else {
       String l = igp.getLinkForProfile(this.sd, sd.getUrl());
+      if (l == null)
+        return null;
       if (l.contains("|"))
         l = l.substring(0, l.indexOf("|"));
       return l;
