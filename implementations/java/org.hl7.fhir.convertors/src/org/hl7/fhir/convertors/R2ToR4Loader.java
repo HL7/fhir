@@ -124,9 +124,4 @@ public class R2ToR4Loader implements IContextResourceLoader, VersionConvertorAdv
     return this;
   }
 
-  @Override
-  public org.hl7.fhir.dstu2016may.model.Resource convertR2016(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
-    return null;
-  }
-
 }

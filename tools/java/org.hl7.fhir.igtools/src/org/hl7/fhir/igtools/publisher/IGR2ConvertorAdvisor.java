@@ -39,9 +39,4 @@ public class IGR2ConvertorAdvisor implements VersionConvertorAdvisor40 {
     return null;
   }
 
-  @Override
-  public org.hl7.fhir.dstu2016may.model.Resource convertR2016(org.hl7.fhir.r4.model.Resource resource) throws FHIRException {
-    return null;
-  }
-
 }
