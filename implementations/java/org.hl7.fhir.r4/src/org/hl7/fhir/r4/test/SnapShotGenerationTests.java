@@ -297,11 +297,11 @@ public class SnapShotGenerationTests {
 
 
   private StructureDefinition getSD(String url) throws DefinitionException, FHIRException {
-    StructureDefinition sd = TestingUtilities.context.fetchResource(StructureDefinition.class, url);
-    if (sd == null)
-      sd = context.snapshots.get(url);
+    StructureDefinition sd = context.snapshots.get(url);
     if (sd == null)
       sd = findContainedProfile(url);
+    if (sd == null)
+      sd = TestingUtilities.context.fetchResource(StructureDefinition.class, url);
     return sd;
   }
 
