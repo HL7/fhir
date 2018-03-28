@@ -7,6 +7,7 @@ public interface VersionConvertorAdvisor40 {
 
   // called ?
   org.hl7.fhir.dstu2.model.Resource convertR2(org.hl7.fhir.r4.model.Resource resource) throws FHIRException;
+  org.hl7.fhir.dstu2016may.model.Resource convertR2016May(org.hl7.fhir.r4.model.Resource resource) throws FHIRException;
   org.hl7.fhir.dstu3.model.Resource convertR3(org.hl7.fhir.r4.model.Resource resource) throws FHIRException;
   org.hl7.fhir.dstu2016may.model.Resource convertR2016(org.hl7.fhir.r4.model.Resource resource) throws FHIRException;
 

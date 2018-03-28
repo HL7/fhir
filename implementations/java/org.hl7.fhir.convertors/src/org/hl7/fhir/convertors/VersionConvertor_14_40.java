@@ -1364,7 +1364,7 @@ public class VersionConvertor_14_40 {
           else if (!e.getPath().startsWith(slicingElement.getPath() + "."))
             break;
           else if (e.getPath().equals(existsPath)) {
-            if (e.hasMin() && e.getMin() > 0)
+            if (e.hasMin() && e.getMin() > 0 && !e.hasFixed())
               existsSlicePresent = true;
             else if (e.hasMax() && e.getMax().equals("0"))
               notExistsSlicePresent = true;
@@ -3066,6 +3066,14 @@ public class VersionConvertor_14_40 {
       tgt.setRequirements(src.getPurpose());
     if (src.hasCopyright())
       tgt.setCopyright(src.getCopyright());
+    if (src.getSource() instanceof CanonicalType)
+      tgt.setSource(convertCanonicalToReference((CanonicalType)src.getSource()));
+    else
+      tgt.setSource(convertType(src.getSource()));
+    if (src.getTarget() instanceof CanonicalType)
+      tgt.setTarget(convertCanonicalToReference((CanonicalType)src.getTarget()));
+    else
+      tgt.setTarget(convertType(src.getTarget()));
     tgt.setSource(convertType(src.getSource()));
     tgt.setTarget(convertType(src.getTarget()));
     for (org.hl7.fhir.r4.model.ConceptMap.ConceptMapGroupComponent g : src.getGroup())
@@ -4729,10 +4737,7 @@ public class VersionConvertor_14_40 {
     org.hl7.fhir.r4.model.OperationDefinition.OperationDefinitionParameterBindingComponent tgt = new org.hl7.fhir.r4.model.OperationDefinition.OperationDefinitionParameterBindingComponent();
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
-    if (src.hasValueSet()) {
-      org.hl7.fhir.r4.model.Type t = convertType(src.getValueSet());
-      tgt.setValueSet(t instanceof org.hl7.fhir.r4.model.Reference ? new CanonicalType(((org.hl7.fhir.r4.model.Reference) t).getReference()) : t);
-    }
+    tgt.setValueSet(src.getValueSet() instanceof Reference ? convertReferenceToCanonical((Reference)src.getValueSet()): convertType(src.getValueSet()));
     return tgt;
   }
 
@@ -4742,7 +4747,7 @@ public class VersionConvertor_14_40 {
     org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionParameterBindingComponent tgt = new org.hl7.fhir.dstu2016may.model.OperationDefinition.OperationDefinitionParameterBindingComponent();
     copyElement(src, tgt);
     tgt.setStrength(convertBindingStrength(src.getStrength()));
-    tgt.setValueSet(convertType(src.getValueSet()));
+    tgt.setValueSet(src.getValueSet() instanceof CanonicalType ? convertCanonicalToReference((CanonicalType)src.getValueSet()): convertType(src.getValueSet()));
     return tgt;
   }
 
@@ -5443,7 +5448,7 @@ public class VersionConvertor_14_40 {
       tgt.setFhirVersion(src.getFhirVersion());
     for (org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionMappingComponent t : src.getMapping())
       tgt.addMapping(convertStructureDefinitionMappingComponent(t));
-    tgt.setKind(convertStructureDefinitionKind(src.getKind()));
+    tgt.setKind(convertStructureDefinitionKind(src.getKind(), src.getName()));
     tgt.setAbstract(src.getAbstract());
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getContext()) {
       org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionContextComponent ec = tgt.addContext();
@@ -5533,11 +5538,15 @@ public class VersionConvertor_14_40 {
     return tgt;
   }
 
-  private static org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind convertStructureDefinitionKind(org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionKind src) throws FHIRException {
+  private static org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind convertStructureDefinitionKind(org.hl7.fhir.dstu2016may.model.StructureDefinition.StructureDefinitionKind src, String name) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case DATATYPE: return org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind.COMPLEXTYPE;
+    case DATATYPE: 
+      if (name.substring(0, 1).toLowerCase().equals(name.substring(0,1)))
+        return org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind.PRIMITIVETYPE;
+      else
+        return org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind.COMPLEXTYPE;
     case RESOURCE: return org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind.RESOURCE;
     case LOGICAL: return org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind.LOGICAL;
     default: return org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind.NULL;

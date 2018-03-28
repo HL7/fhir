@@ -76,6 +76,11 @@ public class NativeHostServices {
     }
 
     @Override
+    public org.hl7.fhir.dstu2016may.model.Resource convertR2016May(Resource resource) throws FHIRException {
+      return null;
+    }
+
+    @Override
     public org.hl7.fhir.dstu2.model.Resource convertR2(Resource resource) throws FHIRException {
       return null;
     }

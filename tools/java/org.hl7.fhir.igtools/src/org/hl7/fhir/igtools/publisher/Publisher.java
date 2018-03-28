@@ -52,6 +52,7 @@ import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
+import org.hl7.fhir.convertors.R2016MayToR4Loader;
 import org.hl7.fhir.convertors.R2ToR3Loader;
 import org.hl7.fhir.convertors.R2ToR4Loader;
 import org.hl7.fhir.convertors.R3ToR4Loader;
@@ -1180,14 +1181,22 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private SpecificationPackage loadPack(String fn) throws FHIRException, IOException {
+    SpecificationPackage sp = null;
     if ("1.0.2".equals(version)) {
-      return SpecificationPackage.fromPath(fn, new R2ToR4Loader());
+      sp = SpecificationPackage.fromPath(fn, new R2ToR4Loader());
     } else if ("1.4.0".equals(version)) {
-      return SpecificationPackage.fromPath(fn, new R3ToR4Loader());
+      sp = SpecificationPackage.fromPath(fn, new R2016MayToR4Loader());
     } else if ("3.0.1".equals(version)) {
-      return SpecificationPackage.fromPath(fn, new R3ToR4Loader());
+      sp = SpecificationPackage.fromPath(fn, new R3ToR4Loader());
     } else 
       return SpecificationPackage.fromPath(fn);
+    
+    // If it wasn't a 4.0 source, we need to set the ids because they might not have been set in the source
+    ProfileUtilities utils = new ProfileUtilities(context, new ArrayList<ValidationMessage>(), igpkp);
+    for (StructureDefinition sd : sp.makeContext().allStructures()) {
+      utils.setIds(sd, true);
+    }
+    return sp;
   }
   
   private String grabToLocalCache(String source) throws IOException {
