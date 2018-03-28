@@ -6,7 +6,7 @@
 		<a name="dstu"></a>
 		<blockquote class="stu-note">
 			<p>
-				<b>STU Note:</b> The Orders and Observations workgroups wants to make the balloter aware than observations that require the attachment data types are represented by the Media resource instead of Observation.  There have been several significant change the the Media resource in order to align it with <a href="observation.html">Observation</a> and the workflow <a href="event.html">event</a> pattern including:</p>
+				<b>STU Note:</b> The Orders and Observations workgroups wants to make the balloter aware than observations that require the attachment data types are represented by the Media resource instead of Observation.  There have been several significant changes to  the Media resource in order to align it with <a href="observation.html">Observation</a> and the workflow <a href="event.html">event</a> pattern including:</p>
 			<ol>
 				<li>The addition of the <a href="media-definitions.html#Media.partOf">partOf</a> and <a href="media-definitions.html#issued">issued</a> elements.</li>
 				<li>The required <code>type</code> was changed an optional <a href="media-definitions.html#category">category</a> and the <code>subtype</code> element was renamed to  <a href="media-definitions.html#modality">modality</a>.</li>

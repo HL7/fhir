@@ -25,7 +25,7 @@
           <em>Substantive Change</em> The promotion of the <a href="http://hl7.org/fhir/STU3/extension-event-partof.html">event-partOf extension</a>  to an <a href="observation-definitions.html#Observation.partOf">inline element</a>. This allows a direct reference to an event  in which the observation was made (for example a procedure).
         </li>
          <li>
-          <em>Substantive Change</em> The promotion and expansion of the <a href="http://hl7.org/fhir/STU3/extension-observation-focal-subject.html">focal-subject extension</a>  to an <a href="observation-definitions.html#focus">inline element</a>. This allows a direct reference to a resource if the actual focus of an observation when it is not the patient of record. An simple example is provided <a href="http://build.fhir.org/observation-example-trachcare.html">here</a>.  Note that there is still the <a href="http://build.fhir.org/extension-observation-focus-code.html">focus-code</a> extension for when the focus is a code.
+          <em>Substantive Change</em> The promotion and expansion of the <a href="http://hl7.org/fhir/STU3/extension-observation-focal-subject.html">focal-subject extension</a>  to an <a href="observation-definitions.html#focus">inline element</a>. This allows a direct reference to a resource if the actual focus of an observation when it is not the patient of record. A simple example is provided <a href="http://build.fhir.org/observation-example-trachcare.html">here</a>.  Note that there is still the <a href="http://build.fhir.org/extension-observation-focus-code.html">focus-code</a> extension for when the focus is a code.
         </li>
         <li> The <em>Scope and Boundaries</em> section below has been rewritten to acknowledge the potential for Observation to be used instead of other resource and provide some overarching guidance on when other resources are more appropriate.</li>
         <li>Review of the <a href="observation-profiles.html#extensions">standard event extensions</a> which are the result of alignment with the workflow <a href="event.html">Event</a> pattern</li>
@@ -35,7 +35,7 @@
     <p>This resource is an <a href="workflow.html#event">
         <em>event resource</em>
       </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
-    <p>Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns and even capture demographic characteristics.  Most observations are simple name/value pair assertions with some metadata, but some observations group other observations together logically, or even are multi-component observations. Note that the  <a href="diagnosticreport.html">DiagnosticReport</a> resource providess a clinical or workflow context for a set of observations and the Observation resource is referenced by DiagnosticReport to represent laboratory, imaging, and other clinical and diagnostic data to form a complete report. </p>
+    <p>Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns and even capture demographic characteristics.  Most observations are simple name/value pair assertions with some metadata, but some observations group other observations together logically, or even are multi-component observations. Note that the  <a href="diagnosticreport.html">DiagnosticReport</a> resource provides a clinical or workflow context for a set of observations and the Observation resource is referenced by DiagnosticReport to represent laboratory, imaging, and other clinical and diagnostic data to form a complete report. </p>
     <p>Uses for the Observation resource include:</p>
     <ul>
       <li>Vital signs such as <a href="observation-example.html">body weight</a>,  <a href="observation-example-bloodpressure.html">blood pressure</a>, and <a href="observation-example-f202-temperature.html">temperature</a>
@@ -66,7 +66,7 @@
           <td style="width:15%;text-align:center;">
             <a href="observation-vitalsigns.html">Vital signs</a>
           </td>
-          <td>The FHIR Vital Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc) associated with a patient </td>
+          <td>The FHIR Vital Signs profile sets minimum expectations for the Observation Resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc.) associated with a patient </td>
         </tr>
       </tbody>
     </table>

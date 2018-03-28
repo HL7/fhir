@@ -1542,7 +1542,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Concepts that are used to identify an entity that is ingested for nutritional purposes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Coupled with the textureModifier; could be (All Foods)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coupled with the `texture.modifier`; could be (All Foods)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">.participation[typeCode=PRD].role[classCode=MANU], manufacturedFoodKind; .code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ODS-4</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4542,7 +4542,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s123"><Data ss:Type="String">NutritionOrder.orderer</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">The identify of the provider who placed the nutrition order</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">The identity of the provider who placed the nutrition order</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s122"><Data ss:Type="String">identifier</Data></Cell>

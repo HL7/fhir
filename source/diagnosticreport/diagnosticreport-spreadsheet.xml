@@ -947,7 +947,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">registered | partial | preliminary | final +</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The status of the diagnostic report as a whole</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The status of the diagnostic report</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4383,7 +4383,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">DiagnosticReport.code</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">The code for the report as a whole, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">result</Data></Cell>
@@ -6137,7 +6137,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s149"><Data ss:Type="String">DiagnosticReportStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The status of the diagnostic report as a whole.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The status of the diagnostic report.</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">#diagnostic-report-status</Data></Cell>
