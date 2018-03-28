@@ -14,20 +14,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.jar.JarEntry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.apache.commons.httpclient.cookie.NetscapeDraftSpec;
-import org.hl7.fhir.convertors.R2R3ConversionManager.TransformContext;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Manager;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
-import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
-import org.hl7.fhir.dstu3.formats.ParserBase;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ExpansionProfile;
@@ -36,16 +31,15 @@ import org.hl7.fhir.dstu3.model.PractitionerRole;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.ITransformerServices;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.TextFile;
-import org.hl7.fhir.utilities.Utilities;
 
 /**
  * This class manages conversion from R2 to R3 and vice versa

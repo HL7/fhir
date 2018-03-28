@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import org.fhir.ucum.UcumService;
 import org.hl7.fhir.dstu3.model.Address;
 import org.hl7.fhir.dstu3.model.Address.AddressUse;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
@@ -65,7 +66,6 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.OIDUtils;
 import org.hl7.fhir.utilities.Utilities;
-import org.fhir.ucum.UcumService;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 

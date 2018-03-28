@@ -33,6 +33,7 @@ package org.hl7.fhir.convertors;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import org.fhir.ucum.UcumEssenceService;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
@@ -40,7 +41,6 @@ import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.utilities.Utilities;
-import org.fhir.ucum.UcumEssenceService;
 
 public class Test {
   public final static String DEF_TS_SERVER = "http://fhir-dev.healthintersections.com.au/open";

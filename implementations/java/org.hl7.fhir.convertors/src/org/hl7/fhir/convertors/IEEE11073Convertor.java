@@ -13,9 +13,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.fhir.ucum.UcumEssenceService;
+import org.fhir.ucum.UcumService;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.PropertyType;
+import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
@@ -29,18 +35,11 @@ import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.StringType;
-import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.model.CodeSystem.PropertyType;
-import org.hl7.fhir.dstu3.model.CodeType;
-import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.utilities.CSVReader;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
-import org.fhir.ucum.UcumEssenceService;
-import org.fhir.ucum.UcumService;
 
 public class IEEE11073Convertor {
 

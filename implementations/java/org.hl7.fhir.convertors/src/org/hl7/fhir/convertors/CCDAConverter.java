@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.fhir.ucum.UcumService;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance;
 import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceClinicalStatus;
@@ -84,7 +85,6 @@ import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRException;
-import org.fhir.ucum.UcumService;
 import org.w3c.dom.Element;
 
 /**

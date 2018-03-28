@@ -360,6 +360,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   private ValueSet buildV2ValueSet(String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
+    vs.setLanguage("en");
     ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
@@ -498,6 +499,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   private void buildV2CodeSystem(VSPack vp, String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
+    vs.setLanguage("en");
     ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
@@ -516,6 +518,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     StringBuilder s = new StringBuilder();
 
     CodeSystem cs = new CodeSystem();
+    cs.setLanguage("en");
     CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0");
     String desc = "";
     // we use the latest description of the table
@@ -661,6 +664,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     StringBuilder s = new StringBuilder();
 
     ValueSet vs = new ValueSet();
+    vs.setLanguage("en");
     ValueSetUtilities.makeShareable(vs);
     ValueSetUtilities.markStatus(vs, null, StandardsStatus.EXTERNAL, null,  "0", null);
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
@@ -676,6 +680,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
     vs.setDateElement(new DateTimeType(date)); 
     vs.setDescription("v2 table definition for "+vs.getName());
     CodeSystem cs = new CodeSystem();
+    cs.setLanguage("en");
     CodeSystemUtilities.makeShareable(cs);
     CodeSystemConvertor.populate(cs, vs);
     CodeSystemUtilities.markStatus(cs, null, StandardsStatus.EXTERNAL, null,  "0");

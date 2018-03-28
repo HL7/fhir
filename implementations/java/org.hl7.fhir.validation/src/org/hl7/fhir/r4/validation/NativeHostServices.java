@@ -94,6 +94,11 @@ public class NativeHostServices {
       throw new FHIRException("Code systems cannot be handled at this time"); // what to do? need thread local storage? 
     }
 
+    @Override
+    public org.hl7.fhir.dstu2016may.model.Resource convertR2016(Resource resource) throws FHIRException {
+      return null;
+    }
+
   }
 
   private ValidationEngine validator;
