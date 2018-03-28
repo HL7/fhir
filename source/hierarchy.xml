@@ -225,6 +225,7 @@ signatures.html
       <page title="Managing Resource Identity" filename="managing.html"/>
       <page title="Interaction Patterns" filename="pushpull.html"/>
       <page title="Update Rules" filename="updates.html"/>
+      <page title="Multi-Language Support" filename="languages.html"/>
       <page title="Clinical Examples" filename="integrated-examples.html"/>
 
       <page title="Comparison" filename="comparison.html">

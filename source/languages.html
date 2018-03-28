@@ -1,0 +1,268 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Managing Resource Identity%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<a name="identity"></a>
+<h2>Multi-Language support in FHIR</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: n/a</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<p>
+In general, with regard to human language, content falls into one of three categories
+</p>
+<ol>
+ <li>The content is language neutral</li>
+ <li>The content has a specified language</li>
+ <li>There are multiple representations of the same content in different languages</li>
+</ol>
+<p>
+The vast majority of clinical content is language neutral - the language is either unknown
+or unspecified, and assumed to be in the natural language predominant in the 
+implementation environment. Note that this doesn't mean that the content is all in
+the same language - often, snippets of other language content will creep in 
+where patients or providers themselves are multi-lingual, but there is no formal 
+tracking for such content, and it will often be translated in situ for the benefit
+of all users.
+</p>
+<p>
+While most applications are entirely language neutral, many healthcare 
+applications must deal with multi-lingual content. This page provides a 
+roadmap to the facilities in the FHIR specification for supporting multiple 
+languages.
+</p>
+<p>
+FHIR offers the following facilities for dealing with languages:
+</p>
+<ul>
+ <li><a href="#lang">Language tag on Resource and Narrative</a></li>
+ <li><a href="#ext">Translation Extension</a></li>
+ <li><a href="#term">Translations on CodeSystem and ValueSet</a></li>
+ <li><a href="#translatable">Translatable extension on element definition</a></li>
+ <li><a href="#http">Language Tags on HTTP requests</a></li>
+ <li><a href="#names">Languages in Names and Addresses</a></li>
+</ul>
+
+<p>
+At this time, there is no way to provide multiple translations for 
+the resource narrative itself. See <a href="narrative.html#cfc">the open issue</a>
+for further details.
+</p>
+
+<a name="#spec"></a>
+<h3>Specification</h3>
+<p>
+The specification itself is published and balloted in English (US). 
+There are projects to translate this to other languages (e.g. 
+<a href="http://fhir-ru.github.io/index.html">Russian </a> and 
+<a href="https://sites.google.com/site/fhirjp/">Japanese</a>), but these 
+are generally not well maintained.
+</p>
+
+<p>
+One consequence of the way the specification works is that the element 
+names (in either JSON or XML) are in English. These should be considered
+as references into the specification; they’re never meant to be meaningful 
+to any one other than a user of the specification itself, and are never
+intended to be displayed to end-users of any healthcare application.
+</p>
+
+<p>
+What may be displayed to users are the display terms for codes and elements,
+which can be specified as described below. This has been done for some 
+codes/elements and languages (e.g. see <a href="valueset-languages.html#definition">Common
+Languages</a>), and further contributions from affiliates or implementers is
+welcone. 
+</p>
+
+
+<a name="#lang"></a>
+<h3>Language tag on Resource and Narrative</h3>
+<p>
+Every resource has an optional <a href="resource-definitions.html#Resource.language"><code>language</code></a>
+element that is the base language for the content of the resource. Note that this does not 
+require that all the content of the resource be in the specified language; just that unless
+otherwise specified, this is the default language of the content. 
+</p>
+<p>
+In addition, an <code>xml:lang</code> attribute can be specified on the <code>html:div</code> element
+(or any element in the HTML). This can be used to specify a language in addition to the resource 
+language. Nnote that it doesn't really make sense to specify a different language on the narrative
+than on the resource itself; the xml:lang attribute is allowed to support natural language processing
+of the narrative.
+</p>
+
+<a name="#ext"></a>
+<h3>Translation Extension</h3>
+
+<p>
+All human readable character content (any elements of type <a href="datatypes.html#string">string</a>
+and <a href="datatypes.html#markdown">markdown</a>) has the same language as that specified by 
+the resource language element. Whether or not a language is specified, translations may be provided
+for any human readable character content. Translations are provided using the <a href="extension-translation.html">translation
+extension</a>:
+</p>
+<pre class="json">
+{ 
+  "url" : "http://hl7.org/fhir/StructureDefinition/translation",
+  "extension" : [{
+    "url" : "lang", 
+    "valueCode" : "de"
+  },{
+    "url" : "content",
+    "valueString" : "einige übersetzte Wörter"
+  }]
+}
+</pre>
+<p>
+Multiple translations can be provided if more than one language is required. 
+</p>
+
+<a name="#term"></a>
+<h3>Translations on CodeSystem and ValueSet</h3>
+
+<p>
+Concepts defined in <a href="codesystem.html">CodeSystem</a> resources can have 
+one or more designations that provide additional representations for the concept (<a href="codesystem-definitions.html#CodeSystem.concept.designation">CodeSystem.concept.designation</a>):
+</p>
+<pre class="json">
+{
+  "code": "de",
+  "display": "German",
+  "designation": [{
+      "language": "nl",
+      "value": "Duits"
+    },{
+      "language": "ru",
+      "value": "Немецкий"
+    },
+    {
+      "language": "zh",
+      "use": {
+        "system": "http://hl7.org/fhir/CodeSystem/designation-usage",
+        "code": "display"
+      },
+      "value": "德语"
+    }
+  ]
+}
+</pre>
+<p>
+The base display ("German" in this case) is in the language specified on the resource.
+Applications using the code system can pick the appropriate language based on the 
+context and/or relevant parameters when uing the code system. Alternate designations
+can also be specified when concepts are include in value sets (<a href="valueset-definitions.html#ValueSet.compose.include.concept.designation">ValueSet.compose.include.concept.designation</a>).
+</p>
+
+
+<a name="#translatable"></a>
+<h3>Translatable extension on element definition</h3>
+
+<p>
+All elements in FHIR resources or data types are defined by an 
+<a href="elementdefinition.html">ElementDefinition</a>. Element
+Definitions provide several different descriptions for each
+element, the most important of which are <a href="elementdefinition-definitions.html#ElementDefinition.label">label</a>
+and <a href="elementdefinition-definitions.html#ElementDefinition.definition">definition</a>. These
+(and other <a href="datatypes.html#string">string</a>
+and <a href="datatypes.html#markdown">markdown</a> properties on the element definition
+can have translations using the extension shown above. 
+</p>
+<p>
+In addition to this, elements can be marked with the <a href="eextension-elementdefinition-translatable.html">translatable
+extension</a>:
+</p>
+<pre class="json">
+{ 
+  "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable", 
+  "valueBoolean" : true
+}
+</pre>
+<p>
+This indicates that applications should consider supporting translations when
+reading/writing this element.
+</p> 
+
+<a name="#http"></a>
+<h3>Language Tags on HTTP requests</h3>
+
+<p>
+HTTP Requests can include a header to indicate which language is requested:
+</p>
+<pre>
+Accept-Language: de-DE
+</pre>
+<p>
+The header can contain multiple languages, with weighted preferences. 
+Servers can use the header to return the correct language if they are 
+able. If the request is a search, the server may choose to limit matches
+to those that contain the correct language, though this might be unsafe.
+</p>
+<p>
+HTTP Responses can include a header to indicate which language is in
+the resource:
+</p>
+<pre>
+Content-Language: en-US
+</pre>
+<p>
+If present, the content language header must match the language of 
+the resource (if specified).
+</p>
+
+ <li><a href="#names">Languages in Names and Addresses</a></li>
+
+<a name="#names"></a>
+<h3>Languages in Names and Addresses</h3>
+
+<p>
+Names and addresses are one area of special difficulty with regard to
+multiple languages. Inherently, names and addresses only have one 
+language, but they may have approximations in other languages, or 
+people may choose to take entirely different names for different cultures.
+Some of the <a href="datatypes-examples.html#HumanName">name examples</a>
+illustrate how this is handled.
+</p>
+<p>
+One common practice in some cultures is the represent the same name 
+twice, in local and western scripts. These can be differentiated by
+the the script portion of the the language tag:
+</p>
+<pre class="xml">
+  &lt;name&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/language&quot;&gt;
+      &lt;valueCode value=&quot;ru-RU-Cyrl&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;family value=&quot;ЕМЕЛИН&quot; /&gt;
+    &lt;given value=&quot;ИВАН&quot; /&gt;
+    &lt;given value=&quot;ВЛАДИМИРОВИЧ&quot; /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/language&quot;&gt;
+      &lt;valueCode value=&quot;ru-RU-Latn&quot;/&gt;
+    &lt;/extension&gt;
+    &lt;family value=&quot;EMELIN&quot; /&gt;
+    &lt;given value=&quot;IVAN&quot; /&gt;
+    &lt;given value=&quot;VLADIMIROVICH&quot; /&gt;
+  &lt;/name&gt;
+</pre>
+<p>
+The different scripts can also be differentiated by the unicode subsets that they 
+contain, but this is not always convenient.
+</p>
+
+
+
+</div>
+
+
+[%file newfooter%]
+</body>
+</html>
