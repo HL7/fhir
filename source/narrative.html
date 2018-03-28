@@ -143,6 +143,26 @@ a <code>lang</code> attribute on the <code>&lt;div&gt;</code> SHOULD also be use
 <a href="http://www.w3.org/html/wg/drafts/html/master/dom.html#the-lang-and-xml:lang-attributes">the note in the HTML 5 specification about use of language</a>).
 </p>
 
+<blockquote class="stu-note">
+<a name="cfc"></a>
+
+<p>
+<strong>Note to balloters:</strong> At present, it is not possible for a resource
+to have multiple narratives, each with a different language - the html div element does not repeat, 
+and <a href="extensibility.html">extensions</a> can not contain xhtml. There are several options:
+</p>
+<ul>
+ <li>Document the use of multiple xml:lang tags for presentation software to filter on</li>
+ <li>Document the use of markdown for alternative languages</li>
+ <li>Allow xhtml in extensions, but only on the Narrative type</li>
+ <li>Add a <code>translation : xhtml 0..*</code> element, with a constraint that the different xhtml fragments must have different xml:lang tags on them</li>
+</ul>
+<p>
+We are seeking ballot feedback on these options (which are not all mutually incompatible). Note: see <a href="languages.html">discussion of 
+multi-language support</a>.
+</p>
+
+</blockquote>
 
 <a name="id"></a>
 <h3>Image References</h3>
