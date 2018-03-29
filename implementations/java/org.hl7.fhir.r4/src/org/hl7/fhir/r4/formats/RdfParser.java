@@ -7999,6 +7999,8 @@ public class RdfParser extends RdfParserBase {
       composeType(t, "ImplementationGuide", "name", element.getName(), -1);
     if (element.hasTitleElement())
       composeString(t, "ImplementationGuide", "title", element.getTitleElement(), -1);
+    if (element.hasGenerationElement())
+      composeEnum(t, "ImplementationGuide", "generation", element.getGenerationElement(), -1);
     for (int i = 0; i < element.getPage().size(); i++)
       composeImplementationGuideImplementationGuideDefinitionPageComponent(t, "ImplementationGuide", "page", element.getPage().get(i), i);
   }

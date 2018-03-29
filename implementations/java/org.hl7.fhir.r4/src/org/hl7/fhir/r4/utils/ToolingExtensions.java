@@ -108,7 +108,6 @@ public class ToolingExtensions {
   public static final String EXT_OO_FILE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-file";
   public static final String EXT_WORKGROUP = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg";
   public static final String EXT_BALLOT_STATUS = "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status";
-  public static final String EXT_GENERATED_PAGE = "http://hl7.org/fhir/StructureDefinition/implementationguide-page-generated";
 
 
   // specific extension helpers

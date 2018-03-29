@@ -100,6 +100,7 @@ import org.hl7.fhir.r4.model.Enumerations.PublicationStatus;
 import org.hl7.fhir.r4.model.ExpansionProfile;
 import org.hl7.fhir.r4.model.ExpressionNode;
 import org.hl7.fhir.r4.model.ImplementationGuide;
+import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPackageComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent;
 import org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent;
@@ -3014,11 +3015,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return null;
   }
 
-
   private void applyPageTemplate(String template, ImplementationGuideDefinitionPageComponent page) throws Exception {
     String p = page.getNameUrlType().getValue();
-    if (!(page.hasExtension(ToolingExtensions.EXT_GENERATED_PAGE) && page.getExtensionString(ToolingExtensions.EXT_GENERATED_PAGE).equals("true"))
-    && !relativeNames.keySet().contains(p) && p.endsWith(".html")) {
+    if (page.getGeneration() == GuidePageGeneration.HTML  && !relativeNames.keySet().contains(p) && p.endsWith(".html")) {
       String sourceName = p.substring(0, p.indexOf(".html")) + ".xml";
       String sourcePath = Utilities.path("_includes", sourceName);
       if (!relativeNames.keySet().contains(sourcePath) && !sourceName.equals("toc.xml"))

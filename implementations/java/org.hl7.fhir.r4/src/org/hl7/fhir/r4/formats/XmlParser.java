@@ -10879,6 +10879,8 @@ public class XmlParser extends XmlParserBase {
         res.setName(parseType("name", xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("title")) {
         res.setTitleElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("generation")) {
+        res.setGenerationElement(parseEnumeration(xpp, ImplementationGuide.GuidePageGeneration.NULL, new ImplementationGuide.GuidePageGenerationEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("page")) {
         res.getPage().add(parseImplementationGuideImplementationGuideDefinitionPageComponent(xpp, owner));
       } else if (!parseBackboneElementContent(eventType, xpp, res))
@@ -33878,6 +33880,8 @@ public class XmlParser extends XmlParserBase {
       }      if (element.hasTitleElement()) {
         composeString("title", element.getTitleElement());
       }
+      if (element.hasGenerationElement())
+        composeEnumeration("generation", element.getGenerationElement(), new ImplementationGuide.GuidePageGenerationEnumFactory());
       if (element.hasPage()) { 
         for (ImplementationGuide.ImplementationGuideDefinitionPageComponent e : element.getPage()) 
           composeImplementationGuideImplementationGuideDefinitionPageComponent("page", e);

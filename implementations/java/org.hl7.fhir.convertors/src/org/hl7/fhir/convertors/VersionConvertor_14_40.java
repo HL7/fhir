@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionPropertyComponent;
+import org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind;
 import org.hl7.fhir.dstu2016may.model.CodeableConcept;
 import org.hl7.fhir.dstu2016may.model.Reference;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -50,6 +51,7 @@ import org.hl7.fhir.r4.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.r4.model.ContactDetail;
 import org.hl7.fhir.r4.model.ElementDefinition;
 import org.hl7.fhir.r4.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
+import org.hl7.fhir.r4.model.ImplementationGuide.GuidePageGeneration;
 import org.hl7.fhir.r4.model.Enumeration;
 import org.hl7.fhir.r4.model.Questionnaire.QuestionnaireItemOperator;
 import org.hl7.fhir.r4.model.StructureDefinition.StructureDefinitionKind;
@@ -72,8 +74,7 @@ public class VersionConvertor_14_40 {
     if (src.hasId())
       tgt.setId(src.getId());
     for (org.hl7.fhir.r4.model.Extension  e : src.getExtension()) {
-      if (!e.getUrl().equals(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE))
-        tgt.addExtension(convertExtension(e));
+      tgt.addExtension(convertExtension(e));
     }
   }
 
@@ -4350,11 +4351,25 @@ public class VersionConvertor_14_40 {
       tgt.setName(convertUriToUrl(src.getSourceElement()));
     tgt.setTitle(src.getName());
     if (src.hasKind())
-      if (!src.getKind().equals(org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind.PAGE))
-        tgt.addExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE, new org.hl7.fhir.r4.model.BooleanType(true));
+      tgt.setGeneration(convertPageGeneration(src.getKind()));
     for (org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));
     return tgt;
+  }
+
+  private static GuidePageGeneration convertPageGeneration(GuidePageKind kind) {
+    switch (kind) {
+    case PAGE: return GuidePageGeneration.HTML;
+    default: return GuidePageGeneration.GENERATED;
+    }
+  }
+
+
+  private static GuidePageKind convertPageGeneration(GuidePageGeneration generation) {
+    switch (generation) {
+    case HTML: return GuidePageKind.PAGE;
+    default: return GuidePageKind.RESOURCE;
+    }
   }
 
   public static org.hl7.fhir.dstu2016may.model.ImplementationGuide.ImplementationGuidePageComponent convertImplementationGuidePageComponent(org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent src) throws FHIRException {
@@ -4365,13 +4380,8 @@ public class VersionConvertor_14_40 {
     if (src.hasNameUrlType())
       tgt.setSource(src.getNameUrlType().getValue());
     tgt.setName(src.getTitle());
-    if (src.hasExtension(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE) 
-    && src.getExtensionString(org.hl7.fhir.r4.utils.ToolingExtensions.EXT_GENERATED_PAGE).equals("true"))
-      tgt.setKind(org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind.PAGE);
-    else {
-      // todo: need to define a standard extension so we can retain this information and propagate it properly
-      tgt.setKind(org.hl7.fhir.dstu2016may.model.ImplementationGuide.GuidePageKind.RESOURCE);      
-    }
+    if (src.hasGeneration())
+      tgt.setKind(convertPageGeneration(src.getGeneration()));
       
     for (org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionPageComponent t : src.getPage())
       tgt.addPage(convertImplementationGuidePageComponent(t));

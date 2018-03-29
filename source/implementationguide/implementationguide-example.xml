@@ -51,16 +51,16 @@
       </reference>
       <name value="Test Example"/>
       <description value="A test example to show how a implementation guide works"/>
-      <exampleReference>
-        <reference value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
-      </exampleReference>
+      <exampleCanonical value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
     </resource>
     <page>
       <nameUrl value="patient-example.html"/>
       <title value="Example Patient Page"/>
+      <generation value="html"/>
       <page>
         <nameUrl value="list.html"/>
         <title value="Value Set Page"/>
+        <generation value="html"/>
       </page>
     </page>
     <parameter>
@@ -72,11 +72,9 @@
     <rendering value="http://hl7.org/fhir/us/daf"/>
     <resource>
       <reference>
-        <reference value="Patient/test"/>
+        <reference value="Patient/test"/> 
       </reference>
-      <exampleReference>
-        <reference value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
-      </exampleReference>
+      <exampleCanonical value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
       <relativePath value="patient-test.html#patient-test"/>
     </resource>
     <page>

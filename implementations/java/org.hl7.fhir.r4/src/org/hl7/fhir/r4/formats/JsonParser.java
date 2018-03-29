@@ -12001,6 +12001,10 @@ public class JsonParser extends JsonParserBase {
       res.setTitleElement(parseString(json.get("title").getAsString()));
     if (json.has("_title"))
       parseElementProperties(json.getAsJsonObject("_title"), res.getTitleElement());
+    if (json.has("generation"))
+      res.setGenerationElement(parseEnumeration(json.get("generation").getAsString(), ImplementationGuide.GuidePageGeneration.NULL, new ImplementationGuide.GuidePageGenerationEnumFactory()));
+    if (json.has("_generation"))
+      parseElementProperties(json.getAsJsonObject("_generation"), res.getGenerationElement());
     if (json.has("page")) {
       JsonArray array = json.getAsJsonArray("page");
       for (int i = 0; i < array.size(); i++) {
@@ -38084,6 +38088,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasTitleElement()) {
         composeStringCore("title", element.getTitleElement(), false);
         composeStringExtras("title", element.getTitleElement(), false);
+      }
+      if (element.hasGenerationElement()) {
+        composeEnumerationCore("generation", element.getGenerationElement(), new ImplementationGuide.GuidePageGenerationEnumFactory(), false);
+        composeEnumerationExtras("generation", element.getGenerationElement(), new ImplementationGuide.GuidePageGenerationEnumFactory(), false);
       }
       if (element.hasPage()) {
         openArray("page");

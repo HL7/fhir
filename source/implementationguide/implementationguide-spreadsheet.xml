@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -769,6 +769,9 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s161">
+   <Font ss:Color="#333333" ss:FontName="Arial" x:Family="Swiss"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -802,9 +805,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R106C22"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R107C22"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="106" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="107" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s69" ss:Width="318.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="77.0"/>
    <Column ss:StyleID="s68" ss:Width="29.0"/>
@@ -1554,7 +1557,7 @@
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">boolean|Reference(StructureDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">boolean|canonical(StructureDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1661,6 +1664,30 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="17" ss:StyleID="s99">
+    <Cell ss:StyleID="s98"><Data ss:Type="String">ImplementationGuide.definition.page.generation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String" x:Ticked="1">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">GuidePageGeneration</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">html | markdown | xml | generated</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A code that indicates how the page is generated</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="17" ss:StyleID="s99">
     <Cell ss:StyleID="s98"><Data ss:Type="String">ImplementationGuide.definition.page.page</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1957,7 +1984,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">boolean|Reference(StructureDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">boolean|canonical(StructureDefinition)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3406,7 +3433,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3418,7 +3444,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R106C22">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R107C22">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
@@ -5517,7 +5543,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="28" ss:StyleID="s121" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="27" ss:StyleID="s121" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s121" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s121" ss:Width="274.0"/>
    <Column ss:StyleID="s121" ss:Width="51.0"/>
@@ -5561,26 +5587,11 @@
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">GuidePageKind</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The kind of an included page.</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">GuidePageGeneration</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">A code that indicates how the page is generated</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">#guide-page-kind</Data></Cell>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s125"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
-    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">#guide-page-generation</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
@@ -5975,14 +5986,14 @@
     <Cell ss:StyleID="s112"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="s147">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s147">
     <Cell ss:StyleID="s149"><Data ss:Type="String">apply-business-version</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">Apply Business Version</Data></Cell>
     <Cell ss:StyleID="s159"><Data ss:Type="String">If the value of this boolean 0..1 parameter is "true" then all conformance resources will have any specified [Resource].version overwritten with the ImplementationGuide.version</Data></Cell>
     <Cell ss:StyleID="s150"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15" ss:StyleID="s147">
+   <Row ss:AutoFitHeight="0" ss:StyleID="s147">
     <Cell ss:StyleID="s140"><Data ss:Type="String">apply-jurisdiction</Data></Cell>
     <Cell ss:StyleID="s140"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">Apply Jurisdiction</Data></Cell>
@@ -6054,7 +6065,7 @@
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="guide-page-kind">
+ <Worksheet ss:Name="guide-page-generation">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="9" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="415.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="196.0"/>
@@ -6070,59 +6081,31 @@
     <Cell ss:StyleID="s113"><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">page</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">html</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Page</Data></Cell>
-    <Cell><Data ss:Type="String">This is a page of content that is included in the implementation guide. It has no particular function.</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">HTML</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">Page is proper xhtml with no templating.  Will be brought across unchanged for standard post-processing</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">example</Data></Cell>
+    <Cell><Data ss:Type="String">markdown</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Example</Data></Cell>
-    <Cell><Data ss:Type="String">This is a page that represents a human readable rendering of an example.</Data></Cell>
-    <Cell><Data ss:Type="String">For the publishing tool, the source should be a reference to the example resource, and it will be generated for that example</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Markdown</Data></Cell>
+    <Cell><Data ss:Type="String">Page is markdown with templating.  Will use the template to create a file that imports the markdown file prior to post-processing</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">list</Data></Cell>
+    <Cell><Data ss:Type="String">xml</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">List</Data></Cell>
-    <Cell><Data ss:Type="String">This is a page that represents a list of resources of one or more types.</Data></Cell>
-    <Cell><Data ss:Type="String">No source for these kind of pages</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">XML</Data></Cell>
+    <Cell><Data ss:Type="String">Page is xml with templating.  Will use the template to create a file that imports the source file and run the nominated XSLT transform (see parameters) if present prior to post-processing</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">include</Data></Cell>
+    <Cell><Data ss:Type="String">generated</Data></Cell>
     <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Include</Data></Cell>
-    <Cell><Data ss:Type="String">This is a page showing where an included guide is injected.</Data></Cell>
-    <Cell><Data ss:Type="String">Source should be the URL of the guide as defined in the dependency list</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Generated</Data></Cell>
+    <Cell><Data ss:Type="String">Page will be generated by the publication process - no source to bring across</Data></Cell>
+    <Cell><Data ss:Type="String">Pages are still listed in this case in order to enter tehm into index/ToC</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">directory</Data></Cell>
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Directory</Data></Cell>
-    <Cell><Data ss:Type="String">This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">dictionary</Data></Cell>
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">#5</Data></Cell>
-    <Cell><Data ss:Type="String">Dictionary</Data></Cell>
-    <Cell><Data ss:Type="String">This is a page that creates the listed resources as a dictionary.</Data></Cell>
-    <Cell><Data ss:Type="String">This needs further explanation and exploration yet</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">toc</Data></Cell>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Table Of Contents</Data></Cell>
-    <Cell><Data ss:Type="String">This is a generated page that contains the table of contents.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">resource</Data></Cell>
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">This is a page that represents a presented resource. This is typically used for generated conformance resource presentations.</Data></Cell>
-    <Cell><Data ss:Type="String">These types of pages are autogenerated by the build tool</Data></Cell>
-   </Row>
+   <Row ss:AutoFitHeight="0" ss:Span="3"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -6130,6 +6113,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-1</HorizontalResolution>
+    <VerticalResolution>-1</VerticalResolution>
+   </Print>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
