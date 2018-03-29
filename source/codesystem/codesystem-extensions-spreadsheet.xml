@@ -4881,7 +4881,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">CodeSystem</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Reference(ConceptMap)</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">canonical(ConceptMap)</Data></Cell>
     <Cell><Data ss:Type="String">N</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A concept map relevant to interpret this value set</Data></Cell>
     <Cell><Data ss:Type="String">A reference to a concept map that is relevant for the interpretation of this value set</Data></Cell>

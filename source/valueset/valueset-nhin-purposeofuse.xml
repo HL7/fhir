@@ -160,9 +160,7 @@
     </ConceptMap>
   </contained>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-map">
-    <valueReference>
-      <reference value="#map"/>
-    </valueReference>
+    <valueCanonical value="#map"/>
   </extension>
   <!--    set of loinc codes for cholesterol for LONC 2.36    -->
   <url value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>

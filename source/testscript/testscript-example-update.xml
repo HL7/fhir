@@ -42,9 +42,7 @@
       <description value="Patient Update and Delete Operations"/>
       <link value="http://hl7.org/fhir/http.html#update"/>
       <link value="http://hl7.org/fhir/http.html#delete"/>
-      <capabilities>
-        <reference value="CapabilityStatement/example"/>
-      </capabilities>
+      <capabilities value="CapabilityStatement/example"/>
     </capability>
   </metadata>
   <fixture id="fixture-patient-create">
