@@ -158,6 +158,8 @@ public class SimpleFetcher implements IFetchFile {
       if (Utilities.noString(fn)) {
         // no source in the json file.
         fn = findFile(dirs, type.toLowerCase()+"-"+id+".xml");
+        if (fn == null) // Added to support Forge's file naming convention
+          fn = findFile(dirs, id+"."+type.toLowerCase()+".xml");
         if (fn == null)
           fn = findFile(dirs, type.toLowerCase()+"-"+id+".json");
         if (fn == null)
@@ -169,7 +171,7 @@ public class SimpleFetcher implements IFetchFile {
         if (fn == null)
           fn = findFile(dirs, id+".json");
         if (fn == null)
-          throw new Exception("Unable to find the source file for "+type+"/"+id+": not specified, so tried "+type.toLowerCase()+"-"+id+".xml, "+type.toLowerCase()+"-"+id+".json, "+type.toLowerCase()+"/"+id+".xml, "+type.toLowerCase()+"/"+id+".json, "+id+".xml, and "+id+".json in dirs "+dirs.toString());
+          throw new Exception("Unable to find the source file for "+type+"/"+id+": not specified, so tried "+type.toLowerCase()+"-"+id+".xml, "+id+"."+type.toLowerCase()+".xml, "+type.toLowerCase()+"-"+id+".json, "+type.toLowerCase()+"/"+id+".xml, "+type.toLowerCase()+"/"+id+".json, "+id+".xml, and "+id+".json in dirs "+dirs.toString());
       } else {
         fn = findFile(dirs, fn);
         if (fn == null || !exists(fn))
