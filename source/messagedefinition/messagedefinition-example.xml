@@ -23,6 +23,6 @@
     <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>
   </eventCoding>
-	<category value="Notification"/>
+	<category value="notification"/>
 
 </MessageDefinition>
