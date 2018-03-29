@@ -92,7 +92,7 @@ see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3
 <h4>WADO-URI</h4>
 <p>An Endpoint.connectionType of code <code>dicom-wado-uri</code>, system <code>http://hl7.org/fhir/endpoint-connection-type</code>, 
 identifies a DICOM WADO-URI service. The Endpoint.address identifies the HTTP(S) service base url. 
-That is, only the scheme, authority and path are included. Neither a quetstion mark (?) nor any query parameters shall be included.
+That is, only the scheme, authority and path are included. Neither a question mark (?) nor any query parameters shall be included.
 </p>
 <p>
 The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
@@ -105,7 +105,7 @@ The query to retrieve a DICOM instance is constructed by appending the appropria
 </p>
 <p>
 For example, a native DICOM PS3.10 instance file can be retrieved (if consistent with the Accept header) by performing
-a GET on a URL constructed from a <code>Endpoint.address.url</code> of <code>“https://pacs.hospital.org/wado-uri”</code>, the study.uid value
+a GET on a URL constructed from an <code>Endpoint.address.url</code> of <code>“https://pacs.hospital.org/wado-uri”</code>, the study.uid value
 of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>, study.series.uid value
 of <code>“urn:oid:1.2.250.1.59.40211.789001276.14556172.67789”</code>, and study.series.instance.uid value
 of <code>“urn:oid:1.2.250.1.59.40211.2678810.87991027.899772.2”</code>:
@@ -213,13 +213,13 @@ referenced key images into the report.
 <p>
 Dr. Down meets again with Joe, and they review the results of the stress test.  Joe has a question about
 the findings that the key images in the report do not show, so Dr. Down uses the Local MultiClinic EMR
-to query the PACS for the full <a href="imagingstudy.html">ImagingStudy</a> resource, and uses the references there to open an image
+to query the PACS for the full <a href="imagingstudy.html">ImagingStudy</a> resource and uses the references there to open an image
 display for the full study.  Joe agrees to proceed to catheterization, and Dr. Down sends a referral to
-the Ginormous University Hospital cath department, and triggers the PACS to share the echo study
+the Ginormous University Hospital cath department and triggers the PACS to share the echo study
 through the Metropolitan Health Information Exchange.
 </p>
 <p>
-The PACS creates a imaging study as an <a href="imagingstudy.html">ImagingStudy</a>
+The PACS creates an imaging study as an <a href="imagingstudy.html">ImagingStudy</a>
 resource, which includes all the
 images but excludes the sonographer’s preliminary measurements (which as a matter of policy are
 not shared outside the Local MultiClinic). The imaging study is published to the Metro HIE. (In

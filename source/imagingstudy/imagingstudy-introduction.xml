@@ -21,7 +21,7 @@ Attributes used in the DICOM query information models, such as "Number of Instan
 in <a href="http://medical.nema.org/medical/dicom/current/output/html/part04.html#chapter_C">DICOM Part 4 Annex C</a>.
 </p>
 <p>
-ImagingStudy provides access to significant DICOM information, but will only eliminate the need for DICOM 
+ImagingStudy provides access to significant DICOM information but will only eliminate the need for DICOM 
 query (e.g., QIDO-RS) in the simplest cases. The DICOM instances are not stored in the ImagingStudy 
 resource; use of a DICOM WADO-RS server or other storage mechanism is needed.
 </p>
