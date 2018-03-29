@@ -548,7 +548,7 @@ public class Dosage extends Type implements ICompositeType {
      * @param value {@link #dose} (Amount of medication per dose.)
      */
     public Dosage setDose(Type value) throws FHIRFormatError { 
-      if (value != null && !(value instanceof Range || value instanceof SimpleQuantity))
+      if (value != null && !(value instanceof Range || value instanceof Quantity))
         throw new FHIRFormatError("Not the right type for Dosage.dose[x]: "+value.fhirType());
       this.dose = value;
       return this;
@@ -686,7 +686,7 @@ public class Dosage extends Type implements ICompositeType {
      * @param value {@link #rate} (Amount of medication per unit of time.)
      */
     public Dosage setRate(Type value) throws FHIRFormatError { 
-      if (value != null && !(value instanceof Ratio || value instanceof Range || value instanceof SimpleQuantity))
+      if (value != null && !(value instanceof Ratio || value instanceof Range || value instanceof Quantity))
         throw new FHIRFormatError("Not the right type for Dosage.rate[x]: "+value.fhirType());
       this.rate = value;
       return this;

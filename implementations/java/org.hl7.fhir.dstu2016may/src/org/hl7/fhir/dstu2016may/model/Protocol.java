@@ -1528,14 +1528,14 @@ public class Protocol extends DomainResource {
         /**
          * @return {@link #value} (Indicates what value the observation/test/assertion must have in order for the condition to be considered to be satisfied.)
          */
-        public SimpleQuantity getValueSimpleQuantity() throws FHIRException { 
-          if (!(this.value instanceof SimpleQuantity))
+        public SimpleQuantity getValueQuantity() throws FHIRException { 
+          if (!(this.value instanceof Quantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.value.getClass().getName()+" was encountered");
           return (SimpleQuantity) this.value;
         }
 
-        public boolean hasValueSimpleQuantity() { 
-          return this.value instanceof SimpleQuantity;
+        public boolean hasValueQuantity() { 
+          return this.value instanceof Quantity;
         }
 
         /**
