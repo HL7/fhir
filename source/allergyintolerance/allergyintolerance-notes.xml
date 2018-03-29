@@ -34,7 +34,7 @@ The substanceExposureRisk extension is also available for use as a more complete
 <blockquote class="stu-note">
 <a name="dstu"></a>
 <p>
-<b>STU Note:</b> There are two primary ways of reporting "no known allergies" in the current specification: using the CodeableConcept,
+<b>STU Note: </b> There are two primary ways of reporting "no known allergies" in the current specification: using the CodeableConcept,
 as described above, or using the <a href="list.html">List</a> resource with emptyReason. The third available option is using the substanceExposureRisk extension.  During the STU period, it is not recommended to use the <a href="list.html">List</a> resource for "no known allergies" reporting purposes. The principal reason for this is to allow all allergy or intolerance data to be found and to be consistently queryable from the single location of the AllergyIntolerance resource.
 </p>
 <p>
