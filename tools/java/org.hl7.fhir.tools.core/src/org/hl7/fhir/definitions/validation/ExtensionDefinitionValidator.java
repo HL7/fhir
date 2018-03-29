@@ -9,7 +9,6 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class ExtensionDefinitionValidator {
 
-  
   private String context;
 
   public ExtensionDefinitionValidator(String context) {

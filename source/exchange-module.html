@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code. 
+-->
+      
+[%settitle Exchange Module%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> </td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<a name="root"></a>
+<h2>FHIR Exchange Module</h2>
+
+<h3>Introduction / Index</h3>
+<p>
+FHIR is designed as an interface specification - it specifies the content of the data exchanged between 
+healthcare applications, and how the exchange is implemented and managed. FHIR defines the following 
+methods for exchanging data between systems: 
+</p>
+<ul>
+  <li><a href="#rest">RESTful API</a></li>
+  <li><a href="#msg">Messaging</a></li>
+  <li><a href="#doc">Documents</a></li>
+  <li><a href="#soa">Services</a></li>
+  <li><a href="#store">Database / Persistent Storage</a></li>
+</ul>
+<p>
+Each of these approaches can be used to exchange information, and each has its own strengths and weaknesses and applicability.
+Note that applications are allowed to use any other method to exchange resources; the methods
+described in this specification are the common methods that are used enough to justify
+the effort to describe or standardize their use. 
+</p>
+
+<a name="rest"></a>
+<h4>RESTful API</h4>
+<p>
+Most implementers focus on <a href="http.html">RESTful API</a>. This is a client/server API
+designed to follow the <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">principles of RESTful design</a> for <b>C</b>reate, <b>R</b>ead,
+<b>U</b>pdate and <b>D</b>elete operations, along with <a href="search.html"><b>S</b>earch</a>
+and <a href="operations.html"><b>E</b>xecute (Operations)</a> support.
+</p>
+<p>
+The RESTful API is a general purpose interface that can be used to <a href="pushpull.html">push and pull</a> data between systems.
+Which is appropriate depends on architecture and deployment considerations. The RESTful API also supports
+<a href="async.html">Asynchronous Use</a> and <a href="graphql.html">GraphQL</a>.
+</p>
+
+<a name="msg"></a>
+<h4>Messaging</h4>
+<p>
+In addition to the RESTful API, a <a href="messaging.html">messaging exchange framework</a>
+is documented, which supports exchange between systems by sending
+routed messages from system to system. This exchange can be implemented on the RESTful API,
+or using some other messaging technology.
+</p>
+<p>
+Implementers should note that the messaging framework is not provided to fill any functional
+deficiency in the RESTful API (or vice versa), these frameworks are provided to allow
+implementers to choose how to exchange content based on their own architectural and
+deployment considerations. Messaging may be more suitable for exchange between disparate 
+organizations with low levels of process integration and/or trust.
+</p>
+
+<a name="doc"></a>
+
+<h4>Documents</h4>
+<p>
+This specification also defines a <a href="documents.html">document based exchange
+framework</a>, where content to be exchanged is wrapped by a <a href="composition.html">Composition</a>
+that provides the context of the content, and that has a fixed presentation for a human reader.
+The document framework is provided to help with computer-assisted human to human communication
+uses - which are not uncommon in healthcare.
+</p>
+<p>
+Typically, exchanging documents is associated with exchanging clinical information across
+clinical governance borders, while data based exchange using the RESTful API is appropriate
+within where there are well established clinical governance arrangements.
+</p>
+
+<a name="soa"></a>
+<h4>Services / SOA</h4>
+<p>
+In addition, this specification describes the use of FHIR in a <a href="services.html">services framework</a>(e.g. a SOA).
+Note that any use of any of the above approaches in production is a 'service' by some or many definitions.
+The services description provides context regarding the use of FHIR (and particularly the RESTful API) in a
+wider enterprise architecture.
+</p>
+
+<a name="store"></a>
+<h4>Database / Persistent Store</h4>
+<p>
+Another way to make use of the resources defined by FHIR is to store them natively 
+in a database or persistent store, where different applications or modules write 
+and read the resources as part of their implementation. Using resources in this
+fashion is described here.
+</p>
+
+
+<a name="secpriv"></a>
+<h3>Security and Privacy</h3>
+<p>
+All forms of data exchange should be appropriately secured. This requires the following: 
+</p>
+<ul>
+ <li>Only the parties to the exchange can access the communication</li>
+ <li>The parties are authenticated and authorised as required</li>
+ <li>Access control always checks that the only the appropriate data is exchanged</li>
+ <li>Appropriate patient consent has been obtained for the exchange</li>
+</ul>
+<p>
+This subject is described further in the <a href="security.html">Security</a> Page.
+</p>
+<p>
+With regard to the RESTful API, implementers should always consider the <a href="http://hl7.org/fhir/smart-app-launch/">Smart App Launch</a>
+protocol as part of the overall secure API approach
+</p>
+
+
+
+<a name="roadmap"></a>
+<h3>Developmental Roadmap</h3>
+<table class="grid">
+ <tr>
+   <td>RESTful API</td>
+   <td>This is stable and currently being balloted as Normative. No breaking changes are expected. No significant development is planned, but HL7 will continue to respond to user experience</td>
+ </tr>
+ <tr>
+   <td>Messaging</td>
+   <td>Messaging has only be implemented in a few projects; some of the infrastructure has not yet been used in production. It is not clear whether significant development will be needed or appropriate</td>
+ </tr>
+ <tr>
+   <td>Documents</td>
+   <td>Documents have mostly only been used in prototype projects, though there is considerable impetus around implementation at this time. No significant development is planned, but HL7 will continue to respond to user experience</td>
+ </tr>
+ <tr>
+   <td>Services</td>
+   <td>At this point in time, it's not clear whether further work is required or appropriate in terms of service orientated architecture / enterprise integration. HL7 will continue to monitor implementer experience and feedback</td>
+ </tr>
+ <tr>
+   <td>Database / Persistent Storage</td>
+   <td>This is a new area with considerable action at this time, and many production implementations, though RDF itself is not getting much use. At this time, HL7 is monitoring implementer experience and feedback 
+     to see whether additional standardization is required</td>
+ </tr>
+</table>
+
+<blockquote class="stu-note">
+<a name="dstu"></a>
+
+<p>
+<strong>Note to balloters:</strong> There's some interest in 
+standardizing the use of <a href="https://developers.google.com/protocol-buffers/">ProtocolBuffers</a> directly
+in the specification itself (<a href="https://github.com/google/fhir">basis</a>). Ballot 
+comments are welcome.
+</p>
+
+</blockquote>
+
+</div>
+
+[%file newfooter%]
+</body>
+</html>

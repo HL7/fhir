@@ -269,6 +269,7 @@ If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> e
 	<a name="genetics"></a>
 	<h3>Genetic Observations</h3>
 	<p>Genetic reporting makes heavy use of the DiagnosticReport and Observation resources.  A set of profiles have been defined for representing genetic results that can be found <a href="observation-genetic.html">here</a>.</p>
+  <a name="cg"></a>
   <blockquote class="stu-note">
     <p>The Clinical Genomics workgroup is currently exploring a couple of alternatives that are less dependent on extensions</p>
     <ul>

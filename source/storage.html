@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Managing Resource Identity%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-12">
+
+<a name="identity"></a>
+<h2>Using FHIR in persistent stores</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: n/a</td><td id="ballot"><a href="ballot-intro.html#process">Ballot Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<p>
+Applications can use the resources defined by FHIR by storing them natively 
+in a database or persistent store, where different applications or modules write 
+and read the resources as part of their implementation. This page describes 
+implementation issues encountered when storing resources natively in persistent
+stores.
+</p>
+<p>
+Note that almost all applications store the information find in resources 
+in some persistent store - usually a database. Most applications store 
+the information found in the resources in some internal format, and only
+use resources natively when exchanging with other applications. This page 
+concerns applications that store the FHIR resources natively.
+</p>
+
+<a name="choice"></a>
+<h3>Applicability of storing resources natively</h3>
+
+<p>
+In principle, resources are designed for exchange between systems, 
+rather than as a database storage format. One practical consequence 
+of this is that in some way, resources are highly denormalised, so 
+that granular exchanges are fairly stand alone. (Note that in some
+ways, resources are also highly normalised; e.g. Patient demographic
+details are only found in the Patient resource).
+</p>
+<p>
+To illustrate this, consider using an RxNorm code as a medication code. In a prescription resource (MedicationRequest), that will look like this:
+</p>
+<pre class="xml" fragment="MedicationRequest">
+&lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;medicationCodeableConcept&gt;
+   &lt;coding&gt;
+     &lt;system value=&quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;/&gt;
+     &lt;code value=&quot;&quot;/&gt;
+   &lt;/coding&gt;
+  &lt;/medicationCodeableConcept&gt;
+&lt;/MedicationRequest&gt;
+</pre>
+<p>
+If the resource was designed to prioritize storage efficiency, it would be normalized 
+so that the code was just some primary key reference:
+</p>
+<pre class="xml">
+&lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;code key=&quot;123431232&quot;/&gt;
+&lt;/MedicationRequest&gt;
+</pre>
+<p>
+or something similar. Note: Whether to normalise or not is an engineering design 
+question that has multiple different considerations, and very often product
+designers change their decision about this for engineering reasons with no 
+associated change in functionality or requirements.
+</p>
+<p>
+Resources, on the other hand, are designed for robustness and stability over efficiency. 
+Using a key reference like the second example would require all the participants in an 
+exchange to synchronize the key for the code, which is often not possible, and rarely 
+stable. 
+</p>
+<p>
+In spite of this design criteria, it can still be useful and appropriate to store 
+resources directly in a persistent store or database. Whether to do so depends on an
+application's requirements. 
+</p>
+<p>
+If an application's information requirements are nailed down - that is, well 
+understood, clearly expressed, and not subject to uncontrolled change – then it is easy 
+to design a data storage schema that is completely fit for purpose and 
+highly efficient compared to storing FHIR resources. Classic Enterprise Information 
+Systems (EHRs) tend to behave like this.
+</p>
+<p>
+If, on the other hand, the application's information requirements are not at all 
+nailed down, and implementers have to deal with whatever data comes in an ongoing 
+basis, then resources are actually a very sound way to store an application's data. The 
+<a href="extensibility.html">the extensibility approach</a> makes FHIR a particularly 
+robust choice as the primary data store. Clinical Data Repositories tend to behave 
+like this.
+</p>
+<p>
+Most information systems fall somewhere between these 2 extremes, and determinming whether
+to store resources directly is not straight forward. Some applications take a 
+hybrid approach – storing FHIR resources natively, and storing a well controlled 
+subset of information in some expressly designed persistent scheme. 
+The balance between these is driven by the stability of information requirements 
+for different parts of the system.
+</p>
+
+<a name="choice"></a>
+<h3>Technology Choices</h3>
+<p>
+A wide variety of technologies exist for storing resources natively, 
+including:
+</p>
+<ul>
+ <li>Classic SQL servers with JSON support (built in, or added on top by the application)</li>
+ <li>NoSQL servers (e.g. <a href="https://github.com/mongodb/mongo">Mongodb</a>, <a href="http://couchdb.apache.org/">Couch</a>,
+   <a href="http://hadoop.apache.org/">Hadoop</a>, or <a href="https://cloud.google.com/bigquery/">Big Query</a>)</li>
+ <li>Some <a href="rdf.html">RDF</a> based store using the RDF in the turtle format, or in some native triple story (e.g. <a href="https://jena.apache.org/">Jena</a>)</li>
+</ul>
+<p>
+This specification does not recommend any particular approach. The rest of 
+this page describes general information management considerations that apply
+across all technologies.
+</p>
+
+<a name="joins"></a>
+<h3>Managing Joins</h3>
+<p>
+Most applications that store resources natively find the way references work in FHIR 
+deserves particular focus. <a href="references.html">References</a> can be absolute 
+or relative URLs, they can be version specific or not, they may or many not follow 
+FHIR’s well defined RESTful interface pattern, and they may or might not resolve 
+in the local system. In addition, given the requirements consideration above, it's 
+not always possible to enforce referential integrity when storing resources directly. 
+</p>
+<p>
+All the flexibility is required in various exchange scenarios, but it can present
+challenges for application design when building a coherent data store with resources.
+</p>
+<p>
+Applications that store resources natively may want to extending the storage 
+format with an element to capture the <code>resolved link</code> in addition 
+to the existing reference/identifier in the <a href="references.html">Reference</a> 
+and <a href="datatypes.html#canonical">canonical</a> data types. 
+</p>
+<p>
+The <a href="rdf.html">RDF format</a> does this explicitly for references and 
+codings (<a href="rdf.html#reference">fhir:reference</a> and <a href="rdf.html#concept">fhir:concept</a>).
+</p>
+<p>
+Applications that store JSON, will have to remove the extension for exchange, 
+unless a native FHIR extension is used, which might not be the most efficient way
+to store the resolved link.
+</p>
+
+<blockquote class="stu-note">
+<a name="cfc"></a>
+
+<p>
+<strong>Note to balloters:</strong> Is there enough interest to standardize an
+extension? Ballot comments are welcome.
+</p>
+
+</blockquote>
+</div>
+
+
+[%file newfooter%]
+</body>
+</html>
