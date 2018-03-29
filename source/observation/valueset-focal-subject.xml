@@ -3,7 +3,7 @@
 <id value="focal-subject"></id>
 	<name value="Focal Subject Codes"/>
 	<status value="draft"/>
-	<!--  Extension: Focal Subject	 Example VS composed from SNOMED CT f and V3 for observation targets donor, fetus, spouse as uses case arise may buidl on this .	
+	<!--  Extension: Focal Subject	 Example value set composed from SNOMED CT f and V3 for observation targets donor, fetus, spouse as uses case arise may buidl on this .
   -->
 	<publisher value="HL7 International - Orders and Observations WG"/>
 	<contact>
@@ -12,7 +12,7 @@
 			<value value="http://hl7.org/fhir"/>
 		</telecom>
 	</contact>
-	<description value="Example VS composed from SNOMED CT and HL7 v3 codes for observation targets: donor, fetus, spouse. As use cases are discovered more values may be added."/>
+	<description value="Example value set composed from SNOMED CT and HL7 V3 codes for observation targets such as donor, fetus or spouse. As use cases are discovered, more values may be added."/>
 	<copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
 	<compose>
 		<include>
@@ -21,7 +21,7 @@
 				<code value="83418008"></code>
 				<display value="Fetus"/>
 			</concept>
-		
+
 		</include>
 		<include>
 			<system value="http://hl7.org/fhir/v3/ParticipationType"></system>

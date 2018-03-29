@@ -6911,7 +6911,7 @@
     <Cell ss:StyleID="s158"><Data ss:Type="String">ready</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s160"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">Ready</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">The task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s151"/>
@@ -6929,7 +6929,7 @@
     <Cell ss:StyleID="s158"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s160"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">In Progress</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Task has been started but is not yet complete.</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">The task has been started but is not yet complete.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s151"/>
@@ -6938,7 +6938,7 @@
     <Cell ss:StyleID="s158"><Data ss:Type="String">on-hold</Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s160"/>
     <Cell ss:StyleID="s158"><Data ss:Type="String">On Hold</Data></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Task has been started but work has been paused.</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">The task has been started but work has been paused.</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s151"/>

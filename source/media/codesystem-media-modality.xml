@@ -26,7 +26,7 @@
   </concept>
   <concept>
     <code value="retina"/>
-    <display value="Retina scan"/>
+    <display value="Retina Scan"/>
     <definition value="A retinal image used for identification purposes"/>
   </concept>
   <concept>
@@ -36,17 +36,17 @@
   </concept>
   <concept>
     <code value="iris"/>
-    <display value="Iris"/>
+    <display value="Iris Scan"/>
     <definition value="An iris scan used for identification purposes"/>
   </concept>
   <concept>
     <code value="palm"/>
-    <display value="Palm"/>
+    <display value="Palm Scan"/>
     <definition value="A palm scan used for identification purposes"/>
   </concept>
   <concept>
     <code value="face"/>
-    <display value="Face"/>
+    <display value="Face Scan"/>
     <definition value="A face scan used for identification purposes"/>
   </concept>
 </CodeSystem>

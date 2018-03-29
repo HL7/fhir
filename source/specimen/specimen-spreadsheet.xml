@@ -6917,7 +6917,7 @@
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">Entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Entered in Error</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">The specimen was entered in error and therefore nullified.</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>

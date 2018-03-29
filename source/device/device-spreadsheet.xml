@@ -6755,7 +6755,7 @@
     <Cell ss:StyleID="s168"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Active</Data></Cell>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">The Device is available for use.  Note: This means for *implanted devices*  the device is implanted in the patient.</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">The device is available for use.  Note: For *implanted devices*  this means that the device is implanted in the patient.</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s156"/>
@@ -6766,7 +6766,7 @@
     <Cell ss:StyleID="s168"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Inactive</Data></Cell>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">The Device is no longer available for use (e.g. lost, expired, damaged).  Note: This means for *implanted devices*  the device has been removed from the patient.</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">The device is no longer available for use (e.g. lost, expired, damaged).  Note: For *implanted devices*  this means that the device has been removed from the patient.</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s156"/>
@@ -6777,7 +6777,7 @@
     <Cell ss:StyleID="s168"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Entered in Error</Data></Cell>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">The Device was entered in error and voided.</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">The device was entered in error and voided.</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s156"/>
@@ -7341,8 +7341,8 @@
     <Cell ss:StyleID="s177"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s168"/>
     <Cell ss:StyleID="s177"/>
-    <Cell ss:StyleID="s177"><Data ss:Type="String">BarCode</Data></Cell>
-    <Cell ss:StyleID="s170"><Data ss:Type="String"> A Barcode scanner captured the data from the device label</Data></Cell>
+    <Cell ss:StyleID="s177"><Data ss:Type="String">Barcode</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String"> a barcodescanner captured the data from the device label</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s156"/>
@@ -7375,7 +7375,7 @@
     <Cell ss:StyleID="s168"/>
     <Cell ss:StyleID="s177"/>
     <Cell ss:StyleID="s177"><Data ss:Type="String">Card</Data></Cell>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">The data originated from a patient's implant card and read by an operator.</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">The data originated from a patient's implant card and was read by an operator.</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s156"/>
@@ -7386,7 +7386,7 @@
     <Cell ss:StyleID="s168"/>
     <Cell ss:StyleID="s177"/>
     <Cell ss:StyleID="s177"><Data ss:Type="String">Self Reported</Data></Cell>
-    <Cell ss:StyleID="s170"><Data ss:Type="String">The data originated from a patient source and not directly scanned or read from a label or card.</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="String">The data originated from a patient source and was not directly scanned or read from a label or card.</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s156"/>

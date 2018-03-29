@@ -4417,7 +4417,7 @@
     <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" . One of the listed statuses is presumed to apply,  but the system creating the request doesn't know.</Data></Cell>
+    <Cell><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" . One of the listed statuses is presumed to apply,  but the system creating the request does not know.</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
    </Row>
   </Table>
@@ -4453,14 +4453,14 @@
     <Cell><Data ss:Type="String">proposal</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Proposal</Data></Cell>
-    <Cell><Data ss:Type="String">The request is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act</Data></Cell>
+    <Cell><Data ss:Type="String">The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActMood.PRP</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="58">
     <Cell><Data ss:Type="String">plan</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Plan</Data></Cell>
-    <Cell><Data ss:Type="String">The request represents an intension to ensure something occurs without providing an authorization for others to act</Data></Cell>
+    <Cell><Data ss:Type="String">The request represents an intention to ensure something occurs without providing an authorization for others to act</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43">
     <Cell><Data ss:Type="String">order</Data></Cell>
