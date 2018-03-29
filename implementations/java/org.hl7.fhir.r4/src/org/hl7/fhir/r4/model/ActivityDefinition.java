@@ -3,30 +3,30 @@ package org.hl7.fhir.r4.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
 // Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
@@ -54,564 +54,564 @@ public class ActivityDefinition extends MetadataResource {
         /**
          * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
          */
-        ACCOUNT, 
+        ACCOUNT,
         /**
          * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
          */
-        ACTIVITYDEFINITION, 
+        ACTIVITYDEFINITION,
         /**
          * Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.
          */
-        ADVERSEEVENT, 
+        ADVERSEEVENT,
         /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
-        ALLERGYINTOLERANCE, 
+        ALLERGYINTOLERANCE,
         /**
          * A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).
          */
-        APPOINTMENT, 
+        APPOINTMENT,
         /**
          * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
          */
-        APPOINTMENTRESPONSE, 
+        APPOINTMENTRESPONSE,
         /**
          * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
          */
-        AUDITEVENT, 
+        AUDITEVENT,
         /**
          * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
          */
-        BASIC, 
+        BASIC,
         /**
          * A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
          */
-        BINARY, 
+        BINARY,
         /**
          * A material substance originating from a biological entity intended to be transplanted or infused
 into another (possibly the same) biological entity.
          */
-        BIOLOGICALLYDERIVEDPRODUCT, 
+        BIOLOGICALLYDERIVEDPRODUCT,
         /**
          * Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
          */
-        BODYSTRUCTURE, 
+        BODYSTRUCTURE,
         /**
          * A container for a collection of resources.
          */
-        BUNDLE, 
+        BUNDLE,
         /**
          * A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
          */
-        CAPABILITYSTATEMENT, 
+        CAPABILITYSTATEMENT,
         /**
          * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
          */
-        CAREPLAN, 
+        CAREPLAN,
         /**
          * The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.
          */
-        CARETEAM, 
+        CARETEAM,
         /**
          * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
          */
-        CHARGEITEM, 
+        CHARGEITEM,
         /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
-        CLAIM, 
+        CLAIM,
         /**
          * This resource provides the adjudication details from the processing of a Claim resource.
          */
-        CLAIMRESPONSE, 
+        CLAIMRESPONSE,
         /**
          * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
          */
-        CLINICALIMPRESSION, 
+        CLINICALIMPRESSION,
         /**
          * The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.
          */
-        CODESYSTEM, 
+        CODESYSTEM,
         /**
          * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
          */
-        COMMUNICATION, 
+        COMMUNICATION,
         /**
          * A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
          */
-        COMMUNICATIONREQUEST, 
+        COMMUNICATIONREQUEST,
         /**
          * A compartment definition that defines how resources are accessed on a server.
          */
-        COMPARTMENTDEFINITION, 
+        COMPARTMENTDEFINITION,
         /**
          * A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.).
          */
-        COMPOSITION, 
+        COMPOSITION,
         /**
          * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
          */
-        CONCEPTMAP, 
+        CONCEPTMAP,
         /**
          * A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
          */
-        CONDITION, 
+        CONDITION,
         /**
          * A record of a healthcare consumer’s  choices, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time.
          */
-        CONSENT, 
+        CONSENT,
         /**
          * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
          */
-        CONTRACT, 
+        CONTRACT,
         /**
          * Financial instrument which may be used to reimburse or pay for health care products and services.
          */
-        COVERAGE, 
+        COVERAGE,
         /**
          * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
          */
-        DETECTEDISSUE, 
+        DETECTEDISSUE,
         /**
          * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
          */
-        DEVICE, 
+        DEVICE,
         /**
          * The characteristics, operational status and capabilities of a medical-related component of a medical device.
          */
-        DEVICECOMPONENT, 
+        DEVICECOMPONENT,
         /**
          * Describes a measurement, calculation or setting capability of a medical device.
          */
-        DEVICEMETRIC, 
+        DEVICEMETRIC,
         /**
          * Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
          */
-        DEVICEREQUEST, 
+        DEVICEREQUEST,
         /**
          * A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
          */
-        DEVICEUSESTATEMENT, 
+        DEVICEUSESTATEMENT,
         /**
          * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
          */
-        DIAGNOSTICREPORT, 
+        DIAGNOSTICREPORT,
         /**
          * A collection of documents compiled for a purpose together with metadata that applies to the collection.
          */
-        DOCUMENTMANIFEST, 
+        DOCUMENTMANIFEST,
         /**
          * A reference to a document.
          */
-        DOCUMENTREFERENCE, 
+        DOCUMENTREFERENCE,
         /**
          * A resource that includes narrative, extensions, and contained resources.
          */
-        DOMAINRESOURCE, 
+        DOMAINRESOURCE,
         /**
          * The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an EligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
          */
-        ELIGIBILITYREQUEST, 
+        ELIGIBILITYREQUEST,
         /**
          * This resource provides eligibility and plan details from the processing of an Eligibility resource.
          */
-        ELIGIBILITYRESPONSE, 
+        ELIGIBILITYRESPONSE,
         /**
          * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
          */
-        ENCOUNTER, 
+        ENCOUNTER,
         /**
          * The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
          */
-        ENDPOINT, 
+        ENDPOINT,
         /**
          * This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
          */
-        ENROLLMENTREQUEST, 
+        ENROLLMENTREQUEST,
         /**
          * This resource provides enrollment and plan details from the processing of an Enrollment resource.
          */
-        ENROLLMENTRESPONSE, 
+        ENROLLMENTRESPONSE,
         /**
          * Catalog entries are wrappers that contextualize items included in a catalog.
          */
-        ENTRYDEFINITION, 
+        ENTRYDEFINITION,
         /**
          * An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
          */
-        EPISODEOFCARE, 
+        EPISODEOFCARE,
         /**
          * The EventDefinition resource provides a reusable description of when a particular event can occur.
          */
-        EVENTDEFINITION, 
+        EVENTDEFINITION,
         /**
          * Example of workflow instance.
          */
-        EXAMPLESCENARIO, 
+        EXAMPLESCENARIO,
         /**
          * Resource to define constraints on the Expansion of a FHIR ValueSet.
          */
-        EXPANSIONPROFILE, 
+        EXPANSIONPROFILE,
         /**
          * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
          */
-        EXPLANATIONOFBENEFIT, 
+        EXPLANATIONOFBENEFIT,
         /**
          * Significant health conditions for a person related to the patient relevant in the context of care for the patient.
          */
-        FAMILYMEMBERHISTORY, 
+        FAMILYMEMBERHISTORY,
         /**
          * Prospective warnings of potential issues when providing care to the patient.
          */
-        FLAG, 
+        FLAG,
         /**
          * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
          */
-        GOAL, 
+        GOAL,
         /**
          * A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
          */
-        GRAPHDEFINITION, 
+        GRAPHDEFINITION,
         /**
          * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
          */
-        GROUP, 
+        GROUP,
         /**
          * A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.
          */
-        GUIDANCERESPONSE, 
+        GUIDANCERESPONSE,
         /**
          * The details of a healthcare service available at a location.
          */
-        HEALTHCARESERVICE, 
+        HEALTHCARESERVICE,
         /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
-        IMAGINGSTUDY, 
+        IMAGINGSTUDY,
         /**
          * Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party.
          */
-        IMMUNIZATION, 
+        IMMUNIZATION,
         /**
          * Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations.
          */
-        IMMUNIZATIONEVALUATION, 
+        IMMUNIZATIONEVALUATION,
         /**
          * A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification.
          */
-        IMMUNIZATIONRECOMMENDATION, 
+        IMMUNIZATIONRECOMMENDATION,
         /**
          * A set of rules of how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.
          */
-        IMPLEMENTATIONGUIDE, 
+        IMPLEMENTATIONGUIDE,
         /**
          * Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose.
          */
-        INVOICE, 
+        INVOICE,
         /**
          * A physical, countable instance of an item, for example one box or one unit.
          */
-        ITEMINSTANCE, 
+        ITEMINSTANCE,
         /**
          * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
-        LIBRARY, 
+        LIBRARY,
         /**
          * Identifies two or more records (resource instances) that are referring to the same real-world "occurrence".
          */
-        LINKAGE, 
+        LINKAGE,
         /**
          * A set of information summarized from a list of other resources.
          */
-        LIST, 
+        LIST,
         /**
          * Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.
          */
-        LOCATION, 
+        LOCATION,
         /**
          * The Measure resource provides the definition of a quality measure.
          */
-        MEASURE, 
+        MEASURE,
         /**
          * The MeasureReport resource contains the results of the calculation of a measure, and optionally a reference to the resources involved in that calculation.
          */
-        MEASUREREPORT, 
+        MEASUREREPORT,
         /**
          * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
          */
-        MEDIA, 
+        MEDIA,
         /**
          * This resource is primarily used for the identification and definition of a medication for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
          */
-        MEDICATION, 
+        MEDICATION,
         /**
          * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
          */
-        MEDICATIONADMINISTRATION, 
+        MEDICATIONADMINISTRATION,
         /**
          * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
          */
-        MEDICATIONDISPENSE, 
+        MEDICATIONDISPENSE,
         /**
          * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns.
          */
-        MEDICATIONREQUEST, 
+        MEDICATIONREQUEST,
         /**
          * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
          */
-        MEDICATIONSTATEMENT, 
+        MEDICATIONSTATEMENT,
         /**
          * Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use).
          */
-        MEDICINALPRODUCT, 
+        MEDICINALPRODUCT,
         /**
          * The regulatory authorization of a medicinal product.
          */
-        MEDICINALPRODUCTAUTHORIZATION, 
+        MEDICINALPRODUCTAUTHORIZATION,
         /**
          * The clinical particulars - indications, contraindications etc of a medicinal product, including for regulatory purposes.
          */
-        MEDICINALPRODUCTCLINICALS, 
+        MEDICINALPRODUCTCLINICALS,
         /**
          * A detailed description of a device, typically as part of a regulated medicinal product. It is not intended to relace the Device resource, which covers use of device instances.
          */
-        MEDICINALPRODUCTDEVICESPEC, 
+        MEDICINALPRODUCTDEVICESPEC,
         /**
          * An ingredient of a manufactured item or pharmaceutical product.
          */
-        MEDICINALPRODUCTINGREDIENT, 
+        MEDICINALPRODUCTINGREDIENT,
         /**
          * A medicinal product in a container or package.
          */
-        MEDICINALPRODUCTPACKAGED, 
+        MEDICINALPRODUCTPACKAGED,
         /**
          * A pharmaceutical product described in terms of its composition and dose form.
          */
-        MEDICINALPRODUCTPHARMACEUTICAL, 
+        MEDICINALPRODUCTPHARMACEUTICAL,
         /**
          * Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.
          */
-        MESSAGEDEFINITION, 
+        MESSAGEDEFINITION,
         /**
          * The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
          */
-        MESSAGEHEADER, 
+        MESSAGEHEADER,
         /**
          * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
          */
-        NAMINGSYSTEM, 
+        NAMINGSYSTEM,
         /**
          * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
          */
-        NUTRITIONORDER, 
+        NUTRITIONORDER,
         /**
          * Measurements and simple assertions made about a patient, device or other subject.
          */
-        OBSERVATION, 
+        OBSERVATION,
         /**
          * Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.
          */
-        OBSERVATIONDEFINITION, 
+        OBSERVATIONDEFINITION,
         /**
          * A person's work information, structured to facilitate individual, population, and public health use; not intended to support billing.
          */
-        OCCUPATIONALDATA, 
+        OCCUPATIONALDATA,
         /**
          * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
          */
-        OPERATIONDEFINITION, 
+        OPERATIONDEFINITION,
         /**
          * A collection of error, warning or information messages that result from a system action.
          */
-        OPERATIONOUTCOME, 
+        OPERATIONOUTCOME,
         /**
          * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
          */
-        ORGANIZATION, 
+        ORGANIZATION,
         /**
          * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
          */
-        ORGANIZATIONROLE, 
+        ORGANIZATIONROLE,
         /**
          * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
-        PARAMETERS, 
+        PARAMETERS,
         /**
          * Demographics and other administrative information about an individual or animal receiving care or other health-related services.
          */
-        PATIENT, 
+        PATIENT,
         /**
          * This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
          */
-        PAYMENTNOTICE, 
+        PAYMENTNOTICE,
         /**
          * This resource provides payment details and claim references supporting a bulk payment.
          */
-        PAYMENTRECONCILIATION, 
+        PAYMENTRECONCILIATION,
         /**
          * Demographics and administrative information about a person independent of a specific health-related context.
          */
-        PERSON, 
+        PERSON,
         /**
          * This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols.
          */
-        PLANDEFINITION, 
+        PLANDEFINITION,
         /**
          * A person who is directly or indirectly involved in the provisioning of healthcare.
          */
-        PRACTITIONER, 
+        PRACTITIONER,
         /**
          * A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.
          */
-        PRACTITIONERROLE, 
+        PRACTITIONERROLE,
         /**
          * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
          */
-        PROCEDURE, 
+        PROCEDURE,
         /**
          * This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
          */
-        PROCESSREQUEST, 
+        PROCESSREQUEST,
         /**
          * This resource provides processing status, errors and notes from the processing of a resource.
          */
-        PROCESSRESPONSE, 
+        PROCESSRESPONSE,
         /**
          * Details of a Health Insurance product/plan provided by an organization.
          */
-        PRODUCTPLAN, 
+        PRODUCTPLAN,
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
-        PROVENANCE, 
+        PROVENANCE,
         /**
          * A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.
          */
-        QUESTIONNAIRE, 
+        QUESTIONNAIRE,
         /**
          * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to.
          */
-        QUESTIONNAIRERESPONSE, 
+        QUESTIONNAIRERESPONSE,
         /**
          * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
          */
-        RELATEDPERSON, 
+        RELATEDPERSON,
         /**
          * A group of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one".
          */
-        REQUESTGROUP, 
+        REQUESTGROUP,
         /**
          * A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects.
          */
-        RESEARCHSTUDY, 
+        RESEARCHSTUDY,
         /**
          * A physical entity which is the primary unit of operational and/or administrative interest in a study.
          */
-        RESEARCHSUBJECT, 
+        RESEARCHSUBJECT,
         /**
          * This is the base resource type for everything.
          */
-        RESOURCE, 
+        RESOURCE,
         /**
          * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
          */
-        RISKASSESSMENT, 
+        RISKASSESSMENT,
         /**
          * A container for slots of time that may be available for booking appointments.
          */
-        SCHEDULE, 
+        SCHEDULE,
         /**
          * A search parameter that defines a named search item that can be used to search/filter on a resource.
          */
-        SEARCHPARAMETER, 
+        SEARCHPARAMETER,
         /**
          * Raw data describing a biological sequence.
          */
-        SEQUENCE, 
+        SEQUENCE,
         /**
          * A record of a request for service such as diagnostic investigations, treatments, or operations to be performed.
          */
-        SERVICEREQUEST, 
+        SERVICEREQUEST,
         /**
          * A slot of time on a schedule that may be available for booking appointments.
          */
-        SLOT, 
+        SLOT,
         /**
          * A sample to be used for analysis.
          */
-        SPECIMEN, 
+        SPECIMEN,
         /**
          * A kind of specimen with associated set of requirements.
          */
-        SPECIMENDEFINITION, 
+        SPECIMENDEFINITION,
         /**
          * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types.
          */
-        STRUCTUREDEFINITION, 
+        STRUCTUREDEFINITION,
         /**
          * A Map of relationships between 2 structures that can be used to transform data.
          */
-        STRUCTUREMAP, 
+        STRUCTUREMAP,
         /**
          * The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system is able to take an appropriate action.
          */
-        SUBSCRIPTION, 
+        SUBSCRIPTION,
         /**
          * A homogeneous material with a definite composition.
          */
-        SUBSTANCE, 
+        SUBSTANCE,
         /**
          * Todo.
          */
-        SUBSTANCEPOLYMER, 
+        SUBSTANCEPOLYMER,
         /**
          * Todo.
          */
-        SUBSTANCEREFERENCEINFORMATION, 
+        SUBSTANCEREFERENCEINFORMATION,
         /**
          * The detailed description of a substance, typically at a level beyond what is used for prescribing.
          */
-        SUBSTANCESPECIFICATION, 
+        SUBSTANCESPECIFICATION,
         /**
          * Record of delivery of what is supplied.
          */
-        SUPPLYDELIVERY, 
+        SUPPLYDELIVERY,
         /**
          * A record of a request for a medication, substance or device used in the healthcare setting.
          */
-        SUPPLYREQUEST, 
+        SUPPLYREQUEST,
         /**
          * A task to be performed.
          */
-        TASK, 
+        TASK,
         /**
          * A Terminology Capabilities documents a set of capabilities (behaviors) of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
          */
-        TERMINOLOGYCAPABILITIES, 
+        TERMINOLOGYCAPABILITIES,
         /**
          * A summary of information based on the results of executing a TestScript.
          */
-        TESTREPORT, 
+        TESTREPORT,
         /**
          * A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.
          */
-        TESTSCRIPT, 
+        TESTSCRIPT,
         /**
          * Information about a user's current session.
          */
-        USERSESSION, 
+        USERSESSION,
         /**
          * A ValueSet resource specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html).
          */
-        VALUESET, 
+        VALUESET,
         /**
          * Describes validation requirements, source(s), status and dates for one or more elements.
          */
-        VERIFICATIONRESULT, 
+        VERIFICATIONRESULT,
         /**
          * An authorization for the supply of glasses and/or contact lenses to a patient.
          */
-        VISIONPRESCRIPTION, 
+        VISIONPRESCRIPTION,
         /**
          * added to help the parsers with the generic types
          */
@@ -2355,15 +2355,15 @@ into another (possibly the same) biological entity.
         /**
          * The participant is the patient under evaluation
          */
-        PATIENT, 
+        PATIENT,
         /**
          * The participant is a practitioner involved in the patient's care
          */
-        PRACTITIONER, 
+        PRACTITIONER,
         /**
          * The participant is a person related to the patient
          */
-        RELATEDPERSON, 
+        RELATEDPERSON,
         /**
          * added to help the parsers with the generic types
          */
@@ -2497,7 +2497,7 @@ into another (possibly the same) biological entity.
         /**
          * @return {@link #type} (The type of participant in the action.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<ActivityParticipantType> getTypeElement() { 
+        public Enumeration<ActivityParticipantType> getTypeElement() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ActivityDefinitionParticipantComponent.type");
@@ -2506,18 +2506,18 @@ into another (possibly the same) biological entity.
           return this.type;
         }
 
-        public boolean hasTypeElement() { 
+        public boolean hasTypeElement() {
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of participant in the action.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ActivityDefinitionParticipantComponent setTypeElement(Enumeration<ActivityParticipantType> value) { 
+        public ActivityDefinitionParticipantComponent setTypeElement(Enumeration<ActivityParticipantType> value) {
           this.type = value;
           return this;
         }
@@ -2525,14 +2525,14 @@ into another (possibly the same) biological entity.
         /**
          * @return The type of participant in the action.
          */
-        public ActivityParticipantType getType() { 
+        public ActivityParticipantType getType() {
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of participant in the action.
          */
-        public ActivityDefinitionParticipantComponent setType(ActivityParticipantType value) { 
+        public ActivityDefinitionParticipantComponent setType(ActivityParticipantType value) {
             if (this.type == null)
               this.type = new Enumeration<ActivityParticipantType>(new ActivityParticipantTypeEnumFactory());
             this.type.setValue(value);
@@ -2542,7 +2542,7 @@ into another (possibly the same) biological entity.
         /**
          * @return {@link #role} (The role the participant should play in performing the described action.)
          */
-        public CodeableConcept getRole() { 
+        public CodeableConcept getRole() {
           if (this.role == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ActivityDefinitionParticipantComponent.role");
@@ -2551,14 +2551,14 @@ into another (possibly the same) biological entity.
           return this.role;
         }
 
-        public boolean hasRole() { 
+        public boolean hasRole() {
           return this.role != null && !this.role.isEmpty();
         }
 
         /**
          * @param value {@link #role} (The role the participant should play in performing the described action.)
          */
-        public ActivityDefinitionParticipantComponent setRole(CodeableConcept value) { 
+        public ActivityDefinitionParticipantComponent setRole(CodeableConcept value) {
           this.role = value;
           return this;
         }
@@ -2620,7 +2620,7 @@ into another (possibly the same) biological entity.
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3575610:  return getTypeElement();
-        case 3506294:  return getRole(); 
+        case 3506294:  return getRole();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2730,7 +2730,7 @@ into another (possibly the same) biological entity.
         /**
          * @return {@link #description} (A brief, natural language description of the intended semantics of the dynamic value.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() { 
+        public StringType getDescriptionElement() {
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ActivityDefinitionDynamicValueComponent.description");
@@ -2739,18 +2739,18 @@ into another (possibly the same) biological entity.
           return this.description;
         }
 
-        public boolean hasDescriptionElement() { 
+        public boolean hasDescriptionElement() {
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() { 
+        public boolean hasDescription() {
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (A brief, natural language description of the intended semantics of the dynamic value.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public ActivityDefinitionDynamicValueComponent setDescriptionElement(StringType value) { 
+        public ActivityDefinitionDynamicValueComponent setDescriptionElement(StringType value) {
           this.description = value;
           return this;
         }
@@ -2758,14 +2758,14 @@ into another (possibly the same) biological entity.
         /**
          * @return A brief, natural language description of the intended semantics of the dynamic value.
          */
-        public String getDescription() { 
+        public String getDescription() {
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value A brief, natural language description of the intended semantics of the dynamic value.
          */
-        public ActivityDefinitionDynamicValueComponent setDescription(String value) { 
+        public ActivityDefinitionDynamicValueComponent setDescription(String value) {
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -2779,7 +2779,7 @@ into another (possibly the same) biological entity.
         /**
          * @return {@link #path} (The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public StringType getPathElement() { 
+        public StringType getPathElement() {
           if (this.path == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ActivityDefinitionDynamicValueComponent.path");
@@ -2788,18 +2788,18 @@ into another (possibly the same) biological entity.
           return this.path;
         }
 
-        public boolean hasPathElement() { 
+        public boolean hasPathElement() {
           return this.path != null && !this.path.isEmpty();
         }
 
-        public boolean hasPath() { 
+        public boolean hasPath() {
           return this.path != null && !this.path.isEmpty();
         }
 
         /**
          * @param value {@link #path} (The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public ActivityDefinitionDynamicValueComponent setPathElement(StringType value) { 
+        public ActivityDefinitionDynamicValueComponent setPathElement(StringType value) {
           this.path = value;
           return this;
         }
@@ -2807,14 +2807,14 @@ into another (possibly the same) biological entity.
         /**
          * @return The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
          */
-        public String getPath() { 
+        public String getPath() {
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
          * @param value The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
          */
-        public ActivityDefinitionDynamicValueComponent setPath(String value) { 
+        public ActivityDefinitionDynamicValueComponent setPath(String value) {
           if (Utilities.noString(value))
             this.path = null;
           else {
@@ -2828,7 +2828,7 @@ into another (possibly the same) biological entity.
         /**
          * @return {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
          */
-        public StringType getLanguageElement() { 
+        public StringType getLanguageElement() {
           if (this.language == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ActivityDefinitionDynamicValueComponent.language");
@@ -2837,18 +2837,18 @@ into another (possibly the same) biological entity.
           return this.language;
         }
 
-        public boolean hasLanguageElement() { 
+        public boolean hasLanguageElement() {
           return this.language != null && !this.language.isEmpty();
         }
 
-        public boolean hasLanguage() { 
+        public boolean hasLanguage() {
           return this.language != null && !this.language.isEmpty();
         }
 
         /**
          * @param value {@link #language} (The media type of the language for the expression.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
          */
-        public ActivityDefinitionDynamicValueComponent setLanguageElement(StringType value) { 
+        public ActivityDefinitionDynamicValueComponent setLanguageElement(StringType value) {
           this.language = value;
           return this;
         }
@@ -2856,14 +2856,14 @@ into another (possibly the same) biological entity.
         /**
          * @return The media type of the language for the expression.
          */
-        public String getLanguage() { 
+        public String getLanguage() {
           return this.language == null ? null : this.language.getValue();
         }
 
         /**
          * @param value The media type of the language for the expression.
          */
-        public ActivityDefinitionDynamicValueComponent setLanguage(String value) { 
+        public ActivityDefinitionDynamicValueComponent setLanguage(String value) {
           if (Utilities.noString(value))
             this.language = null;
           else {
@@ -2877,7 +2877,7 @@ into another (possibly the same) biological entity.
         /**
          * @return {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
-        public StringType getExpressionElement() { 
+        public StringType getExpressionElement() {
           if (this.expression == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ActivityDefinitionDynamicValueComponent.expression");
@@ -2886,18 +2886,18 @@ into another (possibly the same) biological entity.
           return this.expression;
         }
 
-        public boolean hasExpressionElement() { 
+        public boolean hasExpressionElement() {
           return this.expression != null && !this.expression.isEmpty();
         }
 
-        public boolean hasExpression() { 
+        public boolean hasExpression() {
           return this.expression != null && !this.expression.isEmpty();
         }
 
         /**
          * @param value {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
-        public ActivityDefinitionDynamicValueComponent setExpressionElement(StringType value) { 
+        public ActivityDefinitionDynamicValueComponent setExpressionElement(StringType value) {
           this.expression = value;
           return this;
         }
@@ -2905,14 +2905,14 @@ into another (possibly the same) biological entity.
         /**
          * @return An expression specifying the value of the customized element.
          */
-        public String getExpression() { 
+        public String getExpression() {
           return this.expression == null ? null : this.expression.getValue();
         }
 
         /**
          * @param value An expression specifying the value of the customized element.
          */
-        public ActivityDefinitionDynamicValueComponent setExpression(String value) { 
+        public ActivityDefinitionDynamicValueComponent setExpression(String value) {
           if (Utilities.noString(value))
             this.expression = null;
           else {
@@ -3099,10 +3099,10 @@ into another (possibly the same) biological entity.
     protected Type subject;
 
     /**
-     * Explaination of why this activity definition is needed and why it has been designed as it has.
+     * Explanation of why this activity definition is needed and why it has been designed as it has.
      */
     @Child(name = "purpose", type = {MarkdownType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why this activity definition is defined", formalDefinition="Explaination of why this activity definition is needed and why it has been designed as it has." )
+    @Description(shortDefinition="Why this activity definition is defined", formalDefinition="Explanation of why this activity definition is needed and why it has been designed as it has." )
     protected MarkdownType purpose;
 
     /**
@@ -3292,9 +3292,9 @@ into another (possibly the same) biological entity.
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called its canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() { 
+    public UriType getUrlElement() {
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.url");
@@ -3303,33 +3303,33 @@ into another (possibly the same) biological entity.
       return this.url;
     }
 
-    public boolean hasUrlElement() { 
+    public boolean hasUrlElement() {
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() { 
+    public boolean hasUrl() {
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called its canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public ActivityDefinition setUrlElement(UriType value) { 
+    public ActivityDefinition setUrlElement(UriType value) {
       this.url = value;
       return this;
     }
 
     /**
-     * @return An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.
+     * @return An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called its canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.
      */
-    public String getUrl() { 
+    public String getUrl() {
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.
+     * @param value An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called its canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.
      */
-    public ActivityDefinition setUrl(String value) { 
+    public ActivityDefinition setUrl(String value) {
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -3343,7 +3343,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #identifier} (A formal identifier that is used to identify this activity definition when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
-    public List<Identifier> getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
@@ -3352,12 +3352,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setIdentifier(List<Identifier> theIdentifier) { 
+    public ActivityDefinition setIdentifier(List<Identifier> theIdentifier) {
       this.identifier = theIdentifier;
       return this;
     }
 
-    public boolean hasIdentifier() { 
+    public boolean hasIdentifier() {
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -3386,7 +3386,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
      */
-    public Identifier getIdentifierFirstRep() { 
+    public Identifier getIdentifierFirstRep() {
       if (getIdentifier().isEmpty()) {
         addIdentifier();
       }
@@ -3396,7 +3396,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() { 
+    public StringType getVersionElement() {
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.version");
@@ -3405,18 +3405,18 @@ into another (possibly the same) biological entity.
       return this.version;
     }
 
-    public boolean hasVersionElement() { 
+    public boolean hasVersionElement() {
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() { 
+    public boolean hasVersion() {
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public ActivityDefinition setVersionElement(StringType value) { 
+    public ActivityDefinition setVersionElement(StringType value) {
       this.version = value;
       return this;
     }
@@ -3424,14 +3424,14 @@ into another (possibly the same) biological entity.
     /**
      * @return The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets.
      */
-    public String getVersion() { 
+    public String getVersion() {
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets.
      */
-    public ActivityDefinition setVersion(String value) { 
+    public ActivityDefinition setVersion(String value) {
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -3445,7 +3445,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #name} (A natural language name identifying the activity definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() { 
+    public StringType getNameElement() {
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.name");
@@ -3454,18 +3454,18 @@ into another (possibly the same) biological entity.
       return this.name;
     }
 
-    public boolean hasNameElement() { 
+    public boolean hasNameElement() {
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() { 
+    public boolean hasName() {
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A natural language name identifying the activity definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public ActivityDefinition setNameElement(StringType value) { 
+    public ActivityDefinition setNameElement(StringType value) {
       this.name = value;
       return this;
     }
@@ -3473,14 +3473,14 @@ into another (possibly the same) biological entity.
     /**
      * @return A natural language name identifying the activity definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
-    public String getName() { 
+    public String getName() {
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A natural language name identifying the activity definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.
      */
-    public ActivityDefinition setName(String value) { 
+    public ActivityDefinition setName(String value) {
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -3494,7 +3494,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #title} (A short, descriptive, user-friendly title for the activity definition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitleElement() { 
+    public StringType getTitleElement() {
       if (this.title == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.title");
@@ -3503,18 +3503,18 @@ into another (possibly the same) biological entity.
       return this.title;
     }
 
-    public boolean hasTitleElement() { 
+    public boolean hasTitleElement() {
       return this.title != null && !this.title.isEmpty();
     }
 
-    public boolean hasTitle() { 
+    public boolean hasTitle() {
       return this.title != null && !this.title.isEmpty();
     }
 
     /**
      * @param value {@link #title} (A short, descriptive, user-friendly title for the activity definition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public ActivityDefinition setTitleElement(StringType value) { 
+    public ActivityDefinition setTitleElement(StringType value) {
       this.title = value;
       return this;
     }
@@ -3522,14 +3522,14 @@ into another (possibly the same) biological entity.
     /**
      * @return A short, descriptive, user-friendly title for the activity definition.
      */
-    public String getTitle() { 
+    public String getTitle() {
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
      * @param value A short, descriptive, user-friendly title for the activity definition.
      */
-    public ActivityDefinition setTitle(String value) { 
+    public ActivityDefinition setTitle(String value) {
       if (Utilities.noString(value))
         this.title = null;
       else {
@@ -3543,7 +3543,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #subtitle} (An explanatory or alternate title for the activity definition giving additional information about its content.). This is the underlying object with id, value and extensions. The accessor "getSubtitle" gives direct access to the value
      */
-    public StringType getSubtitleElement() { 
+    public StringType getSubtitleElement() {
       if (this.subtitle == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.subtitle");
@@ -3552,18 +3552,18 @@ into another (possibly the same) biological entity.
       return this.subtitle;
     }
 
-    public boolean hasSubtitleElement() { 
+    public boolean hasSubtitleElement() {
       return this.subtitle != null && !this.subtitle.isEmpty();
     }
 
-    public boolean hasSubtitle() { 
+    public boolean hasSubtitle() {
       return this.subtitle != null && !this.subtitle.isEmpty();
     }
 
     /**
      * @param value {@link #subtitle} (An explanatory or alternate title for the activity definition giving additional information about its content.). This is the underlying object with id, value and extensions. The accessor "getSubtitle" gives direct access to the value
      */
-    public ActivityDefinition setSubtitleElement(StringType value) { 
+    public ActivityDefinition setSubtitleElement(StringType value) {
       this.subtitle = value;
       return this;
     }
@@ -3571,14 +3571,14 @@ into another (possibly the same) biological entity.
     /**
      * @return An explanatory or alternate title for the activity definition giving additional information about its content.
      */
-    public String getSubtitle() { 
+    public String getSubtitle() {
       return this.subtitle == null ? null : this.subtitle.getValue();
     }
 
     /**
      * @param value An explanatory or alternate title for the activity definition giving additional information about its content.
      */
-    public ActivityDefinition setSubtitle(String value) { 
+    public ActivityDefinition setSubtitle(String value) {
       if (Utilities.noString(value))
         this.subtitle = null;
       else {
@@ -3592,7 +3592,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #status} (The status of this activity definition. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<PublicationStatus> getStatusElement() { 
+    public Enumeration<PublicationStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.status");
@@ -3601,18 +3601,18 @@ into another (possibly the same) biological entity.
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of this activity definition. Enables tracking the life-cycle of the content.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ActivityDefinition setStatusElement(Enumeration<PublicationStatus> value) { 
+    public ActivityDefinition setStatusElement(Enumeration<PublicationStatus> value) {
       this.status = value;
       return this;
     }
@@ -3620,14 +3620,14 @@ into another (possibly the same) biological entity.
     /**
      * @return The status of this activity definition. Enables tracking the life-cycle of the content.
      */
-    public PublicationStatus getStatus() { 
+    public PublicationStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this activity definition. Enables tracking the life-cycle of the content.
      */
-    public ActivityDefinition setStatus(PublicationStatus value) { 
+    public ActivityDefinition setStatus(PublicationStatus value) {
         if (this.status == null)
           this.status = new Enumeration<PublicationStatus>(new PublicationStatusEnumFactory());
         this.status.setValue(value);
@@ -3637,7 +3637,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #experimental} (A boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalElement() { 
+    public BooleanType getExperimentalElement() {
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.experimental");
@@ -3646,18 +3646,18 @@ into another (possibly the same) biological entity.
       return this.experimental;
     }
 
-    public boolean hasExperimentalElement() { 
+    public boolean hasExperimentalElement() {
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
-    public boolean hasExperimental() { 
+    public boolean hasExperimental() {
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
      * @param value {@link #experimental} (A boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public ActivityDefinition setExperimentalElement(BooleanType value) { 
+    public ActivityDefinition setExperimentalElement(BooleanType value) {
       this.experimental = value;
       return this;
     }
@@ -3665,14 +3665,14 @@ into another (possibly the same) biological entity.
     /**
      * @return A boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimental() { 
+    public boolean getExperimental() {
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
      * @param value A boolean value to indicate that this activity definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public ActivityDefinition setExperimental(boolean value) { 
+    public ActivityDefinition setExperimental(boolean value) {
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -3682,14 +3682,14 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #subject} (A code or group definition that describes the intended subject of the activity being defined.)
      */
-    public Type getSubject() { 
+    public Type getSubject() {
       return this.subject;
     }
 
     /**
      * @return {@link #subject} (A code or group definition that describes the intended subject of the activity being defined.)
      */
-    public CodeableConcept getSubjectCodeableConcept() throws FHIRException { 
+    public CodeableConcept getSubjectCodeableConcept() throws FHIRException {
       if (this.subject == null)
         return null;
       if (!(this.subject instanceof CodeableConcept))
@@ -3697,14 +3697,14 @@ into another (possibly the same) biological entity.
       return (CodeableConcept) this.subject;
     }
 
-    public boolean hasSubjectCodeableConcept() { 
+    public boolean hasSubjectCodeableConcept() {
       return this != null && this.subject instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #subject} (A code or group definition that describes the intended subject of the activity being defined.)
      */
-    public Reference getSubjectReference() throws FHIRException { 
+    public Reference getSubjectReference() throws FHIRException {
       if (this.subject == null)
         return null;
       if (!(this.subject instanceof Reference))
@@ -3712,18 +3712,18 @@ into another (possibly the same) biological entity.
       return (Reference) this.subject;
     }
 
-    public boolean hasSubjectReference() { 
+    public boolean hasSubjectReference() {
       return this != null && this.subject instanceof Reference;
     }
 
-    public boolean hasSubject() { 
+    public boolean hasSubject() {
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (A code or group definition that describes the intended subject of the activity being defined.)
      */
-    public ActivityDefinition setSubject(Type value) { 
+    public ActivityDefinition setSubject(Type value) {
       if (value != null && !(value instanceof CodeableConcept || value instanceof Reference))
         throw new Error("Not the right type for ActivityDefinition.subject[x]: "+value.fhirType());
       this.subject = value;
@@ -3733,7 +3733,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #date} (The date  (and optionally time) when the activity definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() { 
+    public DateTimeType getDateElement() {
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.date");
@@ -3742,18 +3742,18 @@ into another (possibly the same) biological entity.
       return this.date;
     }
 
-    public boolean hasDateElement() { 
+    public boolean hasDateElement() {
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() { 
+    public boolean hasDate() {
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date  (and optionally time) when the activity definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public ActivityDefinition setDateElement(DateTimeType value) { 
+    public ActivityDefinition setDateElement(DateTimeType value) {
       this.date = value;
       return this;
     }
@@ -3761,14 +3761,14 @@ into another (possibly the same) biological entity.
     /**
      * @return The date  (and optionally time) when the activity definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.
      */
-    public Date getDate() { 
+    public Date getDate() {
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date  (and optionally time) when the activity definition was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the activity definition changes.
      */
-    public ActivityDefinition setDate(Date value) { 
+    public ActivityDefinition setDate(Date value) {
       if (value == null)
         this.date = null;
       else {
@@ -3782,7 +3782,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the activity definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() { 
+    public StringType getPublisherElement() {
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.publisher");
@@ -3791,18 +3791,18 @@ into another (possibly the same) biological entity.
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() { 
+    public boolean hasPublisherElement() {
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() { 
+    public boolean hasPublisher() {
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the activity definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public ActivityDefinition setPublisherElement(StringType value) { 
+    public ActivityDefinition setPublisherElement(StringType value) {
       this.publisher = value;
       return this;
     }
@@ -3810,14 +3810,14 @@ into another (possibly the same) biological entity.
     /**
      * @return The name of the individual or organization that published the activity definition.
      */
-    public String getPublisher() { 
+    public String getPublisher() {
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the activity definition.
      */
-    public ActivityDefinition setPublisher(String value) { 
+    public ActivityDefinition setPublisher(String value) {
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -3831,7 +3831,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #contact} (Contact details to assist a user in finding and communicating with the publisher.)
      */
-    public List<ContactDetail> getContact() { 
+    public List<ContactDetail> getContact() {
       if (this.contact == null)
         this.contact = new ArrayList<ContactDetail>();
       return this.contact;
@@ -3840,12 +3840,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setContact(List<ContactDetail> theContact) { 
+    public ActivityDefinition setContact(List<ContactDetail> theContact) {
       this.contact = theContact;
       return this;
     }
 
-    public boolean hasContact() { 
+    public boolean hasContact() {
       if (this.contact == null)
         return false;
       for (ContactDetail item : this.contact)
@@ -3874,7 +3874,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #contact}, creating it if it does not already exist
      */
-    public ContactDetail getContactFirstRep() { 
+    public ContactDetail getContactFirstRep() {
       if (getContact().isEmpty()) {
         addContact();
       }
@@ -3884,7 +3884,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #description} (A free text natural language description of the activity definition from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public MarkdownType getDescriptionElement() { 
+    public MarkdownType getDescriptionElement() {
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.description");
@@ -3893,18 +3893,18 @@ into another (possibly the same) biological entity.
       return this.description;
     }
 
-    public boolean hasDescriptionElement() { 
+    public boolean hasDescriptionElement() {
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() { 
+    public boolean hasDescription() {
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the activity definition from a consumer's perspective.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ActivityDefinition setDescriptionElement(MarkdownType value) { 
+    public ActivityDefinition setDescriptionElement(MarkdownType value) {
       this.description = value;
       return this;
     }
@@ -3912,14 +3912,14 @@ into another (possibly the same) biological entity.
     /**
      * @return A free text natural language description of the activity definition from a consumer's perspective.
      */
-    public String getDescription() { 
+    public String getDescription() {
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A free text natural language description of the activity definition from a consumer's perspective.
      */
-    public ActivityDefinition setDescription(String value) { 
+    public ActivityDefinition setDescription(String value) {
       if (value == null)
         this.description = null;
       else {
@@ -3933,7 +3933,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate activity definition instances.)
      */
-    public List<UsageContext> getUseContext() { 
+    public List<UsageContext> getUseContext() {
       if (this.useContext == null)
         this.useContext = new ArrayList<UsageContext>();
       return this.useContext;
@@ -3942,12 +3942,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setUseContext(List<UsageContext> theUseContext) { 
+    public ActivityDefinition setUseContext(List<UsageContext> theUseContext) {
       this.useContext = theUseContext;
       return this;
     }
 
-    public boolean hasUseContext() { 
+    public boolean hasUseContext() {
       if (this.useContext == null)
         return false;
       for (UsageContext item : this.useContext)
@@ -3976,7 +3976,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #useContext}, creating it if it does not already exist
      */
-    public UsageContext getUseContextFirstRep() { 
+    public UsageContext getUseContextFirstRep() {
       if (getUseContext().isEmpty()) {
         addUseContext();
       }
@@ -3986,7 +3986,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #jurisdiction} (A legal or geographic region in which the activity definition is intended to be used.)
      */
-    public List<CodeableConcept> getJurisdiction() { 
+    public List<CodeableConcept> getJurisdiction() {
       if (this.jurisdiction == null)
         this.jurisdiction = new ArrayList<CodeableConcept>();
       return this.jurisdiction;
@@ -3995,12 +3995,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setJurisdiction(List<CodeableConcept> theJurisdiction) { 
+    public ActivityDefinition setJurisdiction(List<CodeableConcept> theJurisdiction) {
       this.jurisdiction = theJurisdiction;
       return this;
     }
 
-    public boolean hasJurisdiction() { 
+    public boolean hasJurisdiction() {
       if (this.jurisdiction == null)
         return false;
       for (CodeableConcept item : this.jurisdiction)
@@ -4029,7 +4029,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #jurisdiction}, creating it if it does not already exist
      */
-    public CodeableConcept getJurisdictionFirstRep() { 
+    public CodeableConcept getJurisdictionFirstRep() {
       if (getJurisdiction().isEmpty()) {
         addJurisdiction();
       }
@@ -4037,9 +4037,9 @@ into another (possibly the same) biological entity.
     }
 
     /**
-     * @return {@link #purpose} (Explaination of why this activity definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+     * @return {@link #purpose} (Explanation of why this activity definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public MarkdownType getPurposeElement() { 
+    public MarkdownType getPurposeElement() {
       if (this.purpose == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.purpose");
@@ -4048,33 +4048,33 @@ into another (possibly the same) biological entity.
       return this.purpose;
     }
 
-    public boolean hasPurposeElement() { 
+    public boolean hasPurposeElement() {
       return this.purpose != null && !this.purpose.isEmpty();
     }
 
-    public boolean hasPurpose() { 
+    public boolean hasPurpose() {
       return this.purpose != null && !this.purpose.isEmpty();
     }
 
     /**
-     * @param value {@link #purpose} (Explaination of why this activity definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+     * @param value {@link #purpose} (Explanation of why this activity definition is needed and why it has been designed as it has.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
      */
-    public ActivityDefinition setPurposeElement(MarkdownType value) { 
+    public ActivityDefinition setPurposeElement(MarkdownType value) {
       this.purpose = value;
       return this;
     }
 
     /**
-     * @return Explaination of why this activity definition is needed and why it has been designed as it has.
+     * @return Explanation of why this activity definition is needed and why it has been designed as it has.
      */
-    public String getPurpose() { 
+    public String getPurpose() {
       return this.purpose == null ? null : this.purpose.getValue();
     }
 
     /**
-     * @param value Explaination of why this activity definition is needed and why it has been designed as it has.
+     * @param value Explanation of why this activity definition is needed and why it has been designed as it has.
      */
-    public ActivityDefinition setPurpose(String value) { 
+    public ActivityDefinition setPurpose(String value) {
       if (value == null)
         this.purpose = null;
       else {
@@ -4088,7 +4088,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #usage} (A detailed description of how the activity definition is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public StringType getUsageElement() { 
+    public StringType getUsageElement() {
       if (this.usage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.usage");
@@ -4097,18 +4097,18 @@ into another (possibly the same) biological entity.
       return this.usage;
     }
 
-    public boolean hasUsageElement() { 
+    public boolean hasUsageElement() {
       return this.usage != null && !this.usage.isEmpty();
     }
 
-    public boolean hasUsage() { 
+    public boolean hasUsage() {
       return this.usage != null && !this.usage.isEmpty();
     }
 
     /**
      * @param value {@link #usage} (A detailed description of how the activity definition is used from a clinical perspective.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public ActivityDefinition setUsageElement(StringType value) { 
+    public ActivityDefinition setUsageElement(StringType value) {
       this.usage = value;
       return this;
     }
@@ -4116,14 +4116,14 @@ into another (possibly the same) biological entity.
     /**
      * @return A detailed description of how the activity definition is used from a clinical perspective.
      */
-    public String getUsage() { 
+    public String getUsage() {
       return this.usage == null ? null : this.usage.getValue();
     }
 
     /**
      * @param value A detailed description of how the activity definition is used from a clinical perspective.
      */
-    public ActivityDefinition setUsage(String value) { 
+    public ActivityDefinition setUsage(String value) {
       if (Utilities.noString(value))
         this.usage = null;
       else {
@@ -4137,7 +4137,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #copyright} (A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public MarkdownType getCopyrightElement() { 
+    public MarkdownType getCopyrightElement() {
       if (this.copyright == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.copyright");
@@ -4146,18 +4146,18 @@ into another (possibly the same) biological entity.
       return this.copyright;
     }
 
-    public boolean hasCopyrightElement() { 
+    public boolean hasCopyrightElement() {
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
-    public boolean hasCopyright() { 
+    public boolean hasCopyright() {
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
     /**
      * @param value {@link #copyright} (A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public ActivityDefinition setCopyrightElement(MarkdownType value) { 
+    public ActivityDefinition setCopyrightElement(MarkdownType value) {
       this.copyright = value;
       return this;
     }
@@ -4165,14 +4165,14 @@ into another (possibly the same) biological entity.
     /**
      * @return A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition.
      */
-    public String getCopyright() { 
+    public String getCopyright() {
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
      * @param value A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition.
      */
-    public ActivityDefinition setCopyright(String value) { 
+    public ActivityDefinition setCopyright(String value) {
       if (value == null)
         this.copyright = null;
       else {
@@ -4186,7 +4186,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #approvalDate} (The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
      */
-    public DateType getApprovalDateElement() { 
+    public DateType getApprovalDateElement() {
       if (this.approvalDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.approvalDate");
@@ -4195,18 +4195,18 @@ into another (possibly the same) biological entity.
       return this.approvalDate;
     }
 
-    public boolean hasApprovalDateElement() { 
+    public boolean hasApprovalDateElement() {
       return this.approvalDate != null && !this.approvalDate.isEmpty();
     }
 
-    public boolean hasApprovalDate() { 
+    public boolean hasApprovalDate() {
       return this.approvalDate != null && !this.approvalDate.isEmpty();
     }
 
     /**
      * @param value {@link #approvalDate} (The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.). This is the underlying object with id, value and extensions. The accessor "getApprovalDate" gives direct access to the value
      */
-    public ActivityDefinition setApprovalDateElement(DateType value) { 
+    public ActivityDefinition setApprovalDateElement(DateType value) {
       this.approvalDate = value;
       return this;
     }
@@ -4214,14 +4214,14 @@ into another (possibly the same) biological entity.
     /**
      * @return The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
-    public Date getApprovalDate() { 
+    public Date getApprovalDate() {
       return this.approvalDate == null ? null : this.approvalDate.getValue();
     }
 
     /**
      * @param value The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.
      */
-    public ActivityDefinition setApprovalDate(Date value) { 
+    public ActivityDefinition setApprovalDate(Date value) {
       if (value == null)
         this.approvalDate = null;
       else {
@@ -4235,7 +4235,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #lastReviewDate} (The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
-    public DateType getLastReviewDateElement() { 
+    public DateType getLastReviewDateElement() {
       if (this.lastReviewDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.lastReviewDate");
@@ -4244,18 +4244,18 @@ into another (possibly the same) biological entity.
       return this.lastReviewDate;
     }
 
-    public boolean hasLastReviewDateElement() { 
+    public boolean hasLastReviewDateElement() {
       return this.lastReviewDate != null && !this.lastReviewDate.isEmpty();
     }
 
-    public boolean hasLastReviewDate() { 
+    public boolean hasLastReviewDate() {
       return this.lastReviewDate != null && !this.lastReviewDate.isEmpty();
     }
 
     /**
      * @param value {@link #lastReviewDate} (The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.). This is the underlying object with id, value and extensions. The accessor "getLastReviewDate" gives direct access to the value
      */
-    public ActivityDefinition setLastReviewDateElement(DateType value) { 
+    public ActivityDefinition setLastReviewDateElement(DateType value) {
       this.lastReviewDate = value;
       return this;
     }
@@ -4263,14 +4263,14 @@ into another (possibly the same) biological entity.
     /**
      * @return The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
-    public Date getLastReviewDate() { 
+    public Date getLastReviewDate() {
       return this.lastReviewDate == null ? null : this.lastReviewDate.getValue();
     }
 
     /**
      * @param value The date on which the resource content was last reviewed. Review happens periodically after approval, but doesn't change the original approval date.
      */
-    public ActivityDefinition setLastReviewDate(Date value) { 
+    public ActivityDefinition setLastReviewDate(Date value) {
       if (value == null)
         this.lastReviewDate = null;
       else {
@@ -4284,7 +4284,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #effectivePeriod} (The period during which the activity definition content was or is planned to be in active use.)
      */
-    public Period getEffectivePeriod() { 
+    public Period getEffectivePeriod() {
       if (this.effectivePeriod == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.effectivePeriod");
@@ -4293,14 +4293,14 @@ into another (possibly the same) biological entity.
       return this.effectivePeriod;
     }
 
-    public boolean hasEffectivePeriod() { 
+    public boolean hasEffectivePeriod() {
       return this.effectivePeriod != null && !this.effectivePeriod.isEmpty();
     }
 
     /**
      * @param value {@link #effectivePeriod} (The period during which the activity definition content was or is planned to be in active use.)
      */
-    public ActivityDefinition setEffectivePeriod(Period value) { 
+    public ActivityDefinition setEffectivePeriod(Period value) {
       this.effectivePeriod = value;
       return this;
     }
@@ -4308,7 +4308,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #topic} (Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching.)
      */
-    public List<CodeableConcept> getTopic() { 
+    public List<CodeableConcept> getTopic() {
       if (this.topic == null)
         this.topic = new ArrayList<CodeableConcept>();
       return this.topic;
@@ -4317,12 +4317,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setTopic(List<CodeableConcept> theTopic) { 
+    public ActivityDefinition setTopic(List<CodeableConcept> theTopic) {
       this.topic = theTopic;
       return this;
     }
 
-    public boolean hasTopic() { 
+    public boolean hasTopic() {
       if (this.topic == null)
         return false;
       for (CodeableConcept item : this.topic)
@@ -4351,7 +4351,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #topic}, creating it if it does not already exist
      */
-    public CodeableConcept getTopicFirstRep() { 
+    public CodeableConcept getTopicFirstRep() {
       if (getTopic().isEmpty()) {
         addTopic();
       }
@@ -4361,7 +4361,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #contributor} (A contributor to the content of the activity definition, including authors, editors, reviewers, and endorsers.)
      */
-    public List<Contributor> getContributor() { 
+    public List<Contributor> getContributor() {
       if (this.contributor == null)
         this.contributor = new ArrayList<Contributor>();
       return this.contributor;
@@ -4370,12 +4370,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setContributor(List<Contributor> theContributor) { 
+    public ActivityDefinition setContributor(List<Contributor> theContributor) {
       this.contributor = theContributor;
       return this;
     }
 
-    public boolean hasContributor() { 
+    public boolean hasContributor() {
       if (this.contributor == null)
         return false;
       for (Contributor item : this.contributor)
@@ -4404,7 +4404,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #contributor}, creating it if it does not already exist
      */
-    public Contributor getContributorFirstRep() { 
+    public Contributor getContributorFirstRep() {
       if (getContributor().isEmpty()) {
         addContributor();
       }
@@ -4414,7 +4414,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #relatedArtifact} (Related artifacts such as additional documentation, justification, or bibliographic references.)
      */
-    public List<RelatedArtifact> getRelatedArtifact() { 
+    public List<RelatedArtifact> getRelatedArtifact() {
       if (this.relatedArtifact == null)
         this.relatedArtifact = new ArrayList<RelatedArtifact>();
       return this.relatedArtifact;
@@ -4423,12 +4423,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setRelatedArtifact(List<RelatedArtifact> theRelatedArtifact) { 
+    public ActivityDefinition setRelatedArtifact(List<RelatedArtifact> theRelatedArtifact) {
       this.relatedArtifact = theRelatedArtifact;
       return this;
     }
 
-    public boolean hasRelatedArtifact() { 
+    public boolean hasRelatedArtifact() {
       if (this.relatedArtifact == null)
         return false;
       for (RelatedArtifact item : this.relatedArtifact)
@@ -4457,7 +4457,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #relatedArtifact}, creating it if it does not already exist
      */
-    public RelatedArtifact getRelatedArtifactFirstRep() { 
+    public RelatedArtifact getRelatedArtifactFirstRep() {
       if (getRelatedArtifact().isEmpty()) {
         addRelatedArtifact();
       }
@@ -4467,7 +4467,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #library} (A reference to a Library resource containing any formal logic used by the activity definition.)
      */
-    public List<CanonicalType> getLibrary() { 
+    public List<CanonicalType> getLibrary() {
       if (this.library == null)
         this.library = new ArrayList<CanonicalType>();
       return this.library;
@@ -4476,12 +4476,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setLibrary(List<CanonicalType> theLibrary) { 
+    public ActivityDefinition setLibrary(List<CanonicalType> theLibrary) {
       this.library = theLibrary;
       return this;
     }
 
-    public boolean hasLibrary() { 
+    public boolean hasLibrary() {
       if (this.library == null)
         return false;
       for (CanonicalType item : this.library)
@@ -4493,7 +4493,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #library} (A reference to a Library resource containing any formal logic used by the activity definition.)
      */
-    public CanonicalType addLibraryElement() {//2 
+    public CanonicalType addLibraryElement() {//2
       CanonicalType t = new CanonicalType();
       if (this.library == null)
         this.library = new ArrayList<CanonicalType>();
@@ -4516,7 +4516,7 @@ into another (possibly the same) biological entity.
     /**
      * @param value {@link #library} (A reference to a Library resource containing any formal logic used by the activity definition.)
      */
-    public boolean hasLibrary(String value) { 
+    public boolean hasLibrary(String value) {
       if (this.library == null)
         return false;
       for (CanonicalType v : this.library)
@@ -4528,7 +4528,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #kind} (A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Enumeration<ActivityDefinitionKind> getKindElement() { 
+    public Enumeration<ActivityDefinitionKind> getKindElement() {
       if (this.kind == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.kind");
@@ -4537,18 +4537,18 @@ into another (possibly the same) biological entity.
       return this.kind;
     }
 
-    public boolean hasKindElement() { 
+    public boolean hasKindElement() {
       return this.kind != null && !this.kind.isEmpty();
     }
 
-    public boolean hasKind() { 
+    public boolean hasKind() {
       return this.kind != null && !this.kind.isEmpty();
     }
 
     /**
      * @param value {@link #kind} (A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public ActivityDefinition setKindElement(Enumeration<ActivityDefinitionKind> value) { 
+    public ActivityDefinition setKindElement(Enumeration<ActivityDefinitionKind> value) {
       this.kind = value;
       return this;
     }
@@ -4556,14 +4556,14 @@ into another (possibly the same) biological entity.
     /**
      * @return A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.
      */
-    public ActivityDefinitionKind getKind() { 
+    public ActivityDefinitionKind getKind() {
       return this.kind == null ? null : this.kind.getValue();
     }
 
     /**
      * @param value A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.
      */
-    public ActivityDefinition setKind(ActivityDefinitionKind value) { 
+    public ActivityDefinition setKind(ActivityDefinitionKind value) {
       if (value == null)
         this.kind = null;
       else {
@@ -4577,7 +4577,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #code} (Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.)
      */
-    public CodeableConcept getCode() { 
+    public CodeableConcept getCode() {
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.code");
@@ -4586,14 +4586,14 @@ into another (possibly the same) biological entity.
       return this.code;
     }
 
-    public boolean hasCode() { 
+    public boolean hasCode() {
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.)
      */
-    public ActivityDefinition setCode(CodeableConcept value) { 
+    public ActivityDefinition setCode(CodeableConcept value) {
       this.code = value;
       return this;
     }
@@ -4601,7 +4601,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #doNotPerform} (Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
      */
-    public BooleanType getDoNotPerformElement() { 
+    public BooleanType getDoNotPerformElement() {
       if (this.doNotPerform == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.doNotPerform");
@@ -4610,18 +4610,18 @@ into another (possibly the same) biological entity.
       return this.doNotPerform;
     }
 
-    public boolean hasDoNotPerformElement() { 
+    public boolean hasDoNotPerformElement() {
       return this.doNotPerform != null && !this.doNotPerform.isEmpty();
     }
 
-    public boolean hasDoNotPerform() { 
+    public boolean hasDoNotPerform() {
       return this.doNotPerform != null && !this.doNotPerform.isEmpty();
     }
 
     /**
      * @param value {@link #doNotPerform} (Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
      */
-    public ActivityDefinition setDoNotPerformElement(BooleanType value) { 
+    public ActivityDefinition setDoNotPerformElement(BooleanType value) {
       this.doNotPerform = value;
       return this;
     }
@@ -4629,14 +4629,14 @@ into another (possibly the same) biological entity.
     /**
      * @return Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action.
      */
-    public boolean getDoNotPerform() { 
+    public boolean getDoNotPerform() {
       return this.doNotPerform == null || this.doNotPerform.isEmpty() ? false : this.doNotPerform.getValue();
     }
 
     /**
      * @param value Set this to true if the definition is to indicate that a particular activity should NOT be performed. If true, this element should be interpreted to reinforce a negative coding. For example NPO as a code with a doNotPerform of true would still indicate to NOT perform the action.
      */
-    public ActivityDefinition setDoNotPerform(boolean value) { 
+    public ActivityDefinition setDoNotPerform(boolean value) {
         if (this.doNotPerform == null)
           this.doNotPerform = new BooleanType();
         this.doNotPerform.setValue(value);
@@ -4646,14 +4646,14 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
      */
-    public Type getTiming() { 
+    public Type getTiming() {
       return this.timing;
     }
 
     /**
      * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
      */
-    public Timing getTimingTiming() throws FHIRException { 
+    public Timing getTimingTiming() throws FHIRException {
       if (this.timing == null)
         return null;
       if (!(this.timing instanceof Timing))
@@ -4661,14 +4661,14 @@ into another (possibly the same) biological entity.
       return (Timing) this.timing;
     }
 
-    public boolean hasTimingTiming() { 
+    public boolean hasTimingTiming() {
       return this != null && this.timing instanceof Timing;
     }
 
     /**
      * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
      */
-    public DateTimeType getTimingDateTimeType() throws FHIRException { 
+    public DateTimeType getTimingDateTimeType() throws FHIRException {
       if (this.timing == null)
         return null;
       if (!(this.timing instanceof DateTimeType))
@@ -4676,14 +4676,14 @@ into another (possibly the same) biological entity.
       return (DateTimeType) this.timing;
     }
 
-    public boolean hasTimingDateTimeType() { 
+    public boolean hasTimingDateTimeType() {
       return this != null && this.timing instanceof DateTimeType;
     }
 
     /**
      * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
      */
-    public Age getTimingAge() throws FHIRException { 
+    public Age getTimingAge() throws FHIRException {
       if (this.timing == null)
         return null;
       if (!(this.timing instanceof Age))
@@ -4691,14 +4691,14 @@ into another (possibly the same) biological entity.
       return (Age) this.timing;
     }
 
-    public boolean hasTimingAge() { 
+    public boolean hasTimingAge() {
       return this != null && this.timing instanceof Age;
     }
 
     /**
      * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
      */
-    public Period getTimingPeriod() throws FHIRException { 
+    public Period getTimingPeriod() throws FHIRException {
       if (this.timing == null)
         return null;
       if (!(this.timing instanceof Period))
@@ -4706,14 +4706,14 @@ into another (possibly the same) biological entity.
       return (Period) this.timing;
     }
 
-    public boolean hasTimingPeriod() { 
+    public boolean hasTimingPeriod() {
       return this != null && this.timing instanceof Period;
     }
 
     /**
      * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
      */
-    public Range getTimingRange() throws FHIRException { 
+    public Range getTimingRange() throws FHIRException {
       if (this.timing == null)
         return null;
       if (!(this.timing instanceof Range))
@@ -4721,14 +4721,14 @@ into another (possibly the same) biological entity.
       return (Range) this.timing;
     }
 
-    public boolean hasTimingRange() { 
+    public boolean hasTimingRange() {
       return this != null && this.timing instanceof Range;
     }
 
     /**
      * @return {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
      */
-    public Duration getTimingDuration() throws FHIRException { 
+    public Duration getTimingDuration() throws FHIRException {
       if (this.timing == null)
         return null;
       if (!(this.timing instanceof Duration))
@@ -4736,18 +4736,18 @@ into another (possibly the same) biological entity.
       return (Duration) this.timing;
     }
 
-    public boolean hasTimingDuration() { 
+    public boolean hasTimingDuration() {
       return this != null && this.timing instanceof Duration;
     }
 
-    public boolean hasTiming() { 
+    public boolean hasTiming() {
       return this.timing != null && !this.timing.isEmpty();
     }
 
     /**
      * @param value {@link #timing} (The period, timing or frequency upon which the described activity is to occur.)
      */
-    public ActivityDefinition setTiming(Type value) { 
+    public ActivityDefinition setTiming(Type value) {
       if (value != null && !(value instanceof Timing || value instanceof DateTimeType || value instanceof Age || value instanceof Period || value instanceof Range || value instanceof Duration))
         throw new Error("Not the right type for ActivityDefinition.timing[x]: "+value.fhirType());
       this.timing = value;
@@ -4757,7 +4757,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #location} (Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.)
      */
-    public Reference getLocation() { 
+    public Reference getLocation() {
       if (this.location == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.location");
@@ -4766,14 +4766,14 @@ into another (possibly the same) biological entity.
       return this.location;
     }
 
-    public boolean hasLocation() { 
+    public boolean hasLocation() {
       return this.location != null && !this.location.isEmpty();
     }
 
     /**
      * @param value {@link #location} (Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.)
      */
-    public ActivityDefinition setLocation(Reference value) { 
+    public ActivityDefinition setLocation(Reference value) {
       this.location = value;
       return this;
     }
@@ -4781,7 +4781,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.)
      */
-    public Location getLocationTarget() { 
+    public Location getLocationTarget() {
       if (this.locationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.location");
@@ -4793,7 +4793,7 @@ into another (possibly the same) biological entity.
     /**
      * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.)
      */
-    public ActivityDefinition setLocationTarget(Location value) { 
+    public ActivityDefinition setLocationTarget(Location value) {
       this.locationTarget = value;
       return this;
     }
@@ -4801,7 +4801,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #participant} (Indicates who should participate in performing the action described.)
      */
-    public List<ActivityDefinitionParticipantComponent> getParticipant() { 
+    public List<ActivityDefinitionParticipantComponent> getParticipant() {
       if (this.participant == null)
         this.participant = new ArrayList<ActivityDefinitionParticipantComponent>();
       return this.participant;
@@ -4810,12 +4810,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setParticipant(List<ActivityDefinitionParticipantComponent> theParticipant) { 
+    public ActivityDefinition setParticipant(List<ActivityDefinitionParticipantComponent> theParticipant) {
       this.participant = theParticipant;
       return this;
     }
 
-    public boolean hasParticipant() { 
+    public boolean hasParticipant() {
       if (this.participant == null)
         return false;
       for (ActivityDefinitionParticipantComponent item : this.participant)
@@ -4844,7 +4844,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #participant}, creating it if it does not already exist
      */
-    public ActivityDefinitionParticipantComponent getParticipantFirstRep() { 
+    public ActivityDefinitionParticipantComponent getParticipantFirstRep() {
       if (getParticipant().isEmpty()) {
         addParticipant();
       }
@@ -4854,14 +4854,14 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
      */
-    public Type getProduct() { 
+    public Type getProduct() {
       return this.product;
     }
 
     /**
      * @return {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
      */
-    public Reference getProductReference() throws FHIRException { 
+    public Reference getProductReference() throws FHIRException {
       if (this.product == null)
         return null;
       if (!(this.product instanceof Reference))
@@ -4869,14 +4869,14 @@ into another (possibly the same) biological entity.
       return (Reference) this.product;
     }
 
-    public boolean hasProductReference() { 
+    public boolean hasProductReference() {
       return this != null && this.product instanceof Reference;
     }
 
     /**
      * @return {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
      */
-    public CodeableConcept getProductCodeableConcept() throws FHIRException { 
+    public CodeableConcept getProductCodeableConcept() throws FHIRException {
       if (this.product == null)
         return null;
       if (!(this.product instanceof CodeableConcept))
@@ -4884,18 +4884,18 @@ into another (possibly the same) biological entity.
       return (CodeableConcept) this.product;
     }
 
-    public boolean hasProductCodeableConcept() { 
+    public boolean hasProductCodeableConcept() {
       return this != null && this.product instanceof CodeableConcept;
     }
 
-    public boolean hasProduct() { 
+    public boolean hasProduct() {
       return this.product != null && !this.product.isEmpty();
     }
 
     /**
      * @param value {@link #product} (Identifies the food, drug or other product being consumed or supplied in the activity.)
      */
-    public ActivityDefinition setProduct(Type value) { 
+    public ActivityDefinition setProduct(Type value) {
       if (value != null && !(value instanceof Reference || value instanceof CodeableConcept))
         throw new Error("Not the right type for ActivityDefinition.product[x]: "+value.fhirType());
       this.product = value;
@@ -4905,7 +4905,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #quantity} (Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).)
      */
-    public SimpleQuantity getQuantity() { 
+    public SimpleQuantity getQuantity() {
       if (this.quantity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.quantity");
@@ -4914,14 +4914,14 @@ into another (possibly the same) biological entity.
       return this.quantity;
     }
 
-    public boolean hasQuantity() { 
+    public boolean hasQuantity() {
       return this.quantity != null && !this.quantity.isEmpty();
     }
 
     /**
      * @param value {@link #quantity} (Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).)
      */
-    public ActivityDefinition setQuantity(SimpleQuantity value) { 
+    public ActivityDefinition setQuantity(SimpleQuantity value) {
       this.quantity = value;
       return this;
     }
@@ -4929,7 +4929,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #dosage} (Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.)
      */
-    public List<Dosage> getDosage() { 
+    public List<Dosage> getDosage() {
       if (this.dosage == null)
         this.dosage = new ArrayList<Dosage>();
       return this.dosage;
@@ -4938,12 +4938,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setDosage(List<Dosage> theDosage) { 
+    public ActivityDefinition setDosage(List<Dosage> theDosage) {
       this.dosage = theDosage;
       return this;
     }
 
-    public boolean hasDosage() { 
+    public boolean hasDosage() {
       if (this.dosage == null)
         return false;
       for (Dosage item : this.dosage)
@@ -4972,7 +4972,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #dosage}, creating it if it does not already exist
      */
-    public Dosage getDosageFirstRep() { 
+    public Dosage getDosageFirstRep() {
       if (getDosage().isEmpty()) {
         addDosage();
       }
@@ -4982,7 +4982,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #bodySite} (Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).)
      */
-    public List<CodeableConcept> getBodySite() { 
+    public List<CodeableConcept> getBodySite() {
       if (this.bodySite == null)
         this.bodySite = new ArrayList<CodeableConcept>();
       return this.bodySite;
@@ -4991,12 +4991,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setBodySite(List<CodeableConcept> theBodySite) { 
+    public ActivityDefinition setBodySite(List<CodeableConcept> theBodySite) {
       this.bodySite = theBodySite;
       return this;
     }
 
-    public boolean hasBodySite() { 
+    public boolean hasBodySite() {
       if (this.bodySite == null)
         return false;
       for (CodeableConcept item : this.bodySite)
@@ -5025,7 +5025,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #bodySite}, creating it if it does not already exist
      */
-    public CodeableConcept getBodySiteFirstRep() { 
+    public CodeableConcept getBodySiteFirstRep() {
       if (getBodySite().isEmpty()) {
         addBodySite();
       }
@@ -5035,7 +5035,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #specimenRequirement} (Defines specimen requirements for the action to be performed, such as required specimens for a lab test.)
      */
-    public List<Reference> getSpecimenRequirement() { 
+    public List<Reference> getSpecimenRequirement() {
       if (this.specimenRequirement == null)
         this.specimenRequirement = new ArrayList<Reference>();
       return this.specimenRequirement;
@@ -5044,12 +5044,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setSpecimenRequirement(List<Reference> theSpecimenRequirement) { 
+    public ActivityDefinition setSpecimenRequirement(List<Reference> theSpecimenRequirement) {
       this.specimenRequirement = theSpecimenRequirement;
       return this;
     }
 
-    public boolean hasSpecimenRequirement() { 
+    public boolean hasSpecimenRequirement() {
       if (this.specimenRequirement == null)
         return false;
       for (Reference item : this.specimenRequirement)
@@ -5078,7 +5078,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #specimenRequirement}, creating it if it does not already exist
      */
-    public Reference getSpecimenRequirementFirstRep() { 
+    public Reference getSpecimenRequirementFirstRep() {
       if (getSpecimenRequirement().isEmpty()) {
         addSpecimenRequirement();
       }
@@ -5089,7 +5089,7 @@ into another (possibly the same) biological entity.
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<SpecimenDefinition> getSpecimenRequirementTarget() { 
+    public List<SpecimenDefinition> getSpecimenRequirementTarget() {
       if (this.specimenRequirementTarget == null)
         this.specimenRequirementTarget = new ArrayList<SpecimenDefinition>();
       return this.specimenRequirementTarget;
@@ -5099,7 +5099,7 @@ into another (possibly the same) biological entity.
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public SpecimenDefinition addSpecimenRequirementTarget() { 
+    public SpecimenDefinition addSpecimenRequirementTarget() {
       SpecimenDefinition r = new SpecimenDefinition();
       if (this.specimenRequirementTarget == null)
         this.specimenRequirementTarget = new ArrayList<SpecimenDefinition>();
@@ -5110,7 +5110,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.). This is the underlying object with id, value and extensions. The accessor "getTransform" gives direct access to the value
      */
-    public CanonicalType getTransformElement() { 
+    public CanonicalType getTransformElement() {
       if (this.transform == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ActivityDefinition.transform");
@@ -5119,18 +5119,18 @@ into another (possibly the same) biological entity.
       return this.transform;
     }
 
-    public boolean hasTransformElement() { 
+    public boolean hasTransformElement() {
       return this.transform != null && !this.transform.isEmpty();
     }
 
-    public boolean hasTransform() { 
+    public boolean hasTransform() {
       return this.transform != null && !this.transform.isEmpty();
     }
 
     /**
      * @param value {@link #transform} (A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.). This is the underlying object with id, value and extensions. The accessor "getTransform" gives direct access to the value
      */
-    public ActivityDefinition setTransformElement(CanonicalType value) { 
+    public ActivityDefinition setTransformElement(CanonicalType value) {
       this.transform = value;
       return this;
     }
@@ -5138,14 +5138,14 @@ into another (possibly the same) biological entity.
     /**
      * @return A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
      */
-    public String getTransform() { 
+    public String getTransform() {
       return this.transform == null ? null : this.transform.getValue();
     }
 
     /**
      * @param value A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
      */
-    public ActivityDefinition setTransform(String value) { 
+    public ActivityDefinition setTransform(String value) {
       if (Utilities.noString(value))
         this.transform = null;
       else {
@@ -5159,7 +5159,7 @@ into another (possibly the same) biological entity.
     /**
      * @return {@link #dynamicValue} (Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the request resource that would contain the result.)
      */
-    public List<ActivityDefinitionDynamicValueComponent> getDynamicValue() { 
+    public List<ActivityDefinitionDynamicValueComponent> getDynamicValue() {
       if (this.dynamicValue == null)
         this.dynamicValue = new ArrayList<ActivityDefinitionDynamicValueComponent>();
       return this.dynamicValue;
@@ -5168,12 +5168,12 @@ into another (possibly the same) biological entity.
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setDynamicValue(List<ActivityDefinitionDynamicValueComponent> theDynamicValue) { 
+    public ActivityDefinition setDynamicValue(List<ActivityDefinitionDynamicValueComponent> theDynamicValue) {
       this.dynamicValue = theDynamicValue;
       return this;
     }
 
-    public boolean hasDynamicValue() { 
+    public boolean hasDynamicValue() {
       if (this.dynamicValue == null)
         return false;
       for (ActivityDefinitionDynamicValueComponent item : this.dynamicValue)
@@ -5202,7 +5202,7 @@ into another (possibly the same) biological entity.
     /**
      * @return The first repetition of repeating field {@link #dynamicValue}, creating it if it does not already exist
      */
-    public ActivityDefinitionDynamicValueComponent getDynamicValueFirstRep() { 
+    public ActivityDefinitionDynamicValueComponent getDynamicValueFirstRep() {
       if (getDynamicValue().isEmpty()) {
         addDynamicValue();
       }
@@ -5211,7 +5211,7 @@ into another (possibly the same) biological entity.
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called its canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.", 0, 1, url));
         children.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this activity definition when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the activity definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
@@ -5226,7 +5226,7 @@ into another (possibly the same) biological entity.
         children.add(new Property("description", "markdown", "A free text natural language description of the activity definition from a consumer's perspective.", 0, 1, description));
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate activity definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
         children.add(new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the activity definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
-        children.add(new Property("purpose", "markdown", "Explaination of why this activity definition is needed and why it has been designed as it has.", 0, 1, purpose));
+        children.add(new Property("purpose", "markdown", "Explanation of why this activity definition is needed and why it has been designed as it has.", 0, 1, purpose));
         children.add(new Property("usage", "string", "A detailed description of how the activity definition is used from a clinical perspective.", 0, 1, usage));
         children.add(new Property("copyright", "markdown", "A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition.", 0, 1, copyright));
         children.add(new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, 1, approvalDate));
@@ -5254,7 +5254,7 @@ into another (possibly the same) biological entity.
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this activity definition when it is referenced in a specification, model, design or an instance, also called its canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this activity definition is (or will be) published.", 0, 1, url);
         case -1618432855: /*identifier*/  return new Property("identifier", "Identifier", "A formal identifier that is used to identify this activity definition when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the activity definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
@@ -5272,7 +5272,7 @@ into another (possibly the same) biological entity.
         case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the activity definition from a consumer's perspective.", 0, 1, description);
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate activity definition instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
         case -507075711: /*jurisdiction*/  return new Property("jurisdiction", "CodeableConcept", "A legal or geographic region in which the activity definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction);
-        case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explaination of why this activity definition is needed and why it has been designed as it has.", 0, 1, purpose);
+        case -220463842: /*purpose*/  return new Property("purpose", "markdown", "Explanation of why this activity definition is needed and why it has been designed as it has.", 0, 1, purpose);
         case 111574433: /*usage*/  return new Property("usage", "string", "A detailed description of how the activity definition is used from a clinical perspective.", 0, 1, usage);
         case 1522889671: /*copyright*/  return new Property("copyright", "markdown", "A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition.", 0, 1, copyright);
         case 223539345: /*approvalDate*/  return new Property("approvalDate", "date", "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.", 0, 1, approvalDate);
@@ -5569,46 +5569,46 @@ into another (possibly the same) biological entity.
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 116079:  return getUrlElement();
-        case -1618432855:  return addIdentifier(); 
+        case -1618432855:  return addIdentifier();
         case 351608024:  return getVersionElement();
         case 3373707:  return getNameElement();
         case 110371416:  return getTitleElement();
         case -2060497896:  return getSubtitleElement();
         case -892481550:  return getStatusElement();
         case -404562712:  return getExperimentalElement();
-        case -573640748:  return getSubject(); 
-        case -1867885268:  return getSubject(); 
+        case -573640748:  return getSubject();
+        case -1867885268:  return getSubject();
         case 3076014:  return getDateElement();
         case 1447404028:  return getPublisherElement();
-        case 951526432:  return addContact(); 
+        case 951526432:  return addContact();
         case -1724546052:  return getDescriptionElement();
-        case -669707736:  return addUseContext(); 
-        case -507075711:  return addJurisdiction(); 
+        case -669707736:  return addUseContext();
+        case -507075711:  return addJurisdiction();
         case -220463842:  return getPurposeElement();
         case 111574433:  return getUsageElement();
         case 1522889671:  return getCopyrightElement();
         case 223539345:  return getApprovalDateElement();
         case -1687512484:  return getLastReviewDateElement();
-        case -403934648:  return getEffectivePeriod(); 
-        case 110546223:  return addTopic(); 
-        case -1895276325:  return addContributor(); 
-        case 666807069:  return addRelatedArtifact(); 
+        case -403934648:  return getEffectivePeriod();
+        case 110546223:  return addTopic();
+        case -1895276325:  return addContributor();
+        case 666807069:  return addRelatedArtifact();
         case 166208699:  return addLibraryElement();
         case 3292052:  return getKindElement();
-        case 3059181:  return getCode(); 
+        case 3059181:  return getCode();
         case -1788508167:  return getDoNotPerformElement();
-        case 164632566:  return getTiming(); 
-        case -873664438:  return getTiming(); 
-        case 1901043637:  return getLocation(); 
-        case 767422259:  return addParticipant(); 
-        case 1753005361:  return getProduct(); 
-        case -309474065:  return getProduct(); 
-        case -1285004149:  return getQuantity(); 
-        case -1326018889:  return addDosage(); 
-        case 1702620169:  return addBodySite(); 
-        case 1498467355:  return addSpecimenRequirement(); 
+        case 164632566:  return getTiming();
+        case -873664438:  return getTiming();
+        case 1901043637:  return getLocation();
+        case 767422259:  return addParticipant();
+        case 1753005361:  return getProduct();
+        case -309474065:  return getProduct();
+        case -1285004149:  return getQuantity();
+        case -1326018889:  return addDosage();
+        case 1702620169:  return addBodySite();
+        case 1498467355:  return addSpecimenRequirement();
         case 1052666732:  return getTransformElement();
-        case 572625010:  return addDynamicValue(); 
+        case 572625010:  return addDynamicValue();
         default: return super.makeProperty(hash, name);
         }
 
@@ -6358,4 +6358,3 @@ into another (possibly the same) biological entity.
 
 
 }
-
