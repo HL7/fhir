@@ -458,7 +458,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
       if (ex != null)
         b.append("  \"exception\" : \""+ex.getMessage()+"\",\r\n");
-      b.append("  \"version\" : \""+version+",\"\r\n");
+      b.append("  \"version\" : \""+version+"\",\r\n");
       b.append("  \"tool\" : \""+Constants.VERSION+"-"+Constants.REVISION+"\"\r\n");
       b.append("}\r\n");
       TextFile.stringToFile(b.toString(), Utilities.path(destDir != null ? destDir : outputDir, "qa.json"));
