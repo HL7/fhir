@@ -8,7 +8,7 @@ DICOM, IHE or ISO, who defined these codes to meet very specific use cases. Thes
 used when they are suitable.  When needed, other codes can be defined. 
 </p>
 <p>
-Note: When using codes from a vocabulary, the displayName can be left off to keep the 
+Note: When using codes from a vocabulary, the <code>display</code> element can be left off to keep the 
 AuditEvent size small and minimize impact of a large audit log of similar entries.
 </p>
 <p>
@@ -51,7 +51,7 @@ the <a href="operationoutcome.html">OperationOutcome</a>.
 The <a href="operationoutcome.html">OperationOutcome</a> Resource is a collection of error, warning 
 or information messages that result from a system action.
 This describes in detail the outcome of some operation, such as when 
-an <a href="http.html#operations">RESTful operation</a> fails.</p>
+a <a href="http.html#operations">RESTful operation</a> fails.</p>
 <p>When recording into an AuditEvent that some FHIR interaction has happened, the AuditEvent should include 
 the <a href="operationoutcome.html">OperationOutcome</a> from that FHIR interaction. 
 This is done by placing the OperationOutcome into an AuditEvent.entity. 
@@ -59,18 +59,18 @@ Likely as a <a href="references.html#contained">contained</a> resource, given th
 <p><code>entity.reference</code> is the OperationOutcome -- Likely <a href="references.html#contained">contained</a> </p>
 <p><code>entity.type</code> is code <code><a href="codesystem-resource-types.html#resource-types-OperationOutcome">OperationOutcome</a></code></p>
 <p><code>entity.description</code> explains why this OperationOutcome was included.</p>
-<p>See <a href="auditevent-example-error.html">transaction failure example</a>: When a client attempts to post (create) a <code>Observation</code> Resource, 
+<p>See <a href="auditevent-example-error.html">transaction failure example</a>: When a client attempts to post (create) an <code>Observation</code> Resource, 
 using a server <code>Patient</code> endpoint; 
 this would result in an error with an OperationOutcome.</p>
 
 <h3>PurposeOfEvent and PurposeOfUse </h3>
 <p>
-The audit event provides the element <code>purposeOfEvent</code> to convey the purpose of the event and <code>purposeOfUse</code>
+The AuditEVent provides the element <code>purposeOfEvent</code> to convey the purpose of the event and <code>purposeOfUse</code>
 to convey the reason that a particular actor (machine, person, software) was involved in the event. 
 </p>
 <p>
 <code>purposeOfEvent</code> is an element at the level of AuditEvent and can convey the purpose of the activity 
-that resulted in the event.  This will occur when the system that is reporting the event is be aware 
+that resulted in the event.  This will occur when the system that is reporting the event is aware 
 of the purpose of the event.  A specific example would be a radiology reporting system where a 
 radiologist has created and is sending a finished report.  This system likely knows the purpose, 
 e.g., "treatment".  It is multi-valued because the one event may be related to multiple purposes. 

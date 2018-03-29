@@ -5,9 +5,8 @@
 <h2>Scope and Usage</h2>
 <p> 
 A document manifest gathers a set of Resources 
-into a single package with some clinical context that may be the subject of workflow such as access control, auditing, and 
-targeted delivery. 
-The useage of "document" in the case of DocumentManifest, covers the broader scope of "document" as defined in REST and HTTP. 
+into a single package with some clinical context that may be the subject of workflow such as targeted delivery. 
+The usage of "document" in the case of DocumentManifest, covers the broader scope of "document" as defined in REST and HTTP. 
 This use is not limited to the formal "Document" model used for <a href="documents.html">FHIR documents</a> or <a href="documentreference.html">DocumentReference</a> resources.
 </p>
 <p>
