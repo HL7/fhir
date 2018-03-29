@@ -8,7 +8,7 @@ relevant to the document); or asserting that allergies were not reviewed and are
 
 <p>Allergies with the verificationStatus "entered-in-error" indicates that the allergy or intolerance statement is entered by mistake and hence invalid.</p>
 <p>Allergies with the verificationStatus "refuted" must be displayed to indicate that a reaction to a substance has been ruled out
-with the high level of clinical certainty (e.g. additional testing, rechallenging). </p>
+with the high level of clinical certainty (e.g. additional testing, re-challenging). </p>
 <p>Prior to adding a new allergy/intolerance, a list of existing negated and refuted reactions should be reviewed
 and reconciled.</p>
   
@@ -34,7 +34,7 @@ The substanceExposureRisk extension is also available for use as a more complete
 <blockquote class="stu-note">
 <a name="dstu"></a>
 <p>
-<b>STU Note:</b>There are two primary ways of reporting "no known allergies" in the current specification: using the CodeableConcept,
+<b>STU Note:</b> There are two primary ways of reporting "no known allergies" in the current specification: using the CodeableConcept,
 as described above, or using the <a href="list.html">List</a> resource with emptyReason. The third available option is using the substanceExposureRisk extension.  During the STU period, it is not recommended to use the <a href="list.html">List</a> resource for "no known allergies" reporting purposes. The principal reason for this is to allow all allergy or intolerance data to be found and to be consistently queryable from the single location of the AllergyIntolerance resource.
 </p>
 <p>
