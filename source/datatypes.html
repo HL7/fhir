@@ -1154,12 +1154,14 @@ Where a person has alternate names that may be used in place of each other (e.g.
 these are different instances of <code>HumanName</code>.
 </p>
 <p>
-The <code>text</code> element specifies the entire name as it should be represented. This
-may be provided instead of or as well as specific parts, and can be built from the parts, though
-the correct order of assembly of the parts is culture dependent: the order of the parts within a given part type has
-significance and SHALL be observed. The appropriate order between family name and given names depends on culture and context of use.
+The text element specifies the entire name as it should be displayed e.g. in an application UI. 
+This may be provided instead of or as well as the specific parts. Applications updating an 
+address SHALL ensure that when both text and parts are present, no content is included in the 
+text that isn't found in a part. The correct order of assembly of the parts is culture 
+dependent: the order of the parts within a given part type has significance and SHALL be 
+observed. The appropriate order between family name and given names depends on culture and context of use.
 Note that there is an <a href="extension-humanname-assembly-order.html">extension</a> for the few times name
-assembly order is not fixed by the culture.
+assembly order is not fixed by the culture. 
 </p>
 <p>
 The given name parts may contain whitespace, though generally they don't. Initials may be used in place of
@@ -1215,11 +1217,11 @@ of postal address formats defined around the world.
 </p>
 
 [%dt Address 11%]
+
 <p>
-The <code>text</code> element specifies the entire address as it should be represented. This
-may be provided instead of or as well as the specific parts. Applications updating an address
-SHALL ensure either that the text and the parts are in agreement, or that only one
-of the two is present.
+The text element specifies the entire address as it should be displayed e.g. on a postal label. This may 
+be provided instead of or as well as the specific parts. Applications updating an address SHALL ensure that
+when both text and parts are present, no content is included in the text that isn't found in a part.
 </p>
 
 
