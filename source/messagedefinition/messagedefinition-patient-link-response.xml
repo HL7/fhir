@@ -50,7 +50,7 @@
     <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>
   </eventCoding>
-	<category value="Consequence"/>
+	<category value="consequence"/>
 	<focus>
 		<code value="Patient"/>
 		<profile value="StructureDefinition/example" />
