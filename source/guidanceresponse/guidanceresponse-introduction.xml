@@ -17,11 +17,11 @@
 	<li>Sharing the results of decision support guidance and determination of reportability with clinicians and public health agencies</li>
 </ul>
 
-<p>In addition the GuidanceResponse resource is aligned with the CDS Hooks response structure and so provides a mechanism to record the results of CDS Hooks interactions. For a detailed discussion of the evaluation process, refer to the <a href="clinicalreasoning-cds-on-fhir.html#guidance-request">Guidance Request</a> topic in the Clinical Reasoning module.</p>
+<p>In addition, the GuidanceResponse resource is aligned with the CDS Hooks response structure and so provides a mechanism to record the results of CDS Hooks interactions. For a detailed discussion of the evaluation process, refer to the <a href="clinicalreasoning-cds-on-fhir.html#guidance-request">Guidance Request</a> topic in the Clinical Reasoning module.</p>
 
 </div>
 
-<!-- (recommended): 
+<!-- (recommended):
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
