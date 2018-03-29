@@ -74,7 +74,7 @@ following important properties:
 </p>
 <table>
   <tr> <td>system</td> <td>The coding scheme from which label is taken (see <a href="terminologies-systems.html">code system URI</a>, and below) </td></tr>
-  <tr> <td>code</td> <td>a code from the coding scheme that identifies the security label  and code is an value from the code system</td> </tr>
+  <tr> <td>code</td> <td>a code from the coding scheme that identifies the security label  and code is a value from the code system</td> </tr>
   <tr> <td>display</td> <td>The display form for the code (mostly for use when a system doesn't recognize the code)</td> </tr>
 </table>
 
@@ -151,7 +151,7 @@ at this time.
 <p>
 This specification defines a set of core security labels for all FHIR systems.
 All conformant FHIR Applications SHOULD use these labels where appropriate.
-For all of these labels, how they are operationalised - their use and interpretation - is subject
+For all of these labels, how they are operationalized - their use and interpretation - is subject
 to the applicable Mutual Trust Framework agreement as described above.
 </p>
 
@@ -183,14 +183,14 @@ to the applicable Mutual Trust Framework agreement as described above.
  <tr>
    <td>Confidentiality codes</td>
    <td>
-     These <a href="v3/ConfidentialityClassification/vs.html">confidentiality class</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource,
+     These <a href="v3/ConfidentialityClassification/vs.html">confidentiality class</a> (system = http://hl7.org/fhir/v3/Confidentiality) can be applied to any resource or bundle. They are generally assigned by the author of the resource
      but can be modified subsequently as a matter of operational management. The Confidentiality classifications describe the sensitivity of the information in a resource with regard to
      whether it should made available or disclosed to unauthorized individuals, entities, or processes.  <br/> Notes:
      <ul>
       <li>In the absence of a confidentiality code, the basic confidentiality of a resource may be implied by its definition and content; e.g. a patient's condition is far more likely to be confidential than a practitioner resource, and a Diagnostic Report with an HIV test is always highly confidential, whereas a routine electrolytes is rarely particularly confidential</li>
       <li>The confidentiality of a bundle is always as confidential as the most confidential resource in the bundle</li>
      </ul>
-     The additional security lables are more specific to support very specific fine-grained access control, and should
+     The additional security labels are more specific to support very specific fine-grained access control and should
      always be used in association with an appropriate confidentiality label. See discussion on HCS below
    </td>
  </tr>

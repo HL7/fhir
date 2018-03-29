@@ -22,7 +22,7 @@ with various security protocols defined elsewhere. This section gathers all info
 in one section. A summary:
 </p>
 <ul class="dense">
- <li>Time Keeping - all clocks should be synchronised using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
+ <li>Time Keeping - all clocks should be synchronized using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
  <li>Communications Security - all exchange of production data should be secured using TLS/SSL (e.g. https)</li>
  <li>Authentication - Users/Clients may be authenticated in any way desired. For web-centric use, OAuth is recommended</li>
  <li>Authorization/Access Control - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
@@ -223,7 +223,7 @@ They include the following:
 <li>_include and _revinclude search parameters allow client to request related resources. A security implementation must determine if the client has access to the included resources.</li>
 <li><a href="security-labels.html">security labels</a></li>
 <li>Several resources, including Bundle, Composition, Group and List, are designed to contain other resources. A security implementation should consider whether access to an individual resource, such as a Bundle, should permit access to all resources contained within the resource.</li>
-<li>FHIR defines several operations that may be supported by a server. Security implementations must evaluate whether a client has the ability to invoke these operations and what information should be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find patient matches using MPI based logic and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
+<li>FHIR defines several operations that may be supported by a server. Security implementations must evaluate whether a client has the ability to invoke these operations and what information should be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find patient matches using MPI based logic, and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
 <li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations should consider whether a client has the ability to initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
 <li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) (<a href="operationoutcome-example-break-the-glass.html">example</a>). </li>
 </ul>

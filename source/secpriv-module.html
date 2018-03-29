@@ -155,7 +155,7 @@ Authorization and Access Control
 <p>
 
 <em>Use case:</em> A FHIR server should ensure that API access is allowed for
-authorized requests, and denied for unauthorized requests.
+authorized requests and denied for unauthorized requests.
 
 </p>
 
@@ -179,7 +179,7 @@ For further details, see <a href="security.html#binding">Security: Authorization
 <a name="query-parameters"></a>
 <h5>Query Parameters Considerations</h5>
 <p>
-<em>Use-Case:</em> when a user has restricted rights, but attempts to do a query they should not have rights to. They should not be given the data, but policy should be used to determine if the user query should results in an error, zero results, or the results one would get after removing the non-authorized parameters.
+<em>Use-Case:</em> When a user has restricted rights but attempts to do a query they do not have rights to, they should not be given the data. Policy should be used to determine if the user query should result in an error, zero data, or the data one would get after removing the non-authorized parameters.
 </p><p>
 <em>Example:</em> Using _include or _revinc to get at resources beyond those authorized. Ignoring (removing) the _include parameter would give some results, just not the _include Resources. This could be silently handled and thus give some results, or it could be returned as error.
 </p>
@@ -206,7 +206,7 @@ A purpose of use should be asserted for each requested action on a Resource.  Pu
 should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">Purpose of Use Vocabulary</a>.
 </p><p>
 When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
-the role of the user are managed by the OAuth authorization service (AS), and may be communicated 
+the role of the user are managed by the OAuth authorization service (AS) and may be communicated 
 in the security token where jwt tokens are used.
 
 For details, see
@@ -290,8 +290,8 @@ Provenance
 <em>Approach:</em> FHIR provides the Provenance resource suitable for
 use by FHIR clients and servers to record the full provenance details: who, what, where, when, and why. 
 A Provenance resource can record details for Create, Update, and Delete; or any other activity. 
-Generally Read operations would be recorded using  <a href="auditevent.html">AuditEvent</a>. 
-Many Resources include these elements within, this is done when that provenance element is critical to the use of that Resource. 
+Generally, Read operations would be recorded using  <a href="auditevent.html">AuditEvent</a>. 
+Many Resources include these elements within; this is done when that provenance element is critical to the use of that Resource. 
 This <a href="w5.html">overlap is expected and cross-referenced on the W5 report</a>.
 
 For details, see
@@ -304,7 +304,7 @@ For details, see
 <em>Approach:</em> Given that a system is using Provenance records. 
 When one needs the Provenance records in addition to the results of a query on other records (e.g. Query on MedicationRequest), 
 then one uses reverse include to request that all Provenance records also be returned. 
-That is add <code>?_revinclude=Provenance:target</code>. 
+That is to add <code>?_revinclude=Provenance:target</code>. 
 
 For details, see <a href="search.html#revinclude">_revinclude</a>.
 </p>
@@ -315,7 +315,7 @@ For details, see <a href="search.html#revinclude">_revinclude</a>.
 <p>
 <em>Use case:</em> "Digital Signature is needed to prove authenticity, integrity, and non-repudiation."
 </p><p>
-<em>Approach:</em> FHIR Resources are often parts of Medical Record, or are communicated as part of formal Medical Documentation. 
+<em>Approach:</em> FHIR Resources are often parts of Medical Record or are communicated as part of formal Medical Documentation. 
 As such there is a need to cryptographically bind a signature so that the receiving or consuming actor can verify authenticity, integrity, and non-repudiation.
 This functionality is provided through the signature element in <a href="provenance.html">Provenance</a> Resource. 
 Where the signature can be any local policy agreed to signature including Digital Signature methods and Electronic Signature.
@@ -354,13 +354,13 @@ A Process that reduces Privacy risk while enabling a targeted and authorized use
 <em>Modifying an element:</em> The de-identification process may determine that specific elements need to be modified to lower privacy risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. See standards below for further details.
 </p><p>
 <em>Discussion:</em> With the Observation Resource, one would remove the subject element as it is a Direct Identifier. 
-However there are many other Reference elements that can easily be used to navigate back to the Subject; 
+However, there are many other Reference elements that can easily be used to navigate back to the Subject; 
 e.g., Observation.context value of Encounter or EpisodeOfCare; or Observation.performer.   
 </p><p>
 Some identifiers in Observation Resource:
 <ul>
 <li>Direct Identifiers: .identifier, .subject, . performer, .text, .specimen, .device, .related, .text, .comment</li>
-<li>Indirect Identifiers: ..issued, .component</li>
+<li>Indirect Identifiers: .issued, .component</li>
 </ul>
 </p><p>
 <em>Emphasis:</em> The .specimen is a direct identifier of a particular specimen; and would be an indirect identifier of a particular person. 
@@ -370,7 +370,7 @@ This psudo specimen management is supplied by a trusted-third-party that maintai
 </p><p>
 Care should be taken when modifying an isModifier elements, as the modification will change the meaning of the Resource.
 </p><p>
-<em>Security-label</em> The resulting Resource should be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
+<em>Security-label:</em> The resulting Resource should be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
 </p><p>
 Further Standards: 
 <a href="http://www.iso.org/iso/catalogue_detail?csnumber=42807">Health: ISO Pseudonymization</a>, 
@@ -383,11 +383,11 @@ Further Standards:
 <a name="TestData"></a>
 <h4>Using FHIR to publish test data</h4>
 <p>
-Use-Case: There are times when test data is needed. Test data are data that is not associated with any real patient. Test data are usually representative of expected data that is published for the purpose of testing. Test data may be fully fabricated, or derived from use-cases that had previously caused failures.
+Use-Case: There are times when test data is needed. Test data are data that is not associated with any real patient. Test data are usually representative of expected data that is published for the purpose of testing. Test data may be fully fabricated, synthetic, or derived from use-cases that had previously caused failures.
 </p><p>
 <em>Trigger:</em> When test data are published it may be important to identify the data as test data. 
 </p><p>
-<em>Consideration:</em> This identification may be to assure that the test data is not misunderstood as real data, and that the test data is not factored into statistics or reporting. However there is a risk that identifying test data may inappropriately thwart the intended test that the data are published to test.
+<em>Consideration:</em> This identification may be to assure that the test data is not misunderstood as real data, and that the test data is not factored into statistics or reporting. However, there is a risk that identifying test data may inappropriately thwart the intended test that the data are published to test.
 </p><p>
 <em>Discussion:</em> 
 </p><p>
