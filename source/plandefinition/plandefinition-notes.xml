@@ -6,7 +6,7 @@
 
 <img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
 
-<p>The PlanDefinition and ActivityDefinition resources support the representation of a broad range of use cases including order sets, flow sheets, event-condition-action rules, clinical protocols, and research trials. In order to support this range of use cases, as well as the variability in capabilities of systems that use these types of artifacts, this specification is not prescriptive about exactly how these definitions are applied to produce request and event resources. However, the approach depicted above provides a general framework for the process, and the following steps provide more detail on the potential approach:</p>
+<p>The PlanDefinition and ActivityDefinition resources support the representation of a broad range of use cases including order sets, flow sheets, event-condition-action rules, clinical protocols, and research trials. To support this range of use cases, as well as the variability in capabilities of systems that use these types of artifacts, this specification is not prescriptive about exactly how these definitions are applied to produce request and event resources. However, the approach depicted above provides a general framework for the process, and the following steps provide more detail on the potential approach:</p>
 
 <ol>
 	<li>Create a CarePlan resource focused on the Patient in context and linked to the PlanDefinition using the <code>instantiates</code> element</li>
@@ -46,11 +46,11 @@
 					</li>
 					<li>Questionnaire: Set the <code>resource</code> element of the action to the Questionnaire, indicating that the activity to be performed is filling out the given questionnaire.</li>
 				</ul>
-				
+
 			</li>
 		</ul>
 	</li>
-	<li>If the action is a group, determine which actions to process based on the behaviors specified in the group. Note that this aspect of the process may require input from a user. In these cases either the choices made by the user can be provided as input to the process, or the process can be performed as part of a user-entry workflow that enables user input to be provided as necessary.</li>
+	<li>If the action is a group, determine which actions to process based on the behaviors specified in the group. Note that this aspect of the process may require input from a user. In these cases, either the choices made by the user can be provided as input to the process, or the process can be performed as part of a user-entry workflow that enables user input to be provided as necessary.</li>
 </ol>
 
 <h3>Overlap with ActivityDefinition</h3>
