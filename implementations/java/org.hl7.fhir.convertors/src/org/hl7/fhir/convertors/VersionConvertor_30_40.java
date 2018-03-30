@@ -20008,7 +20008,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.dstu3.model.UriType t : src.getLink())
       tgt.addLink(t.getValue());
     if (src.hasCapabilities())
-      tgt.setCapabilities(convertReference(src.getCapabilities()));
+      tgt.setCapabilitiesElement(convertReferenceToCanonical(src.getCapabilities()));
     return tgt;
   }
 
@@ -20030,7 +20030,7 @@ public class VersionConvertor_30_40 {
     for (org.hl7.fhir.r4.model.UriType t : src.getLink())
       tgt.addLink(t.getValue());
     if (src.hasCapabilities())
-      tgt.setCapabilities(convertReference(src.getCapabilities()));
+      tgt.setCapabilities(convertCanonicalToReference(src.getCapabilitiesElement()));
     return tgt;
   }
 
