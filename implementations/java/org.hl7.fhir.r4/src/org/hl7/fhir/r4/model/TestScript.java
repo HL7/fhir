@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
   
 */
 
-// Generated on Sun, Mar 18, 2018 07:33+1100 for FHIR v3.2.0
+// Generated on Fri, Mar 30, 2018 08:15+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1797,16 +1797,11 @@ public class TestScript extends MetadataResource {
         /**
          * Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.
          */
-        @Child(name = "capabilities", type = {CapabilityStatement.class}, order=7, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "capabilities", type = {CanonicalType.class}, order=7, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Required Capability Statement", formalDefinition="Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped." )
-        protected Reference capabilities;
+        protected CanonicalType capabilities;
 
-        /**
-         * The actual object that is the target of the reference (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
-         */
-        protected CapabilityStatement capabilitiesTarget;
-
-        private static final long serialVersionUID = -106110735L;
+        private static final long serialVersionUID = -1368199288L;
 
     /**
      * Constructor
@@ -1818,7 +1813,7 @@ public class TestScript extends MetadataResource {
     /**
      * Constructor
      */
-      public TestScriptMetadataCapabilityComponent(BooleanType required, BooleanType validated, Reference capabilities) {
+      public TestScriptMetadataCapabilityComponent(BooleanType required, BooleanType validated, CanonicalType capabilities) {
         super();
         this.required = required;
         this.validated = validated;
@@ -2132,15 +2127,19 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @return {@link #capabilities} (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
+         * @return {@link #capabilities} (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.). This is the underlying object with id, value and extensions. The accessor "getCapabilities" gives direct access to the value
          */
-        public Reference getCapabilities() { 
+        public CanonicalType getCapabilitiesElement() { 
           if (this.capabilities == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.capabilities");
             else if (Configuration.doAutoCreate())
-              this.capabilities = new Reference(); // cc
+              this.capabilities = new CanonicalType(); // bb
           return this.capabilities;
+        }
+
+        public boolean hasCapabilitiesElement() { 
+          return this.capabilities != null && !this.capabilities.isEmpty();
         }
 
         public boolean hasCapabilities() { 
@@ -2148,30 +2147,27 @@ public class TestScript extends MetadataResource {
         }
 
         /**
-         * @param value {@link #capabilities} (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
+         * @param value {@link #capabilities} (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.). This is the underlying object with id, value and extensions. The accessor "getCapabilities" gives direct access to the value
          */
-        public TestScriptMetadataCapabilityComponent setCapabilities(Reference value) { 
+        public TestScriptMetadataCapabilityComponent setCapabilitiesElement(CanonicalType value) { 
           this.capabilities = value;
           return this;
         }
 
         /**
-         * @return {@link #capabilities} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
+         * @return Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.
          */
-        public CapabilityStatement getCapabilitiesTarget() { 
-          if (this.capabilitiesTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.capabilities");
-            else if (Configuration.doAutoCreate())
-              this.capabilitiesTarget = new CapabilityStatement(); // aa
-          return this.capabilitiesTarget;
+        public String getCapabilities() { 
+          return this.capabilities == null ? null : this.capabilities.getValue();
         }
 
         /**
-         * @param value {@link #capabilities} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.)
+         * @param value Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.
          */
-        public TestScriptMetadataCapabilityComponent setCapabilitiesTarget(CapabilityStatement value) { 
-          this.capabilitiesTarget = value;
+        public TestScriptMetadataCapabilityComponent setCapabilities(String value) { 
+            if (this.capabilities == null)
+              this.capabilities = new CanonicalType();
+            this.capabilities.setValue(value);
           return this;
         }
 
@@ -2183,7 +2179,7 @@ public class TestScript extends MetadataResource {
           children.add(new Property("origin", "integer", "Which origin server these requirements apply to.", 0, java.lang.Integer.MAX_VALUE, origin));
           children.add(new Property("destination", "integer", "Which server these requirements apply to.", 0, 1, destination));
           children.add(new Property("link", "uri", "Links to the FHIR specification that describes this interaction and the resources involved in more detail.", 0, java.lang.Integer.MAX_VALUE, link));
-          children.add(new Property("capabilities", "Reference(CapabilityStatement)", "Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.", 0, 1, capabilities));
+          children.add(new Property("capabilities", "canonical(CapabilityStatement)", "Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.", 0, 1, capabilities));
         }
 
         @Override
@@ -2195,7 +2191,7 @@ public class TestScript extends MetadataResource {
           case -1008619738: /*origin*/  return new Property("origin", "integer", "Which origin server these requirements apply to.", 0, java.lang.Integer.MAX_VALUE, origin);
           case -1429847026: /*destination*/  return new Property("destination", "integer", "Which server these requirements apply to.", 0, 1, destination);
           case 3321850: /*link*/  return new Property("link", "uri", "Links to the FHIR specification that describes this interaction and the resources involved in more detail.", 0, java.lang.Integer.MAX_VALUE, link);
-          case -1487597642: /*capabilities*/  return new Property("capabilities", "Reference(CapabilityStatement)", "Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.", 0, 1, capabilities);
+          case -1487597642: /*capabilities*/  return new Property("capabilities", "canonical(CapabilityStatement)", "Minimum capabilities required of server for test script to execute successfully.   If server does not meet at a minimum the referenced capability statement, then all tests in this script are skipped.", 0, 1, capabilities);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
 
@@ -2210,7 +2206,7 @@ public class TestScript extends MetadataResource {
         case -1008619738: /*origin*/ return this.origin == null ? new Base[0] : this.origin.toArray(new Base[this.origin.size()]); // IntegerType
         case -1429847026: /*destination*/ return this.destination == null ? new Base[0] : new Base[] {this.destination}; // IntegerType
         case 3321850: /*link*/ return this.link == null ? new Base[0] : this.link.toArray(new Base[this.link.size()]); // UriType
-        case -1487597642: /*capabilities*/ return this.capabilities == null ? new Base[0] : new Base[] {this.capabilities}; // Reference
+        case -1487597642: /*capabilities*/ return this.capabilities == null ? new Base[0] : new Base[] {this.capabilities}; // CanonicalType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -2238,7 +2234,7 @@ public class TestScript extends MetadataResource {
           this.getLink().add(castToUri(value)); // UriType
           return value;
         case -1487597642: // capabilities
-          this.capabilities = castToReference(value); // Reference
+          this.capabilities = castToCanonical(value); // CanonicalType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2260,7 +2256,7 @@ public class TestScript extends MetadataResource {
         } else if (name.equals("link")) {
           this.getLink().add(castToUri(value));
         } else if (name.equals("capabilities")) {
-          this.capabilities = castToReference(value); // Reference
+          this.capabilities = castToCanonical(value); // CanonicalType
         } else
           return super.setProperty(name, value);
         return value;
@@ -2275,7 +2271,7 @@ public class TestScript extends MetadataResource {
         case -1008619738:  return addOriginElement();
         case -1429847026:  return getDestinationElement();
         case 3321850:  return addLinkElement();
-        case -1487597642:  return getCapabilities(); 
+        case -1487597642:  return getCapabilitiesElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -2290,7 +2286,7 @@ public class TestScript extends MetadataResource {
         case -1008619738: /*origin*/ return new String[] {"integer"};
         case -1429847026: /*destination*/ return new String[] {"integer"};
         case 3321850: /*link*/ return new String[] {"uri"};
-        case -1487597642: /*capabilities*/ return new String[] {"Reference"};
+        case -1487597642: /*capabilities*/ return new String[] {"canonical"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2317,8 +2313,7 @@ public class TestScript extends MetadataResource {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.link");
         }
         else if (name.equals("capabilities")) {
-          this.capabilities = new Reference();
-          return this.capabilities;
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.capabilities");
         }
         else
           return super.addChild(name);

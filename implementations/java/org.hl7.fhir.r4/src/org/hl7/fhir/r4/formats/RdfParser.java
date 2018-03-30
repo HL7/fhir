@@ -14951,8 +14951,8 @@ public class RdfParser extends RdfParserBase {
       composeInteger(t, "TestScript", "destination", element.getDestinationElement(), -1);
     for (int i = 0; i < element.getLink().size(); i++)
       composeUri(t, "TestScript", "link", element.getLink().get(i), i);
-    if (element.hasCapabilities())
-      composeReference(t, "TestScript", "capabilities", element.getCapabilities(), -1);
+    if (element.hasCapabilitiesElement())
+      composeCanonical(t, "TestScript", "capabilities", element.getCapabilitiesElement(), -1);
   }
 
   protected void composeTestScriptTestScriptFixtureComponent(Complex parent, String parentType, String name, TestScript.TestScriptFixtureComponent element, int index) {

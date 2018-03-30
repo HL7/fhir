@@ -20235,7 +20235,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("link")) {
         res.getLink().add(parseUri(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("capabilities")) {
-        res.setCapabilities(parseReference(xpp));
+        res.setCapabilitiesElement(parseCanonical(xpp));
       } else if (!parseBackboneElementContent(eventType, xpp, res))
         return false;
     return true;
@@ -43637,8 +43637,8 @@ public class XmlParser extends XmlParserBase {
         for (UriType e : element.getLink()) 
           composeUri("link", e);
       }
-      if (element.hasCapabilities()) {
-        composeReference("capabilities", element.getCapabilities());
+      if (element.hasCapabilitiesElement()) {
+        composeCanonical("capabilities", element.getCapabilitiesElement());
       }
   }
 

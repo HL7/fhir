@@ -22745,7 +22745,9 @@ public class JsonParser extends JsonParserBase {
       }
     };
     if (json.has("capabilities"))
-      res.setCapabilities(parseReference(json.getAsJsonObject("capabilities")));
+      res.setCapabilitiesElement(parseCanonical(json.get("capabilities").getAsString()));
+    if (json.has("_capabilities"))
+      parseElementProperties(json.getAsJsonObject("_capabilities"), res.getCapabilitiesElement());
   }
 
   protected TestScript.TestScriptFixtureComponent parseTestScriptTestScriptFixtureComponent(JsonObject json, TestScript owner) throws IOException, FHIRFormatError {
@@ -49665,8 +49667,9 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
-      if (element.hasCapabilities()) {
-        composeReference("capabilities", element.getCapabilities());
+      if (element.hasCapabilitiesElement()) {
+        composeCanonicalCore("capabilities", element.getCapabilitiesElement(), false);
+        composeCanonicalExtras("capabilities", element.getCapabilitiesElement(), false);
       }
   }
 
