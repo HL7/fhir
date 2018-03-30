@@ -8164,7 +8164,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         vss = "<a href=\""+tx.getValueSetUriType().asStringValue()+"\">"+Utilities.escapeXml(tx.getValueSetUriType().asStringValue())+"</a><!-- a -->";
       }
     }
-    if (vsn.equals("?ext"))
+    if (vsn.equals("?ext") && !tx.hasValueSetUriType())
       System.out.println("No value set at "+path);
     b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
               append(genlevel(level)).append("terminologies.html#").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).

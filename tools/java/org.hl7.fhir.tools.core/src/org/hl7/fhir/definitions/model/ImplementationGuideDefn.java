@@ -265,8 +265,8 @@ public class ImplementationGuideDefn {
     String src = Utilities.fileTitle(n)+ ".html";
     for (ImplementationGuideDefinitionResourceComponent r : ig.getDefinition().getResource()) {
       if (src.equals(r.getReference().getReference())) {
-        if (r.hasExampleReference()) {
-          String psrc = r.getExampleReference().getReference().substring(r.getExampleReference().getReference().lastIndexOf("/")+1)+".html";
+        if (r.hasExampleCanonicalType()) {
+          String psrc = r.getExampleCanonicalType().getValueAsString().substring(r.getExampleCanonicalType().getValueAsString().lastIndexOf("/")+1)+".html";
           if (findPage(psrc, res, page)) {
             res.add(new LinkTriple(null, r.getName(), null));
             return true;

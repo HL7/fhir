@@ -1465,12 +1465,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         needToBuild = rchanged || needToBuild;
         if (rchanged) 
           loadAsElementModel(f, f.addResource());
-        if (res.hasExampleReference()) {
+        if (res.hasExampleCanonicalType()) {
           if (f.getResources().size()!=1)
             throw new Exception("Can't have an exampleFor unless the file has exactly one resource");
           FetchedResource r = f.getResources().get(0);
           examples.add(r);
-          String ref = res.getExampleReference().getReference();
+          String ref = res.getExampleCanonicalType().getValueAsString();
           if (ref.contains(":")) {
             r.setExampleUri(ref);
           } else if (sourceIg.getUrl().contains("ImplementationGuide/"))

@@ -164,8 +164,8 @@ return null;
             throw new Exception("no name on resource in IG "+ig.getName());
           Example example = new Example(r.getName(), id, r.getDescription(), fn, false, ExampleType.XmlFile, false);
           example.setIg(igd.getCode());
-          if (r.hasExampleReference()) {
-            example.setExampleFor(r.getExampleReference().getReference());
+          if (r.hasExampleCanonicalType()) {
+            example.setExampleFor(r.getExampleCanonicalType().asStringValue());
             example.setRegistered(true);
             exr.add(example);
           }
