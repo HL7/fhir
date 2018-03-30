@@ -12759,9 +12759,10 @@ public class VersionConvertor_30_40 {
       return null;
     org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent tgt = new org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent();
     copyElement(src, tgt);
-    if (src.hasExampleFor())
-      tgt.setExample(convertReference(src.getExampleFor()));
-    else if (src.hasExample())
+    if (src.hasExampleFor()) {
+      Type t = convertType(src.getExampleFor());
+      tgt.setExample(t instanceof org.hl7.fhir.r4.model.Reference ? new CanonicalType(((org.hl7.fhir.r4.model.Reference) t).getReference()) : t);
+    } else if (src.hasExample())
       tgt.setExample(new org.hl7.fhir.r4.model.BooleanType(src.getExample()));
     if (src.hasName())
       tgt.setName(src.getName());
@@ -12779,8 +12780,8 @@ public class VersionConvertor_30_40 {
       return null;
     org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent tgt = new org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent();
     copyElement(src, tgt);
-    if (src.hasExampleReference()) {
-      tgt.setExampleFor(convertReference(src.getExampleReference()));
+    if (src.hasExampleCanonicalType()) {
+      tgt.setExampleFor(convertCanonicalToReference(src.getExampleCanonicalType()));
       tgt.setExample(true);
     } else if (src.hasExampleBooleanType()) 
       tgt.setExample(src.getExampleBooleanType().getValue());

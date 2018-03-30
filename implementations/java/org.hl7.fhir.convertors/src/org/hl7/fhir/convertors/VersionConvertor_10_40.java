@@ -7270,7 +7270,7 @@ public class VersionConvertor_10_40 {
     org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent tgt = new org.hl7.fhir.r4.model.ImplementationGuide.ImplementationGuideDefinitionResourceComponent();
     copyElement(src, tgt);
     if (src.hasExampleFor())
-      tgt.setExample(convertReference(src.getExampleFor()));
+      tgt.setExample(convertReferenceToCanonical(src.getExampleFor()));
     if (src.hasName())
       tgt.setName(src.getName());
     if (src.hasDescription())
@@ -7287,8 +7287,8 @@ public class VersionConvertor_10_40 {
       return null;
     org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePackageResourceComponent tgt = new org.hl7.fhir.dstu2.model.ImplementationGuide.ImplementationGuidePackageResourceComponent();
     copyElement(src, tgt);
-    if (src.hasExampleReference()) 
-      tgt.setExampleFor(convertReference(src.getExampleReference()));
+    if (src.hasExampleCanonicalType()) 
+      tgt.setExampleFor(convertCanonicalToReference(src.getExampleCanonicalType()));
     if (src.hasName())
       tgt.setName(src.getName());
     if (src.hasDescription())

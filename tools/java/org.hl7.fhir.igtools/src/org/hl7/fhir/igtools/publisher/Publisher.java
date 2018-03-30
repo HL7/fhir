@@ -451,14 +451,14 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         b.append("  \"url\" : \""+Utilities.escapeJson(sourceIg.getUrl())+"\",\r\n");
         b.append("  \"name\" : \""+Utilities.escapeJson(sourceIg.getName())+"\",\r\n");
       }
-      b.append("  \"date\" : \""+new SimpleDateFormat("EEE, dd MMM, yyyy HH:mm:ss Z", new Locale("en", "US")).format(execTime.getTime())+"\",\r\n");
+      b.append("  \"date\" : \""+Utilities.escapeJson(new SimpleDateFormat("EEE, dd MMM, yyyy HH:mm:ss Z", new Locale("en", "US")).format(execTime.getTime()))+"\",\r\n");
       if (val != null) {
         b.append("  \"errs\" : \""+val.getErr()+"\",\r\n");
         b.append("  \"warnings\" : \""+val.getWarn()+"\",\r\n");
         b.append("  \"hints\" : \""+val.getInfo()+"\",\r\n");
       }
       if (ex != null)
-        b.append("  \"exception\" : \""+ex.getMessage()+"\",\r\n");
+        b.append("  \"exception\" : \""+Utilities.escapeJson(ex.getMessage())+"\",\r\n");
       b.append("  \"version\" : \""+version+"\",\r\n");
       b.append("  \"tool\" : \""+Constants.VERSION+"-"+Constants.REVISION+"\"\r\n");
       b.append("}\r\n");

@@ -29,7 +29,7 @@ package org.hl7.fhir.r4.model;
 
 */
 
-// Generated on Fri, Mar 30, 2018 06:53+1100 for FHIR v3.2.0
+// Generated on Sat, Mar 31, 2018 07:10+1100 for FHIR v3.2.0
 
 import java.util.*;
 
@@ -1651,7 +1651,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
          */
-        @Child(name = "example", type = {BooleanType.class, StructureDefinition.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "example", type = {BooleanType.class, CanonicalType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Is an example/What is this an example of?", formalDefinition="If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile." )
         protected Type example;
 
@@ -1841,16 +1841,16 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return {@link #example} (If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.)
          */
-        public Reference getExampleReference() throws FHIRException {
+        public CanonicalType getExampleCanonicalType() throws FHIRException { 
           if (this.example == null)
             return null;
-          if (!(this.example instanceof Reference))
-            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.example.getClass().getName()+" was encountered");
-          return (Reference) this.example;
+          if (!(this.example instanceof CanonicalType))
+            throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.example.getClass().getName()+" was encountered");
+          return (CanonicalType) this.example;
         }
 
-        public boolean hasExampleReference() {
-          return this != null && this.example instanceof Reference;
+        public boolean hasExampleCanonicalType() { 
+          return this != null && this.example instanceof CanonicalType;
         }
 
         public boolean hasExample() {
@@ -1861,7 +1861,7 @@ public class ImplementationGuide extends MetadataResource {
          * @param value {@link #example} (If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.)
          */
         public ImplementationGuideDefinitionResourceComponent setExample(Type value) {
-          if (value != null && !(value instanceof BooleanType || value instanceof Reference))
+          if (value != null && !(value instanceof BooleanType || value instanceof CanonicalType))
             throw new Error("Not the right type for ImplementationGuide.definition.resource.example[x]: "+value.fhirType());
           this.example = value;
           return this;
@@ -1921,7 +1921,7 @@ public class ImplementationGuide extends MetadataResource {
           children.add(new Property("reference", "Reference(Any)", "Where this resource is found.", 0, 1, reference));
           children.add(new Property("name", "string", "A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).", 0, 1, name));
           children.add(new Property("description", "string", "A description of the reason that a resource has been included in the implementation guide.", 0, 1, description));
-          children.add(new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example));
+          children.add(new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example));
           children.add(new Property("package", "id", "Reference to the id of the pack this resource appears in.", 0, 1, package_));
         }
 
@@ -1931,10 +1931,10 @@ public class ImplementationGuide extends MetadataResource {
           case -925155509: /*reference*/  return new Property("reference", "Reference(Any)", "Where this resource is found.", 0, 1, reference);
           case 3373707: /*name*/  return new Property("name", "string", "A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).", 0, 1, name);
           case -1724546052: /*description*/  return new Property("description", "string", "A description of the reason that a resource has been included in the implementation guide.", 0, 1, description);
-          case -2002328874: /*example[x]*/  return new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
-          case -1322970774: /*example*/  return new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
-          case 159803230: /*exampleBoolean*/  return new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
-          case 263472385: /*exampleReference*/  return new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
+          case -2002328874: /*example[x]*/  return new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
+          case -1322970774: /*example*/  return new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
+          case 159803230: /*exampleBoolean*/  return new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
+          case 2016979626: /*exampleCanonical*/  return new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
           case -807062458: /*package*/  return new Property("package", "id", "Reference to the id of the pack this resource appears in.", 0, 1, package_);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -2014,7 +2014,7 @@ public class ImplementationGuide extends MetadataResource {
         case -925155509: /*reference*/ return new String[] {"Reference"};
         case 3373707: /*name*/ return new String[] {"string"};
         case -1724546052: /*description*/ return new String[] {"string"};
-        case -1322970774: /*example*/ return new String[] {"boolean", "Reference"};
+        case -1322970774: /*example*/ return new String[] {"boolean", "canonical"};
         case -807062458: /*package*/ return new String[] {"id"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -2037,8 +2037,8 @@ public class ImplementationGuide extends MetadataResource {
           this.example = new BooleanType();
           return this.example;
         }
-        else if (name.equals("exampleReference")) {
-          this.example = new Reference();
+        else if (name.equals("exampleCanonical")) {
+          this.example = new CanonicalType();
           return this.example;
         }
         else if (name.equals("package")) {
@@ -3594,7 +3594,7 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.
          */
-        @Child(name = "example", type = {BooleanType.class, StructureDefinition.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "example", type = {BooleanType.class, CanonicalType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Is an example/What is this an example of?", formalDefinition="If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile." )
         protected Type example;
 
@@ -3686,16 +3686,16 @@ public class ImplementationGuide extends MetadataResource {
         /**
          * @return {@link #example} (If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.)
          */
-        public Reference getExampleReference() throws FHIRException {
+        public CanonicalType getExampleCanonicalType() throws FHIRException { 
           if (this.example == null)
             return null;
-          if (!(this.example instanceof Reference))
-            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.example.getClass().getName()+" was encountered");
-          return (Reference) this.example;
+          if (!(this.example instanceof CanonicalType))
+            throw new FHIRException("Type mismatch: the type CanonicalType was expected, but "+this.example.getClass().getName()+" was encountered");
+          return (CanonicalType) this.example;
         }
 
-        public boolean hasExampleReference() {
-          return this != null && this.example instanceof Reference;
+        public boolean hasExampleCanonicalType() { 
+          return this != null && this.example instanceof CanonicalType;
         }
 
         public boolean hasExample() {
@@ -3706,7 +3706,7 @@ public class ImplementationGuide extends MetadataResource {
          * @param value {@link #example} (If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.)
          */
         public ImplementationGuideManifestResourceComponent setExample(Type value) {
-          if (value != null && !(value instanceof BooleanType || value instanceof Reference))
+          if (value != null && !(value instanceof BooleanType || value instanceof CanonicalType))
             throw new Error("Not the right type for ImplementationGuide.manifest.resource.example[x]: "+value.fhirType());
           this.example = value;
           return this;
@@ -3764,7 +3764,7 @@ public class ImplementationGuide extends MetadataResource {
         protected void listChildren(List<Property> children) {
           super.listChildren(children);
           children.add(new Property("reference", "Reference(Any)", "Where this resource is found.", 0, 1, reference));
-          children.add(new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example));
+          children.add(new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example));
           children.add(new Property("relativePath", "url", "The relative path for primary page for this resource within the IG.", 0, 1, relativePath));
         }
 
@@ -3772,10 +3772,10 @@ public class ImplementationGuide extends MetadataResource {
         public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
           switch (_hash) {
           case -925155509: /*reference*/  return new Property("reference", "Reference(Any)", "Where this resource is found.", 0, 1, reference);
-          case -2002328874: /*example[x]*/  return new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
-          case -1322970774: /*example*/  return new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
-          case 159803230: /*exampleBoolean*/  return new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
-          case 263472385: /*exampleReference*/  return new Property("example[x]", "boolean|Reference(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
+          case -2002328874: /*example[x]*/  return new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
+          case -1322970774: /*example*/  return new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
+          case 159803230: /*exampleBoolean*/  return new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
+          case 2016979626: /*exampleCanonical*/  return new Property("example[x]", "boolean|canonical(StructureDefinition)", "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.", 0, 1, example);
           case -70808303: /*relativePath*/  return new Property("relativePath", "url", "The relative path for primary page for this resource within the IG.", 0, 1, relativePath);
           default: return super.getNamedProperty(_hash, _name, _checkValid);
           }
@@ -3839,7 +3839,7 @@ public class ImplementationGuide extends MetadataResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -925155509: /*reference*/ return new String[] {"Reference"};
-        case -1322970774: /*example*/ return new String[] {"boolean", "Reference"};
+        case -1322970774: /*example*/ return new String[] {"boolean", "canonical"};
         case -70808303: /*relativePath*/ return new String[] {"url"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -3856,8 +3856,8 @@ public class ImplementationGuide extends MetadataResource {
           this.example = new BooleanType();
           return this.example;
         }
-        else if (name.equals("exampleReference")) {
-          this.example = new Reference();
+        else if (name.equals("exampleCanonical")) {
+          this.example = new CanonicalType();
           return this.example;
         }
         else if (name.equals("relativePath")) {
@@ -4309,7 +4309,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @return {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public UriType getUrlElement() {
       if (this.url == null)
@@ -4329,7 +4329,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
+     * @param value {@link #url} (An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
     public ImplementationGuide setUrlElement(UriType value) {
       this.url = value;
@@ -4337,14 +4337,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.
+     * @return An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.
      */
     public String getUrl() {
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
-     * @param value An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.
+     * @param value An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.
      */
     public ImplementationGuide setUrl(String value) {
         if (this.url == null)
@@ -4493,7 +4493,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #experimental} (A boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @return {@link #experimental} (A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public BooleanType getExperimentalElement() {
       if (this.experimental == null)
@@ -4513,7 +4513,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #experimental} (A boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
+     * @param value {@link #experimental} (A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
     public ImplementationGuide setExperimentalElement(BooleanType value) {
       this.experimental = value;
@@ -4521,14 +4521,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return A boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @return A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
      */
     public boolean getExperimental() {
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
-     * @param value A boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
+     * @param value A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.
      */
     public ImplementationGuide setExperimental(boolean value) {
         if (this.experimental == null)
@@ -4538,7 +4538,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #date} (The date  (and optionally time) when the implementation guide was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #date} (The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() {
       if (this.date == null)
@@ -4558,7 +4558,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #date} (The date  (and optionally time) when the implementation guide was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #date} (The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public ImplementationGuide setDateElement(DateTimeType value) {
       this.date = value;
@@ -4566,14 +4566,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return The date  (and optionally time) when the implementation guide was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.
+     * @return The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.
      */
     public Date getDate() {
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
-     * @param value The date  (and optionally time) when the implementation guide was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.
+     * @param value The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.
      */
     public ImplementationGuide setDate(Date value) {
       if (value == null)
@@ -4587,7 +4587,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return {@link #publisher} (The name of the individual or organization that published the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @return {@link #publisher} (The name of the organization or individual that published the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() {
       if (this.publisher == null)
@@ -4607,7 +4607,7 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @param value {@link #publisher} (The name of the individual or organization that published the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     * @param value {@link #publisher} (The name of the organization or individual that published the implementation guide.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public ImplementationGuide setPublisherElement(StringType value) {
       this.publisher = value;
@@ -4615,14 +4615,14 @@ public class ImplementationGuide extends MetadataResource {
     }
 
     /**
-     * @return The name of the individual or organization that published the implementation guide.
+     * @return The name of the organization or individual that published the implementation guide.
      */
     public String getPublisher() {
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
-     * @param value The name of the individual or organization that published the implementation guide.
+     * @param value The name of the organization or individual that published the implementation guide.
      */
     public ImplementationGuide setPublisher(String value) {
       if (Utilities.noString(value))
@@ -5097,13 +5097,13 @@ public class ImplementationGuide extends MetadataResource {
 
       protected void listChildren(List<Property> children) {
         super.listChildren(children);
-        children.add(new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url));
+        children.add(new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url));
         children.add(new Property("version", "string", "The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version));
         children.add(new Property("name", "string", "A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name));
         children.add(new Property("status", "code", "The status of this implementation guide. Enables tracking the life-cycle of the content.", 0, 1, status));
-        children.add(new Property("experimental", "boolean", "A boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental));
-        children.add(new Property("date", "dateTime", "The date  (and optionally time) when the implementation guide was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.", 0, 1, date));
-        children.add(new Property("publisher", "string", "The name of the individual or organization that published the implementation guide.", 0, 1, publisher));
+        children.add(new Property("experimental", "boolean", "A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.", 0, 1, experimental));
+        children.add(new Property("date", "dateTime", "The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.", 0, 1, date));
+        children.add(new Property("publisher", "string", "The name of the organization or individual that published the implementation guide.", 0, 1, publisher));
         children.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         children.add(new Property("description", "markdown", "A free text natural language description of the implementation guide from a consumer's perspective.", 0, 1, description));
         children.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate implementation guide instances.", 0, java.lang.Integer.MAX_VALUE, useContext));
@@ -5119,13 +5119,13 @@ public class ImplementationGuide extends MetadataResource {
       @Override
       public Property getNamedProperty(int _hash, String _name, boolean _checkValid) throws FHIRException {
         switch (_hash) {
-        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance, also called it's canonical identifier. This SHOULD be globally unique, and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url);
+        case 116079: /*url*/  return new Property("url", "uri", "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which this implementation guide is (or will be) published.", 0, 1, url);
         case 351608024: /*version*/  return new Property("version", "string", "The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.", 0, 1, version);
         case 3373707: /*name*/  return new Property("name", "string", "A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, 1, name);
         case -892481550: /*status*/  return new Property("status", "code", "The status of this implementation guide. Enables tracking the life-cycle of the content.", 0, 1, status);
-        case -404562712: /*experimental*/  return new Property("experimental", "boolean", "A boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, 1, experimental);
-        case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the implementation guide was published. The date must change if and when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.", 0, 1, date);
-        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the individual or organization that published the implementation guide.", 0, 1, publisher);
+        case -404562712: /*experimental*/  return new Property("experimental", "boolean", "A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.", 0, 1, experimental);
+        case 3076014: /*date*/  return new Property("date", "dateTime", "The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.", 0, 1, date);
+        case 1447404028: /*publisher*/  return new Property("publisher", "string", "The name of the organization or individual that published the implementation guide.", 0, 1, publisher);
         case 951526432: /*contact*/  return new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact);
         case -1724546052: /*description*/  return new Property("description", "markdown", "A free text natural language description of the implementation guide from a consumer's perspective.", 0, 1, description);
         case -669707736: /*useContext*/  return new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate implementation guide instances.", 0, java.lang.Integer.MAX_VALUE, useContext);
@@ -5670,3 +5670,4 @@ public class ImplementationGuide extends MetadataResource {
 
 
 }
+
