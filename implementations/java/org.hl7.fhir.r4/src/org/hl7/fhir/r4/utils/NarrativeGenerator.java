@@ -1637,10 +1637,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return null;
     }
     
-    Resource bundleResource = rc.resolve(url);
-    if (bundleResource!=null) {
-      String bundleUrl = "#" + bundleResource.getResourceType().name().toLowerCase() + "_" + bundleResource.getId(); 
-      return new ResourceWithReference(bundleUrl, new ResourceWrapperDirect(bundleResource));
+    if (rc!=null) {
+      Resource bundleResource = rc.resolve(url);
+      if (bundleResource!=null) {
+        String bundleUrl = "#" + bundleResource.getResourceType().name().toLowerCase() + "_" + bundleResource.getId(); 
+        return new ResourceWithReference(bundleUrl, new ResourceWrapperDirect(bundleResource));
+      }
     }
 
     Resource ae = context.fetchResource(null, url);
