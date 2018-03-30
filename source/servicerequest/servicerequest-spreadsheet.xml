@@ -1620,14 +1620,14 @@
     <Cell ss:StyleID="s100"><Data ss:Type="String">What is being requested/ordered</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Many laboratory and radiology procedure codes embed the specimen/organ system in the test ordeer name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen might not be recorded separately from the test code.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">PR1-3 / OBR-4  (varies by domain)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Request.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Procedure.procedureCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">ProcedureRequest.code,"","1..1","","CodeableConcept","","","ProcedureCode","class","","","","","What procedure to perform","The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.","","","","","","Procedure.procedureCode","","","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">ProcedureRequest.code,"","1..1","","CodeableConcept","","Y","ProcedureRequests","what","","","","","What’s being requested/ordered","A code that identifies a particular procedure, or panel of investigations, that have been requested","","Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen might not be recorded separately from the test code.","",".code","OBX-4","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s122"><Data ss:Type="String">ProcedureRequest.code,"","1..1","","CodeableConcept","","Y","ProcedureRequests","what","","","","","What’s being requested/ordered","A code that identifies a particular procedure, or panel of investigations, that have been requested","","Many laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code.","",".code","OBX-4","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.serviceRequested (for RR changed element name to code, reduced cardinality to single line item ( combine items with Task)  udpated value set to to procedure codes, for PR added alias 'service request')</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1652,7 +1652,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Additional order information</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have a order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have an order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">For information from the medical record intended to support the delivery of the requested services, use the `supportingInformation` element.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1890,14 +1890,14 @@
     <Cell ss:StyleID="s100"><Data ss:Type="String">Performer role</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Desired type of performer for doing the requested service. </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">this is a  role, not  a participation type.  I.e. does not describe the task, but describes the capacity.  For example, “compounding pharmacy” or “psychiatrist” or “internal referral”.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">this is a  role, not  a participation type.  In other words, does not describe the task but describes the capacity.  For example, “compounding pharmacy” or “psychiatrist” or “internal referral”.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">.participation[typeCode=PRF].role[scoper.determinerCode=KIND].code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">PRT, RF!-3</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Request.performerType</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.performerType,"","0..1","","CodeableConcept","","Y","ProcedureRequestParticipantRole","who.actor","","","","","Performer role","Desired type of performer for doing the requested procedure. (","","this is a  role, not  aparticipation type.  I.e. doesn’t describe the task, describes the capacity.  Examples “compounding pharmacy” or “psychiatrist” or “internal referral”","","","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">ProcedureRequest.performerType,"","0..1","","CodeableConcept","","Y","ProcedureRequestParticipantRole","who.actor","","","","","Performer role","Desired type of performer for doing the requested procedure. (","","this is a  role, not  a participation type.  In other words, does not describe the task but describes the capacity.  Examples “compounding pharmacy” or “psychiatrist” or “internal referral”","","","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.specialty (for PR added alias For RR changed element name to performerType binding to participant-role)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1921,17 +1921,17 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Requested perfomer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">The desired perfomer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Requested performer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">The desired performer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference irregardless of order.  If order of preference is needed use the [request-performerOrder extension](extension-request-performerorder.html).  Use CareTeam to represent a group of performers (for example, Practitiioner A *and* Practitioner B).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [request-performerOrder extension](extension-request-performerorder.html).  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B).</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">.participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">PRT, Practitioner: PRD-2/PRD-7 where PRD-3 = RT; Organization: PRD-10 where PRD-3 = RT</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Request.performer</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.performer,"","0..1","","Reference(Practitioner|Organization|Patient|RelatedPerson)","","","","who.actor","","","","","Who should perform the procedure","For example, the surgeon, anaethetist, endoscopist, etc.","","","","","","","","","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.performer,"","0..1","","Reference(Practitioner | Organization | Patient | Device | RelatedPerson)","","Y","","who.actor","","","","","Requested perfomer","The desired perfomer for doing the requested procedure.","","Use an [extension] (extensibility.html) or listing alternative alternative performers and/or roles and/or preference.","",".participation[AUT or PFM]","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">ProcedureRequest.performer,"","0..1","","Reference(Practitioner | Organization | Patient | Device | RelatedPerson)","","Y","","who.actor","","","","","Requested performer","The desired performer for doing the requested procedure.","","Use an [extension] (extensibility.html) or listing alternative alternative performers and/or roles and/or preference.","",".participation[AUT or PFM]","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">ReferralRequest.recipient (for RR changed element name to performer, added Patient and  Related Person to reference types, for PR added alias)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2134,7 +2134,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">SPM</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Procedure.targetBodySite</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.bodySite,"","0..*","","CodeableConcept","","","BodySite","","","","","","What part of body to perform on","Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).","Knowing where the procedure is made is important for tracking if multiple sites are possible.","Only used if not implicit in the code found in ProcedureRequest.type","","targetSiteCode","","Procedure.targetBodySite","","","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.bodySite,"","0..*","","CodeableConcept","","","BodySite","","","","","","What part of body to perform on","Indicates the sites on the subject's body where the procedure should be performed (In other words, the target sites).","Knowing where the procedure is made is important for tracking if multiple sites are possible.","Only used if not implicit in the code found in ProcedureRequest.type","","targetSiteCode","","Procedure.targetBodySite","","","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ProcedureRequest.bodySIte,"location","0..1","","CodeableConcept","","Y","BodySite","","","","","","Location of requested test (if applicable)","Anatomical location where the requested test should be performed.  This is the target site.",""," If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodySite](extension-procedure-targetbodysite.html)","","targetSiteCode","","</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String"> (For RR add bodysite)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2193,7 +2193,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">Patient or consumer oriented instructions</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">Patient or consumer-oriented instructions</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Instructions in terms that are understood by the patient or consumer.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
