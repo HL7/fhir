@@ -7,7 +7,7 @@
     <p>
         <i>At this time, the code bindings are placeholders to be fleshed out upon further review by the community.</i>
     </p>
-<h3>Communication.sender and Communication.recepient</h3>
+<h3>Communication.sender and Communication.recipient</h3>
     <p>Communication.sender and Communication.recipient allow Patient|Practitioner|RelatedPerson - but it is not unusual to have 
         a communication target - even a defined one - where it is unknown what kind of role the person is playing.
     </p>
