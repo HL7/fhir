@@ -487,7 +487,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       for (FetchedResource r : f.getResources()) {
         if (r.getElement() != null && r.getElement().fhirType().equals(parts[0]) && r.getId().equals(parts[1])) {
           String path = igpkp.getLinkFor(r);
-          return new ResourceWithReference(path, gen.new ResurceWrapperMetaElement(r.getElement()));
+          return new ResourceWithReference(path, gen.new ResourceWrapperMetaElement(r.getElement()));
         }
       }
     }
