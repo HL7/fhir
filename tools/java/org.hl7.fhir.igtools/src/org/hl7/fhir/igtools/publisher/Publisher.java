@@ -229,9 +229,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     @Override
     public Base resolveConstant(Object appContext, String name) throws PathEngineException {
-      if ("id".equals(name))
+//      if ("id".equals(name))
         return null;
-      throw new NotImplementedException("Not done yet @ IGPublisherHostServices.resolveConstant("+appContext.toString()+", "+name+"))");
+//      throw new NotImplementedException("Not done yet @ IGPublisherHostServices.resolveConstant("+appContext.toString()+", \""+name+"\")");
     }
 
     @Override
@@ -241,7 +241,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     @Override
     public boolean log(String argument, List<Base> focus) {
-      throw new NotImplementedException("Not done yet (IGPublisherHostServices.log)");
+      return false;
     }
 
     @Override
@@ -261,7 +261,25 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     @Override
     public Base resolveReference(Object appContext, String url) {
-      throw new NotImplementedException("Not done yet (IGPublisherHostServices.resolveReference)");
+      if (appContext instanceof Element)  {
+        Element bnd = (Element) appContext;
+        if (bnd.fhirType().equals("Bundle")) {
+          for (Element be : bnd.getChildrenByName("entry")) {
+            Element res = be.getNamedChild("resource");
+            if (res != null) { 
+              String fullUrl = be.getChildValue("fullUrl");
+              String rt = res.fhirType();
+              String id = res.getChildValue("id");
+              if (url.equals(fullUrl))
+                return res;
+              if (url.equals(rt+"/"+id))
+                return res;
+            }
+          }
+        }
+        return null;
+      }
+      throw new NotImplementedException("Not done yet @ IGPublisherHostServices.resolveReference("+appContext.toString()+", \""+url+"\")");
     }
 
   }

@@ -1805,6 +1805,7 @@ public class FHIRPathEngine {
         result.add(item);
     } else 
       getChildrenByName(item, exp.getName(), result);
+    // todo: GG 1st April 201 - why do this? 
     if (result.size() == 0 && atEntry && context.appInfo != null) {
       Base temp = hostServices.resolveConstant(context.appInfo, exp.getName());
       if (temp != null) {
@@ -2959,10 +2960,10 @@ public class FHIRPathEngine {
           throw new DefinitionException("illegal use of resolve() in discriminator - no type on element "+element.getId());
         if (element.getType().size() > 1)
           throw new DefinitionException("illegal use of resolve() in discriminator - Multiple possible types on "+element.getId());
-        if (element.getType().get(0).getTargetProfile().size() > 1)
-          throw new DefinitionException("illegal use of resolve() in discriminator - Multiple possible target type profiles on "+element.getId());
         if (!element.getType().get(0).hasTarget())
           throw new DefinitionException("illegal use of resolve() in discriminator - type on "+element.getId()+" is not Reference ("+element.getType().get(0).getCode()+")");
+        if (element.getType().get(0).getTargetProfile().size() > 1)
+          throw new DefinitionException("illegal use of resolve() in discriminator - Multiple possible target type profiles on "+element.getId());
         sd = worker.fetchResource(StructureDefinition.class, element.getType().get(0).getTargetProfile().get(0).getValue());
         if (sd == null)
           throw new DefinitionException("Problem with use of resolve() - profile '"+element.getType().get(0).getTargetProfile()+"' on "+element.getId()+" could not be resolved");
