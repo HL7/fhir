@@ -384,6 +384,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     String vsn = "?ext";
     if (tx.hasValueSet()) {
       String uri = tx.getValueSet().primitiveValue();
+      String name = getSpecialValueSetName(uri);
+      if (name != null) {
+        vss = "<a href=\""+uri+"\">"+Utilities.escapeXml(name)+"</a>";
+        vsn = name;
+      } else {
       ValueSet vs = context.fetchResource(ValueSet.class, canonicalise(uri));
       if (vs == null) {
         BindingResolution br = igp.resolveActualUrl(uri);
@@ -403,6 +408,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           vss = "<a href=\""+p+"\">"+Utilities.escapeXml(gt(vs.getNameElement()))+"</a>";
         vsn = gt(vs.getNameElement());
       }
+      }
     }
     if (vsn.equals("?ext"))
       if (tx.getValueSet() != null)
@@ -412,6 +418,12 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
     append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).
     append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
+  }
+
+  private String getSpecialValueSetName(String uri) {
+    if (uri.startsWith("http://loinc.org/vs/"))
+      return "LOINC "+uri.substring(19);
+    return null;
   }
 
   public String inv() {

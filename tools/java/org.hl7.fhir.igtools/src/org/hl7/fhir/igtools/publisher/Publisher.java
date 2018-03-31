@@ -51,6 +51,7 @@ import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.SystemUtils;
 import org.hl7.fhir.convertors.R2016MayToR4Loader;
 import org.hl7.fhir.convertors.R2ToR3Loader;
@@ -118,12 +119,14 @@ import org.hl7.fhir.r4.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.r4.model.StructureMap;
 import org.hl7.fhir.r4.model.StructureMap.StructureMapModelMode;
 import org.hl7.fhir.r4.model.StructureMap.StructureMapStructureComponent;
+import org.hl7.fhir.r4.model.TypeDetails;
 import org.hl7.fhir.r4.model.UriType;
 import org.hl7.fhir.r4.model.ValueSet;
 import org.hl7.fhir.r4.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.r4.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.r4.utils.EOperationOutcome;
 import org.hl7.fhir.r4.utils.FHIRPathEngine;
+import org.hl7.fhir.r4.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.r4.utils.NarrativeGenerator;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.IReferenceResolver;
 import org.hl7.fhir.r4.utils.NarrativeGenerator.ITypeParser;
@@ -137,12 +140,14 @@ import org.hl7.fhir.r4.validation.InstanceValidator;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.igtools.openapi.OpenApiGenerator;
 import org.hl7.fhir.igtools.openapi.Writer;
 import org.hl7.fhir.igtools.publisher.FetchedFile.FetchedBundleType;
 import org.hl7.fhir.igtools.publisher.IFetchFile.FetchState;
 import org.hl7.fhir.igtools.publisher.Publisher.CacheOption;
 import org.hl7.fhir.igtools.publisher.Publisher.IGBuildMode;
+import org.hl7.fhir.igtools.publisher.Publisher.IGPublisherHostServices;
 import org.hl7.fhir.igtools.publisher.Publisher.LinkTargetType;
 import org.hl7.fhir.igtools.publisher.Publisher.TypeParserR3;
 import org.hl7.fhir.igtools.renderers.BaseRenderer;
@@ -220,7 +225,46 @@ import com.google.gson.JsonPrimitive;
 
 public class Publisher implements IWorkerContext.ILoggingService, IReferenceResolver {
 
-  public class TypeParserR3 implements ITypeParser {
+  public class IGPublisherHostServices implements IEvaluationContext {
+
+    @Override
+    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+      throw new NotImplementedException("Not done yet");
+    }
+
+    @Override
+    public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException {
+      throw new NotImplementedException("Not done yet");
+    }
+
+    @Override
+    public boolean log(String argument, List<Base> focus) {
+      throw new NotImplementedException("Not done yet");
+    }
+
+    @Override
+    public FunctionDetails resolveFunction(String functionName) {
+      throw new NotImplementedException("Not done yet");
+    }
+
+    @Override
+    public TypeDetails checkFunction(Object appContext, String functionName, List<TypeDetails> parameters) throws PathEngineException {
+      throw new NotImplementedException("Not done yet");
+    }
+
+    @Override
+    public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
+      throw new NotImplementedException("Not done yet");
+    }
+
+    @Override
+    public Base resolveReference(Object appContext, String url) {
+      throw new NotImplementedException("Not done yet");
+    }
+
+  }
+
+   public class TypeParserR3 implements ITypeParser {
 
     @Override
     public Base parseType(String xml, String type) throws IOException, FHIRException {
@@ -956,7 +1000,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       }
     }
     // ;
-    validator = new InstanceValidator(context, null); // todo: host services for reference resolution....
+    validator = new InstanceValidator(context, new IGPublisherHostServices()); // todo: host services for reference resolution....
     validator.setAllowXsiLocation(true);
     validator.setNoBindingMsgSuppressed(true);
     validator.setNoExtensibleWarnings(true);
@@ -2371,8 +2415,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       } else if (res.hasUserData("profile")) {
         validator.validate(null, errs, res, res.getUserString("profile"));
       }
-    } else
-      validator.validate(null, errs, r.getElement());
+    } else {
+      validator.validate(r.getElement(), errs, r.getElement());
+    }
     for (ValidationMessage vm : errs) {
       file.getErrors().add(vm.setLocation(r.getElement().fhirType()+"/"+r.getId()+": "+vm.getLocation()));
     }
