@@ -229,37 +229,39 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     @Override
     public Base resolveConstant(Object appContext, String name) throws PathEngineException {
-      throw new NotImplementedException("Not done yet");
+      if ("id".equals(name))
+        return null;
+      throw new NotImplementedException("Not done yet @ IGPublisherHostServices.resolveConstant("+appContext.toString()+", "+name+"))");
     }
 
     @Override
     public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException {
-      throw new NotImplementedException("Not done yet");
+      throw new NotImplementedException("Not done yet (IGPublisherHostServices.resolveConstantType)");
     }
 
     @Override
     public boolean log(String argument, List<Base> focus) {
-      throw new NotImplementedException("Not done yet");
+      throw new NotImplementedException("Not done yet (IGPublisherHostServices.log)");
     }
 
     @Override
     public FunctionDetails resolveFunction(String functionName) {
-      throw new NotImplementedException("Not done yet");
+      throw new NotImplementedException("Not done yet (IGPublisherHostServices.resolveFunction)");
     }
 
     @Override
     public TypeDetails checkFunction(Object appContext, String functionName, List<TypeDetails> parameters) throws PathEngineException {
-      throw new NotImplementedException("Not done yet");
+      throw new NotImplementedException("Not done yet (IGPublisherHostServices.checkFunction)");
     }
 
     @Override
     public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
-      throw new NotImplementedException("Not done yet");
+      throw new NotImplementedException("Not done yet (IGPublisherHostServices.executeFunction)");
     }
 
     @Override
     public Base resolveReference(Object appContext, String url) {
-      throw new NotImplementedException("Not done yet");
+      throw new NotImplementedException("Not done yet (IGPublisherHostServices.resolveReference)");
     }
 
   }

@@ -115,17 +115,17 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     @Override
     public FunctionDetails resolveFunction(String functionName) {
-      throw new Error("Not done yet");
+      throw new Error("Not done yet (ValidatorHostServices.resolveFunction)");
     }
 
     @Override
     public TypeDetails checkFunction(Object appContext, String functionName, List<TypeDetails> parameters) throws PathEngineException {
-      throw new Error("Not done yet");
+      throw new Error("Not done yet (ValidatorHostServices.checkFunction)");
     }
 
     @Override
     public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
-      throw new Error("Not done yet");
+      throw new Error("Not done yet (ValidatorHostServices.executeFunction)");
     }
 
     @Override
