@@ -3572,7 +3572,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">OperationDefinition.parameter</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">A search type can only be specified for parameters of type string</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">searchType implies type = 'string'</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">searchType.exists() implies type = 'string'</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:searchType)) or (f:type/@value = 'string')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

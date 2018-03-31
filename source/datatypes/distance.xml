@@ -3345,7 +3345,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Distance</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">(code.exists() or value.empty()) and (system.empty() or system = %ucum)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3876,42 +3876,42 @@
     <Cell><Data ss:Type="String">Duration</Data></Cell>
     <Cell><Data ss:Type="String">A length of time</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
+    <Cell><Data ss:Type="String">(code.exists() or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">Distance</Data></Cell>
     <Cell><Data ss:Type="String">A measure of distance</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
+    <Cell><Data ss:Type="String">(code.exists() or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Count</Data></Cell>
     <Cell><Data ss:Type="String">A count of a discrete element (no unit)</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code with a value of "1" if there is a value and it SHALL be an expression of length.  If system is present, it SHALL be UCUM.  If present, the value SHALL a whole number.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum) and (code.empty() or code = '1') and (value.empty() or value.toString().contains('.').not())</Data></Cell>
+    <Cell><Data ss:Type="String">(code.exists() or value.empty()) and (system.empty() or system = %ucum) and (code.empty() or code = '1') and (value.empty() or value.toString().contains('.').not())</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or (f:system/@value='http://unitsofmeasure.org' and f:code/@value='1')) and not(contains(f:value/@value, '.')) </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
     <Cell><Data ss:Type="String">Money</Data></Cell>
     <Cell><Data ss:Type="String">An amount of money. With regard to precision, see [Decimal Precision](datatypes.html#precision)</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = "urn:iso:std:iso:4217" - currency).</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')</Data></Cell>
+    <Cell><Data ss:Type="String">(code.exists() or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:iso:std:iso:4217')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">CodedQuantity</Data></Cell>
     <Cell><Data ss:Type="String">A quantity with a UCUM unit</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value.  If system is present, it SHALL be UCUM.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
+    <Cell><Data ss:Type="String">(code.exists() or value.empty()) and (system.empty() or system = %ucum)</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Age</Data></Cell>
     <Cell><Data ss:Type="String">A duration (length of time) with a UCUM code</Data></Cell>
     <Cell><Data ss:Type="String">There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.  If value is present, it SHALL be positive.</Data></Cell>
-    <Cell><Data ss:Type="String">(code or value.empty()) and (system.empty() or system = %ucum) and (value.empty() or value.toString().contains('.').not())</Data></Cell>
+    <Cell><Data ss:Type="String">(code.exists() or value.empty()) and (system.empty() or system = %ucum) and (value.empty() or value.toString().contains('.').not())</Data></Cell>
     <Cell><Data ss:Type="String">(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='http://unitsofmeasure.org') and not(contains(f:value/@value, '-'))</Data></Cell>
    </Row>
   </Table>
