@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Bryn</LastAuthor>
+  <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-07-17T21:01:31Z</LastSaved>
+  <LastSaved>2018-04-01T05:58:38Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -777,6 +777,8 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -3871,7 +3873,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5227,6 +5228,7 @@
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C9">
   </AutoFilter>
@@ -5762,6 +5764,7 @@
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C4">
   </AutoFilter>
@@ -5886,85 +5889,85 @@
     <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">OMTKLogic</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">OMTK Logic</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">omtk-logic</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">library-omtk-logic.xml</Data></Cell>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">OMTKModel</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">OMTK Model</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">omtk-modelinfo</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">library-omtk-modelinfo.xml</Data></Cell>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">OpiodCDSCommon</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Opioid CDS Common Library</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">opioidcds-common</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">library-opioidcds-common.xml</Data></Cell>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">OpiodCDSRecommendation4</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Opiod CDS Recommendation 4 Logic</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">opioidcds-recommendation-04</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">library-opioidcds-recommendation-04.xml</Data></Cell>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">OpiodCDSRecommendation5</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Opiod CDS Recommendation 5 Logic</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">opioidcds-recommendation-05</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">library-opioidcds-recommendation-05.xml</Data></Cell>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">OpiodCDSRecommendation7</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Opiod CDS Recommendation 7 Logic</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">opioidcds-recommendation-07</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">library-opioidcds-recommendation-07.xml</Data></Cell>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">OpiodCDSRecommendation8</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Opiod CDS Recommendation 8 Logic</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">opioidcds-recommendation-08</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">library-opioidcds-recommendation-08.xml</Data></Cell>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">OpiodCDSRecommendation10</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Opiod CDS Recommendation 10 Logic</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">opioidcds-recommendation-10</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">library-opioidcds-recommendation-10.xml</Data></Cell>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">OpiodCDSRecommendation11</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Opiod CDS Recommendation 11 Logic</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">opioidcds-recommendation-11</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">library-opioidcds-recommendation-11.xml</Data></Cell>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s141"/>
@@ -6148,6 +6151,7 @@
    <Print>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6158,6 +6162,7 @@
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C7">
   </AutoFilter>
@@ -7772,6 +7777,7 @@
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
   </AutoFilter>

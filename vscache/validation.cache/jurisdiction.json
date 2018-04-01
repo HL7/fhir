@@ -37,6 +37,11 @@
       "message": "Unable to provide support for code system "
     },
     {
+      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America",
+      "severity": "error",
+      "message": "Unable to find value set http://hl7.org/fhir/ValueSet/usps-state"
+    },
+    {
       "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
       "severity": "error",
       "message": "Unable to provide support for code system "

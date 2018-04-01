@@ -10987,6 +10987,10 @@
     <display value="Review of medication"/>
     <display value="Review of medication (procedure)"/>
   </concept>
+  <concept id="182888003" display="Medication requested">
+    <display value="Medication requested"/>
+    <display value="Medication requested (situation)"/>
+  </concept>
   <concept id="182922004" display="Dietary regime">
     <display value="Dietary regime"/>
     <display value="Dietary regime (regime/therapy)"/>
@@ -16055,6 +16059,10 @@
   <concept id="82249009" display="California chicken">
     <display value="California chicken"/>
     <display value="California chicken (organism)"/>
+  </concept>
+  <concept id="82423001" display="Chronic pain">
+    <display value="Chronic pain"/>
+    <display value="Chronic pain (finding)"/>
   </concept>
   <concept id="82440005" display="Hampshire Down sheep">
     <display value="Hampshire Down sheep"/>
