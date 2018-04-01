@@ -1591,8 +1591,20 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (reference.hasType()) {
       // the type has to match the specified
       String tu = isAbsolute(reference.getType()) ? reference.getType() : "http://hl7.org/fhir/StructureDefinition/"+reference.getType();
-      rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, container.getType("Reference").hasTargetProfile(tu) || container.getType("Reference").hasTargetProfile("http://hl7.org/fhir/StructureDefinition/Resource"), 
-          "The type '"+reference.getType()+"' is not a valid Target for this element (must be one of "+container.getType("Reference").getTargetProfile()+")");
+      TypeRefComponent containerType = container.getType("Reference");
+      if (!containerType.hasTargetProfile(tu) && !containerType.hasTargetProfile("http://hl7.org/fhir/StructureDefinition/Resource")) {
+        boolean matchingResource = false;
+        for (CanonicalType target: containerType.getTargetProfile()) {
+          StructureDefinition sd = (StructureDefinition)context.fetchResource(StructureDefinition.class, target.asStringValue());
+          if (("http://hl7.org/fhir/StructureDefinition/" + sd.getType()).equals(tu)) {
+            matchingResource = true;
+            break;
+          }
+        }
+        rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, matchingResource, 
+            "The type '"+reference.getType()+"' is not a valid Target for this element (must be one of "+container.getType("Reference").getTargetProfile()+")");
+        
+      }
       // the type has to match the actual
       rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, ft==null || ft.equals(reference.getType()), "The specified type '"+reference.getType()+"' does not match the found type '"+ft+"'");      
     }
