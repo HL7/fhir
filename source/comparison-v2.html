@@ -28,7 +28,7 @@ It also supports one-way communication through notifications, provides support f
 <h3>HL7 v2 Similarities and Differences</h3>
 <p>
 <b>Event-based:</b> FHIR supports an event-based messaging paradigm similar to the HL7 v2
-messaging structure (though unlike HL7 v2, FHIR supports other paradigms as well including
+messaging structure (though, unlike HL7 v2, FHIR supports other paradigms as well including
 documents, REST and other service models).  Refer to the <a href="messageheader.html">Message Header</a> resource.
 </p>
 <p>
@@ -79,7 +79,7 @@ systems won't collide. (This can be an issue with Z-segments.)
 compatibility.  Content can only be added to the end of existing fields, components, etc.  Applications are
 expected to ignore unexpected content or repetitions.  FHIR promises similar compatibility rules.  The path
 to an element within a FHIR instance will remain unchanged in future versions.  Specific rules on handling
-"new" elements (ignoring, checking for "must understand" indicators, etc. will be developed during the STU
+"new" elements (ignoring, checking for "must understand" indicators, etc.) will be developed during the STU
 period.
 </p>
 <p>
@@ -118,7 +118,7 @@ The FHIR mappings provided give a starting point for consideration, but mappings
 on an implementation by implementation basis.
 </p>
 <p>
-<b>Extensions:</b><a name="HL7 v2-extensions"></a>While some HL7 v2 elements will map to FHIR core, a large percentage
+<b>Extensions:</b><a name="HL7 v2-extensions"></a> While some HL7 v2 elements will map to FHIR core, a large percentage
 will not.  Where a HL7 v2 element is not supported by core, an extension will be needed to share the information.
 Where there is interest, HL7 may choose to publish and maintain extensions for HL7 v2 elements that are not supported
 as part of the core FHIR specification.  The FHIR extension registry <!-- Todo: Link --> should be searched prior
@@ -130,7 +130,7 @@ not based on the name of the Z-segment itself (given that Z-segments with the sa
 exist) (e.g. http://hl7.org/ZAC).
 </p>
 <p>
-<b>Resource identification:</b><a name="HL7 v2-identification"></a>HL7 v2 messages will often reference objects that
+<b>Resource identification:</b><a name="HL7 v2-identification"></a> HL7 v2 messages will often reference objects that
 have already been referred to in previous messages.  When converting the messages to FHIR, these references
 will need to point to the same resource URI.  Given that not all HL7 v2 message objects have identifiers in the
 message, this can be somewhat problematic.  An approach to handling this issue exists for FHIR <a href="http.html#transaction">transactions</a>.
@@ -154,7 +154,7 @@ information needed/available.  This creates two challenges:
   <li><i>How does the conversion software recognize when two portions of a message are referencing the same
   object?</i>  While some references may have unique identifiers or names that are sufficient to confirm "same object",
   others might not - though some other combination of attributes may be sufficient.  The specific rules will need to
-  be determined by the implementer performing the conversion</li>
+  be determined by the implementer performing the conversion.</li>
   <li><i>If multiple versions of data are present, what set of data should be used - or should multiple versions
   be sent with distinct history ids?  (And if the latter, what is the 'order' of the versions?</i>  If the order
   of the versions can be determined by data in the message (e.g. assuming older order dates have "older"
@@ -170,13 +170,13 @@ FHIR message rather than being sent by reference as would be typical in a RESTfu
 However, FHIR provides two different ways of communicating the resources as part of the message <a href="compartmentdefinition.html">bundle</a>:
 they can either be sent as "fully identified" resources (direct entries in the bundle with their
 own identity, and able to be the subject of independent transactions), or they can be sent as <a href="references.html#contained">contained</a>
-resources, meaning they are only identified relative to another resources and cannot be retrieved or
+resources, meaning they are only identified relative to another resource and cannot be retrieved or
 otherwise manipulated on their own.  A HL7 v2 to FHIR conversion process will need to make the determination
 of what data elements are or must be present, for a resource to be fully identified.  In some cases, the
 determination will be done at the time of mapping.  In other cases, it may depend on the content of a
 particular instance. As an example, an XCN containing just a name (<code>|^Smith^John|</code>) doesn't
-contain enough information to identify the physician from any other John Smith, so will need to be
-contained resource, whereas an XCN of <code>|12345^Smith^John|</code> generally does, though the conversion
+contain enough information to discern the physician from any other John Smith, so will need to be
+a contained resource, whereas an XCN of <code>|12345^Smith^John|</code> generally does, though the conversion
 process will need to be aware of the scope and management processes around the identifier.
 </p>
 <p>

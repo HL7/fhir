@@ -105,7 +105,7 @@ data needs to be analyzed by computers, whether for query, decision support or o
 HL7 v3 methodology has provided three distinct mechanisms to allow data models to define how "context" should
 propagate through models, making explicit for computers what humans would normally understand intuitively.
 FHIR has chosen a different path.  In FHIR, no context is conducted - everything is explicit.  If a report
-about a patient contains 100 observations all about that same patient, each observation will include a reference
+about a patient contains 100 observations about that same patient, each observation will include a reference
 to the patient.  However, this is relatively painless because it's only a reference - an id and possibly a short
 display value.  One of the benefits of this approach is that each resource can be safely consumed and examined
 without concern for the context in which that resource was communicated.  The meaning of each resource instance
@@ -118,7 +118,7 @@ concept of "null flavor" on almost every attribute and data type property in its
 could be sent in place of or in addition to the data that would typically be sent for the attribute, association or
 data type property.  Examples include the ideas of "Unknown", "Not asked", "Positive infinity", "Trace amount",
 "Masked", "Other", etc.  Unless an element was explicitly marked as "mandatory" - meaning no null flavors were
-permitted, these null flavors could appear anywhere.
+permitted - these null flavors could appear anywhere.
 </p>
 <p>
 FHIR approaches the problem differently.  Null flavors are only introduced in the core specification in those
@@ -134,7 +134,7 @@ mappings serve two purposes.  They help to define FHIR semantics in terms of HL7
 ensure that the Work Groups defining the data elements have a good and consistent understanding of the meaning of
 every element.  They also provide guidance for implementers of v3 specifications that may be looking to migrate
 to or map between v3 and FHIR.  However, for the latter use it's important to understand some limitations on
-the RIM mappings.  The RIM is a language which allows the same "idea" to be conveyed in a several ways
+the RIM mappings.  The RIM is a language which allows the same "idea" to be conveyed in several ways
 with varying granularity and expressiveness.  Thus, it's entirely possible for a RIM element to map to a core FHIR
 element even though its RIM representation is somewhat different than described in the mapping.  In addition, not all
 v3 models adhere to good modeling practices, so some data elements that would appear to map to a FHIR element might
@@ -150,7 +150,7 @@ will map to FHIR extensions, as the v3 design-by-constraint principle suggests t
 "core" in FHIR would already have been part of the base v3 specification.
 </p>
 <p>
-<b>Abstract models:</b><a name="v3-abstractModels"></a>As previously noted, many of the v3 models created at the
+<b>Abstract models:</b><a name="v3-abstractModels"></a> As previously noted, many of the v3 models created at the
 HL7 International level are quite abstract.  As a result, the models can be used to say a wide variety of things,
 often in a wide variety of different ways.  This makes defining a mapping between those specifications and FHIR
 (or any other specification) quite tricky.  For practical v3 &lt;-&gt; FHIR interoperability, mappings will need to be
@@ -169,7 +169,7 @@ approach - if any information changes, the entire record is sent, including the 
 the v3 methodology does support the introduction of an "updateMode" property to allow only the changes to be sent
 for all or part of an instance.  Each element repetition is flagged with an updateMode to indicate whether the
 element is to be added, removed, updated, etc.  Additional updateModes allow further control over updates.  As
-with the <a href="comparison-v2.html#V2-updateMode">V2 discussion</a> above, implementers will need to generate a full snapshot of
+with the <a href="comparison-v2.html#V2-updateMode">v2 discussion</a> above, implementers will need to generate a full snapshot of
 each resource or consider using the <a href="http.html#patch">Patch Operation</a> instead.
 </p>
 <p>

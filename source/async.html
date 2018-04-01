@@ -27,17 +27,16 @@ synchronous operations - that is, the client makes a query, and waits for the se
 respond with the outcome in the HTTP response. This pattern is not suitable once significant 
 server side processing becomes necessary, or when substantial amounts of data must be returned. 
 A good example of this is the <a href="patient-operation-everything.html">$everything operation</a>, 
-though simple searches may result in large amounts of data. In order to cater for this use case, 
-clients may use an asynchronous request pattern is defined. 
+though simple searches may result in large amounts of data. In order to cater for this use case, an asynchronous request pattern is defined. 
 </p>
 <p>
 This pattern is applicable for all the <a href="http.html">defined interactions</a>, and for 
 <a href="operations.html">Operations</a>, though for many of these interactions
 it brings no benefit. Servers may choose which interactions the pattern should be supported on (if at
-all), and servers may choose to only support some of operations using the asynchronous pattern.
+all), and servers may choose to only support some of the operations using the asynchronous pattern.
 </p>
 <p>
-The Asynchronous use pattern follows the pattern defined in <a href="https://tools.ietf.org/html/rfc7240#section-4.1">rfc 7240</a>. 
+The asynchronous use pattern follows the pattern defined in <a href="https://tools.ietf.org/html/rfc7240#section-4.1">rfc 7240</a>. 
 </p>
 
 <a name="kickoff"></a>
@@ -134,8 +133,8 @@ Accept: application/json
 </ul>
 <p>Each file item should contain the following fields:</p>
 <ul>
-<li><code>type</code> - the FHIR resource type that is contained in the file. Note: Each file may only contain resources of one type, but a server may create more than one file for each resources type returned. The number of resources contained in a file is may vary between servers. If no data is found for a resource, the server should not return an output item for it in the response.</li>
-<li><code>url</code> - the path to the file. The format of the file should reflect that requested in the <code>_outputFormat</code> parameter of the initial kick-off request.</li>
+<li><code>type</code> - the FHIR resource type that is contained in the file. Note: Each file may only contain resources of one type, but a server may create more than one file for each resource type returned. The number of resources contained in a file is may vary between servers. If no data is found for a resource, the server should not return an output item for it in the response.</li>
+<li><code>url</code> - the path to the file. The format of the file should reflect that of the <code>_outputFormat</code> parameter of the initial kick-off request.</li>
 </ul>
 <p>
 Note: no extensions in this json object.

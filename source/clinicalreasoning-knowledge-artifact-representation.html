@@ -154,7 +154,7 @@
 		<tr><td>Timing</td><td>A description of when the action definition should occur.</td></tr>
 		<tr><td>Behavior</td><td>Various behaviors that communicate the intended semantics of groups and actions (e.g. selection behavior, grouping behavior, etc.)</td></tr>
 		<tr><td>Type</td><td>The type of action to be performed (e.g. create, update, delete, etc.)</td></tr>
-		<tr><td>Activity Definition</td><td>A description of what activity is to be performed. To enable reuse and modularity, ActivityDefinition resources may be reusesd by multiple action definitions.</td></tr>
+		<tr><td>Activity Definition</td><td>A description of what activity is to be performed. To enable reuse and modularity, ActivityDefinition resources may be reused by multiple action definitions.</td></tr>
 		<tr><td>Dynamic Values</td><td>Expressions that can be used to specify dynamic values for the resulting activity.</td></tr>
 		<tr><td>Child Actions</td><td>Each action may contain any number of child actions, allowing a hierarchy of actions to be described (for example, sections in an order set).</td></tr>
 	</tbody>
@@ -281,11 +281,11 @@
 	</thead>
 	<tbody>
 		<tr><td><a href="#library">Library</a></td><td>A general purpose container for clinical knowledge, potentially defined in non-FHIR structures. For example, a sharable package of clinical logic expressed in Clinical Quality Language.</td><td>Expressions that define the criteria that must be met to determine whether or not a patient has diabetes.</td></tr>
-		<tr><td><a href="#event-condition-action-rule">Event-Condition-Action (ECA) Rule</a></td><td>A decision support rule of the form <code>[on Event] if Condition then Action</code>, defining actions that shoud be taken whenever some condition is met in response to a particular event.</td><td>On a patient checking in to a clinic appointment, if the patient has diabetes and has not had a recent foot examination, place an unsigned order for a comprehensive foot exam.</td></tr>
+		<tr><td><a href="#event-condition-action-rule">Event-Condition-Action (ECA) Rule</a></td><td>A decision support rule of the form <code>[on Event] if Condition then Action</code>, defining actions that should be taken whenever some condition is met in response to a particular event.</td><td>On a patient checking in to a clinic appointment, if the patient has diabetes and has not had a recent foot examination, place an unsigned order for a comprehensive foot exam.</td></tr>
 		<tr><td><a href="#order-set">Order Set</a></td><td>A pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). Order sets are used within electronic health record systems as a checklist for physicians when treating a patient with a specific condition or in a specific context. An order set is a structured collection of orders presented to the physician in a computerized physician order entry system (CPOE).</td><td>The specific orders to be placed when a patient presents with diabetic ketoacidosis.</td></tr>
 		<tr><td><a href="#protocol">Protocol</a></td><td>A pre-defined procedural method for standardizing a set of activities. As examples, protocols can be used within laboratory settings to standardize handling of specimens for specific tests; standardize the treatment steps for a particular condition; or standardize the steps to be taken in a particular research trial.</td><td>The specific tasks that should be performed to provide effective treatment for a new diagnosis of diabetes.</td></tr>
 		<tr><td><a href="#documentation-template">Documentation Template</a></td><td>A structured form for recording information on a patient into a set of predefined data slots.</td><td>A form describing the information that should be gathered during a comprehensive diabetic foot exam.</td></tr>
-		<tr><td><a href="#measure">Measure</a></td><td>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical quidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</td><td>Percentage of patients aged 18-75 years of age with diabetes who had a foot exam during the measurement period.</td></tr>
+		<tr><td><a href="#measure">Measure</a></td><td>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</td><td>Percentage of patients aged 18-75 years of age with diabetes who had a foot exam during the measurement period.</td></tr>
 	</tbody>
 </table>
 
@@ -301,7 +301,7 @@
   &lt;id value=&quot;example&quot;/&gt;
   &lt;identifier&gt;
     &lt;use value=&quot;official&quot;/&gt;
-    &lt;value value=&quot;ChalmydiaScreening_Common&quot;/&gt;
+    &lt;value value=&quot;ChlamydiaScreening_Common&quot;/&gt;
   &lt;/identifier&gt;
   &lt;version value=&quot;2.0.0&quot;/&gt;
   &lt;title value=&quot;Chlamydia Screening Common Library&quot;/&gt;
@@ -354,7 +354,7 @@
     &lt;value value=&quot;ChlamydiaScreening_CDS_UsingCommon&quot;/&gt;
   &lt;/identifier&gt;
   &lt;version value=&quot;2.0.0&quot;/&gt;
-  &lt;title value=&quot;Chalmydia Screening CDS Example Using Common&quot;/&gt;
+  &lt;title value=&quot;Chlamydia Screening CDS Example Using Common&quot;/&gt;
   &lt;status value=&quot;draft&quot;/&gt;
   &lt;description value=&quot;Chlamydia Screening CDS Example Using Common&quot;/&gt;
   &lt;publicationDate value=&quot;2015-07-22&quot;/&gt;
@@ -577,7 +577,7 @@ For those who have not been overweight, a 2 year interval is appropriate for the
 <a name="measure"> </a>
 <h4>Measure</h4>
 
-<p>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Note that the <a href="measure.html">Measure</a> itself does not contain any logic; rather a <a href="#library">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as poulation criteria, reference named expressions within that library (or libraries).</p>
+<p>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Note that the <a href="measure.html">Measure</a> itself does not contain any logic; rather a <a href="#library">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as population criteria, reference named expressions within that library (or libraries).</p>
 
 <p>For example, the following fragment defines how to calculate the controlling high blood pressure measure:</p>
 

@@ -27,7 +27,7 @@
 	<li>Expression - The expression itself in the identified language.</li>
 </ul>
 
-<p>This general pattern is to used to represent expression logic throughout the resources in the Clinical Reasoning module and allows expression logic to be represented at different levels:</p>
+<p>This general pattern is used to represent expression logic throughout the resources in the Clinical Reasoning module and allows expression logic to be represented at different levels:</p>
 
 <ul>
 	<li>Unstructured - The logic in this case can be communicated using natural language without the expectation that it is computable. This information is useful for communicating the intended dynamic semantics to environments that do not support computable evaluation.</li>
@@ -134,7 +134,7 @@
 
 <a name="data-requirements"> </a>
 <h5>Data Requirements</h5>
-<p>The data requirements for a given expression describe the minimum data required in order to achieve a successful evaluation of the expression. More data may in general be provided, but not less. For example, an expression may reference laboratory test results for hemoglobin A1C tests over the past two years. If a system provides data for the last three years, the expression can still be successfully evaluated, but if a system provides data for only the last year, the expression may produce incorrect results based on the absence of the expected data.</p>
+<p>The data requirements for a given expression describe the minimum data required in order to achieve a successful evaluation of the expression. More data may in general be provided, but not less. For example, an expression may reference laboratory test results for hemoglobin A1c tests over the past two years. If a system provides data for the last three years, the expression can still be successfully evaluated, but if a system provides data for only the last year, the expression may produce incorrect results based on the absence of the expected data.</p>
 
 <p>In the scenario that an evaluation service is not colocated with the clinical information, the service has no general way of knowing whether or not a request has fulfilled the stated data requirements for a expression. As such, this is a critical aspect of implementation. The service assumes the stated data requirements will be provided as part of a request, and requesters shall provide at least the data specified by the data requirements when requesting evaluation for an expression.</p>
 

@@ -22,11 +22,11 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             The Administrative module covers the base data that is then linked into
             the other modules for clinical content, finance/billing, workflow, etc.<br />
-            This of course is built on the FHIR technology platform modules.
+            It is built on the FHIR technology platform modules.
         </p>
         <p>
-            Before any clinical data can be recorded, the basic information on the patient
-            must be recorded, and then often the basis of the interaction (such as an encounter)
+            Before any clinical data can be recorded, the basic information of the patient
+            must be recorded, and then often the basis of the interaction (such as an encounter).
         </p>
 
         <a name="index"></a>
@@ -90,14 +90,14 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             <blockquote>
                 <em>Note:</em> <a href="patient.html#links">Patient linking</a> should also be considered when evaluating
-                searches with references to other resources. e.g. Searching for conditions for a patient.<br />
+                searches with references to other resources. e.g. searching for a patients' conditions for a patient.<br />
                 At present the specification does not define if the links should be also followed to include
                 conditions that reference the linked patients too. We are currently seeking feedback on this.
             </blockquote>
             <blockquote>
                 <em>Note:</em> The Person resource may be used as a centralized register of people that may
                 eventually be involved in healthcare, and could be used as the central core demographics register.<br />
-                However the fields/values in Person are duplicated in the other resources, and in many cases the
+                However, the fields/values in Person are duplicated in the other resources, and in many cases the
                 Person resource will be hosted on external systems.
             </blockquote>
         </p>
@@ -105,7 +105,7 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="clinical-reg"></a>
         <h4>Clinical Categorization Resources</h4>
         <p>
-            Most clinical activities occur grouped in some way. Long term care is typically covered by an EpisodeOfCare, where short term care by encounters. Account associates the tracking of transactions back to a Patient (or other resource). Flag is just used to highlight a warning or other notification about a patient (or other resource)
+            Most clinical activities occur grouped in some way. Long term care is typically covered by an EpisodeOfCare, whereas short term care is covered by encounters. Account associates the tracking of transactions back to a Patient (or other resource). Flag is just used to highlight a warning or other notification about a patient (or other resource)
         </p>
         <table class="bare">
             <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
@@ -127,7 +127,7 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="dir-reg"></a>
         <h4>Service Provider Directory Resources</h4>
         <p>
-            Service Directory resources are usually stored in the administration section of applications, and may even be synchronized from external systems.
+            Service Provider Directory resources are usually stored in the administration section of applications, and may even be synchronized from external systems.
         </p>
         <table class="bare">
             <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
@@ -146,7 +146,7 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="sched"></a>
         <h4>Scheduling and Appointments</h4>
         <p>
-            The Scheduling/Appointments resources permit the planning of encounters to occur and follow on with other clinical activities.
+            The Scheduling/Appointment resources permit the planning of encounters to occur and follow on with other clinical activities.
         </p>
         <table class="bare">
             <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
@@ -178,7 +178,7 @@ in order to support consistent definitions for schema and UML derived code.
         <h3>Security and Privacy</h3>
         <p>
             Patient privacy is handled with security labels and tags in the Resource <a href="resource.html#Meta">Meta</a> property.
-            This is the standard way that the FHIR specification provides this supporting information
+            This is the standard way in which that the FHIR specification provides this supporting information
             to a sub-system that implements it (which is not defined by FHIR).
         </p>
         <p>
@@ -218,7 +218,7 @@ in order to support consistent definitions for schema and UML derived code.
                 <b>Managing a Master Record of a Provider and Service Catalogue</b> (e.g. Provider Registry, Service Directory)<br />
                 A <a href="practitioner.html">Practitioner</a> resource is a base resource for enabling the registry of individuals, related to providing health care services.
                 Other resources, such as <a href="organization.html">Organization</a>, <a href="location.html">Location</a>, <a href="healthcareservice.html">HealthcareService</a>, are creating a complete picture of where, how and by whom
-                the care services are enabled to a patient. The resources can be used for managing the master record or as a reference in
+                the care services are offered to a patient. The resources can be used for managing the master record or as a reference in
                 clinical resources to inform about participants and places for various clinical resources.
             </li>
             <li>
@@ -228,7 +228,7 @@ in order to support consistent definitions for schema and UML derived code.
             </li>
             <li>
                 <b>Enabling Patient Profiles, Clinical Reporting and Connecting Clinical Records</b><br />
-                Administration Resources are referred by almost all clinical resources.
+                Administration Resources are referred to by almost all clinical resources.
                 Querying systems, using the references to Administration Resources enables the creation of profiles and reports of various complexities.
             </li>
             <li>
