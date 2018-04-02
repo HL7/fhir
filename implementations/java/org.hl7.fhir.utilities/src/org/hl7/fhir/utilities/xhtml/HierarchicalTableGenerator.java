@@ -120,8 +120,9 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
       this.tag = tag;
     }
 
-    public void setText(String text) {
+    public Piece setText(String text) {
       this.text = text;
+      return this;
     }
 
     public void setHint(String hint) {
@@ -179,7 +180,7 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
       }
       return this;
     }
-    private List<Piece> htmlToParagraphPieces(String html) {
+    private List<Piece> htmlToParagraphPieces(String html) throws IOException, FHIRException {
       List<Piece> myPieces = new ArrayList<Piece>();
       String[] paragraphs = html.replace("<p>", "").split("<\\/p>|<br  \\/>");
       for (int i=0;i<paragraphs.length;i++) {
@@ -194,12 +195,35 @@ public class HierarchicalTableGenerator extends TranslatingUtilities {
       
       return myPieces;
     }
-    private List<Piece> htmlFormattingToPieces(String html) {
+    private List<Piece> htmlFormattingToPieces(String html) throws IOException, FHIRException {
       List<Piece> myPieces = new ArrayList<Piece>();
-      //Todo: At least handle bold and italics and turn them into formatted spans.  (Will need to handle nesting though)
-      myPieces.add(new Piece(null, html, null));
-      
+      if (html.contains(("<"))) {
+        XhtmlNode node = new XhtmlParser().parseFragment("<p>"+html+"</p>");
+        for (XhtmlNode c : node.getChildNodes()) {
+          addNode(myPieces, c);
+        }
+      } else
+        myPieces.add(new Piece(null, html, null));        
       return myPieces;
+    }
+    private void addNode(List<Piece> list, XhtmlNode c) {
+      if (c.getNodeType() == NodeType.Text)
+        list.add(new Piece(null, c.getContent(), null));
+      else if (c.getNodeType() == NodeType.Element) {
+        if (c.getName().equals("a")) {
+          list.add(new Piece(c.getAttribute("href"), c.allText(), c.getAttribute("title")));                    
+        } else if (c.getName().equals("b") || c.getName().equals("em")) {
+          list.add(new Piece(null, c.allText(), null).setStyle("font-face: bold"));                    
+        } else if (c.getName().equals("code")) {
+          list.add(new Piece(null, c.allText(), null).setStyle("padding: 2px 4px; color: #005c00; background-color: #f9f2f4; white-space: nowrap; border-radius: 4px"));                    
+        } else if (c.getName().equals("i")) {
+          list.add(new Piece(null, c.allText(), null).setStyle("font-style: italic"));                    
+        } else 
+          throw new Error("Not handled yet: "+c.getName());
+
+      } else
+        throw new Error("Unhandled type "+c.getNodeType().toString());
+
     }
     public void addStyle(String style) {
       for (Piece p : pieces)

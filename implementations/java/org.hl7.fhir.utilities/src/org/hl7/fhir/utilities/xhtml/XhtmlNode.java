@@ -232,6 +232,9 @@ public class XhtmlNode implements IBaseXhtml {
   }
 
   public String allText() {
+    if (childNodes == null || childNodes.isEmpty())
+      return getContent();
+    
     StringBuilder b = new StringBuilder();
     for (XhtmlNode n : childNodes)
       if (n.getNodeType() == NodeType.Text)

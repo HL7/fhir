@@ -54,6 +54,7 @@ public class TocEntry {
   public boolean isIg() {
     return isIg;
   }
-  
-  
+  public void setText(String string) {
+   text = string;    
+  }
 }

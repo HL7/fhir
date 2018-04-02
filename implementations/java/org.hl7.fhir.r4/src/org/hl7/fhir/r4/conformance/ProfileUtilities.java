@@ -1757,7 +1757,9 @@ public class ProfileUtilities extends TranslatingUtilities {
           r1.getCells().add(gen.new Cell());
           r1.getCells().add(gen.new Cell(null, null, describeCardinality(c, null, new UnusedTracker()), null, null));
           genTypes(gen, r1, ved, defFile, ed, corePath, imagePath);
-          r1.getCells().add(gen.new Cell(null, null, c.getDefinition(), null, null));
+          Cell cell = gen.new Cell();
+          cell.addMarkdown(c.getDefinition());
+          r1.getCells().add(cell);
           r1.setIcon("icon_"+m+"extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
         }
       }
@@ -1772,7 +1774,10 @@ public class ProfileUtilities extends TranslatingUtilities {
       r.setIcon("icon_"+m+"extension_simple.png", HierarchicalTableGenerator.TEXT_ICON_EXTENSION_SIMPLE);      
     }
     Cell c = gen.new Cell("", "", "URL = "+ed.getUrl(), null, null);
-    c.addPiece(gen.new Piece("br")).addPiece(gen.new Piece(null, ed.getName()+": "+ed.getDescription(), null));
+    Piece cc = gen.new Piece(null, ed.getName()+": ", null);
+    c.addPiece(gen.new Piece("br")).addPiece(cc);
+    c.addMarkdown(ed.getDescription());
+    
     if (!full && !(deep || vdeep) && ved != null && ved.hasBinding()) {  
         c.addPiece(gen.new Piece("br"));
       BindingResolution br = pkp.resolveBinding(ed, ved.getBinding(), ved.getPath());
