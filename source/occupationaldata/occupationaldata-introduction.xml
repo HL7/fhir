@@ -6,7 +6,7 @@
         <strong>Note that this content is preliminary and has not yet undergone proper review by the
             appropriate Workgroups. </strong>
         <p> The OccupationalData (i.e. Occupational Data for Health, ODH) FHIR resource covers information about a
-            patient’s work or a patient's family member's work. ODH is designed for the social
+            patient's work or a patient's family member's work. ODH is designed for the social
             history section of a medical record, to facilitate clinical care in most, if not all disciplines
             and delivery environments. ODH also can be used to support public health reporting,
             population health activities, clinical decision support, and similar value-based care.
@@ -58,7 +58,7 @@
     <!-- (recommended): -->
     <div>
         <h2>Boundaries and Relationships</h2>
-        <p> This resource is expected to be referenced within FHIR profiles to incorporate patient’s
+        <p> This resource is expected to be referenced within FHIR profiles to incorporate patient's
             work information. Such profiles may include those related to: </p>
         <ul>
             <li>Quality measures</li>
@@ -68,10 +68,10 @@
         <p> This resource refers to the following other resources: </p>
         <ul>
             <li>The Observation Resource for the actual observations</li>
-            <li>The RelatedPerson Resource for work or occupations related to the patient’s
+            <li>The RelatedPerson Resource for work or occupations related to the patient's
                 family</li>
             <li>The Organization Resource for Employer name and address information</li>
-            <li>The Author extension for documentation of the person that recorded the patient’s
+            <li>The Author extension for documentation of the person that recorded the patient's
                 work information </li>
         </ul>
     </div>
@@ -82,7 +82,7 @@
         <h2>Background and Context</h2>
         <p> The majority of adults in the U.S. spend more than half their waking hours at work.
             Therefore health and work are inextricably inter-related. For example, the management of
-            chronic conditions requires taking the patient’s work environment into consideration.
+            chronic conditions requires taking the patient's work environment into consideration.
             Furthermore, the recognition of new conditions related to previously unknown workplace
             hazards has often come from astute clinicians, which requires knowledge of the patient's
             work setting. ONC has indicated recognition of the value of work information for health
