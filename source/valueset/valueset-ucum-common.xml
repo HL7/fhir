@@ -1167,8 +1167,8 @@
         <display value="MultOfMean"/>
       </concept>
       <concept>
-        <code value="{NonspecifcOunce}"/>
-        <display value="NonspecifcOunce"/>
+        <code value="{NonspecificOunce}"/>
+        <display value="NonspecificOunce"/>
       </concept>
       <concept>
         <code value="{Number}"/>

@@ -18,7 +18,7 @@
 			<value value="http://hl7.org"/>
 		</telecom>
 	</contact>
-	<purpose value="Defines a base example for other MessageDefintion instances."/>
+	<purpose value="Defines a base example for other MessageDefinition instances."/>
   <eventCoding>
     <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>

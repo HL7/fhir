@@ -840,7 +840,7 @@
       <target>
         <code value="119295008"/>
         <equivalence value="equivalent"/>
-        <comment value="Further describe the sample as tissue or pus. or by the collection method. The term boil is not specifc to a body site - need to indicate source site (spm.8). preferred term is Aspirate_Boil"/>
+        <comment value="Further describe the sample as tissue or pus. or by the collection method. The term boil is not specific to a body site - need to indicate source site (spm.8). preferred term is Aspirate_Boil"/>
         <product>
           <property value="TypeModifier"/>
           <system value="http://snomed.info/sct"/>
