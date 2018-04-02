@@ -136,30 +136,54 @@ or, with the + and * characters included:
 </pre>
 </p>
 
-<h4>Three or More Codes</h4>
-<p>Some jurisdictions (e.g. Germany) have additional coding requirements that go beyond the dual coding “dagger and asterisk” coding approach (syntax).  The coding may require three or sometimes more codes for a complete respresentation of the intended meaning.  An example from the German <i>Deutsche Kodierrichtlinien</i> manual uses 4 codes, described as:
+<h4>Additional Characters</h4>
+<p>
+Some jurisdictions (e.g. Germany) have additional coding requirements that go beyond the dual coding “dagger and asterisk” coding approach (syntax).  In ICD-10-GM used in Germany the ! character is used to indicate a secondary diagnosis.
 </p>
 <p>
-Primary diagnosis
+    Primary diagnosis
+    <ul>
+    <li>S62.32 - Fracture of shaft of metacarpal bone</li>
+    </ul>
+</p>
+<p>
+    Secondary diagnosis
+    <ul>
+    <li>Z33! - Pregnancy as a secondary diagnosis</li>
+    </ul>
+</p>
+<p>
+The recommended syntax for representing these combinations of codes in FHIR (in Coding.code) is to include the additional (+*!) characters when they are present and to separate the code groups with a space, as:
+<pre>
+  &lt;coding&gt;
+    &lt;system value=&quot;http://fhir.de/CodeSystem/dimdi/icd-10-gm&quot;/&gt;
+    &lt;version value=&quot;2017&quot;/&gt;
+    &lt;code value=&quot;S62.32 Z33!&quot;/&gt;
+  &lt;/coding&gt;
+</pre>
+</p>
+
+<h4>Three or More Codes</h4>
+<p>The coding also may require three or sometimes more codes for a complete representation of the intended meaning.  A further German coding example (from the <i>Deutsche Kodierrichtlinien</i> manual) includes an additional secondary diagnosis and a monitoring code.
+</p>
+<p>
+Additional secondary diagnosis and monitoring codes
 <ul>
-<li>S62.32 - Fracture of shaft of metacarpal bone</li>
-</ul>
-Secondary diagnoses
-<ul>
-<li>Z33! - Pregnancy as a secondary diagnosis</li>
 <li>O09.1! - Duration of pregnancy between 5 and 13 weeks</li>
 <li>Z34 - Monitoring of a regular pregnancy</li>
 </ul>
 </p>
 <p>
-The ! character is used to indicate a secondary diagnosis.  A proper interpretation of this example is: "A patient is admitted to hospital due to a fracture of the metacarpal shaft. Since she is six weeks pregnant, the pregnancy and the monitoring of the pregnancy are coded as secondary diagnoses."  The recommended syntax for representing this combination of codes in FHIR (in Coding.code) is to include the additional (+*!) characters when present and to separate each code group with a space, for the example above as:
+A proper interpretation of this extended example is: "A patient is admitted to hospital due to a fracture of the metacarpal shaft. Since she is six weeks pregnant, the pregnancy and the monitoring of the pregnancy are coded as secondary diagnoses."  The recommended FHIR representation is:
 <pre>
   &lt;coding&gt;
-    &lt;system value=&quot;http://hl7.org/fhir/sid/icd-10-gm&quot;/&gt;
+    &lt;system value=&quot;http://fhir.de/CodeSystem/dimdi/icd-10-gm&quot;/&gt;
+    &lt;version value=&quot;2017&quot;/&gt;
     &lt;code value=&quot;S62.32 Z33! O09.1! Z34&quot;/&gt;
   &lt;/coding&gt;
 </pre>
-
+</p>
+<p>
 Other jurisdictions may have similar needs for multiple coding but with different specific coding requirements.  In those cases local coding manuals and authorities should be consulted to determine the recommended or expected syntax to use in a FHIR Coding instance. 
 </p>
 
