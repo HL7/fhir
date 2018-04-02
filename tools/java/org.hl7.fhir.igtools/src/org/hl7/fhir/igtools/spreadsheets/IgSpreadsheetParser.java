@@ -342,10 +342,13 @@ public class IgSpreadsheetParser {
       }
     }
 
-    if (hasMetadata("name"))
+    // Changed the default from metadata to Short because the former caused problems when there are multiple sheets in a workbook
+    if (sd.getDifferential().getElementFirstRep().hasShort())
+      sd.setName(sd.getDifferential().getElementFirstRep().getShort());
+    else if (hasMetadata("name"))
       sd.setName(metadata("name"));
     else
-      sd.setName(sd.getDifferential().getElementFirstRep().getShort());
+      sd.setName("UNKNOWN");
     if (!sd.hasName())
       sd.setName("Profile "+sd.getId());
     sd.setPublisher(metadata("author.name"));
