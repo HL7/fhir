@@ -29,7 +29,7 @@ distill separate resources from it and capturing the data in a <b>Questionnaire<
 </p>
 
 <p>
-However, data captured only in <b>Questionnaires</b> can be difficult to query after-the-fact. Queries against other Resources will not return data captured only in <b>Questionnaires</b>,
+However, data captured only in <b>Questionnaires</b> can be difficult to query after-the-fact. Queries against other Resources will not return data captured only in <b>Questionnaires</b>
 and querying against <b>Questionnaires</b> directly might not find all desired data, depending on how the questions may have been phrased or encoded over time or by different clinicians.
 Moreover, interoperability of such <b>Questionnaires</b> is limited, as interpretation of its contents is only known to the circle of parties that were involved in its definition: encoding data from
 such <b>Questionnaires</b> using more specific resources increases the availability of the information they contain.
@@ -213,6 +213,6 @@ To help with associating numeric values to coded answers, there are two extensio
 <a href="extension-iso21090-co-value.html">iso21090-CO-value</a>.
 </p>
 
-<p>In addition, there are extensions for defining the dynamic value of an element usings expressions. For more information, see the <a href="clinicalreasoning-topics-using-expressions.html">Using Expressions</a> and <a href="clinicalreasoning-knowledge-artifact-representation.html#documentation-template">Documentation Template</a> topics in the Clinical Reasoning module.</p>
+<p>In addition, there are extensions for defining the dynamic value of an element using expressions. For more information, see the <a href="clinicalreasoning-topics-using-expressions.html">Using Expressions</a> and <a href="clinicalreasoning-knowledge-artifact-representation.html#documentation-template">Documentation Template</a> topics in the Clinical Reasoning module.</p>
 
 </div>
